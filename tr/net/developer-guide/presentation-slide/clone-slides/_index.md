@@ -1,45 +1,48 @@
 ---
-title: .NET'te Sunum Slaytlarını Klonla
-linktitle: Slaytları Klonla
+title: ".NET'te Sunum Slaytlarını Kopyala"
+linktitle: "Slaytları Kopyala"
 type: docs
 weight: 40
 url: /tr/net/clone-slides/
 keywords:
-- slayt klonlama
-- slayt kopyalama
-- slayt kaydetme
-- PowerPoint
-- OpenDocument
-- sunum
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET ile PowerPoint slaytlarını hızlı bir şekilde çoğaltın. Saniyeler içinde PPT oluşturmayı otomatikleştirmek ve manuel çalışmayı ortadan kaldırmak için açık ve anlaşılır kod örneklerimizi izleyin."
+- "slaytı klonla"
+- "slaytı kopyala"
+- "slaytı kaydet"
+- "PowerPoint"
+- "OpenDocument"
+- "sunum"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET ile PowerPoint slaytlarını hızlı bir şekilde çoğaltın. Açık kod örneklerimizi izleyerek saniyeler içinde PPT oluşturmayı otomatikleştirin ve manuel işleri ortadan kaldırın."
 ---
 ## **Giriş**
 
-Klonlama, bir şeyin tam bir kopyasını veya replikasını oluşturma işlemidir. Aspose.Slides, herhangi bir slaytı kopyalamanıza (klonlamanıza) ve ardından klonlanan slaytı mevcut sunuma veya başka bir açık sunuma eklemenize de izin verir. Slayt klonlama, geliştiricilerin orijinal slaytı etkilemeden değiştirebilecekleri yeni bir slayt oluşturur. Bir slaytı klonlamanın birkaç yolu vardır:
+Klonlama, bir şeyin tam bir kopyasını veya replikasını oluşturma sürecidir. Aspose.Slides ayrıca herhangi bir slaytı kopyalamanıza (klonlamanıza) ve ardından klonlanan slaytı mevcut sunuma veya başka bir açık sunuma eklemenize olanak tanır. Slayt klonlama, geliştiricilerin orijinal slaytı etkilemeden değiştirebileceği yeni bir slayt oluşturur. Bir slaytı klonlamanın birkaç yolu vardır:
 
-- Sunumun sonuna klonla.
-- Sunum içinde başka bir konuma klonla.
-- Başka bir sunumun sonuna klonla.
-- Başka bir sunumda başka bir konuma klonla.
-- Başka bir sunumda belirli bir konuma klonla.
+- Sunumun sonunda klonla.
+- Sunum içinde başka bir konumda klonla.
+- Başka bir sunumun sonunda klonla.
+- Başka bir sunumda başka bir konumda klonla.
+- Ana slaytıyla birlikte başka bir sunuma klonla.
 
-Aspose.Slides for .NET'te, [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation/) nesnesi tarafından sunulan slayt koleksiyonu (bir [ISlide](https://reference.aspose.com/slides/tr/net/aspose.slides/islide/) nesnesi koleksiyonu) yukarıda açıklanan slayt klonlama işlemlerini gerçekleştirmek için [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/addclone/) ve [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides/ishapecollection/insertclone/) yöntemlerini sağlar.
+Aspose.Slides for .NET'te, [Presentation] nesnesi tarafından sunulan slayt koleksiyonu (bir [ISlide] nesnesi koleksiyonu), yukarıda açıklanan slayt klonlama işlemlerini gerçekleştirmek için [AddClone] ve [InsertClone] metodlarını sağlar.
 
 ## **Bir Sunumun Sonunda Slaytı Klonla**
 
-Bir slaytı klonlamak ve ardından aynı sunum dosyasında mevcut slaytların sonuna eklemek istiyorsanız, aşağıda listelenen adımlara göre [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) yöntemini kullanın:
+Aynı sunum dosyasında mevcut slaytların sonunda bir slaytı klonlamak ve ardından kullanmak istiyorsanız, aşağıdaki adımlara göre [AddClone] metodunu kullanın:
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) nesnesi tarafından sağlanan Slides koleksiyonuna referans vererek [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) sınıfını başlatın.
-1. [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) nesnesinin sunduğu [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) yöntemini çağırın ve klonlanacak slaytı [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) metoduna parametre olarak geçin.
-1. Değiştirilmiş sunum dosyasını yazın.
+1. Bir [Presentation] sınıfının örneğini oluşturun.  
+1. **Slides** koleksiyonuna başvurarak [ISlideCollection] sınıfını örnekleyin.  
+1. [ISlideCollection] nesnesi tarafından sunulan [AddClone] metodunu çağırın ve klonlanacak slaytı [AddClone] metoduna parametre olarak geçin.  
+1. Değiştirilmiş sunum dosyasını kaydedin.
 
-Aşağıdaki örnekte, sunumun birinci konumunda (sıfır indeksi) bulunan bir slaytı sunumun sonuna klonladık.
+Aşağıdaki örnekte, sunumun ilk konumundaki (sıfır indeksi) bir slaytı sunumun sonuna klonladık.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekle
 using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pptx"))
 {
@@ -49,23 +52,27 @@ using (Presentation pres = new Presentation("CloneWithinSamePresentationToEnd.pp
 
     slds.AddClone(pres.Slides[0]);
 
-    // Değiştirilmiş sunumu diske yaz
+    // Değiştirilmiş sunumu diske kaydet
     pres.Save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", SaveFormat.Pptx);
 
 }
 ```
 
-## **Sunum İçinde Başka Bir Konuma Slaytı Klonla**
-Bir slaytı klonlamak ve aynı sunum dosyasında farklı bir konuma eklemek istiyorsanız, [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides.ishapecollection/insertclone/methods/1) yöntemini kullanın:
+## **Bir Sunum İçinde Başka Bir Konuma Slaytı Klonla**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
-1. **Slides** koleksiyonuna referans vererek [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) nesnesi üzerinden sınıfı başlatın.
-1. [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) nesnesinin sunduğu [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides.ishapecollection/insertclone/methods/1) yöntemini çağırın ve klonlanacak slaytı, yeni konumun indeksiyle birlikte [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides.ishapecollection/insertclone/methods/1) metoduna parametre olarak geçin.
-1. Değiştirilmiş sunumu PPTX dosyası olarak yazın.
+Aynı sunum dosyasında farklı bir konuma bir slaytı klonlamak ve ardından kullanmak istiyorsanız, [InsertClone] metodunu kullanın:
 
-Aşağıdaki örnekte, sunumun sıfır indeksi (konum 1) konumunda bulunan bir slaytı indeks 1 – konum 2 –'ye klonladık.
+1. Bir [Presentation] sınıfının örneğini oluşturun.  
+1. **Slides** koleksiyonuna başvurarak sınıfı örnekleyin.  
+1. [ISlideCollection] nesnesi tarafından sunulan [InsertClone] metodunu çağırın ve klonlanacak slaytı yeni konum indeksini de parametre olarak geçin.  
+1. Değiştirilmiş sunumu PPTX dosyası olarak kaydedin.
+
+Aşağıdaki örnekte, sunumun 1. indeksindeki (2. konum) bir slaytı 2. indeks (3. konum) konumuna klonladık.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Sunum dosyasını temsil eden Presentation sınıfını örnekle
 using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 {
@@ -73,7 +80,7 @@ using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
     // İstenen slaytı aynı sunumdaki slayt koleksiyonunun sonuna klonla
     ISlideCollection slds = pres.Slides;
 
-    // İstenen slaytı aynı sunumda belirtilen indekse klonla
+    // İstenen slaytı aynı sunumdaki belirtilen indeks konumuna klonla
     slds.InsertClone(2, pres.Slides[1]);
 
     // Değiştirilmiş sunumu diske kaydet
@@ -83,24 +90,28 @@ using (Presentation pres = new Presentation("CloneWithInSamePresentation.pptx"))
 ```
 
 ## **Başka Bir Sunumun Sonunda Slaytı Klonla**
-Bir sunumdan bir slaytı klonlayıp, başka bir sunum dosyasında mevcut slaytların sonuna eklemeniz gerektiğinde:
 
-1. Slaytın klonlanacağı kaynak sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun.
-1. Slaytın ekleneceği hedef sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun.
-1. Hedef sunumun Presentation nesnesi tarafından sağlanan **Slides** koleksiyonuna referans vererek [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) sınıfını başlatın.
-1. [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) nesnesinin sunduğu [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) yöntemini çağırın ve kaynak sunumdan alınan slaytı [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) metoduna parametre olarak geçin.
-1. Değiştirilmiş hedef sunum dosyasını yazın.
+Bir slaytı bir sunumdan alıp başka bir sunumda mevcut slaytların sonunda kullanmanız gerektiğinde:
 
-Aşağıdaki örnekte, kaynak sunumun birinci indeksindeki bir slaytı hedef sunumun sonuna klonladık.
+1. Kaynak slaytın bulunduğu [Presentation] sınıfının örneğini oluşturun.  
+1. Hedef sunumun bulunduğu [Presentation] sınıfının örneğini oluşturun.  
+1. Hedef sunumun [Presentation] nesnesi tarafından sunulan **Slides** koleksiyonuna başvurarak [ISlideCollection] sınıfını örnekleyin.  
+1. [ISlideCollection] nesnesi tarafından sunulan [AddClone] metodunu çağırın ve kaynak sunumdan alınan slaytı parametre olarak geçin.  
+1. Değiştirilmiş hedef sunum dosyasını kaydedin.
+
+Aşağıdaki örnekte, kaynak sunumun ilk indeksindeki bir slaytı hedef sunumun sonuna klonladık.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekle
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
     // Hedef PPTX (slaytın klonlanacağı yer) için Presentation sınıfını örnekle
     using (Presentation destPres = new Presentation())
     {
-        // İstenen slaytı kaynak sunumdan hedef sunumdaki slayt koleksiyonunun sonuna klonla
+        // İstenen slaytı kaynak sunumdan alıp hedef sunumdaki slayt koleksiyonunun sonuna klonla
         ISlideCollection slds = destPres.Slides;
 
         slds.AddClone(srcPres.Slides[0]);
@@ -112,17 +123,21 @@ using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 ```
 
 ## **Başka Bir Sunumda Başka Bir Konuma Slaytı Klonla**
-Bir sunumdan bir slaytı klonlayıp başka bir sunum dosyasında belirli bir konuma eklemeniz gerektiğinde:
 
-1. Slaytın klonlanacağı kaynak sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun.
-1. Slaytın ekleneceği hedef sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun.
-1. Hedef sunumun Presentation nesnesi tarafından sağlanan Slides koleksiyonuna referans vererek [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) sınıfını başlatın.
-1. [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) nesnesinin sunduğu [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides.ishapecollection/insertclone/methods/1) yöntemini çağırın ve kaynak sunumdan alınan slaytı, istenen konumla birlikte [InsertClone](https://reference.aspose.com/slides/tr/net/aspose.slides.ishapecollection/insertclone/methods/1) metoduna parametre olarak geçin.
-1. Değiştirilmiş hedef sunum dosyasını yazın.
+Bir slaytı bir sunumdan alıp başka bir sunumda belirli bir konuma kullanmanız gerektiğinde:
 
-Aşağıdaki örnekte, kaynak sunumun sıfır indeksindeki bir slaytı hedef sunumun indeks 1 (konum 2) konumuna klonladık.
+1. Kaynak sunumu içeren [Presentation] sınıfının örneğini oluşturun.  
+1. Hedef sunumu içeren [Presentation] sınıfının örneğini oluşturun.  
+1. Hedef sunumun [Presentation] nesnesi tarafından sunulan **Slides** koleksiyonuna başvurarak [ISlideCollection] sınıfını örnekleyin.  
+1. [ISlideCollection] nesnesi tarafından sunulan [InsertClone] metodunu çağırın ve kaynak sunumdan alınan slaytı istenen konumla birlikte parametre olarak geçin.  
+1. Değiştirilmiş hedef sunum dosyasını kaydedin.
+
+Aşağıdaki örnekte, kaynak sunumun sıfır indeksindeki bir slaytı hedef sunumun 1. indeksi (2. konum) konumuna klonladık.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekle
 using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 {
@@ -139,21 +154,25 @@ using (Presentation srcPres = new Presentation("CloneAtEndOfAnother.pptx"))
 }
 ```
 
-## **Başka Bir Sunumda Belirli Bir Konuma Slaytı Klonla**
-Bir master slaytı olan bir slaytı bir sunumdan alıp başka bir sunuma eklemeniz gerektiğinde, önce kaynak sunumdan hedef sunuma istenen master slaytı klonlamanız gerekir. Ardından bu master slaytı, master slaytıyla birlikte slaytı klonlamak için kullanmalısınız. **AddClone(ISlide, IMasterSlide)**, kaynak sunumdan değil, hedef sunumdan bir master slayt bekler. Master slaytıyla birlikte slaytı klonlamak için aşağıdaki adımları izleyin:
+## **Bir Slaytı Ana Slaytıyla Birlikte Başka Bir Sunuma Klonla**
 
-1. Slaytı klonlayacağınız kaynak sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun.
-1. Slaytı klonlayacağınız hedef sunumu içeren bir [Presentation](https://reference.aspose.com/slides/tr/net/aspose.slides/presentation) örneği oluşturun.
-1. Klonlanacak slaytı ve master slaytı erişin.
-1. Hedef sunumun Presentation nesnesi tarafından sağlanan Masters koleksiyonuna referans vererek [IMasterSlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslidecollection) sınıfını başlatın.
-1. [IMasterSlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/imasterslidecollection) nesnesinin sunduğu [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) yöntemini çağırın ve kaynak PPTX'ten klonlanacak master slaytı parametre olarak geçin.
-1. Hedef sunumun Presentation nesnesi tarafından sağlanan Slides koleksiyonuna referans vererek [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) sınıfını başlatın.
-1. [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) nesnesinin sunduğu [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) yöntemini çağırın ve kaynak sunumdan klonlanacak slaytı ve master slaytı parametre olarak geçin.
-1. Değiştirilmiş hedef sunum dosyasını yazın.
+Bir slaytı ve onun ana slaytını bir sunumdan alıp başka bir sunuma kullanmanız gerektiğinde, önce istenen ana slaytı kaynak sunumdan hedef sunuma klonlamanız gerekir. Ardından o ana slaytı kullanarak slaytı klonlamalısınız. **AddClone(ISlide, IMasterSlide)** hedef sunumdan bir ana slayt bekler, kaynak sunumdan değil. Slaytı ana slaytıyla birlikte klonlamak için aşağıdaki adımları izleyin:
 
-Aşağıdaki örnekte, kaynak sunumun sıfır indeksindeki bir master slaytı içeren bir slaytı, kaynak slayttan alınan master kullanılarak hedef sunumun sonuna klonladık.
+1. Kaynak sunumu içeren [Presentation] sınıfının örneğini oluşturun.  
+1. Hedef sunumu içeren [Presentation] sınıfının örneğini oluşturun.  
+1. Klonlanacak slayta ve onun ana slaytına erişin.  
+1. Hedef sunumun [Presentation] nesnesi tarafından sunulan **Masters** koleksiyonuna başvurarak [IMasterSlideCollection] sınıfını örnekleyin.  
+1. [IMasterSlideCollection] nesnesi tarafından sunulan [AddClone] metodunu çağırın ve kaynak PPTX'ten klonlanacak ana slaytı parametre olarak geçin.  
+1. Hedef sunumun [Presentation] nesnesi tarafından sunulan **Slides** koleksiyonuna başvurarak [ISlideCollection] sınıfını örnekleyin.  
+1. [ISlideCollection] nesnesi tarafından sunulan [AddClone] metodunu çağırın ve kaynak sunumdan klonlanacak slaytı ve ana slaytı parametre olarak geçin.  
+1. Değiştirilmiş hedef sunum dosyasını kaydedin.
+
+Aşağıdaki örnekte, kaynak sunumun sıfır indeksindeki bir slaytı ve onun ana slaytını kullanarak hedef sunumun sonuna klonladık.
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Kaynak sunum dosyasını yüklemek için Presentation sınıfını örnekle
 
 using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMaster.pptx"))
@@ -162,26 +181,26 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
     using (Presentation destPres = new Presentation())
     {
 
-        // Kaynak sunumdaki slayt koleksiyonundan ISlide'ı ve
-        // Master slaytı
+        // Kaynak sunumdaki slayt koleksiyonundan ISlide oluştur
+        // Ana slayt
         ISlide SourceSlide = srcPres.Slides[0];
         IMasterSlide SourceMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // İstenen master slaytı kaynak sunumdan master koleksiyonuna klonla
-        // Hedef sunum
+        // İstenen ana slaytı kaynak sunumdan
+        // hedef sunumdaki ana slayt koleksiyonuna klonla
         IMasterSlideCollection masters = destPres.Masters;
         IMasterSlide DestMaster = SourceSlide.LayoutSlide.MasterSlide;
 
-        // İstenen master slaytı kaynak sunumdan master koleksiyonuna klonla
-        // Hedef sunum
+        // İstenen ana slaytı kaynak sunumdan
+        // hedef sunumdaki ana slayt koleksiyonuna klonla
         IMasterSlide iSlide = masters.AddClone(SourceMaster);
 
-        // İstenen master ile kaynak sunumdan istenen slaytı hedef sunumdaki slayt koleksiyonunun sonuna klonla
-        // Hedef sunumdaki slayt koleksiyonu
+        // İstenen slaytı, istenen ana slaytıyla birlikte kaynak sunumdan
+        // hedef sunumdaki slayt koleksiyonunun sonuna klonla
         ISlideCollection slds = destPres.Slides;
         slds.AddClone(SourceSlide, iSlide, true);
       
-        // Kaynak sunumdan istenen master slaytı hedef sunumdaki master koleksiyonuna klonla // Hedef sunum
+        // İstenen ana slaytı kaynak sunumdan ana slayt koleksiyonuna klonla // Hedef sunum
         // Hedef sunumu diske kaydet
         destPres.Save("CloneToAnotherPresentationWithMaster_out.pptx", SaveFormat.Pptx);
 
@@ -189,13 +208,16 @@ using (Presentation srcPres = new Presentation("CloneToAnotherPresentationWithMa
 }
 ```
 
-## **Belirtilen Bir Bölümün Sonunda Slaytı Klonla**
+## **Belirli Bir Bölümün Sonunda Slaytı Klonla**
 
-Aspose.Slides for .NET ile bir sunumun bir bölümünden slaytı klonlayıp aynı sunum içinde başka bir bölüme ekleyebilirsiniz. Bu durumda, [ISlideCollection](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection) arayüzünden [AddClone](https://reference.aspose.com/slides/tr/net/aspose.slides/islidecollection/methods/addclone/index) yöntemini kullanmanız gerekir.
+Aspose.Slides for .NET ile bir sunumun bir bölümünden bir slaytı klonlayıp aynı sunumda başka bir bölüme ekleyebilirsiniz. Bu durumda, [ISlideCollection] arayüzünden [AddClone] metodunu kullanmanız gerekir.
 
-Aşağıdaki C# kodu, bir slaytı klonlayıp klonlanan slaytı belirtilen bir bölüme nasıl ekleyeceğinizi gösterir:
+Bu C# kodu, bir slaytı klonlayıp klonlanan slaytı belirli bir bölüme eklemenizi gösterir:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides.AddEmptySlide(pres.Slides[0].LayoutSlide);
@@ -210,16 +232,31 @@ using (Presentation pres = new Presentation())
 }
 ```
 
+## **Eşleşen Slayt Boyutunu Sağlayın**
+
+Slaytları başka bir sunuma klonlarken, hedef sunumun slayt boyutunun kaynakla aynı olduğundan emin olun. Slayt boyutları farklıysa, Aspose.Slides klonlanan şekilleri otomatik olarak yeniden ölçeklendirmez; orijinal koordinat ve boyutları korunur, bu da içeriğin kaydırılmış veya slayt sınırlarının dışına çıkmış görünmesine yol açabilir.
+
+Ana slaytı ve slaytı klonlamadan önce hedef sunumun slayt boyutunu kaynağa eşit olarak ayarlayabilirsiniz:
+
+```cs
+SizeF sourceSize = sourcePresentation.SlideSize.Size;
+
+targetPresentation.SlideSize.SetSize(
+    sourceSize.Width, sourceSize.Height, SlideSizeScaleType.DoNotScale);
+```
+
+Bunu ana slaytı ve slaytı klonlamadan önce yapın.
+
 ## **SSS**
 
-**Konuşmacı notları ve inceleme yorumları da klonlanır mı?**
+**Sunum notları ve inceleme yorumları klonlanıyor mu?**
 
-Evet. Not sayfası ve inceleme yorumları klona dahil edilir. İstemiyorsanız, eklemeden sonra [kaldırın](/slides/tr/net/presentation-notes/).
+Evet. Not sayfası ve inceleme yorumları klona dahil edilir. İstemiyorsanız, ekledikten sonra [kaldırın](/slides/tr/net/presentation-notes/).
 
-**Grafikler ve veri kaynakları nasıl ele alınır?**
+**Grafikler ve veri kaynakları nasıl işlenir?**
 
-Grafik nesnesi, biçimlendirme ve gömülü veri kopyalanır. Grafik harici bir kaynağa (örneğin OLE gömülü çalışma kitabı) bağlanmışsa, bu bağlantı bir [OLE nesnesi](/slides/tr/net/manage-ole/) olarak korunur. Dosyalar arasında taşındıktan sonra veri kullanılabilirliğini ve yenileme davranışını doğrulayın.
+Grafik nesnesi, biçimlendirmesi ve gömülü verileri kopyalanır. Grafik harici bir kaynağa (ör. OLE gömülü bir çalışma kitabına) bağlanmışsa, bu bağlantı bir [OLE nesnesi](/slides/tr/net/manage-ole/) olarak korunur. Dosyalar arasında taşındıktan sonra veri erişilebilirliğini ve yenileme davranışını doğrulayın.
 
 **Klonun ekleme konumunu ve bölümlerini kontrol edebilir miyim?**
 
-Evet. Klonu belirli bir slayt indeksine ekleyebilir ve seçtiğiniz bir [bölüm](/slides/tr/net/slide-section/) içine yerleştirebilirsiniz. Hedef bölüm mevcut değilse, önce oluşturun ve ardından slaytı o bölüme taşıyın.
+Evet. Klonu belirli bir slayt indeksine ekleyebilir ve istediğiniz bir [bölüme](/slides/tr/net/slide-section/) yerleştirebilirsiniz. Hedef bölüm yoksa, önce oluşturun ve ardından slaytı ona taşıyın.

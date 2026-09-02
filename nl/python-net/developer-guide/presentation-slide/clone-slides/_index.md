@@ -1,6 +1,6 @@
 ---
-title: "Kloon PowerPoint-dia's in Python"
-linktitle: "Kloon dia's"
+title: "PowerPoint-dia's klonen in Python"
+linktitle: "Dia's klonen"
 type: docs
 weight: 40
 url: /nl/python-net/clone-slides/
@@ -12,19 +12,19 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Kloon of dupliceer snel PowerPoint-dia's met Aspose.Slides voor Python via .NET. Volg onze duidelijke code-voorbeelden en tips om het maken van PPT's te automatiseren in enkele seconden, de productiviteit te verhogen en handmatig werk te elimineren."
+description: "Snel PowerPoint-dia's klonen of dupliceren met Aspose.Slides voor Python via .NET. Volg onze duidelijke code-voorbeelden en tips om PPT-creatie in enkele seconden te automatiseren, de productiviteit te verhogen en handmatig werk te elimineren."
 ---
 ## **Inleiding**
 
-Klonen is het proces van het maken van een exacte kopie of replica van iets. Aspose.Slides stelt je ook in staat om (een) dia te kopiëren (klonen) en vervolgens de gekloonde dia in de huidige presentatie of een andere geopende presentatie in te voegen. Dia‑klonen maakt een nieuwe dia die ontwikkelaars kunnen wijzigen zonder de oorspronkelijke dia te beïnvloeden. Er zijn verschillende manieren om een dia te klonen:
+Klonen is het proces waarbij een exacte kopie of replica van iets wordt gemaakt. Aspose.Slides stelt u ook in staat om (een) dia te kopiëren (klonen) en vervolgens de gekloonde dia in de huidige presentatie of een andere geopende presentatie in te voegen. Dia‑klonen maakt een nieuwe dia aan die ontwikkelaars kunnen aanpassen zonder de oorspronkelijke dia te beïnvloeden. Er zijn verschillende manieren om een dia te klonen:
 
-- Kloon aan het einde van een presentatie.
-- Kloon op een andere positie binnen een presentatie.
-- Kloon aan het einde van een andere presentatie.
-- Kloon op een andere positie in een andere presentatie.
-- Kloon op een specifieke positie in een andere presentatie.
+- Een dia klonen aan het einde van een presentatie.
+- Een dia klonen op een andere positie binnen een presentatie.
+- Een dia klonen aan het einde van een andere presentatie.
+- Een dia klonen op een andere positie in een andere presentatie.
+- Een dia klonen op een specifieke positie in een andere presentatie.
 
-In Aspose.Slides voor Python via .NET, de [dia collectie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) die wordt blootgesteld door het [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object biedt de methoden `add_clone` en `insert_clone` om deze soorten dia‑klonen uit te voeren.
+In Aspose.Slides for Python via .NET, de [slide collection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) die wordt blootgesteld door het [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object biedt de methoden `add_clone` en `insert_clone` om deze soorten dia‑klonen uit te voeren.
 
 ## **Installatie**
 
@@ -34,11 +34,11 @@ pip install aspose.slides
 
 ## **Kloon aan het einde binnen dezelfde presentatie**
 
-Als je een dia binnen dezelfde presentatie wilt klonen en aan het einde van de bestaande dia's wilt toevoegen, gebruik dan de methode `add_clone`. Volg deze stappen:
+Als u een dia binnen dezelfde presentatie wilt klonen en aan het einde van de bestaande dia's wilt toevoegen, gebruik dan de `add_clone` methode. Volg deze stappen:
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-1. Haal de dia collectie op uit het [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object.
-1. Roep de `add_clone` methode aan op de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de te klonen dia door.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+1. Haal de slide‑collection op van het [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object.
+1. Roep de `add_clone` methode aan op de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), waarbij u de te klonen dia doorgeeft.
 1. Sla de gewijzigde presentatie op.
 
 In het onderstaande voorbeeld wordt de eerste dia (index 0) geklond en aan het einde van de presentatie toegevoegd.
@@ -50,40 +50,40 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # Kloon de gewenste dia naar het einde van de dia-collectie in dezelfde presentatie.
     presentation.slides.add_clone(presentation.slides[0])
-    # Sla de gewijzigde presentatie op schijf.
+    # Sla de gewijzigde presentatie op naar schijf.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Kloon naar een specifieke positie binnen dezelfde presentatie**
 
-Als je een dia binnen dezelfde presentatie wilt klonen en op een andere positie wilt plaatsen, gebruik dan de methode `insert_clone`:
+Als u een dia binnen dezelfde presentatie wilt klonen en op een andere positie wilt plaatsen, gebruikt u de `insert_clone` methode:
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
-1. Haal de dia collectie op uit het [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object.
-1. Roep de `insert_clone` methode aan op de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de te klonen dia en de doelindex voor de nieuwe positie door.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse.
+1. Haal de slide‑collection op van het [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object.
+1. Roep de `insert_clone` methode aan op de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), waarbij u de te klonen dia en de doel‑index voor de nieuwe positie doorgeeft.
 1. Sla de gewijzigde presentatie op.
 
-In het onderstaande voorbeeld wordt de dia op index 1 (positie 2) geklond naar index 2 (positie 3) binnen dezelfde presentatie.
+In het onderstaande voorbeeld wordt de dia op index 1 (positie 2) gekloond naar index 2 (positie 3) binnen dezelfde presentatie.
 
 ```py
 import aspose.slides as slides
 
-# Instantieer de Presentation-klasse om het presentatiebestand te vertegenwoordigen.
+# Instantieer de Presentation-klasse om het presentatiebestand weer te geven.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # Kloon de gewenste dia naar de opgegeven positie (index) binnen dezelfde presentatie.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Sla de gewijzigde presentatie op schijf.
+    # Sla de gewijzigde presentatie op naar schijf.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Kloon aan het einde van een andere presentatie**
 
-Als je een dia van de ene presentatie wilt klonen en aan het einde van een andere presentatie wilt toevoegen:
+Als u een dia van de ene presentatie wilt klonen en aan het einde van een andere presentatie wilt toevoegen:
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bronpresentatie (de presentatie die de te klonen dia bevat).
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bestemmingspresentatie (waar de dia zal worden toegevoegd).
-1. Haal de dia collectie op uit de bestemmingspresentatie.
-1. Roep `add_clone` aan op de bestemmings-[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de dia uit de bronpresentatie door.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bronpresentatie (de presentatie die de te klonen dia bevat).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bestemmingspresentatie (waar de dia wordt toegevoegd).
+1. Haal de slide‑collection op van de bestemmingspresentatie.
+1. Roep `add_clone` aan op de bestemmings‑[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de dia uit de bronpresentatie door.
 1. Sla de gewijzigde bestemmingspresentatie op.
 
 In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie geklond naar het einde van de bestemmingspresentatie.
@@ -93,80 +93,80 @@ import aspose.slides as slides
 
 # Instantieer de Presentation-klasse om het bronpresentatiebestand te vertegenwoordigen.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instantieer de Presentation-klasse voor de doelfile PPTX (waar de dia wordt gekloond).
+    # Instantieer de Presentation-klasse voor de doel-PPTX (waar de dia gekloond zal worden).
     with slides.Presentation() as target_presentation:
         # Kloon de gewenste dia van de bronpresentatie naar het einde van de dia-collectie in de doelpresentatie.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Sla de doelpresentatie op schijf.
+        # Sla de doelpresentatie op naar schijf.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Kloon naar een specifieke positie in een andere presentatie**
 
-Als je een dia van de ene presentatie wilt klonen en deze in een andere presentatie op een specifieke positie wilt invoegen:
+Als u een dia van de ene presentatie wilt klonen en invoegen in een andere presentatie op een specifieke positie:
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bronpresentatie (de presentatie die de te klonen dia bevat).
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bestemmingspresentatie (waar de dia zal worden toegevoegd).
-1. Haal de dia collectie op uit de bestemmingspresentatie.
-1. Roep de `insert_clone` methode aan op de bestemmings-[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de dia uit de bronpresentatie en de gewenste doelindex door.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bronpresentatie (de presentatie die de te klonen dia bevat).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bestemmingspresentatie (waar de dia wordt toegevoegd).
+1. Haal de slide‑collection op van de bestemmingspresentatie.
+1. Roep de `insert_clone` methode aan op de bestemmings‑[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de dia uit de bronpresentatie en de gewenste doel‑index door.
 1. Sla de gewijzigde bestemmingspresentatie op.
 
-In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie geklond naar index 2 (positie 3) in de bestemmingspresentatie.
+In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie gekloond naar index 2 (positie 3) in de bestemmingspresentatie.
 
 ```py
 import aspose.slides as slides
 
 # Instantieer de Presentation-klasse om het bronpresentatiebestand te vertegenwoordigen.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instantieer de Presentation-klasse voor de bestemmings-PPTX (waar de dia moet worden gekloond).
+    # Instantieer de Presentation-klasse voor de doel-PPTX (waar de dia gekloond moet worden).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
-        # Voeg een kloon van de eerste dia uit de bron in op index 2 in de bestemmingspresentatie.
+        # Voeg een kloon van de eerste dia uit de bron toe op index 2 in de doelpresentatie.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Sla de bestemmingspresentatie op schijf.
+        # Sla de doelpresentatie op naar schijf.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kloon een dia met zijn masterdia in een andere presentatie**
+## **Kloon een dia met zijn masterdia naar een andere presentatie**
 
-Als je een dia **met zijn master** van de ene presentatie wilt klonen en in een andere wilt gebruiken, kloon dan eerst de benodigde masterdia van de bronpresentatie naar de bestemmingspresentatie. Gebruik daarna die bestemmingsmaster bij het klonen van de dia. De methode `add_clone(Slide, MasterSlide)` verwacht een **masterdia van de bestemmingspresentatie**, niet van de bron.
+Als u een dia **met zijn master** van de ene presentatie wilt klonen en in een andere wilt gebruiken, kloont u eerst de benodigde masterdia van de bronpresentatie naar de bestemmingspresentatie. Gebruik vervolgens die bestemmings‑master bij het klonen van de dia. De methode `add_clone(Slide, MasterSlide)` verwacht een **masterdia uit de bestemmingspresentatie**, niet uit de bron.
 
-Om een dia met zijn master te klonen, volg deze stappen:
+Om een dia met zijn master te klonen, volgt u deze stappen:
 
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bronpresentatie (de presentatie die de te klonen dia bevat).
-1. Maak een instantie van de [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bestemmingspresentatie.
-1. Toegang tot de te klonen bron‑dia en zijn masterdia.
-1. Haal de [MasterSlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/) op uit de mastercollectie van de bestemmingspresentatie.
-1. Roep `add_clone` aan op de bestemmings-[MasterSlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/), en geef de bronmaster door om deze naar de bestemming te klonen.
-1. Haal de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) op uit de dia collectie van de bestemmingspresentatie.
-1. Roep `add_clone` aan op de bestemmings-[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de bron‑dia en de gekloonde bestemmingsmaster door.
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bronpresentatie (de presentatie die de te klonen dia bevat).
+1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) klasse voor de bestemmingspresentatie.
+1. Toegang tot de te klonen bron‑dia en de bijbehorende masterdia.
+1. Haal de [MasterSlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/) op uit de master‑collectie van de bestemmingspresentatie.
+1. Roep `add_clone` aan op de bestemmings‑[MasterSlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/masterslidecollection/), en geef de bron‑master door om deze in de bestemming te klonen.
+1. Haal de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) op uit de dia‑collectie van de bestemmingspresentatie.
+1. Roep `add_clone` aan op de bestemmings‑[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de bron‑dia en de gekloonde bestemmings‑master door.
 1. Sla de gewijzigde bestemmingspresentatie op.
 
-In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie geklond naar het einde van de bestemmingspresentatie met behulp van de master die van de bron is gekloond.
+In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie gekloond naar het einde van de bestemmingspresentatie met gebruik van de master die uit de bron is gekloond.
 
 ```py
 import aspose.slides as slides
 
 # Instantieer de Presentation-klasse om het bronpresentatiebestand te vertegenwoordigen.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # Instantieer de Presentation-klasse voor de bestemmingspresentatie waar de dia gekloond zal worden.
+    # Instantieer de Presentation-klasse voor de doelpresentatie waar de dia gekloond zal worden.
     with slides.Presentation() as target_presentation:
-        # Haal de eerste dia op uit de bronpresentatie.
+        # Haal de eerste dia uit de bronpresentatie.
         source_slide = source_presentation.slides[0]
         # Haal de masterdia op die door de eerste dia wordt gebruikt.
         source_master = source_slide.layout_slide.master_slide
-        # Kloon de masterdia naar de mastercollectie van de bestemmingspresentatie.
+        # Kloon de masterdia naar de mastercollectie van de doelpresentatie.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Kloon de dia van de bronpresentatie naar het einde van de bestemmingspresentatie met gebruik van de gekloonde master.
+        # Kloon de dia uit de bronpresentatie naar het einde van de doelpresentatie met behulp van de gekloonde master.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Sla de bestemmingspresentatie op schijf.
+        # Sla de doelpresentatie op naar schijf.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Kloon aan het einde in een opgegeven sectie**
 
-Met Aspose.Slides voor Python via .NET kun je een dia uit een sectie van een presentatie klonen en invoegen in een andere sectie binnen dezelfde presentatie. Gebruik hiervoor de methode `add_clone(Slide, Section)` van de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) klasse.
+Met Aspose.Slides for Python via .NET kunt u een dia vanuit een sectie van een presentatie klonen en invoegen in een andere sectie binnen dezelfde presentatie. Gebruik hiervoor de `add_clone(Slide, Section)` methode van de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) klasse.
 
-Het volgende Python‑voorbeeld toont hoe je een dia kunt klonen en de kloon in een opgegeven sectie kunt invoegen:
+Het volgende Python‑voorbeeld laat zien hoe u een dia kloont en de kloon invoegt in een opgegeven sectie:
 
 ```py
 import aspose.slides as slides
@@ -179,24 +179,39 @@ with slides.Presentation() as presentation:
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
     # Voeg nog een lege dia toe gebaseerd op de lay-out van de eerste dia.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Maak een sectie genaamd "Section2" die start bij slide2.
+    # Maak een sectie genaamd "Section2" aan die begint bij slide2.
     section = presentation.sections.add_section("Section2", slide2)
-    # Kloon de eerder aangemaakte dia naar de sectie "Section2".
+    # Kloon de eerder gemaakte dia in de sectie "Section2".
     presentation.slides.add_clone(slide, section)
     # Sla de presentatie op als een PPTX-bestand.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **Zorg voor overeenkomende dia‑grootte**
+
+Wanneer u dia's kloont naar een andere presentatie, zorg er dan voor dat de bestemmingspresentatie dezelfde dia‑grootte heeft als de bron. Als de dia‑groottes verschillen, schaalt Aspose.Slides de gekloonde vormen niet automatisch; hun oorspronkelijke coördinaten en afmetingen blijven behouden, wat kan leiden tot misaligned inhoud of dat deze buiten de dia‑grenzen treedt.
+
+U kunt de dia‑grootte van de bestemmingspresentatie instellen op de maat van de bron vóór het klonen van de master en de dia:
+
+```py
+source_size = source_presentation.slide_size.size
+
+target_presentation.slide_size.set_size(
+    source_size.width, source_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
+```
+
+Doe dit vóór het klonen van de master en de dia.
+
 ## **FAQ**
 
-### Worden sprekeropmerkingen en beoordelingscommentaren gekloond?
+**Worden sprekernotities en beoordelingscommentaren gekloond?**
 
 Ja. De notitiepagina en beoordelingscommentaren zijn opgenomen in de kloon. Als je ze niet wilt, [verwijder ze](/slides/nl/python-net/presentation-notes/) na het invoegen.
 
-### Hoe worden grafieken en hun gegevensbronnen behandeld?
+**Hoe worden grafieken en hun gegevensbronnen behandeld?**
 
-Het grafiekobject, de opmaak en de ingesloten gegevens worden gekopieerd. Als de grafiek gekoppeld was aan een externe bron (bijv. een OLE‑ingesloten werkmap), blijft die koppeling behouden als een [OLE‑object](/slides/nl/python-net/manage-ole/). Na het verplaatsen tussen bestanden, controleer de beschikbaarheid van de gegevens en het refresh‑gedrag.
+Het grafiekobject, de opmaak en de ingesloten gegevens worden gekopieerd. Als de grafiek gekoppeld was aan een externe bron (bijv. een OLE‑ingesloten werkmap), blijft die koppeling behouden als een [OLE‑object](/slides/nl/python-net/manage-ole/). Na het verplaatsen tussen bestanden, controleer de beschikbaarheid van de gegevens en het vernieuwing‑gedrag.
 
-### Kan ik de invoegpositie en secties van de kloon beheersen?
+**Kan ik de invoegpositie en secties voor de kloon bepalen?**
 
-Ja. Je kunt de kloon invoegen op een specifieke dia‑index en plaatsen in een gekozen [sectie](/slides/nl/python-net/slide-section/). Als de doelsectie niet bestaat, maak deze dan eerst aan en verplaats vervolgens de dia erin.
+Ja. U kunt de kloon invoegen op een specifieke dia‑index en plaatsen in een gekozen [sectie](/slides/nl/python-net/slide-section/). Als de doel‑sectie niet bestaat, maakt u deze eerst aan en verplaatst u de dia ernaartoe.
