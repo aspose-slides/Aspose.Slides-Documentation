@@ -1,17 +1,20 @@
 ---
-title: ใช้สูตร Worksheet ของแผนภูมิในงานนำเสนอด้วย Python
-linktitle: สูตร Worksheet
+title: ใช้สูตรแผ่นงานแผนภูมิในงานนำเสนอด้วย Python
+linktitle: สูตรแผ่นงาน
 type: docs
 weight: 70
 url: /th/python-net/chart-worksheet-formulas/
 keywords:
-- แผนภูมิสเปรดชีต
-- แผนภูมิ worksheet
+- สเปรดชีตแผนภูมิ
+- แผ่นงานแผนภูมิ
 - สูตรแผนภูมิ
-- สูตร worksheet
+- สูตรแผ่นงาน
 - สูตรสเปรดชีต
-- workbook ข้อมูลแผนภูมิ
+- สมุดงานข้อมูลแผนภูมิ
 - การคำนวณสูตร
+- วัฒนธรรมที่ต้องการ
+- สูตรตามวัฒนธรรม
+- DBCS
 - ค่าคงที่ตรรกะ
 - ค่าคงที่เชิงตัวเลข
 - ค่าคงที่สตริง
@@ -20,32 +23,32 @@ keywords:
 - ตัวดำเนินการเปรียบเทียบ
 - สไตล์ A1
 - สไตล์ R1C1
-- ฟังก์ชันที่กำหนดล่วงหน้า
+- ฟังก์ชันกำหนดล่วงหน้า
 - PowerPoint
 - งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "ใช้สูตรสไตล์ Excel ใน Aspose.Slides สำหรับ Python via .NET บน worksheet ของแผนภูมิ, คำนวนค่าใหม่, และใช้ผลลัพธ์ในแผนภูมิ PowerPoint."
+description: "ใช้สูตรแบบ Excel ใน Aspose.Slides สำหรับ Python ผ่านแผ่นงานแผนภูมิ .NET, คำนวณค่าซ้ำใหม่, และใช้ผลลัพธ์ในแผนภูมิ PowerPoint."
 ---
-## **Overview**
+## **ภาพรวม**
 
-แผนภูมิ PowerPoint มักจะจัดเก็บข้อมูลต้นฉบับในแผ่นงานที่ฝังอยู่ ใน Aspose.Slides for Python via .NET คุณสามารถเข้าถึงแผ่นงานนั้นผ่าน workbook ข้อมูลแผนภูมิ, เขียนค่าตัวอินพุต, กำหนดสูตรให้กับเซลล์, คำนวณสูตรที่รองรับ, และใช้เซลล์ที่คำนวณแล้วเป็นข้อมูลแผนภูมิได้
+PowerPoint charts โดยทั่วไปจะเก็บข้อมูลต้นทางในแผ่นงานที่ฝังอยู่ ใน Aspose.Slides for Python via .NET คุณสามารถเข้าถึงแผ่นงานนั้นผ่าน chart data workbook, เขียนค่าตั้งต้น, กำหนดสูตรให้กับเซลล์, คำนวณสูตรที่สนับสนุน, และใช้เซลล์ที่คำนวณแล้วเป็นข้อมูลของแผนภูมิ
 
-บทความนี้อธิบายกระบวนการทำงานของสูตรอย่างครบถ้วน: สร้างแผนภูมิ, เติมข้อมูลในแผ่นงาน, กำหนดสูตรแบบ A1 หรือ R1C1, คำนวณใหม่, อ่านค่าที่คำนวณได้, เชื่อมต่อเซลล์เหล่านั้นกับซีรีส์ของแผนภูมิ, และบันทึกงานนำเสนอ นอกจากนี้ยังอธิบายไวยากรณ์สูตรที่รองรับ, ชุดฟังก์ชันในตัว, ค่าที่แคชไว้, สูตรที่ไม่รองรับ, และข้อผิดพลาดเฉพาะสเปรดชีต
+บทความนี้อธิบายกระบวนการทำงานของสูตรอย่างครบถ้วน: สร้างแผนภูมิ, เติมข้อมูลในแผ่นงาน, กำหนดสูตรแบบ A1 หรือ R1C1, คำนวณสูตรใหม่, อ่านค่าที่คำนวณได้, เชื่อมต่อเซลล์เหล่านั้นกับชุดข้อมูลของแผนภูมิ, และบันทึกงานนำเสนอ นอกจากนี้ยังอธิบายไวยากรณ์สูตรที่สนับสนุน, ชุดฟังก์ชันในตัว, ค่าที่แคช, สูตรที่ไม่สนับสนุน, และข้อผิดพลาดเฉพาะของสเปรดชีต
 
-## **Chart Worksheets and Formulas**
+## **แผ่นงานกราฟและสูตร**
 
-แผ่นงานของแผนภูมิประกอบด้วยหมวดหมู่, ชื่อซีรีส์, และค่า ที่ใช้โดยแผนภูมิ ใน PowerPoint คุณสามารถตรวจสอบแผ่นงานโดยเปิดตัวแก้ไขข้อมูลแผนภูมิ:
+แผ่นงานกราฟประกอบด้วยหมวดหมู่, ชื่อชุดข้อมูล, และค่าที่ใช้โดยแผนภูมิ ใน PowerPoint คุณสามารถตรวจสอบแผ่นงานได้โดยเปิด chart data editor:
 
 ![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-ใน Aspose.Slides แผ่นงานจะถูกเปิดเผยผ่าน [chart data workbook](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdataworkbook/). ใช้คุณสมบัติ [formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/formula/) สำหรับสูตรแบบ A1 และคุณสมบัติ [r1c1_formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) สำหรับสูตรแบบ R1C1 หลังจากเปลี่ยนเซลล์อินพุตหรือสูตรแล้ว ให้เรียก [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) เพื่อคำนวณสูตรที่รองรับและอัปเดตค่าเซลล์ที่เกี่ยวข้อง
+ใน Aspose.Slides แผ่นงานถูกเปิดเผยผ่าน [สมุดงานข้อมูลแผนภูมิ](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdataworkbook/)。ใช้คุณสมบัติ [formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/formula/) สำหรับสูตรแบบ A1 และคุณสมบัติ [r1c1_formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) สำหรับสูตรแบบ R1C1 หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร ให้เรียก [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) เพื่อคำนวณสูตรที่สนับสนุนและอัปเดตค่าของเซลล์ที่สอดคล้องกัน
 
-เซลล์ที่คำนวณแล้วยังคงเปิดเผยผลลัพธ์ผ่านคุณสมบัติ [value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/value/) สิ่งนี้สำคัญเมื่อคุณต้องตรวจสอบผลลัพธ์สูตรในโค้ดหรือใช้เซลล์เป็นจุดข้อมูลของแผนภูมิ
+เซลล์ที่คำนวณแล้วยังคงเปิดเผยผลลัพธ์ผ่านคุณสมบัติ [value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/value/) สิ่งนี้สำคัญเมื่อคุณต้องการตรวจสอบผลลัพธ์ของสูตรในโค้ดหรือใช้เซลล์เป็นจุดข้อมูลของแผนภูมิ
 
-## **Create a Chart and Calculate Worksheet Formulas**
+## **สร้างแผนภูมิและคำนวณสูตรในแผ่นงาน**
 
-ตัวอย่างต่อไปนี้แสดงการทำงานแบบครบวงจร มันสร้างแผนภูมิคอลัมน์แบบคลัสเตอร์, ลบข้อมูลตัวอย่าง, เขียนค่ารายได้และค่าใช้จ่ายรายไตรมาส, คำนวณกำไรด้วยสูตร, อ่านผลลัพธ์, ใช้เซลล์ที่คำนวณแล้วเป็นค่าของแผนภูมิ, และบันทึกงานนำเสนอ
+ตัวอย่างต่อไปนี้แสดงกระบวนการทำงานแบบครบวงจร มันสร้างแผนภูมิคอลัมน์แบบคลัสเตอร์, ลบข้อมูลตัวอย่าง, เขียนค่ารายได้และค่าใช้จ่ายรายไตรมาส, คำนวณกำไรด้วยสูตร, อ่านผลลัพธ์, ใช้เซลล์ที่คำนวณเป็นค่าของแผนภูมิ, และบันทึกงานนำเสนอ
 
 ```python
 import aspose.slides as slides
@@ -107,11 +110,11 @@ with slides.Presentation() as presentation:
     presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-จุดข้อมูลของแผนภูมิอ้างอิง `D2:D4` ดังนั้นแผนภูมิจะใช้ค่ากำไรที่คำนวณแล้ว ไม่มีการเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหากในกระบวนการนี้: คำนวณ workbook ก่อน, แล้วใช้หรือบันทึกข้อมูลแผนภูมิที่อ้างอิงถึงเซลล์ที่คำนวณแล้ว
+จุดข้อมูลของแผนภูมิอ้างอิง `D2:D4` ดังนั้นแผนภูมิจะใช้ค่ากำไรที่คำนวณแล้ว ไม่มีการเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหากในกระบวนการนี้: คำนวณสมุดงานก่อน, จากนั้นใช้หรือบันทึกข้อมูลแผนภูมิที่ชี้ไปยังเซลล์ที่คำนวณแล้ว
 
-## **Use A1-Style Formulas**
+## **ใช้สูตรแบบ A1**
 
-การระบุแบบ A1 ใช้ตัวอักษรแทนคอลัมน์และตัวเลขแทนแถว กำหนดนิพจน์แบบ A1 ผ่าน [IChartDataCell.formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/formula/)
+การระบุแบบ A1 ระบุคอลัมป์ด้วยตัวอักษรและแถวด้วยตัวเลข กำหนดนิพจน์แบบ A1 ผ่าน [IChartDataCell.formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/formula/)
 
 ```python
 import aspose.slides as slides
@@ -135,20 +138,20 @@ with slides.Presentation() as presentation:
     value = cell.value  # 19
 ```
 
-รูปแบบการอ้างอิง A1 ที่พบบ่อยมีดังนี้:
+รูปแบบการอ้างอิง A1 ที่พบได้บ่อยคือ:
 
-| Reference | Relative | Absolute | Mixed |
+| อ้างอิง | สัมพัทธ์ | คงที่ | ผสม |
 |---|---|---|---|
-| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
-| Row | `2:2` | `$2:$2` | — |
-| Column | `A:A` | `$A:$A` | — |
-| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+| เซลล์ | `A2` | `$A$2` | `A$2`, `$A2` |
+| แถว | `2:2` | `$2:$2` | — |
+| คอลัมน์ | `A:A` | `$A:$A` | — |
+| ช่วง | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-การอ้างอิงแบบ Relative สามารถเปลี่ยนแปลงเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปสเปรดชีต การอ้างอิงแบบ Absolute จะคงค่าตำแหน่งทั้งสองคงที่ ส่วน Mixed จะคงแค่แถวหรือคอลัมน์เท่านั้น
+การอ้างอิงสัมพัทธ์อาจเปลี่ยนแปลงเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปสเปรดชีต การอ้างอิงคงที่จะคงค่าพิกัดทั้งสองคงที่ ส่วนการอ้างอิงผสมจะคงแค่แถวหรือคอลัมน์เดียว
 
-## **Use R1C1-Style Formulas**
+## **ใช้สูตรแบบ R1C1**
 
-การระบุแบบ R1C1 ใช้ตัวเลขแทนทั้งแถวและคอลัมน์ การอ้างอิงแบบ Relative ใช้ค่าออฟเซ็ตในวงเล็บสี่เหลี่ยมกำหนด กำหนดไวยากรณ์นี้ผ่าน [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/)
+การระบุแบบ R1C1 ระบุทั้งแถวและคอลัมน์ด้วยตัวเลข การอ้างอิงสัมพัทธ์ใช้การเยื้องในวงเล็บเหลี่ยม กำหนดไวยากรณ์นี้ผ่าน [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/)
 
 ```python
 import aspose.slides as slides
@@ -170,31 +173,31 @@ with slides.Presentation() as presentation:
     value = cell.value  # 7
 ```
 
-รูปแบบการอ้างอิง R1C1 ที่พบบ่อยมีดังนี้:
+รูปแบบการอ้างอิง R1C1 ที่พบได้บ่อยคือ:
 
-| Reference | Relative | Absolute | Mixed |
+| อ้างอิง | สัมพัทธ์ | คงที่ | ผสม |
 |---|---|---|---|
-| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
-| Row | `R[2]` | `R2` | — |
-| Column | `C[3]` | `C3` | — |
-| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+| เซลล์ | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| แถว | `R[2]` | `R2` | — |
+| คอลัมน์ | `C[3]` | `C3` | — |
+| ช่วง | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-ตัวอย่างเช่น ในเซลล์ `D2` คำว่า `RC[-2]` หมายถึงเซลล์ในแถวเดียวกันสองคอลัมน์ทางซ้าย (`B2`)
+เช่น ในเซลล์ `D2`, `RC[-2]` หมายถึงเซลล์ในแถวเดียวกันสองคอลัมน์ไปทางซ้าย (`B2`)
 
-## **Formula Constants and Operators**
+## **ค่าคงที่และตัวดำเนินการสูตร**
 
-Evaluators ของสูตรในตัวรองรับค่าตรรกะ, ตัวเลขลิเทอรัล, สตริง, ค่าข้อผิดพลาดของสเปรดชีต, ตัวดำเนินการคณิตศาสตร์, และตัวดำเนินการเปรียบเทียบ
+ตัวตรวจสอบสูตรในตัวสนับสนุนค่าตรรกะ, ตัวเลขเชิงตำแหน่ง, สตริง, ค่าข้อผิดพลาดของสเปรดชีต, ตัวดำเนินการคณิตศาสตร์, และตัวดำเนินการเปรียบเทียบ
 
-### **Constants and Literals**
+### **ค่าคงที่และลิเทรัล**
 
-| Type | Examples | Notes |
+| ประเภท | ตัวอย่าง | หมายเหตุ |
 |---|---|---|
-| Logical | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะเช่น `A2=TRUE` |
-| Numeric | `1`, `0.5`, `.3`, `1E-2` | รองรับรูปแบบธรรมดาและวิทยาศาสตร์ |
-| String | `"abc"`, `"2/3/2020 12:00"` | ลิเทอรัลข้อความต้องอยู่ในเครื่องหมายคำพูดคู่ภายในสูตร |
-| Error result | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่สมบูรณ์อาจให้ผลลัพธ์เป็นค่าข้อผิดพลาดของสเปรดชีตแทนค่าปกติ |
+| ตรรกะ | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะเช่น `A2=TRUE` |
+| ตัวเลข | `1`, `0.5`, `.3`, `1E-2` | รองรับรูปแบบธรรมดาและวิทยาศาสตร์ |
+| สตริง | `"abc"`, `"2/3/2020 12:00"` | ตัวอักษรลิตเชอร์อยู่ในเครื่องหมายอัญประกาศคู่ภายในสูตร |
+| ผลลัพธ์ข้อผิดพลาด | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่ถูกต้องอาจให้ค่าข้อผิดพลาดของสเปรดชีตแทนผลลัพธ์ปกติ |
 
-ตัวอย่างนี้ใช้หลายประเภทคอนสแตนท์:
+ตัวอย่างนี้ใช้ค่าคงที่หลายประเภท:
 
 ```python
 import aspose.slides as slides
@@ -221,24 +224,24 @@ with slides.Presentation() as presentation:
     error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
 ```
 
-### **Arithmetic Operators**
+### **ตัวดำเนินการคณิตศาสตร์**
 
-| Operator | Meaning | Example |
+| ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
 |---|---|---|
-| `+` | การบวกหรือเครื่องหมายบวกเอกพจน์ | `2+3` |
-| `-` | การลบหรือเครื่องหมายลบเอกพจน์ | `2-3`, `-3` |
+| `+` | การบวกหรือบวกเชิงยูเนียรี | `2+3` |
+| `-` | การลบหรือทำเครื่องหมายลบ | `2-3`, `-3` |
 | `*` | การคูณ | `2*3` |
 | `/` | การหาร | `2/3` |
-| `%` | เปอร์เซนต์ | `30%` |
+| `%` | เปอร์เซ็นต์ | `30%` |
 | `^` | ยกกำลัง | `2^3` |
 
-ใช้วงเล็บเพื่อกำหนดลำดับการประเมินอย่างชัดเจน เช่น `(A2+B2)*C2`
+ใช้วงเล็บเพื่อทำให้ลำดับการประเมินชัดเจน เช่น `(A2+B2)*C2`
 
-### **Comparison Operators**
+### **ตัวดำเนินการเปรียบเทียบ**
 
-นิพจน์เปรียบเทียบจะคืนค่าตรรกะ
+นิพจน์การเปรียบเทียบให้ค่าตรรกะ
 
-| Operator | Meaning | Example |
+| ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
 |---|---|---|
 | `=` | เท่ากับ | `A2=3` |
 | `<>` | ไม่เท่ากับ | `A2<>3` |
@@ -247,51 +250,73 @@ with slides.Presentation() as presentation:
 | `<` | น้อยกว่า | `A2<3` |
 | `<=` | น้อยกว่าหรือเท่ากับ | `A2<=3` |
 
-## **Supported Predefined Functions**
+## **ฟังก์ชันที่กำหนดล่วงหน้าที่รองรับ**
 
-Aspose.Slides มี evaluator สูตรในตัวสำหรับแผ่นงานของแผนภูมิ, แต่ไม่ได้เป็นเอนจินคำนวณ Excel เต็มรูปแบบ ชุดฟังก์ชันที่อธิบายไว้จำกัดอยู่ในตารางด้านล่าง อย่าเชื่อว่าสามารถคำนวณฟังก์ชัน Excel ใด ๆ ด้วย [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/)
+Aspose.Slides มีตัวตรวจสอบสูตรในตัวสำหรับแผ่นงานกราฟ แต่ไม่ได้เป็นเครื่องมือคำนวณ Excel เต็มรูปแบบ ชุดฟังก์ชันที่ถูกบันทึกไว้จำกัดอยู่ที่ฟังก์ชันต่อไปนี้ อย่าสันนิษฐานว่าฟังก์ชัน Excel ใด ๆ สามารถคำนวณใหม่ได้โดย [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/)
 
-| Function | Purpose or supported form | Example |
+| ฟังก์ชัน | วัตถุประสงค์หรือรูปแบบที่รองรับ | ตัวอย่าง |
 |---|---|---|
-| `ABS` | ค่าค่าสัมบูรณ์ | `ABS(A2)` |
+| `ABS` | ค่าสัมบูรณ์ | `ABS(A2)` |
 | `AVERAGE` | ค่าเฉลี่ยเลขคณิต | `AVERAGE(B2:B5)` |
-| `CEILING` | ปัดขึ้นเป็นหลายเท่า | `CEILING(A2,5)` |
-| `CHOOSE` | เลือกค่าโดยดัชนี | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | รวมข้อความ | `CONCAT(A2,B2)` |
-| `CONCATENATE` | รวมข้อความ | `CONCATENATE(A2," ",B2)` |
+| `CEILING` | ปัดจำนวนขึ้นเป็นหลายของ | `CEILING(A2,5)` |
+| `CHOOSE` | เลือกค่าตามดัชนี | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | รวมค่าข้อความ | `CONCAT(A2,B2)` |
+| `CONCATENATE` | รวมค่าข้อความ | `CONCATENATE(A2," ",B2)` |
 | `DATE` | สร้างค่าวันที่โดยใช้ระบบวันที่ 1900 | `DATE(2026,8,19)` |
 | `DAYS` | คืนจำนวนวันระหว่างสองวันที่ | `DAYS(B2,A2)` |
 | `FIND` | ค้นหาข้อความหนึ่งภายในอีกข้อความหนึ่ง | `FIND("-",A2)` |
-| `FINDB` | ค้นหาข้อความโดยอิงไบต์ | `FINDB("a",A2)` |
+| `FINDB` | การค้นหาข้อความแบบไบต์ | `FINDB("a",A2)` |
 | `IF` | ผลลัพธ์ตามเงื่อนไข | `IF(A2>0,A2,0)` |
 | `INDEX` | รูปแบบอ้างอิง | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | รูปแบบเวกเตอร์ | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | รูปแบบเวกเตอร์ | `MATCH(A2,B2:B5,0)` |
 | `MAX` | ค่าสูงสุด | `MAX(B2:B5)` |
-| `SUM` | ผลรวม | `SUM(B2:B5)` |
+| `SUM` | ผลรวมค่า | `SUM(B2:B5)` |
 | `VLOOKUP` | การค้นหาแบบแนวตั้ง | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-ข้อจำกัดที่แสดงในตารางมีความสำคัญ: `INDEX` มีรูปแบบอ้างอิง, ในขณะที่ `LOOKUP` และ `MATCH` มีรูปแบบเวกเตอร์ `DATE` ใช้ระบบวันที่ 1900 ฟีเจอร์หรือฟังก์ชันที่ไม่ได้ระบุในที่นี้ควรถือว่าไม่รองรับโดย evaluator ของ Aspose.Slides เว้นแต่จะมีเอกสารแยกไว้
+ข้อจำกัดในตารางมีความสำคัญ: `INDEX` ถูกอธิบายในรูปแบบอ้างอิง, ส่วน `LOOKUP` และ `MATCH` อยู่ในรูปแบบเวกเตอร์ `DATE` ใช้ระบบวันที่ 1900 ฟังก์ชันหรือคุณลักษณะที่ไม่อยู่ในรายการนี้ควรถือว่าไม่ได้รับการสนับสนุนโดยตัวตรวจสอบสูตรของ Aspose.Slides นอกจากว่าจะมีการบันทึกแยกต่างหาก
 
-## **Recalculation and Cached Values**
+## **คำนวณสูตรด้วยวัฒนธรรมที่ต้องการ**
 
-ไฟล์สเปรดชีตมักจะเก็บทั้งสูตรและค่าที่คำนวณล่าสุด Aspose.Slides จึงสามารถอ่านค่าที่แคชจาก [IChartDataCell.value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/value/) เมื่อโหลดงานนำเสนอและข้อมูลแผนภูมิที่เกี่ยวข้องไม่ได้ถูกเปลี่ยน
+ฟังก์ชันบางอย่างของสมุดงานแผนภูมิจะแปลข้อความตามกฎของวัฒนธรรมที่กำหนด ซึ่งสำคัญอย่างยิ่งสำหรับฟังก์ชันที่ออกแบบมาสำหรับภาษาที่ใช้ชุดอักษรสองไบต์ (DBCS) เพื่อคำนวณสูตรเหล่านี้อย่างถูกต้อง ให้สร้าง [LoadOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/), ตั้งค่า [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/th/python-net/aspose.slides/spreadsheetoptions/) ผ่าน [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/th/python-net/aspose.slides/loadoptions/spreadsheet_options/), แล้วโหลดงานนำเสนอ
 
-หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร อย่าอ้างอิงค่าที่แคชเก่า ให้เรียก [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) ก่อนอ่านค่าที่คำนวณหรือบันทึกข้อมูลแผนภูมิที่พึ่งพามัน
+ตัวอย่างต่อไปนี้เลือกวัฒนธรรมญี่ปุ่น, เปิดงานนำเสนอด้วย LoadOptions ที่กำหนดค่า, และเรียก [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) สำหรับทุกสมุดงานแผนภูมิ:
 
-สำหรับสูตรที่อยู่นอกชุดที่รองรับ, Aspose.Slides อาจไม่สามารถพาร์สสูตรหรือกำหนดความขึ้นต่อกันได้ หาก workbook ถูกแก้ไข ค่าแคชก่อนหน้าอาจไม่เชื่อถือได้ ในสถานการณ์นั้น การอ่านค่าเซลล์ที่มีข้อมูลไม่รองรับอาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-หากแผนภูมิของคุณต้องพึ่งพาฟังก์ชัน Excel ที่ Aspose.Slides ไม่ประมวลผล ให้คำนวนสูตรเหล่านั้นด้วยเอนจินสเปรดชีตที่รองรับและเขียนค่าที่ได้กลับไปยัง workbook ของแผนภูมิ อย่าแทนสูตรที่ไม่รองรับด้วยค่าที่คาดเดา
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
 
-## **Handle Formula Errors**
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+วัฒนธรรมที่ต้องการเป็นส่วนหนึ่งของการกำหนดค่าการโหลดงานนำเสนอ ดังนั้นให้ระบุก่อนสร้างอ็อบเจกต์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) ใช้วัฒนธรรมที่สูตรของสมุดงานคาดหวัง ตัวอย่างเช่น ใช้ `ja-JP` สำหรับสูตรที่ต้องปฏิบัติตามกฎการคำนวณ DBCS ของญี่ปุ่น
+
+## **การคำนวณใหม่และค่าที่แคช**
+
+ไฟล์สเปรดชีตมักจะเก็บสูตรพร้อมค่าที่คำนวณแล้วล่าสุด Aspose.Slides จึงสามารถอ่านค่าที่แคชจาก [IChartDataCell.value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/value/) เมื่อโหลดงานนำเสนอและข้อมูลแผนภูมิที่เกี่ยวข้องไม่ได้ถูกเปลี่ยนแปลง
+
+หลังจากเปลี่ยนค่าอินพุตหรือสูตร อย่าพึ่งพาค่าที่แคชเก่า ให้เรียก [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) ก่อนอ่านค่าที่คำนวณหรือบันทึกข้อมูลแผนภูมิที่พึ่งพาค่าเหล่านั้น
+
+สำหรับสูตรที่อยู่นอกชุดที่สนับสนุน Aspose.Slides อาจไม่สามารถแยกสูตรหรือกำหนดการพึ่งพาได้ หากสมุดงานถูกแก้ไข ค่าแคชก่อนหน้าอาจไม่เชื่อถือได้ ในสถานการณ์นั้น การอ่านค่าเซลล์ที่มีข้อมูลที่ไม่สนับสนุนอาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+
+หากแผนภูมิของคุณพึ่งพาฟังก์ชัน Excel ที่ Aspose.Slides ไม่ประมวลผล ให้คำนวณสูตรเหล่านั้นด้วยเอนจินสเปรดชีตที่รองรับ แล้วเขียนค่าที่ได้กลับไปยังสมุดงานแผนภูมิ อย่าแทนสูตรที่ไม่สนับสนุนด้วยค่าที่คาดเดา
+
+## **จัดการข้อผิดพลาดสูตร**
 
 มีสองประเภทของปัญหาที่ต้องแยกแยะ
 
-สูตรอาจถูกต้องแต่ให้ผลลัพธ์เป็นข้อผิดพลาดของสเปรดชีตเช่น `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` หรือ `#VALUE!` ในกรณีนี้โทเค็นข้อผิดพลาดเป็นผลลัพธ์ของเซลล์และสามารถส่งคืนผ่าน `value`
+สูตรอาจถูกต้องแต่ให้ผลลัพธ์เป็นข้อผิดพลาดของสเปรดชีตเช่น `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, หรือ `#VALUE!` ในกรณีนี้ โทเค็นข้อผิดพลาดเป็นผลลัพธ์ของเซลล์และสามารถส่งกลับผ่าน `value`
 
-สูตรอาจล้มเหลวที่ขั้นตอนการพาร์ส, การอ้างอิง, ความขึ้นต่อ หรือระดับข้อมูลที่รองรับ Aspose.Slides มี exception เฉพาะสเปรดชีตสำหรับกรณีเหล่านี้: [CellInvalidFormulaException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), และ [CellUnsupportedDataException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+สูตรอาจล้มเหลวในขั้นตอนการพาร์ส, การอ้างอิง, การพึ่งพา, หรือระดับข้อมูลที่สนับสนุน Aspose.Slides ให้ข้อยกเว้นเฉพาะสเปรดชีตสำหรับกรณีเหล่านี้: [CellInvalidFormulaException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), และ [CellUnsupportedDataException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
 
-เมื่อสูตรมาจากเทมเพลตหรือการป้อนข้อมูลของผู้ใช้ ให้จัดการ exception เหล่านี้รอบการคำนวณใหม่และการเข้าถึงค่า:
+เมื่อสูตรมาจากเทมเพลตหรืออินพุตของผู้ใช้ ให้จัดการข้อยกเว้นเหล่านี้รอบการคำนวณใหม่และการเข้าถึงค่า:
 
 ```python
 import aspose.slides as slides
@@ -318,54 +343,54 @@ with slides.Presentation() as presentation:
         print(f"Unsupported spreadsheet data: {ex}")
 ```
 
-## **Practical Limitations**
+## **ข้อจำกัดเชิงปฏิบัติ**
 
-การสนับสนุนสูตรในแผ่นงานของแผนภูมิมุ่งเน้นที่ชุดย่อยของการคำนวณสเปรดชีต, ไม่ได้ให้ความเข้ากันได้เต็มรูปแบบกับ Excel ควรคำนึงถึงข้อจำกัดเหล่านี้เมื่อออกแบบ workflow การรายงาน:
+การสนับสนุนสูตรในแผ่นงานกราฟออกแบบมาสำหรับชุดย่อยของการคำนวณสเปรดชีต ไม่ได้สำหรับความเข้ากันได้เต็มรูปแบบกับ Excel ให้คำนึงถึงข้อจำกัดเหล่านี้เมื่อออกแบบกระบวนการรายงาน:
 
-- ใช้เฉพาะคอนสแตนท์, ตัวดำเนินการ, การอ้างอิง, และฟังก์ชันที่ระบุเอกสารเมื่อคุณต้องการให้ Aspose.Slides คำนวนสูตร
-- คำนวนใหม่หลังจากเปลี่ยนเซลล์ที่ผลลัพธ์สูตรพึ่งพา
-- ถือว่าค่าแคชจากงานนำเสนอที่โหลดเป็นสแน็ปช็อต, ไม่ใช่การแทนที่การคำนวนใหม่หลังแก้ไข
-- ทดสอบสูตรจากเทมเพลตที่มีอยู่ก่อนพึ่งพาค่าที่คำนวนแล้ว, โดยเฉพาะอย่างยิ่งเมื่อใช้ฟังก์ชันที่อยู่นอกรายการที่ระบุ
-- สำหรับสูตรที่ต้องการเอนจินคำนวนสเปรดชีตเต็มรูปแบบ, ให้คำนวนภายนอกแล้วอัปเดต workbook ของแผนภูมิด้วยค่าที่ได้
+- ใช้เฉพาะค่าคงที่, ตัวดำเนินการ, การอ้างอิง, และฟังก์ชันที่บันทึกไว้เมื่อคุณต้องการให้ Aspose.Slides คำนวณสูตรใหม่
+- คำนวณใหม่หลังจากเปลี่ยนเซลล์ที่สูตรอิงผล
+- ถือว่าค่าที่แคชจากงานนำเข้าที่โหลดเป็นภาพถ่าย ณ จุดนัั้น ไม่ใช่การแทนที่การคำนวณใหม่หลังแก้ไข
+- ทดสอบสูตรจากเทมเพลตที่มีอยู่ก่อนพึ่งพาผลลัพธ์ที่คำนวณแล้ว โดยเฉพาะอย่างยิ่งเมื่อใช้ฟังก์ชันที่อยู่นอกรายการที่บันทึกไว้
+- สำหรับสูตรที่ต้องการเครื่องมือคำนวณสเปรดชีตเต็มรูปแบบ ให้คำนวณภายนอกแล้วอัปเดตสมุดงานแผนภูมิกับค่าที่ได้
 
-## **FAQ**
+## **คำถามที่พบบ่อย**
 
-**What is the difference between `formula` and `r1c1_formula`?**
+**สูตร `formula` กับ `r1c1_formula` แตกต่างกันอย่างไร?**
 
-[formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/formula/) เก็บนิพจน์แบบ A1 เช่น `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) เก็บนิพจน์แบบ R1C1 เช่น `RC[-2]-RC[-1]`. ใช้รูปแบบที่ตรงกับวิธีการสร้างหรือคัดลอกรูปสูตรของคุณ
+[formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/formula/) เก็บนิพจน์แบบ A1 เช่น `B2-C2` ส่วน [r1c1_formula](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) เก็บนิพจน์แบบ R1C1 เช่น `RC[-2]-RC[-1]` ใช้รูปแบบที่ตรงกับวิธีที่คุณสร้างหรือคัดลอกสูตร
 
-**Do I need to read the cell itself or its value after calculation?**
+**ต้องอ่านเซลล์เองหรือค่า (`value`) หลังการคำนวณหรือไม่?**
 
-[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) คืนค่า `IChartDataCell`. เพื่อรับผลลัพธ์ที่คำนวนแล้ว ให้อ่านคุณสมบัติ [value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/value/) ของเซลล์นั้นหลังจากคำนวนใหม่
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) คืนค่า `IChartDataCell` เพื่อให้ได้ผลลัพธ์ที่คำนวณแล้ว อ่านคุณสมบัติ [value](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/ichartdatacell/value/) ของเซลล์นั้นหลังการคำนวณใหม่
 
-**When should I call `calculate_formulas`?**
+**ควรเรียก `calculate_formulas` เมื่อใด?**
 
-เรียก [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) หลังจากเปลี่ยนค่าหรือสูตรอินพุตและก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวนแล้ว นี้จะอัปเดตค่าของสูตรที่ evaluator ในตัวรองรับ
+เรียก [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) หลังจากเปลี่ยนค่าหรือสูตรอินพุตและก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวณ มันจะอัปเดตค่าของสูตรที่ตัวตรวจสอบในตัวสนับสนุน
 
-**Does Aspose.Slides support every Excel function?**
+**Aspose.Slides รองรับฟังก์ชัน Excel ทุกตัวหรือไม่?**
 
-ไม่. evaluator ในตัวรองรับเพียงชุดฟังก์ชันที่ระบุในเอกสาร ฟังก์ชันนอกชุดนี้ไม่ควรถือว่าสามารถคำนวนได้อย่างถูกต้อง หากต้องการความเข้ากันได้เต็มรูปแบบกับสูตร Excel ควรทำการคำนวนด้วยเอนจินสเปรดชีตที่เหมาะสมและเขียนค่าที่ได้ลงใน workbook ของแผนภูมิ
+ไม่ ตัวตรวจสอบในตัวรองรับชุดฟังก์ชันที่บันทึกไว้เท่านั้น ฟังก์ชันที่อยู่นอกชุดนั้นไม่ควรสันนิษฐานว่าจะคำนวณใหม่ได้อย่างถูกต้อง หากต้องการความเข้ากันได้เต็มรูปแบบของสูตร Excel ให้ทำการคำนวณด้วยเอนจินสเปรดชีตที่เหมาะสมแล้วเขียนค่าที่ได้ลงในสมุดงานแผนภูมิ
 
-**What happens if a loaded presentation contains an unsupported formula?**
+**ถ้างานนำเข้าที่โหลดมีสูตรที่ไม่ได้สนับสนุน จะเกิดอะไรขึ้น?**
 
-หากข้อมูลแผนภูมิไม่ถูกเปลี่ยน, workbook อาจยังคงมีค่าที่แคชจากการคำนวนครั้งก่อน หลังจากข้อมูลที่เกี่ยวข้องถูกแก้ไข ค่าที่แคชอาจไม่ถูกต้อง การเข้าถึงเซลล์ที่สูตรไม่สามารถจัดการได้อาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
+หากข้อมูลแผนภูมิไม่เปลี่ยนแปลง สมุดงานอาจยังคงมีค่าที่แคชจากการคำนวณก่อนหน้า หลังจากแก้ไขข้อมูลที่เกี่ยวข้อง ค่าที่แคชนั้นอาจใช้ไม่ได้แล้ว การเข้าถึงเซลล์ที่สูตรไม่สามารถจัดการได้อาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)
 
-**Are formula error values the same as Python exceptions?**
+**ค่าข้อผิดพลาดสูตรเท่ากับข้อยกเว้นของ Python หรือไม่?**
 
-ไม่. ผลลัพธ์เช่น `#DIV/0!` เป็นค่าของสเปรดชีตที่มาจากการคำนวนที่ถูกต้อง Exception เช่น [CellInvalidFormulaException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) หรือ [CellCircularReferenceException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) แสดงว่าสูตรไม่สามารถประมวลผลได้ตามปกติ
+ไม่ ผลลัพธ์เช่น `#DIV/0!` เป็นค่าของสเปรดชีตที่เกิดจากการคำนวณที่ถูกต้อง ข้อยกเว้นเช่น [CellInvalidFormulaException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) หรือ [CellCircularReferenceException](https://reference.aspose.com/slides/th/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) ระบุว่สูตรไม่สามารถประมวลผลตามปกติได้
 
-**Does a chart update automatically when a formula cell changes?**
+**แผนภูมิจะอัปเดตอัตโนมัติเมื่อเซลล์สูตรเปลี่ยนหรือไม่?**
 
-ซีรีส์ของแผนภูมิสามารถอ้างอิงเซลล์ใน workbook ได้ คำนวน workbook ก่อน, แล้วบันทึกหรือเรนเดอร์งานนำเสนอ หากจุดข้อมูลของแผนภูมิอ้างอิงถึงเซลล์ที่คำนวนแล้ว แผนภูมิจะใช้ค่านั้นโดยอัตโนมัติ ไม่ต้องเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหาก
+ชุดข้อมูลของแผนภูมิสามารถอ้างอิงเซลล์ในสมุดงานได้ คำนวณสมุดงานก่อน แล้วบันทึกหรือเรนเดอร์งานนำเสนอ ถ้าจุดข้อมูลของแผนภูมิอ้างอิงเซลล์ที่คำนวณแล้ว แผนภูมิจะใช้ค่าที่อัปเดตเหล่านั้น ไม่ต้องมีเมธอดรีเฟรชแผนภูมิแยกต่างหากในกระบวนการนี้
 
-**Can charts use an external Excel workbook?**
+**แผนภูมิสามารถใช้สมุดงาน Excel ภายนอกได้หรือไม่?**
 
-ใช่, ข้อมูลแผนภูมิสามารถกำหนดให้ใช้ workbook ภายนอกผ่าน API ของ chart data อย่างไรก็ตาม workflow การคำนวนสูตรที่อธิบายในบทความนี้เกี่ยวกับ workbook ของแผนภูมิและชุดสูตรที่ Aspose.Slides ประเมิน ไม่ควรถือว่า [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) ให้การคำนวนเต็มรูปแบบของสูตรใด ๆ ในไฟล์ XLSX ภายนอก
+ได้ ข้อมูลแผนภูมิสามารถตั้งค่าให้ใช้สมุดงานภายนอกผ่าน API ของข้อมูลแผนภูมิ อย่างไรก็ตาม กระบวนการคำนวณสูตรที่อธิบายในบทความนี้เกี่ยวกับสมุดงานข้อมูลแผนภูมิและชุดสูตรที่ Aspose.Slides ตรวจสอบ ไม่ควรสันนิษฐานว่า [calculate_formulas](https://reference.aspose.com/slides/th/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) ให้การคำนวณเต็มรูปแบบของสูตรใด ๆ ในไฟล์ XLSX ภายนอก
 
-**Can I use formulas that reference another worksheet or workbook?**
+**สามารถใช้สูตรที่อ้างอิงแผ่นงานหรือสมุดงานอื่นได้หรือไม่?**
 
-การอ้างอิงแบบ Excel อาจมีใน workbook ของแผนภูมิ, แต่การประเมินสูตรถูกจำกัดโดยพาร์เซอร์และชุดฟังก์ชันที่รองรับ หากต้องอ้างอิงข้ามแผ่นหรือไฟล์ภายนอก ให้ตรวจสอบสูตรนั้นกับเวอร์ชัน Aspose.Slides ที่คุณใช้งาน สำหรับ workflow ที่ต้องการความเข้ากันได้ของการอ้างอิง Excel อย่างกว้างขวาง ควรคำนวน workbook ภายนอกและเขียนค่าที่แก้ไขแล้วกลับไปยังข้อมูลแผนภูมิ
+อ้างอิงสไตล์ Excel อาจมีในสมุดงานแผนภูมิ แต่การประเมินสูตรนั้นจำกัดโดยพาร์เซอร์และชุดฟังก์ชันที่สนับสนุน หากต้องอ้างอิงข้ามแผ่นหรือไฟล์ภายนอก จำเป็นต้องตรวจสอบสูตรนั้นกับเวอร์ชัน Aspose.Slides ที่ใช้ สำหรับกระบวนการที่ต้องการความเข้ากันได้ของการอ้างอิง Excel อย่างกว้าง ควรคำนวณสมุดงานภายนอกแล้วเขียนค่าที่แก้ไขแล้วกลับไปยังข้อมูลแผนภูมิ
 
-**Should formula strings start with `=`?**
+**สูตรควรเริ่มต้นด้วย `=` หรือไม่?**
 
-ตัวอย่าง API ของ Aspose.Slides กำหนดนิพจน์เช่น `B2-C2` หรือ `SUM(B2:B5)` โดยไม่มี `=` นำหน้า การใช้รูปแบบนี้ทำให้สูตรที่สร้างสอดคล้องกับตัวอย่าง API ที่ระบุในเอกสาร
+ตัวอย่าง API ของ Aspose.Slides กำหนดนิพจน์เช่น `B2-C2` หรือ `SUM(B2:B5)` โดยไม่มี `=` นำหน้า การใช้รูปแบบนี้ทำให้สูตรที่สร้างสอดคล้องกับตัวอย่าง API ที่บันทึกไว้

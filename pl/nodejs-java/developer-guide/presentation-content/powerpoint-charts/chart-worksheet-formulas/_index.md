@@ -1,52 +1,55 @@
 ---
-title: Zastosuj formuły arkusza wykresu w prezentacjach przy użyciu JavaScript
+title: Zastosowanie formuł arkusza wykresu w prezentacjach przy użyciu JavaScript
 linktitle: Formuły arkusza
 type: docs
 weight: 70
 url: /pl/nodejs-java/chart-worksheet-formulas/
 keywords:
-- arkusz wykresu
+- arkusz kalkulacyjny wykresu
 - arkusz wykresu
 - formuła wykresu
 - formuła arkusza
 - formuła arkusza kalkulacyjnego
 - skoroszyt danych wykresu
 - obliczanie formuły
+- preferowana kultura
+- formuła zależna od kultury
+- DBCS
 - stała logiczna
-- stała liczbowa
-- stała tekstowa
+- stała numeryczna
+- stała łańcuchowa
 - stała błędu
 - operator arytmetyczny
 - operator porównania
 - styl A1
 - styl R1C1
-- funkcja wstępnie zdefiniowana
+- funkcja wbudowana
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zastosuj formuły w stylu Excel w Aspose.Slides dla Node.js poprzez arkusze wykresów w Javie, przelicz wartości i użyj wyników w wykresach PowerPoint."
+description: "Zastosuj formuły w stylu Excel w arkuszach wykresów Aspose.Slides dla Node.js za pośrednictwem Java, przelicz wartości i użyj wyników w wykresach PowerPoint."
 ---
 ## **Przegląd**
 
-Wykresy PowerPoint zazwyczaj przechowują swoje dane źródłowe w osadzonej arkuszu kalkulacyjnym. W Aspose.Slides dla Node.js poprzez Java możesz uzyskać dostęp do tego arkusza za pośrednictwem skoroszytu danych wykresu, zapisywać wartości wejściowe, przypisywać formuły do komórek, obliczać obsługiwane formuły i używać obliczonych komórek jako danych wykresu.
+PowerPoint charts usually store their source data in an embedded worksheet. In Aspose.Slides for Node.js via Java, you can access that worksheet through the chart data workbook, write input values, assign formulas to cells, calculate supported formulas, and use the calculated cells as chart data.
 
-Ten artykuł opisuje kompletny przepływ pracy z formułami: tworzenie wykresu, wypełnianie jego arkusza, przypisywanie formuł w stylu A1 lub R1C1, przeliczanie ich, odczytywanie obliczonych wartości, łączenie tych komórek z serią wykresu oraz zapisywanie prezentacji. Zawiera również opis obsługiwanej składni formuł, wbudowanego podzbioru funkcji, wartości buforowanych, nieobsługiwanych formuł oraz błędów specyficznych dla arkuszy kalkulacyjnych.
+This article explains the complete formula workflow: create a chart, populate its worksheet, assign A1-style or R1C1-style formulas, recalculate them, read the calculated values, connect those cells to a chart series, and save the presentation. It also describes the supported formula syntax, the built-in function subset, cached values, unsupported formulas, and spreadsheet-specific errors.
 
 ## **Arkusze wykresów i formuły**
 
-Arkusz wykresu zawiera kategorie, nazwy serii i wartości używane w wykresie. W PowerPoint możesz przeglądać arkusz, otwierając edytor danych wykresu:
+Arkusz wykresu zawiera kategorie, nazwy serii i wartości używane przez wykres. W programie PowerPoint możesz przeglądać arkusz, otwierając edytor danych wykresu:
 
 ![Wykres PowerPoint z otwartym osadzonym arkuszem, pokazujący dane kategorii i serii](chart-worksheet-formulas_1.png)
 
-In Aspose.Slides arkusz jest udostępniany przez klasę [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/). Użyj [ChartDataCell.setFormula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) dla formuł w stylu A1 oraz [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) dla formuł w stylu R1C1. Po zmianie komórek wejściowych lub formuł wywołaj [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) , aby przeliczyć obsługiwane formuły i zaktualizować odpowiednie wartości komórek.
+W Aspose.Slides arkusz jest udostępniany za pośrednictwem klasy [ChartDataWorkbook](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/). Użyj [ChartDataCell.setFormula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) dla formuł w stylu A1 oraz [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) dla formuł w stylu R1C1. Po zmianie komórek wejściowych lub formuł, wywołaj [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) aby ponownie obliczyć obsługiwane formuły i zaktualizować odpowiadające wartości komórek.
 
-Obliczona komórka nadal udostępnia swój wynik przez [ChartDataCell.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#getValue--). Jest to ważne, gdy trzeba sprawdzić wynik formuły w kodzie lub użyć komórki jako punktu danych wykresu.
+Obliczona komórka nadal udostępnia swój wynik za pośrednictwem [ChartDataCell.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#getValue--). Jest to istotne, gdy trzeba sprawdzić wynik formuły w kodzie lub użyć komórki jako punktu danych wykresu.
 
 ## **Utworzenie wykresu i obliczenie formuł w arkuszu**
 
-Przykład poniżej demonstruje kompletny przepływ pracy. Tworzy wykres kolumnowy grupowany, czyści przykładowe dane, zapisuje kwartalne przychody i wydatki, oblicza zysk przy użyciu formuł, odczytuje wyniki, wykorzystuje obliczone komórki jako wartości wykresu i zapisuje prezentację.
+Poniższy przykład demonstruje kompletny przepływ pracy. Tworzy wykres kolumnowy grupowany, usuwa przykładowe dane, zapisuje kwartalne przychody i wydatki, oblicza zysk przy użyciu formuł, odczytuje wyniki, używa obliczonych komórek jako wartości wykresu i zapisuje prezentację.
 
 ```javascript
 const aspose = {};
@@ -112,11 +115,11 @@ try {
 }
 ```
 
-Punkty danych wykresu odwołują się do `D2:D4`, więc wykres używa obliczonych wartości zysku. W tym przepływie nie ma osobnego wywołania odświeżenia wykresu: najpierw przelicz skoroszyt, a potem użyj lub zapisz dane wykresu wskazujące na obliczone komórki.
+Punkty danych wykresu odwołują się do `D2:D4`, więc wykres używa obliczonych wartości zysku. W tym przepływie nie ma osobnego wywołania odświeżenia wykresu: najpierw należy ponownie obliczyć skoroszyt, a następnie używać lub zapisać dane wykresu wskazujące na obliczone komórki.
 
 ## **Używanie formuł w stylu A1**
 
-Notacja A1 identyfikuje kolumny literami, a wiersze liczbami. Przypisz wyrażenia w stylu A1 za pomocą [ChartDataCell.setFormula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-).
+Notacja A1 identyfikuje kolumny literami, a wiersze liczbami. Przypisuj wyrażenia w stylu A1 za pomocą [ChartDataCell.setFormula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-).
 
 ```javascript
 const aspose = {};
@@ -148,16 +151,16 @@ Typowe formy odwołań A1 to:
 
 | Odwołanie | Względne | Bezwzględne | Mieszane |
 |---|---|---|---|
-| Komórka | `A2` | `$A$2` | `A$2`, `$A2` |
-| Wiersz | `2:2` | `$2:$2` | — |
-| Kolumna | `A:A` | `$A:$A` | — |
-| Zakres | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Row | `2:2` | `$2:$2` | — |
+| Column | `A:A` | `$A:$A` | — |
+| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Odwołania względne mogą się zmieniać, gdy formuła jest przenoszona lub kopiowana w aplikacji arkusza kalkulacyjnego. Odwołania bezwzględne utrzymują oba współrzędne niezmienione, natomiast odwołania mieszane blokują tylko wiersz lub kolumnę.
+Odwołania względne mogą zmieniać się, gdy formuła jest przenoszona lub kopiowana w aplikacji arkusza kalkulacyjnego. Odwołania bezwzględne utrzymują oba współrzędne stałe, natomiast odwołania mieszane blokują tylko wiersz lub kolumnę.
 
 ## **Używanie formuł w stylu R1C1**
 
-Notacja R1C1 identyfikuje zarówno wiersze, jak i kolumny numerycznie. Odwołania względne używają przesunięć w nawiasach kwadratowych. Przypisz tę składnię za pomocą [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-).
+Notacja R1C1 identyfikuje zarówno wiersze, jak i kolumny liczbami. Odwołania względne używają offsetów w nawiasach kwadratowych. Przypisuj tę składnię za pomocą [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```javascript
 const aspose = {};
@@ -187,25 +190,25 @@ Typowe formy odwołań R1C1 to:
 
 | Odwołanie | Względne | Bezwzględne | Mieszane |
 |---|---|---|---|
-| Komórka | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
-| Wiersz | `R[2]` | `R2` | — |
-| Kolumna | `C[3]` | `C3` | — |
-| Zakres | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Row | `R[2]` | `R2` | — |
+| Column | `C[3]` | `C3` | — |
+| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Na przykład, w komórce `D2`, `RC[-2]` oznacza komórkę w tym samym wierszu, dwie kolumny w lewo (`B2`).
+Na przykład, w komórce `D2` wyrażenie `RC[-2]` oznacza komórkę w tym samym wierszu dwie kolumny w lewo (`B2`).
 
 ## **Stałe i operatory formuł**
 
-Wbudowany evaluator formuł obsługuje wartości logiczne, liczby, łańcuchy znaków, wartości błędów arkusza, operatory arytmetyczne i operatory porównania.
+Wbudowany evaluator formuł obsługuje wartości logiczne, literały liczbowe, ciągi znaków, wartości błędów arkusza, operatory arytmetyczne i operatory porównania.
 
 ### **Stałe i literały**
 
 | Typ | Przykłady | Uwagi |
 |---|---|---|
-| Logiczny | `TRUE`, `FALSE` | Można używać bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
-| Liczbowy | `1`, `0.5`, `.3`, `1E-2` | Obsługiwana jest notacja zwykła i naukowa. |
-| Tekstowy | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są ujęte w podwójnych cudzysłowach wewnątrz formuły. |
-| Wynik błędu | `#DIV/0!`, `#N/A`, `#REF!` | Poprawna formuła może zwrócić wartość błędu arkusza zamiast normalnego wyniku. |
+| Logical | `TRUE`, `FALSE` | Można używać bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
+| Numeric | `1`, `0.5`, `.3`, `1E-2` | Obsługiwane są notacja zwykła i naukowa. |
+| String | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są w formule otoczone podwójnymi cudzysłowami. |
+| Error result | `#DIV/0!`, `#N/A`, `#REF!` | Poprawna formuła może zwrócić wartość błędu arkusza zamiast normalnego wyniku. |
 
 Ten przykład używa kilku typów stałych:
 
@@ -242,18 +245,18 @@ try {
 
 | Operator | Znaczenie | Przykład |
 |---|---|---|
-| `+` | Dodawanie lub znak plus jedynkowy | `2+3` |
+| `+` | Dodawanie lub znak plus jednowartościowy | `2+3` |
 | `-` | Odejmowanie lub negacja | `2-3`, `-3` |
 | `*` | Mnożenie | `2*3` |
 | `/` | Dzielenie | `2/3` |
 | `%` | Procent | `30%` |
 | `^` | Potęgowanie | `2^3` |
 
-Użyj nawiasów, aby wyraźnie określić kolejność obliczeń, np. `(A2+B2)*C2`.
+Używaj nawiasów, aby wyraźnie określić kolejność obliczeń, np. `(A2+B2)*C2`.
 
 ### **Operatory porównania**
 
-Operatory porównania zwracają wartości logiczne.
+Wyrażenia porównania zwracają wartości logiczne.
 
 | Operator | Znaczenie | Przykład |
 |---|---|---|
@@ -264,51 +267,87 @@ Operatory porównania zwracają wartości logiczne.
 | `<` | Mniejsze niż | `A2<3` |
 | `<=` | Mniejsze lub równe | `A2<=3` |
 
-## **Obsługiwane wbudowane funkcje**
+## **Obsługiwane funkcje wbudowane**
 
-Aspose.Slides zawiera wbudowany evaluator formuł dla arkuszy wykresów, ale nie jest pełnym silnikiem kalkulacyjnym Excel. Dokumentowany zestaw funkcji ogranicza się do poniższych funkcji. Nie zakładaj, że dowolna funkcja Excel może być przeliczona przez [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
+Aspose.Slides zawiera wbudowany evaluator formuł dla arkuszy wykresów, ale nie jest pełnym silnikiem kalkulacyjnym Excel. Dokumentowany zestaw funkcji ogranicza się do poniższych funkcji. Nie zakładaj, że dowolna funkcja Excel może być ponownie obliczona przez [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
 
 | Funkcja | Cel lub obsługiwana forma | Przykład |
 |---|---|---|
 | `ABS` | Wartość bezwzględna | `ABS(A2)` |
 | `AVERAGE` | Średnia arytmetyczna | `AVERAGE(B2:B5)` |
 | `CEILING` | Zaokrąglenie liczby w górę do wielokrotności | `CEILING(A2,5)` |
-| `CHOOSE` | Wybór wartości według indeksu | `CHOOSE(A2,"Low","High")` |
+| `CHOOSE` | Wybór wartości na podstawie indeksu | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | Łączenie wartości tekstowych | `CONCAT(A2,B2)` |
 | `CONCATENATE` | Łączenie wartości tekstowych | `CONCATENATE(A2," ",B2)` |
 | `DATE` | Utworzenie wartości daty w systemie dat 1900 | `DATE(2026,8,19)` |
-| `DAYS` | Zwraca liczbę dni pomiędzy datami | `DAYS(B2,A2)` |
-| `FIND` | Znajduje jeden tekst w innym | `FIND("-",A2)` |
-| `FINDB` | Wyszukiwanie tekstu orientowane na bajty | `FINDB("a",A2)` |
+| `DAYS` | Zwraca liczbę dni między datami | `DAYS(B2,A2)` |
+| `FIND` | Znajdź wartość tekstową wewnątrz innej | `FIND("-",A2)` |
+| `FINDB` | Wyszukiwanie tekstu w trybie bajtowym | `FINDB("a",A2)` |
 | `IF` | Wynik warunkowy | `IF(A2>0,A2,0)` |
 | `INDEX` | Forma odwołania | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Forma wektorowa | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | Forma wektorowa | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Wartość maksymalna | `MAX(B2:B5)` |
 | `SUM` | Suma wartości | `SUM(B2:B5)` |
-| `VLOOKUP` | Wyszukiwanie wertykalne | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `VLOOKUP` | Wyszukiwanie pionowe | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Pokazane ograniczenia w tabeli są istotne: `INDEX` jest udokumentowany w formie odwołania, natomiast `LOOKUP` i `MATCH` w ich formach wektorowych. `DATE` używa systemu dat 1900. Funkcje i cechy nie wymienione tutaj powinny być traktowane jako nieobsługiwane przez evaluator formuł Aspose.Slides, chyba że są udokumentowane osobno.
+Ograniczenia przedstawione w tabeli są istotne: `INDEX` jest udokumentowany w formie odwołania, natomiast `LOOKUP` i `MATCH` w formie wektorowej. `DATE` używa systemu dat 1900. Funkcje i cechy nie wymienione tutaj należy traktować jako nieobsługiwane przez evaluator formuł Aspose.Slides, o ile nie są udokumentowane osobno.
 
-## **Przeliczanie i wartości buforowane**
+## **Obliczanie formuł z preferowaną kulturą**
 
-Pliki arkuszy kalkulacyjnych zwykle przechowują zarówno formułę, jak i jej ostatnio obliczoną wartość. Aspose.Slides może więc odczytać wartość buforowaną z [ChartDataCell.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#getValue--) gdy prezentacja jest wczytana i odpowiednie dane wykresu nie zostały zmienione.
+Some chart workbook functions interpret text according to culture-specific rules. This is especially important for functions intended for languages that use double-byte character sets (DBCS). To calculate such formulas correctly, create [LoadOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/loadoptions/), set the preferred culture with [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), assign the spreadsheet options through [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), and then load the presentation.
 
-Po zmianie komórek wejściowych lub formuł nie polegaj na starej wartości buforowanej. Wywołaj [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) przed odczytaniem obliczonych wartości lub zapisem danych wykresu, które od nich zależą.
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Dla formuł spoza obsługiwanego podzbioru Aspose.Slides może nie być w stanie parsować formuły ani ustalić jej zależności. Jeśli skoroszyt został zmodyfikowany, poprzednia wartość buforowana nie może być uznana za wiarygodną. W takiej sytuacji odczyt wartości komórki z nieobsługiwanymi danymi może wywołać [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
 
-Jeśli Twój wykres zależy od funkcji Excel, których Aspose.Slides nie ocenia, oblicz te formuły przy użyciu silnika arkusza kalkulacyjnego, który je obsługuje, i zapisz otrzymane wartości z powrotem do skoroszytu wykresu. Nie zastępuj nieobsługiwanych formuł przypuszczonymi wartościami.
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The preferred culture is part of the presentation loading configuration, so specify it before creating the [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/) instance. Use the culture expected by the workbook formulas; for example, use `ja-JP` for formulas that should follow Japanese DBCS calculation rules.
+
+## **Rekalculacja i wartości buforowane**
+
+Spreadsheet files commonly store both a formula and its last calculated value. Aspose.Slides can therefore read a cached value from [ChartDataCell.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#getValue--) when a presentation is loaded and the relevant chart data has not been changed.
+
+After changing input cells or formulas, do not rely on an old cached result. Call [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) before reading calculated values or saving chart data that depends on them.
+
+For formulas outside the supported subset, Aspose.Slides may be unable to parse the formula or establish its dependencies. If the workbook has been modified, the previous cached value can no longer be considered reliable. In that situation, reading the value of a cell with unsupported data can raise [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+If your chart depends on Excel functions that Aspose.Slides does not evaluate, calculate those formulas with a spreadsheet engine that supports them and write the resulting values back to the chart workbook. Do not replace unsupported formulas with guessed values.
 
 ## **Obsługa błędów formuł**
 
-Są dwa różne rodzaje problemów, które należy rozróżnić.
+There are two different kinds of problems to distinguish.
 
-Formuła może być prawidłowa, ale zwracać wynik błędu arkusza, np. `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` lub `#VALUE!`. W takim przypadku token błędu jest wynikiem komórki i może być zwrócony przez [ChartDataCell.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#getValue--).
+A formula can be valid but produce a spreadsheet error result such as `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, or `#VALUE!`. In this case, the error token is a cell result and can be returned through [ChartDataCell.getValue](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#getValue--).
 
-Formuła może również niepowodzenie na etapie parsowania, odwołania, zależności lub nieobsługiwanych danych. Aspose.Slides dostarcza specyficzne dla arkuszy kalkulacyjnych wyjątki dla tych przypadków: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellcircularreferenceexception/), i [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+A formula can also fail at the parsing, reference, dependency, or supported-data level. Aspose.Slides provides spreadsheet-specific exceptions for these cases: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellcircularreferenceexception/), and [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/cellunsupporteddataexception/).
 
-Gdy formuły pochodzą z szablonów lub danych wejściowych użytkownika, łap błędy wokół przeliczania i dostępu do wartości. Szczegóły błędu identyfikują podstawowy problem arkusza:
+When formulas come from templates or user input, catch errors around recalculation and value access. The error details identify the underlying spreadsheet problem:
 
 ```javascript
 const aspose = {};
@@ -335,52 +374,52 @@ try {
 
 ## **Praktyczne ograniczenia**
 
-Obsługa formuł w arkuszach wykresów przeznaczona jest dla określonego podzbioru obliczeń arkusza, a nie dla pełnej kompatybilności z Excel. Pamiętaj o tych ograniczeniach przy projektowaniu przepływu raportowania:
+The formula support in chart worksheets is intended for a defined subset of spreadsheet calculations, not for full Excel compatibility. Keep these constraints in mind when designing a reporting workflow:
 
-- Używaj wyłącznie udokumentowanych stałych, operatorów, odwołań i funkcji, gdy potrzebujesz, aby Aspose.Slides przeliczało formuły.
-- Przelicz po zmianie komórek, od których zależą wyniki formuł.
-- Traktuj wartości buforowane z wczytanych prezentacji jako migawki, a nie jako zamiennik przeliczania po edycjach.
+- Używaj wyłącznie udokumentowanych stałych, operatorów, odwołań i funkcji, gdy potrzebujesz, aby Aspose.Slides ponownie obliczyło formuły.
+- Ponownie obliczaj po zmianie komórek, od których zależą wyniki formuł.
+- Traktuj wartości buforowane z załadowanych prezentacji jako migawki, a nie jako zamiennik ponownej kalkulacji po edycjach.
 - Testuj formuły z istniejących szablonów przed poleganiem na ich obliczonych wartościach, szczególnie gdy używają funkcji spoza udokumentowanej listy.
-- Dla formuł wymagających pełnego silnika kalkulacji arkusza, oblicz je zewnętrznie, a następnie zaktualizuj skoroszyt wykresu otrzymanymi wartościami.
+- Dla formuł wymagających pełnego silnika kalkulacji arkusza, oblicz je zewnętrznie, a następnie zaktualizuj arkusz wykresu wynikowymi wartościami.
 
 ## **FAQ**
 
 **Jaka jest różnica między [ChartDataCell.setFormula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) a [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-[ChartDataCell.setFormula] przechowuje wyrażenie w stylu A1, np. `B2-C2`. [ChartDataCell.setR1C1Formula] przechowuje wyrażenie w stylu R1C1, np. `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej pasuje do sposobu generowania lub kopiowania formuł.
+[ChartDataCell.setFormula] przechowuje wyrażenie w stylu A1, np. `B2-C2`. [ChartDataCell.setR1C1Formula] przechowuje wyrażenie w stylu R1C1, np. `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej odpowiada sposobowi, w jaki generujesz lub kopiujesz formuły.
 
-**Czy muszę odczytać samą komórkę, czy jej wartość po obliczeniu?**
+**Czy po obliczeniu muszę odczytać samą komórkę, czy jej wartość?**
 
-[ChartDataWorkbook.getCell] zwraca [ChartDataCell]. Aby uzyskać wynik obliczenia, wywołaj metodę [ChartDataCell.getValue] tej komórki po przeliczeniu.
+[ChartDataWorkbook.getCell] zwraca obiekt [ChartDataCell]. Aby uzyskać obliczony wynik, po ponownej kalkulacji wywołaj metodę [ChartDataCell.getValue] tej komórki.
 
 **Kiedy powinienem wywołać [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--)?**
 
-Wywołaj [ChartDataWorkbook.calculateFormulas] po zmianie wartości wejściowych lub formuł i przed użyciem wyników obliczeń. Aktualizuje to wartości formuł obsługiwanych przez wbudowany evaluator.
+Wywołaj [ChartDataWorkbook.calculateFormulas] po zmianie wartości wejściowych lub formuł oraz przed użyciem obliczonych wyników. Aktualizuje to wartości formuł obsługiwanych przez wbudowany evaluator.
 
 **Czy Aspose.Slides obsługuje każdą funkcję Excel?**
 
-Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Nie należy zakładać, że funkcje spoza tego podzbioru będą przeliczane poprawnie. Jeśli wymagana jest pełna kompatybilność z formułami Excel, wykonaj obliczenia przy użyciu odpowiedniego silnika arkusza kalkulacyjnego i zapisz ostateczne wartości w skoroszycie wykresu.
+Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Funkcje spoza tego podzbioru nie powinny być traktowane jako prawidłowo wyliczane. Jeśli wymagana jest pełna kompatybilność z formułami Excel, wykonaj obliczenia przy użyciu odpowiedniego silnika arkusza i zapisz ostateczne wartości do arkusza wykresu.
 
-**Co się stanie, jeśli wczytana prezentacja zawiera nieobsługiwaną formułę?**
+**Co się stanie, jeśli załadowana prezentacja zawiera nieobsługiwaną formułę?**
 
-Jeśli dane wykresu nie uległy zmianie, skoroszyt może nadal zawierać wcześniej obliczoną wartość buforowaną. Po modyfikacji powiązanych danych ta buforowana wartość może stać się nieprawidłowa. Dostęp do komórki, której formuła nie może być obsłużona, może spowodować wyrzucenie [CellUnsupportedDataException].
+Jeśli dane wykresu nie zostały zmienione, skoroszyt może wciąż zawierać wcześniej obliczoną wartość buforowaną. Po modyfikacji powiązanych danych ta buforowana wartość może już nie być prawidłowa. Dostęp do komórki, której formuła nie może być obsłużona, może spowodować podniesienie [CellUnsupportedDataException].
 
-**Czy wartości błędów formuły są takie same jak wyjątki?**
+**Czy wartości błędów formuł są tym samym, co wyjątki?**
 
-Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza wygenerowaną przez prawidłowe obliczenie. Wyjątki takie jak [CellInvalidFormulaException] czy [CellCircularReferenceException] wskazują, że formuła nie może być przetworzona w normalny sposób.
+Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza wygenerowaną przez prawidłową kalkulację. Wyjątki takie jak [CellInvalidFormulaException] czy [CellCircularReferenceException] wskazują, że formuła nie może być przetworzona w normalny sposób.
 
-**Czy wykres aktualizuje się automatycznie, gdy zmieni się komórka z formułą?**
+**Czy wykres aktualizuje się automatycznie po zmianie komórki z formułą?**
 
-Seria wykresu może odwoływać się do komórek skoroszytu. Najpierw przelicz skoroszyt, a potem zapisz lub wyrenderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres użyje zaktualizowanych wartości; nie jest wymagane osobne wywołanie odświeżenia wykresu w tym przepływie.
+Seria wykresu może odwoływać się do komórek skoroszytu. Najpierw ponownie oblicz skoroszyt, a następnie zapisz lub wyrenderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres używa zaktualizowanych wartości; nie jest wymagane osobne wywołanie odświeżenia wykresu w tym przepływie.
 
-**Czy wykresy mogą używać zewnętrznego skoroszytu Excel?**
+**Czy wykresy mogą korzystać z zewnętrznego skoroszytu Excel?**
 
-Tak, dane wykresu można skonfigurować do używania zewnętrznego skoroszytu poprzez API danych wykresu. Jednak opisany w tym artykule proces obliczania formuł dotyczy skoroszytu danych wykresu i podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [ChartDataWorkbook.calculateFormulas] zapewnia pełne przeliczenie dowolnych formuł w zewnętrznym pliku XLSX.
+Tak, dane wykresu można skonfigurować tak, aby używały zewnętrznego skoroszytu poprzez API danych wykresu. Jednak opisany w tym artykule przepływ obliczania formuł dotyczy skoroszytu danych wykresu i podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [ChartDataWorkbook.calculateFormulas] zapewnia pełną rekalkulację dowolnych formuł w zewnętrznym pliku XLSX.
 
 **Czy mogę używać formuł odwołujących się do innego arkusza lub skoroszytu?**
 
-Odwołania w stylu Excel mogą występować w skoroszytach wykresów, ale ocena formuł jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie między arkuszami lub do zewnętrznego skoroszytu jest niezbędne, zweryfikuj tę konkretną formułę w docelowej wersji Aspose.Slides. Dla przepływów wymagających szerokiej kompatybilności odwołań Excel, oblicz skoroszyt zewnętrznie i zapisz rozwiązane wartości z powrotem do danych wykresu.
+Odwołania w stylu Excel mogą występować w skoroszytach wykresów, ale ocena formuł jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie krzyżowe lub zewnętrzne jest niezbędne, zweryfikuj tę konkretną formułę w docelowej wersji Aspose.Slides. W przepływach wymagających szerokiej kompatybilności odwołań Excel, oblicz skoroszyt zewnętrznie i zapisz rozwiązane wartości z powrotem do danych wykresu.
 
-**Czy łańcuchy formuł powinny zaczynać się od `=`?**
+**Czy ciągi formuł powinny zaczynać się od `=`?**
 
-Przykłady API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego `=`. Użycie tej formy utrzymuje generowane formuły spójne z udokumentowanymi przykładami API.
+Przykłady w API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego znaku `=`. Używanie tej formy utrzymuje generowane formuły zgodne z udokumentowanymi przykładami API.

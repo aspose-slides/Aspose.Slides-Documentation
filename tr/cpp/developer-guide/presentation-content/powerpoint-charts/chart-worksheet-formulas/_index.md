@@ -1,26 +1,29 @@
 ---
-title: C++ Kullanarak Sunumlarda Grafik Çalışma Sayfası Formüllerini Uygulama
+title: C++ kullanarak Sunumlarda Grafik Çalışma Sayfası Formüllerini Uygulama
 linktitle: Çalışma Sayfası Formülleri
 type: docs
 weight: 70
 url: /tr/cpp/chart-worksheet-formulas/
 keywords:
-- grafik elektronik tablo
+- grafik elektronik tablosu
 - grafik çalışma sayfası
 - grafik formülü
 - çalışma sayfası formülü
 - elektronik tablo formülü
 - grafik veri çalışma kitabı
 - formül hesaplaması
+- tercih edilen kültür
+- kültüre özgü formül
+- DBCS
 - mantıksal sabit
 - sayısal sabit
-- dize sabiti
+- metin sabiti
 - hata sabiti
 - aritmetik operatör
 - karşılaştırma operatörü
 - A1 stili
 - R1C1 stili
-- önceden tanımlı fonksiyon
+- önceden tanımlı işlev
 - PowerPoint
 - sunum
 - C++
@@ -29,23 +32,23 @@ description: "Aspose.Slides for C++ grafik çalışma sayfalarında Excel tarzı
 ---
 ## **Genel Bakış**
 
-PowerPoint grafiklerinin kaynak verileri genellikle gömülü bir çalışma sayfasında saklanır. Aspose.Slides for C++ içinde bu çalışma sayfasına grafik veri çalışma kitabı aracılığıyla erişebilir, giriş değerlerini yazabilir, hücrelere formüller atayabilir, desteklenen formülleri hesaplayabilir ve hesaplanan hücreleri grafik verisi olarak kullanabilirsiniz.
+PowerPoint grafikler genellikle kaynak verilerini gömülü bir çalışma sayfasında saklar. Aspose.Slides for C++'ta bu çalışma sayfasına grafik veri çalışma kitabı aracılığıyla erişebilir, giriş değerleri yazabilir, hücrelere formüller atayabilir, desteklenen formülleri hesaplayabilir ve hesaplanmış hücreleri grafik verisi olarak kullanabilirsiniz.
 
-Bu makale, tam formül iş akışını açıklar: bir grafik oluşturma, çalışma sayfasını doldurma, A1 stilinde veya R1C1 stilinde formüller atama, bunları yeniden hesaplama, hesaplanan değerleri okuma, bu hücreleri bir grafik serisine bağlama ve sunumu kaydetme. Ayrıca desteklenen formül sözdizimi, yerleşik işlev alt kümesi, önbelleklenmiş değerler, desteklenmeyen formüller ve elektronik tabloya özgü hatalar da açıklanır.
+Bu makale tam formül iş akışını açıklar: bir grafik oluşturma, çalışma sayfasını doldurma, A1‑stili veya R1C1‑stili formüller atama, bunları yeniden hesaplama, hesaplanmış değerleri okuma, bu hücreleri bir grafik serisine bağlama ve sunumu kaydetme. Ayrıca desteklenen formül sözdizimini, yerleşik işlev alt kümesini, önbelleğe alınmış değerleri, desteklenmeyen formülleri ve elektronik tabloya özgü hataları tanımlar.
 
 ## **Grafik Çalışma Sayfaları ve Formüller**
 
-Bir grafik çalışma sayfası, bir grafik tarafından kullanılan kategorileri, seri adlarını ve değerleri içerir. PowerPoint’te grafik veri düzenleyiciyi açarak çalışma sayfasını inceleyebilirsiniz:
+Bir grafik çalışma sayfası, bir grafik tarafından kullanılan kategorileri, seri adlarını ve değerleri içerir. PowerPoint'te grafik veri düzenleyicisini açarak çalışma sayfasını inceleyebilirsiniz:
 
-![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
+![PowerPoint grafiği gömülü çalışma sayfası açık, kategori ve seri verilerini gösteriyor](chart-worksheet-formulas_1.png)
 
-Aspose.Slides’te çalışma sayfası, [IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/) arayüzü aracılığıyla sunulur. A1‑stili formüller için [IChartDataCell::set_Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_formula/), R1C1‑stili formüller için [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) kullanın. Giriş hücrelerini veya formülleri değiştirdikten sonra, desteklenen formülleri yeniden hesaplamak ve ilgili hücre değerlerini güncellemek için [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) metodunu çağırın.
+Aspose.Slides'te çalışma sayfası, [IChartDataWorkbook](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/) arabirimi üzerinden sunulur. A1‑stili formüller için [IChartDataCell::set_Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) ve R1C1‑stili formüller için [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) kullanın. Giriş hücrelerini veya formülleri değiştirdikten sonra, desteklenen formülleri yeniden hesaplamak ve ilgili hücre değerlerini güncellemek için [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) çağırın.
 
-Hesaplanan bir hücre, sonuç değerini hâlâ [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) üzerinden açığa çıkarır. Bu, kod içinde bir formül sonucunu incelemeniz veya hücreyi bir grafik veri noktası olarak kullanmanız gerektiğinde önemlidir.
+Hesaplanmış bir hücre, sonucunu hâlâ [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) aracılığıyla sunar. Bu, kod içinde bir formül sonucunu incelemeniz veya hücreyi bir grafik veri noktası olarak kullanmanız gerektiğinde önemlidir.
 
-## **Grafik Oluşturma ve Çalışma Sayfası Formüllerini Hesaplama**
+## **Bir Grafik Oluşturma ve Çalışma Sayfası Formüllerini Hesaplama**
 
-Aşağıdaki örnek, uçtan uca bir iş akışını gösterir. Küme sütun grafiği oluşturur, örnek verileri temizler, çeyrek dönem gelir ve gider değerlerini yazar, formüllerle karı hesaplar, sonuçları okur, hesaplanan hücreleri grafik değerleri olarak kullanır ve sunumu kaydeder.
+Aşağıdaki örnek uçtan uca bir iş akışını gösterir. Bir kümelenmiş sütun grafiği oluşturur, örnek verileri temizler, çeyrek bazında gelir ve gider değerleri yazar, formüllerle karı hesaplar, sonuçları okur, hesaplanmış hücreleri grafik değerleri olarak kullanır ve sunumu kaydeder.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -125,11 +128,11 @@ profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
 ```
 
-Grafik veri noktaları `D2:D4` aralığını referans alır; dolayısıyla grafik, hesaplanan kar değerlerini kullanır. Bu iş akışında ayrı bir grafik‑yenileme çağrısı yoktur: önce çalışma kitabını yeniden hesaplayın, ardından hesaplanan hücreleri referans alan grafiği kullanın veya kaydedin.
+Grafik veri noktaları `D2:D4` aralığını referans alır, dolayısıyla grafik hesaplanmış kar değerlerini kullanır. Bu iş akışında ayrı bir grafik‑yenileme çağrısı yoktur: önce çalışma kitabını yeniden hesaplayın, ardından hesaplanmış hücrelere işaret eden grafik verisini kullanın veya kaydedin.
 
-## **A1 Stilindeki Formülleri Kullanma**
+## **A1‑Stili Formüller Kullanma**
 
-A1 gösterimi, sütunları harflerle, satırları ise sayılarla tanımlar. A1‑stili ifadeleri [IChartDataCell::set_Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) aracılığıyla atayın.
+A1 gösterimi sütunları harf, satırları sayı ile tanımlar. A1‑stili ifadeleri [IChartDataCell::set_Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) aracılığıyla atayın.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -165,20 +168,20 @@ workbook->CalculateFormulas();
 auto value = cell->get_Value(); // 19
 ```
 
-Yaygın A1 referans biçimleri şunlardır:
+Yaygın A1 referans biçimleri:
 
-| Referans | Göreli | Mutlak | Karışık |
+| Referans | Göreceli | Mutlak | Karışık |
 |---|---|---|---|
 | Hücre | `A2` | `$A$2` | `A$2`, `$A2` |
 | Satır | `2:2` | `$2:$2` | — |
 | Sütun | `A:A` | `$A:$A` | — |
 | Aralık | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Göreli referanslar, bir formül bir elektronik tablo uygulaması tarafından taşındığında veya kopyalandığında değişebilir. Mutlak referanslar her iki koordinatı da sabit tutar, karışık referanslar ise yalnızca bir satırı ya da bir sütunu sabitler.
+Göreceli referanslar, bir formül bir elektronik tablo uygulaması tarafından taşındığında veya kopyalandığında değişebilir. Mutlak referanslar her iki koordinatı da sabit tutar, karışık referanslar ise yalnızca satırı ya da sütunu sabitler.
 
-## **R1C1 Stilindeki Formülleri Kullanma**
+## **R1C1‑Stili Formüller Kullanma**
 
-R1C1 gösterimi, satır ve sütunları sayısal olarak tanımlar. Göreli referanslar köşeli parantez içinde ofsetler kullanır. Bu sözdizimini [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) aracılığıyla atayın.
+R1C1 gösterimi hem satırları hem sütunları sayısal olarak tanımlar. Göreceli referanslar köşeli parantez içinde offset kullanır. Bu sözdizimini [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) aracılığıyla atayın.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -212,31 +215,31 @@ workbook->CalculateFormulas();
 auto value = cell->get_Value(); // 7
 ```
 
-Yaygın R1C1 referans biçimleri şunlardır:
+Yaygın R1C1 referans biçimleri:
 
-| Referans | Göreli | Mutlak | Karışık |
+| Referans | Göreceli | Mutlak | Karışık |
 |---|---|---|---|
 | Hücre | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | Satır | `R[2]` | `R2` | — |
 | Sütun | `C[3]` | `C3` | — |
 | Aralık | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Örneğin, `D2` hücresinde `RC[-2]` ifadesi aynı satırda iki sütun sola olan hücreyi (`B2`) gösterir.
+Örneğin, `D2` hücresinde `RC[-2]` aynı satırda iki sütun sola (`B2`) olan hücreyi ifade eder.
 
-## **Formül Sabitleri ve Operatörler**
+## **Formül Sabitleri ve Operatörleri**
 
-Yerleşik formül değerlendiricisi mantıksal değerleri, sayısal sabitleri, dizeleri, elektronik tablo hata değerlerini, aritmetik operatörleri ve karşılaştırma operatörlerini destekler.
+Yerleşik formül değerlendiricisi mantıksal değerleri, sayısal sabitleri, metinleri, elektronik tablo hata değerlerini, aritmetik operatörleri ve karşılaştırma operatörlerini destekler.
 
-### **Sabitler ve Literaller**
+### **Sabitler ve Sabit Değerler**
 
 | Tür | Örnekler | Notlar |
 |---|---|---|
 | Mantıksal | `TRUE`, `FALSE` | `A2=TRUE` gibi mantıksal ifadelerde doğrudan kullanılabilir. |
-| Sayısal | `1`, `0.5`, `.3`, `1E-2` | Yaygın ve bilimsel gösterimler desteklenir. |
-| Dize | `"abc"`, `"2/3/2020 12:00"` | Metin sabitleri formül içinde çift tırnak içinde yazılır. |
-| Hata sonucu | `#DIV/0!`, `#N/A`, `#REF!` | Geçerli bir formül, normal bir sonuç yerine bir elektronik tablo hata değeri üretebilir. |
+| Sayısal | `1`, `0.5`, `.3`, `1E-2` | Kesirli ve bilimsel gösterimler desteklenir. |
+| Metin | `"abc"`, `"2/3/2020 12:00"` | Metin sabitleri formül içinde çift tırnak içinde yer alır. |
+| Hata sonucu | `#DIV/0!`, `#N/A`, `#REF!` | Geçerli bir formül, normal bir sonuç yerine bir elektronik tablo hata değeri döndürebilir. |
 
-Bu örnek, çeşitli sabit türlerini gösterir:
+Bu örnek birkaç sabit türünü gösterir:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -276,7 +279,7 @@ auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 
 ### **Aritmetik Operatörler**
 
-| Operatör | Anlam | Örnek |
+| Operatör | Anlamı | Örnek |
 |---|---|---|
 | `+` | Toplama veya tek artı | `2+3` |
 | `-` | Çıkarma veya eksi | `2-3`, `-3` |
@@ -285,13 +288,13 @@ auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 | `%` | Yüzde | `30%` |
 | `^` | Üs alma | `2^3` |
 
-Değerlendirme sırasını açıkça belirlemek için parantez kullanın; örneğin `(A2+B2)*C2`.
+Değerlendirme sırasını açıkça belirtmek için parantez kullanın; örneğin `(A2+B2)*C2`.
 
 ### **Karşılaştırma Operatörleri**
 
-Karşılaştırma ifadeleri mantıksal değerler döndürür.
+Karşılaştırma ifadeleri mantıksal değer döndürür.
 
-| Operatör | Anlam | Örnek |
+| Operatör | Anlamı | Örnek |
 |---|---|---|
 | `=` | Eşittir | `A2=3` |
 | `<>` | Eşit değildir | `A2<>3` |
@@ -300,49 +303,102 @@ Karşılaştırma ifadeleri mantıksal değerler döndürür.
 | `<` | Küçüktür | `A2<3` |
 | `<=` | Küçük veya eşittir | `A2<=3` |
 
-## **Desteklenen Önceden Tanımlı Fonksiyonlar**
+## **Desteklenen Önceden Tanımlı İşlevler**
 
-Aspose.Slides, grafik çalışma sayfaları için yerleşik bir formül değerlendiricisi sunar, ancak tam bir Excel hesaplama motoru değildir. Belgelenen işlev kümesi aşağıdaki fonksiyonlarla sınırlıdır. [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) metodunun rastgele bir Excel fonksiyonunu yeniden hesaplayacağını varsaymayın.
+Aspose.Slides, grafik çalışma sayfaları için yerleşik bir formül değerlendiricisi sunar, ancak bu tam bir Excel hesaplama motoru değildir. Belgelendirilmiş işlev kümesi aşağıdaki ile sınırlıdır. [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aracılığıyla rastgele bir Excel işlevinin yeniden hesaplanabileceğini varsaymayın.
 
-| Fonksiyon | Amaç veya desteklenen form | Örnek |
+| İşlev | Amaç veya desteklenen biçim | Örnek |
 |---|---|---|
 | `ABS` | Mutlak değer | `ABS(A2)` |
 | `AVERAGE` | Aritmetik ortalama | `AVERAGE(B2:B5)` |
-| `CEILING` | Bir sayıyı yukarı doğru bir katına yuvarlar | `CEILING(A2,5)` |
-| `CHOOSE` | İndekse göre bir değer seçer | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | Metin değerlerini birleştirir | `CONCAT(A2,B2)` |
-| `CONCATENATE` | Metin değerlerini birleştirir | `CONCATENATE(A2," ",B2)` |
-| `DATE` | 1900 tarih sistemini kullanarak tarih değeri oluşturur | `DATE(2026,8,19)` |
-| `DAYS` | Tarihler arasındaki gün sayısını döndürür | `DAYS(B2,A2)` |
-| `FIND` | Bir metin değerini başka bir metin içinde bulur | `FIND("-",A2)` |
-| `FINDB` | Bayt‑temelli metin araması | `FINDB("a",A2)` |
+| `CEILING` | Sayıyı yukarı doğru bir katına yuvarla | `CEILING(A2,5)` |
+| `CHOOSE` | İndeksle değer seç | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Metin değerlerini birleştir | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Metin değerlerini birleştir | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 tarih sistemini kullanarak tarih değeri oluştur | `DATE(2026,8,19)` |
+| `DAYS` | İki tarih arasındaki gün sayısını döndür | `DAYS(B2,A2)` |
+| `FIND` | Bir metin içinde başka bir metin bul | `FIND("-",A2)` |
+| `FINDB` | Bayt‑bazlı metin arama | `FINDB("a",A2)` |
 | `IF` | Koşullu sonuç | `IF(A2>0,A2,0)` |
-| `INDEX` | Referans formu | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | Vektör formu | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | Vektör formu | `MATCH(A2,B2:B5,0)` |
-| `MAX` | Azami değer | `MAX(B2:B5)` |
-| `SUM` | Değerleri toplar | `SUM(B2:B5)` |
+| `INDEX` | Referans biçimi | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektör biçimi | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektör biçimi | `MATCH(A2,B2:B5,0)` |
+| `MAX` | En büyük değer | `MAX(B2:B5)` |
+| `SUM` | Toplam | `SUM(B2:B5)` |
 | `VLOOKUP` | Dikey arama | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Tabloda gösterilen kısıtlamalar önemlidir: `INDEX` referans formunda belgelenirken, `LOOKUP` ve `MATCH` vektör formlarında belgelenir. `DATE` 1900 tarih sistemini kullanır. Burada listelenmeyen özellik ve fonksiyonlar, Aspose.Slides formül değerlendiricisi tarafından desteklenmiyor olarak kabul edilmelidir.
+Tabloda gösterilen kısıtlamalar önemlidir: `INDEX` referans biçiminde, `LOOKUP` ve `MATCH` ise vektör biçimindedir. `DATE` 1900 tarih sistemini kullanır. Burada listelenmeyen özellik ve işlevler, ayrı olarak belgelenmedikçe Aspose.Slides formül değerlendiricisi tarafından desteklenmez.
 
-## **Yeniden Hesaplama ve Önbelleklenmiş Değerler**
+## **Tercih Edilen Kültürle Formülleri Hesaplama**
 
-Elektronik tablo dosyaları genellikle bir formül ve onun son hesaplanmış değerini birlikte saklar. Aspose.Slides, bir sunum yüklendiğinde ve ilgili grafik verileri değiştirilmediğinde, [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) üzerinden önbelleklenmiş bir değeri okuyabilir.
+Bazı grafik çalışma kitabı işlevleri, metni kültüre özgü kurallara göre yorumlar. Bu, çift bayt karakter seti (DBCS) kullanan diller için özellikle önemlidir. Bu tür formülleri doğru hesaplamak için [LoadOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/) oluşturun, [LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) üzerinden [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) yapılandırın ve ardından sunumu yükleyin.
 
-Giriş hücrelerini veya formülleri değiştirdikten sonra, eski önbelleklenmiş sonuca güvenmeyin. Hesaplanmış değerleri okumadan veya onlara dayalı grafik verisini kaydetmeden önce [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) metodunu çağırın.
+Aşağıdaki örnek Japon kültürünü seçer, yapılandırılmış yükleme seçenekleriyle bir sunumu açar ve her grafik çalışma kitabı için [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) çağırır:
 
-Desteklenen alt kümenin dışındaki formüller için, Aspose.Slides formülü ayrıştıramayabilir veya bağımlılıklarını belirleyemeyebilir. Çalışma kitabı değiştirilmişse, önceki önbellek değeri artık güvenilir olmayabilir. Bu durumda, desteklenmeyen veri içeren bir hücrenin değerini okumak [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) hatasına yol açabilir.
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
 
-Grafiğiniz Aspose.Slides’ın değerlendirmediği Excel fonksiyonlarına bağlıysa, bu formülleri destekleyen bir elektronik tablo motoruyla hesaplayıp sonuçları grafik çalışma kitabına yazın. Desteklenmeyen formülleri tahmini değerlerle değiştirmeyin.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
+
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
+
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
+
+Tercih edilen kültür, sunum yükleme yapılandırmasının bir parçasıdır; bu yüzden [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) örneğini oluşturmadan önce belirtin. İşlevlerin beklediği kültürü kullanın; örneğin Japon DBCS hesaplama kurallarını izleyen formüller için `ja-JP` kullanın.
+
+## **Yeniden Hesaplama ve Önbelleğe Alınmış Değerler**
+
+Elektronik tablo dosyaları genellikle bir formül ve onun son hesaplanmış değerini birlikte depolar. Aspose.Slides, bir sunum yüklendiğinde ve ilgili grafik verileri değişmemişse, [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) üzerinden önbelleğe alınmış bir değeri okuyabilir.
+
+Giriş hücrelerini veya formülleri değiştirdikten sonra eski önbellek sonucuna güvenmeyin. Hesaplanmış değerleri okumadan veya onlara bağımlı grafik verisini kaydetmeden önce [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) çağırın.
+
+Desteklenen alt kümenin dışındaki formüller için Aspose.Slides formülü ayrıştırmakta veya bağımlılıklarını belirlemekte zorlanabilir. Çalışma kitabı değiştirilmişse, önceki önbellek değeri artık güvenilir kabul edilemez. Bu durumda, desteklenmeyen veri içeren bir hücrenin değerini okumak [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) hatasına neden olabilir.
+
+Grafiğiniz Aspose.Slides tarafından değerlendirilmemiş Excel işlevlerine dayanıyorsa, bu formülleri destekleyen bir elektronik tablo motoru ile hesaplayıp sonuçları grafik çalışma kitabına geri yazın. Desteklenmeyen formülleri tahmini değerlerle değiştirmeyin.
 
 ## **Formül Hatalarını İşleme**
 
-Ayırt edilmesi gereken iki farklı sorun türü vardır.
+İki farklı sorun türü vardır.
 
-Bir formül geçerli olabilir ancak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` veya `#VALUE!` gibi bir elektronik tablo hata sonucu üretebilir. Bu durumda hata belirteci bir hücre sonucudur ve [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) üzerinden döndürülebilir.
+Bir formül geçerli olabilir ancak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` veya `#VALUE!` gibi bir elektronik tablo hata sonucu üretebilir. Bu durumda hata simgesi bir hücre sonucu olarak kabul edilir ve [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) üzerinden döndürülebilir.
 
-Bir formül ayrıca ayrıştırma, referans, bağımlılık veya desteklenen veri seviyesinde başarısız olabilir. Aspose.Slides bu durumlar için elektronik tabloya özgü istisnalar sunar: [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), ve [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+Bir formül aynı zamanda ayrıştırma, referans, bağımlılık veya desteklenen veri düzeyinde başarısız olabilir. Aspose.Slides bu durumlar için elektronik tablo‑özel istisnalar sağlar: [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) ve [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
 Formüller şablonlardan veya kullanıcı girişinden geldiğinde, yeniden hesaplama ve değer erişimi etrafında bu istisnaları yakalayın:
 
@@ -380,70 +436,70 @@ try
 }
 catch (CellInvalidFormulaException&)
 {
-    // Geçersiz bir formülü ele al.
+    // Geçersiz bir formülü işleyin.
 }
 catch (CellInvalidReferenceException&)
 {
-    // Geçersiz bir hücre referansını ele al.
+    // Geçersiz bir hücre referansını işleyin.
 }
 catch (CellCircularReferenceException&)
 {
-    // Döngüsel bir referansı ele al.
+    // Dairesel referansı işleyin.
 }
 catch (CellUnsupportedDataException&)
 {
-    // Desteklenmeyen elektronik tablo verisini ele al.
+    // Desteklenmeyen elektronik tablo verisini işleyin.
 }
 ```
 
 ## **Pratik Sınırlamalar**
 
-Grafik çalışma sayfalarındaki formül desteği, tam bir Excel uyumluluğu yerine tanımlanmış bir elektronik tablo hesaplama alt kümesi için tasarlanmıştır. Raporlama iş akışı tasarlarken şu kısıtlamaları aklınızda tutun:
+Grafik çalışma sayfalarındaki formül desteği, tam Excel uyumluluğu yerine tanımlı bir elektronik tablo hesaplama alt kümesi için tasarlanmıştır. Raporlama iş akışınızı tasarlarken şu kısıtlamaları göz önünde bulundurun:
 
-- Aspose.Slides’ın formülleri yeniden hesaplamasını istediğinizde sadece belgelenen sabitleri, operatörleri, referansları ve fonksiyonları kullanın.
+- Aspose.Slides'ın formülleri yeniden hesaplamasını istediğinizde yalnızca belgelenmiş sabitleri, operatörleri, referansları ve işlevleri kullanın.
 - Formül sonuçlarının bağımlı olduğu hücreleri değiştirdikten sonra yeniden hesaplayın.
-- Yüklenmiş sunumlardan gelen önbelleklenmiş değerleri anlık fotoğraf olarak değerlendirin; düzenlemeler sonrası yeniden hesaplamanın yerini tutmaz.
-- Özellikle belgelenen listenin dışındaki fonksiyonları kullanan mevcut şablonlardaki formülleri, hesaplanmış değerlerine güvenmeden önce test edin.
-- Tam bir elektronik tablo hesaplama motoru gerektiren formüller için, bu formülleri harici olarak hesaplayın ve ardından elde edilen değerleri grafik çalışma kitabına geri yazın.
+- Yüklenen sunumlardan gelen önbelleğe alınmış değerleri anlık görüntü olarak değerlendirin; düzenlemelerden sonra yeniden hesaplamayı ihmal etmeyin.
+- Mevcut şablonlardaki formülleri, belgelenmiş listedeki işlevler dışındakileri kullanmadan önce test edin.
+- Tam bir elektronik tablo hesaplama motoru gerektiren formüller için dışarıda hesaplayıp ardından grafik çalışma kitabını güncelleyin.
 
 ## **SSS**
 
-**`set_Formula` ve `set_R1C1Formula` arasındaki fark nedir?**
+**`set_Formula` ile `set_R1C1Formula` arasındaki fark nedir?**
 
-[IChartDataCell::set_Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) `B2-C2` gibi A1‑stili bir ifadeyi saklar. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) `RC[-2]-RC[-1]` gibi R1C1‑stili bir ifadeyi saklar. Formülleri oluşturma veya kopyalama yönteminizle en iyi uyuşan gösterimi kullanın.
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_formula/) `B2-C2` gibi bir A1‑stili ifadeyi saklar. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) ise `RC[-2]-RC[-1]` gibi bir R1C1‑stili ifadeyi saklar. Formülleri nasıl ürettiğinize veya kopyaladığınıza bağlı olarak uygun gösterimi kullanın.
 
 **Hesaplamadan sonra hücreyi mi yoksa değerini mi okumam gerekir?**
 
-[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) bir `IChartDataCell` döndürür. Hesaplanmış sonucu elde etmek için, yeniden hesaplamadan sonra o hücrenin [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) değerini okuyun.
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) bir `IChartDataCell` döndürür. Hesaplamadan sonra, o hücrenin [IChartDataCell::get_Value](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdatacell/get_value/) değerini okuyarak hesaplanmış sonucu elde edebilirsiniz.
 
-**`CalculateFormulas` metodunu ne zaman çağırmalıyım?**
+**`CalculateFormulas` ne zaman çağrılmalı?**
 
-Giriş değerlerini veya formülleri değiştirdikten sonra ve hesaplanan sonuçlara bağımlı olmadan önce [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) metodunu çağırın. Bu, yerleşik değerlendiricinin desteklediği formüllerin değerlerini günceller.
+Giriş değerlerini veya formülleri değiştirdikten sonra ve hesaplanmış sonuçlara bağımlı olmadan önce [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) çağırın. Bu, yerleşik değerlendiricinin desteklediği formüllerin değerlerini günceller.
 
-**Aspose.Slides her Excel fonksiyonunu destekliyor mu?**
+**Aspose.Slides her Excel işlevini destekliyor mu?**
 
-Hayır. Yerleşik değerlendirici, belgelenen bir fonksiyon alt kümesini destekler. Bu alt kümenin dışındaki fonksiyonların doğru şekilde yeniden hesaplanacağını varsaymayın. Tam Excel formül uyumluluğu gerekiyorsa, hesabı uygun bir elektronik tablo motoru ile yapın ve son değerleri grafik çalışma kitabına yazın.
+Hayır. Yerleşik değerlendirici belgelenmiş bir işlev alt kümesini destekler. Bu alt kümenin dışındaki işlevlerin doğru şekilde yeniden hesaplanacağını varsaymayın. Tam Excel formül uyumluluğu gerekiyorsa, hesaplamayı uygun bir elektronik tablo motoruyla yapıp sonuçları grafik çalışma kitabına yazın.
 
 **Yüklenmiş bir sunumda desteklenmeyen bir formül varsa ne olur?**
 
-Grafik verileri değiştirilmemişse, çalışma kitabı hâlâ daha önce hesaplanmış bir önbellek değeri içerebilir. İlgili veri değiştirildiğinde bu önbellek değeri geçersiz olabilir. Formülü işlenemeyen bir hücrenin değerine erişmek, [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) hatasına yol açabilir.
+Grafik verileri değişmemişse, çalışma kitabı hâlâ daha önce hesaplanmış bir önbellek değerine sahip olabilir. İlgili veri değiştirildiğinde bu önbellek değeri geçersiz kalabilir. Formülü işleyemeyen bir hücreye erişim, [CellUnsupportedDataException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) hatasına yol açabilir.
 
-**Formül hata değerleri C++ istisnaları ile aynı mı?**
+**Formül hata değerleri C++ istisnalarıyla aynı şey mi?**
 
-Hayır. `#DIV/0!` gibi bir sonuç, geçerli bir hesabın ürettiği bir elektronik tablo değeridir. [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) veya [CellCircularReferenceException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) gibi istisnalar, formülün normal bir şekilde işlenemediğini gösterir.
+Hayır. `#DIV/0!` gibi bir sonuç, geçerli bir hesaplamanın ürettiği bir elektronik tablo değeridir. [CellInvalidFormulaException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) veya [CellCircularReferenceException](https://reference.aspose.com/slides/tr/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) gibi istisnalar ise formülün normal olarak işlenemediğini gösterir.
 
 **Bir formül hücresi değiştiğinde grafik otomatik olarak güncellenir mi?**
 
-Bir grafik serisi çalışma kitabı hücrelerini referans alabilir. Önce çalışma kitabını yeniden hesaplayın, ardından sunumu kaydedin veya render edin. Grafik veri noktaları hesaplanan hücreleri referans alıyorsa, grafik bu güncellenmiş hücre değerlerini kullanır; bu iş akışı için ayrı bir grafik‑yenileme yöntemi gerekmeyebilir.
+Bir grafik serisi çalışma kitabı hücrelerine referans verebilir. Önce çalışma kitabını yeniden hesaplayın, ardından sunumu kaydedin veya render edin. Grafik veri noktaları hesaplanmış hücrelere işaret ediyorsa, grafik bu güncel hücre değerlerini kullanır; bu iş akışı için ayrı bir grafik‑yenileme yöntemi gerekmez.
 
 **Grafikler harici bir Excel çalışma kitabı kullanabilir mi?**
 
-Evet, grafik verileri API aracılığıyla harici bir çalışma kitabı kullanılacak şekilde yapılandırılabilir. Ancak bu makalede açıklanan formül hesaplama iş akışı, grafik veri çalışma kitabı ve Aspose.Slides tarafından değerlendirilen formül alt kümesi ile ilgilidir. [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) metodunun harici bir XLSX dosyasındaki rastgele formüllerin tam bir yeniden hesaplamasını sağlayacağını varsaymayın.
+Evet, grafik verileri harici bir çalışma kitabı kullanacak şekilde yapılandırılabilir. Ancak bu makalede anlatılan formül hesaplama iş akışı, yalnızca grafik veri çalışma kitabı ve Aspose.Slides tarafından değerlendirilen formül alt kümesiyle ilgilidir. [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/tr/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) metodunun harici bir XLSX dosyasındaki rastgele formülleri tam olarak yeniden hesaplayacağını varsaymayın.
 
 **Başka bir çalışma sayfasına veya çalışma kitabına referans veren formüller kullanabilir miyim?**
 
-Excel‑stili referanslar grafik çalışma kitaplarında bulunabilir, ancak formül değerlendirme desteklenen ayrıştırıcı ve fonksiyon seti ile sınırlıdır. Çapraz‑sayfa veya harici bir referans kritikse, tam olarak kullandığınız Aspose.Slides sürümüyle formülü doğrulayın. Geniş Excel referans uyumluluğu gerektiren iş akışları için, çalışma kitabını harici olarak hesaplayıp çözülen değerleri grafik verisine geri yazın.
+Excel‑stili referanslar grafik çalışma kitaplarında bulunabilir, ancak formül değerlendirmesi desteklenen ayrıştırıcı ve işlev seti ile sınırlıdır. Çapraz‑sayfa veya harici referans zorunluysa, hedef Aspose.Slides sürümünüzde tam olarak doğrulayın. Geniş Excel referans uyumluluğu gerektiren iş akışları için, çalışma kitabını dışarıda hesaplayıp çözülen değerleri grafik verisine geri yazın.
 
-**Formül dizgileri `=` ile başlamalı mı?**
+**Formül dizeleri `=` ile mi başlamalı?**
 
-Aspose.Slides API örnekleri, `B2-C2` veya `SUM(B2:B5)` gibi başında `=` olmayan ifadeler atar. Bu biçimi kullanmak, oluşturulan formüllerin belgelenen API örnekleriyle uyumlu olmasını sağlar.
+Aspose.Slides API örnekleri, `B2-C2` veya `SUM(B2:B5)` gibi başında `=` olmayan ifadeler atar. Bu biçimi kullanmak, oluşturulan formüllerin API örnekleriyle tutarlı olmasını sağlar.

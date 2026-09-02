@@ -1,6 +1,6 @@
 ---
 title: C++ を使用したプレゼンテーションでチャート ワークシートの数式を適用する
-linktitle: ワークシートの数式
+linktitle: ワークシート数式
 type: docs
 weight: 70
 url: /ja/cpp/chart-worksheet-formulas/
@@ -12,40 +12,43 @@ keywords:
 - スプレッドシート 数式
 - チャート データ ワークブック
 - 数式 計算
+- 優先カルチャ
+- カルチャ固有 の 数式
+- DBCS
 - 論理 定数
 - 数値 定数
 - 文字列 定数
 - エラー 定数
 - 算術 演算子
 - 比較 演算子
-- A1 形式
-- R1C1 形式
-- 事前定義 関数
+- A1 スタイル
+- R1C1 スタイル
+- 組み込み 関数
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ のチャート ワークシートで Excel 形式の数式を適用し、値を再計算して、その結果を PowerPoint のチャートで使用します。"
+description: "Aspose.Slides for C++ のチャート ワークシートで Excel 形式の数式を適用し、値を再計算して PowerPoint のチャートで結果を使用します。"
 ---
 ## **概要**
 
-PowerPoint のチャートは通常、埋め込みのワークシートにソース データを保存します。Aspose.Slides for C++ では、チャート データ ワークブックを通じてそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算されたセルをチャート データとして使用できます。
+PowerPoint のグラフは通常、埋め込みワークシートに元データを格納します。Aspose.Slides for C++ では、チャート データ ワークブックを通じてそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算結果のセルをチャート データとして使用できます。
 
-本記事では、完全な数式ワークフローを説明します。チャートの作成、ワークシートへのデータ入力、A1 形式または R1C1 形式の数式の割り当て、再計算、計算結果の取得、セルをチャート シリーズに接続、プレゼンテーションの保存までをカバーします。また、サポートされている数式構文、組み込み関数のサブセット、キャッシュされた値、サポート外の数式、スプレッドシート固有のエラーについても解説します。
+この記事では、完全な数式ワークフローを説明します。チャートの作成、ワークシートへのデータ入力、A1 形式または R1C1 形式の数式の割り当て、再計算、計算結果の取得、セルをチャート シリーズに接続、プレゼンテーションの保存、さらにサポートされている数式構文、組み込み関数のサブセット、キャッシュされた値、サポート外の数式、スプレッドシート固有のエラーについても解説します。
 
 ## **チャート ワークシートと数式**
 
-チャート ワークシートには、チャートで使用されるカテゴリ、系列名、値が含まれます。PowerPoint では、チャート データ エディターを開くことでワークシートを確認できます。
+チャート ワークシートには、チャートで使用されるカテゴリ、シリーズ名、値が含まれます。PowerPoint では、チャート データ エディターを開くことでワークシートを確認できます。
 
-![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
+![PowerPoint の埋め込みワークシートが開かれた状態で、カテゴリとシリーズ データが表示されているチャート](chart-worksheet-formulas_1.png)
 
-Aspose.Slides では、ワークシートは [IChartDataWorkbook](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/) インターフェイスを介して公開されます。A1 形式の数式には [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_formula/) を、R1C1 形式の数式には [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) を使用します。入力セルや数式を変更した後は、[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出してサポートされている数式を再計算し、対応するセル値を更新します。
+Aspose.Slides では、ワークシートは [IChartDataWorkbook](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/) インターフェイスを通じて公開されています。A1 形式の数式には [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_formula/) を、R1C1 形式の数式には [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) を使用します。入力セルや数式を変更したら、[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出してサポートされている数式を再計算し、対応するセル値を更新します。
 
-計算済みセルは依然として [IChartDataCell::get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/get_value/) で結果を取得できます。これは、コード内で数式結果を確認したり、セルをチャート データ ポイントとして使用したりする場合に重要です。
+計算されたセルは依然として [IChartDataCell::get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/get_value/) で結果を取得できます。コード内で数式結果を確認したり、セルをチャート データ ポイントとして使用したりする際に重要です。
 
 ## **チャートの作成とワークシート数式の計算**
 
-以下の例はエンドツーエンドのワークフローを示しています。クラスター化された縦棒グラフを作成し、サンプル データをクリアし、四半期ごとの売上と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算されたセルをチャート値として使用し、プレゼンテーションを保存します。
+次の例は、エンドツーエンドのワークフローを示します。クラスター化列グラフを作成し、サンプル データをクリアし、四半期ごとの収益と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算されたセルをチャート 値として使用し、プレゼンテーションを保存します。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -125,11 +128,11 @@ profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
 ```
 
-チャート データ ポイントは `D2:D4` を参照しているため、計算された利益の値が使用されます。このワークフローには別途のチャート更新呼び出しは不要です。まずワークブックを再計算し、次に計算されたセルを指すチャート データを使用または保存します。
+チャート データ ポイントは `D2:D4` を参照しているため、計算された利益の値が使用されます。このワークフローでは別途チャート の更新呼び出しは不要です。まずワークブックを再計算し、次に計算されたセルを指すチャート データを使用または保存します。
 
 ## **A1 形式の数式の使用**
 
-A1 表記は列を文字で、行を数字で識別します。A1 形式の式は [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_formula/) を使って割り当てます。
+A1 表記は列を文字、行を数字で識別します。A1 形式の式は [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_formula/) で割り当てます。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -165,7 +168,7 @@ workbook->CalculateFormulas();
 auto value = cell->get_Value(); // 19
 ```
 
-一般的な A1 参照形式は次のとおりです。
+代表的な A1 参照形式は次のとおりです。
 
 | 参照 | 相対 | 絶対 | 混合 |
 |---|---|---|---|
@@ -174,11 +177,11 @@ auto value = cell->get_Value(); // 19
 | 列 | `A:A` | `$A:$A` | — |
 | 範囲 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-相対参照は、スプレッドシート アプリケーションで数式を移動またはコピーしたときに変化します。絶対参照は両方の座標を固定し、混合参照は行または列のいずれかだけを固定します。
+相対参照は数式がスプレッドシート アプリケーションで移動またはコピーされたときに変化します。絶対参照は両方の座標を固定し、混合参照は行または列のどちらか一方だけを固定します。
 
 ## **R1C1 形式の数式の使用**
 
-R1C1 表記は行と列を数値で識別します。相対参照は角括弧でオフセットを示します。この構文は [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) を使って割り当てます。
+R1C1 表記は行と列の両方を数値で識別します。相対参照は角括弧内のオフセットで表します。この構文は [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) で割り当てます。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -212,7 +215,7 @@ workbook->CalculateFormulas();
 auto value = cell->get_Value(); // 7
 ```
 
-一般的な R1C1 参照形式は次のとおりです。
+代表的な R1C1 参照形式は次のとおりです。
 
 | 参照 | 相対 | 絶対 | 混合 |
 |---|---|---|---|
@@ -221,20 +224,20 @@ auto value = cell->get_Value(); // 7
 | 列 | `C[3]` | `C3` | — |
 | 範囲 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-たとえば、セル `D2` で `RC[-2]` は同じ行の左に 2 列離れたセル (`B2`) を意味します。
+たとえば、セル `D2` で `RC[-2]` は同じ行の左に 2 列あるセル (`B2`) を意味します。
 
-## **数式定数と演算子**
+## **数式の定数と演算子**
 
 組み込みの数式評価エンジンは、論理値、数値リテラル、文字列、スプレッドシート エラー値、算術演算子、比較演算子をサポートします。
 
 ### **定数とリテラル**
 
-| 種類 | 例 | 補足 |
+| 型 | 例 | 注釈 |
 |---|---|---|
 | 論理 | `TRUE`, `FALSE` | `A2=TRUE` のような論理式で直接使用できます。 |
-| 数値 | `1`, `0.5`, `.3`, `1E-2` | 通常表記と指数表記の両方がサポートされます。 |
+| 数値 | `1`, `0.5`, `.3`, `1E-2` | 整数表記と科学技術表記の両方がサポートされています。 |
 | 文字列 | `"abc"`, `"2/3/2020 12:00"` | 文字列リテラルは式内で二重引用符で囲みます。 |
-| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式は通常の結果ではなくスプレッドシートエラー値を返すことがあります。 |
+| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式は通常の結果ではなくスプレッドシート エラー値を返すことがあります。 |
 
 この例は複数の定数タイプを使用しています。
 
@@ -285,7 +288,7 @@ auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 | `%` | パーセント | `30%` |
 | `^` | 累乗 | `2^3` |
 
-評価順序を明示するには括弧を使用します。例: `(A2+B2)*C2`.
+評価順序を明示したい場合は括弧を使用します。例: `(A2+B2)*C2`.
 
 ### **比較演算子**
 
@@ -302,21 +305,21 @@ auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 
 ## **サポートされている組み込み関数**
 
-Aspose.Slides にはチャート ワークシート用の組み込み数式評価エンジンが含まれていますが、完全な Excel 計算エンジンではありません。ドキュメント化された関数セットは以下に限られます。[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) が任意の Excel 関数を再計算できると想定しないでください。
+Aspose.Slides にはチャート ワークシート用の組み込み数式評価エンジンが含まれますが、完全な Excel 計算エンジンではありません。ドキュメント化されている関数は以下の一覧に限られます。[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) が任意の Excel 関数を再計算できると想定しないでください。
 
-| 関数 | 用途またはサポート形態 | 例 |
+| 関数 | 用途またはサポート形式 | 例 |
 |---|---|---|
 | `ABS` | 絶対値 | `ABS(A2)` |
 | `AVERAGE` | 算術平均 | `AVERAGE(B2:B5)` |
-| `CEILING` | 指定した倍数に切り上げ | `CEILING(A2,5)` |
+| `CEILING` | 指定した倍数へ切り上げ | `CEILING(A2,5)` |
 | `CHOOSE` | インデックスで値を選択 | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | テキスト結合 | `CONCAT(A2,B2)` |
 | `CONCATENATE` | テキスト結合 | `CONCATENATE(A2," ",B2)` |
 | `DATE` | 1900 日付システムで日付を作成 | `DATE(2026,8,19)` |
-| `DAYS` | 2つの日付間の日数を返す | `DAYS(B2,A2)` |
-| `FIND` | テキスト内の文字列検索 | `FIND("-",A2)` |
-| `FINDB` | バイト指向のテキスト検索 | `FINDB("a",A2)` |
-| `IF` | 条件結果 | `IF(A2>0,A2,0)` |
+| `DAYS` | 2 つの日付間の日数を返す | `DAYS(B2,A2)` |
+| `FIND` | テキスト内で文字列を検索 | `FIND("-",A2)` |
+| `FINDB` | バイト単位のテキスト検索 | `FINDB("a",A2)` |
+| `IF` | 条件付き結果 | `IF(A2>0,A2,0)` |
 | `INDEX` | 参照形式 | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | ベクトル形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | ベクトル形式 | `MATCH(A2,B2:B5,0)` |
@@ -324,27 +327,79 @@ Aspose.Slides にはチャート ワークシート用の組み込み数式評�
 | `SUM` | 合計 | `SUM(B2:B5)` |
 | `VLOOKUP` | 縦方向検索 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-表に示された制約は重要です。`INDEX` は参照形式で、`LOOKUP` と `MATCH` はベクトル形式でドキュメント化されています。`DATE` は 1900 日付システムを使用します。ここに記載されていない機能や関数は、Aspose.Slides の数式評価エンジンではサポートされていないとみなしてください。
+表に示した制限は重要です。`INDEX` は参照形式、`LOOKUP` と `MATCH` はベクトル形式でのみサポートされます。`DATE` は 1900 日付システムを使用します。ここに記載されていない機能や関数は、Aspose.Slides の数式評価エンジンではサポートされていないとみなしてください。
 
-## **再計算とキャッシュ値**
+## **優先カルチャでの数式計算**
 
-スプレッドシート ファイルは通常、数式とその最後に計算された値の両方を保存します。したがって、プレゼンテーションが読み込まれ、対象のチャート データが変更されていない場合、Aspose.Slides は [IChartDataCell::get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/get_value/) からキャッシュされた値を読み取ることができます。
+一部のワークブック関数はテキストをカルチャ固有の規則で解釈します。特に、ダブルバイト文字セット (DBCS) を使用する言語向け関数では重要です。正しく計算するには、[LoadOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/) を作成し、[LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/ja/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) 経由で [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) を構成し、プレゼンテーションをロードします。
 
-入力セルや数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取るか、これらに依存するチャート データを保存する前に、必ず [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出してください。
+以下の例は日本語カルチャを選択し、構成したロード オプションでプレゼンテーションを開き、すべてのチャート ワークブックに対して [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出します。
 
-サポート外のサブセットに含まれない数式の場合、Aspose.Slides は数式の解析や依存関係の確立ができないことがあります。ワークブックが変更された場合、以前のキャッシュ値は信頼できなくなります。そのような状況でサポート外データを含むセルの値を読み取ろうとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) がスローされることがあります。
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
 
-Excel 関数で Aspose.Slides が評価できないものがチャートに含まれる場合は、対応するスプレッドシート エンジンで数式を計算し、結果の値を書き戻してください。サポート外の数式を推測した値で置き換えることは避けてください。
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
 
-## **数式エラーの取り扱い**
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
+
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
+
+優先カルチャはプレゼンテーションのロード設定の一部です。したがって、[Presentation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/) インスタンスを作成する前に指定します。ワークブック数式で期待されるカルチャを使用してください。例: 日本語 DBCS 計算規則に従う数式の場合は `ja-JP` を使用します。
+
+## **再計算とキャッシュされた値**
+
+スプレッドシート ファイルは通常、数式と最後に計算された値の両方を格納します。Aspose.Slides はプレゼンテーションがロードされ、該当するチャート データが変更されていない場合、[IChartDataCell::get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/get_value/) からキャッシュされた値を読み取ることができます。
+
+入力セルや数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取るか、依存するチャート データを保存する前に、必ず [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出してください。
+
+サポート外の数式については、Aspose.Slides が数式を解析できない、または依存関係を確立できない可能性があります。ワークブックが変更された場合、以前のキャッシュ値はもはや信頼できません。そのような状況でサポート外のデータを含むセルの値を取得しようとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) がスローされることがあります。
+
+チャートが Aspose.Slides で評価されない Excel 関数に依存している場合は、対応するスプレッドシート エンジンで数式を計算し、結果の値をチャート ワークブックに書き戻してください。サポート外の数式を推測した値で置き換えてはいけません。
+
+## **数式エラーの処理**
 
 区別すべき問題は 2 種類あります。
 
-1. 数式自体は有効だが、`#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, `#VALUE!` などのスプレッドシート エラー結果を返す場合。この場合、エラー トークンはセルの結果であり、[IChartDataCell::get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/get_value/) を通じて取得できます。
+* 数式は有効だが、`#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` といったスプレッドシート エラー結果を返す場合。この場合、エラー トークンはセルの結果であり、[IChartDataCell::get_Value](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/get_value/) で取得できます。
+* 数式自体が構文エラー、参照エラー、依存関係エラー、またはサポート外データエラーで失敗する場合。Aspose.Slides はこれらのケースに対して以下のスプレッドシート固有例外を提供します: [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), および [CellUnsupportedDataException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
 
-2. 数式が構文エラー、参照エラー、依存関係エラー、またはサポート外データのレベルで失敗する場合。Aspose.Slides はこれらのケースに対して以下のスプレッドシート固有例外を提供します: [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), および [CellUnsupportedDataException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
-
-テンプレートやユーザー入力から数式が供給される場合は、再計算と値取得の周囲でこれらの例外をハンドリングしてください。
+テンプレートやユーザー入力から数式が供給される場合は、再計算と値取得の周囲でこれらの例外を処理してください。
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -398,19 +453,19 @@ catch (CellUnsupportedDataException&)
 
 ## **実務上の制限**
 
-チャート ワークシートでの数式サポートは、スプレッドシート計算の定義済みサブセットを対象としており、完全な Excel 互換性を提供するものではありません。レポート ワークフローを設計する際は以下の点に留意してください。
+チャート ワークシートでの数式サポートは、完全な Excel 互換性ではなく、定義されたサブセットの計算を対象としています。レポート ワークフローを設計する際は次の点に留意してください。
 
-- Aspose.Slides に数式を再計算させる必要がある場合は、ドキュメント化された定数、演算子、参照、および関数のみを使用してください。
-- 数式結果が依存するセルを変更した後は必ず再計算してください。
-- 読み込んだプレゼンテーションからのキャッシュ値はスナップショットとみなし、編集後の再計算の代替とはしないでください。
-- 既存テンプレートの数式は、ドキュメント化されたリストにない関数を使用している場合は、計算結果を使用する前に必ずテストしてください。
-- 完全なスプレッドシート計算エンジンが必要な数式は、外部で計算し、結果の値でチャート ワークブックを更新してください。
+* Aspose.Slides に再計算させる必要がある場合は、ドキュメント化された定数、演算子、参照、関数のみを使用してください。
+* 式の結果が依存するセルを変更したら必ず再計算してください。
+* ロードされたプレゼンテーションからのキャッシュ値はスナップショットとみなし、編集後の再計算の代替にはしないでください。
+* 既存テンプレートからの数式は、ドキュメント化されたリストにない関数を使用しているかどうか事前にテストしてください。
+* 完全なスプレッドシート計算エンジンが必要な数式は外部で計算し、結果のみをチャート ワークブックに書き込んでください。
 
 ## **FAQ**
 
 **`set_Formula` と `set_R1C1Formula` の違いは何ですか？**
 
-[IChartDataCell::set_Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_formula/) は `B2-C2` のような A1 形式の式を保存します。[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) は `RC[-2]-RC[-1]` のような R1C1 形式の式を保存します。生成またはコピーする数式に合わせて表記を選択してください。
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_formula/) は `B2-C2` のような A1 形式の式を格納します。[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) は `RC[-2]-RC[-1]` のような R1C1 形式の式を格納します。数式の生成またはコピー方法に最も適した表記を使用してください。
 
 **計算後にセル自体を読むべきですか、値を読むべきですか？**
 
@@ -418,32 +473,32 @@ catch (CellUnsupportedDataException&)
 
 **`CalculateFormulas` はいつ呼び出すべきですか？**
 
-入力値または数式を変更した後、計算結果に依存する前に [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出してください。これにより、組み込み評価エンジンがサポートする数式の値が更新されます。
+入力値または数式を変更した直後、計算結果に依存する前に [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) を呼び出してください。これにより、組み込み評価エンジンがサポートする数式の値が更新されます。
 
 **Aspose.Slides はすべての Excel 関数をサポートしていますか？**
 
-いいえ。組み込み評価エンジンはドキュメント化されたサブセットのみをサポートします。そのサブセットに含まれない関数は正しく再計算されると想定しないでください。完全な Excel 数式互換性が必要な場合は、適切なスプレッドシート エンジンで計算し、最終的な値をチャート ワークブックに書き込んでください。
+いいえ。組み込み評価エンジンはドキュメント化されたサブセットのみをサポートします。サブセット外の関数は正しく再計算できると想定しないでください。完全な Excel 互換性が必要な場合は、別のスプレッドシート エンジンで計算し、最終的な値をチャート ワークブックに書き込んでください。
 
-**読み込んだプレゼンテーションにサポート外の数式が含まれていたらどうなりますか？**
+**ロードされたプレゼンテーションにサポート外の数式が含まれていたらどうなりますか？**
 
-チャート データが変更されていなければ、ワークブックは以前に計算されたキャッシュ値を保持している可能性があります。関連データが変更された後は、そのキャッシュ値は無効になることがあります。処理できない数式を含むセルにアクセスすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) がスローされることがあります。
+チャート データが変更されていない場合、ワークブックには以前に計算されたキャッシュ値が残っていることがあります。関連データが変更されると、そのキャッシュ値は無効になる可能性があります。処理できない数式を含むセルにアクセスすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) がスローされることがあります。
 
-**数式エラーの値は C++ 例外と同じですか？**
+**数式エラーの値は C++ の例外と同じですか？**
 
-いいえ。`#DIV/0!` などの結果は、有効な計算によって生成されたスプレッドシートの値です。一方、[CellInvalidFormulaException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) や [CellCircularReferenceException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) などの例外は、数式を正常に処理できないことを示します。
+いいえ。`#DIV/0!` のような結果は、有効な計算によって生成されたスプレッドシートの値です。[CellInvalidFormulaException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) や [CellCircularReferenceException](https://reference.aspose.com/slides/ja/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) などの例外は、数式が正常に処理できないことを示します。
 
 **数式セルが変更されたときにチャートは自動的に更新されますか？**
 
-チャート シリーズはワークブックのセルを参照できます。まずワークブックを再計算し、次にプレゼンテーションを保存または描画してください。チャート データ ポイントが計算されたセルを参照している場合、チャートは更新されたセル値を使用します。このワークフローでは別途のチャート更新メソッドは不要です。
+チャート シリーズはワークブックセルを参照できます。まずワークブックを再計算し、次にプレゼンテーションを保存またはレンダリングしてください。データ ポイントが計算されたセルを参照していれば、チャートは更新されたセル値を使用します。このワークフローでは別途チャート更新メソッドは不要です。
 
 **チャートは外部 Excel ワークブックを使用できますか？**
 
-はい、チャート データは API を通じて外部ワークブックを使用するよう構成できます。ただし、本稿で説明した数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価する数式サブセットに限定されます。[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) が外部 XLSX ファイルの任意の数式を完全に再計算するものとはみなさないでください。
+はい、チャート データは API を通じて外部ワークブックを使用するように構成できます。ただし、この記事で説明した数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価する数式サブセットに限定されます。[IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ja/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) が外部 XLSX ファイル内の任意の数式を完全に再計算するとは想定しないでください。
 
 **別シートや別ブックを参照する数式は使用できますか？**
 
-Excel 形式の参照はチャート ワークブックに存在する可能性がありますが、数式評価はサポートされるパーサと関数セットに制限されます。クロスシートまたは外部参照が必須の場合は、対象の Aspose.Slides バージョンで正確に動作するか検証してください。広範な Excel 参照互換性が必要なワークフローでは、ワークブックを外部で計算し、解決した値をチャート データに書き戻すことを推奨します。
+Excel 形式の参照はチャート ワークブックに存在する可能性がありますが、評価はサポートされるパーサーと関数セットに制限されます。クロスシートまたは外部参照が必須の場合は、対象の Aspose.Slides バージョンで正確に評価できるか確認してください。広範な Excel 参照互換性が必要なワークフローでは、ワークブックを外部で計算し、解決済みの値をチャート データに書き戻すことを検討してください。
 
 **数式文字列は `=` で始める必要がありますか？**
 
-Aspose.Slides の API 例では `B2-C2` や `SUM(B2:B5)` のように先頭の `=` を付けずに式を割り当てます。その形で割り当てると、ドキュメント化された API 例と一貫性が保たれます。
+Aspose.Slides API の例では `B2-C2` や `SUM(B2:B5)` のように先頭に `=` を付けずに式を割り当てます。この形に従うことで、API 例と一貫した数式を生成できます。

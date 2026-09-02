@@ -5,48 +5,51 @@ type: docs
 weight: 70
 url: /th/nodejs-java/chart-worksheet-formulas/
 keywords:
-- แผนภูมิ สเปรดชีต
+- สเปรดชีตแผนภูมิ
 - แผ่นงานแผนภูมิ
 - สูตรแผนภูมิ
 - สูตรแผ่นงาน
 - สูตรสเปรดชีต
 - เวิร์กบุ๊กข้อมูลแผนภูมิ
 - การคำนวณสูตร
+- วัฒนธรรมที่ต้องการ
+- สูตรเฉพาะวัฒนธรรม
+- DBCS
 - ค่าคงที่ตรรกะ
 - ค่าคงที่เชิงตัวเลข
 - ค่าคงที่สตริง
 - ค่าคงที่ข้อผิดพลาด
 - ตัวดำเนินการคณิตศาสตร์
 - ตัวดำเนินการเปรียบเทียบ
-- สไตล์ A1
-- สไตล์ R1C1
-- ฟังก์ชันที่กำหนดล่วงหน้า
+- รูปแบบ A1
+- รูปแบบ R1C1
+- ฟังก์ชันกำหนดล่วงหน้า
 - PowerPoint
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ใช้สูตรแบบ Excel ใน Aspose.Slides สำหรับ Node.js ผ่านแผ่นงานแผนภูมิของ Java, คำนวณค่าซ้ำ และใช้ผลลัพธ์ในแผนภูมิ PowerPoint."
+description: "ใช้สูตรแบบ Excel ใน Aspose.Slides สำหรับ Node.js ผ่านแผ่นงานแผนภูมิ Java, คำนวณค่าซ้ำ และใช้ผลลัพธ์ในแผนภูมิ PowerPoint"
 ---
 ## **ภาพรวม**
 
-แผนภูมิ PowerPoint มักเก็บข้อมูลต้นฉบับในเวิร์กชีตที่ฝังอยู่ ใน Aspose.Slides for Node.js via Java คุณสามารถเข้าถึงเวิร์กชีตนั้นผ่าน chart data workbook, เขียนค่าข้อมูลเข้า, กำหนดสูตรให้กับเซลล์, คำนวณสูตรที่รองรับ, และใช้เซลล์ที่คำนวณแล้วเป็นข้อมูลแผนภูมิได้
+แผนภูมิ PowerPoint มักจัดเก็บข้อมูลต้นทางไว้ในเวิร์กชีตที่ฝังอยู่ ใน Aspose.Slides สำหรับ Node.js ผ่าน Java คุณสามารถเข้าถึงเวิร์กชีตนั้นผ่าน ChartDataWorkbook, เขียนค่าตัวอินพุต, กำหนดสูตรให้กับเซลล์, คำนวณสูตรที่สนับสนุน, และใช้เซลล์ที่คำนวณแล้วเป็นข้อมูลแผนภูมิได้
 
-บทความนี้อธิบายขั้นตอนการทำงานของสูตรอย่างครบถ้วน: สร้างแผนภูมิ, เติมข้อมูลในเวิร์กชีต, กำหนดสูตรแบบ A1 หรือ R1C1, คำนวณสูตรใหม่, อ่านค่าที่คำนวณได้, เชื่อมต่อเซลล์เหล่านั้นกับซีรีส์ของแผนภูมิ, และบันทึกงานนำเสนอ นอกจากนี้ยังอธิบายไวยากรณ์สูตรที่รองรับ, ชุดฟังก์ชันในตัว, ค่าที่แคชไว้, สูตรที่ไม่รองรับ, และข้อผิดพลาดเฉพาะสเปรดชีต
+บทความนี้อธิบายกระบวนการทำงานของสูตรอย่างครบถ้วน: สร้างแผนภูมิ, เติมข้อมูลในเวิร์กชีต, กำหนดสูตรแบบ A1 หรือ R1C1, คำนวณใหม่, อ่านค่าที่คำนวณ, เชื่อมต่อเซลล์เหล่านั้นกับซีรีส์ของแผนภูมิ, และบันทึกงานนำเสนอ นอกจากนี้ยังอธิบายไวยากรณ์สูตรที่สนับสนุน, ชุดฟังก์ชันในตัว, ค่าที่แคชไว้, สูตรที่ไม่สนับสนุน, และข้อผิดพลาดเฉพาะสเปรดชีต
 
-## **แผนภูมิ เวิร์กชีต และสูตร**
+## **เวิร์กชีตแผนภูมิและสูตร**
 
-แผนภูมิเวิร์กชีตประกอบด้วยประเภท, ชื่อซีรีส์, และค่าที่ใช้โดยแผนภูมิ ใน PowerPoint คุณสามารถตรวจสอบเวิร์กชีตได้โดยเปิด chart data editor:
+เวิร์กชีตของแผนภูมิประกอบด้วยหมวดหมู่, ชื่อซีรีส์, และค่าที่ใช้โดยแผนภูมิ ใน PowerPoint คุณสามารถตรวจสอบเวิร์กชีตได้โดยเปิด Chart Data Editor:
 
 ![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-ใน Aspose.Slides เวิร์กชีตจะเปิดเผยผ่านคลาส [ChartDataWorkbook](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/) ใช้ [ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) สำหรับสูตรแบบ A1 และ [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) สำหรับสูตรแบบ R1C1 หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร ให้เรียก [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) เพื่อคำนวณสูตรที่รองรับและอัปเดตค่าของเซลล์ที่เกี่ยวข้อง
+ใน Aspose.Slides, เวิร์กชีตถูกเปิดเผยผ่านคลาส [ChartDataWorkbook](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/) ใช้เมธอด [ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) สำหรับสูตรแบบ A1 และ [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) สำหรับสูตรแบบ R1C1 หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร ให้เรียกเมธอด [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) เพื่อคำนวณสูตรที่สนับสนุนและอัปเดตค่าของเซลล์ที่เกี่ยวข้อง
 
-เซลล์ที่คำนวณแล้วยังคงเปิดเผยผลลัพธ์ผ่าน [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--) ซึ่งสำคัญเมื่อต้องตรวจสอบผลลัพธ์สูตรในโค้ดหรือใช้เซลล์เป็นจุดข้อมูลของแผนภูมิ
+เซลล์ที่คำนวณแล้วยังคงให้ผลลัพธ์ผ่านเมธอด [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--) สิ่งนี้สำคัญเมื่อคุณต้องตรวจสอบผลลัพธ์ของสูตรในโค้ดหรือใช้เซลล์เป็นจุดข้อมูลของแผนภูมิ
 
 ## **สร้างแผนภูมิและคำนวณสูตรในเวิร์กชีต**
 
-ตัวอย่างต่อไปนี้แสดงขั้นตอนการทำงานแบบครบวงจร โดยสร้างแผนภูมิคอลัมน์แบบกลุ่ม, ลบข้อมูลตัวอย่าง, เขียนค่ารายได้และค่าใช้จ่ายรายไตรมาส, คำนวณกำไรด้วยสูตร, อ่านผลลัพธ์, ใช้เซลล์ที่คำนวณแล้วเป็นค่าของแผนภูมิ, และบันทึกงานนำเสนอ
+ตัวอย่างต่อไปนี้แสดงกระบวนการทำงานจากต้นจนจบ มันสร้างแผนภูมิคอลัมน์แบบคลัสเตอร์, ลบข้อมูลตัวอย่าง, เขียนค่ารายได้และค่าใช้จ่ายไตรมาส, คำนวณกำไรด้วยสูตร, อ่านผลลัพธ์, ใช้เซลล์ที่คำนวณเป็นค่าของแผนภูมิ, แล้วบันทึกงานนำเสนอ
 
 ```javascript
 const aspose = {};
@@ -112,11 +115,11 @@ try {
 }
 ```
 
-จุดข้อมูลของแผนภูมิอ้างอิง `D2:D4` ดังนั้นแผนภูมิใช้ค่ากำไรที่คำนวณแล้ว ไม่มีการเรียกรีเฟรชแผนภูมิแยกต่างหากในขั้นตอนนี้: คำนวณเวิร์กชีตก่อน, จากนั้นใช้หรือบันทึกข้อมูลแผนภูมิที่อ้างอิงเซลล์ที่คำนวณแล้ว
+จุดข้อมูลของแผนภูมิเก็บอ้างอิง `D2:D4` ดังนั้นแผนภูมิจะใช้ค่ากำไรที่คำนวณแล้ว ในเวิร์กโฟลว์นี้ไม่มีการเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหาก: คำนวณเวิร์กบุ๊กก่อน, จากนั้นใช้หรือบันทึกข้อมูลแผนภูมิที่อ้างอิงเซลล์ที่คำนวณ
 
 ## **ใช้สูตรแบบ A1**
 
-การอ้างอิงแบบ A1 ใช้ตัวอักษรระบุคอลัมน์และตัวเลขระบุแถว กำหนดนิพจน์แบบ A1 ผ่าน [ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-)
+การอ้างอิงแบบ A1 ระบุคอลัมน์ด้วยตัวอักษรและแถวด้วยตัวเลข กำหนดนิพจน์แบบ A1 ผ่านเมธอด [ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-)
 
 ```javascript
 const aspose = {};
@@ -144,20 +147,20 @@ try {
 }
 ```
 
-รูปแบบการอ้างอิง A1 ที่พบบ่อยมีดังนี้:
+รูปแบบการอ้างอิง A1 ที่พบบ่อยมีดังนี้
 
-| การอ้างอิง | เชิงสัมพันธ์ | เชิงอิสระ | ผสม |
+| อ้างอิง | สัมพัทธ์ | คงที่ | ผสม |
 |---|---|---|---|
-| เซลล์ | `A2` | `$A$2` | `A$2`, `$A2` |
-| แถว | `2:2` | `$2:$2` | — |
-| คอลัมน์ | `A:A` | `$A:$A` | — |
-| ช่วง | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
+| Row | `2:2` | `$2:$2` | — |
+| Column | `A:A` | `$A:$A` | — |
+| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-การอ้างอิงเชิงสัมพันธ์อาจเปลี่ยนเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปสเปรดชีต การอ้างอิงเชิงอิสระจะคงพิกัดทั้งสองแบบคงที่ ส่วนการอ้างอิงผสมจะคงเพียงแถวหรือคอลัมน์อย่างใดอย่างหนึ่ง
+การอ้างอิงสัมพัทธ์อาจเปลี่ยนเมื่อสูตรถูกย้ายหรือคัดลอกโดยแอปพลิเคชันสเปรดชีต การอ้างอิงคงที่จะคงค่าพิกัดทั้งสองไว้ ส่วนการอ้างอิงผสมจะคงแค่แถวหรือคอลัมน์หนึ่งเท่านั้น
 
 ## **ใช้สูตรแบบ R1C1**
 
-การอ้างอิงแบบ R1C1 ใช้ตัวเลขระบุทั้งแถวและคอลัมน์ การอ้างอิงเชิงสัมพันธ์ใช้การออฟเซ็ตในวงเล็บสี่เหลี่ยม กำหนดไวยากรณ์นี้ผ่าน [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)
+การอ้างอิงแบบ R1C1 ระบุทั้งแถวและคอลัมน์เป็นตัวเลข การอ้างอิงสัมพัทธ์ใช้การชดเชยในวงเล็บสี่เหลี่ยม กำหนดไวยากรณ์นี้ผ่านเมธอด [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)
 
 ```javascript
 const aspose = {};
@@ -183,31 +186,31 @@ try {
 }
 ```
 
-รูปแบบการอ้างอิง R1C1 ที่พบบ่อยมีดังนี้:
+รูปแบบการอ้างอิง R1C1 ที่พบบ่อยมีดังนี้
 
-| การอ้างอิง | เชิงสัมพันธ์ | เชิงอิสระ | ผสม |
+| อ้างอิง | สัมพัทธ์ | คงที่ | ผสม |
 |---|---|---|---|
-| เซลล์ | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
-| แถว | `R[2]` | `R2` | — |
-| คอลัมน์ | `C[3]` | `C3` | — |
-| ช่วง | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Row | `R[2]` | `R2` | — |
+| Column | `C[3]` | `C3` | — |
+| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
 ตัวอย่างเช่น ในเซลล์ `D2` `RC[-2]` หมายถึงเซลล์ในแถวเดียวกันสองคอลัมน์ทางซ้าย (`B2`)
 
-## **ค่าคงที่และตัวดำเนินการในสูตร**
+## **ค่าคงที่และตัวดำเนินการของสูตร**
 
-ตัวประเมินสูตรในตัวรองรับค่าสตริงส์แบบตรรกะ, ตัวเลขลิเทอรัล, สตริง, ค่าข้อผิดพลาดของสเปรดชีต, ตัวดำเนินการคณิตศาสตร์, และตัวดำเนินการเปรียบเทียบ
+ตัวประเมินสูตรในตัวสนับสนุนค่าตรรกะ, ลิเทรัลตัวเลข, สตริง, ค่าข้อผิดพลาดของสเปรดชีต, ตัวดำเนินการคณิตศาสตร์, และตัวดำเนินการเปรียบเทียบ
 
-### **ค่าคงที่และลิเทอรัล**
+### **ค่าคงที่และลิเทรัล**
 
-| ชนิด | ตัวอย่าง | หมายเหตุ |
+| ประเภท | ตัวอย่าง | หมายเหตุ |
 |---|---|---|
-| ตรรกะ | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะเช่น `A2=TRUE` |
-| ตัวเลข | `1`, `0.5`, `.3`, `1E-2` | รองรับการเขียนแบบทั่วไปและวิทยาศาสตร์ |
-| สตริง | `"abc"`, `"2/3/2020 12:00"` | ลิเทอรัลข้อความต้องอยู่ในเครื่องหมายอัญประกาศคู่ภายในสูตร |
-| ผลลัพธ์ข้อผิดพลาด | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่สมบูรณ์อาจให้ค่าเป็นข้อผิดพลาดของสเปรดชีตแทนผลลัพธ์ปกติ |
+| Logical | `TRUE`, `FALSE` | สามารถใช้โดยตรงในนิพจน์ตรรกะเช่น `A2=TRUE` |
+| Numeric | `1`, `0.5`, `.3`, `1E-2` | รองรับการเขียนแบบธรรมดาและวิทยาศาสตร์ |
+| String | `"abc"`, `"2/3/2020 12:00"` | ลิเทรัลข้อความต้องอยู่ในเครื่องหมายคำพูดคู่ภายในสูตร |
+| Error result | `#DIV/0!`, `#N/A`, `#REF!` | สูตรที่สมบูรณ์สามารถประเมินเป็นค่าข้อผิดพลาดของสเปรดชีตแทนผลลัพธ์ปกติได้ |
 
-ตัวอย่างนี้ใช้ค่าคงที่หลายประเภท:
+ตัวอย่างนี้ใช้ค่าคงที่หลายประเภท
 
 ```javascript
 const aspose = {};
@@ -242,18 +245,18 @@ try {
 
 | ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
 |---|---|---|
-| `+` | การบวกหรือเครื่องหมายบวกเอกเทศ | `2+3` |
-| `-` | การลบหรือการทำลบเอกเทศ | `2-3`, `-3` |
+| `+` | การบวกหรือเครื่องหมายบวกเชิงยูเนอรี | `2+3` |
+| `-` | การลบหรือการกลับเครื่องหมาย | `2-3`, `-3` |
 | `*` | การคูณ | `2*3` |
 | `/` | การหาร | `2/3` |
 | `%` | เปอร์เซ็นต์ | `30%` |
-| `^` | การยกกำลัง | `2^3` |
+| `^` | ยกกำลัง | `2^3` |
 
 ใช้วงเล็บเพื่อทำให้ลำดับการประเมินชัดเจน เช่น `(A2+B2)*C2`
 
 ### **ตัวดำเนินการเปรียบเทียบ**
 
-นิพจน์เปรียบเทียบจะคืนค่าตรรกะ
+การเปรียบเทียบส่งคืนค่าตรรกะ
 
 | ตัวดำเนินการ | ความหมาย | ตัวอย่าง |
 |---|---|---|
@@ -264,51 +267,89 @@ try {
 | `<` | น้อยกว่า | `A2<3` |
 | `<=` | น้อยกว่าหรือเท่ากับ | `A2<=3` |
 
-## **ฟังก์ชันสำเร็จรูปที่รองรับ**
+## **ฟังก์ชันที่กำหนดล่วงหน้าที่สนับสนุน**
 
-Aspose.Slides มีตัวประเมินสูตรในตัวสำหรับเวิร์กชีตแผนภูมิ แต่ไม่ใช่เอนจิ้นการคำนวณ Excel ครบวงจร ชุดฟังก์ชันที่ระบุไว้จำกัดอยู่ที่ฟังก์ชันต่อไปนี้ อย่าเชื่อว่าฟังก์ชัน Excel ใด ๆ สามารถคำนวณใหม่ได้โดย [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--)
+Aspose.Slides มีตัวประเมินสูตรในตัวสำหรับเวิร์กชีตของแผนภูมิ แต่ไม่ใช่เครื่องมือคำนวณ Excel แบบเต็ม ชุดฟังก์ชันที่ถูกบันทึกไว้จำกัดอยู่เพียงฟังก์ชันต่อไปนี้ อย่า Assume ว่า Excel ฟังก์ชันใดๆ สามารถคำนวณใหม่ด้วย [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) ได้
 
-| ฟังก์ชัน | จุดประสงค์หรือรูปแบบที่รองรับ | ตัวอย่าง |
+| ฟังก์ชัน | วัตถุประสงค์หรือรูปแบบที่สนับสนุน | ตัวอย่าง |
 |---|---|---|
-| `ABS` | ค่าตัวเลขสัมบูรณ์ | `ABS(A2)` |
-| `AVERAGE` | ค่าเฉลี่ยเลขคณิต | `AVERAGE(B2:B5)` |
-| `CEILING` | ปัดจำนวนขึ้นไปเป็นหลายเท่า | `CEILING(A2,5)` |
-| `CHOOSE` | เลือกค่าตามดัชนี | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | เชื่อมต่อข้อความ | `CONCAT(A2,B2)` |
-| `CONCATENATE` | เชื่อมต่อข้อความ | `CONCATENATE(A2," ",B2)` |
-| `DATE` | สร้างค่าวันโดยใช้ระบบ 1900 | `DATE(2026,8,19)` |
-| `DAYS` | จำนวนวันระหว่างวันที่ | `DAYS(B2,A2)` |
-| `FIND` | ค้นหาข้อความหนึ่งในอีกข้อความหนึ่ง | `FIND("-",A2)` |
-| `FINDB` | ค้นหาข้อความแบบไบต์ | `FINDB("a",A2)` |
-| `IF` | ผลลัพธ์ตามเงื่อนไข | `IF(A2>0,A2,0)` |
-| `INDEX` | รูปแบบการอ้างอิง | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | รูปแบบเวกเตอร์ | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | รูปแบบเวกเตอร์ | `MATCH(A2,B2:B5,0)` |
-| `MAX` | ค่ามากสุด | `MAX(B2:B5)` |
-| `SUM` | ผลรวมค่า | `SUM(B2:B5)` |
-| `VLOOKUP` | การค้นหาแบบแนวตั้ง | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `ABS` | Absolute value | `ABS(A2)` |
+| `AVERAGE` | Arithmetic mean | `AVERAGE(B2:B5)` |
+| `CEILING` | Round a number upward to a multiple | `CEILING(A2,5)` |
+| `CHOOSE` | Select a value by index | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Join text values | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Join text values | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Create a date value using the 1900 date system | `DATE(2026,8,19)` |
+| `DAYS` | Return the number of days between dates | `DAYS(B2,A2)` |
+| `FIND` | Find one text value inside another | `FIND("-",A2)` |
+| `FINDB` | Byte-oriented text search | `FINDB("a",A2)` |
+| `IF` | Conditional result | `IF(A2>0,A2,0)` |
+| `INDEX` | Reference form | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vector form | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vector form | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Maximum value | `MAX(B2:B5)` |
+| `SUM` | Sum values | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertical lookup | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-ข้อจำกัดในตารางมีความสำคัญ: `INDEX` ระบุในรูปแบบการอ้างอิง, ส่วน `LOOKUP` และ `MATCH` ระบุในรูปแบบเวกเตอร์, `DATE` ใช้ระบบวันปี 1900 ฟังก์ชันที่ไม่ได้ระบุในที่นี้ควรถือว่าไม่รองรับโดยตัวประเมินสูตรของ Aspose.Slides เว้นแต่จะมีการระบุเป็นพิเศษในเอกสารอื่น
+ข้อจำกัดที่แสดงในตารางมีความสำคัญ: `INDEX` ถูกบันทึกในรูปแบบอ้างอิง, ในขณะที่ `LOOKUP` และ `MATCH` เป็นรูปแบบเวกเตอร์ `DATE` ใช้ระบบวันที่ 1900 ฟีเจอร์และฟังก์ชันที่ไม่ได้ระบุที่นี่ควรถือว่าไม่สนับสนุนโดยตัวประเมินสูตรของ Aspose.Slides เว้นแต่จะมีการบันทึกไว้แยกต่างหาก
+
+## **คำนวณสูตรด้วยวัฒนธรรมที่ต้องการ**
+
+ฟังก์ชันบางอย่างของเวิร์กบุ๊กแผนภูมิอาจตีความข้อความตามกฎของวัฒนธรรมเฉพาะ นี่สำคัญโดยเฉพาะสำหรับฟังก์ชันที่ออกแบบมาสำหรับภาษาที่ใช้ชุดอักขระสองไบต์ (DBCS) เพื่อคำนวณสูตรเหล่านี้อย่างถูกต้อง ให้สร้าง [LoadOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/), ตั้งวัฒนธรรมที่ต้องการด้วยเมธอด [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), กำหนดตัวเลือกสเปรดชีตผ่านเมธอด [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), จากนั้นโหลดงานนำเสนอ
+
+ตัวอย่างต่อไปนี้เลือกวัฒนธรรมญี่ปุ่น, เปิดงานนำเสนอด้วย LoadOptions ที่กำหนด, แล้วเรียกเมธอด [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) สำหรับทุกเวิร์กบุ๊กแผนภูมิ
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+วัฒนธรรมที่ต้องการเป็นส่วนหนึ่งของการกำหนดค่าการโหลดงานนำเสนอ ดังนั้นให้ระบุก่อนสร้างอินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ใช้วัฒนธรรมที่สูตรเวิร์กบุ๊กคาดหวัง; ตัวอย่างเช่นใช้ `ja-JP` สำหรับสูตรที่ต้องการกฎการคำนวณ DBCS ของญี่ปุ่น
 
 ## **การคำนวณใหม่และค่าที่แคชไว้**
 
-ไฟล์สเปรดชีตมักเก็บทั้งสูตรและค่าที่คำนวณล่าสุด Aspose.Slides จึงสามารถอ่านค่าที่แคชจาก [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--) เมื่อโหลดงานนำเสนอและข้อมูลแผนภูมิที่เกี่ยวข้องไม่ได้ถูกเปลี่ยน
+ไฟล์สเปรดชีตมักเก็บทั้งสูตรและค่าที่คำนวณล่าสุด Aspose.Slides จึงสามารถอ่านค่าที่แคชไว้จากเมธอด [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--) เมื่อโหลดงานนำเสนอและข้อมูลแผนภูมิที่เกี่ยวข้องไม่ได้ถูกเปลี่ยน
 
-หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร อย่าอ้างอิงผลแคชเก่า ให้เรียก [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) ก่อนอ่านค่าที่คำนวณหรือบันทึกข้อมูลแผนภูมิที่พึ่งพาค่านั้น
+หลังจากเปลี่ยนเซลล์อินพุตหรือสูตร อย่าพึ่งพาผลลัพธ์ที่แคชเก่า ให้เรียกเมธอด [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) ก่อนอ่านค่าที่คำนวณหรือบันทึกข้อมูลแผนภูมิที่ขึ้นกับค่าเหล่านั้น
 
-สำหรับสูตรที่อยู่นอกชุดที่รองรับ Aspose.Slides อาจไม่สามารถพาร์สสูตรหรือกำหนดการพึ่งพาได้ หากเวิร์กชีตถูกแก้ไข ค่าที่แคชไว้ก่อนหน้านี้จึงไม่เชื่อถือได้ ในสถานการณ์นั้น การอ่านค่าของเซลล์ที่มีข้อมูลไม่รองรับอาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellunsupporteddataexception/)
+สำหรับสูตรที่อยู่นอกชุดที่สนับสนุน Aspose.Slides อาจไม่สามารถพาร์สสูตรหรือระบุการพึ่งพาได้ หากเวิร์กบุ๊กถูกแก้ไขค่าที่แคชไว้ก่อนหน้านี้จะไม่เชื่อถือได้อีกแล้ว ในกรณีนั้น การอ่านค่าของเซลล์ที่มีสูตรที่ไม่สนับสนุนอาจทำให้เกิดข้อยกเว้น [CellUnsupportedDataException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellunsupporteddataexception/)
 
-หากแผนภูมิต้องพึ่งพาฟังก์ชัน Excel ที่ Aspose.Slides ไม่ประมวลผล ให้นำสูตรเหล่านั้นคำนวณด้วยเอนจิ้นสเปรดชีตที่รองรับ แล้วเขียนค่าที่ได้กลับไปยังเวิร์กชีตแผนภูมิ อย่าเปลี่ยนสูตรที่ไม่รองรับเป็นค่าที่คาดเดา
+หากแผนภูมิของคุณพึ่งพาฟังก์ชัน Excel ที่ Aspose.Slides ไม่ประเมิน ให้คำนวณสูตรเหล่านั้นด้วยเครื่องมือสเปรดชีตที่สนับสนุนแล้วเขียนค่าที่ได้กลับไปยังเวิร์กบุ๊กแผนภูมิ อย่าแทนที่สูตรที่ไม่สนับสนุนด้วยค่าที่คาดเดา
 
 ## **จัดการข้อผิดพลาดของสูตร**
 
 มีสองประเภทของปัญหาที่ต้องแยกแยะ
 
-สูตรอาจถูกต้องแต่ให้ผลลัพธ์เป็นข้อผิดพลาดของสเปรดชีต เช่น `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, หรือ `#VALUE!` ในกรณีนี้ โทเคนข้อผิดพลาดเป็นผลลัพธ์ของเซลล์และสามารถส่งกลับผ่าน [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--)
+สูตรอาจถูกต้องแต่ให้ผลลัพธ์เป็นข้อผิดพลาดของสเปรดชีต เช่น `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, หรือ `#VALUE!` ในกรณีนี้โทเคนข้อผิดพลาดเป็นผลลัพธ์ของเซลล์และสามารถส่งกลับผ่านเมธอด [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--)
 
-สูตรอาจล้มเหลวในขั้นตอนการพาร์ส, การอ้างอิง, การพึ่งพา, หรือระดับข้อมูลที่รองรับ Aspose.Slides มีข้อยกเว้นเฉพาะสเปรดชีตสำหรับกรณีเหล่านี้: [CellInvalidFormulaException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellcircularreferenceexception/), และ [CellUnsupportedDataException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellunsupporteddataexception/)
+สูตรอาจล้มเหลวในขั้นตอนการพาร์ส, การอ้างอิง, การพึ่งพา, หรือระดับข้อมูลที่สนับสนุน Aspose.Slides ให้ข้อยกเว้นเฉพาะสเปรดชีตสำหรับกรณีเหล่านี้ ได้แก่ [CellInvalidFormulaException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellcircularreferenceexception/), และ [CellUnsupportedDataException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellunsupporteddataexception/)
 
-เมื่อสูตรมาจากแม่แบบหรืออินพุตของผู้ใช้ ให้จับข้อผิดพลาดรอบการคำนวณใหม่และการเข้าถึงค่า รายละเอียดข้อผิดพลาดจะระบุปัญหาสเปรดชีตที่เป็นสาเหตุ:
+เมื่อสูตรมาจากเทมเพลตหรืออินพุตของผู้ใช้ ควรดักจับข้อผิดพลาดรอบการคำนวณใหม่และการเข้าถึงค่า รายละเอียดข้อผิดพลาดจะแจ้งปัญหาสเปรดชีตเบื้องลึก
 
 ```javascript
 const aspose = {};
@@ -335,52 +376,52 @@ try {
 
 ## **ข้อจำกัดเชิงปฏิบัติ**
 
-การสนับสนุนสูตรในเวิร์กชีตแผนภูมิมีจุดประสงค์สำหรับชุดย่อยของการคำนวณสเปรดชีต ไม่ได้มุ่งให้เข้ากันได้เต็มรูปแบบกับ Excel ให้คำนึงถึงข้อจำกัดเหล่านี้เมื่อออกแบบกระบวนการรายงาน:
+การสนับสนุนสูตรในเวิร์กชีตของแผนภูมิออกแบบมาสำหรับชุดย่อยที่กำหนดไว้ ไม่ใช่เพื่อความเข้ากันได้เต็มรูปแบบกับ Excel ควรคำนึงถึงข้อจำกัดเหล่านี้เมื่อออกแบบกระบวนการรายงาน:
 
-- ใช้เฉพาะค่าคงที่, ตัวดำเนินการ, การอ้างอิง, และฟังก์ชันที่ระบุในเอกสารเมื่อคุณต้องการให้ Aspose.Slides คำนวณสูตรใหม่
-- คำนวณใหม่หลังจากเปลี่ยนเซลล์ที่สูตรผลลัพธ์พึ่งพา
-- ถือค่าที่แคชจากงานนำเข้าที่โหลดเป็นภาพสแนปช็อต ไม่ใช่การแทนที่การคำนวณใหม่หลังแก้ไข
-- ทดสอบสูตรจากแม่แบบที่มีอยู่ก่อนพึ่งพาค่าที่คำนวณได้ โดยเฉพาะเมื่อใช้ฟังก์ชันที่อยู่นอกรายการที่ระบุ
-- สำหรับสูตรที่ต้องการเอนจิ้นการคำนวณสเปรดชีตเต็มรูปแบบ ให้คำนวณภายนอกแล้วอัปเดตเวิร์กชีตแผนภูมิด้วยค่าที่ได้
+- ใช้ค่าคงที่, ตัวดำเนินการ, การอ้างอิง, และฟังก์ชันที่บันทึกไว้เท่านั้นเมื่อคุณต้องการให้ Aspose.Slides คำนวณสูตรใหม่
+- คำนวณใหม่หลังจากแก้ไขเซลล์ที่ผลลัพธ์สูตรอิงถึง
+- ถือค่าที่แคชจากงานนำเข้าที่โหลดเป็นภาพถ่าย ณ ขณะนั้น ไม่ใช่การแทนที่การคำนวณใหม่หลังแก้ไข
+- ทดสอบสูตรจากเทมเพลตที่มีอยู่ก่อนพึ่งพาค่าที่คำนวณ, โดยเฉพาะเมื่อใช้ฟังก์ชันที่อยู่นอกรายการที่บันทึกไว้
+- สำหรับสูตรที่ต้องการเครื่องมือคำนวณสเปรดชีตเต็มรูปแบบ ให้คำนวณภายนอกแล้วอัปเดตเวิร์กบุ๊กแผนภูมิกับค่าที่ได้
 
 ## **คำถามที่พบบ่อย**
 
 **ความแตกต่างระหว่าง [ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) และ [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) คืออะไร?**
 
-[ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) เก็บนิพจน์แบบ A1 เช่น `B2-C2` ส่วน [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) เก็บนิพจน์แบบ R1C1 เช่น `RC[-2]-RC[-1]` ใช้สไตล์ที่สอดคล้องกับวิธีการสร้างหรือคัดลอกสูตรของคุณมากที่สุด
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) เก็บนิพจน์แบบ A1 เช่น `B2-C2` ส่วน [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) เก็บนิพจน์แบบ R1C1 เช่น `RC[-2]-RC[-1]` ให้ใช้รูปแบบที่สอดคล้องกับวิธีที่คุณสร้างหรือคัดลอกสูตร
 
-**ต้องอ่านค่าเซลล์หรือค่าผลลัพธ์ของเซลล์หลังจากคำนวณหรือไม่?**
+**ฉันต้องอ่านเซลล์เองหรือค่าในเซลล์หลังการคำนวณหรือไม่?**
 
-[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) คืนค่า [ChartDataCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/) เพื่อให้ได้ผลลัพธ์ที่คำนวณแล้ว ให้เรียกเมธอด [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--) ของเซลล์นั้นหลังจากคำนวณใหม่
+[ChartDataWorkbook.getCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) ส่งคืนวัตถุ [ChartDataCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/) เพื่อรับผลลัพธ์ที่คำนวณ ให้เรียกเมธอด [ChartDataCell.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/#getValue--) ของเซลล์นั้นหลังการคำนวณใหม่
 
-**ควรเรียก [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) เมื่อใด?**
+**ควรเรียก [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) เวลาใด?**
 
-เรียก [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) หลังจากเปลี่ยนค่าข้อมูลเข้าหรือสูตรและก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวณแล้ว ซึ่งจะอัปเดตค่าของสูตรที่ตัวประเมินในตัวรองรับ
+ให้เรียก [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) หลังจากเปลี่ยนค่าตัวอินพุตหรือสูตร และก่อนที่คุณจะพึ่งพาผลลัพธ์ที่คำนวณ ซึ่งจะอัปเดตค่าของสูตรที่ตัวประเมินในตัวสนับสนุน
 
-**Aspose.Slides รองรับฟังก์ชัน Excel ทุกตัวหรือไม่?**
+**Aspose.Slides สนับสนุนทุกฟังก์ชันของ Excel หรือไม่?**
 
-ไม่ ตัวประเมินในตัวรองรับเพียงชุดฟังก์ชันที่ระบุไว้เท่านั้น ฟังก์ชันที่อยู่นอกชุดนั้นไม่ควรสมมติว่าจะคำนวณใหม่ได้อย่างถูกต้อง หากต้องการความเข้ากันได้เต็มรูปแบบกับสูตร Excel ให้ทำการคำนวณด้วยเอนจิ้นสเปรดชีตที่เหมาะสมแล้วเขียนค่าที่ได้ลงในเวิร์กชีตแผนภูมิ
+ไม่ ตัวประเมินในตัวสนับสนุนเพียงชุดฟังก์ชันที่บันทึกไว้ ฟังก์ชันที่อยู่นอกชุดนั้นไม่ควรสมมติว่าจะคำนวณใหม่ได้อย่างถูกต้อง หากต้องการความเข้ากันได้เต็มรูปแบบกับสูตร Excel ให้ทำการคำนวณด้วยเครื่องมือสเปรดชีตที่เหมาะสมแล้วเขียนค่าที่ได้ลงในเวิร์กบุ๊กแผนภูมิ
 
-**ถ้างานนำเสนอที่โหลดมามีสูตรที่ไม่รองรับจะเกิดอะไรขึ้น?**
+**จะเกิดอะไรขึ้นหากงานนำเข้าที่โหลดมีสูตรที่ไม่สนับสนุน?**
 
-หากข้อมูลแผนภูมิไม่ได้เปลี่ยน เวิร์กชีตอาจยังคงมีค่าที่แคชจากการคำนวณครั้งก่อน หลังจากที่ข้อมูลที่เกี่ยวข้องถูกแก้ไข ค่าที่แคชนี้อาจไม่ใช่ค่าที่ถูกต้อง การเข้าถึงเซลล์ที่สูตรไม่สามารถจัดการได้อาจทำให้เกิด [CellUnsupportedDataException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellunsupporteddataexception/)
+หากข้อมูลแผนภูมิไม่เปลี่ยนแปลง เวิร์กบุ๊กอาจยังคงมีค่าที่แคชจากการคำนวณก่อนหน้า หลังจากข้อมูลที่เกี่ยวข้องถูกแก้ไข ค่าที่แคชนั้นอาจไม่ถูกต้องอีกต่อไป การเข้าถึงเซลล์ที่สูตรไม่สามารถจัดการได้อาจทำให้เกิดข้อยกเว้น [CellUnsupportedDataException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellunsupporteddataexception/)
 
-**ค่าข้อผิดพลาดของสูตรเท่ากับข้อยกเว้นหรือไม่?**
+**ค่าข้อผิดพลาดของสูตรคือเดียวกับข้อยกเว้นหรือไม่?**
 
-ไม่ ผลลัพธ์เช่น `#DIV/0!` เป็นค่าของสเปรดชีตที่เกิดจากการคำนวณที่ถูกต้อง ส่วนข้อยกเว้นเช่น [CellInvalidFormulaException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellinvalidformulaexception/) หรือ [CellCircularReferenceException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellcircularreferenceexception/) แสดงว่าไม่สามารถประมวลผลสูตรได้ตามปกติ
+ไม่ ผลลัพธ์เช่น `#DIV/0!` เป็นค่าของสเปรดชีตที่เกิดจากการคำนวณที่ถูกต้อง ส่วนข้อยกเว้นเช่น [CellInvalidFormulaException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellinvalidformulaexception/) หรือ [CellCircularReferenceException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/cellcircularreferenceexception/) ระบุว่ารูปแบบสูตรไม่สามารถประมวลผลได้ตามปกติ
 
 **แผนภูมิจะอัปเดตอัตโนมัติเมื่อเซลล์สูตรเปลี่ยนหรือไม่?**
 
-ซีรีส์ของแผนภูมิอาจอ้างอิงเซลล์ในเวิร์กชีต คำนวณเวิร์กชีตก่อน แล้วบันทึกหรือเรนเดอร์งานนำเสนอ หากจุดข้อมูลแผนภูมิอ้างอิงเซลล์ที่คำนวณแล้ว แผนภูมิจะใช้ค่าที่อัปเดตนั้น ไม่จำเป็นต้องมีเมธอดรีเฟรชแผนภูมิแยกต่างหากในขั้นตอนนี้
+ซีรีส์ของแผนภูมิสามารถอ้างอิงเซลล์ในเวิร์กบุ๊กได้ ให้คำนวณเวิร์กบุ๊กก่อน แล้วบันทึกหรือเรนเดอร์งานนำเสนอ หากจุดข้อมูลของแผนภูมิเก็บอ้างอิงเซลล์ที่คำนวณแล้ว แผนภูมิจะใช้ค่าที่อัปเดตเหล่านั้น; ไม่จำเป็นต้องเรียกเมธอดรีเฟรชแผนภูมิแยกต่างหากสำหรับเวิร์กโฟลว์นี้
 
-**แผนภูมิสามารถใช้เวิร์กชีต Excel ภายนอกได้หรือไม่?**
+**แผนภูมิสามารถใช้เวิร์กบุ๊ก Excel ภายนอกได้หรือไม่?**
 
-ได้ สามารถกำหนดให้ข้อมูลแผนภูมิใช้เวิร์กชีตภายนอกผ่าน API ของข้อมูลแผนภูมิ อย่างไรก็ตาม ขั้นตอนการคำนวณสูตรที่อธิบายไว้ในบทความนี้เกี่ยวกับเวิร์กชีตข้อมูลแผนภูมิและชุดสูตรที่ Aspose.Slides ประเมิน ไม่ควรสันนิษฐานว่า [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) ให้การคำนวนเต็มรูปแบบของสูตรใด ๆ ในไฟล์ XLSX ภายนอก
+ได้ ข้อมูลแผนภูมิสามารถกำหนดค่าให้ใช้เวิร์กบุ๊กภายนอกผ่าน API ของข้อมูลแผนภูมิได้ อย่างไรก็ตาม กระบวนการคำนวณสูตรที่อธิบายในบทความนี้เกี่ยวกับเวิร์กบุ๊กข้อมูลแผนภูมิและชุดสูตรที่ Aspose.Slides ประเมิน ไม่ควรสมมติว่า [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) ให้การคำนวณเต็มรูปแบบของสูตรใดๆ ในไฟล์ XLSX ภายนอก
 
-**สูตรที่อ้างอิงเวิร์กชีตหรือเวิร์กบุ๊กอื่นได้หรือไม่?**
+**ฉันสามารถใช้สูตรที่อ้างอิงเวิร์กชีตหรือเวิร์กบุ๊กอื่นได้หรือไม่?**
 
-อ้างอิงสไตล์ Excel อาจปรากฏในเวิร์กชีตแผนภูมิ แต่การประมวลผลสูตรนั้นจำกัดโดยพาร์เซอร์และชุดฟังก์ชันที่รองรับ หากต้องอ้างอิงข้ามชีตหรือไฟล์ภายนอกเป็นสิ่งสำคัญ ให้ตรวจสอบสูตรนั้นกับเวอร์ชัน Aspose.Slides ที่คุณใช้อยู่ สำหรับงานที่ต้องการความเข้ากันได้กับการอ้างอิง Excel อย่างกว้างขวาง ให้คำนวณเวิร์กชีตภายนอกแล้วเขียนค่าที่แก้ไขกลับไปยังข้อมูลแผนภูมิ
+การอ้างอิงแบบ Excel อาจมีอยู่ในเวิร์กบุ๊กแผนภูมิ แต่การประเมินสูตรถูกจำกัดโดยพาร์สเซอร์และชุดฟังก์ชันที่สนับสนุน หากการอ้างอิงข้ามชีตหรือภายนอกเป็นสิ่งสำคัญ ให้ตรวจสอบสูตรนั้นกับเวอร์ชัน Aspose.Slides ที่คุณใช้ สำหรับเวิร์กโฟลว์ที่ต้องการความเข้ากันได้กับการอ้างอิง Excel อย่างกว้างขวาง ให้คำนวณเวิร์กบุ๊กภายนอกแล้วเขียนค่าที่ได้กลับไปยังข้อมูลแผนภูมิ
 
-**สูตรควรเริ่มต้นด้วย `=` หรือไม่?**
+**สูตรควรเริ่มด้วย `=` หรือไม่?**
 
-ตัวอย่าง API ของ Aspose.Slides กำหนดนิพจน์เช่น `B2-C2` หรือ `SUM(B2:B5)` โดยไม่มีเครื่องหมาย `=` นำหน้า การใช้รูปแบบนี้ทำให้สูตรที่สร้างสอดคล้องกับตัวอย่างในเอกสาร API อย่างชัดเจน
+ตัวอย่าง API ของ Aspose.Slides กำหนดนิพจน์เช่น `B2-C2` หรือ `SUM(B2:B5)` โดยไม่มี `=` นำหน้า การใช้รูปแบบนี้ทำให้สูตรที่สร้างสอดคลคล้องกับตัวอย่าง API ที่บันทึกไว้

@@ -1,6 +1,6 @@
 ---
-title: Применение формул листов диаграмм в презентациях на PHP
-linktitle: Формулы листов
+title: Применение формул листа диаграммы в презентациях на PHP
+linktitle: Формулы листа
 type: docs
 weight: 70
 url: /ru/php-java/chart-worksheet-formulas/
@@ -9,9 +9,12 @@ keywords:
 - лист диаграммы
 - формула диаграммы
 - формула листа
-- формула электронной таблицы
+- формула таблицы
 - рабочая книга данных диаграммы
 - вычисление формулы
+- предпочтительная культура
+- формула, завсящая от культуры
+- DBCS
 - логическая константа
 - числовая константа
 - строковая константа
@@ -25,27 +28,27 @@ keywords:
 - презентация
 - PHP
 - Aspose.Slides
-description: "Применяйте формулы в стиле Excel в листах диаграмм Aspose.Slides для PHP через Java, пересчитывайте значения и используйте результаты в диаграммах PowerPoint."
+description: "Применяйте формулы в стиле Excel в Aspose.Slides для PHP через Java листы диаграмм, пересчитывайте значения и используйте результаты в диаграммах PowerPoint."
 ---
 ## **Обзор**
 
-Диаграммы PowerPoint обычно хранят исходные данные во встроенном листе. В Aspose.Slides для PHP через Java вы можете получить доступ к этому листу через рабочую книгу данных диаграммы, записать входные значения, назначить формулы ячейкам, вычислить поддерживаемые формулы и использовать вычисленные ячейки в качестве данных диаграммы.
+Диаграммы PowerPoint обычно хранят исходные данные во вложенном листе. В Aspose.Slides для PHP через Java вы можете получить доступ к этому листу через рабочую книгу данных диаграммы, записать входные значения, назначить формулы ячейкам, вычислить поддерживаемые формулы и использовать вычисленные ячейки в качестве данных диаграммы.
 
-В этой статье описывается полный процесс работы с формулами: создание диаграммы, заполнение её листа, назначение формул в стиле A1 или R1C1, их пересчёт, чтение вычисленных значений, привязка этих ячеек к серии диаграммы и сохранение презентации. Также рассматриваются поддерживаемый синтаксис формул, набор встроенных функций, кэшированные значения, неподдерживаемые формулы и ошибки, специфичные для электронных таблиц.
+В этой статье объясняется полный рабочий процесс формул: создание диаграммы, заполнение её листа, назначение формул в стиле A1 или R1C1, их перерасчёт, чтение вычисленных значений, привязка этих ячеек к серии диаграммы и сохранение презентации. Также описывается поддерживаемый синтаксис формул, набор встроенных функций, кэшированные значения, неподдерживаемые формулы и ошибки, характерные для таблиц.
 
 ## **Листы диаграмм и формулы**
 
 Лист диаграммы содержит категории, имена серий и значения, используемые диаграммой. В PowerPoint вы можете просмотреть лист, открыв редактор данных диаграммы:
 
-![Диаграмма PowerPoint с открытым встроенным листом, показывающая данные категорий и серий](chart-worksheet-formulas_1.png)
+![Диаграмма PowerPoint с открытым вложенным листом, показывающая данные категорий и серий](chart-worksheet-formulas_1.png)
 
-В Aspose.Slides лист доступен через класс [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/). Используйте [ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula) для формул в стиле A1 и [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula) для формул в стиле R1C1. После изменения входных ячеек или формул вызовите [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas), чтобы пересчитать поддерживаемые формулы и обновить соответствующие значения ячеек.
+В Aspose.Slides лист доступен через класс [ChartDataWorkbook](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/). Используйте [ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula) для формул в стиле A1 и [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula) для формул в стиле R1C1. После изменения входных ячеек или формул вызовите [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas), чтобы перерасчитать поддерживаемые формулы и обновить соответствующие значения ячеек.
 
-Вычисленная ячейка всё ещё предоставляет свой результат через [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue). Это важно, когда необходимо проверить результат формулы в коде или использовать ячейку как точку данных диаграммы.
+Вычисленная ячейка всё ещё предоставляет свой результат через [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue). Это важно, когда нужно проверить результат формулы в коде или использовать ячейку как точку данных диаграммы.
 
 ## **Создание диаграммы и вычисление формул листа**
 
-Следующий пример демонстрирует сквозной процесс. Он создаёт сгруппированную столбчатую диаграмму, очищает образцовые данные, записывает квартальные доходы и расходы, вычисляет прибыль с помощью формул, читает результаты, использует вычисленные ячейки в качестве значений диаграммы и сохраняет презентацию.
+Ниже приведён пример полного рабочего процесса. Он создаёт сгруппированную столбчатую диаграмму, очищает примерные данные, записывает квартальные значения доходов и расходов, вычисляет прибыль с помощью формул, читает результаты, использует вычисленные ячейки в качестве значений диаграммы и сохраняет презентацию.
 
 ```php
 $presentation = new Presentation();
@@ -108,11 +111,11 @@ try {
 }
 ```
 
-Точки данных диаграммы ссылаются на `D2:D4`, поэтому диаграмма использует вычисленные значения прибыли. В этом процессе нет отдельного вызова обновления диаграммы: сначала пересчитывается рабочая книга, затем используется или сохраняется диаграмма, указывающая на вычисленные ячейки.
+Точки данных диаграммы ссылаются на `D2:D4`, поэтому диаграмма использует вычисленные значения прибыли. В этом рабочем процессе нет отдельного вызова обновления диаграммы: сначала перерасчитывается рабочая книга, затем используется или сохраняется диаграмма, ссылающаяся на вычисленные ячейки.
 
 ## **Использование формул в стиле A1**
 
-Нотация A1 идентифицирует столбцы буквами, а строки – цифрами. Присваивайте выражения в стиле A1 через [ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula).
+Нотация A1 обозначает столбцы буквами, а строки — цифрами. Присваивайте выражения в стиле A1 через [ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula).
 
 ```php
 $presentation = new Presentation();
@@ -146,11 +149,11 @@ try {
 | Столбец | `A:A` | `$A:$A` | — |
 | Диапазон | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Относительные ссылки могут изменяться при перемещении или копировании формулы в приложении электронных таблиц. Абсолютные ссылки фиксируют обе координаты, а смешанные фиксируют только строку или столбец.
+Относительные ссылки могут изменяться при перемещении или копировании формулы в таблице. Абсолютные ссылки фиксируют обе координаты, а смешанные фиксируют только строку или только столбец.
 
 ## **Использование формул в стиле R1C1**
 
-Нотация R1C1 численно определяет и строки, и столбцы. Относительные ссылки используют смещения в квадратных скобках. Присваивайте такой синтаксис через [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
+Нотация R1C1 обозначает строки и столбцы численно. Относительные ссылки используют смещения в квадратных скобках. Присваивайте эту нотацию через [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
 
 ```php
 $presentation = new Presentation();
@@ -184,9 +187,9 @@ try {
 
 Например, в ячейке `D2` запись `RC[-2]` означает ячейку в той же строке, на два столбца влево (`B2`).
 
-## **Константы и операторы формул**
+## **Константы формул и операторы**
 
-Встроенный Evaluator формул поддерживает логические значения, числовые литералы, строки, значения ошибок электронных таблиц, арифметические и сравнительные операции.
+Встроенный оценщик формул поддерживает логические значения, числовые литералы, строки, значения ошибок таблицы, арифметические операторы и операторы сравнения.
 
 ### **Константы и литералы**
 
@@ -195,7 +198,7 @@ try {
 | Логический | `TRUE`, `FALSE` | Можно использовать напрямую в логических выражениях, например `A2=TRUE`. |
 | Числовой | `1`, `0.5`, `.3`, `1E-2` | Поддерживаются обычная и научная запись. |
 | Строка | `"abc"`, `"2/3/2020 12:00"` | Текстовые литералы заключаются в двойные кавычки внутри формулы. |
-| Результат ошибки | `#DIV/0!`, `#N/A`, `#REF!` | Валидная формула может вернуть значение ошибки вместо обычного результата. |
+| Результат ошибки | `#DIV/0!`, `#N/A`, `#REF!` | Валидная формула может дать значение ошибки таблицы вместо обычного результата. |
 
 В этом примере используются несколько типов констант:
 
@@ -215,7 +218,7 @@ try {
 
     $workbook->calculateFormulas();
 
-    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // ложно
+    $logicalValue = java_values($workbook->getCell(0, "B2")->getValue()); // false
     $numericValue = java_values($workbook->getCell(0, "C2")->getValue()); // 1.5
     $scientificValue = java_values($workbook->getCell(0, "D2")->getValue()); // 0.003
     $stringValue = java_values($workbook->getCell(0, "E2")->getValue()); // abc
@@ -253,7 +256,7 @@ try {
 
 ## **Поддерживаемые предопределённые функции**
 
-Aspose.Slides содержит встроенный Evaluator формул для листов диаграмм, но это не полноценный движок расчётов Excel. Документированный набор функций ограничен функциями, перечисленными ниже. Не следует предполагать, что произвольная функция Excel может быть пересчитана с помощью [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
+Aspose.Slides включает встроенный оценщик формул для листов диаграмм, но это не полноценный движок расчётов Excel. Документированный набор функций ограничен таблицей ниже. Не предполагаете, что произвольная функция Excel может быть пересчитана методом [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
 
 | Функция | Назначение или поддерживаемая форма | Пример |
 |---|---|---|
@@ -265,37 +268,77 @@ Aspose.Slides содержит встроенный Evaluator формул дл�
 | `CONCATENATE` | Объединение текстовых значений | `CONCATENATE(A2," ",B2)` |
 | `DATE` | Создание даты в системе 1900‑го года | `DATE(2026,8,19)` |
 | `DAYS` | Количество дней между датами | `DAYS(B2,A2)` |
-| `FIND` | Поиск одного текста внутри другого | `FIND("-",A2)` |
-| `FINDB` | Поиск текста побайтно | `FINDB("a",A2)` |
+| `FIND` | Поиск текста внутри другого текста | `FIND("-",A2)` |
+| `FINDB` | Поиск текста по байтам | `FINDB("a",A2)` |
 | `IF` | Условный результат | `IF(A2>0,A2,0)` |
-| `INDEX` | Ссылка в виде формы | `INDEX(A2:C4,2,3)` |
+| `INDEX` | Ссылка в форме таблицы | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Векторная форма | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | Векторная форма | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Максимальное значение | `MAX(B2:B5)` |
 | `SUM` | Сумма значений | `SUM(B2:B5)` |
 | `VLOOKUP` | Вертикальный поиск | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Ограничения, указанные в таблице, существенны: `INDEX` документирован в виде ссылки, а `LOOKUP` и `MATCH` – в их векторных формах. `DATE` использует систему дат 1900‑го года. Функции и возможности, не перечисленные здесь, следует считать неподдерживаемыми Evaluator'ом Aspose.Slides, если они не документированы отдельно.
+Ограничения, показанные в таблице, важны: `INDEX` документирован в форме ссылки, а `LOOKUP` и `MATCH` — в их векторных формах. `DATE` использует систему дат 1900 года. Функции, не перечисленные здесь, следует считать неподдерживаемыми встроенным оценщиком Aspose.Slides, если они не документированы отдельно.
 
-## **Пересчёт и кэшированные значения**
+## **Вычисление формул с предпочтительной культурой**
 
-Файлы электронных таблиц обычно хранят как формулу, так и её последнее вычисленное значение. Поэтому Aspose.Slides может прочитать кэшированное значение из [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue), когда презентация загружается и соответствующие данные диаграммы не изменялись.
+Некоторые функции рабочей книги используют культурно‑зависимые правила обработки текста. Это особенно важно для функций, предназначенных для языков с двойными байтовыми наборами символов (DBCS). Чтобы правильно вычислять такие формулы, создайте [LoadOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/), установите предпочтительную культуру через [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/ru/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), передайте параметры таблицы через [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions) и затем загрузите презентацию.
 
-После изменения входных ячеек или формул не полагайтесь на старый кэш. Вызовите [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) перед чтением вычисленных значений или сохранением данных диаграммы, зависящих от них.
+В следующем примере выбирается японская культура, открывается презентация с указанными параметрами загрузки и вызывается [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) для каждой рабочей книги диаграммы:
 
-Для формул, не входящих в поддерживаемый подмножество, Aspose.Slides может не суметь разобрать формулу или определить её зависимости. Если рабочая книга была изменена, предыдущее кэшированное значение более не считается надёжным. В такой ситуации попытка чтения значения ячейки с неподдерживаемыми данными может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellunsupporteddataexception/).
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
 
-Если ваша диаграмма зависит от функций Excel, которые Aspose.Slides не вычисляет, выполните вычисление этих формул в движке, поддерживающем их, и запишите полученные значения обратно в рабочую книгу диаграммы. Не заменяйте неподдерживаемые формулы гипотетическими значениями.
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Предпочтительная культура является частью конфигурации загрузки презентации, поэтому её следует задать до создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/). Используйте культуру, ожидаемую формулами рабочей книги; например, `ja-JP` для формул, которые должны следовать японским правилам расчётов DBCS.
+
+## **Перерасчёт и кэшированные значения**
+
+Файлы таблиц обычно хранят как формулу, так и её последнее вычисленное значение. Aspose.Slides может читать кэшированное значение из [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue), когда презентация загружена и соответствующие данные диаграммы не изменялись.
+
+После изменения входных ячеек или формул не полагайтесь на старый кэшированный результат. Вызовите [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) перед чтением вычисленных значений или сохранением данных диаграммы, от которых они зависят.
+
+Для формул, не входящих в поддерживаемый набор, Aspose.Slides может не суметь разобрать формулу или определить её зависимости. Если рабочая книга была изменена, предыдущее кэшированное значение уже нельзя считать надёжным. В такой ситуации чтение значения ячейки с неподдерживаемыми данными может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellunsupporteddataexception/).
+
+Если ваша диаграмма использует функции Excel, которые Aspose.Slides не вычисляет, вычислите эти формулы в другом движке таблиц и запишите полученные значения обратно в рабочую книгу диаграммы. Не заменяйте неподдерживаемые формулы «угаданными» значениями.
 
 ## **Обработка ошибок формул**
 
-Существует два разных вида проблем.
+Существует два разных типа проблем.
 
-Формула может быть корректной, но возвращать ошибку электронной таблицы, такую как `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` или `#VALUE!`. В этом случае токен ошибки является результатом ячейки и может быть получен через [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue).
+Формула может быть корректной, но возвращать ошибку таблицы, например `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` или `#VALUE!`. В этом случае токен ошибки является результатом ячейки и может быть возвращён через [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue).
 
-Формула также может быть некорректной на этапе разбора, ссылки, зависимости или из‑за неподдерживаемых данных. Aspose.Slides предоставляет специализированные исключения для этих случаев: [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellcircularreferenceexception/) и [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellunsupporteddataexception/).
+Формула может также потерпеть неудачу на этапе разбора, ссылки, зависимостей или из‑за неподдерживаемых данных. Aspose.Slides предоставляет специфические для таблиц исключения: [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellcircularreferenceexception/), и [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellunsupporteddataexception/).
 
-В PHP через Java Java‑исключения передаются через `JavaException`. Когда формулы поступают из шаблонов или ввода пользователя, обрабатывайте их вокруг пересчёта и доступа к значениям. Java‑исключение, отображённое в стеке, указывает конкретную ошибку таблицы:
+В PHP через Java исключения Java отображаются через `JavaException`. Когда формулы поступают из шаблонов или ввода пользователя, обрабатывайте их вокруг перерасчёта и доступа к значениям. Исключение Java, указанное в стеке вызовов, определяет конкретный сбой таблицы:
 
 ```php
 $presentation = new Presentation();
@@ -319,52 +362,52 @@ try {
 
 ## **Практические ограничения**
 
-Поддержка формул в листах диаграмм предназначена для ограниченного набора расчётов электронных таблиц, а не для полной совместимости с Excel. Учитывайте эти ограничения при построении отчётных процессов:
+Поддержка формул в листах диаграмм предназначена только для определённого подмножества расчётов таблиц, а не для полной совместимости с Excel. Учтите эти ограничения при проектировании рабочего процесса отчётности:
 
-- Используйте только документированные константы, операторы, ссылки и функции, когда требуется пересчёт формул Aspose.Slides.
-- Пересчитывайте после изменения ячеек, от которых зависят результаты формул.
-- Рассматривайте кэшированные значения из загруженных презентаций как снимок, а не как замену пересчёту после правок.
-- Тестируйте формулы из существующих шаблонов перед тем, как полагаться на их вычисленные значения, особенно если они используют функции, не вошедшие в список.
-- Для формул, требующих полного движка расчётов, выполните их внешне и затем обновите лист диаграммы полученными значениями.
+- Используйте только документированные константы, операторы, ссылки и функции, если требуется, чтобы Aspose.Slides пересчитывал формулы.
+- Перерасчитывайте после изменения ячеек, от которых зависят результаты формул.
+- Рассматривайте кэшированные значения из загруженных презентаций как снимки, а не как замену перерасчёту после правок.
+- Тестируйте формулы из существующих шаблонов перед тем, как полагаться на их вычисленные значения, особенно если они используют функции, не входящие в список.
+- Для формул, требующих полного движка расчётов таблиц, выполняйте вычисления внешне, а затем обновляйте рабочую книгу диаграммы полученными значениями.
 
 ## **FAQ**
 
 **В чём разница между [ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula) и [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula)?**
 
-[ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula) сохраняет выражение в стиле A1, например `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula) сохраняет выражение в стиле R1C1, например `RC[-2]-RC[-1]`. Выбирайте нотацию, соответствующую тому, как вы генерируете или копируете формулы.
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setFormula) сохраняет выражение в стиле A1, например `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#setR1C1Formula) сохраняет выражение в стиле R1C1, например `RC[-2]-RC[-1]`. Используйте нотацию, которая лучше соответствует вашему способу генерации или копирования формул.
 
-**Нужно ли читать саму ячейку или её значение после расчёта?**
+**Нужно ли читать саму ячейку или её значение после вычисления?**
 
-[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#getCell) возвращает объект [ChartDataCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/). Чтобы получить вычисленный результат, вызовите у этой ячейки метод [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue) после пересчёта.
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#getCell) возвращает объект [ChartDataCell](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/). Чтобы получить вычисленный результат, вызовите у этой ячейки метод [ChartDataCell::getValue](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdatacell/#getValue) после перерасчёта.
 
 **Когда следует вызывать [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)?**
 
-Вызовите [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) после изменения входных значений или формул и перед тем, как использовать вычисленные результаты. Это обновит значения формул, поддерживаемых встроенным Evaluator'ом.
+Вызывайте [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) после изменения входных значений или формул и перед тем, как использовать вычисленные результаты. Это обновит значения формул, поддерживаемых встроенным оценщиком.
 
-**Поддерживает ли Aspose.Slides все функции Excel?**
+**Поддерживает ли Aspose.Slides каждую функцию Excel?**
 
-Нет. Встроенный Evaluator поддерживает только документированный подмножество функций. Функции, не входящие в этот набор, не следует считать корректно пересчитываемыми. Если требуется полная совместимость с формулами Excel, выполните расчёты внешним движком и запишите финальные значения в лист диаграммы.
+Нет. Встроенный оценщик поддерживает только документированный подмножество функций. Функции, не входящие в этот набор, не следует считать вычисляемыми корректно. Если требуется полная совместимость с формулами Excel, выполните расчёт в соответствующем движке таблиц и запишите окончательные значения в рабочую книгу диаграммы.
 
 **Что происходит, если загруженная презентация содержит неподдерживаемую формулу?**
 
 Если данные диаграммы не менялись, в рабочей книге может оставаться ранее вычисленное кэшированное значение. После изменения связанных данных это кэшированное значение может стать недействительным. Попытка доступа к ячейке с формулой, которую нельзя обработать, может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellunsupporteddataexception/).
 
-**Являются ли значения ошибок формул теми же, что и исключения PHP?**
+**Являются ли значения ошибок формул тем же, что и исключения PHP?**
 
-Нет. Результат вроде `#DIV/0!` – это значение таблицы, полученное в результате корректного вычисления. Ошибки обработки таблицы, такие как [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellinvalidformulaexception/) или [CellCircularReferenceException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellcircularreferenceexception/), являются Java‑исключениями, передаваемыми в PHP через `JavaException`.
+Нет. Значение вроде `#DIV/0!` — это значение таблицы, полученное в результате корректного вычисления. Ошибки обработки таблиц, такие как [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellinvalidformulaexception/) или [CellCircularReferenceException](https://reference.aspose.com/slides/ru/php-java/aspose.slides/cellcircularreferenceexception/), являются исключениями Java, которые в PHP отображаются через `JavaException`.
 
 **Обновляется ли диаграмма автоматически при изменении ячейки формулы?**
 
-Серия диаграммы может ссылаться на ячейки рабочей книги. Сначала пересчитайте рабочую книгу, затем сохраните или отобразите презентацию. Если точки данных диаграммы ссылаются на вычисленные ячейки, диаграмма использует их обновлённые значения; отдельный метод обновления диаграммы не требуется.
+Серии диаграммы могут ссылаться на ячейки рабочей книги. Сначала перерасчитайте рабочую книгу, затем сохраните или отрендерите презентацию. Если точки данных диаграммы ссылаются на вычисленные ячейки, диаграмма использует обновлённые значения; отдельный метод обновления диаграммы не нужен.
 
-**Могут ли диаграммы использовать внешний Excel‑файл?**
+**Могут ли диаграммы использовать внешний файл Excel?**
 
-Да, данные диаграммы можно настроить на использование внешней рабочей книги через API данных диаграммы. Однако описанный в статье процесс вычисления формул относится к рабочей книге диаграммы и подмножеству формул, поддерживаемому Aspose.Slides. Не следует считать, что [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) полностью пересчитывает произвольные формулы во внешнем XLSX‑файле.
+Да, данные диаграммы можно настроить на использование внешней рабочей книги через API данных диаграммы. Однако описанный в этой статье рабочий процесс расчёта формул относится к рабочей книге данных диаграммы и подмножеству формул, оцениваемому Aspose.Slides. Не предполагаете, что [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) полностью пересчитает произвольные формулы во внешнем файле XLSX.
 
-**Можно ли использовать формулы, ссылающиеся на другой лист или книгу?**
+**Можно ли использовать формулы, ссылающиеся на другой лист или рабочую книгу?**
 
-Ссылки в стиле Excel могут присутствовать в листах диаграмм, но оценка формул ограничена поддерживаемым парсером и набором функций. Если требуется межлистовая или внешняя ссылка, проверьте точность такой формулы с вашей версией Aspose.Slides. Для сценариев, требующих широкой совместимости ссылок Excel, вычисляйте рабочую книгу независимо и записывайте разрешённые значения обратно в данные диаграммы.
+Ссылки в стиле Excel могут присутствовать в рабочих книгах диаграмм, но их оценка ограничена поддерживаемым парсером и набором функций. Если критична кросс‑листовая или внешняя ссылка, проверьте точность такой формулы с вашей версией Aspose.Slides. Для рабочих процессов, требующих широкой совместимости ссылок Excel, расчитайте рабочую книгу внешне и запишите полученные значения обратно в данные диаграммы.
 
 **Должны ли строки формул начинаться с `=`?**
 
-Примеры API Aspose.Slides присваивают выражения вроде `B2-C2` или `SUM(B2:B5)` без начального `=`. Такое оформление сохраняет согласованность с документированными примерами API.
+Примеры API Aspose.Slides присваивают выражения без ведущего `=`, например `B2-C2` или `SUM(B2:B5)`. Такой способ сохраняет согласованность с документированными примерами API.

@@ -1,17 +1,20 @@
 ---
-title: اعمال فرمول‌های کاربرگ نمودار در ارائه‌ها با استفاده از C++
-linktitle: فرمول‌های کاربرگ
+title: اعمال فرمول‌های برگه کاری نمودار در ارائه‌ها با استفاده از C++
+linktitle: فرمول‌های برگه کاری
 type: docs
 weight: 70
 url: /fa/cpp/chart-worksheet-formulas/
 keywords:
-- صفحه‌گسترده نمودار
-- کاربرگ نمودار
+- نمودار صفحه‌گسترده
+- برگه کاری نمودار
 - فرمول نمودار
-- فرمول کاربرگ
+- فرمول برگه کاری
 - فرمول صفحه‌گسترده
-- دفتر کار داده‌های نمودار
+- کتاب‌کار داده‌های نمودار
 - محاسبه فرمول
+- فرهنگ مورد ترجیح
+- فرمول مخصوص به فرهنگ
+- DBCS
 - ثابت منطقی
 - ثابت عددی
 - ثابت رشته‌ای
@@ -25,27 +28,27 @@ keywords:
 - ارائه
 - C++
 - Aspose.Slides
-description: "فرمول‌های سبک Excel را در کاربرگ‌های نمودار Aspose.Slides برای C++ اعمال کنید، مقادیر را دوباره محاسبه کنید و نتایج را در نمودارهای PowerPoint استفاده کنید."
+description: "فرمول‌های سبک Excel را در برگه‌های کاری نمودار Aspose.Slides برای C++ اعمال کنید، مقادیر را دوباره محاسبه کنید و نتایج را در نمودارهای PowerPoint استفاده کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-نمودارهای PowerPoint معمولاً داده‌های منبع خود را در یک کاربرگ جاسازی‌شده ذخیره می‑کنند. در Aspose.Slides برای C++ می‌توانید از طریق کتاب‌کار داده‌های نمودار به آن کاربرگ دسترسی پیدا کنید، مقادیر ورودی را بنویسید، فرمول‌ها را به سلول‌ها اختصاص دهید، فرمول‌های پشتیبانی‌شده را محاسبه کنید و از سلول‌های محاسبه‌شده به عنوان داده‌های نمودار استفاده کنید.
+نمودارهای PowerPoint معمولاً داده‌های منبع خود را در یک برگه کاری تعبیه‌شده ذخیره می‌کنند. در Aspose.Slides برای C++ می‌توانید از طریق کتاب‌کار داده‌های نمودار به این برگه کاری دسترسی پیدا کنید، مقادیر ورودی را بنویسید، فرمول‌ها را به سلول‌ها اختصاص دهید، فرمول‌های پشتیبانی‌شده را محاسبه کنید و از سلول‌های محاسبه‌شده به عنوان داده‌های نمودار استفاده کنید.
 
-این مقاله جریان کاری کامل فرمول‌ها را شرح می‌دهد: ایجاد یک نمودار، پر کردن کاربرگ آن، اختصاص فرمول‌های سبک A1 یا R1C1، بازمحاسبه آن‌ها، خواندن مقادیر محاسبه‌شده، اتصال این سلول‌ها به یک سری نمودار و ذخیره ارائه. همچنین نحو فرمول‌های پشتیبانی‌شده، زیرمجموعه توابع داخلی، مقادیر کش‌شده، فرمول‌های غیرپشتیبانی‌شده و خطاهای مخصوص‌به‑جدولی را توصیف می‌کند.
+این مقاله جریان کامل کار با فرمول‌ها را توضیح می‌دهد: ایجاد یک نمودار، پر کردن برگه کاری آن، اختصاص فرمول‌های سبک A1 یا R1C1، بازمحاسبهٔ آن‌ها، خواندن مقادیر محاسبه‌شده، اتصال این سلول‌ها به یک سری نمودار، و ذخیرهٔ ارائه. همچنین نحوهٔ نوشتن سینتکس فرمول‌های پشتیبانی‌شده، زیرمجموعهٔ توابع داخلی، مقادیر کش‌شده، فرمول‌های پشتیبانی‌نشده و خطاهای مخصوص به صفحه‌گسترده را شرح می‌دهد.
 
-## **کاربرگ‌های نمودار و فرمول‌ها**
+## **برگه‌های کاری نمودار و فرمول‌ها**
 
-یک کاربرگ نمودار شامل دسته‌بندها، نام‌های سری و مقادیری است که توسط یک نمودار استفاده می‌شوند. در PowerPoint می‌توانید کاربرگ را با باز کردن ویرایشگر داده‌های نمودار بررسی کنید:
+یک برگه کاری نمودار شامل دسته‌ها، نام‌های سری و مقادیری است که توسط نمودار استفاده می‌شوند. در PowerPoint می‌توانید با باز کردن ویرایشگر دادهٔ نمودار، برگه کاری را بررسی کنید:
 
-![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
+![نمودار PowerPoint با برگه کاری تعبیه‌شده باز که داده‌های دسته و سری را نشان می‌دهد](chart-worksheet-formulas_1.png)
 
-در Aspose.Slides، کاربرگ از طریق رابط [IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/) در دسترس قرار می‌گیرد. برای فرمول‌های سبک A1 از [IChartDataCell::set_Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_formula/) و برای فرمول‌های سبک R1C1 از [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) استفاده کنید. پس از تغییر سلول‌های ورودی یا فرمول‌ها، برای بازمحاسبه فرمول‌های پشتیبانی‌شده و به‌روزرسانی مقادیر سلول‌های مربوطه، متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را فراخوانی کنید.
+در Aspose.Slides، برگه کاری از طریق رابط [IChartDataWorkbook](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/) در دسترس است. برای فرمول‌های سبک A1 از [IChartDataCell::set_Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_formula/) و برای فرمول‌های سبک R1C1 از [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) استفاده کنید. پس از تغییر سلول‌های ورودی یا فرمول‌ها، برای بازمحاسبهٔ فرمول‌های پشتیبانی‌شده و به‌روزرسانی مقادیر سلول‌های مربوطه، متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را فراخوانی کنید.
 
-یک سلول محاسبه‌شده همچنان نتیجه خود را از طریق [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) ارائه می‌دهد. این مهم است وقتی که نیاز دارید نتیجه یک فرمول را در کد بررسی کنید یا سلول را به عنوان یک نقطه دادهٔ نمودار استفاده کنید.
+یک سلول محاسبه‌شده همچنان نتیجهٔ خود را از طریق [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) باز می‌گرداند. این مورد زمانی مهم است که نیاز به بازرسی نتیجهٔ فرمول در کد یا استفاده از سلول به عنوان نقطهٔ دادهٔ نمودار دارید.
 
-## **ایجاد نمودار و محاسبه فرمول‌های کاربرگ**
+## **ایجاد نمودار و محاسبهٔ فرمول‌های برگه کاری**
 
-مثال زیر یک جریان کاری انتها‑به‑انتها را نشان می‌دهد. این مثال یک نمودار ستون خوشه‌ای ایجاد می‌کند، داده‌های نمونه را پاک می‌کند، مقادیر درآمد و هزینهٔ فصلی را می‌نویسد، سود را با فرمول‌ها محاسبه می‌کند، نتایج را می‌خواند، سلول‌های محاسبه‌شده را به عنوان مقادیر نمودار استفاده می‌کند و ارائه را ذخیره می‌نماید.
+مثال زیر یک جریان کاری کامل انتها‑به‑انتها را نشان می‌دهد. یک نمودار ستونی خوشه‌ای می‌سازد، داده‌های نمونه را پاک می‌کند، مقادیر درآمد و هزینهٔ فصلی را می‌نویسد، سود را با فرمول‌ها محاسبه می‌کند، نتایج را می‌خواند، سلول‌های محاسبه‌شده را به عنوان مقادیر نمودار استفاده می‌کند و ارائه را ذخیره می‌کند.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -56,8 +59,8 @@ description: "فرمول‌های سبک Excel را در کاربرگ‌های �
 #include <DOM/Chart/IChartDataWorkbook.h>
 #include <DOM/Chart/IChartSeries.h>
 #include <DOM/Chart/IChartSeriesCollection.h>
-#include <DOM/Chart/IDataLabelCollection.h>
-#include <DOM/Chart/IDataLabelFormat.h>
+#include <DOM/IDataLabelCollection.h>
+#include <DOM/IDataLabelFormat.h>
 #include <DOM/IChart.h>
 #include <DOM/IShapeCollection.h>
 #include <DOM/ISlide.h>
@@ -125,11 +128,11 @@ profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
 ```
 
-نقاط دادهٔ نمودار به `D2:D4` ارجاع می‌دهند، بنابراین نمودار از مقادیر سود محاسبه‌شده استفاده می‌کند. در این جریان کاری هیچ فراخوانی جداگانه‌ای برای به‌روزرسانی نمودار وجود ندارد: ابتدا کتاب‌کار را بازمحاسبه کنید، سپس از داده‌های نمودار که به سلول‌های محاسبه‌شده اشاره دارند استفاده کنید یا آن را ذخیره نمایید.
+نقاط دادهٔ نمودار به `D2:D4` ارجاع می‌دهند، بنابراین نمودار از مقادیر سود محاسبه‌شده استفاده می‌کند. در این جریان کاری هیچ فراخوانی جداگانه‌ای برای تازه‑سازی نمودار وجود ندارد: ابتدا کتاب‌کار را بازمحاسبه کنید، سپس داده‌های نمودار را که به سلول‌های محاسبه‌شده اشاره دارند، استفاده یا ذخیره کنید.
 
 ## **استفاده از فرمول‌های سبک A1**
 
-نظام A1 ستون‌ها را با حروف و ردیف‌ها را با عدد شناسایی می‌کند. عبارات سبک A1 را از طریق [IChartDataCell::set_Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_formula/) اختصاص دهید.
+نمادگذاری A1 ستون‌ها را با حروف و ردیف‌ها را با اعداد شناسایی می‌کند. عبارات سبک A1 را از طریق [IChartDataCell::set_Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_formula/) اختصاص دهید.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -165,20 +168,20 @@ workbook->CalculateFormulas();
 auto value = cell->get_Value(); // 19
 ```
 
-اشکال مرجع متداول A1 عبارتند از:
+فرم‌های مرجع رایج A1 عبارتند از:
 
-| مرجع | نسبی | مطلق | ترکیبی |
+| مرجع | نسبی | مطلق | مختلط |
 |---|---|---|---|
 | سلول | `A2` | `$A$2` | `A$2`, `$A2` |
 | ردیف | `2:2` | `$2:$2` | — |
 | ستون | `A:A` | `$A:$A` | — |
 | بازه | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-مرجع‌های نسبی می‌توانند هنگام جابجا یا کپی شدن فرمول توسط یک برنامهٔ صفحه‌گسترده تغییر کنند. مراجع مطلق هر دو مختصات را ثابت نگه می‌دارند، در حالی که مراجع ترکیبی فقط یک ردیف یا یک ستون را ثابت می‌کنند.
+ارجاع‌های نسبی می‌توانند هنگام جابجا یا کپی کردن فرمول توسط برنامهٔ صفحه‌گسترده تغییر کنند. ارجاع‌های مطلق هر دو مختصات را ثابت نگه می‌دارند، در حالی‌که ارجاع‌های مختلط فقط ردیف یا ستون را ثابت می‌کنند.
 
 ## **استفاده از فرمول‌های سبک R1C1**
 
-نظام R1C1 ردیف‌ها و ستون‌ها را به‌صورت عددی شناسایی می‌کند. مراجع نسبی از افست‌ها در کروشه‌ها استفاده می‌کنند. این نحو را از طریق [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) اختصاص دهید.
+نمادگذاری R1C1 ردیف‌ها و ستون‌ها را به صورت عددی شناسایی می‌کند. ارجاع‌های نسبی از افست‌ها در براکت‌های مربعی استفاده می‌شوند. این سینتکس را از طریق [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) اختصاص دهید.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -212,31 +215,31 @@ workbook->CalculateFormulas();
 auto value = cell->get_Value(); // 7
 ```
 
-اشکال مرجع متداول R1C1 عبارتند از:
+فرم‌های مرجع رایج R1C1 عبارتند از:
 
-| مرجع | نسبی | مطلق | ترکیبی |
+| مرجع | نسبی | مطلق | مختلط |
 |---|---|---|---|
 | سلول | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | ردیف | `R[2]` | `R2` | — |
 | ستون | `C[3]` | `C3` | — |
 | بازه | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-به عنوان مثال، در سلول `D2`، `RC[-2]` به سلولی در همان ردیف دو ستون به سمت چپ (`B2`) اشاره می‌کند.
+به عنوان مثال، در سلول `D2`، `RC[-2]` به سلول همان ردیف دو ستون به سمت چپ (`B2`) اشاره می‌کند.
 
 ## **ثابت‌ها و عملگرهای فرمول**
 
-ارزیاب فرمول داخلی مقادیر منطقی، مقادیر عددی، رشته‌ها، مقادیر خطای صفحه‌گسترده، عملگرهای حسابی و عملگرهای مقایسه‌ای را پشتیبانی می‌کند.
+ارزیاب فرمول داخلی مقادیر منطقی، عددی، رشته‌ای، مقادیر خطای صفحه‌گسترده، عملگرهای حسابی و عملگرهای مقایسه‌ای را پشتیبانی می‌کند.
 
-### **ثابت‌ها و مقدارهای ثابت**
+### **ثابت‌ها و مقدارهای اولیه**
 
 | نوع | مثال‌ها | نکات |
 |---|---|---|
 | منطقی | `TRUE`, `FALSE` | می‌توانند مستقیماً در عبارات منطقی مانند `A2=TRUE` استفاده شوند. |
-| عددی | `1`, `0.5`, `.3`, `1E-2` | نوشتار اعشاری و علمی پشتیبانی می‌شود. |
-| رشته | `"abc"`, `"2/3/2020 12:00"` | مقدارهای متنی داخل فرمول با نقل قول‌های دوگانه محصور می‌شوند. |
-| نتیجهٔ خطا | `#DIV/0!`, `#N/A`, `#REF!` | یک فرمول معتبر می‌تواند به‌جای یک نتیجهٔ عادی، مقدار خطای صفحه‌گسترده برگرداند. |
+| عددی | `1`, `0.5`, `.3`, `1E-2` | نوشتارهای عادی و علمی پشتیبانی می‌شوند. |
+| رشته | `"abc"`, `"2/3/2020 12:00"` | مقدارهای متنی داخل فرمول بین علامت نقل‌قول دوتایی قرار می‌گیرند. |
+| نتیجهٔ خطا | `#DIV/0!`, `#N/A`, `#REF!` | یک فرمول صحیح می‌تواند به جای نتیجهٔ عادی، مقدار خطای صفحه‌گسترده تولید کند. |
 
-این مثال چند نوع ثابت مختلف را به کار می‌برد:
+این مثال چندین نوع ثابت را به کار می‌برد:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -271,80 +274,133 @@ auto logicalValue = workbook->GetCell(0, u"B2")->get_Value(); // نادرست
 auto numericValue = workbook->GetCell(0, u"C2")->get_Value(); // 1.5
 auto scientificValue = workbook->GetCell(0, u"D2")->get_Value(); // 0.003
 auto stringValue = workbook->GetCell(0, u"E2")->get_Value(); // abc
-auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
+auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // خطای تقسیم بر صفر
 ```
 
 ### **عملگرهای حسابی**
 
-| عملگر | معنای آن | مثال |
+| عملگر | معنی | مثال |
 |---|---|---|
-| `+` | جمع یا علامت مثبت تک‌تایی | `2+3` |
-| `-` | تفریق یا منفی | `2-3`, `-3` |
+| `+` | جمع یا مثبت یکنواخت | `2+3` |
+| `-` | تفریق یا منفی یکنواخت | `2-3`, `-3` |
 | `*` | ضرب | `2*3` |
 | `/` | تقسیم | `2/3` |
 | `%` | درصد | `30%` |
 | `^` | توان | `2^3` |
 
-برای واضح کردن ترتیب ارزیابی از پرانتز استفاده کنید؛ برای مثال `(A2+B2)*C2`.
+برای صریح کردن ترتیب ارزیابی از پرانتز استفاده کنید، برای مثال `(A2+B2)*C2`.
 
 ### **عملگرهای مقایسه‌ای**
 
-عبارات مقایسه‌ای مقادیر منطقی باز می‌گردانند.
+عبارات مقایسه‌ای مقادیر منطقی بازمی‌گردانند.
 
-| عملگر | معنای آن | مثال |
+| عملگر | معنی | مثال |
 |---|---|---|
-| `=` | برابر | `A2=3` |
+| `=` | مساوی | `A2=3` |
 | `<>` | نامساوی | `A2<>3` |
 | `>` | بزرگ‌تر | `A2>3` |
-| `>=` | بزرگ‌تر یا برابر | `A2>=3` |
-| `<` | کوچک‌تر | `A2<3` |
-| `<=` | کوچک‌تر یا برابر | `A2<=3` |
+| `>=` | بزرگ‌تر یا مساوی | `A2>=3` |
+| `<` | کوچکتر | `A2<3` |
+| `<=` | کوچکتر یا مساوی | `A2<=3` |
 
 ## **توابع پیش‌تعریف‌شدهٔ پشتیبانی‌شده**
 
-Aspose.Slides یک ارزیاب فرمول داخلی برای کاربرگ‌های نمودار دارد، اما این ارزیاب یک موتور کامل محاسبهٔ Excel نیست. مجموعهٔ مستند توابع محدود به توابع زیر است. فرض نکنید که هر تابع دلخواه Excel می‌تواند توسط [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بازمحاسبه شود.
+Aspose.Slides یک ارزیاب فرمول داخلی برای برگه‌های کاری نمودار دارد، ولی این یک موتور محاسبهٔ کامل Excel نیست. مجموعهٔ توابع مستند شده به توابع زیر محدود شده است. فرض نکنید هر تابع Excel می‌تواند توسط [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بازمحاسبه شود.
 
-| تابع | هدف یا شکل پشتیبانی‌شده | مثال |
+| تابع | هدف یا فرم پشتیبانی‌شده | مثال |
 |---|---|---|
 | `ABS` | مقدار مطلق | `ABS(A2)` |
 | `AVERAGE` | میانگین حسابی | `AVERAGE(B2:B5)` |
-| `CEILING` | گرد کردن عدد به سمت بالا به مضرب | `CEILING(A2,5)` |
-| `CHOOSE` | انتخاب مقدار بر پایهٔ اندیس | `CHOOSE(A2,"Low","High")` |
+| `CEILING` | گرد کردن عدد به سمت بالا تا مضرب | `CEILING(A2,5)` |
+| `CHOOSE` | انتخاب مقدار بر اساس ایندکس | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | اتصال مقادیر متنی | `CONCAT(A2,B2)` |
 | `CONCATENATE` | اتصال مقادیر متنی | `CONCATENATE(A2," ",B2)` |
 | `DATE` | ایجاد مقدار تاریخ با استفاده از سیستم تاریخ 1900 | `DATE(2026,8,19)` |
-| `DAYS` | بازگرداندن تعداد روزهای بین دو تاریخ | `DAYS(B2,A2)` |
-| `FIND` | یافتن یک متن داخل متن دیگر | `FIND("-",A2)` |
-| `FINDB` | جستجوی متن بر پایه بایت | `FINDB("a",A2)` |
+| `DAYS` | بازگرداندن تعداد روزها بین دو تاریخ | `DAYS(B2,A2)` |
+| `FIND` | یافتن یک مقدار متنی داخل مقدار دیگر | `FIND("-",A2)` |
+| `FINDB` | جستجوی بایت‑محور متن | `FINDB("a",A2)` |
 | `IF` | نتیجهٔ شرطی | `IF(A2>0,A2,0)` |
 | `INDEX` | فرم مرجع | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | فرم برداری | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | فرم برداری | `MATCH(A2,B2:B5,0)` |
-| `MAX` | بیشینه مقدار | `MAX(B2:B5)` |
-| `SUM` | مجموع مقادیر | `SUM(B2:B5)` |
+| `MAX` | حداکثر مقدار | `MAX(B2:B5)` |
+| `SUM` | جمع مقادیر | `SUM(B2:B5)` |
 | `VLOOKUP` | جستجوی عمودی | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-محدودیت‌های نشان‌داده‌شده در جدول مهم هستند: `INDEX` به صورت فرم مرجع مستند شده، در حالی که `LOOKUP` و `MATCH` به صورت فرم‌های برداری مستند هستند. `DATE` از سیستم تاریخ 1900 استفاده می‌کند. ویژگی‌ها و توابعی که در اینجا فهرست نشده‌اند باید به‌عنوان غیرپشتیبانی‌شده توسط ارزیاب فرمول Aspose.Slides در نظر گرفته شوند مگر این‌که به‌صورت جداگانه مستند شوند.
+محدودیت‌های نشان داده شده در جدول مهم هستند: `INDEX` به صورت فرم مرجع مستند شده، در حالی‌که `LOOKUP` و `MATCH` به صورت فرم‌های برداری مستند هستند. `DATE` از سیستم تاریخ 1900 استفاده می‌کند. ویژگی‌ها و توابعی که در اینجا فهرست نشده‌اند، باید به عنوان غیرقابل پشتیبانی توسط ارزیاب فرمول Aspose.Slides شناخته شوند مگر اینکه به‌طور جداگانه مستند شوند.
+
+## **محاسبهٔ فرمول‌ها با فرهنگ‌پیش‌فرض**
+
+برخی از توابع کتاب‌کار نمودار متن را بر اساس قوانین مخصوص به فرهنگ‌ّها تفسیر می‌کنند. این موضوع به‌ویژه برای توابعی که برای زبان‌های دارای مجموعه‌حروف دوتایی (DBCS) طراحی شده‌اند، اهمیت دارد. برای محاسبهٔ صحیح چنین فرمول‌هایی، ابتدا یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/) ایجاد کنید، از طریق [LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/fa/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/) گزینهٔ [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) را تنظیم کنید و سپس ارائه را بارگذاری کنید.
+
+مثال زیر فرهنگ ژاپنی را انتخاب می‌کند، ارائه‌ای را با گزینه‌های بارگذاری پیکربندی‌شده باز می‌کند و برای هر کتاب‌کار نمودار متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را فراخوانی می‌کند:
+
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
+
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
+
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
+
+فرهنگ پیش‌فرض بخشی از پیکربندی بارگذاری ارائه است، بنابراین پیش از ساخت شیء [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) آن را تعیین کنید. از فرهنگی استفاده کنید که توسط فرمول‌های کتاب‌کار انتظار می‌رود؛ برای مثال برای قوانین محاسبهٔ DBCS ژاپنی `ja-JP` را بکار ببرید.
 
 ## **بازمحاسبه و مقادیر کش‌شده**
 
-فایل‌های صفحه‌گسترده معمولاً هم فرمول و هم آخرین مقدار محاسبه‌شدهٔ آن را ذخیره می‌کنند. بنابراین Aspose.Slides می‌تواند هنگام بارگذاری ارائه، مقدار کش‌شده را از طریق [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) بخواند، مشروط بر این‌که دادهٔ مربوط به نمودار تغییر نکرده باشد.
+فایل‌های صفحه‌گسترده معمولاً هم فرمول و هم آخرین مقدار محاسبه‌شدهٔ آن را ذخیره می‌کنند. بنابراین Aspose.Slides می‌تواند مقدار کش‌شده را از [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) بخواند وقتی ارائه بارگذاری می‌شود و دادهٔ نمودار مرتبط تغییر نگرفته باشد.
 
-پس از تغییر سلول‌های ورودی یا فرمول‌ها، به نتیجهٔ کش‌شدهٔ قدیمی اعتماد نکنید. قبل از خواندن مقادیر محاسبه‌شده یا ذخیرهٔ داده‌های نموداری که به آن‌ها وابسته‌اند، متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را فراخوانی کنید.
+پس از تغییر سلول‌های ورودی یا فرمول‌ها، به مقدار کش‌شدهٔ قدیمی تکیه نکنید. قبل از خواندن مقادیر محاسبه‌شده یا ذخیرهٔ داده‌های نموداری که به آن‌ها وابسته‌اند، متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را فراخوانی کنید.
 
-برای فرمول‌های خارج از زیرمجموعهٔ پشتیبانی‌شده، ممکن است Aspose.Slides نتواند فرمول را تجزیه یا وابستگی‌های آن را مشخص کند. اگر کتاب‌کار تغییر یافته باشد، مقدار کش‌شدهٔ قبلی دیگر قابل اطمینان نیست. در این حالت، خواندن مقدار سلولی که دارای دادهٔ غیرپشتیبانی‌شده است می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) را ایجاد کند.
+برای فرمول‌های خارج از زیرمجموعهٔ پشتیبانی‌شده، ممکن است Aspose.Slides نتواند فرمول را تجزیه یا وابستگی‌های آن را تعیین کند. اگر کتاب‌کار اصلاح شده باشد، مقدار کش‌شدهٔ قبلی دیگر قابل اعتماد نیست. در این وضعیت، خواندن مقدار سلولی که دادهٔ پشتیبانی‌نشده دارد می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) را تولید کند.
 
-اگر نمودار شما به توابع Excel وابسته است که Aspose.Slides ارزیابی نمی‌کند، آن فرمول‌ها را با یک موتور صفحه‌گستردهٔ پشتیبانی‌کننده محاسبه کنید و مقادیر حاصل را به کتاب‌کار نمودار بنویسید. از جایگزینی فرمول‌های غیرپشتیبانی‌شده با مقادیر تخمینی خودداری کنید.
+اگر نمودار شما به توابع Excel وابسته است که Aspose.Slides آن‌ها را ارزیابی نمی‌کند، آن فرمول‌ها را با یک موتور صفحه‌گسترده که آن‌ها را پشتیبانی می‌کند محاسبه کرده و مقادیر حاصل را به کتاب‌کار نمودار بنویسید. از جایگزینی فرمول‌های پشتیبانی‌نشده با مقادیر تخمین‌زده خودداری کنید.
 
 ## **مدیریت خطاهای فرمول**
 
-دو نوع مشکل مختلف برای تشخیص وجود دارد.
+دو نوع مشکل متفاوت وجود دارد.
 
-یک فرمول می‌تواند معتبر باشد ولی نتیجهٔ خطای صفحه‌گسترده‌ای مانند `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` یا `#VALUE!` تولید کند. در این صورت توکن خطا یک نتیجهٔ سلولی است و می‌تواند از طریق [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) برگردانده شود.
+یک فرمول می‌تواند صحیح باشد اما نتیجهٔ خطای صفحه‌گسترده مانند `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` یا `#VALUE!` تولید کند. در این حالت توکن خطا همان نتیجهٔ سلول است و می‌تواند از طریق [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) بازگردانده شود.
 
-یک فرمول همچنین می‌تواند در مرحلهٔ تجزیه، ارجاع، وابستگی یا سطح داده‌های پشتیبانی‌شده شکست بخورد. Aspose.Slides برای این موارد استثناهای مخصوص صفحه‌گسترده فراهم می‌کند: [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) و [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+یک فرمول می‌تواند در سطح تجزیه، مرجع، وابستگی یا داده‌های پشتیبانی‌شده شکست بخورد. Aspose.Slides برای این موارد استثنای‌های مخصوص صفحه‌گسترده‌ای فراهم می‌کند: [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/)، [CellInvalidReferenceException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/)، [CellCircularReferenceException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) و [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-وقتی فرمول‌ها از قالب‌ها یا ورودی کاربر می‌آیند، این استثناها را در اطراف بازمحاسبه و دسترسی به مقدار مدیریت کنید:
+هنگام دریافت فرمول‌ها از قالب‌ها یا ورودی کاربر، این استثنائات را در اطراف بازمحاسبه و دسترسی به مقدار مدیریت کنید:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -380,70 +436,70 @@ try
 }
 catch (CellInvalidFormulaException&)
 {
-    // مدیریت یک فرمول نامعتبر.
+    // پردازش فرمول نامعتبر.
 }
 catch (CellInvalidReferenceException&)
 {
-    // مدیریت یک ارجاع سلولی نامعتبر.
+    // پردازش ارجاع سلول نامعتبر.
 }
 catch (CellCircularReferenceException&)
 {
-    // مدیریت یک ارجاع دوری.
+    // پردازش ارجاع دایره‌ای.
 }
 catch (CellUnsupportedDataException&)
 {
-    // مدیریت داده‌های صفحه‌گستردهٔ غیرپشتیبانی‌شده.
+    // پردازش داده‌های صفحه‌گستردهٔ پشتیبانی‌نشده.
 }
 ```
 
 ## **محدودیت‌های عملی**
 
-پشتیبانی از فرمول در کاربرگ‌های نمودار برای یک زیرمجموعهٔ تعریف‌شده از محاسبات صفحه‌گسترده هدف‌گذاری شده است و نه برای سازگاری کامل با Excel. این محدودیت‌ها را هنگام طراحی یک گردش کار گزارش‌گیری در نظر بگیرید:
+پشتیبانی از فرمول در برگه‌های کاری نمودار برای یک زیرمجموعهٔ تعریف‌شده از محاسبات صفحه‌گسترده است و برای سازگاری کامل با Excel هدف‌گذاری نشده است. هنگام طراحی یک گردش کار گزارش‌دهی این محدودیت‌ها را در نظر بگیرید:
 
-- فقط از ثابت‌ها، عملگرها، مراجع و توابع مستند شده‌ای که نیاز به بازمحاسبهٔ فرمول توسط Aspose.Slides دارید استفاده کنید.
+- فقط از ثابت‌ها، عملگرها، مراجع و توابع مستند شده‌ای که نیاز به بازمحاسبه توسط Aspose.Slides دارید استفاده کنید.
 - پس از تغییر سلول‌هایی که نتایج فرمول به آن‌ها وابسته است، بازمحاسبه کنید.
-- مقادیر کش‌شدهٔ ارائه‌های بارگذاری‌شده را به‌عنوان «عکس‌لحظه‌ای» در نظر بگیرید، نه به‌عنوان جایگزین بازمحاسبه پس از ویرایش.
-- قبل از اتکای کامل به مقادیر محاسبه‌شده، فرمول‌های موجود در قالب‌های فعلی را تست کنید، به‌ویژه اگر از توابعی خارج از فهرست مستند شده استفاده می‌کنند.
-- برای فرمول‌هایی که به یک موتور محاسبهٔ کامل صفحه‌گسترده نیاز دارند، آن‌ها را به‌صورت خارجی محاسبه کنید و سپس کتاب‌کار نمودار را با مقادیر نهایی به‌روز کنید.
+- مقادیر کش‌شدهٔ ارائه‌های بارگذاری‌شده را به عنوان «عکس‌برداری» در نظر بگیرید، نه به‌عنوان جایگزینی برای بازمحاسبه پس از ویرایش.
+- قبل از اعتماد به مقادیر محاسبه‌شدهٔ قالب‌های موجود، فرمول‌ها را تست کنید، به‌ویژه اگر از توابع خارج از لیست مستند شده استفاده می‌کنند.
+- برای فرمول‌هایی که نیاز به یک موتور محاسبهٔ کامل صفحه‌گسترده دارند، آن‌ها را به‌صورت خارجی محاسبه کنید و سپس کتاب‌کار نمودار را با مقادیر نهایی به‌روز نمایید.
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**差异 `set_Formula` 与 `set_R1C1Formula` چیست؟**
+**تفاوت `set_Formula` و `set_R1C1Formula` چیست؟**
 
-[IChartDataCell::set_Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_formula/) یک عبارت سبک A1 مانند `B2‑C2` ذخیره می‌کند. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) یک عبارت سبک R1C1 مانند `RC[-2]-RC[-1]` ذخیره می‌کند. نوشتاری را انتخاب کنید که با نحوهٔ تولید یا کپی فرمول‌های شما بیشترین تطابق را دارد.
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_formula/) یک عبارت سبک A1 مثل `B2-C2` را ذخیره می‌کند. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) یک عبارت سبک R1C1 مثل `RC[-2]-RC[-1]` را ذخیره می‌کند. نوشتار مناسب را بر وفقۀ نحوهٔ تولید یا کپی فرمول‌های خود انتخاب کنید.
 
 **آیا پس از محاسبه باید خود سلول یا مقدار آن را بخوانم؟**
 
-[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) یک `IChartDataCell` برمی‌گرداند. برای دریافت نتیجهٔ محاسبه‌شده، پس از بازمحاسبه مقدار [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) آن سلول را بخوانید.
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) یک `IChartDataCell` بر می‌گرداند. برای به دست آوردن نتیجهٔ محاسبه‌شده، پس از بازمحاسبه مقدار آن سلول را از طریق [IChartDataCell::get_Value](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdatacell/get_value/) بخوانید.
 
 **چه زمانی باید `CalculateFormulas` را فراخوانی کنم؟**
 
-پس از تغییر مقادیر ورودی یا فرمول‌ها و قبل از اینکه به نتایج محاسبه‌شده وابسته باشید، متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را صدا بزنید. این کار مقادیر فرمول‌های پشتیبانی‌شده توسط ارزیاب داخلی را به‌روز می‌کند.
+پس از تغییر مقادیر ورودی یا فرمول‌ها و پیش از وابستگی به نتایج محاسبه‌شده، متد [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) را فراخوانی کنید. این کار مقادیر فرمول‌های پشتیبانی‌شده توسط ارزیاب داخلی را به‌روز می‌کند.
 
-**آیا Aspose.Slides همهٔ توابع Excel را پشتیبانی می‌کند؟**
+**آیا Aspose.Slides همه توابع Excel را پشتیبانی می‌کند؟**
 
-خیر. ارزیاب داخلی فقط زیرمجموعهٔ مستند شده‌ای از توابع را پشتیبانی می‌کند. توابعی که خارج از این زیرمجموعه هستند نباید انتظار داشته باشید که به درستی بازمحاسبه شوند. اگر سازگاری کامل با فرمول‌های Excel لازم است، محاسبه را با یک موتور صفحه‌گستردهٔ مناسب انجام دهید و مقادیر نهایی را به کتاب‌کار نمودار بنویسید.
+خیر. ارزیاب داخلی فقط یک زیرمجموعهٔ مستند شده از توابع را پشتیبانی می‌کند. توابع خارج از این زیرمجموعه نباید به‌عنوان قابل بازمحاسبه تلقی شوند. اگر سازگاری کامل با فرمول‌های Excel لازم است، محاسبه را با یک موتور صفحه‌گسترده مناسب انجام داده و مقادیر نهایی را در کتاب‌کار نمودار بنویسید.
 
-**اگر یک ارائهٔ بارگذاری‌شده شامل یک فرمول غیرپشتیبانی‌شده باشد چه می‌شود؟**
+**اگر ارائه بارگذاری‌شده حاوی فرمول پشتیبانی‌نشده باشد چه می‌شود؟**
 
-اگر دادهٔ نمودار تغییر نکرده باشد، ممکن است کتاب‌کار هنوز مقدار کش‌شدهٔ قبلی را داشته باشد. پس از تغییر داده‌های مرتبط، آن مقدار کش‌شده ممکن است دیگر معتبر نباشد. دسترسی به سلولی که فرمول آن قابل پردازش نیست می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) را ایجاد کند.
+اگر داده‌های نمودار تغییر نکرده باشد، ممکن است کتاب‌کار هنوز مقدار کش‌شدهٔ قبلی را داشته باشد. پس از تغییر داده‌های مرتبط، آن مقدار کش‌شده ممکن است دیگر معتبر نباشد. دسترسی به سلولی که فرمول آن قابل پردازش نیست می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/) را ایجاد کند.
 
-**آیا مقادیر خطای فرمول همان استثناهای C++ هستند؟**
+**آیا مقادیر خطای فرمول همان استثنای C++ هستند؟**
 
-خیر. مقدارهایی مانند `#DIV/0!` یک مقدار صفحه‌گسترده هستند که توسط یک محاسبهٔ معتبر تولید می‌شوند. استثناهایی مانند [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) یا [CellCircularReferenceException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) نشان می‌دهند که فرمول نمی‌تواند به‌صورت عادی پردازش شود.
+نه. مقادیری مانند `#DIV/0!` یک مقدار صفحه‌گسترده هستند که توسط یک محاسبهٔ معتبر تولید می‌شوند. استثنای‌هایی مانند [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) یا [CellCircularReferenceException](https://reference.aspose.com/slides/fa/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) نشان می‌دهند که فرمول به‌طور عادی قابل پردازش نیست.
 
-**آیا هنگام تغییر یک سلول فرمولی، نمودار به‌صورت خودکار به‌روز می‌شود؟**
+**آیا تغییر یک سلول فرمول باعث به‌روزرسانی خودکار نمودار می‌شود؟**
 
-سری‌های نمودار می‌توانند به سلول‌های کتاب‌کار ارجاع دهند. ابتدا کتاب‌کار را بازمحاسبه کنید، سپس ارائه را ذخیره یا رندر کنید. اگر نقاط دادهٔ نمودار به سلول‌های محاسبه‌شده ارجاع دهند، نمودار از مقادیر به‌روز شدهٔ این سلول‌ها استفاده می‌کند؛ نیازی به فراخوانی جداگانه‌ای برای به‌روزرسانی نمودار در این جریان کاری نیست.
+سری‌های نمودار می‌توانند به سلول‌های کتاب‌کار ارجاع دهند. ابتدا کتاب‌کار را بازمحاسبه کنید، سپس ارائه را ذخیره یا رندر کنید. اگر نقاط دادهٔ نمودار به سلول‌های محاسبه‌شده ارجاع داشته باشند، نمودار از مقادیر به‌روز شدهٔ آن‌ها استفاده می‌کند؛ نیازی به روش جداگانه‌ای برای تازه‑سازی نمودار در این جریان کاری نیست.
 
 **آیا نمودارها می‌توانند از یک کتاب‌کار Excel خارجی استفاده کنند؟**
 
-بله، داده‌های نمودار می‌توانند از طریق API داده‌های نمودار به یک کتاب‌کار خارجی تنظیم شوند. با این حال، جریان کاری محاسبهٔ فرمولی که در این مقاله توضیح داده شده مربوط به کتاب‌کار دادهٔ نمودار و زیرمجموعهٔ فرمولی ارزیابی‌شده توسط Aspose.Slides است. فرض نکنید که [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بازمحاسبهٔ کامل فرمول‌های دلخواه در یک فایل XLSX خارجی را انجام می‌دهد.
+بله، داده‌های نمودار می‌توانند از طریق API داده‌های نمودار برای استفاده از یک کتاب‌کار خارجی پیکربندی شوند. با این حال، جریان کاری محاسبهٔ فرمول توضیح‌داده‌شده در این مقاله مربوط به کتاب‌کار دادهٔ نمودار و زیرمجموعهٔ فرمولی است که توسط Aspose.Slides ارزیابی می‌شود. فرض نکنید که [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/fa/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بازمحاسبهٔ کامل فرمول‌های دلخواه را در یک فایل XLSX خارجی فراهم می‌کند.
 
-**آیا می‌توانم از فرمول‌هایی استفاده کنم که به کاربرگ یا کتاب‌کار دیگری ارجاع می‌دهند؟**
+**آیا می‌توانم از فرمول‌هایی استفاده کنم که به برگه کاری یا کتاب‌کار دیگری ارجاع می‌دهند؟**
 
-مراجع سبک Excel می‌توانند در کتاب‌کارهای نمودار وجود داشته باشند، اما ارزیابی فرمول به‌وسیلهٔ پارسر و مجموعهٔ توابع پشتیبانی‌شده محدود است. اگر یک مرجع چندبرگه‌ای یا خارجی ضروری است، دقیقاً آن فرمول را با نسخهٔ هدف Aspose.Slides خود اعتبارسنجی کنید. برای گردش کارهایی که نیاز به سازگاری گستردهٔ مراجع Excel دارند، کتاب‌کار را به‌صورت خارجی محاسبه کنید و مقادیر حل‌شده را به دادهٔ نمودار بنویسید.
+مرجع‌های سبک Excel ممکن است در کتاب‌کارهای نمودار وجود داشته باشند، اما ارزیابی فرمول توسط تجزیه‌کننده و مجموعهٔ توابع پشتیبانی‌شده محدود است. اگر ارجاع متقابل یا خارجی ضروری است، دقیقاً همان فرمول را با نسخهٔ هدف Aspose.Slides خود اعتبارسنجی کنید. برای گردش کارهایی که نیاز به سازگاری گستردهٔ ارجاع Excel دارند، کتاب‌کار را به‌صورت خارجی محاسبه کنید و مقادیر حل‌شده را به دادهٔ نمودار بازنویسی کنید.
 
 **آیا رشته‌های فرمول باید با `=` شروع شوند؟**
 
-نمونه‌های API Aspose.Slides عبارات را بدون یک `=` ابتدایی مانند `B2-C2` یا `SUM(B2:B5)` اختصاص می‌دهند. استفاده از این شکل باعث می‌شود فرمول‌های تولیدشده با مثال‌های مستند API هماهنگ بمانند.
+نمونه‌های API Aspose.Slides عبارات مثل `B2-C2` یا `SUM(B2:B5)` را بدون `=` پیشوندی اختصاص می‌دهند. استفاده از این شکل باعث می‌شود فرمول‌های تولیدشده با نمونه‌های مستند API سازگار باشند.

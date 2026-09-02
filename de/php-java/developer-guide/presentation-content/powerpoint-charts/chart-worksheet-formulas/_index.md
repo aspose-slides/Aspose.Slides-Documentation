@@ -1,51 +1,54 @@
 ---
-title: Diagramm‑Tabellenblatt‑Formeln in Präsentationen in PHP anwenden
-linktitle: Tabellenblatt‑Formeln
+title: Diagramm‑Arbeitsblatt‑Formeln in Präsentationen in PHP anwenden
+linktitle: Arbeitsblatt‑Formeln
 type: docs
 weight: 70
 url: /de/php-java/chart-worksheet-formulas/
 keywords:
 - Diagramm‑Tabellenkalkulation
-- Diagramm‑Tabellenblatt
+- Diagramm‑Arbeitsblatt
 - Diagramm‑Formel
-- Tabellenblatt‑Formel
-- Tabellenkalkulations‑Formel
+- Arbeitsblatt‑Formel
+- Tabellenkalkulation‑Formel
 - Diagramm‑Daten‑Arbeitsmappe
 - Formel‑Berechnung
-- Logische Konstante
-- Numerische Konstante
+- bevorzugte Kultur
+- kulturabhängige Formel
+- DBCS
+- logische Konstante
+- numerische Konstante
 - Zeichenketten‑Konstante
-- Fehler‑Konstante
-- Arithmetischer Operator
+- Fehlerkonstante
+- arithmetischer Operator
 - Vergleichsoperator
 - A1‑Stil
 - R1C1‑Stil
-- Vordefinierte Funktion
+- vordefinierte Funktion
 - PowerPoint
 - Präsentation
 - PHP
 - Aspose.Slides
-description: "Wenden Sie Excel‑ähnliche Formeln in Aspose.Slides für PHP via Java auf Diagramm‑Tabellenblätter an, berechnen Sie Werte neu und nutzen Sie die Ergebnisse in PowerPoint‑Diagrammen."
+description: "Excel‑ähnliche Formeln in Aspose.Slides für PHP via Java‑Diagramm‑Arbeitsblätter anwenden, Werte neu berechnen und die Ergebnisse in PowerPoint‑Diagrammen nutzen."
 ---
-## **Übersicht**
+## **Überblick**
 
-PowerPoint‑Diagramme speichern ihre Quelldaten normalerweise in einem eingebetteten Tabellenblatt. In Aspose.Slides für PHP via Java können Sie über die Diagrammdaten‑Arbeitsmappe auf dieses Tabellenblatt zugreifen, Eingabewerte schreiben, Formeln zu Zellen zuweisen, unterstützte Formeln berechnen und die berechneten Zellen als Diagrammdaten verwenden.
+PowerPoint‑Diagramme speichern ihre Quelldaten in der Regel in einem eingebetteten Arbeitsblatt. In Aspose.Slides für PHP via Java können Sie über die Chart‑Daten‑Arbeitsmappe auf dieses Arbeitsblatt zugreifen, Eingabewerte schreiben, Formeln in Zellen zuweisen, unterstützte Formeln berechnen und die berechneten Zellen als Diagrammdaten verwenden.
 
-Dieser Artikel erklärt den vollständigen Formelar­beitsablauf: Erstellen eines Diagramms, Befüllen des Tabellenblatts, Zuweisen von A1‑ oder R1C1‑Formeln, Neuberechnen, Auslesen der berechneten Werte, Verbinden dieser Zellen mit einer Diagrammserie und Speichern der Präsentation. Außerdem wird die unterstützte Formelsyntax, die eingebaute Funktionsuntermenge, zwischengespeicherte Werte, nicht unterstützte Formeln und tabellenkalkulations­spezifische Fehler beschrieben.
+Dieser Artikel erklärt den vollständigen Formel‑Workflow: ein Diagramm erstellen, das zugehörige Arbeitsblatt füllen, A1‑ oder R1C1‑Formeln zuweisen, sie neu berechnen, die berechneten Werte auslesen, diese Zellen einer Diagrammreihe zuordnen und die Präsentation speichern. Er beschreibt außerdem die unterstützte Formelsyntax, den integrierten Funktions‑Subset, zwischengespeicherte Werte, nicht unterstützte Formeln und tabellenspezifische Fehlermeldungen.
 
-## **Diagramm‑Tabellenblätter und Formeln**
+## **Diagramm‑Arbeitsblätter und Formeln**
 
-Ein Diagramm‑Tabellenblatt enthält die Kategorien, Seriennamen und Werte, die von einem Diagramm verwendet werden. In PowerPoint können Sie das Tabellenblatt überprüfen, indem Sie den Diagrammdaten‑Editor öffnen:
+Ein Diagramm‑Arbeitsblatt enthält die Kategorien, Reihen‑Namen und Werte, die von einem Diagramm verwendet werden. In PowerPoint können Sie das Arbeitsblatt inspizieren, indem Sie den Diagrammdaten‑Editor öffnen:
 
-![PowerPoint-Diagramm mit geöffnetem eingebettetem Tabellenblatt, das Kategorie‑ und Seriendaten anzeigt](chart-worksheet-formulas_1.png)
+![PowerPoint diagram with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-In Aspose.Slides wird das Tabellenblatt über die Klasse [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) bereitgestellt. Verwenden Sie [ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) für A1‑Stil‑Formeln und [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula) für R1C1‑Stil‑Formeln. Nachdem Sie Eingabezellen oder Formeln geändert haben, rufen Sie [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) auf, um unterstützte Formeln neu zu berechnen und die entsprechenden Zellenwerte zu aktualisieren.
+In Aspose.Slides wird das Arbeitsblatt über die Klasse [ChartDataWorkbook](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/) bereitgestellt. Verwenden Sie [ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) für A1‑Formeln und [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula) für R1C1‑Formeln. Nach dem Ändern von Eingabezellen oder Formeln rufen Sie [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) auf, um unterstützte Formeln neu zu berechnen und die entsprechenden Zellwerte zu aktualisieren.
 
-Eine berechnete Zelle gibt ihr Ergebnis weiterhin über [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) zurück. Dies ist wichtig, wenn Sie ein Formel­ergebnis im Code prüfen oder die Zelle als Diagrammdatenpunkt verwenden müssen.
+Eine berechnete Zelle gibt ihr Ergebnis weiterhin über [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) zurück. Dies ist wichtig, wenn Sie das Formel‑Ergebnis im Code inspizieren oder die Zelle als Diagrammdatenpunkt verwenden müssen.
 
-## **Erstellen eines Diagramms und Berechnen von Tabellenblatt‑Formeln**
+## **Erstellen eines Diagramms und Berechnen von Arbeitsblatt‑Formeln**
 
-Das folgende Beispiel demonstriert einen End‑zu‑End‑Arbeitsablauf. Es erstellt ein gruppiertes Säulendiagramm, leert die Beispieldaten, schreibt Quartalsumsätze und -ausgaben, berechnet den Gewinn mit Formeln, liest die Ergebnisse, verwendet die berechneten Zellen als Diagrammw­erte und speichert die Präsentation.
+Das folgende Beispiel demonstriert einen End‑zu‑End‑Workflow. Es erstellt ein gruppiertes Säulendiagramm, löscht die Beispieldaten, schreibt Quartals‑Umsatz‑ und Kostenwerte, berechnet den Gewinn mit Formeln, liest die Ergebnisse, verwendet die berechneten Zellen als Diagrammwerte und speichert die Präsentation.
 
 ```php
 $presentation = new Presentation();
@@ -108,11 +111,11 @@ try {
 }
 ```
 
-Die Diagrammdatenpunkte verweisen auf `D2:D4`, sodass das Diagramm die berechneten Gewinnwerte verwendet. Es gibt keinen separaten Diagramm‑Aktualisierungs‑Aufruf in diesem Ablauf: Berechnen Sie zuerst die Arbeitsmappe und verwenden bzw. speichern Sie dann die Diagrammdaten, die auf die berechneten Zellen zeigen.
+Die Diagrammdatenpunkte verweisen auf `D2:D4`, sodass das Diagramm die berechneten Gewinnwerte nutzt. Es gibt keinen separaten Diagramm‑Aktualisierungsaufruf in diesem Workflow: Berechnen Sie zuerst die Arbeitsmappe, dann verwenden oder speichern Sie die Diagrammdaten, die auf die berechneten Zellen zeigen.
 
-## **Verwenden von A1‑Stil‑Formeln**
+## **Verwenden von A1‑Formeln**
 
-Die A1‑Notation identifiziert Spalten mit Buchstaben und Zeilen mit Zahlen. Weisen Sie A1‑Stil‑Ausdrücke über [ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) zu.
+Die A1‑Notation identifiziert Spalten mit Buchstaben und Zeilen mit Zahlen. Weisen Sie A1‑Ausdrücke über [ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) zu.
 
 ```php
 $presentation = new Presentation();
@@ -137,7 +140,7 @@ try {
 }
 ```
 
-Übliche A1‑Referenzformen sind:
+Gängige A1‑Referenzformen sind:
 
 | Referenz | Relativ | Absolut | Gemischt |
 |---|---|---|---|
@@ -146,11 +149,11 @@ try {
 | Spalte | `A:A` | `$A:$A` | — |
 | Bereich | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Relative Referenzen können sich ändern, wenn eine Formel von einer Tabellenkalkulations‑Anwendung verschoben oder kopiert wird. Absolute Referenzen halten beide Koordinaten fest, während gemischte Referenzen nur eine Zeile oder eine Spalte fixieren.
+Relative Referenzen können sich ändern, wenn eine Formel von einer Tabellenkalkulations‑Anwendung verschoben oder kopiert wird. Absolute Referenzen halten beide Koordinaten fest, gemischte Referenzen fixieren nur eine Zeile oder eine Spalte.
 
-## **Verwenden von R1C1‑Stil‑Formeln**
+## **Verwenden von R1C1‑Formeln**
 
-Die R1C1‑Notation identifiziert Zeilen und Spalten numerisch. Relative Referenzen verwenden Offsets in eckigen Klammern. Weisen Sie diese Syntax über [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula) zu.
+Die R1C1‑Notation identifiziert sowohl Zeilen als auch Spalten numerisch. Relative Referenzen verwenden Offsets in eckigen Klammern. Weisen Sie diese Syntax über [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula) zu.
 
 ```php
 $presentation = new Presentation();
@@ -173,7 +176,7 @@ try {
 }
 ```
 
-Übliche R1C1‑Referenzformen sind:
+Gängige R1C1‑Referenzformen sind:
 
 | Referenz | Relativ | Absolut | Gemischt |
 |---|---|---|---|
@@ -182,20 +185,20 @@ try {
 | Spalte | `C[3]` | `C3` | — |
 | Bereich | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Beispiel: In Zelle `D2` bedeutet `RC[-2]` die Zelle in derselben Zeile zwei Spalten nach links (`B2`).
+Beispiel: In Zelle `D2` bedeutet `RC[-2]` die Zelle in derselben Zeile, zwei Spalten nach links (`B2`).
 
-## **Formelkonstanten und Operatoren**
+## **Formel‑Konstanten und Operatoren**
 
-Der integrierte Formelauswerter unterstützt logische Werte, numerische Literale, Zeichenketten, tabellenkalkulations‑Fehlerwerte, arithmetische Operatoren und Vergleichsoperatoren.
+Der integrierte Formelauswerter unterstützt logische Werte, numerische Literale, Zeichenketten, Tabellen‑Fehlerwerte, arithmetische Operatoren und Vergleichsoperatoren.
 
 ### **Konstanten und Literale**
 
-| Typ | Beispiele | Hinweise |
+| Typ | Beispiele | Hinweis |
 |---|---|---|
-| Logisch | `TRUE`, `FALSE` | Können direkt in logischen Ausdrücken wie `A2=TRUE` verwendet werden. |
-| Numerisch | `1`, `0.5`, `.3`, `1E-2` | Dezimal‑ und wissenschaftliche Notation werden unterstützt. |
-| Zeichenkette | `"abc"`, `"2/3/2020 12:00"` | Text‑Literals werden innerhalb der Formel in doppelte Anführungszeichen gesetzt. |
-| Fehlerwert | `#DIV/0!`, `#N/A`, `#REF!` | Eine gültige Formel kann als Ergebnis einen Tabellenkalkulations‑Fehlerwert statt eines normalen Resultats liefern. |
+| Logisch | `TRUE`, `FALSE` | Kann direkt in logischen Ausdrücken wie `A2=TRUE` verwendet werden. |
+| Numerisch | `1`, `0.5`, `.3`, `1E-2` | Dezimal‑ und wissenschaftliche Schreibweise werden unterstützt. |
+| Zeichenkette | `"abc"`, `"2/3/2020 12:00"` | Text‑Literal wird innerhalb der Formel in doppelte Anführungszeichen gesetzt. |
+| Fehlerwert | `#DIV/0!`, `#N/A`, `#REF!` | Eine gültige Formel kann anstelle eines normalen Ergebnisses einen Tabellen‑Fehlerwert ergeben. |
 
 Dieses Beispiel verwendet mehrere Konstantentypen:
 
@@ -229,12 +232,12 @@ try {
 
 | Operator | Bedeutung | Beispiel |
 |---|---|---|
-| `+` | Addition oder Vorzeichen‑Plus | `2+3` |
+| `+` | Addition oder Vorzeichen‑plus | `2+3` |
 | `-` | Subtraktion oder Negation | `2-3`, `-3` |
 | `*` | Multiplikation | `2*3` |
 | `/` | Division | `2/3` |
 | `%` | Prozent | `30%` |
-| `^` | Potenzierung | `2^3` |
+| `^` | Potenz | `2^3` |
 
 Verwenden Sie Klammern, um die Auswertungsreihenfolge explizit zu machen, z. B. `(A2+B2)*C2`.
 
@@ -247,55 +250,95 @@ Vergleichsausdrücke liefern logische Werte.
 | `=` | Gleich | `A2=3` |
 | `<>` | Ungleich | `A2<>3` |
 | `>` | Größer als | `A2>3` |
-| `>=` | Größer‑oder‑gleich | `A2>=3` |
+| `>=` | Größer‑gleich | `A2>=3` |
 | `<` | Kleiner als | `A2<3` |
-| `<=` | Kleiner‑oder‑gleich | `A2<=3` |
+| `<=` | Kleiner‑gleich | `A2<=3` |
 
 ## **Unterstützte vordefinierte Funktionen**
 
-Aspose.Slides enthält einen integrierten Formelauswerter für Diagramm‑Tabellenblätter, ist jedoch keine vollständige Excel‑Rechenengine. Der dokumentierte Funktionsumfang ist auf die unten stehenden Funktionen beschränkt. Gehen Sie nicht davon aus, dass eine beliebige Excel‑Funktion von [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) neu berechnet werden kann.
+Aspose.Slides enthält einen integrierten Formelauswerter für Diagramm‑Arbeitsblätter, ist jedoch kein vollständiger Excel‑Rechen‑Engine. Der dokumentierte Funktionsumfang ist auf die nachstehenden Funktionen beschränkt. Gehen Sie nicht davon aus, dass eine beliebige Excel‑Funktion von [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) neu berechnet werden kann.
 
 | Funktion | Zweck oder unterstützte Form | Beispiel |
 |---|---|---|
 | `ABS` | Absoluter Wert | `ABS(A2)` |
 | `AVERAGE` | Arithmetisches Mittel | `AVERAGE(B2:B5)` |
 | `CEILING` | Auf ein Vielfaches aufrunden | `CEILING(A2,5)` |
-| `CHOOSE` | Auswahl nach Index | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | Textwerte verbinden | `CONCAT(A2,B2)` |
-| `CONCATENATE` | Textwerte verbinden | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Datum nach 1900‑System erstellen | `DATE(2026,8,19)` |
+| `CHOOSE` | Wert nach Index auswählen | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Textwerte zusammenfügen | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Textwerte zusammenfügen | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Datumwert nach 1900‑System erzeugen | `DATE(2026,8,19)` |
 | `DAYS` | Anzahl Tage zwischen Daten | `DAYS(B2,A2)` |
 | `FIND` | Text in anderem Text finden | `FIND("-",A2)` |
 | `FINDB` | Byte‑orientierte Textsuche | `FINDB("a",A2)` |
 | `IF` | Bedingtes Ergebnis | `IF(A2>0,A2,0)` |
-| `INDEX` | Referenzform | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | Vektorform | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | Vektorform | `MATCH(A2,B2:B5,0)` |
+| `INDEX` | Referenz‑Form | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektor‑Form | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektor‑Form | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Maximalwert | `MAX(B2:B5)` |
-| `SUM` | Summieren | `SUM(B2:B5)` |
+| `SUM` | Summe | `SUM(B2:B5)` |
 | `VLOOKUP` | Vertikaler Suchen | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Die in der Tabelle gezeigten Einschränkungen sind wesentlich: `INDEX` ist in der Referenzform dokumentiert, während `LOOKUP` und `MATCH` in ihrer Vektorform dokumentiert sind. `DATE` verwendet das 1900‑Datumssystem. Funktionen, die hier nicht aufgeführt sind, sollten als nicht unterstützt vom Aspose.Slides‑Formelauswerter betrachtet werden, sofern sie nicht separat dokumentiert sind.
+Die in der Tabelle gezeigten Einschränkungen sind wesentlich: `INDEX` wird in Referenz‑Form dokumentiert, während `LOOKUP` und `MATCH` in ihren Vektor‑Formen dokumentiert sind. `DATE` verwendet das 1900‑Datumssystem. Funktionen, die hier nicht aufgeführt sind, sollten als nicht unterstützt durch den Aspose.Slides‑Formelauswerter betrachtet werden, sofern sie nicht separat dokumentiert sind.
+
+## **Formeln mit bevorzugter Kultur berechnen**
+
+Einige Arbeitsblatt‑Funktionen interpretieren Text nach kulturspezifischen Regeln. Dies ist besonders wichtig für Funktionen, die für Sprachen mit DBCS (double‑byte‑character‑set) vorgesehen sind. Um solche Formeln korrekt zu berechnen, erstellen Sie ein [LoadOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/), setzen die bevorzugte Kultur mit [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/de/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), weisen die Tabellen‑Optionen über [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/de/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions) zu und laden anschließend die Präsentation.
+
+Das folgende Beispiel wählt die japanische Kultur, öffnet eine Präsentation mit den konfigurierten Ladeoptionen und ruft [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) für jedes Diagramm‑Arbeitsblatt auf:
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Die bevorzugte Kultur ist Teil der Präsentations‑Ladekonfiguration, daher muss sie vor dem Erstellen der [Presentation](https://reference.aspose.com/slides/de/php-java/aspose.slides/presentation/)‑Instanz angegeben werden. Verwenden Sie die Kultur, die von den Arbeitsblatt‑Formeln erwartet wird; beispielsweise `ja-JP` für Formeln, die japanische DBCS‑Rechenregeln befolgen sollen.
 
 ## **Neuberechnung und zwischengespeicherte Werte**
 
-Tabellenkalkulations‑Dateien speichern häufig sowohl eine Formel als auch deren zuletzt berechneten Wert. Aspose.Slides kann daher beim Laden einer Präsentation einen zwischengespeicherten Wert über [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) lesen, sofern die zugehörigen Diagrammdaten nicht geändert wurden.
+Tabellen‑Dateien speichern häufig sowohl eine Formel als auch deren zuletzt berechneten Wert. Aspose.Slides kann daher beim Laden einer Präsentation einen zwischengespeicherten Wert über [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) lesen, sofern die zugehörigen Diagrammdaten nicht geändert wurden.
 
-Nachdem Sie Eingabezellen oder Formeln geändert haben, verlassen Sie sich nicht auf ein altes zwischengespeichertes Ergebnis. Rufen Sie [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) auf, bevor Sie berechnete Werte lesen oder Diagrammdaten speichern, die davon abhängen.
+Nach dem Ändern von Eingabezellen oder Formeln dürfen Sie sich nicht auf ein altes Zwischenspeicher‑Ergebnis verlassen. Rufen Sie vor dem Auslesen berechneter Werte oder dem Speichern von Diagrammdaten, die von ihnen abhängen, [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) auf.
 
-Für Formeln außerhalb des unterstützten Teilbereichs kann Aspose.Slides die Formel möglicherweise nicht parsen oder ihre Abhängigkeiten nicht ermitteln. Wenn die Arbeitsmappe geändert wurde, ist der vorherige zwischengespeicherte Wert nicht mehr zuverlässig. In diesem Fall kann das Auslesen einer Zelle mit nicht unterstützten Daten die Ausnahme [CellUnsupportedDataException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellunsupporteddataexception/) auslösen.
+Für Formeln außerhalb des unterstützten Subsets kann Aspose.Slides die Formel nicht parsen oder deren Abhängigkeiten nicht ermitteln. Wurde die Arbeitsmappe modifiziert, ist der vorherige Zwischenspeicherwert nicht mehr zuverlässig. In dieser Situation kann das Auslesen einer Zelle mit nicht unterstützten Daten die Ausnahme [CellUnsupportedDataException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellunsupporteddataexception/) auslösen.
 
-Wenn Ihr Diagramm Excel‑Funktionen verwendet, die Aspose.Slides nicht auswertet, berechnen Sie diese Formeln mit einer Tabellenkalkulations‑Engine, die sie unterstützt, und schreiben Sie die Ergebniswerte zurück in die Diagramm‑Arbeitsmappe. Ersetzen Sie nicht unterstützte Formeln durch geschätzte Werte.
+Falls Ihr Diagramm Excel‑Funktionen verwendet, die Aspose.Slides nicht auswertet, berechnen Sie diese Formeln mit einer Tabellen‑Engine, die sie unterstützt, und schreiben Sie die resultierenden Werte zurück in das Diagramm‑Arbeitsblatt. Ersetzen Sie nicht unterstützte Formeln durch geschätzte Werte.
 
 ## **Umgang mit Formel‑Fehlern**
 
-Es gibt zwei unterschiedliche Problemarten.
+Es gibt zwei unterschiedliche Arten von Problemen.
 
-Eine Formel kann gültig sein, aber ein Tabellenkalkulations‑Fehlergebnis wie `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` oder `#VALUE!` erzeugen. In diesem Fall ist das Fehler‑Token ein Zellergebnis und kann über [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) zurückgegeben werden.
+Eine Formel kann gültig sein, aber ein Tabellen‑Fehlerergebnis liefern, z. B. `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` oder `#VALUE!`. In diesem Fall ist das Fehlertoken ein Zellergebnis und kann über [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) zurückgegeben werden.
 
-Eine Formel kann auch beim Parsen, bei Referenzen, Abhängigkeiten oder wegen nicht unterstützter Daten fehlschlagen. Aspose.Slides stellt dafür tabellenkalkulations‑spezifische Ausnahmen bereit: [CellInvalidFormulaException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellcircularreferenceexception/) und [CellUnsupportedDataException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellunsupporteddataexception/).
+Eine Formel kann auch beim Parsen, bei Verweisen, Abhängigkeiten oder wegen nicht unterstützter Daten fehlschlagen. Aspose.Slides bietet dafür tabellenspezifische Ausnahmen: [CellInvalidFormulaException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellcircularreferenceexception/) und [CellUnsupportedDataException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellunsupporteddataexception/).
 
-In PHP via Java werden Java‑Ausnahmen über `JavaException` sichtbar. Wenn Formeln aus Vorlagen oder Benutzereingaben stammen, behandeln Sie sie rund um die Neuberechnung und den Wertzugriff. Die im Stack‑Trace gemeldete Java‑Ausnahme identifiziert den konkreten Tabellenkalkulations‑Fehler:
+In PHP via Java werden Java‑Ausnahmen über `JavaException` sichtbar. Wenn Formeln aus Vorlagen oder Benutzereingaben stammen, fangen Sie sie beim Neu‑berechnen und beim Zugreifen auf Werte ab. Die in der Stapel­trace gemeldete Java‑Ausnahme identifiziert das konkrete Tabellen‑Problem:
 
 ```php
 $presentation = new Presentation();
@@ -319,52 +362,52 @@ try {
 
 ## **Praktische Einschränkungen**
 
-Die Formelunterstützung in Diagramm‑Tabellenblättern ist für einen definierten Teilbereich von Tabellenkalkulations‑Berechnungen gedacht, nicht für vollständige Excel‑Kompatibilität. Beachten Sie diese Einschränkungen beim Entwerfen eines Reporting‑Workflows:
+Die Formelunterstützung in Diagramm‑Arbeitsblättern ist für einen definierten Subset von Tabellen‑Berechnungen gedacht, nicht für vollständige Excel‑Kompatibilität. Berücksichtigen Sie diese Einschränkungen beim Entwurf von Reporting‑Workflows:
 
-- Verwenden Sie nur die dokumentierten Konstanten, Operatoren, Referenzen und Funktionen, wenn Aspose.Slides Formeln neu berechnen soll.
-- Berechnen Sie nach Änderungen an Zellen, von denen Formel­ergebnisse abhängen, neu.
-- Betrachten Sie zwischengespeicherte Werte aus geladenen Präsentationen als Momentaufnahmen, nicht als Ersatz für eine Neuberechnung nach Bearbeitungen.
-- Testen Sie Formeln aus bestehenden Vorlagen, bevor Sie sich auf deren berechnete Werte verlassen, insbesondere wenn sie Funktionen außerhalb der dokumentierten Liste verwenden.
-- Für Formeln, die eine vollständige Tabellenkalkulations‑Rechenengine benötigen, berechnen Sie sie extern und aktualisieren anschließend das Diagramm‑Tabellenblatt mit den Ergebniswerten.
+- Verwenden Sie nur die dokumentierten Konstanten, Operatoren, Referenzen und Funktionen, wenn Aspose.Slides die Formeln neu berechnen soll.
+- Berechnen Sie nach dem Ändern von Zellen, von denen Formel‑Ergebnisse abhängen, neu.
+- Betrachten Sie zwischengespeicherte Werte aus geladenen Präsentationen als Schnappschüsse, nicht als Ersatz für eine Neu‑berechnung nach Änderungen.
+- Testen Sie Formeln aus bestehenden Vorlagen, bevor Sie sich auf deren berechnete Werte verlassen, insbesondere wenn sie Funktionen außerhalb der dokumentierten Liste nutzen.
+- Für Formeln, die einen vollständigen Tabellen‑Rechen‑Engine benötigen, führen Sie die Berechnung extern durch und aktualisieren anschließend das Diagramm‑Arbeitsblatt mit den resultierenden Werten.
 
 ## **FAQ**
 
 **Was ist der Unterschied zwischen [ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) und [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula)?**
 
-[ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) speichert einen A1‑Stil‑Ausdruck wie `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula) speichert einen R1C1‑Stil‑Ausdruck wie `RC[-2]-RC[-1]`. Verwenden Sie die Notation, die am besten zu Ihrem Erstellungs‑ oder Kopier‑Szenario passt.
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setFormula) speichert einen A1‑Ausdruck wie `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#setR1C1Formula) speichert einen R1C1‑Ausdruck wie `RC[-2]-RC[-1]`. Verwenden Sie die Notation, die am besten zu Ihrer Formel‑Erzeugung oder -Kopie passt.
 
 **Muss ich nach der Berechnung die Zelle selbst oder ihren Wert lesen?**
 
-[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#getCell) liefert ein [ChartDataCell](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/). Um das berechnete Ergebnis zu erhalten, rufen Sie die Methode [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) dieser Zelle nach der Neuberechnung auf.
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#getCell) gibt ein [ChartDataCell](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/) zurück. Um das berechnete Ergebnis zu erhalten, rufen Sie nach der Neu‑berechnung die Methode [ChartDataCell::getValue](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdatacell/#getValue) dieser Zelle auf.
 
-**Wann sollte ich [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) aufrufen?**
+**Wann soll ich [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) aufrufen?**
 
-Rufen Sie [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) nach Änderungen von Eingabewerten oder Formeln und bevor Sie von den berechneten Ergebnissen abhängen, auf. Dieser Aufruf aktualisiert die Werte der Formeln, die der integrierte Auswerter unterstützt.
+Rufen Sie [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) nach dem Ändern von Eingabewerten oder Formeln und bevor Sie von den berechneten Ergebnissen abhängen, auf. Dadurch werden die Werte der von dem integrierten Auswerter unterstützten Formeln aktualisiert.
 
 **Unterstützt Aspose.Slides jede Excel‑Funktion?**
 
-Nein. Der integrierte Auswerter unterstützt nur einen dokumentierten Teilbereich von Funktionen. Funktionen außerhalb dieses Teilbereichs sollten nicht als korrekt neu berechenbar angenommen werden. Wenn vollständige Excel‑Formel‑Kompatibilität erforderlich ist, führen Sie die Berechnung mit einer geeigneten Tabellenkalkulations‑Engine durch und schreiben Sie die endgültigen Werte in das Diagramm‑Tabellenblatt.
+Nein. Der integrierte Auswerter unterstützt nur einen dokumentierten Subset von Funktionen. Funktionen außerhalb dieses Subsets sollten nicht als korrekt neu berechnet vorausgesetzt werden. Wenn volle Excel‑Formel‑Kompatibilität erforderlich ist, führen Sie die Berechnung mit einer geeigneten Tabellen‑Engine durch und schreiben Sie die Endwerte in das Diagramm‑Arbeitsblatt.
 
 **Was passiert, wenn eine geladene Präsentation eine nicht unterstützte Formel enthält?**
 
-Falls die Diagrammdaten nicht geändert wurden, kann die Arbeitsmappe noch einen zuvor berechneten zwischengespeicherten Wert enthalten. Nach einer Änderung der zugehörigen Daten ist dieser zwischengespeicherte Wert möglicherweise nicht mehr gültig. Der Zugriff auf eine Zelle, deren Formel nicht verarbeitet werden kann, kann die Ausnahme [CellUnsupportedDataException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellunsupporteddataexception/) auslösen.
+Wenn die Diagrammdaten nicht geändert wurden, kann die Arbeitsmappe immer noch einen zuvor berechneten Zwischenspeicherwert enthalten. Nach einer Änderung der zugehörigen Daten ist dieser Zwischenspeicherwert möglicherweise nicht mehr gültig. Der Zugriff auf eine Zelle, deren Formel nicht verarbeitet werden kann, kann die Ausnahme [CellUnsupportedDataException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellunsupporteddataexception/) auslösen.
 
-**Sind Formel‑Fehlerwerte dasselbe wie PHP‑Ausnahmen?**
+**Sind Formel‑Fehlerwerte gleichbedeutend mit PHP‑Ausnahmen?**
 
-Nein. Ein Ergebnis wie `#DIV/0!` ist ein Tabellenkalkulations‑Wert, der durch eine gültige Berechnung entstanden ist. Fehler bei der Tabellenkalkulations‑Verarbeitung, etwa [CellInvalidFormulaException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellinvalidformulaexception/) oder [CellCircularReferenceException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellcircularreferenceexception/), sind Java‑Ausnahmen, die in PHP über `JavaException` sichtbar werden.
+Nein. Ein Ergebnis wie `#DIV/0!` ist ein Tabellen‑Wert, der durch eine gültige Berechnung erzeugt wurde. Tabellen‑Verarbeitungs‑Fehler wie [CellInvalidFormulaException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellinvalidformulaexception/) oder [CellCircularReferenceException](https://reference.aspose.com/slides/de/php-java/aspose.slides/cellcircularreferenceexception/) sind Java‑Ausnahmen, die über `JavaException` nach PHP durchgereicht werden.
 
-**Wird ein Diagramm automatisch aktualisiert, wenn sich eine Formel‑Zelle ändert?**
+**Aktualisiert sich ein Diagramm automatisch, wenn sich eine Formezelle ändert?**
 
-Eine Diagrammserie kann auf Arbeitsblatt‑Zellen verweisen. Berechnen Sie zuerst die Arbeitsmappe neu und speichern oder rendern Sie dann die Präsentation. Wenn die Diagrammdatenpunkte auf die berechneten Zellen zeigen, verwendet das Diagramm die aktualisierten Zellwerte; ein separater Diagramm‑Aktualisierungsmethode ist für diesen Ablauf nicht erforderlich.
+Eine Diagramm‑Reihe kann auf Arbeitsblatt‑Zellen verweisen. Berechnen Sie zuerst die Arbeitsmappe, dann speichern oder rendern Sie die Präsentation. Wenn die Diagrammdatenpunkte die berechneten Zellen referenzieren, verwendet das Diagramm die aktualisierten Zellwerte; ein separater Diagramm‑Aktualisierungs‑Aufruf ist für diesen Workflow nicht erforderlich.
 
 **Können Diagramme ein externes Excel‑Arbeitsblatt verwenden?**
 
-Ja, Diagrammdaten können über die Diagrammdaten‑API so konfiguriert werden, dass sie ein externes Arbeitsblatt nutzen. Der in diesem Artikel beschriebene Formel‑Berechnungs‑Workflow bezieht sich jedoch auf das Diagramm‑Daten‑Arbeitsblatt und den von Aspose.Slides ausgewerteten Formelteilsbereich. Gehen Sie nicht davon aus, dass [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) eine vollständige Neuberechnung beliebiger Formeln in einer externen XLSX‑Datei liefert.
+Ja, Diagrammdaten können so konfiguriert werden, dass sie ein externes Arbeitsblatt über die Diagrammdaten‑API nutzen. Der in diesem Artikel beschriebene Formel‑Berechnungs‑Workflow bezieht sich jedoch ausschließlich auf das Diagramm‑Arbeitsblatt und den von Aspose.Slides ausgewerteten Formel‑Subset. Gehen Sie nicht davon aus, dass [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/de/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) eine vollständige Neu‑berechnung beliebiger Formeln in einer externen XLSX‑Datei durchführt.
 
-**Kann ich Formeln verwenden, die auf ein anderes Tabellenblatt oder Arbeitsbuch verweisen?**
+**Kann ich Formeln verwenden, die auf ein anderes Arbeitsblatt oder Arbeitsbuch verweisen?**
 
-Excel‑artige Referenzen können in Diagramm‑Arbeitsmappen vorkommen, doch die Formel‑Auswertung ist durch den unterstützten Parser und Funktionsumfang begrenzt. Wenn ein bereichsübergreifender oder externer Verweis erforderlich ist, prüfen Sie die jeweilige Formel mit Ihrer Ziel‑Aspose.Slides‑Version. Für Workflows, die eine breite Excel‑Referenz‑Kompatibilität benötigen, berechnen Sie die Arbeitsmappe extern und schreiben die aufgelösten Werte zurück in die Diagrammdaten.
+Excel‑artige Verweise können in Diagramm‑Arbeitsblättern vorkommen, aber die Formelauswertung ist auf den unterstützten Parser und Funktionsumfang beschränkt. Wenn ein über Blatt‑grenzender oder externer Verweis essentiell ist, prüfen Sie die genaue Formel mit Ihrer Ziel‑Aspose.Slides‑Version. Für Workflows, die umfassende Excel‑Referenz‑Kompatibilität benötigen, berechnen Sie das Arbeitsblatt extern und schreiben die aufgelösten Werte zurück in die Diagrammdaten.
 
-**Müssen Formelfeld‑Zeichenketten mit `=` beginnen?**
+**Sollten Formel‑Zeichenketten mit `=` beginnen?**
 
-Die Aspose.Slides‑API‑Beispiele weisen Ausdrücke wie `B2-C2` oder `SUM(B2:B5)` ohne führendes `=` zu. Die Verwendung dieser Form hält generierte Formeln konsistent zu den dokumentierten API‑Beispielen.
+Die Aspose.Slides‑API‑Beispiele weisen Ausdrücke wie `B2-C2` oder `SUM(B2:B5)` ohne führendes `=` zu. Diese Form bewahrt die Konsistenz mit den dokumentierten API‑Beispielen.

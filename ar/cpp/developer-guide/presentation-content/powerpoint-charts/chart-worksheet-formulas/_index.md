@@ -1,5 +1,5 @@
 ---
-title: تطبيق صيغ أوراق عمل المخطط في العروض التقديمية باستخدام C++
+title: تطبيق صيغ ورقة عمل المخطط في العروض التقديمية باستخدام C++
 linktitle: صيغ ورقة العمل
 type: docs
 weight: 70
@@ -9,11 +9,14 @@ keywords:
 - ورقة عمل المخطط
 - صيغة المخطط
 - صيغة ورقة العمل
-- صيغة جدول بيانات
+- صيغة جدول البيانات
 - دفتر عمل بيانات المخطط
 - حساب الصيغة
+- الثقافة المفضلة
+- صيغة خاصة بالثقافة
+- DBCS
 - ثابت منطقي
-- ثابت عددي
+- ثابت رقمي
 - ثابت نصي
 - ثابت خطأ
 - عامل حسابي
@@ -25,27 +28,27 @@ keywords:
 - عرض تقديمي
 - C++
 - Aspose.Slides
-description: "تطبيق صيغ بنمط Excel في أوراق عمل مخططات Aspose.Slides للغة C++، وإعادة حساب القيم، واستخدام النتائج في مخططات PowerPoint."
+description: "تطبيق صيغ بنمط Excel في Aspose.Slides لأوراق عمل مخططات C++، وإعادة حساب القيم، واستخدام النتائج في مخططات PowerPoint."
 ---
 ## **نظرة عامة**
 
-عادةً ما تخزن مخططات PowerPoint بيانات المصدر في ورقة عمل مدمجة. في Aspose.Slides للـ C++، يمكنك الوصول إلى تلك الورقة عبر دفتر عمل بيانات المخطط، كتابة قيم الإدخال، تعيين صيغ للخلايا، حساب الصيغ المدعومة، واستخدام الخلايا المحسوبة كبيانات للمخطط.
+عادةً ما تقوم مخططات PowerPoint بتخزين بيانات المصدر في ورقة عمل مضمّنة. في Aspose.Slides للـ C++، يمكنك الوصول إلى تلك الورقة عبر دفتر عمل بيانات المخطط، كتابة قيم الإدخال، تعيين صيغ للخلايا، حساب الصيغ المدعومة، واستخدام الخلايا المحسوبة كبيانات للمخطط.
 
-تشرح هذه المقالة سير عمل الصيغة بالكامل: إنشاء مخطط، تعبئة ورقة عمله، تعيين صيغ بنمط A1 أو R1C1، إعادة حسابها، قراءة القيم المحسوبة، ربط تلك الخلايا بسلسلة مخطط، وحفظ العرض التقديمي. كما تصف بنية الصيغة المدعومة، مجموعة الدوال المدمجة، القيم المخزنة مؤقتًا، الصيغ غير المدعومة، وأخطاء جداول البيانات المحددة.
+توضح هذه المقالة سير عمل الصيغة بالكامل: إنشاء مخطط، تعبئة ورقة العمل الخاصة به، تعيين صيغ بنمط A1 أو R1C1، إعادة حسابها، قراءة القيم المحسوبة، ربط تلك الخلايا بسلسلة المخطط، وحفظ العرض التقديمي. كما تصف بنية الصيغة المدعومة، مجموعة الدالات المدمجة، القيم المخزنة مؤقتًا، الصيغ غير المدعومة، وأخطاء جداول البيانات المحددة.
 
 ## **أوراق عمل المخطط والصيغ**
 
-ورقة عمل المخطط تحتوي على الفئات، وأسماء السلاسل، والقيم المستخدمة في المخطط. في PowerPoint، يمكنك فحص ورقة العمل بفتح محرر بيانات المخطط:
+تحتوي ورقة عمل المخطط على الفئات، أسماء السلاسل، والقيم المستخدمة في المخطط. في PowerPoint، يمكنك فحص الورقة بفتح محرّر بيانات المخطط:
 
-![مخطط PowerPoint مع ورقة العمل المدمجة مفتوحة، يُظهر الفئات وبيانات السلاسل](chart-worksheet-formulas_1.png)
+![مخطط PowerPoint مع ورقة العمل المدمجة مفتوحة، يظهر بيانات الفئات والسلاسل](chart-worksheet-formulas_1.png)
 
-في Aspose.Slides، تكون ورقة العمل مكشوفة عبر واجهة [IChartDataWorkbook](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/). استخدم [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_formula/) لصيغ بنمط A1 و[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) لصيغ بنمط R1C1. بعد تعديل خلايا الإدخال أو الصيغ، استدعِ [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) لإعادة حساب الصيغ المدعومة وتحديث قيم الخلايا المقابلة.
+في Aspose.Slides، تُعرَض الورقة عبر واجهة [IChartDataWorkbook](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/). استخدم [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_formula/) للصيغ بنمط A1 و[IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) للصيغ بنمط R1C1. بعد تعديل خلايا الإدخال أو الصيغ، استدعِ [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) لإعادة حساب الصيغ المدعومة وتحديث قيم الخلايا المقابلة.
 
-ما زالت الخلية المحسوبة تكشف عن نتيجتها عبر [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/). هذا مهم عندما تحتاج إلى فحص نتيجة صيغة في الشيفرة أو استخدام الخلية كنقطة بيانات للمخطط.
+لا تزال الخلية المحسوبة تكشف عن نتيجتها عبر [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/). هذا مهم عندما تحتاج إلى فحص نتيجة الصيغة في الشيفرة أو استخدام الخلية كنقطة بيانات للمخطط.
 
 ## **إنشاء مخطط وحساب صيغ ورقة العمل**
 
-يُظهر المثال التالي سير عمل من الطرف إلى الطرف. فهو ينشئ مخطط عمودي مُجَمَّع، يمسح البيانات التجريبية، يكتب قيم الإيرادات والنفقات ربع السنوية، يحسب الربح بالصيغ، يقرأ النتائج، يستخدم الخلايا المحسوبة كقيم للمخطط، ويحفظ العرض التقديمي.
+يوضح المثال التالي سير عمل من البداية إلى النهاية. فهو ينشئ مخطط عمودي متكتل، يفرغ البيانات النموذجية، يكتب قيم الإيرادات والمصروفات ربع السنوية، يحسب الربح باستخدام الصيغ، يقرأ النتائج، يستخدم الخلايا المحسوبة كقيم للمخطط، ويحفظ العرض التقديمي.
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -125,11 +128,11 @@ profitSeries->get_Labels()->get_DefaultDataLabelFormat()->set_ShowValue(true);
 presentation->Save(u"chart-formulas.pptx", SaveFormat::Pptx);
 ```
 
-نقاط بيانات المخطط تشير إلى `D2:D4`، لذا يستخدم المخطط قيم الربح المحسوبة. لا يوجد استدعاء منفصل لتحديث المخطط في هذا التدفق: أعد حساب دفتر العمل أولاً، ثم استخدم أو احفظ بيانات المخطط التي تشير إلى الخلايا المحسوبة.
+تشير نقاط بيانات المخطط إلى `D2:D4`، لذا يستخدم المخطط قيم الربح المحسوبة. لا توجد دعوة منفصلة لتحديث المخطط في هذا التدفق: أعد حساب دفتر العمل أولاً، ثم استخدم أو احفظ بيانات المخطط التي تشير إلى الخلايا المحسوبة.
 
 ## **استخدام صيغ النمط A1**
 
-تحدد ترميز A1 الأعمدة بحروف والصفوف بأرقام. عيّن تعبيرات بنمط A1 عبر [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_formula/).
+تحدد الصيغة A1 الأعمدة بحروف والصفوف بأرقام. عيّن تعبيرات بنمط A1 عبر [IChartDataCell::set_Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_formula/).
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -167,18 +170,18 @@ auto value = cell->get_Value(); // 19
 
 الأشكال الشائعة للمرجع بنمط A1 هي:
 
-| الإشارة | نسبي | مطلق | مختلط |
+| المرجع | نسبي | مطلق | مختلط |
 |---|---|---|---|
 | خلية | `A2` | `$A$2` | `A$2`, `$A2` |
 | صف | `2:2` | `$2:$2` | — |
 | عمود | `A:A` | `$A:$A` | — |
 | نطاق | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-يمكن أن تتغير المراجع النسبية عندما يتم نقل أو نسخ صيغة بواسطة تطبيق جدول بيانات. المراجع المطلقة تبقي كلا الإحداثيين ثابتين، بينما المراجع المختلطة تثبت إما الصف أو العمود فقط.
+يمكن أن تتغيّر المراجع النسبية عندما تُنقل الصيغة أو تُنسخها تطبيقات جداول البيانات. المراجع المطلقة تُبقي كلا الإحداثيين ثابتين، بينما المراجع المختلطة تُثبت إما الصف أو العمود فقط.
 
 ## **استخدام صيغ النمط R1C1**
 
-يحدد ترميز R1C1 الصفوف والأعمدة عدديًا. تُستخدم المراجع النسبية الإزاحات داخل أقواس مربعة. عيّن هذا الترميز عبر [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/).
+تحدد الصيغة R1C1 كلًا من الصفوف والأعمدة رقمياً. تستخدم المراجع النسبية إزاحات داخل أقواس مربعة. عيّن هذه الصيغة عبر [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/).
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -214,29 +217,29 @@ auto value = cell->get_Value(); // 7
 
 الأشكال الشائعة للمرجع بنمط R1C1 هي:
 
-| الإشارة | نسبي | مطلق | مختلط |
+| المرجع | نسبي | مطلق | مختلط |
 |---|---|---|---|
 | خلية | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | صف | `R[2]` | `R2` | — |
 | عمود | `C[3]` | `C3` | — |
 | نطاق | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-على سبيل المثال، في الخلية `D2`، `RC[-2]` يعني الخلية في نفس الصف قبل عمودين (`B2`).
+على سبيل المثال، في الخلية `D2`، يعني `RC[-2]` الخلية في نفس الصف ولكن عمودين إلى اليسار (`B2`).
 
 ## **ثوابت الصيغ والعوامل**
 
-يدعم مقيم الصيغ المدمج القيم المنطقية، والعددية، والنصية، وقيم أخطاء جداول البيانات، والعوامل الحسابية، وعوامل المقارنة.
+يدعم مقيم الصيغ المدمج القيم المنطقية، القيم العددية الحرفية، السلاسل النصية، قيم أخطاء جداول البيانات، العوامل الحسابية، وعوامل المقارنة.
 
-### **الثوابت والأنواع الثابتة**
+### **الثوابت والقيّم الحرفية**
 
 | النوع | أمثلة | ملاحظات |
 |---|---|---|
-| منطقي | `TRUE`, `FALSE` | يمكن استخدامها مباشرة في التعبيرات المنطقية مثل `A2=TRUE`. |
-| رقمي | `1`, `0.5`, `.3`, `1E-2` | يُدعم الشكل العادي والعلمي. |
-| نص | `"abc"`, `"2/3/2020 12:00"` | يُحاط النص داخل علامات اقتباس مزدوجة داخل الصيغة. |
-| نتيجة خطأ | `#DIV/0!`, `#N/A`, `#REF!` | قد تُقيم صيغة صحيحة إلى قيمة خطأ في جدول البيانات بدلاً من نتيجة طبيعية. |
+| منطقي | `TRUE`, `FALSE` | يمكن استخدامها مباشرةً في تعبيرات منطقية مثل `A2=TRUE`. |
+| رقمي | `1`, `0.5`, `.3`, `1E-2` | يدعم التدوين العشري والعلمي. |
+| نص | `"abc"`, `"2/3/2020 12:00"` | القيم النصية محاطة بعلامات اقتباس مزدوجة داخل الصيغة. |
+| نتيجة خطأ | `#DIV/0!`, `#N/A`, `#REF!` | يمكن أن تُقيم صيغة صالحة إلى قيمة خطأ في جدول البيانات بدلاً من نتيجة عادية. |
 
-يستخدم هذا المثال عدة أنواع ثابتة:
+هذا المثال يستخدم عدة أنواع من الثوابت:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -276,75 +279,126 @@ auto errorValue = workbook->GetCell(0, u"F2")->get_Value(); // #DIV/0!
 
 ### **العوامل الحسابية**
 
-| العامل | المعنى | مثال |
+| العامل | المعنى | المثال |
 |---|---|---|
-| `+` | جمع أو إشارة موجبة أحادية | `2+3` |
-| `-` | طرح أو نفي أحادي | `2-3`, `-3` |
+| `+` | جمع أو زائد أحادي | `2+3` |
+| `-` | طرح أو سالب أحادي | `2-3`, `-3` |
 | `*` | ضرب | `2*3` |
 | `/` | قسمة | `2/3` |
 | `%` | نسبة مئوية | `30%` |
 | `^` | أس | `2^3` |
 
-استخدم الأقواس لجعل ترتيب التقييم واضحًا، مثلًا `(A2+B2)*C2`.
+استخدم الأقواس لتوضيح ترتيب التقييم، على سبيل المثال `(A2+B2)*C2`.
 
 ### **العوامل المقارنة**
 
 تُعيد تعبيرات المقارنة قيمًا منطقية.
 
-| العامل | المعنى | مثال |
+| العامل | المعنى | المثال |
 |---|---|---|
-| `=` | مساواة | `A2=3` |
-| `<>` | عدم مساواة | `A2<>3` |
+| `=` | يساوي | `A2=3` |
+| `<>` | ليس مساوياً | `A2<>3` |
 | `>` | أكبر من | `A2>3` |
 | `>=` | أكبر من أو يساوي | `A2>=3` |
 | `<` | أصغر من | `A2<3` |
 | `<=` | أصغر من أو يساوي | `A2<=3` |
 
-## **الدوال المعرفة مسبقًا المدعومة**
+## **الدوال المعرفة مسبقاً المدعومة**
 
-يتضمن Aspose.Slides مقيم صيغ مدمج لأوراق عمل المخططات، لكنه ليس محرك حساب Excel كامل. مجموعة الدوال الموثقة محدودة إلى الدوال أدناه. لا تفترض أن أي دالة Excel عشوائية يمكن إعادة حسابها عبر [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+يتضمن Aspose.Slides مقيم صيغ مدمج لأوراق عمل المخططات، لكنه ليس محرك حساب Excel كامل. مجموعة الدوال الموضحة في الوثائق محدودة إلى الدوال التالية. لا تفترض أن أي دالة Excel عشوائية يمكن إعادة حسابها عبر [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-| الدالة | الغرض أو الصيغة المدعومة | مثال |
+| الدالة | الغرض أو الشكل المدعوم | المثال |
 |---|---|---|
 | `ABS` | القيمة المطلقة | `ABS(A2)` |
 | `AVERAGE` | المتوسط الحسابي | `AVERAGE(B2:B5)` |
-| `CEILING` | تقريب الرقم للأعلى إلى مضاعف | `CEILING(A2,5)` |
+| `CEILING` | تقريب رقم إلى أقرب مضاعف أعلى | `CEILING(A2,5)` |
 | `CHOOSE` | اختيار قيمة حسب الفهرس | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | دمج قيم النص | `CONCAT(A2,B2)` |
 | `CONCATENATE` | دمج قيم النص | `CONCATENATE(A2," ",B2)` |
-| `DATE` | إنشاء قيمة تاريخ باستخدام نظام تاريخ 1900 | `DATE(2026,8,19)` |
+| `DATE` | إنشاء قيمة تاريخ باستخدام نظام التاريخ 1900 | `DATE(2026,8,19)` |
 | `DAYS` | إرجاع عدد الأيام بين التاريخين | `DAYS(B2,A2)` |
-| `FIND` | البحث عن قيمة نص داخل أخرى | `FIND("-",A2)` |
-| `FINDB` | بحث نصي على مستوى البايت | `FINDB("a",A2)` |
+| `FIND` | البحث عن نص داخل نص آخر | `FIND("-",A2)` |
+| `FINDB` | بحث نص على مستوى البايت | `FINDB("a",A2)` |
 | `IF` | نتيجة شرطية | `IF(A2>0,A2,0)` |
-| `INDEX` | صيغة مرجعية | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | صيغة متجهية | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | صيغة متجهية | `MATCH(A2,B2:B5,0)` |
-| `MAX` | القيمة القصوى | `MAX(B2:B5)` |
+| `INDEX` | شكل مرجعي | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | شكل متجهي | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | شكل متجهي | `MATCH(A2,B2:B5,0)` |
+| `MAX` | القيمة العظمى | `MAX(B2:B5)` |
 | `SUM` | جمع القيم | `SUM(B2:B5)` |
 | `VLOOKUP` | بحث عمودي | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-القيود الموضحة في الجدول مهمة: `INDEX` موثقة بصيغة مرجعية، بينما `LOOKUP` و`MATCH` موثقة بصورهما المتجهية. `DATE` يستخدم نظام تاريخ 1900. يجب اعتبار أي ميزات أو دوال غير مدرجة هنا غير مدعومة من قبل مقيم صيغ Aspose.Slides ما لم تُوثق بشكل منفصل.
+القيود الواردة في الجدول مهمة: `INDEX` موثّق في شكل مرجعي، بينما `LOOKUP` و `MATCH` موثّقان في شكليهما المتجهيين. `DATE` يستخدم نظام التاريخ 1900. يجب اعتبار الدوال غير المذكورة على أنها غير مدعومة من مقيم صيغ Aspose.Slides ما لم يتم توثيقها بشكل منفصل.
+
+## **حساب الصيغ مع ثقافة مفضلة**
+
+بعض دوال دفتر العمل تفسّر النص وفق قواعد ثقافية مخصصة. وهذا مهم خاصةً للدوال الموجهة للغات التي تستخدم مجموعات أحرف ثنائية البايت (DBCS). لحساب هذه الصيغ بشكل صحيح، أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/)، ضبط [ISpreadsheetOptions::set_PreferredCulture](https://reference.aspose.com/slides/ar/cpp/aspose.slides/ispreadsheetoptions/set_preferredculture/) عبر [LoadOptions::set_SpreadsheetOptions](https://reference.aspose.com/slides/ar/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/)، ثم حمِّل العرض التقديمي.
+
+```cpp
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/LoadOptions.h>
+#include <DOM/Presentation.h>
+#include <DOM/SpreadsheetOptions.h>
+#include <system/globalization/culture_info.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace System;
+using namespace System::Globalization;
+
+auto japaneseCulture = CultureInfo::GetCultureInfo(u"ja-JP");
+
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_PreferredCulture(japaneseCulture);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+for (int32_t slideIndex = 0; slideIndex < presentation->get_Slides()->get_Count(); slideIndex++)
+{
+    auto slide = presentation->get_Slide(slideIndex);
+
+    for (int32_t shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); shapeIndex++)
+    {
+        auto shape = slide->get_Shape(shapeIndex);
+        if (ObjectExt::Is<IChart>(shape))
+        {
+            auto chart = ExplicitCast<IChart>(shape);
+            chart->get_ChartData()->get_ChartDataWorkbook()->CalculateFormulas();
+        }
+    }
+}
+```
+
+الثقافة المفضلة هي جزء من إعدادات تحميل العرض التقديمي، لذا حدّدها قبل إنشاء كائن [Presentation](https://reference.aspose.com/slides/ar/cpp/aspose.slides/presentation/). استخدم الثقافة المتوقعة من صيغ دفتر العمل؛ على سبيل المثال، استخدم `ja-JP` للصيغ التي يجب أن تتبع قواعد حساب DBCS اليابانية.
 
 ## **إعادة الحساب والقيم المخزنة مؤقتًا**
 
-تخزن ملفات جداول البيانات عادةً الصيغة والقيمة المحسوبة الأخيرة. لذلك يمكن لـ Aspose.Slides قراءة قيمة مخزنة من [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/) عند تحميل عرض تقديمي ولم يتم تغيير بيانات المخطط ذات الصلة.
+عادةً ما تخزّن ملفات جداول البيانات كلًا من الصيغة والقيمة التي تم حسابها آخرًا. لذلك يمكن لـ Aspose.Slides قراءة قيمة مخزّنة مؤقتًا من [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/) عند تحميل العرض التقديمي إذا لم تُغيّر بيانات المخطط ذات الصلة.
 
-بعد تعديل خلايا الإدخال أو الصيغ، لا تعتمد على نتيجة مخزنة قديمة. استدعِ [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) قبل قراءة القيم المحسوبة أو حفظ بيانات المخطط التي تعتمد عليها.
+بعد تعديل خلايا الإدخال أو الصيغ، لا تعتمد على النتيجة المخزّنة القديمة. استدعِ [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) قبل قراءة القيم المحسوبة أو حفظ بيانات المخطط التي تعتمد عليها.
 
-بالنسبة للصيغ خارج المجموعة المدعومة، قد لا يتمكن Aspose.Slides من تحليل الصيغة أو تحديد تبعياتها. إذا تم تعديل دفتر العمل، لا يمكن الاعتماد على القيمة المخزنة السابقة. في هذه الحالة، قد يرفع قراءة قيمة خلية ذات بيانات غير مدعومة استثناءً من نوع [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+بالنسبة للصيغ خارج المجموعة المدعومة، قد لا يتمكن Aspose.Slides من تحليل الصيغة أو تحديد تبعيتها. إذا تم تعديل دفتر العمل، لا يمكن الاعتماد على القيمة المخزّنة السابقة. في تلك الحالة، قد يُثير قراءة قيمة خلية ذات صيغة غير مدعومة استثناءً من نوع [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-إذا كان مخططك يعتمد على دوال Excel لا يقيمها Aspose.Slides، احسب تلك الصيغ باستخدام محرك جدول بيانات يدعمها واكتب القيم الناتجة مرةً أخرى إلى دفتر عمل المخطط. لا تستبدل الصيغ غير المدعومة بقيم مفترضة.
+إذا كان مخططك يعتمد على دالات Excel لا تُقيمها Aspose.Slides، احسب تلك الصيغ باستخدام محرك جداول بيانات يدعمها واكتب القيم الناتجة مرة أخرى إلى دفتر عمل المخطط. لا تستبدل الصيغ غير المدعومة بقيم مُخمّنة.
 
 ## **معالجة أخطاء الصيغ**
 
-هناك نوعان مختلفان من المشكلات يجب التفريق بينهما.
+هناك نوعان مختلفان من المشكلات يجب التمييز بينهما.
 
-يمكن أن تكون الصيغة صالحة لكن تُنتج نتيجة خطأ في جدول البيانات مثل `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, أو `#VALUE!`. في هذه الحالة، يكون رمز الخطأ نتيجة للخلية ويمكن إرجاعه عبر [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/).
+يمكن أن تكون الصيغة صالحة لكنها تُنتج نتيجة خطأ في جدول البيانات مثل `#DIV/0!`، `#N/A`، `#NAME?`، `#NULL!`، `#NUM!`، `#REF!`، أو `#VALUE!`. في هذه الحالة، يُعدّ رمز الخطأ نتيجة خلية ويمكن إرجاعه عبر [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/).
 
-كما يمكن أن تفشل الصيغة في التحليل أو الإشارة أو التبعية أو مستوى البيانات المدعومة. توفر Aspose.Slides استثناءات مخصصة لجداول البيانات لهذه الحالات: [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/), و[CellUnsupportedDataException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+كما قد تفشل الصيغة في مرحلة التحليل، أو المرجع، أو التبعية، أو مستوى البيانات المدعومة. توفر Aspose.Slides استثناءات محددة لجدول البيانات لهذه الحالات: [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/)، [CellInvalidReferenceException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellinvalidreferenceexception/)، [CellCircularReferenceException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/)، و[CellUnsupportedDataException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-عند جلب الصيغ من قوالب أو مدخلات المستخدم، عالج هذه الاستثناءات حول إعادة الحساب والوصول إلى القيمة:
+عند الحصول على صيغ من قوالب أو مدخلات المستخدم، عالج هذه الاستثناءات حول عملية إعادة الحساب والوصول إلى القيم:
 
 ```cpp
 #include <DOM/Chart/ChartType.h>
@@ -384,11 +438,11 @@ catch (CellInvalidFormulaException&)
 }
 catch (CellInvalidReferenceException&)
 {
-    // معالجة إشارة خلية غير صالحة.
+    // معالجة مرجع خلية غير صالح.
 }
 catch (CellCircularReferenceException&)
 {
-    // معالجة إشارة دائرية.
+    // معالجة مرجع دائري.
 }
 catch (CellUnsupportedDataException&)
 {
@@ -398,52 +452,52 @@ catch (CellUnsupportedDataException&)
 
 ## **القيود العملية**
 
-دعم الصيغ في أوراق عمل المخططات مخصص لمجموعة محدودة من حسابات جداول البيانات، وليس لتوافق كامل مع Excel. احرص على مراعاة هذه القيود عند تصميم سير عمل تقارير:
+دعم الصيغ في أوراق عمل المخططات موجه لمجموعة محددة من حسابات جداول البيانات، وليس لتوافق كامل مع Excel. ضع هذه القيود في الاعتبار عند تصميم سير عمل التقارير:
 
-- استخدم فقط الثوابت، والعوامل، والمراجع، والدوال الموثقة عندما تحتاج إلى أن يقوم Aspose.Slides بإعادة حساب الصيغ.
-- أعد الحساب بعد تعديل الخلايا التي تعتمد نتائج الصيغ عليها.
-- اعتبر القيم المخزنة من العروض المحملة لقطات ثابتة، وليس بديلاً عن إعادة الحساب بعد التعديل.
-- اختبر الصيغ من القوالب الحالية قبل الاعتماد على قيمها المحسوبة، خاصةً إذا كانت تستخدم دوالًا غير مدرجة في القائمة الموثقة.
-- بالنسبة للصيغ التي تتطلب محرك حساب كامل لجداول البيانات، احسبها خارجيًا ثم حدّث دفتر عمل المخطط بالقيم الناتجة.
+- استخدم فقط الثوابت والعوامل والمرجعيات والدوال الموثقة عندما تحتاج إلى أن تقوم Aspose.Slides بإعادة حساب الصيغ.
+- أعد الحساب بعد تعديل الخلايا التي تعتمد عليها نتائج الصيغ.
+- اعتبر القيم المخزنة مؤقتًا من العروض المحملة كلقطات، لا كبديل لإعادة الحساب بعد التعديلات.
+- اختبر الصيغ من القوالب الحالية قبل الاعتماد على قيمها المحسوبة، خاصةً إذا كانت تستخدم دالات غير مدرجة في القائمة الموثقة.
+- للصيغ التي تحتاج إلى محرك حساب جدول بيانات كامل، احسبها خارجيًا ثم حدّث ورقة عمل المخطط بالقيم الناتجة.
 
 ## **الأسئلة المتكررة**
 
-**ما هو الفرق بين `set_Formula` و`set_R1C1Formula`؟**
+**ما الفرق بين `set_Formula` و `set_R1C1Formula`؟**
 
-[IChartDataCell::set_Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_formula/) يخزن تعبيرًا بنمط A1 مثل `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) يخزن تعبيرًا بنمط R1C1 مثل `RC[-2]-RC[-1]`. استخدم الترميز الذي يتناسب مع طريقة إنشاء أو نسخ الصيغ لديك.
+[IChartDataCell::set_Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_formula/) يخزن تعبيرًا بنمط A1 مثل `B2-C2`. [IChartDataCell::set_R1C1Formula](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/set_r1c1formula/) يخزن تعبيرًا بنمط R1C1 مثل `RC[-2]-RC[-1]`. استخدم النمط الذي يتوافق مع طريقة إنشاء أو نسخ الصيغ لديك.
 
-**هل أحتاج إلى قراءة الخلية نفسها أم قيمتها بعد الحساب؟**
+**هل يجب قراءة الخلية نفسها أم قيمتها بعد الحساب؟**
 
-[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) يعيد كائنًا من نوع `IChartDataCell`. للحصول على النتيجة المحسوبة، اقرأ قيمة تلك الخلية عبر [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/) بعد إعادة الحساب.
+[IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) يُعيد كائنًا من نوع `IChartDataCell`. للحصول على النتيجة المحسوبة، اقرأ قيمة تلك الخلية عبر [IChartDataCell::get_Value](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdatacell/get_value/) بعد إعادة الحساب.
 
 **متى يجب استدعاء `CalculateFormulas`؟**
 
-استدعِ [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بعد تعديل قيم الإدخال أو الصيغ وقبل الاعتماد على النتائج المحسوبة. هذا يحدث تحديث قيم الصيغ التي يدعمها المقيم المدمج.
+استدعِ [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) بعد تعديل قيم الإدخال أو الصيغ وقبل الاعتماد على النتائج المحسوبة. هذا يُحدّث قيم الصيغ التي يدعمها المقيّم المدمج.
 
-**هل يدعم Aspose.Slides كل دوال Excel؟**
+**هل يدعم Aspose.Slides كل دالة Excel؟**
 
-لا. يدعم المقيم المدمج مجموعة موثقة فقط من الدوال. لا ينبغي افتراض أن أي دالة Excel خارج هذه المجموعة ستُعاد حسابها بشكل صحيح. إذا كانت هناك حاجة إلى توافق كامل مع صيغ Excel، قم بإجراء الحساب باستخدام محرك جداول بيانات مناسب واكتب القيم النهائية إلى دفتر عمل المخطط.
+لا. يدعم المقيّم المدمج مجموعة موثّقة من الدوال فقط. لا يجب افتراض أن الدوال خارج هذه المجموعة ستحسَب بشكل صحيح. إذا كانت الحاجة إلى توافق كامل مع صيغ Excel، نفّذ الحساب باستخدام محرك جداول بيانات مناسب واكتب القيم النهائية إلى دفتر عمل المخطط.
 
-**ماذا يحدث إذا كان العرض المحمّل يحتوي على صيغة غير مدعومة؟**
+**ماذا يحدث إذا كان العرض التقديمي المحمَّل يحتوي على صيغة غير مدعومة؟**
 
-إذا لم تتغير بيانات المخطط، قد يظل دفتر العمل يحتوي على قيمة مخزنة مسبقًا. بعد تعديل البيانات ذات الصلة، قد لا تكون هذه القيمة المخزنة صالحة. محاولة الوصول إلى خلية صيغتها لا يمكن معالجتها قد ترفع استثناءً من نوع [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+إذا لم تتغيّر بيانات المخطط، قد يظل دفتر العمل يحتوي على قيمة مخزّنة مسبقًا. بعد تعديل البيانات المرتبطة، قد لا تكون تلك القيمة المخزّنة صالحة. قد يؤدي الوصول إلى خلية بصيغة غير مدعومة إلى رفع استثناء [CellUnsupportedDataException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
 **هل قيم أخطاء الصيغ هي نفسها استثناءات C++؟**
 
-لا. نتيجة مثل `#DIV/0!` هي قيمة جدول بيانات تنتج عن حساب صالح. الاستثناءات مثل [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) أو [CellCircularReferenceException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) تشير إلى أن الصيغة لا يمكن معالجتها بصورة طبيعية.
+لا. النتيجة مثل `#DIV/0!` هي قيمة جدول بيانات تُنتج من عملية حساب صحيحة. الاستثناءات مثل [CellInvalidFormulaException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellinvalidformulaexception/) أو [CellCircularReferenceException](https://reference.aspose.com/slides/ar/cpp/aspose.slides.spreadsheet/cellcircularreferenceexception/) تشير إلى أن الصيغة لا يمكن معالجتها بصورة طبيعية.
 
-**هل يحدث تحديث للمخطط تلقائيًا عندما تتغير خلية صيغة؟**
+**هل يحدث تحديث للمخطط تلقائيًا عندما تتغيّر خلية الصيغة؟**
 
-يمكن لسلسلة مخطط الإشارة إلى خلايا دفتر العمل. أعد حساب دفتر العمل أولاً، ثم احفظ أو قدم العرض. إذا كانت نقاط بيانات المخطط تشير إلى الخلايا المحسوبة، سيستخدم المخطط القيم المحدثة؛ لا يلزم استدعاء طريقة تحديث منفصلة لهذا التدفق.
+يمكن لسلسلة المخطط الإشارة إلى خلايا دفتر العمل. أعد حساب دفتر العمل أولاً، ثم احفظ أو عالج العرض التقديمي. إذا أشارت نقاط بيانات المخطط إلى الخلايا المحسوبة، سيستخدم المخطط القيم المحدثة؛ لا يلزم طريقة منفصلة لتحديث المخطط في هذا التدفق.
 
 **هل يمكن للمخططات استخدام دفتر عمل Excel خارجي؟**
 
-نعم، يمكن تكوين بيانات المخطط لاستخدام دفتر عمل خارجي عبر واجهة برمجة بيانات المخطط. ومع ذلك، فإن سير عمل حساب الصيغ الموصوف في هذه المقالة يتعلق بدفتر عمل بيانات المخطط والصيغ التي يقيمها Aspose.Slides. لا تفترض أن [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) يوفر إعادة حساب كاملة للصيغ العشوائية في ملف XLSX خارجي.
+نعم، يمكن تكوين بيانات المخطط لاستخدام دفتر عمل خارجي عبر واجهة برمجة تطبيقات بيانات المخطط. ومع ذلك، يُركز سير عمل حساب الصيغ الموصوف في هذه المقالة على دفتر عمل بيانات المخطط ومجموعة الصيغ التي يقيّمها Aspose.Slides. لا تفترض أن [IChartDataWorkbook::CalculateFormulas](https://reference.aspose.com/slides/ar/cpp/aspose.slides.charts/ichartdataworkbook/calculateformulas/) توفر إعادة حساب كاملة للصياغات العشوائية في ملف XLSX خارجي.
 
 **هل يمكنني استخدام صيغ تشير إلى ورقة عمل أو دفتر عمل آخر؟**
 
-قد توجد مراجع بأسلوب Excel في دفاتر عمل المخططات، لكن تقييم الصيغ يقتصر على المحلل ومجموعة الدوال المدعومة. إذا كان المرجع عبر ورقة أو دفتر خارجي ضروريًا، تحقق من صلاحية الصيغة المحددة مع إصدار Aspose.Slides المستهدف. بالنسبة لسير العمل الذي يتطلب توافقًا واسعًا للمرجع عبر Excel، احسب دفتر العمل خارجيًا واكتب القيم المحلولة مرةً أخرى إلى بيانات المخطط.
+قد توجد مراجع بنمط Excel في دفاتر عمل المخططات، لكن تقييم الصيغ محدود بالمحلل ومجموعة الدوال المدعومة. إذا كان المرجع عبر ورقة أو دفتر خارجي ضروريًا، تحقق من صلاحية الصيغة مع نسخة Aspose.Slides المستهدفة. بالنسبة للتدفقات التي تتطلب توافقًا واسعًا مع مراجع Excel، احسب دفتر العمل خارجيًا واكتب القيم المُحَلَّة مرة أخرى إلى بيانات المخطط.
 
-**هل يجب أن تبدأ سلاسل الصيغ بالعلامة `=`؟**
+**هل يجب أن تبدأ سلاسل الصيغ بـ `=`؟**
 
-أمثلة API في Aspose.Slides تُعيّن تعبيرات مثل `B2-C2` أو `SUM(B2:B5)` دون علامة `=` أولية. استخدام هذا الشكل يبقي الصيغ المولدة متسقة مع أمثلة API الموثقة.
+أمثلة API في Aspose.Slides تُعيّن تعبيرات مثل `B2-C2` أو `SUM(B2:B5)` بدون علامة `=` في البداية. استخدام هذا الشكل يحافظ على توافق الصيغ المُولَّدة مع أمثلة API الموثقة.

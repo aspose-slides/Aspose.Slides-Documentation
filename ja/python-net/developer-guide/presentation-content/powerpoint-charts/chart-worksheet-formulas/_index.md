@@ -1,5 +1,5 @@
 ---
-title: Python を使用したプレゼンテーションでチャート ワークシート数式を適用する
+title: Python を使用したプレゼンテーションでのチャート ワークシート数式の適用
 linktitle: ワークシート数式
 type: docs
 weight: 70
@@ -12,40 +12,43 @@ keywords:
 - スプレッドシート 数式
 - チャート データ ワークブック
 - 数式 計算
-- 論理 定数
-- 数値 定数
-- 文字列 定数
-- エラー 定数
-- 算術 演算子
-- 比較 演算子
+- 優先カルチャ
+- カルチャ固有の数式
+- DBCS
+- 論理定数
+- 数値定数
+- 文字列定数
+- エラー定数
+- 算術演算子
+- 比較演算子
 - A1 スタイル
 - R1C1 スタイル
-- 事前定義 関数
+- 組み込み関数
 - PowerPoint
 - プレゼンテーション
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET のチャート ワークシートで Excel 形式の数式を適用し、値を再計算し、PowerPoint のグラフで結果を使用します。"
+description: "Aspose.Slides for Python via .NET のチャート ワークシートで Excel 形式の数式を適用し、値を再計算して PowerPoint のチャートで結果を使用します。"
 ---
 ## **概要**
 
-PowerPoint のグラフは通常、埋め込みワークシートにソースデータを保存します。Aspose.Slides for Python via .NET では、チャート データ ワークブックを通じてそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算結果のセルをグラフ データとして使用できます。
+PowerPoint のグラフは通常、埋め込みワークシートにソース データを格納します。Aspose.Slides for Python via .NET では、チャート データ ワークブックを介してそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算結果のセルをチャート データとして使用できます。
 
-この記事では、完全な数式ワークフローを説明します。グラフの作成、ワークシートへのデータ入力、A1 形式または R1C1 形式の数式の割り当て、再計算、計算結果の取得、セルをグラフ系列に接続し、プレゼンテーションを保存する手順を示します。また、サポートされている数式構文、組み込み関数のサブセット、キャッシュされた値、サポート外の数式、およびスプレッドシート固有のエラーについても説明します。
+この記事では、チャートの作成、ワークシートへのデータ入力、A1 形式または R1C1 形式の数式の割り当て、再計算、計算結果の取得、セルをチャート シリーズに接続、プレゼンテーションの保存という完全な数式ワークフローを解説します。また、サポートされる数式構文、組み込み関数サブセット、キャッシュ値、非サポート数式、スプレッドシート固有のエラーについても説明します。
 
-## **グラフ ワークシートと数式**
+## **チャート ワークシートと数式**
 
-グラフ ワークシートには、グラフで使用されるカテゴリ、系列名、および値が含まれます。PowerPoint では、グラフ データ エディターを開くことでワークシートを確認できます。
+チャート ワークシートには、チャートで使用されるカテゴリ、シリーズ名、値が含まれます。PowerPoint では、チャート データ エディターを開くことでワークシートを確認できます。
 
-![埋め込みワークシートが開いた PowerPoint グラフ、カテゴリと系列データを表示](chart-worksheet-formulas_1.png)
+![PowerPoint の埋め込みワークシートが開かれ、カテゴリとシリーズ データが表示されているチャート](chart-worksheet-formulas_1.png)
 
-Aspose.Slides では、ワークシートは [chart data workbook](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdataworkbook/) を通じて公開されています。A1 形式の数式には [formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/formula/) プロパティを、R1C1 形式の数式には [r1c1_formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) プロパティを使用します。入力セルや数式を変更した後は、[calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) を呼び出してサポートされている数式を再計算し、対応するセルの値を更新します。
+Aspose.Slides では、ワークシートは [チャート データ ワークブック](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdataworkbook/) を通じて公開されています。A1 形式の数式には [formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/formula/) プロパティを、R1C1 形式の数式には [r1c1_formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) プロパティを使用します。入力セルや数式を変更した後は、[calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) を呼び出してサポートされている数式を再計算し、対応するセル値を更新します。
 
-計算されたセルは依然として [value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/value/) プロパティを通じて結果を公開します。コードで数式の結果を確認したり、セルをグラフ データ ポイントとして使用したりする場合に重要です。
+計算されたセルは [value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/value/) プロパティを介して結果を公開します。コード内で数式結果を確認したり、セルをチャート データ ポイントとして使用したりする場合に重要です。
 
-## **グラフの作成とワークシート数式の計算**
+## **チャートの作成とワークシート数式の計算**
 
-以下の例は、エンドツーエンドのワークフローを示しています。クラスター化された縦棒グラフを作成し、サンプル データをクリアし、四半期ごとの収益と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算済みセルをグラフの値として使用し、プレゼンテーションを保存します。
+以下の例はエンドツーエンドのワークフローを示しています。クラスター化された縦棒グラフを作成し、サンプル データをクリアし、四半期ごとの収益と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算されたセルをチャート値として使用し、プレゼンテーションを保存します。
 
 ```python
 import aspose.slides as slides
@@ -107,11 +110,11 @@ with slides.Presentation() as presentation:
     presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-グラフのデータ ポイントは `D2:D4` を参照しているため、計算された利益の値が使用されます。このワークフローでは別途チャートのリフレッシュ呼び出しは不要です。まずワークブックを再計算し、その後計算済みセルを指すチャート データを使用または保存します。
+チャート データ ポイントは `D2:D4` を参照しているため、計算された利益値が使用されます。このワークフローでは別途チャート更新呼び出しは不要です。まずワークブックを再計算し、その後計算されたセルを参照または保存します。
 
-## **A1 形式数式の使用**
+## **A1 形式の数式の使用**
 
-A1 表記は列を文字で、行を数字で識別します。[IChartDataCell.formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/formula/) を使用して A1 形式の式を割り当てます。
+A1 表記は列を文字、行を数字で識別します。A1 形式の式は [IChartDataCell.formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/formula/) で割り当てます。
 
 ```python
 import aspose.slides as slides
@@ -135,7 +138,7 @@ with slides.Presentation() as presentation:
     value = cell.value  # 19
 ```
 
-一般的な A1 参照形式は次のとおりです：
+一般的な A1 参照形式は次のとおりです。
 
 | 参照 | 相対 | 絶対 | 混合 |
 |---|---|---|---|
@@ -144,11 +147,11 @@ with slides.Presentation() as presentation:
 | 列 | `A:A` | `$A:$A` | — |
 | 範囲 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-相対参照は、スプレッドシート アプリケーションで数式を移動またはコピーしたときに変更される可能性があります。絶対参照は両方の座標を固定し、混合参照は行または列のいずれかだけを固定します。
+相対参照は数式を移動またはコピーしたときに変化します。絶対参照は両方の座標を固定し、混合参照は行または列のいずれかだけを固定します。
 
-## **R1C1 形式数式の使用**
+## **R1C1 形式の数式の使用**
 
-R1C1 表記は行と列の両方を数値で識別します。相対参照は角括弧内のオフセットを使用します。この構文は [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) を通じて割り当てます。
+R1C1 表記は行と列を数値で識別します。相対参照は角括弧でオフセットを示します。この構文は [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) で割り当てます。
 
 ```python
 import aspose.slides as slides
@@ -170,7 +173,7 @@ with slides.Presentation() as presentation:
     value = cell.value  # 7
 ```
 
-一般的な R1C1 参照形式は次のとおりです：
+一般的な R1C1 参照形式は次のとおりです。
 
 | 参照 | 相対 | 絶対 | 混合 |
 |---|---|---|---|
@@ -179,20 +182,22 @@ with slides.Presentation() as presentation:
 | 列 | `C[3]` | `C3` | — |
 | 範囲 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-例として、セル `D2` で `RC[-2]` は、同じ行の左に 2 列あるセル（`B2`）を指します。
+たとえばセル `D2` で `RC[-2]` は「同じ行で左に 2 列」のセル (`B2`) を指します。
 
-## **数式の定数と演算子**
+## **数式定数と演算子**
 
-組み込みの数式評価エンジンは、論理値、数値リテラル、文字列、スプレッドシート エラー値、算術演算子、および比較演算子をサポートしています。
+組み込みの数式評価エンジンは論理値、数値リテラル、文字列、スプレッドシート エラー値、算術演算子、比較演算子をサポートします。
 
 ### **定数とリテラル**
 
-| タイプ | 例 | 備考 |
+| 種類 | 例 | 備考 |
 |---|---|---|
 | 論理 | `TRUE`, `FALSE` | `A2=TRUE` のような論理式で直接使用できます。 |
-| 数値 | `1`, `0.5`, `.3`, `1E-2` | 一般的な表記と指数表記の両方がサポートされます。 |
-| 文字列 | `"abc"`, `"2/3/2020 12:00"` | 文字列リテラルは数式内で二重引用符で囲まれます。 |
-| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式は、通常の結果ではなくスプレッドシート エラー値に評価されることがあります。 |
+| 数値 | `1`, `0.5`, `.3`, `1E-2` | 通常表記と指数表記の両方がサポートされます。 |
+| 文字列 | `"abc"`, `"2/3/2020 12:00"` | 文字列リテラルはダブルクオートで囲みます。 |
+| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式でもスプレッドシート エラー値を結果として返すことがあります。 |
+
+この例は複数の定数型を使用しています。
 
 ```python
 import aspose.slides as slides
@@ -212,11 +217,11 @@ with slides.Presentation() as presentation:
 
     workbook.calculate_formulas()
 
-    logical_value = workbook.get_cell(0, "B2").value  # 偽
+    logical_value = workbook.get_cell(0, "B2").value  # False
     numeric_value = workbook.get_cell(0, "C2").value  # 1.5
     scientific_value = workbook.get_cell(0, "D2").value  # 0.003
     string_value = workbook.get_cell(0, "E2").value  # abc
-    error_value = workbook.get_cell(0, "F2").value  # 除算エラー
+    error_value = workbook.get_cell(0, "F2").value  # #DIV/0!
 ```
 
 ### **算術演算子**
@@ -230,7 +235,7 @@ with slides.Presentation() as presentation:
 | `%` | パーセント | `30%` |
 | `^` | 累乗 | `2^3` |
 
-評価順序を明示するには括弧を使用します。例: `(A2+B2)*C2`。
+評価順序を明示したい場合は括弧を使用します。例: `(A2+B2)*C2`.
 
 ### **比較演算子**
 
@@ -242,54 +247,76 @@ with slides.Presentation() as presentation:
 | `<>` | 等しくない | `A2<>3` |
 | `>` | より大きい | `A2>3` |
 | `>=` | 以上 | `A2>=3` |
-| `<` | 未満 | `A2<3` |
+| `<` | より小さい | `A2<3` |
 | `<=` | 以下 | `A2<=3` |
 
 ## **サポートされている組み込み関数**
 
-Aspose.Slides には、グラフ ワークシート用の組み込み数式評価エンジンが含まれていますが、完全な Excel 計算エンジンではありません。ドキュメント化された関数セットは以下の関数に限定されています。[calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) で任意の Excel 関数が再計算できると想定しないでください。
+Aspose.Slides はチャート ワークシート用に組み込みの数式評価エンジンを提供しますが、完全な Excel 計算エンジンではありません。ドキュメント化された関数は以下の一覧に限定されます。任意の Excel 関数が [calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) で再計算できると想定しないでください。
 
-| 関数 | 目的またはサポート形式 | 例 |
+| 関数 | 用途またはサポート形態 | 例 |
 |---|---|---|
 | `ABS` | 絶対値 | `ABS(A2)` |
 | `AVERAGE` | 算術平均 | `AVERAGE(B2:B5)` |
-| `CEILING` | 数値を上方向に指定の倍数に丸める | `CEILING(A2,5)` |
+| `CEILING` | 指定の倍数に切り上げ | `CEILING(A2,5)` |
 | `CHOOSE` | インデックスで値を選択 | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | テキスト値を結合 | `CONCAT(A2,B2)` |
-| `CONCATENATE` | テキスト値を結合 | `CONCATENATE(A2," ",B2)` |
-| `DATE` | 1900 日付システムを使用して日付値を作成 | `DATE(2026,8,19)` |
-| `DAYS` | 日付間の日数を返す | `DAYS(B2,A2)` |
-| `FIND` | あるテキスト内で別のテキストを検索 | `FIND("-",A2)` |
-| `FINDB` | バイト指向のテキスト検索 | `FINDB("a",A2)` |
+| `CONCAT` | テキスト結合 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | テキスト結合 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 日付系で日付値を作成 | `DATE(2026,8,19)` |
+| `DAYS` | 2 日付間の日数を返す | `DAYS(B2,A2)` |
+| `FIND` | テキスト検索 | `FIND("-",A2)` |
+| `FINDB` | バイト単位のテキスト検索 | `FINDB("a",A2)` |
 | `IF` | 条件結果 | `IF(A2>0,A2,0)` |
-| `INDEX` | 参照形式 | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | ベクトル形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | ベクトル形式 | `MATCH(A2,B2:B5,0)` |
+| `INDEX` | 参照形 | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | ベクトル形 | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | ベクトル形 | `MATCH(A2,B2:B5,0)` |
 | `MAX` | 最大値 | `MAX(B2:B5)` |
 | `SUM` | 合計 | `SUM(B2:B5)` |
-| `VLOOKUP` | 列方向検索 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `VLOOKUP` | 縦方向検索 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-表に示された制限は重要です。`INDEX` は参照形式で記載されており、`LOOKUP` と `MATCH` はベクトル形式で記載されています。`DATE` は 1900 日付システムを使用します。この表に記載されていない機能や関数は、別途文書化されていない限り、Aspose.Slides の数式評価エンジンではサポートされていないものと見なしてください。
+表に示された制限は重要です。`INDEX` は参照形で、`LOOKUP` と `MATCH` はベクトル形でのみサポートされます。`DATE` は 1900 日付系を使用します。ここに記載されていない機能や関数は、Aspose.Slides の数式評価エンジンではサポートされていないと見なしてください。
 
-## **再計算とキャッシュされた値**
+## **優先カルチャでの数式計算**
 
-スプレッドシート ファイルは通常、数式とその最後に計算された値の両方を保存します。そのため、プレゼンテーションが読み込まれ、該当するグラフデータが変更されていない場合、Aspose.Slides は [IChartDataCell.value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/value/) からキャッシュされた値を読み取ることができます。
+一部のワークブック関数はカルチャ固有の規則に従ってテキストを解釈します。特にダブルバイト文字セット (DBCS) を使用する言語向け関数では重要です。正しく計算するには、[LoadOptions](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/) を作成し、[LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/ja/python-net/aspose.slides/loadoptions/spreadsheet_options/) から [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/ja/python-net/aspose.slides/spreadsheetoptions/) を設定してからプレゼンテーションをロードします。
 
-入力セルや数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取るか、それらに依存するグラフデータを保存する前に、[ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) を呼び出します。
+以下の例は日本語カルチャを選択し、設定したロードオプションでプレゼンテーションを開き、すべてのチャート ワークブックに対して [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) を呼び出します。
 
-サポート対象外の数式については、Aspose.Slides が数式を解析できない、または依存関係を確立できない場合があります。ワークブックが変更された場合、以前のキャッシュ値は信頼できなくなります。そのような状況で、サポートされていないデータを持つセルの値を読み取ると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) がスローされる可能性があります。
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
 
-グラフが Aspose.Slides が評価できない Excel 関数に依存している場合は、サポートされたスプレッドシート エンジンでそれらの数式を計算し、結果の値をグラフ ワークブックに書き戻してください。サポートされていない数式を推測値で置き換えないでください。
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
 
-## **数式エラーの取り扱い**
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
 
-区別すべき問題は大きく2種類あります。
+優先カルチャはプレゼンテーションのロード設定の一部であるため、[Presentation](https://reference.aspose.com/slides/ja/python-net/aspose.slides/presentation/) インスタンスを作成する前に指定します。ワークブック数式が期待するカルチャを使用してください。例: 日本語 DBCS 計算規則が必要な数式には `ja-JP` を使用します。
 
-数式は有効でも、`#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` などのスプレッドシート エラー結果を返すことがあります。この場合、エラー トークンはセルの結果として扱われ、`value` を通じて取得できます。
+## **再計算とキャッシュ値**
 
-数式は、構文解析、参照、依存関係、またはサポートデータのレベルで失敗することもあります。このようなケースに対して、Aspose.Slides はスプレッドシート固有の例外を提供します: [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), および [CellUnsupportedDataException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+スプレッドシート ファイルは通常、数式とその最終計算値の両方を保存します。Aspose.Slides はプレゼンテーションがロードされ、関連するチャート データが変更されていない場合、[IChartDataCell.value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/value/) からキャッシュ値を読み取ります。
 
-テンプレートやユーザー入力からの数式を使用する場合は、再計算および値取得の周囲でこれらの例外を処理してください：
+入力セルや数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取る前、またはそれらに依存するチャート データを保存する前に、[ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) を呼び出します。
+
+サポート外の数式については、Aspose.Slides が数式の解析や依存関係の確立に失敗する可能性があります。ワークブックが変更された場合、以前のキャッシュ値は信頼できなくなります。この状況でサポート外データを含むセルの値を取得しようとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) が発生することがあります。
+
+Excel 関数で Aspose.Slides が評価できないものがある場合は、対応するスプレッドシート エンジンで数式を計算し、結果の値をチャート ワークブックに書き戻してください。推測した値で非サポート数式を置き換えないでください。
+
+## **数式エラーの処理**
+
+区別すべき問題は 2 種類あります。
+
+1. 数式自体は有効だが、`#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` などのスプレッドシート エラー結果を返す場合。この場合エラー トークンはセルの結果として `value` から取得できます。
+
+2. 解析、参照、依存関係、またはサポートデータのレベルで失敗する場合。Aspose.Slides はこれらのケースに対してスプレッドシート固有の例外を提供します: [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/)、および [CellUnsupportedDataException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+
+テンプレートやユーザー入力から数式が供給される場合は、再計算と値アクセスの周囲でこれらの例外を捕捉してください。
 
 ```python
 import aspose.slides as slides
@@ -318,42 +345,52 @@ with slides.Presentation() as presentation:
 
 ## **実務上の制限**
 
-グラフ ワークシートにおける数式サポートは、定義されたサブセットのスプレッドシート計算を対象としており、完全な Excel 互換性を提供するものではありません。レポーティング ワークフローを設計する際は、以下の制約を考慮してください：
+チャート ワークシートにおける数式サポートは、完全な Excel 互換性を目指すものではなく、定義された計算サブセット向けです。レポート ワークフローを設計する際は次の点に留意してください。
 
-- Aspose.Slides に数式の再計算を依頼する場合は、ドキュメント化された定数、演算子、参照、および関数のみを使用してください。
-- 数式結果が依存するセルを変更した後は、必ず再計算してください。
-- ロードされたプレゼンテーションからのキャッシュ値はスナップショットとして扱い、編集後の再計算の代替としないでください。
-- 特にドキュメント化されたリスト外の関数を使用している場合は、既存テンプレートの数式を計算値として使用する前にテストしてください。
-- 完全なスプレッドシート計算エンジンが必要な数式は、外部で計算し、結果の値でグラフ ワークブックを更新してください。
+- Aspose.Slides に数式再計算を委ねる場合は、ドキュメント化された定数、演算子、参照、関数のみを使用してください。
+- セルの変更後は必ず再計算してください。
+- ロードされたプレゼンテーションから取得したキャッシュ値はスナップショットとみなし、編集後の再計算の代替として使用しないでください。
+- 既存テンプレートの数式は、ドキュメント化されたリスト外の関数を使用していないか事前にテストしてください。
+- 完全なスプレッドシート計算エンジンが必要な数式は外部で計算し、結果だけをチャート ワークブックに書き戻してください。
 
 ## **FAQ**
 
-**`formula` と `r1c1_formula` の違いは何ですか？**  
-[formula] は `B2-C2` のような A1 形式の式を保持します。[r1c1_formula] は `RC[-2]-RC[-1]` のような R1C1 形式の式を保持します。数式の生成やコピー方法に最も適した表記を使用してください。
+**`formula` と `r1c1_formula` の違いは何ですか？**
 
-**計算後にセル自体を読み取るべきですか、それとも値を読み取るべきですか？**  
-[ChartDataWorkbook.get_cell] は `IChartDataCell` を返します。計算結果を取得するには、再計算後にそのセルの [value] プロパティを読み取ります。
+[formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/formula/) は `B2-C2` のような A1 形式の式を保存します。[r1c1_formula](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) は `RC[-2]-RC[-1]` のような R1C1 形式の式を保存します。数式の生成・コピー方法に合わせて適切な表記を選択してください。
 
-**`calculate_formulas` はいつ呼び出すべきですか？**  
-入力値や数式を変更した後、計算結果に依存する前に [calculate_formulas] を呼び出します。これにより、組み込み評価エンジンがサポートする数式の値が更新されます。
+**計算後はセル自体を読むべきですか、値を読むべきですか？**
 
-**Aspose.Slides はすべての Excel 関数をサポートしていますか？**  
-いいえ。組み込み評価エンジンはドキュメント化された関数のサブセットのみをサポートします。そのサブセット外の関数が正しく再計算できると想定しないでください。完全な Excel 数式互換性が必要な場合は、適切なスプレッドシート エンジンで計算し、最終的な値をグラフ ワークブックに書き込んでください。
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) は `IChartDataCell` を返します。再計算後に計算結果を取得するには、そのセルの [value](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/ichartdatacell/value/) プロパティを読み取ります。
 
-**ロードされたプレゼンテーションにサポートされていない数式が含まれている場合はどうなりますか？**  
-グラフ データが変更されていない場合、ワークブックには以前に計算されたキャッシュ値が残っている可能性があります。関連データが変更された後は、そのキャッシュ値はもはや有効でない場合があります。処理できない数式を持つセルにアクセスすると、[CellUnsupportedDataException] がスローされることがあります。
+**`calculate_formulas` はいつ呼び出すべきですか？**
 
-**数式エラーの値は Python の例外と同じですか？**  
-いいえ。`#DIV/0!` のような結果は、有効な計算によって生成されたスプレッドシートの値です。[CellInvalidFormulaException] や [CellCircularReferenceException] などの例外は、数式が通常通り処理できないことを示します。
+入力値または数式を変更した後、計算結果に依存する前に必ず [calculate_formulas](https://reference.aspose.com/slides/ja/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) を呼び出してください。これにより組み込み評価エンジンがサポートする数式の値が更新されます。
 
-**数式セルが変更されたときにグラフは自動的に更新されますか？**  
-グラフ系列はワークブックのセルを参照できます。まずワークブックを再計算し、その後プレゼンテーションを保存またはレンダリングします。グラフのデータ ポイントが計算されたセルを参照していれば、グラフは更新されたセルの値を使用します。このワークフローでは別途チャートのリフレッシュ メソッドは必要ありません。
+**Aspose.Slides はすべての Excel 関数をサポートしていますか？**
 
-**グラフは外部の Excel ワークブックを使用できますか？**  
-はい、チャート データはチャート データ API を使用して外部ワークブックを利用するように設定できます。ただし、本記事で説明した数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価する数式サブセットに限られます。[calculate_formulas] が外部 XLSX ファイル内の任意の数式を完全に再計算できると想定しないでください。
+いいえ。組み込み評価エンジンはドキュメント化されたサブセットのみをサポートします。サブセット外の関数は正しく再計算できると想定しないでください。完全な Excel 互換が必要な場合は、別のスプレッドシート エンジンで計算し、最終値をチャート ワークブックに書き込んでください。
 
-**別のワークシートやワークブックを参照する数式を使用できますか？**  
-チャート ワークブックに Excel 形式の参照が含まれることはありますが、数式の評価はサポートされているパーサーと関数セットに制限されます。シート間や外部参照が必須の場合は、対象の Aspose.Slides バージョンでその数式を検証してください。広範な Excel 参照互換性が必要なワークフローでは、ワークブックを外部で計算し、解決された値をチャート データに書き戻してください。
+**ロードされたプレゼンテーションに非サポート数式が含まれている場合はどうなりますか？**
 
-**数式文字列は `=` で始めるべきですか？**  
-Aspose.Slides の API 例では、`B2-C2` や `SUM(B2:B5)` のように先頭に `=` を付けずに式を割り当てています。その形式を使用すると、生成される数式がドキュメント化された API 例と一致します。
+チャート データが変更されていなければ、ワークブックに以前計算されたキャッシュ値が残っている可能性があります。関連データが変更された後はそのキャッシュが無効になることがあります。処理できない数式を含むセルにアクセスすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) がスローされることがあります。
+
+**数式エラー値は Python の例外と同じですか？**
+
+いいえ。`#DIV/0!` などの結果は有効な計算が生成したスプレッドシート値です。`CellInvalidFormulaException` や `CellCircularReferenceException` といった例外は、数式そのものが正常に処理できないことを示します。
+
+**数式セルが変更されたときにチャートは自動的に更新されますか？**
+
+チャート シリーズはワークブックセルを参照できます。まずワークブックを再計算し、次にプレゼンテーションを保存またはレンダリングすれば、計算されたセル値がチャートに反映されます。別途チャート更新メソッドは必要ありません。
+
+**外部 Excel ワークブックをチャートで使用できますか？**
+
+はい、チャート データ API を使用して外部ワークブックを参照できます。ただし、この記事で説明する数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価できる数式サブセットに限定されます。外部 XLSX ファイルの任意の数式が完全に再計算されると期待しないでください。
+
+**別シートや別ブックを参照する数式は使用できますか？**
+
+チャート ワークブック内で Excel 形式の参照は可能ですが、評価はサポートされているパーサと関数セットに依存します。クロスシートや外部参照が必須の場合は、対象の Aspose.Slides バージョンで正確に評価できるか事前に確認してください。広範な Excel 参照互換が必要な場合は、外部でワークブックを計算し、解決済みの値をチャート データに書き戻すことを検討してください。
+
+**数式文字列は `=` で始める必要がありますか？**
+
+Aspose.Slides の API サンプルは `B2-C2` や `SUM(B2:B5)` のように先頭の `=` を付けずに式を割り当てます。この形式で記述すると、API ドキュメントの例と整合性が保たれます。

@@ -1,17 +1,20 @@
 ---
-title: Применение формул листов диаграмм в презентациях на Android
+title: Применение формул листа диаграммы в презентациях на Android
 linktitle: Формулы листа
 type: docs
 weight: 70
 url: /ru/androidjava/chart-worksheet-formulas/
 keywords:
-- таблица диаграммы
+- диаграмма электронная таблица
 - лист диаграммы
 - формула диаграммы
 - формула листа
-- формула таблицы
+- формула электронной таблицы
 - рабочая книга данных диаграммы
 - вычисление формулы
+- предпочтительная культура
+- культура-специфичная формула
+- DBCS
 - логическая константа
 - числовая константа
 - строковая константа
@@ -26,27 +29,27 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Применяйте формулы в стиле Excel в Aspose.Slides для Android через листы диаграмм Java, пересчитывайте значения и используйте результаты в диаграммах PowerPoint."
+description: "Применяйте формулы в стиле Excel в листах диаграмм Aspose.Slides для Android через Java, пересчитывайте значения и используйте результаты в диаграммах PowerPoint."
 ---
 ## **Обзор**
 
-Диаграммы PowerPoint обычно хранят свои исходные данные во встроенном листе. В Aspose.Slides для Android через Java вы можете получить доступ к этому листу через рабочую книгу данных диаграммы, записывать входные значения, назначать формулы ячейкам, вычислять поддерживаемые формулы и использовать вычисленные ячейки как данные диаграммы.
+Диаграммы PowerPoint обычно хранят исходные данные во внедрённом листе. В Aspose.Slides for Android via Java вы можете получить доступ к этому листу через рабочую книгу данных диаграммы, записывать входные значения, назначать формулы ячейкам, вычислять поддерживаемые формулы и использовать вычисленные ячейки в качестве данных диаграммы.
 
-В этой статье описывается полный рабочий процесс с формулами: создание диаграммы, заполнение её листа, назначение формул в стиле A1 или R1C1, их перерасчёт, чтение вычисленных значений, привязка этих ячеек к серии диаграммы и сохранение презентации. Также рассматриваются поддерживаемый синтаксис формул, набор встроенных функций, кэшированные значения, неподдерживаемые формулы и ошибки, характерные для электронных таблиц.
+В этой статье объясняется полный процесс работы с формулами: создание диаграммы, заполнение её листа, назначение формул в стиле A1 или R1C1, их пересчёт, чтение вычисленных значений, привязка этих ячеек к рядам диаграммы и сохранение презентации. Описывается поддерживаемый синтаксис формул, набор встроенных функций, кэшированные значения, неподдерживаемые формулы и ошибки, специфичные для электронных таблиц.
 
-## **Рабочие листы графиков и формулы**
+## **Рабочие листы диаграмм и формулы**
 
-Рабочий лист графика содержит категории, имена серий и значения, используемые в диаграмме. В PowerPoint вы можете просмотреть лист, открыв редактор данных графика:
+Рабочий лист диаграммы содержит категории, имена рядов и значения, используемые диаграммой. В PowerPoint вы можете просмотреть лист, открыв редактор данных диаграммы:
 
-![Диаграмма PowerPoint с открытым встроенным листом, показывающая данные категорий и серий](chart-worksheet-formulas_1.png)
+![Диаграмма PowerPoint с открытым встроенным рабочим листом, показывающая данные категорий и рядов](chart-worksheet-formulas_1.png)
 
-В Aspose.Slides лист доступен через интерфейс [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/). Используйте [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) для формул в стиле A1 и [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) для формул в стиле R1C1. После изменения входных ячеек или формул вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) для перерасчёта поддерживаемых формул и обновления соответствующих значений ячеек.
+В Aspose.Slides лист доступен через интерфейс [IChartDataWorkbook](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/). Используйте [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) для формул в стиле A1 и [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) для формул в стиле R1C1. После изменения входных ячеек или формул вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) для пересчёта поддерживаемых формул и обновления соответствующих значений ячеек.
 
-Вычисленная ячейка всё ещё предоставляет свой результат через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Это важно, когда нужно проверить результат формулы в коде или использовать ячейку как точку данных диаграммы.
+Вычисленная ячейка по‑прежнему предоставляет свой результат через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Это важно, когда нужно проверить результат формулы в коде или использовать ячейку как точку данных диаграммы.
 
 ## **Создание диаграммы и вычисление формул листа**
 
-Следующий пример демонстрирует сквозной рабочий процесс. Он создаёт сгруппированную столбчатую диаграмму, очищает примерные данные, записывает квартальные доходы и расходы, вычисляет прибыль с помощью формул, читает результаты, использует вычисленные ячейки как значения диаграммы и сохраняет презентацию.
+Следующий пример демонстрирует полный рабочий процесс. Он создаёт сгруппированную столбчатую диаграмму, очищает примерные данные, записывает квартальные доходы и расходы, вычисляет прибыль с помощью формул, читает результаты, использует вычисленные ячейки как значения диаграммы и сохраняет презентацию.
 
 ```java
 import com.aspose.slides.*;
@@ -111,11 +114,11 @@ try {
 }
 ```
 
-Точки данных диаграммы ссылаются на `D2:D4`, поэтому диаграмма использует вычисленные значения прибыли. В этом процессе нет отдельного вызова обновления диаграммы: сначала пересчитайте рабочую книгу, затем используйте или сохраните данные диаграммы, указывающие на вычисленные ячейки.
+Точки данных диаграммы ссылаются на `D2:D4`, поэтому диаграмма использует вычисленные значения прибыли. В этом процессе нет отдельного вызова обновления диаграммы: сначала пересчитывается рабочая книга, затем используется или сохраняется диаграмма, указывающая на вычисленные ячейки.
 
 ## **Использование формул в стиле A1**
 
-Запись A1 обозначает столбцы буквами, а строки — цифрами. Назначайте выражения в стиле A1 через [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
+Нотация A1 идентифицирует столбцы буквами, а строки — цифрами. Присваивайте выражения в стиле A1 через [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -155,7 +158,7 @@ try {
 
 ## **Использование формул в стиле R1C1**
 
-Запись R1C1 обозначает как строки, так и столбцы численно. Относительные ссылки используют смещения в квадратных скобках. Назначайте такой синтаксис через [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
+Нотация R1C1 численно идентифицирует как строки, так и столбцы. Относительные ссылки используют смещения в квадратных скобках. Присваивайте эту нотацию через [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -189,20 +192,20 @@ try {
 | Столбец | `C[3]` | `C3` | — |
 | Диапазон | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Например, в ячейке `D2` выражение `RC[-2]` означает ячейку в той же строке на два столбца влево (`B2`).
+Например, в ячейке `D2` запись `RC[-2]` означает ячейку в той же строке на два столбца влево (`B2`).
 
-## **Константы и операторы формул**
+## **Константы формул и операторы**
 
-Встроенный оценщик формул поддерживает логические значения, числовые литералы, строки, значения ошибок таблицы, арифметические и сравнитeльные операторы.
+Встроенный оцениватель формул поддерживает логические значения, числовые литералы, строки, значения ошибок электронных таблиц, арифметические операторы и операторы сравнения.
 
 ### **Константы и литералы**
 
 | Тип | Примеры | Примечания |
 |---|---|---|
-| Логический | `TRUE`, `FALSE` | Можно использовать напрямую в логических выражениях, например `A2=TRUE`. |
-| Числовой | `1`, `0.5`, `.3`, `1E-2` | Поддерживаются обычная и научная запись. |
+| Логический | `TRUE`, `FALSE` | Может использоваться напрямую в логических выражениях, например `A2=TRUE`. |
+| Числовой | `1`, `0.5`, `.3`, `1E-2` | Поддерживаются обычные и научные записи. |
 | Строка | `"abc"`, `"2/3/2020 12:00"` | Текстовые литералы заключаются в двойные кавычки внутри формулы. |
-| Результат ошибки | `#DIV/0!`, `#N/A`, `#REF!` | Валидная формула может вернуть значение ошибки таблицы вместо обычного результата. |
+| Результат ошибки | `#DIV/0!`, `#N/A`, `#REF!` | Правильная формула может вернуть значение ошибки электронных таблиц вместо обычного результата. |
 
 В этом примере используются несколько типов констант:
 
@@ -224,7 +227,7 @@ try {
 
     workbook.calculateFormulas();
 
-    Object logicalValue = workbook.getCell(0, "B2").getValue(); // ложно
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // ложь
     Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
     Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
     Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
@@ -245,11 +248,11 @@ try {
 | `%` | Процент | `30%` |
 | `^` | Возведение в степень | `2^3` |
 
-Используйте скобки, чтобы явно задать порядок вычисления, например `(A2+B2)*C2`.
+Используйте скобки, чтобы явно задать порядок вычислений, например `(A2+B2)*C2`.
 
 ### **Операторы сравнения**
 
-Сравнительные выражения возвращают логические значения.
+Операции сравнения возвращают логические значения.
 
 | Оператор | Значение | Пример |
 |---|---|---|
@@ -257,12 +260,12 @@ try {
 | `<>` | Не равно | `A2<>3` |
 | `>` | Больше | `A2>3` |
 | `>=` | Больше или равно | `A2>=3` |
-| `<` | Меньше | `A2<3` |
-| `<=` | Меньше или равно | `A2<=3` |
+| `<` | Менее | `A2<3` |
+| `<=` | Менее или равно | `A2<=3` |
 
 ## **Поддерживаемые предопределённые функции**
 
-Aspose.Slides включает встроенный оценщик формул для листов диаграмм, но это не полноценный движок вычислений Excel. Документированный набор функций ограничен таблицей ниже. Не следует предполагать, что произвольную функцию Excel можно пересчитать с помощью [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+Aspose.Slides включает встроенный оцениватель формул для листов диаграмм, но это не полноценный движок расчётов Excel. Набор документированных функций ограничен функциями, перечисленными ниже. Не предполагайте, что произвольная функция Excel может быть пересчитана через [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
 
 | Функция | Назначение или поддерживаемая форма | Пример |
 |---|---|---|
@@ -272,39 +275,74 @@ Aspose.Slides включает встроенный оценщик формул 
 | `CHOOSE` | Выбор значения по индексу | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | Объединение текстовых значений | `CONCAT(A2,B2)` |
 | `CONCATENATE` | Объединение текстовых значений | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Создание значения даты с использованием системы дат 1900 года | `DATE(2026,8,19)` |
-| `DAYS` | Возврат количества дней между датами | `DAYS(B2,A2)` |
-| `FIND` | Поиск одной текстовой строки внутри другой | `FIND("-",A2)` |
-| `FINDB` | Поиск текста побайтово | `FINDB("a",A2)` |
+| `DATE` | Создание даты в системе 1900‑го года | `DATE(2026,8,19)` |
+| `DAYS` | Количество дней между датами | `DAYS(B2,A2)` |
+| `FIND` | Поиск текста внутри другого текста | `FIND("-",A2)` |
+| `FINDB` | Поиск текста в байтах | `FINDB("a",A2)` |
 | `IF` | Условный результат | `IF(A2>0,A2,0)` |
-| `INDEX` | Форма ссылки | `INDEX(A2:C4,2,3)` |
+| `INDEX` | Ссылка в виде формы | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Векторная форма | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | Векторная форма | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Максимальное значение | `MAX(B2:B5)` |
-| `SUM` | Суммирование значений | `SUM(B2:B5)` |
+| `SUM` | Сумма значений | `SUM(B2:B5)` |
 | `VLOOKUP` | Вертикальный поиск | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Таблица ограничений существенна: `INDEX` документируется в форме ссылки, тогда как `LOOKUP` и `MATCH` — в их векторных формах. `DATE` использует систему дат 1900 года. Функции, не перечисленные здесь, следует рассматривать как неподдерживаемые встроенным оценщиком Aspose.Slides, если они не задокументированы отдельно.
+Ограничения, указанные в таблице, существенны: `INDEX` документирован в виде ссылки, а `LOOKUP` и `MATCH` — в векторных формах. `DATE` использует систему 1900‑го года. Функции, не перечисленные здесь, следует считать неподдерживаемыми встроенным оценивателем формул Aspose.Slides, если они не документированы отдельно.
+
+## **Вычисление формул с предпочтительной культурой**
+
+Некоторые функции рабочей книги интерпретируют текст согласно правилам культуры. Это особенно важно для функций, предназначенных для языков с двойными байтовыми кодировками (DBCS). Чтобы корректно вычислить такие формулы, создайте [LoadOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/), установите предпочтительную культуру с помощью [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), передайте параметры электронной таблицы через [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), затем загрузите презентацию.
+
+В следующем примере выбирается японская культура, открывается презентация с указанными параметрами загрузки и вызывается [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) для каждой рабочей книги диаграммы:
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Предпочтительная культура является частью конфигурации загрузки презентации, поэтому её следует задать до создания экземпляра [Presentation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/). Используйте культуру, ожидаемую формулами рабочей книги; например, `ja-JP` для формул, которым нужны правила расчёта японского DBCS.
 
 ## **Пересчёт и кэшированные значения**
 
-Файлы электронных таблиц обычно хранят одновременно формулу и её последнее вычисленное значение. Поэтому Aspose.Slides может читать кэшированное значение из [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--) при загрузке презентации, если соответствующие данные диаграммы не были изменены.
+Файлы электронных таблиц обычно хранят как формулу, так и её последний вычисленный результат. Поэтому Aspose.Slides может прочитать кэшированное значение через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--) при загрузке презентации, если связанные данные диаграммы не изменялись.
 
 После изменения входных ячеек или формул не полагайтесь на старый кэшированный результат. Вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) перед чтением вычисленных значений или сохранением данных диаграммы, зависящих от них.
 
-Для формул, не входящих в поддерживаемый набор, Aspose.Slides может не суметь разобрать формулу или установить её зависимости. Если рабочая книга была изменена, предыдущее кэшированное значение уже нельзя считать надёжным. В такой ситуации попытка чтения значения ячейки с неподдерживаемыми данными может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Для формул, не входящих в поддерживаемый набор, Aspose.Slides может не суметь разобрать формулу или определить её зависимости. Если рабочая книга была изменена, предыдущее кэшированное значение уже нельзя считать надёжным. В такой ситуации попытка чтения ячейки с неподдерживаемыми данными может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-Если ваша диаграмма зависит от Excel‑функций, которые Aspose.Slides не вычисляет, выполните вычисление этих формул с помощью движка таблиц, который их поддерживает, и запишите полученные значения обратно в рабочую книгу диаграммы. Не заменяйте неподдерживаемые формулы догадочными значениями.
+Если ваша диаграмма зависит от функций Excel, которые Aspose.Slides не вычисляет, выполните расчёт этих формул в движке электронных таблиц, поддерживающем их, и запишите полученные значения обратно в рабочую книгу диаграммы. Не заменяйте неподдерживаемые формулы угаданными значениями.
 
 ## **Обработка ошибок формул**
 
-Существует два разных типа проблем, которые необходимо различать.
+Существует два разных вида проблем.
 
-Формула может быть корректной, но выдавать результат ошибки таблицы, например `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` или `#VALUE!`. В этом случае токен ошибки является результатом ячейки и может быть возвращён через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
+Формула может быть корректной, но возвращать значение ошибки листа, например `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` или `#VALUE!`. В этом случае токен ошибки является результатом ячейки и может быть получен через [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
 
-Формула также может завершиться ошибкой на этапе разбора, ссылки, зависимости или из‑за неподдерживаемых данных. Aspose.Slides предоставляет специальные исключения для этих случаев: [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellcircularreferenceexception/) и [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Формула также может не пройти разбор, проверку ссылок, зависимостей или оказаться неподдерживаемой. Aspose.Slides предоставляет специфичные для электронных таблиц исключения: [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellcircularreferenceexception/) и [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-Когда формулы поступают из шаблонов или вводятся пользователем, обрабатывайте эти исключения вокруг пересчёта и доступа к значениям:
+Когда формулы поступают из шаблонов или пользовательского ввода, обрабатывайте эти исключения вокруг пересчёта и доступа к значениям:
 
 ```java
 import com.aspose.slides.*;
@@ -336,52 +374,52 @@ try {
 
 ## **Практические ограничения**
 
-Поддержка формул в листах диаграмм предназначена для ограниченного подмножества расчётов таблиц, а не для полной совместимости с Excel. Учтите эти ограничения при проектировании рабочего процесса отчётности:
+Поддержка формул в листах диаграмм предназначена для ограниченного набора расчётов, а не для полной совместимости с Excel. Учтите эти ограничения при проектировании процесса отчётности:
 
-- Используйте только документированные константы, операторы, ссылки и функции, когда требуется, чтобы Aspose.Slides пересчитывал формулы.
-- Выполняйте пересчёт после изменения ячеек, от которых зависят результаты формул.
-- Рассматривайте кэшированные значения из загруженных презентаций как мгновенные снимки, а не замену пересчёта после правок.
-- Тестируйте формулы из существующих шаблонов перед тем, как полагаться на их вычисленные значения, особенно если они используют функции, не входящие в документированный список.
-- Для формул, требующих полноценного движка расчётов таблиц, выполните вычисление внешне, а затем обновите рабочую книгу диаграммы полученными значениями.
+- Используйте только документированные константы, операторы, ссылки и функции, если требуется, чтобы Aspose.Slides пересчитывал формулы.
+- Пересчитывайте после изменения ячеек, от которых зависят результаты формул.
+- Считайте кэшированные значения из загруженных презентаций снимками, а не заменой пересчёта после правок.
+- Протестируйте формулы из существующих шаблонов, прежде чем полагаться на их вычисленные значения, особенно если они используют функции, не указанные в списке.
+- Для формул, требующих полного движка расчётов электронных таблиц, выполните вычисления внешне, а затем обновите рабочую книгу диаграммы полученными результатами.
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**В чем разница между [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) и [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
+**В чём разница между [IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) и [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-[IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) сохраняет выражение в стиле A1, например `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) сохраняет выражение в стиле R1C1, например `RC[-2]-RC[-1]`. Используйте тот вариант записи, который лучше соответствует тому, как вы генерируете или копируете формулы.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) сохраняет выражение в стиле A1, например `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) сохраняет выражение в стиле R1C1, например `RC[-2]-RC[-1]`. Используйте нотацию, которая лучше соответствует тому, как вы генерируете или копируете формулы.
 
 **Нужно ли читать саму ячейку или её значение после вычисления?**
 
-[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) возвращает объект [IChartDataCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/). Чтобы получить вычисленный результат, вызовите метод [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--) этой ячейки после пересчёта.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) возвращает объект [IChartDataCell](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/). Чтобы получить вычисленный результат, вызовите у этой ячейки метод [IChartDataCell.getValue](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdatacell/#getValue--) после пересчёта.
 
 **Когда следует вызывать [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-Вызывайте [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) после изменения входных значений или формул и перед тем, как использовать вычисленные результаты. Это обновит значения формул, поддерживаемых встроенным оценщиком.
+Вызовите [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) после изменения входных значений или формул и перед тем, как использовать вычисленные результаты. Это обновит значения формул, поддерживаемых встроенным оценивателем.
 
-**Поддерживает ли Aspose.Slides каждую функцию Excel?**
+**Поддерживает ли Aspose.Slides все функции Excel?**
 
-Нет. Встроенный оценщик поддерживает только документированный подмножество функций. Функции, не входящие в этот набор, не следует считать корректно пересчитываемыми. Если требуется полная совместимость с формулами Excel, выполните расчёт с помощью соответствующего движка электронных таблиц и запишите окончательные значения в рабочую книгу диаграммы.
+Нет. Встроенный оцениватель поддерживает только документированный подмножество функций. Функции вне этого набора не следует считать корректно пересчитываемыми. Если требуется полная совместимость формул Excel, выполните расчёт с соответствующим движком электронных таблиц и запишите окончательные значения в рабочую книгу диаграммы.
 
-**Что происходит, если загруженная презентация содержит неподдерживаемую формулу?**
+**Что происходит, если в загруженной презентации присутствует неподдерживаемая формула?**
 
-Если данные диаграммы не изменялись, в рабочей книге может оставаться ранее вычисленное кэшированное значение. После изменения связанных данных это кэшированное значение может стать недействительным. Попытка доступа к ячейке, формула которой не может быть обработана, может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Если данные диаграммы не изменялись, в рабочей книге может оставаться ранее вычисленное кэшированное значение. После изменения сопутствующих данных это кэшированное значение может стать недействительным. Обращение к ячейке, формулу которой невозможно обработать, может вызвать [CellUnsupportedDataException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
 **Являются ли значения ошибок формул теми же, что и исключения Java?**
 
-Нет. Значение вроде `#DIV/0!` — это значение таблицы, полученное в результате корректного вычисления. Исключения, такие как [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidformulaexception/) или [CellCircularReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellcircularreferenceexception/), указывают на то, что формулу нельзя обработать обычным способом.
+Нет. Результат вроде `#DIV/0!` — это значение листа, полученное после корректного вычисления. Исключения, такие как [CellInvalidFormulaException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellinvalidformulaexception/) или [CellCircularReferenceException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/cellcircularreferenceexception/), указывают на то, что формулу нельзя обработать обычным способом.
 
-**Обновляется ли диаграмма автоматически при изменении ячейки с формулой?**
+**Обновляется ли диаграмма автоматически при изменении ячейки формулы?**
 
-Серия диаграммы может ссылаться на ячейки рабочей книги. Сначала пересчитайте рабочую книгу, затем сохраните или отобразите презентацию. Если точки данных диаграммы ссылаются на вычисленные ячейки, диаграмма использует обновлённые значения; отдельный метод обновления диаграммы не требуется.
+Ряды диаграммы могут ссылаться на ячейки рабочей книги. Сначала пересчитайте рабочую книгу, затем сохраните или отрендерите презентацию. Если точки данных диаграммы ссылаются на вычисленные ячейки, диаграмма использует обновлённые значения; отдельный метод обновления диаграммы не требуется.
 
-**Могут ли диаграммы использовать внешний файл Excel?**
+**Могут ли диаграммы использовать внешний рабочий лист Excel?**
 
-Да, данные диаграммы можно настроить на использование внешней рабочей книги через API данных диаграммы. Однако описанный в этой статье рабочий процесс расчёта формул относится к рабочей книге данных диаграммы и подмножеству формул, оцениваемому Aspose.Slides. Не следует предполагать, что [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) обеспечивает полный пересчёт произвольных формул во внешнем файле XLSX.
+Да, данные диаграммы можно настроить для использования внешнего листа через API данных диаграммы. Однако рассматриваемый в статье процесс вычисления формул относится к рабочей книге данных диаграммы и подмножеству функций, оцениваемому Aspose.Slides. Не предполагается, что [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) обеспечивает полное пересчёты произвольных формул во внешнем файле XLSX.
 
-**Могу ли я использовать формулы, ссылающиеся на другой лист или рабочую книгу?**
+**Могу ли я использовать формулы, которые ссылаются на другой лист или книгу?**
 
-Ссылки в стиле Excel могут присутствовать в рабочих книгах диаграмм, но оценка формул ограничена поддерживаемым парсером и набором функций. Если требуется кросс‑листовая или внешняя ссылка, убедитесь, что конкретная формула поддерживается вашей версией Aspose.Slides. Для сценариев, требующих широкой совместимости ссылок Excel, вычислите рабочую книгу внешне и запишите разрешённые значения обратно в данные диаграммы.
+Ссылки в стиле Excel могут присутствовать в рабочих книгах диаграмм, но их оценка ограничена поддерживаемым парсером и набором функций. Если кросс‑листовая или внешняя ссылка критична, проверьте её корректность с используемой версией Aspose.Slides. Для сценариев, требующих широкой совместимости ссылок Excel, выполните расчёт внешне и запишите полученные значения обратно в данные диаграммы.
 
-**Должны ли строковые формулы начинаться с `=`?**
+**Должны ли строки формул начинаться с `=`?**
 
-Примеры API Aspose.Slides назначают выражения без ведущего `=` (например `B2-C2` или `SUM(B2:B5)`). Такой вариант сохраняет согласованность генерируемых формул с документированными примерами API.
+Примеры API Aspose.Slides присваивают выражения без ведущего `=`, например `B2-C2` или `SUM(B2:B5)`. Такой формат сохраняет согласованность с документированными примерами API.

@@ -1,52 +1,55 @@
 ---
-title: اعمال فرمول‌های برگه‌کار نمودار در ارائه‌های اندروید
-linktitle: فرمول‌های برگه‌کار
+title: "اعمال فرمول‌های کاربرگ نمودار در ارائه‌ها بر روی Android"
+linktitle: "فرمول‌های کاربرگ"
 type: docs
 weight: 70
 url: /fa/androidjava/chart-worksheet-formulas/
 keywords:
-- صفحه‌گسترده نمودار
-- برگه‌کار نمودار
-- فرمول نمودار
-- فرمول برگه‌کار
-- فرمول صفحه‌گسترده
-- کتاب‌کار داده‌های نمودار
-- محاسبه فرمول
-- ثابت منطقی
-- ثابت عددی
-- ثابت رشته‌ای
-- ثابت خطا
-- عملگر حسابی
-- عملگر مقایسه‌ای
-- سبک A1
-- سبک R1C1
-- تابع از پیش تعریف‌شده
-- PowerPoint
-- ارائه
-- Android
-- Java
-- Aspose.Slides
-description: "اعمال فرمول‌های مشابه اکسل در Aspose.Slides برای اندروید از طریق برگه‌های کار نمودار جاوا، بازمحاسبه مقادیر و استفاده از نتایج در نمودارهای PowerPoint."
+- "صفحه‌گسترده نمودار"
+- "کاربرگ نمودار"
+- "فرمول نمودار"
+- "فرمول کاربرگ"
+- "فرمول صفحه‌گسترده"
+- "دفتر کار داده‌های نمودار"
+- "محاسبه فرمول"
+- "فرهنگ ترجیحی"
+- "فرمول مخصوص فرهنگ"
+- "DBCS"
+- "ثابت منطقی"
+- "ثابت عددی"
+- "ثابت رشته‌ای"
+- "ثابت خطا"
+- "عملگر حسابی"
+- "عملگر مقایسه‌ای"
+- "سبک A1"
+- "سبک R1C1"
+- "تابع پیش‌تعریف‌شده"
+- "PowerPoint"
+- "ارائه"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "اعمال فرمول‌های شبیه Excel در Aspose.Slides برای Android از طریق کاربرگ‌های نمودار Java، بازمحاسبه مقادیر و استفاده از نتایج در نمودارهای PowerPoint."
 ---
 ## **بررسی کلی**
 
-نمودارهای PowerPoint معمولاً داده‌های منبع خود را در یک برگه کار جاسازی شده ذخیره می‌کنند. در Aspose.Slides برای Android از طریق Java می‌توانید به آن برگه کار از طریق کتاب‌کار داده‌های نمودار دسترسی پیدا کنید، مقادیر ورودی را بنویسید، فرمول‌ها را به سلول‌ها اختصاص دهید، فرمول‌های پشتیبانی‌شده را محاسبه کنید و از سلول‌های محاسبه‌شده به عنوان داده‌های نمودار استفاده کنید.
+نمودارهای PowerPoint معمولاً داده‌های منبع خود را در یک کاربرگ توکار ذخیره می‌کنند. در Aspose.Slides برای Android از طریق Java می‌توانید از طریق کتاب‌کار داده‌های نمودار به آن کاربرگ دسترسی پیدا کنید، مقادیر ورودی را بنویسید، فرمول‌ها را به سلول‌ها اختصاص دهید، فرمول‌های پشتیبانی‌شده را محاسبه کنید و از سلول‌های محاسبه‌شده به عنوان داده‌های نمودار استفاده کنید.
 
-این مقاله جریان کار کامل فرمول‌ها را توضیح می‌دهد: ایجاد یک نمودار، پر کردن برگه کاری آن، تخصیص فرمول‌های سبک A1 یا R1C1، بازمحاسبه آن‌ها، خواندن مقادیر محاسبه‌شده، اتصال این سلول‌ها به یک سری نمودار و ذخیره ارائه. همچنین نحو فرمول‌های پشتیبانی‌شده، زیرمجموعه توابع داخلی، مقادیر کش‌شده، فرمول‌های پشتیبانی‌نشده و خطاهای خاص صفحه‌گسترده را توصیف می‌کند.
+این مقاله جریان کار کامل فرمول‌ها را توضیح می‌دهد: ایجاد یک نمودار، پر کردن کاربرگ آن، اختصاص فرمول‌های سبک A1 یا R1C1، بازمحاسبه آن‌ها، خواندن مقادیر محاسبه‌شده، اتصال آن سلول‌ها به یک سری نمودار و ذخیره ارائه. همچنین نحو فرمول‌های پشتیبانی‌شده، زیرمجموعه توابع داخلی، مقادیر کش‌شده، فرمول‌های غیرپشتیبانی‌شده و خطاهای خاص صفحه‌گسترده را شرح می‌دهد.
 
-## **ورق‌های کاری نمودار و فرمول‌ها**
+## **کاربرگ‌های نمودار و فرمول‌ها**
 
-یک ورق کاری نمودار شامل دسته‌ها، نام‌های سری و مقادیر استفاده شده توسط یک نمودار است. در PowerPoint می‌توانید با باز کردن ویرایشگر داده‌های نمودار، برگه کاری را بررسی کنید:
+یک کاربرگ نمودار شامل دسته‌بندی‌ها، نام‌های سری و مقادیری است که توسط نمودار استفاده می‌شوند. در PowerPoint می‌توانید کاربرگ را با باز کردن ویرایشگر داده‌های نمودار مشاهده کنید:
 
-![نمودار PowerPoint با برگه کاری جاسازی شده باز که داده‌های دسته و سری را نشان می‌دهد](chart-worksheet-formulas_1.png)
+![نمودار PowerPoint با کاربرگ توکار باز که داده‌های دسته‌بندی و سری را نشان می‌دهد](chart-worksheet-formulas_1.png)
 
-در Aspose.Slides، ورق کاری از طریق رابط [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) در دسترس است. برای فرمول‌های سبک A1 از [IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) و برای فرمول‌های سبک R1C1 از [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) استفاده کنید. پس از تغییر سلول‌های ورودی یا فرمول‌ها، برای بازمحاسبه فرمول‌های پشتیبانی‌شده و به‌روزرسانی مقادیر سلول‌های مربوطه، متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنید.
+در Aspose.Slides، کاربرگ از طریق اینترفیس [IChartDataWorkbook](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/) در دسترس است. برای فرمول‌های سبک A1 از [IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) و برای فرمول‌های سبک R1C1 از [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) استفاده کنید. پس از تغییر سلول‌های ورودی یا فرمول‌ها، برای بازمحاسبه فرمول‌های پشتیبانی‌شده و به‌روز شدن مقادیر سلول‌های متناظر، متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنید.
 
-یک سلول محاسبه‌شده هنوز نتیجه خود را از طریق [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) در دسترس می‌گذارد. این مهم است وقتی که نیاز دارید نتیجه یک فرمول را در کد بررسی کنید یا سلول را به عنوان نقطه داده‌ای نمودار استفاده کنید.
+یک سلول محاسبه‌شده همچنان نتیجه خود را از طریق [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) در دسترس می‌گذارد. این موضوع زمانی مهم است که نیاز به بررسی نتیجه یک فرمول در کد دارید یا می‌خواهید سلول را به عنوان یک نقطه داده برای نمودار استفاده کنید.
 
-## **ایجاد یک نمودار و محاسبه فرمول‌های برگه کاری**
+## **ایجاد نمودار و محاسبه فرمول‌های کاربرگ**
 
-مثال زیر یک جریان کار انتها به انتها را نشان می‌دهد. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند، داده‌های نمونه را پاک می‌کند، مقادیر درآمد و هزینه فصلی را می‌نویسد، سود را با فرمول‌ها محاسبه می‌کند، نتایج را می‌خواند، سلول‌های محاسبه‌شده را به عنوان مقادیر نمودار استفاده می‌کند و ارائه را ذخیره می‌کند.
+مثال زیر یک جریان کار انتها‑به‑انتها را نشان می‌دهد. این مثال یک نمودار ستونی خوشه‌ای ایجاد می‌کند، داده‌های نمونه را پاک می‌کند، مقادیر درآمد و هزینه فصلی را می‌نویسد، سود را با فرمول‌ها محاسبه می‌کند، نتایج را می‌خواند، سلول‌های محاسبه‌شده را به عنوان مقادیر نمودار استفاده می‌کند و ارائه را ذخیره می‌نماید.
 
 ```java
 import com.aspose.slides.*;
@@ -111,11 +114,11 @@ try {
 }
 ```
 
-نقاط داده نمودار به `D2:D4` ارجاع می‌دهند، بنابراین نمودار از مقادیر سود محاسبه‌شده استفاده می‌کند. در این جریان کاری فراخوانی جداگانه‌ای برای به‌روزرسانی نمودار وجود ندارد: ابتدا کتاب‌کار را بازمحاسبه کنید، سپس داده‌های نمودار که به سلول‌های محاسبه‌شده اشاره دارند را استفاده یا ذخیره کنید.
+نقاط داده نمودار به `D2:D4` ارجاع می‌دهند، بنابراین نمودار از مقادیر سود محاسبه‌شده استفاده می‌کند. در این جریان کار هیچ فراخوانی جداگانه‌ای برای تازه‑سازی نمودار وجود ندارد: ابتدا کتاب‌کار را بازمحاسبه کنید، سپس داده‌های نمودار را که به سلول‌های محاسبه‌شده اشاره می‌کنند، استفاده یا ذخیره کنید.
 
 ## **استفاده از فرمول‌های سبک A1**
 
-نمادگذاری A1 ستون‌ها را با حروف و ردیف‌ها را با اعداد شناسایی می‌کند. عبارات سبک A1 را از طریق [IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) اختصاص دهید.
+نویسندگی A1 ستون‌ها را با حروف و سطرها را با اعداد شناسایی می‌کند. عبارات سبک A1 را از طریق [IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) اختصاص دهید.
 
 ```java
 import com.aspose.slides.*;
@@ -142,20 +145,20 @@ try {
 }
 ```
 
-فرم‌های مرجع رایج A1 به صورت زیر هستند:
+فرم‌های مرجع رایج A1 به شرح زیر هستند:
 
-| مرجع | نسبی | مطلق | ترکیبی |
+| مرجع | نسبی | مطلق | مختلط |
 |---|---|---|---|
 | سلول | `A2` | `$A$2` | `A$2`, `$A2` |
-| ردیف | `2:2` | `$2:$2` | — |
+| سطر | `2:2` | `$2:$2` | — |
 | ستون | `A:A` | `$A:$A` | — |
-| بازه | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+| محدوده | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-مرجع‌های نسبی هنگام جابه‌جایی یا کپی کردن فرمول توسط برنامه صفحه‌گسترده تغییر می‌کنند. مراجع مطلق هر دو مختصات را ثابت نگه می‌دارند، در حالی که مراجع ترکیبی تنها یک ردیف یا یک ستون را ثابت می‌کنند.
+مراجع نسبی ممکن است هنگام جابه‌جایی یا کپی فرمول توسط یک برنامه صفحه‌گسترده تغییر کنند. مراجع مطلق هر دو مختصات را ثابت نگه می‌دارند، در حالی که مراجع مختلط فقط یک سطر یا یک ستون را ثابت می‌کنند.
 
 ## **استفاده از فرمول‌های سبک R1C1**
 
-نمادگذاری R1C1 هم ردیف‌ها و هم ستون‌ها را به صورت عددی شناسایی می‌کند. مراجع نسبی از جابجایی‌ها در براکت‌های مربعی استفاده می‌کنند. این نحو را از طریق [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) اختصاص دهید.
+نویسندگی R1C1 سطرها و ستون‌ها را به‌صورت عددی شناسایی می‌کند. مراجع نسبی از جابه‌جایی در داخل کروشه استفاده می‌کنند. این نحو را از طریق [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) اختصاص دهید.
 
 ```java
 import com.aspose.slides.*;
@@ -180,31 +183,31 @@ try {
 }
 ```
 
-فرم‌های مرجع رایج R1C1 به صورت زیر هستند:
+فرم‌های مرجع رایج R1C1 به شرح زیر هستند:
 
-| مرجع | نسبی | مطلق | ترکیبی |
+| مرجع | نسبی | مطلق | مختلط |
 |---|---|---|---|
 | سلول | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
-| ردیف | `R[2]` | `R2` | — |
+| سطر | `R[2]` | `R2` | — |
 | ستون | `C[3]` | `C3` | — |
-| بازه | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+| محدوده | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-به‌عنوان مثال، در سلول `D2`، `RC[-2]` به سلولی در همان ردیف دو ستون به سمت چپ (`B2`) اشاره دارد.
+به عنوان مثال، در سلول `D2`، `RC[-2]` به سلول همان سطر دو ستون به سمت چپ (`B2`) اشاره می‌کند.
 
 ## **ثابت‌ها و عملگرهای فرمول**
 
-ارزیاب فرمول داخلی مقادیر منطقی، عددی، رشته‌ای، مقادیر خطای صفحه‌گسترده، عملگرهای حسابی و عملگرهای مقایسه‌ای را پشتیبانی می‌کند.
+ارزیاب فرمول داخلی از مقادیر منطقی، عددی، رشته‌ای، مقادیر خطای صفحه‌گسترده، عملگرهای حسابی و عملگرهای مقایسه پشتیبانی می‌کند.
 
-### **ثابت‌ها و مقادیر ثابت**
+### **ثابت‌ها و مقدارهای ثابت**
 
-| نوع | مثال‌ها | نکات |
+| نوع | مثال‌ها | توضیحات |
 |---|---|---|
-| منطقی | `TRUE`, `FALSE` | می‌تواند مستقیماً در عبارات منطقی مانند `A2=TRUE` استفاده شود. |
-| عددی | `1`, `0.5`, `.3`, `1E-2` | نوشتارهای اعشاری و علمی پشتیبانی می‌شوند. |
-| رشته | `"abc"`, `"2/3/2020 12:00"` | مقادیر متنی داخل فرمول با علامت نقل قول دوگانه محصور می‌شوند. |
-| نتیجه خطا | `#DIV/0!`, `#N/A`, `#REF!` | یک فرمول معتبر می‌تواند به مقدار خطای صفحه‌گسترده به جای نتیجهٔ معمولی ارزیابی شود. |
+| منطقی | `TRUE`, `FALSE` | می‌توانند مستقیماً در عبارات منطقی مانند `A2=TRUE` استفاده شوند. |
+| عددی | `1`, `0.5`, `.3`, `1E-2` | نوشتار اعشاری و علمی پشتیبانی می‌شود. |
+| رشته | `"abc"`, `"2/3/2020 12:00"` | مقادیر متنی داخل کوتیشن‌های دوتایی در فرمول قرار می‌گیرند. |
+| نتیجه‌ٔ خطا | `#DIV/0!`, `#N/A`, `#REF!` | یک فرمول معتبر می‌تواند به جای نتیجه عادی، مقدار خطای صفحه‌گسترده را برگرداند. |
 
-این مثال از چندین نوع ثابت استفاده می‌کند:
+این مثال چندین نوع ثابت را به کار می‌برد:
 
 ```java
 import com.aspose.slides.*;
@@ -236,75 +239,110 @@ try {
 
 ### **عملگرهای حسابی**
 
-| عملگر | معنی | مثال |
+| عملگر | معنای فعل | مثال |
 |---|---|---|
-| `+` | جمع یا علامت مثبت تک‌تایی | `2+3` |
-| `-` | تفاضل یا علامت منفی تک‌تایی | `2-3`, `-3` |
+| `+` | جمع یا مثبت یک‌طرفه | `2+3` |
+| `-` | تفریق یا منفی یک‌طرفه | `2-3`, `-3` |
 | `*` | ضرب | `2*3` |
 | `/` | تقسیم | `2/3` |
 | `%` | درصد | `30%` |
 | `^` | توان | `2^3` |
 
-از پرانتزها برای واضح‌سازی ترتیب ارزیابی استفاده کنید، برای مثال `(A2+B2)*C2`.
+برای واضح کردن ترتیب ارزیابی از پرانتز استفاده کنید، مثلاً `(A2+B2)*C2`.
 
 ### **عملگرهای مقایسه‌ای**
 
 عبارات مقایسه‌ای مقادیر منطقی برمی‌گردانند.
 
-| عملگر | معنی | مثال |
+| عملگر | معنای فعل | مثال |
 |---|---|---|
-| `=` | برابر | `A2=3` |
+| `=` | مساوی | `A2=3` |
 | `<>` | نامساوی | `A2<>3` |
-| `>` | بزرگتر | `A2>3` |
-| `>=` | بزرگتر یا مساوی | `A2>=3` |
-| `<` | کوچکتر | `A2<3` |
-| `<=` | کوچکتر یا مساوی | `A2<=3` |
+| `>` | بزرگ‌تر | `A2>3` |
+| `>=` | بزرگ‌تر یا مساوی | `A2>=3` |
+| `<` | کوچک‌تر | `A2<3` |
+| `<=` | کوچک‌تر یا مساوی | `A2<=3` |
 
 ## **توابع پیش‌تعریف‌شده پشتیبانی‌شده**
 
-Aspose.Slides شامل یک ارزیاب فرمول داخلی برای برگه‌های کاری نمودار است، اما این یک موتور محاسبهٔ کامل Excel نیست. مجموعهٔ توابع مستند شده به توابع زیر محدود است. فرض نکنید که هر تابع دلخواه Excel می‌تواند توسط [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) بازمحاسبه شود.
+Aspose.Slides یک ارزیاب فرمول داخلی برای کاربرگ‌های نمودار دارد، اما یک موتور محاسبه کامل Excel نیست. مجموعهٔ توابع مستند شده به توابع زیر محدود می‌شود. فرض نکنید که هر تابع دلخواه Excel می‌تواند توسط [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) بازمحاسبه شود.
 
-| تابع | هدف یا شکل پشتیبانی‌شده | مثال |
+| تابع | هدف یا فرم پشتیبانی‌شده | مثال |
 |---|---|---|
 | `ABS` | مقدار مطلق | `ABS(A2)` |
 | `AVERAGE` | میانگین حسابی | `AVERAGE(B2:B5)` |
-| `CEILING` | گرد کردن عدد به سمت بالا به مضرب | `CEILING(A2,5)` |
+| `CEILING` | گرد کردن عدد به سمت بالا تا مضربی | `CEILING(A2,5)` |
 | `CHOOSE` | انتخاب مقدار بر اساس شاخص | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | ترکیب مقادیر متنی | `CONCAT(A2,B2)` |
 | `CONCATENATE` | ترکیب مقادیر متنی | `CONCATENATE(A2," ",B2)` |
-| `DATE` | ایجاد مقدار تاریخ با استفاده از سیستم تاریخ 1900 | `DATE(2026,8,19)` |
+| `DATE` | ساخت مقدار تاریخ با استفاده از سیستم تاریخ 1900 | `DATE(2026,8,19)` |
 | `DAYS` | برگرداندن تعداد روزهای بین تاریخ‌ها | `DAYS(B2,A2)` |
-| `FIND` | یافتن یک مقدار متنی در داخل مقدار دیگر | `FIND("-",A2)` |
-| `FINDB` | جستجوی متنی بایت‑محور | `FINDB("a",A2)` |
+| `FIND` | یافتن یک متن داخل متن دیگر | `FIND("-",A2)` |
+| `FINDB` | جستجوی بایت‑محور متن | `FINDB("a",A2)` |
 | `IF` | نتیجهٔ شرطی | `IF(A2>0,A2,0)` |
 | `INDEX` | فرم مرجع | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | فرم برداری | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | فرم برداری | `MATCH(A2,B2:B5,0)` |
-| `MAX` | بیشینه | `MAX(B2:B5)` |
-| `SUM` | جمع مقادیر | `SUM(B2:B5)` |
+| `MAX` | حداکثر مقدار | `MAX(B2:B5)` |
+| `SUM` | مجموع مقادیر | `SUM(B2:B5)` |
 | `VLOOKUP` | جستجوی عمودی | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-محدودیت‌های نشان‌داده‌شده در جدول مهم هستند: `INDEX` به صورت فرم مرجع مستند شده است، در حالی که `LOOKUP` و `MATCH` در فرم‌های برداری مستند هستند. `DATE` از سیستم تاریخ 1900 استفاده می‌کند. ویژگی‌ها و توابعی که در اینجا فهرست نشده‌اند باید به‌عنوان پشتیبانی‌نشده توسط ارزیاب فرمول Aspose.Slides در نظر گرفته شوند مگر اینکه به‌طور جداگانه مستند شوند.
+محدودیت‌های نشان داده شده در جدول مهم هستند: `INDEX` به صورت مرجع مستند شده، در حالی که `LOOKUP` و `MATCH` به شکل برداری مستند هستند. `DATE` از سیستم تاریخ 1900 استفاده می‌کند. ویژگی‌ها و توابعی که در اینجا فهرست نشده‌اند باید به‌عنوان غیرقابل پشتیبانی توسط ارزیاب فرمول Aspose.Slides در نظر گرفته شوند، مگر اینکه جداگانه مستند شده باشند.
+
+## **محاسبه فرمول‌ها با فرهنگ ترجیحی**
+
+برخی توابع کتاب‌کار نمودار متن را بر پایهٔ قوانین مخصوص به فرهنگ تفسیر می‌کنند. این موضوع به‌ویژه برای توابعی که برای زبان‌های استفاده‌کننده از مجموعه کاراکترهای دو بایتی (DBCS) طراحی شده‌اند مهم است. برای محاسبه صحیح چنین فرمول‌هایی، ابتدا یک شیء [LoadOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/) ایجاد کنید، فرهنگ ترجیحی را با [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-) تنظیم کنید، گزینه‌های صفحه‌گسترده را از طریق [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) اختصاص دهید و سپس ارائه را بارگذاری کنید.
+
+مثال زیر فرهنگ ژاپنی را انتخاب می‌کند، ارائه‌ای را با گزینه‌های بارگذاری پیکربندی‌شده باز می‌کند و برای هر کتاب‌کار نمودار متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی می‌نماید:
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+فرهنگ ترجیحی جزء تنظیمات بارگذاری ارائه است، بنابراین قبل از ایجاد شیء [Presentation](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/presentation/) مقداردهی شود. از فرهنگی استفاده کنید که توسط فرمول‌های کتاب‌کار مورد انتظار باشد؛ برای مثال برای فرمول‌هایی که باید با قوانین محاسبهٔ DBCS ژاپنی سازگار باشند، `ja-JP` را به‌کار ببرید.
 
 ## **بازمحاسبه و مقادیر کش‌شده**
 
-فایل‌های صفحه‌گسترده معمولاً هم فرمول و هم آخرین مقدار محاسبه‌شدهٔ آن را ذخیره می‌کنند. بنابراین Aspose.Slides می‌تواند مقدار کش‌شده را از [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) هنگام بارگذاری ارائه بخواند، به‌شرط آنکه داده‌های نمودار مربوطه تغییر نکرده باشند.
+فایل‌های صفحه‌گسترده معمولاً هم فرمول و هم آخرین مقدار محاسبه‌شده را ذخیره می‌کنند. بنابراین Aspose.Slides می‌تواند مقدار کش‌شده را از [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) بخواند زمانی که ارائه بارگذاری می‌شود و دادهٔ نمودار مربوطه تغییر نکرده باشد.
 
-پس از تغییر سلول‌های ورودی یا فرمول‌ها، به نتیجهٔ کش‌شدهٔ قدیمی تکیه نکنید. قبل از خواندن مقادیر محاسبه‌شده یا ذخیرهٔ داده‌های نموداری که به آن‌ها وابسته‌اند، متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنید.
+پس از تغییر سلول‌های ورودی یا فرمول‌ها، به نتایج کش‌شده قدیم تکیه نکنید. پیش از خواندن مقادیر محاسبه‌شده یا ذخیره داده‌های نموداری که به آن‌ها وابسته‌اند، متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنید.
 
-برای فرمول‌های خارج از زیرمجموعهٔ پشتیبانی‌شده، ممکن است Aspose.Slides نتواند فرمول را تجزیه یا وابستگی‌های آن را تعیین کند. اگر کتاب‌کار تغییر یافته باشد، مقدار کش‌شدهٔ قبلی دیگر قابل اعتماد نیست. در این وضعیت، خواندن مقدار یک سلول با دادهٔ پشتیبانی‌نشده می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellunsupporteddataexception/) را ایجاد کند.
+برای فرمول‌هایی که خارج از زیرمجموعهٔ پشتیبانی‌شده هستند، ممکن است Aspose.Slides نتواند فرمول را تجزیه یا وابستگی‌های آن را تعیین کند. اگر کتاب‌کار اصلاح شده باشد، مقدار کش‌شدهٔ قبلی دیگر معتبر نیست. در این شرایط، خواندن مقدار سلولی با دادهٔ غیرقابل پشتیبانی می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellunsupporteddataexception/) را پرتاب کند.
 
-اگر نمودار شما به توابع Excel وابسته باشد که Aspose.Slides آن‌ها را ارزیابی نمی‌کند، آن فرمول‌ها را با یک موتور صفحه‌گسترده‌ای که از آن‌ها پشتیبانی می‌کند محاسبه کنید و مقادیر حاصل را به کتاب‌کار نمودار بنویسید. از جایگزین کردن فرمول‌های پشتیبانی‌نشده با مقادیر حدس‌زده خودداری کنید.
+اگر نمودار شما به توابع Excel وابسته باشد که Aspose.Slides آن‌ها را ارزیابی نمی‌کند، آن فرمول‌ها را با یک موتور صفحه‌گستردهٔ پشتیبانی‌کننده محاسبه کنید و مقادیر حاصل را به کتاب‌کار نمودار بنویسید. از جایگزینی فرمول‌های غیرقابل پشتیبانی با مقادیر حدسی خودداری کنید.
 
 ## **مدیریت خطاهای فرمول**
 
 دو نوع مشکل متفاوت وجود دارد.
 
-یک فرمول می‌تواند معتبر باشد اما نتیجهٔ خطای صفحه‌گسترده‌ای مانند `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` یا `#VALUE!` تولید کند. در این حالت، توکن خطا یک نتیجهٔ سلول است و می‌تواند از طریق [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) بازگردانده شود.
+یک فرمول می‌تواند معتبر باشد اما نتیجهٔ خطای صفحه‌گسترده‌ای مانند `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` یا `#VALUE!` تولید کند. در این حالت توکن خطا یک نتیجهٔ سلول است و می‌تواند از طریق [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) بازگردانده شود.
 
-یک فرمول همچنین می‌تواند در سطح تجزیه، مرجع، وابستگی یا داده‌های پشتیبانی‌شده شکست بخورد. Aspose.Slides برای این موارد استثنای‌های خاص صفحه‌گسترده ارائه می‌دهد: [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellcircularreferenceexception/), و [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+یک فرمول ممکن است در مرحلهٔ تجزیه، مرجع، وابستگی یا سطح دادهٔ پشتیبانی‌شده شکست بخورد. Aspose.Slides برای این موارد استثنای خاص صفحه‌گسترده ارائه می‌دهد: [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellcircularreferenceexception/) و [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-زمانی که فرمول‌ها از قالب‌ها یا ورودی کاربر می‌آیند، این استثنای‌ها را در اطراف بازمحاسبه و دسترسی به مقدار مدیریت کنید:
+هنگامی که فرمول‌ها از قالب‌ها یا ورودی کاربر می‌آیند، این استثناها را در اطراف بازمحاسبه و دسترسی به مقدار مدیریت کنید:
 
 ```java
 import com.aspose.slides.*;
@@ -336,52 +374,52 @@ try {
 
 ## **محدودیت‌های عملی**
 
-پشتیبانی از فرمول در برگه‌های کاری نمودار برای زیرمجموعه‌ای تعریف‌شده از محاسبات صفحه‌گسترده است، نه برای سازگاری کامل با Excel. هنگام طراحی یک جریان کار گزارش‌گیری این محدودیت‌ها را در نظر داشته باشید:
+پشتیبانی از فرمول‌ها در کاربرگ‌های نمودار برای یک زیرمجموعهٔ تعریف‌شده از محاسبات صفحه‌گسترده هدف‌گذاری شده است و نه برای سازگاری کامل با Excel. هنگام طراحی جریان کار گزارش‌گیری این محدودیت‌ها را مدنظر داشته باشید:
 
-- فقط از ثابت‌ها، عملگرها، مراجع و توابع مستند شده استفاده کنید وقتی که نیاز دارید Aspose.Slides فرمول‌ها را بازمحاسبه کند.
-- پس از تغییر سلول‌هایی که نتایج فرمول به آن‌ها وابسته است، بازمحاسبه کنید.
-- مقادیر کش‌شده از ارائه‌های بارگذاری‌شده را به‌عنوان تصویر لحظه‌ای در نظر بگیرید، نه به‌عنوان جایگزین برای بازمحاسبه پس از ویرایش.
-- فرمول‌های موجود در قالب‌های پیشین را پیش از اطمینان از مقادیر محاسبه‌شده تست کنید، به‌ویژه عندما از توابع خارج از فهرست مستند شده استفاده می‌کنند.
-- برای فرمول‌هایی که به یک موتور محاسبهٔ کامل صفحه‌گسترده نیاز دارند، آن‌ها را به صورت خارجی محاسبه کنید و سپس کتاب‌کار نمودار را با مقادیر به‌دست آمده به‌روزرسانی کنید.
+- فقط از ثابت‌ها، عملگرها، مراجع و توابع مستند شده‌ای استفاده کنید که می‌خواهید Aspose.Slides آن‌ها را بازمحاسبه کند.
+- پس از تغییر سلول‌هایی که نتایج فرمول‌ها به آن‌ها وابسته‌اند، بازمحاسبه کنید.
+- مقادیر کش‌شدهٔ ارائه‌های بارگذاری‌شده را به‌عنوان تصویر لحظه‌ای در نظر بگیرید، نه به‌عنوان جایگزینی برای بازمحاسبه پس از ویرایش.
+- فرمول‌های قالب‌های موجود را قبل از اتکا به مقادیر محاسبه‌شده آن‌ها تست کنید، بویژه اگر از توابع خارج از فهرست مستند استفاده می‌شوند.
+- برای فرمول‌هایی که به یک موتور کامل محاسبه صفحه‌گسترده نیاز دارند، آن‌ها را به‌صورت خارجی محاسبه کنید و سپس کتاب‌کار نمودار را با مقادیر حاصل به‌روزرسانی کنید.
 
 ## **سوالات متداول**
 
 **تفاوت بین [IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) و [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) چیست؟**
 
-[IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) یک عبارت سبک A1 مانند `B2-C2` را ذخیره می‌کند. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) یک عبارت سبک R1C1 مانند `RC[-2]-RC[-1]` را ذخیره می‌کند. نوشتاری را که بهتر با نحوهٔ تولید یا کپی فرمول‌هایتان همخوانی دارد انتخاب کنید.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) یک عبارت سبک A1 مانند `B2-C2` را ذخیره می‌کند. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) یک عبارت سبک R1C1 مانند `RC[-2]-RC[-1]` را ذخیره می‌کند. نوشتاری را که با نحوهٔ تولید یا کپی فرمول‌های خود هم‌خوانی دارد انتخاب کنید.
 
 **آیا پس از محاسبه باید خود سلول یا مقدار آن را بخوانم؟**
 
-[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) یک [IChartDataCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/) باز می‌گرداند. برای به‌دست آوردن نتیجهٔ محاسبه‌شده، پس از بازمحاسبه متد [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) آن سلول را فراخوانی کنید.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) یک شیء [IChartDataCell](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/) برمی‌گرداند. برای به‌دست آوردن نتیجهٔ محاسبه‌شده، پس از بازمحاسبه متد [IChartDataCell.getValue](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdatacell/#getValue--) را فراخوانی کنید.
 
 **چه زمانی باید [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنم؟**
 
-بعد از تغییر مقادیر ورودی یا فرمول‌ها و پیش از تکیه بر نتایج محاسبه‌شده، متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنید. این متد مقادیر فرمول‌هایی را که ارزیاب داخلی پشتیبانی می‌کند به‌روز می‌کند.
+پس از تغییر مقادیر ورودی یا فرمول‌ها و پیش از این که به نتایج محاسبه‌شده وابسته باشید، متد [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) را فراخوانی کنید. این کار مقادیر فرمول‌هایی را که ارزیاب داخلی پشتیبانی می‌کند به‌روز می‌کند.
 
-**آیا Aspose.Slides از هر تابع Excel پشتیبانی می‌کند؟**
+**آیا Aspose.Slides از تمام توابع Excel پشتیبانی می‌کند؟**
 
-خیر. ارزیاب داخلی تنها زیرمجموعهٔ مستند شده‌ای از توابع را پشتیبانی می‌کند. توابع خارج از این زیرمجموعه نباید به‌صورت بازمحاسبه صحیح فرض شوند. اگر سازگاری کامل با فرمول‌های Excel لازم است، محاسبه را با یک موتور صفحه‌گسترده مناسب انجام دهید و مقادیر نهایی را به کتاب‌کار نمودار بنویسید.
+نه. ارزیاب داخلی فقط زیرمجموعهٔ مستند شده‌ای از توابع را پشتیبانی می‌کند. توابعی که خارج از این زیرمجموعه هستند نباید انتظار داشته باشید که به‌درستی بازمحاسبه شوند. اگر سازگاری کامل با فرمول‌های Excel لازم است، محاسبه را با یک موتور صفحه‌گسترده مناسب انجام داده و مقادیر نهایی را به کتاب‌کار نمودار بنویسید.
 
-**اگر یک ارائهٔ بارگذاری‌شده شامل فرمول پشتیبانی‌نشده باشد چه می‌شود؟**
+**اگر یک ارائهٔ بارگذاری‌شده شامل فرمولی غیرقابل پشتیبانی باشد چه می‌شود؟**
 
-اگر داده‌های نمودار تغییر نکرده باشند، ممکن است کتاب‌کار هنوز مقدار کش‌شدهٔ قبلی را داشته باشد. پس از تغییر داده‌های مرتبط، آن مقدار کش‌شده ممکن است دیگر معتبر نباشد. دسترسی به سلولی که فرمول آن قابل پردازش نیست می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellunsupporteddataexception/) را ایجاد کند.
+اگر دادهٔ نمودار تغییر نکرده باشد، ممکن است کتاب‌کار هنوز مقدار کش‌شدهٔ قبلی را داشته باشد. پس از تغییر داده‌های مرتبط، آن مقدار کش‌شده ممکن است دیگر معتبر نباشد. دسترسی به سلولی که فرمولش قابل پردازش نیست می‌تواند استثنای [CellUnsupportedDataException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellunsupporteddataexception/) را پرتاب کند.
 
-**آیا مقادیر خطای فرمول همان استثنای‌های جاوا هستند؟**
+**آیا مقادیر خطای فرمول همان استثناهای Java هستند؟**
 
-خیر. مقداری مانند `#DIV/0!` یک مقدار صفحه‌گسترده است که توسط یک محاسبهٔ معتبر تولید می‌شود. استثنای‌های مانند [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellinvalidformulaexception/) یا [CellCircularReferenceException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellcircularreferenceexception/) نشان می‌دهند که فرمول به‌صورت عادی قابل پردازش نیست.
+خیر. مقداری مانند `#DIV/0!` یک مقدار صفحه‌گسترده است که توسط یک محاسبهٔ معتبر تولید می‌شود. استثنائاتی مانند [CellInvalidFormulaException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellinvalidformulaexception/) یا [CellCircularReferenceException](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/cellcircularreferenceexception/) نشان می‌دهند که فرمول نمی‌تواند به‌طور عادی پردازش شود.
 
-**آیا نمودار به‌صورت خودکار هنگام تغییر سلول فرمول به‌روز می‌شود؟**
+**آیا نمودار هنگام تغییر سلول فرمول به‌صورت خودکار به‌روزرسانی می‌شود؟**
 
-یک سری نمودار می‌تواند به سلول‌های کتاب‌کار ارجاع دهد. ابتدا کتاب‌کار را بازمحاسبه کنید، سپس ارائه را ذخیره یا رندر کنید. اگر نقاط دادهٔ نمودار به سلول‌های محاسبه‌شده ارجاع دهند، نمودار از مقادیر به‌روزشدهٔ آن سلول‌ها استفاده می‌کند؛ روش جداگانه‌ای برای به‌روزرسانی نمودار در این جریان کار لازم نیست.
+یک سری نمودار می‌تواند به سلول‌های کتاب‌کار ارجاع دهد. ابتدا کتاب‌کار را بازمحاسبه کنید، سپس ارائه را ذخیره یا رندر کنید. اگر نقاط دادهٔ نمودار به سلول‌های محاسبه‌شده ارجاع داشته باشند، نمودار از مقادیر به‌روز شدهٔ این سلول‌ها استفاده می‌کند؛ نیازی به فراخوانی متد جداگانه‌ای برای تازه‑سازی نمودار نیست.
 
 **آیا نمودارها می‌توانند از یک کتاب‌کار Excel خارجی استفاده کنند؟**
 
-بله، داده‌های نمودار می‌توانند از طریق API داده‌های نمودار برای استفاده از کتاب‌کار خارجی پیکربندی شوند. با این حال، جریان کاری محاسبه فرمول توضیح داده‌شده در این مقاله مربوط به کتاب‌کار داده‌های نمودار و زیرمجموعه فرمول‌های ارزیابی‌شده توسط Aspose.Slides است. فرض نکنید که [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) محاسبهٔ کامل فرمول‌های دلخواه در یک فایل XLSX خارجی را فراهم می‌کند.
+بله، دادهٔ نمودار می‌تواند از طریق API دادهٔ نمودار به یک کتاب‌کار خارجی متصل شود. با این حال، گردش کار محاسبهٔ فرمول توضیح داده‌شده در این مقاله به کتاب‌کار دادهٔ نمودار و زیرمجموعهٔ فرمول‌های ارزیابی‌شده توسط Aspose.Slides مربوط می‌شود. فرض نکنید که [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) بازمحاسبهٔ کامل فرمول‌های دلخواه در یک فایل XLSX خارجی را فراهم می‌کند.
 
-**آیا می‌توانم از فرمول‌هایی استفاده کنم که به برگه یا کتاب‌کار دیگری ارجاع می‌دهند؟**
+**آیا می‌توانم از فرمول‌هایی استفاده کنم که به شیت یا کتاب‌کار دیگری ارجاع می‌دهند؟**
 
-مراجعات به سبک Excel ممکن است در کتاب‌کارهای نمودار وجود داشته باشند، اما ارزیابی فرمول توسط پارسر و مجموعهٔ توابع پشتیبانی‌شده محدود می‌شود. اگر یک مرجع بین برگه‌ای یا خارجی ضروری است، دقیقاً همان فرمول را با نسخهٔ هدف Aspose.Slides خود اعتبارسنجی کنید. برای جریان‌های کاری که نیاز به سازگاری گستردهٔ مراجع Excel دارند، کتاب‌کار را به‌صورت خارجی محاسبه کنید و مقادیر حل‌شده را به داده‌های نمودار بنویسید.
+مراجع شبیه به Excel ممکن است در کتاب‌کارهای نمودار وجود داشته باشد، اما ارزیابی فرمول توسط پارسر و مجموعه توابع پشتیبانی‌شده محدود است. اگر یک مرجع میان‑شیت یا خارجی ضروری است، دقیقاً همان فرمول را با نسخهٔ هدف Aspose.Slides خود اعتبارسنجی کنید. برای گردش کارهایی که نیاز به سازگاری گستردهٔ مراجع Excel دارند، کتاب‌کار را به‌صورت خارجی محاسبه کنید و مقادیر حل‌شده را به دادهٔ نمودار بنویسید.
 
-**آیا رشته‌های فرمول باید با `=` شروع شوند؟**
+**آیا رشتهٔ فرمول باید با `=` شروع شود؟**
 
-نمونه‌های API Aspose.Slides عبارات مانند `B2-C2` یا `SUM(B2:B5)` را بدون پیشوند `=` اختصاص می‌دهند. استفاده از این شکل فرمول‌ها باعث می‌شود که فرمول‌های تولیدشده با نمونه‌های مستند API همخوانی داشته باشند.
+نمونه‌های API Aspose.Slides عبارات مانند `B2-C2` یا `SUM(B2:B5)` را بدون `=` پیشوندی اختصاص می‌دهند. استفاده از این فرم، فرمول‌های تولیدشده را با مثال‌های مستند API هم‌خوانی می‌دهد.

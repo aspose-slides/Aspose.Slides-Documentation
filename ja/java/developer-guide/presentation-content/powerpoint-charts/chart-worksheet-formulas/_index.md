@@ -1,5 +1,5 @@
 ---
-title: Java でプレゼンテーションのチャート ワークシート数式を適用する
+title: Javaでプレゼンテーションにチャート ワークシート数式を適用
 linktitle: ワークシート数式
 type: docs
 weight: 70
@@ -12,40 +12,43 @@ keywords:
 - スプレッドシート 数式
 - チャート データ ワークブック
 - 数式 計算
-- 論理定数
-- 数値定数
-- 文字列定数
-- エラー定数
-- 算術演算子
-- 比較演算子
-- A1 形式
-- R1C1 形式
-- 組み込み関数
+- 優先 カルチャー
+- カルチャー固有 数式
+- DBCS
+- 論理 定数
+- 数値 定数
+- 文字列 定数
+- エラー 定数
+- 算術 演算子
+- 比較 演算子
+- A1 スタイル
+- R1C1 スタイル
+- 事前定義 関数
 - PowerPoint
 - プレゼンテーション
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java のチャート ワークシートで Excel 形式の数式を適用し、値を再計算して、PowerPoint のチャートで結果を使用します。"
+description: "Aspose.Slides for Java のチャート ワークシートで Excel 形式の数式を適用し、値を再計算して PowerPoint のチャートで結果を使用します。"
 ---
 ## **概要**
 
-PowerPoint のグラフは通常、埋め込みワークシートに元データを保存します。Aspose.Slides for Java では、チャート データ ワークブックを介してそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算されたセルをチャート データとして使用できます。
+PowerPoint のチャートは通常、埋め込みワークシートに元データを保存します。Aspose.Slides for Java では、チャート データ ワークブックを介してそのワークシートにアクセスし、入力値を書き込み、セルに数式を割り当て、サポートされている数式を計算し、計算されたセルをチャート データとして使用できます。
 
-この記事では、完全な数式ワークフローを説明します。グラフを作成し、ワークシートにデータを入力し、A1 形式または R1C1 形式の数式を割り当て、再計算し、計算結果を読み取り、そのセルをチャート シリーズに接続し、プレゼンテーションを保存します。また、サポートされている数式構文、組み込み関数のサブセット、キャッシュされた値、未サポートの数式、スプレッドシート固有のエラーについても説明します。
+本記事では、完全な数式ワークフローを説明します。チャートを作成し、ワークシートにデータを入力し、A1 形式または R1C1 形式の数式を割り当て、再計算し、計算結果を読み取り、セルをチャート系列に接続してプレゼンテーションを保存します。また、サポートされている数式構文、組み込み関数サブセット、キャッシュされた値、サポート外の数式、およびスプレッドシート固有のエラーについても解説します。
 
 ## **チャート ワークシートと数式**
 
-チャート ワークシートには、グラフで使用されるカテゴリ、系列名、値が含まれます。PowerPoint では、チャート データ エディターを開くことでワークシートを確認できます。
+チャート ワークシートには、チャートで使用されるカテゴリ、系列名、値が含まれます。PowerPoint では、チャート データ エディターを開くことでワークシートを確認できます。
 
-![PowerPoint の埋め込みワークシートを開いたチャート。カテゴリと系列データを表示](chart-worksheet-formulas_1.png)
+![埋め込みワークシートが開かれたPowerPointのチャート（カテゴリとシリーズのデータを表示）](chart-worksheet-formulas_1.png)
 
-Aspose.Slides では、ワークシートは [IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/) インターフェイスを通じて公開されます。A1 形式の数式には [IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) を、R1C1 形式の数式には [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) を使用します。入力セルまたは数式を変更した後は、[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してサポートされている数式を再計算し、対応するセル値を更新します。
+Aspose.Slides では、ワークシートは[IChartDataWorkbook](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/)インターフェイスを介して公開されます。[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) を使用して A1 形式の数式を、[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) を使用して R1C1 形式の数式を割り当てます。入力セルや数式を変更した後は、[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してサポートされている数式を再計算し、対応するセル値を更新します。
 
-計算されたセルは依然として [IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) で結果を取得できます。これは、コードで数式の結果を確認したり、セルをチャート データ ポイントとして使用したりする場合に重要です。
+計算されたセルは[IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) を通じて結果を取得できます。コードで数式結果を確認したり、セルをチャート データ ポイントとして使用する場合に重要です。
 
 ## **チャートの作成とワークシート数式の計算**
 
-以下の例はエンドツーエンドのワークフローを示します。クラスター化縦棒グラフを作成し、サンプル データをクリアし、四半期の売上と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算されたセルをチャートの値として使用し、プレゼンテーションを保存します。
+以下の例はエンドツーエンドのワークフローを示しています。クラスタ化された縦棒グラフを作成し、サンプル データをクリアして四半期ごとの売上と費用の値を書き込み、数式で利益を計算し、結果を読み取り、計算されたセルをチャート値として使用し、プレゼンテーションを保存します。
 
 ```java
 import com.aspose.slides.*;
@@ -110,11 +113,11 @@ try {
 }
 ```
 
-チャート データ ポイントは `D2:D4` を参照するため、グラフは計算された利益の値を使用します。このワークフローでは別途グラフのリフレッシュ呼び出しは必要ありません。まずワークブックを再計算し、次に計算されたセルを指すチャート データを使用または保存します。
+チャート データ ポイントは `D2:D4` を参照しているため、チャートは計算された利益の値を使用します。このワークフローでは別途チャート更新の呼び出しは不要です。まずワークブックを再計算し、計算されたセルを指すチャート データを使用または保存します。
 
 ## **A1 形式の数式の使用**
 
-A1 表記は列を文字、行を数字で識別します。A1 形式の式は [IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) で割り当てます。
+A1 表記は列を文字、行を数字で識別します。[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) を介して A1 形式の式を割り当てます。
 
 ```java
 import com.aspose.slides.*;
@@ -141,7 +144,7 @@ try {
 }
 ```
 
-一般的な A1 参照形態は次のとおりです。
+一般的な A1 参照形式は次のとおりです。
 
 | 参照 | 相対 | 絶対 | 混合 |
 |---|---|---|---|
@@ -150,11 +153,11 @@ try {
 | 列 | `A:A` | `$A:$A` | — |
 | 範囲 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-相対参照は数式がスプレッドシート アプリケーションで移動またはコピーされたときに変化します。絶対参照は両方の座標を固定し、混合参照は行または列のいずれかだけを固定します。
+相対参照は数式を移動またはコピーしたときに変更される可能性があります。絶対参照は両方の座標を固定し、混合参照は行または列のいずれかだけを固定します。
 
 ## **R1C1 形式の数式の使用**
 
-R1C1 表記は行と列の両方を数値で識別します。相対参照は角括弧内のオフセットで表します。この構文は [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) を使用して割り当てます。
+R1C1 表記は行と列を数値で識別します。相対参照は角括弧内のオフセットで表します。[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) を使用してこの構文を割り当てます。
 
 ```java
 import com.aspose.slides.*;
@@ -179,7 +182,7 @@ try {
 }
 ```
 
-一般的な R1C1 参照形態は次のとおりです。
+一般的な R1C1 参照形式は次のとおりです。
 
 | 参照 | 相対 | 絶対 | 混合 |
 |---|---|---|---|
@@ -188,20 +191,20 @@ try {
 | 列 | `C[3]` | `C3` | — |
 | 範囲 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-例として、セル `D2` で `RC[-2]` は同じ行の左に 2 列あるセル (`B2`) を指します。
+たとえばセル `D2` で `RC[-2]` は同じ行の左 2 列目のセル（`B2`）を意味します。
 
-## **数式定数と演算子**
+## **数式の定数と演算子**
 
-組み込みの数式評価エンジンは論理値、数値リテラル、文字列、スプレッドシート エラー値、算術演算子、比較演算子をサポートします。
+組み込み数式評価エンジンは論理値、数値リテラル、文字列、スプレッドシートエラー値、算術演算子、および比較演算子をサポートします。
 
 ### **定数とリテラル**
 
-| 種類 | 例 | 注釈 |
+| 種類 | 例 | 備考 |
 |---|---|---|
-| 論理 | `TRUE`, `FALSE` | `A2=TRUE` のような論理式で直接使用できます。 |
-| 数値 | `1`, `0.5`, `.3`, `1E-2` | 通常表記と指数表記の両方がサポートされます。 |
-| 文字列 | `"abc"`, `"2/3/2020 12:00"` | 文字列リテラルは式内で二重引用符で囲みます。 |
-| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式は通常の結果ではなくスプレッドシート エラー値に評価されることがあります。 |
+| 論理 | `TRUE`, `FALSE` | 論理式に直接使用できます（例: `A2=TRUE`）。 |
+| 数値 | `1`, `0.5`, `.3`, `1E-2` | 一般的および指数表記がサポートされています。 |
+| 文字列 | `"abc"`, `"2/3/2020 12:00"` | 文字列リテラルは式内で二重引用符で囲まれます。 |
+| エラー結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有効な数式は通常の結果の代わりにスプレッドシートエラー値を返すことがあります。 |
 
 この例は複数の定数タイプを使用しています。
 
@@ -238,13 +241,13 @@ try {
 | 演算子 | 意味 | 例 |
 |---|---|---|
 | `+` | 加算または単項プラス | `2+3` |
-| `-` | 減算または単項マイナス | `2-3`, `-3` |
+| `-` | 減算または符号反転 | `2-3`, `-3` |
 | `*` | 乗算 | `2*3` |
 | `/` | 除算 | `2/3` |
-| `%` | パーセンテージ | `30%` |
-| `^` | 累乗 | `2^3` |
+| `%` | パーセント | `30%` |
+| `^` | 指数 | `2^3` |
 
-評価順序を明示するには括弧を使用します。例: `(A2+B2)*C2`.
+評価順序を明示するには丸括弧を使用します。例: `(A2+B2)*C2`。
 
 ### **比較演算子**
 
@@ -254,28 +257,28 @@ try {
 |---|---|---|
 | `=` | 等しい | `A2=3` |
 | `<>` | 等しくない | `A2<>3` |
-| `>` | 大きい | `A2>3` |
-| `>=` | 大きいまたは等しい | `A2>=3` |
-| `<` | 小さい | `A2<3` |
-| `<=` | 小さいまたは等しい | `A2<=3` |
+| `>` | より大きい | `A2>3` |
+| `>=` | 以上 | `A2>=3` |
+| `<` | 未満 | `A2<3` |
+| `<=` | 以下 | `A2<=3` |
 
 ## **サポートされている組み込み関数**
 
-Aspose.Slides にはチャート ワークシート用の組み込み数式評価エンジンが含まれていますが、完全な Excel 計算エンジンではありません。ドキュメント化された関数セットは以下に限定されています。[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) が処理できる関数以外は再計算できないと想定してください。
+Aspose.Slides にはチャート ワークシート用の組み込み数式評価エンジンが含まれていますが、完全な Excel 計算エンジンではありません。ドキュメント化された関数は以下の一覧に限定されています。任意の Excel 関数が[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)で再計算できると想定しないでください。
 
-| 関数 | 用途またはサポート形式 | 例 |
+| 関数 | 目的またはサポート形式 | 例 |
 |---|---|---|
 | `ABS` | 絶対値 | `ABS(A2)` |
 | `AVERAGE` | 算術平均 | `AVERAGE(B2:B5)` |
-| `CEILING` | 指定した倍数へ切り上げ | `CEILING(A2,5)` |
+| `CEILING` | 数値を指定した倍数に切り上げ | `CEILING(A2,5)` |
 | `CHOOSE` | インデックスで値を選択 | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | テキスト結合 | `CONCAT(A2,B2)` |
-| `CONCATENATE` | テキスト結合 | `CONCATENATE(A2," ",B2)` |
-| `DATE` | 1900 日付システムで日付値を作成 | `DATE(2026,8,19)` |
-| `DAYS` | 2 つの日付間の日数を返す | `DAYS(B2,A2)` |
-| `FIND` | テキスト内で文字列を検索 | `FIND("-",A2)` |
-| `FINDB` | バイト指向テキスト検索 | `FINDB("a",A2)` |
-| `IF` | 条件付き結果 | `IF(A2>0,A2,0)` |
+| `CONCAT` | テキスト値を結合 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | テキスト値を結合 | `CONCATENATE(A2," ",B2)` |
+| `DATE` | 1900 日付システムを使用して日付値を作成 | `DATE(2026,8,19)` |
+| `DAYS` | 日付間の日数を返す | `DAYS(B2,A2)` |
+| `FIND` | テキスト内で別のテキストを検索 | `FIND("-",A2)` |
+| `FINDB` | バイト単位のテキスト検索 | `FINDB("a",A2)` |
+| `IF` | 条件結果 | `IF(A2>0,A2,0)` |
 | `INDEX` | 参照形式 | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | ベクトル形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | ベクトル形式 | `MATCH(A2,B2:B5,0)` |
@@ -283,26 +286,62 @@ Aspose.Slides にはチャート ワークシート用の組み込み数式評�
 | `SUM` | 合計 | `SUM(B2:B5)` |
 | `VLOOKUP` | 縦方向検索 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-表に示された制限は重要です。`INDEX` は参照形式で、`LOOKUP` と `MATCH` はベクトル形式でのみサポートされます。`DATE` は 1900 日付システムを使用します。ここに記載されていない機能は、Aspose.Slides の数式評価エンジンでは未サポートと見なしてください。
+表に示された制限は重要です。`INDEX` は参照形式でドキュメント化されており、`LOOKUP` と `MATCH` はベクトル形式でドキュメント化されています。`DATE` は 1900 日付システムを使用します。ここに記載されていない機能は Aspose.Slides の数式評価エンジンではサポートされていないとみなしてください。
 
-## **再計算とキャッシュ値**
+## **優先カルチャーで数式を計算**
 
-スプレッドシート ファイルは通常、数式と最後に計算された値の両方を格納します。プレゼンテーションがロードされ、該当するチャート データが変更されていない場合、Aspose.Slides は [IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) からキャッシュされた値を読み取れます。
+一部のチャート ワークブック関数はカルチャ固有のルールに従って文字列を解釈します。これは特にダブルバイト文字セット（DBCS）を使用する言語向け関数で重要です。正しく計算するには、[LoadOptions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/loadoptions/) を作成し、[SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/ja/java/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-) で優先カルチャーを設定し、[LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/ja/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) でスプレッドシートオプションを割り当ててからプレゼンテーションをロードします。
 
-入力セルまたは数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取るか、数式に依存するチャート データを保存する前に、必ず [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してください。
+以下の例は日本語カルチャーを選択し、設定したロード オプションでプレゼンテーションを開き、すべてのチャート ワークブックに対して[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出します。
 
-サポート外の数式については、Aspose.Slides が数式を解析できなかったり依存関係を特定できなかったりする可能性があります。ワークブックが変更された場合、以前のキャッシュ値は信頼できません。そのような状況で未サポートのデータを持つセルの値を取得しようとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) がスローされることがあります。
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
 
-Excel の関数で Aspose.Slides が評価できないものがある場合は、対応するスプレッドシート エンジンで数式を計算し、結果の値をチャート ワークブックに書き戻してください。未サポートの数式を推測した値で置き換えてはいけません。
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+優先カルチャーはプレゼンテーションのロード構成の一部であるため、[Presentation](https://reference.aspose.com/slides/ja/java/com.aspose.slides/presentation/) インスタンスを作成する前に指定してください。ワークブックの数式で期待されるカルチャーを使用します。例として、日本語 DBCS 計算規則に従う数式には `ja-JP` を使用します。
+
+## **再計算とキャッシュされた値**
+
+スプレッドシート ファイルは通常、数式とその最後に計算された値の両方を保存します。したがって、プレゼンテーションがロードされ、該当するチャート データが変更されていない場合、Aspose.Slides は[IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) からキャッシュされた値を読み取ることができます。
+
+入力セルや数式を変更した後は、古いキャッシュ結果に依存しないでください。計算された値を読み取るか、依存するチャート データを保存する前に[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出します。
+
+サポートサブセット外の数式については、Aspose.Slides は数式の解析や依存関係の確立ができない場合があります。ワークブックが変更された場合、以前のキャッシュ値は信頼できなくなります。その状況でサポート外データを含むセルの値を取得しようとすると[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) がスローされる可能性があります。
+
+チャートが Aspose.Slides が評価しない Excel 関数に依存している場合は、外部のスプレッドシート エンジンでその数式を計算し、結果の値をチャート ワークブックに書き戻してください。サポート外の数式を推測した値で置き換えないでください。
 
 ## **数式エラーの処理**
 
 区別すべき問題は 2 種類あります。
 
-* 数式自体は有効だが、`#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` といったスプレッドシート エラー結果を生成する場合。 この場合エラー トークンはセルの結果として返され、[IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) で取得できます。
-* 数式が構文エラー、参照エラー、依存関係エラー、または未サポートデータのレベルで失敗する場合。Aspose.Slides はこれらのケースに対して [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellcircularreferenceexception/)、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) といったスプレッドシート固有の例外を提供します。
+数式が有効であっても、`#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!` などのスプレッドシートエラー結果を返すことがあります。この場合、エラー トークンはセルの結果であり、[IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) を通じて取得できます。
 
-テンプレートやユーザー入力から数式が供給される場合は、再計算と値取得の周囲でこれらの例外をハンドルしてください。
+数式が構文解析、参照、依存関係、またはサポートデータのレベルで失敗することもあります。Aspose.Slides はこれらの場合に対して次のスプレッドシート固有例外を提供します: [CellInvalidFormulaException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellcircularreferenceexception/)、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/)。
+
+テンプレートやユーザー入力から数式が供給される場合は、再計算および値アクセス時にこれらの例外を捕捉してください。
 
 ```java
 import com.aspose.slides.*;
@@ -332,54 +371,54 @@ try {
 }
 ```
 
-## **実務上の制限**
+## **実用的な制限**
 
-チャート ワークシートにおける数式サポートは、完全な Excel 互換性を提供するものではなく、定義されたサブセットの計算に限定されています。レポーティング ワークフローを設計する際は、以下の点に留意してください。
+チャート ワークシートの数式サポートは、完全な Excel 互換性を目指すものではなく、定義されたサブセットのスプレッドシート計算を対象としています。設計時に次の点に留意してください。
 
-* Aspose.Slides に数式を再計算させる必要がある場合は、ドキュメント化された定数、演算子、参照、関数のみを使用してください。
-* セルの変更後は必ず再計算してください。
-* 読み込んだプレゼンテーションからのキャッシュ値はスナップショットとして扱い、編集後の再計算の代替としないでください。
-* 既存テンプレートからの数式は、ドキュメント化されたリスト外の関数を使用している場合、計算結果を信頼する前に必ずテストしてください。
-* 完全なスプレッドシート計算エンジンが必要な数式は、外部で計算し、結果の値をチャート ワークブックに書き戻してください。
+- ドキュメント化された定数、演算子、参照、関数のみを使用して Aspose.Slides に数式の再計算を任せます。
+- 数式結果が依存するセルを変更した後は必ず再計算します。
+- ロードされたプレゼンテーションからのキャッシュ値はスナップショットであり、編集後の再計算の代替にはなりません。
+- 既存テンプレートの数式は、ドキュメント化されたリストに含まれない関数を使用していないか事前にテストします。
+- 完全なスプレッドシート計算エンジンが必要な数式は外部で計算し、結果の値でチャート ワークブックを更新します。
 
 ## **FAQ**
 
 **[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) と [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) の違いは何ですか？**
 
-[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) は `B2-C2` のような A1 形式の式を保存し、[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) は `RC[-2]-RC[-1]` のような R1C1 形式の式を保存します。数式を生成またはコピーする方法に最も適した表記を使用してください。
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) は `B2-C2` のような A1 形式の式を格納します。[IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) は `RC[-2]-RC[-1]` のような R1C1 形式の式を格納します。生成またはコピーする数式の形式に合わせて表記を選択してください。
 
-**計算後はセル自体を読むべきですか、それとも値を読むべきですか？**
+**計算後にセルそのものを読むべきですか、値を読むべきですか？**
 
-[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) は [IChartDataCell](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/) を返します。再計算後に計算結果を取得するには、そのセルの [IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) メソッドを呼び出してください。
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) は[IChartDataCell](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/) を返します。再計算後に計算結果を取得するには、そのセルの[IChartDataCell.getValue](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdatacell/#getValue--) メソッドを呼び出してください。
 
 **[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) はいつ呼び出すべきですか？**
 
-入力値または数式を変更した後、計算結果に依存する前に必ず [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してください。これにより組み込み評価エンジンがサポートする数式の値が更新されます。
+入力値または数式を変更した後、計算結果に依存する前に[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) を呼び出してください。これにより、組み込み評価エンジンがサポートする数式の値が更新されます。
 
 **Aspose.Slides はすべての Excel 関数をサポートしていますか？**
 
-いいえ。組み込み評価エンジンはドキュメント化されたサブセットのみをサポートします。サブセット外の関数は正しく再計算できると想定しないでください。完全な Excel 互換が必要な場合は、適切なスプレッドシート エンジンで計算し、最終的な値をチャート ワークブックに書き込んでください。
+いいえ。組み込み評価エンジンはドキュメント化されたサブセットの関数のみをサポートします。サブセット外の関数は正しく再計算できると想定しないでください。完全な Excel 数式互換性が必要な場合は、適切なスプレッドシート エンジンで計算し、最終的な値をチャート ワークブックに書き込んでください。
 
-**ロードされたプレゼンテーションに未サポートの数式が含まれていた場合はどうなりますか？**
+**ロードされたプレゼンテーションにサポート外の数式が含まれている場合はどうなりますか？**
 
-チャート データが変更されていなければ、ワークブックは以前に計算されたキャッシュ値を保持している可能性があります。関連データが変更された後は、そのキャッシュ値は無効になることがあります。処理できない数式を含むセルの値にアクセスしようとすると、[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) がスローされることがあります。
+チャート データが変更されていない場合、ワークブックには以前に計算されたキャッシュ値が残っていることがあります。関連データが変更されると、そのキャッシュ値は無効になる可能性があります。処理できない数式を含むセルにアクセスすると[CellUnsupportedDataException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellunsupporteddataexception/) がスローされることがあります。
 
 **数式エラー値は Java の例外と同じですか？**
 
-いいえ。`#DIV/0!` などの結果は、有効な数式の計算によって生成されたスプレッドシートの値です。[CellInvalidFormulaException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidformulaexception/) や [CellCircularReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellcircularreferenceexception/) といった例外は、数式を正常に処理できなかったことを示します。
+いいえ。`#DIV/0!` のような結果は、有効な計算から生成されたスプレッドシート値です。[CellInvalidFormulaException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellinvalidformulaexception/) や [CellCircularReferenceException](https://reference.aspose.com/slides/ja/java/com.aspose.slides/cellcircularreferenceexception/) などの例外は、数式を通常どおり処理できないことを示します。
 
-**数式セルが変更されたときにグラフは自動的に更新されますか？**
+**数式セルが変更されるとチャートは自動的に更新されますか？**
 
-グラフ 系列はワークブックのセルを参照できます。まずワークブックを再計算し、次にプレゼンテーションを保存またはレンダリングしてください。系列が計算されたセルを参照していれば、グラフは更新されたセル値を使用します。別途のグラフ リフレッシュ メソッドは不要です。
+チャート 系列はワークブックのセルを参照できます。まずワークブックを再計算し、その後プレゼンテーションを保存またはレンダリングしてください。計算されたセルを参照している場合、チャートは更新されたセル値を使用します。別途チャート更新メソッドは必要ありません。
 
-**外部の Excel ワークブックをグラフに使用できますか？**
+**チャートは外部の Excel ワークブックを使用できますか？**
 
-はい、チャート データ API を使って外部ワークブックを使用するよう構成できます。ただし、本記事で説明する数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価できる数式サブセットに限定されます。[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) が外部 XLSX ファイルの任意の数式を完全に再計算するとは限らないことに注意してください。
+はい、チャート データはチャート データ API を介して外部ワークブックを使用するように構成できます。ただし、本記事で説明した数式計算ワークフローはチャート データ ワークブックと Aspose.Slides が評価する数式サブセットに限定されています。[IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/ja/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) が外部 XLSX ファイルの任意の数式を完全に再計算するとは想定しないでください。
 
-**別シートまたは別ブックを参照する数式は使用できますか？**
+**別のワークシートまたはワークブックを参照する数式を使用できますか？**
 
-チャート ワークブック内で Excel 形式の参照は可能ですが、評価はサポートされているパーサーと関数セットに制限されます。クロスシートや外部参照が必須の場合は、対象の Aspose.Slides バージョンで正確に動作するか検証してください。広範な Excel 参照互換が必要な場合は、ワークブックを外部で計算し、解決された値をチャート データに書き戻すことを推奨します。
+Excel 形式の参照はチャート ワークブックに存在する可能性がありますが、数式評価はサポートされるパーサーと関数セットに制限されています。クロスシートまたは外部参照が必須の場合は、対象の Aspose.Slides バージョンで正確な数式を検証してください。広範な Excel 参照互換性が必要なワークフローでは、ワークブックを外部で計算し、解決した値をチャート データに書き戻すことを検討してください。
 
 **数式文字列は `=` で始める必要がありますか？**
 
-Aspose.Slides の API サンプルは `B2-C2` や `SUM(B2:B5)` のように先頭の `=` を付けずに式を割り当てます。この形を使用すると、ドキュメント化された API 例と一貫性が保たれます。
+Aspose.Slides の API 例では、`B2-C2` や `SUM(B2:B5)` のように先頭に `=` を付けずに式を割り当てます。この形式を使用すると、ドキュメント化された API 例と一貫した数式が生成されます。

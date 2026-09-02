@@ -1,17 +1,20 @@
 ---
-title: Použít vzorce listu grafu v prezentacích v .NET
+title: Použití vzorců listu grafu v prezentacích v .NET
 linktitle: Vzorce listu
 type: docs
 weight: 70
 url: /cs/net/chart-worksheet-formulas/
 keywords:
-- graf tabulka
+- graf tabulkový procesor
 - list grafu
 - vzorec grafu
 - vzorec listu
 - vzorec tabulky
 - sešit dat grafu
 - výpočet vzorce
+- preferovaná kultura
+- vzorec specifický pro kulturu
+- DBCS
 - logická konstanta
 - číselná konstanta
 - řetězcová konstanta
@@ -26,27 +29,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Použijte Excelové vzorce v listech grafů v Aspose.Slides pro .NET, přepočítejte hodnoty a použijte výsledky v grafech PowerPointu."
+description: "Použijte vzorce ve stylu Excel v Aspose.Slides pro .NET listy grafů, přepočítejte hodnoty a použijte výsledky v grafech PowerPointu."
 ---
 ## **Přehled**
 
-PowerPoint grafy obvykle ukládají svá zdrojová data do vloženého listu. V Aspose.Slides pro .NET můžete k tomuto listu přistupovat prostřednictvím sešitu s daty grafu, zapisovat vstupní hodnoty, přiřazovat buňkám vzorce, vypočítávat podporované vzorce a používat vypočítané buňky jako data grafu.
+Grafy v PowerPointu obvykle ukládají svá zdrojová data do vloženého listu. V Aspose.Slides pro .NET můžete k tomuto listu přistupovat prostřednictvím sešitu dat grafu, zapisovat vstupní hodnoty, přiřazovat buňkám vzorce, vypočítávat podporované vzorce a používat vypočítané buňky jako data grafu.
 
-Tento článek vysvětluje kompletní workflow vzorců: vytvořit graf, naplnit jeho list, přiřadit vzorce ve stylu A1 nebo R1C1, přepočítat je, přečíst vypočítané hodnoty, propojit tyto buňky s řadou grafu a uložit prezentaci. Také popisuje podporovanou syntaxi vzorců, podmnožinu vestavěných funkcí, cachované hodnoty, nepodporované vzorce a chyby specifické pro tabulky.
+Tento článek popisuje kompletní workflow s vzorci: vytvořit graf, naplnit jeho list, přiřadit vzorce ve stylu A1 nebo R1C1, přepočítat je, načíst vypočítané hodnoty, propojit tyto buňky s řadou grafu a uložit prezentaci. Také popisuje podporovanou syntaxi vzorců, vestavěnou podmnožinu funkcí, uložené hodnoty, nepodporované vzorce a chyby specifické pro tabulkové procesory.
 
-## **Listy grafů a vzorce**
+## **Listy grafu a vzorce**
 
-List grafu obsahuje kategorie, názvy řad a hodnoty používané grafem. V PowerPointu můžete list zkontrolovat otevřením editoru dat grafu:
+List grafu obsahuje kategorie, názvy řad a hodnoty používané v grafu. V PowerPointu můžete list zkontrolovat otevřením editoru dat grafu:
 
-![PowerPoint graf s otevřeným vloženým listem, zobrazující data kategorií a řad](chart-worksheet-formulas_1.png)
+![Graf PowerPointu s otevřeným vloženým listem, zobrazující data kategorií a řad](chart-worksheet-formulas_1.png)
 
-V Aspose.Slides je list vystaven prostřednictvím [sešitu s daty grafu](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/). Použijte vlastnost [Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/formula/) pro vzorce ve stylu A1 a vlastnost [R1C1Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/r1c1formula/) pro vzorce ve stylu R1C1. Po změně vstupních buněk nebo vzorců zavolejte [CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) pro přepočet podporovaných vzorců a aktualizaci odpovídajících hodnot buněk.
+V Aspose.Slides je list dostupný přes [sešit dat grafu](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/). Pro vzorce ve stylu A1 použijte vlastnost [Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/formula/) a pro vzorce ve stylu R1C1 vlastnost [R1C1Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/r1c1formula/). Po změně vstupních buněk nebo vzorců zavolejte [CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) pro přepočet podporovaných vzorců a aktualizaci odpovídajících hodnot buněk.
 
-Vypočítaná buňka stále vystavuje svůj výsledek prostřednictvím vlastnosti [Value](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/value/). To je důležité, když potřebujete v kódu zkontrolovat výsledek vzorce nebo použít buňku jako datový bod grafu.
+Vypočítaná buňka stále vystavuje svůj výsledek přes vlastnost [Value](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/value/). To je důležité, když potřebujete v kódu zkontrolovat výsledek vzorce nebo použít buňku jako datový bod grafu.
 
 ## **Vytvoření grafu a výpočet vzorců v listu**
 
-Následující příklad ukazuje end-to-end workflow. Vytvoří sloupcový seskupený graf, vymaže ukázková data, zapíše čtvrtletní příjmy a výdaje, vypočítá profit pomocí vzorců, přečte výsledky, použije vypočítané buňky jako hodnoty grafu a uloží prezentaci.
+Následující příklad ukazuje celý workflow. Vytvoří sloupcový graf s klastrem, vymaže ukázková data, zapíše čtvrtletní tržby a výdaje, vypočítá zisk pomocí vzorců, načte výsledky, použije vypočítané buňky jako hodnoty grafu a uloží prezentaci.
 
 ```csharp
 using System;
@@ -111,11 +114,11 @@ profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-Datové body grafu odkazují na `D2:D4`, takže graf používá vypočítané hodnoty profitu. V tomto workflow není potřeba samostatné volání pro obnovení grafu: nejprve přepočítejte sešit, pak použijte nebo uložte data grafu, která odkazují na vypočítané buňky.
+Datové body grafu odkazují na `D2:D4`, takže graf používá vypočítané hodnoty zisku. V tomto workflow není potřeba žádné samostatné volání pro obnovu grafu: nejprve přepočtěte sešit a poté použijte nebo uložte data grafu, která ukazují na vypočítané buňky.
 
-## **Použití vzorců ve stylu A1**
+## **Použití A1‑stylu vzorců**
 
-Notace A1 identifikuje sloupce písmeny a řádky čísly. Přiřaďte výrazy ve stylu A1 pomocí [IChartDataCell.Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/formula/).
+Notace A1 identifikuje sloupce písmeny a řádky čísly. Přidávejte A1‑stylové výrazy pomocí [IChartDataCell.Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/formula/).
 
 ```csharp
 using Aspose.Slides;
@@ -140,20 +143,20 @@ workbook.CalculateFormulas();
 var value = cell.Value; // 19
 ```
 
-Obvyklé formy odkazů A1 jsou:
+Běžné formy A1 referencí jsou:
 
-| Reference | Relativní | Absolutní | Smíšené |
+| Reference | Relativní | Absolutní | Smíšený |
 |---|---|---|---|
 | Buňka | `A2` | `$A$2` | `A$2`, `$A2` |
 | Řádek | `2:2` | `$2:$2` | — |
 | Sloupec | `A:A` | `$A:$A` | — |
 | Rozsah | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Relativní odkazy se mohou změnit, když je vzorec přesunut nebo zkopírován tabulkovým aplikací. Absolutní odkazy fixují oba souřadnice, zatímco smíšené odkazy fixují jen řádek nebo jen sloupec.
+Relativní odkazy se mohou změnit, když je vzorec v tabulkovém procesoru přesunut nebo zkopírován. Absolutní odkazy udržují oba souřadnice fixní, zatímco smíšené odkazy fixují jen řádek nebo jen sloupec.
 
-## **Použití vzorců ve stylu R1C1**
+## **Použití R1C1‑stylu vzorců**
 
-Notace R1C1 identifikuje jak řádky, tak sloupce číselně. Relativní odkazy používají offsety v hranatých závorkách. Přiřaďte tuto syntaxi pomocí [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
+Notace R1C1 identifikuje jak řádky, tak sloupce číselně. Relativní odkazy používají posuny v hranatých závorkách. Tento syntaktický styl přiřaďte pomocí [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
 
 ```csharp
 using Aspose.Slides;
@@ -176,29 +179,29 @@ workbook.CalculateFormulas();
 var value = cell.Value; // 7
 ```
 
-Obvyklé formy odkazů R1C1 jsou:
+Běžné formy R1C1 referencí jsou:
 
-| Reference | Relativní | Absolutní | Smíšené |
+| Reference | Relativní | Absolutní | Smíšený |
 |---|---|---|---|
 | Buňka | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | Řádek | `R[2]` | `R2` | — |
 | Sloupec | `C[3]` | `C3` | — |
 | Rozsah | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Například v buňce `D2` znamená `RC[-2]` buňku ve stejném řádku o dva sloupce vlevo (`B2`).
+Například v buňce `D2` výraz `RC[-2]` znamená buňku ve stejném řádku o dva sloupce vlevo (`B2`).
 
-## **Konstanty vzorců a operátory**
+## **Konstanty a operátory vzorců**
 
-Vestavěný evaluátor vzorců podporuje logické hodnoty, číselné literály, řetězce, hodnoty chyb tabulky, aritmetické operátory a porovnávací operátory.
+Vestavěný evaluátor vzorců podporuje logické hodnoty, číselné literály, řetězce, hodnoty chyb tabulkových procesorů, aritmetické operátory i operátory srovnání.
 
 ### **Konstanty a literály**
 
 | Typ | Příklady | Poznámky |
 |---|---|---|
-| Logické | `TRUE`, `FALSE` | Lze použít přímo v logických výrazech, například `A2=TRUE`. |
-| Číselné | `1`, `0.5`, `.3`, `1E-2` | Jsou podporovány běžné i vědecké zápisy. |
-| Řetězec | `"abc"`, `"2/3/2020 12:00"` | Textové literály jsou ve vzorci uzavřeny v dvojitých uvozovkách. |
-| Výsledek chyby | `#DIV/0!`, `#N/A`, `#REF!` | Platný vzorec může vyhodnotit hodnotu chyby tabulky místo normálního výsledku. |
+| Logická | `TRUE`, `FALSE` | Lze použít přímo v logických výrazech, např. `A2=TRUE`. |
+| Číselná | `1`, `0.5`, `.3`, `1E-2` | Podporována je běžná i vědecká notace. |
+| Řetězec | `"abc"`, `"2/3/2020 12:00"` | Literály textu jsou ve vzorci uzavřeny do dvojitých uvozovek. |
+| Výsledek chyby | `#DIV/0!`, `#N/A`, `#REF!` | Platný vzorec může vyhodnotit chybu místo normálního výsledku. |
 
 Tento příklad používá několik typů konstant:
 
@@ -233,17 +236,17 @@ var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
 | Operátor | Význam | Příklad |
 |---|---|---|
 | `+` | Sčítání nebo unární plus | `2+3` |
-| `-` | Odečítání nebo negace | `2-3`, `-3` |
+| `-` | Odčítání nebo záporná hodnota | `2-3`, `-3` |
 | `*` | Násobení | `2*3` |
 | `/` | Dělení | `2/3` |
 | `%` | Procento | `30%` |
 | `^` | Umocnění | `2^3` |
 
-Používejte závorky pro explicitní určení pořadí vyhodnocení, například `(A2+B2)*C2`.
+Používejte závorky pro explicitní určení pořadí výpočtu, např. `(A2+B2)*C2`.
 
 ### **Porovnávací operátory**
 
-Porovnávací výrazy vracejí logické hodnoty.
+Porovnávací výrazy vrací logické hodnoty.
 
 | Operátor | Význam | Příklad |
 |---|---|---|
@@ -256,19 +259,19 @@ Porovnávací výrazy vracejí logické hodnoty.
 
 ## **Podporované předdefinované funkce**
 
-Aspose.Slides obsahuje vestavěný evaluátor vzorců pro listy grafů, ale nejedná se o kompletní výpočetní engine Excelu. Dokumentovaná sada funkcí je omezena na níže uvedené funkce. Nepředpokládejte, že libovolná Excel funkce může být přepočtena pomocí [CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+Aspose.Slides obsahuje vestavěný evaluátor vzorců pro listy grafů, ale nejedná se o kompletní výpočetní engine Excelu. Dokumentovaná množina funkcí je omezena na níže uvedené. Nepředpokládejte, že libovolná Excel funkce může být přepočtena pomocí [CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-| Funkce | Účel nebo podporovaná forma | Příklad |
+| Funkce | Účel nebo podpora formy | Příklad |
 |---|---|---|
 | `ABS` | Absolutní hodnota | `ABS(A2)` |
 | `AVERAGE` | Aritmetický průměr | `AVERAGE(B2:B5)` |
-| `CEILING` | Zaokrouhlit číslo nahoru na násobek | `CEILING(A2,5)` |
-| `CHOOSE` | Vybrat hodnotu podle indexu | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | Spojit textové hodnoty | `CONCAT(A2,B2)` |
-| `CONCATENATE` | Spojit textové hodnoty | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Vytvořit datum pomocí systému 1900 | `DATE(2026,8,19)` |
-| `DAYS` | Vrátit počet dnů mezi daty | `DAYS(B2,A2)` |
-| `FIND` | Najít jeden text uvnitř druhého | `FIND("-",A2)` |
+| `CEILING` | Zaokrouhlení čísla nahoru na násobek | `CEILING(A2,5)` |
+| `CHOOSE` | Výběr hodnoty podle indexu | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Spojení textových hodnot | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Spojení textových hodnot | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Vytvoření datumové hodnoty pomocí systému 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Počet dní mezi daty | `DAYS(B2,A2)` |
+| `FIND` | Vyhledání textu v rámci jiného textu | `FIND("-",A2)` |
 | `FINDB` | Vyhledávání orientované na bajty | `FINDB("a",A2)` |
 | `IF` | Podmíněný výsledek | `IF(A2>0,A2,0)` |
 | `INDEX` | Referenční forma | `INDEX(A2:C4,2,3)` |
@@ -278,27 +281,62 @@ Aspose.Slides obsahuje vestavěný evaluátor vzorců pro listy grafů, ale neje
 | `SUM` | Součet hodnot | `SUM(B2:B5)` |
 | `VLOOKUP` | Vertikální vyhledávání | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Omezení uvedená v tabulce jsou podstatná: `INDEX` je zdokumentován v referenční formě, zatímco `LOOKUP` a `MATCH` jsou zdokumentovány ve svých vektorových formách. `DATE` používá systém dat 1900. Funkce a vlastnosti, které zde nejsou uvedeny, by měly být považovány za nepodporované vestavěným evaluátorem Aspose.Slides, pokud nejsou samostatně zdokumentovány.
+Omezení uvedená v tabulce jsou podstatná: `INDEX` je dokumentován v referenční formě, zatímco `LOOKUP` a `MATCH` jsou dokumentovány ve svých vektorových formách. `DATE` používá systém 1900. Funkce a vlastnosti, které zde nejsou uvedeny, by měly být považovány za nepodporované vestavěným evaluátorem Aspose.Slides, pokud nejsou dokumentovány zvlášť.
 
-## **Přepočet a cachované hodnoty**
+## **Výpočet vzorců s preferovaným jazykem**
 
-Soubory tabulek často ukládají jak vzorec, tak jeho naposledy vypočtenou hodnotu. Aspose.Slides může proto při načtení prezentace a pokud se data grafu nezměnila, přečíst cachovanou hodnotu z [IChartDataCell.Value](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/value/).
+Některé funkce sešitu interpretují text podle jazykově specifických pravidel. To je zvláště důležité pro funkce určené pro jazyky používající dvojbajtové znakové sady (DBCS). Pro správný výpočet takových vzorců vytvořte [LoadOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/), nastavte [ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/cs/net/aspose.slides/ispreadsheetoptions/preferredculture/) přes [LoadOptions.SpreadsheetOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/spreadsheetoptions/), a poté načtěte prezentaci.
 
-Po změně vstupních buněk nebo vzorců nespoléhejte na starý cachovaný výsledek. Zavolejte [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) před čtením vypočítaných hodnot nebo uložením dat grafu, která na nich závisí.
+Následující příklad vybírá japonskou kulturu, otevře prezentaci s nastavenými možnostmi načítání a zavolá [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) pro každý sešit grafu:
 
-Pro vzorce mimo podporovanou podmnožinu může Aspose.Slides nedokázat vzorec parsovat nebo zjistit jeho závislosti. Pokud byl sešit upraven, předchozí cachovaná hodnota již není spolehlivá. V takové situaci může čtení hodnoty buňky s nepodporovanými daty vyvolat [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-Pokud váš graf závisí na Excel funkcích, které Aspose.Slides nevyhodnocuje, vypočítejte tyto vzorce pomocí tabulkového enginu, který je podporuje, a zapište výsledné hodnoty zpět do sešitu grafu. Nepřepisujte nepodporované vzorce odhadovanými hodnotami.
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
+
+Preferovaná kultura je součástí konfigurace načítání prezentace, proto ji nastavte před vytvořením instance [Presentation](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/). Použijte kulturu, kterou očekávají vzorce sešitu; např. `ja-JP` pro vzorce, které mají dodržovat japonská DBCS pravidla.
+
+## **Přepočet a uložené hodnoty**
+
+Soubory tabulek často ukládají jak vzorec, tak jeho poslední vypočítanou hodnotu. Aspose.Slides může proto číst uloženou hodnotu z [IChartDataCell.Value](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/value/), když je prezentace načtena a odpovídající data grafu nebyla změněna.
+
+Po změně vstupních buněk nebo vzorců nespoléhejte na starý uložený výsledek. Před čtením vypočítaných hodnot nebo uložením grafu, který na nich závisí, zavolejte [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+
+U vzorců mimo podporovanou podmnožinu nemusí Aspose.Slides být schopen vzorec parsovat nebo určit jeho závislosti. Pokud byl sešit upraven, nelze předchozí uloženou hodnotu považovat za spolehlivou. V takovém případě může čtení hodnoty buňky s nepodporovanými daty vyvolat [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Pokud váš graf závisí na Excelových funkcích, které Aspose.Slides nevyhodnocuje, vypočítejte tyto vzorce pomocí tabulkového engine, který je podporuje, a zapište výsledné hodnoty zpět do sešitu grafu. Nepřepisujte nepodporované vzorce odhadovanými hodnotami.
 
 ## **Zpracování chyb vzorců**
 
-Existují dva různé typy problémů, které je třeba rozlišovat.
+Je potřeba rozlišovat dva typy problémů.
 
-Vzorec může být platný, ale vrátit výsledek chyby tabulky, například `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` nebo `#VALUE!`. V tomto případě je token chyby výsledkem buňky a může být vrácen přes `Value`.
+Vzorec může být platný, ale může vrátit výsledek chyby tabulkového procesoru, např. `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` nebo `#VALUE!`. V takovém případě je token chyby výsledkem buňky a lze jej získat přes `Value`.
 
-Vzorec může také selhat při parsování, odkazování, závislostech nebo na úrovni podporovaných dat. Aspose.Slides poskytuje pro tyto případy tabulkové výjimky: [CellInvalidFormulaException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellcircularreferenceexception/), a [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+Vzorec může také selhat během parsování, při odkazování, při určování závislostí nebo na úrovni podporovaných dat. Aspose.Slides poskytuje pro tyto případy specifické výjimky: [CellInvalidFormulaException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) a [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-Když vzorce pocházejí ze šablon nebo vstupu uživatele, obalte tyto výjimky kolem přepočtu a přístupu k hodnotám:
+Když vzorce pocházejí ze šablon nebo od uživatele, obalte přepočet a přístup k hodnotám těmito výjimkami:
 
 ```csharp
 using System;
@@ -337,54 +375,54 @@ catch (CellUnsupportedDataException ex)
 }
 ```
 
-## **Praktická omezení**
+## **Praktické omezení**
 
-Podpora vzorců v listech grafů je určena pro definovanou podmnožinu výpočtů tabulek, nikoli pro úplnou kompatibilitu s Excelem. Mějte tyto omezení na paměti při navrhování workflow reportování:
+Podpora vzorců v listech grafů je určena pro definovanou podmnožinu výpočtů tabulkových procesorů, ne pro plnou kompatibilitu s Excelem. Mějte tato omezení na paměti při navrhování workflow reportování:
 
-- Používejte pouze dokumentované konstanty, operátory, reference a funkce, pokud chcete, aby Aspose.Slides přepočítal vzorce.
-- Přepočítejte po změně buněk, na nichž výsledek vzorce závisí.
-- Považujte cachované hodnoty z načtených prezentací za snímky, ne za náhradu přepočtu po úpravách.
-- Otestujte vzorce z existujících šablon před tím, než se spolehnete na jejich vypočítané hodnoty, zejména pokud používají funkce mimo dokumentovaný seznam.
-- Pro vzorce, které vyžadují plný výpočetní engine tabulek, je vypočítejte externě a poté aktualizujte sešit grafu s výslednými hodnotami.
+- Používejte pouze dokumentované konstanty, operátory, reference a funkce, pokud chcete, aby Aspose.Slides přepočítával vzorce.
+- Po změně buněk, na nichž výsledek vzorce závisí, provádějte přepočet.
+- Považujte uložené hodnoty z načtených prezentací za snímek aktuálního stavu, ne jako náhradu přepočtu po úpravách.
+- Otestujte vzorce z existujících šablon před spolehnutím se na jejich vypočítané hodnoty, zejména pokud používají funkce mimo dokumentovaný seznam.
+- Pro vzorce, které vyžadují kompletní výpočetní engine tabulek, je vypočítejte externě a poté aktualizujte sešit grafu výslednými hodnotami.
 
-## **FAQ**
+## **Často kladené otázky**
 
 **Jaký je rozdíl mezi `Formula` a `R1C1Formula`?**
 
-[Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/formula/) ukládá výraz ve stylu A1, například `B2-C2`. [R1C1Formula](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/r1c1formula/) ukládá výraz ve stylu R1C1, například `RC[-2]-RC[-1]`. Použijte notaci, která nejlépe odpovídá tomu, jak vzorce generujete nebo kopírujete.
+`Formula` ukládá A1‑stylový výraz, např. `B2-C2`. `R1C1Formula` ukládá R1C1‑stylový výraz, např. `RC[-2]-RC[-1]`. Použijte notaci, která nejlépe odpovídá tomu, jak vzorce generujete nebo kopírujete.
 
 **Musím po výpočtu číst buňku samotnou nebo její hodnotu?**
 
-[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/getcell/) vrací `IChartDataCell`. Pro získání vypočítaného výsledku přečtěte vlastnost [Value](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatacell/value/) té buňky po přepočtu.
+`IChartDataWorkbook.GetCell` vrací `IChartDataCell`. Pro získání vypočítaného výsledku přečtěte vlastnost `Value` této buňky po přepočtu.
 
-**Kdy mám volat `CalculateFormulas`?**
+**Kdy mám zavolat `CalculateFormulas`?**
 
-Zavolejte [CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) po změně vstupních hodnot nebo vzorců a před tím, než budete záviset na vypočítaných výsledcích. Tím aktualizujete hodnoty vzorců, které vestavěný evaluátor podporuje.
+Zavolejte `CalculateFormulas` po změně vstupních hodnot nebo vzorců a před tím, než budete záviset na vypočítaných výsledcích. Tím se aktualizují hodnoty vzorců, které vestavěný evaluátor podporuje.
 
 **Podporuje Aspose.Slides každou Excel funkci?**
 
-Ne. Vestavěný evaluátor podporuje dokumentovanou podmnožinu funkcí. Funkce mimo tuto podmnožinu by neměly být předpokládány jako správně přepočtené. Pokud je vyžadována plná kompatibilita s Excel vzorci, proveďte výpočet pomocí vhodného tabulkového enginu a zapište konečné hodnoty do sešitu grafu.
+Ne. Vestavěný evaluátor podporuje jen dokumentovanou podmnožinu funkcí. Funkce mimo tuto podmnožinu by neměly být považovány za správně přepočitatelné. Pokud potřebujete plnou kompatibilitu s Excel vzorci, proveďte výpočet pomocí vhodného tabulkového engine a zapíšete finální hodnoty do sešitu grafu.
 
-**Co se stane, pokud načtená prezentace obsahuje nepodporovaný vzorec?**
+**Co se stane, když načtená prezentace obsahuje nepodporovaný vzorec?**
 
-Pokud se data grafu nezměnila, může sešit stále obsahovat dříve vypočítanou cachovanou hodnotu. Po úpravě souvisejících dat tato cachovaná hodnota může přestat být platná. Přístup k buňce, jejíž vzorec nelze zpracovat, může vyvolat [CellUnsupportedDataException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+Pokud data grafu nebyla změněna, může sešit stále obsahovat dříve vypočítanou uloženou hodnotu. Po změně souvisejících dat však může tato uložená hodnota přestat být platná. Přístup k buňce, jejíž vzorec nelze zpracovat, může vyvolat `CellUnsupportedDataException`.
 
-**Jsou hodnoty chyb vzorců stejné jako výjimky .NET?**
+**Jsou hodnoty chyb vzorců stejné jako .NET výjimky?**
 
-Ne. Výsledek jako `#DIV/0!` je hodnota tabulky vytvořená platným výpočtem. Výjimky jako [CellInvalidFormulaException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) nebo [CellCircularReferenceException](https://reference.aspose.com/slides/cs/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) značí, že vzorec nelze běžně zpracovat.
+Ne. Výsledek jako `#DIV/0!` je hodnota tabulkového procesoru vytvořená platnou kalkulací. Výjimky jako `CellInvalidFormulaException` nebo `CellCircularReferenceException` signalizují, že vzorec nelze normálně zpracovat.
 
-**Aktualizuje se graf automaticky, když se změní buňka vzorce?**
+**Aktualizuje se graf automaticky, když se změní buňka se vzorcem?**
 
-Řada grafu může odkazovat na buňky sešitu. Přepočítejte sešit nejdříve, pak uložte nebo renderujte prezentaci. Pokud datové body grafu odkazují na vypočítané buňky, graf používá tyto aktualizované hodnoty; není potřeba samostatná metoda pro obnovu grafu v tomto workflow.
+Řada grafu může odkazovat na buňky sešitu. Nejprve přepočtěte sešit a poté uložte nebo vykreslete prezentaci. Pokud datové body grafu odkazují na vypočítané buňky, graf použije tyto aktualizované hodnoty; není potřeba samostatná metoda pro obnovu grafu.
 
 **Mohou grafy používat externí Excel sešit?**
 
-Ano, data grafu lze nakonfigurovat tak, aby používala externí sešit pomocí API grafu. Nicméně workflow výpočtu vzorců popsaný v tomto článku se týká sešitu dat grafu a podmnožiny vzorců vyhodnocovaných Aspose.Slides. Nepředpokládejte, že [CalculateFormulas](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) poskytuje úplný přepočet libovolných vzorců v externím souboru XLSX.
+Ano, data grafu lze nakonfigurovat tak, aby používala externí sešit přes API dat grafu. Avšak workflow výpočtu vzorců popsaný v tomto článku se týká sešitu dat grafu a podmnožiny vzorců vyhodnocovaných Aspose.Slides. Nepředpokládejte, že `CalculateFormulas` poskytuje úplný přepočet libovolných vzorců v externím souboru XLSX.
 
 **Mohu použít vzorce, které odkazují na jiný list nebo sešit?**
 
-Odkazy ve stylu Excelu mohou existovat v sešitech grafů, ale vyhodnocení vzorce je omezené podporovaným parserem a sadou funkcí. Pokud je nezbytný odkaz napříč listy nebo externí odkaz, ověřte přesně tento vzorec s verzí Aspose.Slides, kterou používáte. Pro workflow, které vyžadují širokou kompatibilitu odkazů Excelu, vypočítejte sešit externě a zapište vyřešené hodnoty zpět do dat grafu.
+Odkazy ve stylu Excel mohou v sešitech grafů existovat, ale vyhodnocení vzorců je omezeno podporovaným parserem a množinou funkcí. Pokud je nezbytný odkaz napříč listy nebo na externí sešit, ověřte přesně tento vzorec s verzí Aspose.Slides, kterou používáte. Pro workflow vyžadující širokou kompatibilitu odkazů Excelu počítejte sešit externě a výsledek zapište zpět do dat grafu.
 
-**Měly by řetězce vzorců začínat `=`?**
+**Měly by řetězce vzorců začínat znakem `=`?**
 
-API příklady Aspose.Slides přiřazují výrazy jako `B2-C2` nebo `SUM(B2:B5)` bez úvodního `=`. Použití této formy udržuje generované vzorce konzistentní s dokumentovanými ukázkami API.
+Ukázky API Aspose.Slides přiřazují výrazy jako `B2-C2` nebo `SUM(B2:B5)` bez úvodního `=`. Použití této podoby udržuje generované vzorce v souladu s dokumentovanými příklady API.

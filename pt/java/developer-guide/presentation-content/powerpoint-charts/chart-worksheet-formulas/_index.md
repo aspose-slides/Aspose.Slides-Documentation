@@ -1,51 +1,54 @@
 ---
-title: Aplicar fórmulas de planilha de gráfico em apresentações em Java
-linktitle: Fórmulas de Planilha
+title: "Aplicar Fórmulas de Planilha de Gráfico em Apresentações em Java"
+linktitle: "Fórmulas de Planilha"
 type: docs
 weight: 70
 url: /pt/java/chart-worksheet-formulas/
 keywords:
-- planilha de gráfico
-- planilha de gráfico
-- fórmula de gráfico
-- fórmula de planilha
-- fórmula de planilha
-- pasta de dados do gráfico
-- cálculo de fórmula
-- constante lógica
-- constante numérica
-- constante de texto
-- constante de erro
-- operador aritmético
-- operador de comparação
-- estilo A1
-- estilo R1C1
-- função predefinida
+- "planilha de gráfico"
+- "planilha de gráfico"
+- "fórmula de gráfico"
+- "fórmula de planilha"
+- "fórmula de planilha"
+- "pasta de trabalho de dados de gráfico"
+- "cálculo de fórmula"
+- "cultura preferencial"
+- "fórmula específica de cultura"
+- DBCS
+- "constante lógica"
+- "constante numérica"
+- "constante de texto"
+- "constante de erro"
+- "operador aritmético"
+- "operador de comparação"
+- "estilo A1"
+- "estilo R1C1"
+- "função predefinida"
 - PowerPoint
-- apresentação
+- "apresentação"
 - Java
 - Aspose.Slides
-description: "Aplicar fórmulas no estilo Excel em planilhas de gráfico Aspose.Slides para Java, recalcular valores e usar os resultados em gráficos do PowerPoint."
+description: "Aplicar fórmulas no estilo Excel nas planilhas de gráficos do Aspose.Slides para Java, recalcular valores e usar os resultados em gráficos do PowerPoint."
 ---
-## **Visão geral**
+## **Visão Geral**
 
-Os gráficos do PowerPoint normalmente armazenam seus dados de origem em uma planilha incorporada. No Aspose.Slides for Java, você pode acessar essa planilha por meio da pasta de trabalho de dados do gráfico, gravar valores de entrada, atribuir fórmulas a células, calcular fórmulas suportadas e usar as células calculadas como dados do gráfico.
+Os gráficos do PowerPoint normalmente armazenam seus dados de origem em uma planilha incorporada. No Aspose.Slides for Java, você pode acessar essa planilha por meio da pasta de trabalho de dados do gráfico, escrever valores de entrada, atribuir fórmulas a células, calcular fórmulas suportadas e usar as células calculadas como dados do gráfico.
 
-Este artigo explica o fluxo completo de trabalho de fórmulas: criar um gráfico, preencher sua planilha, atribuir fórmulas no estilo A1 ou R1C1, recalculá‑las, ler os valores calculados, conectar essas células a uma série de gráfico e salvar a apresentação. Ele também descreve a sintaxe de fórmula suportada, o subconjunto de funções internas, valores em cache, fórmulas não suportadas e erros específicos de planilha.
+Este artigo explica todo o fluxo de trabalho de fórmulas: criar um gráfico, preencher sua planilha, atribuir fórmulas no estilo A1 ou R1C1, recalculá‑las, ler os valores calculados, conectar essas células a uma série de gráfico e salvar a apresentação. Também descreve a sintaxe de fórmula suportada, o subconjunto de funções internas, valores em cache, fórmulas não suportadas e erros específicos de planilhas.
 
 ## **Planilhas de Gráficos e Fórmulas**
 
 Uma planilha de gráfico contém as categorias, nomes de séries e valores usados por um gráfico. No PowerPoint, você pode inspecionar a planilha abrindo o editor de dados do gráfico:
 
-![Gráfico do PowerPoint com sua planilha incorporada aberta, mostrando dados de categoria e série](chart-worksheet-formulas_1.png)
+![Gráfico do PowerPoint com sua planilha incorporada aberta, mostrando dados de categorias e séries](chart-worksheet-formulas_1.png)
 
-No Aspose.Slides, a planilha é exposta por meio da interface [IChartDataWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/). Use [IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) para fórmulas no estilo A1 e [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) para fórmulas no estilo R1C1. Após mudar células de entrada ou fórmulas, chame [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) para recalcular as fórmulas suportadas e atualizar os valores das células correspondentes.
+No Aspose.Slides, a planilha é exposta por meio da interface [IChartDataWorkbook](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/). Use [IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) para fórmulas no estilo A1 e [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) para fórmulas no estilo R1C1. Depois de alterar células de entrada ou fórmulas, chame [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) para recalcular as fórmulas suportadas e atualizar os valores correspondentes das células.
 
-Uma célula calculada ainda expõe seu resultado por meio de [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--). Isso é importante quando você precisa inspecionar o resultado de uma fórmula no código ou usar a célula como ponto de dado do gráfico.
+Uma célula calculada ainda expõe seu resultado por meio de [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--). Isso é importante quando você precisa inspecionar o resultado de uma fórmula no código ou usar a célula como um ponto de dados do gráfico.
 
 ## **Criar um Gráfico e Calcular Fórmulas da Planilha**
 
-O exemplo a seguir demonstra um fluxo de trabalho de ponta a ponta. Ele cria um gráfico de colunas agrupadas, limpa os dados de exemplo, grava valores trimestrais de receita e despesa, calcula lucro com fórmulas, lê os resultados, usa as células calculadas como valores do gráfico e salva a apresentação.
+O exemplo a seguir demonstra um fluxo de trabalho de ponta a ponta. Ele cria um gráfico de colunas agrupadas, limpa os dados de exemplo, grava valores trimestrais de receita e despesa, calcula o lucro com fórmulas, lê os resultados, usa as células calculadas como valores do gráfico e salva a apresentação.
 
 ```java
 import com.aspose.slides.*;
@@ -110,11 +113,11 @@ try {
 }
 ```
 
-Os pontos de dados do gráfico referenciam `D2:D4`, portanto o gráfico usa os valores de lucro calculados. Não há chamada separada de atualização de gráfico neste fluxo: recalcule a pasta de trabalho primeiro, depois use ou salve os dados do gráfico que apontam para as células calculadas.
+Os pontos de dados do gráfico referenciam `D2:D4`, portanto o gráfico usa os valores de lucro calculados. Não há chamada separada de atualização de gráfico neste fluxo de trabalho: recalcule a pasta de trabalho primeiro, depois use ou salve os dados do gráfico que apontam para as células calculadas.
 
 ## **Usar Fórmulas no Estilo A1**
 
-A notação A1 identifica colunas com letras e linhas com números. Atribua expressões no estilo A1 através de [IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
+A notação A1 identifica colunas com letras e linhas com números. Atribua expressões no estilo A1 via [IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -154,7 +157,7 @@ Referências relativas podem mudar quando uma fórmula é movida ou copiada por 
 
 ## **Usar Fórmulas no Estilo R1C1**
 
-A notação R1C1 identifica linhas e colunas numericamente. Referências relativas usam deslocamentos entre colchetes. Atribua essa sintaxe através de [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
+A notação R1C1 identifica linhas e colunas numericamente. Referências relativas usam deslocamentos entre colchetes. Atribua essa sintaxe via [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -203,7 +206,7 @@ O avaliador de fórmulas interno suporta valores lógicos, literais numéricos, 
 | Texto | `"abc"`, `"2/3/2020 12:00"` | Literais de texto são delimitados por aspas duplas dentro da fórmula. |
 | Resultado de erro | `#DIV/0!`, `#N/A`, `#REF!` | Uma fórmula válida pode avaliar para um valor de erro de planilha em vez de um resultado normal. |
 
-Este exemplo usa vários tipos de constante:
+Este exemplo usa vários tipos de constantes:
 
 ```java
 import com.aspose.slides.*;
@@ -259,9 +262,9 @@ Expressões de comparação retornam valores lógicos.
 | `<` | Menor que | `A2<3` |
 | `<=` | Menor ou igual a | `A2<=3` |
 
-## **Funções Predefinidas Suportadas**
+## **Funções Pré‑definidas Suportadas**
 
-O Aspose.Slides inclui um avaliador interno de fórmulas para planilhas de gráficos, mas não é um mecanismo de cálculo completo do Excel. O conjunto de funções documentado está limitado às funções abaixo. Não presuma que uma função arbitrária do Excel possa ser recalculada por [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+O Aspose.Slides inclui um avaliador de fórmulas interno para planilhas de gráficos, mas não é um motor de cálculo completo do Excel. O conjunto de funções documentado está limitado às funções abaixo. Não presuma que uma função arbitrária do Excel possa ser recalculada por [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
 
 | Função | Propósito ou forma suportada | Exemplo |
 |---|---|---|
@@ -273,25 +276,60 @@ O Aspose.Slides inclui um avaliador interno de fórmulas para planilhas de gráf
 | `CONCATENATE` | Junta valores de texto | `CONCATENATE(A2," ",B2)` |
 | `DATE` | Cria um valor de data usando o sistema de datas 1900 | `DATE(2026,8,19)` |
 | `DAYS` | Retorna o número de dias entre datas | `DAYS(B2,A2)` |
-| `FIND` | Encontra um texto dentro de outro | `FIND("-",A2)` |
+| `FIND` | Localiza um texto dentro de outro | `FIND("-",A2)` |
 | `FINDB` | Busca de texto orientada a bytes | `FINDB("a",A2)` |
 | `IF` | Resultado condicional | `IF(A2>0,A2,0)` |
 | `INDEX` | Forma de referência | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Forma vetorial | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | Forma vetorial | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Valor máximo | `MAX(B2:B5)` |
-| `SUM` | Soma de valores | `SUM(B2:B5)` |
-| `VLOOKUP` | Busca vertical | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `SUM` | Soma valores | `SUM(B2:B5)` |
+| `VLOOKUP` | Procura vertical | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-As restrições mostradas na tabela são relevantes: `INDEX` é documentado na forma de referência, enquanto `LOOKUP` e `MATCH` são documentados em suas formas vetoriais. `DATE` usa o sistema de datas 1900. Recursos e funções não listados aqui devem ser considerados não suportados pelo avaliador de fórmulas do Aspose.Slides, a menos que sejam documentados separadamente.
+As restrições mostradas na tabela são significativas: `INDEX` é documentado na forma de referência, enquanto `LOOKUP` e `MATCH` são documentados em suas formas vetoriais. `DATE` usa o sistema de datas 1900. Recursos e funções não listados aqui devem ser considerados como não suportados pelo avaliador de fórmulas do Aspose.Slides, salvo documentação separada.
 
-## **Recalculação e Valores em Cache**
+## **Calcular Fórmulas com Cultura Preferencial**
 
-Arquivos de planilha costumam armazenar tanto a fórmula quanto seu último valor calculado. O Aspose.Slides pode, portanto, ler um valor em cache de [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--) quando uma apresentação é carregada e os dados do gráfico relevantes não foram alterados.
+Algumas funções da pasta de trabalho de gráfico interpretam texto de acordo com regras específicas de cultura. Isso é especialmente importante para funções destinadas a idiomas que utilizam conjuntos de caracteres de dois bytes (DBCS). Para calcular essas fórmulas corretamente, crie [LoadOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/loadoptions/), defina a cultura preferencial com [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/pt/java/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), atribua as opções de planilha via [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/pt/java/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), e então carregue a apresentação.
 
-Após mudar células de entrada ou fórmulas, não confie em um resultado em cache antigo. Chame [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) antes de ler valores calculados ou salvar dados do gráfico que dependam deles.
+O exemplo a seguir seleciona a cultura japonesa, abre uma apresentação com as opções de carregamento configuradas e chama [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) para cada pasta de trabalho de gráfico:
 
-Para fórmulas fora do subconjunto suportado, o Aspose.Slides pode não conseguir analisar a fórmula ou estabelecer suas dependências. Se a pasta de trabalho foi modificada, o valor em cache anterior não pode mais ser considerado confiável. Nesse caso, ler o valor de uma célula com dados não suportados pode gerar [CellUnsupportedDataException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellunsupporteddataexception/).
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A cultura preferencial faz parte da configuração de carregamento da apresentação, portanto especifique‑a antes de criar a instância de [Presentation](https://reference.aspose.com/slides/pt/java/com.aspose.slides/presentation/). Use a cultura esperada pelas fórmulas da pasta de trabalho; por exemplo, use `ja-JP` para fórmulas que devem seguir as regras de cálculo DBCS japonesas.
+
+## **Recalcular e Valores em Cache**
+
+Arquivos de planilha costumam armazenar tanto a fórmula quanto seu último valor calculado. O Aspose.Slides pode, portanto, ler um valor em cache de [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--) quando a apresentação é carregada e os dados do gráfico relevantes não foram alterados.
+
+Depois de mudar células de entrada ou fórmulas, não confie em um resultado em cache antigo. Chame [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) antes de ler valores calculados ou salvar dados de gráfico que dependam deles.
+
+Para fórmulas fora do subconjunto suportado, o Aspose.Slides pode não conseguir analisar a fórmula ou estabelecer suas dependências. Se a pasta de trabalho foi modificada, o valor em cache anterior pode não ser mais confiável. Nessa situação, ler o valor de uma célula com dados não suportados pode gerar [CellUnsupportedDataException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellunsupporteddataexception/).
 
 Se o seu gráfico depende de funções do Excel que o Aspose.Slides não avalia, calcule essas fórmulas com um motor de planilha que as suporte e grave os valores resultantes de volta na pasta de trabalho do gráfico. Não substitua fórmulas não suportadas por valores adivinhados.
 
@@ -299,11 +337,11 @@ Se o seu gráfico depende de funções do Excel que o Aspose.Slides não avalia,
 
 Existem dois tipos diferentes de problemas a distinguir.
 
-Uma fórmula pode ser válida mas produzir um resultado de erro de planilha como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` ou `#VALUE!`. Nesse caso, o token de erro é um resultado de célula e pode ser retornado através de [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--).
+Uma fórmula pode ser válida, mas produzir um resultado de erro de planilha como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` ou `#VALUE!`. Nesse caso, o token de erro é um resultado de célula e pode ser retornado via [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--).
 
-Uma fórmula também pode falhar na análise, referência, dependência ou nível de dados suportados. O Aspose.Slides fornece exceções específicas de planilha para esses casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellcircularreferenceexception/) e [CellUnsupportedDataException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellunsupporteddataexception/).
+Uma fórmula também pode falhar no nível de análise, referência, dependência ou dados suportados. O Aspose.Slides fornece exceções específicas de planilha para esses casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellcircularreferenceexception/) e [CellUnsupportedDataException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellunsupporteddataexception/).
 
-Quando as fórmulas vêm de modelos ou da entrada do usuário, trate essas exceções ao redor da recalculação e do acesso ao valor:
+Quando as fórmulas provêm de modelos ou entrada do usuário, trate essas exceções ao redor da recalculação e do acesso ao valor:
 
 ```java
 import com.aspose.slides.*;
@@ -335,52 +373,52 @@ try {
 
 ## **Limitações Práticas**
 
-O suporte a fórmulas em planilhas de gráficos destina‑se a um subconjunto definido de cálculos de planilha, não a compatibilidade total com o Excel. Mantenha essas restrições em mente ao projetar um fluxo de trabalho de relatório:
+O suporte a fórmulas em planilhas de gráficos destina‑se a um subconjunto definido de cálculos de planilha, não à compatibilidade total com o Excel. Mantenha essas restrições em mente ao projetar um fluxo de trabalho de relatórios:
 
 - Use apenas as constantes, operadores, referências e funções documentadas quando precisar que o Aspose.Slides recalcule fórmulas.
-- Recalcule após alterar células das quais os resultados das fórmulas dependem.
+- Recalcule após modificar células das quais os resultados das fórmulas dependem.
 - Considere os valores em cache de apresentações carregadas como instantâneos, não como substitutos da recalculação após edições.
-- Teste fórmulas de modelos existentes antes de confiar em seus valores calculados, especialmente quando utilizam funções fora da lista documentada.
-- Para fórmulas que exigem um motor completo de cálculo de planilha, calcule‑as externamente e depois atualize a pasta de trabalho do gráfico com os valores resultantes.
+- teste fórmulas de modelos existentes antes de confiar em seus valores calculados, especialmente quando utilizarem funções fora da lista documentada.
+- Para fórmulas que exigem um motor de cálculo completo de planilha, calcule‑as externamente e, em seguida, atualize a pasta de trabalho do gráfico com os valores resultantes.
 
 ## **FAQ**
 
-**Qual é a diferença entre [IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) e [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
+**Qual a diferença entre [IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) e [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-[IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) armazena uma expressão no estilo A1 como `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) armazena uma expressão no estilo R1C1 como `RC[-2]-RC[-1]`. Use a notação que melhor corresponda à forma como você gera ou copia fórmulas.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) armazena uma expressão no estilo A1, como `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) armazena uma expressão no estilo R1C1, como `RC[-2]-RC[-1]`. Use a notação que melhor corresponde à forma como você gera ou copia fórmulas.
 
 **Preciso ler a própria célula ou seu valor após a cálculo?**
 
-[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) devolve um [IChartDataCell](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/). Para obter o resultado calculado, chame o método [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--) dessa célula após a recalculação.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) retorna um [IChartDataCell](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/). Para obter o resultado calculado, chame o método [IChartDataCell.getValue](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdatacell/#getValue--) da célula após a recalculação.
 
 **Quando devo chamar [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-Chame [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) após alterar valores de entrada ou fórmulas e antes de depender dos resultados calculados. Isso atualiza os valores das fórmulas que o avaliador interno suporta.
+Chame [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) depois de mudar valores de entrada ou fórmulas e antes de depender dos resultados calculados. Isso atualiza os valores das fórmulas que o avaliador interno suporta.
 
 **O Aspose.Slides suporta todas as funções do Excel?**
 
-Não. O avaliador interno suporta apenas um subconjunto documentado de funções. Funções fora desse subconjunto não devem ser presumidas como recalculáveis corretamente. Se for necessária compatibilidade total com fórmulas do Excel, execute o cálculo com um motor de planilha apropriado e grave os valores finais na pasta de trabalho do gráfico.
+Não. O avaliador interno suporta um subconjunto documentado de funções. Funções fora desse subconjunto não devem ser presumidas como recalculáveis corretamente. Se for necessária compatibilidade total com as fórmulas do Excel, execute o cálculo com um motor de planilha adequado e grave os valores finais na pasta de trabalho do gráfico.
 
 **O que acontece se uma apresentação carregada contiver uma fórmula não suportada?**
 
-Se os dados do gráfico não foram alterados, a pasta de trabalho pode ainda conter um valor em cache previamente calculado. Após modificar os dados relacionados, esse valor em cache pode não ser mais válido. Acessar uma célula cuja fórmula não pode ser tratada pode gerar [CellUnsupportedDataException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellunsupporteddataexception/).
+Se os dados do gráfico não foram alterados, a pasta de trabalho ainda pode conter um valor em cache calculado anteriormente. Após a modificação dos dados relacionados, esse valor em cache pode não ser mais válido. Acessar uma célula cuja fórmula não pode ser tratada pode gerar [CellUnsupportedDataException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellunsupporteddataexception/).
 
-**Valores de erro de fórmula são iguais a exceções Java?**
+**Os valores de erro de fórmula são iguais a exceções Java?**
 
 Não. Um resultado como `#DIV/0!` é um valor de planilha produzido por um cálculo válido. Exceções como [CellInvalidFormulaException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellinvalidformulaexception/) ou [CellCircularReferenceException](https://reference.aspose.com/slides/pt/java/com.aspose.slides/cellcircularreferenceexception/) indicam que a fórmula não pode ser processada normalmente.
 
 **Um gráfico é atualizado automaticamente quando uma célula de fórmula muda?**
 
-Uma série de gráfico pode referenciar células da pasta de trabalho. Recalcule a pasta de trabalho primeiro, depois salve ou renderize a apresentação. Se os pontos de dados do gráfico referenciam as células calculadas, o gráfico usa esses valores atualizados; nenhum método separado de atualização de gráfico é necessário para este fluxo.
+Uma série de gráfico pode referenciar células da pasta de trabalho. Recalcule a pasta de trabalho primeiro, depois salve ou renderize a apresentação. Se os pontos de dados do gráfico referenciam as células calculadas, o gráfico usa esses valores atualizados; nenhum método de atualização de gráfico separado é necessário para esse fluxo de trabalho.
 
 **Os gráficos podem usar uma pasta de trabalho Excel externa?**
 
-Sim, os dados do gráfico podem ser configurados para usar uma pasta de trabalho externa através da API de dados do gráfico. No entanto, o fluxo de trabalho de cálculo de fórmulas descrito neste artigo refere‑se à pasta de trabalho de dados do gráfico e ao subconjunto de fórmulas avaliado pelo Aspose.Slides. Não presuma que [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) ofereça recalculação completa de fórmulas arbitrárias em um arquivo XLSX externo.
+Sim, os dados do gráfico podem ser configurados para usar uma pasta de trabalho externa por meio da API de dados do gráfico. No entanto, o fluxo de trabalho de cálculo de fórmulas descrito neste artigo refere‑se à pasta de trabalho de dados do gráfico e ao subconjunto de fórmulas avaliado pelo Aspose.Slides. Não presuma que [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pt/java/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) forneça recalculação completa de fórmulas arbitrárias em um arquivo XLSX externo.
 
 **Posso usar fórmulas que referenciam outra planilha ou pasta de trabalho?**
 
-Referências no estilo Excel podem existir em pastas de trabalho de gráfico, mas a avaliação de fórmulas é limitada ao analisador e conjunto de funções suportados. Se uma referência cruzada de planilha ou externa for essencial, valide essa fórmula exata com a versão do Aspose.Slides que você está usando. Para fluxos que exigem compatibilidade ampla de referências do Excel, calcule a pasta de trabalho externamente e grave os valores resolvidos de volta nos dados do gráfico.
+Referências no estilo Excel podem existir em pastas de trabalho de gráfico, mas a avaliação de fórmulas é limitada ao analisador e conjunto de funções suportados. Se uma referência cruzada ou externa for essencial, valide essa fórmula exata com a versão do Aspose.Slides que você está usando. Para fluxos de trabalho que exigem ampla compatibilidade de referências do Excel, calcule a pasta de trabalho externamente e grave os valores resolvidos de volta aos dados do gráfico.
 
 **As strings de fórmula devem começar com `=`?**
 
-Os exemplos da API Aspose.Slides atribuem expressões como `B2-C2` ou `SUM(B2:B5)` sem um `=` inicial. Usar esse formato mantém as fórmulas geradas consistentes com os exemplos de API documentados.
+Os exemplos da API Aspose.Slides atribuem expressões como `B2-C2` ou `SUM(B2:B5)` sem um `=` inicial. Usar essa forma mantém as fórmulas geradas consistentes com os exemplos de API documentados.

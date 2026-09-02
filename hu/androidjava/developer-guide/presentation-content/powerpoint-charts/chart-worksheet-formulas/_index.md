@@ -1,6 +1,6 @@
 ---
-title: "Diagram munkalap képletek alkalmazása Androidon bemutatókban"
-linktitle: "Munkalap képletek"
+title: Diagram munkalap képletek alkalmazása Androidos prezentációkban
+linktitle: Munkalap képletek
 type: docs
 weight: 70
 url: /hu/androidjava/chart-worksheet-formulas/
@@ -10,43 +10,46 @@ keywords:
 - diagram képlet
 - munkalap képlet
 - táblázat képlet
-- diagram adat munkafüzet
+- diagram adatkönyvtár
 - képlet számítás
+- preferált kultúra
+- kultúraspecifikus képlet
+- DBCS
 - logikai állandó
 - numerikus állandó
-- karakterlánc állandó
-- hiba állandó
+- szövegállandó
+- hibaállandó
 - aritmetikai operátor
 - összehasonlító operátor
 - A1 stílus
 - R1C1 stílus
 - előre definiált függvény
 - PowerPoint
-- bemutató
+- prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Excel-stílusú képletek alkalmazása Aspose.Slides for Android via Java diagram munkalapokon, újraszámolja az értékeket, és felhasználja az eredményeket PowerPoint diagramokban."
+description: "Excel‑stílusú képletek alkalmazása az Aspose.Slides for Android Java diagram munkalapokon, az értékek újraszámítása, és az eredmények használata PowerPoint diagramokban."
 ---
 ## **Áttekintés**
 
-A PowerPoint-diagramok általában a forrásadataikat egy beágyazott munkalapon tárolják. Az Aspose.Slides for Android via Java segítségével a diagram adatkönyvtárán keresztül elérheti ezt a munkalapot, írhat bemeneti értékeket, hozzárendelhet képleteket a cellákhoz, kiszámíthatja a támogatott képleteket, és felhasználhatja a kiszámított cellákat diagramadatként.
+A PowerPoint-diagramok általában a forrásadataikat beágyazott munkalapon tárolják. Az Aspose.Slides for Android via Java segítségével hozzáférhet a munkalaphoz a diagram adatkönyvtárán keresztül, beírhat bemeneti értékeket, képleteket rendelhet a cellákhoz, kiszámíthatja a támogatott képleteket, és a kiszámított cellákat diagram adatokként használhatja.
 
-Ez a cikk a teljes képletszemléltetési munkafolyamatot mutatja be: diagram létrehozása, a munkalap feltöltése, A1‑stílusú vagy R1C1‑stílusú képletek hozzárendelése, újraszámítása, a kiszámított értékek olvasása, a cellák csatlakoztatása diagramsorozathoz, és a bemutató mentése. Leírja a támogatott képletszintaxist, a beépített függvények részhalmazát, a gyorsítótárazott értékeket, a nem támogatott képleteket és a táblázat-specifikus hibákat.
+Ez a cikk bemutatja a teljes képletmunkafolyamatot: diagram létrehozása, a munkalap feltöltése, A1‑ vagy R1C1‑stílusú képletek hozzárendelése, újraszámításuk, a számított értékek beolvasása, ezeknek a celláknak a diagram sorozathoz kapcsolása, és a prezentáció mentése. Emellett ismerteti a támogatott képlet szintaxist, a beépített függvény részhalmazt, a gyorsítótárazott értékeket, a nem támogatott képleteket és a táblázatspecifikus hibákat.
 
 ## **Diagram munkalapok és képletek**
 
-Egy diagram munkalapja tartalmazza a diagram által használt kategóriákat, sorozatneveket és értékeket. PowerPointban megtekintheti a munkalapot a diagram adat szerkesztő megnyitásával:
+Egy diagram munkalapja tartalmazza a kategóriákat, sorozatneveket és a diagram által használt értékeket. PowerPointban a munkalapot a diagram adateditor megnyitásával ellenőrizheti:
 
-![PowerPoint-diagram az beágyazott munkalappal nyitva, a kategória- és sorozatadatok megjelenítése](chart-worksheet-formulas_1.png)
+![PowerPoint diagram beágyazott munkalappal nyitva, kategória‑ és sorozatadatok megjelenítése](chart-worksheet-formulas_1.png)
 
-Az Aspose.Slidesben a munkalap a [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/) felületen keresztül érhető el. Használja a [IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) metódust A1‑stílusú képletekhez és a [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) metódust R1C1‑stílusú képletekhez. A bemeneti cellák vagy képletek módosítása után hívja meg a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust a támogatott képletek újraszámításához és a megfelelő cellaértékek frissítéséhez.
+Az Aspose.Slidesben a munkalap a [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/) felületen keresztül érhető el. Használja a [IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) metódust A1‑stílusú képletekhez, valamint a [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) metódust R1C1‑stílusú képletekhez. Bemeneti cellák vagy képletek módosítása után hívja meg a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust a támogatott képletek újraszámításához és a megfelelő cellaértékek frissítéséhez.
 
-Egy kiszámított cella továbbra is az eredményét a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódussal adja vissza. Ez fontos, ha kódban kell ellenőriznie egy képlet eredményét vagy a cellát diagramadatpontként szeretné használni.
+Egy számított cella eredményét továbbra is a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódussal érheti el. Ez akkor fontos, amikor a kódban képleteredményt kell ellenőriznie vagy a cellát diagram adatpontként szeretné használni.
 
 ## **Diagram létrehozása és a munkalap képleteinek kiszámítása**
 
-Az alábbi példa egy végponttól végpontig tartó munkafolyamatot mutat be. Létrehoz egy klaszterelt oszlopdiagramot, törli a mintaadatokat, beírja a negyedéves bevétel és kiadás értékeket, képletekkel számolja ki a profitot, beolvassa az eredményeket, a kiszámított cellákat diagramértékekként használja, és menti a bemutatót.
+Az alábbi példa egy végponttól végpontig tartó munkafolyamatot mutat be. Létrehoz egy csoportosított oszlopdiagramot, törli a mintákat, beírja a negyedéves bevétel‑ és költségértékeket, képletekkel számítja ki a profitot, beolvassa az eredményeket, a számított cellákat diagramértékként használja, és menti a prezentációt.
 
 ```java
 import com.aspose.slides.*;
@@ -111,11 +114,11 @@ try {
 }
 ```
 
-A diagram adatpontjai a `D2:D4` tartományra hivatkoznak, így a diagram a kiszámított profitértékeket használja. Ebben a munkafolyamatban nincs külön diagramfrissítő hívás: először számolja újra a munkafüzetet, majd használja vagy mentse a diagramadatokat, amelyek a kiszámított cellákra mutatnak.
+A diagram adatpontjai a `D2:D4` tartományra hivatkoznak, így a diagram a számított profitértékeket használja. Ebben a munkafolyamatban nincs külön diagram‑frissítő hívás: először számolja újra a munkafüzetet, majd használja vagy mentse a számított cellákra mutató diagramadatokat.
 
 ## **A1‑stílusú képletek használata**
 
-Az A1 jelölés a oszlopokat betűkkel, a sorokat számokkal azonosítja. A A1‑stílusú kifejezéseket a [IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) metódussal rendelheti hozzá.
+Az A1 jelölés oszlopokat betűkkel, sorokat számokkal azonosít. A A1‑stílusú kifejezéseket a [IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) metódussal adhatja meg.
 
 ```java
 import com.aspose.slides.*;
@@ -142,20 +145,20 @@ try {
 }
 ```
 
-A gyakori A1 hivatkozási formák a következők:
+A gyakori A1 referenciaformák:
 
-| Hivatkozás | Relatív | Abszolút | Vegyes |
+| Referencia | Relatív | Abszolút | Vegyes |
 |---|---|---|---|
-| Cell | `A2` | `$A$2` | `A$2`, `$A2` |
-| Row | `2:2` | `$2:$2` | — |
-| Column | `A:A` | `$A:$A` | — |
-| Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+| Cella | `A2` | `$A$2` | `A$2`, `$A2` |
+| Sor | `2:2` | `$2:$2` | — |
+| Oszlop | `A:A` | `$A:$A` | — |
+| Tartomány | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-A relatív hivatkozások megváltozhatnak, amikor egy képletet egy táblázatkezelő alkalmazás mozgat vagy másol. Az abszolút hivatkozások mindkét koordinátát rögzítik, míg a vegyes hivatkozások csak egy sort vagy egy oszlopot rögzítenek.
+A relatív hivatkozások a képlet mozgatásakor vagy másolásakor megváltozhatnak egy táblázatkezelőben. Az abszolút hivatkozások mindkét koordinátát rögzítik, míg a vegyes hivatkozások csak egy sort vagy egy oszlopot rögzítenek.
 
 ## **R1C1‑stílusú képletek használata**
 
-Az R1C1 jelölés a sorokat és oszlopokat számokkal azonosítja. A relatív hivatkozások négyzetes zárójelekben megadott eltolásokat használnak. Ezt a szintaxist a [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) metódussal adhatja meg.
+Az R1C1 jelölés mind a sorokat, mind az oszlopokat numerikusan azonosítja. A relatív hivatkozások négyzetes zárójelekben lévő eltolásokat használnak. Ezt a szintaxist a [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) metódussal adhatja meg.
 
 ```java
 import com.aspose.slides.*;
@@ -180,31 +183,31 @@ try {
 }
 ```
 
-A gyakori R1C1 hivatkozási formák a következők:
+A gyakori R1C1 referenciaformák:
 
-| Hivatkozás | Relatív | Abszolút | Vegyes |
+| Referencia | Relatív | Abszolút | Vegyes |
 |---|---|---|---|
-| Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
-| Row | `R[2]` | `R2` | — |
-| Column | `C[3]` | `C3` | — |
-| Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+| Cella | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
+| Sor | `R[2]` | `R2` | — |
+| Oszlop | `C[3]` | `C3` | — |
+| Tartomány | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
 Például a `D2` cellában az `RC[-2]` a ugyanabban a sorban két oszloppal balra lévő cellát jelenti (`B2`).
 
-## **Képletsz constantok és operátorok**
+## **Képletállandók és operátorok**
 
-A beépített képletértékelő logikai értékeket, numerikus literálokat, karakterláncokat, táblázat-hibákat, aritmetikai operátorokat és összehasonlító operátorokat támogat.
+A beépített képletelemző logikai értékek, numerikus literálok, sztringek, táblázathibák, aritmetikai operátorok és összehasonlító operátorok támogatását biztosítja.
 
-### **Constantok és literálok**
+### **Állandók és literálok**
 
 | Típus | Példák | Megjegyzés |
 |---|---|---|
-| Logical | `TRUE`, `FALSE` | Közvetlenül használható logikai kifejezésekben, például `A2=TRUE`. |
-| Numeric | `1`, `0.5`, `.3`, `1E-2` | A közönséges és a tudományos jelölés is támogatott. |
-| String | `"abc"`, `"2/3/2020 12:00"` | A szövegliterálok a képleten belül dupla idézőjelek közé kerülnek. |
-| Error result | `#DIV/0!`, `#N/A`, `#REF!` | Egy érvényes képlet kiértékelése táblázat-hibaértékkel is végezhető a normál eredmény helyett. |
+| Logikai | `TRUE`, `FALSE` | Közvetlenül használható logikai kifejezésekben, pl. `A2=TRUE`. |
+| Numerikus | `1`, `0.5`, `.3`, `1E-2` | A közös és a tudományos jelölés egyaránt támogatott. |
+| Sztring | `"abc"`, `"2/3/2020 12:00"` | Szövegliterálok dupla idézőjelek közé vannak helyezve a képletben. |
+| Hibaeredmény | `#DIV/0!`, `#N/A`, `#REF!` | Egy érvényes képlet normál eredmény helyett táblázathiba‑értékkel is visszatérhet. |
 
-Ez a példa több constant típust is használ:
+Ez a példa több állandótípust használ:
 
 ```java
 import com.aspose.slides.*;
@@ -238,7 +241,7 @@ try {
 
 | Operátor | Jelentés | Példa |
 |---|---|---|
-| `+` | Összeadás vagy egyéb pozitív előjel | `2+3` |
+| `+` | Összeadás vagy unáris plusz | `2+3` |
 | `-` | Kivonás vagy negáció | `2-3`, `-3` |
 | `*` | Szorzás | `2*3` |
 | `/` | Osztás | `2/3` |
@@ -260,51 +263,86 @@ Az összehasonlító kifejezések logikai értéket adnak vissza.
 | `<` | Kisebb mint | `A2<3` |
 | `<=` | Kisebb vagy egyenlő | `A2<=3` |
 
-## **Támogatott előre definiált függvények**
+## **Támogatott beépített függvények**
 
-Az Aspose.Slides beépített képletértékelővel rendelkezik diagrammunkalapokhoz, de nem egy teljes Excel számítási motor. A dokumentált függvénykészlet a lenti függvényekre korlátozódik. Ne feltételezze, hogy bármely Excel‑függvény újraszámítható a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódussal.
+Az Aspose.Slides beépített képletelemzővel rendelkezik diagram munkalapokhoz, de nem egy teljes Excel‑számítási motor. A dokumentált függvénykészlet az alábbiakra korlátozódik. Ne feltételezze, hogy bármely Excel‑függvényt újra tud számolni a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódus.
 
 | Függvény | Cél vagy támogatott forma | Példa |
 |---|---|---|
 | `ABS` | Abszolút érték | `ABS(A2)` |
-| `AVERAGE` | Számított átlag | `AVERAGE(B2:B5)` |
-| `CEILING` | Felfelé kerekítés többszörösre | `CEILING(A2,5)` |
-| `CHOOSE` | Érték kiválasztása index alapján | `CHOOSE(A2,"Low","High")` |
+| `AVERAGE` | Mértani közép | `AVERAGE(B2:B5)` |
+| `CEILING` | Felfelé kerekítés egy többszörösre | `CEILING(A2,5)` |
+| `CHOOSE` | Index alapján választ értéket | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | Szövegek összefűzése | `CONCAT(A2,B2)` |
 | `CONCATENATE` | Szövegek összefűzése | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Dátum érték létrehozása a 1900-as dátumrendszerrel | `DATE(2026,8,19)` |
-| `DAYS` | Napok számának visszaadása dátumok között | `DAYS(B2,A2)` |
+| `DATE` | Dátumérték létrehozása a 1900‑es dátumrendszerrel | `DATE(2026,8,19)` |
+| `DAYS` | Napok száma két dátum között | `DAYS(B2,A2)` |
 | `FIND` | Szövegrész keresése egy másikban | `FIND("-",A2)` |
-| `FINDB` | Byte‑orientált szövegkeresés | `FINDB("a",A2)` |
+| `FINDB` | Bájt‑orientált szövegre keresés | `FINDB("a",A2)` |
 | `IF` | Feltételes eredmény | `IF(A2>0,A2,0)` |
-| `INDEX` | Referencia forma | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | Vektor forma | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | Vektor forma | `MATCH(A2,B2:B5,0)` |
+| `INDEX` | Referenciaforma | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Vektorf forma | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektorf forma | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Legnagyobb érték | `MAX(B2:B5)` |
-| `SUM` | Értékek összeadása | `SUM(B2:B5)` |
+| `SUM` | Összeg | `SUM(B2:B5)` |
 | `VLOOKUP` | Függőleges keresés | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-A táblázatban feltüntetett korlátozások jelentősek: az `INDEX` referencia formában van dokumentálva, míg a `LOOKUP` és a `MATCH` vektor formában. A `DATE` a 1900‑as dátumrendszert használja. A itt nem felsorolt funkciók és jellemzők az Aspose.Slides képletértékelő számára nem támogatottak, hacsak külön nincsenek dokumentálva.
+A táblázatban szereplő korlátozások jelentősek: az `INDEX` referenciaformában, míg a `LOOKUP` és `MATCH` vektorf formában van dokumentálva. A `DATE` a 1900‑as dátumrendszert használja. Az itt felsoroltakon kívül szereplő funkciók a beépített képletelemző számára nem támogatottak, hacsak külön nincsenek dokumentálva.
+
+## **Képletek számítása preferált kultúrával**
+
+Bizonyos munkafüzet‑függvények a szöveget kultúrafüggő szabályok szerint értelmezik. Ez különösen fontos azoknál a függvényeknél, amelyek kettős bájtos karakterkészletet (DBCS) használó nyelvekre lettek tervezve. Az ilyen képletek helyes számításához hozza létre a [LoadOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/) objektumot, állítsa be a preferált kultúrát a [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-) metódussal, adja át a táblázat‑beállításokat a [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-) metódussal, majd töltse be a prezentációt.
+
+Az alábbi példa japán kultúrát választ, megnyit egy prezentációt a beállított betöltési opciókkal, és minden diagram munkafüzetre meghívja a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust:
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A preferált kultúra a prezentáció betöltési konfiguráció része, ezért a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) példány létrehozása előtt adja meg. Használja a képletek által elvárt kultúrát; például a japán DBCS szabályokhoz a `ja-JP` értéket adja meg.
 
 ## **Újraszámítás és gyorsítótárazott értékek**
 
-A táblázatfájlok gyakran tárolják a képletet és az utolsó kiszámított értékét is. Az Aspose.Slides ezért képes a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódussal a gyorsítótárazott értéket kiolvasni, amikor egy bemutatót betöltenek, és a megfelelő diagramadatok nem változtak.
+A táblázatfájlok gyakran tárolják a képletet és az utoljára számított értéket is. Az Aspose.Slides ezért a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódussal a gyorsítótárazott értéket is kiolvashatja, amikor a prezentáció betöltődik, és a vonatkozó diagramadatok nem változtak.
 
-A bemeneti cellák vagy képletek módosítása után ne támaszkodjon a régi gyorsítótárazott eredményre. Hívja meg a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust a kiszámított értékek olvasása vagy a diagramadatok mentése előtt, amelyek ezekre támaszkodnak.
+Bemeneti cellák vagy képletek módosítása után ne támaszkodjon egy régi gyorsítótárazott eredményre. Hívja meg a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust a számított értékek beolvasása vagy a függő diagramadatok mentése előtt.
 
-A támogatott részhalmazon kívüli képletek esetén az Aspose.Slides előfordulhat, hogy nem tudja értelmezni a képletet vagy annak függőségeit. Ha a munkafüzet módosult, a korábbi gyorsítótárazott érték már nem tekinthető megbízhatónak. Ilyen helyzetben egy nem támogatott adatokkal rendelkező cella értékének olvasása [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellunsupporteddataexception/) kivételt dobhat.
+A támogatott részhalmazon kívül eső képletek esetén az Aspose.Slides előfordulhat, hogy nem tudja értelmezni a képletet vagy annak függőségeit. Ha a munkafüzet módosult, a korábbi gyorsítótárazott érték már nem tekinthető megbízhatónak. Ilyenkor egy nem támogatott adatot tartalmazó cella olvasása [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellunsupporteddataexception/) kivételt eredményezhet.
 
-Ha diagramja olyan Excel‑függvényeket használ, amelyeket az Aspose.Slides nem értékel, számítsa ki ezeket a képleteket egy olyan táblázatmotorral, amely támogatja őket, majd írja vissza az eredményeket a diagram munkafüzetébe. Ne helyettesítse a nem támogatott képleteket tippelt értékekkel.
+Ha diagramja olyan Excel‑függvényeket használ, amelyeket az Aspose.Slides nem értékel ki, számolja ki ezeket a képleteket egy olyan táblázat‑motorral, amely támogatja őket, és írja vissza a kapott értékeket a diagram munkafüzetbe. Ne helyettesítse a nem támogatott képleteket tippelt értékekkel.
 
-## **Képlet hibák kezelése**
+## **Képlethibák kezelése**
 
 Két különböző problématípust kell megkülönböztetni.
 
-Egy képlet érvényes lehet, de táblázat‑hibát eredményezhet, például `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` vagy `#VALUE!`. Ilyenkor a hiba‑token egy cella eredménye, és a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metóduson keresztül adható vissza.
+Egy képlet lehet érvényes, de táblázathiba‑eredményt adhat, például `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` vagy `#VALUE!`. Ebben az esetben a hibatoken egy cellaeredmény, és a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódussal adható vissza.
 
-Egy képlet a feldolgozás, hivatkozás, függőség vagy a támogatott‑adat szintjén is hibát okozhat. Az Aspose.Slides ezekhez a helyzetekhez táblázat‑specifikus kivételeket biztosít: [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellcircularreferenceexception/), és [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Egy képlet a feldolgozás, referencia, függőség vagy támogatott adat szintjén is hibát okozhat. Az Aspose.Slides ilyen esetekre táblázatspecifikus kivételeket biztosít: [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellcircularreferenceexception/) és [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-Amikor a képletek sablonokból vagy felhasználói bemenetből származnak, kezelje ezeket a kivételeket az újraszámítás és az értéklekérés körül:
+Ha képletek sablonokból vagy felhasználói bemenetből érkeznek, kezelje ezeket a kivételeket az újraszámítás és az értékelérés körül:
 
 ```java
 import com.aspose.slides.*;
@@ -336,52 +374,52 @@ try {
 
 ## **Gyakorlati korlátozások**
 
-A diagram munkalapok képlet‑támogatása egy meghatározott, a teljes Excel‑kompatibilitáson túlmutató részhalmazra épül. Tartsa szem előtt ezeket a korlátokat a jelentéskészítési munkafolyamat tervezésekor:
+A diagram munkalapok képlet‑támogatása egy meghatározott részhalmazra vonatkozik, nem a teljes Excel‑kompatibilitásra. Tartsa szem előtt ezeket a korlátokat a jelentéskészítési munkafolyamat tervezésekor:
 
-- Csak a dokumentált constantokat, operátorokat, hivatkozásokat és függvényeket használja, ha azt szeretné, hogy az Aspose.Slides újraszámolja a képleteket.
-- Újraszámítás a képlet‑eredményekre ható cellák módosítása után.
-- A betöltött bemutatókból származó gyorsítótárazott értékek pillanatfelvételt jelentenek, nem helyettesítik az újraszámítást szerkesztés után.
-- Tesztelje a meglévő sablonokból származó képleteket, mielőtt a kiszámított értékekre támaszkodna, különösen, ha azok a dokumentált listán kívüli függvényeket használnak.
-- A teljes táblázat‑számítási motorra szoruló képleteket számítsa ki külsőleg, majd frissítse a diagram munkafüzetét a kapott értékekkel.
+- Csak a dokumentált állandókat, operátorokat, hivatkozásokat és függvényeket használja, ha azt szeretné, hogy az Aspose.Slides újraszámolja a képleteket.
+- Újraszámítás a képlet‑eredményekhez kapcsolódó cellák módosítása után.
+- A betöltött prezentációkból származó gyorsítótárazott értékeket pillanatfelvételekként kezelje, nem helyettesítőként a módosítások utáni újraszámításra.
+- Tesztelje a meglévő sablonok képleteit, mielőtt a kiszámított értékekre támaszkodna, különösen, ha a dokumentált listán kívüli függvényeket tartalmaznak.
+- Olyan képletek esetén, amelyek teljes táblázat‑számítási engine‑t igényelnek, számolja ki azokat külsőleg, majd frissítse a diagram munkafüzetet a kapott értékekkel.
 
 ## **GYIK**
 
 **Mi a különbség a [IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) és a [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) között?**
 
-[IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) A1‑stílusú kifejezést tárol, például `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) R1C1‑stílusú kifejezést tárol, például `RC[-2]-RC[-1]`. Válassza azt a jelölést, amelyik a legjobban illik a képletek generálásához vagy másolásához.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) A1‑stílusú kifejezést tárol, például `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) R1C1‑stílusú kifejezést tárol, például `RC[-2]-RC[-1]`. Használja azt a jelölést, amelyik leginkább megfelel a képletek generálásának vagy másolásának.
 
-**Olvasnom kell a cellát vagy az értékét a számítás után?**
+**Kell-e a cellát vagy annak értékét olvasni a számítás után?**
 
-[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) egy [IChartDataCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/) objektumot ad vissza. A kiszámított eredmény eléréséhez a cella [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódusát kell meghívni az újraszámítás után.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) egy [IChartDataCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/) objektumot ad vissza. A számított eredményhez hívja meg ennek a cellának a [IChartDataCell.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/#getValue--) metódusát a újraszámítás után.
 
-**Mikor kell meghívni a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust?**
+**Mikor kell meghívni a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-Hívja meg a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust a bemeneti értékek vagy képletek módosítása után, és még az előtt, hogy a kiszámított eredményekre támaszkodna. Ez frissíti a beépített értékelő által támogatott képletek értékeit.
+Hívja meg a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) metódust a bemeneti értékek vagy képletek módosítása után, és még az előtt, hogy a számított eredményektől függő műveleteket végezne. Ez frissíti a beépített értékelő által támogatott képletek értékeit.
 
-**Támogatja az Aspose.Slides minden Excel‑függvényt?**
+**Támogatja-e az Aspose.Slides minden Excel‑függvényt?**
 
-Nem. A beépített értékelő egy dokumentált részhalmazt támogat. A részhalmazon kívüli függvények nem számíthatók újra. Ha teljes Excel‑képlet‑kompatibilitásra van szükség, végezze el a számítást egy megfelelő táblázatmotorral, és írja a végső értékeket a diagram munkafüzetébe.
+Nem. A beépített értékelő csak egy dokumentált részhalmazt támogat. A részhalmazon kívüli függvényeknek nem szabad számolásra számítani. Ha teljes Excel‑képlet kompatibilitásra van szükség, végezze el a számítást egy megfelelő táblázat‑motorral, majd írja a végső értékeket a diagram munkafüzetbe.
 
-**Mi történik, ha egy betöltött bemutató nem támogatott képletet tartalmaz?**
+**Mi történik, ha egy betöltött prezentáció nem támogatott képletet tartalmaz?**
 
-Ha a diagram adat nem változott, a munkafüzetben továbbra is lehet egy korábban kiszámított gyorsítótárazott érték. A kapcsolódó adatok módosítása után ez az érték már nem biztos, hogy érvényes. Egy olyan cella elérése, amelynek képletét nem tudja kezelni a rendszer, [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellunsupporteddataexception/) kivételt okozhat.
+Ha a diagram adatai nem változtak, a munkafüzetben előfordulhat, hogy egy korábban számított gyorsítótárazott érték maradt. A kapcsolódó adatok módosítása után ez a gyorsítótárazott érték már nem lehet érvényes. Egy nem kezelhető képlettel rendelkező cella olvasása [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellunsupporteddataexception/) kivételt vált ki.
 
-**Ugyanazok a képlet‑hibák, mint a Java‑kivétel?**
+**Ugyanazok a képlethiba‑értékek, mint a Java‑kivételek?**
 
-Nem. A `#DIV/0!`‑hez hasonló eredmény egy táblázat‑érték, amely egy érvényes számításból származik. A [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellinvalidformulaexception/) vagy a [CellCircularReferenceException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellcircularreferenceexception/) kivételek azt jelzik, hogy a képletet nem lehet normál módon feldolgozni.
+Nem. A `#DIV/0!`‑hez hasonló eredmény egy táblázat‑érték, amely egy érvényes számításból származik. A [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellinvalidformulaexception/) vagy [CellCircularReferenceException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/cellcircularreferenceexception/) kivételek azt jelzik, hogy a képlet nem dolgozható fel normál módon.
 
-**A diagram automatikusan frissül, ha egy képlet‑cellát módosítanak?**
+**Frissül automatikusan a diagram, ha egy képlet‑cella változik?**
 
-A diagram sorozata hivatkozhat a munkafüzet celláira. Először számolja újra a munkafüzetet, majd mentse vagy renderelje a bemutatót. Ha a diagram adatpontjai a kiszámított cellákra hivatkoznak, a diagram a frissített értékeket használja; nincs szükség külön diagram‑frissítő metódusra ebben a munkafolyamatban.
+A diagram sorozatok hivatkozhatnak a munkafüzet celláira. Először számolja újra a munkafüzetet, majd mentse vagy jelenítse meg a prezentációt. Ha a diagram adatpontjai a számított cellákra mutatnak, a diagram az azok által frissített értékeket használja; nincs szükség külön diagram‑frissítő metódusra ebben a munkafolyamatban.
 
-**A diagram használhat külső Excel‑munkafüzetet?**
+**Használhatók külső Excel‑munkafüzetek diagramokban?**
 
-Igen, a diagram adat konfigurálható külső munkafüzet használatára a diagram adat‑API‑n keresztül. Azonban a jelen cikkben leírt képletszámítási munkafolyamat a diagram adat‑munkafüzetére és az Aspose.Slides által kiértékelt képlet‑részhalmazra vonatkozik. Ne feltételezze, hogy a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) teljes újraszámítást biztosít tetszőleges képletekre egy külső XLSX‑fájlban.
+Igen, a diagram adatokat konfigurálhatja úgy, hogy külső munkafüzetet használjanak a diagram adat‑API‑n keresztül. Azonban ebben a cikkben leírt képletszámítási munkafolyamat a diagram adatkönyvtárra és az Aspose.Slides által értékelt képlet‑részhalmazra vonatkozik. Ne feltételezze, hogy a [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) teljes képletek újraszámítását biztosítja egy külső XLSX‑fájlban.
 
-**Használhatok képleteket, amelyek más munkalapra vagy munkafüzetre hivatkoznak?**
+**Használhatók képletek, amelyek más munkalapra vagy munkafüzetre hivatkoznak?**
 
-Az Excel‑stílusú hivatkozások előfordulhatnak a diagram munkafüzetekben, de a képlet‑értékelés korlátozott a támogatott elemző és függvénykészlet által. Ha egy kereszt‑lap vagy külső hivatkozás elengedhetetlen, ellenőrizze a pontos képletet a használt Aspose.Slides verzióval. Széles körű Excel‑hivatkozási kompatibilitást igénylő munkafolyamatokhoz számítsa ki a munkafüzetet külsőleg, és írja vissza a feloldott értékeket a diagram adatba.
+Az Excel‑stílusú hivatkozások előfordulhatnak diagram munkafüzetekben, de a képlet‑értékelés a támogatott elemző és függvénykészlet által korlátozott. Ha egy kereszt‑lap vagy külső hivatkozás elengedhetetlen, ellenőrizze a pontos képletet a használt Aspose.Slides verzióval. Széles körű Excel‑hivatkozási kompatibilitást igénylő munkafolyamatok esetén számolja ki a munkafüzetet külsőleg, és írja vissza a feloldott értékeket a diagram adatba.
 
-**A képlet‑sztringeknek kell `=` jellel kezdődniük?**
+**Kell‑e a képletszöveg `=` jellel kezdődjön?**
 
-Az Aspose.Slides API példái úgy adják meg a kifejezéseket, mint `B2-C2` vagy `SUM(B2:B5)` vezető `=` jel nélkül. Ezzel a formával a generált képletek összhangban vannak a dokumentált API‑példákkal.
+Az Aspose.Slides API‑példák a `B2-C2` vagy `SUM(B2:B5)` kifejezéseket `=` nélkül adják meg. Ennek a formának a használata egységes képleteket biztosít a dokumentált API‑példákhoz képest.

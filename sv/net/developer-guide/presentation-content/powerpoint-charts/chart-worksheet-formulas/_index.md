@@ -1,23 +1,26 @@
 ---
-title: Tillämpa diagramkalkylbladsformler i presentationer i .NET
+title: Använd diagram‑kalkylbladsformler i presentationer i .NET
 linktitle: Kalkylbladsformler
 type: docs
 weight: 70
 url: /sv/net/chart-worksheet-formulas/
 keywords:
 - diagramkalkylblad
-- diagramarbetsblad
+- diagramkalkylblad
 - diagramformel
 - kalkylbladsformel
 - kalkylbladsformel
-- diagramdataarbetsbok
+- diagramdatabok
 - formelberäkning
+- föredragen kultur
+- kulturspecifik formel
+- DBCS
 - logisk konstant
 - numerisk konstant
 - strängkonstant
 - felkonstant
 - aritmetisk operator
-- jämförelseoperator
+- jämförelsesoperator
 - A1‑stil
 - R1C1‑stil
 - fördefinierad funktion
@@ -26,27 +29,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Tillämpa Excel‑liknande formler i Aspose.Slides för .NET diagramkalkylblad, beräkna om värden och använd resultaten i PowerPoint‑diagram."
+description: "Använd Excel‑liknande formler i Aspose.Slides för .NET‑diagramkalkylblad, beräkna om värden och använd resultaten i PowerPoint‑diagram."
 ---
 ## **Översikt**
 
-PowerPoint-diagram lagrar vanligtvis sina källdata i ett inbäddat kalkylblad. I Aspose.Slides för .NET kan du komma åt det kalkylbladet via diagrammets dataarbetsbok, skriva in värden, tilldela formler till celler, beräkna stödda formler och använda de beräknade cellerna som diagramdata.
+PowerPoint‑diagram lagrar vanligtvis sina källdata i ett inbäddat kalkylblad. I Aspose.Slides för .NET kan du komma åt det kalkylbladet via diagramdataboken, skriva inmatningsvärden, tilldela formler till celler, beräkna stödjade formler och använda de beräknade cellerna som diagramdata.
 
-Denna artikel förklarar hela formelarbetsflödet: skapa ett diagram, fyll i dess kalkylblad, tilldela A1‑stil‑ eller R1C1‑stil‑formler, beräkna dem på nytt, läs de beräknade värdena, anslut dessa celler till en diagramserie och spara presentationen. Den beskriver också den stödda formelsyntaxen, den inbyggda funktionsuppsättningen, cachade värden, osuppporterade formler och kalkylblads‑specifika fel.
+Den här artikeln förklarar hela formler‑arbetsflödet: skapa ett diagram, fyll i kalkylbladet, tilldela A1‑ eller R1C1‑formler, beräkna dem på nytt, läs de beräknade värdena, anslut cellerna till en diagramserie och spara presentationen. Den beskriver också den stödjade formelsyntaxen, den inbyggda funktionsuppsättningen, cachade värden, osupporterade formler och kalkylblads‑specifika fel.
 
 ## **Diagram‑kalkylblad och formler**
 
-Ett diagram‑kalkylblad innehåller kategorier, serienamn och värden som används av ett diagram. I PowerPoint kan du inspektera kalkylbladet genom att öppna diagrammets dataredigerare:
+Ett diagram‑kalkylblad innehåller kategorier, serienamn och värden som används av ett diagram. I PowerPoint kan du inspektera kalkylbladet genom att öppna diagramdataredigeraren:
 
-![PowerPoint-diagram med sitt inbäddade kalkylblad öppet, som visar kategori‑ och seriedata](chart-worksheet-formulas_1.png)
+![PowerPoint‑diagram med sitt inbäddade kalkylblad öppet, visar kategori‑ och seriedata](chart-worksheet-formulas_1.png)
 
-I Aspose.Slides exponeras kalkylbladet via [diagram‑databoken](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/). Använd egenskapen [Formula](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/formula/) för A1‑stil‑formler och egenskapen [R1C1Formula](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/r1c1formula/) för R1C1‑stil‑formler. Efter att du har ändrat indatavärden eller formler, anropa [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) för att beräkna stödda formler och uppdatera motsvarande cellvärden.
+I Aspose.Slides exponeras kalkylbladet via [arbetsboken för diagramdata](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/). Använd egenskapen [Formula](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/formula/) för A1‑formler och egenskapen [R1C1Formula](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/r1c1formula/) för R1C1‑formler. Efter att du ändrat inmatningsceller eller formler, anropa [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) för att beräkna stödjade formler och uppdatera motsvarande cellvärden.
 
 En beräknad cell exponerar fortfarande sitt resultat via egenskapen [Value](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/value/). Detta är viktigt när du behöver inspektera ett formelresultat i kod eller använda cellen som ett diagramdatapunkt.
 
-## **Skapa ett diagram och beräkna kalkylblads‑formler**
+## **Skapa ett diagram och beräkna kalkylbladsformler**
 
-Följande exempel demonstrerar ett end‑to‑end‑arbetsflöde. Det skapar ett stapeldiagram i kluster, rensar exempeldata, skriver kvartalsvisa intäkts‑ och kostnadsvärden, beräknar vinst med formler, läser resultaten, använder de beräknade cellerna som diagramvärden och sparar presentationen.
+Följande exempel demonstrerar ett end‑to‑end‑arbetsflöde. Det skapar ett staplat kolumndiagram, rensar exempeldata, skriver in kvartalsvisa intäkter och kostnader, beräknar vinst med formler, läser resultaten, använder de beräknade cellerna som diagramvärden och sparar presentationen.
 
 ```csharp
 using System;
@@ -147,9 +150,9 @@ Vanliga A1‑referensformer är:
 | Cell | `A2` | `$A$2` | `A$2`, `$A2` |
 | Rad | `2:2` | `$2:$2` | — |
 | Kolumn | `A:A` | `$A:$A` | — |
-| Område | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
+| Intervall | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Relativa referenser kan förändras när en formel flyttas eller kopieras av ett kalkylbladsprogram. Absoluta referenser håller båda koordinaterna fasta, medan blandade referenser fixerar endast en rad eller en kolumn.
+Relativa referenser kan ändras när en formel flyttas eller kopieras i ett kalkylprogram. Absoluta referenser håller båda koordinaterna fasta, medan blandade referenser fixerar endast en rad eller en kolumn.
 
 ## **Använd R1C1‑stil‑formler**
 
@@ -183,13 +186,13 @@ Vanliga R1C1‑referensformer är:
 | Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | Rad | `R[2]` | `R2` | — |
 | Kolumn | `C[3]` | `C3` | — |
-| Område | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
+| Intervall | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Till exempel, i cellen `D2` betyder `RC[-2]` cellen i samma rad två kolumner åt vänster (`B2`).
+Till exempel, i cell `D2` betyder `RC[-2]` cellen i samma rad två kolumner åt vänster (`B2`).
 
-## **Formelkonstanter och operatorer**
+## **Formel‑konstanter och operatorer**
 
-Den inbyggda formelutvärderaren stöder logiska värden, numeriska litteraler, strängar, kalkylblads‑felvärden, aritmetiska operatorer och jämförelseoperatorer.
+Den inbyggda formel‑evaluatören stöder logiska värden, numeriska litteraler, strängar, kalkylbladsfelvärden, aritmetiska operatörer och jämförelsesoperatorer.
 
 ### **Konstanter och litteraler**
 
@@ -197,10 +200,10 @@ Den inbyggda formelutvärderaren stöder logiska värden, numeriska litteraler, 
 |---|---|---|
 | Logisk | `TRUE`, `FALSE` | Kan användas direkt i logiska uttryck såsom `A2=TRUE`. |
 | Numerisk | `1`, `0.5`, `.3`, `1E-2` | Vanlig och vetenskaplig notation stöds. |
-| Sträng | `"abc"`, `"2/3/2020 12:00"` | Textlitteraler omsluts av dubbla citationstecken i formeln. |
+| Sträng | `"abc"`, `"2/3/2020 12:00"` | Textlitteraler omges av dubbla citationstecken i formeln. |
 | Felresultat | `#DIV/0!`, `#N/A`, `#REF!` | En giltig formel kan utvärderas till ett kalkylbladsfelvärde istället för ett normalt resultat. |
 
-Detta exempel använder flera konstanttyper:
+Detta exempel använder flera konstanstyper:
 
 ```csharp
 using Aspose.Slides;
@@ -232,16 +235,16 @@ var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
 
 | Operator | Betydelse | Exempel |
 |---|---|---|
-| `+` | Addition eller unärt plustecken | `2+3` |
+| `+` | Addition eller unärt plus | `2+3` |
 | `-` | Subtraktion eller negation | `2-3`, `-3` |
 | `*` | Multiplikation | `2*3` |
 | `/` | Division | `2/3` |
 | `%` | Procent | `30%` |
-| `^` | Potens | `2^3` |
+| `^` | Upphöjning | `2^3` |
 
-Använd parenteser för att göra utvärderingsordningen explicit, till exempel `(A2+B2)*C2`.
+Använd parenteser för att göra utvärderingsordningen explicit, exempelvis `(A2+B2)*C2`.
 
-### **Jämförelseoperatorer**
+### **Jämförelsesoperatorer**
 
 Jämförelseuttryck returnerar logiska värden.
 
@@ -256,49 +259,84 @@ Jämförelseuttryck returnerar logiska värden.
 
 ## **Stödda fördefinierade funktioner**
 
-Aspose.Slides inkluderar en inbyggd formelutvärderare för diagram‑kalkylblad, men den är inte en komplett Excel‑beräkningsmotor. Den dokumenterade funktionsuppsättningen är begränsad till funktionerna nedan. Anta inte att en godtycklig Excel‑funktion kan beräknas av [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+Aspose.Slides innehåller en inbyggd formel‑evaluatör för diagram‑kalkylblad, men den är inte en komplett Excel‑beräkningsmotor. Den dokumenterade funktionsuppsättningen är begränsad till funktionerna nedan. Anta inte att en godtycklig Excel‑funktion kan beräknas med [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-| Funktion | Syfte eller stödform | Exempel |
+| Funktion | Syfte eller stödjad form | Exempel |
 |---|---|---|
 | `ABS` | Absolutvärde | `ABS(A2)` |
-| `AVERAGE` | Aritmetiskt medelvärde | `AVERAGE(B2:B5)` |
-| `CEILING` | Runda upp till närmaste multipel | `CEILING(A2,5)` |
-| `CHOOSE` | Välj ett värde efter index | `CHOOSE(A2,"Low","High")` |
+| `AVERAGE` | Medelvärde | `AVERAGE(B2:B5)` |
+| `CEILING` | Avrunda uppåt till närmaste multipel | `CEILING(A2,5)` |
+| `CHOOSE` | Välj värde efter index | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | Sammanfoga textvärden | `CONCAT(A2,B2)` |
 | `CONCATENATE` | Sammanfoga textvärden | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Skapa ett datumvärde med 1900‑datumssystemet | `DATE(2026,8,19)` |
-| `DAYS` | Returnera antalet dagar mellan datum | `DAYS(B2,A2)` |
+| `DATE` | Skapa datumvärde med 1900‑datumsystemet | `DATE(2026,8,19)` |
+| `DAYS` | Returnera antal dagar mellan datum | `DAYS(B2,A2)` |
 | `FIND` | Hitta en textsträng i en annan | `FIND("-",A2)` |
 | `FINDB` | Byte‑orienterad textsökning | `FINDB("a",A2)` |
 | `IF` | Villkorligt resultat | `IF(A2>0,A2,0)` |
 | `INDEX` | Referensform | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Vektorform | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | Vektorform | `MATCH(A2,B2:B5,0)` |
-| `MAX` | Maxvärde | `MAX(B2:B5)` |
-| `SUM` | Summera värden | `SUM(B2:B5)` |
-| `VLOOKUP` | Vertikal uppslagning | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `MAX` | Maximalt värde | `MAX(B2:B5)` |
+| `SUM` | Summan av värden | `SUM(B2:B5)` |
+| `VLOOKUP` | Vertikal sökning | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Begränsningarna i tabellen är betydelsefulla: `INDEX` är dokumenterad i referensform, medan `LOOKUP` och `MATCH` är dokumenterade i sina vektorformer. `DATE` använder 1900‑datumssystemet. Funktioner och funktioner som inte listas här bör betraktas som osupporterade av Aspose.Slides‑formelutvärderaren om de inte är specifikt dokumenterade.
+Begränsningarna i tabellen är viktiga: `INDEX` är dokumenterad i referensform, medan `LOOKUP` och `MATCH` är dokumenterade i deras vektorformer. `DATE` använder 1900‑datumsystemet. Funktioner som inte listas bör betraktas som osupporterade av Aspose.Slides‑formel‑evaluatören om de inte är dokumenterade separat.
+
+## **Beräkna formler med föredragen kultur**
+
+Vissa arbetsboksfunktioner tolkar text enligt kultur‑specifika regler. Detta är särskilt viktigt för funktioner avsedda för språk som använder dubbelbyte‑teckenuppsättningar (DBCS). För att beräkna sådana formler korrekt, skapa ett [LoadOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/)-objekt, ange [ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/sv/net/aspose.slides/ispreadsheetoptions/preferredculture/) via [LoadOptions.SpreadsheetOptions](https://reference.aspose.com/slides/sv/net/aspose.slides/loadoptions/spreadsheetoptions/), och ladda sedan presentationen.
+
+Följande exempel väljer den japanska kulturen, öppnar en presentation med de konfigurerade laddningsalternativen och anropar [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) för varje diagram‑arbetsbok:
+
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
+
+Den föredragna kulturen är en del av presentations‑laddningskonfigurationen, så ange den innan du skapar ett [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/)-objekt. Använd den kultur som formlerna förväntar sig; exempelvis `ja-JP` för formler som ska följa japanska DBCS‑beräkningsregler.
 
 ## **Omberäkning och cachade värden**
 
-Kalkylbladsfiler lagrar ofta både en formel och dess senast beräknade värde. Aspose.Slides kan därför läsa ett cachat värde från [IChartDataCell.Value](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/value/) när en presentation laddas och relevant diagramdata inte har ändrats.
+Kalkylbladsfiler lagrar vanligtvis både en formel och dess senast beräknade värde. Aspose.Slides kan därför läsa ett cache‑värde från [IChartDataCell.Value](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdatacell/value/) när en presentation laddas och den relevanta diagramdata inte har förändrats.
 
-Efter att du har ändrat indataceller eller formler, förlita dig inte på ett gammalt cachat resultat. Anropa [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) innan du läser beräknade värden eller sparar diagramdata som beror på dem.
+Efter att du ändrat inmatningsceller eller formler, förlita dig inte på ett gammalt cache‑resultat. Anropa [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) innan du läser beräknade värden eller sparar diagramdata som beror på dem.
 
-För formler utanför den stödda delmängden kan Aspose.Slides misslyckas med att tolka formeln eller fastställa dess beroenden. Om arbetsboken har modifierats kan det tidigare cachade värdet inte längre anses pålitligt. I sådana situationer kan läsning av en cell med osupporterad data kasta [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+För formler utanför den stödjade delmängden kan Aspose.Slides misslyckas med att tolka formeln eller fastställa dess beroenden. Om arbetsboken har ändrats kan det tidigare cache‑värdet inte längre betraktas som pålitligt. I sådana fall kan läsning av en cell med osupporterad data leda till ett [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-Om ditt diagram är beroende av Excel‑funktioner som Aspose.Slides inte utvärderar, beräkna dessa formler med en kalkylblads‑motor som stödjer dem och skriv de resulterande värdena tillbaka till diagramarbetsboken. Ersätt inte osupporterade formler med gissade värden.
+Om ditt diagram är beroende av Excel‑funktioner som Aspose.Slides inte utvärderar, beräkna dessa formler med en kalkylblads‑motor som stöder dem och skriv tillbaka de resulterande värdena till diagram‑arbetsboken. Ersätt inte osupporterade formler med gissade värden.
 
 ## **Hantera formelfel**
 
-Det finns två olika typer av problem att särskilja.
+Det finns två olika typer av problem att skilja på.
 
 En formel kan vara giltig men producera ett kalkylbladsfelresultat såsom `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` eller `#VALUE!`. I så fall är fel‑tokenen ett cellresultat och kan returneras via `Value`.
 
-En formel kan också misslyckas vid parsning, referens, beroende eller på stöddata‑nivå. Aspose.Slides tillhandahåller kalkylblads‑specifika undantag för dessa fall: [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) och [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+En formel kan också misslyckas vid parsning, referens, beroende eller på den stödjade datanivån. Aspose.Slides tillhandahåller kalkylblads‑specifika undantag för dessa fall: [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) och [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-När formler kommer från mallar eller användarinmatning, hantera dessa undantag kring omberäkning och värdeåtkomst:
+När formler kommer från mallar eller användarinmatning, omge omberäkning och värdeåtkomst med hantering av dessa undantag:
 
 ```csharp
 using System;
@@ -339,13 +377,13 @@ catch (CellUnsupportedDataException ex)
 
 ## **Praktiska begränsningar**
 
-Formelstödet i diagram‑kalkylblad är avsett för en definierad delmängd av kalkylbladsberäkningar, inte för full Excel‑kompatibilitet. Ha dessa begränsningar i åtanke när du designar ett rapporteringsarbetsflöde:
+Formelstödet i diagram‑kalkylblad är avsett för en definierad delmängd av kalkylbladsberäkningar, inte för full Excel‑kompatibilitet. Tänk på dessa begränsningar när du designar ett rapporterings‑arbetsflöde:
 
-- Använd endast de dokumenterade konstanterna, operatorerna, referenserna och funktionerna när du vill att Aspose.Slides ska omberäkna formler.
-- Omberäkna efter att du har ändrat celler som formelresultaten beror på.
-- Betrakta cachade värden från inlästa presentationer som ögonblicksbilder, inte som en ersättning för omberäkning efter redigeringar.
-- Testa formler från befintliga mallar innan du förlitar dig på deras beräknade värden, särskilt när de använder funktioner som inte finns med i den dokumenterade listan.
-- För formler som kräver en fullständig kalkylblads‑beräkningsmotor, beräkna dem externt och uppdatera sedan diagramarboken med de resulterande värdena.
+- Använd endast de dokumenterade konstanterna, operatörerna, referenserna och funktionerna när du vill att Aspose.Slides ska beräkna formler.
+- Beräkna om efter att du ändrat celler som formelresultat beror på.
+- Betrakta cachade värden från inlästa presentationer som snapshots, inte som ersättning för omberäkning efter redigering.
+- Testa formler från befintliga mallar innan du förlitar dig på deras beräknade värden, särskilt om de använder funktioner utanför den dokumenterade listan.
+- För formler som kräver en fullständig kalkylblads‑beräkningsmotor, beräkna dem externt och uppdatera sedan diagram‑arbetsboken med de resulterande värdena.
 
 ## **FAQ**
 
@@ -359,32 +397,32 @@ Formelstödet i diagram‑kalkylblad är avsett för en definierad delmängd av 
 
 **När ska jag anropa `CalculateFormulas`?**
 
-Anropa [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) efter att du har ändrat indatavärden eller formler och innan du är beroende av de beräknade resultaten. Detta uppdaterar värdena för de formler som den inbyggda utvärderaren stöder.
+Anropa [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) efter att du ändrat inmatningsvärden eller formler och innan du är beroende av de beräknade resultaten. Detta uppdaterar värdena för formler som den inbyggda evaluatören stödjer.
 
 **Stöder Aspose.Slides varje Excel‑funktion?**
 
-Nej. Den inbyggda utvärderaren stöder en dokumenterad delmängd av funktioner. Funktioner utanför den delmängden bör inte antas beräknas korrekt. Om full Excel‑formelkompatibilitet krävs, utför beräkningen med en lämplig kalkylblads‑motor och skriv de slutliga värdena till diagramarboken.
+Nej. Den inbyggda evaluatören stödjer en dokumenterad delmängd av funktioner. Funktioner utanför den delmängden bör inte antas beräknas korrekt. Om full Excel‑formelkompatibilitet krävs, utför beräkningen med en lämplig kalkylblads‑motor och skriv de slutgiltiga värdena till diagram‑arbetsboken.
 
 **Vad händer om en inläst presentation innehåller en osupporterad formel?**
 
-Om diagramdata inte har ändrats kan arbetsboken fortfarande innehålla ett tidigare beräknat cachat värde. Efter att relaterad data har modifierats kan det cachade värdet vara ogiltigt. Åtkomst till en cell vars formel inte kan hanteras kan kasta [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+Om diagramdata inte har ändrats kan arbetsboken fortfarande innehålla ett tidigare beräknat cache‑värde. Efter att relaterad data har modifierats kan detta cache‑värde vara ogiltigt. Att komma åt en cell vars formel inte kan hanteras kan leda till ett [CellUnsupportedDataException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
 **Är formelfelvärden samma sak som .NET‑undantag?**
 
 Nej. Ett resultat som `#DIV/0!` är ett kalkylbladsvärde som produceras av en giltig beräkning. Undantag såsom [CellInvalidFormulaException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) eller [CellCircularReferenceException](https://reference.aspose.com/slides/sv/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) indikerar att formeln inte kan bearbetas normalt.
 
-**Uppdateras ett diagram automatiskt när en formelcell ändras?**
+**Uppdateras ett diagram automatiskt när en formelcell förändras?**
 
-En diagramserie kan referera till arbetsbokens celler. Omberäkna arbetsboken först, spara eller rendera sedan presentationen. Om diagramdatapunkterna refererar till de beräknade cellerna använder diagrammet de uppdaterade cellvärdena; ingen separat diagram‑uppdateringsmetod krävs för detta arbetsflöde.
+En diagramserie kan referera arbetsboks­celler. Beräkna arbetsboken först, spara eller rendera sedan presentationen. Om diagramdatapunkterna refererar de beräknade cellerna använder diagrammet de uppdaterade värdena; inget separat diagram‑uppdateringsmetod krävs för detta arbetsflöde.
 
 **Kan diagram använda ett externt Excel‑arbetsbok?**
 
-Ja, diagramdata kan konfigureras att använda en extern arbetsbok via diagram‑data‑API‑et. Dock avser arbetsflödet för formelberäkning som beskrivs i denna artikel diagramarboken och den formeldelmängd som utvärderas av Aspose.Slides. Anta inte att [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) ger full omberäkning av godtyckliga formler i en extern XLSX‑fil.
+Ja, diagramdata kan konfigureras att använda ett externt arbetsbok via diagram‑data‑API:t. Dock rör sig det formel‑beräkningsarbetsflöde som beskrivs i den här artikeln endast om diagram‑arbetsboken och den formel­delmängd som Aspose.Slides utvärderar. Anta inte att [CalculateFormulas](https://reference.aspose.com/slides/sv/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) ger fullständig omberäkning av godtyckliga formler i en extern XLSX‑fil.
 
-**Kan jag använda formler som refererar till ett annat kalkylblad eller arbetsbok?**
+**Kan jag använda formler som refererar ett annat kalkylblad eller arbetsbok?**
 
-Excel‑liknande referenser kan finnas i diagramarböcker, men formelutvärderingen är begränsad av den stödjande parsern och funktionsuppsättningen. Om en kors‑blad‑ eller extern referens är avgörande, verifiera exakt formel med den Aspose.Slides‑version du använder. För arbetsflöden som kräver bred Excel‑referenskompatibilitet, beräkna arbetsboken externt och skriv de lösta värdena tillbaka till diagramdata.
+Excel‑stil‑referenser kan finnas i diagram‑arbetsböcker, men formelutvärderingen är begränsad av den stödjade parsern och funktionsuppsättningen. Om ett kors‑blad‑ eller externt referens är avgörande, verifiera att exakt formel fungerar med din mål‑version av Aspose.Slides. För arbetsflöden som kräver bred Excel‑referens‑kompatibilitet, beräkna arbetsboken externt och skriv tillbaka de lösta värdena till diagram‑data.
 
 **Ska formelsträngar börja med `=`?**
 
-Aspose.Slides‑API‑exempel tilldelar uttryck såsom `B2-C2` eller `SUM(B2:B5)` utan inledande `=`. Att använda den formen håller genererade formler konsekventa med de dokumenterade API‑exemplen.
+Aspose.Slides‑API‑exempel tilldelar uttryck såsom `B2-C2` eller `SUM(B2:B5)` utan ett inledande `=`. Att använda den formen håller genererade formler i linje med de dokumenterade API‑exemplen.

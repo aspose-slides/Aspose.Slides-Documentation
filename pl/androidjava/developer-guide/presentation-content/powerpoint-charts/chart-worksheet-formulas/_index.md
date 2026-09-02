@@ -1,52 +1,55 @@
 ---
-title: "Zastosuj formuły arkusza wykresu w prezentacjach na Androidzie"
-linktitle: "Formuły arkusza"
+title: Zastosowanie formuł arkusza wykresu w prezentacjach na Androidzie
+linktitle: Formuły arkusza
 type: docs
 weight: 70
 url: /pl/androidjava/chart-worksheet-formulas/
 keywords:
 - arkusz wykresu
-- arkusz roboczy wykresu
+- arkusz wykresu
 - formuła wykresu
 - formuła arkusza
 - formuła arkusza kalkulacyjnego
 - skoroszyt danych wykresu
 - obliczanie formuły
+- preferowana kultura
+- formuła specyficzna dla kultury
+- DBCS
 - stała logiczna
-- stała numeryczna
-- stała łańcuchowa
+- stała liczbowa
+- stała tekstowa
 - stała błędu
 - operator arytmetyczny
 - operator porównania
 - styl A1
 - styl R1C1
-- funkcja predefiniowana
+- funkcja wbudowana
 - PowerPoint
 - prezentacja
 - Android
 - Java
 - Aspose.Slides
-description: "Zastosuj formuły w stylu Excel w arkuszach wykresów Aspose.Slides dla Androida za pomocą Java, przelicz wartości i użyj wyników w wykresach PowerPoint."
+description: "Zastosuj formuły w stylu Excel w arkuszach wykresów Aspose.Slides dla Androida za pośrednictwem Java, przeliczaj wartości i używaj wyników w wykresach PowerPoint."
 ---
 ## **Przegląd**
 
-PowerPoint charts usually store their source data in an embedded worksheet. In Aspose.Slides for Android via Java, you can access that worksheet through the chart data workbook, write input values, assign formulas to cells, calculate supported formulas, and use the calculated cells as chart data.
+Wykresy PowerPoint zazwyczaj przechowują swoje dane źródłowe w osadzonym arkuszu kalkulacyjnym. W bibliotece Aspose.Slides for Android via Java możesz uzyskać dostęp do tego arkusza poprzez skoroszyt danych wykresu, zapisać wartości wejściowe, przypisać formuły do komórek, obliczyć obsługiwane formuły i użyć obliczonych komórek jako danych wykresu.
 
-Ten artykuł opisuje kompletny proces używania formuł: tworzenie wykresu, wypełnianie jego arkusza, przypisywanie formuł w stylu A1 lub R1C1, ponowne ich obliczanie, odczyt wartości obliczonych, połączenie tych komórek z serią wykresu oraz zapis prezentacji. Zawiera także opis obsługiwanej składni formuł, wbudowanego podzbioru funkcji, wartości buforowanych, nieobsługiwanych formuł oraz błędów specyficznych dla arkuszy kalkulacyjnych.
+Ten artykuł wyjaśnia kompletny przepływ pracy z formułami: tworzenie wykresu, wypełnianie jego arkusza, przypisywanie formuł w stylu A1 lub R1C1, ich ponowne obliczanie, odczyt obliczonych wartości, podłączenie tych komórek do serii wykresu oraz zapis prezentacji. Opisuje także obsługiwaną składnię formuł, podzbiór wbudowanych funkcji, wartości buforowane, nieobsługiwane formuły oraz błędy specyficzne dla arkuszy kalkulacyjnych.
 
 ## **Arkusze wykresów i formuły**
 
-Arkusz wykresu zawiera kategorie, nazwy serii i wartości używane przez wykres. W programie PowerPoint można przeglądać arkusz, otwierając edytor danych wykresu:
+Arkusz wykresu zawiera kategorie, nazwy serii i wartości używane przez wykres. W PowerPoint możesz przeglądać arkusz, otwierając edytor danych wykresu:
 
-![Wykres PowerPoint z otwartym osadzonym arkuszem, pokazujący dane kategorii i serii](chart-worksheet-formulas_1.png)
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-W Aspose.Slides arkusz jest udostępniany przez interfejs [IChartDataWorkbook](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/). Użyj [IChartDataCell.setFormula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) dla formuł w stylu A1 i [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) dla formuł w stylu R1C1. Po zmianie komórek wejściowych lub formuł wywołaj [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) aby ponownie obliczyć obsługiwane formuły i zaktualizować odpowiadające wartości komórek.
+W Aspose.Slides arkusz jest udostępniany poprzez interfejs [IChartDataWorkbook](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/). Użyj [IChartDataCell.setFormula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) dla formuł w stylu A1 oraz [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) dla formuł w stylu R1C1. Po zmianie komórek wejściowych lub formuł wywołaj [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) aby przeliczyć obsługiwane formuły i zaktualizować odpowiadające wartości komórek.
 
-Obliczona komórka nadal udostępnia swój wynik za pośrednictwem [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Jest to ważne, gdy trzeba sprawdzić wynik formuły w kodzie lub użyć komórki jako punktu danych wykresu.
+Obliczona komórka wciąż udostępnia swój wynik poprzez [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--). Jest to ważne, gdy potrzebujesz sprawdzić wynik formuły w kodzie lub użyć komórki jako punktu danych wykresu.
 
-## **Utwórz wykres i oblicz formuły w arkuszu**
+## **Utworzenie wykresu i obliczenie formuł w arkuszu**
 
-Poniższy przykład pokazuje kompletny przepływ pracy. Tworzy wykres kolumnowy grupowany, czyści dane przykładowe, zapisuje kwartalne przychody i wydatki, oblicza zysk przy użyciu formuł, odczytuje wyniki, używa obliczonych komórek jako wartości wykresu i zapisuje prezentację.
+Poniższy przykład demonstruje pełny przepływ pracy. Tworzy on wykres kolumn grupowanych, usuwa przykładowe dane, zapisuje kwartalne przychody i koszty, oblicza zysk za pomocą formuł, odczytuje wyniki, używa obliczonych komórek jako wartości wykresu i zapisuje prezentację.
 
 ```java
 import com.aspose.slides.*;
@@ -111,7 +114,7 @@ try {
 }
 ```
 
-Punkty danych wykresu odwołują się do `D2:D4`, więc wykres używa obliczonych wartości zysku. W tym przepływie nie ma osobnego wywołania odświeżania wykresu: najpierw przelicz skoroszyt, a następnie użyj lub zapisz dane wykresu wskazujące na obliczone komórki.
+Punkty danych wykresu odwołują się do `D2:D4`, więc wykres używa obliczonych wartości zysku. W tym przepływie nie ma oddzielnego wywołania odświeżania wykresu: najpierw przelicz skoroszyt, a potem użyj lub zapisz dane wykresu wskazujące na obliczone komórki.
 
 ## **Używanie formuł w stylu A1**
 
@@ -142,20 +145,20 @@ try {
 }
 ```
 
-Powszechne formy odniesień A1:
+Typowe formy odwołań A1:
 
-| Odniesienie | Względny | Bezwzględny | Mieszany |
+| Odwołanie | Względne | Bezwzględne | Mieszane |
 |---|---|---|---|
 | Komórka | `A2` | `$A$2` | `A$2`, `$A2` |
 | Wiersz | `2:2` | `$2:$2` | — |
 | Kolumna | `A:A` | `$A:$A` | — |
 | Zakres | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Odwołania względne mogą się zmieniać, gdy formuła zostanie przeniesiona lub skopiowana przez aplikację arkusza kalkulacyjnego. Odwołania bezwzględne utrzymują oba współrzędne stałe, natomiast odwołania mieszane blokują tylko wiersz lub kolumnę.
+Odwołania względne mogą zmieniać się, gdy formuła zostanie przeniesiona lub skopiowana przez arkusz kalkulacyjny. Odwołania bezwzględne utrzymują oba współrzędne stałe, a odwołania mieszane blokują tylko wiersz lub kolumnę.
 
 ## **Używanie formuł w stylu R1C1**
 
-Notacja R1C1 identyfikuje zarówno wiersze, jak i kolumny numerycznie. Odwołania względne używają offsetów w nawiasach kwadratowych. Przypisuj tę składnię za pomocą [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
+Notacja R1C1 identyfikuje zarówno wiersze, jak i kolumny liczbami. Odwołania względne używają przesunięć w nawiasach kwadratowych. Przypisuj tę składnię za pomocą [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-).
 
 ```java
 import com.aspose.slides.*;
@@ -180,18 +183,18 @@ try {
 }
 ```
 
-Powszechne formy odniesień R1C1:
+Typowe formy odwołań R1C1:
 
-| Odniesienie | Względny | Bezwzględny | Mieszany |
+| Odwołanie | Względne | Bezwzględne | Mieszane |
 |---|---|---|---|
 | Komórka | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | Wiersz | `R[2]` | `R2` | — |
 | Kolumna | `C[3]` | `C3` | — |
 | Zakres | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Na przykład, w komórce `D2`, `RC[-2]` oznacza komórkę w tym samym wierszu, dwie kolumny w lewo (`B2`).
+Na przykład w komórce `D2` wyrażenie `RC[-2]` oznacza komórkę w tym samym wierszu, dwie kolumny w lewo (`B2`).
 
-## **Stałe i operatory formuł**
+## **Stałe i operatory w formułach**
 
 Wbudowany evaluator formuł obsługuje wartości logiczne, literały liczbowe, ciągi znaków, wartości błędów arkusza, operatory arytmetyczne i operatory porównania.
 
@@ -199,9 +202,9 @@ Wbudowany evaluator formuł obsługuje wartości logiczne, literały liczbowe, c
 
 | Typ | Przykłady | Uwagi |
 |---|---|---|
-| Logiczna | `TRUE`, `FALSE` | Można używać bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
-| Liczbową | `1`, `0.5`, `.3`, `1E-2` | Obsługiwane są notacje zwykła i naukowa. |
-| Ciąg | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są umieszczane w podwójnych cudzysłowach wewnątrz formuły. |
+| Logiczne | `TRUE`, `FALSE` | Można używać bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
+| Liczbowe | `1`, `0.5`, `.3`, `1E-2` | Obsługiwane są zapisy dziesiętne i naukowe. |
+| Tekstowe | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są zamknięte w podwójnych cudzysłowach wewnątrz formuły. |
 | Wynik błędu | `#DIV/0!`, `#N/A`, `#REF!` | Poprawna formuła może zwrócić wartość błędu arkusza zamiast normalnego wyniku. |
 
 Ten przykład używa kilku typów stałych:
@@ -224,7 +227,7 @@ try {
 
     workbook.calculateFormulas();
 
-    Object logicalValue = workbook.getCell(0, "B2").getValue(); // false
+    Object logicalValue = workbook.getCell(0, "B2").getValue(); // fałsz
     Object numericValue = workbook.getCell(0, "C2").getValue(); // 1.5
     Object scientificValue = workbook.getCell(0, "D2").getValue(); // 0.003
     Object stringValue = workbook.getCell(0, "E2").getValue(); // abc
@@ -245,11 +248,11 @@ try {
 | `%` | Procent | `30%` |
 | `^` | Potęgowanie | `2^3` |
 
-Używaj nawiasów, aby jawnie określić kolejność obliczeń, np. `(A2+B2)*C2`.
+Używaj nawiasów, aby wyraźnie określić kolejność obliczeń, np. `(A2+B2)*C2`.
 
 ### **Operatory porównania**
 
-Wyrażenia porównania zwracają wartości logiczne.
+Wyrażenia porównawcze zwracają wartości logiczne.
 
 | Operator | Znaczenie | Przykład |
 |---|---|---|
@@ -262,47 +265,82 @@ Wyrażenia porównania zwracają wartości logiczne.
 
 ## **Obsługiwane funkcje wbudowane**
 
-Aspose.Slides zawiera wbudowany evaluator formuł dla arkuszy wykresów, ale nie jest pełnym silnikiem obliczeniowym Excel. Dokumentowany zestaw funkcji ogranicza się do poniższych funkcji. Nie zakładaj, że dowolna funkcja Excel może być przeliczona przez [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
+Aspose.Slides zawiera wbudowany evaluator formuł dla arkuszy wykresów, ale nie jest to pełny silnik obliczeniowy Excela. Zestaw udokumentowanych funkcji jest ograniczony do poniższych pozycji. Nie zakładaj, że dowolna funkcja Excela może zostać przeliczona przez [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--).
 
 | Funkcja | Cel lub obsługiwana forma | Przykład |
 |---|---|---|
-| `ABS` | wartość bezwzględna | `ABS(A2)` |
-| `AVERAGE` | średnia arytmetyczna | `AVERAGE(B2:B5)` |
-| `CEILING` | zaokrąglenie liczby w górę do wielokrotności | `CEILING(A2,5)` |
-| `CHOOSE` | wybór wartości według indeksu | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | łączenie wartości tekstowych | `CONCAT(A2,B2)` |
-| `CONCATENATE` | łączenie wartości tekstowych | `CONCATENATE(A2," ",B2)` |
-| `DATE` | tworzenie wartości daty przy użyciu systemu dat 1900 | `DATE(2026,8,19)` |
-| `DAYS` | zwraca liczbę dni między datami | `DAYS(B2,A2)` |
-| `FIND` | wyszukiwanie jednego ciągu tekstowego w innym | `FIND("-",A2)` |
-| `FINDB` | wyszukiwanie tekstu orientowane na bajty | `FINDB("a",A2)` |
-| `IF` | wartość warunkowa | `IF(A2>0,A2,0)` |
-| `INDEX` | forma odniesienia | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | forma wektorowa | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | forma wektorowa | `MATCH(A2,B2:B5,0)` |
-| `MAX` | wartość maksymalna | `MAX(B2:B5)` |
-| `SUM` | suma wartości | `SUM(B2:B5)` |
-| `VLOOKUP` | wyszukiwanie pionowe | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `ABS` | Wartość bezwzględna | `ABS(A2)` |
+| `AVERAGE` | Średnia arytmetyczna | `AVERAGE(B2:B5)` |
+| `CEILING` | Zaokrąglenie w górę do wielokrotności | `CEILING(A2,5)` |
+| `CHOOSE` | Wybór wartości według indeksu | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Łączenie tekstów | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Łączenie tekstów | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Tworzenie wartości daty w systemie 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Liczba dni między datami | `DAYS(B2,A2)` |
+| `FIND` | Znalezienie tekstu w innym tekście | `FIND("-",A2)` |
+| `FINDB` | Wyszukiwanie bajtowe | `FINDB("a",A2)` |
+| `IF` | Wynik warunkowy | `IF(A2>0,A2,0)` |
+| `INDEX` | Forma referencyjna | `INDEX(A2:C4,2,3)` |
+| `LOOKUP` | Forma wektorowa | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Forma wektorowa | `MATCH(A2,B2:B5,0)` |
+| `MAX` | Wartość maksymalna | `MAX(B2:B5)` |
+| `SUM` | Suma wartości | `SUM(B2:B5)` |
+| `VLOOKUP` | Wyszukiwanie pionowe | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Następujące ograniczenia w tabeli są istotne: `INDEX` jest dokumentowany w formie referencyjnej, natomiast `LOOKUP` i `MATCH` w formie wektorowej. `DATE` używa systemu dat 1900. Funkcje i cechy nie wymienione tutaj należy traktować jako nieobsługiwane przez evaluator formuł Aspose.Slides, chyba że są udokumentowane osobno.
+Ograniczenia przedstawione w tabeli są istotne: `INDEX` jest udokumentowany w formie referencyjnej, natomiast `LOOKUP` i `MATCH` w formie wektorowej. `DATE` używa systemu dat 1900. Funkcje i cechy nie wymienione tutaj należy traktować jako nieobsługiwane przez evaluator formuł Aspose.Slides, chyba że są udokumentowane osobno.
+
+## **Obliczanie formuł z preferowaną kulturą**
+
+Niektóre funkcje skoroszytu interpretują tekst zgodnie z regułami kulturowymi. Jest to szczególnie ważne dla funkcji przeznaczonych dla języków używających dwubajtowych zestawów znaków (DBCS). Aby poprawnie obliczyć takie formuły, utwórz [LoadOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/), ustaw preferowaną kulturę za pomocą [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/spreadsheetoptions/#setPreferredCulture-java.util.Locale-), przekaż opcje arkusza przez [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/loadoptions/#setSpreadsheetOptions-com.aspose.slides.ISpreadsheetOptions-), a następnie wczytaj prezentację.
+
+Poniższy przykład wybiera kulturę japońską, otwiera prezentację z skonfigurowanymi opcjami ładowania i wywołuje [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) dla każdego skoroszytu wykresu:
+
+```java
+import com.aspose.slides.*;
+import java.util.Locale;
+
+Locale japaneseCulture = Locale.forLanguageTag("ja-JP");
+
+ISpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof IChart) {
+                IChart chart = (IChart) shape;
+                chart.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Preferowana kultura jest częścią konfiguracji ładowania prezentacji, więc określ ją przed utworzeniem instancji [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/). Użyj kultury wymaganej przez formuły skoroszytu; na przykład `ja-JP` dla formuł, które powinny stosować japońskie reguły DBCS.
 
 ## **Przeliczanie i wartości buforowane**
 
-Pliki arkuszy kalkulacyjnych zazwyczaj przechowują zarówno formułę, jak i jej ostatnio obliczoną wartość. Aspose.Slides może więc odczytać wartość buforowaną z [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--) gdy prezentacja jest wczytana i odpowiednie dane wykresu nie zostały zmienione.
+Pliki arkuszy często przechowują zarówno formułę, jak i jej ostatnio obliczoną wartość. Aspose.Slides może więc odczytać wartość buforowaną z [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--) podczas ładowania prezentacji, o ile odpowiednie dane wykresu nie zostały zmienione.
 
-Po zmianie komórek wejściowych lub formuł nie polegaj na starej buforowanej wartości. Wywołaj [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) przed odczytem obliczonych wartości lub zapisem danych wykresu od nich zależnych.
+Po zmianie komórek wejściowych lub formuł nie polegaj na starej wartości buforowanej. Wywołaj [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) przed odczytem obliczonych wartości lub zapisem danych wykresu, które od nich zależą.
 
-Dla formuł spoza obsługiwanego podzbioru Aspose.Slides może nie być w stanie sparsować formuły ani ustalić jej zależności. Jeśli skoroszyt został zmodyfikowany, poprzednia buforowana wartość nie może być już uznana za wiarygodną. W takiej sytuacji odczyt wartości komórki z nieobsługiwanymi danymi może wywołać [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Dla formuł spoza obsługiwanego podzbioru Aspose.Slides może nie być w stanie parsować formuły ani ustalić jej zależności. Jeśli skoroszyt został zmodyfikowany, poprzednia wartość buforowana nie jest już wiarygodna. W takiej sytuacji odczyt wartości komórki z nieobsługiwanymi danymi może spowodować zgłoszenie [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
-Jeśli wykres zależy od funkcji Excel, których Aspose.Slides nie ocenia, oblicz te formuły przy użyciu silnika arkusza kalkulacyjnego, który je obsługuje, i zapisz uzyskane wartości z powrotem do skoroszytu wykresu. Nie zamieniaj nieobsługiwanych formuł na domyslnie przyjęte wartości.
+Jeśli Twój wykres zależy od funkcji Excel, których Aspose.Slides nie ocenia, oblicz te formuły przy użyciu silnika arkusza kalkulacyjnego, który je obsługuje, i zapisz otrzymane wyniki z powrotem do skoroszytu wykresu. Nie zastępuj nieobsługiwanych formuł wartością zgadywaną.
 
 ## **Obsługa błędów formuł**
 
-Istnieją dwa różne rodzaje problemów, które należy rozróżnić.
+Wyróżnia się dwa rodzaje problemów.
 
-Formuła może być prawidłowa, ale zwracać wynik błędu arkusza, np. `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` lub `#VALUE!`. W takim wypadku token błędu jest wynikiem komórki i może zostać zwrócony przez [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
+Formuła może być poprawna, ale zwracać wynik błędu arkusza, takiego jak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` lub `#VALUE!`. W takim przypadku token błędu jest wynikiem komórki i może zostać zwrócony przez [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--).
 
-Formuła może również niepowodzenie na etapie parsowania, odniesienia, zależności lub obsługiwanych danych. Aspose.Slides dostarcza specyficzne dla arkuszy kalkulacyjnych wyjątki: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellcircularreferenceexception/) oraz [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Formuła może także nie powieść się na etapie parsowania, odwołania, zależności lub poziomu obsługiwanych danych. Aspose.Slides udostępnia specyficzne dla arkuszy wyjątki: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellcircularreferenceexception/) oraz [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
 Gdy formuły pochodzą z szablonów lub danych wejściowych użytkownika, obsłuż te wyjątki wokół przeliczania i dostępu do wartości:
 
@@ -334,54 +372,54 @@ try {
 }
 ```
 
-## **Praktyczne ograniczenia**
+## **Ograniczenia praktyczne**
 
-Obsługa formuł w arkuszach wykresów jest przeznaczona dla określonego podzbioru obliczeń arkusza, a nie dla pełnej kompatybilności z Excelem. Pamiętaj o tych ograniczeniach przy projektowaniu przepływu raportowania:
+Obsługa formuł w arkuszach wykresów jest przeznaczona dla określonego podzbioru obliczeń arkuszy, a nie dla pełnej kompatybilności z Excelem. Pamiętaj o tych ograniczeniach przy projektowaniu przepływu pracy raportowania:
 
-- Używaj wyłącznie udokumentowanych stałych, operatorów, odwołań i funkcji, gdy potrzebujesz, aby Aspose.Slides przeliczał formuły.
-- Przelicz po zmianie komórek, od których zależą wyniki formuł.
-- Traktuj buforowane wartości z wczytanych prezentacji jako migawki, a nie jako zastępstwo przeliczania po edycjach.
+- Używaj wyłącznie udokumentowanych stałych, operatorów, odwołań i funkcji, gdy potrzebujesz, aby Aspose.Slides przeliczało formuły.
+- Przeliczaj po zmianie komórek, od których zależą wyniki formuł.
+- Traktuj wartości buforowane z wczytanych prezentacji jako migawki, a nie jako zamiennik przeliczania po edycji.
 - Testuj formuły z istniejących szablonów przed poleganiem na ich obliczonych wartościach, szczególnie gdy używają funkcji spoza udokumentowanej listy.
-- Dla formuł wymagających pełnego silnika kalkulacyjnego, oblicz je zewnętrznie, a następnie zaktualizuj skoroszyt wykresu uzyskanymi wartościami.
+- Dla formuł wymagających pełnego silnika kalkulacyjnego, oblicz je zewnętrznie, a następnie zaktualizuj skoroszyt wykresu otrzymanymi wynikami.
 
 ## **FAQ**
 
 **Jaka jest różnica między [IChartDataCell.setFormula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) a [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-[IChartDataCell.setFormula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) przechowuje wyrażenie w stylu A1, takie jak `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) przechowuje wyrażenie w stylu R1C1, takie jak `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej pasuje do tego, jak generujesz lub kopiujesz formuły.
+[IChartDataCell.setFormula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setFormula-java.lang.String-) zapisuje wyrażenie w stylu A1, np. `B2-C2`. [IChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#setR1C1Formula-java.lang.String-) zapisuje wyrażenie w stylu R1C1, np. `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej pasuje do sposobu generowania lub kopiowania formuł.
 
 **Czy muszę odczytać samą komórkę czy jej wartość po przeliczeniu?**
 
-[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) zwraca obiekt [IChartDataCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/). Aby uzyskać wynik obliczenia, wywołaj metodę [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--) tego obiektu po przeliczeniu.
+[IChartDataWorkbook.getCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-java.lang.String-) zwraca [IChartDataCell](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/). Aby uzyskać obliczony wynik, wywołaj metodę [IChartDataCell.getValue](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdatacell/#getValue--) po przeliczeniu.
 
 **Kiedy powinienem wywołać [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--)?**
 
-Wywołaj [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) po zmianie wartości wejściowych lub formuł i przed użyciem wyników obliczeń. To aktualizuje wartości formuł obsługiwanych przez wbudowany evaluator.
+Wywołaj [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) po zmianie wartości wejściowych lub formuł i przed użyciem obliczonych wyników. Aktualizuje to wartości formuł obsługiwanych przez wbudowany evaluator.
 
 **Czy Aspose.Slides obsługuje każdą funkcję Excela?**
 
-Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Funkcje spoza tego podzbioru nie powinny być traktowane jako prawidłowo przeliczane. Jeśli wymagana jest pełna zgodność z formułami Excela, wykonaj obliczenia przy użyciu odpowiedniego silnika arkusza i zapisz uzyskane wartości w skoroszycie wykresu.
+Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Funkcje poza tym podzbiorem nie powinny być traktowane jako poprawnie przeliczane. Jeśli wymagana jest pełna zgodność z formułami Excela, wykonaj obliczenia przy użyciu odpowiedniego silnika arkusza i zapisz ostateczne wartości do skoroszytu wykresu.
 
 **Co się stanie, jeśli wczytana prezentacja zawiera nieobsługiwaną formułę?**
 
-Jeśli dane wykresu nie zostały zmienione, skoroszyt może nadal zawierać wcześniej obliczoną wartość buforowaną. Po modyfikacji powiązanych danych ta buforowana wartość może już nie być prawidłowa. Dostęp do komórki, której formuła nie może zostać obsłużona, może wywołać [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellunsupporteddataexception/).
+Jeśli dane wykresu nie zostały zmienione, skoroszyt może nadal zawierać wcześniej obliczoną wartość buforowaną. Po modyfikacji powiązanych danych ta wartość może już nie być ważna. Dostęp do komórki, której formuła nie może być obsłużona, może spowodować zgłoszenie [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellunsupporteddataexception/).
 
 **Czy wartości błędów formuły są tym samym co wyjątki Javy?**
 
-Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza wygenerowaną przez prawidłowe obliczenie. Wyjątki takie jak [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellinvalidformulaexception/) lub [CellCircularReferenceException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellcircularreferenceexception/) wskazują, że formuła nie może być normalnie przetworzona.
+Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza uzyskaną w wyniku prawidłowego obliczenia. Wyjątki takie jak [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellinvalidformulaexception/) czy [CellCircularReferenceException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/cellcircularreferenceexception/) wskazują, że formuła nie może być przetworzona w normalny sposób.
 
 **Czy wykres aktualizuje się automatycznie po zmianie komórki z formułą?**
 
-Seria wykresu może odwoływać się do komórek skoroszytu. Najpierw przelicz skoroszyt, a następnie zapisz lub wyrenderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres użyje zaktualizowanych wartości; nie jest wymagane osobne wywołanie odświeżania wykresu w tym przepływie.
+Seria wykresu może odwoływać się do komórek skoroszytu. Przelicz najpierw skoroszyt, a potem zapisz lub wyrenderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres użyje zaktualizowanych wartości; nie jest wymagane oddzielne wywołanie odświeżania wykresu.
 
 **Czy wykresy mogą korzystać z zewnętrznego skoroszytu Excel?**
 
-Tak, dane wykresu można skonfigurować tak, aby używały zewnętrznego skoroszytu poprzez API danych wykresu. Jednak opisany w tym artykule proces obliczania formuł dotyczy skoroszytu danych wykresu i podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) zapewnia pełne przeliczenie dowolnych formuł w zewnętrznym pliku XLSX.
+Tak, dane wykresu można skonfigurować tak, aby używały zewnętrznego skoroszytu poprzez API danych wykresu. Jednak przepływ pracy związany z obliczaniem formuł opisany w tym artykule dotyczy skoroszytu danych wykresu i podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [IChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ichartdataworkbook/#calculateFormulas--) zapewnia pełne przeliczenie dowolnych formuł w zewnętrznym pliku XLSX.
 
 **Czy mogę używać formuł odwołujących się do innego arkusza lub skoroszytu?**
 
-Odwołania w stylu Excel mogą występować w skoroszytach wykresów, ale ocena formuł jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie krzyżowe jest niezbędne, zweryfikuj dokładną formułę w wersji Aspose.Slides, której używasz. Dla przepływów wymagających szerokiej kompatybilności odwołań Excel, oblicz skoroszyt zewnętrznie i zapisz rozwiązane wartości do danych wykresu.
+Odwołania w stylu Excel mogą występować w skoroszytach wykresów, ale ocena formuł jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie między arkuszami lub zewnętrzne jest kluczowe, zweryfikuj dokładną formułę w wersji Aspose.Slides, której używasz. Dla przepływów wymagających szerokiej kompatybilności odwołań Excel, oblicz skoroszyt zewnętrznie i zapisz rozwiązane wartości z powrotem do danych wykresu.
 
 **Czy łańcuchy formuł powinny zaczynać się od `=`?**
 
-Przykłady API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego znaku `=`. Używanie takiej formy utrzymuje generowane formuły zgodne z dokumentowanymi przykładami API.
+Przykłady API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego znaku `=`. Użycie tej formy utrzymuje generowane formuły spójne z udokumentowanymi przykładami API.

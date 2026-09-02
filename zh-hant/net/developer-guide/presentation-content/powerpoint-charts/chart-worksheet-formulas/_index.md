@@ -12,6 +12,9 @@ keywords:
 - 試算表公式
 - 圖表資料工作簿
 - 公式計算
+- 首選語系
+- 語系特定公式
+- 雙位元組字元集
 - 邏輯常數
 - 數值常數
 - 字串常數
@@ -20,7 +23,7 @@ keywords:
 - 比較運算子
 - A1 風格
 - R1C1 風格
-- 預定義函數
+- 預定義函式
 - PowerPoint
 - 簡報
 - .NET
@@ -30,23 +33,23 @@ description: "在 Aspose.Slides for .NET 的圖表工作表中套用 Excel 風�
 ---
 ## **概觀**
 
-PowerPoint 圖表通常將其來源資料儲存在嵌入的工作表中。在 Aspose.Slides for .NET 中，您可以透過圖表資料工作簿存取該工作表，寫入輸入值，將公式指派給儲存格，計算支援的公式，並使用計算後的儲存格作為圖表資料。
+PowerPoint 圖表通常將來源資料儲存在嵌入的工作表中。在 Aspose.Slides for .NET 中，您可以透過圖表資料工作簿存取該工作表、寫入輸入值、為儲存格指派公式、計算受支援的公式，並使用計算後的儲存格作為圖表資料。
 
-本文章說明完整的公式工作流程：建立圖表、填充其工作表、指派 A1 風格或 R1C1 風格的公式、重新計算它們、讀取計算值、將這些儲存格連接到圖表系列，並儲存簡報。同時說明支援的公式語法、內建函數子集合、快取值、不支援的公式以及試算表特定錯誤。
+本文說明完整的公式工作流程：建立圖表、填寫其工作表、指派 A1 風格或 R1C1 風格的公式、重新計算它們、讀取計算值、將這些儲存格連結至圖表系列，最後儲存簡報。亦會描述受支援的公式語法、內建函式子集、快取值、不支援的公式以及試算表特定錯誤。
 
 ## **圖表工作表與公式**
 
-圖表工作表包含圖表使用的類別、系列名稱與數值。在 PowerPoint 中，您可以透過開啟圖表資料編輯器來檢查工作表：
+圖表工作表包含圖表使用的類別、系列名稱與數值。在 PowerPoint 中，您可以透過開啟圖表資料編輯器來檢視工作表：
 
-![PowerPoint 圖表開啟其嵌入工作表，顯示類別與系列資料](chart-worksheet-formulas_1.png)
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-在 Aspose.Slides 中，工作表透過[chart data workbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)公開。使用[IChartDataCell.Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/formula/)屬性指派 A1 風格公式，使用[IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/r1c1formula/)屬性指派 R1C1 風格公式。變更輸入儲存格或公式後，呼叫[IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)以重新計算支援的公式並更新相應的儲存格值。
+在 Aspose.Slides 中，工作表透過[chart data workbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/)對外暴露。使用[Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/formula/)屬性設定 A1 風格公式，使用[R1C1Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/r1c1formula/)屬性設定 R1C1 風格公式。變更輸入儲存格或公式後，呼叫[CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)以重新計算受支援的公式並更新相應的儲存格值。
 
-計算過的儲存格仍透過[Value](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/value/)屬性公開其結果。當您需要在程式碼中檢查公式結果或將儲存格作為圖表資料點使用時，這點非常重要。
+計算後的儲存格仍透過[Value](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/value/)屬性曝露其結果。當您需要在程式碼中檢查公式結果或將儲存格作為圖表資料點使用時，這點非常重要。
 
 ## **建立圖表並計算工作表公式**
 
-以下範例示範端對端工作流程。它建立一個群組柱狀圖，清除範例資料，寫入每季營收與支出值，使用公式計算利潤，讀取結果，將計算後的儲存格作為圖表值，並儲存簡報。
+以下範例示範端對端工作流程。它建立叢集直條圖、清除範例資料、寫入每季收入與支出值、使用公式計算利潤、讀取結果、將計算後的儲存格作為圖表值，最後儲存簡報。
 
 ```csharp
 using System;
@@ -111,11 +114,11 @@ profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-圖表資料點參照 `D2:D4`，因此圖表使用計算出的利潤值。在此工作流程中沒有單獨的圖表重新整理呼叫：先重新計算工作簿，然後使用或儲存指向計算儲存格的圖表資料。
+圖表資料點參考`D2:D4`，因此圖表使用計算後的利潤值。此工作流程中沒有單獨的圖表重新整理呼叫：先重新計算工作簿，然後使用或儲存指向計算儲存格的圖表資料。
 
 ## **使用 A1 風格公式**
 
-A1 記號使用字母辨識欄，使用數字辨識列。透過[IChartDataCell.Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/formula/)指派 A1 風格的運算式。
+A1 記號使用字母代表欄、數字代表列。透過[IChartDataCell.Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/formula/)指派 A1 風格表達式。
 
 ```csharp
 using Aspose.Slides;
@@ -149,11 +152,11 @@ var value = cell.Value; // 19
 | 欄 | `A:A` | `$A:$A` | — |
 | 範圍 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-相對參照在公式被試算表應用程式移動或複製時會改變。絕對參照則將兩個座標都固定，混合參照則只固定列或欄之一。
+相對參照在公式移動或複製時會變更。絕對參照將兩個座標皆固定，混合參照則僅固定列或欄。
 
 ## **使用 R1C1 風格公式**
 
-R1C1 記號以數字辨識列與欄。相對參照使用方括號內的位移。透過[IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/r1c1formula/)指派此語法。
+R1C1 記號以數字同時識別列與欄。相對參照使用方括號內的位移。透過[IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/r1c1formula/)指派此語法。
 
 ```csharp
 using Aspose.Slides;
@@ -185,20 +188,20 @@ var value = cell.Value; // 7
 | 欄 | `C[3]` | `C3` | — |
 | 範圍 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-例如，在儲存格 `D2` 中，`RC[-2]` 代表同列左側兩欄的儲存格 (`B2`)。
+例如，在儲存格`D2`中，`RC[-2]`表示同一列左移兩欄的儲存格 (`B2`)。
 
 ## **公式常數與運算子**
 
-內建的公式評估器支援邏輯值、數值文字、字串、試算表錯誤值、算術運算子與比較運算子。
+內建公式評估器支援邏輯值、數值文字、字串、試算表錯誤值、算術運算子與比較運算子。
 
 ### **常數與文字**
 
-| 類型 | 範例 | 說明 |
+| 類型 | 範例 | 註記 |
 |---|---|---|
-| 邏輯 | `TRUE`, `FALSE` | 可直接用於邏輯運算式，例如 `A2=TRUE`。 |
-| 數值 | `1`, `0.5`, `.3`, `1E-2` | 支援普通與科學記號。 |
-| 字串 | `"abc"`, `"2/3/2020 12:00"` | 文字文字必須在公式中以雙引號括住。 |
-| 錯誤結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可能會評估為試算表錯誤值，而非正常結果。 |
+| 邏輯 | `TRUE`, `FALSE` | 可直接用於例如 `A2=TRUE` 的邏輯運算式。 |
+| 數值 | `1`, `0.5`, `.3`, `1E-2` | 支援一般與科學記號。 |
+| 字串 | `"abc"`, `"2/3/2020 12:00"` | 文字文字必須在公式內以雙引號包住。 |
+| 錯誤結果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可評估為試算表錯誤值而非一般結果。 |
 
 此範例使用了多種常數類型：
 
@@ -221,7 +224,7 @@ workbook.GetCell(0, "F2").Formula = "2/0";
 
 workbook.CalculateFormulas();
 
-var logicalValue = workbook.GetCell(0, "B2").Value; // 假
+var logicalValue = workbook.GetCell(0, "B2").Value; // False
 var numericValue = workbook.GetCell(0, "C2").Value; // 1.5
 var scientificValue = workbook.GetCell(0, "D2").Value; // 0.003
 var stringValue = workbook.GetCell(0, "E2").Value; // abc
@@ -233,17 +236,17 @@ var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
 | 運算子 | 意義 | 範例 |
 |---|---|---|
 | `+` | 加法或一元正號 | `2+3` |
-| `-` | 減法或負號 | `2-3`, `-3` |
+| `-` | 減法或否定 | `2-3`, `-3` |
 | `*` | 乘法 | `2*3` |
 | `/` | 除法 | `2/3` |
 | `%` | 百分比 | `30%` |
 | `^` | 次方 | `2^3` |
 
-使用括號可明確指定運算順序，例如 `(A2+B2)*C2`。
+使用括號明確指定運算順序，例如 `(A2+B2)*C2`。
 
 ### **比較運算子**
 
-比較運算式會傳回邏輯值。
+比較運算式傳回邏輯值。
 
 | 運算子 | 意義 | 範例 |
 |---|---|---|
@@ -254,49 +257,84 @@ var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
 | `<` | 小於 | `A2<3` |
 | `<=` | 小於或等於 | `A2<=3` |
 
-## **支援的預先定義函數**
+## **受支援的預定義函式**
 
-Aspose.Slides 為圖表工作表提供內建的公式評估器，但它並非完整的 Excel 計算引擎。文件中列出的函數集合僅限於下列函數。不要假設任意 Excel 函數都能由[CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)重新計算。
+Aspose.Slides 為圖表工作表提供內建公式評估器，但它並非完整的 Excel 計算引擎。文件中列出的函式集僅限於下表所示。不要假設任意 Excel 函式皆可由[CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)重新計算。
 
-| 函數 | 目的或支援形式 | 範例 |
+| 函式 | 用途或支援形式 | 範例 |
 |---|---|---|
 | `ABS` | 絕對值 | `ABS(A2)` |
-| `AVERAGE` | 算術平均 | `AVERAGE(B2:B5)` |
-| `CEILING` | 向上取整至倍數 | `CEILING(A2,5)` |
+| `AVERAGE` | 算術平均值 | `AVERAGE(B2:B5)` |
+| `CEILING` | 向上取整至最接近的倍數 | `CEILING(A2,5)` |
 | `CHOOSE` | 依索引選取值 | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | 串接文字值 | `CONCAT(A2,B2)` |
-| `CONCATENATE` | 串接文字值 | `CONCATENATE(A2," ",B2)` |
+| `CONCAT` | 合併文字值 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | 合併文字值 | `CONCATENATE(A2," ",B2)` |
 | `DATE` | 以 1900 日期系統建立日期值 | `DATE(2026,8,19)` |
-| `DAYS` | 回傳兩日期間的天數 | `DAYS(B2,A2)` |
-| `FIND` | 在文字內尋找文字 | `FIND("-",A2)` |
-| `FINDB` | 位元組導向的文字搜尋 | `FINDB("a",A2)` |
+| `DAYS` | 計算兩日期之間的天數 | `DAYS(B2,A2)` |
+| `FIND` | 在字串中搜尋文字 | `FIND("-",A2)` |
+| `FINDB` | 以位元組為單位的文字搜尋 | `FINDB("a",A2)` |
 | `IF` | 條件結果 | `IF(A2>0,A2,0)` |
 | `INDEX` | 參照形式 | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | 向量形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | 向量形式 | `MATCH(A2,B2:B5,0)` |
 | `MAX` | 最大值 | `MAX(B2:B5)` |
 | `SUM` | 加總 | `SUM(B2:B5)` |
-| `VLOOKUP` | 垂直搜尋 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `VLOOKUP` | 垂直查找 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-表格中顯示的限制相當重要：`INDEX` 以參照形式記錄，`LOOKUP` 與 `MATCH` 以向量形式記錄。`DATE` 使用 1900 日期系統。未列於此處的功能與函數應視為 Aspose.Slides 公式評估器不支援，除非另有文件說明。
+表格中顯示的限制相當重要：`INDEX` 以參照形式記載，`LOOKUP` 與 `MATCH` 則以向量形式記載。`DATE` 使用 1900 日期系統。未列於此處的功能與函式應視為 Aspose.Slides 公式評估器不支援，除非另有文件說明。
+
+## **以首選語系計算公式**
+
+某些工作簿函式會根據語系規則解讀文字。這在處理使用雙位元組字元集 (DBCS) 語言的函式時尤為重要。若要正確計算此類公式，請建立[LoadOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/)，透過[LoadOptions.SpreadsheetOptions](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/loadoptions/spreadsheetoptions/)設定[ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ispreadsheetoptions/preferredculture/)，然後載入簡報。
+
+以下範例選取日語語系，使用已設定的載入選項開啟簡報，並對每個圖表工作簿呼叫[IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)：
+
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
+
+首選語系是簡報載入設定的一部份，因此請在建立[Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/)實例之前指定。使用工作簿公式所需的語系，例如對應日語 DBCS 計算規則時使用 `ja-JP`。
 
 ## **重新計算與快取值**
 
-試算表檔案通常同時儲存公式與其最後計算的值。當簡報載入且相關圖表資料未變更時，Aspose.Slides 可以從[IChartDataCell.Value](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/value/) 讀取快取值。
+試算表檔案通常同時儲存公式與最後計算的值。Aspose.Slides 因此能在載入簡報且相關圖表資料未變更時，從[IChartDataCell.Value](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/value/)讀取快取值。
 
-變更輸入儲存格或公式後，請在讀取計算值或儲存依賴於計算結果的圖表資料之前，呼叫[IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)。
+變更輸入儲存格或公式後，請在讀取計算值或儲存依賴於它們的圖表資料之前，呼叫[IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)。
 
-對於不在支援子集合中的公式，Aspose.Slides 可能無法解析公式或建立其相依性。若工作簿已被修改，先前的快取值將不再可靠。在此情況下，讀取含未支援資料的儲存格值可能拋出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+對於不在受支援子集之公式，Aspose.Slides 可能無法解析公式或確定其相依性。若工作簿已被修改，先前的快取值將不再可靠。在此情況下，讀取含不支援資料的儲存格會拋出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
 
-如果您的圖表依賴 Aspose.Slides 無法評估的 Excel 函數，請使用支援這些函數的試算表引擎先計算，然後將結果寫回圖表工作簿。不要以猜測值取代未支援的公式。
+如果您的圖表依賴 Aspose.Slides 無法評估的 Excel 函式，請使用支援這些函式的試算表引擎先行計算，然後將結果寫回圖表工作簿。不要以猜測的值取代不支援的公式。
 
 ## **處理公式錯誤**
 
-需要區分兩種問題。
+需區分兩種不同的問題。
 
-公式本身可能有效，但會產生試算表錯誤結果，例如 `#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!`、`#VALUE!`。在這種情況下，錯誤代號是儲存格的結果，可透過 `Value` 取得。
+公式可能有效，但產生試算表錯誤結果，如 `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` 或 `#VALUE!`。此情況下，錯誤代號為儲存格結果，可透過 `Value` 取得。
 
-公式也可能在解析、參照、相依性或支援資料層面失敗。Aspose.Slides 為此提供試算表特定的例外類型：`[CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellinvalidformulaexception/)`、`[CellInvalidReferenceException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/)`、`[CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellcircularreferenceexception/)` 與 `[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)`。
+公式也可能在語法、參照、相依性或支援資料層面失敗。Aspose.Slides 為這些情況提供特定的試算表例外：[CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellcircularreferenceexception/)、以及[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
 
 當公式來自範本或使用者輸入時，請在重新計算與存取值的程式碼區塊周圍捕捉這些例外：
 
@@ -339,52 +377,52 @@ catch (CellUnsupportedDataException ex)
 
 ## **實務限制**
 
-圖表工作表的公式支援僅針對特定子集合的試算表計算設計，並非完整的 Excel 相容性。設計報表工作流程時請留意以下限制：
+圖表工作表中的公式支援旨在涵蓋特定的試算表計算子集，而非完整的 Excel 相容性。設計報表工作流程時請留意以下限制：
 
-- 僅使用文件中列出的常數、運算子、參照與函數，才能讓 Aspose.Slides 重新計算公式。
-- 在變更公式結果所依賴的儲存格後，務必重新計算。
-- 將載入的簡報中的快取值視為快照，而非在編輯後取代重新計算的結果。
-- 在依賴計算值前，先測試既有範本中的公式，特別是使用未列於文件的函數時。
-- 對於需要完整試算表計算引擎的公式，請先於外部計算，然後再將結果寫入圖表工作簿。
+- 只使用文件中列出的常數、運算子、參照與函式，才能讓 Aspose.Slides 重新計算公式。
+- 在變更公式結果所依賴的儲存格後必須重新計算。
+- 將載入簡報時的快取值視為快照，而非編輯後的重新計算替代方案。
+- 在依賴已計算值之前，先測試來自既有範本的公式，尤其是使用未列於文件的函式時。
+- 對於需要完整試算表計算引擎的公式，請先於外部計算，然後再將結果寫回圖表工作簿。
 
-## **FAQ**
+## **常見問題**
 
 **`Formula` 與 `R1C1Formula` 有何不同？**
 
-[Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/formula/)儲存 A1 風格的運算式，如 `B2-C2`。[R1C1Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/r1c1formula/)儲存 R1C1 風格的運算式，如 `RC[-2]-RC[-1]`。請依照您產生或複製公式的方式選擇使用的記號。
+[Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/formula/) 儲存 A1 風格的表達式，例如 `B2-C2`。[R1C1Formula](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/r1c1formula/) 儲存 R1C1 風格的表達式，例如 `RC[-2]-RC[-1]`。使用最符合您產生或複製公式方式的記號。
 
-**計算後，我需要讀取儲存格本身還是它的值？**
+**計算後我需要讀取儲存格本身還是其值？**
 
-[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/getcell/)會回傳 `IChartDataCell`。在重新計算之後，讀取該儲存格的[Value](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/value/)屬性即可取得計算結果。
+[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/getcell/) 會回傳 `IChartDataCell`。在重新計算後，讀取該儲存格的[Value](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/value/)屬性即可取得計算結果。
 
 **什麼時候應該呼叫 `CalculateFormulas`？**
 
-在變更輸入值或公式後，且在依賴計算結果之前，呼叫[CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)以更新內建評估器支援的公式值。
+在變更輸入值或公式後、在依賴計算結果之前，呼叫[CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/)。這會更新內建評估器支援的公式值。
 
-**Aspose.Slides 是否支援所有 Excel 函數？**
+**Aspose.Slides 支援所有 Excel 函式嗎？**
 
-不會。內建評估器僅支援文件中列出的子集合。未列出的函數不應假設能正確重新計算。如需完整的 Excel 公式相容性，請使用適當的試算表引擎計算，然後將最終值寫入圖表工作簿。
+否。內建評估器只支援文件中列出的子集。未列於子集的函式不應假設能正確重新計算。如需完整的 Excel 公式相容性，請使用適當的試算表引擎進行計算，然後將最終值寫入圖表工作簿。
 
 **如果載入的簡報包含不支援的公式會發生什麼？**
 
-如果圖表資料未變更，工作簿可能仍保有先前計算的快取值。當相關資料被修改後，該快取值可能不再有效。存取無法處理的公式儲存格時，可能拋出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
+如果圖表資料未變更，工作簿仍可能保有先前計算的快取值。相關資料變更後，該快取值可能不再有效。存取無法處理的公式之儲存格可能拋出[CellUnsupportedDataException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellunsupporteddataexception/)。
 
 **公式錯誤值與 .NET 例外相同嗎？**
 
-不是。`#DIV/0!` 之類的結果是有效計算所產生的試算表值。`[CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellinvalidformulaexception/)` 或 `[CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellcircularreferenceexception/)` 等例外表示公式無法正常處理。
+不相同。`#DIV/0!` 等結果是有效計算產生的試算表值。像 [CellInvalidFormulaException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) 或 [CellCircularReferenceException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) 這類例外表示公式無法正常處理。
 
-**當公式儲存格變更時，圖表會自動更新嗎？**
+**當公式儲存格變更時圖表會自動更新嗎？**
 
-圖表系列可以參照工作簿儲存格。先重新計算工作簿，然後儲存或呈現簡報即可。如果圖表資料點參照的是計算後的儲存格，圖表會使用這些已更新的值；此工作流程不需要額外的圖表重新整理方法。
+圖表系列可以參照工作簿儲存格。先重新計算工作簿，然後儲存或呈現簡報。如果圖表資料點參考計算後的儲存格，圖表將使用更新後的值；此工作流程不需要額外的圖表刷新方法。
 
-**圖表能使用外部 Excel 工作簿嗎？**
+**圖表可以使用外部 Excel 工作簿嗎？**
 
-可以，圖表資料可透過圖表資料 API 設定使用外部工作簿。然而，本文章描述的公式計算工作流程僅適用於圖表資料工作簿以及 Aspose.Slides 評估的公式子集合。不要假設[CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) 能完整重新計算外部 XLSX 檔案中的任意公式。
+可以，圖表資料可透過圖表資料 API 設定使用外部工作簿。然而，本文描述的公式計算工作流程僅涉及圖表資料工作簿以及 Aspose.Slides 評估的公式子集。不要假設 [CalculateFormulas](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) 能完整重新計算外部 XLSX 檔案中的任意公式。
 
 **我可以使用參照其他工作表或工作簿的公式嗎？**
 
-圖表工作簿中可能會出現 Excel 風格的跨工作表或外部參照，但公式評估受限於支援的解析器與函數集合。若跨工作表或外部參照必須使用，請先以目標 Aspose.Slides 版本驗證該公式。需要廣泛 Excel 參照相容性的工作流程，建議先外部計算工作簿，然後將解析後的值寫回圖表資料。
+Excel 風格的參照可能存在於圖表工作簿中，但公式評估受限於支援的解析器與函式集。如果跨工作表或外部參照為關鍵，請先在目標 Aspose.Slides 版本中驗證該公式。如需廣泛的 Excel 參照相容性，請在外部計算工作簿，然後將解析後的值寫回圖表資料。
 
 **公式字串需要以 `=` 開頭嗎？**
 
-Aspose.Slides API 範例會直接指定如 `B2-C2` 或 `SUM(B2:B5)`，不加前置的 `=`。採用此形式可讓產生的公式與文件中示範的 API 範例保持一致。
+Aspose.Slides API 範例在指派表達式時，如 `B2-C2` 或 `SUM(B2:B5)`，皆未加前置 `=`。使用此形式可使產生的公式與文件中的 API 範例保持一致。

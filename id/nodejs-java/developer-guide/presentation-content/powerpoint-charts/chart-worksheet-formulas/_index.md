@@ -1,5 +1,5 @@
 ---
-title: Menerapkan Rumus Lembar Kerja Diagram dalam Presentasi Menggunakan JavaScript
+title: Terapkan Rumus Lembar Kerja Diagram dalam Presentasi Menggunakan JavaScript
 linktitle: Rumus Lembar Kerja
 type: docs
 weight: 70
@@ -10,8 +10,11 @@ keywords:
 - rumus diagram
 - rumus lembar kerja
 - rumus spreadsheet
-- workbook data diagram
+- buku kerja data diagram
 - perhitungan rumus
+- budaya pilihan
+- rumus khusus budaya
+- DBCS
 - konstanta logika
 - konstanta numerik
 - konstanta string
@@ -26,27 +29,27 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Terapkan rumus bergaya Excel dalam Aspose.Slides untuk Node.js via Java pada lembar kerja diagram, hitung ulang nilai, dan gunakan hasilnya dalam diagram PowerPoint."
+description: "Terapkan rumus bergaya Excel dalam Aspose.Slides untuk Node.js melalui lembar kerja diagram Java, hitung ulang nilai, dan gunakan hasilnya dalam diagram PowerPoint."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Diagram PowerPoint biasanya menyimpan data sumbernya di lembar kerja yang disematkan. Pada Aspose.Slides untuk Node.js via Java, Anda dapat mengakses lembar kerja tersebut melalui workbook data diagram, menulis nilai input, menetapkan rumus ke sel, menghitung rumus yang didukung, dan menggunakan sel yang dihitung sebagai data diagram.
+Diagram PowerPoint biasanya menyimpan data sumbernya dalam lembar kerja yang tersemat. Dalam Aspose.Slides untuk Node.js via Java, Anda dapat mengakses lembar kerja tersebut melalui chart data workbook, menulis nilai input, menetapkan rumus ke sel, menghitung rumus yang didukung, dan menggunakan sel yang telah dihitung sebagai data diagram.
 
-Artikel ini menjelaskan alur kerja rumus secara lengkap: membuat diagram, mengisi lembar kerjanya, menetapkan rumus gaya A1 atau R1C1, menghitung ulang, membaca nilai yang dihitung, menghubungkan sel‑sel tersebut ke seri diagram, dan menyimpan presentasi. Artikel ini juga menjelaskan sintaks rumus yang didukung, subset fungsi bawaan, nilai yang di‑cache, rumus yang tidak didukung, serta kesalahan khusus spreadsheet.
+Artikel ini menjelaskan alur kerja rumus secara lengkap: membuat diagram, mengisi lembar kerjanya, menetapkan rumus gaya A1 atau R1C1, menghitung kembali rumus, membaca nilai yang dihitung, menghubungkan sel‑sel tersebut ke seri diagram, dan menyimpan presentasi. Artikel ini juga menggambarkan sintaks rumus yang didukung, subset fungsi bawaan, nilai cache, rumus yang tidak didukung, dan kesalahan khusus spreadsheet.
 
-## **Lembar Kerja Diagram dan Rumus**
+## **Lembar Kerja Grafik dan Rumus**
 
-Lembar kerja diagram berisi kategori, nama seri, dan nilai yang digunakan oleh diagram. Di PowerPoint, Anda dapat memeriksa lembar kerja dengan membuka editor data diagram:
+Lembar kerja grafik berisi kategori, nama seri, dan nilai yang digunakan oleh sebuah diagram. Di PowerPoint, Anda dapat memeriksa lembar kerja dengan membuka editor data diagram:
 
-![Diagram PowerPoint dengan lembar kerja yang disematkan terbuka, menampilkan data kategori dan seri](chart-worksheet-formulas_1.png)
+![Diagram PowerPoint dengan lembar kerja tersemat terbuka, menampilkan data kategori dan seri](chart-worksheet-formulas_1.png)
 
 Di Aspose.Slides, lembar kerja diekspos melalui kelas [ChartDataWorkbook](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/). Gunakan [ChartDataCell.setFormula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) untuk rumus gaya A1 dan [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) untuk rumus gaya R1C1. Setelah mengubah sel input atau rumus, panggil [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) untuk menghitung ulang rumus yang didukung dan memperbarui nilai sel yang bersangkutan.
 
-Sel yang dihitung tetap mengekspos hasilnya melalui [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--). Ini penting ketika Anda perlu memeriksa hasil rumus dalam kode atau menggunakan sel sebagai titik data diagram.
+Sel yang telah dihitung tetap menampilkan hasilnya melalui [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--). Ini penting ketika Anda perlu memeriksa hasil rumus dalam kode atau menggunakan sel tersebut sebagai titik data diagram.
 
-## **Buat Diagram dan Hitung Rumus Lembar Kerja**
+## **Buat Grafik dan Hitung Rumus Lembar Kerja**
 
-Contoh berikut mendemonstrasikan alur kerja ujung‑ke‑ujung. Ia membuat diagram kolom berkelompok, menghapus data contoh, menulis nilai pendapatan dan biaya kuartalan, menghitung laba dengan rumus, membaca hasilnya, menggunakan sel yang dihitung sebagai nilai diagram, dan menyimpan presentasi.
+Contoh berikut memperlihatkan alur kerja ujung‑ke‑ujung. Ia membuat diagram kolom berkelompok, menghapus data contoh, menulis nilai pendapatan dan biaya kuartalan, menghitung laba dengan rumus, membaca hasilnya, menggunakan sel yang dihitung sebagai nilai diagram, dan menyimpan presentasi.
 
 ```javascript
 const aspose = {};
@@ -112,7 +115,7 @@ try {
 }
 ```
 
-Poin data diagram merujuk ke `D2:D4`, sehingga diagram menggunakan nilai laba yang dihitung. Tidak ada panggilan penyegaran diagram terpisah dalam alur kerja ini: hitung ulang workbook terlebih dahulu, kemudian gunakan atau simpan data diagram yang menunjuk ke sel yang dihitung.
+Titik data diagram merujuk ke `D2:D4`, sehingga diagram menggunakan nilai laba yang telah dihitung. Tidak ada pemanggilan refresh diagram terpisah dalam alur kerja ini: hitung ulang workbook terlebih dahulu, lalu gunakan atau simpan data diagram yang menunjuk ke sel yang dihitung.
 
 ## **Gunakan Rumus Gaya A1**
 
@@ -144,7 +147,7 @@ try {
 }
 ```
 
-Bentuk referensi A1 yang umum adalah:
+Bentuk referensi A1 umum adalah:
 
 | Referensi | Relatif | Absolut | Campuran |
 |---|---|---|---|
@@ -153,7 +156,7 @@ Bentuk referensi A1 yang umum adalah:
 | Kolom | `A:A` | `$A:$A` | — |
 | Rentang | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Referensi relatif dapat berubah ketika rumus dipindahkan atau disalin oleh aplikasi spreadsheet. Referensi absolut mempertahankan kedua koordinat tetap, sedangkan referensi campuran memperbaiki hanya baris atau kolom.
+Referensi relatif dapat berubah ketika rumus dipindahkan atau disalin oleh aplikasi spreadsheet. Referensi absolut menjaga kedua koordinat tetap tetap, sementara referensi campuran memperbaiki hanya baris atau kolom saja.
 
 ## **Gunakan Rumus Gaya R1C1**
 
@@ -183,7 +186,7 @@ try {
 }
 ```
 
-Bentuk referensi R1C1 yang umum adalah:
+Bentuk referensi R1C1 umum adalah:
 
 | Referensi | Relatif | Absolut | Campuran |
 |---|---|---|---|
@@ -194,7 +197,7 @@ Bentuk referensi R1C1 yang umum adalah:
 
 Sebagai contoh, pada sel `D2`, `RC[-2]` berarti sel pada baris yang sama dua kolom ke kiri (`B2`).
 
-## **Konsstanta dan Operator Rumus**
+## **Konstanta Rumus dan Operator**
 
 Evaluator rumus bawaan mendukung nilai logika, literal numerik, string, nilai kesalahan spreadsheet, operator aritmetika, dan operator perbandingan.
 
@@ -203,9 +206,9 @@ Evaluator rumus bawaan mendukung nilai logika, literal numerik, string, nilai ke
 | Tipe | Contoh | Catatan |
 |---|---|---|
 | Logika | `TRUE`, `FALSE` | Dapat digunakan langsung dalam ekspresi logika seperti `A2=TRUE`. |
-| Numerik | `1`, `0.5`, `.3`, `1E-2` | Notasi umum dan ilmiah didukung. |
+| Numerik | `1`, `0.5`, `.3`, `1E-2` | Notasi biasa dan ilmiah didukung. |
 | String | `"abc"`, `"2/3/2020 12:00"` | Literal teks ditulis dalam tanda kutip ganda di dalam rumus. |
-| Hasil kesalahan | `#DIV/0!`, `#N/A`, `#REF!` | Rumus yang valid dapat mengevaluasi menjadi nilai kesalahan spreadsheet alih‑alih hasil normal. |
+| Hasil Kesalahan | `#DIV/0!`, `#N/A`, `#REF!` | Rumus yang valid dapat menghasilkan nilai kesalahan spreadsheet alih‑alih hasil normal. |
 
 Contoh ini menggunakan beberapa tipe konstanta:
 
@@ -240,7 +243,7 @@ try {
 
 ### **Operator Aritmetika**
 
-| Operator | Makna | Contoh |
+| Operator | Arti | Contoh |
 |---|---|---|
 | `+` | Penjumlahan atau plus unary | `2+3` |
 | `-` | Pengurangan atau negasi | `2-3`, `-3` |
@@ -249,13 +252,13 @@ try {
 | `%` | Persen | `30%` |
 | `^` | Pangkat | `2^3` |
 
-Gunakan tanda kurung untuk membuat urutan evaluasi eksplisit, misalnya `(A2+B2)*C2`.
+Gunakan tanda kurung untuk membuat urutan evaluasi jelas, misalnya `(A2+B2)*C2`.
 
 ### **Operator Perbandingan**
 
 Ekspresi perbandingan mengembalikan nilai logika.
 
-| Operator | Makna | Contoh |
+| Operator | Arti | Contoh |
 |---|---|---|
 | `=` | Sama dengan | `A2=3` |
 | `<>` | Tidak sama dengan | `A2<>3` |
@@ -264,15 +267,15 @@ Ekspresi perbandingan mengembalikan nilai logika.
 | `<` | Lebih kecil dari | `A2<3` |
 | `<=` | Lebih kecil atau sama dengan | `A2<=3` |
 
-## **Fungsi Bawaan yang Didukung**
+## **Fungsi Tertentu yang Didukung**
 
-Aspose.Slides menyertakan evaluator rumus bawaan untuk lembar kerja diagram, namun bukan mesin perhitungan Excel lengkap. Set fungsi yang didokumentasikan terbatas pada fungsi di bawah ini. Jangan mengasumsikan bahwa fungsi Excel sewenang‑wandanya dapat dihitung ulang oleh [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
+Aspose.Slides menyertakan evaluator rumus bawaan untuk lembar kerja diagram, namun bukan mesin perhitungan Excel lengkap. Set fungsi yang didokumentasikan terbatas pada fungsi berikut. Jangan mengasumsikan bahwa fungsi Excel arbitrer dapat dihitung ulang oleh [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--).
 
 | Fungsi | Tujuan atau bentuk yang didukung | Contoh |
 |---|---|---|
 | `ABS` | Nilai absolut | `ABS(A2)` |
 | `AVERAGE` | Rata‑rata aritmetika | `AVERAGE(B2:B5)` |
-| `CEILING` | Membulatkan angka ke atas ke kelipatan | `CEILING(A2,5)` |
+| `CEILING` | Membulatkan ke atas ke kelipatan | `CEILING(A2,5)` |
 | `CHOOSE` | Memilih nilai berdasarkan indeks | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | Menggabungkan nilai teks | `CONCAT(A2,B2)` |
 | `CONCATENATE` | Menggabungkan nilai teks | `CONCATENATE(A2," ",B2)` |
@@ -288,27 +291,65 @@ Aspose.Slides menyertakan evaluator rumus bawaan untuk lembar kerja diagram, nam
 | `SUM` | Menjumlahkan nilai | `SUM(B2:B5)` |
 | `VLOOKUP` | Pencarian vertikal | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Pembatasan yang ditunjukkan dalam tabel penting: `INDEX` didokumentasikan dalam bentuk referensi, sementara `LOOKUP` dan `MATCH` didokumentasikan dalam bentuk vektor mereka. `DATE` menggunakan sistem tanggal 1900. Fitur dan fungsi yang tidak tercantum di sini harus dianggap tidak didukung oleh evaluator rumus Aspose.Slides kecuali mereka didokumentasikan secara terpisah.
+Pembatasan yang ditunjukkan dalam tabel signifikan: `INDEX` didokumentasikan dalam bentuk referensi, sementara `LOOKUP` dan `MATCH` didokumentasikan dalam bentuk vektor. `DATE` menggunakan sistem tanggal 1900. Fitur dan fungsi yang tidak tercantum di sini harus dianggap tidak didukung oleh evaluator rumus Aspose.Slides kecuali mereka didokumentasikan secara terpisah.
 
-## **Rekalkulasi dan Nilai Tersimpan**
+## **Hitung Rumus dengan Budaya Pilihan**
 
-File spreadsheet biasanya menyimpan baik rumus maupun nilai terhitung terakhirnya. Aspose.Slides dapat membaca nilai yang tersimpan dari [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--) ketika presentasi dimuat dan data diagram yang relevan belum diubah.
+Beberapa fungsi workbook diagram menafsirkan teks berdasarkan aturan budaya‑spesifik. Ini terutama penting untuk fungsi yang ditujukan bagi bahasa yang menggunakan set karakter ganda (DBCS). Untuk menghitung rumus tersebut dengan benar, buat [LoadOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/), atur budaya pilihan dengan [SpreadsheetOptions.setPreferredCulture](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), tetapkan opsi spreadsheet melalui [LoadOptions.setSpreadsheetOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/loadoptions/#setSpreadsheetOptions), lalu muat presentasi.
 
-Setelah mengubah sel input atau rumus, jangan mengandalkan hasil yang tersimpan lama. Panggil [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) sebelum membaca nilai yang dihitung atau menyimpan data diagram yang bergantung padanya.
+Contoh berikut memilih budaya Jepang, membuka presentasi dengan opsi muat yang dikonfigurasi, dan memanggil [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) untuk setiap workbook diagram:
 
-Untuk rumus di luar subset yang didukung, Aspose.Slides mungkin tidak dapat mengurai rumus atau menentukan ketergantungannya. Jika workbook telah dimodifikasi, nilai tersimpan sebelumnya tidak lagi dapat dianggap dapat diandalkan. Dalam situasi tersebut, membaca nilai sel dengan data yang tidak didukung dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Jika diagram Anda bergantung pada fungsi Excel yang tidak dievaluasi oleh Aspose.Slides, hitung rumus tersebut dengan mesin spreadsheet yang mendukungnya dan tulis kembali nilai hasilnya ke workbook diagram. Jangan mengganti rumus yang tidak didukung dengan nilai perkiraan.
+const japaneseCulture = java.newInstanceSync("java.util.Locale", "ja", "JP");
+
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setPreferredCulture(japaneseCulture);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const slides = presentation.getSlides();
+    for (let slideIndex = 0; slideIndex < slides.size(); slideIndex++) {
+        const shapes = slides.get_Item(slideIndex).getShapes();
+        for (let shapeIndex = 0; shapeIndex < shapes.size(); shapeIndex++) {
+            const shape = shapes.get_Item(shapeIndex);
+            if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+                shape.getChartData().getChartDataWorkbook().calculateFormulas();
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Budaya pilihan merupakan bagian dari konfigurasi pemuatan presentasi, sehingga tetapkan sebelum membuat instance [Presentation](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/presentation/). Gunakan budaya yang diharapkan oleh rumus workbook; misalnya, gunakan `ja-JP` untuk rumus yang harus mengikuti aturan perhitungan DBCS Jepang.
+
+## **Rekalkulasi dan Nilai Cache**
+
+File spreadsheet biasanya menyimpan baik rumus maupun nilai yang terakhir dihitung. Aspose.Slides dapat membaca nilai cache dari [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--) ketika presentasi dimuat dan data diagram terkait belum diubah.
+
+Setelah mengubah sel input atau rumus, jangan mengandalkan hasil cache lama. Panggil [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) sebelum membaca nilai yang dihitung atau menyimpan data diagram yang bergantung padanya.
+
+Untuk rumus di luar subset yang didukung, Aspose.Slides mungkin tidak dapat menguraikan rumus atau menentukan dependensinya. Jika workbook telah dimodifikasi, nilai cache sebelumnya tidak lagi dapat dianggap dapat diandalkan. Dalam situasi tersebut, membaca nilai sel dengan data yang tidak didukung dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+
+Jika diagram Anda bergantung pada fungsi Excel yang tidak dievaluasi oleh Aspose.Slides, hitung rumus tersebut dengan mesin spreadsheet yang mendukungnya dan tulis nilai hasil kembali ke workbook diagram. Jangan mengganti rumus yang tidak didukung dengan nilai tebak‑tebakan.
 
 ## **Tangani Kesalahan Rumus**
 
 Ada dua jenis masalah yang perlu dibedakan.
 
-Sebuah rumus dapat valid tetapi menghasilkan nilai kesalahan spreadsheet seperti `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, atau `#VALUE!`. Dalam kasus ini, token kesalahan merupakan hasil sel dan dapat dikembalikan melalui [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--).
+Sebuah rumus dapat valid tetapi menghasilkan nilai kesalahan spreadsheet seperti `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, atau `#VALUE!`. Dalam kasus ini, token kesalahan adalah hasil sel dan dapat dikembalikan melalui [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--).
 
-Sebuah rumus juga dapat gagal pada tingkat penguraian, referensi, ketergantungan, atau data yang didukung. Aspose.Slides menyediakan pengecualian khusus spreadsheet untuk kasus ini: [CellInvalidFormulaException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellcircularreferenceexception/), dan [CellUnsupportedDataException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+Sebuah rumus juga dapat gagal pada tingkat penguraian, referensi, dependensi, atau data yang didukung. Aspose.Slides menyediakan pengecualian khusus spreadsheet untuk kasus‑kasus ini: [CellInvalidFormulaException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellcircularreferenceexception/), dan [CellUnsupportedDataException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellunsupporteddataexception/).
 
-Ketika rumus berasal dari templat atau input pengguna, tangkap kesalahan di sekitar proses rekalkulasi dan akses nilai. Detail kesalahan mengidentifikasi masalah spreadsheet yang mendasarinya:
+Ketika rumus berasal dari templat atau input pengguna, tangkap kesalahan di sekitar proses rekalkulasi dan akses nilai. Detail kesalahan mengidentifikasi masalah spreadsheet yang mendasari:
 
 ```javascript
 const aspose = {};
@@ -333,23 +374,23 @@ try {
 }
 ```
 
-## **Keterbatasan Praktis**
+## **Batasan Praktis**
 
-Dukungan rumus dalam lembar kerja diagram ditujukan untuk subset perhitungan spreadsheet yang terdefinisi, bukan untuk kompatibilitas Excel penuh. Pertimbangkan batasan ini saat merancang alur kerja pelaporan:
+Dukungan rumus dalam lembar kerja diagram ditujukan untuk subset perhitungan spreadsheet tertentu, bukan untuk kompatibilitas Excel penuh. Ingatlah batasan ini saat merancang alur kerja pelaporan:
 
-- Gunakan hanya konstanta, operator, referensi, dan fungsi yang didokumentasikan ketika Anda memerlukan Aspose.Slides untuk menghitung ulang rumus.
-- Hitung ulang setelah mengubah sel yang memengaruhi hasil rumus.
-- Anggap nilai yang tersimpan dari presentasi yang dimuat sebagai snapshot, bukan sebagai pengganti rekalkulasi setelah penyuntingan.
-- Uji rumus dari templat yang ada sebelum mengandalkan nilai yang dihitung, terutama bila menggunakan fungsi di luar daftar yang didokumentasikan.
-- Untuk rumus yang memerlukan mesin perhitungan spreadsheet lengkap, hitung secara eksternal lalu perbarui workbook diagram dengan nilai hasilnya.
+- Gunakan hanya konstanta, operator, referensi, dan fungsi yang terdokumentasi ketika Anda memerlukan Aspose.Slides untuk menghitung ulang rumus.
+- Hitung ulang setelah mengubah sel yang menjadi dasar hasil rumus.
+- Anggap nilai cache dari presentasi yang dimuat sebagai snapshot, bukan pengganti rekalkulasi setelah penyuntingan.
+- Uji rumus dari templat yang ada sebelum mengandalkan nilai yang dihitung, terutama bila mereka menggunakan fungsi di luar daftar yang didokumentasikan.
+- Untuk rumus yang memerlukan mesin perhitungan spreadsheet penuh, hitunglah secara eksternal dan kemudian perbarui workbook diagram dengan nilai hasilnya.
 
 ## **Tanya Jawab**
 
 **Apa perbedaan antara [ChartDataCell.setFormula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) dan [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-)?**
 
-[ChartDataCell.setFormula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) menyimpan ekspresi gaya A1 seperti `B2-C2`. [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) menyimpan ekspresi gaya R1C1 seperti `RC[-2]-RC[-1]`. Gunakan notasi yang paling sesuai dengan cara Anda menghasilkan atau menyalin rumus.
+[ChartDataCell.setFormula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setFormula-java.lang.String-) menyimpan ekspresi gaya A1 seperti `B2-C2`. [ChartDataCell.setR1C1Formula](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#setR1C1Formula-java.lang.String-) menyimpan ekspresi gaya R1C1 seperti `RC[-2]-RC[-1]`. Gunakan notasi yang paling cocok dengan cara Anda menghasilkan atau menyalin rumus.
 
-**Apakah saya harus membaca sel itu sendiri atau nilainya setelah perhitungan?**
+**Apakah saya perlu membaca sel itu sendiri atau nilai sel setelah perhitungan?**
 
 [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#getCell-int-java.lang.String-) mengembalikan sebuah [ChartDataCell](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/). Untuk memperoleh hasil yang dihitung, panggil metode [ChartDataCell.getValue](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdatacell/#getValue--) pada sel tersebut setelah rekalkulasi.
 
@@ -359,28 +400,28 @@ Panggil [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slide
 
 **Apakah Aspose.Slides mendukung setiap fungsi Excel?**
 
-Tidak. Evaluator bawaan mendukung subset fungsi yang didokumentasikan. Fungsi di luar subset tersebut tidak boleh diasumsikan dapat dihitung ulang dengan benar. Jika kompatibilitas rumus Excel penuh diperlukan, lakukan perhitungan dengan mesin spreadsheet yang sesuai dan tulis nilai akhir ke workbook diagram.
+Tidak. Evaluator bawaan mendukung subset fungsi yang terdokumentasi. Fungsi di luar subset itu tidak boleh diasumsikan dapat dihitung ulang dengan benar. Jika diperlukan kompatibilitas rumus Excel penuh, lakukan perhitungan dengan mesin spreadsheet yang sesuai dan tulis nilai akhir ke workbook diagram.
 
 **Apa yang terjadi jika presentasi yang dimuat berisi rumus yang tidak didukung?**
 
-Jika data diagram tidak berubah, workbook mungkin masih berisi nilai tersimpan yang dihitung sebelumnya. Setelah data terkait diubah, nilai tersimpan itu mungkin tidak lagi valid. Mengakses sel yang rumusnya tidak dapat diproses dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellunsupporteddataexception/).
+Jika data diagram tidak berubah, workbook mungkin masih memiliki nilai cache yang telah dihitung sebelumnya. Setelah data terkait diubah, nilai cache tersebut mungkin tidak lagi valid. Mengakses sel yang rumusnya tidak dapat ditangani dapat memicu [CellUnsupportedDataException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellunsupporteddataexception/).
 
 **Apakah nilai kesalahan rumus sama dengan pengecualian?**
 
-Tidak. Nilai seperti `#DIV/0!` adalah nilai spreadsheet yang dihasilkan oleh perhitungan yang valid. Pengecualian seperti [CellInvalidFormulaException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellinvalidformulaexception/) atau [CellCircularReferenceException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellcircularreferenceexception/) menunjukkan bahwa rumus tidak dapat diproses secara normal.
+Tidak. Hasil seperti `#DIV/0!` adalah nilai spreadsheet yang dihasilkan oleh perhitungan yang valid. Pengecualian seperti [CellInvalidFormulaException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellinvalidformulaexception/) atau [CellCircularReferenceException](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/cellcircularreferenceexception/) menunjukkan bahwa rumus tidak dapat diproses secara normal.
 
 **Apakah diagram memperbarui secara otomatis ketika sel rumus berubah?**
 
-Seri diagram dapat merujuk ke sel workbook. Hitung ulang workbook terlebih dahulu, kemudian simpan atau render presentasi. Jika poin data diagram merujuk ke sel yang dihitung, diagram akan menggunakan nilai sel yang telah diperbarui; tidak diperlukan metode penyegaran diagram terpisah untuk alur kerja ini.
+Seri diagram dapat merujuk ke sel workbook. Hitung ulang workbook terlebih dahulu, lalu simpan atau render presentasi. Jika titik data diagram merujuk ke sel yang dihitung, diagram akan menggunakan nilai sel yang diperbarui; tidak diperlukan metode refresh diagram terpisah untuk alur kerja ini.
 
 **Dapatkah diagram menggunakan workbook Excel eksternal?**
 
-Ya, data diagram dapat dikonfigurasi untuk menggunakan workbook eksternal melalui API data diagram. Namun, alur kerja perhitungan rumus yang dijelaskan dalam artikel ini berkaitan dengan workbook data diagram dan subset rumus yang dievaluasi oleh Aspose.Slides. Jangan mengasumsikan bahwa [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) memberikan perhitungan penuh untuk rumus sewenang‑wangnya dalam file XLSX eksternal.
+Ya, data diagram dapat dikonfigurasi untuk menggunakan workbook eksternal melalui API data diagram. Namun, alur kerja perhitungan rumus yang dijelaskan dalam artikel ini berkaitan dengan workbook data diagram dan subset rumus yang dievaluasi oleh Aspose.Slides. Jangan mengasumsikan bahwa [ChartDataWorkbook.calculateFormulas](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/chartdataworkbook/#calculateFormulas--) menyediakan perhitungan penuh untuk rumus apa pun dalam file XLSX eksternal.
 
 **Dapatkah saya menggunakan rumus yang merujuk ke lembar kerja atau workbook lain?**
 
-Referensi gaya Excel mungkin ada dalam workbook diagram, tetapi evaluasi rumus dibatasi oleh parser dan set fungsi yang didukung. Jika referensi lintas lembar atau eksternal penting, validasi rumus tersebut dengan versi Aspose.Slides yang Anda gunakan. Untuk alur kerja yang memerlukan kompatibilitas referensi Excel yang luas, hitung workbook secara eksternal dan tulis kembali nilai yang telah diselesaikan ke data diagram.
+Referensi gaya Excel mungkin ada dalam workbook diagram, tetapi evaluasi rumus terbatas oleh parser dan set fungsi yang didukung. Jika referensi lintas‑sheet atau eksternal penting, validasikan rumus tersebut dengan versi Aspose.Slides yang Anda gunakan. Untuk alur kerja yang memerlukan kompatibilitas referensi Excel luas, hitung workbook secara eksternal dan tulis nilai yang telah diselesaikan kembali ke data diagram.
 
 **Apakah string rumus harus diawali dengan `=`?**
 
-Contoh API Aspose.Slides menetapkan ekspresi seperti `B2-C2` atau `SUM(B2:B5)` tanpa awalan `=`. Menggunakan bentuk tersebut membuat rumus yang dihasilkan konsisten dengan contoh API yang didokumentasikan.
+Contoh API Aspose.Slides menetapkan ekspresi seperti `B2-C2` atau `SUM(B2:B5)` tanpa `=` di depan. Menggunakan bentuk itu menjaga konsistensi rumus yang dihasilkan dengan contoh API yang terdokumentasi.

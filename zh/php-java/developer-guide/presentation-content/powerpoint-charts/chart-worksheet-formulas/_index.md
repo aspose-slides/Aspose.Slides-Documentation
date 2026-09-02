@@ -1,5 +1,5 @@
 ---
-title: 在 PHP 演示文稿中应用图表工作表公式
+title: 在 PHP 中对演示文稿应用图表工作表公式
 linktitle: 工作表公式
 type: docs
 weight: 70
@@ -12,6 +12,9 @@ keywords:
 - 电子表格公式
 - 图表数据工作簿
 - 公式计算
+- 首选区域设置
+- 特定区域设置公式
+- 双字节字符集
 - 逻辑常量
 - 数值常量
 - 字符串常量
@@ -29,23 +32,23 @@ description: "在 Aspose.Slides for PHP via Java 的图表工作表中应用 Exc
 ---
 ## **概述**
 
-PowerPoint 图表通常将其源数据存储在嵌入的工作表中。在 Aspose.Slides for PHP via Java 中，您可以通过图表数据工作簿访问该工作表、写入输入值、为单元格分配公式、计算受支持的公式，并使用计算后的单元格作为图表数据。
+PowerPoint 图表通常将其源数据存储在嵌入的工作表中。在 Aspose.Slides for PHP via Java 中，您可以通过图表数据工作簿访问该工作表，写入输入值，为单元格分配公式，计算受支持的公式，并将计算得到的单元格用作图表数据。
 
-本文解释了完整的公式工作流：创建图表、填充其工作表、分配 A1 样式或 R1C1 样式公式、重新计算它们、读取计算值、将这些单元格连接到图表系列并保存演示文稿。文中还描述了受支持的公式语法、内置函数子集、缓存值、不受支持的公式以及电子表格特定错误。
+本文阐述了完整的公式工作流：创建图表，填充其工作表，分配 A1 样式或 R1C1 样式公式，重新计算它们，读取计算值，将这些单元格连接到图表系列，并保存演示文稿。还描述了受支持的公式语法、内置函数子集、缓存值、不受支持的公式以及电子表格特有的错误。
 
 ## **图表工作表和公式**
 
 图表工作表包含图表使用的类别、系列名称和数值。在 PowerPoint 中，您可以通过打开图表数据编辑器来检查工作表：
 
-![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
+![打开嵌入工作表的 PowerPoint 图表，显示类别和系列数据](chart-worksheet-formulas_1.png)
 
 在 Aspose.Slides 中，工作表通过 [ChartDataWorkbook](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/) 类公开。使用 [ChartDataCell::setFormula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setFormula) 设置 A1 样式公式，使用 [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 设置 R1C1 样式公式。更改输入单元格或公式后，调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 重新计算受支持的公式并更新相应的单元格值。
 
-计算后的单元格仍通过 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 暴露其结果。当您需要在代码中检查公式结果或将单元格用作图表数据点时，这一点非常重要。
+计算后的单元格仍通过 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 暴露其结果。当您需要在代码中检查公式结果或将单元格用作图表数据点时，这一点十分重要。
 
 ## **创建图表并计算工作表公式**
 
-下面的示例演示了端到端工作流。它创建一个簇状柱形图，清除示例数据，写入季度收入和支出值，使用公式计算利润，读取结果，将计算后的单元格用作图表值，并保存演示文稿。
+以下示例演示了端到端工作流。它创建一个簇状柱形图，清除示例数据，写入季度收入和支出值，使用公式计算利润，读取结果，将计算得到的单元格用作图表数值，并保存演示文稿。
 
 ```php
 $presentation = new Presentation();
@@ -108,7 +111,7 @@ try {
 }
 ```
 
-图表数据点引用 `D2:D4`，因此图表使用计算得到的利润值。在此工作流中没有单独的图表刷新调用：先重新计算工作簿，然后使用或保存指向计算单元格的图表数据。
+图表数据点引用 `D2:D4`，因此图表使用计算后的利润值。在此工作流中没有单独的图表刷新调用：先重新计算工作簿，然后使用或保存指向计算单元格的图表数据。
 
 ## **使用 A1 样式公式**
 
@@ -146,7 +149,7 @@ try {
 | 列 | `A:A` | `$A:$A` | — |
 | 区域 | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-相对引用在公式被移动或复制时可能会更改。绝对引用固定两个坐标，而混合引用仅固定行或列。
+相对引用在公式被移动或复制时会发生变化。绝对引用保持两个坐标固定，而混合引用仅固定行或列。
 
 ## **使用 R1C1 样式公式**
 
@@ -182,20 +185,20 @@ try {
 | 列 | `C[3]` | `C3` | — |
 | 区域 | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-例如，在单元格 `D2` 中，`RC[-2]` 表示同一行向左两列的单元格 (`B2`)。
+例如，在单元格 `D2` 中，`RC[-2]` 表示同一行左侧两列的单元格（即 `B2`）。
 
 ## **公式常量和运算符**
 
-内置公式求值器支持逻辑值、数值文字、字符串、电子表格错误值、算术运算符和比较运算符。
+内置公式求值器支持逻辑值、数值字面量、字符串、电子表格错误值、算术运算符和比较运算符。
 
-### **常量和文字**
+### **常量和字面量**
 
 | 类型 | 示例 | 备注 |
 |---|---|---|
-| 逻辑 | `TRUE`, `FALSE` | 可直接用于逻辑表达式，如 `A2=TRUE`。 |
-| 数值 | `1`, `0.5`, `.3`, `1E-2` | 支持普通记数法和科学计数法。 |
-| 字符串 | `"abc"`, `"2/3/2020 12:00"` | 文本文字需在公式内部用双引号括起。 |
-| 错误结果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可能会计算为电子表格错误值，而不是正常结果。 |
+| 逻辑 | `TRUE`, `FALSE` | 可直接在逻辑表达式中使用，例如 `A2=TRUE`。 |
+| 数值 | `1`, `0.5`, `.3`, `1E-2` | 支持普通和科学计数法。 |
+| 字符串 | `"abc"`, `"2/3/2020 12:00"` | 文本字面量需在公式中用双引号括起。 |
+| 错误结果 | `#DIV/0!`, `#N/A`, `#REF!` | 有效公式可以求值为电子表格错误值，而不是正常结果。 |
 
 以下示例使用了多种常量类型：
 
@@ -229,14 +232,14 @@ try {
 
 | 运算符 | 含义 | 示例 |
 |---|---|---|
-| `+` | 加法或一元加号 | `2+3` |
+| `+` | 加法或一元正号 | `2+3` |
 | `-` | 减法或取负 | `2-3`, `-3` |
 | `*` | 乘法 | `2*3` |
 | `/` | 除法 | `2/3` |
 | `%` | 百分比 | `30%` |
-| `^` | 幂运算 | `2^3` |
+| `^` | 指数运算 | `2^3` |
 
-使用括号可以明确求值顺序，例如 `(A2+B2)*C2`。
+使用括号可明确求值顺序，例如 `(A2+B2)*C2`。
 
 ### **比较运算符**
 
@@ -253,20 +256,20 @@ try {
 
 ## **受支持的预定义函数**
 
-Aspose.Slides 为图表工作表提供了内置公式求值器，但它并不是完整的 Excel 计算引擎。文档中列出的函数集仅限于下表所示的函数。不要假设任意 Excel 函数都可以通过 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 重新计算。
+Aspose.Slides 为图表工作表提供了内置公式求值器，但它不是完整的 Excel 计算引擎。文档中列出的函数集仅限于下表所示的函数。不要假设任意 Excel 函数都可以通过 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 重新计算。
 
-| 函数 | 目的或支持形式 | 示例 |
+| 函数 | 用途或支持的形式 | 示例 |
 |---|---|---|
 | `ABS` | 绝对值 | `ABS(A2)` |
 | `AVERAGE` | 算术平均值 | `AVERAGE(B2:B5)` |
 | `CEILING` | 向上取整到指定倍数 | `CEILING(A2,5)` |
 | `CHOOSE` | 按索引选择值 | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | 合并文本值 | `CONCAT(A2,B2)` |
-| `CONCATENATE` | 合并文本值 | `CONCATENATE(A2," ",B2)` |
+| `CONCAT` | 连接文本值 | `CONCAT(A2,B2)` |
+| `CONCATENATE` | 连接文本值 | `CONCATENATE(A2," ",B2)` |
 | `DATE` | 使用 1900 日期系统创建日期值 | `DATE(2026,8,19)` |
 | `DAYS` | 返回两个日期之间的天数 | `DAYS(B2,A2)` |
-| `FIND` | 在文本中查找另一个文本 | `FIND("-",A2)` |
-| `FINDB` | 基于字节的文本搜索 | `FINDB("a",A2)` |
+| `FIND` | 在另一个文本中查找文本 | `FIND("-",A2)` |
+| `FINDB` | 按字节搜索文本 | `FINDB("a",A2)` |
 | `IF` | 条件结果 | `IF(A2>0,A2,0)` |
 | `INDEX` | 引用形式 | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | 向量形式 | `LOOKUP(A2,B2:B5,C2:C5)` |
@@ -275,27 +278,67 @@ Aspose.Slides 为图表工作表提供了内置公式求值器，但它并不是
 | `SUM` | 求和 | `SUM(B2:B5)` |
 | `VLOOKUP` | 垂直查找 | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-表中显示的限制非常关键：`INDEX` 以引用形式记录，而 `LOOKUP` 和 `MATCH` 采用向量形式。`DATE` 使用 1900 日期系统。未在此列出的功能和函数应视为 Aspose.Slides 公式求值器不支持，除非另有文档说明。
+表中显示的限制非常重要：`INDEX` 以引用形式记录，而 `LOOKUP` 和 `MATCH` 以向量形式记录。`DATE` 使用 1900 日期系统。未在此列出的特性和函数应视为 Aspose.Slides 公式求值器不支持，除非另有文档说明。
+
+## **使用首选文化计算公式**
+
+某些图表工作簿函数会依据特定文化规则解释文本。对于使用双字节字符集（DBCS）的语言，这一点尤为重要。要正确计算此类公式，请创建 [LoadOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/loadoptions/)，使用 [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/zh/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture) 设置首选文化，通过 [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions) 赋予工作簿选项，然后加载演示文稿。
+
+以下示例选择日语文化，使用配置好的加载选项打开演示文稿，并对每个图表工作簿调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)：
+
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
+
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
+
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+首选文化是演示文稿加载配置的一部分，因此请在创建 [Presentation](https://reference.aspose.com/slides/zh/php-java/aspose.slides/presentation/) 实例之前指定。使用工作簿公式期望的文化，例如对应日语 DBCS 计算规则的 `ja-JP`。
 
 ## **重新计算和缓存值**
 
-电子表格文件通常同时存储公式及其上一次计算的结果。Aspose.Slides 因此可以在加载演示文稿且相关图表数据未更改时，从 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 读取缓存值。
+电子表格文件通常同时存储公式及其上一次计算的结果。Aspose.Slides 因此可以在加载演示文稿且相关图表数据未改变时，从 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 读取缓存值。
 
-在更改输入单元格或公式后，请勿依赖旧的缓存结果。读取计算值或保存依赖这些值的图表数据前，请先调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)。
+在更改输入单元格或公式后，不要依赖旧的缓存结果。调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 再读取计算值或保存依赖这些值的图表数据。
 
-对于不在受支持子集中的公式，Aspose.Slides 可能无法解析公式或确定其依赖关系。如果工作簿已被修改，先前的缓存值不再可靠。在这种情况下，读取包含不受支持数据的单元格值可能会抛出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellunsupporteddataexception/)。
+对于超出受支持子集的公式，Aspose.Slides 可能无法解析公式或确定其依赖关系。如果工作簿已被修改，先前的缓存值不再可靠。在这种情况下，读取包含不受支持数据的单元格可能会抛出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellunsupporteddataexception/)。
 
-如果您的图表依赖于 Aspose.Slides 不评估的 Excel 函数，请使用支持这些函数的电子表格引擎先行计算，然后将结果写回图表工作簿。不要用猜测的值替换不受支持的公式。
+如果您的图表依赖 Aspose.Slides 未评估的 Excel 函数，请使用支持这些函数的电子表格引擎计算公式并将结果写回图表工作簿。不要用猜测值替代不受支持的公式。
 
 ## **处理公式错误**
 
-需要区分两种不同的问题。
+需要区分两类问题。
 
-公式本身可能有效，但会产生电子表格错误结果，如 `#DIV/0!`、`#N/A`、`#NAME?`、`#NULL!`、`#NUM!`、`#REF!` 或 `#VALUE!`。在这种情况下，错误标记是单元格的结果，可通过 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 返回。
+公式可以是有效的，但产生如 `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, 或 `#VALUE!` 的电子表格错误结果。在这种情况下，错误标记是单元格结果，可通过 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 返回。
 
-公式也可能在解析、引用、依赖或支持数据层面失败。Aspose.Slides 为这些情况提供了特定的电子表格异常： [CellInvalidFormulaException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellcircularreferenceexception/) 和 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellunsupporteddataexception/)。
+公式也可能在解析、引用、依赖或受支持数据层面失败。Aspose.Slides 为这些情况提供了特定的电子表格异常：[CellInvalidFormulaException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellinvalidformulaexception/)、[CellInvalidReferenceException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellinvalidreferenceexception/)、[CellCircularReferenceException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellcircularreferenceexception/) 和 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellunsupporteddataexception/)。
 
-在 PHP via Java 中，Java 异常会通过 `JavaException` 暴露。当公式来自模板或用户输入时，请在重新计算和访问值的代码块中捕获并处理这些异常。堆栈跟踪中报告的 Java 异常能够指明具体的电子表格失败原因：
+在 PHP via Java 中，Java 异常通过 `JavaException` 体现。当公式来自模板或用户输入时，请在重新计算和访问值的代码块周围捕获并处理。堆栈跟踪中的 Java 异常会指明具体的电子表格失败原因：
 
 ```php
 $presentation = new Presentation();
@@ -319,52 +362,52 @@ try {
 
 ## **实际限制**
 
-图表工作表中的公式支持旨在覆盖一组定义好的电子表格计算，而非完整的 Excel 兼容性。在设计报告工作流时请牢记以下约束：
+图表工作表中的公式支持旨在覆盖一套定义好的电子表格计算，而非完整的 Excel 兼容性。设计报表工作流时请牢记以下约束：
 
-- 仅使用文档中列出的常量、运算符、引用方式和函数，以便 Aspose.Slides 能重新计算公式。
+- 仅使用文档中列出的常量、运算符、引用和函数，才能让 Aspose.Slides 重新计算公式。
 - 在更改公式结果依赖的单元格后进行重新计算。
-- 将加载的演示文稿中的缓存值视为快照，而不是在编辑后无需重新计算的替代方案。
-- 在依赖模板中已有的公式计算值之前，请先对这些公式进行测试，特别是当它们使用未列出的函数时。
-- 对于需要完整电子表格计算引擎的公式，请先在外部计算后再将结果写入图表工作簿。
+- 将加载的演示文稿中缓存的值视为快照，而不是编辑后重新计算的替代方案。
+- 在依赖模板中的计算值之前，先对模板中的公式进行测试，尤其是使用了文档外函数的情况。
+- 对于需要完整电子表格计算引擎的公式，请在外部计算后将结果写回图表工作簿。
 
-## **常见问题**
+## **常见问答**
 
 **[ChartDataCell::setFormula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setFormula) 与 [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 有何区别？**
 
-[ChartDataCell::setFormula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setFormula) 存储类似 `B2-C2` 的 A1 样式表达式。[ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 存储类似 `RC[-2]-RC[-1]` 的 R1C1 样式表达式。请选择最符合您生成或复制公式方式的表示法。
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setFormula) 存储 A1 样式表达式，例如 `B2-C2`。[ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#setR1C1Formula) 存储 R1C1 样式表达式，例如 `RC[-2]-RC[-1]`。请使用最符合您生成或复制公式方式的表示法。
 
 **在计算后，我需要读取单元格本身还是它的值？**
 
 [ChartDataWorkbook::getCell](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#getCell) 返回一个 [ChartDataCell](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/)。要获取计算结果，请在重新计算后调用该单元格的 [ChartDataCell::getValue](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdatacell/#getValue) 方法。
 
-**何时应调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)？**
+**何时调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)？**
 
 在更改输入值或公式后、在依赖计算结果之前，调用 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)。这会更新内置求值器支持的公式值。
 
-**Aspose.Slides 是否支持所有 Excel 函数？**
+**Aspose.Slides 是否支持每个 Excel 函数？**
 
-不支持。内置求值器仅支持文档中列出的函数子集。未列出的函数不应被假设能够正确重新计算。若需要完整的 Excel 公式兼容性，请使用合适的电子表格引擎进行计算，然后将最终值写入图表工作簿。
+不支持。内置求值器仅支持文档中列出的子集。未列出的函数不应假设能够正确重新计算。如果需要完整的 Excel 公式兼容性，请使用适当的电子表格引擎进行计算，然后将最终值写入图表工作簿。
 
 **如果加载的演示文稿包含不受支持的公式会怎样？**
 
-如果图表数据未改变，工作簿可能仍保留先前计算的缓存值。修改相关数据后，该缓存值可能不再有效。尝试访问无法处理的公式单元格可能会抛出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellunsupporteddataexception/)。
+如果图表数据未改变，工作簿可能仍保留先前计算的缓存值。相关数据被修改后，该缓存值可能不再有效。访问无法处理的公式所在的单元格可能会抛出 [CellUnsupportedDataException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellunsupporteddataexception/)。
 
 **公式错误值与 PHP 异常是同一回事吗？**
 
-不是。`#DIV/0!` 等结果是有效计算产生的电子表格值。诸如 [CellInvalidFormulaException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellinvalidformulaexception/) 或 [CellCircularReferenceException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellcircularreferenceexception/) 等电子表格处理失败会以 Java 异常形式出现，并通过 `JavaException` 传递给 PHP。
+不是。`#DIV/0!` 等结果是有效计算产生的电子表格值。像 [CellInvalidFormulaException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellinvalidformulaexception/) 或 [CellCircularReferenceException](https://reference.aspose.com/slides/zh/php-java/aspose.slides/cellcircularreferenceexception/) 之类的错误属于 Java 异常，通过 `JavaException` 显现给 PHP。
 
 **当公式单元格更改时，图表会自动更新吗？**
 
-图表系列可以引用工作簿单元格。先重新计算工作簿，然后保存或呈现演示文稿。如果图表数据点引用的是计算单元格，图表会使用这些更新后的值；此工作流不需要额外的图表刷新方法。
+图表系列可以引用工作簿单元格。先重新计算工作簿，然后保存或渲染演示文稿。如果图表数据点引用了计算单元格，图表将使用这些更新后的单元格值；此工作流不需要额外的图表刷新方法。
 
 **图表可以使用外部 Excel 工作簿吗？**
 
-可以，图表数据可以通过图表数据 API 配置为使用外部工作簿。不过，本文描述的公式计算工作流仅针对图表数据工作簿以及 Aspose.Slides 所评估的公式子集。不要假设 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 能对外部 XLSX 文件中的任意公式进行完整重新计算。
+可以，图表数据可以通过图表数据 API 配置为使用外部工作簿。但本文讨论的公式计算工作流仅限于图表数据工作簿及 Aspose.Slides 所评估的公式子集。不要假设 [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/zh/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) 能完整重新计算外部 XLSX 文件中的任意公式。
 
 **我可以使用引用其他工作表或工作簿的公式吗？**
 
-Excel 样式的跨工作表或跨工作簿引用在图表工作簿中可能存在，但公式求值受限于支持的解析器和函数集。如果跨表或外部引用是必需的，请在目标 Aspose.Slides 版本中验证该公式的可行性。对于需要广泛 Excel 引用兼容性的工作流，建议在外部计算工作簿并将解析后的值写回图表数据。
+Excel 样式的跨工作表或跨工作簿引用可能存在于图表工作簿中，但公式求值受限于支持的解析器和函数集。如果跨表或外部引用是必需的，请在目标 Aspose.Slides 版本中验证该公式的可用性。对于需要广泛 Excel 引用兼容性的工作流，请在外部计算工作簿并将解析后的数值写回图表数据。
 
 **公式字符串需要以 `=` 开头吗？**
 
-Aspose.Slides API 示例中分配的表达式如 `B2-C2` 或 `SUM(B2:B5)` 并未以 `=` 开头。使用这种形式可以让生成的公式与文档中示例保持一致。
+Aspose.Slides API 示例中分配的表达式如 `B2-C2` 或 `SUM(B2:B5)` 均未使用前导 `=`。采用这种形式可保持生成的公式与文档中示例的一致性。

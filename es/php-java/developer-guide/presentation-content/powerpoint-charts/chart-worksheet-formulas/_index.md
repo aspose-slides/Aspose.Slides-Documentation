@@ -1,17 +1,20 @@
 ---
-title: Aplicar fórmulas de hoja de cálculo en presentaciones en PHP
+title: Aplicar fórmulas de hoja de cálculo de gráficos en presentaciones en PHP
 linktitle: Fórmulas de hoja de cálculo
 type: docs
 weight: 70
 url: /es/php-java/chart-worksheet-formulas/
 keywords:
-- hoja de cálculo del gráfico
-- hoja de cálculo del gráfico
-- fórmula del gráfico
+- hoja de cálculo de gráfico
+- hoja de trabajo del gráfico
+- fórmula de gráfico
 - fórmula de hoja de cálculo
 - fórmula de hoja de cálculo
 - libro de datos del gráfico
-- cálculo de fórmulas
+- cálculo de fórmula
+- cultura preferida
+- fórmula específica de la cultura
+- DBCS
 - constante lógica
 - constante numérica
 - constante de cadena
@@ -25,27 +28,27 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Aplicar fórmulas al estilo de Excel en las hojas de cálculo de gráficos de Aspose.Slides para PHP a través de Java, recalcular valores y usar los resultados en los gráficos de PowerPoint."
+description: "Aplicar fórmulas tipo Excel en las hojas de cálculo de gráficos de Aspose.Slides para PHP mediante Java, recalcular los valores y usar los resultados en los gráficos de PowerPoint."
 ---
-## **Resumen**
+## **Visión general**
 
-Los gráficos de PowerPoint suelen almacenar sus datos origen en una hoja de cálculo incrustada. En Aspose.Slides para PHP a través de Java, puede acceder a esa hoja mediante el libro de datos del gráfico, escribir valores de entrada, asignar fórmulas a celdas, calcular las fórmulas compatibles y utilizar las celdas calculadas como datos del gráfico.
+Los gráficos de PowerPoint suelen almacenar sus datos de origen en una hoja de cálculo incrustada. En Aspose.Slides for PHP via Java, puedes acceder a esa hoja mediante el libro de datos del gráfico, escribir valores de entrada, asignar fórmulas a celdas, calcular las fórmulas compatibles y usar las celdas calculadas como datos del gráfico.
 
-Este artículo explica el flujo de trabajo completo de fórmulas: crear un gráfico, rellenar su hoja de cálculo, asignar fórmulas en estilo A1 o R1C1, volver a calcularlas, leer los valores calculados, conectar esas celdas a una serie del gráfico y guardar la presentación. También describe la sintaxis de fórmulas compatible, el subconjunto de funciones incorporadas, los valores almacenados en caché, las fórmulas no compatibles y los errores específicos de la hoja de cálculo.
+Este artículo explica el flujo completo de trabajo con fórmulas: crear un gráfico, rellenar su hoja, asignar fórmulas en estilo A1 o R1C1, recalcularlas, leer los valores calculados, conectar esas celdas a una serie del gráfico y guardar la presentación. También describe la sintaxis de fórmulas compatible, el subconjunto de funciones incorporado, los valores almacenados en caché, las fórmulas no compatibles y los errores específicos de las hojas de cálculo.
 
 ## **Hojas de cálculo de gráficos y fórmulas**
 
-Una hoja de cálculo de gráfico contiene las categorías, los nombres de series y los valores utilizados por un gráfico. En PowerPoint, puede inspeccionar la hoja abriendo el editor de datos del gráfico:
+Una hoja de cálculo de gráfico contiene las categorías, nombres de series y valores que usa un gráfico. En PowerPoint, puedes inspeccionar la hoja abriendo el editor de datos del gráfico:
 
-![Gráfico de PowerPoint con su hoja de cálculo incrustada abierta, mostrando datos de categorías y series](chart-worksheet-formulas_1.png)
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-En Aspose.Slides, la hoja se expone a través de la clase [ChartDataWorkbook](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/). Use [ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula) para fórmulas estilo A1 y [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula) para fórmulas estilo R1C1. Después de modificar celdas de entrada o fórmulas, llame a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) para volver a calcular las fórmulas compatibles y actualizar los valores correspondientes de las celdas.
+En Aspose.Slides, la hoja se expone a través de la clase [ChartDataWorkbook](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/). Usa [ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula) para fórmulas en estilo A1 y [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula) para fórmulas en estilo R1C1. Después de cambiar celdas de entrada o fórmulas, llama a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) para recalcular las fórmulas compatibles y actualizar los valores correspondientes de las celdas.
 
-Una celda calculada sigue exponiendo su resultado a través de [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue). Esto es importante cuando necesita inspeccionar el resultado de una fórmula en código o usar la celda como punto de datos del gráfico.
+Una celda calculada sigue exponiendo su resultado mediante [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue). Esto es importante cuando necesitas inspeccionar el resultado de una fórmula en código o usar la celda como punto de datos del gráfico.
 
-## **Crear un gráfico y calcular fórmulas de la hoja de cálculo**
+## **Crear un gráfico y calcular fórmulas de la hoja**
 
-El siguiente ejemplo muestra un flujo de trabajo completo. Crea un gráfico de columnas agrupadas, borra los datos de ejemplo, escribe los valores de ingresos y gastos trimestrales, calcula el beneficio con fórmulas, lee los resultados, usa las celdas calculadas como valores del gráfico y guarda la presentación.
+El siguiente ejemplo demuestra un flujo de trabajo de extremo a extremo. Crea un gráfico de columnas agrupadas, borra los datos de ejemplo, escribe valores de ingresos y gastos trimestrales, calcula el beneficio con fórmulas, lee los resultados, usa las celdas calculadas como valores del gráfico y guarda la presentación.
 
 ```php
 $presentation = new Presentation();
@@ -108,11 +111,11 @@ try {
 }
 ```
 
-Los puntos de datos del gráfico hacen referencia a `D2:D4`, por lo que el gráfico utiliza los valores de beneficio calculados. No hay una llamada separada para refrescar el gráfico en este flujo: recalcule primero el libro de trabajo y luego use o guarde los datos del gráfico que apuntan a las celdas calculadas.
+Los puntos de datos del gráfico hacen referencia a `D2:D4`, por lo que el gráfico utiliza los valores de beneficio calculados. No hay una llamada separada para actualizar el gráfico en este flujo: recalcula primero el libro de trabajo y, a continuación, usa o guarda los datos del gráfico que apuntan a las celdas calculadas.
 
 ## **Usar fórmulas en estilo A1**
 
-La notación A1 identifica columnas con letras y filas con números. Asigne expresiones estilo A1 mediante [ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula).
+La notación A1 identifica columnas con letras y filas con números. Asigna expresiones en estilo A1 mediante [ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula).
 
 ```php
 $presentation = new Presentation();
@@ -137,7 +140,7 @@ try {
 }
 ```
 
-Las formas de referencia A1 comunes son:
+Formas de referencia A1 habituales son:
 
 | Referencia | Relativa | Absoluta | Mixta |
 |---|---|---|---|
@@ -146,11 +149,11 @@ Las formas de referencia A1 comunes son:
 | Columna | `A:A` | `$A:$A` | — |
 | Rango | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Las referencias relativas pueden cambiar cuando una fórmula se mueve o copia en una aplicación de hoja de cálculo. Las referencias absolutas mantienen ambas coordenadas fijas, mientras que las referencias mixtas fijan solo una fila o una columna.
+Las referencias relativas pueden cambiar cuando una fórmula se mueve o copia en una aplicación de hoja de cálculo. Las referencias absolutas mantienen fijos ambos coordenados, mientras que las referencias mixtas fijan solo una fila o una columna.
 
 ## **Usar fórmulas en estilo R1C1**
 
-La notación R1C1 identifica filas y columnas numéricamente. Las referencias relativas usan desplazamientos entre corchetes. Asigne esta sintaxis mediante [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
+La notación R1C1 identifica filas y columnas numéricamente. Las referencias relativas usan desplazamientos entre corchetes. Asigna esta sintaxis mediante [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula).
 
 ```php
 $presentation = new Presentation();
@@ -173,7 +176,7 @@ try {
 }
 ```
 
-Las formas de referencia R1C1 comunes son:
+Formas de referencia R1C1 habituales son:
 
 | Referencia | Relativa | Absoluta | Mixta |
 |---|---|---|---|
@@ -182,20 +185,20 @@ Las formas de referencia R1C1 comunes son:
 | Columna | `C[3]` | `C3` | — |
 | Rango | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Por ejemplo, en la celda `D2`, `RC[-2]` indica la celda en la misma fila dos columnas a la izquierda (`B2`).
+Por ejemplo, en la celda `D2`, `RC[-2]` significa la celda en la misma fila dos columnas a la izquierda (`B2`).
 
-## **Constantes y operadores de fórmulas**
+## **Constantes y operadores de fórmula**
 
 El evaluador de fórmulas incorporado admite valores lógicos, literales numéricos, cadenas, valores de error de hoja de cálculo, operadores aritméticos y operadores de comparación.
 
 ### **Constantes y literales**
 
-| Tipo | Ejemplos | Notas |
+| Tipo | Ejemplos | Observaciones |
 |---|---|---|
 | Lógico | `TRUE`, `FALSE` | Puede usarse directamente en expresiones lógicas como `A2=TRUE`. |
-| Numérico | `1`, `0.5`, `.3`, `1E-2` | Se admiten notación común y notación científica. |
+| Numérico | `1`, `0.5`, `.3`, `1E-2` | Se admiten notación decimal y científica. |
 | Cadena | `"abc"`, `"2/3/2020 12:00"` | Los literales de texto se encierran entre comillas dobles dentro de la fórmula. |
-| Resultado de error | `#DIV/0!`, `#N/A`, `#REF!` | Una fórmula válida puede evaluar a un valor de error de hoja de cálculo en lugar de un resultado normal. |
+| Resultado de error | `#DIV/0!`, `#N/A`, `#REF!` | Una fórmula válida puede evaluarse a un valor de error de hoja de cálculo en lugar de un resultado normal. |
 
 Este ejemplo usa varios tipos de constantes:
 
@@ -236,7 +239,7 @@ try {
 | `%` | Porcentaje | `30%` |
 | `^` | Exponenciación | `2^3` |
 
-Use paréntesis para hacer explícito el orden de evaluación, por ejemplo `(A2+B2)*C2`.
+Usa paréntesis para hacer explícito el orden de evaluación, por ejemplo `(A2+B2)*C2`.
 
 ### **Operadores de comparación**
 
@@ -245,7 +248,7 @@ Las expresiones de comparación devuelven valores lógicos.
 | Operador | Significado | Ejemplo |
 |---|---|---|
 | `=` | Igual a | `A2=3` |
-| `<>` | Distinto de | `A2<>3` |
+| `<>` | No igual a | `A2<>3` |
 | `>` | Mayor que | `A2>3` |
 | `>=` | Mayor o igual que | `A2>=3` |
 | `<` | Menor que | `A2<3` |
@@ -253,18 +256,18 @@ Las expresiones de comparación devuelven valores lógicos.
 
 ## **Funciones predefinidas compatibles**
 
-Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálculo de gráficos, pero no es un motor de cálculo completo de Excel. El conjunto de funciones documentado se limita a las funciones siguientes. No asuma que una función arbitraria de Excel pueda recalcularse mediante [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
+Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálculo de gráficos, pero no es un motor de cálculo completo de Excel. El conjunto de funciones documentado se limita a las siguientes. No asumas que una función arbitraria de Excel pueda recalcularse con [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas).
 
 | Función | Propósito o forma compatible | Ejemplo |
 |---|---|---|
 | `ABS` | Valor absoluto | `ABS(A2)` |
 | `AVERAGE` | Media aritmética | `AVERAGE(B2:B5)` |
-| `CEILING` | Redondear un número hacia arriba al múltiplo | `CEILING(A2,5)` |
+| `CEILING` | Redondear un número hacia arriba a un múltiplo | `CEILING(A2,5)` |
 | `CHOOSE` | Seleccionar un valor por índice | `CHOOSE(A2,"Low","High")` |
 | `CONCAT` | Concatenar valores de texto | `CONCAT(A2,B2)` |
 | `CONCATENATE` | Concatenar valores de texto | `CONCATENATE(A2," ",B2)` |
 | `DATE` | Crear un valor de fecha usando el sistema de fechas 1900 | `DATE(2026,8,19)` |
-| `DAYS` | Devuelve el número de días entre fechas | `DAYS(B2,A2)` |
+| `DAYS` | Devolver el número de días entre fechas | `DAYS(B2,A2)` |
 | `FIND` | Buscar un texto dentro de otro | `FIND("-",A2)` |
 | `FINDB` | Búsqueda de texto orientada a bytes | `FINDB("a",A2)` |
 | `IF` | Resultado condicional | `IF(A2>0,A2,0)` |
@@ -275,27 +278,67 @@ Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálcu
 | `SUM` | Sumar valores | `SUM(B2:B5)` |
 | `VLOOKUP` | Búsqueda vertical | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Las restricciones mostradas en la tabla son significativas: `INDEX` se documenta en forma de referencia, mientras que `LOOKUP` y `MATCH` se documentan en sus formas vectoriales. `DATE` usa el sistema de fechas 1900. Las características y funciones que no aparecen aquí deben considerarse no compatibles con el evaluador de fórmulas de Aspose.Slides, a menos que se documenten por separado.
+Las restricciones mostradas en la tabla son significativas: `INDEX` está documentada en forma de referencia, mientras que `LOOKUP` y `MATCH` aparecen en sus formas vectoriales. `DATE` usa el sistema de fechas 1900. Las características y funciones no listadas aquí deben considerarse no compatibles con el evaluador de fórmulas de Aspose.Slides, salvo que estén documentadas por separado.
 
-## **Recalculo y valores en caché**
+## **Calcular fórmulas con una cultura preferida**
 
-Los archivos de hoja de cálculo suelen almacenar tanto una fórmula como su último valor calculado. Por ello, Aspose.Slides puede leer un valor en caché desde [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue) cuando se carga una presentación y los datos del gráfico relevantes no han sido modificados.
+Algunas funciones del libro de trabajo del gráfico interpretan texto según reglas específicas de cultura. Esto es especialmente importante para funciones destinadas a lenguajes que utilizan conjuntos de caracteres de doble byte (DBCS). Para calcular esas fórmulas correctamente, crea [LoadOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/loadoptions/), establece la cultura preferida con [SpreadsheetOptions::setPreferredCulture](https://reference.aspose.com/slides/es/php-java/aspose.slides/spreadsheetoptions/#setPreferredCulture), asigna las opciones de hoja de cálculo a través de [LoadOptions::setSpreadsheetOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/loadoptions/#setSpreadsheetOptions) y luego carga la presentación.
 
-Después de modificar celdas de entrada o fórmulas, no confíe en un resultado en caché antiguo. Llame a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) antes de leer los valores calculados o guardar los datos del gráfico que dependen de ellos.
+El siguiente ejemplo selecciona la cultura japonesa, abre una presentación con las opciones de carga configuradas y llama a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) para cada libro de trabajo del gráfico:
 
-Para fórmulas fuera del subconjunto compatible, Aspose.Slides puede ser incapaz de analizar la fórmula o establecer sus dependencias. Si el libro de trabajo ha sido modificado, el valor en caché anterior ya no puede considerarse fiable. En esa situación, leer el valor de una celda con datos no compatibles puede generar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellunsupporteddataexception/).
+```php
+use aspose\slides\LoadOptions;
+use aspose\slides\Presentation;
+use aspose\slides\SpreadsheetOptions;
 
-Si su gráfico depende de funciones de Excel que Aspose.Slides no evalúa, calcule esas fórmulas con un motor de hoja de cálculo que las admita y escriba los valores resultantes de nuevo en el libro de datos del gráfico. No reemplace fórmulas no compatibles con valores adivinados.
+$japaneseCulture = new Java("java.util.Locale", "ja", "JP");
 
-## **Manejar errores de fórmulas**
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setPreferredCulture($japaneseCulture);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$chartClass = new JavaClass("com.aspose.slides.IChart");
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $shapeCount = java_values($slide->getShapes()->size());
+        for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+            $shape = $slide->getShapes()->get_Item($shapeIndex);
+            if (java_instanceof($shape, $chartClass)) {
+                $shape->getChartData()->getChartDataWorkbook()->calculateFormulas();
+            }
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+La cultura preferida forma parte de la configuración de carga de la presentación, por lo que debe especificarse antes de crear la instancia de [Presentation](https://reference.aspose.com/slides/es/php-java/aspose.slides/presentation/). Usa la cultura que esperan las fórmulas del libro; por ejemplo, usa `ja-JP` para fórmulas que deben seguir las reglas de cálculo DBCS japonesas.
+
+## **Recalculado y valores almacenados en caché**
+
+Los archivos de hoja de cálculo suelen almacenar tanto la fórmula como su último valor calculado. Aspose.Slides puede leer un valor en caché mediante [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue) cuando se carga una presentación y los datos del gráfico relevantes no han cambiado.
+
+Después de cambiar celdas de entrada o fórmulas, no confíes en un resultado almacenado en caché anterior. Llama a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) antes de leer los valores calculados o guardar datos del gráfico que dependan de ellos.
+
+Para fórmulas fuera del subconjunto compatible, Aspose.Slides puede no ser capaz de analizar la fórmula o establecer sus dependencias. Si el libro de trabajo se ha modificado, el valor en caché anterior ya no es fiable. En esa situación, leer el valor de una celda con datos no compatibles puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellunsupporteddataexception/).
+
+Si tu gráfico depende de funciones de Excel que Aspose.Slides no evalúa, calcula esas fórmulas con un motor de hoja de cálculo que las admita y escribe los valores resultantes de vuelta en el libro de trabajo del gráfico. No sustituyas fórmulas no compatibles por valores adivinados.
+
+## **Manejar errores de fórmula**
 
 Existen dos tipos diferentes de problemas a distinguir.
 
-Una fórmula puede ser válida pero producir un resultado de error de hoja de cálculo como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. En este caso, el token de error es un resultado de celda y puede devolverse a través de [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue).
+Una fórmula puede ser válida pero producir un resultado de error de hoja de cálculo como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. En este caso, el token de error es el resultado de la celda y puede devolverse mediante [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue).
 
-Una fórmula también puede fallar en el nivel de análisis, referencia, dependencia o datos compatibles. Aspose.Slides proporciona excepciones específicas de hoja de cálculo para estos casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellcircularreferenceexception/), y [CellUnsupportedDataException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellunsupporteddataexception/).
+Una fórmula también puede fallar en el análisis, referencia, dependencia o nivel de datos compatibles. Aspose.Slides proporciona excepciones específicas de hoja de cálculo para estos casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellcircularreferenceexception/) y [CellUnsupportedDataException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellunsupporteddataexception/).
 
-En PHP a través de Java, las excepciones Java se exponen mediante `JavaException`. Cuando las fórmulas provienen de plantillas o de la entrada del usuario, maneje la excepción alrededor del recálculo y el acceso al valor. La excepción Java reportada en la traza de la pila identifica la falla específica de la hoja de cálculo:
+En PHP via Java, las excepciones Java se exponen mediante `JavaException`. Cuando las fórmulas provienen de plantillas o de la entrada del usuario, gestiona la excepción alrededor del recálculo y el acceso al valor. La excepción Java mostrada en la traza de pila identifica el fallo específico de la hoja de cálculo:
 
 ```php
 $presentation = new Presentation();
@@ -319,51 +362,51 @@ try {
 
 ## **Limitaciones prácticas**
 
-El soporte de fórmulas en hojas de cálculo de gráficos está pensado para un subconjunto definido de cálculos de hoja, no para una compatibilidad total con Excel. Tenga en cuenta estas limitaciones al diseñar un flujo de trabajo de generación de informes:
+El soporte de fórmulas en las hojas de cálculo de gráficos está pensado para un subconjunto definido de cálculos de hoja, no para una compatibilidad total con Excel. Ten en cuenta estas restricciones al diseñar un flujo de trabajo de generación de informes:
 
-- Utilice solo los constantes, operadores, referencias y funciones documentados cuando necesite que Aspose.Slides recalcule fórmulas.
-- Recalcule después de modificar celdas de las que dependen los resultados de las fórmulas.
-- Considere los valores en caché de presentaciones cargadas como instantáneas, no como sustituto del recálculo después de editar.
-- Pruebe las fórmulas de plantillas existentes antes de confiar en sus valores calculados, sobre todo cuando usan funciones fuera de la lista documentada.
-- Para fórmulas que requieran un motor completo de cálculo de hoja de cálculo, calcúlelas externamente y luego actualice el libro de datos del gráfico con los valores resultantes.
+- Usa solo las constantes, operadores, referencias y funciones documentadas cuando necesites que Aspose.Slides recalcule fórmulas.
+- Recalcula después de cambiar celdas de las que dependen los resultados de las fórmulas.
+- Considera los valores almacenados en caché de presentaciones cargadas como instantáneas, no como sustitutos del recálculo después de editar.
+- Prueba las fórmulas de plantillas existentes antes de confiar en sus valores calculados, sobre todo si usan funciones fuera de la lista documentada.
+- Para fórmulas que requieren un motor completo de cálculo de hoja, calcúlalas externamente y luego actualiza el libro de trabajo del gráfico con los valores resultantes.
 
 ## **Preguntas frecuentes**
 
 **¿Cuál es la diferencia entre [ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula) y [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula)?**
 
-[ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula) almacena una expresión estilo A1 como `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula) almacena una expresión estilo R1C1 como `RC[-2]-RC[-1]`. Use la notación que mejor se ajuste a cómo genera o copia las fórmulas.
+[ChartDataCell::setFormula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setFormula) almacena una expresión en estilo A1 como `B2-C2`. [ChartDataCell::setR1C1Formula](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#setR1C1Formula) almacena una expresión en estilo R1C1 como `RC[-2]-RC[-1]`. Usa la notación que mejor se ajuste a cómo generas o copias las fórmulas.
 
-**¿Necesito leer la propia celda o su valor después del cálculo?**
+**¿Debo leer la propia celda o su valor después del cálculo?**
 
-[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#getCell) devuelve un [ChartDataCell](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/). Para obtener el resultado calculado, llame al método [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue) de esa celda después del recálculo.
+[ChartDataWorkbook::getCell](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#getCell) devuelve un [ChartDataCell](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/). Para obtener el resultado calculado, llama al método [ChartDataCell::getValue](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdatacell/#getValue) de esa celda después del recálculo.
 
 **¿Cuándo debo llamar a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas)?**
 
-Llame a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) después de cambiar valores de entrada o fórmulas y antes de depender de los resultados calculados. Esto actualiza los valores de las fórmulas que el evaluador incorporado admite.
+Llama a [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) después de cambiar valores de entrada o fórmulas y antes de depender de los resultados calculados. Esto actualiza los valores de las fórmulas que el evaluador incorporado soporta.
 
-**¿Aspose.Slides admite todas las funciones de Excel?**
+**¿Aspose.Slides soporta todas las funciones de Excel?**
 
-No. El evaluador incorporado admite un subconjunto documentado de funciones. No se debe asumir que las funciones fuera de ese subconjunto se recalculen correctamente. Si necesita compatibilidad total con fórmulas de Excel, realice el cálculo con un motor de hoja de cálculo adecuado y escriba los valores finales en el libro de datos del gráfico.
+No. El evaluador incorporado soporta un subconjunto documentado de funciones. No se debe asumir que las funciones fuera de ese subconjunto se recalculen correctamente. Si se requiere compatibilidad total con fórmulas de Excel, realiza el cálculo con un motor de hoja de cálculo adecuado y escribe los valores finales en el libro de datos del gráfico.
 
 **¿Qué ocurre si una presentación cargada contiene una fórmula no compatible?**
 
-Si los datos del gráfico no se han modificado, el libro de trabajo puede seguir conteniendo un valor en caché calculado previamente. Después de modificar los datos relacionados, ese valor en caché puede dejar de ser válido. Acceder a una celda cuya fórmula no puede manejarse puede generar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellunsupporteddataexception/).
+Si los datos del gráfico no han cambiado, el libro de trabajo puede seguir conteniendo un valor en caché calculado anteriormente. Tras modificar los datos relacionados, ese valor en caché puede dejar de ser válido. Acceder a una celda cuya fórmula no pueda manejarse puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellunsupporteddataexception/).
 
-**¿Los valores de error de fórmula son lo mismo que las excepciones PHP?**
+**¿Los valores de error de fórmula son lo mismo que las excepciones de PHP?**
 
-No. Un resultado como `#DIV/0!` es un valor de hoja de cálculo producido por un cálculo válido. Los fallos de procesamiento de hojas de cálculo, como [CellInvalidFormulaException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellcircularreferenceexception/), son excepciones Java que se exponen a PHP mediante `JavaException`.
+No. Un resultado como `#DIV/0!` es un valor de hoja de cálculo producido por un cálculo válido. Las fallas en el procesamiento de la hoja, como [CellInvalidFormulaException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/es/php-java/aspose.slides/cellcircularreferenceexception/), son excepciones Java que se exponen a PHP mediante `JavaException`.
 
-**¿El gráfico se actualiza automáticamente cuando cambia una celda con fórmula?**
+**¿Un gráfico se actualiza automáticamente cuando cambia una celda de fórmula?**
 
-Una serie del gráfico puede referenciar celdas del libro de trabajo. Recalcule primero el libro de trabajo y luego guarde o renderice la presentación. Si los puntos de datos del gráfico hacen referencia a las celdas calculadas, el gráfico utiliza esos valores actualizados; no se requiere un método de actualización de gráfico separado para este flujo.
+Una serie de gráfico puede referenciar celdas del libro de trabajo. Recalcula primero el libro y, a continuación, guarda o renderiza la presentación. Si los puntos de datos del gráfico hacen referencia a las celdas calculadas, el gráfico usará esos valores actualizados; no se requiere un método de actualización separado para este flujo.
 
 **¿Los gráficos pueden usar un libro de Excel externo?**
 
-Sí, los datos del gráfico pueden configurarse para usar un libro externo mediante la API de datos del gráfico. Sin embargo, el flujo de cálculo de fórmulas descrito en este artículo se refiere al libro de datos del gráfico y al subconjunto de fórmulas evaluado por Aspose.Slides. No asuma que [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) proporciona un recálculo completo de fórmulas arbitrarias en un archivo XLSX externo.
+Sí, los datos del gráfico pueden configurarse para usar un libro externo mediante la API de datos del gráfico. Sin embargo, el flujo de cálculo de fórmulas descrito en este artículo se refiere al libro de datos del gráfico y al subconjunto de fórmulas evaluado por Aspose.Slides. No asumas que [ChartDataWorkbook::calculateFormulas](https://reference.aspose.com/slides/es/php-java/aspose.slides/chartdataworkbook/#calculateFormulas) ofrece un recálculo completo de fórmulas arbitrarias en un archivo XLSX externo.
 
-**¿Puedo usar fórmulas que hagan referencia a otra hoja de cálculo o libro?**
+**¿Puedo usar fórmulas que referencien otra hoja o libro?**
 
-Las referencias al estilo Excel pueden existir en los libros de datos de los gráficos, pero la evaluación de fórmulas está limitada por el analizador y el conjunto de funciones compatibles. Si una referencia cruzada de hoja o externa es esencial, valide esa fórmula exacta con la versión de Aspose.Slides que utiliza. Para flujos que requieran una compatibilidad amplia de referencias de Excel, calcule el libro externamente y escriba los valores resueltos de nuevo en los datos del gráfico.
+Las referencias al estilo Excel pueden existir en los libros de datos de los gráficos, pero la evaluación de fórmulas está limitada por el analizador y el conjunto de funciones soportados. Si una referencia cruzada de hoja o externa es esencial, verifica esa fórmula exacta con la versión de Aspose.Slides que utilizas. Para flujos que requieren una compatibilidad amplia con referencias de Excel, calcula el libro externamente y escribe los valores resueltos de vuelta en los datos del gráfico.
 
 **¿Deben las cadenas de fórmula comenzar con `=`?**
 

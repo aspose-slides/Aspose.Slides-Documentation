@@ -5,13 +5,16 @@ type: docs
 weight: 70
 url: /pl/python-net/chart-worksheet-formulas/
 keywords:
-- arkusz kalkulacyjny wykresu
-- arkusz roboczy wykresu
+- arkusz wykresu
+- arkusz danych wykresu
 - formuła wykresu
 - formuła arkusza
 - formuła arkusza kalkulacyjnego
 - skoroszyt danych wykresu
 - obliczanie formuły
+- preferowana kultura
+- formuła zależna od kultury
+- DBCS
 - stała logiczna
 - stała numeryczna
 - stała tekstowa
@@ -25,27 +28,27 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Zastosuj formuły w stylu Excel w arkuszach wykresów Aspose.Slides dla Pythona via .NET, przelicz wartości i użyj wyników w wykresach PowerPoint."
+description: "Zastosuj formuły w stylu Excel w arkuszach wykresów Aspose.Slides dla Pythona przy użyciu .NET, przeliczaj wartości i używaj wyników w wykresach PowerPoint."
 ---
 ## **Przegląd**
 
-Wykresy PowerPoint zazwyczaj przechowują swoje dane źródłowe w osadzonym arkuszu kalkulacyjnym. W Aspose.Slides for Python via .NET możesz uzyskać dostęp do tego arkusza poprzez skoroszyt danych wykresu, zapisywać wartości wejściowe, przypisywać formuły do komórek, obliczać obsługiwane formuły i używać obliczonych komórek jako danych wykresu.
+PowerPoint charts usually store their source data in an embedded worksheet. In Aspose.Slides for Python via .NET, you can access that worksheet through the chart data workbook, write input values, assign formulas to cells, calculate supported formulas, and use the calculated cells as chart data.
 
-Ten artykuł opisuje kompletny proces z formułami: tworzenie wykresu, wypełnianie jego arkusza, przypisywanie formuł w stylu A1 lub R1C1, ich przeliczenie, odczyt obliczonych wartości, podłączenie tych komórek do serii wykresu i zapis prezentacji. Opisuje również obsługiwany składniowo zestaw formuł, wbudowany podzbiór funkcji, wartości buforowane, nieobsługiwane formuły oraz błędy specyficzne dla arkuszy kalkulacyjnych.
+This article explains the complete formula workflow: create a chart, populate its worksheet, assign A1-style or R1C1-style formulas, recalculate them, read the calculated values, connect those cells to a chart series, and save the presentation. It also describes the supported formula syntax, the built-in function subset, cached values, unsupported formulas, and spreadsheet-specific errors.
 
 ## **Arkusze wykresów i formuły**
 
-Arkusz wykresu zawiera kategorie, nazwy serii i wartości używane przez wykres. W PowerPoint możesz przejrzeć arkusz, otwierając edytor danych wykresu:
+A chart worksheet contains the categories, series names, and values used by a chart. In PowerPoint, you can inspect the worksheet by opening the chart data editor:
 
-![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
+![Wykres PowerPoint z otwartym osadzonym arkuszem, pokazujący dane kategorii i serii](chart-worksheet-formulas_1.png)
 
-W Aspose.Slides arkusz jest udostępniany poprzez [chart data workbook](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdataworkbook/). Użyj właściwości [formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/formula/) dla formuł w stylu A1 oraz [r1c1_formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) dla formuł w stylu R1C1. Po zmianie komórek wejściowych lub formuł wywołaj [calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) aby przeliczyć obsługiwane formuły i zaktualizować odpowiadające wartości komórek.
+In Aspose.Slides, the worksheet is exposed through the [skoroszyt danych wykresu](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdataworkbook/). Use the [formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/formula/) property for A1-style formulas and the [r1c1_formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) property for R1C1-style formulas. After changing input cells or formulas, call [calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) to recalculate supported formulas and update the corresponding cell values.
 
-Obliczona komórka nadal udostępnia swój wynik poprzez właściwość [value](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/value/). Jest to ważne, gdy trzeba sprawdzić wynik formuły w kodzie lub użyć komórki jako punktu danych wykresu.
+A calculated cell still exposes its result through the [value](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/value/) property. This is important when you need to inspect a formula result in code or use the cell as a chart data point.
 
-## **Utworzenie wykresu i przeliczenie formuł w arkuszu**
+## **Utwórz wykres i oblicz formuły w arkuszu**
 
-Poniższy przykład demonstruje kompletny przebieg pracy. Tworzy wykres słupkowy grupowy, czyści przykładowe dane, zapisuje kwartalne przychody i wydatki, oblicza zysk przy pomocy formuł, odczytuje wyniki, używa obliczonych komórek jako wartości wykresu i zapisuje prezentację.
+The following example demonstrates an end-to-end workflow. It creates a clustered column chart, clears the sample data, writes quarterly revenue and expense values, calculates profit with formulas, reads the results, uses the calculated cells as chart values, and saves the presentation.
 
 ```python
 import aspose.slides as slides
@@ -107,11 +110,11 @@ with slides.Presentation() as presentation:
     presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Punkty danych wykresu odwołują się do `D2:D4`, więc wykres używa obliczonych wartości zysku. W tym przebiegu nie ma osobnego wywołania odświeżania wykresu: najpierw przelicz skoroszyt, a potem użyj lub zapisz dane wykresu wskazujące na obliczone komórki.
+The chart data points reference `D2:D4`, so the chart uses the calculated profit values. There is no separate chart-refresh call in this workflow: recalculate the workbook first, then use or save the chart data that points to the calculated cells.
 
 ## **Używanie formuł w stylu A1**
 
-Notacja A1 identyfikuje kolumny literami, a wiersze numerami. Przypisz wyrażenia w stylu A1 poprzez [IChartDataCell.formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/formula/).
+A1 notation identifies columns with letters and rows with numbers. Assign A1-style expressions through [IChartDataCell.formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/formula/).
 
 ```python
 import aspose.slides as slides
@@ -135,7 +138,7 @@ with slides.Presentation() as presentation:
     value = cell.value  # 19
 ```
 
-Typowe formy odwołań A1:
+Common A1 reference forms are:
 
 | Odwołanie | Względny | Bezwzględny | Mieszany |
 |---|---|---|---|
@@ -144,11 +147,11 @@ Typowe formy odwołań A1:
 | Kolumna | `A:A` | `$A:$A` | — |
 | Zakres | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Odwołania względne mogą się zmieniać, gdy formuła zostanie przeniesiona lub skopiowana w aplikacji arkusza. Odwołania bezwzględne utrzymują oba współrzędne stałe, natomiast odwołania mieszane ustalają tylko wiersz lub kolumnę.
+Relative references can change when a formula is moved or copied by a spreadsheet application. Absolute references keep both coordinates fixed, while mixed references fix only a row or a column.
 
 ## **Używanie formuł w stylu R1C1**
 
-Notacja R1C1 identyfikuje zarówno wiersze, jak i kolumny numerycznie. Odwołania względne używają offsetów w nawiasach kwadratowych. Przypisz tę składnię poprzez [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
+R1C1 notation identifies both rows and columns numerically. Relative references use offsets in square brackets. Assign this syntax through [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/).
 
 ```python
 import aspose.slides as slides
@@ -170,7 +173,7 @@ with slides.Presentation() as presentation:
     value = cell.value  # 7
 ```
 
-Typowe formy odwołań R1C1:
+Common R1C1 reference forms are:
 
 | Odwołanie | Względny | Bezwzględny | Mieszany |
 |---|---|---|---|
@@ -179,22 +182,22 @@ Typowe formy odwołań R1C1:
 | Kolumna | `C[3]` | `C3` | — |
 | Zakres | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Na przykład w komórce `D2`, `RC[-2]` oznacza komórkę w tym samym wierszu dwie kolumny w lewo (`B2`).
+For example, in cell `D2`, `RC[-2]` means the cell in the same row two columns to the left (`B2`).
 
 ## **Stałe i operatory formuł**
 
-Wbudowany evaluator formuł obsługuje wartości logiczne, literały numeryczne, ciągi znaków, wartości błędów arkusza, operatory arytmetyczne i operatory porównania.
+The built-in formula evaluator supports logical values, numeric literals, strings, spreadsheet error values, arithmetic operators, and comparison operators.
 
 ### **Stałe i literały**
 
-| Typ | Przykłady | Uwaga |
+| Typ | Przykłady | Uwagi |
 |---|---|---|
-| Logiczny | `TRUE`, `FALSE` | Można używać bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
-| Numeryczny | `1`, `0.5`, `.3`, `1E-2` | Obsługiwane są zapisy zwykłe i naukowe. |
-| Tekstowy | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są otoczone podwójnymi cudzysłowami wewnątrz formuły. |
-| Wynik błędu | `#DIV/0!`, `#N/A`, `#REF!` | Prawidłowa formuła może zwrócić wartość błędu arkusza zamiast normalnego wyniku. |
+| Logiczny | `TRUE`, `FALSE` | Może być używany bezpośrednio w wyrażeniach logicznych, np. `A2=TRUE`. |
+| Numeryczny | `1`, `0.5`, `.3`, `1E-2` | Obsługiwana jest notacja zwykła i naukowa. |
+| Ciąg | `"abc"`, `"2/3/2020 12:00"` | Literały tekstowe są umieszczane w podwójnych cudzysłowach wewnątrz formuły. |
+| Wynik błędu | `#DIV/0!`, `#N/A`, `#REF!` | Poprawna formuła może zwrócić wartość błędu arkusza zamiast normalnego wyniku. |
 
-Ten przykład używa kilku typów stałych:
+This example uses several constant types:
 
 ```python
 import aspose.slides as slides
@@ -214,7 +217,7 @@ with slides.Presentation() as presentation:
 
     workbook.calculate_formulas()
 
-    logical_value = workbook.get_cell(0, "B2").value  # Fałsz
+    logical_value = workbook.get_cell(0, "B2").value  # False
     numeric_value = workbook.get_cell(0, "C2").value  # 1.5
     scientific_value = workbook.get_cell(0, "D2").value  # 0.003
     string_value = workbook.get_cell(0, "E2").value  # abc
@@ -225,23 +228,23 @@ with slides.Presentation() as presentation:
 
 | Operator | Znaczenie | Przykład |
 |---|---|---|
-| `+` | Dodawanie lub znak plus jednokrotny | `2+3` |
+| `+` | Dodawanie lub operator jedynkowy | `2+3` |
 | `-` | Odejmowanie lub negacja | `2-3`, `-3` |
 | `*` | Mnożenie | `2*3` |
 | `/` | Dzielenie | `2/3` |
 | `%` | Procent | `30%` |
 | `^` | Potęgowanie | `2^3` |
 
-Używaj nawiasów, aby wyraźnie określić kolejność obliczeń, np. `(A2+B2)*C2`.
+Use parentheses to make evaluation order explicit, for example `(A2+B2)*C2`.
 
 ### **Operatory porównania**
 
-Wyrażenia porównawcze zwracają wartości logiczne.
+Comparison expressions return logical values.
 
 | Operator | Znaczenie | Przykład |
 |---|---|---|
 | `=` | Równe | `A2=3` |
-| `<>` | Nie równe | `A2<>3` |
+| `<>` | Nierówne | `A2<>3` |
 | `>` | Większe niż | `A2>3` |
 | `>=` | Większe lub równe | `A2>=3` |
 | `<` | Mniejsze niż | `A2<3` |
@@ -249,49 +252,71 @@ Wyrażenia porównawcze zwracają wartości logiczne.
 
 ## **Obsługiwane funkcje wbudowane**
 
-Aspose.Slides zawiera wbudowany evaluator formuł dla arkuszy wykresów, ale nie jest to pełny silnik kalkulacji Excel. Dokumentowany zestaw funkcji jest ograniczony do poniższych funkcji. Nie zakładaj, że dowolna funkcja Excel zostanie przeliczona przez [calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
+Aspose.Slides includes a built-in formula evaluator for chart worksheets, but it is not a complete Excel calculation engine. The documented function set is limited to the functions below. Do not assume that an arbitrary Excel function can be recalculated by [calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/).
 
 | Funkcja | Cel lub obsługiwana forma | Przykład |
 |---|---|---|
-| `ABS` | Wartość bezwzględna | `ABS(A2)` |
-| `AVERAGE` | Średnia arytmetyczna | `AVERAGE(B2:B5)` |
-| `CEILING` | Zaokrąglenie liczby w górę do wielokrotności | `CEILING(A2,5)` |
-| `CHOOSE` | Wybór wartości według indeksu | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | Łączenie wartości tekstowych | `CONCAT(A2,B2)` |
-| `CONCATENATE` | Łączenie wartości tekstowych | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Utworzenie wartości daty przy użyciu systemu dat 1900 | `DATE(2026,8,19)` |
-| `DAYS` | Zwrócenie liczby dni między datami | `DAYS(B2,A2)` |
-| `FIND` | Znajdowanie jednej wartości tekstowej w drugiej | `FIND("-",A2)` |
+| `ABS` | wartość bezwzględna | `ABS(A2)` |
+| `AVERAGE` | średnia arytmetyczna | `AVERAGE(B2:B5)` |
+| `CEILING` | Zaokrągla liczbę w górę do wielokrotności | `CEILING(A2,5)` |
+| `CHOOSE` | Wybiera wartość według indeksu | `CHOOSE(A2,"Low","High")` |
+| `CONCAT` | Łączy wartości tekstowe | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Łączy wartości tekstowe | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Tworzy wartość daty przy użyciu systemu dat 1900 | `DATE(2026,8,19)` |
+| `DAYS` | Zwraca liczbę dni między datami | `DAYS(B2,A2)` |
+| `FIND` | Znajduje jedną wartość tekstową w innej | `FIND("-",A2)` |
 | `FINDB` | Wyszukiwanie tekstu orientowane na bajty | `FINDB("a",A2)` |
 | `IF` | Wynik warunkowy | `IF(A2>0,A2,0)` |
 | `INDEX` | Forma odwołania | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Forma wektorowa | `LOOKUP(A2,B2:B5,C2:C5)` |
 | `MATCH` | Forma wektorowa | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Wartość maksymalna | `MAX(B2:B5)` |
-| `SUM` | Sumowanie wartości | `SUM(B2:B5)` |
-| `VLOOKUP` | Wyszukiwanie pionowe | `VLOOKUP(A2,B2:D10,3,FALSE)` |
+| `SUM` | Suma wartości | `SUM(B2:B5)` |
+| `VLOOKUP` | Wyszukiwanie w pionie | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Ograniczenia w tabeli są istotne: `INDEX` jest udokumentowany w formie odwołania, podczas gdy `LOOKUP` i `MATCH` w formie wektorowej. `DATE` używa systemu dat 1900. Funkcje i cechy nie wymienione tutaj powinny być traktowane jako nieobsługiwane przez evaluator formuł Aspose.Slides, chyba że są udokumentowane osobno.
+The restrictions shown in the table are significant: `INDEX` is documented in reference form, while `LOOKUP` and `MATCH` are documented in their vector forms. `DATE` uses the 1900 date system. Features and functions not listed here should be treated as unsupported by the Aspose.Slides formula evaluator unless they are documented separately.
+
+## **Obliczanie formuł z preferowaną kulturą**
+
+Some chart workbook functions interpret text according to culture-specific rules. This is especially important for functions intended for languages that use double-byte character sets (DBCS). To calculate such formulas correctly, create [LoadOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/), set [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/pl/python-net/aspose.slides/spreadsheetoptions/) through [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/pl/python-net/aspose.slides/loadoptions/spreadsheet_options/), and then load the presentation.
+
+The following example selects the Japanese culture, opens a presentation with the configured load options, and calls [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) for every chart workbook:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+The preferred culture is part of the presentation loading configuration, so specify it before creating the [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) instance. Use the culture expected by the workbook formulas; for example, use `ja-JP` for formulas that should follow Japanese DBCS calculation rules.
 
 ## **Przeliczanie i wartości buforowane**
 
-Pliki arkuszy zwykle przechowują zarówno formułę, jak i jej ostatnio obliczoną wartość. Aspose.Slides może więc odczytać wartość buforowaną z [IChartDataCell.value](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/value/) podczas ładowania prezentacji, o ile odpowiednie dane wykresu nie zostały zmienione.
+Spreadsheet files commonly store both a formula and its last calculated value. Aspose.Slides can therefore read a cached value from [IChartDataCell.value](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/value/) when a presentation is loaded and the relevant chart data has not been changed.
 
-Po zmianie komórek wejściowych lub formuł nie polegaj na starej buforowanej wartości. Wywołaj [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) przed odczytem obliczonych wartości lub zapisem danych wykresu, które od nich zależą.
+After changing input cells or formulas, do not rely on an old cached result. Call [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) before reading calculated values or saving chart data that depends on them.
 
-Dla formuł spoza obsługiwanego podzbioru Aspose.Slides może nie być w stanie sparsować formuły ani ustalić jej zależności. Jeśli skoroszyt został zmodyfikowany, poprzednia buforowana wartość nie jest już wiarygodna. W takiej sytuacji odczyt wartości komórki z nieobsługiwanymi danymi może podnieść [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+For formulas outside the supported subset, Aspose.Slides may be unable to parse the formula or establish its dependencies. If the workbook has been modified, the previous cached value can no longer be considered reliable. In that situation, reading the value of a cell with unsupported data can raise [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-Jeśli twój wykres zależy od funkcji Excel, których Aspose.Slides nie ocenia, oblicz te formuły przy użyciu silnika arkusza, który je obsługuje, i zapisz otrzymane wyniki z powrotem do skoroszytu wykresu. Nie zastępuj nieobsługiwanych formuł zgadywanymi wartościami.
+If your chart depends on Excel functions that Aspose.Slides does not evaluate, calculate those formulas with a spreadsheet engine that supports them and write the resulting values back to the chart workbook. Do not replace unsupported formulas with guessed values.
 
 ## **Obsługa błędów formuł**
 
-Istnieją dwa różne rodzaje problemów do rozróżnienia.
+There are two different kinds of problems to distinguish.
 
-Formuła może być prawidłowa, ale zwrócić wynik błędu arkusza, taki jak `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` lub `#VALUE!`. W takim wypadku token błędu jest wynikiem komórki i może być zwrócony przez `value`.
+A formula can be valid but produce a spreadsheet error result such as `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!`, or `#VALUE!`. In this case, the error token is a cell result and can be returned through `value`.
 
-Formuła może także nie powieść się na etapie parsowania, odwołania, zależności lub obsługi danych. Aspose.Slides udostępnia specyficzne dla arkusza wyjątki: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), oraz [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+A formula can also fail at the parsing, reference, dependency, or supported-data level. Aspose.Slides provides spreadsheet-specific exceptions for these cases: [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/), and [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-Gdy formuły pochodzą z szablonów lub wejścia użytkownika, obsłuż te wyjątki wokół przeliczania i dostępu do wartości:
+When formulas come from templates or user input, handle these exceptions around recalculation and value access:
 
 ```python
 import aspose.slides as slides
@@ -318,54 +343,54 @@ with slides.Presentation() as presentation:
         print(f"Unsupported spreadsheet data: {ex}")
 ```
 
-## **Praktyczne ograniczenia**
+## **Ograniczenia praktyczne**
 
-Obsługa formuł w arkuszach wykresów jest przeznaczona dla określonego podzbioru obliczeń arkusza, a nie dla pełnej kompatybilności z Excel. Pamiętaj o tych ograniczeniach przy projektowaniu przepływu raportowania:
+The formula support in chart worksheets is intended for a defined subset of spreadsheet calculations, not for full Excel compatibility. Keep these constraints in mind when designing a reporting workflow:
 
-- Używaj wyłącznie dokumentowanych stałych, operatorów, odwołań i funkcji, gdy potrzebujesz, aby Aspose.Slides przeliczało formuły.
-- Przeliczaj po zmianie komórek, od których zależą wyniki formuł.
-- Traktuj wartości buforowane z załadowanych prezentacji jako migawki, a nie jako zamiennik przeliczenia po edycjach.
-- Testuj formuły z istniejących szablonów przed poleganiem na ich obliczonych wartościach, szczególnie gdy używają funkcji spoza udokumentowanej listy.
-- Dla formuł wymagających pełnego silnika kalkulacji arkusza, przelicz je zewnętrznie, a następnie zaktualizuj skoroszyt wykresu otrzymanymi wartościami.
+- Use only the documented constants, operators, references, and functions when you need Aspose.Slides to recalculate formulas.
+- Recalculate after changing cells that formula results depend on.
+- Treat cached values from loaded presentations as snapshots, not as a replacement for recalculation after edits.
+- Test formulas from existing templates before relying on their calculated values, especially when they use functions outside the documented list.
+- For formulas that require a full spreadsheet calculation engine, calculate them externally and then update the chart workbook with the resulting values.
 
 ## **FAQ**
 
 **Jaka jest różnica między `formula` a `r1c1_formula`?**
 
-[formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/formula/) przechowuje wyrażenie w stylu A1, np. `B2-C2`. [r1c1_formula](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) przechowuje wyrażenie w stylu R1C1, np. `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej pasuje do sposobu generowania lub kopiowania formuł.
+[formula] przechowuje wyrażenie w stylu A1, takie jak `B2-C2`. [r1c1_formula] przechowuje wyrażenie w stylu R1C1, takie jak `RC[-2]-RC[-1]`. Użyj notacji, która najlepiej odpowiada temu, jak generujesz lub kopiujesz formuły.
 
-**Czy muszę odczytać samą komórkę czy jej wartość po przeliczeniu?**
+**Czy po obliczeniu powinienem odczytać samą komórkę, czy jej wartość?**
 
-[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) zwraca `IChartDataCell`. Aby uzyskać obliczony wynik, odczytaj właściwość [value](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/ichartdatacell/value/) tej komórki po przeliczeniu.
+[ChartDataWorkbook.get_cell] zwraca `IChartDataCell`. Aby uzyskać obliczony wynik, odczytaj właściwość [value] tej komórki po przeliczeniu.
 
 **Kiedy powinienem wywołać `calculate_formulas`?**
 
-Wywołaj [calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) po zmianie wartości wejściowych lub formuł i przed użyciem obliczonych wyników. Aktualizuje to wartości formuł obsługiwanych przez wbudowany evaluator.
+Wywołaj [calculate_formulas] po zmianie wartości wejściowych lub formuł i przed tym, gdy zależysz od obliczonych wyników. To aktualizuje wartości formuł obsługiwanych przez wbudowany evaluator.
 
 **Czy Aspose.Slides obsługuje każdą funkcję Excel?**
 
-Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Funkcje spoza tego podzbioru nie powinny być traktowane jako poprawnie przeliczane. Jeśli wymagana jest pełna kompatybilność z formułami Excel, wykonaj obliczenia w odpowiednim silniku arkusza i zapisz ostateczne wartości do skoroszytu wykresu.
+Nie. Wbudowany evaluator obsługuje udokumentowany podzbiór funkcji. Funkcje spoza tego podzbioru nie powinny być traktowane jako prawidłowo przeliczane. Jeśli wymagana jest pełna kompatybilność formuł Excel, wykonaj obliczenia przy użyciu odpowiedniego silnika arkusza kalkulacyjnego i zapisz ostateczne wartości w skoroszycie wykresu.
 
-**Co się stanie, jeśli załadowana prezentacja zawiera nieobsługiwaną formułę?**
+**Co się stanie, jeśli wczytana prezentacja zawiera nieobsługiwaną formułę?**
 
-Jeśli dane wykresu nie zostały zmienione, skoroszyt może nadal zawierać wcześniej obliczoną wartość buforowaną. Po modyfikacji powiązanych danych ta buforowana wartość może nie być już ważna. Dostęp do komórki, której formuła nie może być obsłużona, może podnieść [CellUnsupportedDataException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+Jeśli dane wykresu nie zostały zmienione, skoroszyt może nadal zawierać wcześniej obliczoną wartość buforowaną. Po modyfikacji powiązanych danych ta wartość buforowana może przestać być ważna. Próba odczytu komórki, której formuła nie może być obsłużona, może spowodować wyrzucenie [CellUnsupportedDataException].
 
-**Czy wartości błędów formuły są tym samym co wyjątki Pythona?**
+**Czy wartości błędów formuł są tym samym co wyjątki Pythona?**
 
-Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza uzyskaną w wyniku prawidłowego obliczenia. Wyjątki takie jak [CellInvalidFormulaException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) czy [CellCircularReferenceException](https://reference.aspose.com/slides/pl/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) wskazują, że formuła nie może być normalnie przetworzona.
+Nie. Wynik taki jak `#DIV/0!` jest wartością arkusza uzyskaną w wyniku prawidłowego obliczenia. Wyjątki, takie jak [CellInvalidFormulaException] czy [CellCircularReferenceException], wskazują, że formuła nie może być przetworzona w normalny sposób.
 
-**Czy wykres aktualizuje się automatycznie po zmianie komórki z formułą?**
+**Czy wykres aktualizuje się automatycznie, gdy zmieni się komórka z formułą?**
 
-Seria wykresu może odwoływać się do komórek skoroszytu. Najpierw przelicz skoroszyt, a potem zapisz lub wyrenderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres użyje zaktualizowanych wartości; nie jest wymagane oddzielne wywołanie odświeżania wykresu w tym przebiegu.
+Seria wykresu może odwoływać się do komórek skoroszytu. Najpierw przelicz skoroszyt, a następnie zapisz lub renderuj prezentację. Jeśli punkty danych wykresu odwołują się do obliczonych komórek, wykres wykorzysta zaktualizowane wartości; nie jest wymagane osobne wywołanie odświeżania wykresu w tym przepływie.
 
 **Czy wykresy mogą używać zewnętrznego skoroszytu Excel?**
 
-Tak, dane wykresu można skonfigurować tak, aby używały zewnętrznego skoroszytu za pośrednictwem API danych wykresu. Jednak opisany w tym artykule przepływ przeliczania formuł dotyczy skoroszytu danych wykresu i podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [calculate_formulas](https://reference.aspose.com/slides/pl/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) zapewnia pełne przeliczenie dowolnych formuł w zewnętrznym pliku XLSX.
+Tak, dane wykresu można skonfigurować do używania zewnętrznego skoroszytu poprzez API danych wykresu. Jednak opisany w tym artykule przepływ obliczania formuł dotyczy skoroszytu danych wykresu oraz podzbioru formuł ocenianych przez Aspose.Slides. Nie zakładaj, że [calculate_formulas] zapewnia pełne przeliczenie dowolnych formuł w zewnętrznym pliku XLSX.
 
 **Czy mogę używać formuł odwołujących się do innego arkusza lub skoroszytu?**
 
-Odwołania w stylu Excel mogą występować w skoroszytach wykresów, ale ocena formuł jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie międzyarkuszowe lub zewnętrzne jest niezbędne, zweryfikuj dokładną formułę w wersji Aspose.Slides, której używasz. Dla przepływów wymagających szerokiej kompatybilności odwołań Excel, przelicz skoroszyt zewnętrznie i zapisz rozwiązane wartości z powrotem do danych wykresu.
+Odwołania w stylu Excel mogą występować w skoroszytach wykresów, ale ocena formuł jest ograniczona przez obsługiwany parser i zestaw funkcji. Jeśli odwołanie między arkuszami lub zewnętrzne jest niezbędne, zweryfikuj tę konkretną formułę w wersji Aspose.Slides, której używasz. Dla przepływów wymagających szerokiej kompatybilności odwołań Excel, oblicz skoroszyt zewnętrznie i zapisz rozwiązywane wartości z powrotem do danych wykresu.
 
 **Czy ciągi formuł powinny zaczynać się od `=`?**
 
-Przykłady API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego `=`. Użycie tej formy utrzymuje generowane formuły zgodne z udokumentowanymi przykładami API.
+Przykłady API Aspose.Slides przypisują wyrażenia takie jak `B2-C2` lub `SUM(B2:B5)` bez wiodącego `=`. Używanie tej formy utrzymuje generowane formuły zgodne z udokumentowanymi przykładami API.

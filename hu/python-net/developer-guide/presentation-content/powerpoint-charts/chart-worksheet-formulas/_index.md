@@ -1,51 +1,54 @@
 ---
-title: "Diagram munkalap képletek alkalmazása prezentációkban Python-nal"
+title: "Diagram munkalap képletek alkalmazása prezentációkban Python használatával"
 linktitle: "Munkalap képletek"
 type: docs
 weight: 70
 url: /hu/python-net/chart-worksheet-formulas/
 keywords:
-- "diagram táblázat"
-- "diagram munkalap"
-- "diagram képlet"
-- "munkalap képlet"
-- "táblázat képlet"
-- "diagram adat munkafüzet"
-- "képlet számítás"
-- "logikai állandó"
-- "numerikus állandó"
-- "szöveg állandó"
-- "hiba állandó"
-- "aritmetikai operátor"
-- "összehasonlító operátor"
-- "A1 stílus"
-- "R1C1 stílus"
-- "előre definiált függvény"
-- "PowerPoint"
-- "prezentáció"
-- "Python"
-- "Aspose.Slides"
-description: "Alkalmazzon Excel stílusú képleteket az Aspose.Slides for Python via .NET diagram munkalapokon, számolja újra az értékeket, és használja az eredményeket PowerPoint diagramokban."
+- diagram táblázat
+- diagram munkalap
+- diagram képlet
+- munkalap képlet
+- táblázat képlet
+- diagram adatkönyv
+- képlet számítás
+- preferált kultúra
+- kultúrára szabott képlet
+- DBCS
+- logikai állandó
+- numerikus állandó
+- szöveges állandó
+- hiba állandó
+- aritmetikai operátor
+- összehasonlító operátor
+- A1 stílus
+- R1C1 stílus
+- előre definiált függvény
+- PowerPoint
+- prezentáció
+- Python
+- Aspose.Slides
+description: "Alkalmazza az Excel-stílusú képleteket az Aspose.Slides for Python via .NET diagram munkalapokon, számolja újra az értékeket, és használja az eredményeket a PowerPoint diagramokban."
 ---
 ## **Áttekintés**
 
-A PowerPoint diagramok általában beágyazott munkalapon tárolják a forrásadataikat. Az Aspose.Slides for Python via .NET használatával a diagramadatok munkafüzetén keresztül érheti el ezt a munkalapot, írhat beviteli értékeket, rendelhet képleteket a cellákhoz, kiszámíthatja a támogatott képleteket, és a kiszámított cellákat diagramadatként használhatja.
+A PowerPoint diagramok általában beágyazott munkalapon tárolják a forrásadataikat. Az Aspose.Slides for Python via .NET segítségével elérheti ezt a munkalapot a diagram adatkönyvön keresztül, beírhat bemeneti értékeket, képleteket rendelhet cellákhoz, kiszámíthatja a támogatott képleteket, és a kiszámított cellákat diagram adatként használhatja.
 
-Ez a cikk részletesen bemutatja a képlet-munkafolyamatot: diagram létrehozása, a munkalap feltöltése, A1-stílusú vagy R1C1-stílusú képletek hozzárendelése, azok újraszámítása, a kiszámított értékek olvasása, a cellák diagram sorozathoz kapcsolása és a bemutató mentése. Emellett leírja a támogatott képletszintaxist, a beépített függvényrészhalmazt, a gyorsítótárazott értékeket, a nem támogatott képleteket és a táblázatkezelő-specifikus hibákat.
+Ez a cikk részletesen bemutatja a képlet-összes folyamatot: diagram létrehozása, a munkalap feltöltése, A1‑stílusú vagy R1C1‑stílusú képletek hozzárendelése, újraszámításuk, a kiszámított értékek olvasása, ezen cellák összekapcsolása diagram sorozattal, majd a prezentáció mentése. Emellett ismerteti a támogatott képletszintaxist, a beépített függvények részhalmazát, a gyorsítótárazott értékeket, a nem támogatott képleteket és a táblázatkezelő-specifikus hibákat.
 
 ## **Diagram munkalapok és képletek**
 
-A diagram munkalap a diagram által használt kategóriákat, sorozatneveket és értékeket tartalmazza. PowerPointban a munkalapot megtekintheti a diagram adat szerkesztőjének megnyitásával:
+A diagram munkalap tartalmazza a diagram által használt kategóriákat, sorozatneveket és értékeket. PowerPointban a munkalapot a diagram adat szerkesztőjének megnyitásával vizsgálhatja meg:
 
-![PowerPoint diagram beágyazott munkalappal nyitva, kategória és sorozat adatok megjelenítve](chart-worksheet-formulas_1.png)
+![PowerPoint diagram beágyazott munkalappal megnyitva, a kategória és sorozat adataival](chart-worksheet-formulas_1.png)
 
-Aspose.Slidesben a munkalap a [chart data workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdataworkbook/) révén érhető el. Az A1-stílusú képletekhez használd a [formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/formula/) tulajdonságot, a R1C1-stílusú képletekhez a [r1c1_formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) tulajdonságot. A bemeneti cellák vagy képletek módosítása után hívd meg a [calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) metódust a támogatott képletek újraszámításához és a megfelelő cellaértékek frissítéséhez.
+Az Aspose.Slidesben a munkalap a [chart data workbook](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdataworkbook/) révén érhető el. Az A1‑stílusú képletekhez használja a [formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/formula/) tulajdonságot, a R1C1‑stílusú képletekhez a [r1c1_formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) tulajdonságot. A bemeneti cellák vagy képletek módosítása után hívja a [calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) metódust a támogatott képletek újraszámításához és a megfelelő cellaértékek frissítéséhez.
 
-A kiszámított cella továbbra is a [value](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/value/) tulajdonságon keresztül adja vissza az eredményt. Ez fontos, ha a kódban ki kell vizsgálnod egy képlet eredményét vagy a cellát diagramadat-pontként szeretnéd használni.
+Egy kiszámított cella továbbra is a [value](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/value/) tulajdonságán keresztül adja vissza az eredményt. Ez fontos, ha a kódban szeretné ellenőrizni a képlet eredményét vagy a cellát diagram adatpontként használni.
 
-## **Diagram létrehozása és munkalap képletek számítása**
+## **Diagram létrehozása és munkalapi képletek számítása**
 
-A következő példa egy végponttól végpontig tartó munkafolyamatot mutat be. Létrehoz egy klaszterezett oszlopdiagramot, törli a mintaadatokat, beírja a negyedéves bevétel és kiadás értékeket, képletekkel kiszámítja a profitot, elolvassa az eredményeket, a kiszámított cellákat diagramértékekként használja, és elmenti a bemutatót.
+Az alábbi példa egy vég‑től‑végig munkafolyamatot mutat be. Létrehoz egy csoportos oszlopdiagramot, törli a minta adatokat, beírja a negyedéves bevétel és kiadás értékeket, képletekkel számítja a profitot, kiolvassa az eredményeket, a kiszámított cellákat diagramértékekként használja, és elmenti a prezentációt.
 
 ```python
 import aspose.slides as slides
@@ -107,11 +110,11 @@ with slides.Presentation() as presentation:
     presentation.save("chart-formulas.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-A diagram adatpontjai a `D2:D4` tartományra hivatkoznak, így a diagram a kiszámított profit értékeket használja. Ebben a munkafolyamatban nincs külön diagramfrissítő hívás: először számold újra a munkafüzetet, majd használd vagy mentse a diagramadatokat, amelyek a kiszámított cellákra mutatnak.
+A diagram adatpontjai a `D2:D4` tartományra hivatkoznak, így a diagram a kiszámított profit értékeket használja. Ebben a munkafolyamatban nincs külön diagram‑frissítő hívás: először számolja újra a munkakönyvet, majd használja vagy mentse a diagram adatot, amely a kiszámított cellákra mutat.
 
-## **A1-stílusú képletek használata**
+## **A1‑stílusú képletek használata**
 
-Az A1 jelölés betűkkel azonosítja az oszlopokat és számokkal a sorokat. Az A1-stílusú kifejezéseket a [IChartDataCell.formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/formula/) segítségével adhatod meg.
+Az A1 jelölés oszlopokat betűkkel, sorokat számokkal azonosít. A A1‑stílusú kifejezéseket a [IChartDataCell.formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/formula/) segítségével adhatja meg.
 
 ```python
 import aspose.slides as slides
@@ -135,20 +138,20 @@ with slides.Presentation() as presentation:
     value = cell.value  # 19
 ```
 
-Common A1 reference forms are:
+A gyakori A1 hivatkozási formák:
 
-| Referencia | Relatív | Abszolút | Vegyes |
+| Hivatkozás | Relatív | Abszolút | Vegyes |
 |---|---|---|---|
 | Cell | `A2` | `$A$2` | `A$2`, `$A2` |
 | Row | `2:2` | `$2:$2` | — |
 | Column | `A:A` | `$A:$A` | — |
 | Range | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-A relatív hivatkozások megváltozhatnak, amikor egy képletet egy táblázatkezelő alkalmazás mozgat vagy másol. Az abszolút hivatkozások mindkét koordinátát rögzítik, míg a vegyes hivatkozások csak egy sort vagy egy oszlopot rögzítenek.
+A relatív hivatkozások a képlet mozgatásakor vagy másolásakor változhatnak. Az abszolút hivatkozások mindkét koordinátát rögzítik, míg a vegyes hivatkozások csak egy sort vagy egy oszlopot rögzítenek.
 
-## **R1C1-stílusú képletek használata**
+## **R1C1‑stílusú képletek használata**
 
-Az R1C1 jelölés számokkal azonosítja a sorokat és oszlopokat. A relatív hivatkozások szögletes zárójelekben definiált eltolásokat használnak. A szintaxist a [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) segítségével adhatod meg.
+Az R1C1 jelölés a sorokat és oszlopokat számmal azonosítja. A relatív hivatkozások szögletes zárójelben lévő eltolásokat használnak. Ezt a szintaxist a [IChartDataCell.r1c1_formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) segítségével adhatja meg.
 
 ```python
 import aspose.slides as slides
@@ -170,29 +173,29 @@ with slides.Presentation() as presentation:
     value = cell.value  # 7
 ```
 
-Common R1C1 reference forms are:
+A gyakori R1C1 hivatkozási formák:
 
-| Referencia | Relatív | Abszolút | Vegyes |
+| Hivatkozás | Relatív | Abszolút | Vegyes |
 |---|---|---|---|
 | Cell | `R[2]C[3]` | `R2C3` | `R2C[3]`, `R[2]C3` |
 | Row | `R[2]` | `R2` | — |
 | Column | `C[3]` | `C3` | — |
 | Range | `R[2]C[3]:R[5]C[7]` | `R2C3:R5C7` | `R2C3:R[5]C[7]`, `R[2]C3:R5C[7]` |
 
-Például a `D2` cellában a `RC[-2]` azt jelenti, hogy a sorban két oszloppal balra lévő cella (`B2`).
+Például a `D2` cellában az `RC[-2]` azt jelenti, hogy ugyanabban a sorban két oszloppal balra lévő cella (`B2`).
 
 ## **Képlet állandók és operátorok**
 
-A beépített képletértékelő támogatja a logikai értékeket, numerikus literálokat, karakterláncokat, táblázathibák értékét, aritmetikai operátorokat és összehasonlító operátorokat.
+A beépített képletértékelő támogatja a logikai értékeket, numerikus literálokat, szövegeket, táblázatkezelő hibákat, aritmetikai operátorokat és összehasonlító operátorokat.
 
 ### **Állandók és literálok**
 
 | Típus | Példák | Megjegyzés |
 |---|---|---|
 | Logikai | `TRUE`, `FALSE` | Közvetlenül használható logikai kifejezésekben, például `A2=TRUE`. |
-| Numerikus | `1`, `0.5`, `.3`, `1E-2` | A közös és a tudományos jelölés támogatott. |
-| Karakterlánc | `"abc"`, `"2/3/2020 12:00"` | A szöveges literálok dupla idézőjelek között szerepelnek a képleten belül. |
-| Hiba eredmény | `#DIV/0!`, `#N/A`, `#REF!` | Egy érvényes képlet táblázathiba értékre is kiértékelhető a normál eredmény helyett. |
+| Numerikus | `1`, `0.5`, `.3`, `1E-2` | A közönséges és a tudományos jelölés egyaránt támogatott. |
+| Szöveg | `"abc"`, `"2/3/2020 12:00"` | A szövegliterálok dupla idézőjelesek a képleten belül. |
+| Hiba eredmény | `#DIV/0!`, `#N/A`, `#REF!` | Egy érvényes képlet kiértékelhető táblázatkezelő hibaértékre a normál eredmény helyett. |
 
 Ez a példa több állandó típust használ:
 
@@ -214,7 +217,7 @@ with slides.Presentation() as presentation:
 
     workbook.calculate_formulas()
 
-    logical_value = workbook.get_cell(0, "B2").value  # False
+    logical_value = workbook.get_cell(0, "B2").value  # Hamis
     numeric_value = workbook.get_cell(0, "C2").value  # 1.5
     scientific_value = workbook.get_cell(0, "D2").value  # 0.003
     string_value = workbook.get_cell(0, "E2").value  # abc
@@ -226,13 +229,13 @@ with slides.Presentation() as presentation:
 | Operátor | Jelentés | Példa |
 |---|---|---|
 | `+` | Összeadás vagy unáris plusz | `2+3` |
-| `-` | Kivonás vagy negáció | `2-3`, `-3` |
+| `-` | Kivonás vagy negatív | `2-3`, `-3` |
 | `*` | Szorzás | `2*3` |
 | `/` | Osztás | `2/3` |
 | `%` | Százalék | `30%` |
 | `^` | Hatványozás | `2^3` |
 
-Zárójelek használatával teheted egyértelművé az értékelés sorrendjét, például `(A2+B2)*C2`.
+Használjon zárójeleket a kiértékelési sorrend egyértelművé tételéhez, például `(A2+B2)*C2`.
 
 ### **Összehasonlító operátorok**
 
@@ -242,56 +245,78 @@ Az összehasonlító kifejezések logikai értéket adnak vissza.
 |---|---|---|
 | `=` | Egyenlő | `A2=3` |
 | `<>` | Nem egyenlő | `A2<>3` |
-| `>` | Nagyobb, mint | `A2>3` |
+| `>` | Nagyobb | `A2>3` |
 | `>=` | Nagyobb vagy egyenlő | `A2>=3` |
-| `<` | Kisebb, mint | `A2<3` |
+| `<` | Kisebb | `A2<3` |
 | `<=` | Kisebb vagy egyenlő | `A2<=3` |
 
 ## **Támogatott előre definiált függvények**
 
-Aspose.Slides beépített képletértékelőt tartalmaz a diagram munkalapokhoz, de nem egy teljes Excel számítási motor. A dokumentált függvénykészlet csak az alábbi függvényekre korlátozódik. Ne feltételezd, hogy egy tetszőleges Excel függvény újraszámítható a [calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) segítségével.
+Az Aspose.Slides beépített képletértékelővel rendelkezik diagram munkalapokhoz, de nem egy teljes Excel számítási motor. A dokumentált függvénykészlet a következőkre korlátozódik. Ne feltételezze, hogy tetszőleges Excel függvényt újra tud számolni a [calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) metódus.
 
-| Függvény | Cél vagy támogatott forma | Példa |
+| Függvény | Leírás vagy támogatott forma | Példa |
 |---|---|---|
 | `ABS` | Abszolút érték | `ABS(A2)` |
 | `AVERAGE` | Aritmetikai közép | `AVERAGE(B2:B5)` |
-| `CEILING` | Szám kerekítése felfelé egy többszörösre | `CEILING(A2,5)` |
+| `CEILING` | Felfelé kerekítés egy többszörösre | `CEILING(A2,5)` |
 | `CHOOSE` | Érték kiválasztása index alapján | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | Szöveges értékek összefűzése | `CONCAT(A2,B2)` |
-| `CONCATENATE` | Szöveges értékek összefűzése | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Dátumérték létrehozása a 1900-as dátumrendszerrel | `DATE(2026,8,19)` |
-| `DAYS` | A dátumok közötti napok számának visszaadása | `DAYS(B2,A2)` |
-| `FIND` | Szövegrész keresése egy másikban | `FIND("-",A2)` |
-| `FINDB` | Byte-orientált szövegkeresés | `FINDB("a",A2)` |
+| `CONCAT` | Szövegek összefűzése | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Szövegek összefűzése | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Dátum érték létrehozása a 1900-as dátumrendszerrel | `DATE(2026,8,19)` |
+| `DAYS` | Napok száma két dátum között | `DAYS(B2,A2)` |
+| `FIND` | Egy szövegrészlet keresése egy másikban | `FIND("-",A2)` |
+| `FINDB` | Byte‑orientált szövegkeresés | `FINDB("a",A2)` |
 | `IF` | Feltételes eredmény | `IF(A2>0,A2,0)` |
 | `INDEX` | Referencia forma | `INDEX(A2:C4,2,3)` |
-| `LOOKUP` | Vektorlés forma | `LOOKUP(A2,B2:B5,C2:C5)` |
-| `MATCH` | Vektorlés forma | `MATCH(A2,B2:B5,0)` |
+| `LOOKUP` | Vektor forma | `LOOKUP(A2,B2:B5,C2:C5)` |
+| `MATCH` | Vektor forma | `MATCH(A2,B2:B5,0)` |
 | `MAX` | Maximum érték | `MAX(B2:B5)` |
-| `SUM` | Értékek összege | `SUM(B2:B5)` |
+| `SUM` | Összeg | `SUM(B2:B5)` |
 | `VLOOKUP` | Függőleges keresés | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-A táblázatban szereplő korlátozások jelentősek: az `INDEX` referencia formában van dokumentálva, míg a `LOOKUP` és `MATCH` vektoros formában. A `DATE` a 1900-as dátumrendszert használja. Az itt nem felsorolt funkciókat és jellemzőket az Aspose.Slides képletértékelő nem támogatja, hacsak külön nem dokumentáltak.
+A táblázatban feltüntetett korlátozások lényegesek: az `INDEX` referencia formában van dokumentálva, míg a `LOOKUP` és a `MATCH` vektor formában. A `DATE` a 1900‑as dátumrendszert használja. A listán kívüli funkciók és jellemzők a Aspose.Slides képletértékelő által nem támogatottként kezelendők, hacsak nincs külön dokumentációjuk.
+
+## **Képletek számítása preferált kultúrával**
+
+Néhány munkakönyvi funkció a szöveget kultúra‑specifikus szabályok szerint értelmezi. Ez különösen fontos a dupla‑bájtos karakterkészletet (DBCS) használó nyelvek esetén. Az ilyen képletek helyes számításához hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/) objektumot, állítsa be a [SpreadsheetOptions.preferred_culture](https://reference.aspose.com/slides/hu/python-net/aspose.slides/spreadsheetoptions/) értékét a [LoadOptions.spreadsheet_options](https://reference.aspose.com/slides/hu/python-net/aspose.slides/loadoptions/spreadsheet_options/) segítségével, majd töltse be a prezentációt.
+
+Az alábbi példa a japán kultúrát választja, a konfigurált betöltési beállításokkal megnyit egy prezentációt, és a [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) metódust hívja minden diagram munkakönyvre:
+
+```python
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+load_options = slides.LoadOptions()
+load_options.spreadsheet_options.preferred_culture = "ja-JP"
+
+with slides.Presentation("presentation.pptx", load_options) as presentation:
+    for slide in presentation.slides:
+        for shape in slide.shapes:
+            if isinstance(shape, charts.Chart):
+                shape.chart_data.chart_data_workbook.calculate_formulas()
+```
+
+A preferált kultúra a prezentáció betöltési konfiguráció része, ezért a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) példány létrehozása előtt állítsa be. Használja azt a kultúrát, amelyet a munkakönyvi képletek elvárnak; például a japán DBCS szabályokhoz a `ja-JP` értéket kell megadni.
 
 ## **Újraszámítás és gyorsítótárazott értékek**
 
-A táblázatfájlok általában a képletet és annak legutóbbi kiszámított értékét is tárolják. Az Aspose.Slides ezért képes a [IChartDataCell.value] gyorsítótárazott értékét beolvasni, amikor a bemutató betöltődik és a vonatkozó diagramadatok nem változtak.
+A táblázatfájlok gyakran tárolják a képletet és az utolsó számított értékét is. Az Aspose.Slides ezért a [IChartDataCell.value](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/value/) tulajdonságból olvas gyorsítótárazott értéket, ha a prezentáció betöltésekor a vonatkozó diagram adat nem változott.
 
-A bemeneti cellák vagy képletek módosítása után ne bízz a régi gyorsítótárazott eredményben. Hívd meg a [ChartDataWorkbook.calculate_formulas] metódust, mielőtt a kiszámított értékeket olvasnád vagy a rájuk támaszkodó diagramadatokat mentenéd.
+A bemeneti cellák vagy képletek módosítása után ne bízzon meg egy régi gyorsítótárazott eredményben. Hívja a [ChartDataWorkbook.calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) metódust a kiszámított értékek olvasása vagy a diagram adat mentése előtt, amely ezekre a cellákra támaszkodik.
 
-A támogatott részhalmazon kívül eső képletek esetén az Aspose.Slides előfordulhat, hogy nem tudja értelmezni a képletet vagy a függőségeket. Ha a munkafüzetet módosították, a korábbi gyorsítótárazott érték már nem tekinthető megbízhatónak. Ebben az esetben egy nem támogatott adatú cella értékének olvasása [CellUnsupportedDataException] kivételt válthat ki.
+A támogatott halmazon kívüli képletek esetén az Aspose.Slides előfordulhat, hogy nem tudja értelmezni a képletet vagy annak függőségeit. Ha a munkakönyv módosult, a korábbi gyorsítótárazott érték már nem tekinthető megbízhatónak. Ilyen helyzetben egy nem támogatott adatú cella értékének olvasása a [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) kivételt váltja ki.
 
-Ha a diagramod olyan Excel függvényekre támaszkodik, amelyeket az Aspose.Slides nem értékel, számold ki ezeket a képleteket egy olyan táblázatkezelő motorral, amely támogatja őket, és írd vissza a kapott értékeket a diagram munkafüzetébe. Ne cseréld le a nem támogatott képleteket tippelt értékekkel.
+Ha diagramja olyan Excel‑függvényeket használ, amelyeket az Aspose.Slides nem értékel ki, számolja ki ezeket a képleteket egy olyan táblázatkezelő motorral, amely támogatja őket, és írja vissza a kapott értékeket a diagram munkakönyvébe. Ne helyettesítse a nem támogatott képleteket találgatott értékekkel.
 
-## **Képlet hibák kezelése**
+## **Képlet hibáinak kezelése**
 
 Két különböző problématípust kell megkülönböztetni.
 
-Egy képlet érvényes lehet, de táblázathiba eredményt adhat, például `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` vagy `#VALUE!`. Ebben az esetben a hiba token cellaeredmény, és a `value` segítségével visszaadható.
+Egy képlet lehet érvényes, de táblázatkezelő hibát eredményez, például `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` vagy `#VALUE!`. Ebben az esetben a hiba token a cella eredménye, és a `value`‑on keresztül visszakapcsolható.
 
-Egy képlet a feldolgozás, hivatkozás, függőség vagy támogatott adat szintjén is hibát okozhat. Az Aspose.Slides ezekre az esetekre táblázatkezelő-specifikus kivételeket biztosít: [CellInvalidFormulaException], [CellInvalidReferenceException], [CellCircularReferenceException] és [CellUnsupportedDataException].
+Egy képlet a feldolgozás, hivatkozás, függőség vagy támogatott adat szintjén is hibát jelezhet. Az Aspose.Slides ezekre az esetekre táblázatkezelő‑specifikus kivételeket biztosít: [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) és [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-Amikor a képletek sablonokból vagy felhasználói bemenetből származnak, kezeld ezeket a kivételeket az újraszámítás és az értéklekérés körül:
+Ha a képletek sablonokból vagy felhasználói bemenetből származnak, kezelje ezeket a kivételeket az újraszámítás és az érték elérése körül:
 
 ```python
 import aspose.slides as slides
@@ -318,54 +343,54 @@ with slides.Presentation() as presentation:
         print(f"Unsupported spreadsheet data: {ex}")
 ```
 
-## **Gyakorlati korlátok**
+## **Gyakorlati korlátozások**
 
-A diagram munkalapok képlet-támogatása egy meghatározott részhalmazú táblázatszámításra szánt, nem a teljes Excel kompatibilitásra. Tartsd szem előtt ezeket a korlátokat jelentéskészítő munkafolyamatok tervezésekor:
+A diagram munkalapok képletsupportja egy meghatározott részhalmazra vonatkozik, nem pedig a teljes Excel kompatibilitásra. Tartsa szem előtt ezeket a korlátokat a jelentéskészítési munkafolyamat tervezésekor:
 
-- Használd csak a dokumentált állandókat, operátorokat, hivatkozásokat és függvényeket, amikor az Aspose.Slidesnek kell újraszámítania a képleteket.
-- Újraszámítás a képletek eredményeit befolyásoló cellák módosítása után.
-- A betöltött bemutatók gyorsítótárazott értékeit tekintsd pillanatképeknek, nem a módosítások utáni újraszámítás helyettesítőjének.
-- Teszteld a meglévő sablonok képleteit, mielőtt a kiszámított értékekre támaszkodnál, különösen ha úgy dokumentált listán kívüli függvényeket használnak.
-- A teljes táblázatkezelő motorra igénylő képleteket számold ki külsőleg, majd a diagram munkafüzetét frissítsd a kapott értékekkel.
+- Csak a dokumentált állandókat, operátorokat, hivatkozásokat és függvényeket használja, ha azt szeretné, hogy az Aspose.Slides újraszámolja a képleteket.
+- Újraszámítás a cellák módosítása után, amelyeken a képlet eredménye függ.
+- Tekintse a betöltött prezentációkból származó gyorsítótárazott értékeket pillanatfelvételeknek, ne pedig újraszámítás helyettesítőinek módosítások után.
+- Tesztelje a sablonokból származó képleteket, mielőtt a kiszámított értékekre támaszkodna, különösen, ha a dokumentált listán kívüli függvényeket tartalmaznak.
+- Azoknál a képleteknél, amelyek teljes táblázatkezelő számítási motorra támaszkodnak, számolja ki őket külsőleg, majd frissítse a diagram munkakönyvét a kapott értékekkel.
 
 ## **GYIK**
 
 **Mi a különbség a `formula` és az `r1c1_formula` között?**
 
-`formula` A1-stílusú kifejezést tárol, például `B2-C2`. `r1c1_formula` R1C1-stílusú kifejezést tárol, például `RC[-2]-RC[-1]`. Használd azt a jelölést, amely leginkább megfelel a képletek generálásához vagy másolásához.
+[formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/formula/) A1‑stílusú kifejezést, például `B2-C2` tárol. [r1c1_formula](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/r1c1_formula/) R1C1‑stílusú kifejezést, például `RC[-2]-RC[-1]` tárol. A címzésnek leginkább azt válassza, amelyik a képletek generálásához vagy másolásához illeszkedik.
 
-**Olvasnom kell a cellát magát vagy az értékét a számítás után?**
+**A számítás után a cellát vagy annak értékét kell olvasnom?**
 
-`ChartDataWorkbook.get_cell` egy `IChartDataCell` objektumot ad vissza. A kiszámított eredményhez a cella `value` tulajdonságát kell elolvasni az újraszámítás után.
+[ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) egy `IChartDataCell`‑et ad vissza. A kiszámított eredményhez olvassa el ennek a cellának a [value](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/ichartdatacell/value/) tulajdonságát az újraszámítás után.
 
-**Mikor kell meghívni a `calculate_formulas` metódust?**
+**Mikor kell meghívni a `calculate_formulas`‑t?**
 
-Hívd meg a `calculate_formulas` metódust a bemeneti értékek vagy képletek módosítása után, és mielőtt a kiszámított eredményektől függnél. Ez frissíti a beépített értékelő által támogatott képletek értékeit.
+Hívja a [calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) metódust a bemeneti értékek vagy képletek módosítása után, és még az előtt, hogy a kiszámított eredményeket felhasználná. Ez frissíti a beépített értékelő által támogatott képletek értékeit.
 
-**Az Aspose.Slides minden Excel függvényt támogat?**
+**Támogatja az Aspose.Slides minden Excel‑függvényt?**
 
-Nem. A beépített értékelő csak egy dokumentált függvényrészhalmazt támogat. A részhalmazon kívüli függvények helyes újraszámítását nem szabad feltételezni. Ha teljes Excel képlet kompatibilitásra van szükség, végezd el a számítást egy megfelelő táblázatkezelő motorral, és írd vissza a végső értékeket a diagram munkafüzetébe.
+Nem. A beépített értékelő csak egy dokumentált részhalmazt támogat. A részhalmazon kívüli függvények nem számolhatók újra. Ha teljes Excel képlet kompatibilitásra van szükség, végezze el a számítást egy megfelelő táblázatkezelő motorral, és írja be a végső értékeket a diagram munkakönyvébe.
 
-**Mi történik, ha egy betöltött bemutató nem támogatott képletet tartalmaz?**
+**Mi történik, ha egy betöltött prezentáció nem támogatott képletet tartalmaz?**
 
-Ha a diagramadatok nem változtak, a munkafüzet tartalmazhatja a korábban kiszámított gyorsítótárazott értéket. A kapcsolódó adatok módosítása után ez a gyorsítótárazott érték már nem lehet érvényes. Egy olyan cellához való hozzáférés, amelynek képletét a rendszer nem tudja kezelni, [CellUnsupportedDataException] kivételt válthat ki.
+Ha a diagram adat nem változott, a munkakönyv még mindig tartalmazhatja a korábban kiszámított gyorsítótárazott értéket. A kapcsolódó adatok módosítása után ez az érték már nem lehet érvényes. Egy olyan cella elérése, amelynek képlete nem kezelhető, a [CellUnsupportedDataException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellunsupporteddataexception/) kivételt váltja ki.
 
-**Ugyanazok-e a képlet hibaértékek és a Python kivételek?**
+**Ugyanazok-e a képlet hibák és a Python kivételek?**
 
-Nem. A `#DIV/0!`-hoz hasonló eredmény egy táblázatkezelő érték, amely egy érvényes számításból származik. A [CellInvalidFormulaException] vagy [CellCircularReferenceException] típusú kivételek azt jelzik, hogy a képletet nem lehet normál módon feldolgozni.
+Nem. A `#DIV/0!`‑hoz hasonló eredmény egy táblázatkezelő érték, amely egy érvényes számításból származik. A [CellInvalidFormulaException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellinvalidformulaexception/) vagy [CellCircularReferenceException](https://reference.aspose.com/slides/hu/python-net/aspose.slides.spreadsheet/cellcircularreferenceexception/) kivételek arra utalnak, hogy a képletet nem lehet normál módon feldolgozni.
 
-**Frissül automatikusan a diagram, ha egy képletcellát módosítanak?**
+**Frissül automatikusan a diagram, ha egy képlet cella megváltozik?**
 
-Egy diagram sorozat hivatkozhat a munkafüzet celláira. Először számold újra a munkafüzetet, majd mentsd vagy rendereld a bemutatót. Ha a diagram adatpontjai a kiszámított cellákra mutatnak, a diagram azokat a frissített cellaértékeket használja; ehhez a munkafolyamathoz nem szükséges külön diagram-frissítő metódus.
+Egy diagram sorozat hivatkozhat munkakönyvi cellákra. Először számolja újra a munkakönyvet, majd mentse vagy renderelje a prezentációt. Ha a diagram adatpontjai a kiszámított cellákra mutatnak, a diagram az új cellaértékekkel frissül; nincs szükség külön diagram‑frissítő metódusra ebben a munkafolyamatban.
 
-**Használhatnak a diagramok külső Excel munkafüzetet?**
+**Használhatók külső Excel munkakönyvek diagramokhoz?**
 
-Igen, a diagramadatok konfigurálhatók úgy, hogy külső munkafüzetet használjanak a diagram adat API-n keresztül. Azonban ebben a cikkben leírt képletszámítási munkafolyamat a diagram adat munkafüzetre és az Aspose.Slides által értékelt képletszámhalmazra vonatkozik. Ne feltételezd, hogy a [calculate_formulas] teljes újraszámítást biztosít tetszőleges képletekre egy külső XLSX fájlban.
+Igen, a diagram adat konfigurálható külső munkakönyv használatára a diagram adat API‑val. Azonban ebben a cikkben leírt képletszámítási munkafolyamat csak a diagram adatkönyvre és az Aspose.Slides által értékelt képletszegmensre vonatkozik. Ne feltételezze, hogy a [calculate_formulas](https://reference.aspose.com/slides/hu/python-net/aspose.slides.charts/chartdataworkbook/calculate_formulas/) teljes újraszámítást végez tetszőleges képleteken egy külső XLSX fájlban.
 
-**Használhatok képleteket, amelyek másik munkalapra vagy munkafüzetre hivatkoznak?**
+**Használhatók olyan képletek, amelyek másik munkalapra vagy munkakönyvre hivatkoznak?**
 
-Excel-stílusú hivatkozások előfordulhatnak a diagram munkafüzetekben, de a képletértékelés a támogatott elemző és függvénykészlet által korlátozott. Ha egy keresztlapon vagy külső hivatkozás elengedhetetlen, ellenőrizd az adott képletet a cél Aspose.Slides verzióval. Azokra a munkafolyamatokra, amelyek széles körű Excel hivatkozás-kompatibilitást igényelnek, a munkafüzetet külsőleg számold ki, és írd vissza a megoldott értékeket a diagram adatokba.
+Excel‑stílusú hivatkozások létezhetnek a diagram munkakönyvekben, de a képletértékelés korlátozott a támogatott elemző és függvénykészlet által. Ha egy kereszt‑lap vagy külső hivatkozás elengedhetetlen, ellenőrizze a képletet a saját Aspose.Slides verziójával. Azoknál a munkafolyamatoknál, amelyek széles Excel hivatkozási kompatibilitást igényelnek, számolja ki a munkakönyvet külsőleg, és írja vissza a feloldott értékeket a diagram adatba.
 
-**Kell-e a képletsztringeknek `=` jellel kezdődniük?**
+**Kell-e `=`‑vel kezdeni a képlet karakterláncát?**
 
-Az Aspose.Slides API példák kifejezéseket adnak meg, például `B2-C2` vagy `SUM(B2:B5)`, anélkül, hogy a `=` előjel lenne elöl. Ennek a formának a használata biztosítja, hogy a generált képletek egyezzenek a dokumentált API példákkal.
+Az Aspose.Slides API példák a `B2-C2` vagy `SUM(B2:B5)` kifejezéseket egyenlőségjel nélkül adják meg. Az ilyen forma használata biztosítja, hogy a generált képletek összhangban legyenek a dokumentált API példákkal.

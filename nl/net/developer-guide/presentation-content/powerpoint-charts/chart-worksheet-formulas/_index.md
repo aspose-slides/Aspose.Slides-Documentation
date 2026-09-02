@@ -1,5 +1,5 @@
 ---
-title: Formules toepassen op grafiek-werkbladen in presentaties in .NET
+title: Formules voor diagramwerkbladen toepassen in presentaties in .NET
 linktitle: Werkbladformules
 type: docs
 weight: 70
@@ -10,43 +10,46 @@ keywords:
 - grafiekformule
 - werkbladformule
 - spreadsheetformule
-- grafiekdataboek
+- grafiek-gegevenswerkboek
 - formuleberekening
+- voorkeurscultuur
+- cultuurspecifieke formule
+- DBCS
 - logische constante
 - numerieke constante
-- string constante
+- stringconstante
 - foutconstante
 - rekenkundige operator
 - vergelijkingsoperator
-- A1‑stijl
-- R1C1‑stijl
+- A1-stijl
+- R1C1-stijl
 - voorgedefinieerde functie
 - PowerPoint
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Pas Excel‑achtige formules toe in Aspose.Slides voor .NET grafiekwerkbladen, herbereken waarden en gebruik de resultaten in PowerPoint‑grafieken."
+description: "Pas Excel-achtige formules toe in Aspose.Slides voor .NET diagramwerkbladen, bereken waarden opnieuw en gebruik de resultaten in PowerPoint-diagrammen."
 ---
 ## **Overzicht**
 
-PowerPoint-grafieken slaan hun brongegevens meestal op in een ingesloten werkblad. In Aspose.Slides for .NET kun je dat werkblad benaderen via de chart‑data‑workbook, invoerwaarden schrijven, formules aan cellen toewijzen, ondersteunde formules berekenen en de berekende cellen gebruiken als grafiekgegevens.
+PowerPoint-diagrammen slaan hun brongegevens meestal op in een ingesloten werkblad. In Aspose.Slides voor .NET kun je dat werkblad benaderen via het chart‑data‑workbook, invoergegevens schrijven, formules toewijzen aan cellen, ondersteunde formules berekenen en de berekende cellen gebruiken als diagramgegevens.
 
-Dit artikel legt de volledige formule‑workflow uit: een grafiek maken, het werkblad vullen, A1‑ of R1C1‑formules toewijzen, ze opnieuw berekenen, de berekende waarden lezen, die cellen koppelen aan een grafiekserie en de presentatie opslaan. Het beschrijft bovendien de ondersteunde formulesyntax, de ingebouwde functiebasis, gecachete waarden, niet‑ondersteunde formules en spreadsheet‑specifieke fouten.
+Dit artikel legt de volledige formule‑workflow uit: maak een diagram, vul het werkblad, ken A1‑stijl‑ of R1C1‑stijl‑formules toe, reken ze opnieuw uit, lees de berekende waarden, koppel die cellen aan een diagramserie en sla de presentatie op. Het beschrijft ook de ondersteunde formule‑syntaxis, de ingebouwde functie‑subset, gecachede waarden, niet‑ondersteunde formules en spreadsheet‑specifieke fouten.
 
-## **Grafiek‑Werkbladen en Formules**
+## **Werkbladen en formules van diagrammen**
 
-Een grafiek‑werkblad bevat de categorieën, serienaam‑en waarden die een grafiek gebruikt. In PowerPoint kun je het werkblad inspecteren door de grafiek‑data‑editor te openen:
+Een werkblad van een diagram bevat de categorieën, serienamen en waarden die door een diagram worden gebruikt. In PowerPoint kun je het werkblad inspecteren door de diagram‑gegevenseditor te openen:
 
-![PowerPoint‑grafiek met zijn ingesloten werkblad geopend, toont categorie‑ en serienummers](chart-worksheet-formulas_1.png)
+![PowerPoint-diagram met het ingesloten werkblad geopend, waarop categorie‑ en seriesgegevens worden getoond](chart-worksheet-formulas_1.png)
 
-In Aspose.Slides wordt het werkblad blootgesteld via de [chart data workbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/). Gebruik de [Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/formula/)‑eigenschap voor A1‑formules en de [R1C1Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/r1c1formula/)‑eigenschap voor R1C1‑formules. Nadat je invoercellen of formules hebt gewijzigd, roep je [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan om ondersteunde formules opnieuw te berekenen en de bijbehorende celwaarden bij te werken.
+In Aspose.Slides wordt het werkblad blootgesteld via het [chart data workbook](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/). Gebruik de [Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/formula/)‑eigenschap voor A1‑stijl‑formules en de [R1C1Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/r1c1formula/)‑eigenschap voor R1C1‑stijl‑formules. Na het wijzigen van invoercellen of formules, roep [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan om ondersteunde formules opnieuw te berekenen en de bijbehorende celwaarden bij te werken.
 
-Een berekende cel geeft nog steeds haar resultaat weer via de [Value](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/value/)‑eigenschap. Dit is belangrijk wanneer je een formule‑resultaat in code moet inspecteren of de cel als grafiek‑datapunt wilt gebruiken.
+Een berekende cel exposeert nog steeds haar resultaat via de [Value](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/value/)‑eigenschap. Dit is belangrijk wanneer je een formule‑resultaat in code moet inspecteren of de cel als diagramdatapunt wilt gebruiken.
 
-## **Maak een Grafiek en Bereken Werkblad‑Formules**
+## **Maak een diagram en bereken werkblad‑formules**
 
-Het volgende voorbeeld toont een end‑to‑end workflow. Het maakt een gegroepeerde kolomgrafiek, wist de voorbeeldgegevens, schrijft kwartaal‑omzet‑ en kostwaarden, berekent winst met formules, leest de resultaten, gebruikt de berekende cellen als grafiekwaarden en slaat de presentatie op.
+Het volgende voorbeeld toont een end‑to‑end workflow. Het maakt een gegroepeerd kolomdiagram, wist de voorbeeldgegevens, schrijft kwartaalomzet‑ en -kostwaarden, berekent de winst met formules, leest de resultaten, gebruikt de berekende cellen als diagramwaarden en slaat de presentatie op.
 
 ```csharp
 using System;
@@ -111,11 +114,11 @@ profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-De grafiek‑datapunten refereren `D2:D4`, dus de grafiek gebruikt de berekende winstwaarden. Er is geen aparte grafiek‑verversingsaanroep in deze workflow: bereken eerst de workbook, gebruik vervolgens of sla de grafiekgegevens op die naar de berekende cellen wijzen.
+De diagramdatapunten verwijzen naar `D2:D4`, dus het diagram gebruikt de berekende winstwaarden. Er is geen aparte diagram‑verversingsaanroep in deze workflow: reken eerst het workbook opnieuw uit, gebruik of sla daarna de diagramgegevens op die naar de berekende cellen wijzen.
 
-## **Gebruik A1‑Stijl Formules**
+## **Gebruik A1‑stijl‑formules**
 
-A1‑notatie identificeert kolommen met letters en rijen met cijfers. Wijs A1‑expressies toe via [IChartDataCell.Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/formula/).
+A1‑notatie identificeert kolommen met letters en rijen met cijfers. Ken A1‑stijl‑expressies toe via [IChartDataCell.Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/formula/).
 
 ```csharp
 using Aspose.Slides;
@@ -140,7 +143,7 @@ workbook.CalculateFormulas();
 var value = cell.Value; // 19
 ```
 
-Algemene A1‑referentie‑vormen zijn:
+Veelvoorkomende A1‑referentie‑vormen zijn:
 
 | Referentie | Relatief | Absoluut | Gemengd |
 |---|---|---|---|
@@ -149,11 +152,11 @@ Algemene A1‑referentie‑vormen zijn:
 | Kolom | `A:A` | `$A:$A` | — |
 | Bereik | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Relatieve referenties kunnen wijzigen wanneer een formule wordt verplaatst of gekopieerd door een spreadsheet‑applicatie. Absolute referenties houden beide coördinaten vast, terwijl gemengde referenties alleen een rij of een kolom vastzetten.
+Relatieve verwijzingen kunnen veranderen wanneer een formule door een spreadsheet‑applicatie wordt verplaatst of gekopieerd. Absolute verwijzingen houden beide coördinaten vast, terwijl gemengde verwijzingen alleen een rij of een kolom fixeren.
 
-## **Gebruik R1C1‑Stijl Formules**
+## **Gebruik R1C1‑stijl‑formules**
 
-R1C1‑notatie identificeert zowel rijen als kolommen numeriek. Relatieve referenties gebruiken offsets in vierkante haken. Wijs deze syntax toe via [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
+R1C1‑notatie identificeert zowel rijen als kolommen numeriek. Relatieve verwijzingen gebruiken offsets tussen vierkante haken. Ken deze syntaxis toe via [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
 
 ```csharp
 using Aspose.Slides;
@@ -176,7 +179,7 @@ workbook.CalculateFormulas();
 var value = cell.Value; // 7
 ```
 
-Algemene R1C1‑referentie‑vormen zijn:
+Veelvoorkomende R1C1‑referentie‑vormen zijn:
 
 | Referentie | Relatief | Absoluut | Gemengd |
 |---|---|---|---|
@@ -187,20 +190,20 @@ Algemene R1C1‑referentie‑vormen zijn:
 
 Bijvoorbeeld, in cel `D2` betekent `RC[-2]` de cel in dezelfde rij twee kolommen naar links (`B2`).
 
-## **Formule‑Constanten en Operatoren**
+## **Formule‑constanten en -operatoren**
 
 De ingebouwde formule‑evaluator ondersteunt logische waarden, numerieke literals, strings, spreadsheet‑foutwaarden, rekenkundige operatoren en vergelijkingsoperatoren.
 
-### **Constanten en Literalen**
+### **Constanten en literals**
 
 | Type | Voorbeelden | Opmerkingen |
 |---|---|---|
-| Logisch | `TRUE`, `FALSE` | Kan direct worden gebruikt in logische uitdrukkingen zoals `A2=TRUE`. |
-| Numeriek | `1`, `0.5`, `.3`, `1E-2` | Gewone en wetenschappelijke notatie worden ondersteund. |
+| Logisch | `TRUE`, `FALSE` | Kan direct gebruikt worden in logische uitdrukkingen zoals `A2=TRUE`. |
+| Numeriek | `1`, `0.5`, `.3`, `1E-2` | Komma‑ en wetenschappelijke notatie worden ondersteund. |
 | String | `"abc"`, `"2/3/2020 12:00"` | Tekst‑literals staan tussen dubbele aanhalingstekens binnen de formule. |
 | Foutresultaat | `#DIV/0!`, `#N/A`, `#REF!` | Een geldige formule kan evalueren tot een spreadsheet‑foutwaarde in plaats van een normaal resultaat. |
 
-Dit voorbeeld gebruikt verschillende constante‑types:
+Dit voorbeeld gebruikt verschillende constant‑types:
 
 ```csharp
 using Aspose.Slides;
@@ -228,12 +231,12 @@ var stringValue = workbook.GetCell(0, "E2").Value; // abc
 var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
 ```
 
-### **Rekenkundige Operatoren**
+### **Rekenkundige operatoren**
 
 | Operator | Betekenis | Voorbeeld |
 |---|---|---|
-| `+` | Optelling of unair plus | `2+3` |
-| `-` | Aftrek of negatie | `2-3`, `-3` |
+| `+` | Optelling of eenvoudig plus | `2+3` |
+| `-` | Aftrekking of negatie | `2-3`, `-3` |
 | `*` | Vermenigvuldiging | `2*3` |
 | `/` | Deling | `2/3` |
 | `%` | Percentage | `30%` |
@@ -254,22 +257,22 @@ Vergelijkingsuitdrukkingen geven logische waarden terug.
 | `<` | Kleiner dan | `A2<3` |
 | `<=` | Kleiner dan of gelijk aan | `A2<=3` |
 
-## **Ondersteunde Vooraf Gedefinieerde Functies**
+## **Ondersteunde voorgedefinieerde functies**
 
-Aspose.Slides bevat een ingebouwde formule‑evaluator voor grafiek‑werkbladen, maar het is geen volledige Excel‑rekenmachine. De gedocumenteerde functieset is beperkt tot de functies hieronder. Neem niet aan dat een willekeurige Excel‑functie kan worden herberekend door [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+Aspose.Slides bevat een ingebouwde formule‑evaluator voor diagram‑werkbladen, maar het is geen volledige Excel‑rekenmachine. De gedocumenteerde functie‑set is beperkt tot de onderstaande functies. Ga er niet van uit dat een willekeurige Excel‑functie kan worden herberekend met [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
 | Functie | Doel of ondersteunde vorm | Voorbeeld |
 |---|---|---|
 | `ABS` | Absolute waarde | `ABS(A2)` |
-| `AVERAGE` | Aritmetisch gemiddelde | `AVERAGE(B2:B5)` |
-| `CEILING` | Rond een getal naar boven af op een veelvoud | `CEILING(A2,5)` |
+| `AVERAGE` | Rekenkundig gemiddelde | `AVERAGE(B2:B5)` |
+| `CEILING` | Een getal afronden naar boven tot een veelvoud | `CEILING(A2,5)` |
 | `CHOOSE` | Selecteer een waarde op index | `CHOOSE(A2,"Low","High")` |
-| `CONCAT` | Voeg tekstwaarden samen | `CONCAT(A2,B2)` |
-| `CONCATENATE` | Voeg tekstwaarden samen | `CONCATENATE(A2," ",B2)` |
-| `DATE` | Maak een datumwaarde met het 1900‑datumsysteem | `DATE(2026,8,19)` |
-| `DAYS` | Geef het aantal dagen tussen data terug | `DAYS(B2,A2)` |
-| `FIND` | Zoek een tekstwaarde binnen een andere | `FIND("-",A2)` |
-| `FINDB` | Byte‑gerichte zoekopdracht | `FINDB("a",A2)` |
+| `CONCAT` | Tekstwaarden samenvoegen | `CONCAT(A2,B2)` |
+| `CONCATENATE` | Tekstwaarden samenvoegen | `CONCATENATE(A2," ",B2)` |
+| `DATE` | Een datumwaarde creëren met het 1900‑datumstelsel | `DATE(2026,8,19)` |
+| `DAYS` | Aantal dagen tussen datums retourneren | `DAYS(B2,A2)` |
+| `FIND` | Een tekstwaarde in een andere zoeken | `FIND("-",A2)` |
+| `FINDB` | Byte‑georiënteerd zoeken in tekst | `FINDB("a",A2)` |
 | `IF` | Conditioneel resultaat | `IF(A2>0,A2,0)` |
 | `INDEX` | Referentie‑vorm | `INDEX(A2:C4,2,3)` |
 | `LOOKUP` | Vector‑vorm | `LOOKUP(A2,B2:B5,C2:C5)` |
@@ -278,27 +281,62 @@ Aspose.Slides bevat een ingebouwde formule‑evaluator voor grafiek‑werkbladen
 | `SUM` | Som van waarden | `SUM(B2:B5)` |
 | `VLOOKUP` | Verticaal zoeken | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-De beperkingen in de tabel zijn belangrijk: `INDEX` wordt gedocumenteerd in referentie‑vorm, terwijl `LOOKUP` en `MATCH` in hun vector‑vormen staan. `DATE` gebruikt het 1900‑systeem. Functies die hier niet worden opgesomd, moeten worden beschouwd als niet‑ondersteund door de Aspose.Slides‑formule‑evaluator, tenzij ze apart zijn gedocumenteerd.
+De beperkingen in de tabel zijn significant: `INDEX` wordt gedocumenteerd in referentie‑vorm, terwijl `LOOKUP` en `MATCH` in hun vector‑vormen staan. `DATE` gebruikt het 1900‑datumstelsel. Functies die hier niet zijn vermeld, moeten als niet‑ondersteund worden beschouwd door de Aspose.Slides‑formule‑evaluator, tenzij ze apart worden gedocumenteerd.
 
-## **Herberekening en Gecachete Waarden**
+## **Formules berekenen met een voorkeurs‑culture**
 
-Spreadsheet‑bestanden bewaren doorgaans zowel een formule als de laatst berekende waarde. Aspose.Slides kan daarom een gecachete waarde lezen via [IChartDataCell.Value](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/value/) wanneer een presentatie wordt geladen en de betreffende grafiek‑data niet is gewijzigd.
+Sommige functies van het diagram‑workbook interpreteren tekst volgens cultuur‑specifieke regels. Dit is vooral belangrijk voor functies die bedoeld zijn voor talen die double‑byte‑karaktersets (DBCS) gebruiken. Om zulke formules correct te berekenen, maak een [LoadOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/), stel [ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/nl/net/aspose.slides/ispreadsheetoptions/preferredculture/) in via [LoadOptions.SpreadsheetOptions](https://reference.aspose.com/slides/nl/net/aspose.slides/loadoptions/spreadsheetoptions/), en laad daarna de presentatie.
 
-Na het wijzigen van invoercellen of formules, baseer je je niet op een oude gecachete uitkomst. Roep [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan vóór het lezen van berekende waarden of het opslaan van grafiek‑data die ervan afhankelijk is.
+Het volgende voorbeeld kiest de Japanse cultuur, opent een presentatie met de geconfigureerde laad‑opties en roept [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan voor elk diagram‑workbook:
 
-Voor formules buiten de ondersteunde subset kan Aspose.Slides de formule mogelijk niet parseren of de afhankelijkheden niet bepalen. Als de workbook is aangepast, is de vorige gecachete waarde niet langer betrouwbaar. In dat geval kan het lezen van de waarde van een cel met niet‑ondersteunde data een [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/) veroorzaken.
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-Als jouw grafiek afhankelijk is van Excel‑functies die Aspose.Slides niet evalueert, bereken die formules dan met een spreadsheet‑engine die ze ondersteunt en schrijf de resulterende waarden terug naar de grafiek‑workbook. Vervang niet‑ondersteunde formules door geraden waarden.
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
 
-## **Afhandelen van Formule‑Fouten**
+using var presentation = new Presentation("presentation.pptx", loadOptions);
 
-Er zijn twee verschillende soorten problemen om van te onderscheiden.
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
 
-Een formule kan geldig zijn maar een spreadsheet‑foutresultaat opleveren, zoals `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` of `#VALUE!`. In dat geval is de fout‑token een celresultaat en kan via `Value` worden geretourneerd.
+De voorkeurs‑culture maakt deel uit van de laad‑configuratie van de presentatie, dus specificeer deze vóór het aanmaken van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑instantie. Gebruik de cultuur die de workbook‑formules verwachten; bijvoorbeeld `ja-JP` voor formules die Japans DBCS‑rekenregels moeten volgen.
 
-Een formule kan ook falen tijdens het parseren, bij referenties, afhankelijkheden of ondersteunde‑data‑niveau. Aspose.Slides biedt spreadsheet‑specifieke excepties voor deze gevallen: [CellInvalidFormulaException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) en [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+## **Herberekening en gecachede waarden**
 
-Wanneer formules afkomstig zijn uit sjablonen of gebruikersinvoer, handel deze excepties af rond herberekening en waardetoegang:
+Spreadsheet‑bestanden slaan doorgaans zowel een formule als de laatst berekende waarde op. Aspose.Slides kan daarom een gecachede waarde lezen via [IChartDataCell.Value](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/value/) wanneer een presentatie wordt geladen en de relevante diagramgegevens niet zijn gewijzigd.
+
+Na het wijzigen van invoercellen of formules, vertrouw niet op een oude gecachede uitkomst. Roep [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan voordat je berekende waarden leest of diagramgegevens opslaat die daarvan afhankelijk zijn.
+
+Voor formules buiten de ondersteunde subset kan Aspose.Slides de formule mogelijk niet parseren of de afhankelijkheden niet vaststellen. Als het workbook is aangepast, kan de vorige gecachede waarde niet langer als betrouwbaar worden beschouwd. In dat geval kan het lezen van de waarde van een cel met niet‑ondersteunde gegevens een [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/) veroorzaken.
+
+Als je diagram afhankelijk is van Excel‑functies die Aspose.Slides niet evalueert, bereken die formules met een spreadsheet‑engine die ze wel ondersteunt en schrijf de resulterende waarden terug naar het diagram‑workbook. Vervang niet‑ondersteunde formules door geraden waarden.
+
+## **Formule‑fouten afhandelen**
+
+Er zijn twee verschillende soorten problemen te onderscheiden.
+
+Een formule kan geldig zijn maar een spreadsheet‑foutresultaat opleveren, zoals `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` of `#VALUE!`. In dat geval is het fout‑token een celresultaat en kan het via `Value` worden geretourneerd.
+
+Een formule kan ook falen tijdens het parsen, bij een verwijzing, bij afhankelijks‑analyse, of omdat de data niet ondersteund wordt. Aspose.Slides biedt spreadsheet‑specifieke uitzonderingen voor deze gevallen: [CellInvalidFormulaException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellcircularreferenceexception/), en [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Wanneer formules afkomstig zijn van sjablonen of invoer van gebruikers, behandel deze uitzonderingen rondom herberekening en waardetoegang:
 
 ```csharp
 using System;
@@ -337,54 +375,54 @@ catch (CellUnsupportedDataException ex)
 }
 ```
 
-## **Praktische Beperkingen**
+## **Praktische beperkingen**
 
-De formule‑ondersteuning in grafiek‑werkbladen is bedoeld voor een gedefinieerde subset van spreadsheet‑berekeningen, niet voor volledige Excel‑compatibiliteit. Houd deze beperkingen in gedachten bij het ontwerpen van een rapportage‑workflow:
+De formule‑ondersteuning in diagram‑werkbladen is bedoeld voor een gedefinieerde subset van spreadsheet‑berekeningen, niet voor volledige Excel‑compatibiliteit. Houd deze beperkingen in gedachten bij het ontwerpen van een rapportage‑workflow:
 
-- Gebruik alleen de gedocumenteerde constanten, operatoren, referenties en functies wanneer je wilt dat Aspose.Slides formules herberekent.
-- Herbereken na het wijzigen van cellen waarop formule‑resultaten steunen.
-- Beschouw gecachete waarden van geladen presentaties als snapshots, niet als vervanging voor herberekening na bewerkingen.
-- Test formules uit bestaande sjablonen voordat je vertrouwt op hun berekende waarden, vooral wanneer ze functies buiten de gedocumenteerde lijst gebruiken.
-- Voor formules die een volledige spreadsheet‑rekenmachine vereisen, bereken ze extern en update vervolgens de grafiek‑workbook met de resulterende waarden.
+- Gebruik alleen de gedocumenteerde constanten, operatoren, verwijzingen en functies wanneer je wilt dat Aspose.Slides formules herberekent.
+- Herbereken na het wijzigen van cellen waarop formule‑resultaten afhankelijk zijn.
+- Beschouw gecachede waarden uit geladen presentaties als snapshots, niet als vervanging voor herberekening na bewerkingen.
+- Test formules uit bestaande sjablonen voordat je vertrouwt op hun berekende waarden, vooral als ze functies buiten de gedocumenteerde lijst gebruiken.
+- Voor formules die een volledige spreadsheet‑rekenmachine vereisen, bereken ze extern en werk vervolgens het diagram‑workbook bij met de resulterende waarden.
 
 ## **FAQ**
 
 **Wat is het verschil tussen `Formula` en `R1C1Formula`?**
 
-[Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/formula/) slaat een A1‑stijl expressie op, bijvoorbeeld `B2-C2`. [R1C1Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/r1c1formula/) slaat een R1C1‑stijl expressie op, bijvoorbeeld `RC[-2]-RC[-1]`. Gebruik de notatie die het beste past bij hoe je formules genereert of kopieert.
+[Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/formula/) slaat een A1‑stijl‑expressie op, zoals `B2-C2`. [R1C1Formula](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/r1c1formula/) slaat een R1C1‑stijl‑expressie op, zoals `RC[-2]-RC[-1]`. Gebruik de notatie die het beste past bij hoe je formules genereert of kopieert.
 
-**Moet ik na de berekening de cel zelf of de waarde lezen?**
+**Moet ik na de berekening de cel zelf of alleen de waarde lezen?**
 
 [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/getcell/) retourneert een `IChartDataCell`. Om het berekende resultaat te verkrijgen, lees je de [Value](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdatacell/value/)‑eigenschap van die cel na herberekening.
 
 **Wanneer moet ik `CalculateFormulas` aanroepen?**
 
-Roep [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan nadat je invoerwaarden of formules hebt gewijzigd en voordat je vertrouwt op de berekende resultaten. Dit werkt de waarden bij van formules die de ingebouwde evaluator ondersteunt.
+Roep [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) aan nadat je invoerwaarden of formules hebt gewijzigd en voordat je afhankelijk bent van de berekende resultaten. Dit werkt de waarden van formules bij die de ingebouwde evaluator ondersteunt.
 
 **Ondersteunt Aspose.Slides elke Excel‑functie?**
 
-Nee. De ingebouwde evaluator ondersteunt alleen een gedocumenteerde subset van functies. Functies buiten die subset mogen niet als correct herberekend worden beschouwd. Wanneer volledige Excel‑formules compatibiliteit vereist is, voer je de berekening uit met een geschikte spreadsheet‑engine en schrijf je de uiteindelijke waarden naar de grafiek‑workbook.
+Nee. De ingebouwde evaluator ondersteunt alleen een gedocumenteerde subset van functies. Functies buiten die subset moeten niet worden verondersteld correct te herberekenen. Als volledige Excel‑formule‑compatibiliteit vereist is, voer dan de berekening uit met een geschikte spreadsheet‑engine en schrijf de uiteindelijke waarden naar het diagram‑workbook.
 
 **Wat gebeurt er als een geladen presentatie een niet‑ondersteunde formule bevat?**
 
-Als de grafiek‑data niet is gewijzigd, kan de workbook nog steeds een eerder berekende gecachete waarde bevatten. Na het aanpassen van gerelateerde data kan die gecachete waarde ongeldig worden. Het benaderen van een cel waarvan de formule niet kan worden verwerkt, kan een [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/) veroorzaken.
+Als de diagramgegevens niet zijn gewijzigd, kan het workbook nog een eerder berekende gecachede waarde bevatten. Nadat gerelateerde data is aangepast, kan die gecachede waarde ongeldig zijn. Het benaderen van een cel waarvan de formule niet kan worden verwerkt, kan een [CellUnsupportedDataException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellunsupporteddataexception/) veroorzaken.
 
 **Zijn formule‑foutwaarden hetzelfde als .NET‑exceptions?**
 
-Nee. Een resultaat zoals `#DIV/0!` is een spreadsheet‑waarde die voortkomt uit een geldige berekening. Exceptions zoals [CellInvalidFormulaException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) of [CellCircularReferenceException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) geven aan dat de formule niet normaal kan worden verwerkt.
+Nee. Een resultaat zoals `#DIV/0!` is een spreadsheet‑waarde die door een geldige berekening is geproduceerd. Exceptions zoals [CellInvalidFormulaException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) of [CellCircularReferenceException](https://reference.aspose.com/slides/nl/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) geven aan dat de formule niet normaal kan worden verwerkt.
 
-**Werkt een grafiek automatisch bij wanneer een formulecel wijzigt?**
+**Werkt een diagram automatisch bij wanneer een formulecel wijzigt?**
 
-Een grafiek‑serie kan naar workbook‑cellen verwijzen. Bereken eerst de workbook, sla vervolgens de presentatie op of render deze. Als de grafiek‑datapunten naar de berekende cellen verwijzen, gebruikt de grafiek die bijgewerkte celwaarden; een aparte grafiek‑verversingsmethode is niet nodig voor deze workflow.
+Een diagramserie kan verwijzen naar workbook‑cellen. Herbereken eerst het workbook, sla vervolgens de presentatie op of render deze. Als de diagramdatapunten naar de berekende cellen verwijzen, gebruikt het diagram die bijgewerkte celwaarden; een aparte diagram‑verversingsmethode is niet nodig voor deze workflow.
 
-**Kunnen grafieken een extern Excel‑bestand gebruiken?**
+**Kunnen diagrammen een extern Excel‑workbook gebruiken?**
 
-Ja, grafiek‑data kan worden geconfigureerd om een extern workbook te gebruiken via de grafiek‑data‑API. De in dit artikel beschreven formule‑berekeningsworkflow heeft echter betrekking op de grafiek‑data‑workbook en de formule‑subset die door Aspose.Slides wordt geëvalueerd. Neem niet aan dat [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) volledige herberekening van willekeurige formules in een extern XLSX‑bestand biedt.
+Ja, diagramgegevens kunnen worden geconfigureerd om een extern workbook te gebruiken via de diagram‑data‑API. De hier beschreven formule‑berekeningsworkflow heeft echter betrekking op het diagram‑data‑workbook en de formule‑subset die door Aspose.Slides wordt geëvalueerd. Ga er niet van uit dat [CalculateFormulas](https://reference.aspose.com/slides/nl/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) volledige herberekening van willekeurige formules in een extern XLSX‑bestand biedt.
 
 **Kan ik formules gebruiken die naar een ander werkblad of workbook verwijzen?**
 
-Excel‑stijl verwijzingen kunnen bestaan in grafiek‑workbooks, maar de formule‑evaluatie is beperkt door de ondersteunde parser en functieset. Als een cross‑sheet‑ of externe verwijzing essentieel is, controleer dan die exacte formule met jouw specifieke Aspose.Slides‑versie. Voor workflows die brede Excel‑verwijzingscompatibiliteit vereisen, bereken de workbook extern en schrijf de opgeloste waarden terug naar de grafiek‑data.
+Excel‑stijlen verwijzingen kunnen in diagram‑workbooks bestaan, maar formule‑evaluatie is beperkt tot de ondersteunde parser en functieset. Als een cross‑sheet‑ of externe verwijzing essentieel is, controleer dan die exacte formule met de versie van Aspose.Slides die je gebruikt. Voor workflows die brede Excel‑referentie‑compatibiliteit vereisen, bereken het workbook extern en schrijf de opgeloste waarden terug naar de diagramgegevens.
 
 **Moeten formule‑strings beginnen met `=`?**
 
-De Aspose.Slides‑API‑voorbeelden wijzen expressies toe zoals `B2-C2` of `SUM(B2:B5)` zonder een leidende `=`. Het gebruik van die vorm houdt gegenereerde formules consistent met de gedocumenteerde API‑voorbeelden.
+De Aspose.Slides‑API‑voorbeelden wijzen uitdrukkingen toe zoals `B2-C2` of `SUM(B2:B5)` zonder een leidende `=`. Het gebruik van die vorm houdt gegenereerde formules consistent met de gedocumenteerde API‑voorbeelden.

@@ -1,17 +1,20 @@
 ---
-title: Aplicar fórmulas de hoja de cálculo en presentaciones en .NET
+title: Aplicar fórmulas de hoja de cálculo de gráfico en presentaciones en .NET
 linktitle: Fórmulas de hoja de cálculo
 type: docs
 weight: 70
 url: /es/net/chart-worksheet-formulas/
 keywords:
-- hoja de cálculo de diagrama
-- hoja de trabajo del diagrama
-- fórmula de diagrama
+- hoja de cálculo de gráfico
+- hoja de trabajo de gráfico
+- fórmula de gráfico
 - fórmula de hoja de cálculo
 - fórmula de hoja de cálculo
-- libro de datos del diagrama
+- libro de datos del gráfico
 - cálculo de fórmulas
+- cultura preferida
+- fórmula específica de cultura
+- DBCS
 - constante lógica
 - constante numérica
 - constante de cadena
@@ -26,27 +29,27 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aplicar fórmulas al estilo Excel en las hojas de cálculo de diagramas de Aspose.Slides para .NET, recalcular valores y usar los resultados en diagramas de PowerPoint."
+description: "Aplique fórmulas al estilo de Excel en las hojas de cálculo de gráficos de Aspose.Slides para .NET, recalcule los valores y utilice los resultados en los gráficos de PowerPoint."
 ---
 ## **Visión general**
 
-Los diagramas de PowerPoint normalmente almacenan sus datos origen en una hoja de cálculo incrustada. En Aspose.Slides for .NET, puedes acceder a esa hoja a través del libro de datos del diagrama, escribir valores de entrada, asignar fórmulas a celdas, calcular las fórmulas compatibles y usar las celdas calculadas como datos del diagrama.
+Los gráficos de PowerPoint suelen almacenar sus datos de origen en una hoja de cálculo incrustada. En Aspose.Slides para .NET, puedes acceder a esa hoja mediante el libro de datos del gráfico, escribir valores de entrada, asignar fórmulas a celdas, calcular las fórmulas compatibles y usar las celdas calculadas como datos del gráfico.
 
-Este artículo explica el flujo completo de fórmulas: crear un diagrama, rellenar su hoja, asignar fórmulas estilo A1 o R1C1, recalcularlas, leer los valores calculados, conectar esas celdas a una serie del diagrama y guardar la presentación. También describe la sintaxis de fórmulas admitida, el subconjunto de funciones incorporado, los valores almacenados, las fórmulas no compatibles y los errores específicos de la hoja de cálculo.
+Este artículo explica el flujo de trabajo completo de fórmulas: crear un gráfico, rellenar su hoja, asignar fórmulas en estilo A1 o R1C1, recalcularlas, leer los valores calculados, conectar esas celdas a una serie del gráfico y guardar la presentación. También describe la sintaxis de fórmulas admitida, el subconjunto de funciones incorporadas, los valores en caché, las fórmulas no compatibles y los errores específicos de hoja de cálculo.
 
-## **Hojas de cálculo del diagrama y fórmulas**
+## **Hojas de cálculo de gráficos y fórmulas**
 
-Una hoja de cálculo del diagrama contiene las categorías, nombres de series y valores usados por un diagrama. En PowerPoint, puedes inspeccionar la hoja abriendo el editor de datos del diagrama:
+Una hoja de cálculo de gráfico contiene las categorías, los nombres de serie y los valores utilizados por un gráfico. En PowerPoint, puedes inspeccionar la hoja abriendo el editor de datos del gráfico:
 
-![Diagrama de PowerPoint con su hoja de cálculo incrustada abierta, mostrando datos de categorías y series](chart-worksheet-formulas_1.png)
+![PowerPoint chart with its embedded worksheet open, showing category and series data](chart-worksheet-formulas_1.png)
 
-En Aspose.Slides, la hoja se expone a través del [chart data workbook](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/). Usa la propiedad [Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/formula/) para fórmulas estilo A1 y la propiedad [R1C1Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/r1c1formula/) para fórmulas estilo R1C1. Después de cambiar celdas de entrada o fórmulas, llama a [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) para recalcular las fórmulas compatibles y actualizar los valores correspondientes de las celdas.
+En Aspose.Slides, la hoja se expone a través del [libro de datos del gráfico](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/). Utiliza la propiedad [Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/formula/) para fórmulas en estilo A1 y la propiedad [R1C1Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/r1c1formula/) para fórmulas en estilo R1C1. Después de cambiar celdas de entrada o fórmulas, llama a [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) para recalcular las fórmulas compatibles y actualizar los valores correspondientes de las celdas.
 
-Una celda calculada sigue exponiendo su resultado a través de la propiedad [Value](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/value/). Esto es importante cuando necesitas inspeccionar el resultado de una fórmula en código o usar la celda como punto de datos del diagrama.
+Una celda calculada sigue exponiendo su resultado a través de la propiedad [Value](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/value/). Esto es importante cuando necesitas inspeccionar el resultado de una fórmula en código o usar la celda como punto de datos del gráfico.
 
-## **Crear un diagrama y calcular fórmulas de la hoja**
+## **Crear un gráfico y calcular fórmulas de la hoja**
 
-El siguiente ejemplo muestra un flujo de trabajo completo. Crea un diagrama de columnas agrupadas, elimina los datos de ejemplo, escribe valores trimestrales de ingresos y gastos, calcula el beneficio con fórmulas, lee los resultados, usa las celdas calculadas como valores del diagrama y guarda la presentación.
+El siguiente ejemplo muestra un flujo de trabajo de extremo a extremo. Crea un gráfico de columnas agrupadas, elimina los datos de muestra, escribe valores trimestrales de ingresos y gastos, calcula el beneficio con fórmulas, lee los resultados, usa las celdas calculadas como valores del gráfico y guarda la presentación.
 
 ```csharp
 using System;
@@ -111,11 +114,11 @@ profitSeries.Labels.DefaultDataLabelFormat.ShowValue = true;
 presentation.Save("chart-formulas.pptx", SaveFormat.Pptx);
 ```
 
-Los puntos de datos del diagrama hacen referencia a `D2:D4`, por lo que el diagrama utiliza los valores de beneficio calculados. No hay una llamada separada para refrescar el diagrama en este flujo: recalcula el libro primero, luego usa o guarda los datos del diagrama que apuntan a las celdas calculadas.
+Los puntos de datos del gráfico hacen referencia a `D2:D4`, por lo que el gráfico utiliza los valores de beneficio calculados. No hay una llamada separada de actualización del gráfico en este flujo: recalcula el libro primero, luego usa o guarda los datos del gráfico que apuntan a las celdas calculadas.
 
-## **Usar fórmulas estilo A1**
+## **Usar fórmulas en estilo A1**
 
-La notación A1 identifica columnas con letras y filas con números. Asigna expresiones estilo A1 mediante [IChartDataCell.Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/formula/).
+La notación A1 identifica columnas con letras y filas con números. Asigna expresiones en estilo A1 mediante [IChartDataCell.Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/formula/).
 
 ```csharp
 using Aspose.Slides;
@@ -149,9 +152,9 @@ Formas de referencia A1 comunes son:
 | Columna | `A:A` | `$A:$A` | — |
 | Rango | `A2:C4` | `$A$2:$C$4` | `A$2:$C4`, `$A2:C$4` |
 
-Las referencias relativas pueden cambiar cuando una fórmula se mueve o copia en una aplicación de hoja de cálculo. Las referencias absolutas mantienen ambas coordenadas fijas, mientras que las referencias mixtas fijan solo una fila o una columna.
+Las referencias relativas pueden cambiar cuando una fórmula se mueve o copia en una aplicación de hoja de cálculo. Las referencias absolutas mantienen fijas ambas coordenadas, mientras que las referencias mixtas fijan solo una fila o una columna.
 
-## **Usar fórmulas estilo R1C1**
+## **Usar fórmulas en estilo R1C1**
 
 La notación R1C1 identifica tanto filas como columnas numéricamente. Las referencias relativas usan desplazamientos entre corchetes. Asigna esta sintaxis mediante [IChartDataCell.R1C1Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/r1c1formula/).
 
@@ -187,7 +190,7 @@ Formas de referencia R1C1 comunes son:
 
 Por ejemplo, en la celda `D2`, `RC[-2]` significa la celda en la misma fila dos columnas a la izquierda (`B2`).
 
-## **Constantes y operadores de fórmulas**
+## **Constantes y operadores de fórmula**
 
 El evaluador de fórmulas incorporado admite valores lógicos, literales numéricos, cadenas, valores de error de hoja de cálculo, operadores aritméticos y operadores de comparación.
 
@@ -195,12 +198,12 @@ El evaluador de fórmulas incorporado admite valores lógicos, literales numéri
 
 | Tipo | Ejemplos | Observaciones |
 |---|---|---|
-| Lógico | `TRUE`, `FALSE` | Se pueden usar directamente en expresiones lógicas, por ejemplo `A2=TRUE`. |
+| Lógico | `TRUE`, `FALSE` | Puede usarse directamente en expresiones lógicas como `A2=TRUE`. |
 | Numérico | `1`, `0.5`, `.3`, `1E-2` | Se admiten notación común y notación científica. |
-| Cadena | `"abc"`, `"2/3/2020 12:00"` | Los literales de texto se encierran entre comillas dobles dentro de la fórmula. |
+| Cadena | `"abc"`, `"2/3/2020 12:00"` | Los literales de texto van entre comillas dobles dentro de la fórmula. |
 | Resultado de error | `#DIV/0!`, `#N/A`, `#REF!` | Una fórmula válida puede evaluar a un valor de error de hoja de cálculo en lugar de un resultado normal. |
 
-Este ejemplo usa varios tipos de constantes:
+Este ejemplo utiliza varios tipos de constantes:
 
 ```csharp
 using Aspose.Slides;
@@ -222,8 +225,8 @@ workbook.GetCell(0, "F2").Formula = "2/0";
 workbook.CalculateFormulas();
 
 var logicalValue = workbook.GetCell(0, "B2").Value; // Falso
-var numericValue = workbook.GetCell(0, "C2").Value; // 1,5
-var scientificValue = workbook.GetCell(0, "D2").Value; // 0,003
+var numericValue = workbook.GetCell(0, "C2").Value; // 1.5
+var scientificValue = workbook.GetCell(0, "D2").Value; // 0.003
 var stringValue = workbook.GetCell(0, "E2").Value; // abc
 var errorValue = workbook.GetCell(0, "F2").Value; // #DIV/0!
 ```
@@ -248,17 +251,17 @@ Las expresiones de comparación devuelven valores lógicos.
 | Operador | Significado | Ejemplo |
 |---|---|---|
 | `=` | Igual a | `A2=3` |
-| `<>` | Diferente de | `A2<>3` |
+| `<>` | Distinto de | `A2<>3` |
 | `>` | Mayor que | `A2>3` |
 | `>=` | Mayor o igual que | `A2>=3` |
 | `<` | Menor que | `A2<3` |
 | `<=` | Menor o igual que | `A2<=3` |
 
-## **Funciones predefinidas admitidas**
+## **Funciones predefinidas compatibles**
 
-Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálculo de diagramas, pero no es un motor de cálculo completo de Excel. El conjunto de funciones documentado está limitado a las siguientes. No asumas que una función arbitraria de Excel pueda recalcularse con [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
+Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálculo de gráficos, pero no es un motor de cálculo completo de Excel. El conjunto de funciones documentado está limitado a las funciones siguientes. No asumas que una función arbitraria de Excel pueda recalcularse mediante [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/).
 
-| Función | Propósito o forma admitida | Ejemplo |
+| Función | Propósito o forma compatible | Ejemplo |
 |---|---|---|
 | `ABS` | Valor absoluto | `ABS(A2)` |
 | `AVERAGE` | Media aritmética | `AVERAGE(B2:B5)` |
@@ -268,7 +271,7 @@ Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálcu
 | `CONCATENATE` | Concatenar valores de texto | `CONCATENATE(A2," ",B2)` |
 | `DATE` | Crear un valor de fecha usando el sistema de fechas 1900 | `DATE(2026,8,19)` |
 | `DAYS` | Devolver el número de días entre fechas | `DAYS(B2,A2)` |
-| `FIND` | Encontrar un texto dentro de otro | `FIND("-",A2)` |
+| `FIND` | Buscar un valor de texto dentro de otro | `FIND("-",A2)` |
 | `FINDB` | Búsqueda de texto orientada a bytes | `FINDB("a",A2)` |
 | `IF` | Resultado condicional | `IF(A2>0,A2,0)` |
 | `INDEX` | Forma de referencia | `INDEX(A2:C4,2,3)` |
@@ -278,27 +281,62 @@ Aspose.Slides incluye un evaluador de fórmulas incorporado para hojas de cálcu
 | `SUM` | Sumar valores | `SUM(B2:B5)` |
 | `VLOOKUP` | Búsqueda vertical | `VLOOKUP(A2,B2:D10,3,FALSE)` |
 
-Las restricciones mostradas en la tabla son significativas: `INDEX` está documentada en forma de referencia, mientras que `LOOKUP` y `MATCH` están documentadas en sus formas vectoriales. `DATE` usa el sistema de fechas 1900. Las características y funciones que no aparecen aquí deben considerarse no compatibles con el evaluador de fórmulas de Aspose.Slides, salvo que estén documentadas por separado.
+Las restricciones mostradas en la tabla son importantes: `INDEX` está documentada en forma de referencia, mientras que `LOOKUP` y `MATCH` están documentadas en sus formas vectoriales. `DATE` usa el sistema de fechas 1900. Las características y funciones que no aparecen aquí deben considerarse no compatibles con el evaluador de fórmulas de Aspose.Slides, salvo que estén documentadas por separado.
 
-## **Recalculación y valores almacenados**
+## **Calcular fórmulas con una cultura preferida**
 
-Los archivos de hoja de cálculo suelen almacenar tanto una fórmula como su último valor calculado. Aspose.Slides puede leer un valor almacenado desde [IChartDataCell.Value](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/value/) cuando se carga una presentación y los datos del diagrama no se han modificado.
+Algunas funciones del libro de datos del gráfico interpretan texto según reglas específicas de cultura. Esto es especialmente importante para funciones destinadas a lenguajes que usan juegos de caracteres de doble byte (DBCS). Para calcular esas fórmulas correctamente, crea [LoadOptions](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/), establece [ISpreadsheetOptions.PreferredCulture](https://reference.aspose.com/slides/es/net/aspose.slides/ispreadsheetoptions/preferredculture/) a través de [LoadOptions.SpreadsheetOptions](https://reference.aspose.com/slides/es/net/aspose.slides/loadoptions/spreadsheetoptions/), y luego carga la presentación.
 
-Después de cambiar celdas de entrada o fórmulas, no confíes en un resultado almacenado antiguo. Llama a [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) antes de leer los valores calculados o guardar los datos del diagrama que dependan de ellos.
+El siguiente ejemplo selecciona la cultura japonesa, abre una presentación con las opciones de carga configuradas y llama a [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) para cada libro de datos de gráfico:
 
-Para fórmulas fuera del subconjunto admitido, Aspose.Slides puede no ser capaz de analizar la fórmula o establecer sus dependencias. Si el libro se ha modificado, el valor almacenado previamente ya no puede considerarse fiable. En esa situación, leer el valor de una celda con datos no compatibles puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+```csharp
+using System.Globalization;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
 
-Si tu diagrama depende de funciones de Excel que Aspose.Slides no evalúa, calcula esas fórmulas con un motor de hoja de cálculo que las admita y escribe los valores resultantes de vuelta en el libro del diagrama. No sustituyas fórmulas no compatibles por valores adivinados.
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        PreferredCulture = CultureInfo.GetCultureInfo("ja-JP")
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+foreach (var slide in presentation.Slides)
+{
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is IChart chart)
+        {
+            chart.ChartData.ChartDataWorkbook.CalculateFormulas();
+        }
+    }
+}
+```
+
+La cultura preferida forma parte de la configuración de carga de la presentación, por lo que debe especificarse antes de crear la instancia de [Presentation](https://reference.aspose.com/slides/es/net/aspose.slides/presentation/). Usa la cultura que esperen las fórmulas del libro; por ejemplo, usa `ja-JP` para fórmulas que deban seguir las reglas de cálculo DBCS japonesas.
+
+## **Recalculado y valores en caché**
+
+Los archivos de hoja de cálculo suelen almacenar tanto la fórmula como su último valor calculado. Aspose.Slides puede, por tanto, leer un valor en caché desde [IChartDataCell.Value](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/value/) cuando se carga una presentación y los datos del gráfico relevantes no se han modificado.
+
+Después de cambiar celdas de entrada o fórmulas, no confíes en un resultado en caché antiguo. Llama a [IChartDataWorkbook.CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) antes de leer valores calculados o guardar datos de gráfico que dependan de ellos.
+
+Para fórmulas fuera del subconjunto compatible, Aspose.Slides puede no ser capaz de analizar la fórmula o determinar sus dependencias. Si el libro ha sido modificado, el valor en caché anterior ya no puede considerarse fiable. En esa situación, leer el valor de una celda con datos no compatibles puede generar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+
+Si tu gráfico depende de funciones de Excel que Aspose.Slides no evalúa, calcula esas fórmulas con un motor de hoja de cálculo que las soporte y escribe los valores resultantes de vuelta en el libro del gráfico. No sustituyas fórmulas no compatibles por valores adivinados.
 
 ## **Gestionar errores de fórmula**
 
-Hay dos tipos diferentes de problemas a distinguir.
+Existen dos tipos diferentes de problemas que distinguir.
 
-Una fórmula puede ser válida pero producir un resultado de error de hoja de cálculo como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. En ese caso, el token de error es un resultado de celda y puede devolverse a través de `Value`.
+Una fórmula puede ser válida pero producir un resultado de error de hoja de cálculo como `#DIV/0!`, `#N/A`, `#NAME?`, `#NULL!`, `#NUM!`, `#REF!` o `#VALUE!`. En este caso, el token de error es un resultado de celda y puede devolverse a través de `Value`.
 
 Una fórmula también puede fallar en el nivel de análisis, referencia, dependencia o datos compatibles. Aspose.Slides proporciona excepciones específicas de hoja de cálculo para estos casos: [CellInvalidFormulaException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellinvalidformulaexception/), [CellInvalidReferenceException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellinvalidreferenceexception/), [CellCircularReferenceException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) y [CellUnsupportedDataException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
-Cuando las fórmulas provienen de plantillas o de la entrada del usuario, maneja estas excepciones alrededor de la recalculación y el acceso al valor:
+Cuando las fórmulas provienen de plantillas o de la entrada del usuario, gestiona estas excepciones alrededor del recalculado y el acceso al valor:
 
 ```csharp
 using System;
@@ -339,52 +377,52 @@ catch (CellUnsupportedDataException ex)
 
 ## **Limitaciones prácticas**
 
-El soporte de fórmulas en hojas de cálculo de diagramas está pensado para un subconjunto definido de cálculos de hoja, no para una compatibilidad completa con Excel. Ten en cuenta estas limitaciones al diseñar un flujo de trabajo de generación de informes:
+El soporte de fórmulas en hojas de cálculo de gráficos está pensado para un subconjunto definido de cálculos de hoja, no para una compatibilidad total con Excel. Ten en cuenta estas restricciones al diseñar un flujo de trabajo de informes:
 
 - Usa solo las constantes, operadores, referencias y funciones documentadas cuando necesites que Aspose.Slides recalcule fórmulas.
 - Recalcula después de cambiar celdas de las que dependen los resultados de las fórmulas.
-- Trata los valores almacenados de presentaciones cargadas como instantáneas, no como sustituto de la recalculación después de ediciones.
+- Trata los valores en caché de presentaciones cargadas como instantáneas, no como sustitutos del recalculado tras ediciones.
 - Prueba las fórmulas de plantillas existentes antes de confiar en sus valores calculados, sobre todo si usan funciones fuera de la lista documentada.
-- Para fórmulas que requieran un motor completo de cálculo de hoja, calcúlalas externamente y luego actualiza el libro del diagrama con los valores resultantes.
+- Para fórmulas que requieran un motor completo de cálculo de hoja, calcúlalas externamente y luego actualiza el libro del gráfico con los valores resultantes.
 
-## **Preguntas frecuentes**
+## **FAQ**
 
 **¿Cuál es la diferencia entre `Formula` y `R1C1Formula`?**
 
-[Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/formula/) almacena una expresión estilo A1 como `B2-C2`. [R1C1Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/r1c1formula/) almacena una expresión estilo R1C1 como `RC[-2]-RC[-1]`. Utiliza la notación que mejor se ajuste a cómo generas o copias las fórmulas.
+[Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/formula/) almacena una expresión en estilo A1 como `B2-C2`. [R1C1Formula](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/r1c1formula/) almacena una expresión en estilo R1C1 como `RC[-2]-RC[-1]`. Usa la notación que mejor se ajuste a cómo generas o copias las fórmulas.
 
-**¿Debo leer la propia celda o su valor después del cálculo?**
+**¿Necesito leer la celda en sí o su valor después del cálculo?**
 
-[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/getcell/) devuelve un `IChartDataCell`. Para obtener el resultado calculado, lee la propiedad [Value](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/value/) de esa celda después de la recalculación.
+[IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/getcell/) devuelve un `IChartDataCell`. Para obtener el resultado calculado, lee la propiedad [Value](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/value/) de esa celda después del recalculado.
 
 **¿Cuándo debo llamar a `CalculateFormulas`?**
 
-Llama a [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) después de cambiar valores de entrada o fórmulas y antes de depender de los resultados calculados. Esto actualiza los valores de las fórmulas que el evaluador incorporado admite.
+Llama a [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) después de cambiar valores de entrada o fórmulas y antes de depender de los resultados calculados. Esto actualiza los valores de las fórmulas que el evaluador incorporado soporta.
 
 **¿Aspose.Slides admite todas las funciones de Excel?**
 
-No. El evaluador incorporado admite un subconjunto documentado de funciones. No se debe asumir que las funciones fuera de ese subconjunto se recalculen correctamente. Si necesitas compatibilidad total con fórmulas de Excel, realiza el cálculo con un motor de hoja de cálculo adecuado y escribe los valores finales en el libro del diagrama.
+No. El evaluador incorporado admite un subconjunto documentado de funciones. No se debe asumir que funciones fuera de ese subconjunto se recalculen correctamente. Si se necesita compatibilidad total con fórmulas de Excel, realiza el cálculo con un motor de hoja de cálculo adecuado y escribe los valores finales en el libro del gráfico.
 
 **¿Qué ocurre si una presentación cargada contiene una fórmula no compatible?**
 
-Si los datos del diagrama no han cambiado, el libro puede seguir conteniendo un valor almacenado calculado previamente. Tras modificar los datos relacionados, ese valor almacenado puede dejar de ser válido. Acceder a una celda cuya fórmula no pueda gestionarse puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
+Si los datos del gráfico no han cambiado, el libro puede seguir conteniendo un valor en caché calculado previamente. Tras modificar los datos relacionados, ese valor en caché puede ya no ser válido. Acceder a una celda cuya fórmula no puede gestionarse puede lanzar [CellUnsupportedDataException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellunsupporteddataexception/).
 
 **¿Los valores de error de fórmula son lo mismo que las excepciones .NET?**
 
-No. Un resultado como `#DIV/0!` es un valor de hoja de cálculo producido por un cálculo válido. Las excepciones como [CellInvalidFormulaException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) indican que la fórmula no puede procesarse de forma normal.
+No. Un resultado como `#DIV/0!` es un valor de hoja de cálculo producido por un cálculo válido. Excepciones como [CellInvalidFormulaException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellinvalidformulaexception/) o [CellCircularReferenceException](https://reference.aspose.com/slides/es/net/aspose.slides.spreadsheet/cellcircularreferenceexception/) indican que la fórmula no puede procesarse de forma normal.
 
-**¿Un diagrama se actualiza automáticamente cuando cambia una celda de fórmula?**
+**¿El gráfico se actualiza automáticamente cuando cambia una celda de fórmula?**
 
-Una serie del diagrama puede hacer referencia a celdas del libro. Recalcula el libro primero, luego guarda o renderiza la presentación. Si los puntos de datos del diagrama hacen referencia a las celdas calculadas, el diagrama usará esos valores actualizados; no se requiere un método de refresco separado para este flujo.
+Una serie de gráfico puede referenciar celdas del libro. Recalcula el libro primero, luego guarda o renderiza la presentación. Si los puntos de datos del gráfico hacen referencia a las celdas calculadas, el gráfico usará esos valores actualizados; no se requiere un método de actualización de gráfico separado para este flujo.
 
-**¿Los diagramas pueden usar un libro de Excel externo?**
+**¿Los gráficos pueden usar un libro de Excel externo?**
 
-Sí, los datos del diagrama pueden configurarse para usar un libro externo mediante la API de datos del diagrama. Sin embargo, el flujo de cálculo de fórmulas descrito en este artículo se refiere al libro de datos del diagrama y al subconjunto de fórmulas evaluado por Aspose.Slides. No asumas que [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) ofrece una recalculación completa de fórmulas arbitrarias en un archivo XLSX externo.
+Sí, los datos del gráfico pueden configurarse para usar un libro externo mediante la API de datos del gráfico. Sin embargo, el flujo de trabajo de cálculo de fórmulas descrito en este artículo se refiere al libro de datos del gráfico y al subconjunto de fórmulas evaluado por Aspose.Slides. No asumas que [CalculateFormulas](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/calculateformulas/) proporciona un recalculado completo de fórmulas arbitrarias en un archivo XLSX externo.
 
-**¿Puedo usar fórmulas que hagan referencia a otra hoja de cálculo o a otro libro?**
+**¿Puedo usar fórmulas que referencien otra hoja de cálculo o libro?**
 
-Las referencias al estilo Excel pueden existir en los libros de diagramas, pero la evaluación de fórmulas está limitada por el analizador y el conjunto de funciones admitidos. Si una referencia cruzada de hoja o externa es esencial, verifica esa fórmula exacta con la versión de Aspose.Slides que uses. Para flujos que requieran una amplia compatibilidad de referencias de Excel, calcula el libro externamente y escribe los valores resueltos de vuelta en los datos del diagrama.
+Las referencias al estilo Excel pueden existir en los libros de gráficos, pero la evaluación de fórmulas está limitada por el analizador y el conjunto de funciones admitidos. Si una referencia cruzada de hoja o externa es esencial, valida esa fórmula exacta con la versión de Aspose.Slides que uses. Para flujos que requieran una compatibilidad amplia de referencias de Excel, calcula el libro externamente y escribe los valores resueltos de vuelta en los datos del gráfico.
 
 **¿Deben las cadenas de fórmula comenzar con `=`?**
 
-Los ejemplos de la API de Aspose.Slides asignan expresiones como `B2-C2` o `SUM(B2:B5)` sin el `=` inicial. Usar esa forma mantiene las fórmulas generadas coherentes con los ejemplos documentados de la API.
+Los ejemplos de la API de Aspose.Slides asignan expresiones como `B2-C2` o `SUM(B2:B5)` sin un `=` inicial. Usar esa forma mantiene las fórmulas generadas coherentes con los ejemplos documentados de la API.
