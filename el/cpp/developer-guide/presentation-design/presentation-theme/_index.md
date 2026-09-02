@@ -18,257 +18,512 @@ keywords:
 - Εφέ θέματος
 - PowerPoint
 - OpenDocument
-- Παρουσίαση
+- παρουσίαση
 - C++
 - Aspose.Slides
-description: "Διαχειριστείτε θέματα παρουσίασης στο Aspose.Slides για C++ για τη δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή σήμανση."
+description: "Κύρια θέματα παρουσίασης στο Aspose.Slides για C++ για δημιουργία, προσαρμογή και μετατροπή αρχείων PowerPoint με συνεπή εμπορική ταυτότητα."
 ---
 ## **Εισαγωγή**
 
-Ένα θέμα παρουσίασης ορίζει τις ιδιότητες των στοιχείων σχεδίασης. Όταν επιλέγετε ένα θέμα παρουσίασης, βασικά επιλέγετε ένα συγκεκριμένο σύνολο οπτικών στοιχείων και των ιδιοτήτων τους.
+Ένα θέμα παρουσίασης ορίζει ένα συντονισμένο σύνολο χρωμάτων, γραμματοσειρών, στυλ φόντου, γεμισμάτων, γραμμών και εφέ. Τα αντικείμενα που είναι θέμα‑aware αναφέρονται σε αυτές τις κοινές ορισμούς αντί να αποθηκεύουν κάθε οπτική ιδιότητα ως σταθερή τιμή, ώστε μια αλλαγή θέματος να μπορεί να ενημερώσει πολλά αντικείμενα ταυτόχρονα.
 
-Στο PowerPoint, ένα θέμα περιλαμβάνει χρώματα, [fonts](/slides/el/cpp/powerpoint-fonts/), [background styles](/slides/el/cpp/presentation-background/) και εφέ.
+Στο Aspose.Slides, το θέμα επιπέδου παρουσίασης είναι διαθέσιμο μέσω του [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_mastertheme/). Μια παρουσίαση μπορεί επίσης να περιέχει παρακάμψεις θέματος σε χαμηλότερα επίπεδα. Ένας master μπορεί να παρακάμψει το θέμα παρουσίασης μέσω του [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), ενώ ένα layout ή μια μεμονωμένη διαφάνεια μπορεί να χρησιμοποιήσει το [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). Στην πράξη, το αποτελεσματικό θέμα για μια διαφάνεια επιλύεται μέσω αυτής της αλυσίδας κληρονομικότητας: θέμα παρουσίασης, παράκαμψη master, παράκαμψη layout, και παράκαμψη διαφάνειας.
 
-![συστατικά_θέματος](theme-constituents.png)
+![Θεματικά στοιχεία: χρώματα, γραμματοσειρές, στυλ φόντου και εφέ](theme-constituents.png)
 
-## **Αλλαγή Χρώματος Θέματος**
+Οι παρακάτω ενότητες δείχνουν τις πιο κοινές ροές εργασίας με θέματα: επιθεώρηση θέματος, αλλαγή χρωμάτων και γραμματοσειρών, αντιγραφή ή εφαρμογή θέματος, ενημέρωση στυλ φόντου και εφέ, και ανάγνωση αποτελεσματικών τιμών μετά την επίλυση κληρονομιάς και παρακάμψεων.
 
-Ένα θέμα PowerPoint χρησιμοποιεί ένα συγκεκριμένο σύνολο χρωμάτων για διαφορετικά στοιχεία σε μια διαφάνεια. Αν δεν σας αρέσουν τα χρώματα, τα αλλάζετε εφαρμόζοντας νέα χρώματα στο θέμα. Για να μπορείτε να επιλέξετε ένα νέο χρώμα θέματος, το Aspose.Slides παρέχει τιμές στην απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28).
+## **Επιθεώρηση Θέματος**
 
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε το χρώμα έμφασης για ένα θέμα:
+Το αντικείμενο [MasterTheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/) εκθέτει τις μεθόδους [get_ColorScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), και [get_FormatScheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Η επιθεώρηση αυτών των συλλογών πριν από την αλλαγή τους είναι ιδιαίτερα χρήσιμη όταν μια παρουσίαση προέρχεται από εξωτερική πηγή, επειδή ο αριθμός και το περιεχόμενο των καταχωρίσεων στυλ μπορεί να διαφέρουν.
 
-```c++
-auto pres = System::MakeObject<Presentation>();
+Το παρακάτω παράδειγμα διαβάζει τις κύριες ιδιότητες του θέματος και αναφέρει πόσες στυλ φόντου, γεμίσματος, γραμμής και εφέ αποθηκεύονται στο θέμα:
 
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+```cpp
+#include <DOM/IColorFormat.h>
+#include <DOM/IFonts.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <system/console.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto theme = presentation->get_MasterTheme();
+auto formatScheme = theme->get_FormatScheme();
+
+Console::WriteLine(u"Theme name: {0}", theme->get_Name());
+Console::WriteLine(u"Accent 1: {0}", theme->get_ColorScheme()->get_Accent1()->get_Color());
+Console::WriteLine(u"Major Latin font: {0}", theme->get_FontScheme()->get_Major()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Minor Latin font: {0}", theme->get_FontScheme()->get_Minor()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Background fill styles: {0}", formatScheme->get_BackgroundFillStyles()->get_Count());
+Console::WriteLine(u"Fill styles: {0}", formatScheme->get_FillStyles()->get_Count());
+Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Count());
+Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
+```
+
+Εάν ένα αρχείο χρησιμοποιεί πολλαπλούς masters, μην υποθέτετε ότι κάθε διαφάνεια έχει το ίδιο αποτελεσματικό θέμα. Επιθεωρήστε τον master που σχετίζεται με τη διαφάνεια και χρησιμοποιήστε τη ροή εργασίας αποτελεσματικού‑θέματος που φαίνεται παρακάτω όταν μπορεί να υπάρξουν παρακάμψεις layout ή διαφάνειας.
+
+## **Αλλαγή Χρωμάτων Θέματος**
+
+Τα γεμίσματα, οι γραμμές και το κείμενο που αναγνωρίζουν το θέμα μπορούν να αναφέρονται σε λογικό χρώμα από την απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/). Όταν αλλάζετε την αντίστοιχη καταχώρηση στο [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/) του θέματος, όλα τα αντικείμενα που εξακολουθούν να παραπέμπουν σε αυτό το χρώμα θέματος επιλύονται απέναντι στην καινούργια τιμή. Τα αντικείμενα που χρησιμοποιούν άμεσο χρώμα RGB δεν μεταβάλλονται από μια ενημέρωση χρώματος θέματος.
+
+Το παρακάτω παράδειγμα από άκρη σε άκρη δημιουργεί ένα σχήμα που χρησιμοποιεί το `Accent4`, αλλάζει το χρώμα `Accent4` του θέματος σε κόκκινο, αποθηκεύει την παρουσίαση, την ξαναφορτώνει και εκτυπώνει το αποτελεσματικό χρώμα γεμίσματος:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
+presentation->Save(u"theme-color.pptx", SaveFormat::Pptx);
+
+auto savedPresentation = MakeObject<Presentation>(u"theme-color.pptx");
+auto savedSlide = savedPresentation->get_Slide(0);
+auto savedShape = savedSlide->get_Shape(0);
+auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
+Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Μπορείτε να προσδιορίσετε την αποτελεσματική τιμή του προκύπτοντος χρώματος ως εξής:
+Επειδή το ορθογώνιο παραμένει συνδεδεμένο με το `Accent4`, το ορατό του χρώμα γίνεται κόκκινο μετά την αλλαγή του θέματος. Εάν αντικαταστήσετε το χρώμα σχήματος με άμεσο χρώμα στο σχήμα, οι μετέπειτα αλλαγές στο `Accent4` δεν θα επηρεάσουν πλέον αυτό το γέμισμα.
 
-```c++
-auto fillEffective = shape->get_FillFormat()->GetEffective();
-    
-Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
-// ff8064a2 (Χρώμα [A=255, R=128, G=100, B=162])
-```
+### **Χρήση Χρωμάτων από το Πρόσθετο Παλέτα**
 
-Για να επιδείξουμε περαιτέρω τη λειτουργία αλλαγής χρώματος, δημιουργούμε ένα ακόμη στοιχείο και του εκχωρούμε το χρώμα έμφασης (από την αρχική λειτουργία). Στη συνέχεια αλλάζουμε το χρώμα στο θέμα:
+Το PowerPoint παράγει πιο ανοιχτές και πιο σκούρες παραλλαγές από ένα χρώμα θέματος εφαρμόζοντας μετασχηματισμούς χρώματος. Το Aspose.Slides εκθέτει αυτούς τους μετασχηματισμούς μέσω του [ColorTransformOperation](https://reference.aspose.com/slides/el/cpp/aspose.slides/colortransformoperation/).
 
-```c++
-auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
-    
-otherShape->get_FillFormat()->set_FillType(FillType::Solid);
-otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+![Κύρια χρώματα θέματος και πιο ανοιχτές/σκούρες χρωματικές παραλλαγές που δημιουργούνται από το πρόσθετο παλέτα](additional-palette-colors.png)
 
-pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
-```
+**1** - Κύρια χρώματα θέματος.
 
-Το νέο χρώμα εφαρμόζεται αυτόματα και στα δύο στοιχεία.
+**2** - Πιο ανοιχτές και πιο σκούρες παραλλαγές που παράγονται από τα κύρια χρώματα θέματος.
 
-### **Ορισμός Χρώματος Θέματος από Πρόσθετη Παλέτα**
+Το παρακάτω παράδειγμα δημιουργεί έξι ορθογώνια βασισμένα στο `Accent4`, εφαρμόζει μετασχηματισμούς φωτεινότητας σε πέντε από αυτά, και αποθηκεύει το αποτέλεσμα:
 
-Όταν εφαρμόζετε μετασχηματισμούς φωτεινότητας στο κύριο χρώμα θέματος(1), σχηματίζονται χρώματα από την πρόσθετη παλέτα(2). Στη συνέχεια μπορείτε να ορίσετε και να λάβετε αυτά τα χρώματα θέματος.
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-![χρώματα-πρόσθετης-παλέτας](additional-palette-colors.png)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-**1**- Κύρια χρώματα θέματος  
-**2**- Χρώματα από την πρόσθετη παλέτα.
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
 
-Αυτός ο κώδικας C++ δείχνει μια λειτουργία όπου τα χρώματα της πρόσθετης παλέτας λαμβάνονται από το κύριο χρώμα θέματος και στη συνέχεια χρησιμοποιούνται σε σχήματα:
-
-```c++
-auto presentation = System::MakeObject<Presentation>();
-
-auto slide = presentation->get_Slide(0);
-auto shapes = slide->get_Shapes();
-
-// Accent 4
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 50.0f, 50.0f);
 auto fillFormat1 = shape1->get_FillFormat();
-
 fillFormat1->set_FillType(FillType::Solid);
 fillFormat1->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 
-// Accent 4, Lighter 80%
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 70.0f, 50.0f, 50.0f);
 auto fillFormat2 = shape2->get_FillFormat();
 auto solidFillColor2 = fillFormat2->get_SolidFillColor();
-
 fillFormat2->set_FillType(FillType::Solid);
 solidFillColor2->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor2->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.2f);
 solidFillColor2->get_ColorTransform()->Add(ColorTransformOperation::AddLuminance, 0.8f);
 
-// Accent 4, Lighter 60%
 auto shape3 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 130.0f, 50.0f, 50.0f);
 auto fillFormat3 = shape3->get_FillFormat();
 auto solidFillColor3 = fillFormat3->get_SolidFillColor();
-
 fillFormat3->set_FillType(FillType::Solid);
 solidFillColor3->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor3->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.4f);
 solidFillColor3->get_ColorTransform()->Add(ColorTransformOperation::AddLuminance, 0.6f);
 
-// Accent 4, Lighter 40%
 auto shape4 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 190.0f, 50.0f, 50.0f);
 auto fillFormat4 = shape4->get_FillFormat();
 auto solidFillColor4 = fillFormat4->get_SolidFillColor();
-
 fillFormat4->set_FillType(FillType::Solid);
 solidFillColor4->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor4->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.6f);
 solidFillColor4->get_ColorTransform()->Add(ColorTransformOperation::AddLuminance, 0.4f);
 
-// Accent 4, Darker 25%
 auto shape5 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 250.0f, 50.0f, 50.0f);
 auto fillFormat5 = shape5->get_FillFormat();
 auto solidFillColor5 = fillFormat5->get_SolidFillColor();
-
 fillFormat5->set_FillType(FillType::Solid);
 solidFillColor5->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor5->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.75f);
 
-// Accent 4, Darker 50%
 auto shape6 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 310.0f, 50.0f, 50.0f);
 auto fillFormat6 = shape6->get_FillFormat();
 auto solidFillColor6 = fillFormat6->get_SolidFillColor();
-
 fillFormat6->set_FillType(FillType::Solid);
 solidFillColor6->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.5f);
 
-presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
+presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-### **Σχεδίαση `SchemeColor` σε Χρώματα `IColorScheme`**
+Αυτές οι παραλλαγές παραμένουν βασισμένες στο χρώμα θέματος. Εάν το `Accent4` αλλάξει αργότερα, τα μετασχηματισμένα χρώματα ξαναυπολογίζονται από τη νέα τιμή του `Accent4`.
 
-Όταν εργάζεστε με [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides.schemecolor/), μπορεί να παρατηρήσετε ότι περιέχει τις ακόλουθες τιμές χρωμάτων θέματος:
+### **Αντιστοίχιση Τιμών `SchemeColor` σε Θέσεις `IColorScheme`**
 
-`Background1`, `Background2`, `Text1` και `Text2`.
-
-Ωστόσο, `Presentation::get_MasterTheme()::get_ColorScheme()` επιστρέφει [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/), το οποίο εκθέτει τα αντίστοιχα χρώματα ως:
-
-`Dark1`, `Dark2`, `Light1` και `Light2`.
-
-Αυτή η διαφορά είναι μόνο στη ονομασία. Οι τιμές αναφέρονται στα ίδια slots χρωμάτων θέματος και η αντιστοίχηση είναι σταθερή:
+Η απαρίθμηση [SchemeColor](https://reference.aspose.com/slides/el/cpp/aspose.slides/schemecolor/) χρησιμοποιεί τα `Text1`, `Background1`, `Text2` και `Background2`, ενώ το [IColorScheme](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/icolorscheme/) εκθέτει τις ίδιες θέσεις θέματος ως `Dark1`, `Light1`, `Dark2` και `Light2`. Η αντιστοίχιση είναι σταθερή:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Δεν υπάρχει δυναμική μετατροπή μεταξύ `Text`/`Background` και `Dark`/`Light`. Απλώς είναι εναλλακτικές ονομασίες των ίδιων χρωμάτων θέματος.
+Αυτά είναι εναλλακτικά ονόματα για τις ίδιες θέσεις θέματος· δεν είναι τιμές που μετατρέπονται δυναμικά από μια μορφή στην άλλη.
 
-Αυτή η διαφορά στην ονομασία προέρχεται από την ορολογία του Microsoft Office. Οι παλαιότερες εκδόσεις του Office χρησιμοποιούσαν `Dark 1`, `Light 1`, `Dark 2` και `Light 2`, ενώ οι νεότερες εκδόσεις UI εμφανίζουν τα ίδια slots ως `Text 1`, `Background 1`, `Text 2` και `Background 2`.
+## **Αλλαγή Γραμματοσειρών Θέματος**
 
-## **Αλλαγή Γραμματοσειράς Θέματος**
+Ένα σύνολο γραμματοσειρών θέματος περιλαμβάνει ένα κύριο σύνολο γραμματοσειράς για κεφαλίδες και ένα δευτερεύον σύνολο για το κυρίως κείμενο. Οι μέθοδοι [FontScheme::get_Major()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/fontscheme/get_major/) και [FontScheme::get_Minor()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/fontscheme/get_minor/) εκθέτουν αυτά τα σύνολα.
 
-Για να μπορείτε να επιλέξετε γραμματοσειρές για θέματα και άλλους σκοπούς, το Aspose.Slides χρησιμοποιεί αυτούς τους ειδικούς αναγνωριστές (παρόμοιους με αυτούς που χρησιμοποιεί το PowerPoint):
+Οι αναγνωριστές γραμματοσειρών θέματος συμβατοί με το PowerPoint μπορούν να χρησιμοποιηθούν στη μορφοποίηση κειμένου:
 
-* **+mn-lt** - Γραμματοσειρά σώματος Latin (Minor Latin Font)
-* **+mj-lt** - Γραμματοσειρά κεφαλίδας Latin (Major Latin Font)
-* **+mn-ea** - Γραμματοσειρά σώματος East Asian (Minor East Asian Font)
-* **+mj-ea** - Γραμματοσειρά σώματος East Asian (Major East Asian Font)
+* `+mn-lt` - Γραμματοσειρά Κυρίως Κειμένου Λατινική (Minor Latin Font)
+* `+mj-lt` - Γραμματοσειρά Κεφαλίδας Λατινική (Major Latin Font)
+* `+mn-ea` - Γραμματοσειρά Κυρίως Κειμένου Ανατολικής Ασίας (Minor East Asian Font)
+* `+mj-ea` - Γραμματοσειρά Κεφαλίδας Ανατολικής Ασίας (Major East Asian Font)
 
-Αυτός ο κώδικας C++ δείχνει πώς να εκχωρήσετε τη λατινική γραμματοσειρά σε ένα στοιχείο θέματος:
+Το παρακάτω παράδειγμα δημιουργεί μία κεφαλίδα που χρησιμοποιεί τη κύρια Λατινική γραμματοσειρά θέματος και μία γραμμή κυρίως κειμένου που χρησιμοποιεί τη δευτερεύουσα Λατινική γραμματοσειρά θέματος. Στη συνέχεια αλλάζει τις γραμματοσειρές θέματος και αποθηκεύει το αποτέλεσμα:
 
-```c++
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFonts.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
 
-auto paragraph = System::MakeObject<Paragraph>();
-auto portion = System::MakeObject<Portion>(u"Theme text format");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-paragraph->get_Portions()->Add(portion);
-shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-lt"));
+auto heading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40.0f, 40.0f, 500.0f, 60.0f);
+heading->get_TextFrame()->set_Text(u"Theme heading");
+heading->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_LatinFont(MakeObject<FontData>(u"+mj-lt"));
+
+auto body = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40.0f, 120.0f, 500.0f, 60.0f);
+body->get_TextFrame()->set_Text(u"Theme body text");
+body->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_LatinFont(MakeObject<FontData>(u"+mn-lt"));
+
+presentation->get_MasterTheme()->get_FontScheme()->get_Major()->set_LatinFont(MakeObject<FontData>(u"Aptos Display"));
+presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
+presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε τη γραμματοσειρά του θέματος παρουσίασης:
+Η κεφαλίδα ακολουθεί τη μεγάλη γραμματοσειρά και το κυρίως κείμενο ακολουθεί τη μικρή γραμματοσειρά. Κείμενο που έχει ρητό όνομα γραμματοσειράς αντί για αναγνωριστικό θέματος δεν θα αλλάξει αυτόματα όταν το σύνολο γραμματοσειρών θέματος αλλάξει.
 
-```c++
-pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
-```
-
-Η γραμματοσειρά σε όλα τα πλαίσια κειμένου θα ενημερωθεί.
-
-{{% alert color="primary" title="TIP" %}} 
-Μπορεί να θέλετε να δείτε [PowerPoint fonts](/slides/el/cpp/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+Για περισσότερες πληροφορίες σχετικά με τις γραμματοσειρές παρουσίασης, δείτε την ενότητα [PowerPoint Fonts](/slides/el/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Αλλαγή Στυλ Φόντου Θέματος**
+## **Αντιγραφή ή Εφαρμογή Θέματος**
 
-Από προεπιλογή, η εφαρμογή PowerPoint παρέχει 12 προεγκατεστημένα φόντα, αλλά μόνο 3 από αυτά αποθηκεύονται σε μια τυπική παρουσίαση.
+Υπάρχουν δύο κοινές ροές εργασίας, και λύνουν διαφορετικά προβλήματα.
 
-![σχεδίαση-παρουσίασης](presentation-design_8.png)
+### **Διατήρηση Πρωτογεννού Θέματος Κατά τη Μετακίνηση Διαφανειών**
 
-Για παράδειγμα, αφού αποθηκεύσετε μια παρουσίαση στην εφαρμογή PowerPoint, μπορείτε να εκτελέσετε αυτόν τον κώδικα C++ για να μάθετε τον αριθμό των προεγκατεστημένων φόντων στην παρουσίαση:
+Εάν θέλετε να μετακινήσετε μια διαφάνεια σε άλλη παρουσίαση και να διατηρήσετε το αρχικό της σχέδιο, κάντε κλώνο του πηγαίου master στην προοριστική παρουσίαση με το [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/), στη συνέχεια κλώνο της διαφάνειας με το [ISlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecollection/addclone/) και τον κλωνοποιημένο master. Αυτό μεταφέρει τον master, τα layout του, και το σχετικό θέμα μαζί.
 
-```c++
-auto pres = MakeObject<Presentation>(u"pres.pptx");
-        
-int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-Console::WriteLine(u"Number of background fill styles for theme is {0}", numberOfBackgroundFills);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto source = MakeObject<Presentation>(u"source-theme.pptx");
+auto target = MakeObject<Presentation>(u"target.pptx");
+auto sourceSlide = source->get_Slide(0);
+auto sourceMaster = sourceSlide->get_LayoutSlide()->get_MasterSlide();
+auto clonedMaster = target->get_Masters()->AddClone(sourceMaster);
+target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
+target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" %}} 
-Χρησιμοποιώντας την ιδιότητα [BackgroundFillStyles](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.theme.i_format_scheme/), μπορείτε να προσθέσετε ή να έχετε πρόσβαση στο στυλ φόντου σε ένα θέμα PowerPoint. 
+Αυτή είναι η προτιμώμενη ροή εργασίας όταν η πηγή της διαφάνειας πρέπει να φαίνεται ακριβώς το ίδιο στον προορισμό. Η απλή κλωνοποίηση περιεχομένου πάνω σε έναν μη σχετικό master προορισμού μπορεί να αλλάξει χρώματα, γραμματοσειρές, φόντο και εφέ που καθορίζονται από το θέμα.
+
+### **Εφαρμογή Τιμών Θέματος σε Υπάρχουσα Διαφάνεια**
+
+Εάν η διαφάνεια-προορισμός πρέπει να παραμείνει στον τρέχοντα master και layout της, αρχικοποιήστε μια παρακάμψη επιπέδου διαφάνειας από το πηγαίο θέμα. Οι μέθοδοι [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) και [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) αντιγράφουν τα τρία κύρια στοιχεία του θέματος στην παρακάμψη.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IOverrideTheme.h>
+#include <DOM/Theme/IOverrideThemeManager.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto source = MakeObject<Presentation>(u"source-theme.pptx");
+auto target = MakeObject<Presentation>(u"target.pptx");
+auto targetSlide = target->get_Slide(0);
+auto overrideTheme = targetSlide->get_ThemeManager()->get_OverrideTheme();
+overrideTheme->InitColorSchemeFrom(source->get_MasterTheme()->get_ColorScheme());
+overrideTheme->InitFontSchemeFrom(source->get_MasterTheme()->get_FontScheme());
+overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme());
+target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
+```
+
+Αυτό αλλάζει το θέμα που χρησιμοποιείται από εκείνη τη διαφάνεια χωρίς να αλλάζει το θέμα που κληρονομείται από άλλες διαφάνειες. Για να αφαιρέσετε την τοπική παρακάμψη και να επιστρέψετε στις κληρονομούσες τιμές, καλέστε το [OverrideTheme::Clear()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/overridetheme/clear/).
+
+### **Εφαρμογή Παρακάμψης Θέματος σε Layout**
+
+Μια παρακάμψη επιπέδου layout εφαρμόζεται σε διαφάνειες που χρησιμοποιούν εκείνο το layout, εκτός εάν μια συγκεκριμένη διαφάνεια έχει τη δική της παρακάμψη. Οι ίδιες μέθοδοι αρχικοποίησης μπορούν να χρησιμοποιηθούν μέσω του [IOverrideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/) του layout:
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IOverrideTheme.h>
+#include <DOM/Theme/IOverrideThemeManager.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto source = MakeObject<Presentation>(u"source-theme.pptx");
+auto target = MakeObject<Presentation>(u"target.pptx");
+auto targetSlide = target->get_Slide(0);
+auto targetLayout = targetSlide->get_LayoutSlide();
+auto overrideTheme = targetLayout->get_ThemeManager()->get_OverrideTheme();
+overrideTheme->InitColorSchemeFrom(source->get_MasterTheme()->get_ColorScheme());
+overrideTheme->InitFontSchemeFrom(source->get_MasterTheme()->get_FontScheme());
+overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme());
+target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
+```
+
+Χρησιμοποιήστε θέμα master ή επιπέδου παρουσίασης όταν πολλά layout και διαφάνειες πρέπει να μοιράζονται το ίδιο βασικό σχέδιο, μια παρακάμψη layout όταν μια οικογένεια layout χρειάζεται διαφορετικό στυλ, και μια παρακάμψη διαφάνειας μόνο για πραγματικές εξαιρέσεις. Πάρα πολλές παρακάμψεις επιπέδου διαφάνειας δυσκολεύουν την πρόβλεψη μετέπειτα παγκόσμιων αλλαγών θέματος.
+
+## **Ενημέρωση Στυλ Φόντου Θέματος**
+
+Τα γέμιστρα φόντου του θέματος αποθηκεύονται στο [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). Το PowerPoint μπορεί να παρουσιάσει περισσότερες επιλογές φόντου στη διεπαφή χρήστη του από τον αριθμό των ορισμών γεμίσματος που είναι φυσικά αποθηκευμένοι σε αυτή τη συλλογή, επειδή η UI μπορεί να συνδυάσει γεμίσματα θέματος με χρώματα θέματος και άλλες αναφορές στυλ.
+
+![Γκαλερί στυλ φόντου PowerPoint για θέμα παρουσίασης](presentation-design_8.png)
+
+Πριν χρησιμοποιήσετε ένα στυ λ φόντου, επιθεωρήστε τη συλλογή που είναι αποθηκευμένη και το τρέχον [Background::get_StyleIndex()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/get_styleindex/). Το `StyleIndex` χρησιμοποιεί το `0` για κανένα θεματικό γέμισμα· θετικές τιμές είναι αναφορές σε στυ λ φόντου θέματος. Αυτό διαφέρει από το να δείχνετε απευθείας έναν C++ δείκτη με `idx_get(0)`, όπου το `0` σημαίνει το πρώτο αποθηκευμένο στοιχείο. Μην υποθέτετε ότι κάθε παρουσίαση περιέχει τον ίδιο αριθμό στυ λ φόντου.
+
+Το παρακάτω παράδειγμα αναφέρει τον διαθέσιμο αριθμό γεμισμάτων φόντου, εκχωρεί μια θεματική αναφορά φόντου στον πρώτο master και αποθηκεύει την παρουσίαση:
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto backgroundStyles = presentation->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles();
+Console::WriteLine(u"Background fill styles: {0}", backgroundStyles->get_Count());
+
+if (backgroundStyles->get_Count() > 0)
+{
+    auto masterSlide = presentation->get_Master(0);
+    masterSlide->get_Background()->set_Type(BackgroundType::Themed);
+    masterSlide->get_Background()->set_StyleIndex(1);
+    presentation->Save(u"theme-background.pptx", SaveFormat::Pptx);
+}
+```
+
+Το εμφανιζόμενο αποτέλεσμα εξαρτάται από την καταχώρηση θέματος που παραπέμπει ο master και από τυχόν παρακάμψεις φόντου στο layout ή στο επίπεδο διαφάνειας. Εάν μια διαφάνεια χρησιμοποιεί το δικό της φόντο, η αλλαγή μόνο του φόντου του master ενδέχεται να μην αλλάξει εκείνη τη διαφάνεια. Χρησιμοποιήστε το [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/) όταν χρειάζεστε την τελική κατάσταση φόντου μετά την εφαρμογή της κληρονομιάς.
+
+{{% alert color="warning" title="Warning" %}}
+Μην θεωρείτε το `StyleIndex` ως δείκτη μητρώου με βάση το μηδέν. Επίσης, αποφύγετε την σκληρή κωδικοποίηση ενός αριθμού στυ λ από ένα αρχείο και την υπόθεση ότι έχει την ίδια εμφάνιση σε άλλο αρχείο· οι ορισμοί στυ λ θέματος είναι ειδικοί για κάθε παρουσίαση.
 {{% /alert %}}
 
-Αυτός ο κώδικας C++ δείχνει πώς να ορίσετε το φόντο για μια παρουσίαση:
-
-```c++
-pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
-```
-
-**Οδηγός ευρετηρίου**: 0 χρησιμοποιείται για χωρίς γέμισμα. Ο δείκτης αρχίζει από 1.
-
-{{% alert color="primary" title="TIP" %}} 
-Μπορεί να θέλετε να δείτε [PowerPoint Background](/slides/el/cpp/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+Για άμεση μορφοποίηση φόντου και κληρονομιά φόντου, δείτε το [Presentation Background](/slides/el/cpp/presentation-background/).
 {{% /alert %}}
 
-## **Αλλαγή Εφέ Θέματος**
+## **Ενημέρωση Εφέ Θέματος**
 
-Ένα θέμα PowerPoint συνήθως περιέχει 3 τιμές για κάθε σειρά στυλ. Αυτές οι σειρές συνδυάζονται σε αυτά τα 3 εφέ: subtle, moderate και intense. Για παράδειγμα, αυτό είναι το αποτέλεσμα όταν τα εφέ εφαρμόζονται σε ένα συγκεκριμένο σχήμα:
+Ένα σχήμα μορφοποίησης θέματος περιλαμβάνει ξεχωριστές συλλογές [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_linestyles/), και [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Τα τυπικά θέματα Office συχνά περιέχουν τρεις κύριες καταχωρήσεις στυ λ που αντιστοιχούν οπτικά σε διακριτά, μέτρια και έντονα διαμορφώσεις, αλλά ο κώδικας θα πρέπει να ελέγχει κάθε συλλογή αντί να υποθέτει σταθερό αριθμό.
 
-![presentation-design_10.png](presentation-design_10.png)
+![Διακριτά, μετριοπαθή και έντονα εφέ θέματος που εφαρμόζονται στο ίδιο σχήμα](presentation-design_10.png)
 
-Χρησιμοποιώντας 3 ιδιότητες ([FillStyles](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) από την κλάση [FormatScheme](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.theme.i_format_scheme/) μπορείτε να αλλάξετε τα στοιχεία σε ένα θέμα (ακόμη πιο ευέλικτα από τις επιλογές στο PowerPoint).
+Κατά την πρόσβαση σε αυτές τις συλλογές σε C++, ο δείκτης συλλογής είναι μηδενικής βάσης: `idx_get(0)` είναι το πρώτο αποθηκευμένο στυ λ και `idx_get(2)` είναι το τρίτο. Οι δείκτες αναφοράς στυ λ ενός σχήματος είναι ξεχωριστή έννοια, εκτεθειμένη μέσω του [IShapeStyle](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapestyle/). Η τροποποίηση ενός στυ λ θέματος επηρεάζει τα σχήματα που το παραπέμπουν· τα σχήματα με άμεση μορφοποίηση μπορεί να παραμείνουν αμετάβλητα.
 
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε ένα εφέ θέματος τροποποιώντας μέρη των στοιχείων:
+Το παρακάτω παράδειγμα ελέγχει την ύπαρξη των απαιτούμενων καταχωρήσεων στυ λ, αλλάζει το πρώτο στυ λ γραμμής, το τρίτο στυ λ γεμίσματος, ενεργοποιεί μια εξωτερική σκιά στο τρίτο στυ λ εφέ και αποθηκεύει το αποτέλεσμα:
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
-        
-pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IEffectStyle.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
-pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->set_FillType(FillType::Solid);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
+auto presentation = MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
+auto formatScheme = presentation->get_MasterTheme()->get_FormatScheme();
+auto lineStyles = formatScheme->get_LineStyles();
+auto fillStyles = formatScheme->get_FillStyles();
+auto effectStyles = formatScheme->get_EffectStyles();
 
-pres->get_MasterTheme()->get_FormatScheme()->get_EffectStyles()->idx_get(2)->get_EffectFormat()->get_OuterShadowEffect()->set_Distance(10.f);
+if (lineStyles->get_Count() < 1 || fillStyles->get_Count() < 3 || effectStyles->get_Count() < 3)
+{
+    Console::WriteLine(u"The theme does not contain the style entries required by this example.");
+}
+else
+{
+    auto lineStyle = lineStyles->idx_get(0);
+    lineStyle->get_FillFormat()->set_FillType(FillType::Solid);
+    lineStyle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
-pres->Save(u"Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
+    auto fillStyle = fillStyles->idx_get(2);
+    fillStyle->set_FillType(FillType::Solid);
+    fillStyle->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
+
+    auto effectFormat = effectStyles->idx_get(2)->get_EffectFormat();
+    effectFormat->EnableOuterShadowEffect();
+    effectFormat->get_OuterShadowEffect()->set_Distance(10.0f);
+
+    presentation->Save(u"theme-effects.pptx", SaveFormat::Pptx);
+}
 ```
 
-Οι προκύπτουσες αλλαγές στο χρώμα γεμίσματος, τύπο γεμίσματος, εφέ σκιάς κ.λπ.:
+Για σχήματα που αναφέρονται σε αυτές τις θέσεις, η πρώτη γραμμή θέματος γίνεται κόκκινη, το τρίτο γέμισμα θέματος γίνεται συμπαγές δάσος πράσινο, και το τρίτο στυ λ εφέ αποκτά εξωτερική σκιά με απόσταση 10 σημείων. Το ακριβές οπτικό αποτέλεσμα εξακολουθεί να εξαρτάται από το ποια στυ λ θέματος αναφέρονται τα σχήματα και αν η άμεση μορφοποίηση παρακάμπτει το θέμα.
 
-![presentation-design_11.png](presentation-design_11.png)
+![Στυ λ εφέ θέματος μετά την αλλαγή γραμμής, γεμίσματος και σκιών](presentation-design_11.png)
+
+## **Ανάγνωση Αποτελεσματικών Τιμών Θέματος**
+
+Οι ακατέργαστες αντικείμενα θέματος σας λένε τι ορίζεται σε συγκεκριμένο επίπεδο. Οι αποτελεσματικές τιμές σας λένε τι χρησιμοποιεί στην πράξη μια διαφάνεια ή σχήμα μετά την κληρονομιά και τις τοπικές παρακάμψεις. Για μια διαφάνεια, καλέστε το [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Για ένα φόντο, χρησιμοποιήστε το [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/), και για ένα γέμισμα, το [FillFormat::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fillformat/geteffective/).
+
+Το παρακάτω παράδειγμα διαβάζει το αποτελεσματικό θέμα, το φόντο και το πρώτο γέμισμα σχήματος από μια διαφάνεια:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IBackgroundEffectiveData.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IFontsEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFontSchemeEffectiveData.h>
+#include <DOM/Theme/IThemeEffectiveData.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+auto effectiveTheme = slide->CreateThemeEffective();
+auto effectiveBackground = slide->get_Background()->GetEffective();
+
+Console::WriteLine(u"Effective major Latin font: {0}", effectiveTheme->get_FontScheme()->get_Major()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Effective minor Latin font: {0}", effectiveTheme->get_FontScheme()->get_Minor()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Effective background fill type: {0}", effectiveBackground->get_FillFormat()->get_FillType());
+
+if (slide->get_Shapes()->get_Count() > 0)
+{
+    auto effectiveFill = slide->get_Shape(0)->get_FillFormat()->GetEffective();
+    Console::WriteLine(u"First shape effective fill type: {0}", effectiveFill->get_FillType());
+    if (effectiveFill->get_FillType() == FillType::Solid)
+    {
+        Console::WriteLine(u"First shape effective fill color: {0}", effectiveFill->get_SolidFillColor());
+    }
+}
+```
+
+Χρησιμοποιήστε τα αποτελεσματικά δεδομένα για διαγνωστική απόδοση, επικύρωση και συγκρίσεις. Εάν επιθεωρείτε μόνο το [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/el/cpp/aspose.slides/presentation/get_mastertheme/), μπορεί να χάσετε έναν master, layout, διαφάνεια ή παρακάμψη σχήματος που αλλάζει την τελική εμφάνιση.
 
 ## **FAQ**
 
-**Μπορώ να εφαρμόσω ένα θέμα σε μια μόνο διαφάνεια χωρίς να αλλάξω το master;**
+**Μπορώ να εφαρμόσω θέμα σε μία μόνο διαφάνεια χωρίς να αλλάξω τον master;**
 
-Ναι. Το Aspose.Slides υποστηρίζει παρακάμψεις θέματος σε επίπεδο διαφάνειας, ώστε να μπορείτε να εφαρμόσετε τοπικό θέμα μόνο σε αυτή τη διαφάνεια ενώ το master theme παραμένει αμετάβλητο (μέσω του [SlideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/slidethememanager/)).
+Ναι. Χρησιμοποιήστε το [IOverrideThemeManager](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ioverridethememanager/) της διαφάνειας και αρχικοποιήστε το θέμα παρακάμφους της. Η αλλαγή παραμένει τοπική σε εκείνη τη διαφάνεια· οι άλλες διαφάνειες συνεχίζουν να κληρονομούν τα υπάρχοντα θέματα.
 
-**Ποιος είναι ο πιο ασφαλής τρόπος να μεταφέρω ένα θέμα από μια παρουσίαση σε άλλη;**
+**Ποιος είναι ο ασφαλέστερος τρόπος για να μεταφέρω ένα θέμα από μια παρουσίαση σε άλλη;**
 
-[Clone slides](/slides/el/cpp/clone-slides/) μαζί με το master τους στην προοριστική παρουσίαση. Αυτό διατηρεί το αρχικό master, τις διατάξεις και το συσχετισμένο θέμα ώστε η εμφάνιση να παραμένει συνεπής.
+Κατά τη μεταφορά μιας διαφάνειας και τη διατήρηση της αρχικής της εμφάνισης, κλώνος τον πηγαίο master στον προορισμό και κλώνος τη διαφάνεια με εκείνο τον master χρησιμοποιώντας τα [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/imasterslidecollection/addclone/) και [ISlideCollection::AddClone()](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidecollection/addclone/). Αυτό διατηρεί μαζί τον master, τα layout και το θέμα.
 
-**Πώς μπορώ να δω τις «αποτελεσματικές» τιμές μετά από όλες τις κληρονομήσεις και παρακάμψεις;**
+**Πώς μπορώ να δω τις αποτελεσματικές τιμές μετά την κληρονομιά και τις παρακάμψεις;**
 
-Χρησιμοποιήστε τις «αποτελεσματικές» προβολές του API (/slides/el/cpp/shape-effective-properties/) για θέμα/χρώμα/γραμματοσειρά/εφέ. Αυτές επιστρέφουν τις διευθετημένες, τελικές ιδιότητες μετά την εφαρμογή του master και τυχόν τοπικών παρακάμψεων.
+Χρησιμοποιήστε το [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) για μια διαφάνεια ή θέμα layout και τις αντίστοιχες μεθόδους αποτελεσματικών δεδομένων για αντικείμενα μορφοποίησης όπως τα [Background::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/background/geteffective/) και [FillFormat::GetEffective()](https://reference.aspose.com/slides/el/cpp/aspose.slides/fillformat/geteffective/). Αυτά τα API επιστρέφουν τις επιλυμένες τιμές μετά την εφαρμογή της κληρονομιάς και των παρακάμπσεων.

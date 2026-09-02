@@ -12,7 +12,7 @@ keywords:
 - เปลี่ยนธีม
 - จัดการธีม
 - สีธีม
-- พาเล็ตเพิ่มเติม
+- พาเลตเพิ่มเติม
 - ฟอนต์ธีม
 - สไตล์ธีม
 - เอฟเฟกต์ธีม
@@ -21,250 +21,509 @@ keywords:
 - การนำเสนอ
 - C++
 - Aspose.Slides
-description: "ควบคุมธีมการนำเสนอใน Aspose.Slides สำหรับ C++ เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint พร้อมแบรนด์ที่สอดคล้องกัน."
+description: "ควบคุมธีมการนำเสนอใน Aspose.Slides สำหรับ C++ เพื่อสร้าง ปรับแต่ง และแปลงไฟล์ PowerPoint ด้วยการแบรนด์ที่สม่ำเสมอ."
 ---
 ## **บทนำ**
 
-ธีมการนำเสนอกำหนดคุณสมบัติขององค์ประกอบการออกแบบ เมื่อคุณเลือกธีมการนำเสนอ คุณกำลังเลือกชุดขององค์ประกอบภาพและคุณสมบัติเฉพาะของมัน
+ธีมการนำเสนอคือชุดสี ฟอนต์ สไตล์พื้นหลัง การเติม สีเส้น และเอฟเฟกต์ที่ประสานกันอย่างสอดคล้องกัน อ็อบเจ็กต์ที่รับรู้ธีมจะอ้างอิงถึงคำนิยามที่ใช้ร่วมกันเหล่านี้แทนการเก็บค่าคุณสมบัติสำหรับแต่ละอ็อบเจ็กต์เป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมจึงสามารถอัปเดตหลายอ็อบเจ็กต์พร้อมกันได้
 
-ใน PowerPoint ธีมประกอบด้วยสี, [ฟอนต์](/slides/th/cpp/powerpoint-fonts/), [สไตล์พื้นหลัง](/slides/th/cpp/presentation-background/), และเอฟเฟกต์
+ใน Aspose.Slides ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่าน [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_mastertheme/). การนำเสนอยังสามารถมีการเขียนทับธีมในระดับที่ต่ำกว่าได้ มาสเตอร์สามารถเขียนทับธีมของการนำเสนอผ่าน [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), ในขณะที่เลย์เอาต์หรือสไลด์แต่ละสไลด์สามารถใช้ [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). โดยปฏิบัติแล้ว ธีมที่ใช้จริงสำหรับสไลด์จะถูกกำหนดผ่านห่วงโซ่การสืบทอดนี้: ธีมการนำเสนอ → การเขียนทับของมาสเตอร์ → การเขียนทับของเลย์เอาต์ → การเขียนทับของสไลด์
 
-![ส่วนประกอบของธีม](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-## **เปลี่ยนสีธีม**
+ส่วนต่อไปนี้จะแสดงเวิร์กโฟลว์ธีมที่พบบ่อยที่สุด: ตรวจสอบธีม, เปลี่ยนสีและฟอนต์, คัดลอกหรือใช้ธีม, อัปเดตสไตล์พื้นหลังและเอฟเฟกต์, และอ่านค่าที่มีผลหลังจากการสืบทอดและการเขียนทับได้รับการแก้ไขแล้ว
 
-ธีม PowerPoint ใช้ชุดสีเฉพาะสำหรับองค์ประกอบต่างๆ บนสไลด์ หากคุณไม่ชอบสีเหล่านั้น คุณสามารถเปลี่ยนสีโดยการกำหนดสีใหม่ให้กับธีม เพื่อให้คุณเลือกสีธีมใหม่ Aspose.Slides มีค่าที่ให้เลือกภายใต้ enumeration [SchemeColor](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.i_color_format#aad82c1d2daf9d92e4d44a5a9b3bbcf28)
+## **ตรวจสอบธีม**
 
-โค้ด C++ นี้แสดงวิธีเปลี่ยนสีอักเซนต์ของธีม:
+อ็อบเจ็กต์ [MasterTheme](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/mastertheme/) เปิดเผยเมธอด [get_ColorScheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/mastertheme/get_fontscheme/), และ [get_FormatScheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) ของธีม การตรวจสอบคอลเลกชันเหล่านี้ก่อนการแก้ไขเป็นประโยชน์อย่างยิ่งเมื่อการนำเสนอมาจากแหล่งภายนอก เนื่องจากจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน
 
-```c++
-auto pres = System::MakeObject<Presentation>();
+ตัวอย่างต่อไปนี้อ่านคุณสมบัติเบื้องต้นของธีมและรายงานจำนวนสไตล์พื้นหลัง, เติม, เส้น, และเอฟเฟกต์ที่จัดเก็บอยู่ในธีม:
 
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+```cpp
+#include <DOM/IColorFormat.h>
+#include <DOM/IFonts.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <system/console.h>
 
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto theme = presentation->get_MasterTheme();
+auto formatScheme = theme->get_FormatScheme();
+
+Console::WriteLine(u"Theme name: {0}", theme->get_Name());
+Console::WriteLine(u"Accent 1: {0}", theme->get_ColorScheme()->get_Accent1()->get_Color());
+Console::WriteLine(u"Major Latin font: {0}", theme->get_FontScheme()->get_Major()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Minor Latin font: {0}", theme->get_FontScheme()->get_Minor()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Background fill styles: {0}", formatScheme->get_BackgroundFillStyles()->get_Count());
+Console::WriteLine(u"Fill styles: {0}", formatScheme->get_FillStyles()->get_Count());
+Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Count());
+Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
+```
+
+หากไฟล์ใช้หลายมาสเตอร์ อย่ายืนยันว่าทุกสไลด์มีธีมที่มีผลเหมือนกัน ตรวจสอบมาสเตอร์ที่สัมพันธ์กับสไลด์ และใช้เวิร์กโฟลว์ธีมที่มีผลที่แสดงต่อไปในบทความนี้เมื่อมีการเขียนทับของเลย์เอาต์หรือสไลด์
+
+## **เปลี่ยนสีของธีม**
+
+การเติม, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีเชิงตรรกะจากรายการ [SchemeColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/schemecolor/) เมื่อคุณเปลี่ยนรายการที่สอดคล้องใน [IColorScheme](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/icolorscheme/) ของธีม, ทุกอ็อบเจ็กต์ที่ยังอ้างอิงสีของธีมนั้นจะได้รับการประมวลผลใหม่ตามค่าที่เปลี่ยน แต่อ็อบเจ็กต์ที่ใช้สี RGB โดยตรงจะไม่ถูกเปลี่ยนแปลงโดยการอัปเดตสีธีม
+
+ตัวอย่างต่อไปนี้เป็นตัวอย่างแบบครบวงจรที่สร้างรูปทรงที่ใช้ `Accent4`, เปลี่ยนสี `Accent4` ของธีมเป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่อีกครั้ง, และพิมพ์สีเติมที่มีผล:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IColorScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
 shape->get_FillFormat()->set_FillType(FillType::Solid);
 shape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+presentation->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
+presentation->Save(u"theme-color.pptx", SaveFormat::Pptx);
+
+auto savedPresentation = MakeObject<Presentation>(u"theme-color.pptx");
+auto savedSlide = savedPresentation->get_Slide(0);
+auto savedShape = savedSlide->get_Shape(0);
+auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
+Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-คุณสามารถกำหนดค่าที่มีผลของสีที่ได้โดยวิธีนี้:
+เพราะสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4`, สีที่มองเห็นจะกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน หากคุณแทนที่สีสคีมด้วยสีโดยตรงบนรูปทรง การเปลี่ยนแปลงในภายหลังของ `Accent4` จะไม่กระทบต่อการเติมนั้นอีกต่อไป
 
-```c++
-auto fillEffective = shape->get_FillFormat()->GetEffective();
-    
-Console::WriteLine(u"{0} ({1})", fillEffective->get_SolidFillColor().get_Name(), fillEffective->get_SolidFillColor());
-// ff8064a2 (สี [A=255, R=128, G=100, B=162])
-```
+### **ใช้สีจากพาเลตเพิ่มเติม**
 
-เพื่อสาธิตการเปลี่ยนสีต่อไป เราจะสร้างองค์ประกอบอื่นและกำหนดสีอักเซนต์ (จากการดำเนินการแรก) ให้กับมัน จากนั้นเปลี่ยนสีในธีม:
+PowerPoint สร้างสีที่อ่อนและเข้มจากสีธีมโดยการใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน [ColorTransformOperation](https://reference.aspose.com/slides/th/cpp/aspose.slides/colortransformoperation/).
 
-```c++
-auto otherShape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 120.0f, 100.0f, 100.0f);
-    
-otherShape->get_FillFormat()->set_FillType(FillType::Solid);
-otherShape->get_FillFormat()->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-pres->get_MasterTheme()->get_ColorScheme()->get_Accent4()->set_Color(Color::get_Red());
-```
+**1** - สีธีมหลัก
 
-สีใหม่จะถูกนำไปใช้โดยอัตโนมัติบนทั้งสององค์ประกอบ
+**2** - สีอ่อนและสีเข้มที่สร้างจากสีธีมหลัก
 
-### **ตั้งค่าสีธีมจากพาเล็ตเพิ่มเติม**
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอิงจาก `Accent4`, ทำการแปลงความสว่างสำหรับห้ารูป, และบันทึกผลลัพธ์:
 
-เมื่อคุณใช้การแปลงความสว่างกับสีธีมหลัก(1) จะสร้างสีจากพาเล็ตเพิ่มเติม(2) คุณจึงสามารถตั้งค่าและดึงค่าสีธีมเหล่านั้นได้
+```cpp
+#include <DOM/ColorTransformOperation.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IColorOperationCollection.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SchemeColor.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-![สีจากพาเล็ตเพิ่มเติม](additional-palette-colors.png)
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-**1**- สีธีมหลัก  
-**2**- สีจากพาเล็ตเพิ่มเติม  
+auto presentation = MakeObject<Presentation>();
+auto shapes = presentation->get_Slide(0)->get_Shapes();
 
-โค้ด C++ นี้แสดงการดึงสีพาเล็ตเพิ่มเติมจากสีธีมหลักและใช้ในรูปร่าง:
-
-```c++
-auto presentation = System::MakeObject<Presentation>();
-
-auto slide = presentation->get_Slide(0);
-auto shapes = slide->get_Shapes();
-
-// Accent 4
 auto shape1 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 50.0f, 50.0f);
 auto fillFormat1 = shape1->get_FillFormat();
-
 fillFormat1->set_FillType(FillType::Solid);
 fillFormat1->get_SolidFillColor()->set_SchemeColor(SchemeColor::Accent4);
 
-// Accent 4, Lighter 80%
 auto shape2 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 70.0f, 50.0f, 50.0f);
 auto fillFormat2 = shape2->get_FillFormat();
 auto solidFillColor2 = fillFormat2->get_SolidFillColor();
-
 fillFormat2->set_FillType(FillType::Solid);
 solidFillColor2->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor2->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.2f);
 solidFillColor2->get_ColorTransform()->Add(ColorTransformOperation::AddLuminance, 0.8f);
 
-// Accent 4, Lighter 60%
 auto shape3 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 130.0f, 50.0f, 50.0f);
 auto fillFormat3 = shape3->get_FillFormat();
 auto solidFillColor3 = fillFormat3->get_SolidFillColor();
-
 fillFormat3->set_FillType(FillType::Solid);
 solidFillColor3->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor3->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.4f);
 solidFillColor3->get_ColorTransform()->Add(ColorTransformOperation::AddLuminance, 0.6f);
 
-// Accent 4, Lighter 40%
 auto shape4 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 190.0f, 50.0f, 50.0f);
 auto fillFormat4 = shape4->get_FillFormat();
 auto solidFillColor4 = fillFormat4->get_SolidFillColor();
-
 fillFormat4->set_FillType(FillType::Solid);
 solidFillColor4->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor4->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.6f);
 solidFillColor4->get_ColorTransform()->Add(ColorTransformOperation::AddLuminance, 0.4f);
 
-// Accent 4, Darker 25%
 auto shape5 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 250.0f, 50.0f, 50.0f);
 auto fillFormat5 = shape5->get_FillFormat();
 auto solidFillColor5 = fillFormat5->get_SolidFillColor();
-
 fillFormat5->set_FillType(FillType::Solid);
 solidFillColor5->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor5->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.75f);
 
-// Accent 4, Darker 50%
 auto shape6 = shapes->AddAutoShape(ShapeType::Rectangle, 10.0f, 310.0f, 50.0f, 50.0f);
 auto fillFormat6 = shape6->get_FillFormat();
 auto solidFillColor6 = fillFormat6->get_SolidFillColor();
-
 fillFormat6->set_FillType(FillType::Solid);
 solidFillColor6->set_SchemeColor(SchemeColor::Accent4);
 solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLuminance, 0.5f);
 
-presentation->Save(u"example.pptx", Export::SaveFormat::Pptx);
+presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-### **แมป `SchemeColor` ไปยังสี `IColorScheme`**
+รูปแบบเหล่านี้ยังคงอิงจากสีธีม หาก `Accent4` มีการเปลี่ยนแปลงในภายหลัง สีที่แปลงจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
 
-เมื่อคุณทำงานกับ [SchemeColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/schemecolor/) คุณอาจสังเกตว่ามีค่าธีมสีต่อไปนี้: `Background1`, `Background2`, `Text1`, และ `Text2`  
+### **แมปค่า `SchemeColor` ไปยังช่อง `IColorScheme`**
 
-อย่างไรก็ตาม `Presentation::get_MasterTheme()::get_ColorScheme()` จะคืนค่า [IColorScheme](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/icolorscheme/) ซึ่งเปิดเผยสีที่สอดคล้องกันเป็น: `Dark1`, `Dark2`, `Light1`, และ `Light2`
-
-ความแตกต่างนี้เป็นเพียงชื่อเท่านั้น ค่าดังกล่าวอ้างอิงถึงตำแหน่งสีธีมเดียวกันและการแมปคงที่:
+รายการ [SchemeColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2`, ในขณะที่ [IColorScheme](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/icolorscheme/) เปิดเผยช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2`. การแมปเป็นค่าคงที่:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-ไม่มีการแปลงแบบไดนามิกระหว่าง `Text`/`Background` กับ `Dark`/`Light` พวกมันเป็นชื่อทางเลือกของสีธีมเดียวกันเท่านั้น
+เหล่านี้เป็นชื่อทางเลือกของช่องธีมเดียวกัน; ไม่ได้เป็นค่าที่ถูกแปลงแบบไดนามิกจากรูปแบบหนึ่งไปยังอีกรูปแบบหนึ่ง
 
-ความแตกต่างของชื่อเหล่านี้มาจากคำศัพท์ของ Microsoft Office รุ่นเก่าใช้ `Dark 1`, `Light 1`, `Dark 2`, `Light 2` ในขณะที่ UI รุ่นใหม่แสดงตำแหน่งเดียวกันเป็น `Text 1`, `Background 1`, `Text 2`, `Background 2`
+## **เปลี่ยนฟอนต์ของธีม**
 
-## **เปลี่ยนฟอนต์ธีม**
+สคีมฟอนต์ของธีมประกอบด้วยชุดฟอนต์หลักสำหรับหัวเรื่องและชุดฟอนต์รองสำหรับข้อความตัว本文. เมธอด [FontScheme::get_Major()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/fontscheme/get_major/) และ [FontScheme::get_Minor()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/fontscheme/get_minor/) เปิดเผยชุดเหล่านั้น
 
-เพื่อให้คุณเลือกฟอนต์สำหรับธีมและวัตถุประสงค์อื่นๆ Aspose.Slides ใช้ตัวระบุตัวพิเศษเหล่านี้ (คล้ายกับที่ใช้ใน PowerPoint):
+ตัวระบุฟอนต์ธีมที่เข้ากันได้กับ PowerPoint สามารถใช้ในการจัดรูปแบบข้อความ:
 
-* **+mn-lt** - ฟอนต์ส่วนข้อความ ลาติน (ฟอนต์ลาตินรอง)
-* **+mj-lt** - ฟอนต์ส่วนหัว ลาติน (ฟอนต์ลาตินหลัก)
-* **+mn-ea** - ฟอนต์ส่วนข้อความ เอเชียตะวันออก (ฟอนต์เอเชียตะวันออกรอง)
-* **+mj-ea** - ฟอนต์ส่วนหัว เอเชียตะวันออก (ฟอนต์เอเชียตะวันออกหลัก)
+* `+mn-lt` - ฟอนต์ 본문 ละติน (Minor Latin Font)
+* `+mj-lt` - ฟอนต์หัวเรื่อง ละติน (Major Latin Font)
+* `+mn-ea` - ฟอนต์ 본문 เอเชียตะวันออก (Minor East Asian Font)
+* `+mj-ea` - ฟอนต์หัวเรื่อง เอเชียตะวันออก (Major East Asian Font)
 
-โค้ด C++ นี้แสดงวิธีกำหนดฟอนต์ลาตินให้กับองค์ประกอบธีม:
+ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งที่ใช้ฟอนต์ละตินหลักของธีมและบรรทัด 본문 หนึ่งที่ใช้ฟอนต์ละตินรองของธีม จากนั้นเปลี่ยนฟอนต์ธีมและบันทึกผลลัพธ์:
 
-```c++
-auto shape = pres->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IFonts.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/Theme/IFontScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
 
-auto paragraph = System::MakeObject<Paragraph>();
-auto portion = System::MakeObject<Portion>(u"Theme text format");
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-paragraph->get_Portions()->Add(portion);
-shape->get_TextFrame()->get_Paragraphs()->Add(paragraph);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-portion->get_PortionFormat()->set_LatinFont(System::MakeObject<FontData>(u"+mn-lt"));
+auto heading = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40.0f, 40.0f, 500.0f, 60.0f);
+heading->get_TextFrame()->set_Text(u"Theme heading");
+heading->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_LatinFont(MakeObject<FontData>(u"+mj-lt"));
+
+auto body = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 40.0f, 120.0f, 500.0f, 60.0f);
+body->get_TextFrame()->set_Text(u"Theme body text");
+body->get_TextFrame()->get_Paragraph(0)->get_Portion(0)->get_PortionFormat()->set_LatinFont(MakeObject<FontData>(u"+mn-lt"));
+
+presentation->get_MasterTheme()->get_FontScheme()->get_Major()->set_LatinFont(MakeObject<FontData>(u"Aptos Display"));
+presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
+presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-โค้ด C++ นี้แสดงวิธีเปลี่ยนฟอนต์ธีมของการนำเสนอ:
+หัวเรื่องใช้ฟอนต์หลักและข้อความ 본문 ใช้ฟอนต์รอง ข้อความที่ระบุชื่อฟอนต์อย่างชัดเจนแทนตัวระบุธีมจะไม่สลับโดยอัตโนมัติเมื่อสคีมฟอนต์ธีมเปลี่ยน
 
-```c++
-pres->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(MakeObject<FontData>(u"Arial"));
-```
-
-ฟอนต์ในกล่องข้อความทั้งหมดจะได้รับการอัปเดต
-
-{{% alert color="primary" title="TIP" %}} 
-คุณอาจต้องการดู [ฟอนต์ PowerPoint](/slides/th/cpp/powerpoint-fonts/). 
+{{% alert color="info" title="Tip" %}}
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟอนต์การนำเสนอ โปรดดู [PowerPoint Fonts](/slides/th/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
-## **เปลี่ยนสไตล์พื้นหลังธีม**
+## **คัดลอกหรือใช้ธีม**
 
-โดยค่าเริ่มต้น แอป PowerPoint ให้พื้นหลังกำหนดล่วงหน้า 12 แบบ แต่เพียง 3 แบบจาก 12 แบบนั้นจะถูกบันทึกในงานนำเสนอทั่วไป
+มีสองเวิร์กโฟลว์ที่พบบ่อยและแก้ปัญหาที่แตกต่างกัน
 
-![todo:image_alt_text](presentation-design_8.png)
+### **เก็บธีมต้นฉบับเมื่อย้ายสไลด์**
 
-ตัวอย่างเช่น หลังจากคุณบันทึกงานนำเสนอในแอป PowerPoint คุณสามารถรันโค้ด C++ นี้เพื่อค้นหาจำนวนพื้นหลังกำหนดล่วงหน้าในงานนำเสนอ:
+หากต้องการย้ายสไลด์ไปยังการนำเสนออื่นและต้องการรักษาการออกแบบเดิมไว้ ให cloned มาสเตอร์ต้นฉบับไปยังการนำเสนอเป้าหมายด้วย [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslidecollection/addclone/), จากนั้น cloned สไลด์ด้วย [ISlideCollection::AddClone()](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/) และมาสเตอร์ที่ cloned นี้ การทำเช่นนี้จะพัดมาสเตอร์, เลย์เอาต์, และธีมที่สัมพันธ์ไปด้วย
 
-```c++
-auto pres = MakeObject<Presentation>(u"pres.pptx");
-        
-int32_t numberOfBackgroundFills = pres->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles()->get_Count();
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
 
-Console::WriteLine(u"Number of background fill styles for theme is {0}", numberOfBackgroundFills);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto source = MakeObject<Presentation>(u"source-theme.pptx");
+auto target = MakeObject<Presentation>(u"target.pptx");
+auto sourceSlide = source->get_Slide(0);
+auto sourceMaster = sourceSlide->get_LayoutSlide()->get_MasterSlide();
+auto clonedMaster = target->get_Masters()->AddClone(sourceMaster);
+target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
+target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" %}} 
-โดยใช้คุณสมบัติ [BackgroundFillStyles](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.theme.format_scheme#aec29b94bc65619519a86a8d4607f5f7d) จากคลาส [FormatScheme](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.theme.i_format_scheme/) คุณสามารถเพิ่มหรือเข้าถึงสไตล์พื้นหลังในธีม PowerPoint ได้ 
+นี่เป็นเวิร์กโฟลว์ที่แนะนำเมื่อสไลด์ต้นฉบับต้องดูเหมือนเดิมในเป้าหมาย การทำคล cloning เนื้อหาไปยังมาสเตอร์เป้าหมายที่ไม่มีความสัมพันธ์อาจทำให้สี, ฟอนต์, พื้นหลัง, และเอฟเฟกต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนแปลง
+
+### **ใช้ค่าธีมกับสไลด์ที่มีอยู่**
+
+หากสไลด์เป้าหมายต้องคงอยู่บนมาสเตอร์และเลย์เอาต์ปัจจุบัน ให้เริ่มต้นการเขียนทับระดับสไลด์จากธีมต้นฉบับ เมธอด [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/), และ [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) คัดลอกส่วนประกอบธีมหลักทั้งสามเข้าสู่การเขียนทับ
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IOverrideTheme.h>
+#include <DOM/Theme/IOverrideThemeManager.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto source = MakeObject<Presentation>(u"source-theme.pptx");
+auto target = MakeObject<Presentation>(u"target.pptx");
+auto targetSlide = target->get_Slide(0);
+auto overrideTheme = targetSlide->get_ThemeManager()->get_OverrideTheme();
+overrideTheme->InitColorSchemeFrom(source->get_MasterTheme()->get_ColorScheme());
+overrideTheme->InitFontSchemeFrom(source->get_MasterTheme()->get_FontScheme());
+overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme());
+target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
+```
+
+วิธีนี้เปลี่ยนธีมที่ใช้โดยสไลด์นั้นโดยไม่กระทบต่อธีมที่สืบทอดโดยสไลด์อื่น ๆ เพื่อเอาการเขียนทับระดับท้องถิ่นออกและกลับไปยังค่าที่สืบทอด ให้เรียก [OverrideTheme::Clear()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/overridetheme/clear/)
+
+### **ใช้การเขียนทับธีมกับเลย์เอาต์**
+
+การเขียนทับระดับเลย์เอาต์จะใช้กับสไลด์ที่ใช้เลย์เอาต์นั้น ยกเว้นสไลด์ที่มีการเขียนทับของตนเอง เมธอดเริ่มต้นเดียวกันสามารถใช้ผ่าน [IOverrideThemeManager](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/ioverridethememanager/) ของเลย์เอาต์ได้:
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IOverrideTheme.h>
+#include <DOM/Theme/IOverrideThemeManager.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto source = MakeObject<Presentation>(u"source-theme.pptx");
+auto target = MakeObject<Presentation>(u"target.pptx");
+auto targetSlide = target->get_Slide(0);
+auto targetLayout = targetSlide->get_LayoutSlide();
+auto overrideTheme = targetLayout->get_ThemeManager()->get_OverrideTheme();
+overrideTheme->InitColorSchemeFrom(source->get_MasterTheme()->get_ColorScheme());
+overrideTheme->InitFontSchemeFrom(source->get_MasterTheme()->get_FontScheme());
+overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme());
+target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
+```
+
+ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อต้องการให้หลายเลย์เอาต์และสไลด์แชร์การออกแบบฐานเดียวกัน ใช้การเขียนทับระดับเลย์เอาต์เมื่อกลุ่มเลย์เอาต์ต้องการสไตล์ที่แตกต่าง และใช้การเขียนทับระดับสไลด์เฉพาะเมื่อมีข้อยกเว้นจริง ๆ การเขียนทับระดับสไลด์มากเกินไปทำให้การเปลี่ยนแปลงธีมทั่วโลกในภายหลังคาดเดายาก
+
+## **อัปเดตสไตล์พื้นหลังของธีม**
+
+การเติมพื้นหลังของธีมถูกจัดเก็บใน [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint สามารถแสดงตัวเลือกพื้นหลังได้มากกว่าจำนวนการกำหนดการเติมที่จัดเก็บในคอลเลกชันนี้ เนื่องจาก UI สามารถผสานการเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่น ๆ
+
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+
+ก่อนใช้สไตล์พื้นหลัง ให้ตรวจสอบคอลเลกชันที่จัดเก็บและค่าปัจจุบันของ [Background::get_StyleIndex()](https://reference.aspose.com/slides/th/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` ใช้ค่า `0` สำหรับไม่มีการเติมธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังของธีม ซึ่งแตกต่างจากการใช้ดัชนีคอลเลกชัน C++ โดยตรงด้วย `idx_get(0)` ที่ `0` หมายถึงรายการแรกที่จัดเก็บ อย่ายืนยันว่าการนำเสนอทุกไฟล์มีจำนวนสไตล์การเติมพื้นหลังเท่ากัน
+
+ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มีอยู่, กำหนดการอ้างอิงพื้นหลังที่มีธีมให้กับมาสเตอร์แรก, และบันทึกการนำเสนอ:
+
+```cpp
+#include <DOM/BackgroundType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto backgroundStyles = presentation->get_MasterTheme()->get_FormatScheme()->get_BackgroundFillStyles();
+Console::WriteLine(u"Background fill styles: {0}", backgroundStyles->get_Count());
+
+if (backgroundStyles->get_Count() > 0)
+{
+    auto masterSlide = presentation->get_Master(0);
+    masterSlide->get_Background()->set_Type(BackgroundType::Themed);
+    masterSlide->get_Background()->set_StyleIndex(1);
+    presentation->Save(u"theme-background.pptx", SaveFormat::Pptx);
+}
+```
+
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการเขียนทับพื้นหลังที่เลย์เอาต์หรือระดับสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังของมาสเตอร์เท่านั้นอาจไม่กระทบต่อสไลด์นั้น ใช้ [Background::GetEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides/background/geteffective/) เมื่อคุณต้องการทราบพื้นหลังสุดท้ายหลังจากการสืบทอดถูกนำไปใช้
+
+{{% alert color="warning" title="Warning" %}}
+อย่าใช้ `StyleIndex` เป็นดัชนีคอลเลกชันที่เริ่มจากศูนย์ อีกทั้งหลีกเลี่ยงการกำหนดหมายเลขสไตล์โดยตรงจากไฟล์หนึ่งแล้วสมมติว่ามีรูปร่างเดียวกันในไฟล์อื่น; คำจำกัดความสไตล์ของธีมเป็นลักษณะเฉพาะของการนำเสนอ
 {{% /alert %}}
 
-โค้ด C++ นี้แสดงวิธีตั้งค่าพื้นหลังสำหรับงานนำเสนอ:
-
-```c++
-pres->get_Masters()->idx_get(0)->get_Background()->set_StyleIndex(2);
-```
-
-**คู่มือดัชนี**: 0 ใช้สำหรับไม่มีการเติม ดัชนีเริ่มจาก 1
-
-{{% alert color="primary" title="TIP" %}} 
-คุณอาจต้องการดู [พื้นหลัง PowerPoint](/slides/th/cpp/presentation-background/). 
+{{% alert color="info" title="Tip" %}}
+สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง โปรดดู [Presentation Background](/slides/th/cpp/presentation-background/)
 {{% /alert %}}
 
-## **เปลี่ยนเอฟเฟกต์ธีม**
+## **อัปเดตเอฟเฟกต์ของธีม**
 
-ธีม PowerPoint มักมีค่า 3 ค่าในแต่ละอาร์เรย์สไตล์ ซึ่งอาร์เรย์เหล่านี้จะรวมเป็น 3 เอฟเฟกต์: ละเอียดอ่อน, ปานกลาง, และเข้มข้น ตัวอย่างเช่น นี่คือผลลัพธ์เมื่อเอฟเฟกต์ถูกนำไปใช้กับรูปร่างเฉพาะ:
+สคีมรูปแบบของธีมประกอบด้วยคอลเลกชันแยกต่างหากของ [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/formatscheme/get_linestyles/), และ [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). ธีม Office ทั่วไปมักมีรายการสไตล์หลักสามรายการที่สื่อถึงการจัดรูปแบบแบบ Subtle, Moderate, และ Intense อย่างไรก็ตาม โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสมมติว่ามีจำนวนคงที่
 
-![todo:image_alt_text](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-โดยใช้คุณสมบัติ 3 อย่าง ([FillStyles](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.theme.i_format_scheme#ab80b867174104e26e4824dc8585a1563), [LineStyles](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.theme.i_format_scheme#ae68a6d0a27dd2ada86a857ebde695ecd), [EffectStyles](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.theme.i_format_scheme#aba41300412c5c755fe82cf735bcf0f58)) จากคลาส [FormatScheme](https://reference.aspose.com/slides/th/cpp/class/aspose.slides.theme.i_format_scheme/) คุณสามารถเปลี่ยนส่วนต่างๆ ของธีมได้อย่างยืดหยุ่นกว่าใน PowerPoint
+เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน C++ ดัชนีคอลเลกชันเริ่มจากศูนย์: `idx_get(0)` เป็นสไตล์แรกที่จัดเก็บและ `idx_get(2)` เป็นสไตล์ที่สาม ดัชนีอ้างอิงสไตล์ของรูปทรงเป็นแนวคิดแยกต่างหากที่เปิดเผยผ่าน [IShapeStyle](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapestyle/). การแก้ไขสไตล์ธีมจะส่งผลต่อรูปทรงที่อ้างอิงสไตล์นั้น; รูปทรงที่มีการจัดรูปแบบโดยตรงอาจไม่เปลี่ยน
 
-โค้ด C++ นี้แสดงวิธีเปลี่ยนเอฟเฟกต์ธีมโดยการปรับส่วนขององค์ประกอบ:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมที่สาม, เปิดเงานอกในสไตล์เอฟเฟกต์ที่สาม, และบันทึกผลลัพธ์:
 
-```c++
-auto pres = System::MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
-        
-pres->get_MasterTheme()->get_FormatScheme()->get_LineStyles()->idx_get(0)->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+```cpp
+#include <DOM/Effects/IOuterShadow.h>
+#include <DOM/FillType.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IEffectFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/ILineFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IEffectStyle.h>
+#include <DOM/Theme/IEffectStyleCollection.h>
+#include <DOM/Theme/IFillFormatCollection.h>
+#include <DOM/Theme/IFormatScheme.h>
+#include <DOM/Theme/ILineFormatCollection.h>
+#include <DOM/Theme/IMasterTheme.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/console.h>
 
-pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->set_FillType(FillType::Solid);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-pres->get_MasterTheme()->get_FormatScheme()->get_FillStyles()->idx_get(2)->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
+auto presentation = MakeObject<Presentation>(u"Subtle_Moderate_Intense.pptx");
+auto formatScheme = presentation->get_MasterTheme()->get_FormatScheme();
+auto lineStyles = formatScheme->get_LineStyles();
+auto fillStyles = formatScheme->get_FillStyles();
+auto effectStyles = formatScheme->get_EffectStyles();
 
-pres->get_MasterTheme()->get_FormatScheme()->get_EffectStyles()->idx_get(2)->get_EffectFormat()->get_OuterShadowEffect()->set_Distance(10.f);
+if (lineStyles->get_Count() < 1 || fillStyles->get_Count() < 3 || effectStyles->get_Count() < 3)
+{
+    Console::WriteLine(u"The theme does not contain the style entries required by this example.");
+}
+else
+{
+    auto lineStyle = lineStyles->idx_get(0);
+    lineStyle->get_FillFormat()->set_FillType(FillType::Solid);
+    lineStyle->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
 
-pres->Save(u"Design_04_Subtle_Moderate_Intense-out.pptx", SaveFormat::Pptx);
+    auto fillStyle = fillStyles->idx_get(2);
+    fillStyle->set_FillType(FillType::Solid);
+    fillStyle->get_SolidFillColor()->set_Color(Color::get_ForestGreen());
+
+    auto effectFormat = effectStyles->idx_get(2)->get_EffectFormat();
+    effectFormat->EnableOuterShadowEffect();
+    effectFormat->get_OuterShadowEffect()->set_Distance(10.0f);
+
+    presentation->Save(u"theme-effects.pptx", SaveFormat::Pptx);
+}
 ```
 
-การเปลี่ยนแปลงที่เกิดขึ้นในสีเติม, ประเภทการเติม, เอฟเฟกต์เงา ฯลฯ :
+สำหรับรูปทรงที่อ้างอิงช่องเหล่านี้ สไตล์เส้นธีมแรกจะเป็นสีแดง, สไตล์เติมธีมที่สามจะเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟกต์ที่สามจะเพิ่มเงานอกด้วยระยะ 10 pt ผลลัพธ์ภาพที่แน่นอนยังคงขึ้นอยู่กับว่ารูปทรงแต่ละรูปอ้างอิงช่องสไตล์ใดและการจัดรูปแบบโดยตรงจะเขียนทับธีมหรือไม่
 
-![todo:image_alt_text](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **คำถามที่พบบ่อย**
+## **อ่านค่าที่มีผลของธีม**
+
+อ็อบเจ็กต์ธีมดิบบอกคุณว่ามีการกำหนดอะไรที่ระดับใดระดับหนึ่ง ค่าที่มีผลบอกคุณว่าสไลด์หรือรูปทรงใช้ค่าอะไรจริง ๆ หลังจากการสืบทอดและการเขียนทับในระดับท้องถิ่นได้ถูกแก้ไขแล้ว สำหรับสไลด์ ให้เรียก [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). สำหรับพื้นหลัง ใช้ [Background::GetEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides/background/geteffective/), และสำหรับเติม ใช้ [FillFormat::GetEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides/fillformat/geteffective/)
+
+ตัวอย่างต่อไปนี้อ่านธีมที่มีผล, พื้นหลัง, และการเติมของรูปทรงแรกจากสไลด์:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IBackground.h>
+#include <DOM/IBackgroundEffectiveData.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IFontsEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Theme/IFontSchemeEffectiveData.h>
+#include <DOM/Theme/IThemeEffectiveData.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+auto slide = presentation->get_Slide(0);
+auto effectiveTheme = slide->CreateThemeEffective();
+auto effectiveBackground = slide->get_Background()->GetEffective();
+
+Console::WriteLine(u"Effective major Latin font: {0}", effectiveTheme->get_FontScheme()->get_Major()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Effective minor Latin font: {0}", effectiveTheme->get_FontScheme()->get_Minor()->get_LatinFont()->get_FontName());
+Console::WriteLine(u"Effective background fill type: {0}", effectiveBackground->get_FillFormat()->get_FillType());
+
+if (slide->get_Shapes()->get_Count() > 0)
+{
+    auto effectiveFill = slide->get_Shape(0)->get_FillFormat()->GetEffective();
+    Console::WriteLine(u"First shape effective fill type: {0}", effectiveFill->get_FillType());
+    if (effectiveFill->get_FillType() == FillType::Solid)
+    {
+        Console::WriteLine(u"First shape effective fill color: {0}", effectiveFill->get_SolidFillColor());
+    }
+}
+```
+
+ใช้ข้อมูลที่มีผลสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบความถูกต้อง, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_mastertheme/) คุณอาจพลาดการเขียนทับของมาสเตอร์, เลย์เอาต์, สไลด์, หรือรูปทรงที่ทำให้ลักษณะสุดท้ายเปลี่ยนไป
+
+## **FAQ**
 
 **ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
 
-ได้ Aspose.Slides รองรับการแทนที่ธีมระดับสไลด์ ดังนั้นคุณสามารถใช้ธีมเฉพาะกับสไลด์นั้นโดยคงธีมมาสเตอร์ไว้ (ผ่าน [SlideThemeManager](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/slidethememanager/))
+ได้. ใช้ [IOverrideThemeManager](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/ioverridethememanager/) ของสไลด์และเริ่มต้นธีมการเขียนทับของมัน การเปลี่ยนแปลงจะคงอยู่เฉพาะสไลด์นั้น; สไลด์อื่น ๆ ยังคงสืบทอดธีมที่มีอยู่
 
-**วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งคืออะไร?**
+**วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่งคืออะไร?**
 
-[คัดลอกสไลด์](/slides/th/cpp/clone-slides/) พร้อมกับมาสเตอร์ของมันไปยังงานนำเป้าหมาย วิธีนี้จะรักษามาสเตอร์, เลย์เอาต์, และธีมที่เกี่ยวข้องไว้ ทำให้ลักษณะที่ปรากฏคงที่
+เมื่อย้ายสไลด์และต้องการรักษาลักษณะเดิมของต้นฉบับ ให้คล clones มาสเตอร์ต้นฉบับไปยังปลายทางและคล clones สไลด์พร้อมมาสเตอร์นั้นด้วย [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslidecollection/addclone/) และ [ISlideCollection::AddClone()](https://reference.aspose.com/slides/th/cpp/aspose.slides/islidecollection/addclone/). วิธีนี้จะรักษามาสเตอร์, เลย์เอาต์, และธีมไว้ด้วยกัน
 
-**ฉันจะดูค่าที่ “effective” หลังจากการสืบทอดและการแทนที่ทั้งหมดได้อย่างไร?**
+**ฉันจะดูค่าที่มีผลหลังจากการสืบทอดและการเขียนทับได้อย่างไร?**
 
-ใช้วิว ["effective"](/slides/th/cpp/shape-effective-properties/) ของ API สำหรับธีม/สี/ฟอนต์/เอฟเฟกต์ ซึ่งจะคืนค่าคุณสมบัติสุดท้ายที่ถูกแก้ไขหลังจากนำมาสเตอร์และการแทนที่ในระดับท้องถิ่นเรียบร้อยแล้ว.
+ใช้ [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) สำหรับสไลด์หรือธีมเลย์เอาต์และเมธอดข้อมูลที่มีผลที่สอดคล้องสำหรับออบเจ็กต์รูปแบบ เช่น [Background::GetEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides/background/geteffective/) และ [FillFormat::GetEffective()](https://reference.aspose.com/slides/th/cpp/aspose.slides/fillformat/geteffective/). API เหล่านี้จะคืนค่าที่แก้ไขแล้วหลังจากการสืบทอดและการเขียนทับถูกนำไปใช้.

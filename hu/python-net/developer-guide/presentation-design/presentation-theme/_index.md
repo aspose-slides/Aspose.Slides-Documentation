@@ -1,40 +1,66 @@
 ---
-title: PowerPoint prezentációs sablonok kezelése Pythonban
-linktitle: Prezentációs sablon
+title: PowerPoint bemutató témák kezelése Pythonban
+linktitle: Bemutató téma
 type: docs
 weight: 10
 url: /hu/python-net/presentation-theme/
 keywords:
-- PowerPoint sablon
-- prezentációs sablon
-- dia sablon
-- sablon beállítása
-- sablon módosítása
-- sablon kezelése
-- sablon szín
+- PowerPoint téma
+- bemutató téma
+- dia téma
+- téma beállítása
+- téma módosítása
+- téma kezelése
+- téma szín
 - kiegészítő paletta
-- sablon betűtípus
-- sablon stílus
-- sablon effektus
+- téma betűtípus
+- téma stílus
+- téma effektus
 - PowerPoint
-- prezentáció
+- OpenDocument
+- bemutató
 - Python
 - Aspose.Slides
-description: "Mester prezentációs sablonok az Aspose.Slides Python verzióban .NET segítségével, a PowerPoint fájlok konzisztens márkázás szerinti létrehozásához, testreszabásához és konvertálásához."
+description: "Az Aspose.Slides for Python via .NET segítségével a bemutató témák mesterkezelése a PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához, egységes márkázás mellett."
 ---
 ## **Bevezetés**
 
-A prezentációs sablon meghatározza a tervezési elemei tulajdonságait. Amikor egy sablont választ, egy koordinált vizuális elemek és azok tulajdonságainak halmazát választja.
+A bemutató téma koordinált szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet definiál. A téma‑tudatos objektumok ezekre a megosztott definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékkel tárolnának, így egy téma‑csere egyszerre sok objektumot frissíthet.
 
-A PowerPointban egy sablon tartalmaz színeket, [betűtípusok](/slides/hu/python-net/powerpoint-fonts/), [háttérstílusokat](/slides/hu/python-net/presentation-background/), és effektusokat.
+Az Aspose.Slides esetében a bemutató‑szintű témát a [Presentation.master_theme](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/master_theme/) tulajdonság biztosítja. A bemutató alacsonyabb szinteken is tartalmazhat téma‑felülírásokat. Egy mester felülírhatja a bemutató témáját a [MasterThemeManager.override_theme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/masterthememanager/override_theme/) segítségével, egy elrendezés felülírhatja a neki örökölt témát a [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/) segítségével, és egy egyedi dia is megteheti ugyanezt. Gyakorlatban a dia hatékony témája ezen öröklődési lánc mentén kerül feloldásra: bemutató téma, mester felülírás, elrendezés felülírás, dia felülírás.
 
-![theme-constituents](theme-constituents.png)
+![Téma összetevők: színek, betűtípusok, háttérstílusok és effektusok](theme-constituents.png)
 
-## **A sablon színének módosítása**
+Az alábbi szakaszok a leggyakoribb téma‑munkafolyamatokat mutatják be: téma ellenőrzése, színek és betűk módosítása, téma másolása vagy alkalmazása, háttér‑ és effektusstílusok frissítése, valamint a hatékony értékek olvasása az öröklődés és a felülírások feloldása után.
 
-A PowerPoint sablon egy meghatározott színkészletet használ a dián lévő különböző elemekhez. Ha a alapértelmezettek nem tetszenek, új sablonszínek alkalmazásával módosíthatja őket. Ahhoz, hogy új sablonszínt válasszon, az Aspose.Slides a [SchemeColor](https://reference.aspose.com/slides/hu/python-net/aspose.slides/schemecolor/) felsorolásban értékeket biztosít.
+## **Téma ellenőrzése**
 
-Ez a Python kód megmutatja, hogyan változtatható meg egy sablon hangsúlyszíne:
+A [MasterTheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/mastertheme/) objektum a téma [color_scheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/mastertheme/font_scheme/) és [format_scheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/mastertheme/format_scheme/) tulajdonságait teszi elérhetővé. Ezeknek a gyűjteményeknek az ellenőrzése a módosításuk előtt különösen hasznos, ha a bemutató külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
+
+Az alábbi példa beolvassa a fő téma‑tulajdonságokat, és jelentést készít arról, hogy hány háttér-, kitöltés-, vonal‑ és effektusstílus tárolódik a témában:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    theme = presentation.master_theme
+    print(f"Theme name: {theme.name}")
+    print(f"Accent 1: {theme.color_scheme.accent1.color}")
+    print(f"Major Latin font: {theme.font_scheme.major.latin_font.font_name}")
+    print(f"Minor Latin font: {theme.font_scheme.minor.latin_font.font_name}")
+    print(f"Background fill styles: {len(theme.format_scheme.background_fill_styles)}")
+    print(f"Fill styles: {len(theme.format_scheme.fill_styles)}")
+    print(f"Line styles: {len(theme.format_scheme.line_styles)}")
+    print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
+```
+
+Ha egy fájl több mestert használ, ne feltételezzük, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Ellenőrizze a diával kapcsolatos mestert, és használja a később ebben a cikkben bemutatott hatékony‑téma munkafolyamatot, ha elrendezés‑ vagy dia‑felülírások vannak jelen.
+
+## **Téma színeinek módosítása**
+
+A téma‑tudatos kitöltések, vonalak és szöveg logikai színre hivatkozhat a [SchemeColor](https://reference.aspose.com/slides/hu/python-net/aspose.slides/schemecolor/) felsorolásból. Ha a téma [ColorScheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/colorscheme/) megfelelő bejegyzését módosítja, minden olyan objektum, amely még mindig arra a téma‑színre hivatkozik, az új értékkel lesz feloldva. Azok az objektumok, amelyek közvetlen RGB‑színt használnak, nem változnak meg a témaszín‑frissítés hatására.
+
+Az alábbi vég‑vég példakódrészlet létrehoz egy alakzatot, amely az `ACCENT4`‑et használja, megváltoztatja a téma `accent4` színét pirosra, elmenti a bemutatót, újra megnyitja, és kiírja a hatékony kitöltőszínt:
 
 ```python
 import aspose.pydrawing as draw
@@ -42,214 +68,275 @@ import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
     shape.fill_format.fill_type = slides.FillType.SOLID
     shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+    presentation.master_theme.color_scheme.accent4.color = draw.Color.red
+    presentation.save("theme-color.pptx", slides.export.SaveFormat.PPTX)
+
+with slides.Presentation("theme-color.pptx") as saved_presentation:
+    saved_slide = saved_presentation.slides[0]
+    saved_shape = saved_slide.shapes[0]
+    effective_fill = saved_shape.fill_format.get_effective()
+    print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-A kapott szín tényleges értékét a következőképpen határozhatja meg:
+Mivel a téglalap továbbra is az `ACCENT4`‑hez van kapcsolva, a látható színe pirosra változik a téma módosítása után. Ha a sémaszínt közvetlen színre cseréli az alakzaton, a későbbi `accent4` változások már nem befolyásolják azt a kitöltést.
 
-```python
-fill_effective = shape.fill_format.get_effective()
-print("{0} ({1})".format(fill_effective.solid_fill_color.name, fill_effective.solid_fill_color))
+### **Színek használata a kiegészítő palettáról**
 
-# Példa kimenet:
-#
-# ff8064a2 (Szín [A=255, R=128, G=100, B=162])
-```
+A PowerPoint a témaszínből könnyebb és sötétebb változatokat színtranszformációk alkalmazásával származtat. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/colortransformoperation/) felsorolásán keresztül teszi elérhetővé.
 
-A színváltás további bemutatásához létrehozunk egy másik elemet, az első lépésben kapott hangsúlyszínt rendeljük hozzá, majd frissítjük a sablonszínt.
+![A fő téma színei és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
 
-```python
-other_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 120, 100, 100)
-other_shape.fill_format.fill_type = slides.FillType.SOLID
-other_shape.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
+**1** – A fő téma színei.
 
-presentation.master_theme.color_scheme.accent4.color = draw.Color.red
-```
+**2** – A fő téma színeiből előállított világosabb és sötétebb változatok.
 
-Az új szín automatikusan alkalmazásra kerül mindkét elemre.
-
-### **Sablonszín beállítása a kiegészítő palettáról**
-
-Amikor fényességtranszformációkat alkalmaz a fő sablonszínre (1), a kiegészítő palettáról (2) színek keletkeznek. Ezeket a sablonszíneket ezután beállíthatja és lekérheti.
-
-![additional-palette-colors](additional-palette-colors.png)
-
-**1** — Fő sablonszínek  
-**2** — A kiegészítő paletta színei
-
-Ez a Python kód bemutatja, hogyan származtatják a kiegészítő palettaszíneket a fő sablonszínből, és hogyan használják őket alakzatokban:
+Az alábbi példa hat téglalapot hoz létre az `ACCENT4` alapján, ötön luminancia‑transzformációkat alkalmaz, majd elmenti az eredményt:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-
-    # Akcentus 4
     shape1 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 50, 50)
-
     shape1.fill_format.fill_type = slides.FillType.SOLID
     shape1.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
-
-    # Akcentus 4, Világosabb 80%
     shape2 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 70, 50, 50)
-
     shape2.fill_format.fill_type = slides.FillType.SOLID
     shape2.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.2)
     shape2.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.8)
-
-    # Akcentus 4, Világosabb 60%
     shape3 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 130, 50, 50)
-
     shape3.fill_format.fill_type = slides.FillType.SOLID
     shape3.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.4)
     shape3.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.6)
-
-    # Akcentus 4, Világosabb 40%
     shape4 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 190, 50, 50)
-
     shape4.fill_format.fill_type = slides.FillType.SOLID
     shape4.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.6)
     shape4.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.ADD_LUMINANCE, 0.4)
-
-    # Akcentus 4, Sötétebb 25%
     shape5 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 250, 50, 50)
-
     shape5.fill_format.fill_type = slides.FillType.SOLID
     shape5.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape5.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.75)
-
-    # Akcentus 4, Sötétebb 50%
     shape6 = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 310, 50, 50)
-
     shape6.fill_format.fill_type = slides.FillType.SOLID
     shape6.fill_format.solid_fill_color.scheme_color = slides.SchemeColor.ACCENT4
     shape6.fill_format.solid_fill_color.color_transform.add(slides.ColorTransformOperation.MULTIPLY_LUMINANCE, 0.5)
-
-    presentation.save("example.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-### **`SchemeColor` leképezése a `ColorScheme` színekre**
+Ezek a változatok a téma‑színen alapulnak. Ha a `accent4` később változik, a transzformált színek az új `accent4` értékből kerülnek újraszámításra.
 
-Amikor a [SchemeColor](https://reference.aspose.com/slides/hu/python-net/aspose.slides/schemecolor/) értékekkel dolgozik, észreveheti, hogy a következő sablonszín-értékek találhatók benne: `BACKGROUND1`, `BACKGROUND2`, `TEXT1` és `TEXT2`.
+### **A `SchemeColor` értékek leképezése a `ColorScheme` helyekre**
 
-Ugyanakkor a `Presentation.master_theme.color_scheme` egy [ColorScheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/colorscheme/) objektumot ad vissza, amely a megfelelő színeket a következőképpen nevezi:
-
-`dark1`, `dark2`, `light1`, és `light2`.
-
-Ez a különbség csak a megnevezésben van. Ezek az értékek ugyanazokra a sablonszínhelyekre vonatkoznak, és a leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/hu/python-net/aspose.slides/schemecolor/) felsorolás a `TEXT1`, `BACKGROUND1`, `TEXT2` és `BACKGROUND2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/colorscheme/) ugyanazokat a témahelyeket `dark1`, `light1`, `dark2` és `light2` néven teszi közzé. A leképezés rögzített:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Nincs dinamikus konverzió a `TEXT`/`BACKGROUND` és a `dark`/`light` között. Egyszerűen alternatív nevei ugyanannak a sablonszínnek.
+Ezek ugyanazon témahelyek alternatív nevei; nem dinamikusan átalakított értékek.
 
-Ez a néveltérés a Microsoft Office terminológiájából ered. A régebbi Office verziók a `Dark 1`, `Light 1`, `Dark 2` és `Light 2` megnevezéseket használták, míg az újabb felhasználói felületek ugyanazokat a helyeket a `Text 1`, `Background 1`, `Text 2` és `Background 2` néven jelenítik meg.
+## **Téma betűtípusainak módosítása**
 
-## **A sablon betűtípusának módosítása**
+A téma betűtípus‑sémája egy fő betűtípus‑készletet tartalmaz a címsorokhoz és egy kisebb betűtípus‑készletet a törzsszöveghez. A [FontScheme.major](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/fontscheme/major/) és a [FontScheme.minor](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/fontscheme/minor/) tulajdonságok teszik ezeket a készleteket elérhetővé.
 
-Az Aspose.Slides lehetővé teszi a sablonok és egyéb célok betűtípusainak kiválasztását a következő speciális azonosítókkal (a PowerPointban használtakkal megegyezően):
+PowerPoint‑kompatibilis téma‑betűtípus azonosítókat a szövegformázásban lehet használni:
 
-- **+mn-lt** — Szöveg betűtípusa Latin (Kisebb Latin betűtípus)
-- **+mj-lt** — Címsor betűtípusa Latin (Nagy Latin betűtípus)
-- **+mn-ea** — Szöveg betűtípusa Kelet-Ázsiai (Kisebb Kelet-Ázsiai betűtípus)
-- **+mj-ea** — Címsor betűtípusa Kelet-Ázsiai (Nagy Kelet-Ázsiai betűtípus)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading Font Latin (Major Latin Font)
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
 
-Ez a Python kód megmutatja, hogyan rendelhet Latin betűtípust egy sablon elemhez:
-
-```python
-portion = slides.Portion("Theme text format")
-portion.portion_format.latin_font = slides.FontData("+mn-lt")
-
-paragraph = slides.Paragraph()
-paragraph.portions.add(portion)
-
-shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 100, 100)
-shape.text_frame.paragraphs.add(paragraph)
-```
-
-Ez a Python példa bemutatja, hogyan változtatható meg a prezentáció sablonbetűtípusa:
+Az alábbi példa létrehoz egy címsort, amely a fő latin téma‑betűtípust használja, és egy törzssort, amely a kisebb latin téma‑betűtípust használja. Ezután módosítja a téma betűtípusait, és elmenti az eredményt:
 
 ```python
-presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
-```
+import aspose.slides as slides
 
-Az összes szövegdoboz frissül az új betűtípusra.
-
-{{% alert color="primary" title="TIP" %}}
-További információért lásd a [Mester PowerPoint betűtípusok Pythonban](/slides/hu/python-net/powerpoint-fonts/).
-{{% /alert %}}
-
-## **A sablon háttérstílusának módosítása**
-
-Alapértelmezés szerint a PowerPoint 12 előre definiált hátteret biztosít, de egy tipikus prezentáció csak 3‑at tárol.
-
-![todo:image_alt_text](presentation-design_8.png)
-
-Például a PowerPointban egy prezentáció mentése után a következő Python kóddal meghatározhatja, hány előre definiált háttere van:
-
-```python
 with slides.Presentation() as presentation:
-    number_of_background_fills = len(presentation.master_theme.format_scheme.background_fill_styles)
-    print(f"Number of theme background fill styles: {number_of_background_fills}")
+    slide = presentation.slides[0]
+    heading = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 40, 500, 60)
+    heading.text_frame.text = "Theme heading"
+    heading.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mj-lt")
+    body = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 40, 120, 500, 60)
+    body.text_frame.text = "Theme body text"
+    body.text_frame.paragraphs[0].portions[0].portion_format.latin_font = slides.FontData("+mn-lt")
+    presentation.master_theme.font_scheme.major.latin_font = slides.FontData("Aptos Display")
+    presentation.master_theme.font_scheme.minor.latin_font = slides.FontData("Arial")
+    presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="warning" %}}
-A [FormatScheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/formatscheme/) osztály `background_fill_styles` tulajdonságának használatával hozzáadhat vagy elérhet háttérstílusokat egy PowerPoint sablonban.
+A cím a fő betűtípust, a törzsszöveg a kisebb betűtípust követi. Azok a szövegek, amelyeknek explicit betűtárgya van a témaazonosító helyett, nem váltanak automatikusan, ha a téma betűtípus‑sémája megváltozik.
+
+{{% alert color="info" title="Tip" %}}
+További információk a bemutató betűtípusaival kapcsolatban: [PowerPoint Fonts](/slides/hu/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
-Ez a Python példa megmutatja, hogyan állítható be a prezentáció háttere:
+## **Téma másolása vagy alkalmazása**
+
+Két gyakori munkafolyamat létezik, és különböző problémákat oldanak meg.
+
+### **Eredeti téma megőrzése diák áthelyezésekor**
+
+Ha egy diát egy másik bemutatóba szeretne áthelyezni, miközben megőrzi az eredeti megjelenést, klónozza a forrás‑mestert a cél‑bemutatóba a [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/add_clone/) segítségével, majd klónozza a diát a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) és a klónozott mesterrel. Így a mester, annak elrendezései és a kapcsolódó téma együtt kerülnek át.
 
 ```python
-presentation.masters[0].background.style_index = 2  # 0 jelenti a kitöltés hiányát; a indexelés 1‑től kezdődik.
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        source_slide = source.slides[0]
+        source_master = source_slide.layout_slide.master_slide
+        cloned_master = target.masters.add_clone(source_master)
+        target.slides.add_clone(source_slide, cloned_master, True)
+        target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert color="primary" title="TIP" %}}
-További információért lásd a [Prezentáció háttér kezelése Pythonban](/slides/hu/python-net/presentation-background/).
+Ez a preferált munkafolyamat, ha a forrás‑dia megjelenésének változatlanságát szeretné biztosítani a cél‑helyen. Csak a tartalom klónozása egy nem kapcsolódó cél‑mesterre megváltoztathatja a téma‑alapú színeket, betűtípusokat, háttereket és effektusokat.
+
+### **Témaértékek alkalmazása meglévő diára**
+
+Ha a cél‑diának a jelenlegi mesterén és elrendezésén kell maradnia, inicializáljon dia‑szintű felülírást a forrás‑témából. A [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), a [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/) és a [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) metódusok a három fő téma‑komponenst másolják a felülírásba.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        target_slide = target.slides[0]
+        override_theme = target_slide.theme_manager.override_theme
+        override_theme.init_color_scheme_from(source.master_theme.color_scheme)
+        override_theme.init_font_scheme_from(source.master_theme.font_scheme)
+        override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+        target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Ez megváltoztatja a dia által használt témát anélkül, hogy a többi dia által örökölt témát módosítaná. A helyi felülírás eltávolításához és az örökölt értékek visszaállításához hívja meg a [OverrideTheme.clear](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/overridetheme/clear/) metódust.
+
+### **Témafelülírás alkalmazása elrendezésre**
+
+Az elrendezés‑szintű felülírás az azon elrendezést használó diákra vonatkozik, kivéve ha egy adott diához saját felülírás van rendelve. Ugyanezeket az inicializáló metódusokat a layout [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/layoutslidethememanager/) segítségével lehet használni:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("source-theme.pptx") as source:
+    with slides.Presentation("target.pptx") as target:
+        target_slide = target.slides[0]
+        override_theme = target_slide.layout_slide.theme_manager.override_theme
+        override_theme.init_color_scheme_from(source.master_theme.color_scheme)
+        override_theme.init_font_scheme_from(source.master_theme.font_scheme)
+        override_theme.init_format_scheme_from(source.master_theme.format_scheme)
+        target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Használjon mester‑ vagy bemutató‑szintű témát, ha sok elrendezésnek és diáknak kell ugyanazt az alapszerkezetet megosztania; egy elrendezés‑felülírást akkor, ha egy elrendezés‑családnak másféle stílusra van szüksége; és csak diára vonatkozó felülírást a valódi kivételeknél. A túlzott dia‑szintű felülírások megnehezítik a későbbi globális téma‑változtatások előrejelzését.
+
+## **Téma háttérstílusainak frissítése**
+
+A téma háttér‑kitöltései a [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/formatscheme/background_fill_styles/) gyűjteményben vannak tárolva. A PowerPoint a felhasználói felületén több háttér‑választékot mutathat, mint amennyi kitöltés‑definíció fizikailag tárolva van ebben a gyűjteményben, mivel a felület a téma‑kitöltéseket témaszínnel és más stílushivatkozásokkal kombinálhatja.
+
+![PowerPoint háttérstílus galéria egy bemutató‑témához](presentation-design_8.png)
+
+Mielőtt egy háttérstílust használna, ellenőrizze a tárolt gyűjteményt és a jelenlegi [Background.style_index](https://reference.aspose.com/slides/hu/python-net/aspose.slides/background/style_index/) értéket. A `style_index` a `0` értékkel jelöli a témamentes kitöltést; a pozitív értékek téma‑háttérstílus‑hivatkozások. Ez eltér a Python gyűjtemények közvetlen indexelésétől, ahol a `[0]` az első tárolt elem. Ne feltételezze, hogy minden bemutató ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
+
+Az alábbi példa jelzi a rendelkezésre álló háttér‑kitöltés számát, egy témaszerű háttér‑hivatkozást ad az első mesterhez, majd elmenti a bemutatót:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    background_styles = presentation.master_theme.format_scheme.background_fill_styles
+    print(f"Background fill styles: {len(background_styles)}")
+    if len(background_styles) == 0:
+        raise RuntimeError("The presentation theme does not contain background fill styles.")
+    master_slide = presentation.masters[0]
+    master_slide.background.type = slides.BackgroundType.THEMED
+    master_slide.background.style_index = 1
+    presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
+```
+
+A látható eredmény a mester által hivatkozott téma‑bejegyzéstől, valamint az elrendezés‑ vagy dia‑szintű háttér‑felülírásoktól függ. Ha egy dia saját háttérrel rendelkezik, csak a mester háttér módosítása nem biztos, hogy megváltoztatja azt a diát. Használja a [Background.get_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides/background/get_effective/) metódust, ha a végleges, öröklődés után alkalmazott háttérre van szüksége.
+
+{{% alert color="warning" title="Warning" %}}
+Ne kezelje a `style_index`‑et nulláral kezdődő gyűjtemény‑indexként. Kerülje a stílusszámok egy fájlból történő kemény kódolását, és annak feltételezését, hogy egy másik fájlban ugyanazt a megjelenést eredményezze; a téma‑stílusdefiníciók bemutató‑specifikusak.
 {{% /alert %}}
 
-## **A sablon effektusainak módosítása**
+{{% alert color="info" title="Tip" %}}
+Közvetlen háttérformázásról és háttér‑öröklődésről lásd: [Presentation Background](/slides/hu/python-net/presentation-background/).
+{{% /alert %}}
 
-Egy PowerPoint sablon általában három értéket tartalmaz minden stílus tömbben. Ezek a tömbök három effektusszintet alkotnak: finom, közepes és intenzív. Például itt látható az eredmény, amikor ezeket az effektusokat egy adott alakzatra alkalmazzák:
+## **Téma effektusainak frissítése**
 
-![todo:image_alt_text](presentation-design_10.png)
+Egy téma formátumsémája különálló [FormatScheme.fill_styles](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/formatscheme/line_styles/) és [FormatScheme.effect_styles](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/formatscheme/effect_styles/) gyűjteményeket tartalmaz. A tipikus Office‑témák gyakran három fő stílusbejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy rögzített számmal számolna.
 
-A [FormatScheme](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/formatscheme/) osztály három tulajdonságával – `FillStyles`, `LineStyles` és `EffectStyles` – módosíthatja a sablon elemeit (még rugalmasabban, mint a PowerPointban).
+![Finom, közepes és intenzív téma‑effektusok ugyanazon alakzaton alkalmazva](presentation-design_10.png)
 
-Ez a Python kód megmutatja, hogyan módosítható egy sablon effektus az elemek részeinek változtatásával:
+Pythonban ezekhez a gyűjteményekhez való hozzáféréskor a gyűjteményindex nullával kezdődik: `[0]` az első tárolt stílus, `[2]` a harmadik. Egy alakzat stílushivatkozási indexei egy külön fogalom, amelyet az [IShapeStyle](https://reference.aspose.com/slides/hu/python-net/aspose.slides/ishapestyle/) tesz elérhetővé. Egy téma‑stílus módosítása azokra az alakzatokra hat, amelyek hivatkoznak arra a téma‑stílusra; a közvetlen formázású alakzatok változatlanok maradhatnak.
+
+Az alábbi példa ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, megváltoztatja az első vonal‑stílust, a harmadik kitöltő‑stílust, engedélyezi egy külső árnyékot a harmadik effektus‑stílusban, majd elmenti az eredményt:
 
 ```python
-with slides.Presentation("sample.pptx") as presentation:
-    presentation.master_theme.format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
-    presentation.master_theme.format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
-    presentation.master_theme.format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
-    presentation.master_theme.format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+import aspose.pydrawing as draw
+import aspose.slides as slides
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
+    format_scheme = presentation.master_theme.format_scheme
+    if len(format_scheme.line_styles) < 1 or len(format_scheme.fill_styles) < 3 or len(format_scheme.effect_styles) < 3:
+        raise RuntimeError("The theme does not contain the style entries required by this example.")
+    format_scheme.line_styles[0].fill_format.fill_type = slides.FillType.SOLID
+    format_scheme.line_styles[0].fill_format.solid_fill_color.color = draw.Color.red
+    format_scheme.fill_styles[2].fill_type = slides.FillType.SOLID
+    format_scheme.fill_styles[2].solid_fill_color.color = draw.Color.forest_green
+    format_scheme.effect_styles[2].effect_format.enable_outer_shadow_effect()
+    format_scheme.effect_styles[2].effect_format.outer_shadow_effect.distance = 10
+    presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Az eredményül kapott változások magukban foglalják a kitöltő szín, kitöltő típus, árnyékhatás és egyéb tulajdonságok frissítését:
+Az ezekre a helyekre hivatkozó alakzatok esetében az első téma‑vonal‑stílus pirosra, a harmadik téma‑kitöltő‑stílus szilárd erdei zöldre, a harmadik effektus‑stílus pedig 10 pont távolságú külső árnyékot kap. A pontos vizuális eredmény továbbra is attól függ, hogy mely stílushelyeket hivatkozza az egyes alakzat, és hogy a közvetlen formázás felülírja-e a témát.
 
-![todo:image_alt_text](presentation-design_11.png)
+![Téma‑effektus‑stílusok a vonal, kitöltés és árnyék beállításainak módosítása után](presentation-design_11.png)
+
+## **Hatékony témaértékek olvasása**
+
+A nyers témaobjektumok megmutatják, hogy mi van definiálva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülírások feloldása után. Diára vonatkozóan hívja meg a [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) metódust. Háttér esetén használja a [Background.get_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides/background/get_effective/)‑t, kitöltéshez pedig a [FillFormat.get_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fillformat/get_effective/)‑t.
+
+Az alábbi példa beolvassa a hatékony témát, a háttért és egy dia első alakzatának kitöltését:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    slide = presentation.slides[0]
+    effective_theme = slide.theme_manager.create_theme_effective()
+    effective_background = slide.background.get_effective()
+    print(f"Effective major Latin font: {effective_theme.font_scheme.major.latin_font.font_name}")
+    print(f"Effective minor Latin font: {effective_theme.font_scheme.minor.latin_font.font_name}")
+    print(f"Effective background fill type: {effective_background.fill_format.fill_type}")
+    if len(slide.shapes) > 0:
+        effective_fill = slide.shapes[0].fill_format.get_effective()
+        print(f"First shape effective fill type: {effective_fill.fill_type}")
+        if effective_fill.fill_type == slides.FillType.SOLID:
+            print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
+```
+
+Használja a hatékony adatokat renderelési diagnosztikához, validáláshoz és összehasonlításokhoz. Ha csak a [Presentation.master_theme](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/master_theme/)‑et ellenőrizze, előfordulhat, hogy egy mester, elrendezés, dia vagy alakzat felülírását mellőzi, amely megváltoztatja a végső megjelenést.
 
 ## **GYIK**
 
-**Alkalmazhatok egy sablont egyetlen diára a master módosítása nélkül?**
+**Alkalmazhatok‑e témát egyetlen diára a mester módosítása nélkül?**
 
-Igen. Az Aspose.Slides támogatja a diaszintű sablon felülbírálásokat, így helyi sablont alkalmazhat csak arra a diára, miközben a master sablon érintetlen marad (a [SlideThemeManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/slidethememanager/) segítségével).
+Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/slidethememanager/)‑jét, és inicializálja annak felülírt témáját. A változtatás csak arra a diára lesz lokális; a többi dia a meglévő témáit örökli.
 
-**Mi a legbiztonságosabb módja egy sablon átvitelének egy prezentációból a másikba?**
+**Mi a legbiztonságosabb módja egy téma átvitelének egy bemutatóról a másikra?**
 
-A [Dia másolása](/slides/hu/python-net/clone-slides/) a masterrel együtt a célprezentációba. Ez megőrzi az eredeti mastert, elrendezéseket és a hozzá tartozó sablont, így a megjelenés következetes marad.
+Amikor egy diát áthelyez és meg akarja őrizni a forrás‑megjelenést, klónozza a forrás‑mestert a célnak megfelelően, majd a diát a [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/add_clone/) és a [SlideCollection.add_clone](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/add_clone/) segítségével klónozza. Így a mester, elrendezések és a téma együtt marad.
 
-**Hogyan tekinthetem meg a "hatékony" értékeket minden öröklődés és felülbíráló után?**
+**Hogyan tekinthetem meg a hatékony értékeket az öröklődés és felülírások után?**
 
-Használja az API ["hatékony"](/slides/hu/python-net/shape-effective-properties/) nézeteit a sablon/szín/betűtípus/effektus esetén. Ezek visszaadják a feloldott, végleges tulajdonságokat a master és bármely helyi felülbírálás alkalmazása után.
+Használja a [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/)‑t egy dia vagy elrendezés témához, valamint a formátumobjektumok megfelelő hatékony‑adat‑metódusait, mint a [Background.get_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides/background/get_effective/) és a [FillFormat.get_effective](https://reference.aspose.com/slides/hu/python-net/aspose.slides/fillformat/get_effective/). Ezek az API‑k a feloldott értékeket adják vissza az öröklődés és felülírások alkalmazása után.

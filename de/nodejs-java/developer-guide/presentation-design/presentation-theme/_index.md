@@ -1,256 +1,428 @@
 ---
-title: Verwalten von Präsentationsdesigns in JavaScript
-linktitle: Präsentationsdesign
+title: Präsentationsthemen in JavaScript verwalten
+linktitle: Präsentationsthema
 type: docs
 weight: 10
 url: /de/nodejs-java/presentation-theme/
 keywords:
-- PowerPoint-Design
-- Präsentationsdesign
-- Folien-Design
-- Design festlegen
-- Design ändern
-- Design verwalten
-- Designfarbe
+- PowerPoint-Theme
+- Präsentationsthema
+- Folienthema
+- Theme festlegen
+- Theme ändern
+- Theme verwalten
+- Theme-Farbe
 - zusätzliche Palette
-- Designschriftart
-- Designstil
-- Designeffekt
+- Theme-Schriftart
+- Theme-Stil
+- Theme-Effekt
 - PowerPoint
 - OpenDocument
 - Präsentation
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Verwalten Sie Präsentationsdesigns in JavaScript mit Aspose.Slides für Node.js, um PowerPoint-Dateien mit einheitlicher Markenführung zu erstellen, anzupassen und zu konvertieren."
+description: "Master-Präsentationsthemen in JavaScript mit Aspose.Slides für Node.js erstellen, anpassen und PowerPoint-Dateien mit einheitlicher Markenidentität konvertieren."
 ---
-Ein Präsentationsdesign definiert die Eigenschaften von Designelementen. Wenn Sie ein Präsentationsdesign auswählen, wählen Sie im Wesentlichen einen bestimmten Satz visueller Elemente und deren Eigenschaften.
+## **Einführung**
 
-In PowerPoint besteht ein Design aus Farben, [Schriften](/slides/de/nodejs-java/powerpoint-fonts/), [Hintergrundstilen](/slides/de/nodejs-java/presentation-background/) und Effekten.
+Ein Präsentationstheme definiert ein abgestimmtes Set aus Farben, Schriftarten, Hintergrundstilen, Füllungen, Linien und Effekten. Themenbewusste Objekte referenzieren diese gemeinsamen Definitionen, anstatt jede visuelle Eigenschaft als festen Wert zu speichern, sodass eine Themenänderung viele Objekte gleichzeitig aktualisieren kann.
 
-![Themenbestandteile](theme-constituents.png)
+In Aspose.Slides ist das Präsentationstheme über [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getmastertheme/) verfügbar. Eine Präsentation kann auch Themenüberschreibungen auf niedrigeren Ebenen enthalten. Ein Master kann das Präsentationstheme über [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterthememanager/) überschreiben, während ein Layout oder eine einzelne Folie ihr geerbtes Theme über [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseoverridethememanager/) überschreiben kann. In der Praxis wird das effektive Theme für eine Folie über diese Vererbungskette aufgelöst: Präsentationstheme, Master‑Überschreibung, Layout‑Überschreibung und Folien‑Überschreibung.
 
-## **Designfarbe ändern**
+![Theme‑Komponenten: Farben, Schriftarten, Hintergrundstile und Effekte](theme-constituents.png)
 
-Ein PowerPoint-Design verwendet einen bestimmten Satz von Farben für verschiedene Elemente auf einer Folie. Wenn Ihnen die Farben nicht gefallen, ändern Sie sie, indem Sie neue Farben für das Design anwenden. Um ein neues Designfarb auswählen zu ermöglichen, stellt Aspose.Slides Werte aus der [SchemeColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/SchemeColor) Aufzählung bereit.
+Die nachfolgenden Abschnitte zeigen die gängigsten Theme‑Workflows: ein Theme untersuchen, Farben und Schriftarten ändern, ein Theme kopieren oder anwenden, Hintergrund‑ und Effektstile aktualisieren und effektive Werte nach Auflösung von Vererbung und Überschreibungen auslesen.
 
-Dieser JavaScript-Code zeigt, wie Sie die Akzentfarbe für ein Design ändern:
+## **Theme untersuchen**
+
+Das [MasterTheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/mastertheme/)‑Objekt stellt das Farbschema, das Schriftartenschema und das Formatschema des Themes über [MasterTheme.getColorScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/mastertheme/) und [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/mastertheme/) zur Verfügung. Das Untersuchen dieser Sammlungen, bevor sie geändert werden, ist besonders nützlich, wenn eine Präsentation aus einer externen Quelle stammt, da die Anzahl und der Inhalt der Stileinträge variieren können.
+
+Das folgende Beispiel liest die Haupteigenschaften des Themes und gibt an, wie viele Hintergrund‑, Füll‑, Linien‑ und Effektstile im Theme gespeichert sind:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
+    const theme = presentation.getMasterTheme();
+    console.log("Theme name: " + theme.getName());
+    console.log("Accent 1: " + theme.getColorScheme().getAccent1().getColor());
+    console.log("Major Latin font: " + theme.getFontScheme().getMajor().getLatinFont().getFontName());
+    console.log("Minor Latin font: " + theme.getFontScheme().getMinor().getLatinFont().getFontName());
+    console.log("Background fill styles: " + theme.getFormatScheme().getBackgroundFillStyles().size());
+    console.log("Fill styles: " + theme.getFormatScheme().getFillStyles().size());
+    console.log("Line styles: " + theme.getFormatScheme().getLineStyles().size());
+    console.log("Effect styles: " + theme.getFormatScheme().getEffectStyles().size());
+} finally {
+    presentation.dispose();
+}
+```
+
+Verwendet eine Datei mehrere Master, gehen Sie nicht davon aus, dass jede Folie dasselbe effektive Theme hat. Untersuchen Sie den mit der Folie verbundenen Master und verwenden Sie den im späteren Teil dieses Artikels gezeigten effektiven Theme‑Workflow, wenn Layout‑ oder Folien‑Überschreibungen vorhanden sein könnten.
+
+## **Theme‑Farben ändern**
+
+Themenbewusste Füllungen, Linien und Texte können sich auf eine logische Farbe aus der Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/schemecolor/) beziehen. Wenn Sie den entsprechenden Eintrag in der [ColorScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/colorscheme/) ändern, werden alle Objekte, die weiterhin auf diese Theme‑Farbe verweisen, gegen den neuen Wert aufgelöst. Objekte, die eine direkte RGB‑Farbe verwenden, werden durch ein Theme‑Farb‑Update nicht geändert.
+
+Das folgende End‑to‑End‑Beispiel erzeugt eine Form, die `Accent4` verwendet, ändert die Theme‑Farbe `Accent4` zu Rot, speichert die Präsentation, öffnet sie erneut und gibt die effektive Füllfarbe aus:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
+    presentation.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    presentation.save("theme-color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
+}
+
+const savedPresentation = new aspose.slides.Presentation("theme-color.pptx");
+try {
+    const savedSlide = savedPresentation.getSlides().get_Item(0);
+    const savedShape = savedSlide.getShapes().get_Item(0);
+    const effectiveFill = savedShape.getFillFormat().getEffective();
+    console.log("Effective fill color: " + effectiveFill.getSolidFillColor());
+} finally {
+    savedPresentation.dispose();
 }
 ```
 
-So können Sie den effektiven Wert der resultierenden Farbe bestimmen:
+Da das Rechteck weiterhin mit `Accent4` verknüpft ist, wird seine sichtbare Farbe nach der Theme‑Änderung rot. Wenn Sie die Scheme‑Farbe durch eine direkte Farbe auf der Form ersetzen, wirken sich spätere Änderungen von `Accent4` nicht mehr auf diese Füllung aus.
+
+### **Farben aus der zusätzlichen Palette verwenden**
+
+PowerPoint leitet hellere und dunklere Varianten von einer Theme‑Farbe durch Anwendung von Farbtransformationen ab. Aspose.Slides stellt diese Transformationen über die Aufzählung [ColorTransformOperation](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/colortransformoperation/) bereit.
+
+![Haupt‑Theme‑Farben und aus der zusätzlichen Palette erzeugte hellere und dunklere Farben](additional-palette-colors.png)
+
+**1** – Haupt‑Theme‑Farben.  
+**2** – Hellere und dunklere Varianten, die aus den Haupt‑Theme‑Farben erzeugt werden.
+
+Das folgende Beispiel erstellt sechs Rechtecke basierend auf `Accent4`, wendet Luminanz‑Transformationen auf fünf davon an und speichert das Ergebnis:
 
 ```javascript
-var fillEffective = shape.getFillFormat().getEffective();
-var effectiveColor = fillEffective.getSolidFillColor();
-console.log(java.callStaticMethodSync("java.lang.String", "format", "Color [A=%d, R=%d, G=%d, B=%d]", effectiveColor.getAlpha(), effectiveColor.getRed(), effectiveColor.getGreen(), effectiveColor.getBlue()));
-```
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-Um die Farbänderungsoperation weiter zu demonstrieren, erstellen wir ein weiteres Element und weisen ihm die Akzentfarbe (aus der ursprünglichen Operation) zu. Anschließend ändern wir die Farbe im Design:
-
-```javascript
-var otherShape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 120, 100, 100);
-otherShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-otherShape.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-pres.getMasterTheme().getColorScheme().getAccent4().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-```
-
-Die neue Farbe wird automatisch auf beide Elemente angewendet.
-
-### **Designfarbe aus zusätzlicher Palette setzen**
-
-Wenn Sie Luminanztransformationen auf die Hauptdesignfarbe (1) anwenden, entstehen Farben aus der zusätzlichen Palette (2). Sie können diese Designfarben dann setzen und abrufen.
-
-![Farben der zusätzlichen Palette](additional-palette-colors.png)
-
-**1** – Hauptdesignfarben  
-**2** – Farben aus der zusätzlichen Palette.
-
-Dieser JavaScript-Code demonstriert eine Operation, bei der Farben der zusätzlichen Palette aus der Hauptdesignfarbe gewonnen und anschließend in Formen verwendet werden:
-
-```javascript
-var presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Akzent 4
-    var shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 50, 50);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 50, 50);
     shape1.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape1.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    // Akzent 4, Heller 80%
-    var shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 50, 50);
+
+    const shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 70, 50, 50);
     shape2.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape2.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.2);
-    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.8);
-    // Akzent 4, Heller 60%
-    var shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 50, 50);
+    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.2));
+    shape2.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, java.newFloat(0.8));
+
+    const shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 130, 50, 50);
     shape3.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape3.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.4);
-    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.6);
-    // Akzent 4, Heller 40%
-    var shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 50, 50);
+    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.4));
+    shape3.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, java.newFloat(0.6));
+
+    const shape4 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 190, 50, 50);
     shape4.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape4.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.6);
-    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, 0.4);
-    // Akzent 4, Dunkler 25%
-    var shape5 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 250, 50, 50);
+    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.6));
+    shape4.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.AddLuminance, java.newFloat(0.4));
+
+    const shape5 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 250, 50, 50);
     shape5.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape5.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape5.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.75);
-    // Akzent 4, Dunkler 50%
-    var shape6 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 50, 50);
+    shape5.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.75));
+
+    const shape6 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 310, 50, 50);
     shape6.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape6.getFillFormat().getSolidFillColor().setSchemeColor(aspose.slides.SchemeColor.Accent4);
-    shape6.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, 0.5);
-    presentation.save(path + "example_accent4.pptx", aspose.slides.SaveFormat.Pptx);
+    shape6.getFillFormat().getSolidFillColor().getColorTransform().add(aspose.slides.ColorTransformOperation.MultiplyLuminance, java.newFloat(0.5));
+
+    presentation.save("theme-color-palette.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **`SchemeColor` auf `ColorScheme`-Farben abbilden**
+Diese Varianten bleiben auf der Theme‑Farbe basierend. Ändert sich `Accent4` später, werden die transformierten Farben aus dem neuen `Accent4`‑Wert neu berechnet.
 
-Wenn Sie mit [SchemeColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/schemecolor/) arbeiten, werden Sie feststellen, dass es die folgenden Designfarbwerte enthält:
+### **`SchemeColor`‑Werte den `ColorScheme`‑Plätzen zuordnen**
 
-`Background1`, `Background2`, `Text1` und `Text2`.
-
-Allerdings liefert `Presentation.getMasterTheme().getColorScheme()` [ColorScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/colorscheme/) , das die entsprechenden Farben wie folgt bereitstellt:
-
-`Dark1`, `Dark2`, `Light1` und `Light2`.
-
-Dieser Unterschied besteht nur in der Benennung. Diese Werte beziehen sich auf dieselben Designfarbplätze und die Zuordnung ist festgelegt:
+Die Aufzählung [SchemeColor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/schemecolor/) verwendet `Text1`, `Background1`, `Text2` und `Background2`, während [ColorScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/colorscheme/) dieselben Theme‑Plätze als `Dark1`, `Light1`, `Dark2` und `Light2` bereitstellt. Die Zuordnung ist fest:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Es gibt keine dynamische Umwandlung zwischen `Text`/`Background` und `Dark`/`Light`. Es handelt sich lediglich um alternative Bezeichnungen für dieselben Designfarben.
+Dies sind alternative Bezeichnungen für dieselben Theme‑Plätze; sie sind keine Werte, die dynamisch von einer Form in eine andere konvertiert werden.
 
-Dieser Benennungsunterschied stammt aus der Terminologie von Microsoft Office. Ältere Office-Versionen verwendeten `Dark 1`, `Light 1`, `Dark 2` und `Light 2`, während neuere UI-Versionen dieselben Plätze als `Text 1`, `Background 1`, `Text 2` und `Background 2` anzeigen.
+## **Theme‑Schriftarten ändern**
 
-## **Designschriftart ändern**
+Ein Theme‑Schriftartenschema enthält ein Haupt‑Schriftset für Überschriften und ein Neben‑Schriftset für Fließtext. Die Methoden [FontScheme.getMajor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontscheme/) und [FontScheme.getMinor](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontscheme/) geben diese Sets frei.
 
-Um die Auswahl von Schriften für Designs und andere Zwecke zu ermöglichen, verwendet Aspose.Slides diese speziellen Bezeichner (ähnlich denen in PowerPoint):
+PowerPoint‑kompatible Theme‑Schriftidentifikatoren können in der Textformatierung verwendet werden:
 
-* **+mn-lt** – Körper‑Schriftart Latin (Minor Latin Font)
-* **+mj-lt** – Überschriftschrift Latin (Major Latin Font)
-* **+mn-ea** – Körper‑Schriftart Ostasiatisch (Minor East Asian Font)
-* **+mj-ea** – Körper‑Schriftart Ostasiatisch (Major East Asian Font)
+* `+mn-lt` – Body‑Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading‑Font Latin (Major Latin Font)
+* `+mn-ea` – Body‑Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading‑Font East Asian (Major East Asian Font)
 
-Dieser JavaScript-Code zeigt, wie Sie die Latin‑Schrift einer Designelement zuweisen:
-
-```javascript
-var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 100, 100);
-var paragraph = new aspose.slides.Paragraph();
-var portion = new aspose.slides.Portion("Theme text format");
-paragraph.getPortions().add(portion);
-shape.getTextFrame().getParagraphs().add(paragraph);
-portion.getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
-```
-
-Dieser JavaScript-Code zeigt, wie Sie die Präsentationsdesignschriftart ändern:
+Das folgende Beispiel erstellt eine Überschrift, die die Haupt‑Latin‑Theme‑Schrift verwendet, und eine Textzeile, die die Neben‑Latin‑Theme‑Schrift verwendet. Anschließend werden die Theme‑Schriftarten geändert und das Ergebnis gespeichert:
 
 ```javascript
-pres.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
-```
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
 
-Die Schrift in allen Textfeldern wird aktualisiert.
-
-{{% alert color="primary" title="TIP" %}} 
-Sie möchten vielleicht [PowerPoint‑Schriften](/slides/de/nodejs-java/powerpoint-fonts/) sehen. 
-{{% /alert %}}
-
-## **Design‑Hintergrundstil ändern**
-
-Standardmäßig stellt die PowerPoint-App 12 vordefinierte Hintergründe bereit, aber in einer typischen Präsentation werden nur 3 dieser 12 Hintergründe gespeichert. 
-
-![todo:image_alt_text](presentation-design_8.png)
-
-Beispielsweise können Sie nach dem Speichern einer Präsentation in der PowerPoint-App diesen JavaScript-Code ausführen, um die Anzahl der vordefinierten Hintergründe in der Präsentation zu ermitteln:
-
-```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    var numberOfBackgroundFills = pres.getMasterTheme().getFormatScheme().getBackgroundFillStyles().size();
-    console.log("Number of background fill styles for theme is " + numberOfBackgroundFills);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const heading = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 40, 500, 60);
+    heading.getTextFrame().setText("Theme heading");
+    heading.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new aspose.slides.FontData("+mj-lt"));
+
+    const body = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 40, 120, 500, 60);
+    body.getTextFrame().setText("Theme body text");
+    body.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0).getPortionFormat().setLatinFont(new aspose.slides.FontData("+mn-lt"));
+
+    presentation.getMasterTheme().getFontScheme().getMajor().setLatinFont(new aspose.slides.FontData("Aptos Display"));
+    presentation.getMasterTheme().getFontScheme().getMinor().setLatinFont(new aspose.slides.FontData("Arial"));
+    presentation.save("theme-fonts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" %}} 
-Mit der Eigenschaft [BackgroundFillStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getBackgroundFillStyles--) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme) können Sie den Hintergrundstil in einem PowerPoint-Design hinzufügen oder darauf zugreifen. 
-{{% /alert %}} 
+Die Überschrift verwendet die Hauptschrift und der Fließtext die Neben­schrift. Text, dem ein expliziter Schriftname anstelle eines Theme‑Identifiers zugewiesen ist, wechselt nicht automatisch, wenn das Theme‑Schriftartenschema geändert wird.
 
-Dieser JavaScript-Code zeigt, wie Sie den Hintergrund für eine Präsentation festlegen:
-
-```javascript
-pres.getMasters().get_Item(0).getBackground().setStyleIndex(2);
-```
-
-**Index‑Leitfaden**: 0 wird für keine Füllung verwendet. Der Index beginnt bei 1.
-
-{{% alert color="primary" title="TIP" %}} 
-Sie möchten vielleicht [PowerPoint‑Hintergrund](/slides/de/nodejs-java/presentation-background/) sehen. 
+{{% alert color="info" title="Tip" %}}
+Weitere Informationen zu Präsentationsschriften finden Sie unter [PowerPoint Fonts](/slides/de/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Design‑Effekt ändern**
+## **Theme kopieren oder anwenden**
 
-Ein PowerPoint-Design enthält normalerweise 3 Werte für jedes Stil‑Array. Diese Arrays werden zu den 3 Effekten „subtle“, „moderate“ und „intense“ kombiniert. Zum Beispiel ist dies das Ergebnis, wenn die Effekte auf eine bestimmte Form angewendet werden:
+Es gibt zwei gängige Workflows, die unterschiedliche Probleme lösen.
 
-![todo:image_alt_text](presentation-design_10.png)
+### **Quell‑Theme beim Verschieben von Folien erhalten**
 
-Durch die Verwendung von 3 Eigenschaften ([FillStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getFillStyles--), [LineStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getLineStyles--), [EffectStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme#getEffectStyles--)) aus der Klasse [FormatScheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/FormatScheme) können Sie die Elemente in einem Design ändern (noch flexibler als die Optionen in PowerPoint).
-
-Dieser JavaScript-Code zeigt, wie Sie einen Design‑Effekt ändern, indem Sie Teile von Elementen verändern:
+Wenn Sie eine Folie in eine andere Präsentation verschieben und ihr ursprüngliches Design erhalten möchten, klonen Sie den Quell‑Master in die Zielpräsentation mit [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslidecollection/), klonen Sie anschließend die Folie mit [SlideCollection.addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/) und dem geklonten Master. Dadurch werden der Master, seine Layouts und das zugehörige Theme zusammen übernommen.
 
 ```javascript
-var pres = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const source = new aspose.slides.Presentation("source-theme.pptx");
 try {
-    pres.getMasterTheme().getFormatScheme().getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
-    pres.getMasterTheme().getFormatScheme().getFillStyles().get_Item(2).getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GREEN"));
-    pres.getMasterTheme().getFormatScheme().getEffectStyles().get_Item(2).getEffectFormat().getOuterShadowEffect().setDistance(10.0);
-    pres.save("Design_04_Subtle_Moderate_Intense-out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const target = new aspose.slides.Presentation("target.pptx");
+    try {
+        const sourceSlide = source.getSlides().get_Item(0);
+        const clonedMaster = target.getMasters().addClone(sourceSlide.getLayoutSlide().getMasterSlide());
+        target.getSlides().addClone(sourceSlide, clonedMaster, true);
+        target.save("theme-preserved.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        target.dispose();
     }
+} finally {
+    source.dispose();
 }
 ```
 
-Die resultierenden Änderungen bei Füllfarbe, Fülltyp, Schatteneffekt usw.:
+Dies ist der bevorzugte Workflow, wenn die Quellfolie im Ziel gleich aussehen muss. Das reine Klonen von Inhalt auf einen nicht zugehörigen Ziel‑Master kann jedoch themenbasierte Farben, Schriftarten, Hintergründe und Effekte ändern.
 
-![todo:image_alt_text](presentation-design_11.png)
+### **Theme‑Werte auf eine vorhandene Folie anwenden**
+
+Muss die Ziel‑Folie auf ihrem aktuellen Master und Layout bleiben, initialisieren Sie eine Folien‑Überschreibung aus dem Quell‑Theme. Die Methoden [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/overridetheme/) und [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/overridetheme/) kopieren die drei Haupt‑Theme‑Komponenten in die Überschreibung.
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const source = new aspose.slides.Presentation("source-theme.pptx");
+try {
+    const target = new aspose.slides.Presentation("target.pptx");
+    try {
+        const sourceTheme = source.getMasterTheme();
+        const targetSlide = target.getSlides().get_Item(0);
+        const overrideTheme = targetSlide.getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
+        overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
+        overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+        target.save("theme-applied-to-slide.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+Damit wird das von dieser Folie verwendete Theme geändert, ohne das von anderen Folien geerbte Theme zu beeinflussen. Um die lokale Überschreibung zu entfernen und zu den geerbten Werten zurückzukehren, rufen Sie [OverrideTheme.clear](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/overridetheme/) auf.
+
+### **Theme‑Überschreibung auf ein Layout anwenden**
+
+Eine Layout‑Überschreibung gilt für Folien, die dieses Layout verwenden, es sei denn, eine bestimmte Folie hat ihre eigene Überschreibung. Die gleichen Initialisierungsmethoden können über den [LayoutSlideThemeManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/layoutslidethememanager/) verwendet werden:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const source = new aspose.slides.Presentation("source-theme.pptx");
+try {
+    const target = new aspose.slides.Presentation("target.pptx");
+    try {
+        const sourceTheme = source.getMasterTheme();
+        const targetSlide = target.getSlides().get_Item(0);
+        const overrideTheme = targetSlide.getLayoutSlide().getThemeManager().getOverrideTheme();
+        overrideTheme.initColorSchemeFrom(sourceTheme.getColorScheme());
+        overrideTheme.initFontSchemeFrom(sourceTheme.getFontScheme());
+        overrideTheme.initFormatSchemeFrom(sourceTheme.getFormatScheme());
+        target.save("theme-applied-to-layout.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        target.dispose();
+    }
+} finally {
+    source.dispose();
+}
+```
+
+Verwenden Sie ein Master‑ oder Präsentations‑Theme, wenn viele Layouts und Folien dasselbe Basisdesign teilen sollen, eine Layout‑Überschreibung, wenn eine Layout‑Familie ein anderes Styling benötigt, und eine Folien‑Überschreibung nur für echte Ausnahmen. Exzessive Folien‑Überschreibungen erschweren die Vorhersagbarkeit späterer globaler Theme‑Änderungen.
+
+## **Theme‑Hintergrundstile aktualisieren**
+
+Die Hintergrund‑Füllungen des Themes werden in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/formatscheme/) gespeichert. PowerPoint kann in seiner Benutzeroberfläche mehr Hintergrund‑Optionen anzeigen als die tatsächlich in dieser Sammlung gespeicherten Fülldefinitionen, da die UI Theme‑Füllungen mit Theme‑Farben und anderen Stil‑Referenzen kombinieren kann.
+
+![PowerPoint‑Galerie für Hintergrundstile eines Präsentationsthemes](presentation-design_8.png)
+
+Bevor ein Hintergrundstil verwendet wird, untersuchen Sie die gespeicherte Sammlung und den aktuellen [Background.getStyleIndex](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/background/). Ein Stil‑Index von `0` bedeutet keine themenbezogene Füllung; positive Werte sind Verweise auf Theme‑Hintergrundstile. Das unterscheidet sich von der direkten Indizierung der JavaScript‑Sammlung, bei der Index `0` das erste gespeicherte Element bedeutet. Gehen Sie nicht davon aus, dass jede Präsentation dieselbe Anzahl an Hintergrund‑Füllstil‑Einträgen enthält.
+
+Das folgende Beispiel gibt die verfügbare Anzahl an Hintergrund‑Füllungen aus, weist dem ersten Master einen themenbezogenen Hintergrund‑Verweis zu und speichert die Präsentation:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const backgroundStyles = presentation.getMasterTheme().getFormatScheme().getBackgroundFillStyles();
+    console.log("Background fill styles: " + backgroundStyles.size());
+    if (backgroundStyles.size() === 0) {
+        throw new Error("The presentation theme does not contain background fill styles.");
+    }
+
+    const masterSlide = presentation.getMasters().get_Item(0);
+    masterSlide.getBackground().setType(java.newByte(aspose.slides.BackgroundType.Themed));
+    masterSlide.getBackground().setStyleIndex(1);
+    presentation.save("theme-background.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Das sichtbare Ergebnis hängt vom vom Master referenzierten Theme‑Eintrag und von möglichen Hintergrund‑Überschreibungen auf Layout‑ oder Folien‑Ebene ab. Verwendet eine Folie ihren eigenen Hintergrund, kann das Ändern nur des Master‑Hintergrunds diese Folie nicht beeinflussen. Verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/background/), wenn Sie den finalen Hintergrund nach angewandter Vererbung ermitteln müssen.
+
+{{% alert color="warning" title="Warning" %}}
+Behandeln Sie den Stil‑Index nicht als nullbasierten Sammlungs‑Index. Vermeiden Sie außerdem, eine Stil‑Nummer aus einer Datei fest zu kodieren und anzunehmen, dass sie in einer anderen Datei gleich aussieht; Theme‑Stil‑Definitionen sind presentationsspezifisch.
+{{% /alert %}}
+
+{{% alert color="info" title="Tip" %}}
+Für direkte Hintergrundformatierung und Hintergrund‑Vererbung siehe [Presentation Background](/slides/de/nodejs-java/presentation-background/).
+{{% /alert %}}
+
+## **Theme‑Effekte aktualisieren**
+
+Ein Theme‑Formatschema enthält separate Sammlungen für Füll‑, Linien‑ und Effekt‑Stile, die über [FormatScheme.getFillStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/formatscheme/) und [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/formatscheme/) bereitgestellt werden. Typische Office‑Themes enthalten häufig drei Haupteinträge, die visuell subtilen, moderaten und intensiven Formatierungen entsprechen, aber der Code sollte jede Sammlung prüfen, anstatt eine feste Anzahl anzunehmen.
+
+![Subtile, moderate und intensive Theme‑Effekte, die auf dieselbe Form angewendet werden](presentation-design_10.png)
+
+Wenn Sie in JavaScript auf diese Sammlungen zugreifen, ist der Sammlungs‑Index nullbasiert: Index `0` ist der erste gespeicherte Stil und Index `2` der dritte. Die Stil‑Referenz‑Indizes einer Form sind ein separates Konzept, das über [ShapeStyle](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/shapestyle/) bereitgestellt wird. Das Ändern eines Theme‑Stils wirkt sich auf Formen aus, die diesen Theme‑Stil referenzieren; Formen mit direkter Formatierung können unverändert bleiben.
+
+Das folgende Beispiel prüft, ob die erforderlichen Stileinträge vorhanden sind, ändert den ersten Linienstil, ändert den dritten Füllstil, aktiviert einen äußeren Schatten im dritten Effektstil und speichert das Ergebnis:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("Subtle_Moderate_Intense.pptx");
+try {
+    const formatScheme = presentation.getMasterTheme().getFormatScheme();
+    if (formatScheme.getLineStyles().size() < 1 || formatScheme.getFillStyles().size() < 3 || formatScheme.getEffectStyles().size() < 3) {
+        throw new Error("The theme does not contain the style entries required by this example.");
+    }
+
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    formatScheme.getLineStyles().get_Item(0).getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    formatScheme.getFillStyles().get_Item(2).setFillType(java.newByte(aspose.slides.FillType.Solid));
+    formatScheme.getFillStyles().get_Item(2).getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 34, 139, 34));
+    const effectFormat = formatScheme.getEffectStyles().get_Item(2).getEffectFormat();
+    effectFormat.enableOuterShadowEffect();
+    effectFormat.getOuterShadowEffect().setDistance(10);
+    presentation.save("theme-effects.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Für Formen, die diese Plätze referenzieren, wird der erste Theme‑Linienstil rot, der dritte Theme‑Füllstil zu festem Waldgrün, und der dritte Effektstil erhält einen äußeren Schatten mit einem Abstand von 10 Punkten. Das genaue visuelle Ergebnis hängt weiterhin davon ab, welche Stil‑Plätze jede Form referenziert und ob direkte Formatierung das Theme überschreibt.
+
+![Theme‑Effektstile nach Änderung von Linien-, Füll- und Schatteneinstellungen](presentation-design_11.png)
+
+## **Effektive Theme‑Werte auslesen**
+
+Roh‑Theme‑Objekte zeigen, was auf einer bestimmten Ebene definiert ist. Effektive Werte zeigen, was eine Folie oder Form tatsächlich verwendet, nachdem Vererbung und lokale Überschreibungen aufgelöst wurden. Für eine Folie rufen Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseoverridethememanager/) auf. Für einen Hintergrund verwenden Sie [Background.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/background/), und für eine Füllung [FillFormat.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fillformat/).
+
+Das folgende Beispiel liest das effektive Theme, den Hintergrund und die erste Form‑Füllung einer Folie aus:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const effectiveTheme = slide.getThemeManager().createThemeEffective();
+    const effectiveBackground = slide.getBackground().getEffective();
+    console.log("Effective major Latin font: " + effectiveTheme.getFontScheme().getMajor().getLatinFont().getFontName());
+    console.log("Effective minor Latin font: " + effectiveTheme.getFontScheme().getMinor().getLatinFont().getFontName());
+    console.log("Effective background fill type: " + effectiveBackground.getFillFormat().getFillType());
+    if (slide.getShapes().size() > 0) {
+        const effectiveFill = slide.getShapes().get_Item(0).getFillFormat().getEffective();
+        console.log("First shape effective fill type: " + effectiveFill.getFillType());
+        if (effectiveFill.getFillType() === aspose.slides.FillType.Solid) {
+            console.log("First shape effective fill color: " + effectiveFill.getSolidFillColor());
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Verwenden Sie effektive Daten für Rendering‑Diagnosen, Validierung und Vergleiche. Wenn Sie nur [Presentation.getMasterTheme](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getmastertheme/) untersuchen, können Sie einen Master‑, Layout‑, Folien‑ oder Form‑Override übersehen, der das endgültige Erscheinungsbild ändert.
 
 ## **FAQ**
 
-**Kann ich ein Design auf eine einzelne Folie anwenden, ohne den Master zu ändern?**
+**Kann ich ein Theme auf eine einzelne Folie anwenden, ohne den Master zu ändern?**
 
-Ja. Aspose.Slides unterstützt Design‑Überschreibungen auf Folienebene, sodass Sie ein lokales Design nur auf dieser Folie anwenden können, während das Master‑Design unverändert bleibt (über den [SlideThemeManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidethememanager/)).
+Ja. Verwenden Sie den [SlideThemeManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidethememanager/) der Folie und initialisieren Sie dessen Override‑Theme. Die Änderung bleibt lokal auf dieser Folie; andere Folien erben weiterhin ihre bestehenden Themes.
 
-**Was ist der sicherste Weg, ein Design von einer Präsentation zur anderen zu übertragen?**
+**Was ist der sicherste Weg, ein Theme von einer Präsentation zur anderen zu übertragen?**
 
-[Folien klonen](/slides/de/nodejs-java/clone-slides/) zusammen mit ihrem Master in die Zielpräsentation. Dadurch bleiben der ursprüngliche Master, Layouts und das zugehörige Design erhalten, sodass das Erscheinungsbild konsistent bleibt.
+Wenn Sie eine Folie verschieben und ihr Quell‑Design beibehalten, klonen Sie den Quell‑Master in das Ziel und klonen Sie die Folie mit diesem Master mithilfe von [MasterSlideCollection.addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/masterslidecollection/) und [SlideCollection.addClone](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/slidecollection/). Dadurch bleiben Master, Layouts und Theme zusammen.
 
-**Wie kann ich die „effektiven“ Werte nach allen Vererbungen und Überschreibungen sehen?**
+**Wie kann ich die effektiven Werte nach Vererbung und Overrides sehen?**
 
-Verwenden Sie die ["effektiven" Ansichten](/slides/de/nodejs-java/shape-effective-properties/) für Design/Farbe/Schrift/Effekt. Diese geben die aufgelösten, endgültigen Eigenschaften zurück, nachdem der Master sowie etwaige lokale Überschreibungen angewendet wurden.
+Verwenden Sie [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/baseoverridethememanager/) für ein Folien‑ oder Layout‑Theme sowie die entsprechenden Effective‑Data‑Methoden für Format‑Objekte wie [Background.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/background/) und [FillFormat.getEffective](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fillformat/). Diese APIs geben die aufgelösten Werte nach angewandter Vererbung und Overrides zurück.
