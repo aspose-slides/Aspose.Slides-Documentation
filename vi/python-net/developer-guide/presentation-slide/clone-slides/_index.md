@@ -150,7 +150,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
     with slides.Presentation() as target_presentation:
         # Lấy slide đầu tiên từ bản trình bày nguồn.
         source_slide = source_presentation.slides[0]
-        # Lấy master slide được sử dụng bởi slide đầu tiên.
+        # Lấy slide chủ được sử dụng bởi slide đầu tiên.
         source_master = source_slide.layout_slide.master_slide
         # Sao chép master slide vào bộ sưu tập master của bản trình bày đích.
         cloned_master = target_presentation.masters.add_clone(source_master)
@@ -206,10 +206,10 @@ Hãy thực hiện việc này trước khi sao chép master và slide.
 
 Có. Trang ghi chú và các bình luận đánh giá được bao gồm trong bản sao. Nếu bạn không muốn chúng, [xóa chúng](/slides/vi/python-net/presentation-notes/) sau khi chèn.
 
-**Biểu đồ và nguồn dữ liệu của chúng được xử lý như thế nào?**
+### Biểu đồ và nguồn dữ liệu của chúng được xử lý như thế nào?
 
 Đối tượng biểu đồ, định dạng và dữ liệu nhúng được sao chép. Nếu biểu đồ được liên kết tới nguồn bên ngoài (ví dụ, một workbook nhúng OLE), liên kết đó được giữ lại dưới dạng một [OLE object](/slides/vi/python-net/manage-ole/). Sau khi di chuyển giữa các file, hãy kiểm tra tính khả dụng của dữ liệu và hành vi làm mới.
 
-**Tôi có thể kiểm soát vị trí chèn và các phần cho bản sao không?**
+### Tôi có thể kiểm soát vị trí chèn và các phần cho bản sao không?
 
 Có. Bạn có thể chèn bản sao tại một chỉ mục slide cụ thể và đặt nó vào một [section](/slides/vi/python-net/slide-section/) đã chọn. Nếu phần mục tiêu không tồn tại, hãy tạo nó trước rồi di chuyển slide vào đó.

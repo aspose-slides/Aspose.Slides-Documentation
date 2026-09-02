@@ -1,14 +1,14 @@
 ---
-title: الحصول على الخصائص الفعالة للأشكال من العروض التقديمية في .NET
-linktitle: الخصائص الفعالة
+title: الحصول على خصائص الشكل الفعالة من العروض التقديمية في .NET
+linktitle: خصائص فعالة
 type: docs
 weight: 50
 url: /ar/net/shape-effective-properties/
 keywords:
 - خصائص الشكل
 - خصائص الكاميرا
-- جهاز الإضاءة
-- حافة الشكل
+- نظام إضاءة
+- شكل الحافة
 - إطار النص
 - نمط النص
 - ارتفاع الخط
@@ -18,264 +18,247 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "اكتشف كيف تقوم Aspose.Slides لـ .NET بحساب وتطبيق الخصائص الفعالة للأشكال لضمان عرض PowerPoint بدقة."
+description: "تعلم كيفية استخدام Aspose.Slides لـ .NET للتفريق بين تنسيق الشكل المحلي والموروث والفعّال في عروض PowerPoint التقديمية."
 ---
-## **نظرة عامة**
+## **فهم الخصائص المحلية والموروثة والفعالة**
 
-يوضح هذا الموضوع الفرق بين الخصائص **المحلية** و **الفعالة**. القيم المحلية هي القيم التي يتم تعيينها مباشرةً على مستوى تنسيق معين، مثل:
+يمكن أن يأتي تنسيق PowerPoint من عدة مصادر. القيمة المخزنة مباشرة على الكائن هي **القيمة المحلية**. إذا لم يتم تعيين هذه القيمة، يبحث PowerPoint عن مصادر تنسيق أصلية، مثل افتراضية الفقرة، نمط النص، تخطيط أو شريحة رئيسية، سمة، أو إعدادات افتراضية على مستوى العرض. تلك القيم هي **القيم الموروثة**. القيمة التي تظل بعد حل كامل الهرم هي **القيمة الفعالة** – القيمة المستخدمة لتصيير الكائن.
 
-1. خصائص الجزء على الشريحة.
-1. أنماط نص الشكل النموذجي على تخطيط أو شريحة رئيسية، عندما يحتوي شكل إطار نص الجزء على أحدها.
-1. إعدادات النص العامة في العرض التقديمي.
+على سبيل المثال، قد لا يحدد جزء النص ارتفاع الخط الخاص به. يكون محليًا [FontHeight](https://reference.aspose.com/slides/ar/net/aspose.slides/ibaseportionformat/fontheight/) عندئذٍ `float.NaN`، وهو ما يعني "غير محدد هنا". يمكن للجزء أن يرث الارتفاع من الفقرة، أو نمط النص الافتراضي للعرض، أو مصدر مناسب آخر. استدعاء [GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformat/geteffective/) على تنسيق الجزء يُعيد الارتفاع النهائي المحل.
 
-يمكن تعريف القيم المحلية أو حذفها على أي مستوى. عندما تحتاج Aspose.Slides إلى التنسيق النهائي "كما يتم عرضه"، تقوم بحل سلسلة الوراثة وتعيد القيم **الفعالة**. يمكنك الحصول عليها عن طريق استدعاء طريقة `GetEffective` على كائن التنسيق المحلي.
+استخدم نوعي بيانات التنسيق لأغراض مختلفة:
 
-يظهر المثال التالي كيفية الحصول على القيم الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص وعلى الأقل جزء واحد.
+- قراءة أو تعديل كائن تنسيق محلي، مثل [IPortionFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformat/)، عندما تحتاج إلى التحكم في مكان تعريف القيمة.
+- قراءة كائن بيانات فعالة، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformateffectivedata/)، عندما تحتاج إلى النتيجة النهائية المصورة. البيانات الفعالة للقراءة فقط.
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
+## **مقارنة القيم المحلية والموروثة والفعالة**
 
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-تمثل بيانات التنسيق الفعالة التنسيق الحالي المحسوب بعد تطبيق الوراثة. في التنفيذ الحالي، قد يتم تخزين بعض كائنات البيانات الفعالة داخليًا في الذاكرة المؤقتة، مثل [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformateffectivedata/). قد يؤدي استدعاء `GetEffective` مرة أخرى بعد تغيير التنسيق الأب أو الوراثي إلى تحديث البيانات المخزنة مؤقتًا، وقد لا يمثل الكائن الذي تم الحصول عليه مسبقًا الحالة السابقة. إذا كنت بحاجة إلى حفظ القيم الفعالة لإعادة استخدامها لاحقًا، فانسخ الخصائص المطلوبة، مثل ارتفاع الخط، لون التعبئة، نمط الخط، أو المحاذاة، إلى كائن البيانات الخاص بك.
-{{% /alert %}}
-
-## **الحصول على الخصائص الفعالة للكاميرا**
-
-تتيح لك Aspose.Slides الحصول على الخصائص الفعالة للكاميرا. تمثل الواجهة [ICameraEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icameraeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص الكاميرا الفعالة. يتم عرض نسخة من [ICameraEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icameraeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
-
-يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعالة للكاميرا. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
+المثال الكامل التالي ينشئ شكلًا ويطبق ارتفاعات الخط على مستوى العرض، والفقرة، والجزء. كل خطوة تطبع القيم المعرفة في تلك المستويات والقيمة الفعالة الناتجة لنفس جزء النص. كما يوضح لماذا يجب قراءة البيانات الفعالة مرة أخرى بعد تغييرات التنسيق.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **الحصول على الخصائص الفعالة لجهاز الإضاءة**
-
-تتيح لك Aspose.Slides الحصول على الخصائص الفعالة لجهاز الإضاءة. تمثل الواجهة [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ilightrigeffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص جهاز الإضاءة الفعالة. يتم عرض نسخة من [ILightRigEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ilightrigeffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
-
-يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعالة لجهاز الإضاءة. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **الحصول على الخصائص الفعالة لحد الحواف الشكلية**
-
-تتيح لك Aspose.Slides الحصول على الخصائص الفعالة لحد الحواف الشكلية. تمثل الواجهة [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapebeveleffectivedata/) كائنًا غير قابل للتغيير يحتوي على خصائص الحافة الفعالة للشكل. يتم عرض نسخة من [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapebeveleffectivedata/) عبر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/)، التي توفر القيم الفعالة لـ [IThreeDFormat](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/).
-
-يعرض مثال الشيفرة التالي كيفية الحصول على الخصائص الفعالة للحد العلوي لشكل. يفترض أن الشكل الأول على الشريحة الأولى يحتوي على تنسيق ثلاثي الأبعاد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **الحصول على الخصائص الفعالة لإطار النص**
-
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعالة لإطار النص. تحتوي الواجهة [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformateffectivedata/) على خصائص تنسيق إطار النص الفعالة.
-
-يعرض مثال الشيفرة التالي كيفية الحصول على خصائص تنسيق إطار النص الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **الحصول على الخصائص الفعالة لنمط النص**
-
-باستخدام Aspose.Slides، يمكنك الحصول على الخصائص الفعالة لنمط النص. تحتوي الواجهة [ITextStyleEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/itextstyleeffectivedata/) على خصائص نمط النص الفعالة.
-
-يعرض مثال الشيفرة التالي كيفية الحصول على خصائص نمط النص الفعالة. يفترض أن الشكل الأول على الشريحة الأولى هو [IAutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/iautoshape/) يحتوي على إطار نص.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **الحصول على قيمة ارتفاع الخط الفعال**
-
-باستخدام Aspose.Slides، يمكنك الحصول على ارتفاع الخط الفعال. يوضح المثال التالي كيف يتغير ارتفاع الخط الفعال للجزء بعد تعيين قيم ارتفاع الخط المحلية على مستويات مختلفة من بنية العرض التقديمي.
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// تعريف القيم الموروثة على مستويين مختلفين.
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// القيمة المحلية في الجزء تتجاوز القيم الموروثة كلاهما.
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// تغيير قيمة موروثة لا يتجاوز قيمة محلية موجودة.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// مسح القيمة المحلية. الآن الجزء يرث من الفقرة مرة أخرى.
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// مسح قيمة الفقرة. الآن الافتراضي للعرض يزود النتيجة.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // قراءة البيانات الفعالة بعد التغييرات السابقة.
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **الحصول على تنسيق التعبئة الفعال لجدول**
+الأولوية في هذا المثال هي تنسيق الجزء المحلي، ثم تنسيق الفقرة، ثم الافتراضي للعرض. يمكن لكائنات أخرى أن تكون لها سلاسل وراثة مختلفة، لكن المبدأ نفسه: القيمة الصريحة الأكثر تحديدًا هي التي تنتصر، و[GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformat/geteffective/) تُعيد النتيجة النهائية.
 
-باستخدام Aspose.Slides، يمكنك الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. تحتوي الواجهة [IFillFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ifillformateffectivedata/) على خصائص تنسيق التعبئة الفعالة. تنسيق الخلية له أولوية أعلى من تنسيق الصف، وتنسيق الصف له أولوية أعلى من تنسيق العمود، وتنسيق العمود له أولوية أعلى من تنسيق الجدول بالكامل.
+## **الحصول على خصائص النص الفعالة**
 
-وبالتالي، تُستخدم خصائص [ICellFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/icellformateffectivedata/) لرسم خلية الجدول. يعرض مثال الشيفرة التالي كيفية الحصول على تنسيق التعبئة الفعال لأجزاء مختلفة من الجدول. يفترض أن الشكل الأول على الشريحة الأولى هو [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/).
+تنقسم تنسيقات النص عبر عدة كائنات:
+
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/ar/net/aspose.slides/itextframeformat/geteffective/) يحل خصائص إطار النص مثل الهوامش، التثبيت، الملاءمة التلقائية، واتجاه النص الرأسي.
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/ar/net/aspose.slides/itextstyle/geteffective/) يحل تنسيق الفقرة لكل مستوى من مستويات نمط النص.
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/ar/net/aspose.slides/iparagraphformat/geteffective/) يحل خصائص الفقرة مثل المحاذاة، المسافات البادئة، والنقاط.
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/ar/net/aspose.slides/iportionformat/geteffective/) يحل خصائص الحرف مثل ارتفاع الخط، نوع الخط، اللون، العريض، والمائل.
+
+في المثال التالي، يجب أن يحتوي الملف `text-formatting.pptx` على شريحة واحدة على الأقل وعلى [AutoShape](https://reference.aspose.com/slides/ar/net/aspose.slides/autoshape/) واحد يحتوي على إطار نص غير فارغ. يمكن أن تظهر الـ AutoShape في أي موضع ضمن مجموعة الأشكال؛ يبحث الكود عن كائن مناسب ويتحقق منه قبل الاستخدام.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
+
+## **الحصول على خصائص 3D الفعالة**
+
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformat/geteffective/) يُعيد عنصر [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/) واحد يجمع جميع إعدادات 3D المحلّة. تعرض خصائصه [Camera](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/camera/)، [LightRig](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/lightrig/)، [BevelTop](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/beveltop/)، و[BevelBottom](https://reference.aspose.com/slides/ar/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) البيانات الفعالة المقابلة. قراءة هذه الإعدادات المرتبطة معًا يجعل من السهل فهم المظهر 3D النهائي للشكل.
+
+لهذا المثال، يجب أن يحتوي الملف `shape-3d.pptx` على شكل واحد على الأقل في شريحته الأولى. طبّق إعدادات كاميرا 3D أو إضاءة أو حافة لهذا الشكل إذا كنت تريد أن يحتوي الناتج على قيم غير القيم الافتراضية.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("shape-3d.pptx");
+
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
+
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
+
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
+
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
+
+## **الحصول على تنسيق الجدول الفعال**
+
+يمكن أن يأتي تنسيق الجدول من نمط الجدول ومن التنسيقات المطبقة على الجدول بأكمله أو على عمود أو صف أو خلية فردية. في حالة التعارض بين التعبئات المعرفة صراحةً، تكون الأولوية للخلية، ثم الصف، ثم العمود، ثم الجدول بالكامل. التنسيق الفعّال للخلية هو التنسيق النهائي المستخدم لرسم تلك الخلية.
+
+في هذا المثال، يجب أن يحتوي الملف `table-formatting.pptx` على جدول واحد على الأقل في شريحته الأولى. يجب أن يحتوي الجدول على صف واحد على الأقل وعمود واحد على الأقل. يبحث الكود عن [ITable](https://reference.aspose.com/slides/ar/net/aspose.slides/itable/) بدلاً من افتراض أن `Shapes[0]` هو جدول.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("table-formatting.pptx");
+
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
+
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+إذا كنت تحتاج إلى اللون بدلاً من نوع التعبئة فقط، فابدأ بفحص [FillType](https://reference.aspose.com/slides/ar/net/aspose.slides/ifillformateffectivedata/filltype/) الفعّال، ثم اقرأ الخاصية التي تنطبق على ذلك النوع؛ على سبيل المثال، [SolidFillColor](https://reference.aspose.com/slides/ar/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) لتعبئة صلبة.
+
+## **إعادة قراءة البيانات الفعالة بعد التغييرات**
+
+البيانات الفعالة تصف هرمية التنسيق في وقت حلها. استدعِ `GetEffective` مرة أخرى بعد تغيير أي شيء يمكن أن يشارك في تلك الهرمية، بما في ذلك:
+
+- تنسيق الكائن المحلي؛
+- افتراضيات الفقرة أو إطار النص؛
+- نمط جدول أو جدول أو عمود أو صف أو تنسيق خلية؛
+- تنسيق تخطيط أو شريحة رئيسية؛
+- بيانات السمة أو الافتراضيات على مستوى العرض؛
+- التخطيط أو الشريحة الرئيسية المعيّنة لشريحة معينة.
+
+لا تحتفظ بكائن بيانات فعّال كلقطة ثابتة. قد تقوم Aspose.Slides بتخزين بعض البيانات الفعالة مؤقتًا داخليًا، ويمكن لاستدعاء `GetEffective` لاحقًا تجديد تلك البيانات. إذا كنت بحاجة إلى مقارنة القيم قبل وبعد التغيير، انسخ القيم القياسية التي تحتاجها—مثل ارتفاع الخط أو اللون أو المحاذاة أو عرض الحافة—إلى متغيراتك الخاصة قبل إجراء التغيير.
+
+لتغيير قيمة، حدّث كائن التنسيق المحلي المناسب ثم استدعِ `GetEffective` للتحقق من النتيجة. كائنات البيانات الفعالة نفسها للقراءة فقط.
 
 ## **الأسئلة المتكررة**
 
-**هل تُعيد `GetEffective` لقطة؟**
+**كيف يمكنني معرفة أي مستوى قدم قيمة فعالة؟**
 
-ليس دائمًا. تمثل البيانات الفعالة التنسيق المحسوب بعد تطبيق الوراثة، لكن بعض كائنات البيانات الفعالة قد تُخزن مؤقتًا داخليًا. قد يؤدي استدعاء `GetEffective` لاحقًا إلى إعادة حساب التنسيق وتحديث البيانات المخزنة، لذا لا يجب اعتبار الكائن المسترجع مسبقًا لقطة ثابتة.
+البيانات الفعالة تحتوي على القيمة النهائية، لا مصدرها. تفقد الكائنات المحلية القابلة للتطبيق بدءًا من المستوى الأكثر تحديدًا outward. بالنسبة للنص، قد يشمل ذلك الجزء، الفقرة، إطار النص، التخطيط، الشريحة الرئيسية، السمة، وإعدادات الافتراضية للعرض. القيم غير المعرفة مثل `float.NaN` أو `null` تشير إلى أن البحث يستمر إلى مستوى آخر.
 
-**متى ينبغي قراءة الخصائص الفعالة مرة أخرى؟**
+**ماذا يحدث إذا لم يحدد أي مستوى خاصية؟**
 
-استدعِ `GetEffective` مرة أخرى بعد تعديل التنسيق المحلي أو أنماط الوالد، أو تنسيق التخطيط، أو تنسيق الرئيس، أو الإعدادات الافتراضية على مستوى العرض التقديمي. سيُعيد الاستدعاء التالي تقييم شجرة التنسيق ويُعيد النتيجة الفعالة الحالية.
+تقوم Aspose.Slides بحل القيمة الافتراضية المناسبة في PowerPoint أو في المكتبة. تظهر تلك القيمة المحلَّة في البيانات الفعالة رغم عدم تعريف أي كائن محلي لها صراحةً.
 
-**هل يؤثر تعديل أو إزالة شريحة تخطيط/رئيسية على الخصائص الفعالة التي تم استرجاعها مسبقًا؟**
+**لماذا أحيانًا تكون القيمة الفعالة مساوية للقيمة المحلية؟**
 
-نعم، لكن التغيير ينعكس في الاستدعاء التالي لـ `GetEffective`. إذا تم تغيير أو إزالة مصدر تنسيق أب، قد تصبح البيانات الفعالة المسترجعة سابقًا قديمة. بمجرد استدعاء `GetEffective` مرة أخرى، تُعيد Aspose.Slides تقييم شجرة التنسيق وقد تتغير الخطوط أو الألوان أو الأحجام أو القيم الأخرى الناتجة.
+القيمة المحلية فازت في حساب الوراثة. هذا متوقع عندما يتم تعيين الخاصية صراحةً على الكائن ولا يتجاوزها أي قاعدة أكثر تحديدًا.
 
-**هل يمكن تعديل القيم عبر كائنات البيانات الفعالة؟**
+**متى يجب أن أستخدم البيانات المحلية بدلاً من البيانات الفعالة؟**
 
-لا. كائنات البيانات الفعالة تُظهر القيم المحسوبة فقط. قم بإجراء التغييرات في كائنات التنسيق المحلي، ثم استرجع القيم الفعالة مرة أخرى.
-
-**ماذا يحدث إذا لم يتم تعيين خاصية على مستوى الشكل ولا في التخطيط/الرئيس ولا في الإعدادات العامة؟**
-
-يُحدد القيمة الفعالة عبر آلية القيم الافتراضية، والتي تشمل افتراضات PowerPoint و Aspose.Slides. تُصبح القيمة المحسومة جزءًا من البيانات الفعالة الحالية.
-
-**من قيمة الخط الفعال، هل يمكنني معرفة المستوى الذي قدم الحجم أو الخط؟**
-
-ليس مباشرة. تُعيد البيانات الفعالة القيمة النهائية فقط. لتحديد المصدر، تحقّق من القيم المحلية على مستوى الجزء، الفقرة، إطار النص، وأنماط النص على التخطيط، الرئيس، ومستوى العرض التقديمي لترى أين تظهر التعريف الصريح الأول.
-
-**لماذا تبدو القيم الفعالة أحيانًا مطابقة للقيم المحلية؟**
-
-لأن القيمة المحلية انتهت بأنها النهائية (لم يُستدعَ مستوى أعلى من الوراثة). في هذه الحالة تتطابق القيمة الفعالة مع القيمة المحلية.
-
-**متى يجب استخدام الخصائص الفعالة، ومتى أكتفي بالخصائص المحلية فقط؟**
-
-استخدم البيانات الفعالة عندما تحتاج إلى النتيجة "كما يتم عرضها" بعد تطبيق كل الوراثات، مثل مطابقة الألوان أو الهوامش أو الأحجام. إذا أردت حفظ تلك القيم بغض النظر عن تغييرات التنسيق المستقبلية، انسخ الخصائص المطلوبة إلى كائنك الخاص. إذا كنت تحتاج لتعديل التنسيق في مستوى معين، عدل الخصائص المحلية ثم، إذا لزم الأمر، أعد قراءة البيانات الفعالة للتحقق من النتيجة.
+استخدم البيانات المحلية لتفقد أو تعديل مستوى تنسيق معين. استخدم البيانات الفعالة عندما تحتاج إلى المظهر النهائي بعد تطبيق الوراثة وقواعد السمة والأنماط المطبقة. يوضح مثال [المقارنة الكامل](#compare-local-inherited-and-effective-values) كلا الحالتين في سير عمل واحد.

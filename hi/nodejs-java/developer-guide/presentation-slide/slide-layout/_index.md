@@ -10,7 +10,7 @@ keywords:
 - प्लेसहोल्डर
 - प्रेजेंटेशन डिजाइन
 - स्लाइड डिजाइन
-- अप्रयुक्त लेआउट
+- अनुपयोगी लेआउट
 - फुटर दृश्यता
 - शीर्षक स्लाइड
 - शीर्षक और सामग्री
@@ -18,164 +18,150 @@ keywords:
 - दो सामग्री
 - तुलना
 - केवल शीर्षक
-- ब्लैंक लेआउट
+- खाली लेआउट
 - कैप्शन के साथ सामग्री
 - कैप्शन के साथ चित्र
-- शीर्षक और लंबवत टेक्स्ट
-- लंबवत शीर्षक और टेक्स्ट
+- शीर्षक और वर्टिकल टेक्स्ट
+- वर्टिकल शीर्षक और टेक्स्ट
 - PowerPoint
 - OpenDocument
 - प्रेजेंटेशन
 - Node.js
-- JavaScript
+- जावास्क्रिप्ट
 - Aspose.Slides
-description: "Aspose.Slides for Node.js में स्लाइड लेआउट्स को प्रबंधित और अनुकूलित करें। लेआउट प्रकार, प्लेसहोल्डर नियंत्रण, और कोड उदाहरणों के माध्यम से फुटर दृश्यता का अन्वेषण करें।"
+description: "Aspose.Slides for Node.js में Java के माध्यम से स्लाइड लेआउट लागू करें, बनाएं, और संशोधित करें, प्लेसहोल्डर जोड़ें, अनुपयोगी लेआउट हटाएँ, और फुटर दृश्यता नियंत्रित करें।"
 ---
-## **परिचय**
+## **सारांश**
 
-एक स्लाइड लेआउट स्लाइड पर सामग्री के प्लेसहोल्डर बॉक्स और फॉर्मेटिंग की व्यवस्था को परिभाषित करता है। यह नियंत्रित करता है कि कौन से प्लेसहोल्डर उपलब्ध हैं और वे कहाँ दिखेंगे। स्लाइड लेआउट आपको प्रस्तुतियों को तेज़ी और सुसंगत रूप से डिज़ाइन करने में मदद करते हैं—चाहे आप कुछ सरल या अधिक जटिल बना रहे हों। PowerPoint में सबसे आम स्लाइड लेआउट्स में शामिल हैं:
+एक स्लाइड लेआउट शीर्षक, पाठ, चित्र, चार्ट और तालिकाओं जैसी प्लेसहोल्डर की स्थिति और स्वरूप को परिभाषित करता है। एक लेआउट लागू करने से स्लाइड्स को सुसंगत संरचना मिलती है जबकि प्रत्येक स्लाइड को अपना सामग्री रखने की अनुमति देती है।
 
-**Title Slide layout** – दो टेक्स्ट प्लेसहोल्डर शामिल हैं: एक शीर्षक के लिए और एक उपशीर्षक के लिए।
+सबसे सामान्य लेआउट्स में शामिल हैं:
 
-**Title and Content layout** – शीर्ष पर छोटा शीर्षक प्लेसहोल्डर और नीचे बड़ा प्लेसहोल्डर मुख्य सामग्री (जैसे टेक्स्ट, बुलेट पॉइंट्स, चार्ट, छवियां, आदि) के लिए दिखाता है।
+- **शीर्षक स्लाइड**: शीर्षक और उपशीर्षक प्लेसहोल्डर शामिल है।
+- **शीर्षक और सामग्री**: एक शीर्षक प्लेसहोल्डर और एक सामान्य प्रयोजन सामग्री प्लेसहोल्डर शामिल है।
+- **खाली**: कोई सामग्री प्लेसहोल्डर नहीं होता और यह उपयोगी है जब हर आकृति को मैन्युअल रूप से स्थित किया जाएगा।
 
-**Blank layout** – कोई प्लेसहोल्डर नहीं होता, जिससे आप स्लाइड को शून्य से डिज़ाइन कर सकते हैं।
+## **लेआउट विरासत को समझें**
 
-स्लाइड लेआउट्स एक स्लाइड मास्टर का हिस्सा होते हैं, जो प्रस्तुति के लिए लेआउट शैलियों को परिभाषित करने वाला शीर्ष-स्तर स्लाइड है। आप स्लाइड मास्टर के माध्यम से लेआउट स्लाइड्स तक पहुँच सकते हैं और उनका संशोधन कर सकते हैं—या तो उनके प्रकार, नाम, या अनूठे ID द्वारा। वैकल्पिक रूप से, आप प्रस्तुति के भीतर सीधे एक विशिष्ट लेआउट स्लाइड को संपादित कर सकते हैं।
+एक प्रस्तुति के तीन संबंधित स्तर होते हैं:
 
-Aspose.Slides for Node.js में स्लाइड लेआउट्स के साथ काम करने के लिए आप उपयोग कर सकते हैं:
+1. एक [मास्टर स्लाइड](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterslide/) थीम, साझा स्वरूप, पृष्ठभूमि और सामान्य वस्तुओं को परिभाषित करता है।
+1. एक [लेआउट स्लाइड](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/) मास्टर से संबंधित है और प्लेसहोल्डर की विशिष्ट व्यवस्था को परिभाषित करता है।
+1. एक [नॉर्मल स्लाइड](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slide/) एक लेआउट प्रयोग करती है और उस स्लाइड के लिये दर्ज की गई सामग्री को संग्रहीत करती है।
 
-- क्लास [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) के तहत [getLayoutSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/#getLayoutSlides) और [getMasters](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/#getMasters) जैसी विधियां
-- प्रकार जैसे [LayoutSlide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/), और [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+एक नॉर्मल स्लाइड अपना थीम और स्वरूप लेआउट से विरासत में प्राप्त करती है, और लेआउट अपने मास्टर से विरासत में प्राप्त करता है। नॉर्मल स्लाइड पर सीधे सेट किया गया मान उस स्तर पर विरासत मान को ओवरराइड करता है। जब एक नॉर्मल स्लाइड बनाई जाती है, उसके प्लेसहोल्डर आकार चयनित लेआउट से उत्पन्न होते हैं, जबकि उन प्लेसहोल्डर में दर्ज सामग्री नॉर्मल स्लाइड की होती है।
 
-{{% alert title="Info" color="info" %}}
-मास्टर स्लाइड्स के साथ काम करने के बारे में अधिक जानने के लिए, कृपया [Slide Master](/slides/hi/nodejs-java/slide-master/) लेख देखें।
-{{% /alert %}}
+एक लेआउट से स्लाइड बनाने से पहले आवश्यक प्लेसहोल्डर जोड़ें। बाद में लेआउट में दूसरा प्लेसहोल्डर जोड़ने से मौजूदा नॉर्मल स्लाइड्स में स्वचालित रूप से संबंधित प्लेसहोल्डर आकार नहीं बनता।
 
-## **प्रेजेंटेशन में स्लाइड लेआउट जोड़ें**
+इस संबंध के दो महत्वपूर्ण परिणाम हैं:
 
-अपनी स्लाइड्स की उपस्थिति और संरचना को अनुकूलित करने के लिए, आपको प्रेजेंटेशन में नए लेआउट स्लाइड्स जोड़ने की आवश्यकता हो सकती है। Aspose.Slides for Node.js आपको यह जाँचने की सुविधा देता है कि कोई विशेष लेआउट पहले से मौजूद है या नहीं, आवश्यकता पड़ने पर नया जोड़ें, और उस लेआउट के आधार पर स्लाइड्स शामिल करें।
+- लेआउट पर विरासत स्वरूप या मौजूदा प्लेसहोल्डर ज्यामिति को बदलने से उस पर निर्भर सभी स्लाइड्स अपडेट हो सकती हैं। उपयोग में पहले से मौजूद लेआउट को संपादित करने से पहले उसके निर्भरताप्राप्त स्लाइड्स की जाँच करें और परिणामी प्रस्तुति की समीक्षा करें।
+- वह लेआउट जिसे अभी भी किसी स्लाइड द्वारा उपयोग किया जा रहा है, उसे हटाया नहीं जा सकता। पहले उसके निर्भरताप्राप्त स्लाइड्स को किसी अन्य लेआउट पर पुनः असाइन करें, या केवल अनउपयोगी लेआउट्स ही हटाएँ।
 
-1. क्लास [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) की एक इंस्टेंस बनाएं।
-1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterlayoutslidecollection/) तक पहुँचें।
-1. जांचें कि चयनित लेआउट स्लाइड संग्रह में पहले से मौजूद है या नहीं। यदि नहीं, तो आवश्यक लेआउट स्लाइड जोड़ें।
-1. नए लेआउट स्लाइड के आधार पर एक खाली स्लाइड जोड़ें।
-1. प्रेजेंटेशन को सेव करें।
+इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिए, देखें [स्लाइड मास्टर](/slides/hi/nodejs-java/slide-master/)।
 
-निम्नलिखित JavaScript कोड एक PowerPoint प्रेजेंटेशन में स्लाइड लेआउट जोड़ने का उदाहरण दर्शाता है:
+## **स्लाइड लेआउट चुनें और लागू करें**
 
-```js
-// PowerPoint फ़ाइल का प्रतिनिधित्व करने वाले Presentation क्लास का इंस्टैंस बनाएं।
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का पालन करती है, तब एक [SlideLayoutType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slidelayouttype/) मान का उपयोग करें। लेआउट नाम उपयोगकर्ता‑संपादन योग्य होते हैं और स्थानीयकृत किए जा सकते हैं, इसलिए स्रोत टेम्पलेट पर नियंत्रण न होने पर नाम‑आधारित चयन कम भरोसेमंद होता है।
+
+निम्नलिखित उदाहरण पहले मास्टर पर **Title and Content** खोजता है। यदि वह लेआउट उपलब्ध नहीं है, तो जानबूझकर **Blank** पर वापस जाता है। दूसरा null जाँच आवश्यक है क्योंकि एक प्रस्तुति केवल कस्टम लेआउट्स रख सकती है। चयनित लेआउट फिर पहले नॉर्मल स्लाइड पर [Slide.setLayoutSlide](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/slide/#setLayoutSlide) मेथड द्वारा लागू किया जाता है।
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // लेआउट स्लाइड प्रकारों के माध्यम से जाएं ताकि एक लेआउट स्लाइड चुन सकें।
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // ऐसी स्थिति जहाँ प्रस्तुति में सभी लेआउट प्रकार नहीं होते।
-        // प्रेजेंटेशन फ़ाइल में केवल ब्लैंक और कस्टम लेआउट प्रकार होते हैं।
-        // हालांकि, कस्टम प्रकार वाली लेआउट स्लाइड्स में पहचाने जाने योग्य नाम हो सकते हैं,
-        // "Title", "Title and Content" आदि जैसे नाम, जिन्हें लेआउट स्लाइड चयन के लिए उपयोग किया जा सकता है।
-        // आप प्लेसहोल्डर शेड आकार प्रकारों के सेट पर भी निर्भर कर सकते हैं।
-        // उदाहरण के लिए, एक Title स्लाइड में केवल Title प्लेसहोल्डर प्रकार होना चाहिए, आदि।
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // जोड़े गये लेआउट स्लाइड का उपयोग करके एक खाली स्लाइड जोड़ें।
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // प्रेजेंटेशन को डिस्क पर सेव करें।
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **अनुपयोगी लेआउट स्लाइड्स हटाएँ**
+लेआउट बदलने से सीधे स्लाइड में जोड़ी गई सामान्य आकृतियों को हटाया नहीं जाता। हालांकि, प्लेसहोल्डर की स्थितियां, विरासत स्वरूप और मौजूदा प्लेसहोल्डर और नए लेआउट के बीच का संबंध बदल सकता है, इसलिए बहुत अलग लेआउट्स के बीच स्विच करते समय आउटपुट की जाँच करें।
 
-Aspose.Slides [Compress](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/compress/) क्लास से [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) विधि प्रदान करता है जिससे आप अनचाही और अप्रयुक्त लेआउट स्लाइड्स को हटा सकते हैं।
+## **लेआउट स्लाइड जोड़ें**
 
-निम्नलिखित JavaScript कोड दिखाता है कि PowerPoint प्रेजेंटेशन से एक लेआउट स्लाइड कैसे हटाएँ:
+चयन और निर्माण अलग‑अलग कार्य हैं। पिछला उदाहरण मौजूदा लेआउट को चुनता है; यह एक नया बनाता नहीं है। लेआउट बनाने के लिए टार्गेट मास्टर की लेआउट कलेक्शन पर [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) मेथड को कॉल करें।
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+निम्नलिखित उदाहरण हमेशा `Report Title and Content` नामक नया **Title and Content** लेआउट जोड़ता है, फिर उस पर आधारित एक नॉर्मल स्लाइड जोड़ता है। लेआउट नाम कलेक्शन के भीतर अद्वितीय होने चाहिए।
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **स्लाइड लेआउट में प्लेसहोल्डर जोड़ें**
+केवल तभी लेआउट जोड़ें जब टेम्पलेट वास्तव में एक अतिरिक्त पुन: उपयोग योग्य संरचना की आवश्यकता रखता हो। यदि उपयुक्त लेआउट पहले से मौजूद है, तो उसे चुनें और पुनः उपयोग करें, न कि डुप्लिकेट बनाएँ।
 
-Aspose.Slides [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) विधि प्रदान करता है, जो आपको लेआउट स्लाइड में नए प्लेसहोल्डर जोड़ने की सुविधा देता है।
+## **लेआउट स्लाइड में प्लेसहोल्डर जोड़ें**
 
-यह मैनेजर निम्नलिखित प्लेसहोल्डर प्रकारों के लिए विधियां शामिल करता है:
+[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) मेथड एक [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/) प्रदान करता है, जिससे लेआउट में प्लेसहोल्डर आकृतियां जोड़ी जा सकती हैं।
 
-| PowerPoint प्लेसहोल्डर | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/) विधि |
-| ----------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint प्लेसहोल्डर | `LayoutPlaceholderManager` मेथड |
+| ----------------------- | --------------------------------- |
+| ![सामग्री](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![सामग्री (वर्टिकल)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![टेक्स्ट](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![टेक्स्ट (वर्टिकल)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![चित्र](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![चार्ट](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![तालिका](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![स्मार्टआर्ट](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![मीडिया](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![ऑनलाइन इमेज](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-निम्नलिखित JavaScript कोड Blank लेआउट स्लाइड में नए प्लेसहोल्डर शैप्स जोड़ने का उदाहरण दर्शाता है:
+निम्नलिखित उदाहरण सत्यापित करता है कि **Blank** लेआउट मौजूद है, उसमें चार प्लेसहोल्डर जोड़ता है, और फिर संशोधित लेआउट का उपयोग करने वाली एक नॉर्मल स्लाइड बनाता है। क्रम का इरादा है: प्लेसहोल्डर नॉर्मल स्लाइड बनाने से पहले जोड़े जाते हैं, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर आकृतियां उत्पन्न कर सके।
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // ब्लैंक लेआउट स्लाइड प्राप्त करें।
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // लेआउट स्लाइड के प्लेसहोल्डर मैनेज़र को प्राप्त करें।
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // ब्लैंक लेआउट स्लाइड में विभिन्न प्लेसहोल्डर जोड़ें।
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // ब्लैंक लेआउट के साथ नई स्लाइड जोड़ें।
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -185,71 +171,83 @@ try {
 
 ![लेआउट स्लाइड पर प्लेसहोल्डर](add_placeholders.png)
 
-## **लेआउट स्लाइड के लिए फुटर दृश्यता सेट करें**
+{{% alert color="warning" title="Warning" %}}
+विरासत स्वरूप या मौजूदा लेआउट प्लेसहोल्डर की ज्यामिति बदलने से निर्भरताप्राप्त स्लाइड्स प्रभावित हो सकती हैं। नवीनतम जोड़े गए लेआउट प्लेसहोल्डर मौजूदा नॉर्मल स्लाइड्स में स्वतः नहीं भरता। लेआउट परिवर्तन को प्रस्तुति की कॉपी पर परीक्षण करें और प्रत्येक निर्भरताप्राप्त स्लाइड की जाँच करें।
+{{% /alert %}}
 
-PowerPoint प्रेजेंटेशन में फुटर तत्व जैसे तिथि, स्लाइड नंबर, और कस्टम टेक्स्ट लेआउट के आधार पर दिखाए या छिपाए जा सकते हैं। Aspose.Slides for Node.js आपको इन फुटर प्लेसहोल्डर की दृश्यता को नियंत्रित करने की सुविधा देता है। यह तब उपयोगी होता है जब आप चाहते हैं कि कुछ लेआउट फुटर जानकारी दिखाएँ जबकि अन्य साफ़ और न्यूनतम रहें।
+## **अप्रयुक्त लेआउट स्लाइड्स हटाएँ**
 
-1. क्लास [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) की एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स से एक लेआउट स्लाइड रेफ़रेंस प्राप्त करें।
-1. स्लाइड फुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. तिथि‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रेजेंटेशन को सेव करें।
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) मेथड का उपयोग उन लेआउट्स को हटाने के लिये करें जिन्हें कोई नॉर्मल स्लाइड संदर्भित नहीं कर रही है। यह मेथड अभी भी उपयोग में मौजूद लेआउट्स को अपरिवर्तित छोड़ देता है।
 
-निम्नलिखित JavaScript कोड दर्शाता है कि स्लाइड फुटर की दृश्यता कैसे सेट करें और संबंधित कार्य कैसे करें:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **स्लाइड के लिए चाइल्ड फुटर दृश्यता सेट करें**
+एक विशिष्ट लेआउट हटाने के लिये, पहले उसकी [hasDependingSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) या [getDependingSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) मेथड का प्रयोग करें। [LayoutSlide.remove](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#remove) को कॉल करने से पहले सभी निर्भरताप्राप्त स्लाइड्स को पुनः असाइन करें। उपयोग में हो रहे लेआउट को हटाने का प्रयास करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxeditexception/) उत्पन्न होता है।
 
-PowerPoint प्रेजेंटेशन में फुटर तत्व जैसे तिथि, स्लाइड नंबर, और कस्टम टेक्स्ट को मास्टर स्लाइड स्तर पर नियंत्रित किया जा सकता है ताकि सभी लेआउट स्लाइड्स में सुसंगतता बनी रहे। Aspose.Slides for Node.js आपको मास्टर स्लाइड पर इन फुटर प्लेसहोल्डर की दृश्यता और सामग्री सेट करने और इन सेटिंग्स को सभी चाइल्ड लेआउट स्लाइड्स में प्रसारित करने की अनुमति देता है। यह आपकी प्रस्तुति में समान फुटर जानकारी सुनिश्चित करता है।
+## **लेआउट स्लाइड पर फुटर दृश्यता नियंत्रित करें**
 
-1. क्लास [Presentation](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/) की एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स से एक मास्टर स्लाइड रेफ़रेंस प्राप्त करें।
-1. मास्टर और सभी चाइल्ड फुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड तिथि‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रेजेंटेशन को सेव करें।
+एक लेआउट में अपना फुटर, स्लाइड‑नंबर और तिथि‑समय प्लेसहोल्डर होते हैं। इन प्लेसहोल्डर को एक लेआउट के लिये नियंत्रित करने हेतु [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) मेथड का उपयोग करें। यह उपयोगी है जब उदाहरण के लिये कंटेंट लेआउट्स को फुटर दिखाना चाहिए लेकिन टाइटल लेआउट्स को नहीं।
 
-निम्नलिखित JavaScript कोड इस ऑपरेशन को दर्शाता है:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
+    }
+
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
+    }
+
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **मास्टर और उसकी चाइल्ड लेआउट्स पर फुटर दृश्यता नियंत्रित करें**
+
+एक मास्टर पदानुक्रम में समान फुटर सेटिंग्स लागू करने के लिये, [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) मेथड का प्रयोग करें। [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/masterslideheaderfootermanager/) के प्रसार मेथड मास्टर, उसके निर्भरताप्राप्त लेआउट स्लाइड्स और नॉर्मल स्लाइड्स पर कार्य करते हैं; वे केवल एक नॉर्मल स्लाइड को लक्षित नहीं करते।
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -259,12 +257,16 @@ try {
 
 **मास्टर स्लाइड और लेआउट स्लाइड में क्या अंतर है?**
 
-मास्टर स्लाइड कुल थीम और डिफ़ॉल्ट फॉर्मेटिंग को परिभाषित करती है, जबकि लेआउट स्लाइड विभिन्न प्रकार की सामग्री के लिए प्लेसहोल्डर की विशिष्ट व्यवस्था को परिभाषित करती है।
+मास्टर स्लाइड प्रस्तुति की थीम और साझा स्वरूप को परिभाषित करती है। लेआउट स्लाइड मास्टर से संबंधित होती है और प्लेसहोल्डर की पुन: उपयोग योग्य व्यवस्था को परिभाषित करती है। नॉर्मल स्लाइड्स इन लेआउट्स का उपयोग करती हैं और स्लाइड‑विशिष्ट सामग्री संग्रहीत करती हैं।
 
-**क्या मैं एक लेआउट स्लाइड को एक प्रेजेंटेशन से दूसरे में कॉपी कर सकता हूँ?**
+**क्या मैं एक लेआउट स्लाइड को एक प्रस्तुति से दूसरी प्रस्तुति में कॉपी कर सकता हूँ?**
 
-हाँ, आप किसी प्रेजेंटेशन की लेआउट स्लाइड कलेक्शन से, जिसे [getLayoutSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/#getLayoutSlides) विधि के माध्यम से एक्सेस किया जा सकता है, एक लेआउट स्लाइड को क्लोन करके `addClone` विधि द्वारा दूसरे प्रेजेंटेशन में जोड़ सकते हैं।
+हां। आप गंतव्य कलेक्शन में [addClone](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) मेथड के साथ एक प्रति जोड़ सकते हैं। प्रस्तुति के बीच कॉपी करते समय स्रोत लेआउट द्वारा उपयोग किए गए फ़ॉन्ट, थीम, चित्र और अन्य संसाधनों की भी जाँच करें।
 
-**यदि मैं ऐसे लेआउट स्लाइड को डिलीट करता हूँ जो अभी भी किसी स्लाइड द्वारा उपयोग में है तो क्या होता है?**
+**जब मैं किसी उपयोग में मौजूद लेआउट को संशोधित करता हूँ तो क्या होता है?**
 
-यदि आप किसी लेआउट स्लाइड को डिलीट करने का प्रयास करते हैं जो कम से कम एक स्लाइड द्वारा अभी भी संदर्भित है, तो Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxeditexception/) फेंकेगा। इसे रोकने के लिए, [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) का उपयोग करें जो केवल अनउपयोगी लेआउट स्लाइड्स को सुरक्षित रूप से हटाता है।
+निर्भरताप्राप्त स्लाइड्स लेआउट परिवर्तन को विरासत में लेती हैं, जब तक कि उन्होंने स्थानीय रूप से स्वरूप या वस्तुओं को ओवरराइड नहीं किया हो। प्लेसहोल्डर ज्यामिति और विरासत शैली कई स्लाइड्स पर एक साथ बदल सकती है। संपादन से पहले प्रभावित स्लाइड्स की पहचान करने के लिये [getDependingSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) का उपयोग करें।
+
+**यदि मैं किसी अभी भी उपयोग में रहने वाले लेआउट को हटाता हूँ तो क्या होता है?**
+
+Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/pptxeditexception/) फेंकता है। पहले निर्भरताप्राप्त स्लाइड्स को पुनः असाइन करें, या केवल अनउपयोगी लेआउट्स को हटाने के लिये [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) का उपयोग करें।

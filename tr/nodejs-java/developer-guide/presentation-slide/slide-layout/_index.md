@@ -11,7 +11,7 @@ keywords:
 - sunum tasarımı
 - slayt tasarımı
 - kullanılmayan düzen
-- altbilgi görünürlüğü
+- alt bilgi görünürlüğü
 - başlık slaytı
 - başlık ve içerik
 - bölüm başlığı
@@ -19,8 +19,8 @@ keywords:
 - karşılaştırma
 - sadece başlık
 - boş düzen
-- başlıklı içerik
-- başlıklı resim
+- altyazılı içerik
+- altyazılı resim
 - başlık ve dikey metin
 - dikey başlık ve metin
 - PowerPoint
@@ -29,153 +29,139 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js'te slayt düzenlerini yönetin ve özelleştirin. Düzen türlerini, yer tutucu kontrolünü ve altbilgi görünürlüğünü kod örnekleriyle keşfedin."
+description: "Aspose.Slides for Node.js via Java ile slayt düzenlerini uygula, oluştur ve değiştir, yer tutucular ekle, kullanılmayan düzenleri kaldır ve alt bilgi görünürlüğünü kontrol et."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir slayt düzeni, bir slayttaki yer tutucu kutuların düzenini ve içeriğin biçimlendirmesini tanımlar. Hangi yer tutucuların mevcut olduğunu ve nerede görüneceklerini kontrol eder. Slayt düzenleri, ister basit ister daha karmaşık bir şey oluşturuyor olun, sunumları hızlı ve tutarlı bir şekilde tasarlamanıza yardımcı olur. PowerPoint'teki en yaygın slayt düzenlerinden bazıları şunlardır:
+Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzeni uygulamak, slaytlara tutarlı bir yapı kazandırır ve her slaytın kendi içeriğini içermesine izin verir.
 
-**Başlık Slaytı düzeni** – Başlık için bir ve alt başlık için bir olmak üzere iki metin yer tutucusu içerir.
+En yaygın düzenler şunlardır:
 
-**Başlık ve İçerik düzeni** – Üstte daha küçük bir başlık yer tutucusu ve altında esas içerik (metin, madde işaretleri, grafikler, görseller vb.) için daha büyük bir yer tutucu bulunur.
+- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
+- **Başlık ve İçerik**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
+- **Boş**: İçerik yer tutucusu içermez ve her şeklin manuel olarak konumlandırılacağı durumlarda faydalıdır.
 
-**Boş düzen** – Yer tutucu içermez, slaytı sıfırdan tasarlamak için tam kontrol sağlar.
+## **Düzen Kalıtımını Anlamak**
 
-Slayt düzenleri, sunumun düzen stillerini tanımlayan üst seviyedeki slayt olan bir slayt anahtarının parçasıdır. Düzen slaytlarına, tipine, adına veya benzersiz kimliğine göre slayt anahtarı üzerinden erişebilir ve değiştirebilirsiniz. Alternatif olarak, belirli bir düzen slaytını doğrudan sunum içinde düzenleyebilirsiniz.
+Bir sunum üç ilgili seviyeye sahiptir:
 
-PowerPoint sunumlarında slayt düzenleriyle çalışmak için Aspose.Slides for Node.js'te aşağıdakileri kullanabilirsiniz:
+1. Bir [master slaytı](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/) temayı, ortak biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
+2. Bir [düzen slaytı](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/) bir mastera aittir ve belirli bir yer tutucu düzenini tanımlar.
+3. Bir [normal slayt](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/) bir düzen kullanır ve o slayt için girilen içeriği depolar.
 
-- [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfı altında [getLayoutSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getLayoutSlides) ve [getMasters](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getMasters) gibi yöntemler
-- [LayoutSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/), ve [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslideheaderfootermanager/) türleri
+Bir normal slayt temayı ve biçimlendirmeyi düzeninden devralır ve düzen de masterından devralır. Normal bir slaytta doğrudan ayarlanan bir değer, o seviyedeki devralınan değeri geçersiz kılar. Bir normal slayt oluşturulduğunda, yer tutucu şekilleri seçilen düzen üzerinden üretilir, bu yer tutuculara girilen içerik ise normal slayta aittir.
 
-{{% alert title="Info" color="info" %}}
-Ana slaytlarla çalışma hakkında daha fazla bilgi edinmek için [Slide Master](/slides/tr/nodejs-java/slide-master/) makalesine göz atın.
-{{% /alert %}}
+Bir slayt oluşturulmadan önce düzene gerekli yer tutucular ekleyin. Daha sonra düzene başka bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak karşılık gelen bir yer tutucu şekli eklemez.
 
-## **Sunumlara Slayt Düzenleri Eklemek**
+Bu ilişki iki önemli sonuca sahiptir:
 
-Slaytlarınızın görünüm ve yapısını özelleştirmek için bir sunuma yeni düzen slaytları eklemeniz gerekebilir. Aspose.Slides for Node.js, belirli bir düzenin zaten mevcut olup olmadığını kontrol etmenizi, gerekirse yeni bir tane eklemenizi ve bu düzeni temel alarak slayt eklemenizi sağlar.
+- Bir düzen üzerinde devralınan biçimlendirme veya mevcut yer tutucu geometrisini değiştirmek, ona bağlı tüm slaytları güncelleyebilir. Zaten kullanımdaki bir düzeni düzenlemeden önce, bağlı slaytları inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt tarafından hâlâ kullanılan bir düzen kaldırılmaz. Önce bağlı slaytları başka bir düzene atayın veya yalnızca kullanılmayan düzenleri kaldırın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterlayoutslidecollection/) öğesine erişin.
-1. İstenen düzen slaydının koleksiyonda zaten var olup olmadığını kontrol edin. Yoksa ihtiyacınız olan düzen slaydını ekleyin.
-1. Yeni düzen slaydına dayanarak boş bir slayt ekleyin.
-1. Sunumu kaydedin.
+Bu hiyerarşinin üst seviyesi hakkında daha fazla bilgi için, [Slayt Masterı](/slides/tr/nodejs-java/slide-master/) sayfasına bakın.
 
-Aşağıdaki JavaScript kodu, bir PowerPoint sunumuna slayt düzeni eklemeyi göstermektedir:
+## **Bir Slayt Düzeni Seçme ve Uygulama**
 
-```js
-// PowerPoint dosyasını temsil eden Presentation sınıfını oluşturun.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+Sunum standart PowerPoint düzen tanımlarını izlediğinde bir [SlideLayoutType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slidelayouttype/) değeri kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu nedenle ad tabanlı seçim, kaynak şablonun kontrolü altında olmadıkça daha az güvenilirdir.
+
+Aşağıdaki örnek, ilk masterda **Başlık ve İçerik** düzenini arar. Bu düzen mevcut değilse, bilinçli olarak **Boş** düzenine geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği için gereklidir. Seçilen düzen daha sonra [Slide.setLayoutSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#setLayoutSlide) yöntemiyle ilk normal slayta uygulanır.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Bir düzen slaytı seçmek için düzen slaytı türleri arasında gezinin.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Sunumun tüm düzen türlerini içermediği bir durum.
-        // Sunum dosyası yalnızca Boş ve Özel düzen türlerini içerir.
-        // Ancak, özel türlere sahip düzen slaytlarının tanınabilir adları olabilir,
-        // "Title", "Title and Content", vb., gibi, düzen slaytı seçimi için kullanılabilecek adlar.
-        // Ayrıca bir dizi yer tutucu şekil türüne dayanabilirsiniz.
-        // Örneğin, bir Başlık slaytı yalnızca Başlık yer tutucu tipine sahip olmalıdır, vb.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Eklenen düzen slaytını kullanarak boş bir slayt ekleyin.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Sunumu diske kaydedin.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Kullanılmayan Düzen Slaytlarını Kaldırma**
+Bir slaytın düzenini değiştirmek, slayta doğrudan eklenen sıradan şekilleri kaldırmaz. Ancak, yer tutucu konumları, devralınan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki eşleşme değişebilir; bu nedenle, önemli ölçüde farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
-Aspose.Slides, istenmeyen ve kullanılmayan düzen slaytlarını silmenizi sağlayan [Compress](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compress/) sınıfındaki [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini sunar.
+## **Bir Düzen Slaytı Ekleme**
 
-Aşağıdaki JavaScript kodu, bir PowerPoint sunumundan bir düzen slaytını nasıl kaldıracağınızı gösterir:
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; bir tane yaratmaz. Bir düzen oluşturmak için hedef masterın düzen koleksiyonunda [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) yöntemini çağırın.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+Aşağıdaki örnek her zaman `Report Title and Content` adlı yeni bir **Başlık ve İçerik** düzeni ekler ve ardından buna dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Slayt Düzenlerine Yer Tutucular Ekleme**
+Şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmak yerine onu seçip yeniden kullanın.
 
-Aspose.Slides, bir düzen slaydına yeni yer tutucular eklemenizi sağlayan [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) yöntemini sunar.
+## **Bir Düzen Slaytına Yer Tutucular Ekleme**
 
-Bu yönetici aşağıdaki yer tutucu türleri için yöntemler içerir:
+[LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) yöntemi, bir düzene yer tutucu şekilleri eklemek için bir [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/) sağlar.
 
-| PowerPoint Yer Tutucu | [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/) Yöntemi |
-| ---------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Yer Tutucu              | `LayoutPlaceholderManager` Yöntemi |
+| ----------------------------------- | ----------------------------------- |
+| ![İçerik](content.png)             | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![İçerik (Dikey)](contentV.png)    | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Metin](text.png)                 | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Metin (Dikey)](textV.png)        | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Resim](picture.png)              | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Grafik](chart.png)               | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tablo](table.png)                | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)          | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Medya](media.png)                | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Çevrimiçi Resim](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Aşağıdaki JavaScript kodu, Boş düzen slaydına yeni yer tutucu şekilleri eklemeyi göstermektedir:
+Aşağıdaki örnek, **Boş** düzeninin varlığını doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slaytta karşılık gelen yer tutucu şekilleri üretebilir.
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Boş düzen slaytını alın.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Düzen slaydının yer tutucu yöneticisini alın.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Boş düzen slaytına farklı yer tutucular ekleyin.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Boş düzen ile yeni bir slayt ekleyin.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -185,69 +171,85 @@ Sonuç:
 
 ![Düzen slaydındaki yer tutucular](add_placeholders.png)
 
-## **Bir Düzen Slaytı için Altbilgi Görünürlüğünü Ayarlama**
+{{% alert color="warning" title="Uyarı" %}}
+Devralınan biçimlendirme veya mevcut düzen yer tutucularının geometrisini değiştirmek, bağlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara geri eklenmez. Düzen değişikliklerini sunumun bir kopyasında test edin ve tüm bağlı slaytları inceleyin.
+{{% /alert %}}
 
-PowerPoint sunumlarında, tarih, slayt numarası ve özel metin gibi altbilgi öğeleri slayt düzenine bağlı olarak gösterilebilir veya gizlenebilir. Aspose.Slides for Node.js, bu altbilgi yer tutucularının görünürlüğünü kontrol etmenizi sağlar. Bu, belirli düzenlerin altbilgi bilgilerini gösterirken diğerlerinin temiz ve minimal kalmasını istediğinizde kullanışlıdır.
+## **Kullanılmayan Düzen Slaytlarını Kaldırma**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Bir düzen slaytı referansını indeksine göre alın.
-1. Slayt altbilgi yer tutucusunu görünür olarak ayarlayın.
-1. Slayt numarası yer tutucusunu görünür olarak ayarlayın.
-1. Tarih‑zaman yer tutucusunu görünür olarak ayarlayın.
-1. Sunumu kaydedin.
+[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini, hiçbir normal slaytın başvurduğu olmayan düzenleri kaldırmak için kullanın. Yöntem hâlâ kullanılan düzenleri olduğu gibi bırakır.
 
-Aşağıdaki JavaScript kodu, bir slayt altbilgisinin görünürlüğünü nasıl ayarlayacağınızı ve ilgili görevleri nasıl gerçekleştireceğinizi gösterir:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Bir Slayt İçin Alt Slayt Altbilgi Görünürlüğünü Ayarlama**
+Belirli bir düzeni kaldırmak için önce onun [hasDependingSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) veya [getDependingSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) yöntemini kullanın. [LayoutSlide.remove](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#remove) yöntemini çağırmadan önce bağlı tüm slaytları yeniden atayın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxeditexception/) hatasına neden olur.
 
-PowerPoint sunumlarında, tarih, slayt numarası ve özel metin gibi altbilgi öğeleri, tüm düzen slaytları arasında tutarlılık sağlamak amacıyla ana slayt seviyesinde kontrol edilebilir. Aspose.Slides for Node.js, bu altbilgi yer tutucularının görünürlüğünü ve içeriğini ana slaytta ayarlamanıza ve bu ayarları tüm alt düzen slaytlarına yaymanıza olanak tanır. Bu yaklaşım, sunumunuz boyunca tutarlı altbilgi bilgileri sağlar.
+## **Bir Düzen Slaytında Alt Bilgi Görünürlüğünü Kontrol Etme**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-1. Ana slayta indeksine göre bir referans alın.
-1. Ana slaytın ve tüm alt slaytların altbilgi yer tutucularını görünür olarak ayarlayın.
-1. Ana slaytın ve tüm alt slaytların slayt numarası yer tutucularını görünür olarak ayarlayın.
-1. Ana slaytın ve tüm alt slaytların tarih‑zaman yer tutucularını görünür olarak ayarlayın.
-1. Sunumu kaydedin.
+Bir düzenin kendi alt bilgi, slayt numarası ve tarih‑saat yer tutucuları vardır. Bu yer tutucuları bir düzen için kontrol etmek üzere [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) yöntemini kullanın. Bu, örneğin içerik düzenlerinin alt bilgi göstermesi, ancak başlık düzenlerinin göstermemesi gerektiğinde kullanışlıdır.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+Aşağıdaki örnek, bir düzeni güvenli bir şekilde seçer ve alt bilgi öğelerini görünür yapar:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
+    }
+
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
+    }
+
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Bir Master ve Çocuk Düzenlerinde Alt Bilgi Görünürlüğünü Kontrol Etme**
+
+Bir master hiyerarşisi boyunca tutarlı alt bilgi ayarları uygulamak için [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) yöntemini kullanın. [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/masterslideheaderfootermanager/) sınıfının yayılım yöntemleri master ve onun bağlı düzen slaytları ile normal slaytlar üzerinde çalışır; yalnızca bir normal slaytı hedeflemez.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -255,14 +257,18 @@ try {
 
 ## **SSS**
 
-**Bir ana slayt ile bir düzen slaytı arasındaki fark nedir?**
+**Master Slaytı ile Layout Slaytı Arasındaki Fark Nedir?**
 
-Ana slayt, genel temayı ve varsayılan biçimlendirmeyi tanımlarken, düzen slaytları farklı içerik türleri için yer tutucuların belirli düzenlemelerini tanımlar.
+Bir master slaytı, sunumun temasını ve ortak biçimlendirmesini tanımlar. Bir layout slaytı, bir mastera aittir ve yer tutucuların yeniden kullanılabilir bir düzenini tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği depolar.
 
-**Bir düzen slaytını bir sunumdan diğerine kopyalayabilir miyim?**
+**Bir Layout Slaytı bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet, bir sunumun [getLayoutSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/#getLayoutSlides) yöntemiyle erişilebilen düzen slaytı koleksiyonundan bir düzen slaytını klonlayabilir ve `addClone` yöntemiyle başka bir sunuma ekleyebilirsiniz.
+Evet. Hedef koleksiyona bir kopya eklemek için [addClone](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) yöntemini kullanın. Sunumlar arasında kopyalarken, kaynak düzende kullanılan yazı tiplerini, temaları, resimleri ve diğer kaynakları da doğrulayın.
 
-**Bir slayt hâlâ kullandığı bir düzen slaytını silersem ne olur?**
+**Zaten Kullanımda Olan Bir Düzeni Değiştirdiğimde Ne Olur?**
 
-Sunumdaki en az bir slayt tarafından hâlâ referans verilen bir düzen slaytını silmeye çalışırsanız, Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxeditexception/) fırlatır. Bunu önlemek için, yalnızca kullanılmayan düzen slaytlarını güvenli bir şekilde kaldıran [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini kullanın.
+Bağlı slaytlar, etkilenilen biçimlendirme veya nesneleri yerel olarak geçersiz kılmadıkları sürece düzen değişikliklerini devralır. Bu yüzden yer tutucu geometrisi ve devralınan stil birçok slaytta bir anda değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [getDependingSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) yöntemini kullanın.
+
+**Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
+
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pptxeditexception/) hatası fırlatır. Önce bağlı slaytları yeniden atayın veya yalnızca başvurulan olmayan düzenleri kaldırmak için [removeUnusedLayoutSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) yöntemini kullanın.

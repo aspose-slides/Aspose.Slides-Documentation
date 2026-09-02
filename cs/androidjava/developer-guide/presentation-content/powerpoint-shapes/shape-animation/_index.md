@@ -1,5 +1,5 @@
 ---
-title: Aplikace animací tvarů v prezentacích na Androidu
+title: Použití animací tvarů v prezentacích na Androidu
 linktitle: Animace tvaru
 type: docs
 weight: 60
@@ -17,468 +17,471 @@ keywords:
 - získat efekt
 - extrahovat efekt
 - zvuk efektu
-- aplikovat animaci
+- použít animaci
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte, jak vytvářet a přizpůsobovat animace tvarů v prezentacích PowerPoint pomocí Aspose.Slides pro Android v Javě. Vynikněte!"
+description: "Naučte se, jak pomocí Aspose.Slides pro Android prostřednictvím Javy přidávat, kontrolovat a přizpůsobovat animace tvarů, časování, zvuky, chování po animaci a animovaný text."
 ---
-## **Úvod**
+## **Přehled**
 
-Animace jsou vizuální efekty, které lze použít na texty, obrázky, tvary nebo [grafy](https://docs.aspose.com/slides/cs/androidjava/animated-charts/). Dodávají život prezentacím nebo jejich částem.
+Aspose.Slides for Android via Java představuje animace snímků jako efekty v časové ose snímku. Efekt má cílový tvar, typ a podtyp animace, spouštěč, nastavení časování a volitelné vlastnosti, jako je zvuk nebo chování po dokončení animace.
 
-## **Proč používat animace v prezentacích?**
+Časová osa obsahuje dva typy sekvencí:
 
-* ovládat tok informací
-* zdůraznit důležité body
-* zvýšit zájem nebo zapojení publika
-* usnadnit čtení nebo zpracování obsahu
-* upoutat pozornost čtenářů či diváků na důležité části v prezentaci
+- **hlavní sekvence** se přehrává při postupu snímku.
+- **interaktivní sekvence** se spustí, když je kliknuto na její spouštěcí tvar.
 
-PowerPoint poskytuje mnoho možností a nástrojů pro animace a animační efekty v kategoriích **vstup**, **ukončení**, **zdůraznění** a **cesty pohybu**.
+Protože textová pole, obrázky, grafy, tabulky a další objekty snímku implementují [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/), používáte stejnou metodu [ISequence.addEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) pro většinu obsahu snímku. Dostupné efekty jsou vypsány ve třídě [EffectType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttype/).
 
-## **Animace v Aspose.Slides**
+## **Přidání animací tvarů**
 
-* Aspose.Slides poskytuje třídy a typy potřebné pro práci s animacemi v namespace `Aspose.Slides.Animation`,
-* Aspose.Slides poskytuje více než **150 animačních efektů** v enumeraci [EffectType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttype). Tyto efekty jsou v podstatě stejné (nebo ekvivalentní) efektům používaným v PowerPointu.
+Chcete‑li přidat animaci, získejte hlavní sekvenci snímku a zavolejte [ISequence.addEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) s cílovým tvarem, typem efektu, podtypem a spouštěčem. Pro efekt, který začíná po kliknutí na jiný tvar, vytvořte interaktivní sekvenci, jejímž spouštěčem je tento jiný tvar.
 
-## **Použití animace na TextBox**
-
-Aspose.Slides pro Android přes Java vám umožňuje použít animaci na text ve tvaru.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape).
-4. Přidejte text do [IAutoShape.TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-).
-5. Získejte hlavní sekvenci efektů.
-6. Přidejte animační efekt k [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape).
-7. Nastavte vlastnost `TextAnimation.BuildType` na hodnotu z enumerace `BuildType`.
-8. Uložte prezentaci na disk jako soubor PPTX.
+Následující příklad vytvoří oba typy animací a uloží výsledek do souboru `shape-animations.pptx`.
 
 ```java
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Přidá nový AutoShape s textem
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
 
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
 
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = sld.getTimeline().getMainSequence();
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
 
-    // Přidá efekt Fade animace k tvaru
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Animuje text tvaru podle odstavců první úrovně
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Uloží soubor PPTX na disk
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert color="primary"  %}} 
-
-Kromě použití animací na text můžete také použít animace na jednotlivý [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph). Viz [**Animovaný Text**](/slides/cs/androidjava/animated-text/).
-
-{{% /alert %}} 
-
-## **Použití animace na PictureFrame**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte nebo získejte [PictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pictureframe) na snímku.
-4. Získejte hlavní sekvenci efektů.
-5. Přidejte animační efekt k [PictureFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pictureframe).
-6. Uložte prezentaci na disk jako soubor PPTX.
-
-```java
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-Presentation pres = new Presentation();
-try {
-    // Načte obrázek, který bude přidán do kolekce obrázků prezentace
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Přidá rámeček obrázku na snímek
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // Přidá efekt animace Fly zleva k rámečku obrázku
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Uloží soubor PPTX na disk
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Použití animace na tvar**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/Presentation).
-2. Získejte referenci na snímek podle jeho indexu.
-3. Přidejte `rectangle` [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape).
-4. Přidejte `Bevel` [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape) (když je tento objekt kliknut, animace se spustí).
-5. Vytvořte sekvenci efektů na tvaru Bevel.
-6. Vytvořte vlastní `UserPath`.
-7. Přidejte příkazy pro pohyb k `UserPath`.
-8. Uložte prezentaci na disk jako soubor PPTX.
-
-```java
-// Instancuje třídu Presentation, která představuje soubor PPTX.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Vytvoří efekt PathFootball pro existující tvar od nuly.
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // Přidá animační efekt PathFootBall
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Vytvoří nějaký druh "tlačítka".
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Vytvoří sekvenci efektů pro toto tlačítko.
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // Vytvoří vlastní uživatelskou cestu. Náš objekt bude přesunut až po kliknutí na tlačítko.
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // Přidá příkazy pro pohyb, protože vytvořená cesta je prázdná.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // Uloží soubor PPTX na disk
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Získání animačních efektů aplikovaných na tvar**
-
-Následující příklady ukazují, jak použít metodu `getEffectsByShape` z rozhraní [ISequence](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/) k získání všech animačních efektů aplikovaných na tvar.
-
-**Příklad 1: Získání animačních efektů aplikovaných na tvar na běžném snímku**
-
-Dříve jste se naučili, jak přidávat animační efekty do tvarů v prezentacích PowerPoint. Následující ukázkový kód ukazuje, jak získat efekty aplikované na první tvar na prvním běžném snímku v prezentaci `AnimExample_out.pptx`.
-
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // Získá hlavní animační sekvenci snímku.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Získá první tvar na prvním snímku.
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // Získá animační efekty aplikované na tvar.
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-**Příklad 2: Získání všech animačních efektů, včetně těch zděděných z placeholderů**
-
-Pokud má tvar na běžném snímku placeholdery, které jsou na snímku rozvržení a/nebo hlavním snímku, a na tyto placeholdery byly přidány animační efekty, pak budou během prezentace přehrány všechny efekty tvaru, včetně těch zděděných z placeholderů.
-
-Předpokládejme, že máme soubor PowerPoint prezentace `sample.pptx` s jedním snímkem, který obsahuje pouze tvar zápatí s textem „Made with Aspose.Slides“ a na tvar je aplikován efekt **Random Bars**.
-
-![Animace tvaru snímku](slide-shape-animation.png)
-
-Předpokládejme také, že efekt **Split** je aplikován na placeholder zápatí na **layout** snímku.
-
-![Animace tvaru layoutu](layout-shape-animation.png)
-
-A nakonec je efekt **Fly In** aplikován na placeholder zápatí na **master** snímku.
-
-![Animace tvaru masteru](master-shape-animation.png)
-
-Následující ukázkový kód ukazuje, jak použít metodu `getBasePlaceholder` z rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) k přístupu k placeholderům tvaru a získání animačních efektů aplikovaných na tvar zápatí, včetně těch zděděných z placeholderů umístěných na layoutu a master snímcích.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Get animation effects of the shape on the normal slide.
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Get animation effects of the placeholder on the layout slide.
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Get animation effects of the placeholder on the master slide.
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
-
-        System.out.println(typeName + " " + subtypeName);
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Spouštěč určuje, kdy efekt začíná:
 
-## **Změna časových vlastností animačního efektu**
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttriggertype/#OnClick) čeká na kliknutí v hlavní sekvenci nebo na kliknutí na spouštěcí tvar v interaktivní sekvenci.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) začíná spolu s předchozím efektem.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) začíná po dokončení předchozího efektu.
 
-Aspose.Slides pro Android přes Java vám umožňuje měnit časové vlastnosti animačního efektu.
+Chcete‑li animovat obrázek, graf nebo jiný typ tvaru, předávejte tento objekt metodě [ISequence.addEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) místo `targetShape`. Pro možnosti seskupování specifické pro grafy viz [Animated Charts](/slides/cs/androidjava/animated-charts/).
 
-![Panel časování animace](shape-animation.png)
+## **Čtení animací tvarů**
 
-Jedná se o odpovídající položky mezi časováním PowerPointu a vlastnostmi [Effect.Timing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IEffect#getTiming--):
+Použijte [ISequence.getEffectsByShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) pokud znáte cílový tvar. Chcete‑li prozkoumat každý efekt, enumerujte hlavní sekvenci i všechny interaktivní sekvence. Enumerace zabraňuje předpokladu, že sekvence obsahuje efekt na indexu `0`.
 
-- Rozbalovací seznam **Start** v časování PowerPointu odpovídá vlastnosti [Effect.Timing.TriggerType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITiming#getTriggerType--).
-- Časování PowerPoint **Duration** odpovídá vlastnosti [Effect.Timing.Duration](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITiming#getDuration--). Délka animace (v sekundách) je celkový čas potřebný k dokončení jednoho cyklu animace.
-- Časování PowerPoint **Delay** odpovídá vlastnosti [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--).
-
-Takto změníte vlastnosti časování efektu:
-
-1. [Použijte](#apply-animation-to-shape) nebo získejte animační efekt.
-2. Nastavte nové hodnoty pro požadované vlastnosti [Effect.Timing](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IEffect#getTiming--).
-3. Uložte upravený soubor PPTX.
+Následující příklad vytvoří tvar s hlavní‑sekvenčními a interaktivními efekty, získá efekty, které cílí na tento tvar, a potom enumeruje všechny sekvence na snímku.
 
 ```java
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // Získá první efekt hlavní sekvence.
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // Změní TriggerType efektu na spuštění kliknutím
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Změní délku trvání efektu
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Změní TriggerDelayTime efektu
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Uloží soubor PPTX na disk
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
-## **Zvuk animačního efektu**
+            printSequence("Main sequence", mainSequence);
 
-Aspose.Slides poskytuje tyto vlastnosti, které umožňují pracovat se zvuky v animačních efektech: 
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **Přidání zvuku animačního efektu**
-
-Tento Java kód ukazuje, jak přidat zvuk animačního efektu a zastavit jej, když začne další efekt:
-
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Přidá zvuk do kolekce audia prezentace
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Získá první efekt hlavní sekvence
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // Kontroluje efekt na "No Sound"
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // Přidá zvuk k prvnímu efektu
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // Získá první interaktivní sekvenci snímku.
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // Nastaví příznak "Stop previous sound" pro efekt
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // Uloží soubor PPTX na disk
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Extrahování zvuku animačního efektu**
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte referenci na snímek podle jeho indexu. 
-3. Získejte hlavní sekvenci efektů. 
-4. Extrahujte vložený [setSound(IAudio value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) ke každému animačnímu efektu.
-
-```java
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Získá hlavní sekvenci snímku.
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // Extrahuje zvuk efektu do pole bajtů
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Po animaci**
+Pokud potřebujete efekty jen pro jeden tvar, nejprve identifikujte tvar podle názvu, typu zástupného objektu nebo jiné stabilní vlastnosti; poté zavolejte [ISequence.getEffectsByShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-). Nepředpokládejte, že [IShapeCollection.get_Item](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) na indexu `0` je vždy požadovaný objekt.
 
-Aspose.Slides pro Android přes Java vám umožňuje změnit vlastnost After animation (po animaci) animačního efektu.
+## **Práce s děděnými efekty zástupných objektů**
 
-![Panel animačního efektu a rozšířené menu v Microsoft PowerPoint](shape-after-animation.png)
+Zástupný objekt na normálním snímku může dědit chování animace ze souvisejícího zástupného objektu na rozložení snímku a na hlavní šabloně. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) vrací tento nadřazený zástupný objekt, nebo `null`, pokud nadřazený neexistuje.
 
-Rozbalovací seznam PowerPoint efektu **After animation** odpovídá těmto vlastnostem:
+V následující ukázkové prezentaci má zápatí **Random Bars** na normálním snímku, **Split** na snímku rozložení a **Fly In** na hlavní šabloně.
 
-- Vlastnost [setAfterAnimationType(int value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setAfterAnimationType-int-) , která popisuje typ After animation:
-  * PowerPoint **More Colors** odpovídá typu [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#Color);
-  * PowerPoint **Don't Dim** odpovídá typu [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#DoNotDim) (výchozí typ po animaci);
-  * PowerPoint **Hide After Animation** odpovídá typu [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#HideAfterAnimation);
-  * PowerPoint **Hide on Next Mouse Click** odpovídá typu [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick);
-- Vlastnost [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) , která definuje formát barvy po animaci. Tato vlastnost funguje ve spojení s typem [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#Color). Pokud typ změníte na jiný, barva po animaci bude vymazána.
+![Animace zápatí na normálním snímku](slide-shape-animation.png)
+
+![Animace zápatí na snímku rozložení](layout-shape-animation.png)
+
+![Animace zápatí na hlavní šabloně](master-shape-animation.png)
+
+Další příklad používá hierarchii zástupných objektů z nové prezentace. Přidává efekty k hlavnímu zástupnému objektu, k zástupnému objektu rozložení a k odpovídajícímu zástupnému objektu na normálním snímku. Každé volání [IShape.getBasePlaceholder](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) je před použitím vráceného tvaru zkontrolováno.
 
 ```java
-// Instancuje třídu prezentace, která představuje soubor prezentace
-Presentation pres = new Presentation("AnimImage_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Získá první efekt hlavní sekvence
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-    // Změní typ after animation na Color
-    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-    // Nastaví barvu po animaci
-    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-    // Uloží soubor PPTX na disk
-    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
+
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
 
-## **Animovat text**
+## **Změna časování animace**
 
-Aspose.Slides poskytuje tyto vlastnosti, které umožňují pracovat s blokem *Animate text* animačního efektu:
+Dialog PowerPoint **Timing** odpovídá vlastnostem [ITiming](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/).
 
-- Vlastnost [setAnimateTextType(int value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) , která popisuje typ animace textu efektu. Text tvaru lze animovat:
-  - Vše najednou ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/animatetexttype/#AllAtOnce) typ)
-  - Poslovně ([AnimateTextType.ByWord](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/animatetexttype/#ByWord) typ)
-  - Po písmenu ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/animatetexttype/#ByLetter) typ)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) nastavuje zpoždění mezi částmi animovaného textu (slovy nebo písmeny). Kladná hodnota udává procento trvání efektu. Záporná hodnota udává zpoždění v sekundách.
+![Dialog Timing v PowerPointu pro efekt animace](shape-animation.png)
 
-Takto můžete změnit vlastnosti Animate text efektu:
+- **Start** odpovídá [ITiming.getTriggerType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Duration** odpovídá [ITiming.getDuration](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getDuration--), v sekundách.
+- **Delay** odpovídá [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), v sekundách.
+- **Repeat** odpovídá [ITiming.getRepeatCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), nebo [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Rewind when done playing** odpovídá [ITiming.getRewind](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#getRewind--).
 
-1. [Použijte](#apply-animation-to-shape) nebo získejte animační efekt.
-2. Nastavte vlastnost [setBuildType(int value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextanimation/#setBuildType-int-) na hodnotu [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/buildtype/#AsOneObject) , čímž vypnete režim animace *By Paragraphs*.
-3. Nastavte nové hodnoty pro vlastnosti [setAnimateTextType(int value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setAnimateTextType-int-) a [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-).
-4. Uložte upravený soubor PPTX.
+Tento samostatný příklad přidá efekt, změní jeho časování pomocí objektu vráceného metodou [ISequence.addEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), a uloží výsledek. Uložení reference na vrácený [IEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/) zabraňuje zbytečnému vyhledávání podle indexu kolekce.
 
 ```java
-// Instancuje třídu prezentace, která představuje soubor prezentace.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Získá první efekt hlavní sekvence
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
 
-    // Změní typ textové animace efektu na "As One Object"
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
 
-    // Změní typ animace textu efektu na "By word"
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // Nastaví zpoždění mezi slovy na 20% trvání efektu
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // Uloží soubor PPTX na disk
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **Často kladené otázky**
+Používejte jeden režim opakování výslovně. Kombinace počtu opakování s příznakem „until“ může vést k nejasným výsledkům v různých prohlížečích. Při změně režimu opakování nastavte nejprve [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) a [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-), potom [ITiming.setRepeatCount](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), protože nastavení libovolného příznaku také mění aktivní režim opakování.
 
-**Jak mohu zajistit, že animace jsou zachovány při publikování prezentace na web?**
+## **Přidání a extrahování zvuků animací**
 
-[Export do HTML5](/slides/cs/androidjava/export-to-html5/) a povolte [možnosti](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/) odpovědné za animace [shape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) a [transition](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-). Prostý HTML neumožňuje přehrávat animace snímků, zatímco HTML5 ano.
+Efekt animace může odkazovat na vložený audio soubor pomocí [IEffect.getSound](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#getSound--). [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) říká efektu, aby zastavil zvuk zahájený předchozím efektem.
 
-**Jak ovlivní změna pořadí z (z‑order) vrstev tvarů animaci?**
+### **Přidání zvuku k efektu**
 
-Animace a pořadí kreslení jsou nezávislé: efekt řídí časování a typ zobrazování/skrývání, zatímco [z-order](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/shape/#getZOrderPosition--) určuje, co co překrývá. Viditelný výsledek je definován jejich kombinací. (Jedná se o obecné chování PowerPointu; model efektů a tvarů Aspose.Slides následuje stejnou logiku.)
+Následující příklad očekává lokální audio soubor pojmenovaný `animation-sound.wav`. Vytvoří dva efekty, vloží tento soubor jako zvuk pro první efekt a nakonfiguruje druhý efekt, aby zvuk zastavil. Používá objekty vrácené metodou [ISequence.addEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-), takže není potřeba index sekvence.
 
-**Existují omezení při převodu animací na video u některých efektů?**
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-Obecně jsou [animace podporovány](/slides/cs/androidjava/convert-powerpoint-to-video/), ale v ojedinělých případech nebo u specifických efektů může dojít k odlišnému vykreslení. Doporučuje se testovat s efekty, které používáte, a s konkrétní verzí knihovny.
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **Extrahování vložených zvuků efektů**
+
+Následující příklad očekává lokální prezentaci pojmenovanou `presentation-with-animation-sounds.pptx`. Prohledá jak hlavní, tak interaktivní sekvence a zapíše každý vložený zvuk efektu do adresáře `extracted-animation-sounds`. Přípona je vybrána podle MIME typu audia získaného přes [IAudio.getContentType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudio/#getContentType--).
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+U velkých audio objektů použijte [IAudio.getStream](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iaudio/#getStream--) a zkopírujte proud do souboru místo načítání celého objektu do byte pole.
+
+## **Nastavení chování po animaci**
+
+Volba **After animation** určuje, co se stane s tvarem po dokončení jeho efektu.
+
+![Dialog možností efektu PowerPointu zobrazující nastavení After animation](shape-after-animation.png)
+
+Třída [AfterAnimationType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/) podporuje ponechání tvaru beze změny, změnu jeho barvy, skrytí po animaci nebo skrytí při dalším kliknutí. Když je typ [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#Color), nastavte také [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+
+Tento samostatný příklad vytvoří efekt, nastaví jeho chování po animaci pomocí vráceného objektu efektu a uloží výsledek.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LTGRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Změna typu od [AfterAnimationType.Color](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/afteranimationtype/#Color) vymaže nastavení barvy po animaci.
+
+## **Animace textu**
+
+Animace textu má dvě související nastavení:
+
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextanimation/#getBuildType--) určuje, zda se odstavce zobrazují společně nebo po odstavcích.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) určuje, zda se text zobrazí najednou, po slovech nebo po znacích. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) nastavuje prodlevu mezi slovy nebo znaky. Kladná hodnota je procento trvání efektu; záporná hodnota je prodleva v sekundách.
+
+Následující samostatný příklad animuje slova v textovém poli. [BuildType.AsOneObject](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/buildtype/#AsOneObject) vypne budování po odstavcích, takže nastavení pro slova se použije na celý textový rámec.
+
+```java
+import com.aspose.slides.*;
+
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
+
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Pro budování textového pole po odstavcích nastavte [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (nebo jinou úroveň odstavců). Chcete‑li cílit na jeden odstavec s vlastním efektem, použijte přetížení [ISequence.addEffect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-) přijímající [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/). Viz [Animated Text](/slides/cs/androidjava/animated-text/) pro příklady na úrovni odstavců.
+
+## **Export a poznámky o kompatibilitě**
+
+- Ukládání do PPT nebo PPTX zachovává model animací, ale konečné přehrávání řídí prohlížeč prezentace.
+- PDF a statické obrázky animace nepřehrávají. Použijte [HTML5 export](/slides/cs/androidjava/export-to-html5/), animovaný GIF nebo [konverzi videa](/slides/cs/androidjava/convert-powerpoint-to-video/), pokud výstup musí ukazovat pohyb.
+- Pro HTML5 povolte [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) a podle potřeby také [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- Rendering videa podporuje mnoho běžných vstupních, zdůrazňovacích, výstupních a pohybových efektů, ale ne všechny efekty PowerPointu jsou podporovány. Zkontrolujte aktuální [supported animations and effects](/slides/cs/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) a otestujte kritické prezentace s vaší cílovou verzí Aspose.Slides.
+- Pokročilé vlastní efekty a efekty importované z jiných formátů prezentací mohou být v souboru zachovány, ale renderují se odlišně v PowerPointu, HTML5 nebo videu. Ověřte exportovaný výsledek místo spoléhání se jen na název efektu.
+
+## **Časté dotazy**
+
+**Proč se animace zobrazí v PowerPointu, ale ne v PDF?**
+
+PDF je statický formát, takže animace a přechody snímků se nepřehrávají. Exportujte do HTML5, animovaného GIFu nebo videa, pokud je nutný pohyb.
+
+**Proč se efekt přehrává odlišně ve videu?**
+
+Export videa renderuje animace místo uložení původního chování PowerPointu. Některé pokročilé efekty nejsou podporovány nebo jsou aproximovány. Prohlédněte si tabulku podporovaných efektů a otestujte skutečnou prezentaci před použitím ve výrobě.
+
+**Mění změna pořadí tvaru dopředu nebo dozadu jeho pořadí animace?**
+
+Ne. Z‑order tvaru řídí překrytí, zatímco pořadí sekvence a spouštěče řídí přehrávání animací. Změňte časovou osu, pokud potřebujete jiný pořadí přehrávání.

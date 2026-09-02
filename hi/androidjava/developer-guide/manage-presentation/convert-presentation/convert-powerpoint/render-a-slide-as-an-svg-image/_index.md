@@ -1,5 +1,5 @@
 ---
-title: Android पर SVG छवियों के रूप में प्रस्तुति स्लाइड्स रेंडर करें
+title: Android पर प्रस्तुति स्लाइड्स को SVG छवियों के रूप में रेंडर करें
 linktitle: स्लाइड से SVG
 type: docs
 weight: 50
@@ -10,83 +10,212 @@ keywords:
 - स्लाइड से SVG
 - PPT से SVG
 - PPTX से SVG
-- PPT को SVG के रूप में सहेजें
-- PPTX को SVG के रूप में सहेजें
-- PPT को SVG में निर्यात करें
-- PPTX को SVG में निर्यात करें
-- स्लाइड रेंडर करें
-- स्लाइड बदलें
-- स्लाइड निर्यात करें
-- वेक्टर छवि
+- SVG निर्यात विकल्प
+- इंटरैक्टिव SVG
 - PowerPoint
 - प्रस्तुति
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android का उपयोग करके PowerPoint स्लाइड्स को SVG छवियों के रूप में रेंडर करना सीखें। सरल Java कोड उदाहरणों के साथ उच्च-गुणवत्ता विज़ुअल्स।"
+description: "Android पर PowerPoint स्लाइड्स को SVG छवियों के रूप में निर्यात करें और Aspose.Slides के साथ फ़ॉन्ट, टेक्स्ट, छवियां, IDs, और इवेंट्स को नियंत्रित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख समझाता है कि Aspose.Slides का उपयोग करके प्रस्तुति स्लाइड्स को SVG छवियों के रूप में कैसे रेंडर किया जाए। यह SVG फ़ॉर्मेट और इसके लाभों, जैसे स्केलेबिलिटी, एक्सेसिबिलिटी, और वेब विकास के लिए उपयुक्तता, का वर्णन करता है।
+SVG एक स्केलेबल XML-आधारित इमेज फ़ॉर्मेट है जो वेब पब्लिशिंग, स्लाइड व्यूअर्स, एक्सेसिबिलिटी वर्कफ़्लो और स्वचालित पोस्ट‑प्रॉसेसिंग के लिए उपयुक्त है। Aspose.Slides for Android via Java प्रत्येक स्लाइड को एक अलग SVG फ़ाइल में निर्यात करता है और आपको टेक्स्ट, फ़ॉन्ट, चित्र और SVG तत्वों को कैसे लिखा जाता है, को नियंत्रित करने की अनुमति देता है।
 
-आप सीखेंगे कि प्रस्तुति फ़ाइल को कैसे लोड किया जाए, उसकी स्लाइड्स पर कैसे इटररेट किया जाए, और प्रत्येक स्लाइड को एक अलग SVG फ़ाइल के रूप में कैसे सहेजा जाए। लेख PowerPoint और OpenDocument प्रस्तुति फ़ॉर्मेट, जिसमें PPT, PPTX, ODP, और PPS शामिल हैं, को कवर करता है और दिखाता है कि `Presentation` क्लास और `writeAsSvg` मेथड का उपयोग करके प्रोग्रामेटिक रूप से परिवर्तन कैसे किया जाता है।
+Use [SVGOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/) when the exported SVG must be compact, predictable across browsers, or ready for interactive use.
 
-## **SVG फ़ॉर्मेट**
+## **स्लाइड को SVG के रूप में निर्यात करें**
 
-SVG—Scalable Vector Graphics का संक्षिप्त रूप—एक मानक ग्राफ़िक्स प्रकार या फ़ॉर्मेट है जिसका उपयोग दो-आयामी छवियों को रेंडर करने के लिए किया जाता है। SVG छवियों को XML में वेक्टर के रूप में संग्रहीत करता है जिसमें उनके व्यवहार या रूप को परिभाषित करने वाले विवरण होते हैं।
+Create a [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/), select a slide, and write it to a stream with [ISlide.writeAsSvg](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-). The following example exports every slide in a presentation as a separate SVG file.
 
-SVG उन कुछ फ़ॉर्मेट में से एक है जो इन पहलुओं में अत्यधिक मानकों को पूरा करता है: स्केलेबिलिटी, इंटरैक्टिविटी, परफ़ॉर्मेंस, एक्सेसिबिलिटी, प्रोग्रामबिलिटी, आदि। इन कारणों से इसे वेब विकास में आमतौर पर उपयोग किया जाता है।
-
-आप SVG फ़ाइलें उन स्थितियों में उपयोग करना चाह सकते हैं जब आपको
-
-- **प्रस्तुति को *बहुत बड़े फ़ॉर्मेट* में प्रिंट करना हो।** SVG छवियां किसी भी रिज़ॉल्यूशन या स्तर तक स्केल कर सकती हैं। आप गुणवत्ता खोए बिना जितनी बार चाहे SVG छवियों का आकार बदल सकते हैं।
-- **अपनी स्लाइड्स के चार्ट और ग्राफ़ को *विभिन्न माध्यमों या प्लेटफ़ॉर्म* में उपयोग करना हो।** अधिकांश रीडर SVG फ़ाइलों को पढ़ सकते हैं। 
-- **इमेज़ के *सबसे छोटे संभव आकार* का उपयोग करना हो।** SVG फ़ाइलें सामान्यतः अन्य फ़ॉर्मेट की उच्च-रिज़ॉल्यूशन समकक्षों की तुलना में छोटी होती हैं, विशेष रूप से बिटमैप (JPEG या PNG) आधारित फ़ॉर्मेट की।
-
-## **स्लाइड को SVG छवि के रूप में रेंडर करें**
-
-Aspose.Slides for Android via Java आपको अपनी प्रस्तुतियों की स्लाइड्स को SVG छवियों के रूप में निर्यात करने की अनुमति देता है। SVG छवियों को जनरेट करने के लिए इन चरणों को अपनाएँ:
-
-1. Presentation क्लास का एक इंस्टेंस बनाएं।
-2. प्रस्तुति में सभी स्लाइड्स पर इटररेट करें।
-3. प्रत्येक स्लाइड को FileOutputStream के माध्यम से अपनी स्वयं की SVG फ़ाइल में लिखें।
-
-{{% alert color="primary" %}} 
-हमारे [नि:शुल्क वेब अनुप्रयोग](https://products.aspose.app/slides/hi/conversion/ppt-to-svg) को आज़माएं जिसमें हमने Aspose.Slides for Android via Java से PPT से SVG में परिवर्तन फ़ंक्शन लागू किया है।
-{{% /alert %}} 
-
-यह Java में नमूना कोड दिखाता है कि Aspose.Slides का उपयोग करके PPT को SVG में कैसे बदलें:
-
-``` java
-Presentation pres = new Presentation("pres.pptx");
+```java
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
+    for (ISlide slide : presentation.getSlides()) {
+        String outputFileName = String.format("slide-%d.svg", slide.getSlideNumber());
 
-        FileOutputStream fileStream = new FileOutputStream("slide-" + index + ".svg");
-        try {
-            slide.writeAsSvg(fileStream);
-        } finally {
-            fileStream.close();
+        try (FileOutputStream svgStream = new FileOutputStream(outputFileName)) {
+            slide.writeAsSvg(svgStream);
         }
     }
-} catch(IOException e) {
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+The filename uses [ISlide.getSlideNumber](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/islide/#getSlideNumber--) rather than the loop index. You can also export an individual shape with [IShape.writeAsSvg](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) when a slide viewer or web page needs only that shape.
+
+## **SVG आउटपुट को कॉन्फ़िगर करें**
+
+[SVGOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/) SVG रेंडरिंग को नियंत्रित करता है। टेक्स्ट फ्रेम के लिए, [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) रेंडरिंग क्षेत्र में टेक्स्ट फ्रेम को शामिल करता है, और [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) निर्धारित करता है कि फ्रेम रोटेशन लागू हो या नहीं। जब टेक्स्ट को लिगेचर के बिना रेंडर करना हो, तो [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) को `true` सेट करें।
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setDisableFontLigatures(true);
+    svgOptions.setUseFrameSize(true);
+    svgOptions.setUseFrameRotation(false);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("slide-with-custom-options.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **टेक्स्ट और फ़ॉन्ट्स को नियंत्रित करें**
+
+### **सभी टेक्स्ट को वेक्टराइज़ करें**
+
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) को `true` सेट करें ताकि सभी स्लाइड टेक्स्ट को वेक्टर ग्राफ़िक्स के रूप में लिखा जा सके। इससे फ़ॉन्ट निर्भरताएं समाप्त हो जाती हैं और दृश्य परिणाम विभिन्न ब्राउज़रों में अधिक सुसंगत बनता है, लेकिन टेक्स्ट अब SVG टेक्स्ट के रूप में चयन योग्य या खोज योग्य नहीं रहेगा।
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setVectorizeText(true);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("slide-with-vectorized-text.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **बाहरी फ़ॉन्ट्स को कैसे संभालें चुनें**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) बाहरी रूप से लोड किए गए फ़ॉन्ट्स के लिए एक [SvgExternalFontsHandling](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgexternalfontshandling/) मान का उपयोग करता है। अलग फ़ॉन्ट फ़ाइलों को संदर्भित करने के लिए [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgexternalfontshandling/) चुनें, SVG में फ़ॉन्ट डेटा को शामिल करने के लिए [SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgexternalfontshandling/) चुनें, या उन टेक्स्ट को ग्राफ़िक्स के रूप में रेंडर करने के लिए जो बाहरी फ़ॉन्ट्स का उपयोग करते हैं, [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgexternalfontshandling/) चुनें। फ़ॉन्ट एम्बेड करने से पहले फ़ॉन्ट लाइसेंसिंग की जाँच करें।
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    SVGOptions linkedFontsOptions = new SVGOptions();
+    linkedFontsOptions.setExternalFontsHandling(SvgExternalFontsHandling.AddLinksToFontFiles);
+    try (FileOutputStream linkedFontsStream = new FileOutputStream("slide-with-font-links.svg")) {
+        slide.writeAsSvg(linkedFontsStream, linkedFontsOptions);
+    }
+
+    SVGOptions embeddedFontsOptions = new SVGOptions();
+    embeddedFontsOptions.setExternalFontsHandling(SvgExternalFontsHandling.Embed);
+    try (FileOutputStream embeddedFontsStream = new FileOutputStream("slide-with-embedded-fonts.svg")) {
+        slide.writeAsSvg(embeddedFontsStream, embeddedFontsOptions);
+    }
+
+    SVGOptions vectorizedExternalFontsOptions = new SVGOptions();
+    vectorizedExternalFontsOptions.setExternalFontsHandling(SvgExternalFontsHandling.Vectorize);
+    try (FileOutputStream vectorizedExternalFontsStream = new FileOutputStream("slide-with-vectorized-external-fonts.svg")) {
+        slide.writeAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **एंबेडेड इमेज आकार घटाएँ**
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) का उपयोग करके एंबेडेड चित्रों का रिज़ॉल्यूशन कम करें, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) से कटे हुए स्रोत क्षेत्रों को हटाएँ, और JPEG एन्कोडिंग गुणवत्ता को नियंत्रित करने हेतु [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) का प्रयोग करें। ये सेटिंग्स फ़ाइल आकार को घटाती हैं लेकिन इमेज की फ़िडेलिटी या रखे गए इमेज डेटा की कीमत पर।
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setPicturesCompression(PicturesCompression.Dpi150);
+    svgOptions.setDeletePicturesCroppedAreas(true);
+    svgOptions.setJpegQuality(80);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("compressed-slide.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **शेप्स और टेक्स्ट को स्थिर IDs असाइन करें**
+
+[ISvgShapeFormattingController](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) का उपयोग करके प्रत्येक SVG आकार के लिए [ISvgShape.setId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-) सेट करें। टेक्स्ट `tspan` तत्वों पर भी [ISvgTSpan.setId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) मान सेट करने के लिए, [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/) को लागू करें। दोनों में से किसी भी कंट्रोलर को [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) के साथ असाइन करें।
+
+निम्नलिखित कंट्रोलर [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) का उपयोग करता है, जो आकार के जीवनकाल के लिए स्थिर होता है, और उसके टेक्स्ट स्पैन के लिए एक दोहराने योग्य काउंटर। यह उत्पन्न IDs को अपरिवर्तित प्रस्तुति के पोस्ट‑प्रोसेसिंग के लिए उपयुक्त बनाता है।
+
+```java
+class StableSvgIdController implements ISvgShapeAndTextFormattingController {
+    private String currentShapeId = "";
+    private int textSpanIndex;
+
+    public void formatShape(ISvgShape svgShape, IShape shape) {
+        currentShapeId = String.format("shape-%d", shape.getOfficeInteropShapeId());
+        textSpanIndex = 0;
+        svgShape.setId(currentShapeId);
+    }
+
+    public void formatText(ISvgTSpan svgTSpan, IPortion portion, ITextFrame textFrame) {
+        svgTSpan.setId(String.format("%s-text-%d", currentShapeId, textSpanIndex++));
+    }
+}
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setShapeFormattingController(new StableSvgIdController());
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("slide-with-stable-ids.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **SVG इवेंट हैंडलर्स जोड़ें**
+
+[ISvgShapeFormattingController](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) में, एक निर्यातित आकार में जावास्क्रिप्ट इवेंट हैंडलर जोड़ने के लिए [ISvgShape.setEventHandler](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-) को एक [SvgEvent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgevent/) मान के साथ कॉल करें। कंट्रोलर को [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) के साथ असाइन करें और परिणाम की होस्ट पेज या SVG दस्तावेज़ में जावास्क्रिप्ट फ़ंक्शन 정의 करें।
+
+```java
+class SvgEventController implements ISvgShapeFormattingController {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
+        if ("ActionButton".equals(shape.getName())) {
+            svgShape.setId("action-button");
+            svgShape.setEventHandler(SvgEvent.OnClick, "handleShapeClick(event)");
+        }
+    }
+}
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setShapeFormattingController(new SvgEventController());
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("interactive-slide.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+होस्ट पेज हैंडलर द्वारा संदर्भित जावास्क्रिप्ट फ़ंक्शन को परिभाषित कर सकता है। IDs और इवेंट हैंडलर्स को असाइन करने से स्लाइड व्यूअर्स, एक्सेसिबिलिटी सुधार, और अन्य इंटरैक्टिव SVG वर्कफ़्लो सक्षम होते हैं।
+
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**परिणामी SVG विभिन्न ब्राउज़रों में अलग क्यों दिख सकता है?**
+**मैं कब [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) का उपयोग [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgexternalfontshandling/) के बजाय करना चाहिए?**
 
-विशिष्ट SVG सुविधाओं का समर्थन ब्राउज़र इंजनों द्वारा अलग-अलग तरीके से लागू किया जाता है। [SVGOptions](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/svgoptions/) पैरामीटर असंगतियों को दूर करने में मदद करते हैं।
+[SVGOptions.setVectorizeText] का उपयोग तब करें जब सभी टेक्स्ट को फ़ॉन्ट से स्वतंत्र होना चाहिए। [SvgExternalFontsHandling.Vectorize] का उपयोग तब करें जब केवल वह टेक्स्ट जिसे बाहरी फ़ॉन्ट्स का उपयोग होता है, ग्राफ़िक्स में परिवर्तित किया जाना चाहिए।
 
-**क्या केवल स्लाइड्स ही नहीं बल्कि व्यक्तिगत शैप्स को भी SVG में निर्यात किया जा सकता है?**
+**SVG को छोटा करने का सर्वोत्तम तरीका क्या है?**
 
-हां। कोई भी [शैप अलग SVG के रूप में सहेजा जा सकता है](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-), जो आइकन्स, पिक्टोग्राम और ग्राफिक्स को पुन: उपयोग करने के लिए सुविधाजनक है।
+पहले एंबेडेड चित्रों को संपीड़ित करें, कटे हुए इमेज क्षेत्रों को हटाएँ, और लक्ष्य वातावरण में प्रदान किए जा सकने पर लिंक्ड फ़ॉन्ट फ़ाइलें चुनें। परिणाम का परीक्षण करें क्योंकि कम इमेज रिज़ॉल्यूशन, कम JPEG गुणवत्ता, और वेक्टराइज़्ड टेक्स्ट के अलग‑अलग क्वालिटी और आकार संबंधी ट्रेड‑ऑफ़ होते हैं।
 
-**क्या कई स्लाइड्स को एक ही SVG (स्ट्रिप/डॉक्यूमेंट) में संयोजित किया जा सकता है?**
+**क्या मैं निर्यातित SVG तत्वों को निर्यात के बाद संशोधित कर सकता हूँ?**
 
-मानक परिदृश्य एक स्लाइड → एक SVG है। कई स्लाइड्स को एक ही SVG कैनवास में संयोजित करना एक पोस्ट-प्रोसेसिंग कदम है जिसे एप्लिकेशन स्तर पर किया जाता है।
+हां। फॉर्मेटिंग कंट्रोलर के माध्यम से IDs असाइन करें, फिर अपने पोस्ट‑प्रोसेसिंग टूल या ब्राउज़र स्क्रिप्ट में मिलते‑जुलते SVG तत्वों को चुनें।

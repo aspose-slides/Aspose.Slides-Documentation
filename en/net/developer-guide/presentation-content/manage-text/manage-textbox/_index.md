@@ -132,6 +132,14 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
+## **Find the Shape That Owns a Text Frame**
+
+In generic text-processing code, you may receive an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) without already knowing which presentation object contains it. Use the [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) property to navigate back to the owning [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).
+
+For a text frame that belongs to an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) or another text-containing shape, [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) is set and [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is `null`. Both properties are read-only navigation properties, so reading them does not change ownership. Always check the returned value for `null` before accessing the shape.
+
+For a complete example that identifies shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/net/search-and-replace-text/).
+
 ## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class) to allow you to add columns to textboxes. You get to specify the number of columns in a text box and then specify the spacing in points between columns. 
@@ -303,10 +311,10 @@ pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx
 
 ## **FAQ**
 
-### What’s the difference between a text box and a text placeholder when working with master slides?
+**What’s the difference between a text box and a text placeholder when working with master slides?**
 
 A [placeholder](/slides/net/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
 
-### How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
 
 Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.

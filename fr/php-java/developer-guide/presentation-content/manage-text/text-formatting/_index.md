@@ -1,12 +1,10 @@
 ---
-title: Formater le texte de présentation en PHP
+title: Formater le texte d'une présentation en PHP
 linktitle: Mise en forme du texte
 type: docs
 weight: 50
 url: /fr/php-java/text-formatting/
 keywords:
-- texte en surbrillance
-- expression régulière
 - aligner le paragraphe
 - style de texte
 - arrière-plan du texte
@@ -19,7 +17,7 @@ keywords:
 - cadre de texte
 - interligne
 - propriété d'ajustement automatique
-- ancre du cadre de texte
+- ancrage du cadre de texte
 - tabulation du texte
 - langue par défaut
 - PowerPoint
@@ -27,87 +25,34 @@ keywords:
 - présentation
 - PHP
 - Aspose.Slides
-description: "Formater et styliser le texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour PHP via Java. Personnalisez les polices, les couleurs, l'alignement, et plus encore."
+description: "Formatez et stylisez le texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour PHP via Java. Personnalisez les polices, les couleurs, l'alignement et plus encore."
 ---
 ## **Aperçu**
 
-Cet article montre comment formater du texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour PHP via Java. Il couvre la mise en surbrillance, les couleurs d'arrière-plan, la transparence, l'espacement des caractères, les propriétés de police, la rotation, l'espacement des paragraphes, le comportement d'ajustement automatique, l'ancrage du texte, les tabulations et les paramètres de langue.
+Cet article montre comment mettre en forme du texte dans les présentations PowerPoint et OpenDocument à l'aide d'Aspose.Slides pour PHP via Java. Il couvre les couleurs d'arrière-plan, la transparence, l'espacement des caractères, les propriétés de police, la rotation, l'espacement des paragraphes, le comportement d'ajustement automatique, l'ancrage du texte, les taquets de tabulation et les paramètres de langue.
 
 Dans les exemples ci‑dessous, nous utiliserons un fichier nommé "sample.pptx", qui contient une seule zone de texte sur la première diapositive avec le texte suivant :
 
-![Exemple de texte](sample_text.png)
+![Texte d'exemple](sample_text.png)
 
-## **Mettre en surbrillance le texte**
-
-Utilisez la méthode [TextFrame]::highlightText lorsque vous devez mettre en surbrillance du texte correspondant à un échantillon spécifique dans un cadre de texte. La méthode applique une couleur de surbrillance aux fragments de texte correspondants et peut être utilisée avec [TextHighlightingOptions] pour contrôler la façon dont la recherche est effectuée, par exemple pour ne correspondre qu'aux mots entiers.
-
-L'exemple de code ci‑dessous met en surbrillance toutes les occurrences des caractères **"try"** puis ne met en surbrillance que le mot complet **"to"**.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    // Obtenir la première forme de la première diapositive.
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lightBlue = new Java("java.awt.Color", 173, 216, 230);
-    $violet = new Java("java.awt.Color", 238, 130, 238);
-
-    // Surligner le mot "try" dans la forme.
-    $shape->getTextFrame()->highlightText("try", $lightBlue);
-
-    $searchOptions = new TextHighlightingOptions();
-    $searchOptions->setWholeWordsOnly(true);
-
-    // Surligner le mot "to" dans la forme.
-    $shape->getTextFrame()->highlightText("to", $violet, $searchOptions);
-
-    $presentation->save("highlighted_text.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Le résultat :
-
-![Le texte surligné](highlighted_text.png)
-
-## **Mettre en surbrillance le texte avec des expressions régulières**
-
-La méthode [TextFrame]::highlightRegex met en surbrillance les correspondances de texte trouvées par une expression régulière.
-
-L'exemple de code ci‑dessous met en surbrillance tous les mots contenant **sept caractères ou plus** :
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-
-    // Surligner tous les mots de sept caractères ou plus.
-    $shape->getTextFrame()->highlightRegex("\\b[^\\s]{7,}\\b", java("java.awt.Color")->YELLOW, null);
-
-    $presentation->save("highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Le résultat :
-
-![Le texte surligné avec l'expression régulière](highlighted_text_using_regex.png)
+Pour rechercher et mettre en surbrillance du texte littéral ou des correspondances d'expressions régulières, voir [Recherche et remplacement de texte](/slides/fr/php-java/search-and-replace-text/).
 
 ## **Définir la couleur d'arrière-plan du texte**
 
-Utilisez le format de portion par défaut de [ParagraphFormat] pour définir la couleur de surbrillance par défaut d'un paragraphe, ou utilisez [PortionFormat] pour les portions de texte individuelles.
+Utilisez [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) pour définir la couleur de surbrillance par défaut d'un paragraphe, ou utilisez [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseportionformat/#getHighlightColor) pour des portions de texte individuelles.
 
 L'exemple de code suivant montre comment définir la couleur d'arrière-plan pour le **paragraphe entier** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     // Définir la couleur de surbrillance pour le paragraphe entier.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -119,20 +64,22 @@ Le résultat :
 
 ![Le paragraphe gris](gray_paragraph.png)
 
-L'exemple de code ci‑dessous montre comment définir la couleur d'arrière-plan pour les **portions de texte avec une police en gras** :
+L'exemple de code ci‑dessous montre comment définir la couleur d'arrière-plan pour les **portions de texte en gras** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
             // Définir la couleur de surbrillance pour la portion de texte.
-            $portion->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -144,18 +91,19 @@ try {
 
 Le résultat :
 
-![Les portions de texte gris](gray_text_portions.png)
+![Les portions de texte grises](gray_text_portions.png)
 
 ## **Aligner les paragraphes de texte**
 
-Utilisez la méthode [ParagraphFormat]::setAlignment pour définir l'alignement du paragraphe à l'intérieur d'un cadre de texte. La valeur peut être centrée, alignée à gauche, à droite, justifiée, etc.
+Utilisez [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#setAlignment) pour définir l'alignement du paragraphe dans une zone de texte. La valeur peut être centrée, alignée à gauche, alignée à droite, justifiée, etc.
 
 L'exemple de code suivant montre comment aligner le paragraphe au **centre** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // Définir l'alignement du paragraphe au centre.
@@ -173,22 +121,24 @@ Le résultat :
 
 ## **Définir la transparence du texte**
 
-La transparence du texte est contrôlée via le composant alpha de la couleur attribuée au format de remplissage de [PortionFormat]. Dans les exemples ci‑dessous, `alpha = 50` est une valeur de canal alpha ARGB sur l'échelle 0‑255, et non un pourcentage de transparence.
+La transparence du texte est contrôlée via le composant alpha de la couleur assignée à [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseportionformat/#getFillFormat). Dans les exemples ci‑dessous, `alpha = 50` est une valeur de canal alpha ARGB sur l'échelle 0‑255, et non un pourcentage de transparence.
 
-L'exemple de code suivant montre comment appliquer la transparence au **paragraphe entier** :
+L'exemple de code ci‑dessous montre comment appliquer la transparence au **paragraphe entier** :
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Définir la couleur de remplissage du texte avec une couleur transparente.
+    // Définir la couleur de remplissage du texte à une couleur transparente.
     $fillFormat->setFillType(FillType::Solid);
-    $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
+    $fillFormat->getSolidFillColor()->setColor($transparentColor);
 
     $presentation->save("transparent_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -200,24 +150,26 @@ Le résultat :
 
 ![Le paragraphe transparent](transparent_paragraph.png)
 
-L'exemple de code suivant montre comment appliquer la transparence aux **portions de texte avec une police en gras** :
+L'exemple de code suivant montre comment appliquer la transparence aux **portions de texte en gras** :
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-                // Définir la transparence de la portion de texte.
-                $fillFormat = $portion->getPortionFormat()->getFillFormat();
-                $fillFormat->setFillType(FillType::Solid);
-                $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+            // Définir la transparence de la portion de texte.
+            $fillFormat = $portion->getPortionFormat()->getFillFormat();
+            $fillFormat->setFillType(FillType::Solid);
+            $fillFormat->getSolidFillColor()->setColor($transparentColor);
         }
     }
 
@@ -231,19 +183,20 @@ Le résultat :
 
 ![Les portions de texte transparentes](transparent_text_portions.png)
 
-## **Définir l'espacement des caractères du texte**
+## **Définir l'espacement des caractères pour le texte**
 
-Utilisez la méthode [BasePortionFormat]::setSpacing pour augmenter ou réduire l'espacement entre les caractères dans une zone de texte.
+Utilisez [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseportionformat/#setSpacing) pour augmenter ou réduire l'espacement entre les caractères dans une zone de texte.
 
 Le code PHP suivant montre comment augmenter l'espacement des caractères dans le **paragraphe entier** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Remarque : Utilisez des valeurs négatives pour compresser l'espacement des caractères.
+    // Remarque : utilisez des valeurs négatives pour comprimer l'espacement des caractères.
     $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Agrandir l'espacement des caractères.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
@@ -256,19 +209,20 @@ Le résultat :
 
 ![L'espacement des caractères dans le paragraphe](character_spacing_in_paragraph.png)
 
-L'exemple de code ci‑dessous montre comment augmenter l'espacement des caractères dans les **portions de texte avec une police en gras** :
+L'exemple de code ci‑dessous montre comment augmenter l'espacement des caractères dans les **portions de texte en gras** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Remarque : Utilisez des valeurs négatives pour comprimer l'espacement des caractères.
+            // Remarque : utilisez des valeurs négatives pour comprimer l'espacement des caractères.
             $portion->getPortionFormat()->setSpacing(3); // Agrandir l'espacement des caractères.
         }
     }
@@ -285,14 +239,15 @@ Le résultat :
 
 ### **Désactiver le crénage pour des polices spécifiques**
 
-Dans certains cas, le texte rendu par Aspose.Slides peut apparaître légèrement plus serré que le même texte affiché dans PowerPoint. Cela peut arriver parce que PowerPoint ignore les données de crénage pour certaines polices, même lorsque la police contient des informations de crénage valides et que le crénage est activé dans les paramètres de PowerPoint.
+Dans certains cas, le texte rendu par Aspose.Slides peut sembler légèrement plus serré que le même texte affiché dans PowerPoint. Cela peut se produire parce que PowerPoint peut ignorer les données de crénage pour certaines polices, même lorsque la police contient des informations de crénage valides et que le crénage est activé dans les paramètres de PowerPoint.
 
-Pour rapprocher le rendu de celui de PowerPoint dans ces cas, vous pouvez désactiver le crénage pour les portions de texte qui utilisent la police concernée. Définissez la méthode [BasePortionFormat]::setKerningMinimalSize sur une valeur nettement supérieure à la taille réelle de la police :
+Pour rendre la sortie rendue plus proche de PowerPoint dans ces cas, vous pouvez désactiver le crénage pour les portions de texte qui utilisent la police concernée. Définissez [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) à une valeur nettement supérieure à la taille réelle de la police :
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
     $paragraphCount = java_values($autoShape->getTextFrame()->getParagraphs()->getCount());
@@ -320,27 +275,29 @@ try {
 }
 ```
 
-Ce réglage empêche l'application du crénage aux portions de texte correspondantes et peut aider à aligner le rendu d'Aspose.Slides avec la sortie visuelle de PowerPoint pour les polices concernées.
+Ce paramètre empêche l'application du crénage aux portions de texte correspondantes et peut aider à aligner le rendu d'Aspose.Slides avec la sortie visuelle de PowerPoint pour les polices affectées par ce comportement spécifique à PowerPoint.
 
 ## **Gérer les propriétés de police du texte**
 
-Les propriétés de police peuvent être définies au niveau du paragraphe via le format de portion par défaut de [ParagraphFormat] ou sur des portions individuelles via [PortionFormat].
+Les propriétés de police peuvent être définies au niveau du paragraphe via [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) ou sur des portions individuelles via [PortionFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/portionformat/).
 
-Le code suivant définit la police et le style de texte pour le **paragraphe entier** : il applique la taille de police, le gras, l'italique, le soulignement pointillé et la police Times New Roman à toutes les portions du paragraphe.
+Le code suivant définit la police et le style du texte pour l'ensemble du paragraphe : il applique la taille de police, le gras, l'italique, le soulignement pointillé et la police Times New Roman à toutes les portions du paragraphe.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $font = new FontData("Times New Roman");
 
-    // Définir les propriétés de police du paragraphe.
+    // Définir les propriétés de police pour le paragraphe.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
     $defaultPortionFormat->setFontUnderline(TextUnderlineType::Dotted);
-    $defaultPortionFormat->setLatinFont(new FontData("Times New Roman"));
+    $defaultPortionFormat->setLatinFont($font);
 
     $presentation->save("font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -352,13 +309,15 @@ Le résultat :
 
 ![Les propriétés de police du paragraphe](font_properties_for_paragraph.png)
 
-L'exemple de code ci‑dessous applique des propriétés similaires aux **portions de texte avec une police en gras** :
+L'exemple de code ci‑dessous applique des propriétés similaires aux **portions de texte en gras** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $font = new FontData("Times New Roman");
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
@@ -369,7 +328,7 @@ try {
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
             $portionFormat->setFontUnderline(TextUnderlineType::Dotted);
-            $portionFormat->setLatinFont(new FontData("Times New Roman"));
+            $portionFormat->setLatinFont($font);
         }
     }
 
@@ -385,14 +344,15 @@ Le résultat :
 
 ## **Définir la rotation du texte**
 
-Utilisez la méthode [TextFrameFormat]::setTextVerticalType pour définir une orientation de texte prédéfinie à l'intérieur d'une forme.
+Utilisez [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframeformat/#setTextVerticalType) pour définir une orientation de texte prédéfinie à l'intérieur d'une forme.
 
-L'exemple de code suivant définit l'orientation du texte dans la forme sur `Vertical270`, ce qui fait pivoter le texte de **90 degrés dans le sens inverse des aiguilles d'une montre** :
+L'exemple de code suivant définit l'orientation du texte dans la forme à `Vertical270`, ce qui fait pivoter le texte de **90 degrés dans le sens inverse des aiguilles d'une montre** :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
@@ -408,14 +368,15 @@ Le résultat :
 
 ## **Définir une rotation personnalisée pour les cadres de texte**
 
-Utilisez la méthode [TextFrameFormat]::setRotationAngle pour définir un angle de rotation personnalisé pour un [TextFrame].
+Utilisez [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframeformat/#setRotationAngle) pour définir un angle de rotation personnalisé pour un [TextFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframe/).
 
-Le code ci‑dessus fait pivoter le cadre de texte de 3 degrés dans le sens des aiguilles d'une montre à l'intérieur de la forme :
+L'exemple de code ci‑dessus fait pivoter le cadre de texte de 3 degrés dans le sens des aiguilles d'une montre à l'intérieur de la forme :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
@@ -427,21 +388,22 @@ try {
 
 Le résultat :
 
-![La rotation de texte personnalisée](custom_text_rotation.png)
+![La rotation personnalisée du texte](custom_text_rotation.png)
 
 ## **Définir l'interligne des paragraphes**
 
-Aspose.Slides fournit les méthodes [ParagraphFormat]::setSpaceAfter, ParagraphFormat::setSpaceBefore et ParagraphFormat::setSpaceWithin pour contrôler l'espacement des paragraphes. Elles sont utilisées comme suit :
+Aspose.Slides fournit [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#setSpaceBefore) et [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#setSpaceWithin) pour contrôler l'espacement des paragraphes. Ces propriétés sont utilisées comme suit :
 
 * Utilisez une valeur positive pour spécifier l'interligne en pourcentage de la hauteur de ligne.
 * Utilisez une valeur négative pour spécifier l'interligne en points.
 
-L'exemple de code suivant montre comment spécifier l'interligne au sein du paragraphe :
+L'exemple de code suivant montre comment spécifier l'interligne à l'intérieur du paragraphe :
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
@@ -454,16 +416,17 @@ try {
 
 Le résultat :
 
-![L'interligne dans le paragraphe](line_spacing.png)
+![L'interligne à l'intérieur du paragraphe](line_spacing.png)
 
 ## **Définir le type d'ajustement automatique pour les cadres de texte**
 
-La méthode [TextFrameFormat]::setAutofitType détermine le comportement du texte lorsqu'il dépasse les limites de son conteneur. Utilisez‑la pour contrôler si le texte se rétrécit, dépasse ou redimensionne automatiquement la forme.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframeformat/#setAutofitType) détermine le comportement du texte lorsqu'il dépasse les limites de son conteneur. Utilisez-le pour contrôler si le texte se rétrécit, déborde ou redimensionne automatiquement la forme.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
@@ -475,12 +438,13 @@ try {
 
 ## **Définir l'ancrage des cadres de texte**
 
-La méthode [TextFrameFormat]::setAnchoringType définit la façon dont le texte est positionné verticalement à l'intérieur d'une forme, par exemple en haut, au centre ou en bas.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textframeformat/#setAnchoringType) définit comment le texte est positionné verticalement à l'intérieur d'une forme, par exemple en haut, au centre ou en bas.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
@@ -492,12 +456,13 @@ try {
 
 ## **Définir la tabulation du texte**
 
-Utilisez la méthode [ParagraphFormat]::setDefaultTabSize et sa collection d'onglets pour configurer les tabulations dans un paragraphe.
+Utilisez [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) et [ParagraphFormat::getTabs](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraphformat/#getTabs) pour configurer les taquets de tabulation dans un paragraphe.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
@@ -515,14 +480,15 @@ Le résultat :
 
 ## **Définir la langue de relecture**
 
-Aspose.Slides fournit la méthode [BasePortionFormat]::setLanguageId, qui permet de définir la langue de relecture pour une portion de texte. La langue de relecture détermine la langue utilisée pour les vérifications orthographiques et grammaticales dans PowerPoint.
+Aspose.Slides fournit [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseportionformat/#setLanguageId), qui vous permet de définir la langue de relecture pour une portion de texte. La langue de relecture détermine la langue utilisée pour la vérification orthographique et grammaticale dans PowerPoint.
 
 L'exemple de code suivant montre comment définir la langue de relecture pour une portion de texte :
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getPortions()->clear();
@@ -534,10 +500,10 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Définir l'ID d'une langue de relecture.
+    // Définir l'Id d'une langue de relecture.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
-    $textPortion->setText("1.");
+    $textPortion->setText("1。");
     $paragraph->getPortions()->add($textPortion);
 
     $presentation->save("proofing_language.pptx", SaveFormat::Pptx);
@@ -548,7 +514,7 @@ try {
 
 ## **Définir la langue par défaut**
 
-Utilisez la méthode [LoadOptions]::setDefaultTextLanguage pour définir la langue par défaut du texte créé lors du chargement ou de la création d'une présentation.
+Utilisez [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/fr/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage) pour définir la langue par défaut du texte créé lors du chargement ou de la création d'une présentation.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -572,14 +538,14 @@ try {
 
 ## **Définir le style de texte par défaut**
 
-Pour appliquer un formatage de texte par défaut au niveau de la présentation, utilisez le style de texte par défaut de [Presentation].
+Pour appliquer le formatage de texte par défaut au niveau de la présentation, utilisez [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/fr/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-L'exemple de code suivant montre comment définir une police en gras de 14 pt par défaut pour tout le texte de toutes les diapositives d'une nouvelle présentation.
+L'exemple de code suivant montre comment définir une police par défaut en gras avec une taille de 14 pt pour tout le texte de toutes les diapositives dans une nouvelle présentation.
 
 ```php
 $presentation = new Presentation();
 try {
-    // Obtenir le format de paragraphe du niveau supérieur.
+    // Récupérer le format de paragraphe de niveau supérieur.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -595,25 +561,27 @@ try {
 
 ## **Extraire le texte avec l'effet Tout en majuscules**
 
-Dans PowerPoint, appliquer l'effet de police **Tout en majuscules** rend le texte affiché en majuscules sur la diapositive même s'il a été saisi en minuscules. Lorsque vous récupérez une telle portion de texte avec Aspose.Slides, la bibliothèque renvoie le texte exactement tel qu'il a été saisi. Pour obtenir le texte affiché, vérifiez [TextCapType] et convertissez la chaîne renvoyée en majuscules lorsque la valeur est `All`.
+Dans PowerPoint, appliquer l'effet de police **All Caps** fait apparaître le texte en majuscules sur la diapositive même s'il a été saisi initialement en minuscules. Lorsque vous récupérez une telle portion de texte avec Aspose.Slides, la bibliothèque renvoie le texte exactement tel qu'il a été entré. Pour correspondre au texte affiché, vérifiez [TextCapType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/textcaptype/) et convertissez la chaîne renvoyée en majuscules lorsque la valeur est `All`.
 
 Supposons que nous ayons la zone de texte suivante sur la première diapositive du fichier sample2.pptx.
 
 ![L'effet Tout en majuscules](all_caps_effect.png)
 
-L'exemple de code ci‑dessous montre comment extraire le texte avec l'effet **Tout en majuscules** appliqué :
+L'exemple de code ci‑dessus montre comment extraire le texte avec l'effet **All Caps** appliqué :
 
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
-    echo "Original text: ", $textPortion->getText(), "\n";
+    $originalText = $textPortion->getText();
+    echo "Original text: ", $originalText, "\n";
 
     $textFormat = $textPortion->getPortionFormat()->getEffective();
     if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
-        $text = strtoupper($textPortion->getText());
+        $text = strtoupper($originalText);
         echo "All-Caps effect: ", $text, "\n";
     }
 } finally {
@@ -632,8 +600,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Comment modifier le texte dans un tableau sur une diapositive ?**
 
-Pour modifier le texte dans un tableau sur une diapositive, utilisez [Table]. Parcourez les cellules et mettez à jour chaque cellule via le cadre de texte de [Cell] et le formatage de paragraphe via le format de paragraphe de [Paragraph].
+Pour modifier le texte dans un tableau sur une diapositive, utilisez [Table](https://reference.aspose.com/slides/fr/php-java/aspose.slides/table/). Parcourez les cellules et mettez à jour chaque cellule via [Cell::getTextFrame](https://reference.aspose.com/slides/fr/php-java/aspose.slides/cell/#getTextFrame) et le formatage des paragraphes via [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Comment appliquer un dégradé de couleur au texte d'une diapositive PowerPoint ?**
+**Comment appliquer une couleur dégradée au texte dans une diapositive PowerPoint ?**
 
-Pour appliquer un dégradé de couleur au texte, utilisez le format de remplissage de [PortionFormat]. Définissez le type de remplissage de [FillFormat] sur [FillType] `Gradient` et configurez les arrêts du dégradé, la direction et la transparence.
+Pour appliquer une couleur dégradée au texte, utilisez [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/fr/php-java/aspose.slides/baseportionformat/#getFillFormat). Définissez [FillFormat::setFillType](https://reference.aspose.com/slides/fr/php-java/aspose.slides/fillformat/#setFillType) sur [FillType::Gradient](https://reference.aspose.com/slides/fr/php-java/aspose.slides/filltype/) et configurez les arrêts du dégradé, la direction et la transparence.

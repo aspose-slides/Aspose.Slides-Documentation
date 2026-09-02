@@ -14,7 +14,7 @@ keywords:
 - "Aspose.Slides"
 description: "คัดลอกหรือทำสำเนาสไลด์ PowerPoint อย่างรวดเร็วด้วย Aspose.Slides for Python via .NET ตามตัวอย่างโค้ดและเคล็ดลับที่ชัดเจนของเราเพื่ออัตโนมัติกระบวนการสร้าง PPT ในไม่กี่วินาที เพิ่มผลิตภาพและขจัดการทำงานด้วยตนเอง"
 ---
-## **บทนำ**
+## **คำนำ**
 
 การทำสำเนา (Cloning) คือกระบวนการทำสำเนาตรงหรือสำเนาที่เหมือนกันของสิ่งใดสิ่งหนึ่ง Aspose.Slides ยังให้คุณคัดลอก (clone) สไลด์ใดก็ได้แล้วแทรกสไลด์ที่ถูกคัดลอกลงในงานนำเสนอปัจจุบันหรือในงานนำเสนอที่เปิดอยู่อื่น ๆ การคัดล่าสไลด์จะสร้างสไลด์ใหม่ที่นักพัฒนาสามารถแก้ไขได้โดยไม่กระทบต่อสไลด์ต้นฉบับ มีหลายวิธีในการคัดล่าสไลด์:
 
@@ -91,13 +91,13 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 ```py
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์งานนำเสนอแหล่งที่มา.
+# สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์การนำเสนอแหล่งที่มา
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # สร้างอินสแตนซ์ของคลาส Presentation สำหรับไฟล์ PPTX ปลายทาง (ที่สไลด์จะถูกคัดลอก).
     with slides.Presentation() as target_presentation:
         # คัดลอกสไลด์ที่ต้องการจากงานนำเสนอแหล่งที่มาไปยังส่วนท้ายของคอลเลกชันสไลด์ในงานนำเสนอปลายทาง.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # บันทึกงานนำเสนอปลายทางลงดิสก์.
+        # บันทึกการนำเสนอปลายทางลงดิสก์
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -116,13 +116,13 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์งานนำเสนอแหล่งที่มา.
+# สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์การนำเสนอแหล่งที่มา
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # สร้างอินสแตนซ์ของคลาส Presentation สำหรับไฟล์ PPTX ปลายทาง (ที่สไลด์จะถูกคัดลอก).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # แทรกสำเนาของสไลด์แรกจากแหล่งที่มาที่ดัชนี 2 ในงานนำเสนอปลายทาง.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # บันทึกงานนำเสนอปลายทางลงดิสก์.
+        # บันทึกการนำเสนอปลายทางลงดิสก์
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -146,11 +146,11 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์งานนำเสนอแหล่งที่มา.
+# สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์การนำเสนอแหล่งที่มา
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
     # สร้างอินสแตนซ์ของคลาส Presentation สำหรับงานนำเสนอปลายทางที่สไลด์จะถูกคัดลอก.
     with slides.Presentation() as target_presentation:
-        # ดึงสไลด์แรกจากงานนำเสนอแหล่งที่มา.
+        # ดึงสไลด์แรกจากการนำเสนอแหล่งที่มา
         source_slide = source_presentation.slides[0]
         # ดึงมาสเตอร์สไลด์ที่สไลด์แรกใช้.
         source_master = source_slide.layout_slide.master_slide
@@ -158,7 +158,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         cloned_master = target_presentation.masters.add_clone(source_master)
         # คัดลอกสไลด์จากงานนำเสนอแหล่งที่มาลงส่วนท้ายของงานนำเสนอปลายทางโดยใช้มาสเตอร์ที่คัดลอก.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # บันทึกงานนำเสนอปลายทางลงดิสก์.
+        # บันทึกการนำเสนอปลายทางลงดิสก์
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -171,7 +171,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 ```py
 import aspose.slides as slides
 
-# สร้างงานนำเสนอเปล่าใหม่.
+# สร้างการนำเสนอใหม่เปล่า.
 with slides.Presentation() as presentation:
     # เพิ่มสไลด์ว่างโดยอิงจากเลเอาต์ของสไลด์แรก.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
@@ -183,7 +183,7 @@ with slides.Presentation() as presentation:
     section = presentation.sections.add_section("Section2", slide2)
     # คัดลอกสไลด์ที่สร้างไว้ก่อนหน้านี้ไปยังส่วน "Section2".
     presentation.slides.add_clone(slide, section)
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
+    # บันทึกการนำเสนอเป็นไฟล์ PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 

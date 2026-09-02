@@ -118,7 +118,7 @@ import aspose.slides as slides
 
 # Instanciar la clase Presentation para representar el archivo de presentación de origen.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instanciar la clase Presentation para el PPTX de destino (donde se va a clonar la diapositiva).
+    # Instanciar la clase Presentation para el PPTX de destino (donde se clonará la diapositiva).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # Insertar una copia de la primera diapositiva del origen en el índice 2 de la presentación de destino.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
@@ -208,7 +208,7 @@ Haga esto antes de clonar la maestra y la diapositiva.
 
 Sí. La página de notas y los comentarios de revisión se incluyen en el clon. Si no los desea, [elímalos](/slides/es/python-net/presentation-notes/) después de la inserción.
 
-**¿Cómo se gestionan los gráficos y sus fuentes de datos?**
+### ¿Cómo se gestionan los gráficos y sus fuentes de datos?
 
 El objeto del gráfico, su formato y los datos incrustados se copian. Si el gráfico estaba vinculado a una fuente externa (p. ej., un libro de trabajo incrustado OLE), ese vínculo se conserva como un [objeto OLE](/slides/es/python-net/manage-ole/). Después de moverlo entre archivos, verifique la disponibilidad de los datos y el comportamiento de actualización.
 

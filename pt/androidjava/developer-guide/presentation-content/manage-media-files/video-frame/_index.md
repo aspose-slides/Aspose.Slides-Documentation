@@ -1,5 +1,5 @@
 ---
-title: Gerenciar quadros de vídeo em apresentações no Android
+title: Gerenciar Quadros de Vídeo em Apresentações no Android
 linktitle: Quadro de Vídeo
 type: docs
 weight: 10
@@ -18,11 +18,11 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para Android via Java. Guia rápido de instruções."
+description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para Android via Java. Guia rápido passo a passo."
 ---
 ## **Introdução**
 
-Um vídeo bem colocado em uma apresentação pode tornar sua mensagem mais atraente e aumentar os níveis de engajamento com seu público. 
+Um vídeo bem colocado em uma apresentação pode tornar sua mensagem mais envolvente e aumentar os níveis de engajamento com o público. 
 
 O PowerPoint permite que você adicione vídeos a um slide em uma apresentação de duas maneiras:
 
@@ -33,11 +33,11 @@ Para permitir que você adicione vídeos (objetos de vídeo) a uma apresentaçã
 
 ## **Criar um Quadro de Vídeo Incorporado**
 
-Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo na sua apresentação. 
+Se o arquivo de vídeo que você deseja adicionar ao seu slide está armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo na sua apresentação. 
 
-1. Crie uma instância da classe [Presentation ](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation)class.
-1. Obtenha a referência de um slide por seu índice. 
-1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideo/) e passe o caminho do arquivo de vídeo para incorporá-lo na apresentação.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation) .
+1. Obtenha a referência de um slide pelo seu índice. 
+1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideo/) e passe o caminho do arquivo de vídeo para incorporar o vídeo na apresentação.
 1. Adicione um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/) para criar um quadro para o vídeo.
 1. Salve a apresentação modificada. 
 
@@ -63,7 +63,7 @@ try {
 }
 ```
 
-Alternativamente, você pode adicionar um vídeo passando seu caminho de arquivo diretamente para o método [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
+Alternativamente, você pode adicionar um vídeo passando seu caminho de arquivo diretamente ao método [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ishapecollection/#addVideoFrame-float-float-float-float-com.aspose.slides.IVideo-) :
 
 ``` java
 Presentation pres = new Presentation();
@@ -77,10 +77,10 @@ try {
 
 ## **Criar um Quadro de Vídeo com Vídeo de uma Fonte Web**
 
-O Microsoft [PowerPoint 2013 e posteriores](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) suporta vídeos do YouTube em apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná-lo à sua apresentação através de seu link web. 
+Versões mais recentes do Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) suportam vídeos online em apresentações. Se o vídeo que você deseja usar está disponível online (por exemplo, no YouTube), você pode adicioná‑lo à sua apresentação por meio de seu link web.
 
-1. Crie uma instância da classe [Presentation ](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation)class
-1. Obtenha a referência de um slide por seu índice. 
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation) 
+1. Obtenha a referência de um slide pelo seu índice. 
 1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideo/) e passe o link para o vídeo.
 1. Defina uma miniatura para o quadro de vídeo. 
 1. Salve a apresentação. 
@@ -101,7 +101,7 @@ try {
 ```java
 private static void addVideoFromYouTube(Presentation pres, String videoID)
 {
-    // Adiciona um videoFrame
+    // Adiciona um quadro de vídeo
     IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
     videoFrame.setPlayMode(VideoPlayModePreset.Auto);
@@ -121,9 +121,73 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
+## **Recortar um Quadro de Vídeo**
+
+Aspose.Slides permite que você controle qual parte de um vídeo é reproduzida definindo os valores trim‑from‑start e trim‑from‑end através de [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) e [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Ambos os valores são especificados em milissegundos e definem quanto tempo é pulado do início e do fim do vídeo, respectivamente. Essas configurações alteram as propriedades de reprodução do vídeo na apresentação; elas não cortam nem modificam os dados binários do vídeo incorporado.
+
+**Definir Configurações de Corte**
+
+Para criar um quadro de vídeo e definir suas configurações de corte:
+
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/) .
+1. Adicione um objeto [IVideo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideo/) à apresentação.
+1. Adicione um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/) a um slide.
+1. Defina os valores trim‑from‑start e trim‑from‑end através de [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) e [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
+1. Salve a apresentação modificada.
+
+O exemplo de código a seguir ignora os primeiros 2,5 segundos e o último segundo de um vídeo incorporado durante a reprodução:
+
+```java
+Presentation presentation = new Presentation();
+try {
+    FileInputStream videoStream = new FileInputStream("video.mp4");
+    try {
+        IVideo video = presentation.getVideos().addVideo(
+                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+        ISlide slide = presentation.getSlides().get_Item(0);
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500f);
+        videoFrame.setTrimFromEnd(1000f);
+
+        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Ler Configurações de Corte**
+
+Para inspecionar configurações de corte existentes, carregue uma apresentação, encontre um objeto [IVideoFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/) entre as formas do primeiro slide e leia os valores através de [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) e [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
+
+O exemplo de código a seguir encontra o primeiro quadro de vídeo no primeiro slide e relata suas configurações de corte em milissegundos:
+
+```java
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            float trimFromStart = videoFrame.getTrimFromStart();
+            float trimFromEnd = videoFrame.getTrimFromEnd();
+
+            System.out.println("Trim from start: " + trimFromStart + " ms");
+            System.out.println("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Gerenciar Legendas de Vídeo**
 
-O Aspose.Slides permite que você gerencie legendas fechadas para quadros de vídeo em apresentações do PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através do método [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+Aspose.Slides permite que você gerencie legendas fechadas para quadros de vídeo em apresentações PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através do método [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
 
 **Adicionar Legendas a um Quadro de Vídeo**
 
@@ -155,7 +219,7 @@ try {
 }
 ```
 
-A interface [ICaptionsCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/icaptionscollection/) também fornece uma sobrecarga que permite adicionar legendas a partir de um stream.
+A interface [ICaptionsCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/icaptionscollection/) também fornece uma sobrecarga que permite adicionar legendas a partir de um fluxo.
 
 **Extrair Legendas de um Quadro de Vídeo**
 
@@ -164,7 +228,7 @@ Para extrair legendas de um quadro de vídeo:
 1. Carregue a apresentação que contém o vídeo.
 1. Encontre o objeto [IVideoFrame](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/) alvo.
 1. Itere pelas faixas de legenda retornadas por [getCaptionTracks](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
-1. Salve cada faixa de legenda em um arquivo `.vtt`.
+1. Salve cada faixa de legenda em um arquivo `.vtt` .
 
 O código a seguir mostra como extrair legendas de um quadro de vídeo:
 
@@ -188,7 +252,7 @@ try {
 }
 ```
 
-Cada objeto [ICaptions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/icaptions/) expõe o identificador da legenda, rótulo, dados binários e os dados da legenda como uma string UTF-8.
+Cada objeto [ICaptions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/icaptions/) expõe o identificador da legenda, o rótulo, os dados binários e os dados da legenda como uma string UTF‑8.
 
 **Remover Legendas de um Quadro de Vídeo**
 
@@ -220,7 +284,7 @@ Se precisar remover apenas uma faixa de legenda, use os métodos [remove](https:
 
 ## **Extrair Vídeo de um Slide**
 
-Além de adicionar vídeos a slides, o Aspose.Slides permite que você extraia vídeos incorporados em apresentações.
+Além de adicionar vídeos aos slides, o Aspose.Slides permite extrair vídeos incorporados em apresentações.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/Presentation) para carregar a apresentação que contém o vídeo.
 2. Itere por todos os objetos [ISlide](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/islide/) .
@@ -230,7 +294,7 @@ Além de adicionar vídeos a slides, o Aspose.Slides permite que você extraia v
 Este código Java mostra como extrair o vídeo de um slide de apresentação:
 
 ```java
-// Instancia um objeto Presentation que representa um arquivo de apresentação 
+// Instancia um objeto Presentation que representa um arquivo de apresentação
 Presentation pres = new Presentation("VideoSample.pptx");
 try {
     for (ISlide slide : pres.getSlides()) 
@@ -261,7 +325,7 @@ try {
 }
 ```
 
-## **FAQ**
+## **Perguntas Frequentes**
 
 **Quais parâmetros de reprodução de vídeo podem ser alterados para um VideoFrame?**
 
@@ -269,7 +333,7 @@ Você pode controlar o [modo de reprodução](https://reference.aspose.com/slide
 
 **Adicionar um vídeo afeta o tamanho do arquivo PPTX?**
 
-Sim. Quando você incorpora um vídeo local, os dados binários são incluídos no documento, portanto o tamanho da apresentação cresce proporcionalmente ao tamanho do arquivo. Quando você adiciona um vídeo online, um link e uma miniatura são incorporados, de modo que o aumento de tamanho é menor.
+Sim. Quando você incorpora um vídeo local, os dados binários são incluídos no documento, portanto o tamanho da apresentação aumenta proporcionalmente ao tamanho do arquivo. Quando você adiciona um vídeo online, apenas um link e uma miniatura são incorporados, de modo que o aumento de tamanho é menor.
 
 **Posso substituir o vídeo em um VideoFrame existente sem alterar sua posição e tamanho?**
 
@@ -277,4 +341,4 @@ Sim. Você pode trocar o [conteúdo do vídeo](https://reference.aspose.com/slid
 
 **É possível determinar o tipo de conteúdo (MIME) de um vídeo incorporado?**
 
-Sim. Um vídeo incorporado tem um [tipo de conteúdo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/video/#getContentType--) que você pode ler e usar, por exemplo ao salvá-lo no disco.
+Sim. Um vídeo incorporado possui um [tipo de conteúdo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/video/#getContentType--) que você pode ler e utilizar, por exemplo, ao salvá‑lo no disco.

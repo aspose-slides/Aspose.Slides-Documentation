@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις σε .NET
+title: Εφαρμογή Κινήσεων Σχημάτων σε Παρουσιάσεις στο .NET
 linktitle: Κίνηση Σχήματος
 type: docs
 weight: 60
@@ -8,8 +8,8 @@ keywords:
 - σχήμα
 - κίνηση
 - εφέ
-- κινούμενο σχήμα
-- κινούμενο κείμενο
+- σχήμα με κίνηση
+- κείμενο με κίνηση
 - προσθήκη κίνησης
 - λήψη κίνησης
 - εξαγωγή κίνησης
@@ -23,470 +23,406 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να δημιουργήσετε και να προσαρμόσετε κινήσεις σχημάτων σε παρουσιάσεις PowerPoint με το Aspose.Slides για .NET. Ξεχωρίστε!"
+description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε κινήσεις σχημάτων, χρονισμούς, ήχους, συμπεριφορά μετά την κίνηση και κείμενο με κίνηση με το Aspose.Slides για .NET."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Οι αναμεταθέσεις είναι οπτικά εφέ που μπορούν να εφαρμοστούν σε κείμενα, εικόνες, σχήματα ή [διαγράμματα](/slides/el/net/animated-charts/). Δίνουν ζωή στις παρουσιάσεις ή στα στοιχεία τους. 
+Το Aspose.Slides for .NET αντιπροσωπεύει τις κινήσεις διαφάνειας ως εφέ σε χρονοδιάγραμμα διαφάνειας. Ένα εφέ έχει σχήμα-στόχο, τύπο κίνησης και υποτύπο, ένα ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά το εφέ.
 
-## **Γιατί να χρησιμοποιήσετε κινήσεις σε παρουσιάσεις;**
+Το χρονοδιάγραμμα περιέχει δύο είδη ακολουθιών:
 
-Χρησιμοποιώντας κινήσεις, μπορείτε  
+- Η **κύρια ακολουθία** παίζει καθώς προχωρά η διαφάνεια.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν κάνει κλικ στο σχήμα-ενεργοποιητή της.
 
-* να ελέγχετε τη ροή της πληροφορίας  
-* να τονίζετε σημαντικά σημεία  
-* να αυξάνετε το ενδιαφέρον ή τη συμμετοχή του κοινού σας  
-* να καθιστάτε το περιεχόμενο πιο ευανάγνωστο ή κατανοητό ή επεξεργάσιμο  
-* να προσελκύετε την προσοχή των αναγνωστών ή θεατών σας σε σημαντικά τμήματα μιας παρουσίασης  
+Επειδή πλαίσια κειμένου, εικόνες, γραφήματα, πίνακες και άλλα αντικείμενα διαφάνειας υλοποιούν το [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/), χρησιμοποιείτε την ίδια μέθοδο [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) για το μεγαλύτερο μέρος του περιεχομένου διαφάνειας. Τα διαθέσιμα εφέ αναφέρονται στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttype/).
 
-PowerPoint παρέχει πολλές επιλογές και εργαλεία για κινήσεις και εφέ κίνησης στις κατηγορίες **entrance**, **exit**, **emphasis**, και **motion paths**. 
+## **Προσθήκη Κινήσεων Σχημάτων**
 
-## **Κινήσεις στο Aspose.Slides**
+Για να προσθέσετε μια κίνηση, λάβετε την κύρια ακολουθία της διαφάνειας και καλέστε την [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) με το σχήμα-στόχο, τον τύπο εφέ, τον υποτύπο και τον ενεργοποιητή. Για ένα εφέ που ξεκινά όταν κάνει κλικ σε άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας ο ενεργοποιητής είναι το συγκεκριμένο σχήμα.
 
-* Το Aspose.Slides παρέχει τις κλάσεις και τους τύπους που χρειάζεστε για να εργαστείτε με κινήσεις στο χώρο ονομάτων [Aspose.Slides.Animation](https://reference.aspose.com/slides/el/net/aspose.slides.animation/) namespace,  
-* Το Aspose.Slides παρέχει πάνω από **150 εφέ κίνησης** στο [EffectType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttype) enumeration. Αυτά τα εφέ είναι ουσιαστικά τα ίδια (ή ισοδύναμα) που χρησιμοποιούνται στο PowerPoint.
+Το παρακάτω παράδειγμα δημιουργεί και τους δύο τύπους κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
-## **Εφαρμογή κίνησης σε TextBox**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-Το Aspose.Slides για .NET σας επιτρέπει να εφαρμόσετε κίνηση στο κείμενο ενός σχήματος. 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](http://www.aspose.com/api/net/slides/el/aspose.slides/) class.  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα `rectangle` [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape).  
-4. Προσθέστε κείμενο στο [IAutoShape.TextFrame](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/properties/textframe).  
-5. Αποκτήστε τη κύρια ακολουθία εφέ.  
-6. Προσθέστε ένα εφέ κίνησης στο [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape).  
-7. Ορίστε την ιδιότητα [TextAnimation.BuildType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/textanimation/properties/buildtype) στην τιμή από την [BuildType Enumeration](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype).  
-8. Γράψτε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Click to animate this shape";
 
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ `Fade` στο AutoShape και να ορίσετε την κίνηση κειμένου στην τιμή *By 1st Level Paragraphs*:
+var mainSequence = slide.Timeline.MainSequence;
+var entranceEffect = mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+entranceEffect.Timing.Duration = 1.5f;
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    
-    // Προσθέτει νέο AutoShape με κείμενο
-    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
 
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Λαμβάνει τη κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = sld.Timeline.MainSequence;
-
-    // Προσθέτει εφέ κίνησης Fade στο σχήμα
-    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // Κινεί το κείμενο του σχήματος ανά πρώτα επίπεδα παραγράφων
-    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
-
-    // Αποθηκεύει το αρχείο PPTX στο δίσκο
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+Ο ενεργοποιητής ελέγχει πότε αρχίζει ένα εφέ:
 
-Εκτός από την εφαρμογή κινήσεων σε κείμενο, μπορείτε επίσης να εφαρμόσετε κινήσεις σε ένα μοναδικό [Paragraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph). Δείτε [**Animated Text**](/slides/el/net/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) περιμένει κλικ στη κύρια ακολουθία ή κλικ στο σχήμα-ενεργοποιητή σε διαδραστική ακολουθία.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) ξεκινά με το προηγούμενο εφέ.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effecttriggertype/) ξεκινά όταν ολοκληρωθεί το προηγούμενο εφέ.
 
-{{% /alert %}} 
+Για να ανιματίσετε μια εικόνα, ένα γράφημα ή άλλο τύπο σχήματος, περάστε το αντικείμενο αυτό στην [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) αντί για το `targetShape`. Για επιλογές ομαδοποίησης ειδικές για γραφήματα, δείτε το [Animated Charts](/slides/el/net/animated-charts/).
 
-## **Εφαρμογή κίνησης σε PictureFrame**
+## **Ανάγνωση Κινήσεων Σχημάτων**
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](http://www.aspose.com/api/net/slides/el/aspose.slides/) class.  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ή αποκτήστε ένα [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe) στη διαφάνεια.  
-5. Αποκτήστε τη κύρια ακολουθία εφέ.  
-6. Προσθέστε ένα εφέ κίνησης στο [PictureFrame](https://reference.aspose.com/slides/el/net/aspose.slides/ipictureframe).  
-8. Γράψτε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
+Χρησιμοποιήστε την [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/geteffectsbyshape/) όταν γνωρίζετε το σχήμα-στόχο. Για να ελέγξετε κάθε εφέ, κάντε επανάληψη στη κύρια ακολουθία και σε κάθε διαδραστική ακολουθία. Η επανάληψη αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στο ευρετήριο `0`.
 
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ `Fly` σε ένα picture frame:
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας ακολουθίας και διαδραστικής ακολουθίας, παίρνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, κάνει επανάληψη σε κάθε ακολουθία της διαφάνειας.
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Animated shape";
+
+var mainSequence = slide.Timeline.MainSequence;
+mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
+
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var targetEffects = mainSequence.GetEffectsByShape(targetShape);
+Console.WriteLine($"The main sequence contains {targetEffects.Length} effect(s) for {targetShape.Name}.");
+
+PrintSequence("Main sequence", mainSequence);
+
+var interactiveIndex = 1;
+foreach (var sequence in slide.Timeline.InteractiveSequences)
 {
-    // Φορτώνει εικόνα που θα προστεθεί στη συλλογή εικόνων της παρουσίασης
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Προσθέτει πλαίσιο εικόνας στη διαφάνεια
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Λαμβάνει τη κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-    // Προσθέτει εφέ κίνησης Fly από αριστερά στο πλαίσιο εικόνας
-    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Αποθηκεύει το αρχείο PPTX στο δίσκο
-    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
+    var triggerName = sequence.TriggerShape == null ? "unknown" : sequence.TriggerShape.Name;
+    var sequenceLabel = $"Interactive sequence {interactiveIndex}, trigger: {triggerName}";
+    PrintSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
 
-## **Εφαρμογή κίνησης σε Shape**
+static void PrintSequence(string label, ISequence sequence)
+{
+    Console.WriteLine($"  {label}: {sequence.Count} effect(s)");
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](http://www.aspose.com/api/net/slides/el/aspose.slides/) class.  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα `rectangle` [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape).  
-4. Προσθέστε ένα `Bevel` [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape) (when this object is clicked, the animation gets played).  
-5. Δημιουργήστε μια ακολουθία εφέ στο σχήμα bevel.  
-6. Δημιουργήστε ένα προσαρμοσμένο `UserPath`.  
-7. Προσθέστε εντολές για κίνηση στο `UserPath`.  
-8. Γράψτε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
-
-Αυτός ο κώδικας C# δείχνει πώς να εφαρμόσετε το εφέ `PathFootball` (path football) σε ένα σχήμα:
-
-```c#
-    // Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-    using (Presentation pres = new Presentation())
+    foreach (var effect in sequence)
     {
-        ISlide sld = pres.Slides[0];
-    
-        // Δημιουργεί εφέ PathFootball για υπάρχον σχήμα από την αρχή.
-        IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    
-        ashp.AddTextFrame("Animated TextBox");
-    
-        // Προσθέτει το εφέ κίνησης PathFootBall.
-        pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                               EffectSubtype.None, EffectTriggerType.AfterPrevious);
-    
-        // Δημιουργεί κάποιο είδος "κουμπιού".
-        IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-    
-        // Δημιουργεί μια ακολουθία εφέ για το κουμπί.
-        ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
-    
-        // Δημιουργεί προσαρμοσμένη διαδρομή χρήστη. Το αντικείμενό μας θα μετακινηθεί μόνο αφού γίνει κλικ στο κουμπί.
-        IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-    
-        // Προσθέτει εντολές κίνησης επειδή η δημιουργημένη διαδρομή είναι κενή.
-        IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
-    
-        PointF[] pts = new PointF[1];
-        pts[0] = new PointF(0.076f, 0.59f);
-        motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-        pts[0] = new PointF(-0.076f, -0.59f);
-        motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-        motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-    
-        // Γράφει το αρχείο PPTX στο δίσκο
-        pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-    }
-```
-
-## **Λήψη των εφέ κίνησης που έχουν εφαρμοστεί σε σχήμα**
-
-Τα παρακάτω παραδείγματα δείχνουν πώς να χρησιμοποιήσετε τη μέθοδο `GetEffectsByShape` από τη διεπαφή [ISequence](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/) για να λάβετε όλα τα εφέ κίνησης που έχουν εφαρμοστεί σε ένα σχήμα.
-
-**Παράδειγμα 1: Λήψη εφέ κίνησης που έχουν εφαρμοστεί σε σχήμα σε κανονική διαφάνεια**
-
-Σε προηγούμενη φάση, μάθατε πώς να προσθέτετε εφέ κίνησης σε σχήματα σε παρουσιάσεις PowerPoint. Ο παρακάτω κώδικας δείχνει πώς να λάβετε τα εφέ που έχουν εφαρμοστεί στο πρώτο σχήμα της πρώτης κανονικής διαφάνειας στην παρουσίαση `AnimExample_out.pptx`.
-
-```c#
-using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
-{
-    ISlide firstSlide = presentation.Slides[0];
-
-    // Λαμβάνει την κύρια ακολουθία κίνησης της διαφάνειας.
-    ISequence sequence = firstSlide.Timeline.MainSequence;
-
-    // Λαμβάνει το πρώτο σχήμα στην πρώτη διαφάνεια.
-    IShape shape = firstSlide.Shapes[0];
-
-    // Λαμβάνει τα εφέ κίνησης που έχουν εφαρμοστεί στο σχήμα.
-    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
-
-    if (shapeEffects.Length > 0)
-        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
-}
-```
-
-**Παράδειγμα 2: Λήψη όλων των εφέ κίνησης, συμπεριλαμβανομένων αυτών που κληρονομούνται από placeholders**
-
-Εάν ένα σχήμα σε κανονική διαφάνεια περιέχει placeholders που βρίσκονται στη διαφάνεια διάταξης και/ή στην κύρια διαφάνεια, και έχουν προστεθεί εφέ κίνησης σε αυτά τα placeholders, τότε όλα τα εφέ του σχήματος θα εκτελεστούν κατά τη διάρκεια της παρουσίασης, συμπεριλαμβανομένων αυτών που κληρονομούνται από τα placeholders.
-
-Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης PowerPoint `sample.pptx` με μία διαφάνεια που περιέχει μόνο ένα σχήμα υποσέλιδου με το κείμενο "Made with Aspose.Slides" και το εφέ **Random Bars** έχει εφαρμοστεί στο σχήμα.
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-Ας υποθέσουμε επίσης ότι το εφέ **Split** έχει εφαρμοστεί στο placeholder υποσέλιδου στη **layout** διαφάνεια.
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-Και τέλος, το εφέ **Fly In** έχει εφαρμοστεί στο placeholder υποσέλιδου στη **master** διαφάνεια.
-
-![Master shape animation effect](master-shape-animation.png)
-
-Ο παρακάτω κώδικας δείχνει πώς να χρησιμοποιήσετε τη μέθοδο `GetBasePlaceholder` από τη διεπαφή [IShape](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/) για να προσπελάσετε τα placeholders του σχήματος και να λάβετε τα εφέ κίνησης που έχουν εφαρμοστεί στο σχήμα υποσέλιδου, συμπεριλαμβανομένων των κληρονομουμένων από placeholders που βρίσκονται στις διαφάνειες layout και master.
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Λαμβάνει τα εφέ κίνησης του σχήματος στη κανονική διαφάνεια.
-    IShape shape = slide.Shapes[0];
-    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
-
-    // Λαμβάνει τα εφέ κίνησης του placeholder στη διαφάνεια διάταξης.
-    IShape layoutShape = shape.GetBasePlaceholder();
-    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
-
-    // Λαμβάνει τα εφέ κίνησης του placeholder στη κύρια διαφάνεια.
-    IShape masterShape = layoutShape.GetBasePlaceholder();
-    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
-
-    Console.WriteLine("Main sequence of shape effects:");
-    PrintEffects(masterShapeEffects);
-    PrintEffects(layoutShapeEffects);
-    PrintEffects(shapeEffects);
-}
-```
-```cs
-static void PrintEffects(IEnumerable<IEffect> effects)
-{
-    foreach (IEffect effect in effects)
-    {
-        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+        var targetName = effect.TargetShape == null ? "unknown" : effect.TargetShape.Name;
+        var effectDescription = $"{effect.Type} {effect.Subtype}; target: {targetName}; trigger: {effect.Timing.TriggerType}";
+        Console.WriteLine($"    {effectDescription}");
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, προσδιορίστε πρώτα το σχήμα με όνομα, τύπο placeholder ή άλλη σταθερή ιδιότητα· έπειτα καλέστε την [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/geteffectsbyshape/). Μην υποθέτετε ότι το [IShapeCollection.Item](https://reference.aspose.com/slides/el/net/aspose.slides/ishapecollection/item/) στο ευρετήριο `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-## **Αλλαγή ιδιοτήτων χρονισμού εφέ κίνησης**
+## **Εργασία με Κληρονομημένα Εφέ Placeholder**
 
-Το Aspose.Slides για .NET σας επιτρέπει να αλλάξετε τις ιδιότητες Timing ενός εφέ κίνησης.
+Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διάταξη και στο master. Η [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getbaseplaceholder/) επιστρέφει το γονικό placeholder ή `null` όταν δεν υπάρχει γονέας.
 
-This is the Animation Timing pane and extended menu in Microsoft PowerPoint:
+Στο παρακάτω παράδειγμα παρουσίασης, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη master.
 
-![example1_image](shape-animation.png)
+![Footer animation effect on the normal slide](slide-shape-animation.png)
 
-These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effect/properties/timing) properties:
-- Η αναπτυσσόμενη λίστα **Start** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.TriggerType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/properties/triggertype). 
-- Το **Duration** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.Duration](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/properties/duration). Η διάρκεια ενός εφέ (σε δευτερόλεπτα) είναι ο συνολικός χρόνος που απαιτείται για να ολοκληρωθεί ένας κύκλος του εφέ. 
-- Το **Delay** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/properties/triggerdelaytime). 
-- Η αναπτυσσόμενη λίστα **Repeat** του PowerPoint Timing αντιστοιχεί στις ακόλουθες ιδιότητες: 
-  * η ιδιότητα [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount) που περιγράφει τον *αριθμό* των επαναλήψεων του εφέ·  
-  * η σημαία [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide) που καθορίζει αν το εφέ επαναλαμβάνεται μέχρι το τέλος της διαφάνειας·  
-  * η σημαία [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick) που καθορίζει αν το εφέ επαναλαμβάνεται μέχρι το επόμενο κλικ.  
-- Το πεδίο ελέγχου **Rewind when done playing** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.Rewind](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/rewind/). 
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
 
-Αυτή είναι η διαδικασία αλλαγής των ιδιοτήτων Timing του Effect:
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
 
-1. [Apply](#apply-animation-to-shape) ή πάρτε το εφέ κίνησης.  
-2. Ορίστε νέες τιμές για τις ιδιότητες [Effect.Timing](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effect/properties/timing) που χρειάζεστε.  
-3. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
+Το επόμενο παράδειγμα κατασκευάζει τη ιεραρχία των placeholder. Προσθέτει εφέ σε ένα master placeholder, ένα layout placeholder και το αντίστοιχο placeholder σε κανονική διαφάνεια. Κάθε κλήση στην [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/el/net/aspose.slides/ishape/getbaseplaceholder/) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
+layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
+
+var masterPlaceholder = layoutPlaceholder.GetBasePlaceholder();
+if (masterPlaceholder != null)
 {
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+    var masterSequence = layoutSlide.MasterSlide.Timeline.MainSequence;
+    masterSequence.AddEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+}
 
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας.
-    IEffect effect = sequence[0];
+var slide = presentation.Slides.AddEmptySlide(layoutSlide);
+var slidePlaceholder = FindPlaceholderWithBase(slide);
 
-    // Αλλάζει τον TriggerType του εφέ ώστε να ξεκινά με κλικ
-    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+if (slidePlaceholder == null)
+{
+    throw new InvalidOperationException("The slide does not contain a placeholder linked to its layout slide.");
+}
 
-    // Αλλάζει τη διάρκεια του εφέ
-    effect.Timing.Duration = 3f;
+slide.Timeline.MainSequence.AddEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+PrintEffects("Normal slide", slide.Timeline.MainSequence.GetEffectsByShape(slidePlaceholder));
 
-    // Αλλάζει το TriggerDelayTime του εφέ
-    effect.Timing.TriggerDelayTime = 0.5f;
+var baseLayoutPlaceholder = slidePlaceholder.GetBasePlaceholder();
+if (baseLayoutPlaceholder != null)
+{
+    PrintEffects("Layout slide", layoutSlide.Timeline.MainSequence.GetEffectsByShape(baseLayoutPlaceholder));
 
-    // Αν η τιμή Repeat του εφέ είναι "none"
-    if (effect.Timing.RepeatCount == 1f)
+    var baseMasterPlaceholder = baseLayoutPlaceholder.GetBasePlaceholder();
+    if (baseMasterPlaceholder != null)
     {
-        // Αλλάζει το Repeat του εφέ σε "Until Next Click"
-        effect.Timing.RepeatUntilNextClick = true;
+        PrintEffects("Master slide", layoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(baseMasterPlaceholder));
     }
-    else
+}
+
+presentation.Save("placeholder-animations.pptx", SaveFormat.Pptx);
+
+static IShape FindPlaceholderWithBase(ISlide slide)
+{
+    foreach (var shape in slide.Shapes)
     {
-        // Αλλάζει το Repeat του εφέ σε "Until End of Slide"
-        effect.Timing.RepeatUntilEndSlide = true;
+        if (shape.GetBasePlaceholder() != null)
+        {
+            return shape;
+        }
     }
 
-    // Ενεργοποιεί το Rewind του εφέ
-        effect.Timing.Rewind = true;
-    
-    // Αποθηκεύει το αρχείο PPTX στο δίσκο
-    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+    return null;
+}
+
+static void PrintEffects(string source, IEffect[] effects)
+{
+    Console.WriteLine($"{source}: {effects.Length} effect(s)");
+
+    foreach (var effect in effects)
+    {
+        Console.WriteLine($"  {effect.Type} {effect.Subtype}");
+    }
 }
 ```
 
-## **Ήχος εφέ κίνησης**
+## **Αλλαγή Χρονισμού Κίνησης**
 
-Το Aspose.Slides παρέχει τις παρακάτω ιδιότητες ώστε να μπορείτε να εργαστείτε με ήχους στα εφέ κίνησης: 
-- [IEffect.Sound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effect/sound/) 
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effect/stopprevioussound/) 
+Το διάλογο **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες της [ITiming](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/).
 
-### **Προσθήκη ήχου σε εφέ κίνησης**
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-Αυτός ο κώδικας C# δείχνει πώς να προσθέσετε ήχο σε ένα εφέ κίνησης και να τον σταματήσετε όταν ξεκινά το επόμενο εφέ:
+- **Start** αντιστοιχεί στο [ITiming.TriggerType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/triggertype/).
+- **Duration** αντιστοιχεί στο [ITiming.Duration](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/duration/), σε δευτερόλεπτα.
+- **Delay** αντιστοιχεί στο [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/triggerdelaytime/), σε δευτερόλεπτα.
+- **Repeat** αντιστοιχεί στο [ITiming.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount/), στο [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick/) ή στο [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Rewind when done playing** αντιστοιχεί στο [ITiming.Rewind](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/rewind/).
 
-```c#
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
-{
-	// Προσθέτει ήχο στη συλλογή ήχων της παρουσίασης
-	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρονισμό του μέσω του αντικειμένου που επιστρέφει η [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς προς το [IEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/) αποτρέπει μια περιττή πρόσβαση σε δείκτη συλλογής.
 
-	ISlide firstSlide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-	// Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-	ISequence sequence = firstSlide.Timeline.MainSequence;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Timed animation";
 
-	// Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-	IEffect firstEffect = sequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.Timing.TriggerType = EffectTriggerType.OnClick;
+effect.Timing.Duration = 2.0f;
+effect.Timing.TriggerDelayTime = 0.5f;
+effect.Timing.RepeatUntilNextClick = false;
+effect.Timing.RepeatUntilEndSlide = false;
+effect.Timing.RepeatCount = 2.0f;
+effect.Timing.Rewind = true;
 
-	// Ελέγχει το εφέ για "No Sound"
-	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
-	{
-		// Προσθέτει ήχο στο πρώτο εφέ
-		firstEffect.Sound = effectSound;
-	}
-
-	// Λαμβάνει την πρώτη διαδραστική ακολουθία της διαφάνειας.
-	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
-
-	// Ορίζει τη σημαία "Stop previous sound" του εφέ
-	interactiveSequence[0].StopPreviousSound = true;
-
-	// Γράφει το αρχείο PPTX στο δίσκο
-	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-### **Απόσπαση ήχου από εφέ κίνησης**
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρήτρου επανάληψης με σημείο «μέχρι» μπορεί να οδηγήσει σε ασάφια σε διαφορετικούς προβολείς. Κατά την αλλαγή τρόπων επανάληψης, ορίστε πρώτα το [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilnextclick/) και το [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatuntilendslide/) πριν το [ITiming.RepeatCount](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itiming/repeatcount/), καθώς η ρύθμιση οποιουδήποτε σημαίας αλλάζει επίσης τη λειτουργική κατάσταση επανάληψης.
 
-1. Δημιουργήστε ένα αντίτυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/).  
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.  
-3. Αποκτήστε τη κύρια ακολουθία εφέ.  
-4. Εξάγετε το [Sound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/effect/sound/) ενσωματωμένο σε κάθε εφέ κίνησης.  
+## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-Αυτός ο κώδικας C# δείχνει πώς να εξάγετε τον ήχο ενσωματωμένο σε ένα εφέ κίνησης:
+Ένα εφέ κίνησης μπορεί να παραπέμπει σε ενσωματωμένο ήχο μέσω του [IEffect.Sound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/sound/). Το [IEffect.StopPreviousSound](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/stopprevioussound/) λέει στο εφέ να διακόψει ήχο που ξεκίνησε ένα προηγούμενο εφέ.
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-using (Presentation presentation = new Presentation("EffectSound.pptx"))
+### **Προσθήκη Ήχου σε Εφέ**
+
+Το παρακάτω παράδειγμα απαιτεί τοπικό αρχείο ήχου ονόματι `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει η [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/), οπότε δεν απαιτείται δείκτης ακολουθίας.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+firstShape.TextFrame.Text = "Starts sound";
+secondShape.TextFrame.Text = "Stops sound";
+
+var sequence = slide.Timeline.MainSequence;
+var firstEffect = sequence.AddEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var secondEffect = sequence.AddEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var audioData = File.ReadAllBytes("animation-sound.wav");
+var effectSound = presentation.Audios.AddAudio(audioData);
+firstEffect.Sound = effectSound;
+secondEffect.StopPreviousSound = true;
+
+presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
+```
+
+### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
+
+Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση ονόματι `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο την κύρια όσο και τη διαδραστική ακολουθία και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκθέτει το [IAudio.ContentType](https://reference.aspose.com/slides/el/net/aspose.slides/iaudio/contenttype/).
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+var inputPath = "presentation-with-animation-sounds.pptx";
+var outputDirectory = "extracted-animation-sounds";
+
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation(inputPath);
+var soundIndex = 1;
+
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
+    SaveSounds(slide.Timeline.MainSequence, outputDirectory, ref soundIndex);
 
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    ISequence sequence = slide.Timeline.MainSequence;
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        SaveSounds(sequence, outputDirectory, ref soundIndex);
+    }
+}
 
-    foreach (IEffect effect in sequence)
+Console.WriteLine($"Extracted {soundIndex - 1} sound file(s) to {Path.GetFullPath(outputDirectory)}.");
+
+static void SaveSounds(ISequence sequence, string outputDirectory, ref int soundIndex)
+{
+    foreach (var effect in sequence)
     {
         if (effect.Sound == null)
             continue;
 
-        // Εξάγει τον ήχο του εφέ σε πίνακα byte
-        byte[] audio = effect.Sound.BinaryData;
+        var extension = GetAudioExtension(effect.Sound.ContentType);
+        var outputPath = Path.Combine(outputDirectory, $"effect-sound-{soundIndex}{extension}");
+        File.WriteAllBytes(outputPath, effect.Sound.BinaryData);
+        soundIndex++;
     }
 }
-```
 
-## **Μετά την κίνηση**
-
-Το Aspose.Slides για .NET σας επιτρέπει να αλλάξετε την ιδιότητα After animation ενός εφέ κίνησης.
-
-This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
-
-![example1_image](shape-after-animation.png)
-
-Η αναπτυσσόμενη λίστα **After animation** του PowerPoint Effect αντιστοιχεί σε αυτές τις ιδιότητες: 
-
--   * η ιδιότητα [IEffect.AfterAnimationType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/afteranimationtype/) που περιγράφει τον τύπο After animation :
-    - Το **More Colors** του PowerPoint αντιστοιχεί στον τύπο [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) ;  
-    - Το **Don't Dim** του PowerPoint αντιστοιχεί στον τύπο [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) (προεπιλεγμένος τύπος μετά την κίνηση) ;  
-    - Το **Hide After Animation** του PowerPoint αντιστοιχεί στον τύπο [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) ;  
-    - Το **Hide on Next Mouse Click** του PowerPoint αντιστοιχεί στον τύπο [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) ;  
--   * η ιδιότητα [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/afteranimationcolor/) που ορίζει μια μορφή χρώματος μετά την κίνηση. Αυτή η ιδιότητα λειτουργεί σε συνδυασμό με τον τύπο [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/). Εάν αλλάξετε τον τύπο σε άλλο, το χρώμα after animation θα διαγραφεί.  
-
-Αυτός ο κώδικας C# δείχνει πώς να αλλάξετε ένα εφέ μετά την κίνηση:
-
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+static string GetAudioExtension(string contentType)
 {
-	ISlide firstSlide = pres.Slides[0];
+    var normalizedType = contentType == null ? string.Empty : contentType.ToLowerInvariant();
 
-	// Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-	IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    if (normalizedType == "audio/mpeg")
+        return ".mp3";
 
-	// Αλλάζει τον τύπο μετά την κίνηση σε Color
-	firstEffect.AfterAnimationType = AfterAnimationType.Color;
+    if (normalizedType == "audio/mp4")
+        return ".m4a";
 
-	// Ορίζει το χρώμα μετά την κίνηση
-	firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+    if (normalizedType == "audio/ogg")
+        return ".ogg";
 
-	// Γράφει το αρχείο PPTX στο δίσκο
-	pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+    if (normalizedType == "audio/wav" || normalizedType == "audio/x-wav")
+        return ".wav";
+
+    return ".bin";
 }
 ```
 
-## **Κίνηση κειμένου**
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [IAudio.GetStream](https://reference.aspose.com/slides/el/net/aspose.slides/iaudio/getstream/) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
 
-Το Aspose.Slides παρέχει τις παρακάτω ιδιότητες ώστε να μπορείτε να εργαστείτε με το μπλοκ *Animate text* ενός εφέ κίνησης: 
--   * η ιδιότητα [IEffect.AnimateTextType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/animatetexttype/) που περιγράφει τον τύπο κίνησης κειμένου του εφέ. Το κείμενο του σχήματος μπορεί να κινείται:
-    - Όλο μαζί ([AnimateTextType.AllAtOnce])  
-    - Κατά λέξη ([AnimateTextType.ByWord])  
-    - Κατά γράμμα ([AnimateTextType.ByLetter])  
--   * η ιδιότητα [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/delaybetweentextparts/) ορίζει καθυστέρηση μεταξύ των τμημάτων του κειμένου (λέξεις ή γράμματα). Μια θετική τιμή καθορίζει το ποσοστό διάρκειας του εφέ. Μια αρνητική τιμή καθορίζει την καθυστέρηση σε δευτερόλεπτα.  
+## **Ορισμός Συμπεριφοράς Μετά την Κίνηση**
 
-Αυτή είναι η διαδικασία αλλαγής των ιδιοτήτων Animate text του Effect:  
+Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ.
 
-1. [Apply](#apply-animation-to-shape) ή πάρτε το εφέ κίνησης.  
-2. Ορίστε την ιδιότητα [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itextanimation/buildtype/) στην τιμή [BuildType.AsOneObject] για να απενεργοποιήσετε τη λειτουργία κίνησης *By Paragraphs*.  
-3. Ορίστε νέες τιμές για τις ιδιότητες [IEffect.AnimateTextType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/animatetexttype/) και [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/delaybetweentextparts/).  
-4. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-```c#
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-{
-    ISlide firstSlide = pres.Slides[0];
+Η απαρίθμηση [AfterAnimationType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) υποστηρίζει την διατήρηση του σχήματος αμετάβλητου, την αλλαγή του χρώματος, την απόκρυψη του μετά την κίνηση ή την απόκρυψη του με το επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/), ορίστε επίσης το [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/afteranimationcolor/).
 
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά την κίνηση μέσω του αντικειμένου εφέ που επιστρέφεται, και αποθηκεύει το αποτέλεσμα.
 
-    // Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε "As One Object"
-    firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-    // Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε "By word"
-    firstEffect.AnimateTextType = AnimateTextType.ByWord;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Dim after animation";
 
-    // Ορίζει την καθυστέρηση μεταξύ των λέξεων στο 20% της διάρκειας του εφέ
-    firstEffect.DelayBetweenTextParts = 20f;
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.AfterAnimationType = AfterAnimationType.Color;
+effect.AfterAnimationColor.Color = Color.LightGray;
 
-    // Γράφει το αρχείο PPTX στο δίσκο
-    pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
 
-## **Συχνές ερωτήσεις**
+Η αλλαγή του τύπου από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/net/aspose.slides.animation/afteranimationtype/) καθαρίζει τη ρύθμιση χρώματος μετά την κίνηση.
 
-**Πώς μπορώ να εξασφαλίσω ότι οι κινήσεις θα διατηρηθούν όταν δημοσιεύεται η παρουσίαση στον ιστό;**
+## **Κίνηση Κειμένου**
 
-[Export to HTML5](/slides/el/net/export-to-html5/) και ενεργοποιήστε τις [options](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/) που είναι υπεύθυνες για τις κινούμενες [shape](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animateshapes/) και [transition](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animatetransitions/) animations. Το απλό HTML δεν εκτελεί τις κινήσεις των διαφανειών, ενώ το HTML5 το κάνει.
+Η κίνηση κειμένου διαθέτει δύο σχετιζόμενους ελέγχους:
 
-**Πώς η αλλαγή του z-order (της σειράς στρώσεων) των σχημάτων επηρεάζει τις κινήσεις;**
+- Το [ITextAnimation.BuildType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/itextanimation/buildtype/) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
+- Το [IEffect.AnimateTextType](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/animatetexttype/) ελέγχει αν το κείμενο εμφανίζεται ολόκληρο, ανά λέξη ή ανά γράμμα. Το [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/el/net/aspose.slides.animation/ieffect/delaybetweentextparts/) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μία θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Η κίνηση και η σειρά σχεδίασης είναι ανεξάρτητες: ένα εφέ ελέγχει το χρονισμό και τον τύπο εμφάνισης/απόκρυψης, ενώ το [z-order](https://reference.aspose.com/slides/el/net/aspose.slides/shape/zorderposition/) καθορίζει τι καλύπτει τι. Το ορατό αποτέλεσμα ορίζεται από τον συνδυασμό τους. (Αυτή είναι η γενική συμπεριφορά του PowerPoint· το μοντέλο effects-and-shapes του Aspose.Slides ακολουθεί την ίδια λογική.)
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype/) απενεργοποιεί το χτίσιμο ανά παράγραφο ώστε η ρύθμιση λέξης να ισχύει για όλο το κείμενο.
 
-**Υπάρχουν περιορισμοί κατά τη μετατροπή των κινήσεων σε βίντεο για ορισμένα εφέ;**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-Γενικά, τα [animations are supported](/slides/el/net/convert-powerpoint-to-video/), αλλά σπάνιες περιπτώσεις ή συγκεκριμένα εφέ μπορεί να αποδοθούν διαφορετικά. Συνιστάται να δοκιμάσετε τα εφέ που χρησιμοποιείτε και την έκδοση της βιβλιοθήκης.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
+
+var effect = slide.Timeline.MainSequence.AddEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.TextAnimation.BuildType = BuildType.AsOneObject;
+effect.AnimateTextType = AnimateTextType.ByWord;
+effect.DelayBetweenTextParts = 20.0f;
+
+presentation.Save("animated-text.pptx", SaveFormat.Pptx);
+```
+
+Για χτίσιμο πλαισίου κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/net/aspose.slides.animation/buildtype/) (ή άλλο επίπεδο παραγράφου). Για να στοχεύσετε μία μόνο παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση της [ISequence.AddEffect](https://reference.aspose.com/slides/el/net/aspose.slides.animation/isequence/addeffect/) που δέχεται ένα [IParagraph](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraph/). Δείτε το [Animated Text](/slides/el/net/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+
+## **Εξαγωγή και Σημειώσεις Συμβατότητας**
+
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από τον προβολέα παρουσίασης.
+- Τα PDF και οι στατικές εικόνες δεν παίζουν κίνησεις. Χρησιμοποιήστε την [HTML5 export](/slides/el/net/export-to-html5/), animated GIF ή τη [video conversion](/slides/el/net/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Για HTML5, ενεργοποιήστε το [Html5Options.AnimateShapes](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animateshapes/) και, κατά ανάγκη, το [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/el/net/aspose.slides.export/html5options/animatetransitions/).
+- Η απόδοση βίντεο υποστηρίζει πολλούς συνηθισμένους εφέ είσοδος, έμφαση, έξοδος και διαδρομές κίνησης, αλλά δεν υποστηρίζει κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/net/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που χρησιμοποιείτε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που έχουν εισαχθεί από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά σε PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+
+## **Συχνές Ερωτήσεις**
+
+**Γιατί ένα εφέ εμφανίζεται στο PowerPoint αλλά όχι σε PDF;**
+
+Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφάνειας δεν παίζουν. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
+
+**Γιατί ένα εφέ παίζει διαφορετικά σε βίντεο;**
+
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Εξετάστε τον πίνακα υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν από την παραγωγική χρήση.
+
+**Αλλάζει η μετατόπιση ενός σχήματος προς τα εμπρός ή προς τα πίσω τη σειρά των κινήσεων;**
+
+Όχι. Η σειρά z-order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιητές ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε το χρονοδιάγραμμα αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

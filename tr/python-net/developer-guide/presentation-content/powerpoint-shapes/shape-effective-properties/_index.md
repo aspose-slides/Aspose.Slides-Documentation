@@ -1,5 +1,5 @@
 ---
-title: Python ile Sunumlardan Şekil Etkili Özelliklerini Alın
+title: Python'da Sunumlardan Şekil Etkili Özelliklerini Al
 linktitle: Etkili Özellikler
 type: docs
 weight: 50
@@ -7,301 +7,251 @@ url: /tr/python-net/shape-effective-properties/
 keywords:
 - şekil özellikleri
 - kamera özellikleri
-- ışık sistemi
-- kavisli şekil
+- ışık rig'i
+- köşe şekli
 - metin çerçevesi
 - metin stili
-- yazı tipi yüksekliği
+- font yüksekliği
 - dolgu biçimi
 - PowerPoint
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET'in etkili şekil özelliklerini nasıl hesapladığını ve uyguladığını keşfedin, böylece PowerPoint sunumları hassas bir şekilde render edilir."
+description: "Aspose.Slides for Python via .NET'i kullanarak PowerPoint sunumlarında yerel, miras alınan ve etkili şekil biçimlendirmesini ayırt etmeyi öğrenin."
 ---
-## **Genel Bakış**
+## **Yerel, Miras Alınan ve Etkili Özellikleri Anlama**
 
-Bu konu **local** ve **effective** özellikler arasındaki farkı açıklar. Local değerler, belirli bir biçimlendirme seviyesinde doğrudan ayarlanan değerlerdir, örnek olarak:
+PowerPoint biçimlendirmesi birkaç kaynaktan gelebilir. Bir nesne üzerinde doğrudan depolanan değer **yerel değer** olarak adlandırılır. Bu değer ayarlanmamışsa, PowerPoint bir paragraf varsayılanı, bir metin stili, bir düzen ya da ana slayt, bir tema veya sunum düzeyindeki varsayılanlar gibi üst biçimlendirme kaynaklarına bakar. Bu değerler **miras alınan değerler** olarak adlandırılır. Tüm hiyerarşi çözüldükten sonra kalan değer **etkili değer** olarak adlandırılır ve nesneyi renderlamak için kullanılır.
 
-1. Slayttaki bölüm özellikleri.
-2. Bir düzen veya ana slaytta prototip şekil metin stilleri, bölümün metin çerçevesi şekli bir stile sahip olduğunda.
-3. Sunumdaki küresel metin ayarları.
+Örneğin, bir metin bölümü kendi font yüksekliğini tanımlamayabilir. Yerel [font_height](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ibaseportionformat/font_height/) değeri `float("nan")` olur; bu, “burada ayarlanmamış” anlamına gelir. Bölüm, yüksekliği paragrafından, sunumun varsayılan metin stilinden veya başka bir geçerli kaynaktan miras alabilir. Bölüm formatı üzerinde [get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iportionformat/get_effective/) çağrısı, son çözülmüş yüksekliği döndürür.
 
-Local değerler herhangi bir seviyede tanımlanabilir veya atlanabilir. Aspose.Slides, son “görüntülendiği gibi” biçimlendirmeye ihtiyacı olduğunda, kalıtım zincirini çözer ve **effective** değerleri döndürür. Bunları, yerel format nesnesi üzerinde `get_effective` yöntemini çağırarak alabilirsiniz.
+- Bir değer nerede tanımlanmışsa kontrol etmek istediğinizde, [IPortionFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iportionformat/) gibi bir yerel biçim nesnesini okuyun veya değiştirin.  
+- Son, renderlanmış sonucu istediğinizde, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iportionformateffectivedata/) gibi bir etkili veri nesnesini okuyun. Etkili veri sadece okunur.
 
-Aşağıdaki örnek, effective değerleri nasıl alacağınızı gösterir. İlk slayttaki ilk şeklin bir metin çerçevesi ve en az bir bölüm içeren bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) olduğunu varsayar.
+## **Yerel, Miras Alınan ve Etkili Değerleri Karşılaştırma**
 
-```py
+Aşağıdaki tam örnek bir şekil oluşturur ve sunum, paragraf ve bölüm seviyelerinde font yüksekliği uygular. Her adım, bu seviyelerde tanımlanan değerleri ve aynı metin bölümü için ortaya çıkan etkili değeri yazdırır. Ayrıca, biçimlendirme değişikliklerinden sonra etkili verinin neden yeniden okunması gerektiğini gösterir.
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
-Effective biçimlendirme verisi, kalıtım uygulandıktan sonra hesaplanan mevcut biçimlendirmeyi temsil eder. Mevcut uygulamada, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iportionformateffectivedata/) gibi bazı effective veri nesneleri dahili olarak önbelleğe alınabilir. Üst veya kalıtsal biçimlendirme değiştirildikten sonra `get_effective` metodunu tekrar çağırmak önbellek verisini yenileyebilir ve daha önce elde edilen nesne artık önceki durumu yansıtmayabilir. Effective değerleri daha sonraki kullanım için korumanız gerekiyorsa, yazı tipi yüksekliği, doldurma rengi, yazı tipi stili veya hizalama gibi gerekli özellikleri kendi veri nesnenize kopyalayın.
-{{% /alert %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-## **Kamera'nın Effective Özelliklerini Almak**
+    # Önceki değişikliklerden sonra etkili veriyi oku.
+    effective_value = portion.portion_format.get_effective().font_height
 
-Aspose.Slides, bir kameranın effective özelliklerini almanıza olanak tanır. [ICameraEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/icameraeffectivedata/) türü, effective kamera özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ICameraEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/icameraeffectivedata/) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/) aracılığıyla sunulur ve bu, [ThreeDFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/threedformat/) için effective değerler sağlar.
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-Aşağıdaki kod örneği, kamera için effective özelliklerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **Light Rig'in Effective Özelliklerini Almak**
-
-Aspose.Slides, bir ışık sisteminin effective özelliklerini almanıza olanak tanır. [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ilightrigeffectivedata/) türü, effective ışık sistemi özelliklerini içeren değiştirilemez bir nesnedir. Bir [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ilightrigeffectivedata/) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/) aracılığıyla sunulur ve bu, [ThreeDFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/threedformat/) için effective değerler sağlar.
-
-Aşağıdaki kod örneği, ışık sisteminin effective özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **Bevel Şeklinin Effective Özelliklerini Almak**
-
-Aspose.Slides, bir şekil köşesinin (bevel) effective özelliklerini almanıza olanak tanır. [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ishapebeveleffectivedata/) türü, bir şeklin effective yüzey rahatlatma (face‑relief) özelliklerini içeren değiştirilemez bir nesnedir. Bir [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ishapebeveleffectivedata/) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/) aracılığıyla sunulur ve bu, [ThreeDFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides/threedformat/) için effective değerler sağlar.
-
-Aşağıdaki kod örneği, bir şeklin üst köşesinin effective özelliklerini nasıl alacağınızı gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **Metin Çerçevesinin Effective Özelliklerini Almak**
-
-Aspose.Slides kullanarak bir metin çerçevesinin effective özelliklerini alabilirsiniz. [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/itextframeformateffectivedata/) türü, effective metin çerçevesi biçimlendirme özelliklerini içerir.
-
-Aşağıdaki kod örneği, metin çerçevesinin effective biçimlendirme özelliklerini nasıl alacağınızı gösterir. İlk slayttaki ilk şeklin bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **Metin Stili'nin Effective Özelliklerini Almak**
-
-Aspose.Slides kullanarak bir metin stilinin effective özelliklerini alabilirsiniz. [ITextStyleEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/itextstyleeffectivedata/) türü, effective metin stili özelliklerini içerir.
-
-Aşağıdaki kod örneği, metin stilinin effective özelliklerini nasıl alacağınızı gösterir. İlk slayttaki ilk şeklin bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **Effective Yazı Tipi Yüksekliği Değerini Almak**
-
-Aspose.Slides kullanarak effective yazı tipi yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümün effective yazı tipi yüksekliğinin, farklı sunum yapısı seviyelerinde yerel yazı tipi yüksekliği değerleri ayarlandıktan sonra nasıl değiştiğini gösterir.
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # İki farklı seviyede miras alınan değerleri tanımla.
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # Bölümdeki yerel bir değer, her iki miras alınan değeri de geçersiz kılar.
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Bir miras alınan değeri değiştirmek, mevcut bir yerel değeri geçersiz kılmaz.
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # Yerel değeri temizle. Bölüm artık paragraftan tekrar miras alır.
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Paragraf değerini temizle. Sunum varsayılanı şimdi sonucu sağlar.
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Tablo İçin Effective Doldurma Biçimini Almak**
+Bu örnekte öncelik bölüm yerel biçimlendirmesi, ardından paragraf biçimlendirmesi ve son olarak sunum varsayılanıdır. Diğer nesnelerin farklı miras zincirleri olabilir, ancak prensip aynıdır: daha spesifik açık bir değer kazanır ve [get_effective](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iportionformat/get_effective/) son sonucu döndürür.
 
-Aspose.Slides kullanarak farklı tablo bölümleri için effective doldurma biçimlendirmesini alabilirsiniz. [IFillFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ifillformateffectivedata/) türü, effective doldurma biçimlendirme özelliklerini içerir. Hücre biçimlendirmesi, satır biçimlendirmesinden daha yüksek önceliğe sahiptir; satır biçimlendirmesi, sütun biçimlendirmesinden daha yüksek önceliğe sahiptir; sütun biçimlendirmesi ise tüm tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
+## **Etkin Metin Özelliklerini Alma**
 
-Sonuç olarak, [ICellFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/icellformateffectivedata/) özellikleri tablo hücresini çizerken kullanılır. Aşağıdaki kod örneği, farklı tablo bölümleri için effective doldurma biçimlendirmesinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [Table](https://reference.aspose.com/slides/tr/python-net/aspose.slides/table/) olduğunu varsayar.
+Metin biçimlendirmesi birkaç nesneye yayılmıştır:
 
-```py
+- [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/tr/python-net/aspose.slides/itextframeformat/get_effective/) kenar boşlukları, sabitleme, otomatik sığdırma ve dikey metin yönü gibi metin çerçevesi özelliklerini çözer.  
+- [ITextStyle.get_effective()](https://reference.aspose.com/slides/tr/python-net/aspose.slides/itextstyle/get_effective/) her metin stili seviyesindeki paragraf biçimlendirmesini çözer.  
+- [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iparagraphformat/get_effective/) hizalama, girinti ve madde işaretleri gibi paragraf özelliklerini çözer.  
+- [IPortionFormat.get_effective()](https://reference.aspose.com/slides/tr/python-net/aspose.slides/iportionformat/get_effective/) font yüksekliği, yazı tipi, renk, kalın ve italik gibi karakter özelliklerini çözer.
+
+Sonraki örnek için `text-formatting.pptx` en az bir slayt ve boş olmayan bir metin çerçevesi içeren bir [AutoShape](https://reference.aspose.com/slides/tr/python-net/aspose.slides/autoshape/) içermelidir. AutoShape, şekil koleksiyonunda herhangi bir konumda bulunabilir; kod uygun bir nesne arar ve kullanmadan önce doğrular.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
 
-## **FAQ**
+## **Etkin 3D Özelliklerini Alma**
 
-**`get_effective` bir anlık görüntü döndürür mü?**
+[IThreeDFormat.get_effective()](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformat/get_effective/) tüm çözülmüş 3D ayarlarını bir araya getiren bir [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/) nesnesi döndürür. Bu nesnenin [camera](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/camera/), [light_rig](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/light_rig/), [bevel_top](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/) ve [bevel_bottom](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/) özellikleri ilgili etkili verileri sunar. Bu ilişkili ayarları birlikte okumak, bir şeklin nihai 3D görünümünü anlamayı kolaylaştırır.
 
-Her zaman değil. Effective veri, kalıtım uygulandıktan sonra hesaplanan biçimlendirmeyi temsil eder, ancak bazı effective veri nesneleri dahili olarak önbelleğe alınabilir. Sonraki bir `get_effective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbellek verisini yenileyebilir; bu nedenle daha önce elde edilen nesne dayanıklı bir anlık görüntü olarak ele alınmamalıdır.
+Bu örnek için `shape-3d.pptx` ilk slaytında en az bir şekil içermelidir. Çıktının varsayılanların dışındaki değerleri içermesini istiyorsanız, o şekle 3D kamera, aydınlatma veya köşe (bevel) ayarları uygulayın.
 
-**Effective özellikleri ne zaman tekrar okumalıyım?**
+```python
+import aspose.slides as slides
 
-Yerel biçimlendirme, üst stil, düzen biçimlendirmesi, ana biçimlendirme veya sunum düzeyindeki varsayılanlar değiştirildikten sonra `get_effective`'i tekrar çağırın. Sonraki çağrı biçimlendirme hiyerarşisini yeniden değerlendirir ve mevcut effective sonucu döndürür.
 
-**Bir düzen/ana slaytı değiştirmek veya kaldırmak, önceden alınmış effective özellikleri etkiler mi?**
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
 
-Evet, ancak değişiklik bir sonraki `get_effective` çağrısında yansır. Bir üst biçimlendirme kaynağı değiştirildiğinde veya kaldırıldığında, daha önce elde edilen effective veri eski olabilir. `get_effective` tekrar çağrıldığında Aspose.Slides biçimlendirme ağacını yeniden değerlendirir ve elde edilen yazı tipleri, renkler, boyutlar veya diğer değerler değişebilir.
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
 
-**Effective veri nesneleri üzerinden değerleri değiştirebilir miyim?**
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
 
-Hayır. Effective veri nesneleri hesaplanmış değerleri sunar. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından effective değerleri tekrar alın.
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
 
-**Bir özellik şekil düzeyinde, düzen/ana slaytta ya da küresel ayarlarda ayarlanmamışsa ne olur?**
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
 
-Effective değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma tarafından belirlenir. Bu çözülen değer, mevcut effective verinin bir parçası haline gelir.
+## **Etkin Tablo Biçimlendirmesini Alma**
 
-**Effective bir yazı tipi değerinden, boyutu ya da tipografiyi hangi seviyenin sağladığını anlayabilir miyim?**
+Tablo biçimlendirmesi tablo stilinden ve tüm tablo, bir sütun, bir satır veya tek bir hücreye uygulanan formatlardan gelebilir. Açıkça tanımlanmış dolgu çakışmalarında öncelik sırası hücre, satır, sütun ve ardından tüm tablo şeklindedir. Bir hücrenin etkili formatı, o hücreyi çizmeye kullanılan son formattır.
 
-Doğrudan değil. Effective veri son değeri döndürür. Kaynağı bulmak için bölüm, paragraf, metin çerçevesi ve düzen, ana ve sunum seviyelerindeki metin stillerindeki yerel değerleri kontrol edin; ilk açık tanımın hangi seviyede olduğunu görebilirsiniz.
+Bu örnek için `table-formatting.pptx` ilk slaytında en az bir tablo içermelidir. Tablo en az bir satır ve bir sütun içermelidir. Kod, `shapes[0]` bir tablo varsayımı yerine bir [Table](https://reference.aspose.com/slides/tr/python-net/aspose.slides/table/) arar.
 
-**Effective değerler bazen yerel değerlerle aynı görünür, neden?**
+```python
+import aspose.slides as slides
 
-Çünkü yerel değer nihai değer haline gelmiştir (daha yüksek seviyeden bir kalıtım gerekmemiştir). Bu durumda effective değer, yerel değerle aynı olur.
 
-**Effective özellikleri ne zaman kullanmalıyım, ne zaman sadece yerel olanlarla çalışmalıyım?**
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
 
-Tüm kalıtım uygulandıktan sonra “görüntülendiği gibi” sonucu elde etmeniz gerektiğinde effective veriyi kullanın; örneğin renkleri, girintileri veya boyutları hizalamak için. Bu değerleri daha sonraki biçimlendirme değişikliklerinden bağımsız olarak korumanız gerekiyorsa, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede biçimlendirme değiştirmek istiyorsanız, yerel özellikleri değiştirin ve gerektiğinde sonucu doğrulamak için effective veriyi tekrar okuyun.
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+Renk ihtiyacınız varsa ve sadece dolgu tipini değil, önce etkili [fill_type](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ifillformateffectivedata/fill_type/) kontrol edin, ardından o tipe uygulanan özelliği okuyun; örneğin katı dolgu için [solid_fill_color](https://reference.aspose.com/slides/tr/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) kullanılabilir.
+
+## **Değişikliklerden Sonra Etkin Veriyi Tekrar Okuma**
+
+Etkin veri, çözüldüğü anki biçimlendirme hiyerarşisini tanımlar. Hiyerarşiye katılabilecek herhangi bir şeyi değiştirdikten sonra `get_effective` çağrısını tekrar yapın; buna dahil:
+
+- nesnenin yerel biçimlendirmesi;
+- paragraf veya metin çerçevesi varsayılanları;
+- bir tablo stili, tablo, sütun, satır veya hücre formatı;
+- düzen veya ana slayt biçimlendirmesi;
+- tema verileri veya sunum düzeyindeki varsayılanlar;
+- bir slayta atanmış düzen veya ana.
+
+Etkin veri nesnesini kalıcı bir anlık görüntü olarak tutmayın. Aspose.Slides bazı etkin verileri dahili olarak önbelleğe alabilir ve sonraki bir `get_effective` çağrısı bu verileri yenileyebilir. Bir değişiklik öncesi ve sonrası değerleri karşılaştırmanız gerekiyorsa, font yüksekliği, renk, hizalama veya köşe genişliği gibi ihtiyacınız olan skalarlara kendi değişkenlerinize kopyalayın, ardından değişikliği yapın.
+
+Bir değeri değiştirmek için ilgili yerel format nesnesini güncelleyin ve sonuçları doğrulamak için `get_effective` çağrısı yapın. Etkin veri nesneleri kendileri sadece okunur.
+
+## **SSS**
+
+**Etkin bir değeri hangi seviyenin sağladığını nasıl anlayabilirim?**
+
+Etkin veri sadece son değeri içerir, kaynağını değil. En spesifik seviyeden dışa doğru uygulanabilir yerel nesneleri inceleyin. Metin için bu, bölüm, paragraf, metin çerçevesi, düzen, ana, tema ve sunum varsayılanlarını içerebilir. `float("nan")` veya `None` gibi tanımsız değerler, aramanın başka bir seviyeye devam ettiğini gösterir.
+
+**Hiçbir seviye bir özelliği tanımlamazsa ne olur?**
+
+Aspose.Slides uygun PowerPoint veya kütüphane varsayılanını çözer. Çözülen bu değer, yerel bir nesne açıkça tanımlamasa bile etkili veride görünür.
+
+**Bazen bir etkin değer yerel değerle aynı neden olur?**
+
+Yerel değer miras hesabını kazanmıştır. Bu, özelliğin nesne üzerinde açıkça ayarlandığı ve daha spesifik bir kuralın onu geçersiz kılmadığı durumlarda beklenir.
+
+**Yerel veri yerine ne zaman etkili veri kullanmalıyım?**
+
+Belirli bir biçimlendirme seviyesini incelemek veya düzenlemek için yerel veri kullanın. Miras, tema kuralları ve uygulanabilir stiller çözüldükten sonraki nihai görünümü ihtiyacınız olduğunda etkili veri kullanın. [tam karşılaştırma örneği](#compare-local-inherited-and-effective-values) aynı iş akışında ikisini de gösterir.

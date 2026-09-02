@@ -1,242 +1,226 @@
 ---
-title: ใช้หรือเปลี่ยนเลย์เอาต์สไลด์ใน Python
-linktitle: เลย์เอาต์สไลด์
+title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน Python
+linktitle: เค้าโครงสไลด์
 type: docs
 weight: 60
 url: /th/python-net/slide-layout/
 keywords:
-- เลย์เอาต์สไลด์
-- เลย์เอาต์เนื้อหา
-- ตัวจัดตำแหน่ง
-- การออกแบบงานนำเสนอ
+- เค้าโครงสไลด์
+- เค้าโครงเนื้อหา
+- ตัวรับ
+- การออกแบบการนำเสนอ
 - การออกแบบสไลด์
-- เลย์เอาต์ที่ไม่ได้ใช้
-- การมองเห็นส่วนท้าย
+- เค้าโครงที่ไม่ได้ใช้
+- การแสดงส่วนท้าย
 - สไลด์หัวเรื่อง
 - หัวเรื่องและเนื้อหา
 - ส่วนหัวของหัวข้อ
 - สองเนื้อหา
 - การเปรียบเทียบ
 - หัวเรื่องเท่านั้น
-- เลย์เอาต์เปล่า
-- เนื้อหาพร้อมคำบรรยาย
-- รูปภาพพร้อมคำบรรยาย
+- เค้าโครงว่าง
+- เนื้อหาพร้อมคำอธิบายภาพ
+- รูปภาพพร้อมคำอธิบายภาพ
 - หัวเรื่องและข้อความแนวตั้ง
 - หัวเรื่องแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
+- การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการและปรับแต่งเลย์เอาต์สไลด์ใน Aspose.Slides สำหรับ Python ผ่าน .NET สำรวจประเภทของเลย์เอาต์ การควบคุมตัวจัดตำแหน่ง การมองเห็นส่วนท้าย และการจัดการเลย์เอาต์โดยใช้ตัวอย่างโค้ดใน Python."
+description: "ใช้, สร้างและแก้ไขเค้าโครงสไลด์ใน Aspose.Slides สำหรับ Python ผ่าน .NET, เพิ่มตัวรับ, ลบเค้าโครงที่ไม่ได้ใช้, และควบคุมการแสดงส่วนท้าย."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เลย์เอาต์สไลด์กำหนดการจัดเรียงของกล่องตัวจัดตำแหน่งและรูปแบบของเนื้อหาบนสไลด์ มันควบคุมว่าตัวจัดตำแหน่งใดบ้างที่พร้อมใช้งานและปรากฏที่ไหน เลย์เอาต์สไลด์ช่วยให้คุณออกแบบงานนำเสนอได้อย่างรวดเร็วและสม่ำเสมอ—ไม่ว่าคุณจะสร้างสิ่งง่ายหรือซับซ้อนที่สุด ตัวอย่างของเลย์เอาต์สไลด์ที่พบบ่อยใน PowerPoint มีดังนี้:
+เค้าโครงสไลด์กำหนดตำแหน่งและการจัดรูปแบบของตัวรับเป็นเช่นหัวเรื่อง ข้อความ รูปภาพ แผนภูมิ และตาราง การใช้เค้าโครงทำให้สไลด์มีโครงสร้างที่สอดคล้องกันขณะยังให้สไลด์แต่ละอันสามารถมีเนื้อหาเป็นของตนเองได้
 
-**เลย์เอาต์สไลด์หัวเรื่อง** – มีตัวจัดตำแหน่งข้อความสองช่อง: หนึ่งสำหรับหัวเรื่องและอีกหนึ่งสำหรับหัวข้อย่อย
+เค้าโครงที่พบบ่อยที่สุดได้แก่:
 
-**เลย์เอาต์หัวเรื่องและเนื้อหา** – มีตัวจัดตำแหน่งหัวเรื่องขนาดเล็กที่ด้านบนและตัวจัดตำแหน่งเนื้อหาใหญ่ที่ด้านล่างสำหรับข้อความ, รายการหัวข้อย่อย, แผนภูมิ, รูปภาพ ฯลฯ
+- **สไลด์หัวเรื่อง**: มีตัวรับหัวเรื่องและหัวเรื่องย่อย
+- **หัวเรื่องและเนื้อหา**: มีตัวรับหัวเรื่องและตัวรับเนื้อหาทั่วไป
+- **ว่าง**: ไม่มีตัวรับเนื้อหาและเหมาะเมื่อทุกรูปทรงจะถูกจัดตำแหน่งด้วยตนเอง
 
-**เลย์เอาต์เปล่า** – ไม่มีตัวจัดตำแหน่งใด ๆ ให้คุณควบคุมการออกแบบสไลด์ตั้งแต่ต้นได้อย่างเต็มที่
+## **ทำความเข้าใจการสืบทอดเค้าโครง**
 
-เลย์เอาต์สไลด์เป็นส่วนหนึ่งของมาสเตอร์สไลด์ ซึ่งเป็นสไลด์ระดับบนสุดที่กำหนดรูปแบบเลย์เอาต์สำหรับงานนำเสนอทั้งหมด คุณสามารถเข้าถึงและแก้ไขเลย์เอาต์สไลด์ผ่านมาสเตอร์สไลด์—ไม่ว่าจะโดยประเภท, ชื่อ หรือรหัสเอกลักษณ์ หรือคุณอาจแก้ไขเลย์เอาต์สไลด์เฉพาะโดยตรงภายในงานนำเสนอ
+การนำเสนอมีระดับที่เกี่ยวข้องสามระดับ:
 
-เพื่อทำงานกับเลย์เอาต์สไลด์ใน Aspose.Slides for Python คุณสามารถใช้:
+1. หน้า [master slide](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslide/) กำหนดธีม การจัดรูปแบบที่ใช้ร่วมกัน พื้นหลัง และวัตถุทั่วไป
+2. หน้า [layout slide](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/) อยู่ภายใต้ master และกำหนดการจัดวางตัวรับเฉพาะ
+3. หน้า [normal slide](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/) ใช้เค้าโครงหนึ่งและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น
 
-- Properties such as [layout_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/layout_slides/) and [masters](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) class
-- Types like [LayoutSlide](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/), and [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslideheaderfootermanager/)
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเค้าโครงของมัน และเค้าโครงสืบทอดจาก master ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะแทนที่ค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ปกติ รูปร่างของตัวรับจะสร้างจากเค้าโครงที่เลือก ขณะที่เนื้อหาที่ป้อนลงในตัวรับเหล่านั้นเป็นของสไลด์ปกติ
 
-{{% alert title="Info" color="info" %}}
-เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับการทำงานกับมาสเตอร์สไลด์ โปรดดูบทความ [Manage PowerPoint Slide Masters in Python](/slides/th/python-net/slide-master/) 
-{{% /alert %}}
+เพิ่มตัวรับที่จำเป็นลงในเค้าโครงก่อนสร้างสไลด์จากเค้าโครงนั้น การเพิ่มตัวรับอื่นลงในเค้าโครงภายหลังจะไม่ทำให้รูปร่างตัวรับที่สอดคล้องกันถูกเพิ่มอัตโนมัติในสไลด์ปกติที่มีอยู่แล้ว
 
-## **เพิ่มเลย์เอาต์สไลด์ลงในงานนำเสนอ**
+ความสัมพันธ์นี้มีผลสืบเนื่องสำคัญสองประการ:
 
-เพื่อปรับแต่งรูปลักษณ์และโครงสร้างของสไลด์ของคุณ คุณอาจต้องเพิ่มเลย์เอาต์สไลด์ใหม่ลงในงานนำเสนอ Aspose.Slides for Python อนุญาตให้คุณตรวจสอบว่าเลย์เอาต์ที่ต้องการมีอยู่แล้วหรือไม่ หากไม่มีให้เพิ่มเลย์เอาต์สไลด์ที่ต้องการและใช้มันเพื่อแทรกสไลด์ตามเลย์เอาต์นั้น
+- การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวรับที่มีอยู่บนเค้าโครงสามารถอัปเดตสไลด์ทุกสไลด์ที่พึ่งพาเค้าโครงนั้นได้ ก่อนแก้ไขเค้าโครงที่ใช้อยู่แล้วให้ตรวจสอบสไลด์ที่พึ่งพาและตรวจสอบผลลัพธ์ของการนำเสนอ
+- เค้าโครงที่ยังถูกสไลด์ใช้งานอยู่ไม่สามารถลบได้ ต้องโอนสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน หรือให้ลบเฉพาะเค้าโครงที่ไม่ได้ใช้เท่านั้น
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) 
-1. เข้าถึง [MasterLayoutSlideCollection](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterlayoutslidecollection/) 
-1. ตรวจสอบว่าเลย์เอาต์สไลด์ที่ต้องการมีอยู่ในคอลเลกชันหรือยัง หากไม่มีให้เพิ่มเลย์เอาต์สไลด์ที่ต้องการ 
-1. เพิ่มสไลด์เปล่าตามเลย์เอาต์สไลด์ใหม่ 
-1. บันทึกงานนำเสนอ
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของโครงสร้างนี้ ดูที่ [Slide Master](/slides/th/python-net/slide-master/)
 
-โค้ด Python ต่อไปนี้แสดงวิธีเพิ่มเลย์เอาต์สไลด์ลงในงานนำเสนอ PowerPoint:
+## **เลือกและใช้เค้าโครงสไลด์**
+
+ใช้ประเภทเค้าโครงเมื่อการนำเสนอปฏิบัติตามคำนิยามเค้าโครงมาตรฐานของ PowerPoint ชื่อเค้าโครงสามารถแก้ไขได้โดยผู้ใช้และอาจแปลเป็นภาษาต่าง ๆ ดังนั้นการเลือกโดยชื่ออาจไม่น่าเชื่อถือถ้าไม่ได้ควบคุมเทมเพลตต้นฉบับ
+
+ตัวอย่างต่อไปนี้มองหา **Title and Content** บน master แรก หากเค้าโครงนั้นไม่มีอยู่ ระบบจะย้อนกลับไปใช้ **Blank** อย่างตั้งใจ การตรวจสอบ null ครั้งที่สองจำเป็นเพราะการนำเสนออาจมีเฉพาะเค้าโครงที่กำหนดเองเท่านั้น เค้าโครงที่เลือกแล้วจะถูกนำไปใช้กับสไลด์ปกติแรกผ่านคุณสมบัติ [Slide.layout_slide](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/layout_slide/)
 
 ```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ของคลาส Presentation เพื่อเปิดไฟล์งานนำเสนอ.
-with slides.Presentation("sample.pptx") as presentation:
-    # ไปยังประเภทเลย์เอาต์สไลด์เพื่อเลือกเลย์เอาต์สไลด์.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # สถานการณ์ที่งานนำเสนอไม่มีประเภทเลย์เอาต์ทั้งหมด.
-        # ไฟล์งานนำเสนอมีเฉพาะประเภทเลย์เอาต์ Blank และ Custom.
-        # อย่างไรก็ตาม เลย์เอาต์สไลด์ประเภท custom อาจมีชื่อที่รู้จัก,
-        # เช่น "Title", "Title and Content", เป็นต้น ซึ่งสามารถใช้เลือกเลย์เอาต์สไลด์ได้.
-        # คุณสามารถอิงตามชุดประเภทรูปทรงตัวจัดตำแหน่งได้เช่นกัน.
-        # ตัวอย่างเช่น สไลด์ Title ควรมีเฉพาะประเภทตัวจัดตำแหน่ง Title เท่านั้น เป็นต้น.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # เพิ่มสไลด์เปล่าโดยใช้เลย์เอาต์สไลด์ที่เพิ่มไว้.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # บันทึกงานนำเสนอลงดิสก์.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ลบเลย์เอาต์สไลด์ที่ไม่ได้ใช้**
+การเปลี่ยนเค้าโครงของสไลด์ไม่ได้ลบรูปร่างปกติที่เพิ่มโดยตรงบนสไลด์ อย่างไรก็ตามตำแหน่งของตัวรับ การจัดรูปแบบที่สืบทอด และความสัมพันธ์ระหว่างตัวรับที่มีอยู่กับเค้าโครงใหม่อาจเปลี่ยนแปลงได้ จึงควรตรวจสอบผลลัพธ์เมื่อสลับระหว่างเค้าโครงที่แตกต่างอย่างชัดเจน
 
-Aspose.Slides มีเมธอด [remove_unused_layout_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) จากคลาส [Compress](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/) เพื่อให้คุณสามารถลบเลย์เอาต์สไลด์ที่ไม่ต้องการและไม่ได้ใช้ได้
+## **เพิ่มเค้าโครงสไลด์**
 
-โค้ด Python ต่อไปนี้แสดงวิธีลบเลย์เอาต์สไลด์จากงานนำเสนอ PowerPoint:
+การเลือกและการสร้างเป็นการดำเนินการแยกจากกัน ตัวอย่างก่อนหน้ากำหนดเค้าโครงที่มีอยู่; ไม่ได้สร้างเค้าโครงใหม่ เพื่อสร้างเค้าโครงให้เรียกเมธอด [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterlayoutslidecollection/add/) บนคอลเลกชันเค้าโครงของ master เป้าหมาย
+
+ตัวอย่างต่อไปนี้จะเพิ่มเค้าโครง **Title and Content** ใหม่ที่ชื่อ `Report Title and Content` เสมอ จากนั้นเพิ่มสไลด์ปกติอ้างอิงเค้าโครงนั้น ชื่อเค้าโครงต้องไม่ซ้ำกันภายในคอลเลกชัน
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **เพิ่มตัวจัดตำแหน่งลงในเลย์เอาต์สไลด์**
+เพิ่มเค้าโครงเฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่นำกลับมาใช้ได้อีก ถ้าเค้าโครงที่เหมาะสมมีอยู่แล้วให้เลือกและใช้ซ้ำแทนการสร้างสำเนาใหม่
 
-Aspose.Slides มีคุณสมบัติ [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/placeholder_manager/) ซึ่งช่วยให้คุณเพิ่มตัวจัดตำแหน่งใหม่ลงในเลย์เอาต์สไลด์
+## **เพิ่มตัวรับในเค้าโครงสไลด์**
 
-ผู้จัดการนี้มีเมธอดสำหรับประเภทตัวจัดตำแหน่งต่อไปนี้:
+คุณสมบัติ [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/placeholder_manager/) ให้บริการ [LayoutPlaceholderManager](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/) สำหรับเพิ่มรูปร่างตัวรับลงในเค้าโครง
 
-| Placeholder ของ PowerPoint | วิธีการของ LayoutPlaceholderManager |
-| --------------------------- | ----------------------------------- |
-| ![Content](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Picture](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Chart](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Table](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Online Image](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| ตัวรับ PowerPoint | `LayoutPlaceholderManager` วิธี |
+| ----------------- | ------------------------------ |
+| ![เนื้อหา](content.png) | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![เนื้อหา (แนวตั้ง)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![ข้อความ](text.png) | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![ข้อความ (แนวตั้ง)](textV.png) | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![รูปภาพ](picture.png) | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![แผนภูมิ](chart.png) | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![ตาราง](table.png) | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png) | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![สื่อ](media.png) | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![รูปภาพออนไลน์](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-โค้ด Python ต่อไปนี้แสดงวิธีเพิ่มรูปทรงตัวจัดตำแหน่งใหม่ลงในเลย์เอาต์สไลด์ Blank:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีเค้าโครง **Blank** อยู่แล้ว เพิ่มตัวรับสี่ตัวรับลงในเค้าโครงนั้น แล้วสร้างสไลด์ปกติที่ใช้เค้าโครงที่แก้ไขแล้ว ลำดับการทำงานตั้งใจให้เพิ่มตัวรับก่อนสร้างสไลด์ปกติ เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างตัวรับที่สอดคล้องบนสไลด์นั้นได้
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # รับเลย์เอาต์สไลด์ Blank.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # รับตัวจัดการตัวจัดตำแหน่งของเลย์เอาต์สไลด์.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # เพิ่มตัวจัดตำแหน่งต่าง ๆ ลงในเลย์เอาต์สไลด์ Blank.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # เพิ่มสไลด์ใหม่ด้วยเลย์เอาต์ Blank.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ผลลัพธ์:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![ตัวรับบนเค้าโครงสไลด์](add_placeholders.png)
 
-## **ตั้งค่าการมองเห็นส่วนท้ายสำหรับเลย์เอาต์สไลด์**
+{{% alert color="warning" title="คำเตือน" %}}
+การเปลี่ยนการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวรับเค้าโครงที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ตัวรับเค้าโครงที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าไปในสไลด์ปกติที่มีอยู่ก่อนหน้า ให้ทดลองเปลี่ยนเค้าโครงในสำเนาของการนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกสไลด์
+{{% /alert %}}
 
-ในงานนำเสนอ PowerPoint ส่วนท้ายเช่น วันที่, เลขสไลด์, และข้อความกำหนดเองสามารถแสดงหรือซ่อนตามเลย์เอาต์สไลด์ Aspose.Slides for Python อนุญาตให้คุณควบคุมการมองเห็นของตัวจัดตำแหน่งส่วนท้ายเหล่านี้ ซึ่งมีประโยชน์เมื่อคุณต้องการให้บางเลย์เอาต์แสดงข้อมูลส่วนท้ายขณะที่เลย์เอาต์อื่นคงความเรียบง่าย
+## **ลบเค้าโครงสไลด์ที่ไม่ได้ใช้**
 
-1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) 
-1. รับอ้างอิงเลย์เอาต์สไลด์ตามดัชนีของมัน 
-1. ตั้งค่าตัวจัดตำแหน่งส่วนท้ายสไลด์ให้แสดง 
-1. ตั้งค่าตัวจัดตำแหน่งเลขสไลด์ให้แสดง 
-1. ตั้งค่าตัวจัดตำแหน่งวันที่‑เวลาให้แสดง 
-1. บันทึกงานนำเสนอ
-
-โค้ด Python ต่อไปนี้แสดงวิธีตั้งค่าการมองเห็นของส่วนท้ายสไลด์และทำงานที่เกี่ยวข้อง:
+ใช้เมธอด [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) เพื่อลบเค้าโครงที่ไม่มีสไลด์ปกติอ้างอิง เมธอดจะคงเค้าโครงที่ยังถูกใช้ไว้
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งค่าการมองเห็นส่วนท้ายของสไลด์ลูก**
+เพื่อจะลบเค้าโครงเฉพาะหนึ่งให้ใช้คุณสมบัติ [has_depending_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/has_depending_slides/) หรือเมธอด [get_depending_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/get_depending_slides/) ก่อน แล้วโอนสไลด์ที่พึ่งพาใด ๆ ก่อนเรียกเมธอด [LayoutSlide.remove](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/remove/) การพยายามลบเค้าโครงที่ยังถูกใช้จะทำให้เกิดข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/python-net/aspose.slides/pptxeditexception/)
 
-ในงานนำเสนอ PowerPoint ส่วนท้ายเช่น วันที่, เลขสไลด์, และข้อความกำหนดเองสามารถควบคุมได้ที่ระดับมาสเตอร์สไลด์เพื่อความสอดคล้องทั่วทั้งเลย์เอาต์สไลด์ Aspose.Slides for Python ให้คุณตั้งค่าการมองเห็นและเนื้อหาของตัวจัดตำแหน่งส่วนท้ายเหล่านี้บนมาสเตอร์สไลด์และกระจายการตั้งค่าเหล่านั้นไปยังเลย์เอาต์สไลด์ลูกทั้งหมด วิธีนี้ทำให้ข้อมูลส่วนท้ายสอดคล้องกันตลอดงานนำเสนอ
+## **ควบคุมการแสดงส่วนท้ายบนเค้าโครงสไลด์**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) 
-1. รับอ้างอิงมาสเตอร์สไลด์ตามดัชนีของมัน 
-1. ตั้งค่าตัวจัดตำแหน่งส่วนท้ายของมาสเตอร์และสไลด์ลูกทั้งหมดให้แสดง 
-1. ตั้งค่าตัวจัดตำแหน่งเลขสไลด์ของมาสเตอร์และสไลด์ลูกทั้งหมดให้แสดง 
-1. ตั้งค่าตัวจัดตำแหน่งวันที่‑เวลาของมาสเตอร์และสไลด์ลูกทั้งหมดให้แสดง 
-1. บันทึกงานนำเสนอ
-
-โค้ด Python ต่อไปนี้แสดงการทำงานนี้:
+เค้าโครงมีส่วนท้ายของตนเอง, ตัวรับเลขสไลด์, และตัวรับวันที่‑เวลา ใช้คุณสมบัติ [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/header_footer_manager/) เพื่อควบคุมตัวรับเหล่านั้นสำหรับเค้าโครงเดียว ตัวอย่างเช่น เค้าโครงเนื้อหาอาจต้องแสดงส่วนท้ายแต่เค้าโครงหัวเรื่องไม่ต้องแสดง
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **ควบคุมการแสดงส่วนท้ายบน Master และเค้าโครงลูกของมัน**
+
+เพื่อให้การตั้งค่าส่วนท้ายสม่ำเสมอทั่วทั้งลำดับชั้นของ master ให้ใช้คุณสมบัติ [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslide/header_footer_manager/) วิธีการแพร่กระจายของ [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/python-net/aspose.slides/masterslideheaderfootermanager/) ทำงานกับ master, เค้าโครงที่พึ่งพา, และสไลด์ปกติ; ไม่ได้เจาะจงเพียงสไลด์ปกติเดียว
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างมาสเตอร์สไลด์และเลย์เอาต์สไลด์คืออะไร?**
+**ความแตกต่างระหว่าง Master Slide กับ Layout Slide คืออะไร?**
 
-มาสเตอร์สไลด์กำหนดธีมโดยรวมและรูปแบบเริ่มต้น ส่วนเลย์เอาต์สไลด์กำหนดการจัดเรียงเฉพาะของตัวจัดตำแหน่งสำหรับประเภทเนื้อหาต่าง ๆ
+Master Slide กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของการนำเสนอ Layout Slide อยู่ภายใต้ master และกำหนดการจัดวางตัวรับที่นำกลับมาใช้ได้ หนึ่งสไลด์ปกติใช้เค้าโครงเหล่านั้นและเก็บเนื้อหาเฉพาะสไลด์
 
-**ฉันสามารถคัดลอกเลย์เอาต์สไลด์จากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งได้หรือไม่?**
+**ฉันสามารถคัดลอก Layout Slide จากการนำเสนอหนึ่งไปยังการนำเสนออื่นได้หรือไม่?**
 
-ได้ คุณสามารถโคลนเลย์เอาต์สไลด์จากคอลเลกชัน [layout_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/layout_slides/) ของงานนำเสนอหนึ่งและแทรกลงในอีกงานนำเสนอหนึ่งโดยใช้เมธอด `add_clone`
+ทำได้ ให้เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [add_clone](https://reference.aspose.com/slides/th/python-net/aspose.slides/globallayoutslidecollection/add_clone/) เมื่อตัวลำดับคัดลอกจากการนำเสนอหนึ่งไปยังอีกอันหนึ่ง ควรตรวจสอบฟอนต์, ธีม, รูปภาพ และทรัพยากรอื่น ๆ ที่ใช้ในเค้าโครงต้นฉบับด้วย
 
-**ถ้าฉันลบเลย์เอาต์สไลด์ที่ยังถูกสไลด์อื่นใช้งานจะเกิดอะไรขึ้น?**
+**จะเกิดอะไรขึ้นเมื่อฉันแก้ไขเค้าโครงที่กำลังใช้งานอยู่?**
 
-หากคุณพยายามลบเลย์เอาต์สไลด์ที่ยังถูกสไลด์อย่างน้อยหนึ่งสไลด์อ้างอิงอยู่ Aspose.Slides จะโยนข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/python-net/aspose.slides/pptxeditexception/) เพื่อหลีกเลี่ยงปัญหา ให้ใช้เมธอด [remove_unused_layout_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) ซึ่งจะลบเลย์เอาต์สไลด์ที่ไม่ได้ใช้งานอย่างปลอดภัย
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงของเค้าโครงนั้น เว้นแต่จะมีการเขียนทับรูปแบบหรือวัตถุที่ได้รับผลกระทบไว้ในระดับสไลด์โดยตรง รูปร่างของตัวรับและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงบนหลายสไลด์พร้อมกัน ใช้เมธอด [get_depending_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides/layoutslide/get_depending_slides/) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเค้าโครง
+
+**จะเกิดอะไรขึ้นหากฉันลบเค้าโครงที่ยังถูกใช้อยู่?**
+
+Aspose.Slides จะโยงข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/python-net/aspose.slides/pptxeditexception/) ให้โอนสไลด์ที่พึ่งพาก่อน หรือใช้เมธอด [remove_unused_layout_slides](https://reference.aspose.com/slides/th/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) เพื่อลบเฉพาะเค้าโครงที่ไม่มีการอ้างอิงเท่านั้น

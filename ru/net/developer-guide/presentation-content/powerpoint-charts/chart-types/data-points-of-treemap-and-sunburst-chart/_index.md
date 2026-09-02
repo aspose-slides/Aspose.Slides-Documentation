@@ -4,115 +4,240 @@ linktitle: Точки данных в диаграммах Treemap и Sunburst
 type: docs
 url: /ru/net/data-points-of-treemap-and-sunburst-chart/
 keywords:
-- диаграмма treemap
-- диаграмма sunburst
+- диаграмма Treemap
+- диаграмма Sunburst
+- иерархическая диаграмма
 - точка данных
-- цвет подписи
+- метка данных
 - цвет ветки
 - PowerPoint
 - презентация
 - .NET
 - C#
 - Aspose.Slides
-description: "Узнайте, как управлять точками данных в диаграммах treemap и sunburst с помощью Aspose.Slides for .NET, совместимых с форматами PowerPoint."
+description: "Узнайте, как создавать иерархические данные и настраивать уровни, метки и цвета в диаграммах Treemap и Sunburst с помощью Aspose.Slides для .NET."
 ---
+## **Обзор**
 
-Среди прочих типов диаграмм PowerPoint существуют два «иерархических» типа — **Treemap** и **Sunburst** (также известные как Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph или Multi Level Pie Chart). Эти диаграммы отображают иерархические данные, организованные в виде дерева — от листов к вершине ветви. Листья определяются точками данных серии, а каждый последующий вложенный уровень группировки определяется соответствующей категорией. Aspose.Slides for .NET позволяет форматировать точки данных диаграмм Sunburst и Treemap на C#.
+Treemap и Sunburst‑диаграммы отображают один и тот же тип иерархических данных, но используют разные макеты. Treemap рисует иерархию в виде вложенных прямоугольников, площадь которых представляет значения листьев. Sunburst отображает её в виде концентрических колец: группы верхнего уровня находятся ближе к центру, а категории листьев — на внешнем кольце.
 
-Ниже приведён пример диаграммы Sunburst, где данные в столбце Series1 определяют листовые узлы, а остальные столбцы задают иерархические точки данных:
+В Aspose.Slides for .NET каждый числовой параметр является [IChartDataPoint](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/). Его коллекция [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) предоставляет доступ к листу и его родительским группам. Эта статья объясняет это сопоставление и показывает, как создать и отформатировать оба типа диаграмм из одних и тех же пробных данных.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Диаграмма Treemap с ветвями Consumer и Business](treemap-hierarchy.png)
 
-Начнём с добавления новой диаграммы Sunburst в презентацию:
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-}
-```
+![Диаграмма Sunburst с той же иерархией Consumer и Business](sunburst-hierarchy.png)
 
+## **Понимание категорий, точек данных и уровней**
 
-{{% alert color="primary" title="Смотрите также" %}} 
-- [**Создание диаграммы Sunburst**](/slides/ru/net/adding-charts/#addingcharts-creatingsunburstchart)
-{{% /alert %}}
+В примере ниже используется три уровня категорий и один числовой ряд:
 
-Если необходимо форматировать точки данных диаграммы, следует использовать следующее:
+| Ветка | Подуровень | Лист | Выручка |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel) классы 
-и свойство [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) 
-предоставляют доступ к форматированию точек данных диаграмм Treemap и Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevelsManager) 
-используется для доступа к многоуровневым категориям — он представляет контейнер объектов 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel). 
-По сути это оболочка для 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartCategoryLevelsManager) с 
-добавленными свойствами, специфичными для точек данных. 
-Класс [**IChartDataPointLevel**](https://reference.aspose.com/slides/net/aspose.slides.charts/IChartDataPointLevel) имеет 
-два свойства: [**Format**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/format) и 
-[**DataLabel**](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartdatapointlevel/properties/label), 
-которые предоставляют доступ к соответствующим настройкам.
+Каждая строка создает одну листовую категорию и одну точку данных. Уровни группировки категорий описывают путь от этого листа к его родителям. Для первой строки путь выглядит так: `Consumer > Computers > Laptops`.
 
-## **Показать значение точки данных**
-Показать значение точки данных "Leaf 4":
-```c#
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
-```
+Индексы в [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) идут от листа вверх:
 
+| `DataPointLevels` index | Логический уровень | Представление Treemap | Представление Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Лист | Прямоугольник значения | Сегмент внешнего кольца |
+| `1` | Подуровень | Прямоугольник родителя или заголовок | Сегмент среднего кольца |
+| `2` | Ветка | Прямоугольник верхнего уровня или заголовок | Сегмент внутреннего кольца |
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+Этот порядок одинаков для обоих типов диаграмм, несмотря на различия в визуальном макете. Родительский сегмент разделяется несколькими листами. Чтобы отформатировать его, используйте соответствующий уровень первой точки данных в этой группе. Например, ветка `Consumer` начинается с точки `Laptops`, а подуровень `Software` — с точки `Licenses`. Хранение ссылок на эти точки понятнее и надёжнее, чем использование неочевидных выражений вроде `dataPoints[0]` или `dataPoints[6]`.
 
-## **Установить подпись и цвет точки данных**
-Установить подпись точки данных "Branch 1" так, чтобы отображалось имя серии ("Series1") вместо имени категории. Затем установить цвет текста в желтый:
-```c#
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
+## **Создание и настройка обоих типов диаграмм**
 
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-```
+Следующий полный пример создает Treemap на первом слайде и Sunburst на втором. Он строит иерархию, выводит значение для `Tablets`, задаёт фиксированные цвета выбранным уровням, форматирует подпись ветки и сохраняет презентацию.
 
-
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **Установить цвет ветки точки данных**
-Изменить цвет ветки "Stem 4":
 ```csharp
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    
-    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
-    
-    stem4branch.Format.Fill.FillType = FillType.Solid;
-    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
-      
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+
+var treemapSlide = presentation.Slides[0];
+AddHierarchyChart(treemapSlide, ChartType.Treemap);
+
+var layoutSlide = presentation.LayoutSlides[0];
+var sunburstSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+AddHierarchyChart(sunburstSlide, ChartType.Sunburst);
+
+presentation.Save("hierarchical-charts.pptx", SaveFormat.Pptx);
+
+static void AddHierarchyChart(ISlide slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    var chart = slide.Shapes.AddChart(chartType, 40, 40, 640, 440);
+    chart.HasTitle = false;
+    chart.HasLegend = false;
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(worksheetIndex);
+
+    // Добавьте листовые категории. Элемент группировки устанавливается только при начале новой группы;
+    // следующие категории остаются в этой группе, пока не будет установлен другой элемент.
+    var laptopsCategory = AddCategory(1, "Laptops");
+    laptopsCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Computers");
+    laptopsCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Consumer");
+
+    AddCategory(2, "Desktops");
+
+    var phonesCategory = AddCategory(3, "Phones");
+    phonesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Mobile");
+
+    AddCategory(4, "Tablets");
+
+    var consultingCategory = AddCategory(5, "Consulting");
+    consultingCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Services");
+    consultingCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Business");
+
+    AddCategory(6, "Support");
+
+    var licensesCategory = AddCategory(7, "Licenses");
+    licensesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Software");
+
+    AddCategory(8, "Subscriptions");
+
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Revenue");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chartType);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+
+    var laptopsDataPoint = AddDataPoint(1, 12);
+    AddDataPoint(2, 8);
+    AddDataPoint(3, 15);
+    var tabletsDataPoint = AddDataPoint(4, 6);
+    AddDataPoint(5, 10);
+    AddDataPoint(6, 7);
+    var licensesDataPoint = AddDataPoint(7, 11);
+    AddDataPoint(8, 14);
+
+    // Отобразить категорию и значение у листа Tablets.
+    var tabletsLabelFormat = tabletsDataPoint.DataPointLevels[leafLevelIndex]
+        .Label.DataLabelFormat;
+    tabletsLabelFormat.ShowCategoryName = true;
+    tabletsLabelFormat.ShowValue = true;
+    tabletsLabelFormat.Separator = "\n";
+    tabletsLabelFormat.NumberFormat = "$0";
+
+    // Форматировать ветку Consumer через первый лист в этой ветке.
+    var consumerBranchLevel = laptopsDataPoint.DataPointLevels[branchLevelIndex];
+    var consumerBranchFill = consumerBranchLevel.Format.Fill;
+    var consumerBranchColor = Color.FromArgb(31, 78, 121);
+    SetSolidFill(consumerBranchFill, consumerBranchColor);
+
+    var consumerLabelFormat = consumerBranchLevel.Label.DataLabelFormat;
+    consumerLabelFormat.ShowCategoryName = true;
+    consumerLabelFormat.ShowSeriesName = false;
+    var consumerLabelTextFill = consumerLabelFormat.TextFormat.PortionFormat.FillFormat;
+    SetSolidFill(consumerLabelTextFill, Color.White);
+
+    // Форматировать стебель Software через первый лист в этом стебле.
+    var softwareStemLevel = licensesDataPoint.DataPointLevels[stemLevelIndex];
+    var softwareStemFill = softwareStemLevel.Format.Fill;
+    var softwareStemColor = Color.FromArgb(112, 173, 71);
+    SetSolidFill(softwareStemFill, softwareStemColor);
+
+    // ParentLabelLayout влияет на метки родителей в Treemap; Sunburst использует кольцевые сегменты.
+    if (chartType == ChartType.Treemap)
+    {
+        series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+    }
+
+    IChartCategory AddCategory(int rowIndex, string leafName)
+    {
+        var categoryCell = workbook.GetCell(worksheetIndex, rowIndex, 2, leafName);
+        return chart.ChartData.Categories.Add(categoryCell);
+    }
+
+    IChartDataPoint AddDataPoint(int rowIndex, double value)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, rowIndex, 3, value);
+
+        if (chartType == ChartType.Treemap)
+        {
+            return series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+    }
+
+    static void SetSolidFill(IFillFormat fillFormat, Color color)
+    {
+        fillFormat.FillType = FillType.Solid;
+        fillFormat.SolidFillColor.Color = color;
+    }
 }
 ```
 
+Ячейки категории и ячейки значений используют одну и ту же строку листа, поэтому их позиции в коллекции остаются согласованными. Когда вы работаете с существующей диаграммой вместо создания новой, сначала проанализируйте строки категорий и сохраните именованные ссылки на точки данных и уровни, которые планируете отформатировать.
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+## **Поведение и практические соображения**
 
-## **FAQ**
+### **Различия между Treemap и Sunburst**
 
-**Могу ли я изменить порядок (сортировку) сегментов в Sunburst/Treemap?**
+- Treemap использует площадь для передачи значения и вложенные прямоугольники для передачи иерархии. Свойство [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/parentlabellayout/) управляет отображением меток родителей в этом типе диаграммы.
+- Sunburst использует угол для передачи значения и глубину кольца для передачи иерархии. [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartseries/parentlabellayout/) не управляет метками кольца.
+- Оба типа диаграмм используют одинаковые уровни группировки категорий и одинаковый порядок лист‑к‑родителю в `DataPointLevels`, поэтому код построения данных и форматирования уровней может быть общим.
+- Значения родительских элементов рассчитываются из их дочерних листьев. Не добавляйте отдельные числовые точки для веток или подуровней.
 
-Нет. PowerPoint автоматически сортирует сегменты (обычно по убыванию значений по часовой стрелке). Aspose.Slides воспроизводит это поведение: изменить порядок напрямую нельзя; необходимо выполнить предварительную обработку данных.
+### **Сортировка и порядок сегментов**
 
-**Как тема презентации влияет на цвета сегментов и подписей?**
+Движок компоновки диаграммы определяет окончательное размещение прямоугольников и кольцевых сегментов. Сгруппируйте связанные строки категорий перед добавлением, но не полагайтесь на конкретное положение прямоугольника или начальный угол. Если порядок имеет смысл, включите его в метки или используйте тип диаграммы с явной осью категорий.
 
-Цвета диаграммы наследуют [тему/палитру](/slides/ru/net/presentation-theme/) презентации, если только вы явно не задаёте заливки/шрифты. Для согласованных результатов фиксируйте сплошные заливки и форматирование текста на необходимых уровнях.
+### **Тема и фиксированные цвета**
 
-**Сохранит ли экспорт в PDF/PNG пользовательские цвета ветвей и настройки подписей?**
+Неотформатированные уровни диаграммы наследуют цвета из темы презентации. В примере используются явные заливки RGB для предсказуемого вывода. Если диаграмма должна следовать изменениям темы, используйте схемные цвета вместо фиксированных RGB‑значений и избегайте переопределения каждого уровня. Также проверяйте контраст меток после изменения заливки ветки или подуровня.
 
-Да. При экспорте презентации настройки диаграммы (заливки, подписи) сохраняются в выходных форматах, поскольку Aspose.Slides рендерит их с применённым форматированием.
+### **Подписи и доступное пространство**
 
-**Могу ли я вычислить фактические координаты подписи/элемента для пользовательского размещения наложения поверх диаграммы?**
+PowerPoint может скрывать или усекать подписи, когда сегмент слишком мал. Увеличение размера диаграммы, сокращение названий категорий или отображение меньшего числа полей подписи обычно дают более чистый результат. Метка может комбинировать название категории, название ряда и значение через [IDataLabelFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/), но включение всех полей часто делает иерархические диаграммы трудными для чтения.
 
-Да. После того как макет диаграммы проверен, свойства `ActualX`/`ActualY` доступны для элементов (например, для [DataLabel](https://reference.aspose.com/slides/net/aspose.slides.charts/datalabel/)), что помогает точно позиционировать наложения.
+### **Экспорт и рендеринг**
+
+Сохранение в PPTX сохраняет диаграмму редактируемой. При рендеринге презентации в PDF или изображение Aspose.Slides использует поддерживаемые заливки и настройки меток. Подмена шрифтов и небольшие различия в доступном пространстве могут изменить перенос строк или видимость метки, поэтому установите требуемые шрифты и проверьте важные цели экспорта.
+
+## **Часто задаваемые вопросы**
+
+**Почему изменение уровня родителя влияет на несколько листов?**
+
+Ветка или подуровень — это общий визуальный сегмент. К его [IChartDataPointLevel](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/ichartdatapointlevel/) можно обратиться через дочерний лист, но форматирование относится к общему родительскому сегменту, а не только к этому листу.
+
+**Почему отсутствует подпись данных?**
+
+Сначала включите необходимые поля в объекте [IDataLabelFormat](https://reference.aspose.com/slides/ru/net/aspose.slides.charts/idatalabelformat/) метки. Затем проверьте, достаточно ли места у сегмента. Макет меток родителя в Treemap, размеры диаграммы, длина подписи, размер шрифта и количество включённых полей влияют на то, будет ли подпись отображена.
+
+**Можно ли задать точный порядок или координаты сегментов?**
+
+Можно контролировать порядок исходных строк и держать каждую группу непрерывной, но нельзя назначать точные прямоугольники Treemap или углы Sunburst. Движок компоновки рассчитывает их из иерархии, значений и доступного пространства.
+
+**Почему цвета меняются после изменения темы презентации?**
+
+Заливки, основанные на теме, предназначены следовать палитре презентации. Примените явные RGB‑цвета к уровням, которые должны оставаться постоянными, или используйте схемные цвета, если предпочтительно адаптировать их к новой теме.
+
+**Сохранится ли пользовательское форматирование при экспорте в PDF и изображения?**
+
+Да, поддерживаемые заливки диаграммы и настройки меток включаются в процесс рендеринга. Для согласованных результатов на разных системах обеспечьте наличие необходимых шрифтов и протестируйте конечный размер экспорта, поскольку подгонка меток зависит от компоновки.
+
+## **См. также**
+
+- [Create Treemap charts](/slides/ru/net/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/ru/net/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/ru/net/export-chart/)
+- [Manage presentation themes](/slides/ru/net/presentation-theme/)

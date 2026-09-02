@@ -5,15 +5,13 @@ type: docs
 weight: 50
 url: /cs/net/text-formatting/
 keywords:
-- zvýraznění textu
-- regulární výraz
 - zarovnání odstavce
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezera mezi znaky
-- vlastnosti písma
-- rodina písma
+- rozestup znaků
+- vlastnosti fontu
+- rodina fontů
 - otočení textu
 - úhel otočení
 - textový rámec
@@ -28,84 +26,35 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Formátujte a stylujte text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Přizpůsobte písma, barvy, zarovnání a další."
+description: "Formátujte a stylujte text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Přizpůsobte fonty, barvy, zarovnání a další."
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Pokrývá zvýraznění, barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otočení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro .NET. Pokrývá barvy pozadí, průhlednost, rozestup znaků, vlastnosti fontu, otočení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
-V níže uvedených příkladech použijeme soubor s názvem **„sample.pptx“**, který obsahuje jediný textový rámeček na první snímku s následujícím textem:
+V níže uvedených příkladech použijeme soubor s názvem „sample.pptx“, který obsahuje jediný textový rámec na první snímku s následujícím textem:
 
 ![Ukázkový text](sample_text.png)
 
-## **Zvýraznění textu**
-
-Použijte metodu [ITextFrame.HighlightText](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/highlighttext/) , když potřebujete zvýraznit text, který odpovídá konkrétnímu vzorku v textovém rámci. Metoda aplikuje barvu zvýraznění na odpovídající fragmenty textu a lze ji použít spolu s [TextSearchOptions](https://reference.aspose.com/slides/cs/net/aspose.slides/textsearchoptions/) k řízení způsobu vyhledávání, například k vyhledání pouze celých slov.
-
-Níže uvedený ukázkový kód zvýrazní všechny výskyty znaků **„try“** a poté zvýrazní pouze celé slovo **„to“**.
-
-```cs
-using (var presentation = new Presentation("sample.pptx"))
-{
-    // Získat první tvar z první snímku.
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    // Zvýraznit slovo "try" v tvaru.
-    shape.TextFrame.HighlightText("try", Color.LightBlue);
-
-    var searchOptions = new TextSearchOptions()
-    {
-        WholeWordsOnly = true
-    };
-
-    // Zvýraznit slovo "to" v tvaru.
-    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
-
-    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
-}
-```
-
-Výsledek:
-
-![Zvýrazněný text](highlighted_text.png)
-
-## **Zvýraznění textu pomocí regulárních výrazů**
-
-Metoda [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/highlightregex/) zvýrazní shody textu nalezené regulárním výrazem. V .NET je toto API k dispozici na rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/).
-
-Níže uvedený ukázkový kód zvýrazní všechna slova, která obsahují **sedm nebo více znaků**:
-
-```cs
-using (var presentation = new Presentation(folderPath + "sample.pptx"))
-{
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    var regex = new Regex(@"\b[^\s]{7,}\b");
-
-    // Zvýraznit všechna slova, která mají sedm a více znaků.
-    shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
-
-    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-}
-```
-
-Výsledek:
-
-![Zvýrazněný text pomocí regulárního výrazu](highlighted_text_using_regex.png)
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárních výrazů viz [Vyhledat a nahradit text](/slides/cs/net/search-and-replace-text/).
 
 ## **Nastavení barvy pozadí textu**
 
-Použijte [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/defaultportionformat/) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [IPortionFormat.HighlightColor](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/highlightcolor/) pro jednotlivé textové úseky.
+Použijte [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/defaultportionformat/) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/highlightcolor/) pro jednotlivé části textu.
 
-Níže uvedený ukázkový kód ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
+Následující ukázkový kód ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Nastavit barvu zvýraznění pro celý odstavec.
+    // Nastavte barvu zvýraznění pro celý odstavec.
     paragraph.ParagraphFormat.DefaultPortionFormat.HighlightColor.Color = Color.LightGray;
 
     presentation.Save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -116,9 +65,13 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Níže uvedený ukázkový kód demonstruje, jak nastavit barvu pozadí pro **textové úseky s tučným písmem**:
+Níže uvedený kód ukazuje, jak nastavit barvu pozadí pro **části textu s tučným písmem**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -128,7 +81,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Nastavit barvu zvýraznění pro textový úsek.
+            // Nastavte barvu zvýraznění pro část textu.
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -139,21 +92,24 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Šedé textové úseky](gray_text_portions.png)
+![Šedé části textu](gray_text_portions.png)
 
 ## **Zarovnání odstavců textu**
 
-Použijte [IParagraphFormat.Alignment](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/alignment/) k nastavení zarovnání odstavce v textovém rámci. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku atd.
+Použijte [IParagraphFormat.Alignment](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/alignment/) k nastavení zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, zarovnaná do bloku a podobně.
 
-Níže uvedený ukázkový kód ukazuje, jak zarovnat odstavec **do středu**:
+Následující ukázkový kód ukazuje, jak zarovnat odstavec na **střed**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Nastavit zarovnání odstavce na střed.
+    // Nastavte zarovnání odstavce na střed.
     paragraph.ParagraphFormat.Alignment = TextAlignment.Center;
 
     presentation.Save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -166,11 +122,15 @@ Výsledek:
 
 ## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí alfa komponentou barvy přiřazené [IPortionFormat.FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/fillformat/). V níže uvedených příkladech je `alpha = 50` hodnota ARGB alfa kanálu v rozsahu 0–255, nikoli procento průhlednosti.
+Průhlednost textu se ovládá pomocí alfa komponenty barvy přiřazené k [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/fillformat/). V níže uvedených příkladech `alpha = 50` představuje hodnotu alfa kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
-Níže uvedený ukázkový kód ukazuje, jak aplikovat průhlednost na **celý odstavec**:
+Níže uvedený kód ukazuje, jak aplikovat průhlednost na **celý odstavec**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -178,7 +138,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Nastavit barvu výplně textu na průhlednou barvu.
+    // Nastavte výplňovou barvu textu na průhlednou barvu.
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -190,9 +150,13 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Níže uvedený ukázkový kód ukazuje, jak aplikovat průhlednost na **textové úseky s tučným písmem**:
+Následující ukázkový kód ukazuje, jak aplikovat průhlednost na **části textu s tučným písmem**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -204,7 +168,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Nastavit průhlednost textového úseku.
+            // Nastavte průhlednost části textu.
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
@@ -216,22 +180,25 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Průhledné textové úseky](transparent_text_portions.png)
+![Průhledné části textu](transparent_text_portions.png)
 
-## **Nastavení mezery mezi znaky pro text**
+## **Nastavení rozestupu znaků v textu**
 
 Použijte [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/spacing/) k rozšíření nebo zmenšení mezery mezi znaky v textovém rámečku.
 
-Níže uvedený C# kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
+Následující C# kód ukazuje, jak rozšířit rozestup znaků v **celém odstavci**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Rozšířit mezeru mezi znaky.
+    // Poznámka: Použijte záporné hodnoty ke zmenšení rozestupu znaků.
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Rozšířit rozestup znaků.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
@@ -239,11 +206,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
+![Rozestup znaků v odstavci](character_spacing_in_paragraph.png)
 
-Níže uvedený ukázkový kód ukazuje, jak rozšířit mezeru mezi znaky v **textových úsecích s tučným písmem**:
+Níže uvedený kód ukazuje, jak rozšířit rozestup znaků v **částech textu s tučným písmem**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -253,8 +223,8 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
-            portion.PortionFormat.Spacing = 3;  // Rozšířit mezeru mezi znaky.
+            // Poznámka: Použijte záporné hodnoty ke zmenšení rozestupu znaků.
+            portion.PortionFormat.Spacing = 3;  // Rozšířit rozestup znaků.
         }
     }
 
@@ -264,15 +234,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Mezera mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
+![Rozestup znaků v částech textu](character_spacing_in_text_portions.png)
 
-### **Zakázání kerningu pro konkrétní písma**
+### **Zakázání kerningu pro konkrétní fonty**
 
-V některých případech může text vykreslený Aspose.Slides vypadat o něco těsněji než stejný text zobrazený v PowerPointu. K tomu může docházet, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
+V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určité fonty, i když font obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby výstup lépe odpovídal PowerPointu, můžete pro textové úseky používající dotčené písmo zakázat kerning. Nastavte [IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/kerningminimalsize/) na hodnotu podstatně vyšší než skutečná velikost písma:
+Aby výstup byl v takových případech bližší PowerPointu, můžete zakázat kerning pro části textu, které používají dotčený font. Nastavte [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/kerningminimalsize/) na hodnotu výrazně vyšší než skutečná velikost fontu:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -298,21 +271,24 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-Toto nastavení zabraňuje aplikaci kerningu na odpovídající textové úseky a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma ovlivněná tímto specifickým chováním PowerPointu.
+Toto nastavení zabraňuje aplikaci kerningu na odpovídající části textu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu u fontů, které jsou tímto chováním ovlivněny.
 
-## **Správa vlastností písma textu**
+## **Správa vlastností fontu textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce přes [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/defaultportionformat/) nebo na jednotlivých úsecích pomocí [IPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/).
+Vlastnosti fontu lze nastavit na úrovni odstavce prostřednictvím [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/defaultportionformat/) nebo na úrovni jednotlivých částí pomocí [IPortionFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/).
 
-Níže uvedený kód nastaví písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzívu, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
+Následující kód nastavuje font a styl textu pro celý odstavec: aplikuje velikost fontu, tučné, kurzíva, tečkované podtržení a font Times New Roman na všechny části odstavce.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Nastavit vlastnosti písma pro odstavec.
+    // Nastavte vlastnosti fontu pro odstavec.
     paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 12;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontBold = NullableBool.True;
     paragraph.ParagraphFormat.DefaultPortionFormat.FontItalic = NullableBool.True;
@@ -325,11 +301,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
+![Vlastnosti fontu pro odstavec](font_properties_for_paragraph.png)
 
-Níže uvedený ukázkový kód aplikuje podobné vlastnosti na **textové úseky s tučným písmem**:
+Níže uvedený kód aplikuje podobné vlastnosti na **části textu s tučným písmem**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -339,7 +318,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Nastavit vlastnosti písma pro textový úsek.
+            // Nastavte vlastnosti fontu pro část textu.
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -353,15 +332,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Vlastnosti písma pro textové úseky](font_properties_for_text_portions.png)
+![Vlastnosti fontu pro části textu](font_properties_for_text_portions.png)
 
 ## **Nastavení otočení textu**
 
-Použijte [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/textverticaltype/) k nastavení předdefinované orientace textu uvnitř tvaru.
+Použijte [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/textverticaltype/) k nastavení předdefinované orientace textu v tvaru.
 
-Níže uvedený ukázkový kód nastaví orientaci textu ve tvaru na `Vertical270`, což otočí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující ukázkový kód nastavuje orientaci textu v tvaru na `Vertical270`, což otočí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -380,9 +362,12 @@ Výsledek:
 
 Použijte [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/rotationangle/) k nastavení vlastního úhlu otočení pro [ITextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframe/).
 
-Níže uvedený ukázkový kód otočí textový rámeček o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+Níže uvedený kód otáčí textový rámeček o 3 stupně po směru hodinových ručiček v rámci tvaru:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -399,14 +384,17 @@ Výsledek:
 
 ## **Nastavení řádkování odstavců**
 
-Aspose.Slides poskytuje [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/spacebefore/) a [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/spacewithin/) k řízení řádkování odstavců. Tyto vlastnosti se používají následovně:
+Aspose.Slides poskytuje [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/spacebefore/) a [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/spacewithin/) k řízení mezery odstavců. Tyto vlastnosti se používají následovně:
 
 * Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
 * Použijte zápornou hodnotu k určení řádkování v bodech.
 
-Níže uvedený ukázkový kód ukazuje, jak specifikovat řádkování v odstavci:
+Následující ukázkový kód ukazuje, jak specifikovat řádkování v odstavci:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -424,9 +412,12 @@ Výsledek:
 
 ## **Nastavení typu automatického přizpůsobení pro textové rámečky**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/autofittype/) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, přeteče nebo automaticky změní velikost tvaru.
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/autofittype/) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenšuje, přetéká nebo automaticky mění velikost tvaru.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -437,11 +428,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Nastavení ukotvení textových rámečků**
+## **Nastavení ukotvení textových rámců**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/anchoringtype/) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/cs/net/aspose.slides/itextframeformat/anchoringtype/) definuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -457,6 +451,9 @@ using (var presentation = new Presentation("sample.pptx"))
 Použijte [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/defaulttabsize/) a [IParagraphFormat.Tabs](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraphformat/tabs/) k nastavení tabulátorů v odstavci.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -471,15 +468,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Výsledek:
 
-![Tabulátory odstavce](paragraph_tabs.png)
+![Tabulátory v odstavci](paragraph_tabs.png)
 
-## **Nastavení jazykové korektury**
+## **Nastavení jazyka kontroly pravopisu**
 
-Aspose.Slides poskytuje [IPortionFormat.LanguageId](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/languageid/), který umožňuje nastavit jazyk korektury pro textový úsek. Jazyk korektury určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/languageid/), který umožňuje nastavit jazyk kontroly pravopisu pro část textu. Jazyk kontroly pravopisu určuje jazyk použitého pravopisu a gramatické kontroly v PowerPointu.
 
-Níže uvedený ukázkový kód ukazuje, jak nastavit jazyk korektury pro textový úsek:
+Následující ukázkový kód ukazuje, jak nastavit jazyk kontroly pravopisu pro část textu:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -494,7 +494,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // Nastavit Id jazykové korektury.
+    // Nastavte Id jazyka kontroly pravopisu.
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -506,9 +506,11 @@ using (var presentation = new Presentation("presentation.pptx"))
 
 ## **Nastavení výchozího jazyka**
 
-Použijte [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/defaulttextlanguage/) k definování výchozího jazyka pro text vytvářený při načítání nebo tvorbě prezentace.
+Použijte [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/cs/net/aspose.slides/loadoptions/defaulttextlanguage/) k definování výchozího jazyka pro text vytvářený při načítání nebo vytváření prezentace.
 
 ```cs
+using Aspose.Slides;
+
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
@@ -516,11 +518,11 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // Přidat nový obdélníkový tvar s textem.
+    // Přidejte nový tvar obdélníku s textem.
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
-    // Zkontrolovat jazyk prvního úseku.
+    // Zkontrolujte jazyk první části.
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     Console.WriteLine(portion.PortionFormat.LanguageId);
 }
@@ -530,9 +532,12 @@ using (var presentation = new Presentation(loadOptions))
 
 Pro aplikaci výchozího formátování textu na úrovni celé prezentace použijte [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/cs/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-Níže uvedený ukázkový kód ukazuje, jak nastavit výchozí tučné písmo o velikosti 14 pt pro veškerý text napříč snímky v nové prezentaci.
+Následující ukázkový kód ukazuje, jak nastavit výchozí tučný font s velikostí 14 pt pro veškerý text napříč snímky v nové prezentaci.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     // Získat formát odstavce nejvyšší úrovně.
@@ -548,17 +553,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Extrahování textu s efektem VELKÝCH PÍSMEN**
+## **Extrahování textu s efektem Všech Velkých Písmen**
 
-V PowerPointu aplikování efektního **All Caps** způsobí, že se text na snímku zobrazí velkými písmeny, i když byl původně napsán malými. Když takový textový úsek získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro získání zobrazeného textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/net/aspose.slides/textcaptype/) a převod vráceného řetězce na velká písmena, pokud je hodnota `All`.
+V PowerPointu aplikace fontového efektu **All Caps** způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně zadán malými. Při načtení takové části textu pomocí Aspose.Slides knihovna vrátí text přesně tak, jak byl zadán. Pro získání zobrazeného textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/net/aspose.slides/textcaptype/) a při hodnotě `All` převede vrácený řetězec na velká písmena.
 
-Předpokládejme, že na první snímek souboru **sample2.pptx** máme následující textový rámeček.
+Předpokládejme, že máme následující textový rámec na první snímku souboru sample2.pptx.
 
-![Efekt All Caps](all_caps_effect.png)
+![Efekt Všech Velkých Písmen](all_caps_effect.png)
 
-Níže uvedený ukázkový kód ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
+Níže uvedený kód ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```cs
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample2.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -586,8 +593,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak upravit text v tabulce na snímku?**
 
-Pro úpravu textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/). Procházejte buňky a aktualizujte každou buňku pomocí [ICell.TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/textframe/) a formátování odstavců pomocí [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/paragraphformat/).
+Pro úpravu textu v tabulce na snímku použijte [ITable](https://reference.aspose.com/slides/cs/net/aspose.slides/itable/). Procházejte buňky a aktualizujte každou buňku přes [ICell.TextFrame](https://reference.aspose.com/slides/cs/net/aspose.slides/icell/textframe/) a formátování odstavců přes [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iparagraph/paragraphformat/).
 
 **Jak aplikovat gradientní barvu na text v PowerPoint snímku?**
 
-Pro aplikaci gradientní barvy na text použijte [IPortionFormat.FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/iportionformat/fillformat/). Nastavte [IFillFormat.FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/ifillformat/filltype/) na [FillType.Gradient](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) a nakonfigurujte gradientní zastávky, směr a průhlednost.
+Pro aplikaci gradientní barvy na text použijte [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/cs/net/aspose.slides/ibaseportionformat/fillformat/). Nastavte [IFillFormat.FillType](https://reference.aspose.com/slides/cs/net/aspose.slides/ifillformat/filltype/) na [FillType.Gradient](https://reference.aspose.com/slides/cs/net/aspose.slides/filltype/) a nakonfigurujte gradientní body, směr a průhlednost.

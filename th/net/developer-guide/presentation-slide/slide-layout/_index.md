@@ -1,265 +1,245 @@
 ---
-title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน .NET
-linktitle: เค้าโครงสไลด์
+title: ใช้หรือเปลี่ยนรูปแบบสไลด์ใน .NET
+linktitle: รูปแบบสไลด์
 type: docs
 weight: 60
 url: /th/net/slide-layout/
 keywords:
-- เค้าโครงสไลด์
-- เค้าโครงเนื้อหา
-- ตัวจับตำแหน่ง
-- การออกแบบพรีเซนเทชัน
+- รูปแบบสไลด์
+- รูปแบบเนื้อหา
+- ตารางตำแหน่ง
+- การออกแบบงานนำเสนอ
 - การออกแบบสไลด์
-- เค้าโครงที่ไม่ได้ใช้
+- รูปแบบที่ไม่ได้ใช้
 - การมองเห็นส่วนท้าย
-- สไลด์หัวข้อ
-- หัวข้อและเนื้อหา
-- ส่วนหัวของส่วน
+- สไลด์หัวเรื่อง
+- หัวเรื่องและเนื้อหา
+- ส่วนหัวของหัวข้อ
 - สองเนื้อหา
 - การเปรียบเทียบ
-- เฉพาะหัวข้อ
-- เค้าโครงเปล่า
-- เนื้อหาพร้อมคำอธิบาย
-- รูปภาพพร้อมคำอธิบาย
-- หัวข้อและข้อความแนวตั้ง
-- หัวข้อแนวตั้งและข้อความ
+- หัวเรื่องเท่านั้น
+- รูปแบบเปล่า
+- เนื้อหาพร้อมคำอธิบายภาพ
+- รูปภาพพร้อมคำอธิบายภาพ
+- หัวเรื่องและข้อความแนวตั้ง
+- หัวเรื่องแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
-- พรีเซนเทชัน
+- งานนำเสนอ
 - C#
 - .NET
 - Aspose.Slides
-description: "จัดการและปรับแต่งเค้าโครงสไลด์ใน Aspose.Slides สำหรับ .NET. สำรวจประเภทของเค้าโครง, การควบคุมตัวจับตำแหน่ง, และการมองเห็นส่วนท้ายผ่านตัวอย่างโค้ด C#."
+description: "ใช้, สร้าง และแก้ไขรูปแบบสไลด์ใน Aspose.Slides สำหรับ .NET, เพิ่มตารางตำแหน่ง, ลบรูปแบบที่ไม่ได้ใช้, และควบคุมการมองเห็นส่วนท้าย."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เลเอาท์สไลด์กำหนดการจัดเรียงของกล่องตัวจับตำแหน่งและการจัดรูปแบบสำหรับเนื้อหาบนสไลด์ มันควบคุมว่าจะมีตัวจับตำแหน่งใดบ้างและปรากฏที่ไหน เลเอาท์สไลด์ช่วยให้คุณออกแบบพรีเซนเทชันได้อย่างเร็วและสม่ำเสมอ—ไม่ว่าจะเป็นการสร้างสไลด์แบบง่ายหรือซับซ้อน บางส่วนของเลเอาท์สไลด์ที่พบบ่อยใน PowerPoint ได้แก่:
+รูปแบบสไลด์กำหนดตำแหน่งและรูปแบบของตารางตำแหน่ง (placeholder) เช่น ชื่อหัวข้อ, ข้อความ, รูปภาพ, แผนภูมิ, และตาราง การใช้รูปแบบทำให้สไลด์มีโครงสร้างที่สม่ำเสมอในขณะที่แต่ละสไลด์ยังคงมีเนื้อหาเฉพาะของตัวเอง
 
-**เลเอาท์สไลด์หัวข้อ** – มีตัวจับตำแหน่งข้อความสองกล่อง: หนึ่งสำหรับหัวข้อและหนึ่งสำหรับหัวข้อรอง
+รูปแบบที่พบมากที่สุดได้แก่:
 
-**เลเอาท์สไลด์หัวข้อและเนื้อหา** – มีตัวจับตำแหน่งหัวข้อขนาดเล็กที่ด้านบนและตัวจับตำแหน่งขนาดใหญ่ด้านล่างสำหรับเนื้อหาหลัก (เช่น ข้อความ, จุดหัวข้อ, แผนภูมิ, รูปภาพ ฯลฯ)
+- **Title Slide**: มีตารางตำแหน่งสำหรับชื่อหัวข้อและหัวข้อย่อย
+- **Title and Content**: มีตารางตำแหน่งชื่อหัวข้อและตารางตำแหน่งเนื้อหาทั่วไป
+- **Blank**: ไม่มีตารางตำแหน่งเนื้อหาและเป็นประโยชน์เมื่อทุกรูปร่างจะถูกจัดตำแหน่งด้วยตนเอง
 
-**เลเอาท์เปล่า** – ไม่มีตัวจับตำแหน่งใด ๆ ให้คุณควบคุมการออกแบบสไลด์ตั้งแต่เริ่มต้น
+## **ทำความเข้าใจการสืบทอดรูปแบบ**
 
-เลเอาท์สไลด์เป็นส่วนหนึ่งของมาสเตอร์สไลด์ ซึ่งเป็นสไลด์ระดับบนสุดที่กำหนดรูปแบบเลเอาท์สำหรับพรีเซนเทชัน คุณสามารถเข้าถึงและแก้ไขสไลด์เลเอาท์ผ่านมาสเตอร์สไลด์—โดยอิงจากประเภท, ชื่อ หรือ ID เฉพาะ หรือคุณอาจแก้ไขสไลด์เลเอาท์เฉพาะโดยตรงภายในพรีเซนเทชัน
+งานนำเสนอมีระดับที่เกี่ยวข้องกันสามระดับ:
 
-ในการทำงานกับเลเอาท์สไลด์ใน Aspose.Slides for .NET คุณสามารถใช้:
+1. A [master slide](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/) กำหนดธีม, รูปแบบที่ใช้ร่วมกัน, พื้นหลัง, และวัตถุทั่วไป
+2. A [layout slide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/) เป็นส่วนหนึ่งของ master และกำหนดการจัดเรียงตารางตำแหน่งเฉพาะ
+3. A [normal slide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/) ใช้รูปแบบหนึ่งและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น
 
-- คุณสมบัติเช่น [LayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/layoutslides/) และ [Masters](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/masters/) ภายใต้คลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
-- ชนิดต่าง ๆ เช่น [ILayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutplaceholdermanager/), และ [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslideheaderfootermanager/)
+สไลด์ทั่วไปสืบทอดธีมและรูปแบบจากรูปแบบของมัน, และรูปแบบสืบทอดจาก master ค่าที่กำหนดโดยตรงบนสไลด์ทั่วไปจะทับค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ทั่วไป รูปแบบของตารางตำแหน่งจะถูกสร้างจากรูปแบบที่เลือก, ขณะที่เนื้อหาที่ป้อนในตารางตำแหน่งเหล่านั้นเป็นของสไลด์ทั่วไป
 
-{{% alert title="Info" color="info" %}}
-เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับการทำงานกับมาสเตอร์สไลด์ โปรดดูบทความ [Slide Master](/slides/th/net/slide-master/) 
-{{% /alert %}}
+เพิ่มตารางตำแหน่งที่จำเป็นลงในรูปแบบก่อนสร้างสไลด์จากมัน การเพิ่มตารางตำแหน่งใหม่ในรูปแบบในภายหลังจะไม่ทำให้รูปแบบตารางตำแหน่งที่สอดคล้องกันถูกเพิ่มโดยอัตโนมัติให้กับสไลด์ทั่วไปที่มีอยู่
 
-## **เพิ่มเลเอาท์สไลด์ในพรีเซนเทชัน**
+ความสัมพันธ์นี้มีผลสําคญสองประการ:
 
-เพื่อกำหนดลักษณะและโครงสร้างของสไลด์คุณอาจต้องเพิ่มเลเอาท์สไลด์ใหม่ในพรีเซนเทชัน Aspose.Slides for .NET ให้คุณตรวจสอบว่าเลเอาท์ที่ต้องการมีอยู่แล้วหรือไม่, เพิ่มใหม่หากจำเป็น, และใช้เพื่อแทรกสไลด์ตามเลเอาท์นั้น
+- การเปลี่ยนรูปแบบที่สืบทอดหรือเรขาคณิตของตารางตำแหน่งที่มีอยู่ในรูปแบบอาจอัปเดตทุกสไลด์ที่พึ่งพาอยู่ ก่อนแก้ไขรูปแบบที่กำลังใช้งานอยู่ ให้ตรวจสอบสไลด์ที่พึ่งพาและตรวจทานผลลัพธ์ของงานนำเสนอ
+- รูปแบบที่ยังคงถูกสไลด์ใช้งานอยู่ไม่สามารถลบได้ ให้กำหนดสไลด์ที่พึ่งพาให้ใช้รูปแบบอื่นก่อน หรือทำการลบเฉพาะรูปแบบที่ไม่ได้ใช้เท่านั้น
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
-2. เข้าถึง [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/th/net/aspose.slides/imasterlayoutslidecollection/)
-3. ตรวจสอบว่าเลเอาท์สไลด์ที่ต้องการมีอยู่ในคอลเลกชันหรือยัง หากไม่มีให้เพิ่มเลเอาท์สไลด์ที่ต้องการ
-4. เพิ่มสไลด์เปล่าตามเลเอาท์สไลด์ใหม่ที่สร้าง
-5. บันทึกพรีเซนเทชัน
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของโครงสร้างนี้ ดูที่ [Slide Master](/slides/th/net/slide-master/).
 
-โค้ด C# ต่อไปนี้แสดงวิธีเพิ่มเลเอาท์สไลด์ในพรีเซนเทชัน PowerPoint:
+## **เลือกและใช้รูปแบบสไลด์**
 
-```cs
-// สร้างอินสแตนซ์ของคลาส Presentation ซึ่งเป็นตัวแทนของไฟล์ PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+ใช้ประเภทรูปแบบเมื่อการนำเสนอปฏิบัติตามคำนิยามรูปแบบ PowerPoint มาตฐาน ชื่อรูปแบบสามารถแก้ไขได้โดยผู้ใช้และอาจแปลเป็นภาษาท้องถิ่นได้ ดังนั้นการเลือกโดยอ้างอิงชื่อจึงไม่น่าเชื่อถือ เว้นแต่คุณจะควบคุมแม่แบบต้นฉบับ
+
+ตัวอย่างต่อไปนี้มองหา **Title and Content** บน master แรก หากรูปแบบนั้นไม่มีอยู่ จะย้อนกลับไปใช้ **Blank** อย่างตั้งใจ การตรวจสอบค่า null ครั้งที่สองจำเป็นเนื่องจากงานนำเสนออาจมีเฉพาะรูปแบบที่กำหนดเองเท่านั้น รูปแบบที่เลือกจะถูกนำไปใช้กับสไลด์ทั่วไปแรกผ่านคุณสมบัติ [ISlide.LayoutSlide](https://reference.aspose.com/slides/th/net/aspose.slides/islide/layoutslide/)
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // ไปผ่านประเภทเลเอาท์สไลด์เพื่อเลือกเลเอาท์สไลด์.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // สถานการณ์ที่พรีเซนเทชันไม่มีประเภทเลเอาท์ทั้งหมด.
-        // ไฟล์พรีเซนเทชันมีเฉพาะประเภทเลเอาท์ Blank และ Custom.
-        // อย่างไรก็ตาม, เลเอาท์สไลด์ที่มีประเภทกำหนดเองอาจมีชื่อที่จดจำได้,
-        // เช่น "Title", "Title and Content", เป็นต้น ซึ่งสามารถใช้สำหรับการเลือกเลเอาท์สไลด์.
-        // คุณยังสามารถอาศัยชุดของประเภทรูปทรงตัวจับตำแหน่งได้.
-        // ตัวอย่างเช่น สไลด์ Title ควรมีเพียงประเภทตัวจับตำแหน่ง Title เท่านั้น เป็นต้น.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // เพิ่มสไลด์เปล่าโดยใช้เลเอาท์สไลด์ที่เพิ่มไว้.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // บันทึกพรีเซนเทชันลงดิสก์.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **ลบเลเอาท์สไลด์ที่ไม่ได้ใช้**
+การเปลี่ยนรูปแบบของสไลด์จะไม่ลบรูปร่างทั่วไปที่เพิ่มโดยตรงให้กับสไลด์ อย่างไรก็ตาม ตำแหน่งของตารางตำแหน่ง, รูปแบบที่สืบทอด, และความสอดคล้องระหว่างตารางตำแหน่งที่มีอยู่กับรูปแบบใหม่อาจเปลี่ยนแปลง ดังนั้นให้ตรวจสอบผลลัพธ์เมื่อสลับระหว่างรูปแบบที่แตกต่างอย่างมาก
 
-Aspose.Slides มีเมธอด [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) จากคลาส [Compress](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/) เพื่อให้คุณลบเลเอาท์สไลด์ที่ไม่ต้องการและไม่ได้ใช้
+## **เพิ่มสไลด์รูปแบบ**
 
-โค้ด C# ด้านล่างแสดงวิธีลบเลเอาท์สไลด์จากพรีเซนเทชัน PowerPoint:
+การเลือกและการสร้างเป็นการดำเนินการแยกกัน ตัวอย่างก่อนหน้าเลือกรูปแบบที่มีอยู่; ไม่ได้สร้างรูปแบบใหม่ เพื่อสร้างรูปแบบ ให้เรียกเมธอด [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/th/net/aspose.slides/masterlayoutslidecollection/add/) บนคอลเลกชันรูปแบบของ master เป้าหมาย
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+ตัวอย่างต่อไปนี้จะเพิ่มรูปแบบ **Title and Content** ใหม่ชื่อ `Report Title and Content` เสมอ จากนั้นเพิ่มสไลด์ทั่วไปตามรูปแบบนั้น ชื่อรูปแบบต้องไม่ซ้ำกันภายในคอลเลกชัน
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **เพิ่มตัวจับตำแหน่งในเลเอาท์สไลด์**
+เพิ่มรูปแบบเฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้อีกหนึ่งรูปแบบ หากมีรูปแบบที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างซ้ำ
 
-Aspose.Slides มีคุณสมบัติ [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/placeholdermanager/) ที่อนุญาตให้คุณเพิ่มตัวจับตำแหน่งใหม่ในเลเอาท์สไลด์
+## **เพิ่มตารางตำแหน่งให้กับสไลด์รูปแบบ**
 
-ผู้จัดการนี้มีเมธอดสำหรับประเภทตัวจับตำแหน่งต่อไปนี้:
+คุณสมบัติ [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/placeholdermanager/) ให้ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutplaceholdermanager/) สำหรับเพิ่มรูปร่างตารางตำแหน่งลงในรูปแบบ
 
-| ตัวจับตำแหน่ง PowerPoint | เมธอดใน [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutplaceholdermanager/) |
-| -------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| ตารางตำแหน่ง PowerPoint | `ILayoutPlaceholderManager` เมธอด |
+| -------------------------- | --------------------------------- |
+| ![เนื้อหา](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![เนื้อหา (แนวตั้ง)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![ข้อความ](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![ข้อความ (แนวตั้ง)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![รูปภาพ](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![แผนภูมิ](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![ตาราง](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![สื่อ](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![ภาพออนไลน์](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-โค้ด C# ด้านล่างแสดงวิธีเพิ่มรูปร่างตัวจับตำแหน่งใหม่ลงในเลเอาท์สไลด์ Blank:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรูปแบบ **Blank** อยู่, เพิ่มตารางตำแหน่งสี่รายการลงไป, แล้วสร้างสไลด์ทั่วไปที่ใช้รูปแบบที่ปรับเปลี่ยนแล้ว การจัดลำดับนี้ตั้งใจไว้: ตารางตำแหน่งถูกเพิ่มก่อนสร้างสไลด์ทั่วไป เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างตารางตำแหน่งที่สอดคล้องบนสไลด์นั้น
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // ดึงเลเอาท์สไลด์ Blank.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // ดึงผู้จัดการตัวจับตำแหน่งของเลเอาท์สไลด์.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // เพิ่มตัวจับตำแหน่งต่าง ๆ ไปยังเลเอาท์สไลด์ Blank.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // เพิ่มสไลด์ใหม่ด้วยเลเอาท์ Blank.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 ผลลัพธ์:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![ตารางตำแหน่งบนสไลด์รูปแบบ](add_placeholders.png)
 
-## **ตั้งค่าการแสดงผล Footer สำหรับเลเอาท์สไลด์**
+{{% alert color="warning" title="Warning" %}}
+การเปลี่ยนรูปแบบที่สืบทอดหรือเรขาคณิตของตารางตำแหน่งรูปแบบที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ตารางตำแหน่งรูปแบบที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าไปในสไลด์ทั่วไปที่มีอยู่ ทดสอบการเปลี่ยนแปลงรูปแบบบนสำเนาของงานนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกสไลด์
+{{% /alert %}}
 
-ในพรีเซนเทชัน PowerPoint, องค์ประกอบ Footer เช่น วันที่, หมายเลขสไลด์, และข้อความกำหนดเองสามารถแสดงหรือซ่อนได้ขึ้นกับเลเอาท์สไลด์ Aspose.Slides for .NET ให้คุณควบคุมการมองเห็นของตัวจับตำแหน่ง Footer เหล่านี้ ซึ่งมีประโยชน์เมื่อคุณต้องการให้บางเลเอาท์แสดงข้อมูล Footer แต่เลเอาท์อื่น ๆ คงความเรียบง่าย
+## **ลบสไลด์รูปแบบที่ไม่ได้ใช้**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
-2. ดึงอ้างอิงเลเอาท์สไลด์ตามดัชนี
-3. ตั้งค่าตัวจับตำแหน่ง Footer ของสไลด์ให้แสดง
-4. ตั้งค่าตัวจับตำแหน่งหมายเลขสไลด์ให้แสดง
-5. ตั้งค่าตัวจับตำแหน่งวันที่‑เวลาให้แสดง
-6. บันทึกพรีเซนเทชัน
+ใช้เมธอด [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบรูปแบบที่ไม่มีสไลด์ทั่วไปอ้างอิง เมธอดจะปล่อยรูปแบบที่ยังใช้งานอยู่ให้คงอยู่
 
-โค้ด C# ด้านล่างแสดงวิธีตั้งค่าการมองเห็นของ Footer สไลด์และทำงานที่เกี่ยวข้อง:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **ตั้งค่าการแสดงผล Footer ของสไลด์ลูก**
+เพื่อทำการลบรูปแบบใดรูปแบบหนึ่ง ให้ใช้คุณสมบัติ [HasDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/hasdependingslides/) หรือเมธอด [GetDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/getdependingslides/) ของมัน ก่อนเรียก [ILayoutSlide.Remove](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/remove/) ให้กำหนดสไลด์ที่พึ่งพาใหม่ การพยายามลบรูปแบบที่กำลังถูกใช้จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/)
 
-​ในพรีเซนเทชัน PowerPoint, องค์ประกอบ Footer เช่น วันที่, หมายเลขสไลด์, และข้อความกำหนดเองสามารถควบคุมได้ระดับมาสเตอร์สไลด์เพื่อให้สอดคล้องกันทั่วทุกเลเอาท์สไลด์ Aspose.Slides for .NET ให้คุณตั้งค่าการมองเห็นและเนื้อหาของตัวจับตำแหน่ง Footer เหล่านี้บนมาสเตอร์สไลด์และกระจายการตั้งค่าเหล่านั้นไปยังเลเอาท์สไลด์ลูกทั้งหมด วิธีนี้ทำให้ข้อมูล Footer มีความสม่ำเสมอตลอดพรีเซนเทชัน​​
+## **ควบคุมการมองเห็นส่วนท้ายบนสไลด์รูปแบบ**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/)
-2. ดึงอ้างอิงมาสเตอร์สไลด์ตามดัชนี
-3. ตั้งค่าตัวจับตำแหน่ง Footer ของมาสเตอร์และสไลด์ลูกทั้งหมดให้แสดง
-4. ตั้งค่าตัวจับตำแหน่งหมายเลขสไลด์ของมาสเตอร์และสไลด์ลูกทั้งหมดให้แสดง
-5. ตั้งค่าตัวจับตำแหน่งวันที่‑เวลา ของมาสเตอร์และสไลด์ลูกทั้งหมดให้แสดง
-6. บันทึกพรีเซนเทชัน
+รูปแบบมีส่วนท้าย, ตัวเลขสไลด์, และตารางตำแหน่งวันที่และเวลาเป็นของตนเอง ใช้คุณสมบัติ [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/headerfootermanager/) เพื่อควบคุมตารางตำแหน่งเหล่านั้นสำหรับรูปแบบหนึ่ง ซึ่งมีประโยชน์เมื่อตัวอย่างเช่น รูปแบบเนื้อควรแสดงส่วนท้ายแต่รูปแบบหัวข้อไม่ควรแสดง
 
-โค้ด C# ด้านล่างแสดงการดำเนินการนี้:
+ตัวอย่างต่อไปนี้เลือกรูปแบบอย่างปลอดภัยและทำให้ส่วนท้ายของมันแสดงผล:
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **ควบคุมการมองเห็นส่วนท้ายบน Master และรูปแบบลูกของมัน**
 
-**ความแตกต่างระหว่างมาสเตอร์สไลด์และเลเอาท์สไลด์คืออะไร?**
+เพื่อใช้การตั้งค่าส่วนท้ายอย่างสอดคล้องกันทั่วทั้งลำดับชั้น master ให้ใช้คุณสมบัติ [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslide/headerfootermanager/) วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/net/aspose.slides/imasterslideheaderfootermanager/) ทำงานบน master และสไลด์รูปแบบและสไลด์ทั่วไปที่พึ่งพา; ไม่ได้มุ่งเป้าไปที่สไลด์ทั่วไปเพียงอันเดียว
 
-มาสเตอร์สไลด์กำหนดธีมโดยรวมและการจัดรูปแบบเริ่มต้น ในขณะที่เลเอาท์สไลด์กำหนดการจัดเรียงตัวจับตำแหน่งเฉพาะสำหรับประเภทเนื้อหาที่ต่างกัน
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**ฉันสามารถคัดลอกเลเอาท์สไลด์จากพรีเซนเทชันหนึ่งไปยังอีกพรีเซนเทชันหนึ่งได้หรือไม่?**
+using var presentation = new Presentation("input.pptx");
 
-ได้ คุณสามารถโคลนเลเอาท์สไลด์จากคอลเลกชัน [LayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/layoutslides/) ของพรีเซนเทชันหนึ่งและแทรกลงในพรีเซนเทชันอื่นโดยใช้เมธอด `AddClone`
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
 
-**ถ้าฉันลบเลเอาท์สไลด์ที่ยังถูกสไลด์อื่นอ้างถึงจะเกิดอะไรขึ้น?**
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
-หากคุณพยายามลบเลเอาท์สไลด์ที่ยังถูกสไลด์อย่างน้อยหนึ่งสไลด์อ้างถึง Aspose.Slides จะโยนข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/). เพื่อหลีกเลี่ยงปัญหานี้ให้ใช้เมธอด [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) ซึ่งจะลบเลเอาท์สไลด์ที่ไม่ได้ใช้อย่างปลอดภัย
+## **คำถามที่พบบ่อย**
+
+**ความแตกต่างระหว่าง Master Slide และ Layout Slide คืออะไร?**
+
+Master slide กำหนดธีมและรูปแบบที่ใช้ร่วมกันของงานนำเสนอ Layout slide เป็นส่วนหนึ่งของ master และกำหนดการจัดเรียงตารางตำแหน่งที่ใช้ซ้ำได้หนึ่งแบบ สไลด์ทั่วไปใช้รูปแบบเหล่านั้นและเก็บเนื้อหาเฉพาะสไลด์
+
+**ฉันสามารถคัดลอก Layout Slide จากงานนำเสนอหนึ่งไปยังงานนำเสนออื่นได้หรือไม่?**
+
+ได้. ให้เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [AddClone](https://reference.aspose.com/slides/th/net/aspose.slides/globallayoutslidecollection/addclone/) เมื่อคัดลอกระหว่างงานนำเสนอ ควรตรวจสอบแบบอักษร, ธีม, รูปภาพ, และทรัพยากรอื่น ๆ ที่ใช้โดย Layout ต้นทางด้วย
+
+**จะเกิดอะไรขึ้นเมื่อฉันแก้ไข Layout ที่กำลังใช้อยู่?**
+
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงรูปแบบ เว้นแต่พวกมันจะทับรูปแบบหรือวัตถุที่ได้รับผลกระทบในระดับท้องถิ่น ดังนั้นเรขาคณิตของตารางตำแหน่งและสไตล์ที่สืบทอดอาจเปลี่ยนแปลงหลายสไลด์พร้อมกัน ใช้ [GetDependingSlides](https://reference.aspose.com/slides/th/net/aspose.slides/ilayoutslide/getdependingslides/) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขรูปแบบ
+
+**จะเกิดอะไรขึ้นหากฉันลบ Layout ที่ยังคงถูกใช้งานอยู่?**
+
+Aspose.Slides จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/net/aspose.slides/pptxeditexception/). ให้กำหนดสไลด์ที่พึ่งพาใหม่ก่อน หรือใช้ [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบเฉพาะรูปแบบที่ไม่ได้อ้างอิง

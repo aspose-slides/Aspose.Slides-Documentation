@@ -1,21 +1,19 @@
 ---
-title: Formátování textu v prezentaci v PHP
+title: Formátování textu prezentace v PHP
 linktitle: Formátování textu
 type: docs
 weight: 50
 url: /cs/php-java/text-formatting/
 keywords:
-- zvýraznit text
-- regulární výraz
-- zarovnat odstavec
+- zarovnání odstavce
 - styl textu
 - pozadí textu
 - průhlednost textu
-- mezery mezi znaky
+- mezera mezi znaky
 - vlastnosti písma
 - rodina písma
-- otočení textu
-- úhel otočení
+- rotace textu
+- úhel rotace
 - textový rámec
 - řádkování
 - vlastnost automatického přizpůsobení
@@ -31,83 +29,30 @@ description: "Formátujte a stylizujte text v prezentacích PowerPoint a OpenDoc
 ---
 ## **Přehled**
 
-Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java. Popisuje zvýrazňování, barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, otáčení, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
+Tento článek ukazuje, jak formátovat text v prezentacích PowerPoint a OpenDocument pomocí Aspose.Slides pro PHP přes Java. Pokrývá barvy pozadí, průhlednost, mezery mezi znaky, vlastnosti písma, rotaci, mezery odstavců, chování automatického přizpůsobení, ukotvení textu, tabulátory a nastavení jazyka.
 
 V následujících příkladech použijeme soubor pojmenovaný „sample.pptx“, který obsahuje jediný textový rámeček na první snímku s následujícím textem:
 
 ![Ukázkový text](sample_text.png)
 
-## **Zvýraznit text**
+Pro vyhledání a zvýraznění doslovného textu nebo shod regulárního výrazu viz [Vyhledávání a nahrazování textu](/slides/cs/php-java/search-and-replace-text/).
 
-Použijte metodu [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/)`::highlightText`, když potřebujete zvýraznit text, který odpovídá konkrétnímu vzorku v textovém rámci. Metoda aplikuje barvu zvýraznění na odpovídající úseky textu a lze ji použít spolu s [TextHighlightingOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/texthighlightingoptions/) k řízení způsobu provádění vyhledávání, například pro shodu jen celých slov.
+## **Nastavení barvy pozadí textu**
 
-Níže uvedený příklad kódu zvýrazní všechny výskyty znaků **"try"** a poté zvýrazní pouze celé slovo **"to"**.
+Použijte [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) k nastavení výchozí barvy zvýraznění pro odstavec nebo použijte [BasePortionFormat::getHighlightColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#getHighlightColor) pro jednotlivé textové úseky.
 
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    // Získat první tvar z první snímky.
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-    $lightBlue = new Java("java.awt.Color", 173, 216, 230);
-    $violet = new Java("java.awt.Color", 238, 130, 238);
-
-    // Zvýraznit slovo "try" ve tvaru.
-    $shape->getTextFrame()->highlightText("try", $lightBlue);
-
-    $searchOptions = new TextHighlightingOptions();
-    $searchOptions->setWholeWordsOnly(true);
-
-    // Zvýraznit slovo "to" ve tvaru.
-    $shape->getTextFrame()->highlightText("to", $violet, $searchOptions);
-
-    $presentation->save("highlighted_text.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Výsledek:
-
-![Zvýrazněný text](highlighted_text.png)
-
-## **Zvýraznění textu pomocí regulárních výrazů**
-
-Metoda [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/)`::highlightRegex` zvýrazní shody textu nalezené regulárním výrazem.
-
-Níže uvedený příklad kódu zvýrazní všechna slova, která obsahují **sedm nebo více znaků**:
+Následující ukázka kódu ukazuje, jak nastavit barvu pozadí pro **celý odstavec**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
-
-    // Zvýraznit všechna slova se sedmi a více znaky.
-    $shape->getTextFrame()->highlightRegex("\\b[^\\s]{7,}\\b", java("java.awt.Color")->YELLOW, null);
-
-    $presentation->save("highlighted_text_using_regex.pptx", SaveFormat::Pptx);
-} finally {
-    $presentation->dispose();
-}
-```
-
-Výsledek:
-
-![Zvýrazněný text pomocí regulárního výrazu](highlighted_text_using_regex.png)
-
-## **Nastavit barvu pozadí textu**
-
-Použijte výchozí formát úseku třídy [ParagraphFormat] k nastavení výchozí barvy zvýraznění odstavce, nebo použijte [PortionFormat] pro jednotlivé úseky textu.
-
-Následující příklad kódu ukazuje, jak nastavit barvu pozadí **celého odstavce**:
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
-    // Nastavit barvu zvýraznění pro celý odstavec.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+    // Nastavte barvu zvýraznění pro celý odstavec.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getHighlightColor()->setColor($highlightColor);
 
     $presentation->save("gray_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -119,20 +64,22 @@ Výsledek:
 
 ![Šedý odstavec](gray_paragraph.png)
 
-Následující příklad kódu ukazuje, jak nastavit barvu pozadí **úseků textu s tučným písmem**:
+Níže uvedený příklad kódu ukazuje, jak nastavit barvu pozadí pro **textové úseky s tučným písmem**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $highlightColor = java("java.awt.Color")->LIGHT_GRAY;
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Nastavit barvu zvýraznění pro úsek textu.
-            $portion->getPortionFormat()->getHighlightColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+            // Nastavte barvu zvýraznění pro textový úsek.
+            $portion->getPortionFormat()->getHighlightColor()->setColor($highlightColor);
         }
     }
 
@@ -144,21 +91,22 @@ try {
 
 Výsledek:
 
-![Šedé úseky textu](gray_text_portions.png)
+![Šedé textové úseky](gray_text_portions.png)
 
 ## **Zarovnání odstavců textu**
 
-Použijte metodu [ParagraphFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/)`::setAlignment` k nastavení zarovnání odstavce v textovém rámu. Hodnota může být centrovaná, zarovnaná doleva, doprava, zarovnaná do bloku a tak dále.
+Použijte [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setAlignment), abyste nastavili zarovnání odstavce v textovém rámečku. Hodnota může být centrovaná, zarovnaná vlevo, vpravo, do bloku a podobně.
 
-Následující příklad kódu ukazuje, jak zarovnat odstavec na **střed**:
+Následující ukázka kódu ukazuje, jak zarovnat odstavec do **centra**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
-    // Nastavit zarovnání odstavce na střed.
+    // Nastavte zarovnání odstavce na střed.
     $paragraph->getParagraphFormat()->setAlignment(TextAlignment::Center);
 
     $presentation->save("aligned_paragraph.pptx", SaveFormat::Pptx);
@@ -171,9 +119,9 @@ Výsledek:
 
 ![Zarovnaný odstavec](aligned_paragraph.png)
 
-## **Nastavit průhlednost textu**
+## **Nastavení průhlednosti textu**
 
-Průhlednost textu se řídí pomocí alfa komponentu barvy přiřazené výplňovému formátu [PortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/). V níže uvedených příkladech je `alpha = 50` hodnota alfa kanálu ARGB v rozsahu 0‑255, nikoli procento průhlednosti.
+Průhlednost textu se řídí pomocí alfa komponenty barvy přiřazené pomocí [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#getFillFormat). V následujících příkladech je `alpha = 50` hodnota alfa kanálu ARGB v rozsahu 0–255, nikoli procento průhlednosti.
 
 Níže uvedený příklad kódu ukazuje, jak aplikovat průhlednost na **celý odstavec**:
 
@@ -182,13 +130,15 @@ $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $fillFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat();
 
-    // Nastavit barvu výplně textu na průhlednou barvu.
+    // Nastavte výplň textu na průhlednou barvu.
     $fillFormat->setFillType(FillType::Solid);
-    $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
+    $fillFormat->getSolidFillColor()->setColor($transparentColor);
 
     $presentation->save("transparent_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -200,24 +150,26 @@ Výsledek:
 
 ![Průhledný odstavec](transparent_paragraph.png)
 
-Následující příklad kódu ukazuje, jak aplikovat průhlednost na **úseky textu s tučným písmem**:
+Následující ukázka kódu ukazuje, jak aplikovat průhlednost na **textové úseky s tučným písmem**:
 
 ```php
 $alpha = 50;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $transparentColor = new Java("java.awt.Color", 0, 0, 0, $alpha);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Nastavit průhlednost úseku textu.
+            // Nastavte průhlednost textového úseku.
             $fillFormat = $portion->getPortionFormat()->getFillFormat();
             $fillFormat->setFillType(FillType::Solid);
-            $fillFormat->getSolidFillColor()->setColor(new Java("java.awt.Color", 0, 0, 0, $alpha));
+            $fillFormat->getSolidFillColor()->setColor($transparentColor);
         }
     }
 
@@ -229,22 +181,23 @@ try {
 
 Výsledek:
 
-![Průhledné úseky textu](transparent_text_portions.png)
+![Průhledné textové úseky](transparent_text_portions.png)
 
-## **Nastavit mezery mezi znaky textu**
+## **Nastavení mezery mezi znaky textu**
 
-Použijte metodu [BasePortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/)`::setSpacing` k rozšíření nebo zúžení mezer mezi znaky v textovém rámečku.
+Použijte [BasePortionFormat::setSpacing](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setSpacing), abyste zvětšili nebo zmenšili mezery mezi znaky v textovém rámečku.
 
-Následující PHP kód ukazuje, jak rozšířit mezery mezi znaky v **celém odstavci**:
+Následující PHP kód ukazuje, jak rozšířit mezeru mezi znaky v **celém odstavci**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     // Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
-    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Rozšířit mezeru mezi znaky.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setSpacing(3); // Zvětšete mezeru mezi znaky.
 
     $presentation->save("character_spacing_in_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -254,14 +207,15 @@ try {
 
 Výsledek:
 
-![Mezery mezi znaky v odstavci](character_spacing_in_paragraph.png)
+![Mezera mezi znaky v odstavci](character_spacing_in_paragraph.png)
 
-Níže uvedený příklad kódu ukazuje, jak rozšířit mezery mezi znaky v **úsecích textu s tučným písmem**:
+Níže uvedený příklad kódu ukazuje, jak rozšířit mezeru mezi znaky v **textových úsecích s tučným písmem**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
@@ -269,7 +223,7 @@ try {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
             // Poznámka: Použijte záporné hodnoty ke zmenšení mezery mezi znaky.
-            $portion->getPortionFormat()->setSpacing(3); // Rozšířit mezeru mezi znaky.
+            $portion->getPortionFormat()->setSpacing(3); // Zvětšete mezeru mezi znaky.
         }
     }
 
@@ -281,18 +235,19 @@ try {
 
 Výsledek:
 
-![Mezery mezi znaky v úsecích textu](character_spacing_in_text_portions.png)
+![Mezera mezi znaky v textových úsecích](character_spacing_in_text_portions.png)
 
 ### **Zakázat kerning pro konkrétní písma**
 
 V některých případech může text vykreslený pomocí Aspose.Slides vypadat mírně těsněji než stejný text zobrazený v PowerPointu. K tomu může dojít, protože PowerPoint může ignorovat data kerningu pro určitá písma, i když písmo obsahuje platné informace o kerningu a kerning je v nastavení PowerPointu povolen.
 
-Aby výstup byl v takových případech blíže PowerPointu, můžete zakázat kerning pro úseky textu, které používají dotčené písmo. Nastavte metodu [BasePortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/)`::setKerningMinimalSize` na hodnotu výrazně vyšší než skutečná velikost písma:
+Aby výstup byl v takových případech bližší PowerPointu, můžete pro textové úseky používající postižené písmo kerning zakázat. Nastavte [BasePortionFormat::setKerningMinimalSize](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setKerningMinimalSize) na hodnotu podstatně větší než skutečná velikost písma:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $targetFont = "Roboto";
 
     $paragraphCount = java_values($autoShape->getTextFrame()->getParagraphs()->getCount());
@@ -320,27 +275,29 @@ try {
 }
 ```
 
-Toto nastavení zabraňuje aplikaci kerningu na odpovídající úseky textu a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která se tento specifický chování PowerPointu vztahuje.
+Toto nastavení zabraňuje aplikaci kerningu na odpovídající textové úseky a může pomoci sladit vykreslování Aspose.Slides s vizuálním výstupem PowerPointu pro písma, na která se toto specifické chování PowerPointu vztahuje.
 
-## **Spravovat vlastnosti písma textu**
+## **Správa vlastností písma textu**
 
-Vlastnosti písma lze nastavit na úrovni odstavce prostřednictvím výchozího formátu úseku třídy [ParagraphFormat] nebo na jednotlivých úsecích pomocí [PortionFormat].
+Vlastnosti písma lze nastavit na úrovni odstavce pomocí [ParagraphFormat::getDefaultPortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#getDefaultPortionFormat) nebo na jednotlivých úsecích pomocí [PortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/).
 
-Následující kód nastaví písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzívu, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
+Následující kód nastavuje písmo a styl textu pro celý odstavec: aplikuje velikost písma, tučné, kurzívu, tečkované podtržení a písmo Times New Roman na všechny úseky v odstavci.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $defaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
+    $font = new FontData("Times New Roman");
 
-    // Nastavit vlastnosti písma pro odstavec.
+    // Nastavte vlastnosti písma pro odstavec.
     $defaultPortionFormat->setFontHeight(12);
     $defaultPortionFormat->setFontBold(NullableBool::True);
     $defaultPortionFormat->setFontItalic(NullableBool::True);
     $defaultPortionFormat->setFontUnderline(TextUnderlineType::Dotted);
-    $defaultPortionFormat->setLatinFont(new FontData("Times New Roman"));
+    $defaultPortionFormat->setLatinFont($font);
 
     $presentation->save("font_properties_for_paragraph.pptx", SaveFormat::Pptx);
 } finally {
@@ -352,24 +309,26 @@ Výsledek:
 
 ![Vlastnosti písma pro odstavec](font_properties_for_paragraph.png)
 
-Níže uvedený příklad kódu aplikuje podobné vlastnosti na **úseky textu s tučným písmem**:
+Níže uvedený příklad kódu aplikuje podobné vlastnosti na **textové úseky s tučným písmem**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
+    $font = new FontData("Times New Roman");
 
     $portionCount = java_values($paragraph->getPortions()->getCount());
     for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
         $portion = $paragraph->getPortions()->get_Item($portionIndex);
         if (java_values($portion->getPortionFormat()->getEffective()->getFontBold()) === NullableBool::True) {
-            // Nastavit vlastnosti písma pro úsek textu.
+            // Nastavte vlastnosti písma pro textový úsek.
             $portionFormat = $portion->getPortionFormat();
             $portionFormat->setFontHeight(13);
             $portionFormat->setFontItalic(NullableBool::True);
             $portionFormat->setFontUnderline(TextUnderlineType::Dotted);
-            $portionFormat->setLatinFont(new FontData("Times New Roman"));
+            $portionFormat->setLatinFont($font);
         }
     }
 
@@ -381,18 +340,19 @@ try {
 
 Výsledek:
 
-![Vlastnosti písma pro úseky textu](font_properties_for_text_portions.png)
+![Vlastnosti písma pro textové úseky](font_properties_for_text_portions.png)
 
-## **Nastavit otáčení textu**
+## **Nastavení rotace textu**
 
-Použijte metodu [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/)`::setTextVerticalType` k nastavení předdefinované orientace textu uvnitř tvaru.
+Použijte [TextFrameFormat::setTextVerticalType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setTextVerticalType), abyste nastavili předdefinovanou orientaci textu uvnitř tvaru.
 
-Následující příklad kódu nastaví orientaci textu ve tvaru na `Vertical270`, což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
+Následující ukázka kódu nastavuje orientaci textu ve tvaru na `Vertical270`, což otáčí text **o 90 stupňů proti směru hodinových ručiček**:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setTextVerticalType(TextVerticalType::Vertical270);
 
@@ -404,18 +364,19 @@ try {
 
 Výsledek:
 
-![Otáčení textu](text_rotation.png)
+![Rotace textu](text_rotation.png)
 
-## **Nastavit vlastní otáčení pro textové rámečky**
+## **Nastavení vlastní rotace pro textové rámečky**
 
-Použijte metodu [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/)`::setRotationAngle` k nastavení vlastního úhlu otáčení pro [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/).
+Použijte [TextFrameFormat::setRotationAngle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setRotationAngle), abyste nastavili vlastní úhel rotace pro [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/).
 
-Níže uvedený příklad kódu otáčí textový rámec o 3 stupně po směru hodinových ručiček uvnitř tvaru:
+Níže uvedený příklad kódu otáčí textový rámeček o 3 stupně ve směru hodinových ručiček uvnitř tvaru:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setRotationAngle(3);
 
@@ -427,21 +388,22 @@ try {
 
 Výsledek:
 
-![Vlastní otáčení textu](custom_text_rotation.png)
+![Vlastní rotace textu](custom_text_rotation.png)
 
-## **Nastavit řádkování odstavců**
+## **Nastavení řádkování odstavců**
 
-Aspose.Slides poskytuje metody [ParagraphFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/)`::setSpaceAfter`, `ParagraphFormat::setSpaceBefore` a `ParagraphFormat::setSpaceWithin` k řízení mezer odstavců. Tyto metody se používají následovně:
+Aspose.Slides poskytuje [ParagraphFormat::setSpaceAfter](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setSpaceAfter), [ParagraphFormat::setSpaceBefore](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setSpaceBefore) a [ParagraphFormat::setSpaceWithin](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setSpaceWithin), aby bylo možné řídit mezery odstavců. Tyto vlastnosti se používají následovně:
 
 * Použijte kladnou hodnotu k určení řádkování jako procenta výšky řádku.
 * Použijte zápornou hodnotu k určení řádkování v bodech.
 
-Následující příklad kódu ukazuje, jak specifikovat řádkování v odstavci:
+Následující ukázka kódu ukazuje, jak nastavit řádkování v odstavci:
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setSpaceWithin(200);
@@ -456,14 +418,15 @@ Výsledek:
 
 ![Řádkování v odstavci](line_spacing.png)
 
-## **Nastavit typ automatického přizpůsobení pro textové rámečky**
+## **Nastavení typu automatického přizpůsobení pro textové rámečky**
 
-Metoda [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/)`::setAutofitType` určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte ji k řízení, zda se text zmenší, přeteče nebo automaticky změnit velikost tvaru.
+[TextFrameFormat::setAutofitType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setAutofitType) určuje, jak se text chová, když přesáhne hranice svého kontejneru. Použijte jej k řízení, zda se text zmenší, překročí rámec nebo automaticky upraví velikost tvaru.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
 
@@ -473,14 +436,15 @@ try {
 }
 ```
 
-## **Nastavit ukotvení textových rámečků**
+## **Nastavení ukotvení textových rámečků**
 
-Metoda [TextFrameFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/)`::setAnchoringType` určuje, jak je text umístěn vertikálně uvnitř tvaru, například nahoře, uprostřed nebo dole.
+[TextFrameFormat::setAnchoringType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setAnchoringType) určuje, jak je text vertikálně umístěn uvnitř tvaru, například nahoře, uprostřed nebo dole.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $autoShape->getTextFrame()->getTextFrameFormat()->setAnchoringType(TextAnchorType::Bottom);
 
@@ -490,14 +454,15 @@ try {
 }
 ```
 
-## **Nastavit tabulaci textu**
+## **Nastavení tabulace textu**
 
-Použijte metodu [ParagraphFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/)`::setDefaultTabSize` a jeho kolekci tabulátorů k nastavení tabulátorů v odstavci.
+Použijte [ParagraphFormat::setDefaultTabSize](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setDefaultTabSize) a [ParagraphFormat::getTabs](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#getTabs), abyste nakonfigurovali tabulátory v odstavci.
 
 ```php
 $presentation = new Presentation("sample.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
 
     $paragraph->getParagraphFormat()->setDefaultTabSize(100);
@@ -513,16 +478,17 @@ Výsledek:
 
 ![Tabulátory odstavce](paragraph_tabs.png)
 
-## **Nastavit jazyk kontroly pravopisu**
+## **Nastavení jazyka kontroly pravopisu**
 
-Aspose.Slides poskytuje metodu [BasePortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/)`::setLanguageId`, která umožňuje nastavit jazyk kontroly pravopisu pro úsek textu. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
+Aspose.Slides poskytuje [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setLanguageId), který umožňuje nastavit jazyk kontroly pravopisu pro textový úsek. Jazyk kontroly pravopisu určuje jazyk používaný pro kontrolu pravopisu a gramatiky v PowerPointu.
 
-Následující příklad kódu ukazuje, jak nastavit jazyk kontroly pravopisu pro úsek textu:
+Následující ukázka kódu ukazuje, jak nastavit jazyk kontroly pravopisu pro textový úsek:
 
 ```php
 $presentation = new Presentation("presentation.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
 
     $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
     $paragraph->getPortions()->clear();
@@ -534,10 +500,10 @@ try {
     $textPortion->getPortionFormat()->setEastAsianFont($font);
     $textPortion->getPortionFormat()->setLatinFont($font);
 
-    // Nastavit ID jazyka pro kontrolu pravopisu.
+    // Nastavte Id jazyka kontroly pravopisu.
     $textPortion->getPortionFormat()->setLanguageId("zh-CN");
 
-    $textPortion->setText("1.");
+    $textPortion->setText("1。");
     $paragraph->getPortions()->add($textPortion);
 
     $presentation->save("proofing_language.pptx", SaveFormat::Pptx);
@@ -546,9 +512,9 @@ try {
 }
 ```
 
-## **Nastavit výchozí jazyk**
+## **Nastavení výchozího jazyka**
 
-Použijte metodu [LoadOptions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/)`::setDefaultTextLanguage` k definování výchozího jazyka pro text vytvořený během načítání nebo vytváření prezentace.
+Použijte [LoadOptions::setDefaultTextLanguage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/loadoptions/#setDefaultTextLanguage), abyste definovali výchozí jazyk pro text vytvářený při načítání nebo vytváření prezentace.
 
 ```php
 $loadOptions = new LoadOptions();
@@ -558,11 +524,11 @@ $presentation = new Presentation($loadOptions);
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Přidat nový obdélníkový tvar s textem.
+    // Přidejte nový obdélníkový tvar s textem.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 50);
     $shape->getTextFrame()->setText("Sample text");
 
-    // Zkontrolovat jazyk prvního úseku.
+    // Zkontrolujte jazyk prvního úseku.
     $portion = $shape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
     echo $portion->getPortionFormat()->getLanguageId();
 } finally {
@@ -570,16 +536,16 @@ try {
 }
 ```
 
-## **Nastavit výchozí styl textu**
+## **Nastavení výchozího stylu textu**
 
-Pro aplikaci výchozího formátování textu na úrovni prezentace použijte výchozí styl textu třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
+Pro aplikaci výchozího formátování textu na úrovni prezentace použijte [Presentation::getDefaultTextStyle](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getDefaultTextStyle).
 
-Následující příklad kódu ukazuje, jak nastavit výchozí tučné písmo o velikosti 14 pt pro veškerý text na všech snímcích v nové prezentaci.
+Následující ukázka kódu ukazuje, jak nastavit výchozí tučné písmo o velikosti 14 bodů pro veškerý text napříč snímky v nové prezentaci.
 
 ```php
 $presentation = new Presentation();
 try {
-    // Získat formát odstavce na nejvyšší úrovni.
+    // Získejte formát odstavce nejvyšší úrovně.
     $paragraphFormat = $presentation->getDefaultTextStyle()->getLevel(0);
 
     if (!java_is_null($paragraphFormat)) {
@@ -593,27 +559,29 @@ try {
 }
 ```
 
-## **Extrahovat text s efektem VELKÝCH PÍSMEN**
+## **Extrahování textu s efektem Všechna velká písmena**
 
-V PowerPointu aplikace efekt **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně zadán malými. Když takový úsek textu načtete pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro získání zobrazeného textu zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textcaptype/) a převádějte vrácený řetězec na velká písmena, když je hodnota `All`.
+V PowerPointu aplikace efektu **All Caps** (všechna velká písmena) způsobí, že se text na snímku zobrazuje velkými písmeny, i když byl původně zadán malými. Když takový textový úsek získáte pomocí Aspose.Slides, knihovna vrátí text přesně tak, jak byl zadán. Pro shodu s zobrazeným textem zkontrolujte [TextCapType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textcaptype/) a pokud je hodnota `All`, převede vrácený řetězec na velká písmena.
 
-Předpokládejme, že na první snímku souboru sample2.pptx máme následující textový rámeček.
+Předpokládejme, že na první slide souboru sample2.pptx máme následující textový rámeček.
 
-![Efekt VELKÝCH PÍSMEN](all_caps_effect.png)
+![Efekt všech velkých písmen](all_caps_effect.png)
 
 Níže uvedený příklad kódu ukazuje, jak extrahovat text s aplikovaným efektem **All Caps**:
 
 ```php
 $presentation = new Presentation("sample2.pptx");
 try {
-    $autoShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $autoShape = $slide->getShapes()->get_Item(0);
     $textPortion = $autoShape->getTextFrame()->getParagraphs()->get_Item(0)->getPortions()->get_Item(0);
 
-    echo "Original text: ", $textPortion->getText(), "\n";
+    $originalText = $textPortion->getText();
+    echo "Original text: ", $originalText, "\n";
 
     $textFormat = $textPortion->getPortionFormat()->getEffective();
     if (java_values($textFormat->getTextCapType()) === TextCapType::All) {
-        $text = strtoupper($textPortion->getText());
+        $text = strtoupper($originalText);
         echo "All-Caps effect: ", $text, "\n";
     }
 } finally {
@@ -632,8 +600,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak upravit text v tabulce na snímku?**
 
-Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/). Projděte buňky a aktualizujte každou buňku prostřednictvím textového rámce [Cell](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/) a formátování odstavců pomocí formátu odstavce [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/)'s paragraph format.
+Pro úpravu textu v tabulce na snímku použijte [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/). Procházejte buňky a aktualizujte každou buňku pomocí [Cell::getTextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cell/#getTextFrame) a formátování odstavců pomocí [Paragraph::getParagraphFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#getParagraphFormat).
 
-**Jak aplikovat gradientní barvu na text v PowerPoint snímku?**
+**Jak aplikovat přechodovou barvu na text v PowerPoint snímku?**
 
-Pro aplikaci gradientní barvy na text použijte výplňový formát [PortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/). Nastavte typ výplně [FillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/)'s fill type na [FillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) `Gradient` a nakonfigurujte gradientové zastávky, směr a průhlednost.
+Pro aplikaci přechodové barvy na text použijte [BasePortionFormat::getFillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#getFillFormat). Nastavte [FillFormat::setFillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/#setFillType) na [FillType::Gradient](https://reference.aspose.com/slides/cs/php-java/aspose.slides/filltype/) a nakonfigurujte zastávky přechodu, směr a průhlednost.

@@ -1,5 +1,5 @@
 ---
-title: Zastosuj lub zmień układy slajdów w systemie Android
+title: Zastosuj lub zmień układy slajdów na Androidzie
 linktitle: Układ slajdu
 type: docs
 weight: 60
@@ -7,15 +7,15 @@ url: /pl/androidjava/slide-layout/
 keywords:
 - układ slajdu
 - układ treści
-- pole zastępcze
-- projektowanie prezentacji
-- projektowanie slajdów
+- element zastępczy
+- projekt prezentacji
+- projekt slajdu
 - nieużywany układ
 - widoczność stopki
 - slajd tytułowy
 - tytuł i treść
 - nagłówek sekcji
-- dwie treści
+- dwa zestawy treści
 - porównanie
 - tylko tytuł
 - pusty układ
@@ -29,150 +29,129 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Zarządzaj i dostosowuj układy slajdów w Aspose.Slides dla systemu Android. Poznaj typy układów, kontrolę pól zastępczych oraz widoczność stopki za pomocą przykładów kodu w języku Java."
+description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides dla Androida przy użyciu Javy, dodawaj elementy zastępcze, usuwaj nieużywane układy i kontroluj widoczność stopki."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Układ slajdu definiuje rozmieszczenie pól zastępczych i formatowanie treści na slajdzie. Kontroluje, które pola zastępcze są dostępne i gdzie się pojawiają. Układy slajdów pomagają szybko i konsekwentnie projektować prezentacje — niezależnie od tego, czy tworzysz coś prostego, czy bardziej złożonego. Niektóre z najczęściej używanych układów slajdów w programie PowerPoint to:
+Układ slajdu definiuje pozycje i formatowanie elementów zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu zapewnia slajdom spójną strukturę, jednocześnie pozwalając każdemu slajdowi zawierać własną treść.
 
-**Układ slajdu tytułowego** – Zawiera dwa pola tekstowe: jedno dla tytułu i jedno dla podtytułu.
+Najczęściej używane układy to:
 
-**Układ tytuł i treść** – Zawiera mniejsze pole tytułu u góry oraz większe poniżej dla głównej treści (takiej jak tekst, wypunktowania, wykresy, obrazy i inne).
+- **Slajd tytułowy**: Zawiera elementy zastępcze tytułu i podtytułu.
+- **Tytuł i treść**: Zawiera element zastępczy tytułu oraz ogólnego przeznaczenia element zastępczy treści.
+- **Pusty**: Nie zawiera elementów zastępczych i jest przydatny, gdy wszystkie kształty będą rozmieszczane ręcznie.
 
-**Układ pusty** – Nie zawiera pól zastępczych, dając pełną kontrolę nad projektowaniem slajdu od podstaw.
+## **Zrozumienie dziedziczenia układów**
 
-Układy slajdów są częścią wzorca slajdu, który jest slajdem najwyższego poziomu definiującym style układów dla prezentacji. Możesz uzyskać dostęp i modyfikować slajdy układu za pośrednictwem wzorca slajdu — według ich typu, nazwy lub unikalnego identyfikatora. Alternatywnie możesz edytować konkretny slajd układu bezpośrednio w prezentacji.
+Prezentacja ma trzy powiązane poziomy:
 
-Aby pracować z układami slajdów w Aspose.Slides dla Androida, możesz używać:
-- Metody takie jak [getLayoutSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) i [getMasters](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getMasters--) w klasie [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/)
-- Typy takie jak [ILayoutSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), oraz [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+1. [master slide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslide/) definiuje motyw, wspólne formatowanie, tła i wspólne obiekty.
+1. [layout slide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/) należy do mastera i definiuje konkretny układ elementów zastępczych.
+1. [normal slide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islide/) używa jednego układu i przechowuje treść wprowadzoną dla tego slajdu.
 
-{{% alert title="Info" color="info" %}}
-Aby dowiedzieć się więcej o pracy z wzorcami slajdów, zapoznaj się z artykułem [Wzorzec slajdu](/slides/pl/androidjava/slide-master/).
-{{% /alert %}}
+Normalny slajd dziedziczy motyw i formatowanie z jego układu, a układ dziedziczy z mastera. Wartość ustawiona bezpośrednio na normalnym slajdzie nadpisuje dziedziczoną wartość na tym poziomie. Gdy tworzony jest normalny slajd, jego kształty elementów zastępczych są generowane na podstawie wybranego układu, natomiast wprowadzona do nich treść należy do normalnego slajdu.
 
-## **Dodawanie układów slajdów do prezentacji**
+Dodaj wymagane elementy zastępcze do układu przed tworzeniem z niego slajdów. Dodanie kolejnego elementu zastępczego do układu później nie dodaje automatycznie odpowiadającego kształtu elementu zastępczego do istniejących normalnych slajdów.
 
-Aby dostosować wygląd i strukturę swoich slajdów, możesz potrzebować dodać nowe układy slajdów do prezentacji. Aspose.Slides dla Androida umożliwia sprawdzenie, czy konkretny układ już istnieje, dodanie nowego w razie potrzeby oraz użycie go do wstawiania slajdów opartych na tym układzie.
+Ta zależność ma dwa istotne konsekwencje:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
-2. Uzyskaj dostęp do [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterlayoutslidecollection/).
-3. Sprawdź, czy żądany układ slajdu już istnieje w kolekcji. Jeśli nie, dodaj potrzebny układ slajdu.
-4. Dodaj pusty slajd oparty na nowym układzie slajdu.
-5. Zapisz prezentację.
+- Zmiana dziedziczonego formatowania lub istniejącej geometrii elementu zastępczego w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu już używanego, sprawdź jego zależne slajdy i przejrzyj wynikową prezentację.
+- Układ, który jest nadal używany przez slajd, nie może być usunięty. Przed usunięciem przypisz jego zależne slajdy do innego układu lub usuń tylko nieużywane układy.
 
-Poniższy kod Java demonstruje, jak dodać układ slajdu do prezentacji PowerPoint:
+Więcej informacji o najwyższym poziomie tej hierarchii znajdziesz w [Slide Master](/slides/pl/androidjava/slide-master/).
+
+## **Wybór i zastosowanie układu slajdu**
+
+Używaj typu układu, gdy prezentacja podąża za standardowymi definicjami układów PowerPoint. Nazwy układów są edytowalne przez użytkownika i mogą być lokalizowane, więc wybór oparty na nazwie jest mniej niezawodny, o ile nie kontrolujesz szablonu źródłowego.
+
+Poniższy przykład wyszukuje **Title and Content** w pierwszym masterze. Jeśli ten układ jest niedostępny, celowo przechodzi do **Blank**. Drugi test na null jest konieczny, ponieważ prezentacja może zawierać jedynie niestandardowe układy. Wybrany układ jest następnie stosowany do pierwszego normalnego slajdu za pomocą metody [ISlide.setLayoutSlide](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
 
 ```java
-// Utwórz instancję klasy Presentation, która reprezentuje plik PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Przejdź przez typy układów slajdów, aby wybrać układ slajdu.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Sytuacja, w której prezentacja nie zawiera wszystkich typów układów.
-        // Plik prezentacji zawiera tylko typy układów Blank i Custom.
-        // Jednak układy slajdów o niestandardowych typach mogą mieć rozpoznawalne nazwy,
-        // takie jak "Title", "Title and Content", itd., które można wykorzystać do wyboru układu slajdu.
-        // Można także polegać na zestawie typów kształtów pól zastępczych.
-        // Na przykład slajd tytułowy powinien mieć tylko typ pola zastępczego Title i tak dalej.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Dodaj pusty slajd przy użyciu dodanego układu slajdu.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Zapisz prezentację na dysku.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Usuwanie nieużywanych układów slajdów**
+Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje elementów zastępczych, dziedziczone formatowanie i zgodność istniejących elementów zastępczych z nowym układem mogą się zmienić, więc sprawdź wynik przy przełączaniu między znacząco różnymi układami.
 
-Aspose.Slides udostępnia metodę [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) z klasy [Compress](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/), umożliwiając usunięcie niechcianych i nieużywanych układów slajdów.
+## **Dodawanie układu slajdu**
 
-Poniższy kod Java pokazuje, jak usunąć układ slajdu z prezentacji PowerPoint:
+Wybór i tworzenie to oddzielne operacje. Poprzedni przykład wybiera istniejący układ; nie tworzy go. Aby utworzyć układ, wywołaj metodę [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) na kolekcji układów docelowego mastera.
+
+Poniższy przykład zawsze dodaje nowy układ **Title and Content** o nazwie `Report Title and Content`, a następnie dodaje na jego podstawie normalny slajd. Nazwy układów muszą być unikalne w obrębie kolekcji.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Dodawanie pól zastępczych do układów slajdów**
+Dodawaj układ tylko wtedy, gdy szablon naprawdę potrzebuje kolejnej struktury wielokrotnego użytku. Jeśli odpowiedni układ już istnieje, wybierz i użyj go ponownie zamiast tworzyć duplikat.
 
-Aspose.Slides udostępnia metodę [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) , która umożliwia dodawanie nowych pól zastępczych do układu slajdu.
+## **Dodawanie elementów zastępczych do układu slajdu**
 
-Ten menedżer zawiera metody dla następujących typów pól zastępczych:
+Metoda [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) udostępnia [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) do dodawania kształtów elementów zastępczych do układu.
 
-| Pole zastępcze PowerPoint | Metoda |
-| -------------------------- | ------------------------------------------------------------ |
-| ![Zawartość](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Zawartość (pionowa)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Tekst](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Tekst (pionowy)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Obraz](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Wykres](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabela](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Obraz online](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder              | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Poniższy kod Java demonstruje, jak dodać nowe kształty pól zastępczych do układu pustego:
+Poniższy przykład weryfikuje, że układ **Blank** istnieje, dodaje do niego cztery elementy zastępcze, a następnie tworzy normalny slajd wykorzystujący zmodyfikowany układ. Kolejność jest zamierzona: elementy zastępcze są dodawane przed utworzeniem normalnego slajdu, aby Aspose.Slides mógł wygenerować odpowiadające im kształty elementów zastępczych na tym slajdzie.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Pobierz pusty układ slajdu.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Pobierz menedżera pól zastępczych układu slajdu.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Dodaj różne pola zastępcze do pustego układu slajdu.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Dodaj nowy slajd z pustym układem.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -180,73 +159,81 @@ try {
 
 Wynik:
 
-![Pola zastępcze na slajdzie układu](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Ustawianie widoczności stopki dla układu slajdu**
+{{% alert color="warning" title="Warning" %}}
+Zmiana dziedziczonego formatowania lub geometrii istniejących elementów zastępczych w układzie może wpłynąć na zależne slajdy. Nowo dodany element zastępczy układu nie jest automatycznie uzupełniany w istniejących normalnych slajdach. Testuj zmiany układu na kopii prezentacji i sprawdzaj każdy zależny slajd.
+{{% /alert %}}
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i niestandardowy tekst, mogą być wyświetlane lub ukrywane w zależności od układu slajdu. Aspose.Slides dla Androida umożliwia kontrolowanie widoczności tych pól zastępczych stopki. Jest to przydatne, gdy chcesz, aby niektóre układy wyświetlały informacje stopy, a inne pozostawały czyste i minimalistyczne.
+## **Usuwanie nieużywanych układów slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
-2. Pobierz odniesienie do układu slajdu według jego indeksu.
-3. Ustaw pole zastępcze stopki slajdu jako widoczne.
-4. Ustaw pole zastępcze numeru slajdu jako widoczne.
-5. Ustaw pole zastępcze daty i czasu jako widoczne.
-6. Zapisz prezentację.
-
-Poniższy kod Java pokazuje, jak ustawić widoczność stopki slajdu i wykonać powiązane zadania:
+Użyj metody [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) aby usunąć układy, do których nie odnosi się żaden normalny slajd. Metoda pozostawia nietknięte układy, które są nadal używane.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ustawianie widoczności stopki potomków dla slajdu**
+Aby usunąć konkretny układ, najpierw użyj jego metody [hasDependingSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) lub [getDependingSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Przypisz wszystkie zależne slajdy przed wywołaniem [ILayoutSlide.remove](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#remove--). Próba usunięcia używanego układu generuje [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/).
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i niestandardowy tekst, mogą być kontrolowane na poziomie slajdu wzorca, aby zapewnić spójność we wszystkich układach slajdów. Aspose.Slides dla Androida umożliwia ustawienie widoczności i zawartości tych pól zastępczych stopki na slajdzie wzorca oraz propagowanie tych ustawień do wszystkich podrzędnych układów slajdów. Takie podejście zapewnia jednolite informacje stopki w całej prezentacji.
+## **Kontrola widoczności stopki w układzie slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/).
-2. Pobierz odniesienie do slajdu wzorca według jego indeksu.
-3. Ustaw pola zastępcze stopki wzorca oraz wszystkich podrzędnych jako widoczne.
-4. Ustaw pola zastępcze numeru slajdu wzorca oraz wszystkich podrzędnych jako widoczne.
-5. Ustaw pola zastępcze daty i czasu wzorca oraz wszystkich podrzędnych jako widoczne.
-6. Zapisz prezentację.
+Układ ma własne elementy zastępcze stopki, numeru slajdu i daty‑czasu. Użyj metody [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) aby kontrolować te elementy w jednym układzie. Jest to przydatne, gdy na przykład układy treści powinny wyświetlać stopki, a układy tytułowe nie.
 
-Poniższy kod Java demonstruje tę operację:
+Poniższy przykład bezpiecznie wybiera układ i ustawia widoczność jego elementów stopki:
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kontrola widoczności stopki w masterze i jego układach podrzędnych**
+
+Aby zastosować spójne ustawienia stopki w całej hierarchii mastera, użyj metody [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . Metody propagacji [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) działają na masterze oraz jego zależnych układach slajdu i normalnych slajdach; nie dotyczą pojedynczego normalnego slajdu.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -254,14 +241,18 @@ try {
 
 ## **FAQ**
 
-**Jaka jest różnica między slajdem wzorca a slajdem układu?**
+**Jaka jest różnica między masterem a układem slajdu?**
 
-Slajd wzorca definiuje ogólny motyw i domyślne formatowanie, natomiast slajdy układu określają konkretne rozmieszczenie pól zastępczych dla różnych typów treści.
+Master slajd definiuje motyw prezentacji i wspólne formatowanie. Układ slajdu należy do mastera i definiuje jedną wielokrotnego użytku konfigurację elementów zastępczych. Normalne slajdy używają tych układów i przechowują zawartość specyficzną dla slajdu.
 
-**Czy mogę skopiować slajd układu z jednej prezentacji do drugiej?**
+**Czy mogę skopiować układ slajdu z jednej prezentacji do drugiej?**
 
-Tak, możesz sklonować slajd układu z kolekcji slajdów układu jednej prezentacji, dostępnej przez metodę [getLayoutSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/presentation/#getLayoutSlides--), i wstawić go do innej prezentacji przy użyciu metody `addClone`.
+Tak. Dodaj kopię do docelowej kolekcji metodą [addClone](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) . Przy kopiowaniu między prezentacjami sprawdź także czcionki, motywy, obrazy i inne zasoby używane przez źródłowy układ.
 
-**Co się stanie, jeśli usunę układ slajdu, który jest nadal używany przez slajd?**
+**Co się stanie, gdy zmodyfikuję układ, który jest już używany?**
 
-Jeśli spróbujesz usunąć układ slajdu, który jest nadal odwoływany przynajmniej przez jeden slajd w prezentacji, Aspose.Slides zgłosi wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/). Aby tego uniknąć, użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-), który bezpiecznie usuwa tylko układy slajdów nieużywane.
+Zależne slajdy dziedziczą zmiany układu, o ile nie nadpiszą dotkniętego formatowania lub obiektów lokalnie. Geometria elementów zastępczych i dziedziczone style mogą więc zmienić się jednocześnie na wielu slajdach. Użyj [getDependingSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) aby zidentyfikować dotknięte slajdy przed edycją układu.
+
+**Co się stanie, jeśli usunę układ, który jest nadal używany?**
+
+Aspose.Slides zgłasza [PptxEditException](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/pptxeditexception/). Przypisz najpierw zależne slajdy lub użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) aby usunąć tylko nieodwoływane układy.

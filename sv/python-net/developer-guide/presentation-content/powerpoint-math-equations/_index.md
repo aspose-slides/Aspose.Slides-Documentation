@@ -1,49 +1,49 @@
 ---
 title: Lägg till matematiska ekvationer i PowerPoint-presentationer i Python
-linktitle: PowerPoint-matematiska ekvationer
+linktitle: PowerPoint matematiska ekvationer
 type: docs
 weight: 80
 url: /sv/python-net/powerpoint-math-equations/
 keywords:
-- matematisk ekvation
-- matematiskt symbol
+- matematiskt uttryck
+- matematisk symbol
 - matematisk formel
 - matematisk text
 - lägg till matematisk ekvation
-- lägg till matematiskt symbol
+- lägg till matematisk symbol
 - lägg till matematisk formel
 - lägg till matematisk text
 - PowerPoint
 - presentation
 - Python
 - Aspose.Slides
-description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PPTX med Aspose.Slides för Python via .NET, med stöd för OMML, formateringskontroller och tydliga Python-kodexempel."
+description: "Infoga och redigera matematiska ekvationer i PowerPoint PPT och PPTX med Aspose.Slides för Python via .NET, stödjer OMML, formatkontroller och tydliga Python-kodexempel."
 ---
 ## **Översikt**
 
-PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för Python via .NET kan du programmässigt skapa samma typ av matematikinnehåll: bråk, rötter, funktioner, gränsvärden, N‑ära operatorer, matriser, arrayer och formaterade matematiska block.
+PowerPoint lagrar ekvationer som Office Math Markup Language (OMML). Med Aspose.Slides för Python via .NET kan du skapa samma typ av matematiskt innehåll programmässigt: bråktal, radikaler, funktioner, gränsvärden, N-ary-operatorer, matriser, arrayer och formaterade matematikblock.
 
-I PowerPoint lägger användare normalt till ekvationer från **Insert > Equation**:
+I PowerPoint lägger användare normalt till ekvationer via **Insert > Equation**:
 
 ![PowerPoint fliken Infoga med kommandot Ekvation markerat](powerpoint-math-equations_1.png)
 
-Resultatet är redigerbar matematisk text på bilden:
+Resultatet blir redigerbar matematisk text på bilden:
 
-![En PowerPoint‑bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
+![En PowerPoint-bild som innehåller en redigerbar matematisk ekvation](powerpoint-math-equations_2.png)
 
 Aspose.Slides bygger den matematiska texten genom tre huvudobjekt:
 
-- En matematikform, skapad med [add_math_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_math_shape/), är den form som innehåller ekvationen.
-- [MathPortion](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathportion/) lagrar matematikinnehåll i formens textruta.
+- Ett matematiskt objekt, skapat med [add_math_shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shapecollection/add_math_shape/), är formen som innehåller ekvationen.
+- [MathPortion](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathportion/) lagrar matematiskt innehåll i formens textruta.
 - [MathParagraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathparagraph/) innehåller ett eller flera [MathBlock](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathblock/)-objekt.
 
-De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathematicaltext/) och de flytande metoderna från [IMathElement](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/) för att hålla koden kort och läsbar.
+De flesta exempel nedan använder [MathematicalText](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathematicaltext/) och de flödande metoderna från [IMathElement](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/) för att hålla koden kort och läsbar.
 
-För MathML‑exportscenarier, se [Export Math Equations from Presentations in Python via .NET](/slides/sv/python-net/exporting-math-equations/).
+För MathML-exportscenarier, se [Export Math Equations from Presentations in Python via .NET](/slides/sv/python-net/exporting-math-equations/).
 
 ## **Skapa en ekvation**
 
-Detta exempel skapar en matematikform och lägger till Pythagoras sats:
+Detta exempel skapar ett matematiskt objekt och lägger till Pythagoras sats:
 
 ![Ekvationen c² = a² + b²](powerpoint-math-equations_3.png)
 
@@ -72,14 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="primary" %}}
-`add_math_shape` skapar en form som redan innehåller ett matematikstycke. Hämta den första `MathPortion`, få dess `MathParagraph` och lägg till matematiksblock eller matematiskelement i den.
+`add_math_shape` skapar en form som redan innehåller ett matematiskt stycke. Åtkomst till den första `MathPortion`, hämta dess `MathParagraph` och lägg till matematiska block eller math‑element till den.
 {{% /alert %}}
 
-## **Lägg till bråk**
+## **Lägg till bråktal**
 
 Använd [`divide`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/divide/) för att skapa ett bråk. Du kan välja en bråktyp med [MathFractionTypes](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathfractiontypes/).
 
-![Ett skevt matematiskt bråk som visar ett delat med x](powerpoint-math-equations_4.png)
+![Ett snedvridet matematiskt bråk som visar ett delat med x](powerpoint-math-equations_4.png)
 
 ```py
 import aspose.slides as slides
@@ -98,17 +98,17 @@ with slides.Presentation() as presentation:
     presentation.save("fraction.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För ett staplat bråk, använd `MathFractionTypes.BAR`:
+För ett staplat bråk, använd `MathFractionTypes.BART`:
 
 ```py
 stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFractionTypes.BAR)
 ```
 
-## **Lägg till rötter**
+## **Lägg till radikaler**
 
-Använd [`radical`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/radical/) för att skapa en kvadratrot, kubikrot eller annan rot. Det nuvarande elementet blir basen och argumentet blir graden.
+Använd [`radical`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/radical/) för att skapa en kvadratrots-, kubrotn- eller annan rot. Det aktuella elementet blir basen och argumentet blir graden.
 
-![Ett n:te rotuttryck med x under rotsymbolen](powerpoint-math-equations_5.png)
+![Ett n:te rotuttryck med x under radikaltecknet](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -154,15 +154,15 @@ with slides.Presentation() as presentation:
     presentation.save("functions-and-limits.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-För ett anpassat funktionsnamn, gör funktionsnamnet till det nuvarande elementet:
+För ett anpassat funktionsnamn, gör funktionsnamnet till det aktuella elementet:
 
 ```py
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **Lägg till N‑ära operatorer och integraler**
+## **Lägg till N-ary-operatorer och integraler**
 
-Använd [`nary`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/nary/) för summationer, unioner, snitt och andra stora operatorer. Använd [`integral`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/integral/) för integraler. Båda metoderna låter dig ange lägre och övre gränser.
+Använd [`nary`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/nary/) för summor, unioner, snitt och andra stora operatorer. Använd [`integral`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/integral/) för integraler. Båda metoderna låter dig ange lägre och övre gränser.
 
 ![En summation med lägre och övre gränser](powerpoint-math-equations_7.png)
 
@@ -189,7 +189,7 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-N‑ära operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och kombineras i uttrycket.
+N-ary-operatorer är för stora operatorer med valfria gränser. Enkla operatorer såsom `+`, `-` och `=` läggs vanligtvis till som `MathematicalText` och förenas i uttrycket.
 
 För en integral, använd `integral`:
 
@@ -200,9 +200,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **Lägg till matriser**
 
-Använd [MathMatrix](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathmatrix/) för rader och kolumner. Matriser innehåller inte hakparenteser som standard, så omge matrisen när du behöver parenteser, hakparenteser eller måsvingar.
+Använd [MathMatrix](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathmatrix/) för rader och kolumner. Matriser inkluderar inte parenteser som standard, så omslut matrisen när du behöver parenteser, hakparenteser eller klammer.
 
-![En matris med två rader och en tom cell](powerpoint-math-equations_10.png)
+![En matematikmatris med två rader och en tom cell](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -228,7 +228,7 @@ with slides.Presentation() as presentation:
 
 ## **Lägg till ekvationsarrayer**
 
-Använd [`to_math_array`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/to_math_array/) när du behöver inriktade ekvationer eller en vertikal stapel av uttryck.
+Använd [`to_math_array`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/to_math_array/) när du behöver justerade ekvationer eller en vertikal stapel av uttryck.
 
 ![En vertikal matematikarray med x ovanför y](powerpoint-math-equations_11.png)
 
@@ -255,7 +255,7 @@ with slides.Presentation() as presentation:
 
 ## **Lägg till trigonometriska funktioner**
 
-Använd [`as_argument_of_function`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) när argumentet är det nuvarande elementet och funktionsnamnet är känt.
+Använd [`as_argument_of_function`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) när argumentet är det aktuella elementet och funktionsnamnet är känt.
 
 ![Den trigonometriska funktionen cos applicerad på 2x](powerpoint-math-equations_6.png)
 
@@ -278,11 +278,11 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Lägg till nedsänkta och upphöjda index**
+## **Lägg till nedsättningar och upphöjningar**
 
-Använd hjälpfunktionerna för nedsänkta och upphöjda index för index och potenser. När indexen måste visas på vänster sida av basen, använd [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
+Använd hjälpfunktionerna för nedsättningar och upphöjningar för index och potenser. När indexen måste visas på vänster sida om basen, använd [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/).
 
-![Ett versalt Y med nedsänkt index 1 på vänster sida och upphöjt index n](powerpoint-math-equations_9.png)
+![En stor Y med vänsterställd nedsättning 1 och upphöjning n](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -303,9 +303,9 @@ with slides.Presentation() as presentation:
 
 ## **Lägg till avgränsare**
 
-Använd [`enclose`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/enclose/) för att placera ett uttryck inom avgränsare. Du kan också ange ett avgränsartecken för avgränsaruttryck som innehåller flera element.
+Använd [`enclose`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/enclose/) för att placera ett uttryck inom avgränsare. Du kan också ange ett avgränsartecken för avgränsade uttryck som innehåller flera element.
 
-![Ett avgränsaruttryck som innehåller x, y och z separerade med vertikala streck](powerpoint-math-equations_13.png)
+![Ett avgränsat uttryck med x, y och z separerade av vertikala streck](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -363,9 +363,9 @@ with slides.Presentation() as presentation:
 
 ## **Gruppera termer**
 
-Använd [`group`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/group/) för att placera ett grupptecken ovanför eller nedanför ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
+Använd [`group`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/group/) för att placera ett grupperingssymbol ovanför eller under ett uttryck. Lägg till en gräns för att märka de grupperade termerna.
 
-![Uttrycket x + y grupperat med etiketten någon text under det](powerpoint-math-equations_15.png)
+![Uttrycket x plus y grupperat med etiketten någon text under det](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -390,9 +390,9 @@ with slides.Presentation() as presentation:
 
 ## **Formatera matematiska element**
 
-Använd formateringshjälpmedel endast där de förtydligar formeln. Till exempel placerar [`overbar`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/overbar/) ett streck ovanför ett matematiskt element.
+Använd formateringshjälpmedel endast där de klargör formeln. Till exempel placerar [`overbar`](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/overbar/) en överlinje över ett matematiskt element.
 
-![Ett matematiskt uttryck ABC med ett överstreck](powerpoint-math-equations_14.png)
+![Ett matematiskt uttryck ABC med en överlinje](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -415,31 +415,31 @@ with slides.Presentation() as presentation:
 
 | Uppgift | Huvud‑API |
 | --- | --- |
-| Skapa matematisk text | [MathematicalText](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathematicaltext/) |
+| Skapa matematiktext | [MathematicalText](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathematicaltext/) |
 | Kombinera element | [IMathElement.join](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/join/) |
-| Skapa bråk | [IMathElement.divide](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/divide/) |
-| Lägg till upphöjt eller nedsänkt index | [set_superscript](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
+| Skapa bråktal | [IMathElement.divide](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/divide/) |
+| Lägg till upphöjning eller nedsättning | [set_superscript](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
 | Lägg till funktioner | [function](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
-| Lägg till rötter | [radical](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/radical/) |
+| Lägg till radikaler | [radical](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/radical/) |
 | Lägg till gränsvärden | [set_lower_limit](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
-| Lägg till vänstersidiga script | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| Lägg till vänstersidiga index | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
 | Lägg till summationer och integraler | [nary](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | Lägg till matriser | [MathMatrix](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathmatrix/) |
 | Lägg till ekvationsarrayer | [to_math_array](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
 | Lägg till avgränsare | [enclose](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/enclose/) |
-| Lägg till streck och ramar | [overbar](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
+| Lägg till staplar och ramar | [overbar](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
 | Gruppera termer | [group](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/imathelement/group/) |
 
-## **FAQ**
+## **Vanliga frågor**
 
 **Kan jag redigera en befintlig PowerPoint‑ekvation?**
 
-Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, hämta dess `MathParagraph` och uppdatera matematiksblocken i det stycket.
+Ja. Öppna presentationen, hitta formen som innehåller en `MathPortion`, hämta dess `MathParagraph` och uppdatera de matematiska blocken i det stycket.
 
 **Sparas ekvationer som redigerbar PowerPoint‑matematik?**
 
-Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑math‑innehåll.
+Ja. När du sparar till PPTX skriver Aspose.Slides ekvationen som redigerbart Office‑matteinnehåll.
 
 **Kan jag exportera ekvationer till LaTeX?**
 
-Aspose.Slides exporterar matematiska ekvationer till MathML. Om du behöver LaTeX, exportera först till MathML och konvertera sedan MathML med ett verktyg som stödjer ditt mål‑LaTeX‑dialekt.
+Ja. Hämta ekvationens [MathParagraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathparagraph/) från dess [MathPortion](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathportion/) och anropa [MathParagraph.to_latex](https://reference.aspose.com/slides/sv/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) för att exportera den direkt. För ett komplett exempel, se [Export Math Equations from Presentations in Python via .NET](/slides/sv/python-net/exporting-math-equations/#export-math-equations-to-latex).

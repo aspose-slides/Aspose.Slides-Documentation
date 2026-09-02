@@ -93,7 +93,7 @@ import aspose.slides as slides
 
 # ソース プレゼンテーション ファイルを表すために Presentation クラスのインスタンスを作成します。
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # スライドがクローンされる先の PPTX 用に Presentation クラスのインスタンスを作成します。
+    # デスティネーション PPTX（スライドがクローンされる場所）のための Presentation クラスのインスタンスを作成します。
     with slides.Presentation() as target_presentation:
         # ソース プレゼンテーションから目的のスライドを取得し、宛先プレゼンテーションのスライドコレクションの末尾にクローンします。
         target_presentation.slides.add_clone(source_presentation.slides[0])
@@ -122,7 +122,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # ソースの最初のスライドを宛先プレゼンテーションのインデックス 2 にクローンとして挿入します。
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # 宛先プレゼンテーションをディスクに保存します。
+        # デスティネーション プレゼンテーションをディスクに保存します。
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -154,11 +154,11 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         source_slide = source_presentation.slides[0]
         # 最初のスライドで使用されているマスタースライドを取得します。
         source_master = source_slide.layout_slide.master_slide
-        # マスタースライドを宛先プレゼンテーションのマスターコレクションにクローンします。
+        # デスティネーション プレゼンテーションのマスタコレクションにマスタースライドをクローンします。
         cloned_master = target_presentation.masters.add_clone(source_master)
         # クローンしたマスターを使用して、ソース プレゼンテーションのスライドを宛先プレゼンテーションの末尾にクローンします。
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # 宛先プレゼンテーションをディスクに保存します。
+        # デスティネーション プレゼンテーションをディスクに保存します。
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -212,6 +212,6 @@ target_presentation.slide_size.set_size(
 
 チャートオブジェクト、書式設定、および埋め込みデータはコピーされます。チャートが外部ソース (例: OLE 埋め込みワークブック) にリンクされている場合、そのリンクは [OLE object](/slides/ja/python-net/manage-ole/) として保持されます。ファイル間で移動した後は、データの可用性と更新動作を確認してください。
 
-**クローンの挿入位置やセクションを制御できますか？**
+### クローンの挿入位置やセクションを制御できますか？
 
 はい。特定のスライドインデックスにクローンを挿入し、選択した [section](/slides/ja/python-net/slide-section/) に配置できます。対象セクションが存在しない場合は、先に作成してからスライドを移動してください。

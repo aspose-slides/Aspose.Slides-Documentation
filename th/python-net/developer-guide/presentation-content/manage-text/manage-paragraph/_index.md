@@ -1,20 +1,23 @@
 ---
-title: จัดการย่อหน้าข้อความ PowerPoint ใน Python
-linktitle: จัดการย่อหน้า
+title: "จัดการย่อหน้าข้อความ PowerPoint ด้วย Python"
+linktitle: "จัดการย่อหน้า"
 type: docs
 weight: 40
 url: /th/python-net/manage-paragraph/
+aliases:
+  - /python-net/paragraph/
+  - /python-net/portion/
 keywords:
 - เพิ่มข้อความ
 - เพิ่มย่อหน้า
 - จัดการข้อความ
 - จัดการย่อหน้า
-- จัดการหัวข้อสัญลักษณ์
-- เยื้องย่อหน้า
-- เยื้องแขวน
-- หัวข้อสัญลักษณ์ย่อหน้า
+- จัดการหัวข้อย่อย
+- ระยะเยื้องย่อหน้า
+- ระยะเยื้องล้อย
+- หัวข้อย่อยย่อหน้า
 - รายการลำดับเลข
-- รายการหัวข้อสัญลักษณ์
+- รายการหัวข้อย่อย
 - คุณสมบัติย่อหน้า
 - นำเข้า HTML
 - ข้อความเป็น HTML
@@ -23,52 +26,60 @@ keywords:
 - ข้อความเป็นภาพ
 - ส่งออกย่อหน้า
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Python
 - Aspose.Slides
-description: "เชี่ยวชาญการจัดรูปแบบย่อหน้าด้วย Aspose.Slides สำหรับ Python ผ่าน .NET—เพิ่มประสิทธิภาพการจัดแนว, ระยะห่างและสไตล์ในการนำเสนอ PowerPoint และ OpenDocument ด้วย Python เพื่อดึงดูดผู้ชม."
+description: "เชี่ยวชาญการจัดรูปแบบย่อหน้าด้วย Aspose.Slides สำหรับ Python ผ่าน .NET—เพิ่มประสิทธิภาพการจัดแนว การเว้นระยะและสไตล์ในงานนำเสนอ PowerPoint และ OpenDocument ด้วย Python เพื่อดึงดูดผู้ชม."
 ---
 ## **บทนำ**
 
-Aspose.Slides มีคลาสต่าง ๆ ที่คุณต้องการเพื่อทำงานกับข้อความ PowerPoint ใน Python.
+Aspose.Slides มีคลาสที่คุณต้องการสำหรับทำงานกับข้อความ PowerPoint ใน Python.
 
-* Aspose.Slides มีคลาส [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) สำหรับสร้างวัตถุ text frame. วัตถุ `TextFrame` สามารถประกอบด้วยหนึ่งหรือหลายย่อหน้า (แต่ละย่อหน้าจะแยกด้วยการขึ้นบรรทัดใหม่).
-* Aspose.Slides มีคลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) สำหรับสร้างวัตถุย่อหน้า. วัตถุ `Paragraph` สามารถมีหนึ่งหรือหลายส่วนของข้อความ.
-* Aspose.Slides มีคลาส [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) สำหรับสร้างวัตถุส่วนข้อความและกำหนดคุณสมบัติการจัดรูปแบบของมัน.
+* Aspose.Slides มีคลาส [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) สำหรับสร้างอ็อบเจ็กต์กรอบข้อความ ตัวอ็อบเจ็กต์ `TextFrame` สามารถประกอบด้วยย่อหน้าหนึ่งหรือหลายย่อหน้า (แต่ละย่อหน้าจะแยกด้วยการขึ้นบรรทัดใหม่).
+* Aspose.Slides มีคลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) สำหรับสร้างอ็อบเจ็กต์ย่อหน้า ตัวอ็อบเจ็กต์ `Paragraph` สามารถประกอบด้วยส่วนข้อความหนึ่งหรือหลายส่วน.
+* Aspose.Slides มีคลาส [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) สำหรับสร้างอ็อบเจ็กต์ส่วนข้อความและกำหนดคุณสมบัติการจัดรูปแบบของพวกมัน.
 
-วัตถุ `Paragraph` สามารถจัดการข้อความที่มีคุณสมบัติการจัดรูปแบบต่าง ๆ ผ่านวัตถุ `Portion` ที่อยู่ภายใน.
+อ็อบเจ็กต์ `Paragraph` สามารถจัดการข้อความที่มีคุณสมบัติการจัดรูปแบบต่างกันผ่านอ็อบเจ็กต์ `Portion` ที่เป็นพื้นฐานของมัน.
 
-## **เพิ่มหลายย่อหน้าที่ประกอบด้วยหลายส่วนข้อความ**
+## **การติดตั้ง**
 
-ขั้นตอนเหล่านี้แสดงวิธีการเพิ่ม text frame ที่ประกอบด้วยสามย่อหน้า แต่ละย่อหน้ามีสามส่วนข้อความ:
+```bash
+pip install aspose.slides
+```
+
+## **เพิ่มหลายย่อหน้าที่มีหลายส่วนข้อความ**
+
+ขั้นตอนต่อไปนี้แสดงวิธีการเพิ่มกรอบข้อความที่มีสามย่อหน้า แต่ละย่อหน้ามีสามส่วนข้อความ:
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. รับอ้างอิงไปยังสไลด์เป้าหมายโดยใช้ดัชนีของมัน.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) แบบสี่เหลี่ยมผืนผ้าไปยังสไลด์.
-1. รับ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/).
-1. สร้างอ็อบเจ็กต์ [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) จำนวนสองอันและเพิ่มเข้าไปในคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) (พร้อมกับย่อหน้าเริ่มต้น จะได้สามย่อหน้า).
-1. สำหรับแต่ละย่อหน้า ให้สร้างอ็อบเจ็กต์ [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) จำนวนสามอันและเพิ่มเข้าไปในคอลเลกชันส่วนของย่อคนั้น.
-1. กำหนดข้อความสำหรับแต่ละส่วน.
-1. ใช้คุณสมบัติของ [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) เพื่อกำหนดการจัดรูปแบบที่ต้องการสำหรับแต่ละส่วนข้อความ.
-1. บันทึกการนำเสนอที่แก้ไขแล้ว.
+2. รับอ้างอิงของสไลด์เป้าหมายตามดัชนีของมัน.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมผืนผ้าไปยังสไลด์.
+4. รับ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ที่เชื่อมโยงกับ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/).
+5. สร้างอ็อบเจ็กต์ [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) สองอันและเพิ่มเข้าไปในคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) (รวมกับย่อหน้าเริ่มต้น จะได้สามย่อหน้า).
+6. สำหรับแต่ละย่อหน้า สร้างอ็อบเจ็กต์ [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) จำนวนสามอันและเพิ่มเข้าไปในคอลเลกชันส่วนของย่อนนั้น.
+7. กำหนดข้อความให้กับแต่ละส่วน.
+8. ใช้คุณสมบัติที่เปิดเผยโดย [Portion](https://reference.aspose.com/slides/th/python-net/aspose.slides/portion/) เพื่อกำหนดการจัดรูปแบบตามต้องการให้กับแต่ละส่วนข้อความ.
+9. บันทึกงานนำเสนอที่แก้ไขแล้ว.
+
+โค้ด Python ต่อไปนี้ทำตามขั้นตอนเหล่านี้:
 
 ```python
 import aspose.slides as slides
 import aspose.pydrawing as draw
 
-#    สร้างอินสแตนซ์ของคลาส Presentation เพื่อสร้างไฟล์ PPTX ใหม่.
+# สร้างอินสแตนซ์ของคลาส Presentation เพื่อสร้างไฟล์ PPTX ใหม่.
 with slides.Presentation() as presentation:
 
-    #    เข้าถึงสไลด์แรก.
+    # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    #    เพิ่ม AutoShape รูปสี่เหลี่ยมผืนผ้า.
+    # เพิ่ม AutoShape รูปสี่เหลี่ยม.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
 
-    #    เข้าถึง TextFrame ของ AutoShape.
+    # เข้าถึง TextFrame ของ AutoShape.
     text_frame = shape.text_frame
 
-    #    สร้างย่อหน้าและส่วนข้อความ; การจัดรูปแบบจะถูกนำไปใช้ด้านล่าง.
+    # สร้างย่อหน้าและส่วนข้อความ; การจัดรูปแบบจะถูกนำไปใช้ด้านล่าง.
     paragraph0 = text_frame.paragraphs[0]
     portion01 = slides.Portion()
     portion02 = slides.Portion()
@@ -99,36 +110,38 @@ with slides.Presentation() as presentation:
             if j == 0:
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
-                text_frame.paragraphs[i].portions[j].portion_format.font_bold = 1
+                text_frame.paragraphs[i].portions[j].portion_format.font_bold = slides.NullableBool.TRUE
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 15
             elif j == 1:
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
                 text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-                text_frame.paragraphs[i].portions[j].portion_format.font_italic = 1
+                text_frame.paragraphs[i].portions[j].portion_format.font_italic = slides.NullableBool.TRUE
                 text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
 
-    #    บันทึกไฟล์ PPTX ลงดิสก์.
+    # บันทึกไฟล์ PPTX ไปยังดิสก์.
     presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **จัดการหัวข้อสัญลักษณ์ของย่อหน้า**
+## **จัดการหัวข้อย่อยของย่อหน้า**
 
-รายการหัวข้อสัญลักษณ์ช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ ย่อหน้าที่มีหัวข้อสัญลักษณ์มักอ่านง่ายและเข้าใจได้ง่ายกว่า.
+รายการหัวข้อย่อยช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ ย่อหน้าที่มีหัวข้อย่อยมักอ่านง่ายและเข้าใจได้ดีกว่า.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. เข้าถึงสไลด์เป้าหมายโดยใช้ดัชนีของมัน.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
-1. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
-1. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. สร้างย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/).
-1. ตั้งค่าประเภทหัวข้อสัญลักษณ์ของย่อหน้าเป็น `SYMBOL` และระบุอักขระหัวข้อ.
-1. กำหนดข้อความของย่อหน้า.
-1. ตั้งค่าการเยื้องหัวข้อสัญลักษณ์สำหรับย่อหน้า.
-1. ตั้งค่าสีหัวข้อสัญลักษณ์.
-1. ตั้งค่าขนาดหัวข้อสัญลักษณ์ (ความสูง).
-1. เพิ่มย่อหน้าไปยังคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. เพิ่มย่อหน้าที่สองและทำซ้ำขั้นตอนที่ 7‑12.
-1. บันทึกการนำเสนอ.
+2. เข้าถึงสไลด์เป้าหมายตามดัชนีของมัน.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
+5. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+6. สร้างย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/).
+7. ตั้งค่าประเภทหัวข้อย่อยของย่อหน้าเป็น `SYMBOL` และระบุตัวอักษรหัวข้อย่อย.
+8. กำหนดข้อความของย่อหน้า.
+9. ตั้งค่าการเยื้องหัวข้อย่อยสำหรับย่อหน้า.
+10. ตั้งค่าสีหัวข้อย่อย.
+11. ตั้งค่าขนาดหัวข้อย่อย (ความสูง).
+12. เพิ่มย่อหน้าเข้าไปในคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+13. เพิ่มย่อหน้าที่สองและทำขั้นตอนที่ 7–12 ซ้ำ.
+14. บันทึกงานนำเสนอ.
+
+โค้ด Python นี้แสดงวิธีการเพิ่มย่อหน้าที่มีหัวข้อย่อย:
 
 ```python
 import aspose.slides as slides
@@ -152,87 +165,84 @@ with slides.Presentation() as presentation:
     # สร้างย่อหน้า.
     paragraph = slides.Paragraph()
 
-    # กำหนดรูปแบบหัวข้อสัญลักษณ์และอักขระของย่อหน้า.
+    # ตั้งค่ารูปแบบหัวข้อย่อยและสัญลักษณ์ของย่อหน้า.
     paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph.paragraph_format.bullet.char = chr(8226)
 
-    # กำหนดข้อความของย่อหน้า.
+    # ตั้งค่าข้อความของย่อหน้า.
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # กำหนดการเยื้องหัวข้อสัญลักษณ์.
+    # ตั้งค่าการเยื้องหัวข้อย่อย.
     paragraph.paragraph_format.indent = 25
 
-    # กำหนดสีหัวข้อสัญลักษณ์.
+    # ตั้งค่าสีหัวข้อย่อย.
     paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = 1 
+    paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
 
-    # กำหนดความสูงของหัวข้อสัญลักษณ์.
+    # ตั้งค่าสูงหัวข้อย่อย.
     paragraph.paragraph_format.bullet.height = 100
 
-    # เพิ่มย่อหน้าไปยัง TextFrame.
+    # เพิ่มย่อหน้าเข้าไปใน TextFrame.
     text_frame.paragraphs.add(paragraph)
 
     # สร้างย่อหน้าที่สอง.
     paragraph2 = slides.Paragraph()
 
-    # กำหนดประเภทและสไตล์หัวข้อสัญลักษณ์ของย่อหน้า.
+    # ตั้งค่าประเภทและรูปแบบหัวข้อย่อยของย่อหน้า.
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WDBLACK_PLAIN
+    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
 
-    # กำหนดข้อความของย่อหน้า.
+    # ตั้งค่าข้อความของย่อหน้า.
     paragraph2.text = "This is numbered bullet"
 
-    # กำหนดการเยื้อนหัวข้อสัญลักษณ์.
+    # ตั้งค่าการเยื้องหัวข้อย่อย.
     paragraph2.paragraph_format.indent = 25
 
-    # กำหนดสีหัวข้อสัญลักษณ์.
+    # ตั้งค่าสีหัวข้อย่อย.
     paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
     paragraph2.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph2.paragraph_format.bullet.is_bullet_hard_color = 1
+    paragraph2.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
 
-    # กำหนดความสูงของหัวข้อสัญลักษณ์.
+    # ตั้งค่าสูงหัวข้อย่อย.
     paragraph2.paragraph_format.bullet.height = 100
 
-    # เพิ่มย่อหน้าไปยัง TextFrame.
+    # เพิ่มย่อหน้าเข้าไปใน TextFrame.
     text_frame.paragraphs.add(paragraph2)
 
     # บันทึกการนำเสนอเป็นไฟล์ PPTX.
     presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **จัดการหัวข้อสัญลักษณ์รูปภาพ**
+## **จัดการหัวข้อย่อยรูปภาพ**
 
-รายการหัวข้อสัญลักษณ์ช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ หัวข้อสัญลักษณ์รูปภาพอ่านง่ายและเข้าใจได้ง่าย.
+รายการหัวข้อย่อยช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ หัวข้อย่อยรูปภาพง่ายต่อการอ่านและเข้าใจ.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. เข้าถึงสไลด์เป้าหมายโดยใช้ดัชนีของมัน.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
-1. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
-1. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. สร้างย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/).
-1. โหลดรูปภาพเข้าไปในอ็อบเจ็กต์ [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/).
-1. ตั้งค่าประเภทหัวข้อสัญลักษณ์เป็น [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/) และกำหนดรูปภาพให้.
-1. กำหนดข้อความของย่อหน้า.
-1. ตั้งค่าการเยื้องหัวข้อสัญลักษณ์สำหรับย่อหน้า.
-1. ตั้งค่าสีหัวข้อสัญลักษณ์.
-1. ตั้งค่าความสูงของหัวข้อสัญลักษณ์.
-1. เพิ่มย่อหน้าใหม่ไปยังคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. เพิ่มย่อหน้าที่สองและทำซ้ำขั้นตอนที่ 8‑12.
-1. บันทึกการนำเสนอ.
+2. เข้าถึงสไลด์เป้าหมายตามดัชนี.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
+5. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+6. สร้างย่อหน้าโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และกำหนดข้อความของมัน.
+7. โหลดภาพและเพิ่มเข้าไปในคอลเลกชันภาพของงานนำเสนอเป็น [PPImage](https://reference.aspose.com/slides/th/python-net/aspose.slides/ppimage/).
+8. ตั้งค่าประเภทหัวข้อย่อยเป็น `PICTURE` และกำหนด [PPImage] ให้กับหัวข้อย่อย.
+9. ตั้งค่าความสูงของหัวข้อย่อย.
+10. เพิ่มย่อหน้าใหม่เข้าไปในคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+11. บันทึกงานนำเสนอ.
+
+โค้ด Python นี้แสดงวิธีการเพิ่มและจัดการหัวข้อย่อยรูปภาพ:
 
 ```python
 import aspose.slides as slides
-import aspose.pydrawing as draw
 
 with slides.Presentation() as presentation:
 
     # เข้าถึงสไลด์แรก.
     slide = presentation.slides[0]
 
-    # โหลดรูปภาพหัวข้อสัญลักษณ์.
-    image = draw.Bitmap("bullets.png")
-    pp_image = presentation.images.add_image(image)
+    # โหลดภาพหัวข้อย่อย.
+    with slides.Images.from_file("bullets.png") as image:
+        pp_image = presentation.images.add_image(image)
 
     # เพิ่มและเข้าถึง AutoShape.
     auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
@@ -247,14 +257,14 @@ with slides.Presentation() as presentation:
     paragraph = slides.Paragraph()
     paragraph.text = "Welcome to Aspose.Slides"
 
-    # ตั้งค่าประเภทหัวข้อสัญลักษณ์ของย่อหน้าเป็น Picture และกำหนดรูปภาพ.
+    # ตั้งค่าชนิดหัวข้อย่อยของย่อหน้าเป็นรูปภาพและกำหนดภาพ.
     paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
     paragraph.paragraph_format.bullet.picture.image = pp_image
 
-    # ตั้งค่าความสูงของหัวข้อสัญลักษณ์.
+    # ตั้งค่าสูงหัวข้อย่อย.
     paragraph.paragraph_format.bullet.height = 100
 
-    # เพิ่มย่อหน้าไปยัง TextFrame.
+    # เพิ่มย่อหน้าเข้าไปใน TextFrame.
     text_frame.paragraphs.add(paragraph)
 
     # บันทึกการนำเสนอเป็นไฟล์ PPTX.
@@ -263,21 +273,23 @@ with slides.Presentation() as presentation:
     presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **จัดการหัวข้อสัญลักษณ์หลายระดับ**
+## **จัดการหัวข้อย่อยหลายระดับ**
 
-รายการหัวข้อสัญลักษณ์ช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ หัวข้อสัญลักษณ์หลายระดับอ่านง่ายและเข้าใจได้ง่าย.
+รายการหัวข้อย่อยช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ หัวข้อย่อยหลายระดับง่ายต่อการอ่านและเข้าใจ.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. เข้าถึงสไลด์เป้าหมายโดยใช้ดัชนีของมัน.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
-1. เข้าถึง [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ของรูปร่างและ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. สร้างย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 0.
-1. สร้างย่อหน้าที่สองโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 1.
-1. สร้างย่อหน้าที่สามโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 2.
-1. สร้างย่อหน้าใหม่ที่สี่โดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 3.
-1. เพิ่มย่อหน้าใหม่เหล่านั้นไปยังคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. บันทึกการนำเสนอ.
+2. เข้าถึงสไลด์เป้าหมายตามดัชนี.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/).
+5. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+6. สร้างย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 0.
+7. สร้างย่อหน้าที่สองโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 1.
+8. สร้างย่อหน้าที่สามโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 2.
+9. สร้างย่อหน้าที่สี่โดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) และตั้งค่าความลึกเป็น 3.
+10. เพิ่มย่อหน้าใหม่เข้าไปในคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+11. บันทึกงานนำเสนอ.
+
+โค้ด Python ต่อไปนี้แสดงวิธีการเพิ่มและจัดการหัวข้อย่อยหลายระดับ:
 
 ```python
 import aspose.slides as slides
@@ -293,52 +305,52 @@ with slides.Presentation() as presentation:
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
 
     # เข้าถึง TextFrame ของ AutoShape ที่สร้าง.
-    text_frame = auto_shape.text_frame
+    text_frame = shape.text_frame
     
     # ลบย่อหน้าเริ่มต้น.
     text_frame.paragraphs.clear()
 
-    # Add the first paragraph.
+    # เพิ่มย่อหน้าแรก.
     paragraph1 = slides.Paragraph()
     paragraph1.text = "Content"
     paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph1.paragraph_format.bullet.char = chr(8226)
     paragraph1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # กำหนดระดับหัวข้อสัญลักษณ์.
+    # ตั้งค่าระดับหัวข้อย่อย.
     paragraph1.paragraph_format.depth = 0
 
-    # Add the second paragraph.
+    # เพิ่มย่อหน้าที่สอง.
     paragraph2 = slides.Paragraph()
     paragraph2.text = "Second Level"
     paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph2.paragraph_format.bullet.char = '-'
     paragraph2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # กำหนดระดับหัวข้อสัญลักษณ์.
+    # ตั้งค่าระดับหัวข้อย่อย.
     paragraph2.paragraph_format.depth = 1
 
-    # Add the third paragraph.
+    # เพิ่มย่อหน้าที่สาม.
     paragraph3 = slides.Paragraph()
     paragraph3.text = "Third Level"
     paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph3.paragraph_format.bullet.char = chr(8226)
     paragraph3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # กำหนดระดับหัวข้อสัญลักษณ์.
+    # ตั้งค่าระดับหัวข้อย่อย.
     paragraph3.paragraph_format.depth = 2
 
-    # Add the fourth paragraph.
+    # เพิ่มย่อหน้าที่สี่.
     paragraph4 = slides.Paragraph()
     paragraph4.text = "Fourth Level"
     paragraph4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
     paragraph4.paragraph_format.bullet.char = '-'
     paragraph4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # กำหนดระดับหัวข้อสัญลักษณ์.
+    # ตั้งค่าระดับหัวข้อย่อย.
     paragraph4.paragraph_format.depth = 3
 
-    # เพิ่มย่อหน้าไปยังคอลเลกชัน.
+    # เพิ่มย่อหน้าเข้าไปในคอลเลกชัน.
     text_frame.paragraphs.add(paragraph1)
     text_frame.paragraphs.add(paragraph2)
     text_frame.paragraphs.add(paragraph3)
@@ -348,20 +360,22 @@ with slides.Presentation() as presentation:
     presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **จัดการย่อหน้ากับรายการลำดับเลขแบบกำหนดเอง**
+## **จัดการย่อหน้ากับรายการลำดับเลขกำหนดเอง**
 
-คลาส [BulletFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/) มีคุณสมบัติ `numbered_bullet_start_with` (และอื่น ๆ) เพื่อควบคุมการจัดลำดับเลขและการจัดรูปแบบแบบกำหนดเองสำหรับย่อหน้า.
+คลาส [BulletFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/bulletformat/) มีคุณสมบัติ `numbered_bullet_start_with` (และอื่นๆ) เพื่อควบคุมการกำหนดเลขและการจัดรูปแบบแบบกำหนดเองสำหรับย่อหน้า.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. เข้าถึงสไลด์ที่จะบรรจุย่อหน้า.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
-1. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
-1. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. สร้าง [Paragraph] แรกและตั้งค่า `numbered_bullet_start_with` เป็น 2.
-1. สร้าง [Paragraph] ที่สองและตั้งค่า `numbered_bullet_start_with` เป็น 3.
-1. สร้าง [Paragraph] ที่สามและตั้งค่า `numbered_bullet_start_with` เป็น 7.
-1. เพิ่มย่อหน้าเหล่านั้นไปยังคอลเลกชันของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. บันทึกการนำเสนอ.
+2. เข้าถึงสไลด์ที่จะบรรจุย่อหน้า.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
+5. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+6. สร้าง [Paragraph] แรกและตั้งค่า `numbered_bullet_start_with` เป็น 2.
+7. สร้าง [Paragraph] ที่สองและตั้งค่า `numbered_bullet_start_with` เป็น 3.
+8. สร้าง [Paragraph] ที่สามและตั้งค่า `numbered_bullet_start_with` เป็น 7.
+9. เพิ่มย่อหน้าเหล่านั้นเข้าไปในคอล렉ชันของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+10. บันทึกงานนำเสนอ.
+
+โค้ด Python ต่อไปนี้แสดงวิธีการเพิ่มและจัดการย่อหน้ากับการกำหนดเลขและการจัดรูปแบบแบบกำหนดเอง:
 
 ```python
 import aspose.slides as slides
@@ -377,7 +391,7 @@ with slides.Presentation() as presentation:
     # ลบย่อหน้าเริ่มต้นที่มีอยู่.
     text_frame.paragraphs.remove_at(0)
 
-    # สร้างรายการลำดับเลขแรก (เริ่มที่ 2, ระดับความลึก 4).
+    # สร้างรายการลำดับที่หนึ่ง (เริ่มที่ 2, ระดับความลึก 4).
     paragraph1 = slides.Paragraph()
     paragraph1.text = "bullet 2"
     paragraph1.paragraph_format.depth = 4 
@@ -385,7 +399,7 @@ with slides.Presentation() as presentation:
     paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
     text_frame.paragraphs.add(paragraph1)
 
-    # สร้างรายการลำดับเลขที่สอง (เริ่มที่ 3, ระดับความลึก 4).
+    # สร้างรายการลำดับที่สอง (เริ่มที่ 3, ระดับความลึก 4).
     paragraph2 = slides.Paragraph()
     paragraph2.text = "bullet 3"
     paragraph2.paragraph_format.depth = 4
@@ -393,7 +407,7 @@ with slides.Presentation() as presentation:
     paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
     text_frame.paragraphs.add(paragraph2)
 
-    # สร้างรายการลำดับเลขที่สาม (เริ่มที่ 7, ระดับความลึก 4).
+    # สร้างรายการลำดับที่สาม (เริ่มที่ 7, ระดับความลึก 4).
     paragraph5 = slides.Paragraph()
     paragraph5.text = "bullet 7"
     paragraph5.paragraph_format.depth = 4
@@ -404,21 +418,23 @@ with slides.Presentation() as presentation:
     presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ตั้งค่าการเยื้องบรรทัดแรกของย่อหน้า**
+## **ตั้งระยะเยื้องบรรทัดแรกสำหรับย่อหน้า**
 
-ใช้คุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า คุณสมบัตินี้จะย้ายเฉพาะบรรทัดแรกสัมพันธ์กับระยะขอบซ้ายของย่อหน้า ค่าเป็นบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดอื่นจะยังคงเรียงตามตัวเนื้อหาย่อหน้า.
+ใช้คุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เพื่อควบคุมระยะเยื้องบรรทัดแรกของย่อหน้า คุณสมบัตินี้จะย้ายเฉพาะบรรทัดแรกเทียบกับระยะซ้ายของย่อหน้า ค่าบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือจะคงการจัดชิดตามเนื้อย่อหน้า.
 
-ใช้ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) หากต้องการย้ายย่อหน้าทั้งหมด ใช้ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) หากต้องการย้ายเฉพาะบรรทัดแรก.
+ใช้ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) เมื่อคุณต้องการย้ายย่อหน้าทั้งหมด ใช้ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรก.
 
-ตัวอย่างด้านล่างสร้างหลายย่อหน้าและกำหนดค่า `indent` ที่แตกต่างกันเพื่อแสดงว่าการเยื้องบรรทัดแรกมีผลต่อการจัดวางย่ออย่างไร.
+ตัวอย่างด้านล่างสร้างหลายย่อหน้าและกำหนดค่าต่างๆ ของ `indent` เพื่อสาธิตว่าการเยื้องบรรทัดแรกมีผลต่อการจัดวางย่ออย่างไร.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
 2. เข้าถึงสไลด์เป้าหมาย.
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) แบบสี่เหลี่ยมผืนผ้าไปยังสไลด์.
-4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ว่างเปล่าไปยังรูปร่างและลบย่อหน้าเริ่มต้น.
-5. สร้างย่อหน้าหลายอันและกำหนดค่า [indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) ที่แตกต่างกันสำหรับแต่ละอัน.
-6. เพิ่มย่อหน้าเหล่านั้นเข้าไปใน text frame.
-7. บันทึกการนำเสนอที่แก้ไขแล้ว.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) สี่เหลี่ยมผืนผ้าไปยังสไลด์.
+4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ว่างเปล่าให้กับรูปร่างและลบย่อหน้าเริ่มต้น.
+5. สร้างหลายย่อหน้าและตั้งค่าต่างๆ ของ [indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) ให้กับแต่ละย่อหน้า.
+6. เพิ่มย่อหน้าเข้าไปในกรอบข้อความ.
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว.
+
+โค้ดนี้แสดงวิธีตั้งระยะเยื้องย่อหน้า:
 
 ```py
 import aspose.slides as slides
@@ -464,26 +480,31 @@ with slides.Presentation() as presentation:
     presentation.save("paragraph_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![การเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
+![ระยะเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-## **ตั้งค่าการเยื้องแขวนสำหรับย่อหน้า**
+## **ตั้งระยะเยื้องล้อยสำหรับย่อหน้า**
 
-การเยื้องแขวนคือรูปแบบย่อหน้าที่บรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสามารถสร้างเอฟเฟกต์นี้โดยใช้คุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/). ตั้งค่า `indent` เป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายสัมพันธ์กับเนื้อหาย่อหน้า.
+ระยะเยื้องล้อยคือการจัดย่อหน้าโดยบรรทัดแรกเริ่มอยู่ทางซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟคนี้โดยใช้คุณสมบัติ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) ตั้งค่า `indent` เป็นค่าติดลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเทียบกับเนื้อย่อหน้า.
 
-โดยปฏิบัติ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า และ [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับขอบนั้น เพื่อสร้างการเยื้องแขวน ให้ตั้งค่า `margin_left` เป็นค่าบวกและ `indent` เป็นค่าลบ.
+โดยปฏิบัติ [ParagraphFormat.margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) กำหนดตำแหน่งซ้ายของเนื้อย่อหน้า ส่วน [ParagraphFormat.indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) กำหนดตำแหน่งของบรรทัดแรกเทียบกับระยะนั้น เพื่อสร้างระยะเยื้องล้อย ให้ตั้งค่า `margin_left` เป็นบวกและ `indent` เป็นลบ.
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการสารานุกรม และย่อหน้าอื่น ๆ ที่บรรทัดต่อเนื่องต้องจัดแนวอยู่ใต้เนื้อหาย่อหน้า แทนที่ตำแหน่งอักขระแรกของบรรทัดแรก.
+การจัดรูปแบบนี้เป็นประโยชน์สำหรับบรรณานุกรม, อ้างอิง, รายการพจนานุกรม, และย่อหน้าอื่นๆ ที่บรรทัดที่ตัดต่อควรจัดชิดใต้เนื้อย่อหน้าไม่ใช่ใต้ตัวอักษรแรกของบรรทัดแรก.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
 2. เข้าถึงสไลด์เป้าหมาย.
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) แบบสี่เหลี่ยมผืนผ้าไปยังสไลด์.
-4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ว่างเปล่าไปยังรูปร่างและลบย่อหน้าเริ่มต้น.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) สี่เหลี่ยมผืนผ้าไปยังสไลด์.
+4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ว่างให้กับรูปร่างและลบย่อหน้าเริ่มต้น.
 5. สร้างย่อหน้าและตั้งค่า [margin_left](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/margin_left/) เป็นค่าบวกสำหรับแต่ละย่อหน้า.
-6. ตั้งค่า [indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เป็นค่าลบเพื่อสร้างเอฟเฟกต์การเยื้องแขวน.
-7. เพิ่มย่อหน้าเหล่านั้นเข้าไปใน text frame.
-8. บันทึกการนำเสนอที่แก้ไขแล้ว.
+6. ตั้งค่า [indent](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/indent/) เป็นค่าลบเพื่อสร้างเอฟเฟคระยะเยื้องล้อย.
+7. เพิ่มย่อหน้าเข้าไปในกรอบข้อความ.
+8. บันทึกงานนำเสนอที่แก้ไขแล้ว.
+
+โค้ดนี้แสดงวิธีตั้งระยะเยื้องล้อยสำหรับย่อหน้า:
 
 ```py
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
 
@@ -516,25 +537,30 @@ with slides.Presentation() as presentation:
     presentation.save("hanging_indent.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![การเยื้องแขวนของย่อหน้า](hanging_indent.png)
+![ระยะเยื้องล้อยของย่อหน้า](hanging_indent.png)
 
 ## **จัดการรูปแบบส่วนท้ายของย่อหน้า**
 
-เมื่อคุณต้องการควบคุมการจัดรูปแบบของ “ส่วนท้าย” ของย่อหน้า (การจัดรูปแบบที่ใช้หลังส่วนข้อความสุดท้าย) ให้ใช้คุณสมบัติ `end_paragraph_portion_format` ตัวอย่างด้านล่างใช้แบบอักษร Times New Roman ขนาดใหญ่สำหรับส่วนท้ายของย่อหน้าที่สอง.
+เมื่อคุณต้องการควบคุมสไตล์ของ “ส่วนท้าย” ของย่อหน้า (การจัดรูปแบบที่ใช้หลังส่วนข้อความสุดท้าย) ให้ใช้คุณสมบัติ `end_paragraph_portion_format` ตัวอย่างด้านล่างใช้ฟอนต์ Times New Roman ขนาดใหญ่กับส่วนท้ายของย่อหน้าที่สอง.
 
 1. สร้างหรือเปิดไฟล์ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. รับสไลด์เป้าหมายโดยระบุดัชนี.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมไปยังสไลด์.
-1. ใช้ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่างและสร้างย่อหน้าสองอัน.
-1. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/) ที่กำหนดเป็น Times New Roman ขนาด 48 pt แล้วกำหนดเป็นรูปแบบส่วนท้ายของย่อหน้า.
-1. กำหนดให้กับ `end_paragraph_portion_format` ของย่อหน้า (ใช้กับส่วนท้ายของย่อหน้าที่สอง).
-1. บันทึกการนำเสนอที่แก้ไขเป็นไฟล์ PPTX.
+2. รับสไลด์เป้าหมายตามดัชนี.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) รูปสี่เหลี่ยมผืนผ้าไปยังสไลด์.
+4. ใช้ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่างและสร้างสองย่อหน้า.
+5. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/) ตั้งค่าเป็น Times New Roman ขนาด 48 pt และใช้เป็นรูปแบบส่วนท้ายของย่อหน้า.
+6. กำหนดให้กับ `end_paragraph_portion_format` ของย่อหน้า (ใช้กับส่วนท้ายของย่อหน้าที่สอง).
+7. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX.
+
+โค้ด Python นี้แสดงวิธีตั้งรูปแบบส่วนท้ายของย่อหน้าสำหรับย่อหน้าที่สอง:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation("presentation.pptx") as presentation:
 	shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+
+	# ลบย่อหน้าเริ่มต้น.
+	shape.text_frame.paragraphs.clear()
 
 	paragraph1 = slides.Paragraph()
 	paragraph1.portions.add(slides.Portion("Sample text"))
@@ -555,22 +581,23 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **นำเข้าข้อความ HTML ไปยังย่อหน้า**
 
-Aspose.Slides มีการสนับสนุนที่เพิ่มขึ้นสำหรับการนำเข้าข้อความ HTML ไปยังย่อหน้า.
+Aspose.Slides มีการสนับสนุนที่ดีขึ้นสำหรับการนำเข้าข้อความ HTML ไปยังย่อหน้า.
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/).
-1. เข้าถึงสไลด์เป้าหมายโดยใช้ดัชนีของมัน.
-1. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
-1. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/).
-1. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. อ่านไฟล์ HTML ต้นฉบับ.
-1. สร้างย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/).
-1. เพิ่มเนื้อหา HTML ไปยังคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
-1. บันทึกการนำเสนอที่แก้ไขแล้ว.
+2. เข้าถึงสไลด์เป้าหมายตามดัชนี.
+3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/) ไปยังสไลด์.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของ [AutoShape](https://reference.aspose.com/slides/th/python-net/aspose.slides/autoshape/).
+5. ลบย่อหน้าเริ่มต้นออกจาก [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+6. อ่านไฟล์ HTML ต้นฉบับ.
+7. เพิ่มเนื้อหา HTML เข้าไปในคอลเลกชันย่อหน้าของ [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/).
+8. บันทึกงานนำเสนอที่แก้ไขแล้ว.
+
+โค้ด Python ต่อไปนี้ทำตามขั้นตอนเหล่านี้เพื่อการนำเข้าข้อความ HTML ไปยังย่อหน้า.
 
 ```python
 import aspose.slides as slides
 
-# สร้างอินสแตนซ์ Presentation ว่าง.
+# สร้างอินสแตนซ์ Presentation ว่างเปล่า.
 with slides.Presentation() as presentation:
 
     # เข้าถึงสไลด์แรกของการนำเสนอ.
@@ -582,7 +609,7 @@ with slides.Presentation() as presentation:
     # เพิ่ม AutoShape เพื่อรองรับเนื้อหา HTML.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
 
-    # ลบย่อหน้าทั้งหมดใน TextFrame ที่เพิ่ม.
+    # ลบย่อหน้าทั้งหมดใน TextFrame ที่เพิ่มเข้ามา.
     shape.text_frame.paragraphs.clear()
 
     # โหลดไฟล์ HTML.
@@ -596,45 +623,47 @@ with slides.Presentation() as presentation:
 
 ## **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-Aspose.Slides มีการสนับสนุนที่เพิ่มขึ้นสำหรับการส่งออกข้อความเป็น HTML.
+Aspose.Slides มีการสนับสนุนที่ดีขึ้นสำหรับการส่งออกข้อความเป็น HTML.
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และโหลดการนำเสนอเป้าหมาย.
-1. เข้าถึงสไลด์ที่ต้องการโดยระบุดัชนี.
-1. เลือกรูปร่างที่มีข้อความที่จะส่งออก.
-1. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
-1. เปิดสตรีมไฟล์เพื่อเขียนผลลัพธ์ HTML.
-1. ระบุดัชนีเริ่มต้นและส่งออกย่อหน้าที่ต้องการ.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) และโหลดงานนำเสนอเป้าหมาย.
+2. เข้าถึงสไลด์ที่ต้องการตามดัชนี.
+3. เลือกรูปร่างที่มีข้อความที่ต้องการส่งออก.
+4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframe/) ของรูปร่าง.
+5. เปิดสตรีมไฟล์เพื่อเขียนผลลัพธ์ HTML.
+6. ระบุดัชนีเริ่มต้นและส่งออกย่อหน้าที่ต้องการ.
+
+ตัวอย่าง Python นี้แสดงวิธีการส่งออกข้อความย่อหน้าเป็น HTML.
 
 ```python
 import aspose.slides as slides
 
-# โหลดไฟล์การนำเสนอ.
+# โหลดไฟล์งานนำเสนอ.
 with slides.Presentation("exporting_HTML_text.pptx") as presentation:
     # เข้าถึงสไลด์แรกของการนำเสนอ.
     slide = presentation.slides[0]
 
-    # ดัชนีรูปร่างเป้าหมาย.
+    # ดัชนีรูปทรงเป้าหมาย.
     index = 0
 
-    # เข้าถึงรูปร่างโดยใช้ดัชนี.
+    # เข้าถึงรูปทรงโดยใช้ดัชนี.
     shape = slide.shapes[index]
 
     with open("output.html", "w") as html_stream:
-        # เขียนข้อมูลย่อหน้าเป็น HTML โดยระบุดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่จะส่งออก.
+        # เขียนข้อมูลย่อหน้าเป็น HTML โดยระบุดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่จะส่งออกทั้งหมด.
         html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
 ```
 
 ## **บันทึกย่อหน้าเป็นภาพ**
 
-ในส่วนนี้ เราจะสำรวจสองตัวอย่างที่แสดงวิธีการบันทึกย่อความข้อความที่แสดงโดยคลาส [Paragraph](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraph/) เป็นภาพ ตัวอย่างทั้งสองรวมถึงการดึงภาพของรูปร่างที่บรรจุย่อหน้าด้วยเมธอด `get_image` จากคลาส [Shape](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/), การคำนวณขอบเขตของย่อหน้าในรูปร่าง, และการส่งออกเป็นภาพบิตแมพ วิธีเหล่านี้ช่วยให้คุณดึงส่วนเฉพาะของข้อความจากการนำเสนอ PowerPoint และบันทึกเป็นภาพแยกต่างหาก ซึ่งอาจเป็นประโยชน์สำหรับการใช้งานต่อในหลายสถานการณ์.
+ในส่วนนี้ เราจะสำรวจสองตัวอย่างที่แสดงวิธีบันทึกย่อข้อความซึ่งเป็นอ็อบเจ็กต์ของคลาส [Paragraph] ให้เป็นภาพ ตัวอย่างทั้งสองรวมถึงการดึงภาพของรูปร่างที่บรรจุย่อหน้าโดยใช้เมธอด `get_image` จากคลาส [Shape] การคำนวณขอบเขตของย่อหน้าในรูปร่าง และการส่งออกเป็นภาพบิตแม็พ วิธีเหล่านี้ทำให้คุณสามารถดึงส่วนเฉพาะของข้อความจากงานนำเสนอ PowerPoint และบันทึกเป็นภาพแยกต่างหาก ซึ่งเป็นประโยชน์สำหรับการใช้งานต่อในสถานการณ์ต่างๆ.
 
-สมมติว่าเรามีไฟล์การนำเสนอชื่อ sample.pptx ที่มีหนึ่งสไลด์ โดยรูปร่างแรกเป็นกล่องข้อความที่มีสามย่อหน้า.
+สมมติว่าเรามีไฟล์งานนำเสนอชื่อ sample.pptx มีหนึ่งสไลด์ โดยรูปร่างแรกเป็นกล่องข้อความที่บรรจุสามย่อหน้า.
 
 ![กล่องข้อความที่มีสามย่อหน้า](paragraph_to_image_input.png)
 
-**Example 1**
+**ตัวอย่าง 1**
 
-ในตัวอย่างนี้ เราดึงย่อหน้าที่สองเป็นภาพ โดยดึงภาพของรูปร่างจากสไลด์แรกของการนำเสนอแล้วคำนวณขอบเขตของย่อหน้าที่สองใน text frame ของรูปร่างนั้น จากนั้นวาดย่อหน้านั้นลงบนบิตแมพใหม่และบันทึกเป็นรูปแบบ PNG วิธีนี้เหมาะสำหรับการบันทึกย่อหน้าเฉพาะเป็นภาพแยกโดยคงมิติและการจัดรูปแบบเดิมของข้อความ.
+ในตัวอย่างนี้ เราจะดึงย่อหน้าที่สองเป็นภาพ โดยดึงภาพของรูปร่างจากสไลด์แรกของงานนำเสนอแล้วคำนวณขอบเขตของย่อหน้าที่สองในกรอบข้อความของรูปร่าง ย่อหน้านั้นจะถูกวาดใหม่บนภาพบิตแม็พใหม่และบันทึกเป็นรูปแบบ PNG วิธีนี้เป็นประโยชน์เมื่อต้องบันทึกย่อหน้าเฉพาะเป็นภาพแยกโดยคงขนาดและการจัดรูปแบบของข้อความอย่างแม่นยำ.
 
 ```py
 import aspose.slides as slides
@@ -670,11 +699,11 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph_bitmap.save("paragraph.png")
 ```
 
-![ภาพของย่อหน้า](paragraph_to_image_output.png)
+![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-**Example 2**
+**ตัวอย่าง 2**
 
-ในตัวอย่างนี้ เราขยายวิธีการก่อนหน้าโดยเพิ่มปัจจัยสเกลให้กับภาพย่อหน้า รูปร่างถูกดึงออกจากการนำเสนอและบันทึกเป็นภาพโดยใช้สเกล `2` ซึ่งทำให้ได้เอาต์พุตความละเอียดสูงขึ้นเมื่อส่งออกรูปย่อหน้า จากนั้นคำนวณขอบเขตของย่อหน้าพิจารณาตามสเกล การสเกลอาจมีประโยชน์เมื่อต้องการภาพละเอียดมากขึ้น เช่น สำหรับวัสดุพิมพ์คุณภาพสูง.
+ในตัวอย่างนี้ เราขยายวิธีการก่อนหน้าโดยเพิ่มปัจจัยการสเกลให้กับภาพย่อหน้า รูปร่างถูกดึงจากงานนำเสนอและบันทึกเป็นภาพด้วยปัจจัยสเกล `2` ซึ่งทำให้ได้ผลลัพธ์ความละเอียดสูงขึ้นเมื่อส่งออกย่อหน้า ขอบเขตของย่อหน้าถูกคำนวณโดยคำนึงถึงสเกล การสเกลเป็นประโยชน์เมื่อต้องการภาพที่มีรายละเอียดสูง เช่น การใช้ในวัสดุพิมพ์คุณภาพสูง.
 
 ```py
 import aspose.slides as slides
@@ -717,16 +746,20 @@ with slides.Presentation("sample.pptx") as presentation:
     paragraph_bitmap.save("paragraph.png")
 ```
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ฉันสามารถปิดการตัดบรรทัดภายใน text frame อย่างสมบูรณ์ได้หรือไม่?**  
-ได้. ใช้การตั้งค่าการตัดบรรทัดของ text frame ([wrap_text](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframeformat/wrap_text/)) เพื่อปิดการตัดบรรทัด sehingga บรรทัดจะไม่ตัดที่ขอบของกรอบ.
+### ฉันสามารถปิดการตัดบรรทัดภายในกรอบข้อความได้หรือไม่?
 
-**ฉันจะรับขอบเขตที่แน่นอนบนสไลด์ของย่อหน้าเฉพาะได้อย่างไร?**  
-คุณสามารถดึงสี่เหลี่ยมขอบเขตของย่อหน้า (หรือแม้แต่ของส่วนข้อความเดียว) เพื่อทราบตำแหน่งและขนาดที่แน่นอนบนสไลด์.
+ได้. ใช้การตั้งค่าการตัดบรรทัดของกรอบข้อความ ([wrap_text](https://reference.aspose.com/slides/th/python-net/aspose.slides/textframeformat/wrap_text/)) เพื่อปิดการตัดบรรทัดดังนั้นบรรทัดจะไม่ตัดที่ขอบของกรอบ.
 
-**การจัดแนวย่อหน้า (ซ้าย/ขวา/กลาง/เต็ม) ถูกควบคุมที่ไหน?**  
-[Alignment](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/alignment/) เป็นการตั้งค่าระดับย่อหน้าใน [ParagraphFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/); มันจะใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของแต่ละส่วน.
+### ฉันจะรับขอบเขตที่แน่นอนบนสไลด์ของย่อหน้าที่กำหนดได้อย่างไร?
 
-**ฉันสามารถตั้งค่าภาษาเพื่อตรวจสอบการสะกดสำหรับส่วนหนึ่งของย่อหน้า (เช่น คำเดียว) ได้หรือไม่?**  
-ได้. ภาษาเป็นการตั้งค่าที่ระดับส่วน ([PortionFormat.language_id](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/language_id/)) ดังนั้นหลายภาษาอาจอยู่ร่วมกันในย่อหน้าเดียว.
+คุณสามารถดึงสี่เหลี่ยมขอบเขตของย่อหน้า (หรือแม้กระทั่งของส่วนข้อความหนึ่งส่วน) เพื่อรู้ตำแหน่งและขนาดที่แม่นยำบนสไลด์.
+
+### ตำแหน่งการจัดแนวของย่อหน้า (ซ้าย/ขวา/ศูนย์/จัดเต็ม) ควบคุมที่ไหน?
+
+[Alignment](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/alignment/) เป็นการตั้งค่าระดับย่อหน้าใน [ParagraphFormat](https://reference.aspose.com/slides/th/python-net/aspose.slides/paragraphformat/); มันจะใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบส่วนย่อย.
+
+### ฉันสามารถตั้งภาษาตรวจสอบสะกดให้กับแค่ส่วนของย่อหน้า (เช่น คำเดียว) ได้หรือไม่?
+
+ได้. ภาษาถูกตั้งค่าที่ระดับส่วน ([PortionFormat.language_id](https://reference.aspose.com/slides/th/python-net/aspose.slides/portionformat/language_id/)) ดังนั้นภาษาหลายภาษาสามารถอยู่ร่วมกันในย่อหน้าเดียวได้.

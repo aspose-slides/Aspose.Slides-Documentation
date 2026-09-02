@@ -1,5 +1,5 @@
 ---
-title: Tworzenie miniaturek kształtów prezentacji w Javie
+title: Tworzenie miniatur kształtów prezentacji w Javie
 linktitle: Miniatury kształtów
 type: docs
 weight: 70
@@ -9,6 +9,8 @@ keywords:
 - obraz kształtu
 - renderowanie kształtu
 - renderowanie kształtu
+- granice wizualne
+- granice kształtu
 - PowerPoint
 - prezentacja
 - Java
@@ -17,24 +19,23 @@ description: "Generuj wysokiej jakości miniatury kształtów z slajdów PowerPo
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for Java może być używany do tworzenia plików prezentacji, w których każda strona odpowiada slajdowi. Slajdy mogą być wyświetlane po otwarciu plików prezentacji za pomocą Microsoft PowerPoint. Jednak programiści czasami potrzebują zobaczyć obrazy kształtów osobno w przeglądarce obrazów. W takich przypadkach Aspose.Slides for Java pomaga wygenerować miniatury obrazów kształtów slajdu.
+Aspose.Slides for Java można używać do tworzenia plików prezentacji, w których każda strona odpowiada slajdowi. Slajdy można przeglądać, otwierając pliki prezentacji w programie Microsoft PowerPoint. Jednak deweloperzy czasami potrzebują wyświetlić obrazy kształtów osobno w przeglądarce obrazów. W takich sytuacjach Aspose.Slides for Java pomaga im generować miniatury obrazów kształtów slajdu.
 
 Ten artykuł wyjaśnia, jak generować miniatury slajdów na różne sposoby:
 
 - Generowanie miniatury kształtu wewnątrz slajdu.
-- Generowanie miniatury kształtu slajdu o wymiarach określonych przez użytkownika.
+- Generowanie miniatury kształtu slajdu o wymiarach zdefiniowanych przez użytkownika.
 - Generowanie miniatury kształtu w granicach wyglądu kształtu.
 
 ## **Generowanie miniatury kształtu ze slajdu**
-
 Aby wygenerować miniaturę kształtu z dowolnego slajdu przy użyciu Aspose.Slides for Java, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
-1. Uzyskaj referencję do dowolnego slajdu, używając jego identyfikatora lub indeksu.
-1. [Pobierz obraz miniatury kształtu](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#getImage--) referowanego slajdu na domyślnej skali.
-1. Zapisz obraz miniatury w wybranym przez siebie formacie obrazu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
+1. Uzyskaj odwołanie do dowolnego slajdu używając jego identyfikatora lub indeksu.
+1. [Pobierz miniaturę obrazu kształtu](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getImage--) odwołanego slajdu w domyślnej skali.
+1. Zapisz obraz miniatury w preferowanym formacie obrazu.
 
-Poniższy przykładowy kod pokazuje, jak wygenerować miniaturę kształtu ze slajdu:
+Poniższy przykład kodu pokazuje, jak wygenerować miniaturę kształtu ze slajdu:
 
 ```java
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji
@@ -54,16 +55,15 @@ try {
 }
 ```
 
-## **Generowanie miniatury ze współczynnikiem skalowania określonym przez użytkownika**
-
+## **Generowanie miniatury z czynnikiem skalowania określonym przez użytkownika**
 Aby wygenerować miniaturę kształtu slajdu przy użyciu Aspose.Slides for Java, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
-1. Uzyskaj referencję do dowolnego slajdu, używając jego identyfikatora lub indeksu.
-1. [Pobierz obraz miniatury kształtu](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IShape#getImage-int-float-float-) referowanego slajdu z wymiarami określonymi przez użytkownika.
-1. Zapisz obraz miniatury w wybranym przez siebie formacie obrazu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
+1. Uzyskaj odwołanie do dowolnego slajdu używając jego identyfikatora lub indeksu.
+1. [Pobierz miniaturę obrazu kształtu](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getImage-int-float-float-) odwołanego slajdu z wymiarami określonymi przez użytkownika.
+1. Zapisz obraz miniatury w preferowanym formacie obrazu.
 
-Poniższy przykładowy kod pokazuje, jak wygenerować miniaturę kształtu na podstawie określonego współczynnika skalowania:
+Poniższy przykład kodu pokazuje, jak wygenerować miniaturę kształtu na podstawie zdefiniowanego czynnika skalowania:
 
 ```java
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji
@@ -84,15 +84,14 @@ try {
 ```
 
 ## **Utworzenie miniatury wyglądu kształtu opartej na granicach**
-
 Ta metoda tworzenia miniatur kształtów pozwala programistom wygenerować miniaturę w granicach wyglądu kształtu. Uwzględnia wszystkie efekty kształtu. Wygenerowana miniatura kształtu jest ograniczona przez granice slajdu. Aby wygenerować miniaturę kształtu slajdu w granicach jego wyglądu, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
-1. Uzyskaj referencję do dowolnego slajdu, używając jego identyfikatora lub indeksu.
-1. Pobierz obraz miniatury referowanego slajdu z granicami kształtu jako wyglądem.
-1. Zapisz obraz miniatury w wybranym przez siebie formacie obrazu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/).
+1. Uzyskaj odwołanie do dowolnego slajdu używając jego identyfikatora lub indeksu.
+1. Pobierz obraz miniatury odwołanego slajdu, używając granic kształtu jako wyglądu.
+1. Zapisz obraz miniatury w preferowanym formacie obrazu.
 
-Poniższy przykładowy kod opiera się na powyższych krokach:
+Poniższy przykład kodu opiera się na powyższych krokach:
 
 ```java
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji
@@ -112,17 +111,49 @@ try {
 }
 ```
 
+## **Uzyskanie rzeczywistych granic wizualnych kształtu**
+
+Właściwości ramki interfejsu [IShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/) — metody `getX()`, `getY()`, `getWidth()` i `getHeight()` — opisują prostokąt przechowywany w modelu prezentacji. Rzeczywista renderowana zawartość może wykraczać poza tę ramkę lub zajmować inny prostokąt wyrównany do osi. Obrót, kontury, grotki strzałek, układ i przepełnienie tekstu, generowana geometria SmartArt oraz inne efekty renderowania mogą zmienić zajmowany obszar.
+
+Użyj [Shape.getVisualBounds](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#getVisualBounds--) aby obliczyć ten zajęty obszar bez tworzenia obrazu. Metoda zwraca obiekt [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) w układzie współrzędnych slajdu. Zwrócony prostokąt nie jest przycinany do slajdu, więc jego współrzędne mogą być ujemne, gdy zawartość wykracza poza początek slajdu.
+
+[Shape.getVisualBounds](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#getVisualBounds--) nie jest obecnie zadeklarowane w interfejsie [IShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/). Dlatego zachowaj kształt pobrany z kolekcji kształtów slajdu jako wartość interfejsu i dokonuj rzutowania tylko przy wywoływaniu tej metody.
+
+Poniższy przykład pobiera i porównuje ramkę oraz granice wizualne:
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    Rectangle2D.Float visualBounds = ((Shape) shape).getVisualBounds();
+
+    Rectangle2D.Float frameBounds = new Rectangle2D.Float(
+        shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+
+    System.out.println("Frame bounds: " + frameBounds);
+    System.out.println("Visual bounds: " + visualBounds);
+} finally {
+    presentation.dispose();
+}
+```
+
+Ten sam [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) może być użyty do wyrównywania pobliskich kształtów do jego lewej, prawej, górnej lub dolnej krawędzi; rezerwowania wystarczającej przestrzeni w generowanym układzie; lub wykrywania zawartości poza dozwolonym obszarem. Granice wizualne są szczególnie przydatne dla SmartArt, pól tekstowych, strzałek, obrazów, obróconych kształtów i grup kształtów, gdzie przechowywana ramka może nie odzwierciedlać pełnego wyniku renderowania.
+
+Użyj [Shape.getVisualBounds](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#getVisualBounds--) gdy potrzebujesz współrzędnych do układu lub walidacji i nie potrzebujesz bitmapy. Użyj [IShape.getImage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ishape/#getImage--) gdy musisz wyrenderować kształt. Z [ShapeThumbnailBounds](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shapethumbnailbounds/), `ShapeThumbnailBounds.Shape` określa rozmiar obrazu na podstawie granic kształtu, łącznie z ustawieniami konturu, podczas gdy `ShapeThumbnailBounds.Appearance` określa rozmiar na podstawie wyglądu kształtu i ogranicza wynik do granic slajdu. Natomiast [Shape.getVisualBounds](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#getVisualBounds--) zwraca tylko obliczony prostokąt i nie przycina go do slajdu.
+
 ## **FAQ**
 
 **Jakie formaty obrazu można używać przy zapisywaniu miniatur kształtów?**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imageformat/), oraz inne. Kształty mogą być także [eksportowane jako wektorowy SVG](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) poprzez zapisanie zawartości kształtu jako SVG.
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/pl/java/com.aspose.slides/imageformat/), i inne. Kształty mogą być również [eksportowane jako wektorowy SVG](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) poprzez zapisanie ich zawartości jako SVG.
 
-**Jaka jest różnica między granicami Shape a Appearance podczas renderowania miniatury?**
+**Jaka jest różnica między granicami Shape a Appearance przy renderowaniu miniatury?**
 
-`Shape` wykorzystuje geometrię kształtu; `Appearance` bierze pod uwagę [efekty wizualne](/slides/pl/java/shape-effect/) (cienie, poświaty itp.).
+`Shape` wykorzystuje geometrię kształtu; `Appearance` uwzględnia [efekty wizualne](/slides/pl/java/shape-effect/) (cienie, poświaty itp.).
 
-**Co się stanie, jeśli kształt jest oznaczony jako ukryty? Czy nadal zostanie wyrenderowany jako miniatura?**
+**Co się stanie, jeśli kształt jest oznaczony jako ukryty? Czy wciąż zostanie wyrenderowany jako miniatura?**
 
 Ukryty kształt pozostaje częścią modelu i może być renderowany; flaga ukrycia wpływa na wyświetlanie pokazu slajdów, ale nie uniemożliwia generowania obrazu kształtu.
 
@@ -130,6 +161,6 @@ Ukryty kształt pozostaje częścią modelu i może być renderowany; flaga ukry
 
 Tak. Każdy obiekt reprezentowany jako [Shape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/shape/) (w tym [GroupShape](https://reference.aspose.com/slides/pl/java/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chart/) i [SmartArt](https://reference.aspose.com/slides/pl/java/com.aspose.slides/smartart/)) może być zapisany jako miniatura lub jako SVG.
 
-**Czy czcionki zainstalowane w systemie wpływają na jakość miniaturek kształtów tekstowych?**
+**Czy fonty zainstalowane w systemie wpływają na jakość miniatur tekstowych kształtów?**
 
-Tak. Należy [zapewnić wymagane czcionki](/slides/pl/java/custom-font/) (lub [skonfigurować zamienniki czcionek](/slides/pl/java/font-substitution/)), aby uniknąć niechcianych zastąpień i przelotów tekstu.
+Tak. Należy [dostarczyć wymagane czcionki](/slides/pl/java/custom-font/) (lub [skonfigurować podstawienia czcionek](/slides/pl/java/font-substitution/)), aby uniknąć niepożądanych zamienników i przeskładowania tekstu.

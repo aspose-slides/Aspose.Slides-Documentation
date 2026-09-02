@@ -4,114 +4,235 @@ linktitle: Datové body v grafech Treemap a Sunburst
 type: docs
 url: /cs/net/data-points-of-treemap-and-sunburst-chart/
 keywords:
-- graf Treemap
-- graf Sunburst
+- graf treemap
+- graf sunburst
+- hierarchický graf
 - datový bod
-- barva popisku
+- popisek dat
 - barva větve
 - PowerPoint
 - prezentace
 - .NET
 - C#
 - Aspose.Slides
-description: "Naučte se, jak spravovat datové body v grafech Treemap a Sunburst pomocí Aspose.Slides pro .NET, kompatibilní s formáty PowerPointu."
+description: "Naučte se vytvářet hierarchická data a přizpůsobovat úrovně, popisky a barvy v grafech Treemap a Sunburst pomocí Aspose.Slides pro .NET."
 ---
-## **Úvod**
+## **Přehled**
 
-Mezi ostatními typy grafů v PowerPointu existují dva „hierarchické“ typy – **Treemap** a **Sunburst** graf (také známý jako Sunburst Graph, Sunburst Diagram, Radiální graf, Radiální diagram nebo vícestupňový koláčový graf). Tyto grafy zobrazují hierarchická data uspořádaná jako strom – od listů až po vrchol větve. Listy jsou definovány datovými body řady a každá následující úroveň vnořeného seskupení je určena odpovídající kategorií. Aspose.Slides pro .NET umožňuje formátovat datové body Sunburst grafu a Treemap v C#.
+Grafy Treemap a Sunburst zobrazují stejný typ hierarchických dat, ale používají odlišné rozložení. Treemap vykresluje hierarchii jako vnořené obdélníky, jejichž plochy představují hodnoty listů. Sunburst ji zobrazuje jako soustředné kruhy: skupiny nejvyšší úrovně jsou blízko středu a kategorie listů jsou na vnějším kruhu.
 
-Zde je Sunburst graf, kde data ve sloupci Series1 definují listové uzly, zatímco ostatní sloupce definují hierarchické datové body:
+V Aspose.Slides pro .NET je každá číselná hodnota objekt typu [IChartDataPoint](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/). Jeho kolekce [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) poskytuje přístup k listu a jeho nadřazeným skupinám. Tento článek vysvětluje toto mapování a ukazuje, jak vytvořit a formátovat oba typy grafů ze stejných ukázkových dat.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Graf Treemap s větvemi Consumer a Business](treemap-hierarchy.png)
 
-Začněme přidáním nového Sunburst grafu do prezentace:
+![Graf Sunburst se stejnou hierarchií Consumer a Business](sunburst-hierarchy.png)
 
-```c#
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-}
-```
+## **Pochopení kategorií, datových bodů a úrovní**
 
-{{% alert color="primary" title="Viz také" %}} 
-- [**Creating Sunburst Chart**](/slides/cs/net/adding-charts/#addingcharts-creatingsunburstchart)
-{{% /alert %}}
+Vzor použité níže má tři úrovně kategorií a jeden číselný řad:
 
-Pokud je potřeba formátovat datové body grafu, měli bychom použít následující:
+| Větev | Kmen | List | Příjem |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapointlevel) třídy 
-a [**IChartDataPoint.DataPointLevels**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/properties/datapointlevels) vlastnost 
-poskytují přístup k formátování datových bodů grafů Treemap a Sunburst. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/IChartDataPointLevelsManager) 
-se používá pro přístup k vícestupňovým kategoriím – představuje kontejner 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/IChartDataPointLevel) objektů. 
-V podstatě je to obal pro 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/IChartCategoryLevelsManager) s 
-vlastnostmi přidanými specificky pro datové body. 
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/IChartDataPointLevel) třída má 
-dvě vlastnosti: [**Format**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapointlevel/properties/format) a 
-[**DataLabel**](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapointlevel/properties/label) které 
-poskytují přístup k odpovídajícím nastavením.
-## **Zobrazit hodnotu datového bodu**
-Zobrazit hodnotu datového bodu "Leaf 4":
+Každý řádek vytvoří jednu kategorii listu a jeden datový bod. Úrovně seskupování kategorií popisují cestu od tohoto listu k jeho nadřazeným položkám. Pro první řádek je cesta `Consumer > Computers > Laptops`.
 
-```c#
-IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
-dataPoints[3].DataPointLevels[0].Label.DataLabelFormat.ShowValue = true;
-```
+Indexy v [IChartDataPoint.DataPointLevels](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapoint/datapointlevels/) běží od listu směrem nahoru:
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
-## **Nastavit popisek a barvu datového bodu**
-Nastavte popisek datového bodu "Branch 1" tak, aby zobrazoval název řady ("Series1") místo názvu kategorie. Poté nastavte barvu textu na žlutou:
+| `DataPointLevels` index | Logická úroveň | Reprezentace Treemap | Reprezentace Sunburst |
+| ---: | --- | --- | --- |
+| `0` | List | Obdélník hodnoty | Segment vnějšího kruhu |
+| `1` | Kmen | Obdélník nebo záhlaví nadřazeného | Segment prostředního kruhu |
+| `2` | Větev | Obdélník nebo záhlaví nejvyšší úrovně | Segment vnitřního kruhu |
 
-```c#
-IDataLabel branch1Label = dataPoints[0].DataPointLevels[2].Label;
-branch1Label.DataLabelFormat.ShowCategoryName = false;
-branch1Label.DataLabelFormat.ShowSeriesName = true;
+Toto pořadí je stejné pro oba typy grafů, i když se jejich vizuální rozložení liší. Nadřazený segment je sdílený několika listy. Pro formátování použijte odpovídající úroveň prvního datového bodu v dané skupině. Například větev `Consumer` začíná bodem `Laptops`, zatímco kmen `Software` začíná bodem `Licenses`. Uchovávání odkazů na tyto body je přehlednější a bezpečnější než používání nevysvětlených výrazů jako `dataPoints[0]` nebo `dataPoints[6]`.
 
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.FillType = FillType.Solid;
-branch1Label.DataLabelFormat.TextFormat.PortionFormat.FillFormat.SolidFillColor.Color = Color.Yellow;
-```
+## **Vytvoření a přizpůsobení obou typů grafů**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-## **Nastavit barvu větve datového bodu**
-
-Změňte barvu větve "Stem 4":
+Následující kompletní příklad vytvoří Treemap na první snímku a Sunburst na druhém snímku. Vytvoří hierarchii, zobrazí hodnotu pro `Tablets`, použije pevné barvy na vybrané úrovně, naformátuje popisek větve a uloží prezentaci.
 
 ```csharp
-using (Presentation pres = new Presentation())
-{
-    IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Sunburst, 100, 100, 450, 400);
-    
-    IChartDataPointCollection dataPoints = chart.ChartData.Series[0].DataPoints;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChartDataPointLevel stem4branch = dataPoints[9].DataPointLevels[1];
-    
-    stem4branch.Format.Fill.FillType = FillType.Solid;
-    stem4branch.Format.Fill.SolidFillColor.Color = Color.Red;
-      
-    pres.Save("pres.pptx", SaveFormat.Pptx);
+using var presentation = new Presentation();
+
+var treemapSlide = presentation.Slides[0];
+AddHierarchyChart(treemapSlide, ChartType.Treemap);
+
+var layoutSlide = presentation.LayoutSlides[0];
+var sunburstSlide = presentation.Slides.AddEmptySlide(layoutSlide);
+AddHierarchyChart(sunburstSlide, ChartType.Sunburst);
+
+presentation.Save("hierarchical-charts.pptx", SaveFormat.Pptx);
+
+static void AddHierarchyChart(ISlide slide, ChartType chartType)
+{
+    const int worksheetIndex = 0;
+    const int leafLevelIndex = 0;
+    const int stemLevelIndex = 1;
+    const int branchLevelIndex = 2;
+
+    var chart = slide.Shapes.AddChart(chartType, 40, 40, 640, 440);
+    chart.HasTitle = false;
+    chart.HasLegend = false;
+    chart.ChartData.Categories.Clear();
+    chart.ChartData.Series.Clear();
+
+    var workbook = chart.ChartData.ChartDataWorkbook;
+    workbook.Clear(worksheetIndex);
+
+    // Přidejte kategorie listů. Prvku seskupení se nastaví pouze při zahájení nové skupiny;
+    // následující kategorie zůstávají v této skupině, dokud se nenastaví další prvek.
+    var laptopsCategory = AddCategory(1, "Laptops");
+    laptopsCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Computers");
+    laptopsCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Consumer");
+
+    AddCategory(2, "Desktops");
+
+    var phonesCategory = AddCategory(3, "Phones");
+    phonesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Mobile");
+
+    AddCategory(4, "Tablets");
+
+    var consultingCategory = AddCategory(5, "Consulting");
+    consultingCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Services");
+    consultingCategory.GroupingLevels.SetGroupingItem(branchLevelIndex, "Business");
+
+    AddCategory(6, "Support");
+
+    var licensesCategory = AddCategory(7, "Licenses");
+    licensesCategory.GroupingLevels.SetGroupingItem(stemLevelIndex, "Software");
+
+    AddCategory(8, "Subscriptions");
+
+    var seriesNameCell = workbook.GetCell(worksheetIndex, 0, 3, "Revenue");
+    var series = chart.ChartData.Series.Add(seriesNameCell, chartType);
+    series.Labels.DefaultDataLabelFormat.ShowCategoryName = true;
+
+    var laptopsDataPoint = AddDataPoint(1, 12);
+    AddDataPoint(2, 8);
+    AddDataPoint(3, 15);
+    var tabletsDataPoint = AddDataPoint(4, 6);
+    AddDataPoint(5, 10);
+    AddDataPoint(6, 7);
+    var licensesDataPoint = AddDataPoint(7, 11);
+    AddDataPoint(8, 14);
+
+    // Zobrazte kategorii a hodnotu na listu Tablets.
+    var tabletsLabelFormat = tabletsDataPoint.DataPointLevels[leafLevelIndex]
+        .Label.DataLabelFormat;
+    tabletsLabelFormat.ShowCategoryName = true;
+    tabletsLabelFormat.ShowValue = true;
+    tabletsLabelFormat.Separator = "\n";
+    tabletsLabelFormat.NumberFormat = "$0";
+
+    // Naformátujte větev Consumer pomocí prvního listu v této větvi.
+    var consumerBranchLevel = laptopsDataPoint.DataPointLevels[branchLevelIndex];
+    var consumerBranchFill = consumerBranchLevel.Format.Fill;
+    var consumerBranchColor = Color.FromArgb(31, 78, 121);
+    SetSolidFill(consumerBranchFill, consumerBranchColor);
+
+    var consumerLabelFormat = consumerBranchLevel.Label.DataLabelFormat;
+    consumerLabelFormat.ShowCategoryName = true;
+    consumerLabelFormat.ShowSeriesName = false;
+    var consumerLabelTextFill = consumerLabelFormat.TextFormat.PortionFormat.FillFormat;
+    SetSolidFill(consumerLabelTextFill, Color.White);
+
+    // Naformátujte kmen Software pomocí prvního listu v tomto kmenu.
+    var softwareStemLevel = licensesDataPoint.DataPointLevels[stemLevelIndex];
+    var softwareStemFill = softwareStemLevel.Format.Fill;
+    var softwareStemColor = Color.FromArgb(112, 173, 71);
+    SetSolidFill(softwareStemFill, softwareStemColor);
+
+    // ParentLabelLayout ovlivňuje popisky nadřazených položek v Treemap; Sunburst používá segmenty kruhů.
+    if (chartType == ChartType.Treemap)
+    {
+        series.ParentLabelLayout = ParentLabelLayoutType.Overlapping;
+    }
+
+    IChartCategory AddCategory(int rowIndex, string leafName)
+    {
+        var categoryCell = workbook.GetCell(worksheetIndex, rowIndex, 2, leafName);
+        return chart.ChartData.Categories.Add(categoryCell);
+    }
+
+    IChartDataPoint AddDataPoint(int rowIndex, double value)
+    {
+        var valueCell = workbook.GetCell(worksheetIndex, rowIndex, 3, value);
+
+        if (chartType == ChartType.Treemap)
+        {
+            return series.DataPoints.AddDataPointForTreemapSeries(valueCell);
+        }
+
+        return series.DataPoints.AddDataPointForSunburstSeries(valueCell);
+    }
+
+    static void SetSolidFill(IFillFormat fillFormat, Color color)
+    {
+        fillFormat.FillType = FillType.Solid;
+        fillFormat.SolidFillColor.Color = color;
+    }
 }
 ```
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Buňky kategorií a buňky hodnot používají stejný řádek listu, takže jejich pozice v kolekcích zůstávají zarovnané. Když pracujete s existujícím grafem místo jeho vytváření, nejprve prozkoumejte řádky kategorií a uložte pojmenované odkazy na datové body a úrovně, které chcete formátovat.
 
-## **FAQ**
+## **Chování a praktické úvahy**
 
-**Mohu změnit pořadí (třídění) segmentů v Sunburst/Treemap?**
+### **Rozdíly mezi Treemap a Sunburst**
 
-Ne. PowerPoint segmenty řadí automaticky (obvykle podle sestupných hodnot ve směru hodinových ručiček). Aspose.Slides toto chování napodobuje: nemůžete změnit pořadí přímo; dosáhnete toho předzpracováním dat.
+- Treemap používá plochu k vyjádření hodnoty a vnořené obdélníky k vyjádření hierarchie. Vlastnost [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/parentlabellayout/) řídí, jak se zobrazují popisky nadřazených položek v tomto typu grafu.
+- Sunburst používá úhel k vyjádření hodnoty a hloubku kruhu k vyjádření hierarchie. [IChartSeries.ParentLabelLayout](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartseries/parentlabellayout/) neovlivňuje popisky jeho kruhů.
+- Oba typy grafů používají stejné úrovně seskupování kategorií a stejný pořádek list‑k‑nadřazenému v `DataPointLevels`, takže kód pro vytváření dat a formátování úrovní může být sdílen.
+- Hodnoty nadřazených položek jsou vypočítány z jejich podřízených listů. Nepřidávejte samostatné číselné body pro větve nebo kmene.
 
-**Jak ovlivňuje téma prezentace barvy segmentů a popisků?**
+### **Řazení a pořadí segmentů**
 
-Barvy grafu dědí [téma/paletu](/slides/cs/net/presentation-theme/) prezentace, pokud explicitně nenastavíte výplně/písma. Pro konzistentní výsledek zamkněte pevné výplně a formátování textu na požadovaných úrovních.
+Engine rozložení grafu určuje konečné umístění obdélníků a segmentů kruhu. Před jejich přidáním seskupte související řádky kategorií, ale nespoléhejte se na konkrétní pozici obdélníku nebo počáteční úhel. Pokud má sekvence význam, zahrňte ji do popisků nebo použijte typ grafu s explicitní kategoriální osou.
 
-**Zachová export do PDF/PNG vlastní barvy větví a nastavení popisků?**
+### **Motiv a pevné barvy**
 
-Ano. Při exportu prezentace jsou nastavení grafu (výplně, popisky) zachována v výstupních formátech, protože Aspose.Slides renderuje s aplikovaným formátováním grafu.
+Neformátované úrovně grafu dědí barvy z motivu prezentace. Příklad používá explicitní výplně RGB pro předvídatelný výstup. Pokud má graf sledovat změny motivu, použijte barvy schématu místo pevných hodnot RGB a vyhněte se přepsání každé úrovně. Také po změně výplně větve nebo kmene zkontrolujte kontrast popisků.
 
-**Mohu vypočítat skutečné souřadnice popisku/prvku pro vlastní překrytí nad grafem?**
+### **Popisky a dostupný prostor**
 
-Ano. Po ověření rozložení grafu jsou pro prvky k dispozici `ActualX`/`ActualY` (například pro [DataLabel](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/datalabel/)), což pomáhá s přesným umístěním překryvů.
+PowerPoint může skrýt nebo oříznout popisky, když je segment příliš malý. Zvětšení velikosti grafu, zkrácení názvů kategorií nebo zobrazení méně polí popisků obvykle vede k přehlednějšímu výsledku. Popisek může kombinovat název kategorie, název řady a hodnotu pomocí [IDataLabelFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/), ale povolení všech polí často ztěžuje čitelnost hierarchických grafů.
+
+### **Export a vykreslování**
+
+Ukládání do PPTX zachovává graf editovatelný. Když Aspose.Slides vykresluje prezentaci do PDF nebo obrázku, podporované výplně a nastavení popisků jsou vykresleny s grafem. Náhrada písem a drobné rozdíly v dostupném prostoru mohou změnit zalomení řádků nebo viditelnost popisků, takže nainstalujte požadovaná písma a ověřte důležité cíle exportu.
+
+## **Často kladené otázky**
+
+**Proč změna úrovně nadřazené položky ovlivní několik listů?**  
+Větev nebo kmen je sdílený vizuální segment. Jeho [IChartDataPointLevel](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/ichartdatapointlevel/) lze dosáhnout přes podřízený list, ale formátování patří sdílenému nadřazenému segmentu, nikoli jen tomuto listu.
+
+**Proč chybí datový popisek?**  
+Nejprve povolte požadovaná pole na objektu [IDataLabelFormat](https://reference.aspose.com/slides/cs/net/aspose.slides.charts/idatalabelformat/) popisku. Pak zkontrolujte, zda má segment dostatek místa. Rozložení popisků nadřazených položek v Treemap, rozměry grafu, délka popisku, velikost písma a počet povolených polí vše ovlivňuje, zda lze popisek zobrazit.
+
+**Mohu nastavit přesné pořadí nebo souřadnice segmentů?**  
+Můžete řídit pořadí řádků zdroje a udržet každou skupinu souvislou, ale nemůžete přiřadit přesné obdélníky Treemap ani úhly Sunburst. Engine rozložení grafu je spočítá z hierarchie, hodnot a dostupného prostoru.
+
+**Proč se barvy mění po změně motivu prezentace?**  
+Výplně založené na motivu jsou navrženy tak, aby následovaly paletu prezentace. Použijte explicitní barvy RGB pro úrovně, které mají zůstat pevné, nebo zachovejte barvy schématu, pokud je upřednostněna adaptace na nový motiv.
+
+**Zůstane vlastní formátování zachováno v exportu do PDF a obrázku?**  
+Ano, podporované výplně grafu a nastavení popisků jsou zahrnuty při vykreslování. Pro konzistentní výsledky napříč systémy zajistěte dostupnost požadovaných písem a otestujte finální velikost exportu, protože umístění popisků je závislé na rozložení.
+
+## **Související odkazy**
+
+- [Create Treemap charts](/slides/cs/net/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/cs/net/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/cs/net/export-chart/)
+- [Manage presentation themes](/slides/cs/net/presentation-theme/)

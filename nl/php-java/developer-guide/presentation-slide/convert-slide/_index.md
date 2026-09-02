@@ -1,5 +1,5 @@
 ---
-title: Presentatieslides naar afbeeldingen converteren in PHP
+title: Converteer presentatieslides naar afbeeldingen in PHP
 linktitle: Slide naar afbeelding
 type: docs
 weight: 35
@@ -18,13 +18,13 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Converteer slides van PPT, PPTX en ODP naar afbeeldingen met Aspose.Slides for PHP via Java — snelle, hoogwaardige weergave met duidelijke code‑voorbeelden."
+description: "Converteer slides van PPT, PPTX en ODP naar afbeeldingen met Aspose.Slides for PHP via Java — snelle, hoogwaardige weergave met duidelijke codevoorbeelden."
 ---
 ## **Inleiding**
 
-Aspose.Slides for PHP via Java stelt u in staat om eenvoudig PowerPoint- en OpenDocument‑presentatieslides om te zetten naar verschillende afbeeldingformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
+Aspose.Slides for PHP via Java maakt het eenvoudig om PowerPoint- en OpenDocument‑presentatieslides om te zetten naar verschillende beeldformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
 
-Om een slide om te zetten naar een afbeelding, volgt u deze stappen:
+Om een slide om te zetten naar een afbeelding, volg deze stappen:
 
 1. Definieer de gewenste conversie‑instellingen en selecteer de slides die u wilt exporteren door gebruik te maken van:
     - De [TiffOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/tiffoptions/) klasse, of
@@ -33,11 +33,11 @@ Om een slide om te zetten naar een afbeelding, volgt u deze stappen:
 
 In Aspose.Slides for PHP via Java is een [IImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/iimage/) een klasse die u in staat stelt te werken met afbeeldingen gedefinieerd door pixelgegevens. U kunt deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
 
-## **Slides omzetten naar bitmap en de afbeeldingen opslaan in PNG**
+## **Slides omzetten naar Bitmaps en de afbeeldingen opslaan in PNG**
 
-U kunt een slide omzetten naar een bitmap‑object en dit direct in uw applicatie gebruiken. Alternatief kunt u een slide omzetten naar een bitmap en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
+U kunt een slide omzetten naar een bitmap‑object en dit rechtstreeks in uw toepassing gebruiken. Als alternatief kunt u een slide omzetten naar een bitmap en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
 
-Deze code laat zien hoe u de eerste slide van een presentatie omzet naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
+Deze code toont hoe u de eerste slide van een presentatie omzet naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
 
 ```php
 $presentation = new Presentation("Presentation.pptx");
@@ -59,7 +59,7 @@ try {
 
 U wilt mogelijk een afbeelding van een bepaalde grootte verkrijgen. Met een overload van de [getImage](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/#getImage) kunt u een slide omzetten naar een afbeelding met specifieke afmetingen (breedte en hoogte).
 
-Deze voorbeeldcode toont hoe u dit doet:
+Deze voorbeeldcode laat zien hoe u dit kunt doen:
 
 ```php
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
@@ -83,11 +83,11 @@ try {
 
 Sommige slides kunnen notities en opmerkingen bevatten.
 
-Aspose.Slides biedt twee klassen[TiffOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/tiffoptions/) en [RenderingOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/renderingoptions/)—die u in staat stellen de weergave van presentatieslides naar afbeeldingen te beheren. Beide klassen bevatten de `setSlidesLayoutOptions`‑methode, waarmee u de weergave van notities en opmerkingen op een slide kunt configureren bij het converteren naar een afbeelding.
+Aspose.Slides biedt twee klassen [TiffOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/tiffoptions/) en [RenderingOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/renderingoptions/)—die u in staat stellen de weergave van presentatieslides naar afbeeldingen te beheersen. Beide klassen bevatten de `setSlidesLayoutOptions`‑methode, waarmee u de weergave van notities en opmerkingen op een slide kunt configureren bij het omzetten naar een afbeelding.
 
-Met de [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notescommentslayoutingoptions/) klasse kunt u uw gewenste positie voor notities en opmerkingen in de resulterende afbeelding aangeven.
+Met de [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notescommentslayoutingoptions/) klasse kunt u de gewenste positie voor notities en opmerkingen in de resulterende afbeelding opgeven.
 
-Deze code laat zien hoe u een slide met notities en opmerkingen omzet:
+Deze code toont hoe u een slide met notities en opmerkingen kunt omzetten:
 
 ```php
 $scaleX = 2;
@@ -101,14 +101,14 @@ try {
     $notesCommentsOptions->setCommentsAreaWidth(500);                                 // Stel de breedte van het opmerkingengebied in.
     $notesCommentsOptions->setCommentsAreaColor(java("java.awt.Color")->LIGHT_GRAY);  // Stel de kleur van het opmerkingengebied in.
 
-    // Maak de weergave‑opties aan.
+    // Maak de renderopties aan.
     $options = new RenderingOptions();
     $options->setSlidesLayoutOptions($notesCommentsOptions);
 
     // Converteer de eerste slide van de presentatie naar een afbeelding.
     $image = $presentation->getSlides()->get_Item(0)->getImage($options, $scaleX, $scaleY);
     try {
-        // Sla de afbeelding op in GIF‑formaat.
+        // Sla de afbeelding op in GIF-formaat.
         $image->save("Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
     } finally {
         $image->dispose();
@@ -119,14 +119,16 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-In elk slide‑naar‑afbeelding‑conversieproces kan de [setNotesPosition](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) methode `BottomFull` niet toepassen (om de positie van notities op te geven) omdat de tekst van een notitie te groot kan zijn om binnen de opgegeven afbeeldingsgrootte te passen. 
+
+In elk slide‑naar‑afbeelding‑conversieproces kan de [setNotesPosition](https://reference.aspose.com/slides/nl/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) methode `BottomFull` (om de positie van notities op te geven) niet toepassen, omdat de tekst van een notitie mogelijk te groot is om binnen de opgegeven afbeeldingsgrootte te passen.
+
 {{% /alert %}} 
 
 ## **Slides omzetten naar afbeeldingen met TIFF‑opties**
 
-De [TiffOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/tiffoptions/) klasse biedt meer controle over de resulterende TIFF‑afbeelding door u parameters zoals grootte, resolutie, kleurenpalet en meer te laten specificeren.
+De [TiffOptions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/tiffoptions/) klasse biedt meer controle over de resulterende TIFF‑afbeelding door u parameters zoals grootte, resolutie, kleurenpalet en meer te laten opgeven.
 
-Deze code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit‑afbeelding met een resolutie van 300 DPI en een grootte van 2160 × 2800 te genereren:
+Deze code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding met een resolutie van 300 DPI en een grootte van 2160 × 2800 te genereren:
 
 ```php
 // Laad een presentatiebestand.
@@ -135,7 +137,7 @@ try {
     // Haal de eerste slide uit de presentatie.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Configureer de instellingen van de uitvoer-TIFF-afbeelding.
+    // Configureer de instellingen van de uitvoer‑TIFF‑afbeelding.
     $options = new TiffOptions();
     $options->setImageSize(new Java("java.awt.Dimension", 2160, 2880));  // Stel de afbeeldingsgrootte in.
     $options->setPixelFormat(ImagePixelFormat::Format1bppIndexed);       // Stel het pixelformaat in (zwart-wit).
@@ -156,14 +158,16 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Tiff‑ondersteuning wordt niet gegarandeerd in versies ouder dan JDK 9. 
+
+Tiff‑ondersteuning is niet gegarandeerd in versies ouder dan JDK 9.
+
 {{% /alert %}} 
 
 ## **Alle slides omzetten naar afbeeldingen**
 
-Aspose.Slides stelt u in staat om alle slides in een presentatie om te zetten naar afbeeldingen, waardoor de volledige presentatie wordt omgezet in een reeks afbeeldingen.
+Aspose.Slides stelt u in staat om alle slides in een presentatie om te zetten naar afbeeldingen, waardoor de volledige presentatie wordt omgezet naar een reeks afbeeldingen.
 
-Deze voorbeeldcode laat zien hoe u alle slides in een presentatie omzet naar afbeeldingen in PHP:
+Deze voorbeeldcode laat zien hoe u alle slides in een presentatie naar afbeeldingen converteert in PHP:
 
 ```php
 $scaleX = 2;
@@ -171,14 +175,14 @@ $scaleY = $scaleX;
 
 $presentation = new Presentation("Presentation.pptx");
 try {
-    // Render de presentatie naar afbeeldingen slide voor slide.
+    // Render de presentatie naar afbeeldingen dia voor dia.
     for($i = 0; $i < java_values($presentation->getSlides()->size()) ; $i++) {
-        // Beheer verborgen slides (render geen verborgen slides).
+        // Beheer verborgen dia's (render geen verborgen dia's).
         if (java_values($presentation->getSlides()->get_Item($i)->getHidden())) {
             continue;
         }
 
-        // Converteer de slide naar een afbeelding.
+        // Converteer de dia naar een afbeelding.
         $image = $presentation->getSlides()->get_Item($i)->getImage($scaleX, $scaleY);
         try {
             // Sla de afbeelding op in JPEG-formaat.
@@ -192,7 +196,13 @@ try {
 }
 ```
 
-## **Veelgestelde vragen**
+## **Kleur‑emoji weergave**
+
+{{% alert title="Note" color="warning" %}} 
+Om kleur‑emoji’s correct weer te geven bij het omzetten van presentatieslides naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji’s in zwart‑wit verschijnen in de output‑afbeeldingen.
+{{% /alert %}}
+
+## **FAQ**
 
 **Ondersteunt Aspose.Slides het renderen van slides met animaties?**
 
@@ -200,7 +210,7 @@ Nee, de `getImage`‑methode slaat alleen een statische afbeelding van de slide 
 
 **Kunnen verborgen slides worden geëxporteerd als afbeeldingen?**
 
-Ja, verborgen slides kunnen net als gewone slides worden verwerkt. Zorg er gewoon voor dat ze zijn opgenomen in de verwerkingslus.
+Ja, verborgen slides kunnen net als gewone slides worden verwerkt. Zorg er alleen voor dat ze zijn opgenomen in de verwerkingslus.
 
 **Kunnen afbeeldingen worden opgeslagen met schaduwen en effecten?**
 

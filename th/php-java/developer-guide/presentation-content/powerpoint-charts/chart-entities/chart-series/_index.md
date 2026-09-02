@@ -1,350 +1,402 @@
 ---
-title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอด้วย PHP
+title: จัดการชุดข้อมูลแผนภูมิในพรีเซนเทชันด้วย PHP
 linktitle: ชุดข้อมูล
 type: docs
 url: /th/php-java/chart-series/
 keywords:
 - ชุดข้อมูลแผนภูมิ
-- การทับซ้อนของชุดข้อมูล
-- สีชุดข้อมูล
-- สีประเภท
-- ชื่อชุดข้อมูล
+- การทับซ้อนของชุด
+- สีของชุด
+- ชื่อชุด
 - จุดข้อมูล
-- ช่องว่างของชุดข้อมูล
+- เซลล์ workbook
+- ช่องว่างของชุด
+- ค่าติดลบ
 - PowerPoint
-- งานนำเสนอ
+- พรีเซนเทชัน
 - PHP
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิใน PHP สำหรับ PowerPoint (PPT/PPTX) พร้อมตัวอย่างโค้ดที่ใช้งานได้จริงและแนวทางปฏิบัติที่ดีที่สุดเพื่อยกระดับการนำเสนอข้อมูลของคุณ."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์ workbook, การจัดรูปแบบ, การทับซ้อน, ความกว้างของช่องว่าง, และค่าติดลบในพรีเซนเทชันด้วย PHP."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายบทบาทของ [ChartSeries](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/) ใน Aspose.Slides โดยมุ่งเน้นที่วิธีการจัดโครงสร้างและการแสดงผลข้อมูลภายในงานนำเสนอ วัตถุเหล่านี้ให้ส่วนประกอบพื้นฐานที่กำหนดชุดข้อมูลจุด, ประเภท, และพารามิเตอร์การแสดงผลในแผนภูมิ โดยการทำงานกับ [ChartSeries](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/) นักพัฒนาสามารถผสานแหล่งข้อมูลพื้นฐานได้อย่างราบรื่นและควบคุมการแสดงผลข้อมูลอย่างเต็มที่ ทำให้ได้งานนำเสนอที่ขับเคลื่อนด้วยข้อมูลแบบไดนามิกซึ่งสื่อสารข้อมูลเชิงลึกและการวิเคราะห์ได้อย่างชัดเจน  
+แผนภูมิจะเก็บข้อมูลที่แสดงบนกราฟไว้ใน workbook ของข้อมูลแผนภูมิ หนึ่ง [ChartSeries](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/) แสดงชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [ChartDataPoint](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/) ในชุดนั้นอ้างอิงถึงเซลล์ workbook หนึ่งหรือหลายเซลล์ [ChartCategory](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartcategory/) ให้ป้ายกำกับหรือค่าการจัดกลุ่มที่ใช้ร่วมกันโดยชุดเหล่านั้น ชื่อชุด, ประเภท, และค่าจุดจึงเชื่อมต่อกับวัตถุ [ChartDataCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatacell/) แทนที่จะเก็บเป็นข้อความที่แสดงเท่านั้น
 
-ชุดข้อมูลคือแถวหรือคอลัมน์ของตัวเลขที่ถูกวาดลงบนแผนภูมิ  
+สำหรับแผนภูมิประเภทหมวดประเภททั่วไป workbook เริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อประเภท, และเซลล์ที่เหลือสำหรับค่าชุด ดัชนี worksheet, แถว และคอลัมน์ที่ส่งไปยัง [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/#getCell) เป็นศูนย์‑ฐาน การจัดวางนี้มีประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น แต่ไม่ควรสมมติว่าแผนภูมิที่มีอยู่ทั้งหมดใช้รูปแบบนี้ สำหรับพรีเซนเทชั่นที่โหลดมาให้ตรวจสอบเซลล์ที่ชุด, ประเภท, และจุดข้อมูลอ้างอิงก่อนที่จะเปลี่ยนค่าของ workbook
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+การตั้งค่าของแผนภูมิมีสามระดับ:
 
-## **ตั้งค่าการทับซ้อนของชุดข้อมูลแผนภูมิ**
+- การตั้งค่าระดับชุด เช่น [ChartSeries.getFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getFormat) ให้ลักษณะการแสดงผลเริ่มต้นสำหรับจุดทั้งหมดในชุดเดียว
+- การตั้งค่าจุดข้อมูล เช่น [ChartDataPoint.getFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getFormat) จะเขียนทับลักษณะของชุดสำหรับจุดหนึ่ง
+- การตั้งค่ากลุ่มใช้กับชุดที่เข้ากันได้ซึ่งอยู่ใน [ChartSeriesGroup](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseriesgroup/) เดียวกัน เข้าถึงกลุ่มผ่าน [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getParentSeriesGroup) เมื่อคุณต้องการกำหนดตัวเลือกเช่นการทับซ้อนหรือความกว้างของช่องว่าง
 
-ด้วยเมธอด [getParentSeriesGroup](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getParentSeriesGroup) คุณสามารถระบุว่าคอลัมน์และแถบควรทับซ้อนกันเท่าไหร่ในแผนภูมิ 2 มิติ (ช่วง: -100 ถึง 100) คุณสมบัตินี้ใช้กับชุดข้อมูลทั้งหมดของกลุ่มชุดข้อมูลหลัก: เป็นการสืบทอดคุณสมบัติของกลุ่มที่เหมาะสม ดังนั้นคุณสมบัตินี้เป็นแบบอ่านอย่างเดียว  
+เมื่อไม่มีการกำหนดการเติมสีจุดหรือชุดอย่างชัดเจน สไตล์และธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ เมื่อมีการฟอร์แมตทั้งชุดและจุด การฟอร์แมตจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
 
-ใช้เมธอด `ChartSeriesGroup::setOverlap` เพื่อกำหนดค่าที่คุณต้องการสำหรับ `Overlap`  
+![แผนภูมิซีรีส์ PowerPoint](chart-series-powerpoint.png)
 
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. เพิ่มแผนภูมิคอลัมน์แบบคลัสเตอร์บนสไลด์  
-1. เข้าถึงชุดข้อมูลแผนภูมิแรก  
-1. เข้าถึง `ParentSeriesGroup` ของชุดข้อมูลแผนภูมิและกำหนดค่าการทับซ้อนที่ต้องการสำหรับชุดข้อมูลนั้น  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+## **กำหนดการทับซ้อนของซีรีส์แผนภูมิ**
 
-โค้ด PHP นี้แสดงวิธีตั้งค่าการทับซ้อนสำหรับชุดข้อมูลแผนภูมิ:
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getOverlap) รายงานว่าบาร์หรือคอลัมน์ทับซ้อนกันเท่าใดในแผนภูมิ 2 มิติ ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการอ่านค่าแบบอ่าน‑อย่างจากการตั้งค่าในกลุ่มชุดแม่ ใช้ [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseriesgroup/#setOverlap) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์เป็นกลุ่ม; จะไม่ส่งผลต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิผสม
+
+ตัวอย่างต่อไปนี้กำหนดการทับซ้อนสำหรับกลุ่มที่มีชุดแรกอยู่ในนั้น:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # เพิ่มแผนภูมิ
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # ตั้งค่าการทับซ้อนของชุดข้อมูล
-      $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$overlapPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    // แผนภูมิใหม่ประกอบด้วยชุดตัวอย่าง, ประเภท, และค่า.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setOverlap($overlapPercent);
+
+    $presentation->save("series_overlap.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    # เขียนไฟล์งานนำเสนอลงดิสก์
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **เปลี่ยนสีชุดข้อมูล**
+ผลลัพธ์:
 
-Aspose.Slides for PHP via Java ให้คุณเปลี่ยนสีของชุดข้อมูลได้ดังนี้  
+![การทับซ้อนของชุด](series_overlap.png)
 
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. เพิ่มแผนภูมิบนสไลด์  
-1. เข้าถึงชุดข้อมูลที่ต้องการเปลี่ยนสี  
-1. กำหนดประเภทการเติมและสีที่ต้องการ  
-1. บันทึกงานนำเสนอที่แก้ไข  
+## **เปลี่ยนสีเติมของชุด**
 
-โค้ด PHP นี้แสดงวิธีเปลี่ยนสีของชุดข้อมูล:
+ใช้ [ChartSeries.getFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getFormat) เพื่อกำหนดสีเติมเริ่มต้นสำหรับชุดทั้งหมด หากจุดมีการเติมสีอย่างชัดเจนแล้ว การตั้งค่า [ChartDataPoint.getFormat](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getFormat) จะเขียนทับสีเติมของชุดสำหรับจุดนั้น
+
+ตัวอย่างต่อไปนี้ใส่สีเติมเป็นสีน้ำเงินทึบให้กับชุดแรก:
 
 ```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(1);
-    $point->setExplosion(30);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$blueColor = java("java.awt.Color")->BLUE;
 
-## **เปลี่ยนสีประเภทของชุดข้อมูล**
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-Aspose.Slides for PHP via Java ให้คุณเปลี่ยนสีของประเภทในชุดข้อมูลได้ดังนี้  
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. เพิ่มแผนภูมิบนสไลด์  
-1. เข้าถึงประเภทของชุดข้อมูลที่ต้องการเปลี่ยนสี  
-1. กำหนดประเภทการเติมและสีที่ต้องการ  
-1. บันทึกงานนำเสนอที่แก้ไข  
-
-โค้ดนี้แสดงวิธีเปลี่ยนสีของประเภทในชุดข้อมูล:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **เปลี่ยนชื่อชุดข้อมูล** 
-
-โดยค่าเริ่มต้น ชื่อในเลเจนด์ของแผนภูมิมาจากเนื้อหาในเซลล์เหนือแต่ละคอลัมน์หรือแถวของข้อมูล  
-
-ในตัวอย่างของเรา (รูปตัวอย่าง)  
-
-* คอลัมน์คือ *Series 1, Series 2,* และ *Series 3*;  
-* แถวคือ *Category 1, Category 2, Category 3,* และ *Category 4.*  
-
-Aspose.Slides for PHP via Java ให้คุณอัปเดตหรือเปลี่ยนชื่อชุดข้อมูลในข้อมูลแผนภูมิและเลเจนด์ได้  
-
-โค้ด PHP นี้แสดงวิธีเปลี่ยนชื่อชุดข้อมูลในข้อมูลแผนภูมิ `ChartDataWorkbook`:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-โค้ด PHP นี้แสดงวิธีเปลี่ยนชื่อชุดข้อมูลในเลเจนด์ผ่าน `Series`:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("New name");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **ตั้งค่าสีเติมอัตโนมัติสำหรับชุดข้อมูลแผนภูมิ**
-
-Aspose.Slides for PHP via Java ให้คุณตั้งค่าสีเติมอัตโนมัติสำหรับชุดข้อมูลแผนภูมิภายในพื้นที่แผนภูมิได้ดังนี้  
-
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. รับอ้างอิงสไลด์ตามดัชนีที่ต้องการ  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นตามประเภทที่คุณต้องการ (ในตัวอย่างนี้เราใช้ `ChartType::ClusteredColumn`)  
-1. เข้าถึงชุดข้อมูลแผนภูมิและตั้งค่าสีเติมเป็น Automatic  
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงวิธีตั้งค่าสีเติมอัตโนมัติสำหรับชุดข้อมูลแผนภูมิ:
-
-```php
-  $pres = new Presentation();
-  try {
-    # สร้างแผนภูมิคอลัมน์แบบคลัสเตอร์
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # ตั้งค่ารูปแบบการเติมสีของชุดข้อมูลเป็นอัตโนมัติ
-    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-      $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
-    }
-    # เขียนไฟล์งานนำเสนอลงดิสก์
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **ตั้งค่าสีเติมกลับด้านสำหรับชุดข้อมูลแผนภูมิ**
-
-Aspose.Slides ให้คุณตั้งค่าสีเติมกลับด้านสำหรับชุดข้อมูลแผนภูมิภายในพื้นที่แผนภูมิได้ดังนี้  
-
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. รับอ้างอิงสไลด์ตามดัชนีที่ต้องการ  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้นตามประเภทที่คุณต้องการ (ในตัวอย่างนี้เราใช้ `ChartType::ClusteredColumn`)  
-1. เข้าถึงชุดข้อมูลแผนภูมิและตั้งค่าสีเติมเป็น Invert  
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงการดำเนินการ:
-
-```php
-  $inverColor = java("java.awt.Color")->RED;
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    $workBook = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    # เพิ่มชุดข้อมูลและหมวดหมู่ใหม่
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
-    # ดึงชุดข้อมูลแผนภูมิแรกและเติมข้อมูลชุดข้อมูล
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 3, 1, -30));
-    $seriesColor = $series->getAutomaticSeriesColor();
-    $series->setInvertIfNegative(true);
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
-    $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($blueColor);
+
+    $presentation->save("series_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **ตั้งค่าชุดข้อมูลให้กลับด้านเมื่อค่าขณะเป็นลบ**
+ผลลัพธ์:
 
-Aspose.Slides ให้คุณกำหนดการกลับด้านผ่านคุณสมบัติ `IChartDataPoint.InvertIfNegative` และ `ChartDataPoint.InvertIfNegative` เมื่อเปิดใช้งานการกลับด้านด้วยคุณสมบัติเหล่านี้ จุดข้อมูลจะเปลี่ยนสีเมื่อได้รับค่าลบ  
+![สีของชุด](series_color.png)
 
-โค้ด PHP นี้แสดงการดำเนินการ:
+## **เปลี่ยนชื่อชุด**
+
+ชื่อชุดจะถูกเก็บใน workbook ของข้อมูลแผนภูมิและปกติจะแสดงในคำอธิบาย ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบคลัสเตอร์ เซลล์ B1 อยู่ที่แถว 0 คอลัมน์ 1 และบรรจุชื่อของชุดแรก ตัวแปรที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างดังกล่าวชัดเจน:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $chart->getChartData()->getSeries()->clear();
-    $chartSeries = $series->add($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1"), $chart->getType());
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B2", -5));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B3", 3));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B4", -2));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
-    $chartSeries->setInvertIfNegative(false);
-    $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$seriesNameRowIndex = 0;
+$firstSeriesColumnIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $seriesNameRowIndex, $firstSeriesColumnIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **ลบข้อมูลจุดเฉพาะ**
-
-Aspose.Slides for PHP via Java ให้คุณลบข้อมูล `DataPoints` ของชุดข้อมูลแผนภูมิเฉพาะได้ดังนี้  
-
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-2. รับอ้างอิงสไลด์ตามดัชนีที่ต้องการ  
-3. รับอ้างอิงแผนภูมิตามดัชนีที่ต้องการ  
-4. วนลูปผ่าน `DataPoints` ทั้งหมดของแผนภูมิและกำหนด `XValue` และ `YValue` เป็น null  
-5. ลบ `DataPoints` ทั้งหมดจากชุดข้อมูลแผนภูมิที่ระบุ  
-6. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
-
-โค้ด PHP นี้แสดงการดำเนินการ:
+คุณยังสามารถอัปเดตเซลล์ที่ถูกอ้างอิงโดย [ChartSeries.getName](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getName) วิธีนี้หลีกเลี่ยงการสมมติว่าแผนภูมิที่มีอยู่มีแถวและคอลัมน์ที่กำหนดไว้ล่วงหน้า:
 
 ```php
-  $pres = new Presentation("TestChart.pptx");
-  try {
-    $sl = $pres->getSlides()->get_Item(0);
-    $chart = $sl->getShapes()->get_Item(0);
-    foreach($chart->getChartData()->getSeries()->get_Item(0)->getDataPoints() as $dataPoint) {
-      $dataPoint->getXValue()->getAsCell()->setValue(null);
-      $dataPoint->getYValue()->getAsCell()->setValue(null);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$firstNameCellIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $seriesNameCell = $series->getName()->getAsCells()->get_Item($firstNameCellIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **ตั้งค่าความกว้างช่องว่างของชุดข้อมูล**
+ผลลัพธ์:
 
-Aspose.Slides for PHP via Java ให้คุณตั้งค่า **`GapWidth`** ของชุดข้อมูลได้ดังนี้  
+![ชื่อของชุด](series_name.png)
 
-1. สร้างอ็อบเจกต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/php-java/aspose.slides/Presentation)  
-1. เข้าถึงสไลด์แรก  
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น  
-1. เข้าถึงชุดข้อมูลใด ๆ ของแผนภูมิ  
-1. กำหนดคุณสมบัติ `GapWidth`  
-1. บันทึกงานนำเสนอที่แก้ไขเป็นไฟล์ PPTX  
+## **รับสีเติมอัตโนมัติของชุด**
 
-โค้ดนี้แสดงวิธีตั้งค่าความกว้างช่องว่างของชุดข้อมูล:
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) คืนค่าสีที่คำนวณจากดัชนีชุดและสไตล์แผนภูมิ นี่คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้กำหนดอย่างชัดเจน การเรียกเมธอดจะอ่านค่าสีที่คำนวณแล้ว; ไม่ได้กำหนดสีเติมใหม่
+
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น:
 
 ```php
-  # สร้างงานนำเสนอเปล่า
-  $pres = new Presentation();
-  try {
-    # เข้าถึงสไลด์แรกของงานนำเสนอ
-    $slide = $pres->getSlides()->get_Item(0);
-    # เพิ่มแผนภูมพร้อมข้อมูลเริ่มต้น
-    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # ตั้งค่าดัชนีของแผ่นข้อมูลแผนภูมิ
-    $defaultWorksheetIndex = 0;
-    # ดึงแผ่นงานข้อมูลแผนภูมิ
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # เพิ่มชุดข้อมูล
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # เพิ่มหมวดหมู่
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # ดึงชุดข้อมูลแผนภูมิที่สอง
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # เติมข้อมูลชุดข้อมูล
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # ตั้งค่าค่าความกว้างช่องว่าง
-    $series->getParentSeriesGroup()->setGapWidth(50);
-    # บันทึกงานนำเสนอลงดิสก์
-    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $seriesCount = java_values($chart->getChartData()->getSeries()->size());
+    for ($seriesIndex = 0; $seriesIndex < $seriesCount; $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $automaticColor = $series->getAutomaticSeriesColor();
+        $red = java_values($automaticColor->getRed());
+        $green = java_values($automaticColor->getGreen());
+        $blue = java_values($automaticColor->getBlue());
+        echo "Series " . $seriesIndex . ": java.awt.Color[r=" . $red . ",g=" . $green . ",b=" . $blue . "]" . PHP_EOL;
     }
-  }
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
+
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเริ่มต้น:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+สีที่ได้จะขึ้นอยู่กับสไตล์และธีมของแผนภูมิ
+
+## **กำหนดสีเติมกลับด้านสำหรับชุดแผนภูมิ**
+
+สำหรับชุดบาร์, คอลัมน์, และบับเบิล, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setInvertIfNegative) สามารถแสดงค่าติดลบด้วยสีเติมที่ต่างออกไป ตั้งค่าสีเติมของชุดปกติให้เป็นสีทึบ, เปิดการกลับด้าน, และกำหนดสีค่าติดลบผ่าน [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) ตัวเลขติดลบจะคงเดิมใน workbook; เพียงสีการแสดงผลที่เปลี่ยน
+
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเบื้องต้นด้วยชุดเดียว Worksheet แถว 0 มีชื่อชุด, คอลัมน์ 0 มีชื่อประเภท, และคอลัมน์ 1 มีค่า:
+
+```php
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$headerRowIndex = 0;
+$categoryColumnIndex = 0;
+$firstSeriesColumnIndex = 1;
+$firstDataRowIndex = 1;
+
+$categoryNames = ["Category 1", "Category 2", "Category 3"];
+$seriesValues = [-20, 50, -30];
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $headerRowIndex, $firstSeriesColumnIndex, "Series 1");
+    $chartType = $chart->getType();
+    $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+
+    $categoryCount = count($categoryNames);
+    for ($categoryIndex = 0; $categoryIndex < $categoryCount; $categoryIndex++) {
+        $dataRowIndex = $firstDataRowIndex + $categoryIndex;
+        $categoryName = $categoryNames[$categoryIndex];
+        $seriesValue = $seriesValues[$categoryIndex];
+
+        $categoryCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $categoryColumnIndex, $categoryName);
+        $chartData->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $firstSeriesColumnIndex, $seriesValue);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->setInvertIfNegative(true);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+
+    $presentation->save("inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+ผลลัพธ์:
+
+![สีเติมทศนิยมกลับด้าน](inverted_solid_fill_color.png)
+
+คุณสามารถเปิดการกลับด้านสำหรับจุดเดียวผ่าน [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ตัวอย่างต่อไปนี้ปิดการกลับด้านสำหรับชุดและเปิดให้เฉพาะจุดที่เลือกเท่านั้น จุดนั้นยังถูกกำหนดให้มีค่าติดลบเพื่อให้ผลลัพธ์เห็นได้ชัด:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 2;
+$negativeValue = -30;
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+    $series->setInvertIfNegative(false);
+
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue($negativeValue);
+    $dataPoint->setInvertIfNegative(true);
+
+    $presentation->save("data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **ลบค่าจุดข้อมูลเฉพาะ**
+
+เพื่อทำให้จุดหนึ่งว่างเปล่าโดยไม่ลบจุดอื่น ให้ตั้งค่าเซลล์ workbook ที่เป็นฐานของจุดนั้นเป็น `null` สำหรับแผนภูมิคอลัมน์ ค่าที่แสดงจะสามารถเข้าถึงได้ผ่าน [ChartDataPoint.getValue](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#getValue) จุดข้อมูลจะคงอยู่ที่ตำแหน่งประเภทเดิม แต่แผนภูมิจะถือว่าค่าของมันเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ
+
+ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองในชุดแรก:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue(null);
+
+    $presentation->save("clear_data_point_value.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+แผนภูมิสแคตเทอร์ใช้เซลล์ X และ Y แยกกัน, และแผนภูมิบับเบิลยังใช้เซลล์ขนาดด้วย ลบเฉพาะเซลล์ที่เป็นค่าที่คุณต้องการลบ อย่าเรียก [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointcollection/#clear) หากต้องการคงจุดอื่นไว้ เพราะเมธอดนั้นจะลบทุกจุดออกจากคอลเล็กชัน
+
+## **กำหนดความกว้างของช่องว่างระหว่างชุด**
+
+ความกว้างของช่องว่างคือระยะห่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์ เช่นเดียวกับการทับซ้อน มันเป็นของกลุ่มชุดแม่ ไม่ใช่ของชุดเดียว เรียก [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseriesgroup/#setGapWidth) ครั้งเดียวสำหรับกลุ่ม ค่าใหญ่จะสร้างช่องว่างระหว่างกลุ่มมากขึ้น, ค่าเล็กจะทำให้กลุ่มใกล้กันมากขึ้น
+
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกพรีเซนเทชั่นขั้นสุดท้ายเท่านั้น:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$gapWidthPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setGapWidth($gapWidthPercent);
+
+    $presentation->save("gap_width_30.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+ผลลัพธ์:
+
+![ความกว้างของช่องว่าง](gap_width.png)
 
 ## **คำถามที่พบบ่อย**
 
-**มีขีดจำกัดจำนวนชุดข้อมูลที่แผนภูมิเดียวสามารถบรรจุได้หรือไม่?**
+**ประเภทแผนภูมิใดบ้างที่รองรับชุดข้อมูล?**
 
-Aspose.Slides ไม่กำหนดขีดจำกัดคงที่สำหรับจำนวนชุดข้อมูลที่คุณเพิ่ม ขีดจำกัดเชิงปฏิบัติจะแปรตามความสามารถในการอ่านของแผนภูมิและหน่วยความจำที่แอปพลิเคชันของคุณมี  
+ทุกประเภทแผนภูมิที่ระบุโดย enumeration [ChartType](https://reference.aspose.com/slides/th/php-java/aspose.slides/charttype/) ใช้ข้อมูลแผนภูมิ, แต่ชุดของพวกมันไม่ได้มีโครงสร้างค่าหรือการตั้งค่าเดียวกัน ตัวอย่างเช่น แผนภูมิประเภทหมวดใช้ประเภทและค่า, แผนภูมิสแคตเทอร์ใช้ค่า X และ Y, และแผนภูมิบับเบิลเพิ่มขนาดบับเบิล ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทชุด ค่าตัวเลือกเช่นการทับซ้อนและความกว้างของช่องว่างใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้
 
-**ถ้าคอลัมน์ในคลัสเตอร์ห่างกันมากหรือใกล้กันเกินไปจะทำอย่างไร?**
+**กลุ่มชุดแผนภูมิคืออะไร?**
 
-ปรับค่า `GapWidth` สำหรับชุดข้อมูลนั้น (หรือกลุ่มชุดข้อมูลหลักของมัน) การเพิ่มค่าจะเพิ่มระยะห่างระหว่างคอลัมน์ ส่วนการลดค่าจะทำให้คอลัมน์ใกล้กันมากขึ้น  
+[ChartSeriesGroup](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseriesgroup/) ประกอบด้วยชุดที่เข้ากันได้และแชร์การตั้งค่าการพล็อตระดับกลุ่ม แผนภูมิแบบผสมอาจมีมากกว่าหนึ่งกลุ่ม ดังนั้นการเปลี่ยนกลุ่มผ่านชุดหนึ่งไม่จำเป็นต้องเปลี่ยนทุกชุดในแผนภูมิ
+
+**ชาร์ตที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
+
+ใช่. โดยค่าเริ่มต้น, [ShapeCollection.addChart](https://reference.aspose.com/slides/th/php-java/aspose.slides/shapecollection/#addChart) สร้างชุดตัวอย่าง, ประเภท, และค่า คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งคอลเลคชันชุดและประเภทก่อนเพิ่มชุดข้อมูลแบบกำหนดเองทั้งหมด overload ยังสามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้นได้
+
+**วัตถุแผนภูมิเชื่อมโยงกับเซลล์ workbook อย่างไร?**
+
+ชื่อชุด, ป้ายกำกับประเภท, และค่าจุดข้อมูลอ้างอิงเซลล์ใน [ChartDataWorkbook](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิกับกัน เมื่อคุณสร้างข้อมูลกำหนดเองให้รักษาแถวประเภทและแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุดแสดงภายใต้ประเภทที่ตั้งใจ
+
+**ฉันจะลบจุดหนึ่งแทนที่จะลบทั้งชุดอย่างไร?**
+
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อรักษาตำแหน่งประเภทของจุดไว้เป็นจุดว่าง ใช้ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapointcollection/#clear) เฉพาะเมื่อคุณต้องการลบทุกจุดจากชุดนั้น หากคุณลบทั้งประเภทด้วย ต้องอัปเดตทุกชุดเพื่อให้ค่าของพวกเขายังคงสอดคล้องกับคอลเลคชันประเภท
+
+**จุดว่างจะแสดงอย่างไร?**
+
+ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและค่าที่กำหนดผ่าน [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/th/php-java/aspose.slides/chart/#setDisplayBlanksAs) แผนภูมิที่รองรับสามารถแสดงช่องว่างเป็นช่องว่าง, เป็นค่าศูนย์, หรือโดยเชื่อมต่อจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลที่ขาดหายในพรีเซนเทชันของคุณ
+
+**ค่าติดลบถูกจัดรูปแบบอย่างไร?**
+
+สำหรับชุดบาร์, คอลัมน์, และบับเบิลที่รองรับ, เรียก [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#setInvertIfNegative) และตั้งค่าสีที่คืนจาก [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor) คุณสามารถเขียนทับพฤติกรรมสำหรับจุดเดี่ยวด้วย [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative) วิธีเหล่านี้ส่งผลต่อการฟอร์แมต, ไม่ได้เปลี่ยนค่าตัวเลขที่เก็บไว้
+
+**การฟอร์แมตใดชนะเมื่อตั้งค่าทั้งชุดและจุด?**
+
+การฟอร์แมตจุดข้อมูลอย่างชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น จุดอื่น ๆ จะยังคงใช้ฟอร์แมตชุดที่กำหนดไว้ หรือเมื่อไม่มีการกำหนดชุดจะใช้สไตล์และธีมของแผนภูมิอัตโนมัติ การตั้งค่ากลุ่มเช่นการทับซ้อนและความกว้างของช่องว่างควบคุมการจัดวางและไม่ใช่การเขียนทับระดับจุด
+
+**แผนภูมิมีขีดจำกัดจำนวนชุดหรือไม่?**
+
+Aspose.Slides ไม่ได้กำหนดขีดจำกัดจำนวนชุดแยกออกไป ในทางปฏิบัติข้อจำกัดจะขึ้นกับข้อจำกัดของไฟล์พรีเซนเทชั่น, หน่วยความจำที่มี, เวลาเรนเดอร์, และความอ่านง่ายของแผนภูมิ
+
+**ควรปรับอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
+
+เรียก [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/php-java/aspose.slides/chartseriesgroup/#setGapWidth) บนกลุ่มชุดแม่ที่เหมาะสม เพิ่มค่าที่กำหนดเพื่อทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น หรือ ลดค่าเพื่อทำให้กลุ่มใกล้กันมากขึ้น

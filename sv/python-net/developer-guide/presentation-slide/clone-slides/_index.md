@@ -162,7 +162,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klona i slutet i ett specificerat avsnitt**
+## **Klona i slutet i ett angivet avsnitt**
 
 Med Aspose.Slides för Python via .NET kan du klona en bild från ett avsnitt i en presentation och infoga den i ett annat avsnitt i samma presentation. Använd metoden `add_clone(Slide, Section)` i klassen [SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/).
 
@@ -208,7 +208,7 @@ Gör detta innan du klonar master‑ och bildobjekten.
 
 Ja. Anteckningssidan och granskningskommentarerna ingår i klonen. Om du inte vill ha dem, [ta bort dem](/slides/sv/python-net/presentation-notes/) efter infogning.
 
-**Hur hanteras diagram och deras datakällor?**
+### Hur hanteras diagram och deras datakällor?
 
 Diagramobjektet, formatering och inbäddade data kopieras. Om diagrammet var länkat till en extern källa (t.ex. en OLE‑inbäddad arbetsbok), bevaras den länken som ett [OLE‑objekt](/slides/sv/python-net/manage-ole/). Efter flytt mellan filer, verifiera datatillgänglighet och uppdateringsbeteende.
 

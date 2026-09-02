@@ -1,178 +1,156 @@
 ---
-title: ใช้หรือเปลี่ยนรูปแบบสไลด์ใน Java
-linktitle: รูปแบบสไลด์
+title: นำไปใช้หรือเปลี่ยนแปลงเลเอาต์สไลด์ใน Java
+linktitle: เลเอาต์สไลด์
 type: docs
 weight: 60
 url: /th/java/slide-layout/
 keywords:
-- รูปแบบสไลด์
-- รูปแบบเนื้อหา
-- ตัวแทน
-- การออกแบบพรีเซนเทชัน
+- เลเอาต์สไลด์
+- เลเอาต์เนื้อหา
+- ส่วนเติม
+- การออกแบบการนำเสนอ
 - การออกแบบสไลด์
-- รูปแบบที่ไม่ได้ใช้
-- การมองเห็นส่วนท้าย
+- เลเอาต์ที่ไม่ได้ใช้
+- การมองเห็นส่วนเท้า
 - สไลด์หัวเรื่อง
 - หัวเรื่องและเนื้อหา
-- ส่วนหัวเรื่อง
+- หัวเรื่องส่วน
 - สองส่วนเนื้อหา
 - การเปรียบเทียบ
-- แค่หัวเรื่อง
-- รูปแบบเปล่า
-- เนื้อหาพร้อมคำอธิบาย
-- ภาพพร้อมคำอธิบาย
+- หัวเรื่องเท่านั้น
+- เลเอาต์เปล่า
+- เนื้อหาพร้อมคำบรรยาย
+- รูปภาพพร้อมคำบรรยาย
 - หัวเรื่องและข้อความแนวตั้ง
 - หัวเรื่องแนวตั้งและข้อความ
 - PowerPoint
 - OpenDocument
-- พรีเซนเทชัน
+- การนำเสนอ
 - Java
 - Aspose.Slides
-description: "จัดการและปรับแต่งรูปแบบสไลด์ใน Aspose.Slides for Java สำรวจประเภทของรูปแบบ การควบคุมตัวแทน และการมองเห็นส่วนท้ายผ่านตัวอย่างโค้ด Java"
+description: "นำไปใช้, สร้างและแก้ไขเลเอาต์สไลด์ใน Aspose.Slides สำหรับ Java, เพิ่มส่วนเติม, ลบเลเอาต์ที่ไม่ได้ใช้, และควบคุมการมองเห็นส่วนเท้า."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-รูปแบบสไลด์กำหนดการจัดวางกล่องตัวแทนและการจัดรูปแบบสำหรับเนื้อหาบนสไลด์ โดยควบคุมว่าตัวแทนใดบ้างที่พร้อมใช้งานและปรากฏที่ใด รูปแบบสไลด์ช่วยให้คุณออกแบบการพรีเซนเทชันอย่างรวดเร็วและสอดคล้องกัน—ไม่ว่าจะสร้างสิ่งง่าย ๆ หรือตัวที่ซับซ้อน บางรูปแบบสไลด์ที่พบบ่อยใน PowerPoint มีดังนี้:
+เลเอาต์ของสไลด์กำหนดตำแหน่งและการจัดรูปแบบของส่วนเติม (placeholder) เช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิ, และตาราง การใช้เลเอาต์ทำให้สไลด์มีโครงสร้างสอดคล้องกันขณะยังให้สไลด์แต่ละอันสามารถมีเนื้อหาของตนเองได้
 
-**Title Slide layout** – มีตัวแทนข้อความสองกล่อง: หนึ่งสำหรับหัวเรื่องและอีกหนึ่งสำหรับหัวเรื่องย่อย
+เลเอาต์ที่พบบ่อยที่สุดได้แก่:
 
-**Title and Content layout** – มีตัวแทนหัวเรื่องขนาดเล็กด้านบนและตัวแทนเนื้อหาหลักที่ใหญ่กว่าอยู่ด้านล่าง (เช่น ข้อความ, จุดรายการ, แผนภูมิ, รูปภาพ ฯลฯ)
+- **สไลด์หัวเรื่อง**: มีส่วนเติมชื่อเรื่องและหัวข้อย่อย
+- **หัวเรื่องและเนื้อหา**: มีส่วนเติมชื่อเรื่องและส่วนเติมเนื้อหาทั่วไป
+- **เปล่า**: ไม่มีส่วนเติมใด ๆ เหมาะเมื่อทุกรูปร่างจะถูกจัดตำแหน่งด้วยตนเอง
 
-**Blank layout** – ไม่มีตัวแทนใด ๆ ทำให้คุณมีอิสระเต็มที่ในการออกแบบสไลด์ตั้งแต่ต้น
+## **ทำความเข้าใจการสืบทอดเลเอาต์**
 
-รูปแบบสไลด์เป็นส่วนหนึ่งของหน้าผู้นำสไลด์ (slide master) ซึ่งเป็นสไลด์ระดับบนสุดที่กำหนดสไตล์การจัดวางสำหรับการพรีเซนเทชัน คุณสามารถเข้าถึงและแก้ไขสไลด์รูปแบบผ่านหน้าผู้นำสไลด์—โดยอ้างอิงตามประเภท, ชื่อ หรือ ID ที่ไม่ซ้ำ เรือ, คุณสามารถแก้ไขสไลด์รูปแบบเฉพาะโดยตรงภายในพรีเซนเทชันได้
+การนำเสนอมีระดับที่เกี่ยวข้องกันสามระดับ:
 
-เพื่อทำงานกับรูปแบบสไลด์ใน Aspose.Slides for Java, คุณสามารถใช้:
+1. A [master slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslide/) กำหนดธีม, การจัดรูปแบบที่ใช้ร่วมกัน, พื้นหลัง, และวัตถุทั่วไป
+2. A [layout slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/) เป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดเรียงส่วนเติมเฉพาะ
+3. A [normal slide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/) ใช้เลเอาต์หนึ่งและเก็บเนื้อหาที่ป้อนเข้าสำหรับสไลด์นั้น
 
-- วิธีการเช่น [getLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getLayoutSlides--) และ [getMasters](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getMasters--) ภายใต้คลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
-- ประเภทเช่น [ILayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/), และ [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslideheaderfootermanager/)
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเลเอาต์ของมัน, และเลเอาต์สืบทอดจากมาสเตอร์ ค่าที่ตั้งโดยตรงบนสไลด์ปกติจะทับค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ปกติ รูปร่างส่วนเติมจะถูกสร้างจากเลเอาต์ที่เลือก, ขณะที่เนื้อหาที่ป้อนในส่วนเติมนั้นเป็นของสไลด์ปกติ
 
-{{% alert title="Info" color="info" %}}
-เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับการทำงานกับหน้าผู้นำสไลด์, ดูบทความ [Slide Master](/slides/th/java/slide-master/) ได้เลย
-{{% /alert %}}
+เพิ่มส่วนเติมที่จำเป็นให้กับเลเอาต์ก่อนสร้างสไลด์จากมัน การเพิ่มส่วนเติมใหม่ในภายหลังจะไม่ทำให้รูปร่างส่วนเติมที่สอดคล้องกันถูกเพิ่มอัตโนมัติให้กับสไลด์ปกติที่มีอยู่แล้ว
 
-## **เพิ่มรูปแบบสไลด์ลงในการพรีเซนเทชัน**
+ความสัมพันธ์นี้มีผลลัพธ์สำคัญสองประการ:
 
-หากต้องการปรับแต่งรูปลักษณ์และโครงสร้างของสไลด์, คุณอาจต้องเพิ่มสไลด์รูปแบบใหม่ลงในพรีเซนเทชัน Aspose.Slides for Java จะช่วยให้คุณตรวจสอบว่ารูปแบบที่ต้องการมีอยู่แล้วหรือไม่, เพิ่มใหม่หากจำเป็น, และใช้เพื่อแทรกสไลด์ที่อิงตามรูปแบบนั้น
+- การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือเรขาคณิตของส่วนเติมที่มีอยู่บนเลเอาต์สามารถอัปเดตสไลด์ทุกอันที่พึ่งพามัน ก่อนแก้ไขเลเอาต์ที่ใช้งานอยู่แล้ว ให้ตรวจสอบสไลด์ที่พึ่งพาและทบทวนผลลัพธ์ของการนำเสนอ
+- เลเอาต์ที่ยังถูกสไลด์ใดสไลด์หนึ่งใช้ไม่สามารถลบได้ ต้องกำหนดสไลด์ที่พึ่งพาให้ใช้เลเอาต์อื่นก่อน, หรือเพียงลบเลเอาต์ที่ไม่ได้ใช้เท่านั้น
 
-1. สร้างออบเจ็กต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
-1. เข้าถึง [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterlayoutslidecollection/)
-1. ตรวจสอบว่ารูปแบบสไลด์ที่ต้องการมีอยู่ในคอลเลกชันหรือไม่ ถ้าไม่มีให้เพิ่มรูปแบบสไลด์ที่ต้องการ
-1. เพิ่มสไลด์ว่างที่อิงตามรูปแบบสไลด์ใหม่
-1. บันทึกพรีเซนเทชัน
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของลำดับชั้นนี้, ดูที่ [Slide Master](/slides/th/java/slide-master/)
 
-โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มรูปแบบสไลด์ลงในพรีเซนเทชัน PowerPoint:
+## **เลือกและใช้เลเอาต์สไลด์**
+
+ใช้ประเภทเลเอาต์เมื่อการนำเสนอปฏิบัติตามคำนิยามเลเอาต์มาตรฐานของ PowerPoint ชื่อเลเอาต์สามารถแก้ไขได้โดยผู้ใช้และสามารถแปลเป็นภาษาต่าง ๆ ได้ ดังนั้นการเลือกตามชื่อจึงน้อยความน่าเชื่อถือ หากคุณไม่ได้ควบคุมเทมเพลตต้นฉบับ
+
+ตัวอย่างต่อไปนี้ค้นหา **หัวเรื่องและเนื้อหา** บนมาสเตอร์แรก หากเลเอาต์นั้นไม่มีอยู่ จะพยายามใช้ **เปล่า** แทน การตรวจสอบค่า null ครั้งที่สองจำเป็นเพราะการนำเสนออาจมีเพียงเลเอาต์แบบกำหนดเองเท่านั้น เลเอาต์ที่เลือกจากนั้นจะถูกนำไปใช้กับสไลด์ปกติเพื่อแรกผ่านเมธอด [ISlide.setLayoutSlide](https://reference.aspose.com/slides/th/java/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)  
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นไฟล์ PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // ดำเนินการตรวจสอบประเภทสไลด์เลย์เอาต์เพื่อเลือกสไลด์เลย์เอาต์.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // สถานการณ์ที่พรีเซนเทชันไม่ได้มีประเภทเลย์เอาต์ทั้งหมด.
-        // ไฟล์พรีเซนเทชันมีเพียงประเภทเลย์เอตต์ Blank และ Custom เท่านั้น.
-        // อย่างไรก็ตาม สไลด์เลย์เอาต์ที่มีประเภทแบบกำหนดเองอาจมีชื่อที่จำง่าย,
-        // เช่น "Title", "Title and Content", เป็นต้น ซึ่งสามารถใช้ในการเลือกสไลด์เลย์เอาต์ได้.
-        // คุณยังสามารถอาศัยชุดของประเภทรูปทรงตัวแทนได้.
-        // ตัวอย่างเช่น สไลด์ Title ควรมีเพียงประเภทตัวแทน Title เท่านั้น เป็นต้น.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // เพิ่มสไลด์เปล่าโดยใช้สไลด์เลย์เอาต์ที่เพิ่มเข้ามา.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // บันทึกพรีเซนเทชันลงดิสก์.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ลบสไลด์เลย์เอาต์ที่ไม่ได้ใช้**
+การเปลี่ยนเลเอาต์ของสไลด์ไม่ได้ลบรูปร่างปกติที่เพิ่มโดยตรงลงบนสไลด์ อย่างไรก็ตามตำแหน่งส่วนเติม, การจัดรูปแบบที่สืบทอด, และความสอดคล้องระหว่างส่วนเติมที่มีอยู่กับเลเอาต์ใหม่อาจเปลี่ยนแปลงได้ ดังนั้นควรตรวจสอบผลลัพธ์เมื่อตัดสลับระหว่างเลเอาต์ที่แตกต่างอย่างมาก
 
-Aspose.Slides มีเมธอด [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) จากคลาส [Compress](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/) เพื่อให้คุณลบสไลด์เลย์เอาต์ที่ไม่ต้องการและไม่ได้ใช้ได้
+## **เพิ่มสไลด์เลเอาต์**
 
-โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีลบสไลด์เลย์เอาต์จากพรีเซนเทชัน PowerPoint:
+การเลือกและการสร้างเป็นการกระทำที่แยกจากกัน ตัวอย่างก่อนหน้าเลือกเลเอาต์ที่มีอยู่; ไม่ได้สร้างเลเอาต์ใหม่ เพื่อสร้างเลเอาต์ให้เรียกเมธอด [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) บนคอลเลกชันเลเอาต์ของมาสเตอร์เป้าหมาย
+
+ตัวอย่างต่อไปนี้จะเพิ่มเลเอาต์ **หัวเรื่องและเนื้อหา** ใหม่ชื่อ `Report Title and Content` เสมอ, แล้วเพิ่มสไลด์ปกติตามนั้น ชื่อเลเอาต์ต้องไม่ซ้ำกันภายในคอลเลกชัน  
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **เพิ่มตัวแทนลงในรูปแบบสไลด์**
+เพิ่มเลเอาต์เฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้จริง หากมีเลเอาต์ที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างสำเนา
 
-Aspose.Slides มีเมธอด [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) ที่ช่วยให้คุณเพิ่มตัวแทนใหม่ลงในสไลด์รูปแบบ
+## **เพิ่มส่วนเติมให้กับสไลด์เลเอาต์**
 
-ผู้จัดการนี้มีเมธอดสำหรับประเภทตัวแทนต่อไปนี้:
+เมธอด [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) ให้บริการ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/) สำหรับเพิ่มรูปร่างส่วนเติมลงบนเลเอาต์
 
-| PowerPoint Placeholder | Method |
-| ----------------------- | -------------------------------------------- |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder | `ILayoutPlaceholderManager` เมธอด |
+| ---------------------- | ----------------------------------- |
+| ![เนื้อหา](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![เนื้อหา (แนวตั้ง)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![ข้อความ](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![ข้อความ (แนวตั้ง)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![รูปภาพ](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![แผนภูมิ](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![ตาราง](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![สื่อ](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![รูปภาพออนไลน์](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีเพิ่มรูปทรงตัวแทนใหม่ลงในสไลด์รูปแบบ Blank:
+ตัวอย่างต่อไปนี้ตรวจสอบว่าเลเอาต์ **เปล่า** มีอยู่, เพิ่มส่วนเติมสี่ส่วนเติมให้กับมัน, แล้วสร้างสไลด์ปกติที่ใช้เลเอาต์ที่ปรับเปลี่ยนแล้ว ลำดับนี้ตั้งใจไว้: ส่วนเติมจะถูกเพิ่มก่อนสร้างสไลด์ปกติ เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างส่วนเติมที่สอดคล้องบนสไลด์นั้นได้  
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // ดึงสไลด์เลย์เอาต์ Blank.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // ดึงตัวจัดการตัวแทนของสไลด์เลย์เอต.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // เพิ่มตัวแทนหลายประเภทลงในสไลด์เลย์เอาต์ Blank.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // เพิ่มสไลด์ใหม่ด้วยเลย์เอาต์ Blank.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -180,73 +158,81 @@ try {
 
 ผลลัพธ์:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![ส่วนเติมบนสไลด์เลเอาต์](add_placeholders.png)
 
-## **ตั้งค่าการมองเห็นส่วนท้ายสำหรับสไลด์เลย์เอาต์**
+{{% alert color="warning" title="Warning" %}}
+การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือเรขาคณิตของส่วนเติมเลเอาต์ที่มีอยู่สามารถส่งผลต่อสไลด์ที่พึ่งพาได้ ส่วนเติมเลเอาต์ที่เพิ่มใหม่จะไม่ถูกเติมกลับเข้าสู่สไลด์ปกติที่มีอยู่แล้ว ให้ทดสอบการเปลี่ยนแปลงเลเอาต์บนสำเนาของการนำเสนอและตรวจสอบสไลด์ที่พึ่งพาทุกอัน
+{{% /alert %}}
 
-ในพรีเซนเทชัน PowerPoint, ส่วนท้ายเช่น วันที่, หมายเลขสไลด์, และข้อความกำหนดเองสามารถแสดงหรือซ่อนได้ตามรูปแบบสไลด์ Aspose.Slides for Java ให้คุณควบคุมการมองเห็นของตัวแทนส่วนท้ายเหล่านี้ ซึ่งมีประโยชน์เมื่อคุณต้องการให้บางรูปแบบแสดงข้อมูลส่วนท้ายขณะที่รูปแบบอื่นคงความเรียบง่าย
+## **ลบสไลด์เลเอาต์ที่ไม่ได้ใช้**
 
-1. สร้างออบเจ็กต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
-1. ดึงอ้างอิงสไลด์รูปแบบด้วยดัชนีของมัน
-1. ตั้งค่าตัวแทนส่วนท้ายของสไลด์ให้เป็นแบบมองเห็น
-1. ตั้งค่าตัวแทนหมายเลขสไลด์ให้เป็นแบบมองเห็น
-1. ตั้งค่าตัวแทนวัน‑เวลาให้เป็นแบบมองเห็น
-1. บันทึกพรีเซนเทชัน
-
-โค้ด Java ตัวอย่างต่อไปนี้แสดงวิธีตั้งค่าการมองเห็นของส่วนท้ายสไลด์และทำงานที่เกี่ยวข้อง:
+ใช้เมธอด [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) เพื่อลบเลเอาต์ที่ไม่มีสไลด์ปกติอ้างอิง เมธอดจะคงเลเอาต์ที่ยังถูกใช้ไว้  
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **ตั้งค่าการมองเห็นส่วนท้ายของสไลด์ลูก**
+เพื่อเอาเลเอาต์เฉพาะออก, ก่อนอื่นให้ใช้เมธอด [hasDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#hasDependingSlides--) หรือ [getDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) ของมัน ทำการกำหนดสไลด์ที่พึ่งพาใหม่ก่อนเรียก [ILayoutSlide.remove](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#remove--). การพยายามลบเลเอาต์ที่กำลังถูกใช้จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/)  
 
-ในพรีเซนเทชัน PowerPoint, ส่วนท้ายเช่น วันที่, หมายเลขสไลด์, และข้อความกำหนดเองสามารถควบคุมได้ระดับหน้าผู้นำสไลด์เพื่อให้สอดคล้องทั่วทั้งสไลด์รูปแบบ Aspose.Slides for Java ช่วยให้คุณตั้งค่าการมองเห็นและเนื้อหาของตัวแทนส่วนท้ายเหล่านี้บนหน้าผู้นำสไลด์และกระจายการตั้งค่าเหล่านั้นไปยังสไลด์รูปแบบลูกทั้งหมด วิธีนี้ทำให้ข้อมูลส่วนท้ายเหมือนกันทั่วพรีเซนเทชันของคุณ
+## **ควบคุมการมองเห็นส่วนเท้า (Footer) บนสไลด์เลเอาต์**
 
-1. สร้างออบเจ็กต์จากคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)
-1. ดึงอ้างอิงหน้าผู้นำสไลด์ด้วยดัชนีของมัน
-1. ตั้งค่าตัวแทนส่วนท้ายของหน้าผู้นำและสไลด์ลูกทั้งหมดให้เป็นแบบมองเห็น
-1. ตั้งค่าตัวแทนหมายเลขสไลด์ของหน้าผู้นำและสไลด์ลูกทั้งหมดให้เป็นแบบมองเห็น
-1. ตั้งค่าตัวแทนวัน‑เวลาของหน้าผู้นำและสไลด์ลูกทั้งหมดให้เป็นแบบมองเห็น
-1. บันทึกพรีเซนเทชัน
+เลเอาต์มีส่วนเท้า, ตัวเลขสไลด์, และส่วนเติมวันที่/เวลาเป็นของมันเอง ใช้เมธอด [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) เพื่อควบคุมส่วนเติมเหล่านั้นสำหรับเลเอาต์เดียว นี่เป็นประโยชน์เมื่อเช่น เลเอาต์เนื้อหาต้องแสดงส่วนเท้าแต่เลเอาต์หัวเรื่องไม่ต้องการ  
 
-โค้ด Java ตัวอย่างต่อไปนี้แสดงการดำเนินการนี้:
+ตัวอย่างต่อไปนี้เลือกเลเอาต์อย่างปลอดภัยและทำให้ส่วนเท้าของมันมองเห็นได้:  
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    }
+
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
+    }
+
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ควบคุมการมองเห็นส่วนเท้า (Footer) บนมาสเตอร์และเลเอาต์ลูกของมัน**
+
+เพื่อกำหนดค่าเท้าให้สอดคล้องทั่วทั้งลำดับชั้นมาสเตอร์, ใช้เมธอด [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslide/#getHeaderFooterManager--) วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/java/com.aspose.slides/imasterslideheaderfootermanager/) ทำงานบนมาสเตอร์และสไลด์เลเอาต์และสไลด์ปกติที่พึ่งพา; ไม่ได้มุ่งเป้าแค่สไลด์ปกติเดียว  
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -254,14 +240,18 @@ try {
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่างหน้าผู้นำสไลด์และสไลด์เลย์เอาต์คืออะไร?**
+**ความแตกต่างระหว่างมาสเตอร์สไลด์และสไลด์เลเอาต์คืออะไร?**
 
-หน้าผู้นำสไลด์กำหนดธีมโดยรวมและการจัดรูปแบบเริ่มต้น, ส่วนสไลด์เลย์เอาต์กำหนดการจัดวางตัวแทนเฉพาะสำหรับประเภทเนื้อหาต่าง ๆ
+มาสเตอร์สไลด์กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของการนำเสนอ สไลด์เลเอาต์เป็นส่วนหนึ่งของมาสเตอร์และกำหนดการจัดเรียงส่วนเติมที่ใช้ซ้ำได้ สไลด์ปกติใช้เลเอาต์เหล่านั้นและเก็บเนื้อหาที่เฉพาะกับสไลด์แต่ละอัน
 
-**ฉันสามารถคัดลอกสไลด์เลย์เอาต์จากพรีเซนเทชันหนึ่งไปยังอีกพรีเซนเทชันได้หรือไม่?**
+**ฉันสามารถคัดลอกสไลด์เลเอาต์จากการนำเสนอหนึ่งไปยังอีกการนำเสนอหนึ่งได้หรือไม่?**
 
-ได้, คุณสามารถโคลนสไลด์เลย์เอาต์จากคอลเลกชันสไลด์เลย์เออตของพรีเซนเทชันหนึ่ง (เข้าถึงได้ผ่านเมธอด [getLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/#getLayoutSlides--)) แล้วแทรกลงในพรีเซนเทชันอื่นโดยใช้เมธอด `addClone`
+ทำได้ เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [addClone](https://reference.aspose.com/slides/th/java/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). เมื่อตัวคัดลอกระหว่างการนำเสนอ ควรตรวจสอบแบบอักษร, ธีม, รูปภาพ, และทรัพยากรอื่น ๆ ที่เลเอาต์ต้นทางใช้
 
-**เกิดอะไรขึ้นหากฉันลบสไลด์เลย์เอาต์ที่ยังถูกสไลด์อื่นใช้อยู่?**
+**เกิดอะไรขึ้นเมื่อฉันแก้ไขเลเอาต์ที่กำลังใช้อยู่?**
 
-หากคุณพยายามลบสไลด์เลย์เอาต์ที่ยังมีสไลด์อย่างน้อยหนึ่งสไลด์อ้างอิงถึง, Aspose.Slides จะโยนข้อยกเว้น [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/). เพื่อหลีกเลี่ยงสถานการณ์นี้, ใช้เมธอด [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) ซึ่งจะลบสไลด์เลย์เอาต์ที่ไม่ได้ใช้อย่างปลอดภัย
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงของเลเอาต์ เว้นแต่จะมีการทับการจัดรูปแบบหรือวัตถุที่ส่งผลโดยเฉพาะในระดับสไลด์ การเปลี่ยนแปลงเรขาคณิตและสไตล์ที่สืบทอดของส่วนเติมอาจทำให้หลายสไลด์เปลี่ยนแปลงพร้อมกัน ใช้เมธอด [getDependingSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/ilayoutslide/#getDependingSlides--) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเลเอาต์
+
+**จะเกิดอะไรขึ้นหากฉันลบเลเอาต์ที่ยังถูกใช้?**
+
+Aspose.Slides จะโยน [PptxEditException](https://reference.aspose.com/slides/th/java/com.aspose.slides/pptxeditexception/). ให้กำหนดสไลด์ที่พึ่งพาใหม่ก่อน, หรือใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/java/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) เพื่อลบเฉพาะเลเอาต์ที่ไม่มีการอ้างอิง.

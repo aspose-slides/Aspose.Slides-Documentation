@@ -1,6 +1,6 @@
 ---
-title: Formanimationen in Präsentationen auf Android anwenden
-linktitle: Formanimation
+title: Shape‑Animationen in Präsentationen auf Android anwenden
+linktitle: Shape‑Animation
 type: docs
 weight: 60
 url: /de/androidjava/shape-animation/
@@ -16,485 +16,472 @@ keywords:
 - Effekt hinzufügen
 - Effekt abrufen
 - Effekt extrahieren
-- Sound des Effekts
+- Effektton
 - Animation anwenden
 - PowerPoint
 - Präsentation
 - Android
 - Java
 - Aspose.Slides
-description: "Entdecken Sie, wie Sie Formanimationen in PowerPoint-Präsentationen mit Aspose.Slides für Android via Java erstellen und anpassen. Heben Sie sich ab!"
+description: "Erfahren Sie, wie Sie Shape‑Animationen, Zeitsteuerung, Sounds, Nach‑Animation‑Verhalten und animierten Text mit Aspose.Slides für Android via Java hinzufügen, inspizieren und anpassen."
 ---
+## **Übersicht**
 
-Animationen sind visuelle Effekte, die auf Texte, Bilder, Formen oder [Diagramme](https://docs.aspose.com/slides/androidjava/animated-charts/) angewendet werden können. Sie verleihen Präsentationen oder deren Bestandteilen Leben.
+Aspose.Slides for Android via Java stellt Folienanimationen als Effekte in einer Folientimeline dar. Ein Effekt verfügt über eine Zielform, einen Animationstyp und -untertyp, einen Auslöser, Zeiteinstellungen sowie optionale Eigenschaften wie Sound oder ein Verhalten nach der Animation.
 
-## **Warum Animationen in Präsentationen verwenden?**
+Die Timeline enthält zwei Arten von Sequenzen:
 
-* den Informationsfluss steuern
-* wichtige Punkte hervorheben
-* das Interesse oder die Teilnahme Ihres Publikums steigern
-* Inhalte leichter lesbar, verdaulich oder verarbeitbar machen
-* die Aufmerksamkeit Ihrer Leser oder Zuschauer auf wichtige Teile einer Präsentation lenken
+- Die **Hauptsequenz** wird abgespielt, wenn die Folie voranschreitet.
+- Eine **interaktive Sequenz** startet, wenn die zugehörige Auslöserform angeklickt wird.
 
-PowerPoint bietet zahlreiche Optionen und Werkzeuge für Animationen und Animationseffekte in den Kategorien **Eingang**, **Ausgang**, **Betonung** und **Bewegungspfade**. 
+Da Textfelder, Bilder, Diagramme, Tabellen und andere Folienobjekte [IShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/) implementieren, verwenden Sie für die meisten Folieninhalte dieselbe Methode [ISequence.addEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-). Die verfügbaren Effekte sind in der Klasse [EffectType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/effecttype/) aufgelistet.
 
-## **Animationen in Aspose.Slides**
+## **Formanimationen hinzufügen**
 
-* Aspose.Slides stellt die Klassen und Typen bereit, die Sie benötigen, um mit Animationen im Namespace `Aspose.Slides.Animation` zu arbeiten,
-* Aspose.Slides bietet über **150 Animationseffekte** im Aufzählungstyp [EffectType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effecttype). Diese Effekte sind im Wesentlichen dieselben (oder gleichwertige) Effekte, die in PowerPoint verwendet werden.
+Um eine Animation hinzuzufügen, holen Sie die Hauptsequenz der Folie und rufen Sie [ISequence.addEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) mit der Zielform, dem Effekttyp, Untertyp und Auslöser auf. Für einen Effekt, der startet, wenn eine andere Form angeklickt wird, erstellen Sie eine interaktive Sequenz, deren Auslöser diese andere Form ist.
 
-## **Animation auf eine TextBox anwenden**
-
-Aspose.Slides für Android über Java ermöglicht es, einer Form den Text zu animieren.
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.  
-2. Holen Sie eine Folienreferenz über deren Index.  
-3. Fügen Sie ein `rectangle` [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) hinzu.  
-4. Fügen Sie Text zu [IAutoShape.TextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) hinzu.  
-5. Holen Sie die Hauptsequenz der Effekte.  
-6. Fügen Sie einen Animationseffekt zu [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) hinzu.  
-7. Setzen Sie die Eigenschaft `TextAnimation.BuildType` auf den Wert aus der Enumeration `BuildType`.  
-8. Speichern Sie die Präsentation als PPTX‑Datei auf dem Datenträger.
-
-Dieser Java‑Code zeigt, wie der `Fade`‑Effekt auf ein AutoShape angewendet und die Textanimation auf den Wert *By 1st Level Paragraphs* gesetzt wird:
-```java
-// Instanziiert eine Presentation-Klasse, die eine Präsentationsdatei darstellt.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Fügt ein neues AutoShape mit Text hinzu
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
-
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-
-    // Holt die Hauptsequenz der Folie.
-    ISequence sequence = sld.getTimeline().getMainSequence();
-
-    // Fügt dem Shape den Fade-Animationseffekt hinzu
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // Animiert den Text des Shapes nach 1. Ebenenabsätzen
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
-
-    // Speichert die PPTX-Datei auf dem Datenträger
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{%  alert color="primary"  %}} 
-
-Zusätzlich zum Anwenden von Animationen auf Text können Sie auch Animationen auf einen einzelnen [Paragraph](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iparagraph) anwenden. Siehe **Animierter Text**(/slides/de/androidjava/animated-text/).
-
-{{% /alert %}} 
-
-## **Animation auf ein PictureFrame anwenden**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.  
-2. Holen Sie die Referenz einer Folie anhand ihres Index.  
-3. Fügen Sie ein [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe) hinzu oder holen Sie ein solches auf der Folie.  
-4. Holen Sie die Hauptsequenz der Effekte.  
-5. Fügen Sie einen Animationseffekt zu [PictureFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pictureframe) hinzu.  
-6. Speichern Sie die Präsentation als PPTX‑Datei auf dem Datenträger.
-
-Dieser Java‑Code zeigt, wie der `Fly`‑Effekt auf einen Bildrahmen angewendet wird:
-```java
-// Instanziert eine Presentation-Klasse, die eine Präsentationsdatei darstellt.
-Presentation pres = new Presentation();
-try {
-    // Bild laden, das der Bildsammlung der Präsentation hinzugefügt werden soll
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // Fügt dem Folie ein Bildrahmen hinzu
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // Holt die Hauptsequenz der Folie.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // Fügt dem Bildrahmen den Fly-from-Left-Animationseffekt hinzu
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Speichert die PPTX-Datei auf dem Datenträger
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Animation auf eine Shape anwenden**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation)‑Klasse.  
-2. Holen Sie eine Folienreferenz über deren Index.  
-3. Fügen Sie ein `rectangle` [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape) hinzu.  
-4. Fügen Sie ein `Bevel`‑[IAutoShape] hinzu (wenn dieses Objekt angeklickt wird, wird die Animation abgespielt).  
-5. Erstellen Sie eine Sequenz von Effekten auf der Bevel‑Form.  
-6. Erstellen Sie einen benutzerdefinierten `UserPath`.  
-7. Fügen Sie Befehle zum Bewegen zum `UserPath` hinzu.  
-8. Speichern Sie die Präsentation als PPTX‑Datei auf dem Datenträger.
-
-Dieser Java‑Code zeigt, wie der `PathFootball`‑Effekt (Pfad‑Fußball) auf eine Form angewendet wird:
-```java
-// Instanziiert eine Presentation-Klasse, die eine PPTX-Datei darstellt.
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // Erstellt den PathFootball-Effekt für die vorhandene Form von Grund auf.
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // Fügt den PathFootBall-Animationseffekt hinzu
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Erstellt eine Art "Button".
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Erstellt eine Sequenz von Effekten für diesen Button.
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // Erstellt einen benutzerdefinierten Pfad. Unser Objekt wird erst nach dem Klick auf den Button bewegt.
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // Fügt Befehle zum Bewegen hinzu, da der erstellte Pfad leer ist.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // Schreibt die PPTX-Datei auf dem Datenträger
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Die auf eine Shape angewendeten Animationseffekte abrufen**
-
-Die folgenden Beispiele zeigen, wie die Methode `getEffectsByShape` aus dem [ISequence](https://reference.aspose.com/slides/androidjava/com.aspose.slides/isequence/)‑Interface verwendet wird, um alle auf eine Form angewendeten Animationseffekte zu erhalten.
-
-**Beispiel 1: Animationseffekte abrufen, die auf eine Form auf einer normalen Folie angewendet wurden**
-
-Zuvor haben Sie gelernt, wie man Animationseffekte zu Formen in PowerPoint‑Präsentationen hinzufügt. Der folgende Beispielcode zeigt, wie man die auf die erste Form der ersten normalen Folie in der Präsentation `AnimExample_out.pptx` angewendeten Effekte abruft.
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // Holt die Hauptanimationssequenz der Folie.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Holt die erste Form auf der ersten Folie.
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // Holt die auf die Form angewendeten Animationseffekte.
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-**Beispiel 2: Alle Animationseffekte abrufen, einschließlich der von Platzhaltern geerbten**
-
-Wenn eine Form auf einer normalen Folie Platzhalter hat, die sich auf der Layout‑Folie und/oder der Master‑Folie befinden, und diesen Platzhaltern Animationseffekte hinzugefügt wurden, dann werden alle Effekte der Form während der Bildschirmanzeige abgespielt, einschließlich der von den Platzhaltern geerbten.
-
-Angenommen, wir haben eine PowerPoint‑Präsentationsdatei `sample.pptx` mit einer Folie, die nur eine Fußzeilenform mit dem Text „Made with Aspose.Slides“ enthält und auf die der **Random Bars**‑Effekt angewendet wurde.
-
-![Folienform-Animationseffekt](slide-shape-animation.png)
-
-Wir nehmen außerdem an, dass der **Split**‑Effekt auf den Fußzeilen‑Platzhalter der **Layout**‑Folie angewendet wurde.
-
-![Layout-Form-Animationseffekt](layout-shape-animation.png)
-
-Und schließlich wurde der **Fly In**‑Effekt auf den Fußzeilen‑Platzhalter der **Master**‑Folie angewendet.
-
-![Master-Form-Animationseffekt](master-shape-animation.png)
-
-Der folgende Beispielcode zeigt, wie die Methode `getBasePlaceholder` aus dem [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/)‑Interface verwendet wird, um auf die Form‑Platzhalter zuzugreifen und die auf die Fußzeilenform angewendeten Animationseffekte zu erhalten, einschließlich der von Platzhaltern auf Layout‑ und Master‑Folien geerbten.
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// Holt die Animations-Effekte der Form auf der normalen Folie.
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Holt die Animations-Effekte des Platzhalters auf der Layout-Folie.
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Holt die Animations-Effekte des Platzhalters auf der Master-Folie.
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
+Das folgende Beispiel erstellt beide Animationsarten und speichert das Ergebnis in `shape-animations.pptx`.
 
 ```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+import com.aspose.slides.*;
 
-        System.out.println(typeName + " " + subtypeName);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
+
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
+
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
+
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
+Der Auslöser steuert, wann ein Effekt startet:
 
-Ausgabe:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/effecttriggertype/#OnClick) wartet auf einen Klick in der Hauptsequenz oder auf einen Klick auf die Auslöserform in einer interaktiven Sequenz.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/effecttriggertype/#WithPrevious) startet zusammen mit dem vorherigen Effekt.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/effecttriggertype/#AfterPrevious) startet, wenn der vorherige Effekt beendet ist.
 
+Um ein Bild, Diagramm oder einen anderen Formtyp zu animieren, übergeben Sie dieses Objekt an [ISequence.addEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) anstelle von `targetShape`. Für diagrammspezifische Gruppierungsoptionen siehe [Animierte Diagramme](/slides/de/androidjava/animated-charts/).
 
-## **Animationseffekt‑Timing‑Eigenschaften ändern**
+## **Formanimationen lesen**
 
-Aspose.Slides für Android über Java ermöglicht es, die Timing‑Eigenschaften eines Animationseffekts zu ändern.
+Verwenden Sie [ISequence.getEffectsByShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-), wenn Sie die Zielform kennen. Um jeden Effekt zu untersuchen, enumerieren Sie die Hauptsequenz und jede interaktive Sequenz. Durch das Enumerieren wird vermieden, anzunehmen, dass eine Sequenz einen Effekt am Index `0` enthält.
 
-![Beispiel1_Bild](shape-animation.png)
+Das folgende Beispiel erstellt eine Form mit Hauptsequenz‑ und interaktiven Effekten, ermittelt die Effekte, die die Form ansprechen, und enumeriert anschließend jede Sequenz auf der Folie.
 
-Dies sind die Entsprechungen zwischen PowerPoint‑Timing und [Effect.Timing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTiming--)‑Eigenschaften:
-
-- Die Dropdown‑Liste **Start** in PowerPoint Timing entspricht der Eigenschaft [Effect.Timing.TriggerType](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getTriggerType--).  
-- PowerPoint Timing **Duration** entspricht der Eigenschaft [Effect.Timing.Duration](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getDuration--). Die Dauer einer Animation (in Sekunden) ist die Gesamtzeit, die die Animation für einen Durchlauf benötigt.  
-- PowerPoint Timing **Delay** entspricht der Eigenschaft [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITiming#getTriggerDelayTime--).
-
-So ändern Sie die Effect Timing‑Eigenschaften:
-
-1. Wenden Sie den Animationseffekt an ([Apply](#apply-animation-to-shape)) oder holen Sie ihn ab.  
-2. Setzen Sie neue Werte für die benötigten [Effect.Timing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IEffect#getTiming--)‑Eigenschaften.  
-3. Speichern Sie die modifizierte PPTX‑Datei.
-
-Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
-// Instanziert eine Präsentationsklasse, die eine Präsentationsdatei darstellt.
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Holt die Hauptsequenz der Folie.
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // Holt den ersten Effekt der Hauptsequenz.
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // Ändert den TriggerTyp des Effekts, sodass er bei Klick startet.
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Ändert die Dauer des Effekts.
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // Ändert die Triggerverzögerungszeit des Effekts.
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Speichert die PPTX-Datei auf dem Datenträger.
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
+            printSequence("Main sequence", mainSequence);
 
-## **Animations‑Effekt‑Sound**
-
-Aspose.Slides stellt folgende Eigenschaften bereit, um mit Sounds in Animationseffekten zu arbeiten:
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/androidjava/com.aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **Einen Animations‑Effekt‑Sound hinzufügen**
-
-Dieser Java‑Code zeigt, wie man einen Animations‑Effekt‑Sound hinzufügt und ihn stoppt, wenn der nächste Effekt beginnt:
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // Fügt Audio zur Audiosammlung der Präsentation hinzu
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // Holt die Hauptsequenz der Folie.
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Holt den ersten Effekt der Hauptsequenz
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // Prüft den Effekt auf "Kein Ton"
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // Fügt dem ersten Effekt einen Ton hinzu
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // Holt die erste interaktive Sequenz der Folie.
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // Setzt das Flag "Vorherige Töne stoppen" für den Effekt
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // Speichert die PPTX-Datei auf dem Datenträger
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-### **Einen Animations‑Effekt‑Sound extrahieren**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/)‑Klasse.  
-2. Holen Sie die Referenz einer Folie anhand ihres Index.  
-3. Holen Sie die Hauptsequenz der Effekte.  
-4. Extrahieren Sie den in jedem Animations‑Effekt eingebetteten [setSound(IAudio value)]‑Sound.
-
-Dieser Java‑Code zeigt, wie man den in einem Animations‑Effekt eingebetteten Sound extrahiert:
-```java
-// Instanziert eine Präsentationsklasse, die eine Präsentationsdatei darstellt.
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // Holt die Hauptsequenz der Folie.
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // Extrahiert den Sound des Effekts in ein Byte-Array
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
+Wenn Sie die Effekte nur für eine Form benötigen, identifizieren Sie zunächst die Form anhand von Name, Platzhaltertyp oder einer anderen stabilen Eigenschaft; rufen Sie dann [ISequence.getEffectsByShape](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-) auf. Gehen Sie nicht davon aus, dass [IShapeCollection.get_Item](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishapecollection/#get_Item-int-) am Index `0` stets das gewünschte Objekt ist.
 
-## **Nach der Animation**
+## **Arbeiten mit geerbten Platzhaltereffekten**
 
-Aspose.Slides für Android über Java ermöglicht es, die After‑Animation‑Eigenschaft eines Animations‑Effekts zu ändern.
+Ein Platzhalter auf einer normalen Folie kann das Animationsverhalten vom entsprechenden Platzhalter auf seiner Layout‑Folie und Master‑Folie erben. [IShape.getBasePlaceholder](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) gibt diesen übergeordneten Platzhalter zurück oder `null`, wenn kein übergeordneter Platzhalter existiert.
 
-![Beispiel1_Bild](shape-after-animation.png)
+In der folgenden Beispielpräsentation hat die Fußzeile **Random Bars** auf der normalen Folie, **Split** auf der Layout‑Folie und **Fly In** auf der Master‑Folie.
 
-PowerPoint Effect **After animation** drop‑down list matches these properties:
+![Fußzeilen-Animationseffekt auf der normalen Folie](slide-shape-animation.png)
 
-- Die Eigenschaft [setAfterAnimationType(int value)], die den After‑Animation‑Typ beschreibt:
-  * PowerPoint **More Colors** entspricht dem Typ [AfterAnimationType.Color];  
-  * PowerPoint **Don't Dim** entspricht dem Typ [AfterAnimationType.DoNotDim] (Standard‑After‑Animation‑Typ);  
-  * PowerPoint **Hide After Animation** entspricht dem Typ [AfterAnimationType.HideAfterAnimation];  
-  * PowerPoint **Hide on Next Mouse Click** entspricht dem Typ [AfterAnimationType.HideOnNextMouseClick];  
-- Die Eigenschaft [setAfterAnimationColor(IColorFormat value)], die ein Farbformat für die After‑Animation definiert. Diese Eigenschaft funktioniert zusammen mit dem Typ [AfterAnimationType.Color]. Wird der Typ auf einen anderen geändert, wird die After‑Animation‑Farbe zurückgesetzt.
+![Fußzeilen-Platzhalter-Animationseffekt auf der Layout‑Folie](layout-shape-animation.png)
 
-Dieser Java‑Code zeigt, wie man einen After‑Animation‑Effekt ändert:
+![Fußzeilen-Platzhalter-Animationseffekt auf der Master‑Folie](master-shape-animation.png)
+
+Das nächste Beispiel verwendet eine Platzhalterhierarchie aus einer neuen Präsentation. Es fügt Effekte zu einem Master‑Platzhalter, einem Layout‑Platzhalter und dem entsprechenden Platzhalter auf einer normalen Folie hinzu. Jeder Aufruf von [IShape.getBasePlaceholder](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ishape/#getBasePlaceholder--) wird geprüft, bevor die zurückgegebene Form verwendet wird.
+
 ```java
-// Instanziert eine Präsentationsklasse, die eine Präsentationsdatei darstellt
-Presentation pres = new Presentation("AnimImage_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Holt den ersten Effekt der Hauptsequenz
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-    // Ändert den After-Animation-Typ auf Color
-    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-    // Setzt die After-Animation-Dim-Farbe
-    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-    // Speichert die PPTX-Datei auf dem Datenträger
-    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
+
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
 
+## **Animationszeit ändern**
+
+Der PowerPoint‑**Timing**‑Dialog entspricht den Eigenschaften von [ITiming](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/).
+
+![PowerPoint‑Timing‑Dialog für einen Animationseffekt](shape-animation.png)
+
+- **Start** entspricht [ITiming.getTriggerType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getTriggerType--).
+- **Dauer** entspricht [ITiming.getDuration](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getDuration--), in Sekunden.
+- **Verzögerung** entspricht [ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getTriggerDelayTime--), in Sekunden.
+- **Wiederholung** entspricht [ITiming.getRepeatCount](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getRepeatCount--), [ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getRepeatUntilNextClick--), oder [ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getRepeatUntilEndSlide--).
+- **Zurückspulen nach dem Abspielen** entspricht [ITiming.getRewind](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#getRewind--).
+
+Dieses eigenständige Beispiel fügt einen Effekt hinzu, ändert dessen Timing über das von [ISequence.addEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) zurückgegebene Objekt und speichert das Ergebnis. Das Beibehalten der zurückgegebenen [IEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ieffect/)‑Referenz vermeidet einen unnötigen Sammlungs‑Index.
+
+```java
+import com.aspose.slides.*;
+
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
+
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Verwenden Sie bewusst nur einen Wiederholungsmodus. Das Kombinieren einer Wiederholungszahl mit einem „until“‑Flag kann in verschiedenen Betrachtern verwirrende Ergebnisse erzeugen. Wenn Sie Wiederholungsmodi ändern, setzen Sie [ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-) und [ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-) vor [ITiming.setRepeatCount](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itiming/#setRepeatCount-float-), da das Setzen eines der Flags ebenfalls den aktiven Wiederholungsmodus ändert.
+
+## **Animationssounds hinzufügen und extrahieren**
+
+Ein Animationseffekt kann über [IEffect.getSound](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ieffect/#getSound--) eingebettete Audiodateien referenzieren. [IEffect.setStopPreviousSound](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-) weist einen Effekt an, von einem früheren Effekt gestarteten Sound zu stoppen.
+
+### **Einen Sound zu einem Effekt hinzufügen**
+
+Das folgende Beispiel erwartet eine lokale Audiodatei namens `animation-sound.wav`. Es erstellt zwei Effekte, bettet diese Datei als Sound für den ersten Effekt ein und konfiguriert den zweiten Effekt so, dass er den Sound stoppt. Es verwendet die von [ISequence.addEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-) zurückgegebenen Objekte, sodass kein Sequenz‑Index erforderlich ist.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **Eingebettete Effekt‑Sounds extrahieren**
+
+Das folgende Beispiel erwartet eine lokale Präsentation namens `presentation-with-animation-sounds.pptx`. Es durchsucht sowohl Haupt‑ als auch interaktive Sequenzen und schreibt jeden eingebetteten Effekt‑Sound in das Verzeichnis `extracted-animation-sounds`. Die Dateierweiterung wird aus dem von [IAudio.getContentType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iaudio/#getContentType--) bereitgestellten Audio‑MIME‑Typ ausgewählt.
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+Für große Audioobjekte verwenden Sie [IAudio.getStream](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iaudio/#getStream--) und kopieren Sie den Stream in eine Datei, anstatt das gesamte Objekt in ein Byte‑Array zu laden.
+
+## **Nach‑Animationsverhalten festlegen**
+
+Die Option **After animation** steuert, was mit einer Form geschieht, nachdem ihr Effekt beendet ist.
+
+![PowerPoint‑Effekt‑Optionen‑Dialog, der Nach‑Animation‑Einstellungen zeigt](shape-after-animation.png)
+
+Die Klasse [AfterAnimationType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/afteranimationtype/) unterstützt das Belassen der Form unverändert, das Ändern ihrer Farbe, das Ausblenden nach der Animation oder das Ausblenden beim nächsten Klick. Wenn der Typ [AfterAnimationType.Color](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/afteranimationtype/#Color) ist, setzen Sie zusätzlich [IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ieffect/#getAfterAnimationColor--).
+
+Dieses eigenständige Beispiel erstellt einen Effekt, legt sein Nach‑Animationsverhalten über das zurückgegebene Effektobjekt fest und speichert das Ergebnis.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LTGRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+Das Ändern des Typs von [AfterAnimationType.Color](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/afteranimationtype/#Color) löscht die Nach‑Animations‑Farbeinstellung.
 
 ## **Text animieren**
 
-Aspose.Slides stellt folgende Eigenschaften bereit, um mit dem *Animate text*-Block eines Animations‑Effekts zu arbeiten:
+Die Textanimation hat zwei zugehörige Einstellungen:
 
-- Die Eigenschaft [setAnimateTextType(int value)], die den Text‑Animationstyp des Effekts beschreibt. Der Text einer Form kann animiert werden:
-  * Alles auf einmal ([AnimateTextType.AllAtOnce]‑Typ)  
-  * Nach Wort ([AnimateTextType.ByWord]‑Typ)  
-  * Nach Buchstabe ([AnimateTextType.ByLetter]‑Typ)  
-- Die Eigenschaft [setDelayBetweenTextParts(float value)] legt eine Verzögerung zwischen den animierten Textteilen (Wörtern oder Buchstaben) fest. Ein positiver Wert gibt den Prozentsatz der Effekt‑Dauer an, ein negativer Wert die Verzögerung in Sekunden.
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/itextanimation/#getBuildType--) steuert, ob Absätze gemeinsam oder auf Absatz‑Ebene erscheinen.
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ieffect/#getAnimateTextType--) steuert, ob Text gleichzeitig, wortweise oder buchstabenweise erscheint. [IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) legt die Verzögerung zwischen Wörtern oder Buchstaben fest. Ein positiver Wert ist ein Prozentsatz der Effekt‑Dauer; ein negativer Wert ist eine Verzögerung in Sekunden.
 
-So können Sie die Eigenschaften des Effect Animate text ändern:
+Das folgende eigenständige Beispiel animiert die Wörter in einem Textfeld. [BuildType.AsOneObject](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/buildtype/#AsOneObject) deaktiviert das Aufbauen Absatz‑für‑Absatz, sodass die Wort‑Einstellung für den gesamten Textrahmen gilt.
 
-1. Wenden Sie den Animationseffekt an ([Apply](#apply-animation-to-shape)) oder holen Sie ihn ab.  
-2. Setzen Sie die Eigenschaft [setBuildType(int value)] auf den Wert [BuildType.AsOneObject], um den *By Paragraphs*‑Animationsmodus zu deaktivieren.  
-3. Setzen Sie neue Werte für die Eigenschaften [setAnimateTextType(int value)] und [setDelayBetweenTextParts(float value)] fest.  
-4. Speichern Sie die modifizierte PPTX‑Datei.
-
-Dieser Java‑Code demonstriert die Vorgehensweise:
 ```java
-// Instanziert eine Präsentationsklasse, die eine Präsentationsdatei darstellt.
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // Holt den ersten Effekt der Hauptsequenz
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
 
-    // Ändert den Textanimations-Typ des Effekts zu "As One Object"
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
 
-    // Ändert den Animate-Text-Typ des Effekts zu "By word"
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // Setzt die Verzögerung zwischen Wörtern auf 20% der Effektdauer
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // Speichert die PPTX-Datei auf dem Datenträger
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
+Um ein Textfeld absatzweise aufzubauen, setzen Sie [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/buildtype/#ByLevelParagraphs1) (oder einen anderen Absatz‑Level). Um einen einzelnen Absatz mit einem eigenen Effekt zu versehen, verwenden Sie die Überladung von [ISequence.addEffect](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-), die ein [IParagraph](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/iparagraph/) akzeptiert. Siehe [Animierter Text](/slides/de/androidjava/animated-text/) für Beispiele auf Absatz‑Ebene.
+
+## **Export‑ und Kompatibilitätshinweise**
+
+- Das Speichern als PPT oder PPTX bewahrt das Animationsmodell, jedoch wird die endgültige Wiedergabe vom Präsentations‑Viewer gesteuert.
+- PDF und statische Bilder spielen keine Animationen ab. Verwenden Sie [HTML5‑Export](/slides/de/androidjava/export-to-html5/), animierte GIFs oder [Video‑Konvertierung](/slides/de/androidjava/convert-powerpoint-to-video/), wenn die Ausgabe Bewegung zeigen muss.
+- Für HTML5 aktivieren Sie [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) und bei Bedarf [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/de/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-).
+- Die Video‑Renderung unterstützt viele gängige Eingangs‑, Betonungs‑, Ausgangs‑ und Bewegungspfad‑Effekte, jedoch nicht jeden PowerPoint‑Effekt. Prüfen Sie die aktuelle [unterstützten Animationen und Effekte](/slides/de/androidjava/convert-powerpoint-to-video/#supported-animations-and-effects) und testen Sie kritische Präsentationen mit Ihrer Ziel‑Aspose.Slides‑Version.
+- Erweiterte benutzerdefinierte Effekte und aus anderen Präsentationsformaten importierte Effekte können in der Datei erhalten bleiben, jedoch in PowerPoint, HTML5 oder Video anders dargestellt werden. Validieren Sie das exportierte Ergebnis, anstatt sich ausschließlich auf den Effekt‑Namen zu verlassen.
 
 ## **FAQ**
 
-**Wie kann ich sicherstellen, dass Animationen beim Veröffentlichen der Präsentation im Web erhalten bleiben?**
+**Warum wird eine Animation in PowerPoint angezeigt, aber nicht in einem PDF?**
 
-Exportieren Sie nach HTML5](/slides/de/androidjava/export-to-html5/) und aktivieren Sie die [options](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/)‑Einstellungen, die für [shape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateShapes-boolean-) und [transition](https://reference.aspose.com/slides/androidjava/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) Animationen verantwortlich sind. Plain HTML spielt Folienanimationen nicht ab, HTML5 jedoch schon.
+PDF ist ein statisches Format, daher werden Animationen und Folienübergänge nicht wiedergegeben. Exportieren Sie zu HTML5, animierten GIFs oder Video, wenn Bewegung erhalten bleiben muss.
 
-**Wie wirkt sich das Ändern der Z‑Reihenfolge (Schichtreihenfolge) von Formen auf die Animation aus?**
+**Warum wird ein Effekt in einem Video anders abgespielt?**
 
-Animation‑ und Zeichenreihenfolge sind unabhängig: Ein Effekt steuert das Timing und den Typ des Erscheinen/Verschwinden, während die Z‑Reihenfolge bestimmt, was was überdeckt. Das sichtbare Ergebnis ergibt sich aus ihrer Kombination. (Dies ist das generelle PowerPoint‑Verhalten; das Aspose.Slides‑Modell für Effekte und Formen folgt derselben Logik.)
+Der Video‑Export rendert Animationen, anstatt das ursprüngliche PowerPoint‑Verhalten zu speichern. Einige fortgeschrittene Effekte werden nicht unterstützt oder nur angenähert. Prüfen Sie die Tabelle der unterstützten Effekte und testen Sie die tatsächliche Präsentation vor dem Produktionseinsatz.
 
-**Gibt es Einschränkungen beim Konvertieren von Animationen in Video für bestimmte Effekte?**
+**Verändert das Vorwärts‑ oder Rückwärts‑Bewegen einer Form die Reihenfolge ihrer Animation?**
 
-Im Allgemeinen werden Animationen unterstützt](/slides/de/androidjava/convert-powerpoint-to-video/), doch in seltenen Fällen oder bei spezifischen Effekten kann die Wiedergabe abweichen. Es wird empfohlen, die verwendeten Effekte und die Bibliotheksversion zu testen.
+Nein. Die Z‑Reihenfolge einer Form steuert die Überlappung, während die Reihenfolge der Sequenz und die Auslöser die Wiedergabe der Animation bestimmen. Ändern Sie die Timeline, wenn Sie eine andere Wiedergabereihenfolge benötigen.

@@ -1,6 +1,6 @@
 ---
-title: C++ でプレゼンテーションからシェイプの有効プロパティを取得
-linktitle: 有効プロパティ
+title: C++ でプレゼンテーションからシェイプの効果的プロパティを取得する
+linktitle: 効果的プロパティ
 type: docs
 weight: 50
 url: /ja/cpp/shape-effective-properties/
@@ -11,305 +11,346 @@ keywords:
 - ベベル シェイプ
 - テキスト フレーム
 - テキスト スタイル
-- フォントの高さ
+- フォント 高さ
 - 塗りつぶし 書式
 - PowerPoint
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ が正確な PowerPoint のレンダリングのために、シェイプの有効プロパティをどのように計算し適用するかをご紹介します。"
+description: "PowerPoint プレゼンテーションにおけるシェイプのローカル、継承、効果的な書式設定を区別する方法を、C++ 用 Aspose.Slides を使用して学びます。"
 ---
-## **概要**
+## **ローカル、継承、効果的なプロパティの理解**
 
-このトピックは **local** と **effective** プロパティの違いを説明します。ローカル値は、特定の書式設定レベルで直接設定された値で、例えば以下のようなものです：
+PowerPoint の書式設定は複数の場所から取得できます。オブジェクトに直接格納されている値は **ローカル値** です。その値が設定されていない場合、PowerPoint は段落のデフォルト、テキスト スタイル、レイアウトまたはマスタースライド、テーマ、プレゼンテーション レベルのデフォルトなど、親の書式設定ソースを参照します。これらの値は **継承値** と呼ばれます。階層全体が解決された後に残る値が **効果的な値** で、オブジェクトの描画に使用される値です。
 
-1. スライド上の portion プロパティ。
-1. レイアウトまたはマスタースライド上のプロトタイプシェイプテキストスタイル（portion のテキストフレームシェイプに設定がある場合）。
-1. プレゼンテーション全体のテキスト設定。
+たとえば、テキストの一部がフォントの高さを独自に定義していない場合があります。そのローカルの[フォントの高さ](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ibaseportionformat/)は `std::numeric_limits<float>::quiet_NaN()` で、これは「ここでは設定されていない」ことを意味します。この部分は段落やプレゼンテーションのデフォルトテキストスタイル、または他の適用可能なソースから高さを継承できます。部分の書式に対して[GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformat/)を呼び出すと、最終的に解決された高さが返されます。
 
-ローカル値は任意のレベルで定義したり省略したりできます。Aspose.Slides が最終的な「as rendered」書式設定を必要とする場合、継承チェーンを解決して **effective** 値を返します。これらはローカル書式オブジェクトの `GetEffective` メソッドを呼び出すことで取得できます。
+異なる目的で 2 種類の書式データを使用します:
 
-以下の例は effective 値の取得方法を示します。最初のスライドの最初のシェイプがテキストフレームと少なくとも 1 つの portion を持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
+- 値がどこで定義されているかを制御する必要がある場合は、[IPortionFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformat/) のようなローカル書式オブジェクトを読み取ったり変更したりします。
+- 最終的なレンダリング結果が必要な場合は、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformateffectivedata/) のような効果的データオブジェクトを読み取ります。効果的データは読み取り専用です。
+
+## **ローカル、継承、効果的な値の比較**
+
+以下の完全な例では、シェイプを作成し、プレゼンテーション、段落、部分レベルでフォントの高さを適用します。各ステップでそれらのレベルで定義された値と、同じテキスト部分の結果として得られる効果的な値を出力します。また、書式設定の変更後に効果的データを再度読み取る必要がある理由も示しています。
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// 2 つの異なるレベルで継承された値を定義します。
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // 前の変更後に効果的なデータを読み取ります。
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// 部分のローカル値が両方の継承値を上書きします。
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// 継承値を変更しても、既存のローカル値は上書きされません。
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// ローカル値をクリアします。部分は再び段落から継承します。
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// 段落の値をクリアします。プレゼンテーションのデフォルトが結果を提供します。
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+この例では、優先順位はまず部分のローカル書式、次に段落書式、最後にプレゼンテーションのデフォルトです。他のオブジェクトは異なる継承チェーンを持つことがありますが、原則は同じです。より具体的な明示的な値が勝ち、[GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformat/) が最終結果を返します。
+
+## **効果的なテキストプロパティの取得**
+
+テキストの書式設定は複数のオブジェクトに分割されています:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformat/) は、余白、アンカリング、オートフィット、縦書き方向などのテキストフレームのプロパティを解決します。
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextstyle/) は、各テキストスタイルレベルの段落書式を解決します。
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iparagraphformat/) は、配置、インデント、箇条書きなどの段落プロパティを解決します。
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformat/) は、フォントの高さ、書体、色、太字、イタリックなどの文字プロパティを解決します。
+
+次の例では、`text-formatting.pptx` に少なくとも 1 枚のスライドと、空でないテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) が 1 つ含まれている必要があります。IAutoShape はシェイプコレクション内の任意の位置に存在する可能性があるため、コードは適切なオブジェクトを検索し、使用前に検証します。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-Effective 書式データは、継承が適用された後に計算された現在の書式設定を表します。現在の実装では、[IPortionFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iportionformateffectivedata/) などの一部の effective データオブジェクトが内部でキャッシュされる可能性があります。親や継承された書式設定を変更した後に `GetEffective` を再度呼び出すとキャッシュが更新され、以前に取得したオブジェクトは以前の状態を表さなくなることがあります。後で再利用するために effective 値を保持したい場合は、フォント高さ、塗りつぶし色、フォントスタイル、配置などの必要なプロパティを自分のデータオブジェクトにコピーしてください。
-{{% /alert %}}
-
-## **カメラの Effective プロパティの取得**
-
-Aspose.Slides はカメラの effective プロパティを取得できます。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/) インターフェイスは、変更不可能なオブジェクトで、effective カメラプロパティを格納します。[ICameraEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の effective 値を提供します。
-
-以下のコードサンプルはカメラの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプが 3D 書式設定を持つことを前提としています。
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **ライトリグの Effective プロパティの取得**
-
-Aspose.Slides はライトリグの effective プロパティを取得できます。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/) インターフェイスは、変更不可能なオブジェクトで、effective ライトリグプロパティを格納します。[ILightRigEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の effective 値を提供します。
-
-以下のコードサンプルはライトリグの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプが 3D 書式設定を持つことを前提としています。
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **シェイプベベルの Effective プロパティの取得**
-
-Aspose.Slides はシェイプベベルの effective プロパティを取得できます。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) インターフェイスは、シェイプのフェイスリリーフプロパティを格納した変更不可能なオブジェクトです。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) インスタンスは [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) を介して公開され、[IThreeDFormat](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) の effective 値を提供します。
-
-以下のコードサンプルはシェイプの上部ベベルの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプが 3D 書式設定を持つことを前提としています。
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **テキストフレームの Effective プロパティの取得**
-
-Aspose.Slides を使用すると、テキストフレームの effective プロパティを取得できます。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextframeformateffectivedata/) インターフェイスは effective テキストフレーム書式設定プロパティを含みます。
-
-以下のコードサンプルはテキストフレームの effective 書式設定プロパティを取得する方法を示します。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **テキストスタイルの Effective プロパティの取得**
-
-Aspose.Slides を使用すると、テキストスタイルの effective プロパティを取得できます。[ITextStyleEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itextstyleeffectivedata/) インターフェイスは effective テキストスタイルプロパティを含みます。
-
-以下のコードサンプルはテキストスタイルの effective プロパティを取得する方法を示します。最初のスライドの最初のシェイプがテキストフレームを持つ [IAutoShape](https://reference.aspose.com/slides/ja/cpp/aspose.slides/iautoshape/) であることを前提としています。
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **Effective フォント高さの取得**
+## **効果的な 3D プロパティの取得**
 
-Aspose.Slides を使用すると、effective フォント高さを取得できます。以下のコードは、プレゼンテーション構造の異なるレベルでローカルフォント高さが設定された後に、portion の effective フォント高さがどのように変化するかを示しています。
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformat/) は、すべての解決された 3D 設定をまとめた [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ithreedformateffectivedata/) オブジェクトを返します。その [camera](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icameraeffectivedata/)、[light rig](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilightrigeffectivedata/)、[top bevel](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/)、[bottom bevel](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapebeveleffectivedata/) データは、対応する効果的設定を公開します。これらの関連設定を一緒に読み取ることで、シェイプの最終的な 3D 外観を理解しやすくなります。
+
+この例では、`shape-3d.pptx` の最初のスライドに少なくとも 1 つのシェイプが含まれている必要があります。デフォルト以外の値を出力に含めたい場合は、そのシェイプに 3D カメラ、照明、またはベベル設定を適用してください。
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **効果的なテーブル書式の取得**
+
+テーブルの書式設定は、テーブルスタイルおよびテーブル全体、列、行、個々のセルに適用された書式から取得されます。明示的に定義された塗りつぶしが競合する場合、優先順位はセル、行、列、そしてテーブル全体の順です。セルの効果的な書式は、そのセルを描画する際に使用される最終的な書式です。
+
+この例では、`table-formatting.pptx` の最初のスライドに少なくとも 1 つのテーブルが含まれている必要があります。テーブルは少なくとも 1 行と 1 列を持っている必要があります。コードは、最初のシェイプがテーブルであると仮定する代わりに、[ITable](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itable/) を検索します。
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **テーブルの Effective 塗りつぶし形式の取得**
-
-Aspose.Slides を使用すると、テーブルの各部分に対する effective 塗りつぶし書式設定を取得できます。[IFillFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformateffectivedata/) インターフェイスは effective 塗りつぶし書式設定プロパティを含みます。セルの書式設定は行の書式設定より優先され、行の書式設定は列の書式設定より優先され、列の書式設定はテーブル全体の書式設定より優先されます。
-
-その結果、[ICellFormatEffectiveData](https://reference.aspose.com/slides/ja/cpp/aspose.slides/icellformateffectivedata/) のプロパティがテーブルセルの描画に使用されます。以下のコードサンプルはテーブルの各部分に対する effective 塗りつぶし書式設定を取得する方法を示します。最初のスライドの最初のシェイプが [ITable](https://reference.aspose.com/slides/ja/cpp/aspose.slides/itable/) であることを前提としています。
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
+
+塗りつぶしのタイプだけでなく色が必要な場合は、まず効果的な [FillType](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformateffectivedata/) を確認し、そのタイプに適用されるプロパティを読み取ります。たとえば、塗りつぶしが単色の場合は [SolidFillColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ifillformateffectivedata/) を使用します。
+
+## **変更後に効果的なデータを再読込**
+
+効果的なデータは、解決時点での書式階層を示します。その階層に関与できるものを変更した後は、`GetEffective` を再度呼び出してください。対象は以下を含みます:
+- オブジェクトのローカル書式；
+- 段落またはテキストフレームのデフォルト；
+- テーブルスタイル、テーブル、列、行、またはセルの書式；
+- レイアウトまたはマスタースライドの書式；
+- テーマデータまたはプレゼンテーションレベルのデフォルト；
+- スライドに割り当てられたレイアウトまたはマスター；
+
+効果的なデータオブジェクトを永続的なスナップショットとして保持しないでください。Aspose.Slides は内部でいくつかの効果的データをキャッシュする可能性があり、後で `GetEffective` を呼び出すとデータが更新されます。変更前後の値を比較する必要がある場合は、変更を加える前にフォントの高さ、色、配置、ベベル幅などのスカラー値を自分の変数にコピーしてください。
+
+値を変更するには、適切なローカル書式オブジェクトを更新し、`GetEffective` を呼び出して結果を確認します。効果的なデータオブジェクト自体は読み取り専用です。
 
 ## **FAQ**
 
-**`GetEffective` はスナップショットを返しますか？**
+**どのレベルが効果的な値を提供したかを判断するには？**
 
-必ずしもそうではありません。Effective データは継承が適用された後に計算された書式設定を表しますが、一部の effective データオブジェクトは内部でキャッシュされることがあります。`GetEffective` を再度呼び出すと書式設定が再計算されキャッシュが更新されるため、以前に取得したオブジェクトは永続的なスナップショットとして扱うべきではありません。
+効果的なデータは最終的な値を含んでおり、そのソースは示しません。最も具体的なレベルから外側へ、該当するローカルオブジェクトを調べます。テキストの場合、対象は部分、段落、テキストフレーム、レイアウト、マスター、テーマ、プレゼンテーションのデフォルトなどです。`std::numeric_limits<float>::quiet_NaN()` や `nullptr` のように未定義の値は、検索が別のレベルへ続くことを示しています。
 
-**いつ effective プロパティを再取得すべきですか？**
+**どのレベルでもプロパティが定義されていない場合はどうなりますか？**
 
-ローカル書式、親スタイル、レイアウト書式、マスター書式、またはプレゼンテーションレベルのデフォルトを変更した後に `GetEffective` を再度呼び出してください。次の呼び出しで書式階層が再評価され、現在の effective 結果が返されます。
+Aspose.Slides は適切な PowerPoint またはライブラリのデフォルトを解決します。その解決された値は、ローカルオブジェクトが明示的に定義していなくても効果的なデータに表示されます。
 
-**レイアウト/マスタースライドを変更または削除すると、すでに取得した effective プロパティに影響しますか？**
+**なぜ効果的な値がローカル値と同じになることがあるのですか？**
 
-はい。ただし、変更は次回の `GetEffective` 呼び出しで反映されます。親の書式ソースが変更または削除された場合、以前に取得した effective データは古くなる可能性があります。`GetEffective` を再度呼び出すと Aspose.Slides が書式ツリーを再評価し、フォント、色、サイズ、その他の値が変わることがあります。
+ローカル値が継承計算で勝ったためです。プロパティがオブジェクトに明示的に設定され、より具体的な規則で上書きされない場合にこのようになります。
 
-**effective データオブジェクトを介して値を変更できますか？**
+**ローカルデータを使用すべき時と効果的データを使用すべき時はいつですか？**
 
-できません。Effective データオブジェクトは計算された値を公開するだけです。ローカル書式オブジェクトで変更を行い、再度 effective 値を取得してください。
-
-**シェイプレベルでもレイアウト/マスターでもグローバル設定でもプロパティが設定されていない場合はどうなりますか？**
-
-effective 値は PowerPoint と Aspose.Slides のデフォルトを含む既定のメカニズムによって決定されます。その解決された値が現在の effective データの一部となります。
-
-**effective フォント値から、どのレベルがサイズやフォント名を提供したか判断できますか？**
-
-直接は判断できません。Effective データは最終的な値を返すだけです。どのレベルで最初に明示的に定義されたかを知りたい場合は、portion、段落、テキストフレーム、レイアウト、マスター、プレゼンテーションレベルのローカル値を順に確認してください。
-
-**なぜ effective 値がローカル値と同じに見えることがありますか？**
-
-ローカル値が最終的な値となり、上位レベルからの継承が必要なかったためです。そのような場合、effective 値はローカル値と一致します。
-
-**effective プロパティを使用すべきタイミングと、ローカルプロパティだけを使用すべきタイミングは？**
-
-すべての継承が適用された後の「レンダリング後」結果が必要な場合は effective データを使用します（例: 色、インデント、サイズの整合）。後で書式が変更されても保持したい場合は、必要なプロパティを自分のオブジェクトにコピーしてください。特定のレベルで書式を変更したい場合はローカルプロパティを変更し、必要に応じて effective データを再取得して結果を確認してください。
+特定の書式レベルを検査または編集する場合はローカルデータを使用します。継承、テーマ規則、適用可能なスタイルが解決された後の最終的な外観が必要な場合は効果的データを使用します。[完全な比較例](#compare-local-inherited-and-effective-values) は同じワークフローで両方を示しています。

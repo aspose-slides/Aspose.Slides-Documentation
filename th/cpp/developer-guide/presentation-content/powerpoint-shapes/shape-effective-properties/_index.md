@@ -1,309 +1,357 @@
 ---
-title: รับคุณสมบัติรูปร่างแบบ Effective จากงานนำเสนอใน C++
-linktitle: คุณสมบัติ Effective
+title: รับคุณสมบัติแบบ Effective ของ Shape จากการนำเสนอใน C++
+linktitle: คุณสมบัติแบบ Effective
 type: docs
 weight: 50
 url: /th/cpp/shape-effective-properties/
 keywords:
-- คุณสมบัติรูปร่าง
-- คุณสมบัติกล้อง
-- ชุดแสง
-- รูปร่างแบบ bevel
+- คุณสมบัติของรูปทรง
+- คุณสมบัติของกล้อง
+- ระบบแสง
+- รูปทรง bevel
 - กรอบข้อความ
 - สไตล์ข้อความ
-- ความสูงฟอนท์
-- รูปแบบเติม
+- ความสูงของฟอนต์
+- รูปแบบการเติม
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - C++
 - Aspose.Slides
-description: "ค้นพบวิธีที่ Aspose.Slides สำหรับ C++ คำนวณและนำคุณสมบัติรูปร่างแบบ Effective ไปใช้เพื่อการเรนเดอร์ PowerPoint ที่แม่นยำ"
+description: "เรียนรู้วิธีใช้ Aspose.Slides สำหรับ C++ เพื่อแยกแยะการจัดรูปแบบ Shape แบบ local, inherited และ effective ในการนำเสนอ PowerPoint."
 ---
-## **ภาพรวม**
+## **ทำความเข้าใจ Local, Inherited และ Effective Properties**
 
-หัวข้อนี้อธิบายความแตกต่างระหว่างคุณสมบัติ **local** และ **effective** ค่าภายใน (local) คือค่าที่ตั้งโดยตรงที่ระดับการจัดรูปแบบเฉพาะ เช่น:
+การจัดรูปแบบ PowerPoint สามารถมาจากหลายแหล่ง ค่าเก็บโดยตรงบนอ็อบเจ็กต์คือ **ค่า local** ถ้าค่านั้นไม่ได้ตั้งค่า PowerPoint จะมองที่แหล่งข้อมูลแบบพาเรนต์ เช่น ค่าตั้งต้นของย่อหน้า, สไตล์ข้อความ, เมนูหรือสไลด์แม่, ธีม หรือค่าตั้งต้นระดับการนำเสนอ ค่าต่าง ๆ เหล่านี้คือ **ค่า inherited** ค่าที่เหลือหลังจากที่ลำดับชั้นทั้งหมดได้รับการแก้ไขคือ **ค่า effective** — ค่าที่ใช้ในการเรนเดอร์อ็อบเจ็กต์
 
-1. คุณสมบัติ portion บนสไลด์
-1. สไตล์ข้อความของรูปร่างต้นแบบบนเลย์เอาต์หรือสไลด์มาสเตอร์ เมื่อรูปร่างกรอบข้อความของ portion มีสไตล์นั้น
-1. การตั้งค่าข้อความระดับทั่วโลกในงานพรีเซนเทชัน
+ตัวอย่างเช่น ส่วนของข้อความอาจไม่ได้กำหนดความสูงของฟอนต์ของตนเอง ความสูงของฟอนต์ **local** ของมันจึงเป็น `std::numeric_limits<float>::quiet_NaN()` ซึ่งหมายถึง “ไม่ได้ตั้งค่าให้ที่นี่” ส่วนของข้อความสามารถสืบทอดความสูงจากย่อหน้า, สไตล์ข้อความตั้งต้นของการนำเสนอ หรือแหล่งที่สามารถใช้งานได้อื่น ๆ การเรียก [GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformat/) บนรูปแบบส่วนจะคืนค่าความสูงที่ถูกแก้ไขแล้ว
 
-ค่าภายในสามารถกำหนดหรือเว้นไว้ที่ระดับใดก็ได้ เมื่อ Aspose.Slides ต้องการรูปแบบสุดท้าย “as rendered” มันจะทำการแก้ไขสายการสืบทอดและคืนค่า **effective** คุณสามารถรับค่าเหล่านี้โดยเรียกเมธอด `GetEffective` บนวัตถุรูปแบบ local
+ใช้ข้อมูลการจัดรูปแบบสองแบบเพื่อวัตถุประสงค์ที่ต่างกัน:
 
-ตัวอย่างต่อไปนี้แสดงวิธีรับค่า effective โดยสมมุติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ที่มีกรอบข้อความและอย่างน้อยหนึ่ง portion
+- อ่านหรือเปลี่ยนอ็อบเจ็กต์รูปแบบ **local** เช่น [IPortionFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformat/) เมื่อคุณต้องการควบคุมว่าค่าถูกกำหนดที่ระดับใด
+- อ่านอ็อบเจ็กต์ข้อมูล **effective** เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformateffectivedata/) เมื่อคุณต้องการผลลัพธ์ที่ได้หลังการเรนเดอร์ ข้อมูล effective เป็นแบบอ่าน‑เท่านั้น
+
+## **เปรียบเทียบ Local, Inherited และ Effective Values**
+
+ตัวอย่างเต็มต่อไปนี้สร้างรูปทรงและกำหนดความสูงของฟอนต์ในระดับการนำเสนอ, ย่อหน้าและส่วนของข้อความแต่ละระดับ แต่ละขั้นตอนจะพิมพ์ค่าที่กำหนดในระดับเหล่านั้นและค่า effective ที่ได้จากส่วนข้อความเดียวกัน ตัวอย่างยังแสดงว่าทำไมต้องอ่านข้อมูล effective อีกครั้งหลังจากมีการเปลี่ยนแปลงการจัดรูปแบบ
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// กำหนดค่าที่สืบทอดในสองระดับที่แตกต่างกัน.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // อ่านข้อมูล effective หลังจากการเปลี่ยนแปลงก่อนหน้า.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// ค่าท้องถิ่นบนส่วนจะครอบคลุมค่าที่สืบทอดทั้งสองค่า.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// การเปลี่ยนค่าที่สืบทอดจะไม่ทับค่าท้องถิ่นที่มีอยู่.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// ลบค่าท้องถิ่นออก ตอนนี้ส่วนจะสืบทอดจากย่อหน้าอีกครั้ง.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// ลบค่าของย่อหน้าออก ค่าตั้งต้นของการนำเสนอจะเป็นผลลัพธ์ตอนนี้.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+ลำดับความสำคัญในตัวอย่างนี้คือการจัดรูปแบบ **local** ของส่วน, ตามด้วยการจัดรูปแบบของย่อหน้า, แล้วจึงเป็นค่าตั้งต้นของการนำเสนอ วัตถุอื่น ๆ อาจมีห่วงโซ่การสืบทอดที่แตกต่างกัน แต่หลักการคงเดิม: ค่าที่ระบุอย่างเฉพาะเจาะจะแซงค่าที่สืบทอด และ [GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformat/) จะคืนค่าผลลัพธ์สุดท้าย
+
+## **รับคุณสมบัติของข้อความแบบ Effective**
+
+การจัดรูปแบบข้อความถูกแยกออกเป็นหลายอ็อบเจ็กต์:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformat/) แก้ไขคุณสมบัติของเฟรมข้อความ เช่น ระยะขอบ, การยึด, autofit, และทิศทางข้อความแนวตั้ง
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextstyle/) แก้ไขการจัดรูปแบบย่อหน้าสำหรับแต่ละระดับของสไตล์ข้อความ
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/iparagraphformat/) แก้ไขคุณสมบัติของย่อหน้า เช่น การจัดแนว, การเยื้อง, และรายการสัญลักษณ์
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformat/) แก้ไขคุณสมบัติอักขระ เช่น ความสูงของฟอนต์, แบบอักษร, สี, ตัวหนาและตัวเอียง
+
+สำหรับตัวอย่างต่อไป, ไฟล์ `text-formatting.pptx` ต้องมีอย่างน้อยหนึ่งสไลด์และหนึ่ง [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ที่มีกรอบข้อความไม่ว่างเปล่า IAutoShape สามารถปรากฏได้ตำแหน่งใดก็ได้ในคอลเลกชันของรูปทรง; โค้ดจะค้นหาอ็อบเจ็กต์ที่เหมาะสมและตรวจสอบก่อนใช้งาน
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-ข้อมูลการจัดรูปแบบแบบ effective แสดงถึงการจัดรูปแบบที่คำนวณแล้วหลังจากนำการสืบทอดมาใช้ ในการใช้งานปัจจุบันวัตถุข้อมูลแบบ effective บางตัว เช่น [IPortionFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/iportionformateffectivedata/) อาจถูกเก็บไว้ในแคชภายใน การเรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนรูปแบบพาเรนท์หรือรูปแบบที่สืบทอดสามารถรีเฟรชข้อมูลแคชได้ และวัตถุที่ได้ก่อนหน้านี้อาจไม่แสดงสถานะเดิมอีกต่อไป หากคุณต้องการเก็บค่าที่ effective ไว้ใช้ต่อไป ให้นำคุณสมบัติที่ต้องการ เช่น ความสูงของฟอนท์ สีเติม สไตล์ฟอนท์ หรือการจัดแนว คัดลอกไปยังวัตถุข้อมูลของคุณเอง
-{{% /alert %}}
-
-## **รับคุณสมบัติ Effective ของกล้อง**
-
-Aspose.Slides อนุญาตให้คุณรับคุณสมบัติ effective ของกล้อง อินเทอร์เฟซ [ICameraEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/icameraeffectivedata/) แสดงถึงวัตถุที่ไม่เปลี่ยนแปลงซึ่งมีคุณสมบัติกล้องแบบ effective อินสแตนซ์ของ [ICameraEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/icameraeffectivedata/) จะถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/)
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **รับคุณสมบัติ Effective ของ Light Rig**
-
-Aspose.Slides อนุญาตให้คุณรับคุณสมบัติ effective ของ Light Rig อินเทอร์เฟซ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilightrigeffectivedata/) แสดงถึงวัตถุที่ไม่เปลี่ยนแปลงซึ่งมีคุณสมบัติ Light Rig แบบ effective อินสแตนซ์ของ [ILightRigEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilightrigeffectivedata/) จะถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/)
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **รับคุณสมบัติ Effective ของ Bevel Shape**
-
-Aspose.Slides อนุญาตให้คุณรับคุณสมบัติ effective ของ bevel รูปร่าง อินเทอร์เฟซ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapebeveleffectivedata/) แสดงถึงวัตถุที่ไม่เปลี่ยนแปลงซึ่งมีคุณสมบัติ relief ของรูปแบบที่ effective สำหรับรูปร่าง อินสแตนซ์ของ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapebeveleffectivedata/) จะถูกเปิดเผยผ่าน [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformateffectivedata/) ซึ่งให้ค่าที่ effective สำหรับ [IThreeDFormat](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/)
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **รับคุณสมบัติ Effective ของ Text Frame**
-
-โดยใช้ Aspose.Slides คุณสามารถรับคุณสมบัติ effective ของกรอบข้อความ อินเทอร์เฟซ [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextframeformateffectivedata/) มีคุณสมบัติการจัดรูปแบบกรอบข้อความแบบ effective
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีรับคุณสมบัติการจัดรูปแบบกรอบข้อความแบบ effective โดยสมมุติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ที่มีกรอบข้อความ
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **รับคุณสมบัติ Effective ของ Text Style**
-
-โดยใช้ Aspose.Slides คุณสามารถรับคุณสมบัติ effective ของสไตล์ข้อความ อินเทอร์เฟซ [ITextStyleEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/itextstyleeffectivedata/) มีคุณสมบัติสไตล์ข้อความแบบ effective
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีรับคุณสมบัติสไตล์ข้อความแบบ effective โดยสมมุติว่ารูปร่างแรกบนสไลด์แรกเป็น [IAutoShape](https://reference.aspose.com/slides/th/cpp/aspose.slides/iautoshape/) ที่มีกรอบข้อความ
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **รับค่า Effective ของความสูงฟอนท์**
+## **รับคุณสมบัติ 3D แบบ Effective**
 
-โดยใช้ Aspose.Slides คุณสามารถรับความสูงฟอนท์ที่ effective ตัวอย่างโค้ดต่อไปนี้แสดงวิธีที่ความสูงฟอนท์ของ portion ที่ effective เปลี่ยนแปลงหลังจากตั้งค่าความสูงฟอนท์ระดับ local ที่ระดับต่าง ๆ ของโครงสร้างพรีเซนเทชัน
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformat/) คืนค่าอ็อบเจ็กต์ [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ithreedformateffectivedata/) หนึ่งตัวที่จัดกลุ่มการตั้งค่า 3D ทั้งหมดที่แก้ไขแล้ว ข้อมูล [camera](https://reference.aspose.com/slides/th/cpp/aspose.slides/icameraeffectivedata/), [light rig](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilightrigeffectivedata/), [top bevel](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapebeveleffectivedata/) และ [bottom bevel](https://reference.aspose.com/slides/th/cpp/aspose.slides/ishapebeveleffectivedata/) จะเปิดเผยการตั้งค่า effective ที่สอดคล้องกัน การอ่านการตั้งค่าเหล่านี้ร่วมกันทำให้เข้าใจรูปลักษณ์ 3D สุดท้ายของรูปทรงได้ง่ายขึ้น
+
+สำหรับตัวอย่างนี้, ไฟล์ `shape-3d.pptx` ต้องมีอย่างน้อยหนึ่งรูปทรงบนสไลด์แรก หากคุณต้องการให้ผลลัพธ์มีค่าที่ไม่ใช่ค่าเริ่มต้น ให้กำหนดกล้อง 3D, การจัดแสง หรือการตั้งค่า bevel ให้กับรูปทรงนั้น
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **รับการจัดรูปแบบตารางแบบ Effective**
+
+การจัดรูปแบบตารางสามารถมาจากสไตล์ตารางและจากฟอร์แมตที่ใช้กับตารางทั้งหมด, คอลัมน์, แถว หรือเซลล์เฉพาะ ในกรณีที่มีการขัดแย้งระหว่างการกำหนด fill อย่างชัดเจน ลำดับความสำคัญคือ เซลล์, แถว, คอลัมน์, แล้วจึงเป็นตารางทั้งหมด ฟอร์แมต effective ของเซลล์คือฟอร์แมตสุดท้ายที่ใช้ในการวาดเซลล์นั้น
+
+สำหรับตัวอย่างนี้, ไฟล์ `table-formatting.pptx` ต้องมีอย่างน้อยหนึ่งตารางบนสไลด์แรก ตารางต้องมีอย่างน้อยหนึ่งแถวและหนึ่งคอลัมน์ โค้ดจะค้นหา [ITable](https://reference.aspose.com/slides/th/cpp/aspose.slides/itable/) แทนการสันนิษฐานว่ารูปทรงแรกเป็นตาราง
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **รับ Format เติมแบบ Effective สำหรับตาราง**
-
-โดยใช้ Aspose.Slides คุณสามารถรับการจัดรูปแบบเติมแบบ effective สำหรับส่วนต่าง ๆ ของตาราง อินเทอร์เฟซ [IFillFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifillformateffectivedata/) มีคุณสมบัติการเติมแบบ effective การจัดรูปแบบเซลล์มีลำดับความสำคัญสูงกว่าการจัดรูปแบบแถว แถวมีความสำคัญสูงกว่าคอลัมน์ และคอลัมน์มีความสำคัญสูงกว่าการจัดรูปแบบตารางทั้งหมด
-
-ผลคือคุณสมบัติ [ICellFormatEffectiveData](https://reference.aspose.com/slides/th/cpp/aspose.slides/icellformateffectivedata/) จะถูกใช้ในการวาดเซลล์ตาราง ตัวอย่างโค้ดต่อไปนี้แสดงวิธีรับการจัดรูปแบบเติมแบบ effective สำหรับส่วนต่าง ๆ ของตาราง โดยสมมุติว่ารูปร่างแรกบนสไลด์แรกเป็น [ITable](https://reference.aspose.com/slides/th/cpp/aspose.slides/itable/)
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
 
-## **คำถามที่พบบ่อย**
+หากคุณต้องการสีแทนที่จะเป็นประเภท fill อย่างเดียว ให้ตรวจสอบ [FillType](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifillformateffectivedata/) ที่ effective ก่อน แล้วจึงอ่านคุณสมบัติที่สอดคล้องกับประเภทนั้น — ตัวอย่างเช่น [SolidFillColor](https://reference.aspose.com/slides/th/cpp/aspose.slides/ifillformateffectivedata/) สำหรับ fill แบบทึบ
 
-**`GetEffective` คืนค่า snapshot หรือไม่?**
+## **อ่าน Effective Data อีกครั้งหลังการเปลี่ยนแปลง**
 
-ไม่เสมอ ข้อมูล effective แสดงถึงการจัดรูปแบบที่คำนวณแล้วหลังจากนำการสืบทอดมาใช้ แต่บางวัตถุข้อมูล effective อาจถูกเก็บไว้ในแคชภายใน การเรียก `GetEffective` อีกครั้งอาจคำนวณใหม่และรีเฟรชแคช ดังนั้นวัตถุที่ได้ก่อนหน้านี้ไม่ควรถือเป็น snapshot ที่คงที่
+Effective data อธิบายลำดับชั้นการจัดรูปแบบในขณะที่ได้รับการแก้ไข เรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนแปลงสิ่งใดที่อาจมีส่วนร่วมในลำดับชั้นนั้น รวมถึง:
 
-**เมื่อใดควรอ่านคุณสมบัติ effective อีกครั้ง?**
+- การจัดรูปแบบ **local** ของอ็อบเจ็กต์;
+- ค่าตั้งต้นของย่อหน้า หรือเฟรมข้อความ;
+- สไตล์ตาราง, ตาราง, คอลัมน์, แถว หรือฟอร์แมตของเซลล์;
+- การจัดรูปแบบของเลย์เอาต์หรือสไลด์แม่;
+- ข้อมูลธีมหรือค่าตั้งต้นระดับการนำเสนอ;
+- เลย์เอาต์หรือสไลด์แม่ที่กำหนดให้กับสไลด์
 
-เรียก `GetEffective` อีกครั้งหลังจากเปลี่ยนการจัดรูปแบบ local, สไตล์พาเรนท์, การจัดรูปแบบเลย์เอาต์, การจัดรูปแบบมาสเตอร์ หรือค่าเริ่มต้นระดับพรีเซนเทชัน การเรียกครั้งถัดไปจะประเมินลำดับการจัดรูปแบบใหม่และคืนค่า effective ปัจจุบัน
+อย่าเก็บอ็อบเจ็กต์ effective data เป็นสแนปชอตถาวร Aspose.Slides อาจแคชบางส่วนของ effective data ภายในและการเรียก `GetEffective` ครั้งต่อมาจะรีเฟรชข้อมูลนั้น หากคุณต้องการเปรียบเทียบค่าก่อนและหลังการเปลี่ยนแปลง ให้คัดลอกค่าขนาดสเกลาร์ที่ต้องการ — เช่น ความสูงของฟอนต์, สี, การจัดแนว หรือความกว้างของ bevel — ไปยังตัวแปรของคุณก่อนทำการเปลี่ยนแปลง
 
-**การเปลี่ยนหรือการลบสไลด์เลย์เอาต์/มาสเตอร์มีผลต่อคุณสมบัติ effective ที่ได้แล้วหรือไม่?**
+เพื่อเปลี่ยนค่า ให้ปรับอ็อบเจ็กต์รูปแบบ **local** ที่เหมาะสมแล้วเรียก `GetEffective` เพื่อตรวจสอบผลลัพธ์ อ็อบเจ็กต์ effective data เองเป็นแบบอ่าน‑เท่านั้น
 
-มีผล แต่การเปลี่ยนแปลงจะปรากฏในการเรียก `GetEffective` ถัดไป หากแหล่งข้อมูลการจัดรูปแบบพาเรนท์ถูกเปลี่ยนหรือถูกลบ ข้อมูล effective ที่เคยได้รับอาจล้าสมัย เมื่อนำ `GetEffective` เรียกใหม่ Aspose.Slides จะประเมินต้นไม้การจัดรูปแบบใหม่และค่าฟอนท์, สี, ขนาด หรือค่าอื่น ๆ อาจเปลี่ยนแปลง
+## **FAQ**
 
-**สามารถแก้ไขค่าผ่านวัตถุข้อมูล effective ได้หรือไม่?**
+**ฉันจะทราบได้ว่าระดับใดให้ค่าที่ effective?**
 
-ไม่ได้ วัตถุข้อมูล effective เปิดเผยค่าที่คำนวณแล้ว ให้ทำการเปลี่ยนแปลงในวัตถุการจัดรูปแบบระดับ local แล้วจึงเรียกรับค่าที่ effective อีกครั้ง
+Effective data มีค่าที่สุดท้าย ไม่ได้บอกแหล่งที่มาของค่า ตรวจสอบอ็อบเจ็กต์ **local** ที่เกี่ยวข้องจากระดับที่เจาะจงที่สุดแล้วค่อยขยายออกไป สำหรับข้อความอาจรวมถึงส่วน, ย่อหน้า, เฟรมข้อความ, เลย์เอาต์, สไลด์แม่, ธีม และค่าตั้งต้นของการนำเสนอ ค่าที่ไม่ได้กำหนดเช่น `std::numeric_limits<float>::quiet_NaN()` หรือ `nullptr` แสดงว่าการค้นหายังดำเนินต่อไปที่ระดับอื่น
 
-**ถ้าคุณสมบัติไม่ได้ตั้งค่าไว้ที่ระดับรูปร่าง, เลย์เอาต์/มาสเตอร์ หรือการตั้งค่ารวม จะเกิดอะไรขึ้น?**
+**จะเกิดอะไรขึ้นเมื่อไม่มีระดับใดกำหนดคุณสมบัตินั้น?**
 
-ค่าที่ effective จะถูกกำหนดโดยกลไกค่าเริ่มต้น ซึ่งรวมถึงค่าเริ่มต้นของ PowerPoint และ Aspose.Slides ค่าที่ถูกแก้ไขนี้จะเป็นส่วนหนึ่งของข้อมูล effective ปัจจุบัน
+Aspose.Slides จะแก้ไขเป็นค่าเริ่มต้นของ PowerPoint หรือของไลบรารี ค่าที่แก้ไขแล้วจะปรากฏใน effective data แม้ว่าจะไม่มีอ็อบเจ็กต์ **local** ใดกำหนดค่าโดยตรง
 
-**จากค่าฟอนท์ที่ effective สามารถบอกได้หรือไม่ว่ามาจากระดับใด?**
+**ทำไมค่าที่ effective บางครั้งจึงเท่ากับค่าที่ local?**
 
-ไม่ได้โดยตรง ข้อมูล effective คืนค่าที่สุดท้าย เพื่อหาที่มาของค่า ให้ตรวจสอบค่าที่ local ระดับ portion, paragraph, text frame, และสไตล์ข้อความที่เลย์เอาต์, มาสเตอร์, และระดับพรีเซนเทชันเพื่อดูว่าการกำหนดที่ชัดเจนแรกปรากฏที่ระดับใด
+ค่าที่ local ชนะการคำนวณการสืบทอด ซึ่งเป็นที่คาดหวังเมื่อคุณสมบัติถูกตั้งค่าโดยเจาะจงบนอ็อบเจ็กต์และไม่มีกฎที่เฉพาะเจาะจงกว่าสามารถทับได้
 
-**ทำไมค่าที่ effective บางครั้งดูเหมือนค่าที่ local?**
+**ควรใช้ข้อมูล local แทนข้อมูล effective เมื่อใด?**
 
-เพราะค่าที่ local กลายเป็นค่าขั้นสุดท้าย (ไม่มีการสืบทอดจากระดับที่สูงกว่า) ในกรณีนั้นค่า effective จะตรงกับค่า local
-
-**ควรใช้คุณสมบัติ effective เมื่อใด และควรใช้ค่า local อย่างเดียวเมื่อใด?**
-
-ใช้ข้อมูล effective เมื่อคุณต้องการผลลัพธ์ “as rendered” หลังจากการสืบทอดทั้งหมด เช่น เพื่อให้สี, ระยะเยื้อง หรือขนาดตรงกัน หากคุณต้องการเก็บค่าตรงนี้ไว้แม้จะมีการเปลี่ยนแปลงการจัดรูปแบบภายหลัง ให้คัดลอกคุณสมบัติที่ต้องการไปยังวัตถุของคุณเอง หากต้องการเปลี่ยนการจัดรูปแบบที่ระดับเฉพาะ ให้แก้ไขค่าที่ local แล้วถ้าจำเป็นให้อ่านข้อมูล effective อีกครั้งเพื่อยืนยันผลลัพธ์
+ใช้ข้อมูล local เพื่อตรวจสอบหรือแก้ไขระดับการจัดรูปแบบเฉพาะ ใช้ข้อมูล effective เมื่อคุณต้องการลักษณะที่แสดงผลขั้นสุดท้ายหลังจากการสืบทอด, กฎของธีม, และสไตล์ที่เกี่ยวข้องทั้งหมดได้ถูกแก้ไขแล้ว ตัวอย่าง **การเปรียบเทียบเต็ม** (#compare-local-inherited-and-effective-values) แสดงการใช้ทั้งสองแบบในกระบวนการเดียวกัน

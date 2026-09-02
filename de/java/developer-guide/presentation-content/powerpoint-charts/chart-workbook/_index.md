@@ -1,34 +1,36 @@
 ---
-title: Verwalten von Diagramm-Workbooks in Präsentationen mit Java
-linktitle: Diagramm-Workbook
+title: Chart-Arbeitsmappen in Präsentationen mit Java verwalten
+linktitle: Chart-Arbeitsmappe
 type: docs
 weight: 70
 url: /de/java/chart-workbook/
 keywords:
-- Diagramm-Workbook
-- Diagrammdaten
-- Workbook-Zelle
+- Chart-Arbeitsmappe
+- Chart-Daten
+- Arbeitsmappenzelle
 - Datenbeschriftung
 - Arbeitsblatt
 - Datenquelle
-- Externes Workbook
+- Externe Arbeitsmappe
 - Externe Daten
+- Chart-Cache
+- Arbeitsmappenwiederherstellung
 - PowerPoint
 - Präsentation
 - Java
 - Aspose.Slides
-description: "Entdecken Sie Aspose.Slides für Java: Verwalten Sie Diagramm-Workbooks mühelos in PowerPoint- und OpenDocument-Formaten, um Ihre Präsentationsdaten zu optimieren."
+description: "Entdecken Sie Aspose.Slides für Java: verwalten Sie Chart-Arbeitsmappen in PowerPoint- und OpenDocument-Formaten mühelos, um Ihre Präsentationsdaten zu optimieren."
 ---
 ## **Übersicht**
 
-Dieser Artikel erklärt, wie man mit Diagramm-Workbooks in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Workbook-Streams liest und schreibt, Workbook-Zellen als Diagrammdatenbeschriftungen verwendet, auf Worksheet-Sammlungen zugreift und den Datentyp für Diagrammwerte angibt.
+Dieser Artikel erklärt, wie man mit Diagramm‑Arbeitsmappen in Aspose.Slides arbeitet. Er zeigt, wie man Diagrammdaten über Arbeitsmappen‑Streams liest und schreibt, Arbeitsmappen‑Zellen als Diagrammdatenbeschriftungen verwendet, auf Arbeitsblatt‑Sammlungen zugreift und den Datentyp für Diagrammwerte festlegt.
 
-Er behandelt außerdem die Arbeit mit externen Workbooks als Datenquelle für Diagramme. Die Beispiele demonstrieren, wie man ein externes Workbook erstellt und zuweist, den Pfad eines mit einem Diagramm verknüpften externen Workbooks abruft und Diagrammdaten bearbeitet, wenn das Workbook verfügbar ist.
+Er behandelt außerdem die Arbeit mit externen Arbeitsmappen als Datenquelle für Diagramme. Die Beispiele demonstrieren, wie man eine externe Arbeitsmappe erstellt und zuweist, den Pfad einer an ein Diagramm gebundenen externen Arbeitsmappe abruft und Diagrammdaten bearbeitet, wenn die Arbeitsmappe verfügbar ist.
 
-## **Diagrammdaten aus einem Workbook lesen und schreiben**
-Aspose.Slides stellt die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartData#readWorkbookStream--) und [WriteWorkbookStream](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) bereit, mit denen Sie Diagramm-Workbooks (die mit Aspose.Cells bearbeitete Diagrammdaten enthalten) lesen und schreiben können. **Hinweis**: Die Diagrammdaten müssen auf die gleiche Weise organisiert sein oder eine dem Quell‑Workbook ähnliche Struktur besitzen.
+## **Diagrammdaten aus einer Arbeitsmappe lesen und schreiben**
+Aspose.Slides stellt die Methoden [ReadWorkbookStream](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartData#readWorkbookStream--) und [WriteWorkbookStream](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) bereit, mit denen Sie Diagramm‑Datenarbeitsmappen (die Diagrammdaten enthalten, die mit Aspose.Cells bearbeitet wurden) lesen und schreiben können. **Hinweis**: Die Diagrammdaten müssen in derselben Weise organisiert sein oder eine ähnliche Struktur wie die Quelle aufweisen.
 
-Dieser Java-Code demonstriert einen Beispielvorgang:
+Dieser Java‑Code demonstriert ein Beispiel für die Operation:
 
 ```java
 Presentation pres = new Presentation("chart.pptx");
@@ -47,16 +49,15 @@ try {
 }
 ```
 
-## **Eine Workbook-Zelle als Diagrammdatenbeschriftung festlegen**
-
-1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/de/java/com.aspose.slides/presentation) Klasse.  
-2. Rufen Sie über den Index eine Referenz auf eine Folie ab.  
-3. Fügen Sie ein Bubble-Diagramm mit einigen Daten hinzu.  
-4. Greifen Sie auf die Diagrammserie zu.  
-5. Setzen Sie die Workbook-Zelle als Datenbeschriftung.  
+## **Eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen**
+1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/de/java/com.aspose.slides/presentation)‑Klasse.  
+2. Holen Sie sich die Referenz einer Folie über ihren Index.  
+3. Fügen Sie ein Blasendiagramm mit einigen Daten hinzu.  
+4. Greifen Sie auf die Diagramm‑Serie zu.  
+5. Legen Sie die Arbeitsmappen‑Zelle als Datenbeschriftung fest.  
 6. Speichern Sie die Präsentation.
 
-Dieser Java-Code zeigt, wie man eine Workbook-Zelle als Diagrammdatenbeschriftung festlegt:
+Dieser Java‑Code zeigt, wie Sie eine Arbeitsmappen‑Zelle als Diagrammdatenbeschriftung festlegen:
 
 ```java
 String lbl0 = "Label 0 cell value";
@@ -85,9 +86,8 @@ try {
 }
 ```
 
-## **Worksheets verwalten**
-
-Dieser Java-Code demonstriert einen Vorgang, bei dem die Methode [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) verwendet wird, um auf eine Worksheet-Sammlung zuzugreifen:
+## **Arbeitsblätter verwalten**
+Dieser Java‑Code demonstriert eine Operation, bei der die Methode [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartDataWorkbook#getWorksheets--) verwendet wird, um auf eine Arbeitsblatt‑Sammlung zuzugreifen:
 
 ```java
 Presentation pres = new Presentation();
@@ -102,8 +102,7 @@ try {
 ```
 
 ## **Datentyp der Datenquelle angeben**
-
-Dieser Java-Code zeigt, wie man einen Typ für eine Datenquelle angibt:
+Dieser Java‑Code zeigt, wie Sie einen Typ für eine Datenquelle angeben:
 
 ```java
 Presentation pres = new Presentation();
@@ -123,9 +122,8 @@ try {
 }
 ```
 
-## **Nicht unterstützte eingebettete Workbook-Formate erkennen**
-
-Aspose.Slides unterstützt das Excel-Binär-Workbook (.xlsb)-Format, das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die Methode `getEmbeddedWorkbookType` auf [IChartData](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartData) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/de/java/com.aspose.slides/WorkbookType) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen.
+## **Nicht unterstützte eingebettete Arbeitsmappen‑Formate erkennen**
+Aspose.Slides unterstützt das Excel‑Binärarbeitsmappen‑Format (.xlsb), das in einigen Diagrammen eingebettet werden kann, nicht. Sie können die Methode `getEmbeddedWorkbookType` auf [IChartData](https://reference.aspose.com/slides/de/java/com.aspose.slides/IChartData) zusammen mit der Aufzählung [WorkbookType](https://reference.aspose.com/slides/de/java/com.aspose.slides/WorkbookType) verwenden, um nicht unterstützte Formate zu erkennen und diese Diagramme zu überspringen.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -140,28 +138,26 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Das eingebettete Workbook ist im .xlsb-Format, das nicht unterstützt wird.
+            // Eingebettete Arbeitsmappe ist im .xlsb-Format, das nicht unterstützt wird.
             continue;
         }
 
-        // Lesen oder Ändern Sie hier die Diagramm-Workbook-Daten.
+        // Hier können Sie die Diagramm-Arbeitsmappendaten lesen oder ändern.
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Externes Workbook**
-
+## **Externe Arbeitsmappe**
 {{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/de/java/aspose-slides-for-java-19-4-release-notes/), haben wir die Unterstützung für externe Workbooks als Datenquelle für Diagramme implementiert.
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/de/java/aspose-slides-for-java-19-4-release-notes/) haben wir die Unterstützung für externe Arbeitsmappen als Datenquelle für Diagramme implementiert.
 {{% /alert %}} 
 
-### **Ein externes Workbook erstellen**
+### **Eine externe Arbeitsmappe erstellen**
+Mit den Methoden **`readWorkbookStream`** und **`setExternalWorkbook`** können Sie entweder eine externe Arbeitsmappe von Grund auf neu erstellen oder eine interne Arbeitsmappe extern machen.
 
-Mit den Methoden **`readWorkbookStream`** und **`setExternalWorkbook`** können Sie entweder ein externes Workbook von Grund auf neu erstellen oder ein internes Workbook extern machen.
-
-Dieser Java-Code demonstriert den Prozess zur Erstellung eines externen Workbooks:
+Dieser Java‑Code demonstriert den Prozess der Erstellung einer externen Arbeitsmappe:
 
 ```java
 Presentation pres = new Presentation();
@@ -186,13 +182,12 @@ try {
 }
 ```
 
-### **Ein externes Workbook zuweisen**
+### **Eine externe Arbeitsmappe zuweisen**
+Mit der Methode **`setExternalWorkbook`** können Sie einer Diagramm‑Datenquelle eine externe Arbeitsmappe zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zur externen Arbeitsmappe zu aktualisieren (falls diese verschoben wurde).
 
-Mit der Methode **`setExternalWorkbook`** können Sie einem Diagramm ein externes Workbook als Datenquelle zuweisen. Diese Methode kann auch verwendet werden, um den Pfad zu einem externen Workbook zu aktualisieren (falls dieses verschoben wurde).
+Obwohl Sie die Daten in Arbeitsmappen, die an entfernten Speicherorten oder Ressourcen liegen, nicht bearbeiten können, können Sie solche Arbeitsmappen dennoch als externe Datenquelle verwenden. Wenn ein relativer Pfad für eine externe Arbeitsmappe angegeben wird, wird er automatisch in einen vollständigen Pfad umgewandelt.
 
-Obwohl Sie die Daten in Workbooks, die an entfernten Speicherorten oder Ressourcen gespeichert sind, nicht bearbeiten können, können Sie solche Workbooks dennoch als externe Datenquelle verwenden. Wenn ein relativer Pfad für ein externes Workbook angegeben wird, wird er automatisch in einen vollständigen Pfad umgewandelt.
-
-Dieser Java-Code zeigt, wie man ein externes Workbook zuweist:
+Dieser Java‑Code zeigt, wie Sie eine externe Arbeitsmappe zuweisen:
 
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
@@ -218,10 +213,10 @@ try {
 }
 ```
 
-Der Parameter `ChartData` (bei der Methode `setExternalWorkbook`) gibt an, ob ein Excel-Workbook geladen werden soll oder nicht.
+Der Parameter `ChartData` (unter der Methode `setExternalWorkbook`) wird verwendet, um anzugeben, ob eine Excel‑Arbeitsmappe geladen werden soll oder nicht. 
 
-* Wenn der Wert `ChartData` auf `false` gesetzt ist, wird nur der Workbook-Pfad aktualisiert – die Diagrammdaten werden nicht aus dem Ziel‑Workbook geladen oder aktualisiert. Diese Einstellung kann sinnvoll sein, wenn das Ziel‑Workbook nicht existiert oder nicht verfügbar ist.  
-* Wenn der Wert `ChartData` auf `true` gesetzt ist, werden die Diagrammdaten aus dem Ziel‑Workbook aktualisiert.
+* Ist der Wert von `ChartData` auf `false` gesetzt, wird nur der Pfad der Arbeitsmappe aktualisiert – die Diagrammdaten werden nicht aus der Zielarbeitsmappe geladen oder aktualisiert. Diese Einstellung kann verwendet werden, wenn die Zielarbeitsmappe nicht existiert oder nicht verfügbar ist.  
+* Ist der Wert von `ChartData` auf `true` gesetzt, werden die Diagrammdaten aus der Zielarbeitsmappe aktualisiert.
 
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
@@ -238,15 +233,14 @@ try {
 }
 ```
 
-### **Den Pfad des externen Datenquellen‑Workbooks eines Diagramms abrufen**
+### **Den Pfad der externen Datenquellen‑Arbeitsmappe eines Diagramms abrufen**
+1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/de/java/com.aspose.slides/presentation)‑Klasse.  
+2. Holen Sie sich die Referenz einer Folie über ihren Index.  
+3. Erstellen Sie ein Objekt für die Diagramm‑Form.  
+4. Erstellen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), das die Datenquelle des Diagramms darstellt.  
+5. Geben Sie die entsprechende Bedingung an, basierend darauf, dass der Quelltyp dem Typ der externen Arbeitsmappen‑Datenquelle entspricht.
 
-1. Erstellen Sie eine Instanz der [Presentation](https://apireference.aspose.com/slides/de/java/com.aspose.slides/presentation) Klasse.  
-2. Rufen Sie über den Index eine Referenz auf eine Folie ab.  
-3. Erzeugen Sie ein Objekt für die Diagrammform.  
-4. Erzeugen Sie ein Objekt für den Quelltyp (`ChartDataSourceType`), der die Datenquelle des Diagramms darstellt.  
-5. Geben Sie die entsprechende Bedingung an, basierend darauf, dass der Quelltyp mit dem externen Workbook‑Datenquellentyp übereinstimmt.
-
-Dieser Java-Code demonstriert den Vorgang:
+Dieser Java‑Code demonstriert die Operation:
 
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
@@ -269,10 +263,7 @@ try {
 ```
 
 ### **Diagrammdaten bearbeiten**
-
-Sie können die Daten in externen Workbooks auf dieselbe Weise bearbeiten, wie Sie Änderungen am Inhalt interner Workbooks vornehmen. Wenn ein externes Workbook nicht geladen werden kann, wird eine Ausnahme ausgelöst.
-
-Dieser Java-Code implementiert den beschriebenen Vorgang:
+Sie können die Daten in externen Arbeitsmappen auf dieselbe Weise bearbeiten, wie Sie Änderungen am Inhalt interner Arbeitsmappen vornehmen. Wenn eine externe Arbeitsmappe nicht geladen werden kann, wird eine Ausnahme ausgelöst.
 
 ```java
 // Erstellt eine Instanz der Presentation-Klasse
@@ -289,28 +280,47 @@ try {
 }
 ```
 
+### **Eine Arbeitsmappe aus dem Diagramm‑Cache wiederherstellen**
+Verwendet ein Diagramm eine fehlende oder nicht verfügbare externe Arbeitsmappe, kann Aspose.Slides die Diagramm‑Arbeitsmappe aus den im Präsentations‑Cache gespeicherten Daten rekonstruieren. Erstellen Sie [LoadOptions](https://reference.aspose.com/slides/de/java/com.aspose.slides/loadoptions/), konfigurieren Sie diese mit [SpreadsheetOptions](https://reference.aspose.com/slides/de/java/com.aspose.slides/spreadsheetoptions/), und rufen Sie [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/de/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) mit `true` auf, bevor Sie die Präsentation öffnen.
+
+Das folgende Java‑Beispiel öffnet eine Präsentation, deren Diagramm auf eine nicht verfügbare externe Arbeitsmappe verweist, und greift über [IChart.getChartData](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichart/#getChartData--) und [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--) auf die wiederhergestellten Daten zu:
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Hier können Sie die wiederhergestellten Arbeitsmappendaten lesen oder ändern.
+} finally {
+    presentation.dispose();
+}
+```
+
+Ist die externe Arbeitsmappe nicht verfügbar und ist die Wiederherstellung deaktiviert, wirft Aspose.Slides eine Ausnahme. Aktivieren Sie die Wiederherstellung nur, wenn die Verwendung der zwischengespeicherten Diagrammdaten ein akzeptabler Rückfall ist, da der Cache Änderungen, die nach dem letzten Aktualisieren der Präsentation an der externen Arbeitsmappe vorgenommen wurden, möglicherweise nicht enthält.
+
 ## **FAQ**
 
-**Kann ich feststellen, ob ein bestimmtes Diagramm mit einem externen oder eingebetteten Workbook verknüpft ist?**
+**Kann ich feststellen, ob ein bestimmtes Diagramm mit einer externen oder einer eingebetteten Arbeitsmappe verknüpft ist?**  
+Ja. Ein Diagramm verfügt über einen [Datentyp der Datenquelle](https://reference.aspose.com/slides/de/java/com.aspose.slides/chartdata/#getDataSourceType--) und einen [Pfad zu einer externen Arbeitsmappe](https://reference.aspose.com/slides/de/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); ist die Quelle eine externe Arbeitsmappe, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
 
-Ja. Ein Diagramm verfügt über einen [Datenquellentyp](https://reference.aspose.com/slides/de/java/com.aspose.slides/chartdata/#getDataSourceType--) und einen [Pfad zu einem externen Workbook](https://reference.aspose.com/slides/de/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); ist die Quelle ein externes Workbook, können Sie den vollständigen Pfad auslesen, um sicherzustellen, dass eine externe Datei verwendet wird.
+**Werden relative Pfade zu externen Arbeitsmappen unterstützt und wie werden sie gespeichert?**  
+Ja. Geben Sie einen relativen Pfad an, wird er automatisch in einen absoluten Pfad umgewandelt. Das ist praktisch für die Portabilität von Projekten; beachten Sie jedoch, dass die Präsentation den absoluten Pfad in der PPTX‑Datei speichert.
 
-**Werden relative Pfade zu externen Workbooks unterstützt und wie werden sie gespeichert?**
+**Kann ich Arbeitsmappen verwenden, die sich auf Netzwerkressourcen/Freigaben befinden?**  
+Ja, solche Arbeitsmappen können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von entfernten Arbeitsmappen über Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle genutzt werden.
 
-Ja. Wenn Sie einen relativen Pfad angeben, wird er automatisch in einen absoluten Pfad umgewandelt. Das ist praktisch für die Portabilität von Projekten; beachten Sie jedoch, dass die Präsentation den absoluten Pfad in der PPTX‑Datei speichert.
+**Überschreibt Aspose.Slides die externe XLSX beim Speichern der Präsentation?**  
+Nein. Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/de/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) und verwendet ihn zum Auslesen von Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
 
-**Kann ich Workbooks verwenden, die sich auf Netzwerkressourcen/Freigaben befinden?**
+**Was soll ich tun, wenn die externe Datei passwortgeschützt ist?**  
+Aspose.Slides akzeptiert beim Verlinken kein Passwort. Ein gängiger Ansatz ist, den Schutz vorher zu entfernen oder eine entschlüsselte Kopie vorzubereiten (z. B. mit [Aspose.Cells](/cells/java/)) und auf diese Kopie zu verlinken.
 
-Ja, solche Workbooks können als externe Datenquelle verwendet werden. Das direkte Bearbeiten von entfernten Workbooks über Aspose.Slides wird jedoch nicht unterstützt – sie können nur als Quelle verwendet werden.
-
-**Überschreibt Aspose.Slides das externe XLSX beim Speichern der Präsentation?**
-
-Nein. Die Präsentation speichert einen [Link zur externen Datei](https://reference.aspose.com/slides/de/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) und verwendet ihn zum Einlesen der Daten. Die externe Datei selbst wird beim Speichern der Präsentation nicht verändert.
-
-**Was soll ich tun, wenn die externe Datei passwortgeschützt ist?**
-
-Aspose.Slides akzeptiert beim Verknüpfen kein Passwort. Ein gängiger Ansatz ist, den Schutz im Voraus zu entfernen oder eine entschlüsselte Kopie vorzubereiten (z. B. mit [Aspose.Cells](/cells/java/)) und diese Kopie zu verlinken.
-
-**Können mehrere Diagramme dasselbe externe Workbook referenzieren?**
-
-Ja. Jedes Diagramm speichert seinen eigenen Link. Wenn sie alle auf dieselbe Datei verweisen, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm wirksam.
+**Können mehrere Diagramme dieselbe externe Arbeitsmappe referenzieren?**  
+Ja. Jedes Diagramm speichert seinen eigenen Link. Zeigen sie alle auf dieselbe Datei, wird eine Aktualisierung dieser Datei beim nächsten Laden der Daten in jedem Diagramm wirksam.

@@ -51,6 +51,80 @@ For literal-text operations, use [TextSearchOptions](https://reference.aspose.co
 
 Regular-expression operations use a Java `Pattern`, so matching rules such as case sensitivity and word boundaries are defined by the expression and its flags.
 
+## **Identify the Owner of a Text Frame**
+
+Generic text-processing workflows often receive a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) while searching, replacing, validating, or exporting text. Use [TextFrame::getParentShape](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentShape) and [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) to determine which presentation object owns the text frame.
+
+The expected values depend on the owner:
+
+| Text frame owner | `getParentShape` | `getParentCell` |
+|---|---|---|
+| An AutoShape or another text-containing shape | The owning [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) | `null` |
+| A table cell | `null` | The owning [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/) |
+
+Both methods provide read-only navigation. Calling them does not move the text frame or change its owner. Generic code should check both values with `java_is_null` and handle the possibility that neither owner is available.
+
+The following example uses [SlideUtil::getAllTextFrames](https://reference.aspose.com/slides/php-java/aspose.slides/slideutil/#getAllTextFrames) to iterate through the text frames in a presentation. For shapes, it reports the shape name, Java runtime type, and containing slide. For table cells, it reports the zero-based column and row coordinates and the containing slide.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SlideUtil;
+
+$presentation = new Presentation("presentation.pptx");
+$arrayClass = new java_class("java.lang.reflect.Array");
+
+try {
+    $textFrames = SlideUtil::getAllTextFrames($presentation, false);
+    $textFrameCount = java_values($arrayClass->getLength($textFrames));
+
+    for ($textFrameIndex = 0; $textFrameIndex < $textFrameCount; $textFrameIndex++) {
+        $textFrame = $textFrames[$textFrameIndex];
+        $ownerShape = $textFrame->getParentShape();
+        if (!java_is_null($ownerShape)) {
+            $shapeName = java_values($ownerShape->getName());
+            $shapeName = $shapeName === "" ? "(unnamed)" : $shapeName;
+            $shapeType = java_values($ownerShape->getClass()->getSimpleName());
+            $baseSlide = $ownerShape->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Shape: " . $shapeName . "; type: " . $shapeType . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        $ownerCell = $textFrame->getParentCell();
+        if (!java_is_null($ownerCell)) {
+            $baseSlide = $ownerCell->getSlide();
+            $slideClassName = java_values($baseSlide->getClass()->getName());
+
+            if ($slideClassName === "com.aspose.slides.Slide") {
+                $slideLabel = "slide " . java_values($baseSlide->getSlideNumber());
+            } elseif ($slideClassName === "com.aspose.slides.NotesSlide") {
+                $slideLabel = "notes for slide " . java_values($baseSlide->getParentSlide()->getSlideNumber());
+            } else {
+                $slideLabel = java_values($baseSlide->getClass()->getSimpleName());
+            }
+
+            echo("Table cell: column " . java_values($ownerCell->getFirstColumnIndex()) . ", row " . java_values($ownerCell->getFirstRowIndex()) . "; " . $slideLabel . "\n");
+            continue;
+        }
+
+        echo("The text frame owner is not available as a shape or table cell.\n");
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+For SmartArt content, iterate through the shapes in [SmartArtNode::getShapes](https://reference.aspose.com/slides/php-java/aspose.slides/smartartnode/#getShapes) and access each [SmartArtShape::getTextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/smartartshape/#getTextFrame). The text frame can be traced to its associated shape through [TextFrame::getParentShape](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentShape), while [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) returns `null`. Therefore, the shape branch in the example also handles text from SmartArt nodes.
+
 ## **Collect Match Information with a Callback**
 
 Pass a Java proxy callback to a highlighting or replacement method to receive a notification for every match. The callback method receives the related text frame, the source text, the matched text, and the match position.
@@ -77,7 +151,17 @@ class TextSearchCallback {
     }
 
     private function getSlideNumber($textFrame) {
-        $parentSlide = $textFrame->getSlide();
+        $parentShape = $textFrame->getParentShape();
+        $parentCell = $textFrame->getParentCell();
+
+        if (!java_is_null($parentShape)) {
+            $parentSlide = $parentShape->getSlide();
+        } elseif (!java_is_null($parentCell)) {
+            $parentSlide = $parentCell->getSlide();
+        } else {
+            $parentSlide = $textFrame->getSlide();
+        }
+
         if (java_is_null($parentSlide)) {
             return null;
         }

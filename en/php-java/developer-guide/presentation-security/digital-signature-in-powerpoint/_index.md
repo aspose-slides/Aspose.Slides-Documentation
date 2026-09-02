@@ -25,7 +25,7 @@ A digital signature helps a recipient determine who signed a presentation and wh
 
 - A **digital certificate** is an electronic credential that associates an identity with a public key. A trusted certificate authority (CA) can issue a certificate, or an organization can use a self-signed certificate for internal workflows.
 - A **digital signature** is created from the presentation content and the certificate holder's private key. The certificate's public key can then be used to verify the signature. A signature provides evidence of origin and integrity; it does not encrypt the presentation.
-- **Password protection** controls whether a user can open or modify a presentation. It is separate from digital signing and is described in [Password-Protected Presentations](/php-java/password-protected-presentation/).
+- **Password protection** controls whether a user can open or modify a presentation. It is separate from digital signing and is described in [Password-Protected Presentations](/slides/php-java/password-protected-presentation/).
 
 PowerPoint provides the **Add a Digital Signature** command under **File > Info > Protect Presentation**.
 
@@ -148,7 +148,7 @@ To remove only one signature, call [DigitalSignatureCollection::removeAt](https:
 
 **Does a digital signature encrypt the presentation?**
 
-No. A digital signature provides evidence about origin and integrity, but presentation content remains readable unless separate encryption is applied. Use [password protection](/php-java/password-protected-presentation/) when access to the content must be restricted.
+No. A digital signature provides evidence about origin and integrity, but presentation content remains readable unless separate encryption is applied. Use [password protection](/slides/php-java/password-protected-presentation/) when access to the content must be restricted.
 
 **Is the PFX password the same as a presentation password?**
 

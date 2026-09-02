@@ -1,11 +1,11 @@
 ---
-title: Kelola Buku Kerja Diagram dalam Presentasi Menggunakan PHP
-linktitle: Buku Kerja Diagram
+title: Kelola Workbook Diagram dalam Presentasi Menggunakan PHP
+linktitle: Workbook Diagram
 type: docs
 weight: 70
 url: /id/php-java/chart-workbook/
 keywords:
-- buku kerja diagram
+- workbook diagram
 - data diagram
 - sel buku kerja
 - label data
@@ -13,23 +13,24 @@ keywords:
 - sumber data
 - buku kerja eksternal
 - data eksternal
+- cache diagram
+- pemulihan buku kerja
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Temukan Aspose.Slides untuk PHP via Java: kelola buku kerja diagram secara mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
+description: "Temukan Aspose.Slides untuk PHP via Java: kelola workbook diagram dengan mudah dalam format PowerPoint dan OpenDocument untuk menyederhanakan data presentasi Anda."
 ---
-## **Gambaran Umum**
+## **Ringkasan**
 
-Artikel ini menjelaskan cara bekerja dengan buku kerja diagram di Aspose.Slides. Ini menunjukkan cara membaca dan menulis data diagram melalui aliran buku kerja, menggunakan sel buku kerja sebagai label data diagram, mengakses koleksi lembar kerja, dan menentukan tipe sumber data untuk nilai diagram.
+Artikel ini menjelaskan cara bekerja dengan workbook diagram di Aspose.Slides. Artikel ini menunjukkan cara membaca dan menulis data diagram melalui aliran workbook, menggunakan sel workbook sebagai label data diagram, mengakses koleksi worksheet, dan menentukan tipe sumber data untuk nilai diagram.
 
-Ini juga mencakup penggunaan buku kerja eksternal sebagai sumber data diagram. Contoh-contoh menunjukkan cara membuat dan menetapkan buku kerja eksternal, mengambil jalur buku kerja eksternal yang terhubung ke diagram, serta mengedit data diagram ketika buku kerja tersedia.
+Artikel ini juga mencakup cara bekerja dengan workbook eksternal sebagai sumber data diagram. Contoh‑contoh menunjukkan cara membuat dan menetapkan workbook eksternal, mengambil jalur workbook eksternal yang terhubung ke diagram, serta mengedit data diagram ketika workbook tersedia.
 
-## **Baca dan Tulis Data Diagram dari Buku Kerja**
+## **Baca dan Tulis Data Diagram dari Workbook**
+Aspose.Slides menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda membaca dan menulis workbook data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
 
-Aspose.Slides menyediakan metode [readWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#readWorkbookStream) dan [writeWorkbookStream](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#writeWorkbookStream) yang memungkinkan Anda membaca dan menulis buku kerja data diagram (yang berisi data diagram yang diedit dengan Aspose.Cells). **Catatan** bahwa data diagram harus diatur dengan cara yang sama atau memiliki struktur yang mirip dengan sumbernya.
-
-Kode PHP ini menunjukkan operasi contoh:
+Kode PHP berikut menunjukkan contoh operasi:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -47,22 +48,22 @@ Kode PHP ini menunjukkan operasi contoh:
   }
 ```
 
-## **Menetapkan Sel Buku Kerja sebagai Label Data Diagram**
+## **Set Sel WorkBook sebagai Label Data Diagram**
 
-1. Buat instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/php-java/aspose.slides/presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Tambahkan diagram Bubble dengan beberapa data.
-4. Akses seri diagram.
-5. Tetapkan sel buku kerja sebagai label data.
-6. Simpan presentasi.
+1. Buat sebuah instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/php-java/aspose.slides/presentation).
+1. Dapatkan referensi slide melalui indeksnya.
+1. Tambahkan diagram Bubble dengan beberapa data.
+1. Akses seri diagram.
+1. Tetapkan sel workbook sebagai label data.
+1. Simpan presentasi.
 
-Kode PHP ini menunjukkan cara menetapkan sel buku kerja sebagai label data diagram:
+Kode PHP berikut menunjukkan cara menetapkan sel workbook sebagai label data diagram:
 
 ```php
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # Membuat instance kelas presentasi yang mewakili file presentasi
+  # Menginstansiasi kelas presentasi yang mewakili file presentasi
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -82,9 +83,9 @@ Kode PHP ini menunjukkan cara menetapkan sel buku kerja sebagai label data diagr
   }
 ```
 
-## **Mengelola Lembar Kerja**
+## **Kelola Worksheet**
 
-Kode PHP ini menunjukkan operasi di mana metode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#getWorksheets) digunakan untuk mengakses koleksi lembar kerja:
+Kode PHP berikut mendemonstrasikan operasi dimana metode [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#getWorksheets) digunakan untuk mengakses koleksi worksheet:
 
 ```php
   $pres = new Presentation();
@@ -101,9 +102,9 @@ Kode PHP ini menunjukkan operasi di mana metode [ChartDataWorkbook::getWorksheet
   }
 ```
 
-## **Menentukan Tipe Sumber Data**
+## **Tentukan Tipe Sumber Data**
 
-Kode PHP ini menunjukkan cara menentukan tipe untuk sumber data:
+Kode PHP berikut menunjukkan cara menentukan tipe untuk sebuah sumber data:
 
 ```php
   $pres = new Presentation();
@@ -122,9 +123,9 @@ Kode PHP ini menunjukkan cara menentukan tipe untuk sumber data:
   }
 ```
 
-## **Mendeteksi Format Buku Kerja Tersemat yang Tidak Didukung**
+## **Deteksi Format Workbook Tersemat yang Tidak Didukung**
 
-Aspose.Slides tidak mendukung format buku kerja Excel biner (.xlsb) yang dapat tersemat dalam beberapa diagram. Anda dapat menggunakan metode `getEmbeddedWorkbookType` pada [ChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/php-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewati diagram tersebut.
+Aspose.Slides tidak mendukung format workbook biner Excel (.xlsb) yang dapat disematkan dalam beberapa diagram. Anda dapat menggunakan metode `getEmbeddedWorkbookType` pada [ChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/) bersama dengan enumerasi [WorkbookType](https://reference.aspose.com/slides/id/php-java/aspose.slides/workbooktype/) untuk mendeteksi format yang tidak didukung dan melewati diagram‑diagram tersebut.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -144,26 +145,26 @@ try {
 
     if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
         java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # Buku kerja tersemat berformat .xlsb, yang tidak didukung.
+      # Workbook tersemat berada dalam format .xlsb, yang tidak didukung.
       continue;
     }
 
-    # Baca atau ubah data buku kerja diagram di sini.
+    # Baca atau ubah data workbook diagram di sini.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **Buku Kerja Eksternal**
+## **Workbook Eksternal**
 
-Aspose.Slides mendukung buku kerja eksternal sebagai sumber data untuk diagram.
+Aspose.Slides mendukung workbook eksternal sebagai sumber data untuk diagram.
 
-### **Membuat Buku Kerja Eksternal**
+### **Buat Workbook Eksternal**
 
-Menggunakan metode **`readWorkbookStream`** dan **`setExternalWorkbook`**, Anda dapat membuat buku kerja eksternal dari awal atau menjadikan buku kerja internal menjadi eksternal.
+Dengan menggunakan metode **`readWorkbookStream`** dan **`setExternalWorkbook`**, Anda dapat membuat workbook eksternal dari awal atau menjadikan workbook internal menjadi eksternal.
 
-Kode PHP ini menunjukkan proses pembuatan buku kerja eksternal:
+Kode PHP berikut mendemonstrasikan proses pembuatan workbook eksternal:
 
 ```php
   $pres = new Presentation();
@@ -191,13 +192,13 @@ Kode PHP ini menunjukkan proses pembuatan buku kerja eksternal:
   }
 ```
 
-### **Menetapkan Buku Kerja Eksternal**
+### **Set Workbook Eksternal**
 
-Dengan metode **`setExternalWorkbook`**, Anda dapat menetapkan buku kerja eksternal ke diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke buku kerja eksternal (jika buku kerja tersebut telah dipindahkan).
+Dengan menggunakan metode **`setExternalWorkbook`**, Anda dapat menetapkan workbook eksternal ke sebuah diagram sebagai sumber datanya. Metode ini juga dapat digunakan untuk memperbarui jalur ke workbook eksternal (jika workbook tersebut telah dipindahkan).
 
-Meskipun Anda tidak dapat mengedit data dalam buku kerja yang disimpan di lokasi atau sumber daya remote, Anda tetap dapat menggunakan buku kerja tersebut sebagai sumber data eksternal. Jika jalur relatif untuk buku kerja eksternal diberikan, jalur tersebut secara otomatis dikonversi menjadi jalur penuh.
+Meskipun Anda tidak dapat mengedit data dalam workbook yang disimpan di lokasi atau sumber daya remote, Anda masih dapat menggunakan workbook tersebut sebagai sumber data eksternal. Jika jalur relatif untuk workbook eksternal diberikan, jalur tersebut akan otomatis dikonversi menjadi jalur penuh.
 
-Kode PHP ini menunjukkan cara menetapkan buku kerja eksternal:
+Kode PHP berikut menunjukkan cara menetapkan workbook eksternal:
 
 ```php
   # Membuat instance dari kelas Presentation
@@ -221,10 +222,10 @@ Kode PHP ini menunjukkan cara menetapkan buku kerja eksternal:
   }
 ```
 
-Parameter `ChartData` (di bawah metode `setExternalWorkbook`) digunakan untuk menentukan apakah buku kerja Excel akan dimuat atau tidak.
+Parameter `ChartData` (di bawah metode `setExternalWorkbook`) digunakan untuk menentukan apakah workbook Excel akan dimuat atau tidak. 
 
-* Ketika nilai `ChartData` diatur ke `false`, hanya jalur buku kerja yang diperbarui — data diagram tidak akan dimuat atau diperbarui dari buku kerja target. Gunakan pengaturan ini bila buku kerja target tidak ada atau tidak tersedia.
-* Ketika nilai `ChartData` diatur ke `true`, data diagram diperbarui dari buku kerja target.
+* Ketika nilai `ChartData` diset ke `false`, hanya jalur workbook yang diperbarui—data diagram tidak akan dimuat atau diperbarui dari workbook target. Anda dapat menggunakan pengaturan ini ketika workbook target tidak ada atau tidak tersedia. 
+* Ketika nilai `ChartData` diset ke `true`, data diagram akan diperbarui dari workbook target.
 
 ```php
   # Membuat instance dari kelas Presentation
@@ -241,15 +242,15 @@ Parameter `ChartData` (di bawah metode `setExternalWorkbook`) digunakan untuk me
   }
 ```
 
-### **Mendapatkan Jalur Buku Kerja Sumber Data Eksternal dari Diagram**
+### **Dapatkan Jalur Workbook Sumber Data Eksternal dari Diagram**
 
-1. Buat instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/php-java/aspose.slides/presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Buat objek untuk bentuk diagram.
-4. Buat objek untuk tipe sumber (`ChartDataSourceType`) yang mewakili sumber data diagram.
-5. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data buku kerja eksternal.
+1. Buat sebuah instance dari kelas [Presentation](https://apireference.aspose.com/slides/id/php-java/aspose.slides/presentation).
+1. Dapatkan referensi slide melalui indeksnya.
+1. Buat objek untuk bentuk diagram.
+1. Buat objek untuk tipe sumber (`ChartDataSourceType`) yang merepresentasikan sumber data diagram.
+1. Tentukan kondisi yang relevan berdasarkan tipe sumber yang sama dengan tipe sumber data workbook eksternal.
 
-Kode PHP ini menunjukkan operasi tersebut:
+Kode PHP berikut mendemonstrasikan operasi tersebut:
 
 ```php
   # Membuat instance dari kelas Presentation
@@ -270,11 +271,11 @@ Kode PHP ini menunjukkan operasi tersebut:
   }
 ```
 
-### **Mengedit Data Diagram**
+### **Edit Data Diagram**
 
-Anda dapat mengedit data dalam buku kerja eksternal dengan cara yang sama seperti mengubah isi buku kerja internal. Ketika buku kerja eksternal tidak dapat dimuat, sebuah pengecualian akan dilempar.
+Anda dapat mengedit data dalam workbook eksternal dengan cara yang sama seperti mengubah isi workbook internal. Ketika workbook eksternal tidak dapat dimuat, sebuah eksepsi akan dilempar.
 
-Kode PHP ini merupakan implementasi proses yang dijelaskan:
+Kode PHP berikut merupakan implementasi proses yang dijelaskan:
 
 ```php
   # Membuat instance dari kelas Presentation
@@ -291,28 +292,54 @@ Kode PHP ini merupakan implementasi proses yang dijelaskan:
   }
 ```
 
-## **FAQ**
+### **Pulihkan Workbook dari Cache Diagram**
 
-**Apakah saya dapat menentukan apakah sebuah diagram terhubung ke buku kerja eksternal atau tersemat?**
+Jika sebuah diagram menggunakan workbook eksternal yang hilang atau tidak tersedia, Aspose.Slides dapat merekonstruksi workbook diagram dari data yang di‑cache dalam presentasi. Buat [LoadOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/loadoptions/), konfigurasikan dengan [SpreadsheetOptions](https://reference.aspose.com/slides/id/php-java/aspose.slides/spreadsheetoptions/), dan panggil [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/id/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) dengan `true` sebelum membuka presentasi.
 
-Ya. Sebuah diagram memiliki [tipe sumber data](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getdatasourcetype/) dan [jalur ke buku kerja eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/); jika sumbernya adalah buku kerja eksternal, Anda dapat membaca jalur penuh untuk memastikan file eksternal digunakan.
+Contoh PHP berikut membuka presentasi yang referensi diagramnya mengarah ke workbook eksternal yang tidak tersedia dan mengakses data yang dipulihkan melalui [Chart::getChartData](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/#getChartData) serta [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
 
-**Apakah jalur relatif ke buku kerja eksternal didukung, dan bagaimana cara penyimpanannya?**
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
 
-Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, presentasi akan menyimpan jalur absolut dalam file PPTX.
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
 
-**Dapatkah saya menggunakan buku kerja yang berada pada sumber daya jaringan/berbagi?**
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
 
-Ya, buku kerja tersebut dapat digunakan sebagai sumber data eksternal. Namun, mengedit buku kerja remote langsung dari Aspose.Slides tidak didukung — mereka hanya dapat digunakan sebagai sumber.
+    # Baca atau ubah data workbook yang dipulihkan di sini.
+} finally {
+    $presentation->dispose();
+}
+```
 
-**Apakah Aspose.Slides menimpa file XLSX eksternal saat menyimpan presentasi?**
+Jika workbook eksternal tidak tersedia dan pemulihan dinonaktifkan, Aspose.Slides akan melempar eksepsi. Aktifkan pemulihan hanya ketika menggunakan data diagram yang di‑cache merupakan solusi yang dapat diterima, karena cache mungkin tidak berisi perubahan yang dilakukan pada workbook eksternal setelah presentasi terakhir diperbarui.
 
-Tidak. Presentasi menyimpan [tautan ke file eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak diubah saat presentasi disimpan.
+## **Tanya Jawab**
 
-**Apa yang harus saya lakukan jika file eksternal dilindungi kata sandi?**
+**Apakah saya dapat menentukan apakah sebuah diagram tertentu terhubung ke workbook eksternal atau tersemat?**
 
-Aspose.Slides tidak menerima kata sandi saat menautkan. Pendekatan umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya, menggunakan [Aspose.Cells](/cells/php-java/)) dan menautkan ke salinan tersebut.
+Ya. Diagram memiliki [tipe sumber data](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getdatasourcetype/) dan [jalur ke workbook eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/); jika sumbernya adalah workbook eksternal, Anda dapat membaca jalur lengkap untuk memastikan bahwa file eksternal sedang digunakan.
 
-**Dapatkah beberapa diagram merujuk ke buku kerja eksternal yang sama?**
+**Apakah jalur relatif ke workbook eksternal didukung, dan bagaimana cara penyimpanannya?**
 
-Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap diagram saat data dimuat kembali.
+Ya. Jika Anda menentukan jalur relatif, jalur tersebut secara otomatis dikonversi menjadi jalur absolut. Ini memudahkan portabilitas proyek; namun, perlu diketahui bahwa presentasi akan menyimpan jalur absolut di dalam file PPTX.
+
+**Apakah saya dapat menggunakan workbook yang berada di sumber daya jaringan/berbagi?**
+
+Ya, workbook tersebut dapat digunakan sebagai sumber data eksternal. Namun, pengeditan workbook remote secara langsung dari Aspose.Slides tidak didukung—mereka hanya dapat digunakan sebagai sumber.
+
+**Apakah Aspose.Slides menimpa XLSX eksternal saat menyimpan presentasi?**
+
+Tidak. Presentasi menyimpan sebuah [tautan ke file eksternal](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdata/getexternalworkbookpath/) dan menggunakannya untuk membaca data. File eksternal itu sendiri tidak diubah saat presentasi disimpan.
+
+**Apa yang harus saya lakukan jika file eksternal dilindungi password?**
+
+Aspose.Slides tidak menerima password saat membuat tautan. Pendekatan umum adalah menghapus perlindungan terlebih dahulu atau menyiapkan salinan yang telah didekripsi (misalnya menggunakan [Aspose.Cells](/cells/php-java/)) dan menautkan ke salinan tersebut.
+
+**Dapatkah beberapa diagram merujuk ke workbook eksternal yang sama?**
+
+Ya. Setiap diagram menyimpan tautannya masing‑masing. Jika semuanya menunjuk ke file yang sama, memperbarui file tersebut akan tercermin pada setiap diagram pada saat data dimuat berikutnya.

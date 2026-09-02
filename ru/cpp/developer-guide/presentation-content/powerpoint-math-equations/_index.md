@@ -1,5 +1,5 @@
 ---
-title: Добавить математические уравнения в презентации PowerPoint на C++
+title: Добавление математических уравнений в презентации PowerPoint на C++
 linktitle: Математические уравнения PowerPoint
 type: docs
 weight: 80
@@ -17,33 +17,33 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Вставляйте и редактируйте математические уравнения в PowerPoint PPT и PPTX с помощью Aspose.Slides для C++, поддерживая OMML, средства форматирования и понятные примеры кода на C++."
+description: "Вставка и редактирование математических уравнений в PowerPoint PPT и PPTX с помощью Aspose.Slides для C++, с поддержкой OMML, элементами форматирования и понятными примерами кода на C++."
 ---
 ## **Обзор**
 
-PowerPoint сохраняет уравнения в формате Office Math Markup Language (OMML). С помощью Aspose.Slides для C++ вы можете программно создавать такой же тип математического контента: дроби, радикалы, функции, пределы, N‑ary‑операторы, матрицы, массивы и отформатированные математические блоки.
+PowerPoint сохраняет уравнения в виде Office Math Markup Language (OMML). С помощью Aspose.Slides для C++ вы можете программно создавать такой же тип математического контента: дроби, радикалы, функции, пределы, N-арные операторы, матрицы, массивы и форматированные математические блоки.
 
-В PowerPoint пользователи обычно добавляют уравнения через **Insert > Equation**:
+В PowerPoint пользователи обычно добавляют уравнения через **Вставка > Уравнение**:
 
-![Вкладка Insert в PowerPoint с выбранной командой Equation](powerpoint-math-equations_1.png)
+![Вкладка PowerPoint Insert с выбранной командой Equation](powerpoint-math-equations_1.png)
 
-Результат — редактируемый математический текст на слайде:
+Результатом является редактируемый математический текст на слайде:
 
 ![Слайд PowerPoint, содержащий редактируемое математическое уравнение](powerpoint-math-equations_2.png)
 
-Aspose.Slides создает этот математический текст с помощью трех основных объектов:
+Aspose.Slides строит этот математический текст через три основных объекта:
 
-- Геометрический объект Math, создаваемый с помощью [AddMathShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/shapecollection/), является фигурой, содержащей уравнение.
-- [MathPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathportion/) хранит математическое содержимое внутри текстового фрейма фигуры.
+- Математическая фигура, создаваемая с помощью [AddMathShape](https://reference.aspose.com/slides/ru/cpp/aspose.slides/shapecollection/), является фигурой, содержащей уравнение.
+- [MathPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathportion/) хранит математическое содержимое внутри текстового кадра фигуры.
 - [MathParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathparagraph/) содержит один или несколько объектов [MathBlock](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathblock/).
 
-Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathematicaltext/) и «чистые» методы из [IMathElement](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/) для сокращения и упрощения кода.
+Большинство примеров ниже используют [MathematicalText](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathematicaltext/) и цепочечные методы из [IMathElement](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/) для краткости и читаемости кода.
 
-Для сценариев экспорта MathML смотрите [Export Math Equations from Presentations in C++](/slides/ru/cpp/exporting-math-equations/).
+Для сценариев экспорта MathML см. [Export Math Equations from Presentations in C++](/slides/ru/cpp/exporting-math-equations/).
 
 ## **Создание уравнения**
 
-В этом примере создаётся математическая фигура и добавляется теорема Пифагора:
+Этот пример создаёт математическую фигуру и добавляет теорему Пифагора:
 
 ![Уравнение c² = a² + b²](powerpoint-math-equations_3.png)
 
@@ -69,14 +69,16 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" %}}
-`AddMathShape` создает фигуру, уже содержащую математический абзац. Получите первый `MathPortion`, возьмите его `MathParagraph` и добавьте в него математические блоки или элементы.
+
+`AddMathShape` creates a shape that already contains a math paragraph. Access the first `MathPortion`, get its `MathParagraph`, and add math blocks or math elements to it.
+
 {{% /alert %}}
 
 ## **Добавление дробей**
 
 Используйте `Divide` для создания дроби. Вы можете выбрать стиль дроби с помощью [MathFractionTypes](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
-![Наклоненная математическая дробь, показывающая 1, делённое на x](powerpoint-math-equations_4.png)
+![Наклонённая математическая дробь, показывающая 1, делённое на x](powerpoint-math-equations_4.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -105,7 +107,7 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 Используйте `Radical` для создания квадратного корня, кубического корня или другого корня. Текущий элемент становится основанием, а аргумент — степенью.
 
-![Выражение n‑го корня с x под радикалом](powerpoint-math-equations_5.png)
+![Выражение n‑го корня с x под радикальной чертой](powerpoint-math-equations_5.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -126,9 +128,9 @@ presentation->Dispose();
 
 ## **Добавление функций и пределов**
 
-Используйте `AsArgumentOfFunction` или `Function` для функций вроде `sin(x)`, `log(x)` или пользовательских имен функций. Для пределов поместите `lim` в [MathLimit](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathlimit/) или используйте `SetLowerLimit`.
+Используйте `AsArgumentOfFunction` или `Function` для функций, таких как `sin(x)`, `log(x)`, или пользовательских имен функций. Для пределов разместите `lim` в [MathLimit](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathlimit/) или используйте `SetLowerLimit`.
 
-![Предел x, когда x стремится к бесконечности](powerpoint-math-equations_8.png)
+![Предел x при x стремящемся к бесконечности](powerpoint-math-equations_8.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -154,11 +156,11 @@ presentation->Dispose();
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **Добавление N‑ary операторов и интегралов**
+## **Добавление N‑арных операторов и интегралов**
 
-Используйте `Nary` для сумм, объединений, пересечений и других крупных операторов. Используйте `Integral` для интегралов. Оба метода позволяют задавать нижние и верхние пределы.
+Используйте `Nary` для сумм, объединений, пересечений и других больших операторов. Для интегралов используйте `Integral`. Оба метода позволяют задавать нижний и верхний пределы.
 
-![Суммирование с нижними и верхними пределами](powerpoint-math-equations_7.png)
+![Сумма с нижними и верхними пределами](powerpoint-math-equations_7.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -180,7 +182,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N‑ary‑операторы предназначены для крупных операторов с необязательными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как `MathematicalText` и объединяются в выражении.
+N‑арные операторы предназначены для больших операторов с необязательными пределами. Простые операторы, такие как `+`, `-` и `=`, обычно добавляются как `MathematicalText` и соединяются в выражение.
 
 Для интеграла используйте `Integral`:
 
@@ -191,7 +193,7 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **Добавление матриц**
 
-Используйте [MathMatrix](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathmatrix/) для строк и столбцов. По умолчанию матрицы не включают скобки, поэтому заключайте матрицу в круглые, квадратные или фигурные скобки при необходимости.
+Используйте [MathMatrix](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathmatrix/) для строк и столбцов. По умолчанию матрицы не включают скобки, поэтому обрамляйте матрицу, когда нужны круглые, квадратные или фигурные скобки.
 
 ![Матрица из двух строк с одной пустой ячейкой](powerpoint-math-equations_10.png)
 
@@ -218,9 +220,9 @@ presentation->Dispose();
 
 ## **Добавление массивов уравнений**
 
-Используйте `ToMathArray`, когда нужны выровненные уравнения или вертикальная стекация выражений.
+Используйте `ToMathArray`, когда нужны выровненные уравнения или вертикальный набор выражений.
 
-![Вертикальный массив уравнений с x над y](powerpoint-math-equations_11.png)
+![Вертикальный массив с x над y](powerpoint-math-equations_11.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -242,7 +244,7 @@ presentation->Dispose();
 
 ## **Добавление тригонометрических функций**
 
-Используйте `AsArgumentOfFunction`, когда аргумент является текущим элементом и имя функции известно.
+Используйте `AsArgumentOfFunction`, когда аргумент является текущим элементом, а имя функции известно.
 
 ![Тригонометрическая функция cos, применённая к 2x](powerpoint-math-equations_6.png)
 
@@ -267,7 +269,7 @@ presentation->Dispose();
 
 Используйте вспомогательные функции для нижних и верхних индексов. Когда индексы должны располагаться слева от основания, используйте `SetSubSuperscriptOnTheLeft`.
 
-![Заглавная Y с индексом 1 слева и степенью n справа](powerpoint-math-equations_9.png)
+![Буква Y с левым индексом 1 и степенью n](powerpoint-math-equations_9.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -288,9 +290,9 @@ presentation->Dispose();
 
 ## **Добавление разделителей**
 
-Используйте `Enclose`, чтобы поместить выражение в разделители. Также можно задать символ‑разделитель для выражений, содержащих несколько элементов.
+Используйте `Enclose`, чтобы поместить выражение в разделители. Можно также задать символ‑разделитель для выражений‑делимитеров, содержащих несколько элементов.
 
-![Выражение с разделителями, содержащие x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
+![Выражение‑делимитер, содержащий x, y и z, разделённые вертикальными чертами](powerpoint-math-equations_13.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -311,9 +313,9 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Добавление рамки**
+## **Добавление рамочного блока**
 
-Используйте `ToBorderBox`, когда уравнение должно быть заключено в рамку.
+Используйте `ToBorderBox`, когда само уравнение должно быть обрамлено.
 
 ![Уравнение в рамке, показывающее a² = b² + c²](powerpoint-math-equations_12.png)
 
@@ -339,9 +341,9 @@ presentation->Save(u"border-box.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Группировка терминов**
+## **Группировка членов**
 
-Используйте `Group`, чтобы разместить символ группировки над или под выражением. Добавьте предел, чтобы пометить сгруппированные термины.
+Используйте `Group`, чтобы разместить символ группировки над или под выражением. Добавьте предел, чтобы пометить сгруппированные члены.
 
 ![Выражение x + y, сгруппированное с подписью любой текст снизу](powerpoint-math-equations_15.png)
 
@@ -365,7 +367,7 @@ presentation->Dispose();
 
 ## **Форматирование математических элементов**
 
-Используйте вспомогательные функции форматирования только там, где они проясняют формулу. Например, `Overbar` ставит черту над элементом.
+Используйте вспомогательные функции форматирования только там, где они проясняют формулу. Например, `Overbar` размещает черту над математическим элементом.
 
 ![Математическое выражение ABC с надчеркиванием](powerpoint-math-equations_14.png)
 
@@ -389,31 +391,31 @@ presentation->Dispose();
 
 | Задача | Основной API |
 | --- | --- |
-| Создание математического текста | [MathematicalText](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| Объединение элементов | [IMathElement.Join](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/join/) |
-| Создание дробей | [IMathElement.Divide](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| Добавление надстрочного или нижнего индекса | [SetSuperscript](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
-| Добавление функций | [Function](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| Добавление радикалов | [IMathElement.Radical](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| Добавление пределов | [SetLowerLimit](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Добавление скриптов слева | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| Добавление сумм и интегралов | [Nary](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/integral/) |
-| Добавление матриц | [MathMatrix](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathmatrix/) |
-| Добавление массивов уравнений | [ToMathArray](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
-| Добавление разделителей | [Enclose](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/enclose/) |
-| Добавление черт и рамок | [Overbar](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Группировка терминов | [Group](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/group/) |
+| Создать математический текст | [MathematicalText](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathematicaltext/) |
+| Объединить элементы | [IMathElement.Join](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/join/) |
+| Создать дроби | [IMathElement.Divide](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/divide/) |
+| Добавить надстрочный или подстрочный индекс | [SetSuperscript](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| Добавить функции | [Function](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
+| Добавить радикалы | [IMathElement.Radical](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| Добавить пределы | [SetLowerLimit](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| Добавить индексы слева | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Добавить суммы и интегралы | [Nary](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| Добавить матрицы | [MathMatrix](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/mathmatrix/) |
+| Добавить массивы уравнений | [ToMathArray](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
+| Добавить разделители | [Enclose](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/enclose/) |
+| Добавить черты и рамки | [Overbar](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
+| Группировать члены | [Group](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathelement/group/) |
 
-## **FAQ**
+## **Часто задаваемые вопросы**
 
-**Можно ли отредактировать существующее уравнение PowerPoint?**
+**Можно ли редактировать существующее уравнение PowerPoint?**
 
 Да. Откройте презентацию, найдите фигуру, содержащую `MathPortion`, получите её `MathParagraph` и обновите математические блоки в этом абзаце.
 
-**Сохраняются ли уравнения как редактируемая математическая информация PowerPoint?**
+**Сохраняются ли уравнения как редактируемая математика PowerPoint?**
 
-Да. При сохранении в формате PPTX Aspose.Slides записывает уравнение как редактируемый объект Office Math.
+Да. При сохранении в формате PPTX Aspose.Slides записывает уравнение как редактируемый Office‑математический контент.
 
-**Могу ли я экспортировать уравнения в LaTeX?**
+**Можно ли экспортировать уравнения в LaTeX?**
 
-Aspose.Slides экспортирует математические уравнения в MathML. Если вам нужен LaTeX, сначала экспортируйте в MathML, а затем преобразуйте MathML с помощью инструмента, поддерживающего нужный диалект LaTeX.
+Да. Получите [IMathParagraph](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathparagraph/) уравнения из его [IMathPortion](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathportion/) и вызовите `[IMathParagraph::ToLatex](https://reference.aspose.com/slides/ru/cpp/aspose.slides.mathtext/imathparagraph/tolatex/)` для прямого экспорта. Полный пример см. в [Export Math Equations from Presentations in C++](/slides/ru/cpp/exporting-math-equations/#export-math-equations-to-latex).

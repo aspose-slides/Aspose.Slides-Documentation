@@ -1,264 +1,243 @@
 ---
-title: "اعمال یا تغییر طرح اسلایدها در .NET"
-linktitle: "طرح اسلاید"
+title: اعمال یا تغییر طرح‌های اسلاید در .NET
+linktitle: طرح اسلاید
 type: docs
 weight: 60
 url: /fa/net/slide-layout/
 keywords:
-  - "طرح اسلاید"
-  - "طرح محتوا"
-  - "جای‌دار"
-  - "طراحی ارائه"
-  - "طراحی اسلاید"
-  - "طرح استفاده نشده"
-  - "نمایش پابرگ"
-  - "اسلاید عنوان"
-  - "عنوان و محتوا"
-  - "سرصفحه بخش"
-  - "دو محتوا"
-  - "مقایسه"
-  - "فقط عنوان"
-  - "طرح خالی"
-  - "محتوا با برچسب"
-  - "تصویر با برچسب"
-  - "عنوان و متن عمودی"
-  - "عنوان عمودی و متن"
-  - "PowerPoint"
-  - "OpenDocument"
-  - "ارائه"
-  - "C#"
-  - ".NET"
-  - "Aspose.Slides"
-description: "طرح‌های اسلاید را در Aspose.Slides برای .NET مدیریت و سفارشی کنید. انواع طرح‌ها، کنترل جای‌دارها و نمایش پابرگ را با مثال‌های کد C# بررسی کنید."
+- طرح اسلاید
+- طرح محتوا
+- placeholder
+- طراحی ارائه
+- طراحی اسلاید
+- طرح بلااستفاده
+- قابلیت نمایش فوتر
+- اسلاید عنوان
+- عنوان و محتوا
+- سرصفحه بخش
+- دو محتوایی
+- مقایسه
+- فقط عنوان
+- طرح خالی
+- محتوا با کپشن
+- عکس با کپشن
+- عنوان و متن عمودی
+- عنوان عمودی و متن
+- PowerPoint
+- OpenDocument
+- ارائه
+- C#
+- .NET
+- Aspose.Slides
+description: "اعمال، ایجاد و ویرایش طرح‌های اسلاید در Aspose.Slides برای .NET، افزودن placeholderها، حذف طرح‌های بلااستفاده و کنترل نمایش فوتر."
 ---
-## **معرفی**
+## **مروری کلی**
 
-یک طرح اسلاید ترتیب جعبه‌های جای‌دار و قالب‌بندی محتوا را بر روی اسلاید تعریف می‌کند. این طرح تعیین می‌کند کدام جای‌دارها در دسترس هستند و در کجا ظاهر می‌شوند. طرح‌های اسلاید به شما کمک می‌کنند تا ارائه‌ها را به سرعت و به‌صورت یکدست طراحی کنید—چه در حال ایجاد چیزی ساده باشید و چه پیچیده‌تر. برخی از رایج‌ترین طرح‌های اسلاید در PowerPoint شامل:
+طرح اسلاید موقعیت‌ها و قالب‌بندی placeholderهایی مانند عناوین، متن، تصاویر، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختار ثابتی می‌بخشد در حالی که به هر اسلاید اجازه می‌دهد محتوای خود را داشته باشد.
 
-**طرح اسلاید عنوان** – شامل دو جای‌دار متن است: یکی برای عنوان و دیگری برای زیرعنوان.
+متداول‌ترین طرح‌ها شامل:
 
-**طرح اسلاید عنوان و محتوا** – شامل یک جای‌دار عنوان کوچک در بالا و یک جای‌دار بزرگ‌تر در زیر برای محتوای اصلی (مانند متن، نکات بولتی، نمودارها، تصاویر و دیگر موارد).
+- **Title Slide**: شامل placeholderهای عنوان و زیرعنوان است.
+- **Title and Content**: شامل یک placeholder عنوان و یک placeholder محتوا با کاربرد عمومی است.
+- **Blank**: بدون placeholderهای محتوا است و زمانی مفید است که هر شکل به‌صورت دستی موقعیت‌یابی شود.
 
-**طرح خالی** – هیچ جای‌داری ندارد و به شما کنترل کامل برای طراحی اسلاید از صفر می‌دهد.
+## **درک وراثت طرح**
 
-طرح‌های اسلاید بخشی از اسلاید مستر هستند که اسلاید سطح بالایی است و سبک‌های طرح را برای ارائه تعریف می‌کند. می‌توانید طرح‌های اسلاید را از طریق اسلاید مستر دسترسی و ویرایش کنید—چه بر اساس نوع، نام یا شناسهٔ یکتا. به‌جای آن، می‌توانید یک اسلاید طرح خاص را مستقیماً داخل ارائه ویرایش کنید.
+یک ارائه سه سطح مرتبط دارد:
 
-برای کار با طرح‌های اسلاید در Aspose.Slides برای .NET، می‌توانید از موارد زیر استفاده کنید:
-- خصوصیات مانند [LayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/layoutslides/) و [Masters](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/masters/) در زیر کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) 
-- انواع مانند [ILayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/)، [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterlayoutslidecollection/)، [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutplaceholdermanager/)، و [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslideheaderfootermanager/)
+1. A [master slide](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیاء عمومی را تعریف می‌کند.
+2. A [layout slide](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/) متعلق به یک master است و یک چینش خاص از placeholderها را تعریف می‌کند.
+3. A [normal slide](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/) از یک layout استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌سازد.
 
-{{% alert title="Info" color="info" %}}
-برای آشنایی بیشتر با کار با اسلایدهای مستر، مقالهٔ [اسلاید مستر](/slides/fa/net/slide-master/) را ببینید.
-{{% /alert %}}
+یک اسلاید عادی تم و قالب‌بندی را از layout خود به ارث می‌برد و layout از master خود به ارث می‌برد. مقداری که مستقیماً روی اسلاید عادی تنظیم شود، مقدار ارث‌بری در همان سطح را بازنویسی می‌کند. وقتی یک اسلاید عادی ایجاد می‌شود، شکل‌های placeholder آن از layout انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده در آن placeholderها متعلق به اسلاید عادی است.
 
-## **افزودن طرح‌های اسلاید به ارائه‌ها**
+قبل از ایجاد اسلایدها، placeholderهای مورد نیاز را به یک layout اضافه کنید. افزودن placeholder دیگر به یک layout بعداً به‌صورت خودکار شکل placeholder متناظر را به اسلایدهای عادی موجود اضافه نمی‌کند.
 
-برای سفارشی‌سازی ظاهر و ساختار اسلایدهای خود، ممکن است نیاز داشته باشید طرح‌های اسلاید جدیدی به یک ارائه اضافه کنید. Aspose.Slides برای .NET به شما این امکان را می‌دهد که بررسی کنید آیا یک طرح خاص قبلاً وجود دارد یا نه، در صورت نیاز یک طرح جدید اضافه کنید و از آن برای درج اسلایدهایی با آن طرح استفاده کنید.
+این رابطه دو پیامد مهم دارد:
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-2. به [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterlayoutslidecollection/) دسترسی پیدا کنید.
-3. بررسی کنید آیا اسلاید طرح موردنظر در مجموعه موجود است یا خیر. اگر نیست، اسلاید طرح موردنیاز را اضافه کنید.
-4. یک اسلاید خالی بر پایهٔ اسلاید طرح جدید اضافه کنید.
-5. ارائه را ذخیره کنید.
+- تغییر قالب‌بندی ارث‌بری یا هندسه placeholderهای موجود در یک layout می‌تواند هر اسلایدی را که به آن وابسته است به‌روز کند. قبل از ویرایش یک layout که در حال استفاده است، اسلایدهای وابسته را بررسی کنید و ارائه نهایی را مرور کنید.
+- یک layout که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. پیش از حذف، اسلایدهای وابسته را به layout دیگری اختصاص دهید یا فقط layoutهای بلااستفاده را حذف کنید.
 
-کد C# زیر نشان می‌دهد چگونه یک طرح اسلاید به یک ارائه PowerPoint اضافه شود:
+برای اطلاعات بیشتر درباره سطح بالایی این سلسله‌ مراتب، ببینید [Slide Master](/slides/fa/net/slide-master/).
 
-```cs
-// ایجاد نمونه‌ای از کلاس Presentation که نمایانگر یک فایل PowerPoint است.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+## **انتخاب و اعمال یک طرح اسلاید**
+
+هنگامی که ارائه از تعاریف استاندارد layoutهای PowerPoint پیروی می‌کند، از یک نوع layout استفاده کنید. نام‌های layout قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر اساس نام کمتر قابل اعتماد است مگر آنکه الگوی منبع را کنترل کنید.
+
+مثال زیر به دنبال **Title and Content** در اولین master می‌گردد. اگر آن layout در دسترس نباشد، عمداً به **Blank** بازمی‌گردد. بررسی null دوم ضروری است زیرا یک ارائه می‌تواند فقط layoutهای سفارشی داشته باشد. سپس layout انتخاب‑شده از طریق ویژگی [ISlide.LayoutSlide](https://reference.aspose.com/slides/fa/net/aspose.slides/islide/layoutslide/) به اولین اسلاید عادی اعمال می‌شود.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // از انواع اسلایدهای طرح عبور کنید تا یک اسلاید طرح انتخاب شود.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // موقعیتی که ارائه تمام انواع طرح‌ها را شامل نمی‌شود.
-        // فایل ارائه فقط انواع طرح Blank و Custom را دارد.
-        // با این حال، اسلایدهای طرح با انواع سفارشی ممکن است نام‌های قابل تشخیصی داشته باشند،
-        // مانند "Title"، "Title and Content"، و غیره که می‌توانند برای انتخاب اسلاید طرح استفاده شوند.
-        // همچنین می‌توانید به مجموعه‌ای از انواع شکل‌های جای‌دار متکی باشید.
-        // به عنوان مثال، یک اسلاید Title باید فقط نوع جای‌دار Title را داشته باشد، و به همین ترتیب.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // یک اسلاید خالی با استفاده از اسلاید طرح اضافه‌شده اضافه کنید.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // ارائه را بر روی دیسک ذخیره کنید.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **حذف اسلایدهای طرح استفاده نشده**
+تغییر layout یک اسلاید placeholderهای عادی افزودنی مستقیماً به اسلاید را حذف نمی‌کند. با این حال، موقعیت placeholderها، قالب‌بندی ارث‌بری و مطابقت بین placeholderهای موجود و layout جدید می‌تواند تغییر کند، بنابراین هنگام جابجایی بین layoutهای به‌طور قابل توجه متفاوت، خروجی را بررسی کنید.
 
-Aspose.Slides متد [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) را از کلاس [Compress](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/) ارائه می‌دهد تا بتوانید اسلایدهای طرح ناخواسته و استفاده نشده را حذف کنید.
+## **افزودن یک طرح اسلاید**
 
-کد C# زیر نحوه حذف یک اسلاید طرح از یک ارائه PowerPoint را نشان می‌دهد:
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک layout موجود را انتخاب می‌کرد؛ آن را ایجاد نمی‌کرد. برای ساخت یک layout، متد [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/fa/net/aspose.slides/masterlayoutslidecollection/add/) را بر روی مجموعه layoutهای master هدف صدا بزنید.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+مثال زیر همیشه یک layout جدید **Title and Content** با نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید عادی بر پایه آن می‌سازد. نام‌های layout باید درون مجموعه یکتا باشند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن جای‌دارها به طرح‌های اسلاید**
+فقط زمانی layout اضافه کنید که الگو واقعاً به ساختار قابل‌استفادهٔ دیگری نیاز داشته باشد. اگر layout مناسبی از پیش وجود دارد، به‌جای ایجاد یک تکراری، آن را انتخاب و مجدداً استفاده کنید.
 
-Aspose.Slides ویژگی [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/placeholdermanager/) را ارائه می‌دهد که به شما امکان می‌دهد جای‌دارهای جدیدی به یک اسلاید طرح اضافه کنید.
+## **افزودن Placeholderها به یک طرح اسلاید**
 
-این مدیر شامل متدهایی برای انواع جای‌دارهای زیر است:
+ویژگی [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/placeholdermanager/) یک [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutplaceholdermanager/) را برای افزودن شکل‌های placeholder به یک layout فراهم می‌کند.
 
-| جای‌دار PowerPoint | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutplaceholdermanager/) متد |
-| ------------------- | ------------------------------------------------------------ |
-| ![محتوا](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![محتوا (عمودی)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![متن](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![متن (عمودی)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![تصویر](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![نمودار](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![جدول](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![رسانه](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![تصویر آنلاین](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![محتوا](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![محتوا (عمودی)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![متن](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![متن (عمودی)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![عکس](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![نمودار](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![جدول](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![رسانه](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![تصویر آنلاین](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-کد C# زیر نشان می‌دهد چگونه اشکال جای‌دار جدید به اسلاید طرح Blank اضافه شود:
+مثال زیر وجود layout **Blank** را تأیید می‌کند، چهار placeholder به آن اضافه می‌کند و سپس یک اسلاید عادی که از layout اصلاح‌شده استفاده می‌کند ایجاد می‌نماید. ترتیب عمدی است: قبل از ایجاد اسلاید عادی placeholderها افزوده می‌شوند تا Aspose.Slides بتواند شکل‌های placeholder متناظر را روی آن اسلاید تولید کند.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // دریافت اسلاید طرح Blank.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // دریافت مدیر جای‌دار اسلاید طرح.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // افزودن جای‌دارهای مختلف به اسلاید طرح Blank.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // افزودن اسلاید جدید با طرح Blank.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 نتیجه:
 
-![جای‌دارهای روی اسلاید طرح](add_placeholders.png)
+![Placeholderها بر روی اسلاید طرح](add_placeholders.png)
 
-## **تنظیم نمایش پابرگ برای یک اسلاید طرح**
+{{% alert color="warning" title="Warning" %}}
+تغییر قالب‌بندی ارث‌بری یا هندسهٔ placeholderهای موجود در یک layout می‌تواند بر اسلایدهای وابسته اثر بگذارد. یک placeholder جدید به layout به‌صورت خودکار به اسلایدهای عادی موجود افزوده نمی‌شود. تغییرات layout را روی یک کپی از ارائه تست کنید و هر اسلاید وابسته را بررسی کنید.
+{{% /alert %}}
 
-در ارائه‌های PowerPoint، عناصر پابرگ مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند بر حسب طرح اسلاید نمایش یا مخفی شوند. Aspose.Slides برای .NET به شما امکان می‌دهد وضوح این جای‌دارهای پابرگ را کنترل کنید. این برای مواردی مفید است که می‌خواهید برخی طرح‌ها اطلاعات پابرگ را نشان دهند در حالی که دیگران تمیز و حداقل باقی بمانند.
+## **حذف طرح‌های اسلایدی که استفاده نشده‌اند**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-2. یک ارجاع به اسلاید طرح را بر اساس اندیس آن دریافت کنید.
-3. جای‌دار پابرگ اسلاید را به حالت قابل نمایش تنظیم کنید.
-4. جای‌دار شماره اسلاید را به حالت قابل نمایش تنظیم کنید.
-5. جای‌دار تاریخ‑زمان را به حالت قابل نمایش تنظیم کنید.
-6. ارائه را ذخیره کنید.
+از متد [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف layoutهایی که هیچ اسلاید عادی آن‌ها را ارجاع نمی‌دهد استفاده کنید. این متد layoutهای همچنان در استفاده را دست‌نخورده می‌گذارد.
 
-کد C# زیر نشان می‌دهد چگونه وضوح پابرگ اسلاید را تنظیم کرده و کارهای مرتبط را انجام دهید:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **تنظیم نمایش پابرگ فرزند برای اسلاید**
+برای حذف یک layout خاص، ابتدا ویژگی [HasDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/hasdependingslides/) یا متد [GetDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/getdependingslides/) آن را بررسی کنید. قبل از صدا زدن [ILayoutSlide.Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/remove/) هر اسلاید وابسته‌ای را به layout دیگری اختصاص دهید. تلاش برای حذف یک layout که در حال استفاده است، یک [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception/) ایجاد می‌کند.
 
-در ارائه‌های PowerPoint، عناصر پابرگ مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند در سطح اسلاید مستر کنترل شوند تا تکرار یکسانی در تمامی اسلایدهای طرح داشته باشند. Aspose.Slides برای .NET به شما امکان می‌دهد وضوح و محتوای این جای‌دارهای پابرگ را در اسلاید مستر تنظیم کنید و این تنظیمات را به تمام اسلایدهای طرح فرزند اعمال کنید. این رویکرد اطلاعات پابرگ یکسانی را در تمام ارائه شما تضمین می‌کند.
+## **کنترل نمایش زیرنویس در یک طرح اسلاید**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/) ایجاد کنید.
-2. یک ارجاع به اسلاید مستر را بر اساس اندیس آن دریافت کنید.
-3. جای‌دارهای پابرگ مستر و تمام اسلایدهای طرح فرزند را به حالت قابل نمایش تنظیم کنید.
-4. جای‌دارهای شماره اسلاید مستر و تمام اسلایدهای طرح فرزند را به حالت قابل نمایش تنظیم کنید.
-5. جای‌دارهای تاریخ‑زمان مستر و تمام اسلایدهای طرح فرزند را به حالت قابل نمایش تنظیم کنید.
-6. ارائه را ذخیره کنید.
+یک layout دارای placeholderهای خود برای فوتر، شماره اسلاید و تاریخ‑زمان است. برای کنترل این placeholderها برای یک layout از ویژگی [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/headerfootermanager/) استفاده کنید. این موارد زمانی مفید است که مثلاً layoutهای محتوا باید فوتر داشته باشند ولی layoutهای عنوان نباید.
 
-کد C# زیر این عملیات را نشان می‌دهد:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
+```
+
+## **کنترل نمایش زیرنویس در یک Master و طرح‌های فرزند آن**
+
+برای اعمال تنظیمات فوتر یکسان در سراسر سلسله‌مراتب master، از ویژگی [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslide/headerfootermanager/) استفاده کنید. متدهای انتشار [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/net/aspose.slides/imasterslideheaderfootermanager/) بر روی master و layoutهای وابسته و اسلایدهای عادی آن عمل می‌کنند؛ فقط یک اسلاید عادی هدف‌گیری نمی‌شوند.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 ```
 
 ## **سوالات متداول**
 
-**تفاوت اسلاید مستر و اسلاید طرح چیست؟**
+**تفاوت بین Master Slide و Layout Slide چیست؟**
 
-اسلاید مستر تم کلی و قالب‌بندی پیش‌فرض را تعریف می‌کند، در حالی که اسلایدهای طرح چینش‌های خاصی از جای‌دارها برای انواع مختلف محتوا را تعیین می‌کنند.
+Master Slide تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. Layout Slide به یک master تعلق دارد و یک چینش قابل‌استفادهٔ مجدد از placeholderها را تعریف می‌کند. اسلایدهای عادی از آن layoutها استفاده می‌کنند و محتواهای خاص خود را ذخیره می‌سازند.
 
-**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
+**آیا می‌توانم یک Layout Slide را از یک ارائه به ارائه دیگر کپی کنم؟**
 
-بله، می‌توانید یک اسلاید طرح را از مجموعهٔ [LayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/layoutslides/) یک ارائه گرفته و با استفاده از متد `AddClone` در ارائهٔ دیگر وارد کنید.
+بله. با متد [AddClone](https://reference.aspose.com/slides/fa/net/aspose.slides/globallayoutslidecollection/addclone/) یک کپی به مجموعه مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابعی که layout منبع استفاده می‌کند را نیز بررسی کنید.
 
-**اگر اسلاید طرحی که هنوز توسط اسلایدی استفاده می‌شود را حذف کنم چه می‌شود؟**
+**چه اتفاقی می‌افتد وقتی طرحی را که در حال استفاده است تغییر می‌دهم؟**
 
-اگر سعی کنید یک اسلاید طرح را حذف کنید که هنوز توسط حداقل یک اسلاید در ارائه ارجاع شده است، Aspose.Slides یک استثنای [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception/) پرتاب می‌کند. برای جلوگیری از این، از [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) استفاده کنید که به‌صورت ایمن تنها اسلایدهای طرح غیر استفاده‌شده را حذف می‌کند.
+اسلدهای وابسته تغییرات layout را به‌ارث می‌برند مگر اینکه قالب‌بندی یا اشیاء مورد اثر را به‌صورت محلی بازنویسی کرده باشند. بنابراین هندسه placeholderها و استایل‌های ارث‌بری می‌توانند به‌طور همزمان روی بسیاری از اسلایدها تغییر کنند. قبل از ویرایش layout، با استفاده از [GetDependingSlides](https://reference.aspose.com/slides/fa/net/aspose.slides/ilayoutslide/getdependingslides/) اسلدهای تحت تأثیر را شناسایی کنید.
+
+**چه اتفاقی می‌افتد اگر layoutی را که هنوز استفاده می‌شود حذف کنم؟**
+
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلدهای وابسته را به layout دیگری اختصاص دهید یا از [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف فقط layoutهای بلااستفاده استفاده کنید.

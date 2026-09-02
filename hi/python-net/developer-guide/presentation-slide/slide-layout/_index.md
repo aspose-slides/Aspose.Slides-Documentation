@@ -1,5 +1,5 @@
 ---
-title: Python में स्लाइड लेआउट लागू या बदलें
+title: Python में स्लाइड लेआउट लागू करें या बदलें
 linktitle: स्लाइड लेआउट
 type: docs
 weight: 60
@@ -11,7 +11,7 @@ keywords:
 - प्रस्तुति डिजाइन
 - स्लाइड डिजाइन
 - अप्रयुक्त लेआउट
-- फ़ुटर दृश्यता
+- फुटर दृश्यता
 - शीर्षक स्लाइड
 - शीर्षक और सामग्री
 - सेक्शन हेडर
@@ -19,224 +19,206 @@ keywords:
 - तुलना
 - केवल शीर्षक
 - खाली लेआउट
-- कैप्शन सहित सामग्री
-- कैप्शन सहित चित्र
-- शीर्षक और लंबवत टेक्स्ट
-- लंबवत शीर्षक और टेक्स्ट
+- कैप्शन के साथ सामग्री
+- कैप्शन के साथ चित्र
+- शीर्षक और वर्टिकल टेक्स्ट
+- वर्टिकल शीर्षक और टेक्स्ट
 - PowerPoint
 - OpenDocument
+- प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET में स्लाइड लेआउट को प्रबंधित और कस्टमाइज़ करना सीखें। लेआउट प्रकार, प्लेसहोल्डर नियंत्रण, फ़ुटर दृश्यता, और कोड उदाहरणों के माध्यम से लेआउट हेरफेर को अन्वेषण करें।"
+description: "Aspose.Slides for Python via .NET में स्लाइड लेआउट लागू करें, बनाएं और संशोधित करें, प्लेसहोल्डर जोड़ें, अप्रयुक्त लेआउट हटाएँ, और फुटर दृश्यता नियंत्रित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-एक स्लाइड लेआउट स्लाइड पर सामग्री के लिए प्लेसहोल्डर बॉक्सों की व्यवस्था और फॉर्मेटिंग को परिभाषित करता है। यह नियंत्रित करता है कि कौन से प्लेसहोल्डर उपलब्ध हैं और वे कहाँ दिखाई देते हैं। स्लाइड लेआउट आपको प्रस्तुतियों को तेजी से और सुसंगत रूप से डिज़ाइन करने में मदद करता है— चाहे आप कुछ सरल या अधिक जटिल बना रहे हों। PowerPoint में सबसे आम स्लाइड लेआउट में शामिल हैं:
+एक स्लाइड लेआउट प्लेसहोल्डर जैसे शीर्षक, टेक्स्ट, चित्र, चार्ट, और तालिकाओं की स्थिति और स्वरूपण को परिभाषित करता है। लेआउट लागू करने से स्लाइड्स को एक सुसंगत संरचना मिलती है जबकि प्रत्येक स्लाइड को अपना स्वयं का कंटेंट रखने की अनुमति मिलती है।
 
-**Title Slide लेआउट** – दो टेक्स्ट प्लेसहोल्डर शामिल करता है: एक शीर्षक के लिए और एक उपशीर्षक के लिए।
+सबसे सामान्य लेआउट्स में शामिल हैं:
 
-**Title and Content लेआउट** – शीर्ष पर छोटा शीर्षक प्लेसहोल्डर और नीचे मुख्य सामग्री (जैसे टेक्स्ट, बुलेट पॉइंट, चार्ट, इमेज आदि) के लिए बड़ा प्लेसहोल्डर प्रदान करता है।
+- **शीर्षक स्लाइड**: शीर्षक और उपशीर्षक प्लेसहोल्डर शामिल हैं।
+- **शीर्षक और कंटेंट**: एक शीर्षक प्लेसहोल्डर और एक सामान्य-उपयोग कंटेंट प्लेसहोल्डर शामिल है।
+- **खाली**: कोई कंटेंट प्लेसहोल्डर नहीं होते और यह तब उपयोगी होता है जब हर आकार को मैन्युअली स्थित किया जाएगा।
 
-**Blank लेआउट** – कोई प्लेसहोल्डर नहीं होता, जिससे आपको स्लाइड को शून्य से डिज़ाइन करने की पूरी आज़ादी मिलती है।
+## **लेआउट उत्तराधिकार को समझें**
 
-स्लाइड लेआउट स्लाइड मास्टर का हिस्सा होते हैं, जो प्रस्तुति के लिए लेआउट शैलियों को परिभाषित करने वाला शीर्ष‑स्तर स्लाइड है। आप लेआउट स्लाइड्स को स्लाइड मास्टर के माध्यम से—उनके प्रकार, नाम या विशिष्ट ID द्वारा—पहुंच और संशोधित कर सकते हैं। वैकल्पिक रूप से, आप प्रस्तुति के भीतर सीधे किसी विशेष लेआउट स्लाइड को संपादित कर सकते हैं।
+एक प्रस्तुति में तीन संबंधित स्तर होते हैं:
 
-Aspose.Slides for Python में स्लाइड लेआउट के साथ काम करने के लिए आप उपयोग कर सकते हैं:
+1. एक [master slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/) थीम, साझा स्वरूपण, पृष्ठभूमि, और सामान्य वस्तुओं को परिभाषित करता है।
+2. एक [layout slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/) मास्टर से संबंधित है और प्लेसहोल्डर की एक विशेष व्यवस्था को परिभाषित करता है।
+3. एक [normal slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/) एक लेआउट का उपयोग करता है और उस स्लाइड के लिये दर्ज किया गया कंटेंट संग्रहीत करता है।
 
-- Properties such as [layout_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/layout_slides/) and [masters](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/masters/) under the [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) class
-- Types like [LayoutSlide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/), and [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslideheaderfootermanager/)
+एक सामान्य स्लाइड अपने लेआउट से थीम और स्वरूपण को विरासत में लेती है, और लेआउट अपने मास्टर से। सामान्य स्लाइड पर सीधे सेट किया गया मान उस स्तर पर विरासत में मिला मान को ओवरराइड करता है। जब एक सामान्य स्लाइड बनाई जाती है, तो उसके प्लेसहोल्डर शैप्स चयनित लेआउट से जेनरेट होते हैं, जबकि उन प्लेसहोल्डर में दर्ज किया गया कंटेंट सामान्य स्लाइड का होता है।
 
-{{% alert title="Info" color="info" %}}
-मास्टर स्लाइड्स के साथ काम करने के बारे में अधिक जानने के लिए, कृपया [Manage PowerPoint Slide Masters in Python](/slides/hi/python-net/slide-master/) लेख देखें।
-{{% /alert %}}
+लेआउट बनाकर स्लाइड्स बनाने से पहले आवश्यक प्लेसहोल्डर जोड़ें। बाद में लेआउट में दूसरा प्लेसहोल्डर जोड़ने से मौजूदा सामान्य स्लाइड्स में स्वतः संबंधित प्लेसहोल्डर शैप नहीं जुड़ता।
 
-## **प्रेजेंटेशन में स्लाइड लेआउट जोड़ें**
+इस संबंध के दो महत्वपूर्ण परिणाम हैं:
 
-अपने स्लाइड्स की उपस्थिति और संरचना को अनुकूलित करने के लिए आपको प्रस्तुति में नए लेआउट स्लाइड्स जोड़ने की आवश्यकता हो सकती है। Aspose.Slides for Python आपको यह जांचने की सुविधा देता है कि कोई विशिष्ट लेआउट पहले से मौजूद है या नहीं, यदि आवश्यक हो तो नया जोड़ें, और उसे उपयोग करके उस लेआउट पर आधारित स्लाइड्स डालें।
+- लेआउट पर विरासत में मिला स्वरूपण या मौजूदा प्लेसहोल्डर ज्यामिति बदलने से उस पर निर्भर सभी स्लाइड्स अपडेट हो सकती हैं। उपयोग में पहले से मौजूद लेआउट को संपादित करने से पहले, उसकी निर्भर स्लाइड्स का निरीक्षण करें और परिणामस्वरूप प्रस्तुति की समीक्षा करें।
+- वह लेआउट जिसे अभी भी कोई स्लाइड उपयोग कर रही है, हटाया नहीं जा सकता। पहले उसकी निर्भर स्लाइड्स को दूसरे लेआउट पर पुनः असाइन करें, या केवल अप्रयुक्त लेआउट्स ही हटाएँ।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterlayoutslidecollection/) तक पहुंचें।
-1. जाँचें कि वांछित लेआउट स्लाइड संग्रह में पहले से मौजूद है या नहीं। यदि नहीं, तो आवश्यक लेआउट स्लाइड जोड़ें।
-1. नए लेआउट स्लाइड के आधार पर एक खाली स्लाइड जोड़ें।
-1. प्रस्तुति को सहेजें।
+इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिये देखें [Slide Master](/slides/hi/python-net/slide-master/)।
 
-निम्नलिखित Python कोड दिखाता है कि PowerPoint प्रस्तुति में स्लाइड लेआउट कैसे जोड़ें:
+## **एक स्लाइड लेआउट को चुनें और लागू करें**
+
+जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का पालन करती है तो लेआउट प्रकार का उपयोग करें। लेआउट नाम उपयोगकर्ता‑संपादनीय होते हैं और स्थानीयकृत किए जा सकते हैं, इसलिए स्रोत टेम्प्लेट पर नियंत्रण न हो तो नाम‑आधारित चयन कम विश्वसनीय होता है।
+
+निम्न उदाहरण पहले मास्टर पर **Title and Content** को खोजता है। यदि वह लेआउट उपलब्ध नहीं है, तो जानबूझकर **Blank** पर वापस लौटता है। दूसरा null चेक आवश्यक है क्योंकि प्रस्तुति में केवल कस्टम लेआउट्स हो सकते हैं। चयनित लेआउट फिर पहले सामान्य स्लाइड पर [Slide.layout_slide](https://reference.aspose.com/slides/hi/python-net/aspose.slides/slide/layout_slide/) प्रॉपर्टी के माध्यम से लागू किया जाता है।
 
 ```python
 import aspose.slides as slides
 
-# प्रस्तुति फ़ाइल खोलने के लिए Presentation क्लास का उदाहरण बनाएं।
-with slides.Presentation("sample.pptx") as presentation:
-    # लेआउट स्लाइड प्रकारों के माध्यम से जाकर एक लेआउट स्लाइड चुनें।
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # एक स्थिति जहाँ प्रस्तुति सभी लेआउट प्रकार नहीं रखती।
-        # प्रस्तुति फ़ाइल में केवल Blank और Custom लेआउट प्रकार होते हैं।
-        # हालाँकि, कस्टम प्रकार वाली लेआउट स्लाइड्स के पहचानने योग्य नाम हो सकते हैं,
-        # "Title", "Title and Content" आदि जैसे, जिन्हें लेआउट स्लाइड चयन के लिये उपयोग किया जा सकता है।
-        # आप प्लेसहोल्डर शकल प्रकारों के सेट पर भी निर्भर कर सकते हैं।
-        # उदाहरण के लिए, एक Title स्लाइड में केवल Title प्लेसहोल्डर प्रकार होना चाहिए, आदि।
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # जोड़ी गई लेआउट स्लाइड का उपयोग करके एक खाली स्लाइड जोड़ें।
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # प्रस्तुति को डिस्क पर सहेजें।
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **अनुपयोगी लेआउट स्लाइड्स हटाएं**
+स्लाइड का लेआउट बदलने से सीधे स्लाइड में जोड़े गए सामान्य आकार हटते नहीं हैं। हालांकि, प्लेसहोल्डर स्थितियाँ, विरासत में मिला स्वरूपण, और मौजूदा प्लेसहोल्डर तथा नए लेआउट के बीच का संबंध बदल सकता है, इसलिए अलग‑अलग लेआउट्स के बीच स्विच करते समय आउटपुट की जाँच करें।
 
-Aspose.Slides [Compress](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/) क्लास से [remove_unused_layout_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) मेथड प्रदान करता है, जिससे आप अनावश्यक और अप्रयुक्त लेआउट स्लाइड्स को हटा सकते हैं।
+## **एक लेआउट स्लाइड जोड़ें**
 
-निम्नलिखित Python कोड दिखाता है कि PowerPoint प्रस्तुति से लेआउट स्लाइड को कैसे हटाएं:
+चयन और निर्माण अलग‑अलग कार्य हैं। पिछला उदाहरण मौजूदा लेआउट का चयन करता है; यह नया नहीं बनाता। लेआउट बनाने के लिये, लक्ष्य मास्टर के लेआउट कलेक्शन पर [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterlayoutslidecollection/add/) मेथड को कॉल करें।
+
+निम्न उदाहरण हमेशा नई **Title and Content** लेआउट जिसका नाम `Report Title and Content` है, जोड़ता है, फिर उस पर आधारित एक सामान्य स्लाइड जोड़ता है। लेआउट नाम कलेक्शन के भीतर अद्वितीय होने चाहिए।
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **स्लाइड लेआउट में प्लेसहोल्डर जोड़ें**
+टेम्प्लेट को वास्तव में दूसरी पुन: उपयोग योग्य संरचना की आवश्यकता होने पर ही लेआउट जोड़ें। यदि उपयुक्त लेआउट पहले से मौजूद है, तो उसे चयनित करके पुनः उपयोग करें, न कि नया बनाकर डुप्लिकेट बनायें।
 
-Aspose.Slides [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/placeholder_manager/) प्रॉपर्टी प्रदान करता है, जो आपको लेआउट स्लाइड में नए प्लेसहोल्डर जोड़ने की अनुमति देता है।
+## **लेआउट स्लाइड में प्लेसहोल्डर जोड़ें**
 
-यह मैनेजर निम्नलिखित प्लेसहोल्डर प्रकारों के लिए मेथड्स शामिल करता है:
+[LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/placeholder_manager/) प्रॉपर्टी लेआउट में प्लेसहोल्डर शैप्स जोड़ने के लिये एक [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/) प्रदान करती है।
 
-| PowerPoint प्लेसहोल्डर | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/) विधि |
-| ----------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Picture](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Chart](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Table](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Online Image](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| PowerPoint प्लेसहोल्डर            | `LayoutPlaceholderManager` मेथड |
+| ----------------------------------- | --------------------------------- |
+| ![कंटेंट](content.png)             | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![कंटेंट (वर्टिकल)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![टेक्स्ट](text.png)               | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![टेक्स्ट (वर्टिकल)](textV.png)   | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![चित्र](picture.png)              | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![चार्ट](chart.png)                | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![तालिका](table.png)               | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![मीडिया](media.png)                | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![ऑनलाइन इमेज](onlineImage.png)   | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-निम्नलिखित Python कोड दिखाता है कि Blank लेआउट स्लाइड में नए प्लेसहोल्डर शेप्स कैसे जोड़ें:
+निम्न उदाहरण सत्यापित करता है कि **Blank** लेआउट मौजूद है, उसमें चार प्लेसहोल्डर जोड़ता है, फिर संशोधित लेआउट का उपयोग करने वाली एक सामान्य स्लाइड बनाता है। क्रम का इरादा है: प्लेसहोल्डर पहले जोड़े जाते हैं और फिर सामान्य स्लाइड बनाई जाती है, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर शैप्स जेनरेट कर सके।
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Blank लेआउट स्लाइड प्राप्त करें।
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # लेआउट स्लाइड का प्लेसहोल्डर मैनेजर प्राप्त करें।
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Blank लेआउट स्लाइड में विभिन्न प्लेसहोल्डर जोड़ें।
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Blank लेआउट के साथ नई स्लाइड जोड़ें।
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 परिणाम:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![लेआउट स्लाइड पर प्लेसहोल्डर](add_placeholders.png)
 
-## **लेआउट स्लाइड के लिए फुटर दृश्यता सेट करें**
+{{% alert color="warning" title="Warning" %}}
+विरासत में मिले स्वरूपण या मौजूदा लेआउट प्लेसहोल्डर की ज्यामिति बदलने से निर्भर स्लाइड्स प्रभावित हो सकती हैं। नया जोड़ा गया लेआउट प्लेसहोल्डर मौजूदा सामान्य स्लाइड्स में स्वतः नहीं भरता। प्रस्तुति की एक कॉपी पर लेआउट परिवर्तन परीक्षण करें और प्रत्येक निर्भर स्लाइड की जाँच करें।
+{{% /alert %}}
 
-PowerPoint प्रस्तुतियों में, फुटर तत्व जैसे तिथि, स्लाइड नंबर, और कस्टम टेक्स्ट लेआउट के अनुसार दिखाए या छिपाए जा सकते हैं। Aspose.Slides for Python आपको इन फुटर प्लेसहोल्डर की दृश्यता को नियंत्रित करने की सुविधा देता है। यह तब उपयोगी होता है जब आप कुछ लेआउट को फुटर जानकारी दिखाना चाहते हैं जबकि अन्य को साफ़ रखना चाहते हैं।
+## **अप्रयुक्त लेआउट स्लाइड्स हटाएँ**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स द्वारा एक लेआउट स्लाइड रेफ़रेंस प्राप्त करें।
-1. स्लाइड फ़ुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. तारीख‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रस्तुति को सहेजें।
-
-निम्नलिखित Python कोड दिखाता है कि स्लाइड फ़ुटर की दृश्यता कैसे सेट करें और संबंधित कार्य कैसे करें:
+[Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) मेथड का उपयोग करके उन लेआउट्स को हटाएँ जिनका कोई सामान्य स्लाइड संदर्भित नहीं करता। यह मेथड अभी भी उपयोग में मौजूद लेआउट्स को वही रखता है।
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **स्लाइड के चाइल्ड फ़ुटर दृश्यता सेट करें**
+एक विशिष्ट लेआउट हटाने के लिये, पहले उसकी [has_depending_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/has_depending_slides/) प्रॉपर्टी या [get_depending_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/get_depending_slides/) मेथड का उपयोग करें। [LayoutSlide.remove](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/remove/) को कॉल करने से पहले किसी भी निर्भर स्लाइड को पुनः असाइन करें। उपयोग में रहे लेआउट को हटाने का प्रयास करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pptxeditexception/) उत्पन्न होता है।
 
-PowerPoint प्रस्तुतियों में, फुटर तत्व जैसे तिथि, स्लाइड नंबर, और कस्टम टेक्स्ट को मास्टर स्लाइड स्तर पर नियंत्रित किया जा सकता है ताकि सभी लेआउट स्लाइड्स में संगतता बनी रहे। Aspose.Slides for Python आपको मास्टर स्लाइड पर इन फुटर प्लेसहोल्डर की दृश्यता और सामग्री सेट करने और इन सेटिंग्स को सभी चाइल्ड लेआउट स्लाइड्स में प्रसारित करने की अनुमति देता है। इस तरह आपके पूरे प्रस्तुति में एकसमान फ़ुटर जानकारी सुनिश्चित होती है।
+## **लेआउट स्लाइड पर फुटर दृश्यता नियंत्रित करें**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. उसके इंडेक्स द्वारा मास्टर स्लाइड का रेफ़रेंस प्राप्त करें।
-1. मास्टर और सभी चाइल्ड फ़ुटर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड स्लाइड नंबर प्लेसहोल्डर को दृश्यमान सेट करें।
-1. मास्टर और सभी चाइल्ड तारीख‑समय प्लेसहोल्डर को दृश्यमान सेट करें।
-1. प्रस्तुति को सहेजें।
+लेआउट का अपना फुटर, स्लाइड‑नंबर और डेट‑टाइम प्लेसहोल्डर होता है। एक लेआउट के लिये इन प्लेसहोल्डर को नियंत्रित करने के लिये [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/header_footer_manager/) प्रॉपर्टी का उपयोग करें। यह तब उपयोगी है जब उदाहरण के लिये कंटेंट लेआउट्स को फुटर दिखाना चाहिए लेकिन शीर्षक लेआउट्स को नहीं।
 
-निम्नलिखित Python कोड इस ऑपरेशन को दर्शाता है:
+निम्न उदाहरण सुरक्षित रूप से एक लेआउट का चयन करता है और उसके फुटर तत्वों को दृश्यमान बनाता है:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **मास्टर और उसके चाइल्ड लेआउट्स पर फुटर दृश्यता नियंत्रित करें**
+
+एक मास्टर पदानुक्रम में सुसंगत फुटर सेटिंग्स लागू करने के लिये, [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslide/header_footer_manager/) प्रॉपर्टी का उपयोग करें। [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/python-net/aspose.slides/masterslideheaderfootermanager/) के प्रोपीगेशन मेथड्स मास्टर और उसकी निर्भर लेआउट स्लाइड्स तथा सामान्य स्लाइड्स पर कार्य करते हैं; वे केवल एक सामान्य स्लाइड को लक्षित नहीं करते।
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मास्टर स्लाइड और लेआउट स्लाइड में क्या अंतर है?**
+**What Is the Difference Between a Master Slide and a Layout Slide?**  
+मास्टर स्लाइड प्रस्तुति की थीम और साझा स्वरूपण को परिभाषित करती है। लेआउट स्लाइड मास्टर से संबंधित होती है और प्लेसहोल्डर की एक पुन: उपयोग योग्य व्यवस्था को परिभाषित करती है। सामान्य स्लाइड्स उन लेआउट्स का उपयोग करती हैं और स्लाइड‑विशिष्ट कंटेंट संग्रहीत करती हैं।
 
-मास्टर स्लाइड समग्र थीम और डिफ़ॉल्ट फॉर्मेटिंग को परिभाषित करती है, जबकि लेआउट स्लाइड विभिन्न प्रकार की सामग्री के लिए प्लेसहोल्डर की विशिष्ट व्यवस्था तय करती है।
+**Can I Copy a Layout Slide from One Presentation to Another?**  
+हां। आप [add_clone](https://reference.aspose.com/slides/hi/python-net/aspose.slides/globallayoutslidecollection/add_clone/) मेथड से लक्ष्य कलेक्शन में एक कॉपी जोड़ सकते हैं। प्रस्तुति के बीच कॉपी करते समय फ़ॉन्ट्स, थीम्स, इमेजेज और स्रोत लेआउट द्वारा उपयोग किए गए अन्य संसाधनों की भी जाँच करें।
 
-**क्या मैं एक लेआउट स्लाइड को एक प्रस्तुति से दूसरी में कॉपी कर सकता हूँ?**
+**What Happens When I Modify a Layout That Is Already in Use?**  
+निर्भर स्लाइड्स लेआउट परिवर्तन को विरासत में लेती हैं जब तक कि उन्होंने स्थानीय रूप से प्रभावित स्वरूपण या वस्तुओं को ओवरराइड न किया हो। प्लेसहोल्डर ज्यामिति और विरासत में मिला स्टाइल कई स्लाइड्स पर एक साथ बदल सकता है। संपादित करने से पहले प्रभावित स्लाइड्स की पहचान करने के लिये [get_depending_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/layoutslide/get_depending_slides/) का उपयोग करें।
 
-हां, आप किसी प्रस्तुति के [layout_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/layout_slides/) संग्रह से लेआउट स्लाइड को क्लोन करके `add_clone` मेथड का उपयोग करके इसे दूसरी प्रस्तुति में डाल सकते हैं।
-
-**अगर मैं किसी लेआउट स्लाइड को हटाता हूँ जो अभी भी किसी स्लाइड द्वारा उपयोग में है तो क्या होगा?**
-
-यदि आप ऐसे लेआउट स्लाइड को हटाने की कोशिश करते हैं जो प्रस्तुति में कम से कम एक स्लाइड द्वारा संदर्भित है, तो Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pptxeditexception/) फेंकेगा। इसे रोकने के लिए, आप [remove_unused_layout_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) का उपयोग कर सकते हैं, जो केवल अनुपयोगी लेआउट स्लाइड्स को सुरक्षित रूप से हटाता है।
+**What Happens If I Remove a Layout That Is Still in Use?**  
+Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/python-net/aspose.slides/pptxeditexception/) उत्पन्न करता है। पहले निर्भर स्लाइड्स को पुनः असाइन करें, या केवल अनरेफरेंस्ड लेआउट्स को हटाने के लिये [remove_unused_layout_slides](https://reference.aspose.com/slides/hi/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) का उपयोग करें।

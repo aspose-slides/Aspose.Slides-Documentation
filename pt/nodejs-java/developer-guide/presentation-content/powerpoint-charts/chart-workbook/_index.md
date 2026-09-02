@@ -1,18 +1,20 @@
 ---
-title: Gerencie pastas de trabalho de gráficos em apresentações usando JavaScript
-linktitle: Pasta de Trabalho de Gráfico
+title: "Gerenciar pastas de trabalho de gráficos em apresentações usando JavaScript"
+linktitle: "Pasta de Trabalho de Gráfico"
 type: docs
 weight: 70
 url: /pt/nodejs-java/chart-workbook/
 keywords:
 - pasta de trabalho de gráfico
-- dados do gráfico
-- célula da pasta de trabalho
+- dados de gráfico
+- célula de pasta de trabalho
 - rótulo de dados
 - planilha
 - fonte de dados
 - pasta de trabalho externa
 - dados externos
+- cache de gráfico
+- recuperação de pasta de trabalho
 - PowerPoint
 - apresentação
 - Node.js
@@ -22,13 +24,13 @@ description: "Descubra o Aspose.Slides para Node.js via Java: gerencie facilment
 ---
 ## **Visão geral**
 
-Este artigo explica como trabalhar com pastas de trabalho de gráfico no Aspose.Slides. Ele mostra como ler e gravar dados de gráfico por meio de fluxos de pastas de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de origem de dados para os valores do gráfico.
+Este artigo explica como trabalhar com pastas de trabalho de gráficos no Aspose.Slides. Ele mostra como ler e gravar dados de gráfico através de streams de pasta de trabalho, usar células da pasta de trabalho como rótulos de dados do gráfico, acessar coleções de planilhas e especificar o tipo de fonte de dados para os valores do gráfico.
 
-Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráfico. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
+Também aborda o trabalho com pastas de trabalho externas como fontes de dados de gráficos. Os exemplos demonstram como criar e atribuir uma pasta de trabalho externa, recuperar o caminho de uma pasta de trabalho externa vinculada a um gráfico e editar os dados do gráfico quando a pasta de trabalho está disponível.
 
 ## **Ler e gravar dados de gráfico a partir de uma pasta de trabalho**
 
-O Aspose.Slides fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Observação** que os dados do gráfico devem estar organizados da mesma maneira ou ter uma estrutura semelhante à da origem.
+Aspose.Slides fornece os métodos [readWorkbookStream](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ChartData#readWorkbookStream--) e [writeWorkbookStream](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/ChartData#writeWorkbookStream-byte:A-) que permitem ler e gravar pastas de trabalho de dados de gráfico (contendo dados de gráfico editados com Aspose.Cells). **Nota** que os dados do gráfico precisam estar organizados da mesma forma ou ter uma estrutura semelhante à fonte.
 
 Este código JavaScript demonstra uma operação de exemplo:
 
@@ -50,14 +52,14 @@ try {
 
 ## **Definir célula da WorkBook como rótulo de dados do gráfico**
 
-1. Crie uma instância da classe [Presentation](https://apireference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation) .
-1. Obtenha a referência de um slide por seu índice.
+1. Crie uma instância da classe [Presentation](https://apireference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation).
+1. Obtenha a referência de um slide através de seu índice.
 1. Adicione um gráfico de Bolha com alguns dados.
 1. Acesse as séries do gráfico.
 1. Defina a célula da pasta de trabalho como um rótulo de dados.
 1. Salve a apresentação.
 
-Este código JavaScript mostra como definir uma célula da pasta de trabalho como rótulo de dados do gráfico:
+Este código JavaScript mostra como definir uma célula da pasta de trabalho como um rótulo de dados do gráfico:
 
 ```javascript
 var lbl0 = "Label 0 cell value";
@@ -102,9 +104,9 @@ try {
 }
 ```
 
-## **Especificar tipo de origem de dados**
+## **Especificar tipo de fonte de dados**
 
-Este código JavaScript mostra como especificar um tipo para uma origem de dados:
+Este código JavaScript mostra como especificar um tipo para uma fonte de dados:
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -123,9 +125,9 @@ try {
 }
 ```
 
-## **Detectar formatos de pasta de trabalho incorporada não suportados**
+## **Detectar formatos de pasta de trabalho incorporados não suportados**
 
-O Aspose.Slides não oferece suporte ao formato de pasta de trabalho binária do Excel (.xlsb) que pode ser incorporado em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [ChartData](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
+Aspose.Slides não suporta o formato de pasta de trabalho binária do Excel (.xlsb) que pode estar incorporado em alguns gráficos. Você pode usar o método `getEmbeddedWorkbookType` em [ChartData](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/) juntamente com a enumeração [WorkbookType](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/workbooktype/) para detectar formatos não suportados e ignorar esses gráficos.
 
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
@@ -156,7 +158,7 @@ try {
 
 ## **Pasta de trabalho externa**
 
-O Aspose.Slides oferece suporte a pastas de trabalho externas como fonte de dados para gráficos.
+Aspose.Slides suporta pastas de trabalho externas como fonte de dados para gráficos.
 
 ### **Criar pasta de trabalho externa**
 
@@ -190,9 +192,9 @@ try {
 
 ### **Definir pasta de trabalho externa**
 
-Usando o método **`setExternalWorkbook`**, você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho para a pasta de trabalho externa (se esta última foi movida).
+Usando o método **`setExternalWorkbook`**, você pode atribuir uma pasta de trabalho externa a um gráfico como sua fonte de dados. Esse método também pode ser usado para atualizar o caminho da pasta de trabalho externa (se esta foi movida).
 
-Embora você não possa editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda pode usá‑las como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente para um caminho completo.
+Embora não seja possível editar os dados em pastas de trabalho armazenadas em locais remotos ou recursos, ainda é possível usá‑las como fonte de dados externa. Se for fornecido um caminho relativo para uma pasta de trabalho externa, ele será convertido automaticamente em um caminho absoluto.
 
 Este código JavaScript mostra como definir uma pasta de trabalho externa:
 
@@ -218,9 +220,9 @@ try {
 }
 ```
 
-O parâmetro `ChartData` (ao usar o método `setExternalWorkbook`) é usado para especificar se uma pasta de trabalho Excel será carregada ou não.
+O parâmetro `ChartData` (sob o método `setExternalWorkbook`) é usado para especificar se uma pasta de trabalho Excel será carregada ou não.
 
-* Quando o valor de `ChartData` é definido como `false`, apenas o caminho da pasta de trabalho é atualizado — os dados do gráfico não serão carregados nem atualizados a partir da pasta de trabalho de destino. Use esta configuração quando a pasta de trabalho de destino for inexistente ou indisponível.  
+* Quando o valor de `ChartData` é definido como `false`, apenas o caminho da pasta de trabalho é atualizado — os dados do gráfico não serão carregados nem atualizados a partir da pasta de trabalho de destino. Use essa configuração quando a pasta de trabalho de destino não existir ou estiver indisponível. 
 * Quando o valor de `ChartData` é definido como `true`, os dados do gráfico são atualizados a partir da pasta de trabalho de destino.
 
 ```javascript
@@ -238,10 +240,10 @@ try {
 }
 ```
 
-### **Obter caminho da pasta de trabalho de fonte de dados externa do gráfico**
+### **Obter caminho da pasta de trabalho externa de origem de dados do gráfico**
 
-1. Crie uma instância da classe [Presentation](https://apireference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation) .
-1. Obtenha a referência de um slide por seu índice.
+1. Crie uma instância da classe [Presentation](https://apireference.aspose.com/slides/pt/nodejs-java/aspose.slides/presentation).
+1. Obtenha a referência de um slide através de seu índice.
 1. Crie um objeto para a forma de gráfico.
 1. Crie um objeto para o tipo de origem (`ChartDataSourceType`) que representa a fonte de dados do gráfico.
 1. Especifique a condição relevante com base no tipo de origem sendo o mesmo que o tipo de fonte de dados da pasta de trabalho externa.
@@ -288,27 +290,53 @@ try {
 }
 ```
 
-## **FAQ**
+### **Recuperar uma pasta de trabalho do cache do gráfico**
+
+Se um gráfico usa uma pasta de trabalho externa que está ausente ou indisponível, o Aspose.Slides pode reconstruir a pasta de trabalho do gráfico a partir dos dados armazenados em cache na apresentação. Crie [LoadOptions](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/loadoptions/), configure‑as com [SpreadsheetOptions](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/spreadsheetoptions/), e chame [SpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) com `true` antes de abrir a apresentação.
+
+O exemplo JavaScript a seguir abre uma apresentação cujo gráfico faz referência a uma pasta de trabalho externa indisponível e acessa os dados recuperados através de [ChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```javascript
+const spreadsheetOptions = new aspose.slides.SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+const loadOptions = new aspose.slides.LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+const presentation = new aspose.slides.Presentation("presentation.pptx", loadOptions);
+try {
+    const chart = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Leia ou modifique os dados da pasta de trabalho recuperada aqui.
+} finally {
+    presentation.dispose();
+}
+```
+
+Se a pasta de trabalho externa estiver indisponível e a recuperação estiver desativada, o Aspose.Slides lança uma exceção. Habilite a recuperação apenas quando o uso dos dados de gráfico em cache for uma alternativa aceitável, pois o cache pode não conter alterações feitas na pasta de trabalho externa após a última atualização da apresentação.
+
+## **Perguntas frequentes**
 
 **Posso determinar se um gráfico específico está vinculado a uma pasta de trabalho externa ou incorporada?**
 
-Sim. Um gráfico possui um [tipo de fonte de dados](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) e um [caminho para uma pasta de trabalho externa](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
+Sim. Um gráfico possui um [data source type](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/getdatasourcetype/) e um [path to an external workbook](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/); se a fonte for uma pasta de trabalho externa, você pode ler o caminho completo para garantir que um arquivo externo está sendo usado.
 
-**Caminhos relativos para pastas de trabalho externas são suportados e como são armazenados?**
+**Caminhos relativos para pastas de trabalho externas são suportados, e como são armazenados?**
 
 Sim. Se você especificar um caminho relativo, ele será convertido automaticamente em um caminho absoluto. Isso facilita a portabilidade do projeto; porém, esteja ciente de que a apresentação armazenará o caminho absoluto no arquivo PPTX.
 
-**Posso usar pastas de trabalho localizadas em recursos ou compartilhamentos de rede?**
+**Posso usar pastas de trabalho localizadas em recursos/rede compartilhada?**
 
-Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Entretanto, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
+Sim, essas pastas de trabalho podem ser usadas como fonte de dados externa. Contudo, a edição direta de pastas de trabalho remotas a partir do Aspose.Slides não é suportada — elas podem ser usadas apenas como fonte.
 
 **O Aspose.Slides sobrescreve o XLSX externo ao salvar a apresentação?**
 
-Não. A apresentação armazena um [link para o arquivo externo](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) e o usa para ler os dados. O arquivo externo em si não é modificado quando a apresentação é salva.
+Não. A apresentação armazena um [link to the external file](https://reference.aspose.com/slides/pt/nodejs-java/aspose.slides/chartdata/getexternalworkbookpath/) e o utiliza para leitura dos dados. O arquivo externo em si não é modificado quando a apresentação é salva.
 
 **O que devo fazer se o arquivo externo estiver protegido por senha?**
 
-O Aspose.Slides não aceita uma senha ao criar o link. Uma abordagem comum é remover a proteção antecipadamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/nodejs-java/)) e vincular a essa cópia.
+Aspose.Slides não aceita senha ao fazer o link. Uma abordagem comum é remover a proteção previamente ou preparar uma cópia descriptografada (por exemplo, usando [Aspose.Cells](/cells/nodejs-java/)) e vincular a essa cópia.
 
 **Vários gráficos podem referenciar a mesma pasta de trabalho externa?**
 

@@ -1,126 +1,506 @@
 ---
-title: Διαχείριση Στοιχείων Κράτησης Θέσης στην C++
-linktitle: Διαχείριση Στοιχείων Κράτησης Θέσης
+title: Διαχείριση Placeholder Παρουσίασης σε C++
+linktitle: Διαχείριση Placeholder
 type: docs
 weight: 10
 url: /el/cpp/manage-placeholder/
 keywords:
-- στοιχείο κράτησης θέσης
-- στοιχείο κράτησης θέσης κειμένου
-- στοιχείο κράτησης θέσης εικόνας
-- στοιχείο κράτησης θέσης διαγράμματος
+- σύμβολο κράτησης
+- σύμβολο κράτησης κειμένου
+- σύμβολο κράτησης εικόνας
+- σύμβολο κράτησης διαγράμματος
+- σύμβολο κράτησης περιεχομένου
 - κείμενο προτροπής
 - PowerPoint
-- OpenDocument
 - παρουσίαση
 - C++
 - Aspose.Slides
-description: "Διαχειριστείτε άψογα τα στοιχεία κράτησης θέσης στο Aspose.Slides για C++: αντικαταστήστε το κείμενο, προσαρμόστε τις προτροπές και ορίστε τη διαφάνεια εικόνας στο PowerPoint και το OpenDocument."
+description: "Μάθετε πώς να εξετάζετε και να επεξεργάζεστε συμβόλα κράτησης κειμένου, εικόνας, διαγράμματος και περιεχομένου και να κατανοείτε την κληρονομικότητα των συμβόλων κράτησης με το Aspose.Slides για C++."
 ---
 ## **Επισκόπηση**
 
-Το Aspose.Slides σας επιτρέπει να διαχειρίζεστε τα στοιχεία κράτησης θέσης παρουσιάσεων προγραμματιστικά. Αυτό το άρθρο εξηγεί πώς να βρίσκετε στοιχεία κράτησης θέσης στις διαφάνειες και να αλλάζετε το κείμενό τους, να ορίζετε προσαρμοσμένο κείμενο προτροπής για τα layouts των στοιχείων κράτησης θέσης και να προσαρμόζετε τη διαφάνεια μιας εικόνας που χρησιμοποιείται ως φόντο στοιχείου κράτησης θέσης. Περιλαμβάνει επίσης μια σύντομη ενότητα **Συχνές Ερωτήσεις** που διευκρινίζει τη διαφορά μεταξύ βασικών στοιχείων κράτησης θέσης και τοπικών σχημάτων, εξηγεί πώς οι αλλαγές στοιχείων κράτησης θέσης μπορούν να εφαρμοστούν μέσω layouts ή master, και παραπέμπει στη διαχείριση των στοιχείων κράτησης θέσης κεφαλίδας και υποστίγματος.
+Ένα placeholder είναι ένα σχήμα που διατηρεί μια θέση για ένα συγκεκριμένο είδος περιεχομένου σε ένα πρότυπο παρουσίασης. Συνηθισμένα παραδείγματα είναι placeholders τίτλου, σώματος, εικόνας, διαγράμματος και γενικού σκοπού. Σε αντίθεση με ένα συνηθισμένο σχήμα, ένα placeholder μπορεί να κληρονομήσει τη θέση, το μέγεθος, τη μορφοποίηση και άλλες ρυθμίσεις από μια διαφάνεια διάταξης ή κύρια διαφάνεια.
 
-## **Αλλαγή κειμένου σε στοιχείο κράτησης θέσης**
-Χρησιμοποιώντας το [Aspose.Slides for C++](/slides/el/cpp/), μπορείτε να εντοπίσετε και να τροποποιήσετε στοιχεία κράτησης θέσης στις διαφάνειες των παρουσιάσεων. Το Aspose.Slides σας επιτρέπει να κάνετε αλλαγές στο κείμενο ενός στοιχείου κράτησης θέσης.
+Aspose.Slides εκθέτει πληροφορίες placeholder μέσω της μεθόδου [IShape::get_Placeholder](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_placeholder/). Η μέθοδος επιστρέφει ένα αντικείμενο [IPlaceholder](https://reference.aspose.com/slides/el/cpp/aspose.slides/iplaceholder/) ή `nullptr` για ένα κανονικό σχήμα. Χρησιμοποιήστε το [IPlaceholder::get_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/iplaceholder/get_type/) για να προσδιορίσετε τι προορίζεται να περιέχει το placeholder.
 
-**Προαπαιτούμενο**: Χρειάζεστε μια παρουσίαση που περιέχει ένα στοιχείο κράτησης θέσης. Μπορείτε να δημιουργήσετε μια τέτοια παρουσίαση με την τυπική εφαρμογή Microsoft PowerPoint.
+Η διεπαφή του σχήματος εξακολουθεί να είναι σημαντική αφού μάθετε τον τύπο του placeholder:
 
-Αυτή είναι η διαδικασία χρήσης του Aspose.Slides για την αντικατάσταση του κειμένου στο στοιχείο κράτησης θέσης σε αυτήν την παρουσίαση:
+- Ένα κενό placeholder κειμένου, εικόνας, διαγράμματος ή περιεχομένου αντιπροσωπεύεται συνήθως από ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/).
+- Ένα συμπληρωμένο placeholder εικόνας μπορεί να αντιπροσωπεύεται από ένα [IPictureFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipictureframe/).
+- Ένα συμπληρωμένο placeholder διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [IChart](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichart/).
+- Ένα placeholder περιεχομένου μπορεί να περιέχει πολλαπλούς τύπους περιεχομένου. Ελέγξτε τόσο το [IPlaceholder::get_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/iplaceholder/get_type/) όσο και τη διεπαφή του σχήματος κατά χρόνο εκτέλεσης αντί να υποθέτετε ότι κάθε placeholder είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/).
 
-1. Δημιουργήστε μια παρουσίαση της κλάσης [`Presentation`](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation/) και περάστε την παρουσίαση ως όρισμα.
-2. Λάβετε μια αναφορά σε διαφάνεια μέσω του δείκτη της.
-3. Διατρέξτε τα σχήματα για να εντοπίσετε το στοιχείο κράτησης θέσης.
-4. Μετατρέψτε το σχήμα του στοιχείου κράτησης θέσης σε ένα [`AutoShape`](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.auto_shape/) και αλλάξτε το κείμενο χρησιμοποιώντας το [`TextFrame`](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.text_frame/) που συσχετίζεται με το [`AutoShape`](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.auto_shape/).
-5. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder::get_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/iplaceholder/get_type/) περιγράφει τον ρόλο ενός placeholder· δεν εγγυάται τον τύπο του σχήματος κατά χρόνο εκτέλεσης. Πάντα να κάνετε έλεγχο τύπου πριν αποκτήσετε πρόσβαση σε μέλη κειμένου, εικόνας, διαγράμματος, πίνακα ή μέσων.
+{{% /alert %}}
 
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε το κείμενο σε ένα στοιχείο κράτησης θέσης:
+## **Κατανόηση Κληρονομικότητας Placeholder**
+
+Τα placeholders σχηματίζουν μια ιεραρχία:
+
+1. Μια κύρια διαφάνεια ορίζει επαναχρησιμοποιήσιμα στυλ και, σε ορισμένες περιπτώσεις, placeholders επιπέδου master.
+2. Μια διαφάνεια διάταξης ορίζει τη διάταξη που χρησιμοποιείται από μία ή περισσότερες κανονικές διαφάνειες και μπορεί να κληρονομήσει από το master.
+3. Μια κανονική διαφάνεια περιέχει τα placeholders για εκείνη τη διαφάνεια και μπορεί να κληρονομήσει από τη διάταξή της.
+
+Καλέστε το [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/getbaseplaceholder/) για να μεταβείτε ένα επίπεδο επάνω σε αυτήν την ιεραρχία. Ένα placeholder διαφάνειας συνήθως επιστρέφει το placeholder της διάταξής του· ένα placeholder διάταξης μπορεί να επιστρέψει το placeholder του master. Η μέθοδος επιστρέφει `nullptr` όταν το σχήμα δεν έχει βασικό placeholder.
+
+Το παρακάτω παράδειγμα παραθέτει τα placeholders στην πρώτη διαφάνεια και αναφέρει τα βασικά τους placeholders:
 
 ```c++
-// Η διαδρομή προς το φάκελο εγγράφων.
-const String outPath = u"../out/ReplacingText_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/type_info.h>
 
+using namespace Aspose::Slides;
+using namespace System;
 
-// Φορτώνει την επιθυμητή παρουσίαση
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
 
-// Προσεγγίζει την πρώτη διαφάνεια
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
 
-// Προσεγγίζει το πρώτο και το δεύτερο στοιχείο κράτησης θέσης στη διαφάνεια και το μετατρέπει σε AutoShape
-SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
-SharedPtr<AutoShape> ashp = ExplicitCast<Aspose::Slides::AutoShape>(shape);
+    auto placeholderType = placeholder->get_Type();
+    auto typeName = shape->GetType().get_Name();
+    Console::WriteLine(u"Slide placeholder: {0}; shape interface: {1}", placeholderType, typeName);
 
-SharedPtr<ITextFrame> textframe = ashp->get_TextFrame();
+    auto layoutPlaceholder = shape->GetBasePlaceholder();
+    if (layoutPlaceholder != nullptr)
+    {
+        auto layoutPlaceholderInfo = layoutPlaceholder->get_Placeholder();
+        if (layoutPlaceholderInfo != nullptr)
+        {
+            auto layoutPlaceholderType = layoutPlaceholderInfo->get_Type();
+            Console::WriteLine(u"  Layout placeholder: {0}", layoutPlaceholderType);
+        }
 
-textframe->set_Text(u"This is Placeholder");
-	
-// Αποθηκεύει την παρουσίαση στο δίσκο
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+        auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+        if (masterPlaceholder != nullptr)
+        {
+            auto masterPlaceholderInfo = masterPlaceholder->get_Placeholder();
+            if (masterPlaceholderInfo != nullptr)
+            {
+                auto masterPlaceholderType = masterPlaceholderInfo->get_Type();
+                Console::WriteLine(u"  Master placeholder: {0}", masterPlaceholderType);
+            }
+        }
+    }
+}
 ```
 
-## **Ορισμός κειμένου προτροπής σε στοιχείο κράτησης θέσης**
-Τα τυπικά και προ-σχεδιασμένα layouts περιέχουν κείμενα προτροπής στοιχείων κράτησης θέσης, όπως ***Κάντε κλικ για προσθήκη τίτλου*** ή ***Κάντε κλικ για προσθήκη υποτίτλου***. Χρησιμοποιώντας το Aspose.Slides, μπορείτε να εισάγετε τα προτιμώμενα κείμενα προτροπής σας στα layouts των στοιχείων κράτησης θέσης.
+Η επεξεργασία ενός placeholder σε μια κανονική διαφάνεια δημιουργεί ή αλλάζει μια τοπική παράκαμψη για εκείνη τη διαφάνεια. Η επεξεργασία της σχετικής διάταξης ή του master μπορεί να επηρεάσει όλες τις διαφάνειες που εξακολουθούν να κληρονομούν αυτή τη ρύθμιση. Ένα τοπικό συνηθισμένο σχήμα δεν έχει βασικό placeholder και δεν αρχίζει να κληρονομεί απλώς επειδή καταλαμβάνει τις ίδιες συντεταγμένες.
 
-Αυτός ο κώδικας C++ σας δείχνει πώς να ορίσετε το κείμενο προτροπής σε ένα στοιχείο κράτησης θέσης:
+## **Αλλαγή Κειμένου σε Placeholder**
+
+Τα placeholders τίτλου, κεντραρισμένου τίτλου, υπότιτλου, σώματος και κειμένου υποστηρίζουν συνήθως κείμενο. Ελέγξτε για [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) πριν χρησιμοποιήσετε τη μέθοδό του [get_TextFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/get_textframe/).
+
+Αυτό το παράδειγμα ενημερώνει το πρώτο placeholder τίτλου στην πρώτη διαφάνεια και αποθηκεύει το αποτέλεσμα:
 
 ```c++
-const System::String templatePath = u"../templates/Presentation2.pptx";
-    
-auto pres = System::MakeObject<Presentation>(templatePath);
-auto slide = pres->get_Slides()->idx_get(0);
+#include <DOM/IAutoShape.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
 
-for (auto& shape : slide->get_Shapes())
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IAutoShape> titleShape;
+
+for (auto&& shape : slide->get_Shapes())
 {
-    if (shape->get_Placeholder() != NULL)
+    if (!ObjectExt::Is<IAutoShape>(shape))
     {
-        System::String text = u"";
-        if (shape->get_Placeholder()->get_Type() == PlaceholderType::CenteredTitle) // Όταν δεν υπάρχει κείμενο σε αυτό, το PowerPoint εμφανίζει "Click to add title". 
-        {
-            text = u"Click to add title";
-        }
-        else if (shape->get_Placeholder()->get_Type() == PlaceholderType::Subtitle) // Κάνει το ίδιο για το υπότιτλο.
-        {
-            text = u"Click to add subtitle";
-        }
-        System::Console::WriteLine(u"Placeholder : {0}", text);
+        continue;
+    }
+
+    auto autoShape = ExplicitCast<IAutoShape>(shape);
+    auto placeholder = autoShape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    auto placeholderType = placeholder->get_Type();
+    if (placeholderType == PlaceholderType::Title || placeholderType == PlaceholderType::CenteredTitle)
+    {
+        titleShape = autoShape;
+        break;
     }
 }
 
-pres->Save(u"../out/Placeholders_PromptText.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+if (titleShape == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a title placeholder.");
+}
+
+titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
+presentation->Save(u"title-placeholder-updated.pptx", SaveFormat::Pptx);
 ```
 
-## **Ορισμός διαφάνειας εικόνας στοιχείου κράτησης θέσης**
+Αυτό το μοτίβο αποφεύγει το casting τους placeholders εικόνας, διαγράμματος, πίνακα ή μέσων σε [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/). Επιπλέον, αναγνωρίζει το placeholder με βάση τον σκοπό του αντί να εξαρτάται από έναν εύθραυστο δείκτη σχήματος.
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε τη διαφάνεια της εικόνας φόντου σε ένα στοιχείο κράτησης θέσης κειμένου. Ρυθμίζοντας τη διαφάνεια της εικόνας σε ένα τέτοιο πλαίσιο, μπορείτε να κάνετε το κείμενο ή την εικόνα να ξεχωρίζουν (ανάλογα με τα χρώματα του κειμένου και της εικόνας).
+## **Ορισμός Κειμένου Προτροπής σε Διάταξη**
 
-Αυτός ο κώδικας C++ δείχνει πώς να ορίσετε τη διαφάνεια για μια εικόνα φόντου (μέσα σε σχήμα):
+Το κείμενο προτροπής είναι η οδηγία σχεδιασμού που εμφανίζεται σε ένα κενό placeholder, όπως *Click to add title*. Ορίστε προσαρμοσμένο κείμενο προτροπής στο placeholder της διάταξης αντί να προσπαθήσετε να το προσεγγίσετε μέσω της συλλογής σ shapes μιας κανονικής διαφάνειας. Πρόσβαση στη διάταξη μέσω του [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/el/cpp/aspose.slides/islide/get_layoutslide/) και επανάληψη πάνω στα [IBaseSlide::get_Shapes](https://reference.aspose.com/slides/el/cpp/aspose.slides/ibaseslide/get_shapes/).
+
+Το παρακάτω παράδειγμα αλλάζει τις προτροπές τίτλου και υπότιτλου στη διάταξη που χρησιμοποιείται από την πρώτη διαφάνεια:
 
 ```c++
-auto presentation = System::MakeObject<Presentation>();
-    
-auto autoShape = presentation->get_Slides()->idx_get(0)->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 10.0f, 10.0f, 100.0f, 100.0f);
-    
-auto fillFormat = autoShape->get_FillFormat();
-fillFormat->set_FillType(Aspose::Slides::FillType::Picture);
-fillFormat->get_PictureFillFormat()->get_Picture()->set_Image(presentation->get_Images()->AddImage(System::IO::File::ReadAllBytes(u"image.png")));
+#include <DOM/IAutoShape.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
 
-auto pictureFillFormat = fillFormat->get_PictureFillFormat();
-pictureFillFormat->set_PictureFillMode(Aspose::Slides::PictureFillMode::Stretch);
-pictureFillFormat->get_Picture()->get_ImageTransform()->AddAlphaModulateFixedEffect(75.0f);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto layoutSlide = presentation->get_Slide(0)->get_LayoutSlide();
+
+for (auto&& shape : layoutSlide->get_Shapes())
+{
+    if (!ObjectExt::Is<IAutoShape>(shape))
+    {
+        continue;
+    }
+
+    auto autoShape = ExplicitCast<IAutoShape>(shape);
+    auto placeholder = autoShape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    switch (placeholder->get_Type())
+    {
+        case PlaceholderType::Title:
+        case PlaceholderType::CenteredTitle:
+            autoShape->get_TextFrame()->set_Text(u"Enter a concise slide title");
+            break;
+        case PlaceholderType::Subtitle:
+            autoShape->get_TextFrame()->set_Text(u"Enter a subtitle or reporting period");
+            break;
+        default:
+            break;
+    }
+}
+
+presentation->Save(u"custom-placeholder-prompts.pptx", SaveFormat::Pptx);
 ```
 
-## **Συχνές Ερωτήσεις**
+Το κείμενο προτροπής δεν είναι κανονικό περιεχόμενο διαφάνειας. Προορίζεται για κενά placeholders σε εφαρμογές επεξεργασίας όπως το PowerPoint. Μόλις ένας χρήστης ή πρόγραμμα παρέχει πραγματικό περιεχόμενο, η προτροπή δεν εμφανίζεται πλέον. Η αλλαγή μιας προτροπής επίσης δεν αντικαθιστά υπάρχον κείμενο στις διαφάνειες που χρησιμοποιούν τη διάταξη.
 
-**Τι είναι ένα βασικό στοιχείο κράτησης θέσης και πώς διαφέρει από ένα τοπικό σχήμα σε μια διαφάνεια;**
+## **Ενημέρωση Placeholder Εικόνας**
 
-Ένα βασικό στοιχείο κράτησης θέσης είναι το αρχικό σχήμα σε ένα layout ή master από το οποίο κληρονομεί το σχήμα της διαφάνειας — τύπος, θέση και κάποιες μορφοποιήσεις προέρχονται από αυτό. Ένα τοπικό σχήμα είναι ανεξάρτητο· εάν δεν υπάρχει βασικό στοιχείο κράτησης θέσης, η κληρονομικότητα δεν εφαρμόζεται.
+Υπάρχουν δύο περιπτώσεις που πρέπει να διαχειριστείτε:
 
-**Πώς μπορώ να ενημερώσω όλους τους τίτλους ή τις λεζάντες σε ολόκληρη την παρουσίαση χωρίς να επαναλαμβάνομαι σε κάθε διαφάνεια;**
+- Αν το placeholder εικόνας είναι ήδη συμπληρωμένο και αντιπροσωπεύεται από ένα [IPictureFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipictureframe/), αντικαταστήστε την εικόνα μέσω του [IPictureFillFormat::get_Picture](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipicturefillformat/get_picture/) και του [ISlidesPicture::set_Image](https://reference.aspose.com/slides/el/cpp/aspose.slides/islidespicture/set_image/).
+- Αν παραμένει κενό placeholder, προσθέστε ένα πλαίσιο εικόνας στις συντεταγμένες του placeholder με το [IShapeCollection::AddPictureFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/addpictureframe/) και αφαιρέστε το κενό placeholder.
 
-Επεξεργαστείτε το αντίστοιχο στοιχείο κράτησης θέσης στο layout ή στο master. Οι διαφάνειες που βασίζονται σε αυτά τα layouts/αυτό το master θα κληρονομήσουν αυτόματα την αλλαγή.
+Το επόμενο παράδειγμα υποστηρίζει και τις δύο περιπτώσεις και αποθηκεύει την παρουσίαση:
 
-**Πώς ελέγχω τα τυπικά στοιχεία κράτησης θέσης κεφαλίδας/υποστίγματος — ημερομηνία & ώρα, αριθμός διαφάνειας και κείμενο υποστίγματος;**
+```c++
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
 
-Χρησιμοποιήστε τους διαχειριστές HeaderFooter στο κατάλληλο επίπεδο (κανονικές διαφάνειες, layouts, master, σημειώσεις/φυλλάδια) για να ενεργοποιήσετε ή να απενεργοποιήσετε αυτά τα στοιχεία κράτησης θέσης και να ορίσετε το περιεχόμενό τους.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"picture-template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IShape> picturePlaceholder;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder != nullptr && placeholder->get_Type() == PlaceholderType::Picture)
+    {
+        picturePlaceholder = shape;
+        break;
+    }
+}
+
+if (picturePlaceholder == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a picture placeholder.");
+}
+
+auto imageBytes = File::ReadAllBytes(u"replacement.png");
+auto image = presentation->get_Images()->AddImage(imageBytes);
+
+if (ObjectExt::Is<IPictureFrame>(picturePlaceholder))
+{
+    auto pictureFrame = ExplicitCast<IPictureFrame>(picturePlaceholder);
+    pictureFrame->get_PictureFormat()->get_Picture()->set_Image(image);
+}
+else
+{
+    auto x = picturePlaceholder->get_X();
+    auto y = picturePlaceholder->get_Y();
+    auto width = picturePlaceholder->get_Width();
+    auto height = picturePlaceholder->get_Height();
+    auto shapes = slide->get_Shapes();
+    shapes->AddPictureFrame(ShapeType::Rectangle, x, y, width, height, image);
+    shapes->Remove(picturePlaceholder);
+}
+
+presentation->Save(u"picture-placeholder-updated.pptx", SaveFormat::Pptx);
+```
+
+Η αντικατάσταση που δημιουργείται για ένα κενό placeholder είναι ένα τοπικό πλαίσιο εικόνας, όχι ένα νέο placeholder, επειδή το [IShape::get_Placeholder](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/get_placeholder/) είναι μόνο για ανάγνωση. Διατηρεί τη δεσμευμένη θέση αλλά δεν κληρονομεί πλέον τη συμπεριφορά συγκεκριμένης placeholder. Εάν η διατήρηση της σχέσης placeholder είναι ουσιώδης, προετοιμάστε και συμπληρώστε το placeholder στο PowerPoint πρώτα, έπειτα ενημερώστε το προκύπτον [IPictureFrame](https://reference.aspose.com/slides/el/cpp/aspose.slides/ipictureframe/) με το Aspose.Slides.
+
+Για διαφάνεια εικόνας, περικοπή και άλλα εφέ ειδικά για εικόνες, δείτε το άρθρο [Manage Picture Frames](/slides/el/cpp/picture-frame/). Αυτές οι λειτουργίες ανήκουν στο πλαίσιο εικόνας ή στο γέμισμα εικόνας, όχι στα μεταδεδομένα του placeholder.
+
+## **Διαχείριση Συμπληρωμάτων Διαγράμματος και Περιεχομένου**
+
+Ένα συμπληρωμένο placeholder διαγράμματος μπορεί να αντιπροσωπεύεται από ένα [IChart](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichart/). Το παράδειγμα αυτό βρίσκει ένα τέτοιο διάγραμμα τόσο με βάση τον τύπο του placeholder όσο και τη διεπαφή χρόνου εκτέλεσης, αλλάζει τον τίτλο του και αποθηκεύει το αρχείο:
+
+```c++
+#include <DOM/IChart.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"chart-template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IChart> placeholderChart;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    if (!ObjectExt::Is<IChart>(shape))
+    {
+        continue;
+    }
+
+    auto chart = ExplicitCast<IChart>(shape);
+    auto placeholder = chart->get_Placeholder();
+    if (placeholder != nullptr && placeholder->get_Type() == PlaceholderType::Chart)
+    {
+        placeholderChart = chart;
+        break;
+    }
+}
+
+if (placeholderChart == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a populated chart placeholder.");
+}
+
+placeholderChart->set_HasTitle(true);
+placeholderChart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenue");
+presentation->Save(u"chart-placeholder-updated.pptx", SaveFormat::Pptx);
+```
+
+Ένα γενικό placeholder περιεχομένου έχει συνήθως τον τύπο [PlaceholderType::Object](https://reference.aspose.com/slides/el/cpp/aspose.slides/placeholdertype/). Στο PowerPoint λειτουργεί ως εκκινητής για πολλούς τύπους περιεχομένου, όπως διαγράμματα, πίνακες, διαγράμματα ροής, εικόνες και μέσα. Αφού συμπληρωθεί, εξετάστε την πραγματική διεπαφή σχήματος για να μάθετε τι περιέχει. Εξειδικευμένες διατάξεις μπορούν επίσης να εκθέτουν [PlaceholderType::Chart](https://reference.aspose.com/slides/el/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Table](https://reference.aspose.com/slides/el/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Picture](https://reference.aspose.com/slides/el/cpp/aspose.slides/placeholdertype/), [PlaceholderType::Media](https://reference.aspose.com/slides/el/cpp/aspose.slides/placeholdertype/), ή [PlaceholderType::Diagram](https://reference.aspose.com/slides/el/cpp/aspose.slides/placeholdertype/).
+
+Το Aspose.Slides δεν μετατρέπει ένα κενό placeholder [IAutoShape](https://reference.aspose.com/slides/el/cpp/aspose.slides/iautoshape/) σε [IChart] μόνο αλλάζοντας το [IPlaceholder::get_Type](https://reference.aspose.com/slides/el/cpp/aspose.slides/iplaceholder/get_type/); ο τύπος είναι μόνο για ανάγνωση. Για να γεμίσετε προγραμματιστικά ένα κενό διάγραμμα ή περιοχή περιεχομένου, προσθέστε το απαιτούμενο αντικείμενο στις συντεταγμένες του placeholder και στη συνέχεια αφαιρέστε το κενό placeholder. Το παρακάτω παράδειγμα το κάνει αυτό για ένα διάγραμμα:
+
+```c++
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/Chart/IChartTitle.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"content-template.pptx");
+auto slide = presentation->get_Slide(0);
+SharedPtr<IShape> targetPlaceholder;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    auto placeholderType = placeholder->get_Type();
+    if (placeholderType == PlaceholderType::Chart || placeholderType == PlaceholderType::Object)
+    {
+        targetPlaceholder = shape;
+        break;
+    }
+}
+
+if (targetPlaceholder == nullptr)
+{
+    throw InvalidOperationException(u"The first slide does not contain a chart or content placeholder.");
+}
+
+auto x = targetPlaceholder->get_X();
+auto y = targetPlaceholder->get_Y();
+auto width = targetPlaceholder->get_Width();
+auto height = targetPlaceholder->get_Height();
+auto shapes = slide->get_Shapes();
+auto chart = shapes->AddChart(ChartType::ClusteredColumn, x, y, width, height);
+chart->set_HasTitle(true);
+chart->get_ChartTitle()->AddTextFrameForOverriding(u"Quarterly Revenue");
+shapes->Remove(targetPlaceholder);
+presentation->Save(u"content-placeholder-replaced-with-chart.pptx", SaveFormat::Pptx);
+```
+
+Το προστιθέμενο διάγραμμα είναι ένα συνηθισμένο τοπικό διάγραμμα. Καταλαμβάνει την περιοχή του placeholder αλλά δεν κληρονομεί από το placeholder της διάταξης. Χρησιμοποιήστε τα ειδικά άρθρα διαχείρισης διαγραμμάτων [chart management articles](/slides/el/cpp/powerpoint-charts/) όταν χρειάζεται να αντικαταστήσετε τις κατηγορίες, τις σειρές ή τα δεδομένα του βιβλίου εργασίας.
+
+## **Πλήρες Παράδειγμα: Ενημέρωση Κειμένου ή Περιεχομένου Εικόνας**
+
+Το παρακάτω ολοκληρωμένο παράδειγμα ανοίγει ένα πρότυπο, ψάχνει την πρώτη διαφάνεια για placeholder τίτλου ή εικόνας, ελέγχει τους τύπους του placeholder και του σχήματος, ενημερώνει το αντίστοιχο περιεχόμενο και αποθηκεύει το αποτέλεσμα. Το παράδειγμα αποφεύγει σκόπιμα την υπόθεση δείκτη σχήματος ή το casting όλων των placeholders στην ίδια διεπαφή.
+
+```c++
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFillFormat.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPlaceholder.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlidesPicture.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/PlaceholderType.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/io/file.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"template.pptx");
+auto slide = presentation->get_Slide(0);
+auto updated = false;
+
+for (auto&& shape : slide->get_Shapes())
+{
+    auto placeholder = shape->get_Placeholder();
+    if (placeholder == nullptr)
+    {
+        continue;
+    }
+
+    auto placeholderType = placeholder->get_Type();
+
+    if ((placeholderType == PlaceholderType::Title || placeholderType == PlaceholderType::CenteredTitle) && ObjectExt::Is<IAutoShape>(shape))
+    {
+        auto titleShape = ExplicitCast<IAutoShape>(shape);
+        titleShape->get_TextFrame()->set_Text(u"Quarterly Business Review");
+        updated = true;
+        break;
+    }
+
+    if (placeholderType == PlaceholderType::Picture)
+    {
+        auto imageBytes = File::ReadAllBytes(u"replacement.png");
+        auto image = presentation->get_Images()->AddImage(imageBytes);
+
+        if (ObjectExt::Is<IPictureFrame>(shape))
+        {
+            auto pictureFrame = ExplicitCast<IPictureFrame>(shape);
+            pictureFrame->get_PictureFormat()->get_Picture()->set_Image(image);
+        }
+        else
+        {
+            auto x = shape->get_X();
+            auto y = shape->get_Y();
+            auto width = shape->get_Width();
+            auto height = shape->get_Height();
+            auto shapes = slide->get_Shapes();
+            shapes->AddPictureFrame(ShapeType::Rectangle, x, y, width, height, image);
+            shapes->Remove(shape);
+        }
+
+        updated = true;
+        break;
+    }
+}
+
+if (!updated)
+{
+    throw InvalidOperationException(u"No supported title or picture placeholder was found on the first slide.");
+}
+
+presentation->Save(u"placeholder-content-updated.pptx", SaveFormat::Pptx);
+```
+
+## **FAQ**
+
+**Τι είναι ένα βασικό placeholder;**
+
+Ένα βασικό placeholder είναι το αντίστοιχο σχήμα στη διάταξη ή στο master από το οποίο κληρονομεί ένα άλλο placeholder. Χρησιμοποιήστε το [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishape/getbaseplaceholder/) για να το ανακτήσετε. Ένα συνηθισμένο τοπικό σχήμα επιστρέφει `nullptr` επειδή δεν αποτελεί μέρος της ιεραρχίας placeholder.
+
+**Μπορώ να αλλάξω όλους τους τίτλους διαφάνειας επεξεργάζοντας ένα placeholder διάταξης;**
+
+Μπορείτε να αλλάξετε την κληρονομική μορφοποίηση ή το κείμενο προτροπής μέσω μιας διάταξης, αλλά το υπάρχον κείμενο τίτλου αποθηκεύεται στις κανονικές διαφάνειες. Για να αντικαταστήσετε τον πραγματικό τίτλο σε όλη την παρουσίαση, επαναλάβετε τις διαφάνειες και ενημερώστε κάθε placeholder τίτλου.
+
+**Πώς διαχειρίζομαι placeholders ημερομηνίας, αριθμού διαφάνειας, κεφαλίδας και υποσέλιδου;**
+
+Χρησιμοποιήστε τους διαχειριστές κεφαλίδας και υποσέλιδου στην κατάλληλη κλίμακα (διαφάνεια, διάταξη, master, σημειώσεις ή φυλλάδιο). Δείτε το άρθρο [Manage Presentation Header and Footer](/slides/el/cpp/presentation-header-and-footer/) για ολοκληρωμένα παραδείγματα.

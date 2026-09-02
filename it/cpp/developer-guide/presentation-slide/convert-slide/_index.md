@@ -1,12 +1,12 @@
 ---
-title: Convertire le diapositive della presentazione in immagini in C++
-linktitle: Diapositiva in immagine
+title: Converti le diapositive della presentazione in immagini in C++
+linktitle: Diapositiva a immagine
 type: docs
 weight: 41
 url: /it/cpp/convert-slide/
 keywords:
-- converti diapositiva
-- esporta diapositiva
+- convertire diapositiva
+- esportare diapositiva
 - diapositiva in immagine
 - salva diapositiva come immagine
 - diapositiva in PNG
@@ -22,41 +22,41 @@ description: "Converti le diapositive da PPT, PPTX e ODP in immagini in C++ util
 ---
 ## **Introduzione**
 
-Aspose.Slides per C++ consente di convertire facilmente le diapositive delle presentazioni PowerPoint e OpenDocument in vari formati immagine, tra cui BMP, PNG, JPG (JPEG), GIF e altri.
+Aspose.Slides for C++ ti permette di convertire facilmente le diapositive delle presentazioni PowerPoint e OpenDocument in vari formati immagine, tra cui BMP, PNG, JPG (JPEG), GIF e altri.
 
-Per convertire una diapositiva in un'immagine, segui questi passaggi:
+Per convertire una diapositiva in un’immagine, segui questi passaggi:
 
-1. Definisci le impostazioni di conversione desiderate e seleziona le diapositive che vuoi esportare utilizzando:
-    - L'interfaccia [ITiffOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/itiffoptions/) oppure
-    - L'interfaccia [IRenderingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/irenderingoptions/).
-2. Genera l'immagine della diapositiva chiamando il metodo [GetImage](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/getimage/).
+1. Definisci le impostazioni di conversione desiderate e seleziona le diapositive da esportare usando:
+    - L’interfaccia [ITiffOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/itiffoptions/),
+    - L’interfaccia [IRenderingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/irenderingoptions/).
+2. Genera l’immagine della diapositiva chiamando il metodo [GetImage](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/getimage/).
 
-Un [Bitmap](https://reference.aspose.com/slides/it/cpp/system.drawing/bitmap/) è un oggetto che consente di lavorare con immagini definite da dati di pixel. È possibile utilizzare un'istanza di questa classe per salvare le immagini in un'ampia gamma di formati (BMP, JPG, PNG, ecc.).
+Un [Bitmap](https://reference.aspose.com/slides/it/cpp/system.drawing/bitmap/) è un oggetto che consente di lavorare con immagini definite da dati pixel. Puoi utilizzare un’istanza di questa classe per salvare le immagini in un’ampia gamma di formati (BMP, JPG, PNG, ecc.).
 
-## **Convertire le diapositive in bitmap e salvare le immagini in PNG**
+## **Converti le diapositive in Bitmap e salva le immagini in PNG**
 
-È possibile convertire una diapositiva in un oggetto bitmap e utilizzarlo direttamente nella propria applicazione. In alternativa, è possibile convertire una diapositiva in un bitmap e poi salvare l'immagine in JPEG o in qualsiasi altro formato preferito.
+Puoi convertire una diapositiva in un oggetto bitmap e usarlo direttamente nella tua applicazione. In alternativa, puoi convertire una diapositiva in un bitmap e poi salvare l’immagine in JPEG o in qualsiasi altro formato preferito.
 
-Questo codice C++ mostra come convertire la prima diapositiva di una presentazione in un oggetto bitmap e poi salvare l'immagine in formato PNG:
+Questo codice C++ dimostra come convertire la prima diapositiva di una presentazione in un oggetto bitmap e poi salvare l’immagine in formato PNG:
 
 ```cpp 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Converti la prima diapositiva della presentazione in un bitmap.
+// Convert the first slide in the presentation to a bitmap.
 auto image = presentation->get_Slide(0)->GetImage();
 
-// Salva l'immagine nel formato PNG.
+// Save the image in the PNG format.
 image->Save(u"Slide_0.png", ImageFormat::Png);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Convertire le diapositive in immagini con dimensioni personalizzate**
+## **Converti le diapositive in immagini con dimensioni personalizzate**
 
-Potrebbe essere necessario ottenere un'immagine di dimensioni specifiche. Utilizzando una sovraccarico del metodo [GetImage](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/getimage/), è possibile convertire una diapositiva in un'immagine con dimensioni specifiche (larghezza e altezza). 
+Potresti aver bisogno di ottenere un’immagine di una certa dimensione. Utilizzando una sovraccarico del metodo [GetImage](https://reference.aspose.com/slides/it/cpp/aspose.slides/islide/getimage/), puoi convertire una diapositiva in un’immagine con dimensioni specifiche (larghezza e altezza).
 
-Questo esempio di codice dimostra come farlo:
+Questo esempio di codice mostra come fare:
 
 ```cpp 
 Size imageSize(1820, 1040);
@@ -73,15 +73,15 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **Convertire le diapositive con note e commenti in immagini**
+## **Converti le diapositive con note e commenti in immagini**
 
 Alcune diapositive possono contenere note e commenti.
 
-Aspose.Slides fornisce due interfacce—[ITiffOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/itiffoptions/) e [IRenderingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/irenderingoptions/)—che consentono di controllare il rendering delle diapositive di presentazione in immagini. Entrambe le interfacce includono il metodo `set_SlidesLayoutOptions`, che permette di configurare il rendering di note e commenti su una diapositiva durante la conversione in immagine.
+Aspose.Slides fornisce due interfacce—[ITiffOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/itiffoptions/) e [IRenderingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/irenderingoptions/)—che consentono di controllare il rendering delle diapositive in immagini. Entrambe le interfacce includono il metodo `set_SlidesLayoutOptions`, che permette di configurare il rendering di note e commenti su una diapositiva durante la conversione in immagine.
 
-Con la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/notescommentslayoutingoptions/) è possibile specificare la posizione preferita per note e commenti nell'immagine risultante.
+Con la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/notescommentslayoutingoptions/) puoi specificare la posizione preferita per note e commenti nell’immagine risultante.
 
-Questo codice C++ mostra come convertire una diapositiva con note e commenti:
+Questo codice C++ dimostra come convertire una diapositiva con note e commenti:
 
 ```cpp 
 float scaleX = 2;
@@ -93,17 +93,17 @@ auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comme
 auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
 notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Imposta la posizione delle note.
 notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Imposta la posizione dei commenti.
-notesCommentsOptions->set_CommentsAreaWidth(500);                          // Imposta la larghezza dell'area dei commenti.
-notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Imposta il colore dell'area dei commenti.
+notesCommentsOptions->set_CommentsAreaWidth(500);                          // Imposta la larghezza dell'area commenti.
+notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Imposta il colore dell'area commenti.
 
-// Create the rendering options.
+// Crea le opzioni di rendering.
 auto options = MakeObject<RenderingOptions>();
 options->set_SlidesLayoutOptions(notesCommentsOptions);
 
-// Convert the first slide of the presentation to an image.
+// Converti la prima diapositiva della presentazione in un'immagine.
 auto image = presentation->get_Slide(0)->GetImage(options, scaleX, scaleY);
 
-// Save the image in the GIF format.
+// Salva l'immagine nel formato GIF.
 image->Save(u"Image_with_notes_and_comments_0.gif", ImageFormat::Gif);
 
 image->Dispose();
@@ -112,15 +112,15 @@ presentation->Dispose();
 
 {{% alert title="Note" color="warning" %}} 
 
-In qualsiasi processo di conversione da diapositiva a immagine, il metodo [set_NotesPosition](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) non può applicare `BottomFull` (per specificare la posizione delle note) perché il testo di una nota può essere troppo grande, impedendone l'adattamento alla dimensione dell'immagine specificata.
+Durante qualsiasi processo di conversione da diapositiva a immagine, il metodo [set_NotesPosition](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) non può applicare `BottomFull` (per specificare la posizione delle note) perché il testo di una nota potrebbe essere troppo grande, rendendo impossibile farlo rientrare nella dimensione dell’immagine specificata.
 
 {{% /alert %}} 
 
-## **Convertire le diapositive in immagini utilizzando le opzioni TIFF**
+## **Converti le diapositive in immagini usando le opzioni TIFF**
 
-L'interfaccia [ITiffOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/itiffoptions/) offre un maggiore controllo sull'immagine TIFF risultante consentendo di specificare parametri come dimensione, risoluzione, palette di colori e altro.
+L’interfaccia [ITiffOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides.export/itiffoptions/) offre un controllo maggiore sull’immagine TIFF risultante, permettendo di specificare parametri come dimensione, risoluzione, palette colori e altro.
 
-Questo codice C++ dimostra un processo di conversione in cui le opzioni TIFF sono utilizzate per produrre un'immagine in bianco e nero con risoluzione 300 DPI e dimensione di 2160 × 2800:
+Questo codice C++ dimostra un processo di conversione in cui le opzioni TIFF sono usate per generare un’immagine in bianco e nero con risoluzione di 300 DPI e dimensioni di 2160 × 2800:
 
 ```cpp 
 // Carica un file di presentazione.
@@ -136,7 +136,7 @@ tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Imposta i
 tiffOptions->set_DpiX(300);                                         // Imposta la risoluzione orizzontale.
 tiffOptions->set_DpiY(300);                                         // Imposta la risoluzione verticale.
 
-// Converti la diapositiva in un'immagine con le opzioni specificate.
+// Converte la diapositiva in un'immagine con le opzioni specificate.
 auto image = slide->GetImage(tiffOptions);
 
 // Salva l'immagine in formato TIFF.
@@ -146,11 +146,11 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **Convertire tutte le diapositive in immagini**
+## **Converti tutte le diapositive in immagini**
 
-Aspose.Slides consente di convertire tutte le diapositive di una presentazione in immagini, trasformando efficacemente l'intera presentazione in una serie di immagini.
+Aspose.Slides consente di convertire tutte le diapositive di una presentazione in immagini, trasformando l’intera presentazione in una serie di immagini.
 
-Questo esempio di codice mostra come convertire tutte le diapositive di una presentazione in immagini in C++:
+Questo esempio di codice dimostra come convertire tutte le diapositive di una presentazione in immagini in C++:
 
 ```cpp 
 float scaleX = 2;
@@ -167,7 +167,7 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
         continue;
     }
 
-    // Converte la diapositiva in un'immagine.
+    // Converti la diapositiva in un'immagine.
     auto image = presentation->get_Slide(i)->GetImage(scaleX, scaleY);
 
     // Salva l'immagine nel formato JPEG.
@@ -179,16 +179,22 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 presentation->Dispose();
 ```
 
+## **Rendering emoji a colori**
+
+{{% alert title="Note" color="warning" %}} 
+Per rendere correttamente gli emoji a colori quando si convertono le diapositive in immagini, i font emoji utilizzati nella presentazione devono essere installati e disponibili sul sistema che esegue la conversione. Ad esempio, se la presentazione usa **Segoe UI Emoji** e questo font è assente, gli emoji potrebbero apparire in bianco e nero nelle immagini generate.
+{{% /alert %}}
+
 ## **FAQ**
 
-**Aspose.Slides supporta il rendering delle diapositive con animazioni?**
+**Aspose.Slides supporta il rendering di diapositive con animazioni?**
 
-No, il metodo `GetImage` salva solo un'immagine statica della diapositiva, senza animazioni.
+No, il metodo `GetImage` salva solo un’immagine statica della diapositiva, senza animazioni.
 
 **Le diapositive nascoste possono essere esportate come immagini?**
 
-Sì, le diapositive nascoste possono essere elaborate come quelle normali. Basta assicurarsi che siano incluse nel ciclo di elaborazione.
+Sì, le diapositive nascoste possono essere elaborate allo stesso modo di quelle regolari. Assicurati solo che siano incluse nel ciclo di elaborazione.
 
 **Le immagini possono essere salvate con ombre ed effetti?**
 
-Sì, Aspose.Slides supporta il rendering di ombre, trasparenza e altri effetti grafici durante il salvataggio delle diapositive come immagini.
+Sì, Aspose.Slides supporta il rendering di ombre, trasparenza e altri effetti grafici quando si salvano le diapositive come immagini.

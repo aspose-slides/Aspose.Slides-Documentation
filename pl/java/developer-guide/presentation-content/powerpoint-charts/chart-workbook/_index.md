@@ -13,23 +13,22 @@ keywords:
 - źródło danych
 - zewnętrzny skoroszyt
 - zewnętrzne dane
+- pamięć podręczna wykresu
+- odzyskiwanie skoroszytu
 - PowerPoint
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Poznaj Aspose.Slides dla Javy: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane swojej prezentacji."
+description: "Odkryj Aspose.Slides dla Javy: łatwo zarządzaj skoroszytami wykresów w formatach PowerPoint i OpenDocument, aby usprawnić dane w swojej prezentacji."
 ---
 ## **Przegląd**
 
-Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pomocą strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.
+Ten artykuł wyjaśnia, jak pracować z skoroszytami wykresów w Aspose.Slides. Pokazuje, jak odczytywać i zapisywać dane wykresu za pomocą strumieni skoroszytu, używać komórek skoroszytu jako etykiet danych wykresu, uzyskiwać dostęp do kolekcji arkuszy oraz określać typ źródła danych dla wartości wykresu.  
 
-Artykuł opisuje także pracę zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady demonstrują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
+Omówiono także pracę z zewnętrznymi skoroszytami jako źródłami danych wykresu. Przykłady pokazują, jak utworzyć i przypisać zewnętrzny skoroszyt, pobrać ścieżkę zewnętrznego skoroszytu powiązanego z wykresem oraz edytować dane wykresu, gdy skoroszyt jest dostępny.
 
-## **Odczyt i zapis danych wykresu ze skoroszytu**
-
-Aspose.Slides udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartData#readWorkbookStream--) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) umożliwiające odczyt i zapis skoroszytów danych wykresu (zawierających dane wykresu edytowane przy pomocy Aspose.Cells). **Uwaga**: dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
-
-Ten kod Java demonstruje przykładową operację:
+## **Odczyt i zapis danych wykresu z skoroszytu**
+Aspose.Slides udostępnia metody [ReadWorkbookStream](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartData#readWorkbookStream--) i [WriteWorkbookStream](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartData#writeWorkbookStream-byte:A-) które pozwalają odczytywać i zapisywać skoroszyty danych wykresu (zawierające dane wykresu edytowane przy użyciu Aspose.Cells). **Uwaga** że dane wykresu muszą być zorganizowane w ten sam sposób lub mieć strukturę podobną do źródła.
 
 ```java
 Presentation pres = new Presentation("chart.pptx");
@@ -48,14 +47,14 @@ try {
 }
 ```
 
-## **Ustaw komórkę skoroszytu jako etykietę danych wykresu**
+## **Ustawienie komórki WorkBook jako etykieta danych wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
-2. Uzyskaj referencję do slajdu przy użyciu jego indeksu.
-3. Dodaj wykres bąbelkowy z pewnymi danymi.
-4. Uzyskaj dostęp do serii wykresu.
-5. Ustaw komórkę skoroszytu jako etykietę danych.
-6. Zapisz prezentację.
+1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/java/com.aspose.slides/presentation) .
+1. Uzyskaj odniesienie do slajdu poprzez jego indeks.
+1. Dodaj wykres bąbelkowy z pewnymi danymi.
+1. Uzyskaj dostęp do serii wykresu.
+1. Ustaw komórkę skoroszytu jako etykietę danych.
+1. Zapisz prezentację.
 
 Ten kod Java pokazuje, jak ustawić komórkę skoroszytu jako etykietę danych wykresu:
 
@@ -104,7 +103,7 @@ try {
 
 ## **Określenie typu źródła danych**
 
-Ten kod Java pokazuje, jak określić typ źródła danych:
+Ten kod Java pokazuje, jak określić typ dla źródła danych:
 
 ```java
 Presentation pres = new Presentation();
@@ -126,7 +125,7 @@ try {
 
 ## **Wykrywanie nieobsługiwanych wbudowanych formatów skoroszytów**
 
-Aspose.Slides nie obsługuje binarnego formatu skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `getEmbeddedWorkbookType` na interfejsie [IChartData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartData) razem z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/WorkbookType), aby wykrywać nieobsługiwane formaty i pomijać takie wykresy.
+Aspose.Slides nie obsługuje binarnego formatu skoroszytu Excel (.xlsb), który może być osadzony w niektórych wykresach. Możesz użyć metody `getEmbeddedWorkbookType` na interfejsie [IChartData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/IChartData) wraz z wyliczeniem [WorkbookType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/WorkbookType), aby wykryć nieobsługiwane formaty i pominąć te wykresy.
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
@@ -141,7 +140,7 @@ try {
 
         if (chartData.getDataSourceType() == ChartDataSourceType.InternalWorkbook &&
                 chartData.getEmbeddedWorkbookType() == WorkbookType.WorkbookBinaryMacro) {
-            // Osadzony skoroszyt jest w formacie .xlsb, który nie jest obsługiwany.
+            // Wbudowany skoroszyt jest w formacie .xlsb, który nie jest obsługiwany.
             continue;
         }
 
@@ -155,12 +154,12 @@ try {
 ## **Zewnętrzny skoroszyt**
 
 {{% alert color="primary" %}} 
-W wersji [Aspose.Slides 19.4](https://docs.aspose.com/slides/pl/java/aspose-slides-for-java-19-4-release-notes/) wprowadzono obsługę zewnętrznych skoroszytów jako źródła danych dla wykresów.
+W [Aspose.Slides 19.4](https://docs.aspose.com/slides/pl/java/aspose-slides-for-java-19-4-release-notes/) wdrożyliśmy obsługę zewnętrznych skoroszytów jako źródła danych dla wykresów.
 {{% /alert %}} 
 
 ### **Utworzenie zewnętrznego skoroszytu**
 
-Korzystając z metod **`readWorkbookStream`** i **`setExternalWorkbook`**, możesz utworzyć zewnętrzny skoroszyt od podstaw lub uczynić istniejący wewnętrzny skoroszyt zewnętrznym.
+Korzystając z metod **`readWorkbookStream`** i **`setExternalWorkbook`**, możesz utworzyć zewnętrzny skoroszyt od początku lub uczynić wewnętrzny skoroszyt zewnętrznym.
 
 Ten kod Java demonstruje proces tworzenia zewnętrznego skoroszytu:
 
@@ -189,9 +188,9 @@ try {
 
 ### **Ustawienie zewnętrznego skoroszytu**
 
-Korzystając z metody **`setExternalWorkbook`**, możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może także służyć do aktualizacji ścieżki do zewnętrznego skoroszytu (jeśli został on przeniesiony).
+Korzystając z metody **`setExternalWorkbook`**, możesz przypisać zewnętrzny skoroszyt do wykresu jako jego źródło danych. Metoda ta może być również użyta do zaktualizowania ścieżki do zewnętrznego skoroszytu (jeśli ten został przeniesiony).  
 
-Choć nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, możesz nadal używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, jest ona automatycznie konwertowana na pełną ścieżkę.
+Chociaż nie możesz edytować danych w skoroszytach przechowywanych w zdalnych lokalizacjach lub zasobach, nadal możesz używać takich skoroszytów jako zewnętrznego źródła danych. Jeśli podano względną ścieżkę do zewnętrznego skoroszytu, zostaje ona automatycznie przekształcona na ścieżkę pełną.  
 
 Ten kod Java pokazuje, jak ustawić zewnętrzny skoroszyt:
 
@@ -219,9 +218,9 @@ try {
 }
 ```
 
-Parametr `ChartData` (w ramach metody `setExternalWorkbook`) służy do określenia, czy skoroszyt Excel zostanie załadowany.
+Parametr `ChartData` (w metodzie `setExternalWorkbook`) służy do określenia, czy skoroszyt Excel zostanie załadowany.  
 
-* Gdy wartość `ChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka do skoroszytu — dane wykresu nie będą wczytywane ani aktualizowane z docelowego skoroszytu. Użyj tego ustawienia, gdy docelowy skoroszyt nie istnieje lub jest niedostępny.  
+* Gdy wartość `ChartData` jest ustawiona na `false`, aktualizowana jest tylko ścieżka do skoroszytu — dane wykresu nie zostaną załadowane ani zaktualizowane z docelowego skoroszytu. Użyj tego ustawienia, gdy docelowy skoroszyt nie istnieje lub jest niedostępny.  
 * Gdy wartość `ChartData` jest ustawiona na `true`, dane wykresu są aktualizowane z docelowego skoroszytu.
 
 ```java
@@ -239,13 +238,13 @@ try {
 }
 ```
 
-### **Pobranie ścieżki zewnętrznego skoroszytu źródła danych wykresu**
+### **Uzyskanie ścieżki skoroszytu źródła danych zewnętrznych wykresu**
 
-1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/java/com.aspose.slides/presentation).
-2. Uzyskaj referencję do slajdu przy użyciu jego indeksu.
-3. Utwórz obiekt dla kształtu wykresu.
-4. Utwórz obiekt typu źródła (`ChartDataSourceType`), które reprezentuje źródło danych wykresu.
-5. Określ odpowiedni warunek, bazując na tym, że typ źródła jest taki sam jak typ zewnętrznego skoroszytu źródła danych.
+1. Utwórz instancję klasy [Presentation](https://apireference.aspose.com/slides/pl/java/com.aspose.slides/presentation) .
+1. Uzyskaj odniesienie do slajdu poprzez jego indeks.
+1. Utwórz obiekt dla kształtu wykresu.
+1. Utwórz obiekt typu źródła (`ChartDataSourceType`), które reprezentuje źródło danych wykresu.
+1. Określ odpowiedni warunek na podstawie tego, czy typ źródła jest taki sam jak typ źródła danych zewnętrznego skoroszytu.
 
 Ten kod Java demonstruje tę operację:
 
@@ -271,7 +270,7 @@ try {
 
 ### **Edycja danych wykresu**
 
-Możesz edytować dane w zewnętrznych skoroszytach tak samo, jak wprowadzisz zmiany w zawartości wewnętrznych skoroszytów. Gdy zewnętrzny skoroszyt nie może zostać załadowany, zostaje rzucony wyjątek.
+Możesz edytować dane w zewnętrznych skoroszytach w taki sam sposób, w jaki wprowadzasz zmiany w zawartości wewnętrznych skoroszytów. Gdy nie można załadować zewnętrznego skoroszytu, zostaje zgłoszony wyjątek.
 
 Ten kod Java jest implementacją opisanego procesu:
 
@@ -290,28 +289,48 @@ try {
 }
 ```
 
+### **Odzyskanie skoroszytu z pamięci podręcznej wykresu**
+
+Jeśli wykres używa zewnętrznego skoroszytu, który jest brakujący lub niedostępny, Aspose.Slides może odtworzyć skoroszyt wykresu z danych zapisanych w pamięci podręcznej prezentacji. Utwórz [LoadOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/), skonfiguruj go przy użyciu [SpreadsheetOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/spreadsheetoptions/) i wywołaj [ISpreadsheetOptions.setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ispreadsheetoptions/#setRecoverWorkbookFromChartCache-boolean-) z wartością `true` przed otwarciem prezentacji.
+
+Poniższy przykład Java otwiera prezentację, której wykres odwołuje się do niedostępnego zewnętrznego skoroszytu i uzyskuje dostęp do odzyskanych danych za pomocą [IChart.getChartData](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichart/#getChartData--) oraz [IChartData.getChartDataWorkbook](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ichartdata/#getChartDataWorkbook--):
+
+```java
+SpreadsheetOptions spreadsheetOptions = new SpreadsheetOptions();
+spreadsheetOptions.setRecoverWorkbookFromChartCache(true);
+
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setSpreadsheetOptions(spreadsheetOptions);
+
+Presentation presentation = new Presentation("presentation.pptx", loadOptions);
+try {
+    IChart chart = (IChart)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IChartDataWorkbook recoveredWorkbook = chart.getChartData().getChartDataWorkbook();
+
+    // Odczytaj lub zmodyfikuj tutaj odzyskane dane skoroszytu.
+} finally {
+    presentation.dispose();
+}
+```
+
+Jeśli zewnętrzny skoroszyt jest niedostępny i odzyskiwanie jest wyłączone, Aspose.Slides zgłasza wyjątek. Włącz odzyskiwanie tylko wtedy, gdy użycie danych wykresu z pamięci podręcznej jest akceptowalnym rozwiązaniem awaryjnym, ponieważ pamięć podręczna może nie zawierać zmian wprowadzonych w zewnętrznym skoroszycie po ostatniej aktualizacji prezentacji.
+
 ## **FAQ**
 
-**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**
-
+**Czy mogę określić, czy konkretny wykres jest powiązany z zewnętrznym czy osadzonym skoroszytem?**  
 Tak. Wykres posiada [typ źródła danych](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chartdata/#getDataSourceType--) oraz [ścieżkę do zewnętrznego skoroszytu](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--); jeśli źródłem jest zewnętrzny skoroszyt, możesz odczytać pełną ścieżkę, aby upewnić się, że używany jest plik zewnętrzny.
 
-**Czy względne ścieżki do zewnętrznych skoroszytów są obsługiwane i jak są przechowywane?**
+**Czy względne ścieżki do zewnętrznych skoroszytów są obsługiwane i jak są przechowywane?**  
+Tak. Jeśli podasz względną ścieżkę, zostanie ona automatycznie przekształcona na ścieżkę bezwzględną. Jest to wygodne dla przenoszenia projektu; jednak pamiętaj, że prezentacja zapisuje ścieżkę bezwzględną w pliku PPTX.
 
-Tak. Jeśli podasz względną ścieżkę, zostanie ona automatycznie przekształcona w ścieżkę bezwzględną. Jest to wygodne dla przenośności projektu; jednakże prezentacja zapisze ścieżkę bezwzględną w pliku PPTX.
-
-**Czy mogę używać skoroszytów znajdujących się na zasobach/udziałach sieciowych?**
-
+**Czy mogę używać skoroszytów znajdujących się w zasobach/udziałach sieciowych?**  
 Tak, takie skoroszyty mogą być używane jako zewnętrzne źródło danych. Jednak edycja zdalnych skoroszytów bezpośrednio z Aspose.Slides nie jest obsługiwana — mogą być używane wyłącznie jako źródło.
 
-**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**
+**Czy Aspose.Slides nadpisuje zewnętrzny plik XLSX przy zapisywaniu prezentacji?**  
+Nie. Prezentacja przechowuje [odniesienie do zewnętrznego pliku](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) i używa go do odczytu danych. Sam zewnętrzny plik nie jest modyfikowany przy zapisywaniu prezentacji.
 
-Nie. Prezentacja przechowuje [odnośnik do zewnętrznego pliku](https://reference.aspose.com/slides/pl/java/com.aspose.slides/chartdata/#getExternalWorkbookPath--) i używa go do odczytu danych. Sam plik zewnętrzny nie jest modyfikowany podczas zapisywania prezentacji.
+**Co zrobić, jeśli zewnętrzny plik jest chroniony hasłem?**  
+Aspose.Slides nie przyjmuje hasła podczas łączenia. Typowym rozwiązaniem jest usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (na przykład przy użyciu [Aspose.Cells](/cells/java/)) i odwołanie się do tej kopii.
 
-**Co zrobić, gdy zewnętrzny plik jest chroniony hasłem?**
-
-Aspose.Slides nie przyjmuje hasła podczas łączenia. Typowe rozwiązanie to usunięcie ochrony wcześniej lub przygotowanie odszyfrowanej kopii (np. przy użyciu [Aspose.Cells](/cells/java/)) i podlinkowanie do tej kopii.
-
-**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**
-
-Tak. Każdy wykres przechowuje własny odnośnik. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym wczytaniu danych.
+**Czy wiele wykresów może odwoływać się do tego samego zewnętrznego skoroszytu?**  
+Tak. Każdy wykres przechowuje własne odwołanie. Jeśli wszystkie wskazują na ten sam plik, aktualizacja tego pliku zostanie odzwierciedlona w każdym wykresie przy następnym załadowaniu danych.

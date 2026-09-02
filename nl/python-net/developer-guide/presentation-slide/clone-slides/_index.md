@@ -5,9 +5,9 @@ type: docs
 weight: 40
 url: /nl/python-net/clone-slides/
 keywords:
-- "dia klonen"
-- "dia kopiëren"
-- "dia opslaan"
+- "kloon dia"
+- "kopieer dia"
+- "sla dia op"
 - PowerPoint
 - presentatie
 - Python
@@ -41,7 +41,7 @@ Als u een dia binnen dezelfde presentatie wilt klonen en aan het einde van de be
 1. Roep de `add_clone` methode aan op de [SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), waarbij u de te klonen dia doorgeeft.
 1. Sla de gewijzigde presentatie op.
 
-In het onderstaande voorbeeld wordt de eerste dia (index 0) gekloond en aan het einde van de presentatie toegevoegd.
+In het onderstaande voorbeeld wordt de eerste dia (index 0) geklond en aan het einde van de presentatie toegevoegd.
 
 ```py
 import aspose.slides as slides
@@ -86,7 +86,7 @@ Als u een dia van de ene presentatie wilt klonen en aan het einde van een andere
 1. Roep `add_clone` aan op de bestemmings‑[SlideCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/), en geef de dia uit de bronpresentatie door.
 1. Sla de gewijzigde bestemmingspresentatie op.
 
-In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie gekloond naar het einde van de bestemmingspresentatie.
+In het onderstaande voorbeeld wordt de dia op index 0 in de bronpresentatie geklond naar het einde van de bestemmingspresentatie.
 
 ```py
 import aspose.slides as slides
@@ -206,7 +206,7 @@ Doe dit vóór het klonen van de master en de dia.
 
 **Worden sprekernotities en beoordelingscommentaren gekloond?**
 
-Ja. De notitiepagina en beoordelingscommentaren zijn opgenomen in de kloon. Als u ze niet wilt, [verwijder ze](/slides/nl/python-net/presentation-notes/) na het invoegen.
+Ja. De notitiepagina en beoordelingscommentaren zijn opgenomen in de kloon. Als je ze niet wilt, [verwijder ze](/slides/nl/python-net/presentation-notes/) na het invoegen.
 
 **Hoe worden grafieken en hun gegevensbronnen behandeld?**
 

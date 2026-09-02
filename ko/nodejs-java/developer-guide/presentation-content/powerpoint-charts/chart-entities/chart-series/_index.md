@@ -7,346 +7,410 @@ keywords:
 - 차트 시리즈
 - 시리즈 겹침
 - 시리즈 색상
-- 카테고리 색상
 - 시리즈 이름
 - 데이터 포인트
+- 워크북 셀
 - 시리즈 간격
-- 파워포인트
+- 음수 값
+- PowerPoint
 - 프레젠테이션
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint(PPT/PPTX)용 JavaScript에서 차트 시리즈를 관리하는 방법을 실용적인 코드 예제와 모범 사례를 통해 배워 데이터 프레젠테이션을 향상시키세요."
+description: "JavaScript를 사용하여 프레젠테이션에서 차트 시리즈, 데이터 포인트, 워크북 셀, 서식, 겹침, 간격 너비 및 음수 값을 관리하는 방법을 배웁니다."
 ---
 ## **개요**
 
-이 문서에서는 Aspose.Slides에서 [ChartSeries](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/)의 역할을 설명하며, 프레젠테이션 내에서 데이터가 어떻게 구조화되고 시각화되는지에 초점을 맞춥니다. 이러한 객체는 차트에서 개별 데이터 포인트 집합, 범주 및 외관 매개변수를 정의하는 기본 요소를 제공합니다. [ChartSeries](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/)를 사용하면 개발자는 기본 데이터 소스를 원활하게 통합하고 정보 표시 방식을 완전히 제어할 수 있어, 통찰력과 분석을 명확하게 전달하는 동적이고 데이터 중심의 프레젠테이션을 만들 수 있습니다.
+A chart stores its plotted data in a chart data workbook. A [ChartSeries](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/) represents one set of related values, and each [ChartDataPoint](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapoint/) in the series refers to one or more workbook cells. [ChartCategory](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartcategory/) objects provide the labels or grouping values shared by the series. The series name, categories, and point values are therefore connected to [ChartDataCell](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatacell/) objects rather than stored only as display text.
 
-시리즈는 차트에 플롯된 행 또는 열의 숫자 집합입니다.
+For a typical category chart, the default workbook uses row 0 for series names, column 0 for category names, and the remaining cells for series values. Worksheet, row, and column indexes passed to [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdataworkbook/#getCell) are zero-based. This layout is useful when you create a chart with default data, but do not assume that every existing chart uses it. For a loaded presentation, inspect the cells referenced by the series, categories, and data points before changing workbook values.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Chart settings have three different scopes:
+
+- Series-level settings, such as [ChartSeries.getFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getFormat), provide the default appearance for all points in one series.
+- Data-point settings, such as [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapoint/#getFormat), override the series appearance for one point.
+- Group settings apply to compatible series that belong to the same [ChartSeriesGroup](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseriesgroup/). Access the group through [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) when you need to set options such as overlap or gap width.
+
+When no explicit point or series fill is set, the chart style and theme determine the automatic appearance. When both series and point formatting are present, the point formatting takes precedence for that point.
+
+![차트-시리즈-파워포인트](chart-series-powerpoint.png)
 
 ## **차트 시리즈 겹침 설정**
 
-[ChartSeries.getOverlap](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getOverlap) 메서드를 사용하면 2D 차트에서 막대와 열이 겹치는 정도를 지정할 수 있습니다(범위: -100~100). 이 속성은 상위 시리즈 그룹의 모든 시리즈에 적용되며, 해당 그룹 속성의 투사입니다. 따라서 이 속성은 읽기 전용입니다.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getOverlap) reports how much bars or columns overlap in a 2D chart, from -100 through 100 percent. It is a read-only projection of the setting on the parent series group. Use [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) to update every compatible series in that group. This option applies to chart types that display grouped bars or columns; it does not affect unrelated series groups in a combination chart.
 
-`ParentSeriesGroup.getOverlap` 읽기/쓰기 속성을 사용하여 `Overlap`에 원하는 값을 설정합니다. 
-
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드에 클러스터형 열 차트를 추가합니다.
-1. 첫 번째 차트 시리즈에 액세스합니다.
-1. 차트 시리즈의 `ParentSeriesGroup`에 액세스하고 시리즈에 원하는 겹침 값을 설정합니다. 
-1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 차트 시리즈의 겹침을 설정하는 방법을 보여줍니다:
+The following example sets the overlap for the group that contains the first series:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const overlapPercent = java.newByte(30);
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 차트를 추가합니다
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0) {
-        // 시리즈 겹침을 설정합니다
-        series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
-    }
-    // 프레젠테이션 파일을 디스크에 저장합니다
-    pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // 새로운 차트에는 샘플 시리즈, 카테고리 및 값이 포함됩니다.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **시리즈 색상 변경**
+The result:
 
-Aspose.Slides for Node.js via Java를 사용하면 시리즈 색상을 다음과 같이 변경할 수 있습니다:
+![시리즈 겹침](series_overlap.png)
 
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드에 차트를 추가합니다.
-1. 색상을 변경하려는 시리즈에 액세스합니다. 
-1. 원하는 채우기 유형 및 색상을 설정합니다.
-1. 수정된 프레젠테이션을 저장합니다.
+## **시리즈 채우기 색상 변경**
 
-다음 JavaScript 코드는 시리즈 색상을 변경하는 방법을 보여줍니다:
+Use [ChartSeries.getFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getFormat) to set the default fill for an entire series. If a point already has an explicit fill, its [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapoint/#getFormat) setting overrides the series fill for that point.
+
+The following example applies a solid blue fill to the first series:
 
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(blueColor);
+
+    presentation.save("series_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **시리즈 범주의 색상 변경**
+The result:
 
-Aspose.Slides for Node.js via Java를 사용하면 시리즈 범주의 색상을 다음과 같이 변경할 수 있습니다:
+![시리즈 색상](series_color.png)
 
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드에 차트를 추가합니다.
-1. 색상을 변경하려는 시리즈 범주에 액세스합니다.
-1. 원하는 채우기 유형 및 색상을 설정합니다.
-1. 수정된 프레젠테이션을 저장합니다.
+## **시리즈 이름 변경**
 
-다음 JavaScript 코드는 시리즈 범주의 색상을 변경하는 방법을 보여줍니다:
+A series name is stored in the chart data workbook and is normally displayed in the legend. In the default workbook created for a clustered column chart, cell B1 is at row 0, column 1 and contains the name of the first series. The named constants in the following example make that structure explicit:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const seriesNameRowIndex = 0;
+const firstSeriesColumnIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **시리즈 이름 변경** 
-
-기본적으로 차트의 범례 이름은 각 열 또는 행 위에 있는 셀의 내용입니다. 
-
-예시(샘플 이미지)에서는 
-
-* 열은 *Series 1, Series 2,* 및 *Series 3*입니다;
-* 행은 *Category 1, Category 2, Category 3,* 및 *Category 4*입니다. 
-
-Aspose.Slides for Node.js via Java를 사용하면 차트 데이터와 범례에서 시리즈 이름을 업데이트하거나 변경할 수 있습니다.
-
-다음 JavaScript 코드는 차트 데이터 `ChartDataWorkbook`에서 시리즈 이름을 변경하는 방법을 보여줍니다:
+You can also update the cell already referenced by [ChartSeries.getName](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getName). This approach avoids assuming a particular row and column in an existing chart:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const firstNameCellIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-다음 JavaScript 코드는 `Series`를 통해 범례에서 시리즈 이름을 변경하는 방법을 보여줍니다:
+The result:
+
+![시리즈 이름](series_name.png)
+
+## **자동 시리즈 채우기 색상 가져오기**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) returns the color calculated from the series index and the chart style. This is the color used when the series fill has not been explicitly defined. Calling the method reads the calculated color; it does not assign a new fill.
+
+The following example prints the automatic color of each default series:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries().get_Item(0);
-    var name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const seriesCount = chart.getChartData().getSeries().size();
+    for (let seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const automaticColor = series.getAutomaticSeriesColor();
+        const automaticColorText = automaticColor.toString();
+        console.log("Series " + seriesIndex + ": " + automaticColorText);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **차트 시리즈 채우기 색상 설정**
+Example output for the default chart style:
 
-Aspose.Slides for Node.js via Java를 사용하면 플롯 영역 내 차트 시리즈의 자동 채우기 색상을 다음과 같이 설정할 수 있습니다:
-
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드의 인덱스로 슬라이드 참조를 가져옵니다.
-1. 원하는 유형(예제에서는 `ChartType.ClusteredColumn`)에 기반한 기본 데이터로 차트를 추가합니다.
-1. 차트 시리즈에 액세스하고 채우기 색상을 Automatic으로 설정합니다.
-1. 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 차트 시리즈의 자동 채우기 색상을 설정하는 방법을 보여줍니다:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // 클러스터형 열 차트를 생성합니다
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
-    // 시리즈 채우기 형식을 자동으로 설정합니다
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-    // 프레젠테이션 파일을 디스크에 저장합니다
-    pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-## **차트 시리즈 색상 반전 설정**
+The exact colors depend on the chart style and theme.
 
-Aspose.Slides를 사용하면 플롯 영역 내 차트 시리즈의 반전 채우기 색상을 다음과 같이 설정할 수 있습니다:
+## **차트 시리즈에 대한 반전 채우기 색상 설정**
 
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 슬라이드의 인덱스로 슬라이드 참조를 가져옵니다.
-1. 원하는 유형(예제에서는 `ChartType.ClusteredColumn`)에 기반한 기본 데이터로 차트를 추가합니다.
-1. 차트 시리즈에 액세스하고 채우기 색상을 invert로 설정합니다.
-1. 프레젠테이션을 PPTX 파일로 저장합니다.
+For bar, column, and bubble series, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) can display negative values with a different fill. Set the regular series fill to solid, enable inversion, and assign the negative-value color through [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Negative numbers remain unchanged in the workbook; only their display color changes.
 
-다음 JavaScript 코드는 해당 작업을 시연합니다:
+The following example replaces the default chart data with one series. Worksheet row 0 contains the series name, column 0 contains category names, and column 1 contains the values:
 
 ```javascript
-var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const headerRowIndex = 0;
+const categoryColumnIndex = 0;
+const firstSeriesColumnIndex = 1;
+const firstDataRowIndex = 1;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const categoryNames = ["Category 1", "Category 2", "Category 3"];
+const seriesValues = [-20, 50, -30];
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    var workBook = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-    // 새 시리즈와 카테고리를 추가합니다
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-    // 첫 번째 차트 시리즈를 가져와 시리즈 데이터를 채웁니다.
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    var seriesColor = series.getAutomaticSeriesColor();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    const chartType = chart.getType();
+    const series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (let categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        const dataRowIndex = firstDataRowIndex + categoryIndex;
+        const categoryName = categoryNames[categoryIndex];
+        const seriesValue = seriesValues[categoryIndex];
+
+        const categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    series.getInvertedSolidFillColor().setColor(redColor);
+
+    presentation.save("inverted_solid_fill_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **값이 음수일 때 시리즈 색상 반전 설정**
+The result:
 
-Aspose.Slides는 `ChartDataPoint.setInvertIfNegative` 메서드를 통해 반전을 설정하도록 허용합니다. 속성을 사용해 반전을 설정하면 데이터 포인트가 음수 값을 받을 때 색상이 반전됩니다. 
+![반전된 단색 채우기 색상](inverted_solid_fill_color.png)
 
-다음 JavaScript 코드는 해당 작업을 시연합니다:
+You can enable inversion for one point through [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). In the following example, inversion is disabled for the series and enabled only for the selected point. The point is also assigned a negative value so that the effect is visible:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 2;
+const negativeValue = -30;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-    var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-    chartSeries.setInvertIfNegative(false);
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(redColor);
+    series.setInvertIfNegative(false);
+
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **특정 데이터 포인트 데이터 삭제**
+## **특정 데이터 포인트 값 지우기**
 
-Aspose.Slides for Node.js via Java를 사용하면 특정 차트 시리즈에 대한 `DataPoints` 데이터를 다음과 같이 삭제할 수 있습니다:
+To make one point empty without removing the other points, set its backing workbook cell to `null`. For a column chart, the plotted value is available through [ChartDataPoint.getValue](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapoint/#getValue). The data point stays at the same category position, but the chart treats its value as blank according to the chart's blank-value settings.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-2. 인덱스로 슬라이드 참조를 가져옵니다.
-3. 인덱스로 차트 참조를 가져옵니다.
-4. 차트 `DataPoints` 전체를 순회하면서 `XValue`와 `YValue`를 null로 설정합니다.
-5. 특정 차트 시리즈에 대한 모든 `DataPoints`를 삭제합니다.
-6. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 해당 작업을 시연합니다:
+The following example clears only the second point in the first series:
 
 ```javascript
-var pres = new aspose.slides.Presentation("TestChart.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sl = pres.getSlides().get_Item(0);
-    var chart = sl.getShapes().get_Item(0);
-    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
-        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Scatter charts use separate X and Y cells, and bubble charts also use a size cell. Clear only the cell that represents the value you intend to remove. Do not call [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapointcollection/#clear) when you want to keep the other points, because that method removes every data point from the collection.
 
 ## **시리즈 간격 너비 설정**
 
-Aspose.Slides for Node.js via Java를 사용하면 **`GapWidth`** 속성을 통해 시리즈의 Gap Width를 다음과 같이 설정할 수 있습니다:
+Gap width is the space between adjacent bar or column clusters, expressed as a percentage of the bar or column width. Like overlap, it belongs to the parent series group rather than to one series. Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) once for the group. A larger value creates more space between clusters; a smaller value makes them denser.
 
-1. [Presentation](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/Presentation) 클래스의 인스턴스를 생성합니다.
-1. 첫 번째 슬라이드에 액세스합니다.
-1. 기본 데이터로 차트를 추가합니다.
-1. 임의의 차트 시리즈에 액세스합니다.
-1. `GapWidth` 속성을 설정합니다.
-1. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
-
-다음 JavaScript 코드는 시리즈의 Gap Width를 설정하는 방법을 보여줍니다:
+The following example changes the gap width and saves only the final presentation:
 
 ```javascript
-// 빈 프레젠테이션을 생성합니다
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const gapWidthPercent = 30;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 프레젠테이션의 첫 번째 슬라이드에 접근합니다
-    var slide = pres.getSlides().get_Item(0);
-    // 기본 데이터로 차트를 추가합니다
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
-    // 차트 데이터 시트의 인덱스를 설정합니다
-    var defaultWorksheetIndex = 0;
-    // 차트 데이터 워크시트를 가져옵니다
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // 시리즈를 추가합니다
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // 카테고리를 추가합니다
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // 두 번째 차트 시리즈를 가져옵니다
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // 시리즈 데이터를 채웁니다
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // GapWidth 값을 설정합니다
-    series.getParentSeriesGroup().setGapWidth(50);
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+The result:
+
+![간격 너비](gap_width.png)
+
 ## **FAQ**
 
-**단일 차트에 포함될 수 있는 시리즈 수에 제한이 있나요?**
+**어떤 차트 유형이 데이터 시리즈를 지원합니까?**
 
-Aspose.Slides는 추가할 수 있는 시리즈 수에 고정된 제한을 두지 않습니다. 실제 제한은 차트 가독성과 애플리케이션이 사용할 수 있는 메모리에 따라 결정됩니다.
+All chart types represented by the [ChartType](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/charttype/) enumeration use chart data, but their series do not all have the same value structure or settings. For example, category charts use categories and values, scatter charts use X and Y values, and bubble charts add bubble sizes. Use the data-point creation method that matches the series type. Options such as overlap and gap width apply only to compatible bar or column groups.
 
-**클러스터 내 열이 너무 가깝거나 너무 멀리 떨어져 있으면 어떻게 하나요?**
+**차트 시리즈 그룹이란 무엇입니까?**
 
-해당 시리즈(또는 상위 시리즈 그룹)의 Gap Width 설정을 조정하십시오. 값을 늘리면 열 사이의 간격이 넓어지고, 값을 줄이면 더 가까워집니다.
+A [ChartSeriesGroup](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseriesgroup/) contains compatible series that share group-level plotting settings. A combination chart can contain more than one group, so changing the group reached through one series does not necessarily change every series in the chart.
+
+**새로 만든 차트에 기본 데이터가 포함되어 있습니까?**
+
+Yes. By default, [ShapeCollection.addChart](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/shapecollection/#addChart) creates sample series, categories, and values. You can edit those cells or clear both the series and category collections before adding a completely custom data set. An overload can also create a chart without default data.
+
+**차트 객체가 워크북 셀과 어떻게 연결되어 있습니까?**
+
+Series names, category labels, and data-point values reference cells in a [ChartDataWorkbook](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdataworkbook/). Changing a referenced cell updates the corresponding chart element. When you build custom data, keep category rows and series-value rows aligned so that each point is plotted under the intended category.
+
+**하나의 포인트만 지우려면 어떻게 해야 합니까?**
+
+Set the relevant value cell to `null` to retain the point's category position as an empty point. Use [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapointcollection/#clear) only when you intend to remove all points from that series. If you also remove categories, update every series so their values remain aligned with the category collection.
+
+**빈 포인트는 어떻게 표시됩니까?**
+
+The result depends on the chart type and the value configured through [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Supported charts can display blanks as gaps, as zero values, or by connecting neighboring points. Choose the setting that matches the meaning of missing data in your presentation.
+
+**음수 값은 어떻게 서식이 지정됩니까?**
+
+For supported bar, column, and bubble series, call [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) and set the color returned by [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). You can override the behavior for an individual point with [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). These methods affect formatting, not the stored numeric values.
+
+**시리즈와 포인트가 모두 서식이 지정된 경우 어느 것이 우선합니까?**
+
+Explicit data-point formatting takes precedence for that point. Other points continue to use the explicit series format or, when the series format is not defined, the automatic chart style and theme. Group settings such as overlap and gap width control layout and are not point-level formatting overrides.
+
+**차트에 포함될 수 있는 시리즈 수에 제한이 있습니까?**
+
+Aspose.Slides does not impose a separate fixed series-count limit. In practice, presentation file constraints, available memory, rendering time, and chart readability determine a useful limit.
+
+**열이 너무 가깝거나 너무 멀리 떨어져 있으면 무엇을 변경해야 합니까?**
+
+Call [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ko/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) on the appropriate parent series group. Increase the value to widen the space between clusters, or decrease it to bring the clusters closer together.

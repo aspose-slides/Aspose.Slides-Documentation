@@ -1,6 +1,6 @@
 ---
-title: Προσθήκη Μαθηματικών Εξισώσεων σε Παρουσιάσεις PowerPoint σε PHP
-linktitle: Μαθηματικές Εξισώσεις PowerPoint
+title: Προσθήκη μαθηματικών εξισώσεων σε παρουσιάσεις PowerPoint με PHP
+linktitle: Μαθηματικές εξισώσεις PowerPoint
 type: docs
 weight: 80
 url: /el/php-java/powerpoint-math-equations/
@@ -11,17 +11,17 @@ keywords:
 - μαθηματικό κείμενο
 - προσθήκη μαθηματικής εξίσωσης
 - προσθήκη μαθηματικού συμβόλου
-- προσθήκη μαθηματικού τύπου
+- πρόσθεση μαθηματικού τύπου
 - προσθήκη μαθηματικού κειμένου
 - PowerPoint
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με το Aspose.Slides για PHP μέσω Java, υποστηρίζοντας OMML, εργαλεία μορφοποίησης και σαφή παραδείγματα κώδικα PHP."
+description: "Εισαγωγή και επεξεργασία μαθηματικών εξισώσεων σε PowerPoint PPT και PPTX με Aspose.Slides για PHP μέσω Java, υποστηρίζοντας OMML, ελέγχους μορφοποίησης και σαφή παραδείγματα κώδικα PHP."
 ---
 ## **Επισκόπηση**
 
-Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides για PHP μέσω Java, μπορείτε να δημιουργείτε το ίδιο είδος μαθηματικού περιεχομένου προγραμματιστικά: κλάσματα, ρίζες, συναρτήσεις, όρια, N‑ary τελεστές, πίνακες, διατάξεις και μορφοποιημένα μαθηματικά μπλοκ.
+Το PowerPoint αποθηκεύει εξισώσεις ως Office Math Markup Language (OMML). Με το Aspose.Slides for PHP via Java, μπορείτε να δημιουργήσετε το ίδιο είδος μαθηματικού περιεχομένου προγραμματικά: κλάσματα, ριζικά, συναρτήσεις, όρια, N-ary τελεστές, πίνακες, πίνακες τιμών και μορφοποιημένα μαθηματικά μπλοκ.
 
 Στο PowerPoint, οι χρήστες συνήθως προσθέτουν εξισώσεις από **Insert > Equation**:
 
@@ -29,23 +29,23 @@ description: "Εισαγωγή και επεξεργασία μαθηματικ�
 
 Το αποτέλεσμα είναι επεξεργάσιμο μαθηματικό κείμενο στη διαφάνεια:
 
-![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμο μαθηματικό τύπο](powerpoint-math-equations_2.png)
+![Διαφάνεια PowerPoint που περιέχει επεξεργάσιμη μαθηματική εξίσωση](powerpoint-math-equations_2.png)
 
 Το Aspose.Slides δημιουργεί αυτό το μαθηματικό κείμενο μέσω τριών κύριων αντικειμένων:
 
-- Ένα μαθηματικό σχήμα, δημιουργημένο με [addMathShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/#addMathShape), είναι το σχήμα που περιέχει την εξίσωση.
-- [MathPortion](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathportion/) αποθηκεύει μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
+- Ένα μαθηματικό σχήμα, που δημιουργείται με [addMathShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/#addMathShape), είναι το σχήμα που περιέχει την εξίσωση.
+- [MathPortion](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathportion/) αποθηκεύει το μαθηματικό περιεχόμενο μέσα στο πλαίσιο κειμένου του σχήματος.
 - [MathParagraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathparagraph/) περιέχει ένα ή περισσότερα αντικείμενα [MathBlock](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathblock/).
 
-Τα περισσότερα παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathematicaltext/) και τις αλυσίδες μεθόδων από το [MathElementBase](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να παραμείνει ο κώδικας σύντομος και ευανάγνωστος.
+Οι περισσότεροι παραδείγματα παρακάτω χρησιμοποιούν το [MathematicalText](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathematicaltext/) και τις αλυσιδωτές μεθόδους από το [MathElementBase](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να διατηρήσουν τον κώδικα σύντομο και ευανάγνωστο.
 
-Για σενάρια εξαγωγής MathML, δείτε την [Export Math Equations from Presentations in PHP via Java](/slides/el/php-java/exporting-math-equations/).
+Για σενάρια εξαγωγής MathML, δείτε [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε PHP μέσω Java](/slides/el/php-java/exporting-math-equations/).
 
-## **Δημιουργία Εξίσωσης**
+## **Δημιουργία εξίσωσης**
 
-Αυτό το παράδειγμα δημιουργεί ένα μαθηματικό σχήμα και προσθέτει το θεώρημα του Πυθαγόρα:
+Αυτό το παράδειγμα δημιουργεί ένα μαθηματικό σχήμα και προσθέτει το θεώρημα του Πυθαγορείου:
 
-![Η εξίσωση c² = a² + b²](powerpoint-math-equations_3.png)
+![Η εξίσωση c στο τετράγωνο ίσο με a στο τετράγωνο συν b στο τετράγωνο](powerpoint-math-equations_3.png)
 
 ```php
 $presentation = new Presentation();
@@ -74,14 +74,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Πρόσβαση στο πρώτο `MathPortion`, λήψη του `MathParagraph` του, και προσθήκη μαθηματικών μπλοκ ή στοιχείων σε αυτό.
+`addMathShape` δημιουργεί ένα σχήμα που ήδη περιέχει μια μαθηματική παράγραφο. Προσπελάστε το πρώτο `MathPortion`, πάρτε το `MathParagraph` του, και προσθέστε μαθηματικά μπλοκ ή μαθηματικά στοιχεία σε αυτό.
 {{% /alert %}}
 
-## **Προσθήκη Κλασμάτων**
+## **Προσθήκη κλασμάτων**
 
-Χρησιμοποιήστε [`divide`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathfractiontypes/).
+Χρησιμοποιήστε το [`divide`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να δημιουργήσετε ένα κλάσμα. Μπορείτε να επιλέξετε ένα στυλ κλάσματος με το [MathFractionTypes](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathfractiontypes/).
 
-![Κλάσμα με κλίση που δείχνει 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
+![Ένα λοξό μαθηματικό κλάσμα που δείχνει το 1 διαιρεμένο με x](powerpoint-math-equations_4.png)
 
 ```php
 $presentation = new Presentation();
@@ -105,17 +105,17 @@ try {
 }
 ```
 
-Για στοίβα κλάσματος, χρησιμοποιήστε `MathFractionTypes::Bar`:
+Για ένα στοιβαγμένο κλάσμα, χρησιμοποιήστε `MathFractionTypes::Bar`:
 
 ```php
 $stackedFraction = (new MathematicalText("x + 1"))->divide("y - 1", MathFractionTypes::Bar);
 ```
 
-## **Προσθήκη Ριζών**
+## **Προσθήκη ριζικών**
 
-Χρησιμοποιήστε [`radical`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, το όρισμα είναι ο εκθέτης.
+Χρησιμοποιήστε το [`radical`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να δημιουργήσετε τετραγωνική ρίζα, κυβική ρίζα ή άλλη ρίζα. Το τρέχον στοιχείο γίνεται η βάση, και το όρισμα γίνεται ο εκθέτης.
 
-![Έκφραση n‑οστή ρίζας με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
+![Μια έκφραση n-οστής ρίζας με x κάτω από το σύμβολο ρίζας](powerpoint-math-equations_5.png)
 
 ```php
 $presentation = new Presentation();
@@ -139,9 +139,9 @@ try {
 }
 ```
 
-## **Προσθήκη Συναρτήσεων και Ορίων**
+## **Προσθήκη συναρτήσεων και ορίων**
 
-Χρησιμοποιήστε [`asArgumentOfFunction`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) ή [`function`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για συναρτήσεις όπως `sin(x)`, `log(x)` ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathlimit/) ή χρησιμοποιήστε το [`setLowerLimit`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/).
+Χρησιμοποιήστε το [`asArgumentOfFunction`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) ή το [`function`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για συναρτήσεις όπως `sin(x)`, `log(x)`, ή προσαρμοσμένα ονόματα συναρτήσεων. Για όρια, τοποθετήστε `lim` σε ένα [MathLimit](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathlimit/) ή χρησιμοποιήστε το [`setLowerLimit`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/).
 
 ![Το όριο του x καθώς το x τείνει στο άπειρο](powerpoint-math-equations_8.png)
 
@@ -174,11 +174,11 @@ try {
 $customFunction = (new MathematicalText("f"))->function("x + 1");
 ```
 
-## **Προσθήκη N‑ary Τελεστών και Ολοκληρωμάτων**
+## **Προσθήκη N-ary τελεστών και ολοκληρωμάτων**
 
-Χρησιμοποιήστε [`nary`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για αθροίσεις, ενώσεις, τομές και άλλους μεγάλους τελεστές. Χρησιμοποιήστε [`integral`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για ολοκληρώματα. Και οι δύο μέθοδοι επιτρέπουν ορισμό κάτω και άνω ορίων.
+Χρησιμοποιήστε το [`nary`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για αθροίσεις, ενώσεις, τομείς και άλλους μεγάλους τελεστές. Χρησιμοποιήστε το [`integral`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για ολοκληρώματα. Και οι δύο μέθοδοι επιτρέπουν τον ορισμό κάτω και άνω ορίων.
 
-![Αθροιστικό σύμβολο με κάτω και άνω όρια](powerpoint-math-equations_7.png)
+![Μια αθροιστική έκφραση με κάτω και άνω όρια](powerpoint-math-equations_7.png)
 
 ```php
 $presentation = new Presentation();
@@ -205,20 +205,20 @@ try {
 }
 ```
 
-Οι N‑ary τελεστές είναι για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` συνήθως προστίθενται ως `MathematicalText` και ενσωματώνονται στην έκφραση.
+Οι N-ary τελεστές προορίζονται για μεγάλους τελεστές με προαιρετικά όρια. Απλοί τελεστές όπως `+`, `-` και `=` συνήθως προστίθενται ως `MathematicalText` και συνδυάζονται στην έκφραση.
 
-Για ολοκλήρωση, χρησιμοποιήστε `integral`:
+Για ένα ολοκλήρωμα, χρησιμοποιήστε `integral`:
 
 ```php
 $integralBase = (new MathematicalText("x"))->join((new MathematicalText("dx"))->toBox());
 $integral = $integralBase->integral(MathIntegralTypes::Simple, "0", "1");
 ```
 
-## **Προσθήκη Πινακών**
+## **Προσθήκη πινάκων**
 
-Χρησιμοποιήστε [MathMatrix](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathmatrix/) για γραμμές και στήλες. Οι πίνακες δεν περιλαμβάνουν παρενθέσεις εξ ορισμού, γι' αυτό περικλείστε τον πίνακα όταν χρειάζονται παρενθέσεις, αγκύλες ή άγκιστρα.
+Χρησιμοποιήστε το [MathMatrix](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathmatrix/) για σειρές και στήλες. Οι πίνακες δεν περιλαμβάνουν αγκύλες από προεπιλογή, έτσι τυλίξτε τον πίνακα όταν χρειάζονται παρενθέσεις, αγκύλες ή άγκιστρα.
 
-![Πίνακας με δύο γραμμές και ένα κενό κελί](powerpoint-math-equations_10.png)
+![Μαθηματικός πίνακας δύο σειρών με ένα κενό κελί](powerpoint-math-equations_10.png)
 
 ```php
 $presentation = new Presentation();
@@ -246,11 +246,11 @@ try {
 }
 ```
 
-## **Προσθήκη Διατάξεων Εξισώσεων**
+## **Προσθήκη πινάκων εξισώσεων**
 
-Χρησιμοποιήστε [`toMathArray`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) όταν χρειάζεστε ευθυγραμμισμένες εξισώσεις ή κάθετη στοίβα εκφράσεων.
+Χρησιμοποιήστε το [`toMathArray`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) όταν χρειάζεστε στοίχιστες εξισώσεις ή κατακόρυφο στοίβο εκφράσεων.
 
-![Κάθετη διάταξη μαθηματικών με x πάνω από y](powerpoint-math-equations_11.png)
+![Κάθετη μαθηματική διάταξη με x πάνω από y](powerpoint-math-equations_11.png)
 
 ```php
 $presentation = new Presentation();
@@ -275,9 +275,9 @@ try {
 }
 ```
 
-## **Προσθήκη Τριγωνομετρικών Συναρτήσεων**
+## **Προσθήκη τριγωνομετρικών συναρτήσεων**
 
-Χρησιμοποιήστε [`asArgumentOfFunction`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
+Χρησιμοποιήστε το [`asArgumentOfFunction`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) όταν το όρισμα είναι το τρέχον στοιχείο και το όνομα της συνάρτησης είναι γνωστό.
 
 ![Η τριγωνομετρική συνάρτηση cos εφαρμοσμένη στο 2x](powerpoint-math-equations_6.png)
 
@@ -303,11 +303,11 @@ try {
 }
 ```
 
-## **Προσθήκη Δεικτών και Εκθετών**
+## **Προσθήκη δεικτών και εκθέτες**
 
-Χρησιμοποιήστε τις βοηθητικές μεθόδους για δείκτες και εκθέτες. Όταν οι δείκτες πρέπει να εμφανιστούν αριστερά της βάσης, χρησιμοποιήστε [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/).
+Χρησιμοποιήστε τα βοηθητικά εργαλεία δεικτών και εκθέτη για δείκτες και δυνάμεις. Όταν οι δείκτες πρέπει να εμφανίζονται στην αριστερή πλευρά της βάσης, χρησιμοποιήστε το [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/).
 
-![Κεφαλαίο Y με αριστερό δείκτη 1 και εκθέτη n](powerpoint-math-equations_9.png)
+![Ένα κεφαλαίο Y με δεικτή 1 στην αριστερή πλευρά και εκθέτη n](powerpoint-math-equations_9.png)
 
 ```php
 $presentation = new Presentation();
@@ -331,11 +331,11 @@ try {
 }
 ```
 
-## **Προσθήκη Διαχωριστών**
+## **Προσθήκη οριοθετών**
 
-Χρησιμοποιήστε [`enclose`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να βάλτε μια έκφραση μέσα σε διαχωριστές. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις διαχωριστών που περιέχουν πολλά στοιχεία.
+Χρησιμοποιήστε το [`enclose`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να τοποθετήσετε μια έκφραση μέσα σε οριοθέτες. Μπορείτε επίσης να ορίσετε χαρακτήρα διαχωριστή για εκφράσεις οριοθετών που περιέχουν πολλά στοιχεία.
 
-![Έκφραση διαχωριστή που περιέχει x, y και z χωρισμένα με κάθετες γραμμές](powerpoint-math-equations_13.png)
+![Μια έκφραση οριοθέτη που περιέχει x, y και z χωρισμένα με κάθετες γραμμές](powerpoint-math-equations_13.png)
 
 ```php
 $presentation = new Presentation();
@@ -362,11 +362,11 @@ try {
 }
 ```
 
-## **Προσθήκη Πλαισίου Περιγράμματος**
+## **Προσθήκη κουτιού περιγράμματος**
 
-Χρησιμοποιήστε [`toBorderBox`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) όταν η ίδια η εξίσωση πρέπει να περιβάλλεται από πλαίσιο.
+Χρησιμοποιήστε το [`toBorderBox`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) όταν η ίδια η εξίσωση πρέπει να περιβάλλεται από πλαίσιο.
 
-![Εξίσωση σε πλαίσιο που δείχνει c² = b² + a²](powerpoint-math-equations_12.png)
+![Μια εξίσωση σε κουτί που δείχνει a στο τετράγωνο ίσο με b στο τετράγωνο συν c στο τετράγωνο](powerpoint-math-equations_12.png)
 
 ```php
 $presentation = new Presentation();
@@ -395,11 +395,11 @@ try {
 }
 ```
 
-## **Ομαδοποίηση Όρων**
+## **Ομαδοποίηση όρων**
 
-Χρησιμοποιήστε [`group`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να τοποθετήσετε χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε όριο για να επισημάνετε τους ομαδοποιημένους όρους.
+Χρησιμοποιήστε το [`group`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) για να τοποθετήσετε έναν χαρακτήρα ομαδοποίησης πάνω ή κάτω από μια έκφραση. Προσθέστε όριο για να επισημάνετε τις ομαδοποιημένες όρους.
 
-![Η έκφραση x + y ομαδοποιημένη με ετικέτα κείμενο κάτω από αυτήν](powerpoint-math-equations_15.png)
+![Η έκφραση x συν y ομαδοποιημένη με την ετικέτα οποιοδήποτε κείμενο κάτω από αυτήν](powerpoint-math-equations_15.png)
 
 ```php
 $presentation = new Presentation();
@@ -424,11 +424,11 @@ try {
 }
 ```
 
-## **Μορφοποίηση Μαθηματικών Στοιχείων**
+## **Μορφοποίηση μαθηματικών στοιχείων**
 
-Χρησιμοποιήστε βοηθητικές μεθόδους μορφοποίησης μόνο όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [`overbar`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) τοποθετεί μια μπάρα πάνω από ένα μαθηματικό στοιχείο.
+Χρησιμοποιήστε βοηθητικά εργαλεία μορφοποίησης μόνο εκεί όπου διευκρινίζουν τον τύπο. Για παράδειγμα, το [`overbar`](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) τοποθετεί μια γραμμή πάνω από ένα μαθηματικό στοιχείο.
 
-![Μαθηματική έκφραση ABC με μπάρα πάνω](powerpoint-math-equations_14.png)
+![Μαθηματική έκφραση ABC με μια γραμμή πάνω](powerpoint-math-equations_14.png)
 
 ```php
 $presentation = new Presentation();
@@ -451,35 +451,35 @@ try {
 }
 ```
 
-## **Γρήγορη Αναφορά**
+## **Γρήγορη αναφορά**
 
-| Εργασία | Κύριο API |
+| Ενέργεια | Κύριο API |
 | --- | --- |
 | Δημιουργία μαθηματικού κειμένου | [MathematicalText](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathematicaltext/) |
 | Συνδυασμός στοιχείων | [join](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Δημιουργία κλασμάτων | [divide](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Προσθήκη εκθέτη ή δείκτη | [setSuperscript](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/), [setSubscript](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Προσθήκη συναρτήσεων | [function](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/), [asArgumentOfFunction](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
-| Προσθήκη ριζών | [radical](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
+| Προσθήκη ριζικών | [radical](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Προσθήκη ορίων | [setLowerLimit](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/), [setUpperLimit](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
-| Προσθήκη αριστερών δεξιών δεικτών | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
+| Προσθήκη αριστερών δεικτών/εκθετών | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Προσθήκη αθροίσεων και ολοκληρωμάτων | [nary](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Προσθήκη πινάκων | [MathMatrix](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathmatrix/) |
-| Προσθήκη διατάξεων εξίσωσης | [toMathArray](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
-| Προσθήκη διαχωριστών | [enclose](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
-| Προσθήκη μπαρών και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
+| Προσθήκη πινάκων εξισώσεων | [toMathArray](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
+| Προσθήκη οριοθετών | [enclose](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
+| Προσθήκη γραμμών και περιγραμμάτων | [overbar](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 | Ομαδοποίηση όρων | [group](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathelementbase/) |
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+## **Συχνές ερωτήσεις**
 
 **Μπορώ να επεξεργαστώ μια υπάρχουσα εξίσωση PowerPoint;**
 
-Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα `MathPortion`, λάβετε το `MathParagraph` του και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
+Ναι. Ανοίξτε την παρουσίαση, βρείτε το σχήμα που περιέχει ένα `MathPortion`, πάρτε το `MathParagraph` του και ενημερώστε τα μαθηματικά μπλοκ σε αυτήν την παράγραφο.
 
-**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό περιεχόμενο PowerPoint;**
+**Αποθηκεύονται οι εξισώσεις ως επεξεργάσιμο μαθηματικό PowerPoint;**
 
-Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office Math.
+Ναι. Όταν αποθηκεύετε σε PPTX, το Aspose.Slides γράφει την εξίσωση ως επεξεργάσιμο περιεχόμενο Office math.
 
 **Μπορώ να εξάγω εξισώσεις σε LaTeX;**
 
-Το Aspose.Slides εξάγει μαθηματικές εξισώσεις σε MathML. Εάν χρειάζεστε LaTeX, εξάγετε πρώτα σε MathML και στη συνέχεια μετατρέψτε το MathML με ένα εργαλείο που υποστηρίζει το επιθυμητό LaTeX.
+Ναι. Λάβετε το [MathParagraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathparagraph/) της εξίσωσης από το [MathPortion](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathportion/), και καλέστε το [MathParagraph::toLatex](https://reference.aspose.com/slides/el/php-java/aspose.slides/mathparagraph/#toLatex) για άμεση εξαγωγή. Για πλήρες παράδειγμα, δείτε το [Εξαγωγή μαθηματικών εξισώσεων από παρουσιάσεις σε PHP μέσω Java](/slides/el/php-java/exporting-math-equations/#export-math-equations-to-latex).

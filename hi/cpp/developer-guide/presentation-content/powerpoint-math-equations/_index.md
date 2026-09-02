@@ -1,51 +1,51 @@
 ---
-title: "C++ में PowerPoint प्रस्तुतियों में गणितीय समीकरण जोड़ें"
-linktitle: "PowerPoint गणितीय समीकरण"
+title: C++ में PowerPoint प्रस्तुतियों में गणितीय समीकरण जोड़ें
+linktitle: PowerPoint गणितीय समीकरण
 type: docs
 weight: 80
 url: /hi/cpp/powerpoint-math-equations/
 keywords:
-- "गणितीय समीकरण"
-- "गणितीय प्रतीक"
-- "गणितीय सूत्र"
-- "गणितीय पाठ"
-- "गणितीय समीकरण जोड़ें"
-- "गणितीय प्रतीक जोड़ें"
-- "गणितीय सूत्र जोड़ें"
-- "गणितीय पाठ जोड़ें"
-- "PowerPoint"
-- "प्रस्तुति"
-- "C++"
-- "Aspose.Slides"
-description: "Aspose.Slides for C++ के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, फॉर्मेटिंग नियंत्रण, और स्पष्ट C++ कोड नमूने प्रदान करता है।"
+- गणितीय समीकरण
+- गणितीय प्रतीक
+- गणितीय सूत्र
+- गणितीय पाठ
+- गणितीय समीकरण जोड़ें
+- गणितीय प्रतीक जोड़ें
+- गणितीय सूत्र जोड़ें
+- गणितीय पाठ जोड़ें
+- PowerPoint
+- प्रस्तुति
+- C++
+- Aspose.Slides
+description: "Aspose.Slides for C++ के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित करें और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट C++ कोड नमूने प्रदान करता है।"
 ---
 ## **अवलोकन**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में सहेजता है। Aspose.Slides for C++ के साथ, आप प्रोग्रामेटिक रूप से वही प्रकार की गणितीय सामग्री बना सकते हैं: भाग, मूल, फ़ंक्शन, सीमाएं, N-ary ऑपरेटर, मैट्रिक्स, एरे, और फ़ॉर्मेटेड गणित ब्लॉक।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for C++ के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर, मैट्रिक्स, एरे और स्वरूपित गणित ब्लॉक।
 
-PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** मेनू से समीकरण जोड़ते हैं:
+PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** से समीकरण जोड़ते हैं:
 
 ![PowerPoint Insert टैब जिसमें Equation कमांड चयनित है](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणितीय टेक्स्ट है:
+परिणामस्वरूप स्लाइड पर संपादनीय गणितीय पाठ मिलता है:
 
-![एक PowerPoint स्लाइड जिसमें संपादन योग्य गणितीय समीकरण है](powerpoint-math-equations_2.png)
+![एक PowerPoint स्लाइड जिसमें संपादनीय गणितीय समीकरण है](powerpoint-math-equations_2.png)
 
-Aspose.Slides तीन मुख्य ऑब्जेक्ट्स के माध्यम से वह गणितीय टेक्स्ट बनाता है:
+Aspose.Slides उन गणितीय पाठ को तीन मुख्य वस्तुओं के माध्यम से बनाता है:
 
-- एक गणितीय आकार, जो [AddMathShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/shapecollection/) के साथ बनाया गया है, वह आकार है जिसमें समीकरण होता है।
-- [MathPortion](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathportion/) आकार के टेक्स्ट फ़्रेम के अंदर गणितीय सामग्री संग्रहीत करता है।
-- [MathParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathparagraph/) में एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathblock/) ऑब्जेक्ट्स होते हैं।
+- एक गणितीय आकार, जो [AddMathShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/shapecollection/) द्वारा बनाया गया है, वह आकार है जिसमें समीकरण है।
+- [MathPortion](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathportion/) आकार के टेक्स्ट फ़्रेम के भीतर गणितीय सामग्री संग्रहीत करता है।
+- [MathParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathblock/) वस्तुओं को सम्मिलित करता है।
 
-नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/) की फ्लुएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पठनीय रहे।
+नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/) की प्रवाहशील विधियों का उपयोग करते हैं ताकि कोड छोटा और पठनीय रहे।
 
-For MathML export scenarios, see [Export Math Equations from Presentations in C++](/slides/hi/cpp/exporting-math-equations/).
+MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations in C++](/slides/hi/cpp/exporting-math-equations/)।
 
-## **एक समीकरण बनाएं**
+## **समीकरण बनाएं**
 
 यह उदाहरण एक गणितीय आकार बनाता है और पायथागोरस प्रमेय जोड़ता है:
 
-![समीकरण c वर्ग बराबर a वर्ग प्लस b वर्ग](powerpoint-math-equations_3.png)
+![समिकरण c वर्ग बराबर a वर्ग + b वर्ग](powerpoint-math-equations_3.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -69,14 +69,14 @@ presentation->Dispose();
 ```
 
 {{% alert color="primary" %}}
-`AddMathShape` एक आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ होता है। पहला `MathPortion` एक्सेस करें, उसका `MathParagraph` प्राप्त करें, और उसमें गणितीय ब्लॉक्स या गणितीय तत्व जोड़ें।
+`AddMathShape` एक ऐसा आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ होता है। पहले `MathPortion` को एक्सेस करें, उसका `MathParagraph` प्राप्त करें, और उसमें गणितीय ब्लॉक्स या गणितीय तत्व जोड़ें।
 {{% /alert %}}
 
 ## **भिन्न जोड़ें**
 
-`Divide` का उपयोग करके आप एक भिन्न बना सकते हैं। आप एक भिन्न शैली चुन सकते हैं [MathFractionTypes](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathfractiontypes/)।
+`Divide` का उपयोग करके आप एक भिन्न बना सकते हैं। आप [MathFractionTypes](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathfractiontypes/) के साथ भिन्न शैली चुन सकते हैं।
 
-![एक तिरछा गणितीय भिन्न जिसमें 1 को x से विभाजित दिखाया गया है](powerpoint-math-equations_4.png)
+![एक विकर्ण गणितीय भिन्न जिसमें 1 को x से विभाजित दिखाया गया है](powerpoint-math-equations_4.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -95,17 +95,17 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-एक स्टैक्ड (ऊपर नीचे) भिन्न के लिए, `MathFractionTypes::Bar` का प्रयोग करें:
+स्टैक्ड भिन्न के लिए, `MathFractionTypes::Bar` का उपयोग करें:
 
 ```cpp
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
 ```
 
-## **रैडिकल जोड़ें**
+## **मूल जोड़ें**
 
-`Radical` का उपयोग करके आप वर्गमूल, घनमूल या अन्य मूल बना सकते हैं। मौजूदा तत्व बेस बन जाता है, और आर्ग्युमेंट डिग्री बन जाता है।
+`Radical` का उपयोग करके वर्गमूल, घनमूल या अन्य मूल बना सकते हैं। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
 
-![एक n-वाँ मूल अभिव्यक्ति जिसमें x मूल चिह्न के नीचे है](powerpoint-math-equations_5.png)
+![एक n-था मूल अभिव्यक्ति जिसमें x मूल चिह्न के नीचे है](powerpoint-math-equations_5.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -124,11 +124,11 @@ presentation->Save(u"radical.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **फ़ंक्शन और सीमाएं जोड़ें**
+## **फ़ंक्शन और सीमाएँ जोड़ें**
 
-`AsArgumentOfFunction` या `Function` का उपयोग `sin(x)`, `log(x)` जैसे फ़ंक्शनों या कस्टम फ़ंक्शन नामों के लिए करें। सीमाओं के लिये, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathlimit/) में रखें या `SetLowerLimit` का प्रयोग करें।
+`AsArgumentOfFunction` या `Function` का उपयोग करें जैसे `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों के लिए। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathlimit/) में रखें या `SetLowerLimit` का प्रयोग करें।
 
-![x की सीमा जब x अनंत की ओर बढ़ता है](powerpoint-math-equations_8.png)
+![x की सीमा जब x अनन्त की ओर बढ़ता है](powerpoint-math-equations_8.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -148,7 +148,7 @@ presentation->Save(u"functions-and-limits.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-कस्टम फ़ंक्शन नाम के लिये, फ़ंक्शन नाम को वर्तमान तत्व बनाएं:
+कस्टम फ़ंक्शन नाम के लिए, फ़ंक्शन नाम को वर्तमान तत्व बनाएं:
 
 ```cpp
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
@@ -156,7 +156,7 @@ auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x +
 
 ## **N-ary ऑपरेटर और इंटीग्रल जोड़ें**
 
-समेशन, यूनियन, इंटर्सेक्शन और अन्य बड़े ऑपरेटर्स के लिए `Nary` का उपयोग करें। इंटीग्रल के लिये `Integral` का प्रयोग करें। दोनों मेथड्स आपको लोअर और अपर लिमिट सेट करने देते हैं।
+`Nary` का उपयोग करके आप योग, यूनियन, इंटरसेक्शन और अन्य बड़े ऑपरेटर बना सकते हैं। इंटीग्रल के लिए `Integral` का प्रयोग करें। दोनों विधियों से आप निचली और ऊपरी सीमाएँ सेट कर सकते हैं।
 
 ![निचली और ऊपरी सीमाओं के साथ एक समेशन](powerpoint-math-equations_7.png)
 
@@ -180,9 +180,9 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N-ary ऑपरेटर बड़े ऑपरेटर्स होते हैं जिनमें वैकल्पिक सीमाएं हो सकती हैं। सरल ऑपरेटर जैसे `+`, `-`, और `=` आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर्स बड़े ऑपरेटर्स के लिए होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। सरल ऑपरेटर्स जैसे `+`, `-`, और `=` आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित किए जाते हैं।
 
-इंटीग्रल के लिये, `Integral` का प्रयोग करें:
+इंटीग्रल के लिए, `Integral` का उपयोग करें:
 
 ```cpp
 auto integralBase = System::MakeObject<MathematicalText>(u"x")->Join(System::MakeObject<MathematicalText>(u"dx")->ToBox());
@@ -191,9 +191,9 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **मैट्रिक्स जोड़ें**
 
-पंक्तियों और कॉलमों के लिये [MathMatrix](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathmatrix/) का प्रयोग करें। मैट्रिक्स में डिफ़ॉल्ट रूप से ब्रेस नहीं होते, इसलिए जब आपको कोष्ठक, ब्रैकेट या ब्रेस चाहिए हो तो मैट्रिक्स को घेरें।
+पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathmatrix/) का उपयोग करें। डिफ़ॉल्ट रूप से मैट्रिक्स में कोष्ठक नहीं होते, इसलिए जब आपको कोष्ठक, ब्रेस या ब्रेसेस चाहिए तो मैट्रिक्स को घेरें।
 
-![एक दो-पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
+![एक दो पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -218,9 +218,9 @@ presentation->Dispose();
 
 ## **समीकरण एरे जोड़ें**
 
-जब आपको संरेखित समीकरण या अभिव्यक्तियों का वर्टिकल स्टैक चाहिए हो, तो `ToMathArray` का उपयोग करें।
+समायोजित समीकरणों या अभिव्यक्तियों के लंबवत स्टैक के लिए `ToMathArray` का उपयोग करें।
 
-![एक वर्टिकल गणितीय एरे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
+![एक लंबवत गणितीय एरे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -242,7 +242,7 @@ presentation->Dispose();
 
 ## **त्रिकोणमितीय फ़ंक्शन जोड़ें**
 
-जब आर्ग्युमेंट वर्तमान तत्व हो और फ़ंक्शन नाम ज्ञात हो, तब `AsArgumentOfFunction` का उपयोग करें।
+जब आर्ग्यूमेंट वर्तमान तत्व हो और फ़ंक्शन नाम ज्ञात हो, तो `AsArgumentOfFunction` का उपयोग करें।
 
 ![त्रिकोणमितीय फ़ंक्शन cos को 2x पर लागू किया गया](powerpoint-math-equations_6.png)
 
@@ -265,9 +265,9 @@ presentation->Dispose();
 
 ## **सबस्क्रिप्ट और सुपरस्क्रिप्ट जोड़ें**
 
-इंडेक्स और पावर के लिये सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर्स का उपयोग करें। जब इंडेक्स बेस के बाएँ ओर दिखने चाहिए, तो `SetSubSuperscriptOnTheLeft` का प्रयोग करें।
+इंडेक्स और पावर के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट हेल्पर उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष पर होने चाहिए, तो `SetSubSuperscriptOnTheLeft` का प्रयोग करें।
 
-![एक बड़े अक्षर Y जिसमें बाएँ ओर सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n है](powerpoint-math-equations_9.png)
+![एक बड़े Y में बाएँ‑साइड सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n है](powerpoint-math-equations_9.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -288,9 +288,9 @@ presentation->Dispose();
 
 ## **डिलिमिटर जोड़ें**
 
-एक अभिव्यक्ति को डिलिमिटर्स के भीतर रखने के लिये `Enclose` का उपयोग करें। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिये एक सेपरेटर कैरेक्टर भी सेट कर सकते हैं।
+एक अभिव्यक्ति को डिलिमिटर में रखने के लिए `Enclose` का उपयोग करें। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए एक सेपरेटर कैरेक्टर भी सेट कर सकते हैं।
 
-![एक डिलिमिटर अभिव्यक्ति जिसमें x, y, और z को वर्टिकल बार द्वारा अलग किया गया है](powerpoint-math-equations_13.png)
+![एक डिलिमिटर अभिव्यक्ति जिसमें x, y, और z को ऊर्ध्वाधर बार द्वारा अलग किया गया है](powerpoint-math-equations_13.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -313,9 +313,9 @@ presentation->Dispose();
 
 ## **बॉर्डर बॉक्स जोड़ें**
 
-जब समीकरण को फ्रेम की आवश्यकता हो, तब `ToBorderBox` का प्रयोग करें।
+जब समीकरण को फ्रेम किया जाना चाहिए, तो `ToBorderBox` का उपयोग करें।
 
-![एक बॉक्स्ड समीकरण जिसमें a वर्ग बराबर b वर्ग प्लस c वर्ग दिखाया गया है](powerpoint-math-equations_12.png)
+![एक बॉक्स किया हुआ समीकरण जिसमें a वर्ग = b वर्ग + c वर्ग दिखाया गया है](powerpoint-math-equations_12.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -341,9 +341,9 @@ presentation->Dispose();
 
 ## **टर्म समूहित करें**
 
-`Group` का उपयोग करके आप अभिव्यक्ति के ऊपर या नीचे ग्रुपिंग कैरेक्टर रख सकते हैं। ग्रुप किए गए टर्म को लेबल करने के लिये एक लिमिट जोड़ें।
+`Group` का उपयोग करके आप अभिव्यक्ति के ऊपर या नीचे ग्रुपिंग कैरेक्टर रख सकते हैं। ग्रुप किए गए टर्म को लेबल करने के लिए सीमा जोड़ें।
 
-![अभिव्यक्ति x + y को ग्रुप किया गया है और उसके नीचे लेबल के रूप में कोई भी टेक्स्ट है](powerpoint-math-equations_15.png)
+![अभिव्यक्ति x प्लस y को ग्रुप किया गया है और नीचे लेबल टेक्स्ट है](powerpoint-math-equations_15.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -363,11 +363,11 @@ presentation->Save(u"grouped-terms.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **गणितीय तत्वों का फॉर्मेट**
+## **गणितीय तत्व स्वरूपित करें**
 
-फ़ॉर्मेटिंग हेल्पर्स का उपयोग केवल तभी करें जब वे फ़ॉर्मूला को स्पष्ट करें। उदाहरण के लिये, `Overbar` गणितीय तत्व के ऊपर एक बार रखता है।
+फॉर्मैटिंग हेल्पर केवल तब उपयोग करें जब वे समीकरण को स्पष्ट करें। उदाहरण के तौर पर, `Overbar` गणितीय तत्व के ऊपर एक बार रखता है।
 
-![एक गणितीय अभिव्यक्ति ABC जिसमें एक ओवरबार है](powerpoint-math-equations_14.png)
+![एक गणितीय अभिव्यक्ति ABC के ऊपर ओवरबार](powerpoint-math-equations_14.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -385,35 +385,35 @@ presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **त्वरित संदर्भ**
+## **शीघ्र संदर्भ**
 
 | कार्य | मुख्य API |
 | --- | --- |
-| गणितीय टेक्स्ट बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| तत्वों को मिलाएं | [IMathElement.Join](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/join/) |
-| अंश बनाएं | [IMathElement.Divide](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/divide/) |
-| सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [SetSuperscript](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
+| गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathematicaltext/) |
+| तत्व मिलाएं | [IMathElement.Join](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/join/) |
+| भिन्न बनाएं | [IMathElement.Divide](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/divide/) |
+| सुपरसक्रिप्ट या सबस्क्रिप्ट जोड़ें | [SetSuperscript](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | फ़ंक्शन जोड़ें | [Function](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
-| रैडिकल जोड़ें | [IMathElement.Radical](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/radical/) |
-| सीमाएं जोड़ें | [SetLowerLimit](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| बाएँ-साइड स्क्रिप्ट जोड़ें | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
-| समेशन और इंटीग्रल जोड़ें | [Nary](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/integral/) |
+| मूल जोड़ें | [IMathElement.Radical](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/radical/) |
+| सीमाएँ जोड़ें | [SetLowerLimit](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
+| बाएँ‑साइड स्क्रिप्ट जोड़ें | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| योग और इंटीग्रल जोड़ें | [Nary](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/mathmatrix/) |
 | समीकरण एरे जोड़ें | [ToMathArray](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
 | डिलिमिटर जोड़ें | [Enclose](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/enclose/) |
 | बार और बॉर्डर जोड़ें | [Overbar](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
 | टर्म समूहित करें | [Group](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathelement/group/) |
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हां। प्रस्तुति खोलें, वह आकार खोजें जिसमें `MathPortion` हो, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ में गणितीय ब्लॉक्स को अपडेट करें।
+हाँ। प्रस्तुति खोलें, वह आकार खोजें जिसमें `MathPortion` हो, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ में गणितीय ब्लॉक्स को अपडेट करें।
 
 **क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
 
-हां। जब आप PPTX में सहेजते हैं, तो Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
+हाँ। जब आप PPTX में सहेजते हैं, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-Aspose.Slides गणितीय समीकरणों को MathML में निर्यात करता है। यदि आपको LaTeX चाहिए, तो पहले MathML में निर्यात करें और फिर एक ऐसे टूल का उपयोग करके MathML को LaTeX में परिवर्तित करें जो आपके लक्ष्य LaTeX डायलेक्ट को सपोर्ट करता हो।
+हाँ। समीकरण के [IMathParagraph](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathparagraph/) को उसके [IMathPortion](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathportion/) से प्राप्त करें, और सीधे निर्यात करने के लिए [IMathParagraph::ToLatex](https://reference.aspose.com/slides/hi/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) को कॉल करें। पूर्ण उदाहरण के लिए देखें [Export Math Equations from Presentations in C++](/slides/hi/cpp/exporting-math-equations/#export-math-equations-to-latex).

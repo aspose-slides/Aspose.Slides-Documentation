@@ -1,102 +1,47 @@
 ---
-title: Python में प्रस्तुति पाठ को फॉर्मेट करें
-linktitle: पाठ फ़ॉर्मेटिंग
+title: Python में प्रस्तुति टेक्स्ट को फॉर्मेट करें
+linktitle: टेक्स्ट फॉर्मेटिंग
 type: docs
 weight: 50
 url: /hi/python-net/text-formatting/
 keywords:
-- पाठ हाइलाइट
-- नियमित अभिव्यक्ति
-- अनुच्छेद संरेखित करना
-- पाठ शैली
-- पाठ पृष्ठभूमि
-- पाठ पारदर्शिता
-- अक्षर स्पेसिंग
+- पैराग्राफ संरेखित करें
+- टेक्स्ट शैली
+- टेक्स्ट पृष्ठभूमि
+- टेक्स्ट पारदर्शिता
+- अक्षर अंतराल
 - फ़ॉन्ट गुण
 - फ़ॉन्ट परिवार
-- पाठ घुमाव
-- घुमाव कोण
-- पाठ फ्रेम
+- टेक्स्ट घूर्णन
+- घूर्णन कोण
+- टेक्स्ट फ्रेम
 - लाइन स्पेसिंग
-- ऑटॉफिट गुण
-- पाठ फ्रेम एंकर
-- पाठ टैबुलेशन
+- ऑटोफिट गुण
+- टेक्स्ट फ्रेम एंकर
+- टेक्स्ट टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फॉर्मेट और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण आदि को कस्टमाइज़ करें।"
+description: "Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फॉर्मेट और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण आदि को कस्टमाइज़ करें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फ़ॉर्मेट करने के तरीके को दिखाता है। इसमें हाइलाइटिंग, पृष्ठभूमि रंग, पारदर्शिता, अक्षर स्पेसिंग, फ़ॉन्ट गुण, घुमाव, अनुच्छेद स्पेसिंग, ऑटॉफिट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप, और भाषा सेटिंग्स शामिल हैं।
+यह लेख Aspose.Slides for Python via .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में टेक्स्ट को फॉर्मेट करने का तरीका दिखाता है। यह पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घूर्णन, पैराग्राफ अंतराल, ऑटोफिट व्यवहार, टेक्स्ट एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स को कवर करता है।
 
-निम्नलिखित उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एक ही टेक्स्ट बॉक्स है और उसमें निम्नलिखित पाठ है:
+नीचे के उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एक टेक्स्ट बॉक्स है जिसमें निम्नलिखित टेक्स्ट है:
 
-![नमूना पाठ](sample_text.png)
+![नमूना टेक्स्ट](sample_text.png)
 
-## **पाठ को हाइलाइट करें**
+शाब्दिक टेक्स्ट या नियमित अभिव्यक्ति मिलान को खोजने और हाइलाइट करने के लिए, देखें [टेक्स्ट खोजें और बदलें](/slides/hi/python-net/search-and-replace-text/)।
 
-जब आपको टेक्स्ट फ़्रेम में किसी विशिष्ट नमूने से मिलते हुए पाठ को हाइलाइट करना हो, तो आप [TextFrame.highlight_text](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_text/) मेथड का उपयोग करें। यह मेथड मिलते हुए पाठ खंडों पर हाइलाइट रंग लागू करता है और इसे [TextSearchOptions](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textsearchoptions/) के साथ उपयोग करके खोज के तरीके को नियंत्रित किया जा सकता है, जैसे कि केवल पूरे शब्दों को मिलाना।
+## **टेक्स्ट पृष्ठभूमि रंग सेट करें**
 
-नीचे का कोड उदाहरण सभी **"try"** अक्षरों को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है।
+[ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/default_portion_format/) का उपयोग करके आप पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट कर सकते हैं, या व्यक्तिगत टेक्स्ट भागों के लिए [PortionFormat.highlight_color](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/highlight_color/) का उपयोग करें।
 
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    # पहली स्लाइड से पहला आकार प्राप्त करें।
-    shape = presentation.slides[0].shapes[0]
-
-    # आकार में शब्द "try" को हाइलाइट करें।
-    shape.text_frame.highlight_text("try", draw.Color.light_blue)
-
-    search_options = slides.TextSearchOptions()
-    search_options.whole_words_only = True
-
-    # आकार में शब्द "to" को हाइलाइट करें।
-    shape.text_frame.highlight_text("to", draw.Color.violet, search_options, None)
-
-    presentation.save("highlighted_text.pptx", slides.export.SaveFormat.PPTX)
-```
-
-परिणाम:
-
-![हाइलाइट किया गया पाठ](highlighted_text.png)
-
-## **नियमित अभिव्यक्तियों का उपयोग करके पाठ को हाइलाइट करें**
-
-[TextFrame.highlight_regex](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/highlight_regex/) मेथड नियमित अभिव्यक्ति द्वारा पाए गए पाठ मिलानों को हाइलाइट करता है। Python में यह API [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) पर उपलब्ध है।
-
-नीचे का कोड उदाहरण सभी उन शब्दों को हाइलाइट करता है जिनमें **सात या अधिक अक्षर** हैं:
-
-```python
-import aspose.pydrawing as draw
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    regex = r"\b[^\s]{7,}\b"
-
-    # सात या अधिक अक्षर वाले सभी शब्दों को हाइलाइट करें।
-    shape.text_frame.highlight_regex(regex, draw.Color.yellow, None)
-
-    presentation.save("highlighted_text_using_regex.pptx", slides.export.SaveFormat.PPTX)
-```
-
-परिणाम:
-
-![नियमित अभिव्यक्ति का उपयोग करके हाइलाइट किया गया पाठ](highlighted_text_using_regex.png)
-
-## **पाठ पृष्ठभूमि रंग सेट करें**
-
-डिफ़ॉल्ट हाइलाइट रंग सेट करने के लिए आप [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/default_portion_format/) का उपयोग कर सकते हैं, या व्यक्तिगत पाठ भागों के लिए [PortionFormat.highlight_color](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/highlight_color/) का उपयोग कर सकते हैं।
-
-नीचे का कोड उदाहरण **पूरे अनुच्छेद** के पृष्ठभूमि रंग को सेट करता है:
+निम्नलिखित कोड उदाहरण **पूरे पैराग्राफ** के पृष्ठभूमि रंग को सेट करने का तरीका दिखाता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -106,7 +51,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # पूरे अनुच्छेद के लिए हाइलाइट रंग सेट करें।
+    # पूरे पैराग्राफ के लिए हाइलाइट रंग सेट करें।
     paragraph.paragraph_format.default_portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_paragraph.pptx", slides.export.SaveFormat.PPTX)
@@ -114,9 +59,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![धूसर अनुच्छेद](gray_paragraph.png)
+![स्लेटी पैराग्राफ](gray_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** के पृष्ठभूमि रंग को सेट करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** के पृष्ठभूमि रंग को सेट करने का प्रदर्शन करता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -128,7 +73,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # पाठ भाग के लिए हाइलाइट रंग सेट करें।
+            # टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
             portion.portion_format.highlight_color.color = draw.Color.light_gray
 
     presentation.save("gray_text_portions.pptx", slides.export.SaveFormat.PPTX)
@@ -136,13 +81,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![धूसर पाठ भाग](gray_text_portions.png)
+![स्लेटी टेक्स्ट भाग](gray_text_portions.png)
 
-## **पाठ अनुच्छेदों को संरेखित करें**
+## **टेक्स्ट पैराग्राफ को संरेखित करें**
 
-टेक्स्ट फ़्रेम के भीतर अनुच्छेद संरेखण सेट करने के लिए आप [ParagraphFormat.alignment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/alignment/) का उपयोग करें। मान केंद्रित, बाएँ‑संरेखित, दाएँ‑संरेखित, समायोजित आदि हो सकते हैं।
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/alignment/) का उपयोग करके आप टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट कर सकते हैं। मान केंद्रित, बाएँ-समर्थित, दाएँ-समर्थित, समानांतर आदि हो सकते हैं।
 
-नीचे का कोड उदाहरण **केंद्र** में अनुच्छेद को संरेखित करता है:
+निम्नलिखित कोड उदाहरण पैराग्राफ को **केंद्र** में संरेखित करने का तरीका दिखाता है:
 
 ```python
 import aspose.slides as slides
@@ -151,7 +96,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # अनुच्छेद की संरेखण को केंद्र में सेट करें।
+    # पैराग्राफ का संरेखण केंद्र में सेट करें।
     paragraph.paragraph_format.alignment = slides.TextAlignment.CENTER
 
     presentation.save("aligned_paragraph.pptx", slides.export.SaveFormat.PPTX)
@@ -159,13 +104,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![संरेखित अनुच्छेद](aligned_paragraph.png)
+![संरेखित पैराग्राफ](aligned_paragraph.png)
 
-## **पाठ के लिए पारदर्शिता सेट करें**
+## **टेक्स्ट की पारदर्शिता सेट करें**
 
-पाठ पारदर्शिता को [PortionFormat.fill_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/fill_format/) को सौंपे गये रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में `alpha = 50` ARGB अल्फा‑चैनल मान है 0‑255 सीमा में, न कि पारदर्शिता प्रतिशत।
+टेक्स्ट की पारदर्शिता को [PortionFormat.fill_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/fill_format/) को असाइन किए गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0-255 स्केल पर एक ARGB अल्फा-चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-नीचे का कोड उदाहरण **पूरे अनुच्छेद** पर पारदर्शिता लागू करता है:
+नीचे का कोड उदाहरण **पूरे पैराग्राफ** पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -177,7 +122,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # टेक्स्ट का भराव रंग पारदर्शी रंग में सेट करें।
+    # टेक्स्ट का फ़िल रंग पारदर्शी रंग में सेट करें।
     paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.from_argb(alpha, draw.Color.black)
 
@@ -186,9 +131,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![पारदर्शी अनुच्छेद](transparent_paragraph.png)
+![पारदर्शी पैराग्राफ](transparent_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** पर पारदर्शिता लागू करता है:
+निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```python
 import aspose.pydrawing as draw
@@ -211,13 +156,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![पारदर्शी पाठ भाग](transparent_text_portions.png)
+![पारदर्शी टेक्स्ट भाग](transparent_text_portions.png)
 
-## **पाठ के लिए अक्षर स्पेसिंग सेट करें**
+## **टेक्स्ट के लिए अक्षर अंतराल सेट करें**
 
-टेक्स्ट बॉक्स में अक्षरों के बीच स्पेसिंग को विस्तारित या घटाने के लिए आप [BasePortionFormat.spacing](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseportionformat/spacing/) का उपयोग करें।
+[BasePortionFormat.spacing](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseportionformat/spacing/) का उपयोग करके आप टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को बढ़ा या घटा सकते हैं।
 
-नीचे का Python कोड **पूरे अनुच्छेद** में अक्षर स्पेसिंग को विस्तारित करता है:
+निम्नलिखित Python कोड **पूरे पैराग्राफ** में अक्षर अंतराल को बढ़ाने का तरीका दिखाता है:
 
 ```python
 import aspose.slides as slides
@@ -226,17 +171,17 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # नोट: अक्षर स्पेसिंग को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
-    paragraph.paragraph_format.default_portion_format.spacing = 3  # अक्षर स्पेसिंग को बढ़ाएँ।
+    # ध्यान दें: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+    paragraph.paragraph_format.default_portion_format.spacing = 3  # अक्षर अंतराल का विस्तार करें।
 
     presentation.save("character_spacing_in_paragraph.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 परिणाम:
 
-![अनुच्छेद में अक्षर स्पेसिंग](character_spacing_in_paragraph.png)
+![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** में अक्षर स्पेसिंग को विस्तारित करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** में अक्षर अंतराल को बढ़ाने का तरीका दिखाता है:
 
 ```python
 import aspose.slides as slides
@@ -247,21 +192,21 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # नोट: अक्षर स्पेसिंग को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
-            portion.portion_format.spacing = 3  # अक्षर स्पेसिंग को बढ़ाएँ।
+            # नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+            portion.portion_format.spacing = 3  # अक्षर अंतराल का विस्तार करें।
 
     presentation.save("character_spacing_in_text_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 परिणाम:
 
-![पाठ भागों में अक्षर स्पेसिंग](character_spacing_in_text_portions.png)
+![टेक्स्ट भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट्स के लिए केरनिंग अक्षम करें**
+### **विशिष्ट फ़ॉन्ट के लिए केरनिंग निष्क्रिय करें**
 
-कुछ मामलों में Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखाए गए पाठ से थोड़ा अधिक कसा हुआ दिख सकता है। यह इसलिए होता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए केरनिंग डेटा को नजरअंदाज़ कर सकता है, भले ही फ़ॉन्ट में मान्य केरनिंग जानकारी हो और PowerPoint सेटिंग्स में केरनिंग सक्रिय हो।
+कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया टेक्स्ट PowerPoint में दिखने वाले टेक्स्ट से थोड़ा अधिक तंग लग सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट के लिए केरनिंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी हो और PowerPoint सेटिंग में केरनिंग सक्षम हो।
 
-ऐसे मामलों में रेंडर किए गए आउटपुट को PowerPoint के करीब लाने के लिए आप उन फ़ॉन्ट्स का उपयोग करने वाले पाठ भागों के लिए केरनिंग को अक्षम कर सकते हैं। [PortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
+ऐसे मामलों में रेंडर आउटपुट को PowerPoint के करीब लाने के लिए, आप प्रभावित फ़ॉन्ट का उपयोग करने वाले टेक्स्ट भागों के लिए केरनिंग निष्क्रिय कर सकते हैं। [BasePortionFormat.kerning_minimal_size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/baseportionformat/kerning_minimal_size/) को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
 
 ```python
 import aspose.slides as slides
@@ -284,13 +229,13 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-यह सेटिंग मेल खाते पाठ भागों पर केरनिंग को लागू होने से रोकती है और उन फ़ॉन्ट्स के लिए Asp Aspose.Slides रेंडरिंग को PowerPoint के दृश्य आउटपुट से अधिक मिलाने में मदद करती है।
+यह सेटिंग मिलते-जुलते टेक्स्ट भागों पर केरनिंग लागू होने से रोकती है और इस PowerPoint‑विशिष्ट व्यवहार से प्रभावित फ़ॉन्ट के लिए Aspose.Slides रेंडरिंग को PowerPoint की दृश्य आउटपुट के साथ संरेखित करने में मदद कर सकती है।
 
-## **पाठ फ़ॉन्ट गुण प्रबंधित करें**
+## **टेक्स्ट फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण को अनुच्छेद स्तर पर [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/default_portion_format/) के माध्यम से या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/) के माध्यम से सेट किया जा सकता है।
+फ़ॉन्ट गुण को पैराग्राफ स्तर पर [ParagraphFormat.default_portion_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/default_portion_format/) के माध्यम से या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/) के माध्यम से सेट किया जा सकता है।
 
-नीचे का कोड पूरे अनुच्छेद के लिए फ़ॉन्ट और पाठ शैली सेट करता है: यह सभी भागों में फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट लागू करता है।
+निम्नलिखित कोड पूरे पैराग्राफ के लिए फ़ॉन्ट और टेक्स्ट शैली सेट करता है: यह सभी भागों में फ़ॉन्ट आकार, बोल्ड, इटैलिक, बिंदुयुक्त अंडरलाइन और Times New Roman फ़ॉन्ट लागू करता है।
 
 ```python
 import aspose.slides as slides
@@ -299,7 +244,7 @@ with slides.Presentation("sample.pptx") as presentation:
     auto_shape = presentation.slides[0].shapes[0]
     paragraph = auto_shape.text_frame.paragraphs[0]
 
-    # अनुच्छेद के लिए फ़ॉन्ट गुण सेट करें।
+    # पैराग्राफ के लिए फ़ॉन्ट गुण सेट करें।
     paragraph.paragraph_format.default_portion_format.font_height = 12
     paragraph.paragraph_format.default_portion_format.font_bold = slides.NullableBool.TRUE
     paragraph.paragraph_format.default_portion_format.font_italic = slides.NullableBool.TRUE
@@ -311,9 +256,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![अनुच्छेद के लिए फ़ॉन्ट गुण](font_properties_for_paragraph.png)
+![पैराग्राफ के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** पर समान गुण लागू करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर समान गुण लागू करता है:
 
 ```python
 import aspose.slides as slides
@@ -324,7 +269,7 @@ with slides.Presentation("sample.pptx") as presentation:
 
     for portion in paragraph.portions:
         if portion.portion_format.get_effective().font_bold:
-            # पाठ भाग के लिए फ़ॉन्ट गुण सेट करें।
+            # टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें।
             portion.portion_format.font_height = 13
             portion.portion_format.font_italic = slides.NullableBool.TRUE
             portion.portion_format.font_underline = slides.TextUnderlineType.DOTTED
@@ -335,13 +280,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![पाठ भागों के लिए फ़ॉन्ट गुण](font_properties_for_text_portions.png)
+![टेक्स्ट भागों के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
 
-## **पाठ घुमाव सेट करें**
+## **टेक्स्ट का घूर्णन सेट करें**
 
-आप किसी आकार के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट करने के लिए [TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/text_vertical_type/) का उपयोग कर सकते हैं।
+[TextFrameFormat.text_vertical_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/text_vertical_type/) का उपयोग करके आप एक आकार के भीतर पूर्वनिर्धारित टेक्स्ट अभिविन्यास सेट कर सकते हैं।
 
-नीचे का कोड उदाहरण आकार में टेक्स्ट अभिविन्यास को `VERTICAL270` पर सेट करता है, जो पाठ को **90 डिग्री प्रतिकूल दिशा में** घुमाता है:
+निम्नलिखित कोड उदाहरण आकार में टेक्स्ट अभिविन्यास को `VERTICAL270` सेट करता है, जो टेक्स्ट को **90 डिग्री प्रतिक्षिप्त** घुमाता है:
 
 ```python
 import aspose.slides as slides
@@ -356,13 +301,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![पाठ घुमाव](text_rotation.png)
+![टेक्स्ट घूर्णन](text_rotation.png)
 
-## **पाठ फ्रेम्स के लिए कस्टम घुमाव सेट करें**
+## **टेक्स्ट फ्रेम के लिए कस्टम घूर्णन सेट करें**
 
-[TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/rotation_angle/) का उपयोग करके आप किसी [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) के लिए कस्टम घुमाव कोण सेट कर सकते हैं।
+[TextFrameFormat.rotation_angle](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/rotation_angle/) का उपयोग करके आप एक [TextFrame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframe/) के लिए कस्टम घूर्णन कोण सेट कर सकते हैं।
 
-नीचे का कोड आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
+नीचे का कोड उदाहरण आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
 
 ```python
 import aspose.slides as slides
@@ -377,16 +322,16 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![कस्टम पाठ घुमाव](custom_text_rotation.png)
+![कस्टम टेक्स्ट घूर्णन](custom_text_rotation.png)
 
-## **अनुच्छेदों की लाइन स्पेसिंग सेट करें**
+## **पैराग्राफ की लाइन स्पेसिंग सेट करें**
 
-Aspose.Slides अनुच्छेद स्पेसिंग को नियंत्रित करने के लिए [ParagraphFormat.space_after](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/space_before/), और [ParagraphFormat.space_within](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/space_within/) प्रदान करता है। इन गुणों का उपयोग इस प्रकार किया जाता है:
+Aspose.Slides [ParagraphFormat.space_after](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/space_after/), [ParagraphFormat.space_before](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/space_before/), और [ParagraphFormat.space_within](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/space_within/) प्रदान करता है ताकि पैराग्राफ अंतराल को नियंत्रित किया जा सके। इन गुणों का उपयोग इस प्रकार किया जाता है:
 
-* लाइन स्पेसिंग को लाइन ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान प्रयोग करें।
-* लाइन स्पेसिंग को पॉइंट्स में निर्दिष्ट करने के लिए नकारात्मक मान प्रयोग करें।
+* लाइन स्पेसिंग को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान का उपयोग करें।
+* लाइन स्पेसिंग को पॉइंट में निर्दिष्ट करने के लिए नकारात्मक मान का उपयोग करें।
 
-नीचे का कोड उदाहरण अनुच्छेद के भीतर लाइन स्पेसिंग को निर्दिष्ट करता है:
+निम्नलिखित कोड उदाहरण पैराग्राफ के भीतर लाइन स्पेसिंग निर्दिष्ट करने का तरीका दिखाता है:
 
 ```python
 import aspose.slides as slides
@@ -402,11 +347,11 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![अनुच्छेद के भीतर लाइन स्पेसिंग](line_spacing.png)
+![पैराग्राफ के भीतर लाइन स्पेसिंग](line_spacing.png)
 
-## **पाठ फ्रेम्स के लिए ऑटॉफिट प्रकार सेट करें**
+## **टेक्स्ट फ्रेम के लिए ऑटोफिट प्रकार सेट करें**
 
-[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/autofit_type/) निर्धारित करता है कि जब पाठ अपने कंटेनर की सीमाओं से अधिक हो जाए तो उसका व्यवहार क्या होगा। इसका उपयोग करके आप नियंत्रित कर सकते हैं कि पाठ छोटा हो, ओवरफ़्लो हो, या आकार को स्वचालित रूप से पुनः आकार दिया जाए।
+[TextFrameFormat.autofit_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/autofit_type/) निर्धारित करता है कि जब टेक्स्ट उसके कंटेनर की सीमा से बाहर हो जाए तो वह कैसे व्यवहार करता है। इसका उपयोग करके आप निर्धारित कर सकते हैं कि टेक्स्ट सिकुड़ना चाहिए, ओवरफ़्लो होना चाहिए, या आकार स्वचालित रूप से बदलना चाहिए।
 
 ```python
 import aspose.slides as slides
@@ -419,9 +364,9 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("autofit_type.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **पाठ फ्रेम्स की एंकर सेट करें**
+## **टेक्स्ट फ्रेम का एंकर सेट करें**
 
-[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/anchoring_type/) निर्धारित करता है कि आकार के भीतर टेक्स्ट को लंबवत रूप से कैसे स्थित किया जाए, उदाहरण के लिए शीर्ष, मध्य, या नीचे।
+[TextFrameFormat.anchoring_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textframeformat/anchoring_type/) परिभाषित करता है कि टेक्स्ट आकार के भीतर लंबवत कैसे स्थित है, जैसे शीर्ष, मध्य, या नीचे।
 
 ```python
 import aspose.slides as slides
@@ -434,9 +379,9 @@ with slides.Presentation("sample.pptx") as presentation:
     presentation.save("text_anchor.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **पाठ टैबुलेशन सेट करें**
+## **टेक्स्ट टैबुलेशन सेट करें**
 
-[ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/default_tab_size/) और [ParagraphFormat.tabs](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/tabs/) का उपयोग करके आप अनुच्छेद में टैब स्टॉप कॉन्फ़िगर कर सकते हैं।
+[ParagraphFormat.default_tab_size](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/default_tab_size/) और [ParagraphFormat.tabs](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraphformat/tabs/) का उपयोग करके आप पैराग्राफ में टैब स्टॉप कॉन्फ़िगर कर सकते हैं।
 
 ```python
 import aspose.slides as slides
@@ -453,13 +398,13 @@ with slides.Presentation("sample.pptx") as presentation:
 
 परिणाम:
 
-![अनुच्छेद टैब्स](paragraph_tabs.png)
+![पैराग्राफ टैब्स](paragraph_tabs.png)
 
 ## **प्रूफ़िंग भाषा सेट करें**
 
-Aspose.Slides [PortionFormat.language_id](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/language_id/) प्रदान करता है, जो आपको किसी पाठ भाग के लिए प्रूफ़िंग भाषा सेट करने की अनुमति देता है। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
+Aspose.Slides [PortionFormat.language_id](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/language_id/) प्रदान करता है, जिससे आप एक टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट कर सकते हैं। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जाँच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
 
-नीचे का कोड उदाहरण किसी पाठ भाग के लिए प्रूफ़िंग भाषा सेट करता है:
+निम्नलिखित कोड उदाहरण टेक्स्ट भाग के लिए प्रूफ़िंग भाषा सेट करने का तरीका दिखाता है:
 
 ```python
 import aspose.slides as slides
@@ -477,10 +422,10 @@ with slides.Presentation("presentation.pptx") as presentation:
     text_portion.portion_format.east_asian_font = font
     text_portion.portion_format.latin_font = font
 
-    # प्रूफ़िंग भाषा के Id को सेट करें।
+    # प्रूफ़िंग भाषा का Id सेट करें।
     text_portion.portion_format.language_id = "zh-CN"
 
-    text_portion.text = "1."
+    text_portion.text = "1。"
     paragraph.portions.add(text_portion)
 
     presentation.save("proofing_language.pptx", slides.export.SaveFormat.PPTX)
@@ -488,7 +433,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-[LoadOptions.default_text_language](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/default_text_language/) का उपयोग करके आप प्रस्तुति लोड या बनाते समय बनाये गये पाठ की डिफ़ॉल्ट भाषा निर्धारित कर सकते हैं।
+[LoadOptions.default_text_language](https://reference.aspose.com/slides/hi/python-net/aspose.slides/loadoptions/default_text_language/) का उपयोग करके आप प्रस्तुति लोड या बनाते समय बनाए गए टेक्स्ट के लिए डिफ़ॉल्ट भाषा निर्धारित कर सकते हैं।
 
 ```python
 import aspose.slides as slides
@@ -499,7 +444,7 @@ load_options.default_text_language = "en-US"
 with slides.Presentation(load_options) as presentation:
     slide = presentation.slides[0]
 
-    # टेक्स्ट के साथ नया आयताकार आकार जोड़ें।
+    # नया आयताकार आकार टेक्स्ट के साथ जोड़ें।
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 20, 20, 150, 50)
     shape.text_frame.text = "Sample text"
 
@@ -508,17 +453,17 @@ with slides.Presentation(load_options) as presentation:
     print(portion.portion_format.language_id)
 ```
 
-## **डिफ़ॉल्ट पाठ शैली सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रस्तुति स्तर पर डिफ़ॉल्ट पाठ फ़ॉर्मेटिंग लागू करने के लिए आप [Presentation.default_text_style](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/default_text_style/) का उपयोग करें।
+प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फॉर्मेटिंग लागू करने के लिए, [Presentation.default_text_style](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/default_text_style/) का उपयोग करें।
 
-नीचे का कोड उदाहरण नई प्रस्तुति में सभी स्लाइडों के पाठ के लिए 14 pt आकार का डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करता है।
+निम्नलिखित कोड उदाहरण नई प्रस्तुति में सभी स्लाइड्स के टेक्स्ट के लिए 14 pt आकार के साथ डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करने का तरीका दिखाता है।
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # शीर्ष स्तर का अनुच्छेद फ़ॉर्मेट प्राप्त करें।
+    # शीर्ष स्तर का पैराग्राफ फॉर्मेट प्राप्त करें।
     paragraph_format = presentation.default_text_style.get_level(0)
 
     if paragraph_format is not None:
@@ -528,15 +473,15 @@ with slides.Presentation() as presentation:
     presentation.save("default_text_style.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **ऑल‑कैप्स प्रभाव के साथ पाठ निकालें**
+## **ऑल-कैप्स इफ़ेक्ट के साथ टेक्स्ट निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से पाठ स्लाइड पर बड़े अक्षरों में दिखता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा पाठ भाग प्राप्त करते हैं, तो लाइब्रेरी पाठ को उसी रूप में लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित पाठ के साथ मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textcaptype/) की जाँच करें और यदि मान `ALL` है तो लौटाए गए स्ट्रिंग को बड़े अक्षरों में बदलें।
+PowerPoint में **All Caps** फ़ॉन्ट इफ़ेक्ट लागू करने से टेक्स्ट स्लाइड पर बड़े अक्षरों में दिखाई देता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा टेक्स्ट भाग प्राप्त करते हैं, तो लाइब्रेरी टेक्स्ट को ठीक वही स्वरूप में वापस देती है जैसा वह दर्ज किया गया था। प्रदर्शित टेक्स्ट से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/python-net/aspose.slides/textcaptype/) को देखें और जब मान `ALL` हो तो लौटाए गए स्ट्रिंग को बड़े अक्षरों में बदलें।
 
-मान लीजिए हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्नलिखित टेक्स्ट बॉक्स है।
+मान लें कि हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्नलिखित टेक्स्ट बॉक्स है।
 
-![ऑल कैप्स प्रभाव](all_caps_effect.png)
+![ऑल कैप्स इफ़ेक्ट](all_caps_effect.png)
 
-नीचे का कोड उदाहरण **All Caps** प्रभाव लागू किए गए पाठ को निकालता है:
+नीचे का कोड उदाहरण **All Caps** इफ़ेक्ट लागू होने के साथ टेक्स्ट निकालने का तरीका दिखाता है:
 
 ```python
 import aspose.slides as slides
@@ -562,10 +507,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**स्लाइड पर तालिका में पाठ को कैसे संशोधित करें?**
+**स्लाइड पर तालिका में टेक्स्ट को कैसे संशोधित करें?**
 
-तालिका में पाठ संशोधित करने के लिए आप [Table](https://reference.aspose.com/slides/hi/python-net/aspose.slides/table/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करें और प्रत्येक कोशिका को [Cell.text_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/cell/text_frame/) के माध्यम से अपडेट करें तथा अनुच्छेद फ़ॉर्मेट को [Paragraph.paragraph_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/paragraph_format/) के माध्यम से बदलें।
+स्लाइड पर तालिका में टेक्स्ट को संशोधित करने के लिए, [Table](https://reference.aspose.com/slides/hi/python-net/aspose.slides/table/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करें और प्रत्येक कोशिका को [Cell.text_frame](https://reference.aspose.com/slides/hi/python-net/aspose.slides/cell/text_frame/) तथा पैराग्राफ फॉर्मेटिंग को [Paragraph.paragraph_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/paragraph/paragraph_format/) के माध्यम से अपडेट करें।
 
-**PowerPoint स्लाइड में पाठ पर ग्रेडिएंट रंग कैसे लागू करें?**
+**PowerPoint स्लाइड में टेक्स्ट पर ग्रेडिएंट रंग कैसे लागू करें?**
 
-ग्रेडिएंट रंग लागू करने के लिए आप [PortionFormat.fill_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/fill_format/) का उपयोग करें। [FillFormat.fill_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fillformat/fill_type/) को [FillType.GRADIENT](https://reference.aspose.com/slides/hi/python-net/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा एवं पारदर्शिता को कॉन्फ़िगर करें।
+ग्रेडिएंट रंग लागू करने के लिए, [PortionFormat.fill_format](https://reference.aspose.com/slides/hi/python-net/aspose.slides/portionformat/fill_format/) का उपयोग करें। [FillFormat.fill_type](https://reference.aspose.com/slides/hi/python-net/aspose.slides/fillformat/fill_type/) को [FillType.GRADIENT](https://reference.aspose.com/slides/hi/python-net/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा, तथा पारदर्शिता को कॉन्फ़िगर करें।

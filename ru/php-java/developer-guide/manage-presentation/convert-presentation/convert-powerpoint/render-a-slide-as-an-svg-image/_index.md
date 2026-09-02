@@ -1,88 +1,220 @@
 ---
-title: Отображение слайдов презентаций как SVG‑изображений в PHP
-linktitle: Слайд в SVG
+title: "Отображать слайды презентаций как SVG‑изображения в PHP"
+linktitle: "Слайд в SVG"
 type: docs
 weight: 50
 url: /ru/php-java/render-a-slide-as-an-svg-image/
 keywords:
-- PowerPoint в SVG
-- презентация в SVG
-- слайд в SVG
-- PPT в SVG
-- PPTX в SVG
-- сохранить PPT как SVG
-- сохранить PPTX как SVG
-- экспортировать PPT в SVG
-- экспортировать PPTX в SVG
-- визуализировать слайд
-- конвертировать слайд
-- экспортировать слайд
-- векторное изображение
-- PowerPoint
-- презентация
-- PHP
-- Aspose.Slides
-description: "Узнайте, как отображать слайды PowerPoint как SVG‑изображения с помощью Aspose.Slides for PHP via Java. Высококачественная визуализация с простыми примерами кода."
+- "PowerPoint в SVG"
+- "презентация в SVG"
+- "слайд в SVG"
+- "PPT в SVG"
+- "PPTX в SVG"
+- "Параметры экспорта SVG"
+- "интерактивный SVG"
+- "PowerPoint"
+- "презентация"
+- "PHP"
+- "Aspose.Slides"
+description: "Экспортировать слайды PowerPoint в виде SVG‑изображений в PHP и управлять шрифтами, текстом, изображениями, идентификаторами и событиями с помощью Aspose.Slides."
 ---
+## **Обзор**
 
-## **SVG-формат**
+SVG — масштабируемый основанный на XML формат изображений, который хорошо подходит для веб‑публикаций, просмотров слайдов, процессов обеспечения доступности и автоматической пост‑обработки. Aspose.Slides экспортирует каждый слайд в отдельный файл SVG и позволяет управлять тем, как записываются текст, шрифты, изображения и элементы SVG.
 
-SVG — аббревиатура от Scalable Vector Graphics — это стандартный тип графики или формат, используемый для отображения двумерных изображений. SVG хранит изображения как векторы в XML с деталями, определяющими их поведение или внешний вид.
+Используйте [SVGOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/) когда экспортируемый SVG должен быть компактным, предсказуемым во всех браузерах или готовым к интерактивному использованию.
 
-SVG — один из немногих форматов изображений, отвечающих очень высоким требованиям в следующих областях: масштабируемость, интерактивность, производительность, доступность, программируемость и другие. По этим причинам он широко используется в веб‑разработке.
+## **Экспорт слайда в SVG**
 
-Вам может потребоваться использовать файлы SVG, когда необходимо
+Создайте [Presentation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/presentation/), выберите слайд и запишите его в поток с помощью [Slide.writeAsSvg](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/#writeAsSvg). Ниже приведён пример, который экспортирует каждый слайд презентации в отдельный файл SVG.
 
-- **распечатать вашу презентацию в *очень большом формате*.** SVG‑изображения могут масштабироваться до любой разрешающей способности. Вы можете менять размер SVG‑изображений сколько угодно раз без потери качества.
-- **использовать диаграммы и графики из ваших слайдов в *разных средах или платформах*.** Большинство просмотрщиков способны отображать файлы SVG. 
-- **получать *наименьший возможный размер изображений*.** SVG‑файлы, как правило, меньше их высокоразрешающих аналогов в других форматах, особенно в форматах, основанных на растровой графике (JPEG или PNG).
-
-## **Экспортировать слайд как SVG‑изображение**
-
-Aspose.Slides for PHP via Java позволяет экспортировать слайды вашей презентации в виде SVG‑изображений. Выполните следующие шаги, чтобы создать SVG‑изображения:
-
-1. Создайте экземпляр класса Presentation.
-2. Пройдитесь по всем слайдам в презентации.
-3. Запишите каждый слайд в отдельный SVG‑файл через FileOutputStream.
-
-{{% alert color="primary" %}} 
-
-Вы можете попробовать наше [бесплатное веб‑приложение](https://products.aspose.app/slides/conversion/ppt-to-svg), в котором реализована функция преобразования PPT в SVG с использованием Aspose.Slides for PHP via Java.
-
-{{% /alert %}} 
-
-Этот пример кода показывает, как преобразовать PPT в SVG с помощью Aspose.Slides:
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $fileStream = new Java("java.io.FileOutputStream", "slide-" . $index . ".svg");
-      try {
-        $slide->writeAsSvg($fileStream);
-      } finally {
-        $fileStream->close();
-      }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $slideNumber = java_values($slide->getSlideNumber());
+        $outputFileName = sprintf("slide-%d.svg", $slideNumber);
+
+        $svgStream = new Java("java.io.FileOutputStream", $outputFileName);
+        $slide->writeAsSvg($svgStream);
+        $svgStream->close();
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
+Имя файла использует [Slide.getSlideNumber](https://reference.aspose.com/slides/ru/php-java/aspose.slides/slide/#getSlideNumber) вместо индекса цикла. Вы также можете экспортировать отдельную форму с помощью [Shape.writeAsSvg](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shape/#writeAsSvg), когда просмотрщику слайдов или веб‑странице нужен только этот объект.
 
-## **FAQ**
+## **Настройка вывода SVG**
 
-**Почему полученный SVG может выглядеть по‑разному в разных браузерах?**
+[SVGOptions](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/) управляет рендерингом SVG. Для текстовых рамок [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setUseFrameSize) включает рамку текста в область рендеринга, а [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setUseFrameRotation) определяет, применяется ли вращение рамки. Установите [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setDisableFontLigatures) в `true`, когда текст должен рендериться без лигатур.
 
-Поддержка конкретных возможностей SVG реализуется по‑разному в движках браузеров. Параметры [SVGOptions](https://reference.aspose.com/slides/php-java/aspose.slides/svgoptions/) помогают сгладить несовместимости.
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setDisableFontLigatures(true);
+    $svgOptions->setUseFrameSize(true);
+    $svgOptions->setUseFrameRotation(false);
 
-**Можно ли экспортировать не только слайды, но и отдельные фигуры в SVG?**
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-custom-options.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
 
-Да. Любую [фигуру можно сохранить как отдельный SVG](https://reference.aspose.com/slides/php-java/aspose.slides/shape/writeassvg/), что удобно для значков, пиктограмм и повторного использования графики.
+## **Управление текстом и шрифтами**
 
-**Можно ли объединить несколько слайдов в один SVG (полоска/документ)?**
+### **Векторизация всего текста**
 
-Стандартный сценарий — один слайд → один SVG. Объединение нескольких слайдов в один SVG‑канвас является постобработкой, выполняемой на уровне приложения.
+Установите [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setVectorizeText) в `true`, чтобы записывать весь текст слайда в виде векторной графики. Это устраняет зависимости от шрифтов и делает визуальный результат более согласованным между браузерами, но текст уже нельзя будет выделять или искать как SVG‑текст.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setVectorizeText(true);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-text.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+### **Выбор способа обработки внешних шрифтов**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setExternalFontsHandling) использует значение [SvgExternalFontsHandling](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgexternalfontshandling/) для шрифтов, загружаемых извне. Выберите `AddLinksToFontFiles`, чтобы добавить ссылки на отдельные файлы шрифтов, `Embed`, чтобы включить данные шрифта в SVG, или `Vectorize`, чтобы рендерить только текст, использующий внешние шрифты, как графику. Проверьте лицензии шрифтов перед их внедрением.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $linkedFontsOptions = new SVGOptions();
+    $linkedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::AddLinksToFontFiles);
+    $linkedFontsStream = new Java("java.io.FileOutputStream", "slide-with-font-links.svg");
+    try {
+        $slide->writeAsSvg($linkedFontsStream, $linkedFontsOptions);
+    } finally {
+        $linkedFontsStream->close();
+    }
+
+    $embeddedFontsOptions = new SVGOptions();
+    $embeddedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Embed);
+    $embeddedFontsStream = new Java("java.io.FileOutputStream", "slide-with-embedded-fonts.svg");
+    try {
+        $slide->writeAsSvg($embeddedFontsStream, $embeddedFontsOptions);
+    } finally {
+        $embeddedFontsStream->close();
+    }
+
+    $vectorizedExternalFontsOptions = new SVGOptions();
+    $vectorizedExternalFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Vectorize);
+    $vectorizedExternalFontsStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-external-fonts.svg");
+    try {
+        $slide->writeAsSvg($vectorizedExternalFontsStream, $vectorizedExternalFontsOptions);
+    } finally {
+        $vectorizedExternalFontsStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Уменьшение размера встроенных изображений**
+
+Используйте [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setPicturesCompression), чтобы уменьшить разрешение встроенных изображений, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas), чтобы исключить обрезанные области источника, и [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setJpegQuality), чтобы контролировать качество JPEG‑кодирования. Эти настройки уменьшают размер файла ценой качества изображения или сохранённых данных изображения.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setPicturesCompression(PicturesCompression::Dpi150);
+    $svgOptions->setDeletePicturesCroppedAreas(true);
+    $svgOptions->setJpegQuality(80);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "compressed-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **Назначение стабильных идентификаторов формам и тексту**
+
+Предоставьте обратный вызов форматирования в [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setShapeFormattingController), чтобы задать [SvgShape.setId](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgshape/#setId) для каждой формы SVG. Обратный вызов может также задавать значения [SvgTSpan.setId](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgtspan/#setId) для элементов текста `tspan`.
+
+PhpJavaBridge не может вызвать PHP‑обратный вызов из `writeAsSvg`, когда он работает в режиме потока. Поместите логику форматирования в небольшом Java‑классе‑помощнике, скомпилируйте его и добавьте полученный JAR‑файл в classpath моста. Помощник может использовать [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/ru/php-java/aspose.slides/shape/#getOfficeInteropShapeId), который остаётся стабильным в течение жизненного цикла формы, и повторяемый счётчик для её текстовых спанов. Смотрите [Java implementation of `StableSvgIdController`](/slides/ru/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text) для кода помощника.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.StableSvgIdController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-stable-ids.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **Добавление обработчиков событий SVG**
+
+В обратном вызове форматирования вызовите [SvgShape.setEventHandler](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgshape/#setEventHandler) с значением [SvgEvent](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgevent/), чтобы добавить обработчик JavaScript к экспортируемой форме. Привяжите обратный вызов с помощью [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setShapeFormattingController) и определите функцию JavaScript на странице или в SVG‑документе, который размещает результат.
+
+Как и в случае со стабильными идентификаторами, реализуйте обратный вызов в Java‑помощнике, когда PhpJavaBridge использует режим потока. [Java implementation of `SvgEventController`](/slides/ru/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers) назначает ID и обработчик `OnClick` форме с именем `ActionButton`. Скомпилируйте этот помощник, добавьте его в classpath моста как `com.example.slides.SvgEventController` и используйте из PHP следующим образом:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.SvgEventController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "interactive-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+Хост‑страница может определить функцию JavaScript, на которую ссылается обработчик. Присвоение идентификаторов и обработчиков событий позволяет создавать просмотрщики слайдов, улучшать доступность и реализовывать другие интерактивные SVG‑процессы.
+
+## **ЧаВо**
+
+**Когда следует использовать [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setVectorizeText) вместо [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgexternalfontshandling/)?**
+
+Используйте [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgoptions/#setVectorizeText), когда весь текст должен быть независим от шрифтов. Используйте [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ru/php-java/aspose.slides/svgexternalfontshandling/), когда только текст, использующий внешние шрифты, следует преобразовать в графику.
+
+**Как лучше всего уменьшить размер SVG?**
+
+Начните с сжатия встроенных изображений, удаления обрезанных областей изображений и выбора ссылок на файлы шрифтов, если целевая среда может их предоставить. Проверьте результат, так как снижение разрешения изображений, уменьшение качества JPEG и векторизация текста влияют на качество и размер по‑разному.
+
+**Можно ли изменять экспортированные элементы SVG после экспорта?**
+
+Да. Назначьте идентификаторы через обратный вызов форматирования, а затем выберите соответствующие элементы SVG в инструменте пост‑обработки или в скрипте браузера.

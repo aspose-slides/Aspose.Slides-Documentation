@@ -1,34 +1,37 @@
 ---
-title: Gestire le Cartelle di Lavoro dei Grafici nelle Presentazioni Usando PHP
-linktitle: Cartella di Lavoro del Grafico
+title: Gestire le cartelle di lavoro dei grafici nelle presentazioni con PHP
+linktitle: Cartella di lavoro del grafico
 type: docs
 weight: 70
 url: /it/php-java/chart-workbook/
 keywords:
-- cartella di lavoro del grafico
+- cartella di lavoro grafico
 - dati del grafico
-- cella del workbook
+- cella della cartella di lavoro
 - etichetta dati
 - foglio di lavoro
-- fonte dati
-- workbook esterno
+- origine dati
+- cartella di lavoro esterna
 - dati esterni
+- cache del grafico
+- recupero della cartella di lavoro
 - PowerPoint
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Scopri Aspose.Slides per PHP tramite Java: gestisci facilmente le cartelle di lavoro dei grafici nei formati PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
+description: "Scopri Aspose.Slides per PHP via Java: gestisci facilmente le cartelle di lavoro dei grafici in formato PowerPoint e OpenDocument per ottimizzare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite stream di workbook, usare le celle del workbook come etichette dei dati del grafico, accedere alle collezioni di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
+Questo articolo spiega come lavorare con le cartelle di lavoro dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite flussi di cartelle di lavoro, utilizzare le celle della cartella di lavoro come etichette dati del grafico, accedere alle collezioni di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Copre anche l'utilizzo di workbook esterni come fonti dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
+Copre anche l'utilizzo di cartelle di lavoro esterne come origini dati per i grafici. Gli esempi mostrano come creare e assegnare una cartella di lavoro esterna, recuperare il percorso di una cartella di lavoro esterna collegata a un grafico e modificare i dati del grafico quando la cartella di lavoro è disponibile.
 
-## **Leggere e Scrivere Dati del Grafico da una Cartella di Lavoro**
-Aspose.Slides fornisce i metodi [readWorkbookStream](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/#readWorkbookStream) e [writeWorkbookStream](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/#writeWorkbookStream) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati allo stesso modo o avere una struttura simile a quella di origine.
+## **Leggere e Scrivere i Dati del Grafico da una Cartella di Lavoro**
 
-Questo codice PHP dimostra un’operazione di esempio:
+Aspose.Slides fornisce i metodi [readWorkbookStream](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/#readWorkbookStream) e [writeWorkbookStream](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/#writeWorkbookStream) che consentono di leggere e scrivere le cartelle di lavoro dei dati del grafico (contenenti i dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o devono avere una struttura simile all'origine.
+
+Questo codice PHP dimostra un'operazione di esempio:
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -46,16 +49,16 @@ Questo codice PHP dimostra un’operazione di esempio:
   }
 ```
 
-## **Impostare una Cella del WorkBook come Etichetta Dati del Grafico**
+## **Impostare una Cella WorkBook come Etichetta Dati del Grafico**
 
-1. Creare un’istanza della classe [Presentation](https://apireference.aspose.com/slides/it/php-java/aspose.slides/presentation) .
-1. Ottenere il riferimento di una diapositiva tramite il suo indice.
-1. Aggiungere un grafico a bolle con alcuni dati.
-1. Accedere alle serie del grafico.
-1. Impostare la cella del workbook come etichetta dati.
-1. Salvare la presentazione.
+1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/php-java/aspose.slides/presentation).
+2. Ottenere il riferimento di una diapositiva tramite il suo indice.
+3. Aggiungere un grafico a bolle con alcuni dati.
+4. Accedere alla serie del grafico.
+5. Impostare la cella della cartella di lavoro come etichetta dati.
+6. Salvare la presentazione.
 
-Questo codice PHP mostra come impostare una cella del workbook come etichetta dati del grafico:
+Questo codice PHP mostra come impostare una cella della cartella di lavoro come etichetta dati del grafico:
 
 ```php
   $lbl0 = "Label 0 cell value";
@@ -83,7 +86,7 @@ Questo codice PHP mostra come impostare una cella del workbook come etichetta da
 
 ## **Gestire i Fogli di Lavoro**
 
-Questo codice PHP dimostra un’operazione in cui il metodo [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/#getWorksheets) viene usato per accedere a una collezione di fogli di lavoro:
+Questo codice PHP dimostra un'operazione in cui il metodo [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdataworkbook/#getWorksheets) è utilizzato per accedere a una collezione di fogli di lavoro:
 
 ```php
   $pres = new Presentation();
@@ -102,7 +105,7 @@ Questo codice PHP dimostra un’operazione in cui il metodo [ChartDataWorkbook::
 
 ## **Specificare il Tipo di Origine Dati**
 
-Questo codice PHP mostra come specificare un tipo per un’origine dati:
+Questo codice PHP mostra come specificare un tipo per un'origine dati:
 
 ```php
   $pres = new Presentation();
@@ -121,9 +124,9 @@ Questo codice PHP mostra come specificare un tipo per un’origine dati:
   }
 ```
 
-## **Rilevare Formati di Workbook Incorporati Non Supportati**
+## **Rilevare Formati di Cartella di Lavoro Incorporati Non Supportati**
 
-Aspose.Slides non supporta il formato di workbook Excel binario (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `getEmbeddedWorkbookType` su [ChartData](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/) insieme all’enumerazione [WorkbookType](https://reference.aspose.com/slides/it/php-java/aspose.slides/workbooktype/) per rilevare formati non supportati e saltare quei grafici.
+Aspose.Slides non supporta il formato di cartella di lavoro Excel binario (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `getEmbeddedWorkbookType` su [ChartData](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/php-java/aspose.slides/workbooktype/) per rilevare i formati non supportati e ignorare quei grafici.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -154,15 +157,15 @@ try {
 }
 ```
 
-## **Workbook Esterno**
+## **Cartella di Lavoro Esterna**
 
-Aspose.Slides supporta workbook esterni come fonte dati per i grafici.
+Aspose.Slides supporta le cartelle di lavoro esterne come origine dati per i grafici.
 
-### **Creare un Workbook Esterno**
+### **Creare una Cartella di Lavoro Esterna**
 
-Utilizzando i metodi **`readWorkbookStream`** e **`setExternalWorkbook`**, è possibile creare un workbook esterno da zero o rendere esterno un workbook interno.
+Utilizzando i metodi **`readWorkbookStream`** e **`setExternalWorkbook`**, è possibile creare una cartella di lavoro esterna da zero o rendere esterna una cartella di lavoro interna.
 
-Questo codice PHP dimostra il processo di creazione del workbook esterno:
+Questo codice PHP dimostra il processo di creazione della cartella di lavoro esterna:
 
 ```php
   $pres = new Presentation();
@@ -190,13 +193,13 @@ Questo codice PHP dimostra il processo di creazione del workbook esterno:
   }
 ```
 
-### **Impostare un Workbook Esterno**
+### **Impostare una Cartella di Lavoro Esterna**
 
-Utilizzando il metodo **`setExternalWorkbook`**, è possibile assegnare un workbook esterno a un grafico come sua fonte dati. Questo metodo può anche essere usato per aggiornare il percorso al workbook esterno (se quest’ultimo è stato spostato).
+Utilizzando il metodo **`setExternalWorkbook`**, è possibile assegnare una cartella di lavoro esterna a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso della cartella di lavoro esterna (se quest'ultima è stata spostata).
 
-Pur non potendo modificare i dati nei workbook memorizzati in posizioni remote o risorse, è comunque possibile usare tali workbook come fonte dati esterna. Se viene fornito un percorso relativo per un workbook esterno, viene convertito automaticamente in un percorso completo.
+Sebbene non sia possibile modificare i dati nelle cartelle di lavoro archiviate in posizioni o risorse remote, è comunque possibile utilizzare tali cartelle di lavoro come origine dati esterna. Se viene fornito un percorso relativo per una cartella di lavoro esterna, viene convertito automaticamente in un percorso assoluto.
 
-Questo codice PHP mostra come impostare un workbook esterno:
+Questo codice PHP mostra come impostare una cartella di lavoro esterna:
 
 ```php
   # Crea un'istanza della classe Presentation
@@ -220,10 +223,10 @@ Questo codice PHP mostra come impostare un workbook esterno:
   }
 ```
 
-Il parametro `ChartData` (sotto il metodo `setExternalWorkbook`) serve a specificare se un workbook Excel verrà caricato o meno.
+Il parametro `ChartData` (sotto il metodo `setExternalWorkbook`) è usato per specificare se una cartella di lavoro Excel verrà caricata o meno. 
 
-* Quando il valore di `ChartData` è impostato su `false`, viene aggiornato solo il percorso del workbook: i dati del grafico non verranno caricati né aggiornati dal workbook di destinazione. Questa impostazione è utile quando il workbook di destinazione è inesistente o non disponibile. 
-* Quando il valore di `ChartData` è impostato su `true`, i dati del grafico vengono aggiornati dal workbook di destinazione.
+* Quando il valore di `ChartData` è impostato su `false`, viene aggiornato solo il percorso della cartella di lavoro — i dati del grafico non verranno caricati o aggiornati dalla cartella di lavoro di destinazione. Potrebbe essere utile utilizzare questa impostazione quando la cartella di lavoro di destinazione è inesistente o non disponibile. 
+* Quando il valore di `ChartData` è impostato su `true`, i dati del grafico vengono aggiornati dalla cartella di lavoro di destinazione.
 
 ```php
   # Crea un'istanza della classe Presentation
@@ -240,15 +243,15 @@ Il parametro `ChartData` (sotto il metodo `setExternalWorkbook`) serve a specifi
   }
 ```
 
-### **Ottenere il Percorso del Workbook della Fonte Dati Esterna di un Grafico**
+### **Ottenere il Percorso della Cartella di Lavoro Fonte Dati Esterna di un Grafico**
 
-1. Creare un’istanza della classe [Presentation](https://apireference.aspose.com/slides/it/php-java/aspose.slides/presentation) .
-1. Ottenere il riferimento di una diapositiva tramite il suo indice.
-1. Creare un oggetto per la forma del grafico.
-1. Creare un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta la fonte dati del grafico.
-1. Specificare la condizione pertinente in base al fatto che il tipo di origine sia lo stesso del tipo di fonte dati del workbook esterno.
+1. Creare un'istanza della classe [Presentation](https://apireference.aspose.com/slides/it/php-java/aspose.slides/presentation).
+2. Ottenere il riferimento di una diapositiva tramite il suo indice.
+3. Creare un oggetto per la forma del grafico.
+4. Creare un oggetto per il tipo sorgente (`ChartDataSourceType`) che rappresenta l'origine dati del grafico.
+5. Specificare la condizione pertinente in base al fatto che il tipo sorgente sia lo stesso del tipo di origine dati della cartella di lavoro esterna.
 
-Questo codice PHP dimostra l’operazione:
+Questo codice PHP dimostra l'operazione:
 
 ```php
   # Crea un'istanza della classe Presentation
@@ -271,9 +274,9 @@ Questo codice PHP dimostra l’operazione:
 
 ### **Modificare i Dati del Grafico**
 
-È possibile modificare i dati nei workbook esterni allo stesso modo in cui si modificano i contenuti dei workbook interni. Quando un workbook esterno non può essere caricato, viene sollevata un’eccezione.
+È possibile modificare i dati nelle cartelle di lavoro esterne allo stesso modo in cui si apportano modifiche al contenuto delle cartelle di lavoro interne. Quando una cartella di lavoro esterna non può essere caricata, viene sollevata un'eccezione.
 
-Questo codice PHP è un’implementazione del processo descritto:
+Questo codice PHP è un'implementazione del processo descritto:
 
 ```php
   # Crea un'istanza della classe Presentation
@@ -290,28 +293,54 @@ Questo codice PHP è un’implementazione del processo descritto:
   }
 ```
 
+### **Recuperare una Cartella di Lavoro dalla Cache del Grafico**
+
+Se un grafico utilizza una cartella di lavoro esterna mancante o non disponibile, Aspose.Slides può ricostruire la cartella di lavoro del grafico dai dati memorizzati nella cache della presentazione. Creare [LoadOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/loadoptions/), configurarlo con [SpreadsheetOptions](https://reference.aspose.com/slides/it/php-java/aspose.slides/spreadsheetoptions/), e chiamare [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) con `true` prima di aprire la presentazione.
+
+Il seguente esempio PHP apre una presentazione il cui grafico fa riferimento a una cartella di lavoro esterna non disponibile e accede ai dati recuperati tramite [Chart::getChartData](https://reference.aspose.com/slides/it/php-java/aspose.slides/chart/#getChartData) e [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # Leggi o modifica i dati del workbook recuperato qui.
+} finally {
+    $presentation->dispose();
+}
+```
+
+Se la cartella di lavoro esterna è non disponibile e il recupero è disabilitato, Aspose.Slides solleva un'eccezione. Abilitare il recupero solo quando l'utilizzo dei dati del grafico memorizzati nella cache è un'opzione accettabile, poiché la cache potrebbe non contenere le modifiche apportate alla cartella di lavoro esterna dopo l'ultimo aggiornamento della presentazione.
+
 ## **FAQ**
 
-**Posso determinare se un grafico specifico è collegato a un workbook esterno o incorporato?**
+**Posso determinare se un grafico specifico è collegato a una cartella di lavoro esterna o incorporata?**
 
-Sì. Un grafico ha un [data source type](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getdatasourcetype/) e un [path to an external workbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getexternalworkbookpath/); se la fonte è un workbook esterno, è possibile leggere il percorso completo per verificare che venga usato un file esterno.
+Sì. Un grafico ha un [data source type](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getdatasourcetype/) e un [path to an external workbook](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getexternalworkbookpath/); se l'origine è una cartella di lavoro esterna, è possibile leggere il percorso completo per verificare che venga utilizzato un file esterno.
 
-**Sono supportati i percorsi relativi ai workbook esterni, e come vengono memorizzati?**
+**Sono supportati i percorsi relativi alle cartelle di lavoro esterne e come vengono memorizzati?**
 
-Sì. Se si specifica un percorso relativo, viene automaticamente convertito in un percorso assoluto. Questo è comodo per la portabilità del progetto; tuttavia, occorre tenere presente che la presentazione memorizzerà il percorso assoluto nel file PPTX.
+Sì. Se si specifica un percorso relativo, viene automaticamente convertito in un percorso assoluto. Questo è comodo per la portabilità del progetto; tuttavia, è necessario tenere presente che la presentazione memorizzerà il percorso assoluto nel file PPTX.
 
-**Posso usare workbook situati su risorse di rete/condivisioni?**
+**Posso utilizzare cartelle di lavoro situate su risorse o condivisioni di rete?**
 
-Sì, tali workbook possono essere usati come fonte dati esterna. Tuttavia, la modifica diretta di workbook remoti da Aspose.Slides non è supportata: possono essere usati solo come fonte.
+Sì, tali cartelle di lavoro possono essere usate come origine dati esterna. Tuttavia, la modifica delle cartelle di lavoro remote direttamente da Aspose.Slides non è supportata: possono essere utilizzate solo come sorgente.
 
-**Aspose.Slides sovrascrive l'XLSX esterno quando si salva la presentazione?**
+**Aspose.Slides sovrascrive il file XLSX esterno durante il salvataggio della presentazione?**
 
-No. La presentazione memorizza un [link al file esterno](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getexternalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato quando la presentazione viene salvata.
+No. La presentazione memorizza un [link to the external file](https://reference.aspose.com/slides/it/php-java/aspose.slides/chartdata/getexternalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato quando la presentazione viene salvata.
 
 **Cosa devo fare se il file esterno è protetto da password?**
 
-Aspose.Slides non accetta una password al momento del collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](/cells/php-java/)) e collegarsi a quella copia.
+Aspose.Slides non accetta una password al momento del collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, utilizzando [Aspose.Cells](/cells/php-java/)) e collegarsi a quella copia.
 
-**Possono più grafici fare riferimento allo stesso workbook esterno?**
+**Più grafici possono fare riferimento alla stessa cartella di lavoro esterna?**
 
-Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l’aggiornamento di quel file verrà riflesso in ciascun grafico al successivo caricamento dei dati.
+Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l'aggiornamento di quel file verrà riflesso in ogni grafico al successivo caricamento dei dati.

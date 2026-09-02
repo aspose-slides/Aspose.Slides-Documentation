@@ -18,7 +18,7 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Convertir des diapositives PPT, PPTX et ODP en images en Java avec Aspose.Slides—rendu rapide et de haute qualité avec des exemples de code clairs."
+description: "Convertir les diapositives PPT, PPTX et ODP en images en Java avec Aspose.Slides — rendu rapide et de haute qualité avec des exemples de code clairs."
 ---
 ## **Introduction**
 
@@ -26,16 +26,16 @@ Aspose.Slides for Java vous permet de convertir facilement les diapositives Powe
 
 Pour convertir une diapositive en image, suivez ces étapes :
 
-1. Définissez les paramètres de conversion souhaités et sélectionnez les diapositives à exporter en utilisant :
-    - L’interface [ITiffOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itiffoptions/),
-    - L’interface [IRenderingOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/irenderingoptions/).
-2. Générez l’image de la diapositive en appelant la méthode [getImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+1. Définissez les paramètres de conversion souhaités et sélectionnez les diapositives que vous voulez exporter en utilisant :
+    - L’interface [ITiffOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itiffoptions/) ou
+    - L’interface [IRenderingOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/irenderingoptions/) .
+2. Générez l’image de la diapositive en appelant la méthode [getImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) .
 
-Dans Aspose.Slides for Java, un [IImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iimage/) est une interface qui vous permet de travailler avec des images définies par des données de pixels. Vous pouvez utiliser cette interface pour enregistrer les images dans un large éventail de formats (BMP, JPG, PNG, etc.).
+Dans Aspose.Slides for Java, un [IImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iimage/) est une interface qui vous permet de travailler avec des images définies par des données de pixels. Vous pouvez utiliser cette interface pour enregistrer des images dans un large éventail de formats (BMP, JPG, PNG, etc.).
 
-## **Convertir les diapositives en bitmap et enregistrer les images en PNG**
+## **Convertir les diapositives en bitmap et enregistrer les images au format PNG**
 
-Vous pouvez convertir une diapositive en objet bitmap et l’utiliser directement dans votre application. Vous pouvez également convertir une diapositive en bitmap puis enregistrer l’image au format JPEG ou tout autre format préféré.
+Vous pouvez convertir une diapositive en objet bitmap et l’utiliser directement dans votre application. Vous pouvez également convertir une diapositive en bitmap puis enregistrer l’image au format JPEG ou tout autre format de votre choix.
 
 Ce code montre comment convertir la première diapositive d’une présentation en objet bitmap puis enregistrer l’image au format PNG :
 
@@ -57,7 +57,7 @@ try {
 
 ## **Convertir les diapositives en images avec des tailles personnalisées**
 
-Il se peut que vous ayez besoin d’obtenir une image à une taille donnée. En utilisant une surcharge de la méthode [getImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), vous pouvez convertir une diapositive en image avec des dimensions spécifiques (largeur et hauteur).
+Il se peut que vous ayez besoin d’obtenir une image d’une certaine taille. En utilisant une surcharge de la méthode [getImage](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), vous pouvez convertir une diapositive en image avec des dimensions spécifiques (largeur et hauteur). 
 
 Ce code d’exemple montre comment procéder :
 
@@ -84,11 +84,11 @@ try {
 
 Certaines diapositives peuvent contenir des notes et des commentaires.
 
-Aspose.Slides fournit deux interfaces — [ITiffOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itiffoptions/) et [IRenderingOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/irenderingoptions/) — qui permettent de contrôler le rendu des diapositives de présentation en images. Les deux interfaces incluent la méthode `setSlidesLayoutOptions`, qui vous permet de configurer le rendu des notes et des commentaires d’une diapositive lors de sa conversion en image.
+Aspose.Slides propose deux interfaces — [ITiffOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itiffoptions/) et [IRenderingOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/irenderingoptions/) — qui vous permettent de contrôler le rendu des diapositives de présentation en images. Les deux interfaces comprennent la méthode `setSlidesLayoutOptions`, qui vous permet de configurer le rendu des notes et des commentaires sur une diapositive lors de sa conversion en image.
 
 Avec la classe [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/notescommentslayoutingoptions/), vous pouvez spécifier la position souhaitée pour les notes et les commentaires dans l’image résultante.
 
-Ce code montre comment convertir une diapositive contenant des notes et des commentaires :
+Ce code montre comment convertir une diapositive avec notes et commentaires :
 
 ```java 
 float scaleX = 2;
@@ -100,8 +100,8 @@ try {
     NotesCommentsLayoutingOptions notesCommentsOptions = new NotesCommentsLayoutingOptions();
     notesCommentsOptions.setNotesPosition(NotesPositions.BottomTruncated);  // Définir la position des notes.
     notesCommentsOptions.setCommentsPosition(CommentsPositions.Right);      // Définir la position des commentaires.
-    notesCommentsOptions.setCommentsAreaWidth(500);                         // Définir la largeur de la zone des commentaires.
-    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Définir la couleur de la zone des commentaires.
+    notesCommentsOptions.setCommentsAreaWidth(500);                         // Définir la largeur de la zone de commentaires.
+    notesCommentsOptions.setCommentsAreaColor(Color.LIGHT_GRAY);            // Définir la couleur de la zone de commentaires.
 
     // Créer les options de rendu.
     RenderingOptions options = new RenderingOptions();
@@ -122,16 +122,14 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-
-Dans tout processus de conversion diapositive‑vers‑image, la méthode [setNotesPosition](https://reference.aspose.com/slides/fr/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) ne peut pas appliquer `BottomFull` (pour spécifier la position des notes) car le texte d’une note peut être trop volumineux pour tenir dans la taille d’image spécifiée.
-
+Dans tout processus de conversion de diapositive en image, la méthode [setNotesPosition](https://reference.aspose.com/slides/fr/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) ne peut pas appliquer `BottomFull` (pour spécifier la position des notes) car le texte d’une note peut être trop volumineux, ce qui l’empêche de tenir dans la taille d’image spécifiée.
 {{% /alert %}} 
 
 ## **Convertir les diapositives en images en utilisant les options TIFF**
 
 L’interface [ITiffOptions](https://reference.aspose.com/slides/fr/java/com.aspose.slides/itiffoptions/) offre un contrôle plus poussé sur l’image TIFF résultante en vous permettant de spécifier des paramètres tels que la taille, la résolution, la palette de couleurs, etc.
 
-Ce code montre un processus de conversion où les options TIFF sont utilisées pour produire une image en noir et blanc avec une résolution de 300 DPI et une taille de 2160 × 2800 pixels :
+Ce code montre un processus de conversion où les options TIFF sont utilisées pour produire une image en noir et blanc avec une résolution de 300 DPI et une taille de 2160 × 2800 :
 
 ```java 
 // Charger un fichier de présentation.
@@ -162,9 +160,7 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-
 La prise en charge du format TIFF n’est pas garantie dans les versions antérieures à JDK 9.
-
 {{% /alert %}} 
 
 ## **Convertir toutes les diapositives en images**
@@ -179,7 +175,7 @@ float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Rendre la présentation en images diapositive par diapositive.
+    // Rendu de la présentation en images diapositive par diapositive.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
         // Contrôler les diapositives masquées (ne pas rendre les diapositives masquées).
@@ -204,18 +200,18 @@ try {
 ## **Rendu des emojis en couleur**
 
 {{% alert title="Note" color="warning" %}} 
-Pour rendre correctement les emojis couleur lors de la conversion des diapositives en images, les polices d’emoji utilisées dans la présentation doivent être installées et disponibles sur le système qui effectue la conversion. Par exemple, si la présentation utilise **Segoe UI Emoji** et que cette police est absente, les emojis peuvent apparaître en monochrome dans les images de sortie.
+Pour rendre correctement les emojis couleur lors de la conversion des diapositives d’une présentation en images, les polices d’emoji utilisées dans la présentation doivent être installées et disponibles sur le système effectuant la conversion. Par exemple, si la présentation utilise **Segoe UI Emoji** et que cette police est absente, les emojis peuvent apparaître en monochrome dans les images générées.
 {{% /alert %}}
 
 ## **FAQ**
 
-**Aspose.Slides prend‑il en charge le rendu des diapositives avec des animations ?**
+**Aspose.Slides prend‑t‑il en charge le rendu des diapositives avec animations ?**
 
-Non, la méthode `getImage` ne sauvegarde qu’une image statique de la diapositive, sans animation.
+Non, la méthode `getImage` enregistre uniquement une image statique de la diapositive, sans animations.
 
 **Les diapositives masquées peuvent‑elles être exportées en images ?**
 
-Oui, les diapositives masquées peuvent être traitées comme les diapositives normales. Assurez‑vous simplement qu’elles soient incluses dans la boucle de traitement.
+Oui, les diapositives masquées peuvent être traitées comme les diapositives normales. Assurez‑vous simplement qu’elles sont incluses dans la boucle de traitement.
 
 **Les images peuvent‑elles être enregistrées avec des ombres et des effets ?**
 

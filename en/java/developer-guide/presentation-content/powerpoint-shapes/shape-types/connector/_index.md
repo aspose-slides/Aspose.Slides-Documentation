@@ -1,5 +1,5 @@
 ---
-title: Manage Connectors in Presentations Using Java
+title: Manage Connectors in Presentations in Java
 linktitle: Connector
 type: docs
 weight: 10
@@ -10,486 +10,497 @@ keywords:
 - connector point
 - connector line
 - connector angle
+- connection site
+- adjustment point
 - connect shapes
 - PowerPoint
 - presentation
 - Java
 - Aspose.Slides
-description: "Empower Java apps to draw, connect and auto-route lines in PowerPoint slides—gain full control over straight, elbow and curved connectors."
+description: "Learn how to add, attach, reroute, adjust, and inspect straight, bent, and curved PowerPoint connectors with Aspose.Slides for Java."
 ---
 
-## **Introduction**
+## **Overview**
 
-A PowerPoint connector is a special line that connects or links two shapes together and stays attached to shapes even when they are moved or repositioned on a given slide. 
+A connector is a line that can remain attached to two shapes when either shape moves. Its ends attach to connection sites, represented by green dots in PowerPoint. Some bent and curved connectors also expose adjustment points, represented by orange dots, that control the position of individual connector segments.
 
-Connectors are typically connected to *connection dots* (green dots), which exist on all shapes by default. Connection dots appear when a cursor comes close to them.
+Aspose.Slides represents connectors through the [IConnector](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/) interface. You can create them, attach their ends to shapes, choose connection sites, reroute them, and modify the geometry of connectors that have adjustment points.
 
-*Adjustment points* (orange dots), which exist only on certain connectors, are used to modify connectors' positions and shapes.
+## **Connector Types**
 
-## **Types of Connectors**
+The [ShapeType](https://reference.aspose.com/slides/java/com.aspose.slides/shapetype/) class includes straight, bent, and curved connector presets. The following table shows the available connector geometries and the number of adjustment points defined by each preset.
 
-In PowerPoint, you can use straight, elbow (angled), and curved connectors. 
+| Connector | Image | Number of adjustment points |
+|---|---|---|
+| `ShapeType.Line` | ![shapetype-lineconnector](shapetype-lineconnector.png) | 0 |
+| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0 |
+| `ShapeType.BentConnector2` | ![shapetype-bent-connector2](shapetype-bent-connector2.png) | 0 |
+| `ShapeType.BentConnector3` | ![shapetype-bentconnector3](shapetype-bentconnector3.png) | 1 |
+| `ShapeType.BentConnector4` | ![shapetype-bentconnector4](shapetype-bentconnector4.png) | 2 |
+| `ShapeType.BentConnector5` | ![shapetype-bentconnector5](shapetype-bentconnector5.png) | 3 |
+| `ShapeType.CurvedConnector2` | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0 |
+| `ShapeType.CurvedConnector3` | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1 |
+| `ShapeType.CurvedConnector4` | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2 |
+| `ShapeType.CurvedConnector5` | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3 |
 
-Aspose.Slides provides these connectors:
+The number and meaning of adjustment points are part of the selected connector preset. Do not assume that two different connector types expose the same collection layout.
 
-| Connector                      | Image                                                        | Number of adjustment points |
-| ------------------------------ | ------------------------------------------------------------ | --------------------------- |
-| `ShapeType.Line`               | ![shapetype-lineconnector](shapetype-lineconnector.png)      | 0                           |
-| `ShapeType.StraightConnector1` | ![shapetype-straightconnector1](shapetype-straightconnector1.png) | 0                           |
-| `ShapeType.BentConnector2`     | ![shapetype-bent-connector2](shapetype-bent-connector2.png)  | 0                           |
-| `ShapeType.BentConnector3`     | ![shapetype-bentconnector3](shapetype-bentconnector3.png)    | 1                           |
-| `ShapeType.BentConnector4`     | ![shapetype-bentconnector4](shapetype-bentconnector4.png)    | 2                           |
-| `ShapeType.BentConnector5`     | ![shapetype-bentconnector5](shapetype-bentconnector5.png)    | 3                           |
-| `ShapeType.CurvedConnector2`   | ![shapetype-curvedconnector2](shapetype-curvedconnector2.png) | 0                           |
-| `ShapeType.CurvedConnector3`   | ![shapetype-curvedconnector3](shapetype-curvedconnector3.png) | 1                           |
-| `ShapeType.CurvedConnector4`   | ![shapetype-curvedconnector4](shapetype-curvedconnector4.png) | 2                           |
-| `ShapeType.CurvedConnector5`   | ![shapetype.curvedconnector5](shapetype.curvedconnector5.png) | 3                           |
+## **Connect Two Shapes**
 
-## **Connect Shapes Using Connectors**
+Use [IShapeCollection.addConnector](https://reference.aspose.com/slides/java/com.aspose.slides/ishapecollection/#addConnector-int-float-float-float-float-) to add a connector, and use [IConnector.setStartShapeConnectedTo](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/#setStartShapeConnectedTo-com.aspose.slides.IShape-) and [IConnector.setEndShapeConnectedTo](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/#setEndShapeConnectedTo-com.aspose.slides.IShape-) to attach its ends. After both ends are attached, [IConnector.reroute](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/#reroute--) selects a short route between the shapes.
 
-1. Create an instance of the [Presentation](https://apireference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
-1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
-1. Connect the shapes using the connector. 
-1. Call the `reroute` method to apply the shortest connection path.
-1. Save the presentation. 
-
-This Java code shows you how to add a connector (a bent connector) between two shapes (an ellipse and rectangle):
-
-```Java
-import com.aspose.slides.*;
-
-// Instantiates a presentation class that represents the PPTX file
-Presentation pres = new Presentation();
-try {
-    // Accesses the shapes collection for a specific slide
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
-    
-    // Adds an Ellipse autoshape
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
-    
-    // Adds a Rectangle autoshape
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
-    
-    // Adds a connector shape to the slide shape collection
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
-    
-    // Connects the shapes using the connector
-    connector.setStartShapeConnectedTo(ellipse);
-    connector.setEndShapeConnectedTo(rectangle);
-    
-    // Calls reroute that sets the automatic shortest path between shapes
-    connector.reroute();
-    
-    // Saves the presentation
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-{{%  alert title="NOTE"  color="warning"   %}} 
-
-The `Connector.reroute` method reroutes a connector and forces it to take the shortest possible path between shapes. To achieve its aim, the method may change the `setStartShapeConnectionSiteIndex` and `setEndShapeConnectionSiteIndex` points. 
-
-{{% /alert %}} 
-
-## **Specify a Connection Dot**
-
-If you want a connector to link two shapes using specific dots on the shapes, you have to specify your preferred connection dots this way:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) class.
-1. Get a slide's reference through its index.
-1. Add two [AutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/AutoShape) to the slide using the `addAutoShape` method exposed by the `Shapes` object.
-1. Add a connector using the `addConnector` method exposed by the `Shapes` object by defining the connector type.
-1. Connect the shapes using the connector. 
-1. Set your preferred connection dots on the shapes. 
-1. Save the presentation.
-
-This Java code demonstrates an operation where a preferred connection dot is specified:
+The following example connects an ellipse and a rectangle with a bent connector:
 
 ```java
 import com.aspose.slides.*;
 
-// Instantiates a presentation class that represents a PPTX file
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Accesses the shapes collection for a specific slide
-    IShapeCollection shapes = pres.getSlides().get_Item(0).getShapes();
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Add an Ellipse autoshape
-    IAutoShape ellipse = shapes.addAutoShape(ShapeType.Ellipse, 0, 100, 100, 100);
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
 
-    // Add a Rectangle autoshape
-    IAutoShape rectangle = shapes.addAutoShape(ShapeType.Rectangle, 100, 300, 100, 100);
+    connector.setStartShapeConnectedTo(ellipse);
+    connector.setEndShapeConnectedTo(rectangle);
+    connector.reroute();
 
-    // Adds a connector shape to the slide's shape collection
-    IConnector connector = shapes.addConnector(ShapeType.BentConnector2, 0, 0, 10, 10);
+    presentation.save("connected-shapes.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    // Connects the shapes using the connector
+{{% alert color="warning" title="Warning" %}}
+
+Calling `reroute` can change the [setStartShapeConnectionSiteIndex](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/#setStartShapeConnectionSiteIndex-long-) and [setEndShapeConnectionSiteIndex](https://reference.aspose.com/slides/java/com.aspose.slides/iconnector/#setEndShapeConnectionSiteIndex-long-) values. Assign specific connection sites after rerouting if those sites must remain fixed.
+
+{{% /alert %}}
+
+## **Choose a Connection Site**
+
+Each connectable shape reports its number of sites through [IShape.getConnectionSiteCount](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getConnectionSiteCount--). Validate a preferred zero-based site index before assigning it to a connector end; site counts vary by shape geometry.
+
+This example attaches the connector to a particular site on the ellipse when that site exists:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape ellipse = slide.getShapes().addAutoShape(ShapeType.Ellipse, 40, 80, 120, 80);
+    IAutoShape rectangle = slide.getShapes().addAutoShape(ShapeType.Rectangle, 320, 240, 140, 80);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector3, 0, 0, 10, 10);
+
     connector.setStartShapeConnectedTo(ellipse);
     connector.setEndShapeConnectedTo(rectangle);
 
-    // Sets the preferred connection dot index on the Ellipse shape
-    int wantedIndex = 6;
-
-    // Checks whether the preferred index is less than the maximum site index count
-    if (ellipse.getConnectionSiteCount() > wantedIndex) 
-    {
-        // Sets the preferred connection dot on the Ellipse autoshape
-        connector.setStartShapeConnectionSiteIndex(wantedIndex);
+    long preferredSiteIndex = 2;
+    if (preferredSiteIndex < ellipse.getConnectionSiteCount()) {
+        connector.setStartShapeConnectionSiteIndex(preferredSiteIndex);
+    } else {
+        System.out.println("The ellipse has only " + ellipse.getConnectionSiteCount() + " connection sites.");
     }
 
-    // Saves the presentation
-    pres.save("output.pptx", SaveFormat.Pptx);
+    presentation.save("specific-connection-site.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Adjust a Connector Point**
 
-You can adjust an existing connector through its adjustment points. Only connectors with adjustment points can be altered in this manner. See the table under **[Types of connectors.](/slides/java/connector/#types-of-connectors)** 
+Connectors with adjustment points expose them through [IGeometryShape.getAdjustments](https://reference.aspose.com/slides/java/com.aspose.slides/igeometryshape/#getAdjustments--). Inspect every [IAdjustValue](https://reference.aspose.com/slides/java/com.aspose.slides/iadjustvalue/) and check its [getType](https://reference.aspose.com/slides/java/com.aspose.slides/iadjustvalue/#getType--) value before changing it with [setRawValue](https://reference.aspose.com/slides/java/com.aspose.slides/iadjustvalue/#setRawValue-long-). The general rules for identifying preset shape adjustments are described in [Shape Manipulation](/slides/java/shape-manipulations/).
 
-### **Simple Case**
+The number, order, meaning, and valid value range of connector adjustments depend on the connector preset. The adjustment type is read-only, while the adjustment value is writable. The read-only [getName](https://reference.aspose.com/slides/java/com.aspose.slides/iadjustvalue/#getName--) method provides additional identification when a connector contains more than one adjustment of the same semantic type.
 
-Consider a case where a connector between two shapes (A and B) passes through a third shape (C):
+### **Route Around an Obstacle**
+
+In the following layout, a `BentConnector5` connector between two shapes passes through a third shape:
 
 ![connector-obstruction](connector-obstruction.png)
+
+This code creates the obstructed connector:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    ISlide sld = pres.getSlides().get_Item(0);
-    IShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
-    IShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
-    IShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
-
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setEndShapeConnectedTo(shapeTo);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
+
+    presentation.save("connector-obstruction.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-To avoid or bypass the third shape, we can adjust the connector by moving its vertical line to the left this way:
+Moving the vertical bend changes the route so that the connector bypasses the obstacle:
 
 ![connector-obstruction-fixed](connector-obstruction-fixed.png)
 
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    IConnector connector = pres.getSlides().get_Item(0).getShapes()
-            .addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
-
-    IAdjustValue adj2 = connector.getAdjustments().get_Item(1);
-    adj2.setRawValue(adj2.getRawValue() + 10000);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-### **Complex Cases** 
-
-To perform more complicated adjustments, you have to take these things into account:
-
-* A connector's adjustable point is strongly linked to a formula that calculates and determines its position. So changes to the point's location may alter the connector's shape.
-* A connector's adjustment points are defined in a strict order in an array. The adjustment points are numbered from a connector's start point to its end.
-* Adjustment point values reflect the percentage of a connector shape's width/height. 
-  * The shape is bounded by the connector's start and end points multiplied by 1000. 
-  * The first point, second point, and third point defines the percentage from the width, the percentage from the height, and the percentage from the width (again) respectively.
-* For calculations that determine the coordinates of a connector's adjustment points, you have to take the connector's rotation and its reflection into account. **Note** that the rotation angle for all connectors shown under **[Types of connectors](/slides/java/connector/#types-of-connectors)** is 0.
-
-#### **Case 1**
-
-Consider a case where two text frame objects are linked together through a connector:
-
-![connector-shape-complex](connector-shape-complex.png)
+Instead of assuming that collection index `1` always represents the vertical bend, this example searches for `ConnectorBendPositionY` and changes it only when the expected semantic type is present:
 
 ```java
 import com.aspose.slides.*;
 import java.awt.Color;
 
-// Instantiates a presentation class that represents a PPTX file
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    // Gets the first slide in the presentation
-    ISlide sld = pres.getSlides().get_Item(0);
-    // Adds shapes that will be joined together through a connector
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-    IAutoShape shapeTo = sld.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
-    shapeTo.getTextFrame().setText("To");
-    // Adds a connector
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    // Specifies the connector's direction
-    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
-    // Specifies the connector's color
-    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-    // Specifies the thickness of the connector's line
-    connector.getLineFormat().setWidth(3);
-    
-    // Links the shapes together with the connector
-    connector.setStartShapeConnectedTo(shapeFrom);
-    connector.setStartShapeConnectionSiteIndex(3);
-    connector.setEndShapeConnectedTo(shapeTo);
-    connector.setEndShapeConnectionSiteIndex(2);
-    
-    // Gets adjustment points for the connector
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    slide.getShapes().addAutoShape(ShapeType.Rectangle, 300, 150, 150, 75);
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 400, 100, 50);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 70, 30);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector5, 20, 20, 400, 300);
 
-**Adjustment**
-
-We can change the connector's adjustment point values by increasing the corresponding width and height percentage by 20% and 200%, respectively:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    IConnector connector = pres.getSlides().get_Item(0).getShapes()
-            .addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
-
-    // Changes the values of the adjustment points
-    adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-    adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-The result:
-
-![connector-adjusted-1](connector-adjusted-1.png)
-
-To define a model that allows us determine the coordinates and the shape of individual parts of the connector, let's create a shape that corresponds to the horizontal component of the connector at the connector.getAdjustments().get_Item(0) point:
-
-```java
-import com.aspose.slides.*;
-
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
-
-    // Draw the vertical component of the connector
-    float x = connector.getX() + connector.getWidth() * adjValue_0.getRawValue() / 100000;
-    float y = connector.getY();
-    float height = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-    sld.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 0, height);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-The result:
-
-![connector-adjusted-2](connector-adjusted-2.png)
-
-#### **Case 2**
-
-In **Case 1**, we demonstrated a simple connector adjustment operation using basic principles. In normal situations, you have to take the connector rotation and its display (which are set by the connector.getRotation(), connector.getFrame().getFlipH(), and connector.getFrame().getFlipV()) into account. We will now demonstrate the process.
-
-First, let's add a new text frame object (**To 1**) to the slide (for connection purposes) and create a new (green) connector that connects it to the objects we already created.
-
-```java
-import com.aspose.slides.*;
-import java.awt.Color;
-
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-    IAutoShape shapeFrom = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
-    shapeFrom.getTextFrame().setText("From");
-
-    // Creates a new binding object
-    IAutoShape shapeTo_1 = sld.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
-    shapeTo_1.getTextFrame().setText("To 1");
-    // Creates a new connector
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
     connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
     connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.CYAN);
-    connector.getLineFormat().setWidth(3);
-    // Connects objects using the newly created connector
-    connector.setStartShapeConnectedTo(shapeFrom);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setEndShapeConnectedTo(targetShape);
     connector.setStartShapeConnectionSiteIndex(2);
-    connector.setEndShapeConnectedTo(shapeTo_1);
-    connector.setEndShapeConnectionSiteIndex(3);
-    // Gets the connector adjustment points
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
-    // Changes the values of the adjustment points
-    adjValue_0.setRawValue(adjValue_0.getRawValue() + 20000);
-    adjValue_1.setRawValue(adjValue_1.getRawValue() + 200000);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
 
-The result:
-
-![connector-adjusted-3](connector-adjusted-3.png)
-
-Second, let's create a shape that will correspond to the horizonal component of the connector that passes through the new connector's adjustment point connector.getAdjustments().get_Item(0). We will use the values from the connector data for connector.getRotation(), connector.getFrame().getFlipH(), and connector.getFrame().getFlipV() and apply the popular coordinate conversion formula for rotation round a given point x0:
-
-X = (x — x0) * cos(alpha) — (y — y0) * sin(alpha) + x0;
-
-Y = (x — x0) * sin(alpha) + (y — y0) * cos(alpha) + y0;
-
-In our case, the object's angle of rotation is 90 degrees and the connector is displayed vertically, so this is the corresponding code:
-
-```java
-import com.aspose.slides.*;
-import java.awt.Color;
-
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-    IConnector connector = sld.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
-    IAdjustValue adjValue_0 = connector.getAdjustments().get_Item(0);
-    IAdjustValue adjValue_1 = connector.getAdjustments().get_Item(1);
-
-    // Saves the connector coordinates
-    float x = connector.getX();
-    float y = connector.getY();
-    // Corrects the connector coordinates in case it appears
-    if (connector.getFrame().getFlipH() == NullableBool.True)
-    {
-        x += connector.getWidth();
-    }
-    if (connector.getFrame().getFlipV() == NullableBool.True)
-    {
-        y += connector.getHeight();
-    }
-    // Takes in the adjustment point value as the coordinate
-    x += connector.getWidth() * adjValue_0.getRawValue() / 100000;
-    //  Converts the coordinates since Sin(90) = 1 and Cos(90) = 0
-    float xx = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
-    float yy = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
-    // Determines the width of the horizontal component using the second adjustment point value
-    float width = connector.getHeight() * adjValue_1.getRawValue() / 100000;
-    IAutoShape shape = sld.getShapes().addAutoShape(ShapeType.Rectangle, xx, yy, width, 0);
-    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-The result:
-
-![connector-adjusted-4](connector-adjusted-4.png)
-
-We demonstrated calculations involving simple adjustments and complicated adjustment points (adjustment points with rotation angles). Using the knowledge acquired, you can develop your own model (or write a code) to get a `GraphicsPath` object or even set a connector's adjustment point values based on specific slide coordinates.
-
-## **Find the Angle of Connector Lines**
-
-1. Create an instance of the class.
-1. Get a slide's reference through its index.
-1. Access the connector line shape.
-1. Use the line width, height, shape frame height, and shape frame width to calculate the angle.
-
-This Java code demonstrates an operation in which we calculated the angle for a connector line shape:
-
-```java
-import com.aspose.slides.*;
-
-public class ConnectorLineAngleExample {
-
-    public static void main(String[] args) {
-        Presentation pres = new Presentation("ConnectorLineAngle.pptx");
-        try {
-            ISlide slide = pres.getSlides().get_Item(0);
-
-            for (int i = 0; i < slide.getShapes().size(); i++)
-            {
-                double dir = 0.0;
-                IShape shape = slide.getShapes().get_Item(i);
-                if (shape instanceof IAutoShape)
-                {
-                    IAutoShape ashp = (IAutoShape)shape;
-                    if (ashp.getShapeType() == ShapeType.Line)
-                    {
-                        dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                                ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-                    }
-                }
-                else if (shape instanceof IConnector)
-                {
-                    IConnector ashp = (IConnector)shape;
-                    dir = getDirection(ashp.getWidth(), ashp.getHeight(),
-                            ashp.getFrame().getFlipH() > 0, ashp.getFrame().getFlipV() > 0);
-                }
-
-                System.out.println(dir);
-            }
-        } finally {
-            if (pres != null) pres.dispose();
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+            break;
         }
     }
 
-    public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-    {
-        float endLineX = w * (flipH ? -1 : 1);
-        float endLineY = h * (flipV ? -1 : 1);
-        float endYAxisX = 0;
-        float endYAxisY = h;
-        double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-        if (angle < 0) angle += 2 * Math.PI;
-        return angle * 180.0 / Math.PI;
+    if (verticalBend == null) {
+        System.out.println("The connector does not expose a vertical bend adjustment.");
+    } else {
+        verticalBend.setRawValue(60000);
+        presentation.save("connector-obstruction-fixed.pptx", SaveFormat.Pptx);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+A `BentConnector5` has two `ConnectorBendPositionX` adjustments and one `ConnectorBendPositionY` adjustment. If the type you need occurs more than once, inspect `getName` and the known geometry of that preset before selecting one. If an adjustment reports `ShapeAdjustmentType.Custom`, treat its meaning and range as preset-specific and do not change it until that contract is known.
+
+## **Relate Adjustment Values to Connector Geometry**
+
+For bent connectors, adjustment values can be used to estimate the positions of individual segments. These calculations are specific to the connector preset:
+
+- `BentConnector4` normally exposes one `ConnectorBendPositionX` and one `ConnectorBendPositionY` adjustment.
+- For these bend positions, dividing the value returned by `getRawValue` by `100000f` produces the fraction of the connector frame width or height used by the examples below.
+- A connector frame can be rotated or flipped, so frame coordinates must be transformed before they are compared with slide coordinates.
+
+The following examples use `getType` to identify the adjustments first. They do not treat collection indexes as portable identifiers.
+
+### **Unrotated Connector**
+
+The initial layout contains two text shapes connected by a `BentConnector4`:
+
+![connector-shape-complex](connector-shape-complex.png)
+
+This example inspects the connector and obtains its horizontal and vertical bend adjustments:
+
 ```java
-public static double getDirection(float w, float h, boolean flipH, boolean flipV)
-{
-    float endLineX = w * (flipH ? -1 : 1);
-    float endLineY = h * (flipV ? -1 : 1);
-    float endYAxisX = 0;
-    float endYAxisY = h;
-    double angle = (Math.atan2(endYAxisY, endYAxisX) - Math.atan2(endLineY, endLineX));
-    if (angle < 0) angle += 2 * Math.PI;
-    return angle * 180.0 / Math.PI;
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    targetShape.getTextFrame().setText("To");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        System.out.println(adjustment.getName() + ": " + adjustment.getType() + ", raw value = " + adjustment.getRawValue());
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+To change both bends, locate each expected type and modify the values only after both have been found:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+        presentation.save("connector-adjusted.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The result is a connector whose horizontal and vertical segments have moved:
+
+![connector-adjusted-1](connector-adjusted-1.png)
+
+Once the semantic types are known, their values can be converted into connector-frame coordinates. This example draws a thin rectangle over the vertical segment controlled by the two bend adjustments:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 500, 100, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(3);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(2);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        float x = connector.getX() + connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float y = connector.getY();
+        float height = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        slide.getShapes().addAutoShape(ShapeType.Rectangle, x, y, 1, height);
+        presentation.save("connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The guide shape marks the calculated segment:
+
+![connector-adjusted-2](connector-adjusted-2.png)
+
+### **Rotated or Flipped Connector**
+
+When the same connector geometry is oriented vertically, its [IShape.getFrame](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getFrame--), [ShapeFrame.getFlipH](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/#getFlipH--), and [ShapeFrame.getFlipV](https://reference.aspose.com/slides/java/com.aspose.slides/shapeframe/#getFlipV--) values affect the conversion from connector-frame coordinates to slide coordinates.
+
+This example creates and adjusts the vertically oriented connector:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    sourceShape.getTextFrame().setText("From");
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    targetShape.getTextFrame().setText("To 1");
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+
+    connector.getLineFormat().setEndArrowheadStyle(LineArrowheadStyle.Triangle);
+    connector.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    connector.getLineFormat().getFillFormat().getSolidFillColor().setColor(new Color(102, 205, 170));
+    connector.getLineFormat().setWidth(3);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            adjustment.setRawValue(adjustment.getRawValue() + 20000);
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            adjustment.setRawValue(adjustment.getRawValue() + 200000);
+        }
+    }
+
+    presentation.save("vertical-connector-adjusted.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+The adjusted connector appears vertically between the shapes:
+
+![connector-adjusted-3](connector-adjusted-3.png)
+
+For an arbitrary rotation angle `alpha`, rotate a connector-frame point `(x, y)` around the frame center `(x0, y0)`:
+
+`X = (x - x0) * cos(alpha) - (y - y0) * sin(alpha) + x0`
+
+`Y = (x - x0) * sin(alpha) + (y - y0) * cos(alpha) + y0`
+
+The following code handles the 90-degree orientation used in this example and draws a red guide over the corresponding connector segment:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape sourceShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 60, 25);
+    IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 400, 60, 25);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.BentConnector4, 20, 20, 400, 300);
+    connector.setStartShapeConnectedTo(sourceShape);
+    connector.setStartShapeConnectionSiteIndex(2);
+    connector.setEndShapeConnectedTo(targetShape);
+    connector.setEndShapeConnectionSiteIndex(3);
+
+    IAdjustValue horizontalBend = null;
+    IAdjustValue verticalBend = null;
+    for (int adjustmentIndex = 0; adjustmentIndex < connector.getAdjustments().size(); adjustmentIndex++) {
+        IAdjustValue adjustment = connector.getAdjustments().get_Item(adjustmentIndex);
+        if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionX) {
+            horizontalBend = adjustment;
+        } else if (adjustment.getType() == ShapeAdjustmentType.ConnectorBendPositionY) {
+            verticalBend = adjustment;
+        }
+    }
+
+    if (horizontalBend == null || verticalBend == null) {
+        System.out.println("The connector does not expose the expected bend adjustments.");
+    } else {
+        horizontalBend.setRawValue(horizontalBend.getRawValue() + 20000);
+        verticalBend.setRawValue(verticalBend.getRawValue() + 200000);
+
+        float x = connector.getX();
+        float y = connector.getY();
+        if (connector.getFrame().getFlipH() == NullableBool.True) {
+            x += connector.getWidth();
+        }
+        if (connector.getFrame().getFlipV() == NullableBool.True) {
+            y += connector.getHeight();
+        }
+
+        x += connector.getWidth() * horizontalBend.getRawValue() / 100000f;
+        float rotatedX = connector.getFrame().getCenterX() - y + connector.getFrame().getCenterY();
+        float rotatedY = x - connector.getFrame().getCenterX() + connector.getFrame().getCenterY();
+        float segmentWidth = connector.getHeight() * verticalBend.getRawValue() / 100000f;
+        IAutoShape guide = slide.getShapes().addAutoShape(ShapeType.Rectangle, rotatedX, rotatedY, segmentWidth, 1);
+        guide.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        guide.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
+
+        presentation.save("rotated-connector-segment-guide.pptx", SaveFormat.Pptx);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+The red guide marks the calculated segment after the coordinate transformation:
+
+![connector-adjusted-4](connector-adjusted-4.png)
+
+These formulas describe the presets used in the examples, not a universal connector model. Validate the adjustment types, frame orientation, and value ranges before applying the same calculation to a different preset.
+
+## **Find a Connector Direction Angle**
+
+The direction of a straight connector can be calculated from its width and height, with horizontal and vertical flips applied. The following example reports the clockwise angle from the positive horizontal axis in slide coordinates:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 100, 100, 200, 100);
+
+    boolean flipH = connector.getFrame().getFlipH() == NullableBool.True;
+    boolean flipV = connector.getFrame().getFlipV() == NullableBool.True;
+    float deltaX = connector.getWidth() * (flipH ? -1 : 1);
+    float deltaY = connector.getHeight() * (flipV ? -1 : 1);
+    double angle = Math.atan2(deltaY, deltaX) * 180.0 / Math.PI;
+
+    if (angle < 0) {
+        angle += 360;
+    }
+
+    System.out.printf("Connector direction: %.2f degrees%n", angle);
+} finally {
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-### How can I tell whether a connector can be "glued" to a specific shape?
+**How can I tell whether a connector can attach to a shape?**
 
-Check that the shape exposes [connection sites](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getConnectionSiteCount--). If there are none or the count is zero, gluing isn’t available; in that case, use free endpoints and position them manually. It’s sensible to check the site count before attaching.
+Check the shape's [getConnectionSiteCount](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/#getConnectionSiteCount--) value. A positive count means the shape exposes connection sites. Validate the selected site index before assigning it to either connector end.
 
-### What happens to a connector if I delete one of the connected shapes?
+**Can I identify a connector adjustment by its collection index?**
 
-Its ends will be detached; the connector remains on the slide as an ordinary line with free start/end. You can either delete it or reassign the connections and, if needed, [reroute](https://reference.aspose.com/slides/java/com.aspose.slides/connector/#reroute--).
+An index is meaningful only for a known connector preset and collection layout. Check [IAdjustValue.getType](https://reference.aspose.com/slides/java/com.aspose.slides/iadjustvalue/#getType--) before modifying a value, and use [IAdjustValue.getName](https://reference.aspose.com/slides/java/com.aspose.slides/iadjustvalue/#getName--) as additional information when the same semantic type occurs more than once.
 
-### Are connector bindings preserved when copying a slide to another presentation?
+**What happens when a connected shape is deleted?**
 
-Generally yes, provided the target shapes are copied as well. If the slide is inserted into another file without the connected shapes, the ends become free and you’ll need to reattach them.
+The corresponding connector end becomes detached. The connector remains on the slide and can be deleted, positioned as a free line, or attached to another shape.
+
+**Are connector bindings preserved when a slide is copied?**
+
+Bindings are generally preserved when the connected shapes are copied with the slide. If a connector is copied without one of its target shapes, the affected end must be attached again.

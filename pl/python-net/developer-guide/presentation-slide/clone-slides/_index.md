@@ -32,7 +32,13 @@ W Aspose.Slides for Python via .NET, [kolekcja slajdów](https://reference.aspos
 pip install aspose.slides
 ```
 
-## **Klonowanie na końcu w tej samej prezentacji**
+## **Instalacja**
+
+```bash
+pip install aspose.slides
+```
+
+## **Klonowanie na końcu w obrębie tej samej prezentacji**
 
 Jeśli chcesz sklonować slajd w tej samej prezentacji i dodać go na koniec istniejących slajdów, użyj metody `add_clone`. Postępuj zgodnie z poniższymi krokami:
 
@@ -56,7 +62,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 
 ## **Klonowanie do określonej pozycji w tej samej prezentacji**
 
-Jeśli chcesz sklonować slajd w tej samej prezentacji i umieścić go w innym miejscu, użyj metody `insert_clone`:
+Jeśli chcesz sklonować slajd w tej samej prezentacji i umieścić go w innej pozycji, użyj metody `insert_clone`:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
 1. Pobierz kolekcję slajdów z obiektu [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/).
@@ -78,7 +84,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 
 ## **Klonowanie na końcu innej prezentacji**
 
-Jeśli musisz sklonować slajd z jednej prezentacji i dodać go na koniec innej prezentacji:
+Jeśli potrzebujesz sklonować slajd z jednej prezentacji i dodać go na koniec innej prezentacji:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) dla prezentacji źródłowej (tej, która zawiera slajd do sklonowania).
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/) dla prezentacji docelowej (w której slajd zostanie dodany).
@@ -86,14 +92,14 @@ Jeśli musisz sklonować slajd z jednej prezentacji i dodać go na koniec innej 
 1. Wywołaj `add_clone` na docelowej [SlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/), przekazując slajd z prezentacji źródłowej.
 1. Zapisz zmodyfikowaną prezentację docelową.
 
-W poniższym przykładzie slajd o indeksie 0 w prezentacji źródłowej jest klonowany na koniec prezentacji docelowej.
+W poniższym przykładzie slajd o indeksie 0 w prezentacji źródłowej jest klonowany do końca prezentacji docelowej.
 
 ```py
 import aspose.slides as slides
 
 # Utwórz instancję klasy Presentation, aby reprezentować plik źródłowej prezentacji.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Utwórz instancję klasy Presentation dla docelowego pliku PPTX (gdzie slajd zostanie sklonowany).
+    # Utwórz instancję klasy Presentation dla docelowego PPTX (gdzie slajd zostanie sklonowany).
     with slides.Presentation() as target_presentation:
         # Sklonuj wybrany slajd ze źródłowej prezentacji na koniec kolekcji slajdów w prezentacji docelowej.
         target_presentation.slides.add_clone(source_presentation.slides[0])
@@ -118,7 +124,7 @@ import aspose.slides as slides
 
 # Utwórz instancję klasy Presentation, aby reprezentować plik źródłowej prezentacji.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Utwórz instancję klasy Presentation dla docelowego pliku PPTX (gdzie slajd ma być sklonowany).
+    # Utwórz instancję klasy Presentation dla docelowego PPTX (gdzie slajd ma być sklonowany).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # Wstaw klon pierwszego slajdu ze źródła na indeks 2 w prezentacji docelowej.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
@@ -141,7 +147,7 @@ Aby sklonować slajd wraz z jego masterem, postępuj zgodnie z poniższymi kroka
 1. Wywołaj `add_clone` na docelowej [SlideCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slidecollection/), przekazując slajd źródłowy oraz sklonowany master docelowy.
 1. Zapisz zmodyfikowaną prezentację docelową.
 
-W poniższym przykładzie slajd o indeksie 0 w prezentacji źródłowej jest klonowany na koniec prezentacji docelowej przy użyciu mastera sklonowanego ze źródła.
+W poniższym przykładzie slajd o indeksie 0 w prezentacji źródłowej jest klonowany do końca prezentacji docelowej przy użyciu mastera sklonowanego ze źródła.
 
 ```py
 import aspose.slides as slides
@@ -204,14 +210,14 @@ Zrób to przed klonowaniem mastera i slajdu.
 
 ## **FAQ**
 
-**Czy notatki prelegenta i komentarze recenzenta są klonowane?**
+### Czy notatki prelegenta i komentarze recenzenta są klonowane?
 
 Tak. Strona z notatkami oraz komentarze recenzenta są włączone do klonu. Jeśli ich nie potrzebujesz, [usuń je](/slides/pl/python-net/presentation-notes/) po wstawieniu.
 
-**Jak obsługiwane są wykresy i ich źródła danych?**
+### Jak obsługiwane są wykresy i ich źródła danych?
 
 Obiekt wykresu, formatowanie oraz wbudowane dane są kopiowane. Jeśli wykres był powiązany z zewnętrznym źródłem (np. skoroszytem osadzonym jako OLE), to połączenie zostaje zachowane jako [obiekt OLE](/slides/pl/python-net/manage-ole/). Po przeniesieniu między plikami należy sprawdzić dostępność danych i zachowanie odświeżania.
 
 **Czy mogę kontrolować pozycję wstawiania i sekcje dla klonu?**
 
-Tak. Możesz wstawić klon na określony indeks slajdu i umieścić go w wybranej [sekcji](/slides/pl/python-net/slide-section/). Jeśli docelowa sekcja nie istnieje, najpierw ją utwórz, a następnie przenieś slajd do niej.
+Tak. Możesz wstawić klon na określonym indeksie slajdu i umieścić go w wybranej [sekcji](/slides/pl/python-net/slide-section/). Jeśli docelowa sekcja nie istnieje, najpierw ją utwórz, a następnie przenieś do niej slajd.

@@ -1,19 +1,19 @@
 ---
-title: บันทึกการนำเสนอใน JavaScript
-linktitle: บันทึกการนำเสนอ
+title: บันทึกงานนำเสนอใน JavaScript
+linktitle: บันทึกงานนำเสนอ
 type: docs
 weight: 80
 url: /th/nodejs-java/save-presentation/
 keywords:
 - บันทึก PowerPoint
 - บันทึก OpenDocument
-- บันทึกการนำเสนอ
+- บันทึกงานนำเสนอ
 - บันทึกสไลด์
 - บันทึก PPT
 - บันทึก PPTX
 - บันทึก ODP
-- การนำเสนอเป็นไฟล์
-- การนำเสนอเป็นสตรีม
+- งานนำเสนอเป็นไฟล์
+- งานนำเสนอเป็นสตรีม
 - ประเภทมุมมองที่กำหนดล่วงหน้า
 - รูปแบบ Strict Office Open XML
 - โหมด Zip64
@@ -22,40 +22,47 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "ค้นพบวิธีบันทึกการนำเสนอโดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java—ส่งออกเป็น PowerPoint หรือ OpenDocument พร้อมรักษาการจัดวาง ฟอนต์และเอฟเฟกต์"
+description: "ค้นหาวิธีบันทึกงานนำเสนอโดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java—ส่งออกเป็น PowerPoint หรือ OpenDocument พร้อมคงการจัดวาง ฟอนต์ และเอฟเฟกต์."
 ---
 ## **ภาพรวม**
 
-[Open Presentations in JavaScript](/slides/th/nodejs-java/open-presentation/) อธิบายวิธีใช้คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) เพื่อเปิดการนำเสนอ บทความนี้อธิบายวิธีสร้างและบันทึกการนำเสนอ คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) มีเนื้อหาของการนำเสนอ ไม่ว่าคุณจะสร้างการนำเสนอจากศูนย์หรือแก้ไขการนำเสนอที่มีอยู่แล้ว คุณจะต้องบันทึกเมื่อทำเสร็จแล้ว ด้วย Aspose.Slides สำหรับ Node.js คุณสามารถบันทึกเป็น **ไฟล์** หรือ **สตรีม** บทความนี้อธิบายวิธีต่าง ๆ ในการบันทึกการนำเสนอ
+[Open Presentations in JavaScript](/slides/th/nodejs-java/open-presentation/) บรรยายวิธีใช้คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) เพื่อเปิดงานนำเสนอ บทความนี้อธิบายวิธีสร้างและบันทึกงานนำเสนอ คลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) มีเนื้อหาของงานนำเสนอ ไม่ว่าคุณจะสร้างงานนำตั้งแต่ศูนย์หรือแก้ไขงานที่มีอยู่ คุณจะต้องบันทึกเมื่อทำเสร็จ กับ Aspose.Slides สำหรับ Node.js คุณสามารถบันทึกเป็น **ไฟล์** หรือ **สตรีม** บทความนี้อธิบายวิธีต่าง ๆ ในการบันทึกงานนำเสนอ
 
-## **บันทึกการนำเสนอเป็นไฟล์**
+## **บันทึกงานนำเสนอเป็นไฟล์**
 
-บันทึกการนำเสนอเป็นไฟล์โดยเรียกเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ส่งชื่อไฟล์และรูปแบบการบันทึกให้เมธอด ตัวอย่างต่อไปนี้แสดงวิธีบันทึกการนำเสนอด้วย Aspose.Slides
+บันทึกงานนำเสนอเป็นไฟล์โดยเรียกเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) ส่งชื่อไฟล์และรูปแบบการบันทึกไปยังเมธอด ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอด้วย Aspose.Slides
 
 ```js
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
     // ทำงานบางอย่างที่นี่...
 
-    // บันทึกการนำเสนอเป็นไฟล์.
+    // บันทึกงานนำเสนอเป็นไฟล์.
     presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **บันทึกการนำเสนอเป็นสตรีม**
+## **บันทึกงานนำเสนอเป็นสตรีม**
 
-คุณสามารถบันทึกการนำเสนอเป็นสตรีมโดยส่งสตรีมเอาต์พุตให้กับเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) การนำเสนอสามารถเขียนไปยังสตรีมประเภทต่าง ๆ ได้ ในตัวอย่างด้านล่าง เราได้สร้างการนำเสนอใหม่และบันทึกเป็นสตรีมไฟล์
+คุณสามารถบันทึกงานนำเสนอเป็นสตรีมได้โดยส่งสตรีมผลลัพธ์ไปยังเมธอด `save` ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) งานนำเสนอสามารถเขียนลงสตรีมหลายประเภท ในตัวอย่างด้านล่าง เราจะสร้างงานนำเสนอใหม่และบันทึกลงสตรีมไฟล์
 
 ```js
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
     let fileStream = java.newInstanceSync("java.io.FileOutputStream", "Output.pptx");
     try {
-        // บันทึกการนำเสนอลงในสตรีม.
+        // บันทึกงานนำเสนอไปยังสตรีม.
         presentation.save(fileStream, aspose.slides.SaveFormat.Pptx);
     } finally {
         fileStream.close();
@@ -65,11 +72,14 @@ try {
 }
 ```
 
-## **บันทึกการนำเสนอด้วยประเภทมุมมองที่กำหนดล่วงหน้า**
+## **บันทึกงานนำเสนอพร้อมประเภทมุมมองที่กำหนดไว้ล่วงหน้า**
 
-Aspose.Slides ให้คุณตั้งค่ามุมมองเริ่มต้นที่ PowerPoint ใช้เมื่อเปิดการนำเสนอที่สร้างขึ้นผ่านคลาส [ViewProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/viewproperties/) ใช้เมธอด [setLastView](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/viewproperties/#setLastView) พร้อมค่าจาก enum [ViewType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/viewtype/)
+Aspose.Slides ให้คุณกำหนดมุมมองเริ่มต้นที่ PowerPoint ใช้เมื่อเปิดงานนำเสนอที่สร้างขึ้นผ่านคลาส [ViewProperties](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/viewproperties/) ใช้เมธอด [setLastView](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/viewproperties/#setLastView) พร้อมค่าจาก enumeration [ViewType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/viewtype/)
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let presentation = new aspose.slides.Presentation();
 try {
     presentation.getViewProperties().setLastView(aspose.slides.ViewType.SlideMasterView);
@@ -79,41 +89,47 @@ try {
 }
 ```
 
-## **บันทึกการนำเสนอในรูปแบบ Strict Office Open XML**
+## **บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML**
 
-Aspose.Slides ให้คุณบันทึกการนำเสนอในรูปแบบ Strict Office Open XML ใช้คลาส [PptxOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/) และตั้งค่า property conformance ขณะบันทึก หากคุณตั้งค่า [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict) ไฟล์ผลลัพธ์จะถูกบันทึกในรูปแบบ Strict Office Open XML
+Aspose.Slides ให้คุณบันทึกงานนำเสนอในรูปแบบ Strict Office Open XML ใช้คลาส [PptxOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/) และตั้งค่า property conformance เมื่อบันทึก หากคุณตั้งค่า [Conformance.Iso29500_2008_Strict](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/conformance/#Iso29500_2008_Strict) ไฟล์ผลลัพธ์จะถูกบันทึกในรูปแบบ Strict Office Open XML
 
-ตัวอย่างด้านล่างสร้างการนำเสนอและบันทึกเป็นรูปแบบ Strict Office Open XML
+ตัวอย่างด้านล่างสร้างงานนำเสนอและบันทึกเป็นรูปแบบ Strict Office Open XML
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let options = new aspose.slides.PptxOptions();
 options.setConformance(aspose.slides.Conformance.Iso29500_2008_Strict);
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์งานนำเสนอ.
 let presentation = new aspose.slides.Presentation();
 try {
-    // บันทึกการนำเสนอในรูปแบบ Strict Office Open XML.
+    // บันทึกงานนำเสนอในรูปแบบ Strict Office Open XML.
     presentation.save("StrictOfficeOpenXml.pptx", aspose.slides.SaveFormat.Pptx, options);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **บันทึกการนำเสนอในรูปแบบ Office Open XML ในโหมด Zip64**
+## **บันทึกงานนำเสนอในรูปแบบ Office Open XML โหมด Zip64**
 
-ไฟล์ Office Open XML คือไฟล์ ZIP ที่กำหนดขีดจำกัด 4 GB (2^32 ไบต์) สำหรับขนาดไฟล์ที่ไม่ได้บีบอัด, ขนาดไฟล์ที่บีบอัด, และขนาดรวมของเอกสาร นอกจากนี้ยังจำกัดจำนวนไฟล์ในเอกสารไม่เกิน 65 535 (2^16‑1) ไฟล์ รูปแบบขยาย Zip64 จะเพิ่มขีดจำกัดเหล่านี้เป็น 2^64
+ไฟล์ Office Open XML เป็นไฟล์ ZIP ที่กำหนดขีดจำกัด 4 GB (2^32 ไบต์) สำหรับขนาดไฟล์ที่ไม่บีบอัด ขนาดบีบอัดของไฟล์ใดไฟล์หนึ่ง และขนาดรวมของไฟล์เก็บรวม รวมถึงจำกัดจำนวนไฟล์ที่ 65 535 (2^16‑1) ไฟล์ ส่วนขยายรูปแบบ ZIP64 ยกขีดจำกัดเหล่านี้เป็น 2^64
 
-เมธอด [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) ให้คุณเลือกใช้ส่วนขยายรูปแบบ ZIP64 เมื่อบันทึกไฟล์ Office Open XML
+เมธอด [PptxOptions.setZip64Mode](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/#getZip64Mode) ให้คุณเลือกว่าเมื่อใดจะใช้ส่วนขยายรูปแบบ ZIP64 เมื่อบันทึกไฟล์ Office Open XML
 
 เมธอดนี้สามารถใช้กับโหมดต่อไปนี้:
 
-- [IfNecessary](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#IfNecessary) ใช้ส่วนขยายรูปแบบ ZIP64 เฉพาะเมื่อการนำเสนอเกินขีดจำกัดข้างต้น นี่คือโหมดเริ่มต้น
-- [Never](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#Never) ไม่ใช้ส่วนขยายรูปแบบ ZIP64 เลย
-- [Always](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#Always) ใช้ส่วนขยายรูปแบบ ZIP64 เสมอ
+- [IfNecessary](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#IfNecessary) ใช้ส่วนขยาย ZIP64 เฉพาะเมื่อการนำเสนอเกินขีดจำกัดดังกล่าว นี่คือโหมดค่าเริ่มต้น
+- [Never](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#Never) ไม่เคยใช้ส่วนขยาย ZIP64
+- [Always](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#Always) ใช้ส่วนขยาย ZIP64 เสมอ
 
-โค้ดต่อไปนี้แสดงวิธีบันทึกการนำเสนอเป็น PPTX พร้อมเปิดใช้ส่วนขยายรูปแบบ ZIP64:
+โค้ดต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX พร้อมเปิดใช้งานส่วนขยายรูปแบบ ZIP64:
 
 ```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setZip64Mode(aspose.slides.Zip64Mode.Always);
 
@@ -126,19 +142,71 @@ try {
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-เมื่อบันทึกโดยใช้ [Zip64Mode.Never](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#Never) จะมีการโยน [PptxException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxexception/) หากไม่สามารถบันทึกการนำเสนอในรูปแบบ ZIP32 ได้
+เมื่อบันทึกด้วย [Zip64Mode.Never](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/zip64mode/#Never) จะเกิดข้อยกเว้น [PptxException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxexception/) หากงานนำเสนอไม่สามารถบันทึกในรูปแบบ ZIP32
 {{% /alert %}}
 
-## **บันทึกการนำเสนอโดยไม่รีเฟรชภาพย่อ**
+## **บันทึกงานนำเสนอในรูปแบบ Office Open XML พร้อมระดับการบีบอัด**
 
-เมธอด [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) ควบคุมการสร้างภาพย่อเมื่อบันทึกการนำเสนอเป็น PPTX:
+เมื่อทำงานกับงานนำเสนอขนาดใหญ่ คุณสามารถปรับระดับการบีบอัดเพื่อสมดุลระหว่างขนาดไฟล์และเวลาประมวลผล ตามความต้องการของคุณ คุณอาจต้องการประมวลผลที่เร็วหรือไฟล์ผลลัพธ์ที่เล็กกว่า Aspose.Slides ให้บริการเมธอด [PptxOptions.setCompressionLevel](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/#setCompressionLevel) ซึ่งอนุญาตให้คุณระบุระดับการบีบอัดที่ใช้เมื่อบันทึกงานนำเสนอในรูปแบบ Office Open XML
 
-- หากตั้งค่าเป็น `true` ภาพย่อจะถูกรีเฟรชขณะบันทึก นี่เป็นค่าเริ่มต้น
-- หากตั้งค่าเป็น `false` ภาพย่อปัจจุบันจะถูกคงไว้ หากการนำเสนอไม่มีภาพย่อ จะไม่มีการสร้างภาพย่อ
+ระดับการบีบอัดที่พร้อมใช้งานมีดังนี้:
 
-ในโค้ดด้านล่าง การนำเสนอถูกบันทึกเป็น PPTX โดยไม่รีเฟรชภาพย่อของมัน
+- [**None**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#None): ไม่มีการบีบอัด ไฟล์จะถูกเก็บตามเดิม
+- [**Level1**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level1): การบีบอัดที่เร็วที่สุดด้วยอัตราการบีบอัดต่ำที่สุด
+- [**Level2**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level2): บีบอัดเร็วกว่าโดยอัตราการบีบอัดดีกว่า **Level1** เล็กน้อย
+- [**Level3**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level3): ให้การบีบอัดที่ดีกว่า **Level2** โดยมีผลกระทบปานกลางต่อเวลาประมวลผล
+- [**Level4**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level4): ให้การบีบอัดที่ดีกว่า **Level3**
+- [**Level5**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level5): ให้การบีบอัดที่ดีขึ้นเหนือ **Level4** พร้อมเวลาประมวลผลเพิ่ม
+- [**Level6**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level6): การบีบอัดมาตรฐานที่ให้ความสมดุลระหว่างความเร็วและขนาดไฟล์ นี่คือ *ระดับการบีบอัดเริ่มต้น*
+- [**Level7**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level7): ให้การบีบอัดที่ดีกว่า **Level6** แต่ประมวลผลช้ากว่า
+- [**Level8**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level8): ให้การบีบอัดที่ดีกว่า **Level7**
+- [**Level9**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compressionlevel/#Level9): การบีบอัดสูงสุด ผลิตไฟล์ที่เล็กที่สุดแต่ใช้เวลาประมวลผลนานที่สุด
+
+ตัวอย่างต่อไปนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX *โดยไม่มีการบีบอัด*:
 
 ```js
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const pptxOptions = new aspose.slides.PptxOptions();
+pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.None);
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-out.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+ตัวอย่างนี้แสดงวิธีบันทึกงานนำเสนอเป็นไฟล์ PPTX พร้อม *การบีบอัดสูงสุด*:
+
+```js
+const aspose = { slides: require("aspose.slides.via.java") };
+
+const pptxOptions = new aspose.slides.PptxOptions();
+pptxOptions.setCompressionLevel(aspose.slides.CompressionLevel.Level9);
+
+const presentation = new aspose.slides.Presentation("Sample.pptx");
+try {
+    presentation.save("Sample-level9.pptx", aspose.slides.SaveFormat.Pptx, pptxOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **บันทึกงานนำเสนอโดยไม่รีเฟรชภาพย่อ**
+
+เมธอด [PptxOptions.setRefreshThumbnail](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxoptions/#setRefreshThumbnail) ควบคุมการสร้างภาพย่อเมื่อบันทึกงานนำเสนอเป็น PPTX:
+
+- หากตั้งค่าเป็น `true` ภาพย่อจะได้รับการรีเฟรชระหว่างการบันทึก นี่คือค่าเริ่มต้น
+- หากตั้งค่าเป็น `false` ภาพย่อปัจจุบันจะถูกเก็บไว้ หากงานนำเสนอไม่มีภาพย่อ จะไม่มีการสร้าง
+
+ในโค้ดด้านล่าง งานนำเสนอจะถูกบันทึกเป็น PPTX โดยไม่รีเฟรชภาพย่อของมัน
+
+```js
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
 let pptxOptions = new aspose.slides.PptxOptions();
 pptxOptions.setRefreshThumbnail(false);
 
@@ -152,19 +220,23 @@ finally {
 ```
 
 {{% alert title="Info" color="info" %}}
-ตัวเลือกนี้ช่วยลดเวลาที่ใช้ในการบันทึกการนำเสนอในรูปแบบ PPTX
+ตัวเลือกนี้ช่วยลดเวลาที่ต้องใช้ในการบันทึกงานนำเสนอในรูปแบบ PPTX
 {{% /alert %}}
 
-## **บันทึกการอัปเดตความคืบหน้าเป็นเปอร์เซ็นต์**
+## **บันทึกการอัพเดตความคืบหน้าเป็นเปอร์เซ็นต์**
 
-การรายงานความคืบหน้าในการบันทึกกำหนดค่าผ่านเมธอด [setProgressCallback](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) ของ [SaveOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/saveoptions/) และคลาสย่อยของมัน ให้จัดหา Java proxy ที่ทำตามอินเทอร์เฟซ [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) ระหว่างการส่งออก คอลแบ็กจะรับการอัปเดตเปอร์เซ็นต์เป็นระยะ
+การรายงานความคืบหน้าในการบันทึกกำหนดค่าผ่านเมธอด [setProgressCallback](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/saveoptions/#setProgressCallback) ของคลาส [SaveOptions](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/saveoptions/) และคลาสย่อยของมัน ให้ทำการพร็อกซี่ Java ที่ 구현 인터페이스 [IProgressCallback](https://reference.aspose.com/slides/th/java/com.aspose.slides/iprogresscallback/) ; ในระหว่างการส่งออก คอลแบ็กจะรับอัปเดตเปอร์เซ็นต์เป็นระยะ
 
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีใช้ `IProgressCallback`
+โค้ดส니ippets ต่อไปนี้แสดงวิธีใช้ `IProgressCallback`
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 const ExportProgressHandler = java.newProxy("com.aspose.slides.IProgressCallback", {
     reporting: function(progressValue) {
-        // ใช้ค่าร้อยละของความคืบหน้าที่นี่.
+        // ใช้ค่าร้อยละของความคืบหน้าในที่นี้.
         const progress = Math.floor(progressValue);
         console.log(`${progress}% of the file has been converted.`);
     }
@@ -182,23 +254,23 @@ try {
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose ได้พัฒนาแอป [PowerPoint Splitter ฟรี](https://products.aspose.app/slides/th/splitter) โดยใช้ API ของตนเอง แอปนี้ช่วยให้คุณแยกการนำเสนอเป็นหลายไฟล์โดยบันทึกสไลด์ที่เลือกเป็นไฟล์ PPTX หรือ PPT ใหม่
+Aspose ได้พัฒนาแอป [PowerPoint Splitter ฟรี](https://products.aspose.app/slides/th/splitter) โดยใช้ API ของตนเอง แอปนี้ช่วยให้คุณแยกงานนำเสนอเป็นหลายไฟล์โดยบันทึกสไลด์ที่เลือกเป็นไฟล์ PPTX หรือ PPT ใหม่
 {{% /alert %}}
 
 ## **คำถามที่พบบ่อย**
 
-**Is "fast save" (incremental save) supported so only changes are written?**
+**รองรับการ "บันทึกแบบเร็ว" (การบันทึกเป็นขั้นตอน) ที่บันทึกเฉพาะการเปลี่ยนแปลงหรือไม่?**
 
-ไม่ การบันทึกจะสร้างไฟล์เป้าหมายเต็มรูปแบบทุกครั้ง; การบันทึกแบบเพิ่มส่วน "fast save" ไม่ได้รับการสนับสนุน
+ไม่ การบันทึกจะสร้างไฟล์เป้าหมายเต็มรูปแบบทุกครั้ง; การบันทึกแบบ "เร็ว" แบบเพิ่มส่วนไม่รองรับ
 
-**Is it thread-safe to save the same Presentation instance from multiple threads?**
+**ปลอดภัยต่อการทำงานหลายเธรดหรือไม่ที่จะบันทึกอินสแตนซ์ Presentation เดียวจากหลายเธรด?**
 
-ไม่ อินสแตนซ์ของ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) [ไม่มีความปลอดภัยต่อหลายเธรด](/slides/th/nodejs-java/multithreading/) ควรบันทึกจากเธรดเดียว
+ไม่ อินสแตนซ์ [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation/) [ไม่ได้ปลอดภัยต่อการทำงานหลายเธรด](/slides/th/nodejs-java/multithreading/) ; ควรบันทึกจากเธรดเดียว
 
-**What happens to hyperlinks and externally linked files when saving?**
+**เกิดอะไรขึ้นกับไฮเปอร์ลิงก์และไฟล์ที่เชื่อมโยงจากภายนอกเมื่อบันทึก?**
 
-[Hyperlinks](/slides/th/nodejs-java/manage-hyperlinks/) จะถูกเก็บไว้ ไฟล์ที่เชื่อมโยงจากภายนอก (เช่น วิดีโอที่อ้างอิงด้วยเส้นทาง relative) จะไม่ถูกคัดลอกรวมโดยอัตโนมัติ — ควรตรวจสอบให้เส้นทางที่อ้างอิงยังคงเข้าถึงได้
+[Hyperlinks](/slides/th/nodejs-java/manage-hyperlinks/) จะถูกเก็บไว้ ไฟล์ที่เชื่อมโยงจากภายนอก (เช่น วิดีโอผ่านเส้นทางสัมพันธ์) จะไม่ถูกคัดลอกโดยอัตโนมัติ — โปรดตรวจสอบให้แน่ใจว่าเส้นทางที่อ้างอิงยังคงเข้าถึงได้
 
-**Can I set/save document metadata (Author, Title, Company, Date)?**
+**ฉันสามารถตั้งค่า/บันทึกเมตาดาต้าเอกสาร (ผู้เขียน, ชื่อเรื่อง, บริษัท, วันที่) ได้หรือไม่?**
 
 ใช่ คุณสมบัติมาตรฐานของ [document properties](/slides/th/nodejs-java/presentation-properties/) ได้รับการสนับสนุนและจะถูกเขียนลงในไฟล์เมื่อบันทึก

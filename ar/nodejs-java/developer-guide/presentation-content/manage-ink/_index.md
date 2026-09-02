@@ -6,100 +6,236 @@ weight: 95
 url: /ar/nodejs-java/manage-ink/
 keywords:
 - حبر
-- كائن حبر
-- تتبع الحبر
+- كائن الحبر
+- مسار الحبر
 - إدارة الحبر
 - رسم الحبر
-- رسم
+- الرسم
+- تصدير الحبر
+- رندرة الحبر
+- إخفاء الحبر
+- InkOptions
 - PowerPoint
 - عرض تقديمي
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "إدارة كائنات الحبر في PowerPoint — إنشاء وتحرير وتنسيق الحبر الرقمي باستخدام Aspose.Slides لـ Node.js. احصل على أمثلة كود JavaScript للتتبع، ولون الفرشاة وحجمها."
+description: "إدارة كائنات الحبر في PowerPoint، تحرير المسارات وخصائص الفرشاة، والتحكم في مظهر الحبر أثناء تصدير PDF وHTML وSVG وTIFF والصور باستخدام Aspose.Slides لـ Node.js عبر Java."
 ---
+## **المقدمة**
 
-PowerPoint يوفر وظيفة الحبر لتتيح لك رسم أشكال غير معيارية، والتي يمكن استخدامها لتسليط الضوء على عناصر أخرى، وإظهار الاتصالات والعمليات، وجذب الانتباه إلى عناصر محددة على الشريحة.
+يوفر PowerPoint ميزة الحبر التي تسمح لك برسم خطوط حرّة. يمكن استخدام الحبر لتسليط الضوء على كائنات أخرى، وإظهار الاتصالات والعمليات، وجذب الانتباه إلى عناصر محددة في الشريحة.
 
-Aspose.Slides توفر جميع أنواع الحبر (مثل الفئة [Ink](https://reference.aspose.com/slides/nodejs-java/aspose.slides/ink/)) التي تحتاجها لإنشاء وإدارة كائنات الحبر.
+توفر Aspose.Slides الأنواع اللازمة للعمل مع كائنات الحبر. على سبيل المثال، الفئة [Ink](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/ink/) تمثل كائن حبر على شريحة.
 
-## **الفرق بين الكائن العادي وكائنات الحبر**
+## **الفروقات بين الكائنات العادية وكائنات الحبر**
 
-الكائنات على شريحة PowerPoint عادةً ما يتم تمثيلها بواسطة كائنات الشكل. كائن الشكل، في أبسط صوره، هو حاوية تحدد مساحة الكائن نفسها (إطارها) إلى جانب خصائصه. تشمل الأخيرة حجم مساحة الحاوية، وشكل الحاوية، وخلفية الحاوية، إلخ. للمزيد من المعلومات، راجع [Shape Layout Format](https://docs.aspose.com/slides/nodejs-java/shape-manipulations/#access-layout-formats-for-shape).
+يتم تمثيل الكائنات على شريحة PowerPoint عادةً بواسطة كائنات الشكل. في أبسط أشكالها، الشكل هو حاوية تحدد مساحة الكائن نفسه (إطاره) بالإضافة إلى خصائص مثل حجم الحاوية، الشكل، والخلفية. لمزيد من المعلومات، راجع [Shape Layout Format](https://docs.aspose.com/slides/ar/nodejs-java/shape-manipulations/#access-layout-formats-for-shape).
 
-ومع ذلك، عندما يتعامل PowerPoint مع كائن حبر، يتجاهل جميع خصائص إطار الكائن (الحاوية) باستثناء حجمه. يتم تحديد حجم مساحة الحاوية بواسطة القيم القياسية `width` و `height`:
+ومع ذلك، عندما يتعامل PowerPoint مع كائن حبر، يتجاهل جميع خصائص إطار الكائن (الحاوية) باستثناء حجمه. يتم تحديد حجم مساحة الحاوية باستخدام الطريقتين القياسيتين [Shape.getWidth](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getWidth--) و [Shape.getHeight](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getHeight--):
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **آثار شكل الحبر**
+## **مسارات الحبر**
 
-التتبع هو عنصر أساسي أو معيار يُستخدم لتسجيل مسار القلم عندما يكتب المستخدم بحبر رقمي. التتبعات هي تسجيلات تصف تسلسلات من النقاط المتصلة.
+تُعتبر مسار الحبر عنصرًا أساسيًا يُستخدم لتسجيل مسار القلم عندما يكتب المستخدم حبرًا رقميًا. يخزن المسار تسلسلًا من النقاط المتصلة.
 
-أبسط أشكال الترميز تحدد إحداثيات X و Y لكل نقطة عينة. عندما يتم عرض جميع النقاط المتصلة، تُنتج صورة مشابهة لهذه:
+أبسط شكل للترميز يحدد إحداثيات X و Y لكل نقطة عينة. عندما يتم رسم جميع النقاط المتصلة، ينتج عنها صورة مثل هذه:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## خصائص الفرشاة للرسم 
+## **خصائص الفرشاة للرسم**
 
-يمكنك استخدام فرشاة لرسم خطوط تربط نقاط عناصر التتبع. للفرشاة لونها وحجمها الخاص، ويتوافقان مع طرق `Brush.setColor` و `Brush.setSize`.
+تُستخدم الفرشاة لرسم الخطوط التي تربط نقاط مسار الحبر. للفرشاة لونها وحجمها الخاص، يُمثَّلان بواسطة الطريقتين [InkBrush.getColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/inkbrush/#getColor--) و [InkBrush.getSize](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/inkbrush/#getSize--).
 
-### **تعيين لون فرشاة الحبر**
+### **ضبط لون فرشاة الحبر**
 
-This JavaScript code shows you how to set the color for a brush:
+يظهر هذا الشيفرة JavaScript كيفية ضبط لون فرشاة الحبر:
+
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = {
+    slides: require("aspose.slides.via.java")
+};
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var ink = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var traces = ink.getTraces();
-    var brush = traces[0].getBrush();
-    var brushColor = brush.getColor();
-    brush.setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
+    const slide = presentation.getSlides().get_Item(0);
+    const ink = slide.getShapes().get_Item(0);
+    const brush = ink.getTraces()[0].getBrush();
+    const red = java.getStaticFieldValue("java.awt.Color", "RED");
+    brush.setColor(red);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **ضبط حجم فرشاة الحبر**
 
-### **تعيين حجم فرشاة الحبر** 
+يظهر هذا الشيفرة JavaScript كيفية ضبط حجم فرشاة الحبر:
 
-This JavaScript code shows you how to set the size for a brush:
 ```javascript
-var pres = new aspose.slides.Presentation("pres.pptx");
+const aspose = {
+    slides: require("aspose.slides.via.java")
+};
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("pres.pptx");
 try {
-    var ink = pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    var traces = ink.getTraces();
-    var brush = traces[0].getBrush();
-    var brushSize = brush.getSize();
-    brush.setSize(java.newInstanceSync("java.awt.Dimension", 5, 10));
+    const slide = presentation.getSlides().get_Item(0);
+    const ink = slide.getShapes().get_Item(0);
+    const brush = ink.getTraces()[0].getBrush();
+    const brushSize = java.newInstanceSync("java.awt.Dimension", 5, 10);
+    brush.setSize(brushSize);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-
-عمومًا، لا يتطابق عرض الفرشاة وارتفاعها، لذا لا يعرض PowerPoint حجم الفرشاة (يظهر قسم البيانات باللون الرمادي). ولكن عندما يتطابق عرض الفرشاة وارتفاعها، يعرض PowerPoint حجمه بهذه الطريقة:
+عمومًا، لا يتطابق عرض الفرشاة مع ارتفاعها، لذا لا يعرض PowerPoint حجم الفرشاة (يُظلّ القسم المقابل من البيانات رماديًا). عندما يتطابق عرض الفرشاة مع ارتفاعها، يعرض PowerPoint حجمها بهذه الطريقة:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-للتوضيح، دعنا نزيد ارتفاع كائن الحبر ونستعرض الأبعاد المهمة: 
+للتوضيح، لنقم بزيادة ارتفاع كائن الحبر ومراجعة الأبعاد المهمة:
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-الحاوية (الإطار) لا تأخذ حجم الفرش في الاعتبار--دائمًا ما تفترض أن سمك الخط صفر (انظر الصورة الأخيرة). 
+الحاوية (الإطار) لا تأخذ في الاعتبار حجم الفرش؛ فهي تفترض دائمًا أن سمك الخط هو صفر (انظر الصورة السابقة).
 
-لذلك، لتحديد المنطقة المرئية لكامل كائن الحبر، يجب أن نأخذ في الاعتبار حجم فرشاة كائنات التتبع. هنا، تم تحجيم الكائن المستهدف (كائن تتبع النص المكتوب بخط اليد) إلى حجم الحاوية (الإطار). عندما يتغير حجم الحاوية (الإطار)، يبقى حجم الفرشاة ثابتًا والعكس صحيح. 
+لذلك، لتحديد المنطقة المرئية لكائن الحبر بالكامل، يجب مراعاة حجم الفرشاة لآثاره. هنا، تم تحجيم الكائن المستهدف (مسار النص المكتوب يدويًا) إلى حجم الحاوية (الإطار). عندما يتغير حجم الحاوية، يبقى حجم الفرشاة ثابتًا، والعكس صحيح.
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-يعرض PowerPoint نفس السلوك عند التعامل مع النصوص:
+يستخدم PowerPoint سلوكًا مشابهًا لكائنات النص:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
+## **التحكم في مظهر الحبر أثناء التصدير والرندرة**
+
+توفر Aspose.Slides الفئة [InkOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/inkoptions/) للتحكم في كيفية ظهور كائنات الحبر في النتيجة المصدّرة أو المُرَندَة. يمكنك استخدام خصائصها لإخفاء الحبر تمامًا أو لتغيير طريقة تفسير عمليات قناع فرشاة الحبر.
+
+تتوفر خيارات الحبر عبر خيارات التصدير أو الرندرة لعدة أنواع من المخرجات:
+
+| الإخراج | خاصية خيارات الحبر |
+| --- | --- |
+| PDF | [`PdfOptions.getInkOptions`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pdfoptions/#getInkOptions--) |
+| HTML | [`HtmlOptions.getInkOptions`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/htmloptions/#getInkOptions--) |
+| SVG | [`SVGOptions.getInkOptions`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/svgoptions/#getInkOptions--) |
+| TIFF | [`TiffOptions.getInkOptions`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/tiffoptions/#getInkOptions--) |
+| Slide image | [`RenderingOptions.getInkOptions`](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/renderingoptions/#getInkOptions--) |
+
+الطرق التالية في الفئة [InkOptions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/inkoptions/) تعرض نفس الإعدادين:
+
+- `[InkOptions.getHideInk]` يحدّد ما إذا كانت كائنات الحبر تُضمّن في النتيجة. القيمة الافتراضية هي `false`.
+- `[InkOptions.getInterpretMaskOpAsOpacity]` يحدّد ما إذا كانت عملية القناع تُفسَّر كعتام عند رندرة فرشاة الحبر. القيمة الافتراضية هي `true`؛ استدعِ `[InkOptions.setInterpretMaskOpAsOpacity]` مع `false` لاستخدام عملية ROP بدلًا من ذلك.
+
+### **إخفاء كائنات الحبر في مخرجات PDF**
+
+بشكل افتراضي، تبقى كائنات الحبر مرئية أثناء التصدير. لإنشاء مخرج نظيف بدون تعليقات مكتوبة يدويًا أو أي محتوى حبر آخر، استدعِ `[InkOptions.setHideInk]` مع `true`.
+
+المثال التالي بلغة JavaScript يصدر عرضًا تقديميًا إلى PDF مع إخفاء جميع كائنات الحبر:
+
+```javascript
+const aspose = {
+    slides: require("aspose.slides.via.java")
+};
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const pdfOptions = new aspose.slides.PdfOptions();
+    pdfOptions.getInkOptions().setHideInk(true);
+
+    presentation.save("presentation_without_ink.pdf", aspose.slides.SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **إخفاء كائنات الحبر عند رندرة شريحة كصورة**
+
+لإخفاء كائنات الحبر عند رندرة الشرائح كصور bitmap، قم بتهيئة `[RenderingOptions.getInkOptions]` ومرّر خيارات الرندرة إلى `[Slide.getImage]`.
+
+المثال التالي بلغة JavaScript يرند أول شريحة كصورة PNG بدون كائنات الحبر:
+
+```javascript
+const aspose = {
+    slides: require("aspose.slides.via.java")
+};
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const renderingOptions = new aspose.slides.RenderingOptions();
+    renderingOptions.getInkOptions().setHideInk(true);
+
+    const slide = presentation.getSlides().get_Item(0);
+    const image = slide.getImage(renderingOptions);
+    try {
+        image.save("slide_without_ink.png", aspose.slides.ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **التحكم في رندرة قناع الحبر**
+
+الإعداد `[InkOptions.getInterpretMaskOpAsOpacity]` يتحكم في طريقة تفسير عمليات القناع عند رندرة فرشاة الحبر. القيمة الافتراضية هي `true`، التي تستخدم العتامة. لاستخدام عملية ROP بدلًا من ذلك، استدعِ `[InkOptions.setInterpretMaskOpAsOpacity]` مع `false`.
+
+المثال التالي بلغة JavaScript يصدر شريحة إلى SVG ويستخدم رندرة مبنية على ROP لعمليات قناع الحبر:
+
+```javascript
+const aspose = {
+    slides: require("aspose.slides.via.java")
+};
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const svgOptions = new aspose.slides.SVGOptions();
+    svgOptions.getInkOptions().setInterpretMaskOpAsOpacity(false);
+
+    const outputStream = java.newInstanceSync("java.io.FileOutputStream", "slide.svg");
+    try {
+        const slide = presentation.getSlides().get_Item(0);
+        slide.writeAsSvg(outputStream, svgOptions);
+    } finally {
+        outputStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+يمكن تطبيق الإعداد نفسه من خلال `[TiffOptions.getInkOptions]` عندما يتم تصدير عرض تقديمي أو رندرة شريحة إلى TIFF.
+
+### **اختر إما إخفاء الحبر أو الحفاظ عليه**
+
+عند الحاجة إلى نسخة نظيفة من عرض تقديمي مُعلّق للتوزيع بدون علامات مراجعة، استدعِ `[InkOptions.setHideInk]` مع `true` أثناء التصدير.
+
+اترك `[InkOptions.getHideInk]` عند قيمته الافتراضية `false` عندما تكون تعليقات الحبر جزءًا من المحتوى المقصود، مثل تعليقات المراجعة، الملاحظات المكتوبة يدويًا، التحديدات، أو الرسومات التي يجب أن تبقى مرئية في النتيجة المصدّرة. يتيح ذلك للتطبيقات إنشاء مخرجات مراجعة ونهائية منفصلة من نفس العرض دون تعديل كائنات الحبر المصدرية.
+
+## **الأسئلة الشائعة**
+
+**هل يمكنني تغيير لون أو حجم ضربة حبر موجودة؟**
+
+نعم. احصل على المسار من `[Ink.getTraces]` ثم غيّر `[InkTrace.getBrush]`. استدعِ `[InkBrush.setColor]` أو `[InkBrush.setSize]` لتغيير الفرشاة.
+
+**هل يؤدي إخفاء الحبر إلى تعديل العرض التقديمي الأصلي؟**
+
+لا. استدعاء `[InkOptions.setHideInk]` يؤثر فقط على النتيجة المصدّرة أو المُرَندَة؛ ولا يزيل أو يغيّر كائنات الحبر في العرض الأصلي.
+
+**ما تنسيقات التصدير التي تدعم خيارات الحبر؟**
+
+يمكنك تكوين خيارات الحبر للـ PDF، HTML، SVG، TIFF، وصور الشرائح bitmap من خلال خيارات التصدير أو الرندرة المناسبة المذكورة أعلاه.
+
 **قراءة إضافية**
 
-* لقراءة المزيد عن الأشكال بشكل عام، راجع قسم [PowerPoint Shapes](https://docs.aspose.com/slides/nodejs-java/powerpoint-shapes/).
-* لمزيد من المعلومات حول القيم الفعالة، راجع [Shape Effective Properties](https://docs.aspose.com/slides/nodejs-java/shape-effective-properties/#getting-effective-font-height-value).
+- لقراءة حول الأشكال بشكل عام، انظر قسم [PowerPoint Shapes](https://docs.aspose.com/slides/ar/nodejs-java/powerpoint-shapes/).
+- لمزيد من المعلومات حول القيم الفعّالة، راجع [Shape Effective Properties](https://docs.aspose.com/slides/ar/nodejs-java/shape-effective-properties/#get-effective-font-height-value).
+- لتفاصيل تصدير PDF، راجع [Convert PPT and PPTX to PDF](https://docs.aspose.com/slides/ar/nodejs-java/convert-powerpoint-to-pdf/).
+- لتفاصيل تصدير HTML، راجع [Convert PowerPoint Presentations to HTML](https://docs.aspose.com/slides/ar/nodejs-java/convert-powerpoint-to-html/).
+- لتفاصيل تصدير SVG، راجع [Render Presentation Slides as SVG Images](https://docs.aspose.com/slides/ar/nodejs-java/render-a-slide-as-an-svg-image/).
+- لتفاصيل تصدير TIFF، راجع [Convert PowerPoint Presentations to TIFF](https://docs.aspose.com/slides/ar/nodejs-java/convert-powerpoint-to-tiff/).
+- لتفاصيل رندرة شريحة إلى صورة، راجع [Convert Presentation Slides to Images](https://docs.aspose.com/slides/ar/nodejs-java/convert-slide/).

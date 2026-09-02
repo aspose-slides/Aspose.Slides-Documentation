@@ -1,5 +1,5 @@
 ---
-title: Αποθήκευση Παρουσιάσεων σε .NET
+title: Αποθήκευση παρουσιάσεων σε .NET
 linktitle: Αποθήκευση Παρουσίασης
 type: docs
 weight: 80
@@ -13,26 +13,29 @@ keywords:
 - αποθήκευση PPTX
 - αποθήκευση ODP
 - παρουσίαση σε αρχείο
-- παρουσίαση σε ρεύμα
+- παρουσίαση σε ροή
 - προκαθορισμένος τύπος προβολής
-- Strict Office Open XML μορφή
+- Αυστηρή μορφή Office Open XML
 - λειτουργία Zip64
 - ανανέωση μικρογραφίας
-- πρόοδος αποθήκευσης
+- αποθήκευση προόδου
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να αποθηκεύετε παρουσιάσεις σε .NET χρησιμοποιώντας το Aspose.Slides—εξαγωγή σε PowerPoint ή OpenDocument διατηρώντας διαμορφώσεις, γραμματοσειρές και εφέ."
+description: "Ανακαλύψτε πώς να αποθηκεύετε παρουσιάσεις σε .NET χρησιμοποιώντας το Aspose.Slides—εξαγωγή σε PowerPoint ή OpenDocument διατηρώντας διατάξεις, γραμματοσειρές και εφέ."
 ---
 ## **Επισκόπηση**
 
-[Άνοιγμα Παρουσιάσεων σε C#](/slides/el/net/open-presentation/) περιγράφει πώς να χρησιμοποιήσετε την κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) για να ανοίξετε μια παρουσίαση. Αυτό το άρθρο εξηγεί πώς να δημιουργήσετε και να αποθηκεύσετε παρουσιάσεις. Η κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) περιέχει το περιεχόμενο μιας παρουσίασης. Είτε δημιουργείτε μια παρουσίαση από το μηδέν είτε τροποποιείτε μια υπάρχουσα, θα θέλετε να την αποθηκεύσετε όταν ολοκληρώσετε. Με το Aspose.Slides για .NET, μπορείτε να αποθηκεύσετε σε **αρχείο** ή **ρεύμα**. Αυτό το άρθρο εξηγεί τους διαφορετικούς τρόπους αποθήκευσης μιας παρουσίασης.
+[Open Presentations in C#](/slides/el/net/open-presentation/) περιέγραψε πώς να χρησιμοποιήσετε την κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) για να ανοίξετε μια παρουσίαση. Αυτό το άρθρο εξηγεί πώς να δημιουργήσετε και να αποθηκεύσετε παρουσιάσεις. Η κλάση [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) περιέχει το περιεχόμενο μιας παρουσίασης. Είτε δημιουργείτε μια παρουσίαση από το μηδέν είτε τροποποιείτε μια υπάρχουσα, θα θέλετε να την αποθηκεύσετε όταν τελειώσετε. Με το Aspose.Slides for .NET, μπορείτε να αποθηκεύσετε σε **αρχείο** ή **ροή**. Αυτό το άρθρο εξηγεί τις διαφορετικές μεθόδους αποθήκευσης μιας παρουσίασης.
 
-## **Αποθήκευση Παρουσιάσεων σε Αρχεία**
+## **Αποθήκευση παρουσιάσεων σε αρχεία**
 
-Αποθηκεύστε μια παρουσίαση σε αρχείο καλώντας τη μέθοδο `Save` της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Περάστε το όνομα του αρχείου και τη μορφή αποθήκευσης στη μέθοδο. Το παρακάτω παράδειγμα δείχνει πώς να αποθηκεύσετε μια παρουσίαση με το Aspose.Slides.
+Αποθηκεύστε μια παρουσίαση σε αρχείο καλώντας τη μέθοδο `Save` της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Δώστε το όνομα αρχείου και τη μορφή αποθήκευσης στη μέθοδο. Το παρακάτω παράδειγμα δείχνει πώς να αποθηκεύσετε μια παρουσίαση με το Aspose.Slides.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
@@ -43,27 +46,33 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Αποθήκευση Παρουσιάσεων σε Ρεύματα**
+## **Αποθήκευση παρουσιάσεων σε ροές**
 
-Μπορείτε να αποθηκεύσετε μια παρουσίαση σε ρεύμα περνώντας ένα ρεύμα εξόδου στη μέθοδο `Save` της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Μια παρουσίαση μπορεί να γραφτεί σε πολλούς τύπους ρεύματος. Στο παρακάτω παράδειγμα, δημιουργούμε μια νέα παρουσίαση και την αποθηκεύουμε σε ρεύμα αρχείου.
+Μπορείτε να αποθηκεύσετε μια παρουσίαση σε ροή περνώντας μια ροή εξόδου στη μέθοδο `Save` της κλάσης [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/). Μια παρουσίαση μπορεί να γραφτεί σε πολλούς τύπους ροών. Στο παρακάτω παράδειγμα, δημιουργούμε μια νέα παρουσίαση και την αποθηκεύουμε σε ροή αρχείου.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
     using (FileStream fileStream = new FileStream("Output.pptx", FileMode.Create))
     {
-        // Αποθηκεύστε την παρουσίαση στο ρεύμα.
+        // Αποθηκεύστε την παρουσίαση στην ροή.
         presentation.Save(fileStream, SaveFormat.Pptx);
     }
 }
 ```
 
-## **Αποθήκευση Παρουσιάσεων με Προκαθορισμένο Τύπο Προβολής**
+## **Αποθήκευση παρουσιάσεων με προκαθορισμένο τύπο προβολής**
 
-Το Aspose.Slides σας επιτρέπει να ορίσετε την αρχική προβολή που χρησιμοποιεί το PowerPoint όταν ανοίγει η δημιουργημένη παρουσίαση μέσω της κλάσης [ViewProperties](https://reference.aspose.com/slides/el/net/aspose.slides/viewproperties/). Ορίστε την ιδιότητα [LastView](https://reference.aspose.com/slides/el/net/aspose.slides/viewproperties/lastview/) σε μια τιμή από την απαρίθμηση [ViewType](https://reference.aspose.com/slides/el/net/aspose.slides/viewtype/).
+Το Aspose.Slides σάς επιτρέπει να ορίσετε την αρχική προβολή που χρησιμοποιεί το PowerPoint όταν ανοίγει η παραγόμενη παρουσίαση μέσω της κλάσης [ViewProperties](https://reference.aspose.com/slides/el/net/aspose.slides/viewproperties/). Ορίστε την ιδιότητα [LastView](https://reference.aspose.com/slides/el/net/aspose.slides/viewproperties/lastview/) σε μια τιμή από την απαρίθμηση [ViewType](https://reference.aspose.com/slides/el/net/aspose.slides/viewtype/).
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation())
 {
     presentation.ViewProperties.LastView = ViewType.SlideMasterView;
@@ -71,13 +80,16 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-## **Αποθήκευση Παρουσιάσεων σε Strict Office Open XML Μορφή**
+## **Αποθήκευση παρουσιάσεων σε αυστηρή μορφή Office Open XML**
 
-Το Aspose.Slides σας επιτρέπει να αποθηκεύσετε μια παρουσίαση σε Strict Office Open XML μορφή. Χρησιμοποιήστε την κλάση [PptxOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pptxoptions/) και ορίστε την ιδιότητα conformance κατά την αποθήκευση. Εάν ορίσετε `Conformance.Iso29500_2008_Strict`, το αρχείο εξόδου αποθηκεύεται σε Strict Office Open XML μορφή.
+Το Aspose.Slides επιτρέπει την αποθήκευση μιας παρουσίασης σε αυστηρή μορφή Office Open XML. Χρησιμοποιήστε την κλάση [PptxOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/pptxoptions/) και ορίστε την ιδιότητα conformance κατά την αποθήκευση. Εάν ορίσετε `Conformance.Iso29500_2008_Strict`, το αρχείο εξόδου αποθηκεύεται στην αυστηρή μορφή Office Open XML.
 
-Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση και την αποθηκεύει σε Strict Office Open XML μορφή.
+Το παρακάτω παράδειγμα δημιουργεί μια παρουσίαση και τη σώζει στην αυστηρή μορφή Office Open XML.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 PptxOptions options = new PptxOptions()
 {
     Conformance = Conformance.Iso29500_2008_Strict
@@ -86,26 +98,29 @@ PptxOptions options = new PptxOptions()
 // Δημιουργήστε την κλάση Presentation που αντιπροσωπεύει ένα αρχείο παρουσίασης.
 using (Presentation presentation = new Presentation())
 {
-    // Αποθηκεύστε την παρουσίαση σε Strict Office Open XML μορφή.
+    // Αποθηκεύστε την παρουσίαση στην αυστηρή μορφή Office Open XML.
     presentation.Save("StrictOfficeOpenXml.pptx", SaveFormat.Pptx, options);
 }
 ```
 
-## **Αποθήκευση Παρουσιάσεων σε Office Open XML Μορφή σε Λειτουργία Zip64**
+## **Αποθήκευση παρουσιάσεων σε Office Open XML μορφή σε λειτουργία Zip64**
 
-Ένα αρχείο Office Open XML είναι ένα αρχείο ZIP που επιβάλλει όρια 4 GB (2^32 bytes) στο μη συμπιεσμένο μέγεθος οποιουδήποτε αρχείου, στο συμπιεσμένο μέγεθος οποιουδήποτε αρχείου και στο συνολικό μέγεθος του αρχείου, καθώς και όριο 65 535 (2^16‑1) αρχείων. Οι επεκτάσεις μορφής ZIP64 αυξάνουν αυτά τα όρια σε 2^64.
+Ένα αρχείο Office Open XML είναι ένα αρχείο ZIP που θέτει όρια 4 GB (2^32 bytes) στο ασυμπίεστο μέγεθος οποιουδήποτε αρχείου, στο συμπιεσμένο μέγεθος οποιουδήποτε αρχείου και στο συνολικό μέγεθος του αρχείου, καθώς και όριο 65 535 (2^16‑1) αρχείων. Οι επεκτάσεις μορφής ZIP64 αυξάνουν αυτά τα όρια σε 2^64.
 
-Η ιδιότητα [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipptxoptions/zip64mode/) σας επιτρέπει να επιλέξετε πότε θα χρησιμοποιούνται οι επεκτάσεις μορφής ZIP64 κατά την αποθήκευση ενός Office Open XML αρχείου.
+Η ιδιότητα [IPptxOptions.Zip64Mode](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipptxoptions/zip64mode/) σας επιτρέπει να επιλέξετε πότε να χρησιμοποιείτε τις επεκτάσεις μορφής ZIP64 κατά την αποθήκευση ενός αρχείου Office Open XML.
 
-Αυτή η ιδιότητα παρέχει τις παρακάτω λειτουργίες:
+Αυτή η ιδιότητα παρέχει τις ακόλουθες λειτουργίες:
 
-- `IfNecessary` χρησιμοποιεί επεκτάσεις ZIP64 μόνο εάν η παρουσίαση υπερβαίνει τα παραπάνω όρια. Αυτή είναι η προεπιλογή.
-- `Never` δεν χρησιμοποιεί ποτέ επεκτάσεις ZIP64.
-- `Always` χρησιμοποιεί πάντα επεκτάσεις ZIP64.
+- `IfNecessary` χρησιμοποιεί τις επεκτάσεις μορφής ZIP64 μόνο εάν η παρουσίαση υπερβαίνει τα παραπάνω όρια. Αυτή είναι η προεπιλεγμένη λειτουργία.
+- `Never` δεν χρησιμοποιεί ποτέ επεκτάσεις μορφής ZIP64.
+- `Always` χρησιμοποιεί πάντα επεκτάσεις μορφής ZIP64.
 
-Ο παρακάτω κώδικας δείχνει πώς να αποθηκεύσετε μια παρουσίαση ως αρχείο PPTX με ενεργοποιημένες τις επεκτάσεις μορφής ZIP64:
+Ο ακόλουθος κώδικας δείχνει πώς να αποθηκεύσετε μια παρουσίαση ως αρχείο PPTX με ενεργοποιημένες τις επεκτάσεις μορφής ZIP64:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     presentation.Save("OutputZip64.pptx", SaveFormat.Pptx, new PptxOptions()
@@ -116,31 +131,34 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-Όταν αποθηκεύετε με `Zip64Mode.Never`, ρίχνεται μια [PptxException](https://reference.aspose.com/slides/el/net/aspose.slides/pptxexception/) εάν η παρουσίαση δεν μπορεί να αποθηκευτεί σε μορφή ZIP32.
+When you save with `Zip64Mode.Never`, a [PptxException](https://reference.aspose.com/slides/el/net/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 {{% /alert %}}
 
-## **Αποθήκευση Παρουσιάσεων σε Office Open XML Μορφή με Επίπεδα Συμπίεσης**
+## **Αποθήκευση παρουσιάσεων σε Office Open XML μορφή με επίπεδα συμπίεσης**
 
-Όταν εργάζεστε με μεγάλες παρουσιάσεις, μπορείτε να ρυθμίσετε το επίπεδο συμπίεσης για να εξισορροπήσετε το μέγεθος του αρχείου και το χρόνο επεξεργασίας. Ανάλογα με τις απαιτήσεις σας, μπορεί να προτιμάτε ταχύτερη επεξεργασία ή μικρότερα αρχεία εξόδου.
+Κατά την εργασία με μεγάλες παρουσιάσεις, μπορείτε να προσαρμόσετε το επίπεδο συμπίεσης ώστε να εξισορροπήσετε το μέγεθος του αρχείου και το χρόνο επεξεργασίας. Ανάλογα με τις απαιτήσεις σας, μπορείτε να προτιμήσετε ταχύτερη επεξεργασία ή μικρότερα αρχεία εξόδου.
 
-Το Aspose.Slides παρέχει την ιδιότητα [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipptxoptions/compressionlevel/), η οποία σας επιτρέπει να καθορίσετε το επίπεδο συμπίεσης που χρησιμοποιείται κατά την αποθήκευση μιας παρουσίασης σε Office Open XML μορφή.
+Το Aspose.Slides παρέχει την ιδιότητα [IPptxOptions.CompressionLevel](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipptxoptions/compressionlevel/), η οποία σας επιτρέπει να καθορίσετε το επίπεδο συμπίεσης που χρησιμοποιείται όταν αποθηκεύετε μια παρουσίαση σε μορφή Office Open XML.
 
 Τα διαθέσιμα επίπεδα συμπίεσης είναι:
 
 - **None**: Δεν εφαρμόζεται συμπίεση. Τα αρχεία αποθηκεύονται όπως είναι.
-- **Level1**: Η πιο γρήγορη συμπίεση με το χαμηλότερο λόγο συμπίεσης.
-- **Level2**: Ταχύτερη συμπίεση με ελαφρώς καλύτερο λόγο συμπίεσης από το **Level1**.
-- **Level3**: Παρέχει καλύτερη συμπίεση από το **Level2** με μέτρια επίδραση στο χρόνο επεξεργασίας.
+- **Level1**: Η ταχύτερη συμπίεση με το χαμηλότερο λόγο συμπίεσης.
+- **Level2**: Ταχύτερη συμπίεση με ελαφρώς καλύτερο λόγο από το **Level1**.
+- **Level3**: Παρέχει καλύτερη συμπίεση από το **Level2** με μέτρια επίπτωση στον χρόνο επεξεργασίας.
 - **Level4**: Παρέχει καλύτερη συμπίεση από το **Level3**.
-- **Level5**: Παρέχει βελτιωμένη συμπίεση σε σχέση με το **Level4** με επιπλέον χρόνο επεξεργασίας.
+- **Level5**: Βελτιωμένη συμπίεση σε σχέση με το **Level4** με επιπλέον χρόνο επεξεργασίας.
 - **Level6**: Τυπική συμπίεση που προσφέρει καλή ισορροπία μεταξύ ταχύτητας επεξεργασίας και μεγέθους αρχείου. Αυτό είναι το *προεπιλεγμένο επίπεδο συμπίεσης*.
-- **Level7**: Παρέχει καλύτερη συμπίεση από το **Level6** με πιο αργή επεξεργασία.
-- **Level8**: Παρέχει καλύτερη συμπίεση από το **Level7**.
+- **Level7**: Καλύτερη συμπίεση από το **Level6** με πιο αργή επεξεργασία.
+- **Level8**: Καλύτερη συμπίεση από το **Level7**.
 - **Level9**: Μέγιστη συμπίεση. Παράγει το μικρότερο μέγεθος αρχείου με κόστος του μεγαλύτερου χρόνου επεξεργασίας.
 
 Το παρακάτω παράδειγμα δείχνει πώς να αποθηκεύσετε μια παρουσίαση ως αρχείο PPTX *χωρίς συμπίεση*:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
     pres.Save("Sample-out.pptx", SaveFormat.Pptx, new PptxOptions
@@ -153,6 +171,9 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 Αυτό το παράδειγμα δείχνει πώς να αποθηκεύσετε μια παρουσίαση ως αρχείο PPTX με *μέγιστη συμπίεση*:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation("Sample.pptx"))
 {
     pres.Save("Sample-level9.pptx", SaveFormat.Pptx, new PptxOptions
@@ -162,16 +183,19 @@ using (Presentation pres = new Presentation("Sample.pptx"))
 }
 ```
 
-## **Αποθήκευση Παρουσιάσεων χωρίς Ανανέωση της Μικρογραφίας**
+## **Αποθήκευση παρουσιάσεων χωρίς ανανέωση της μικρογραφίας**
 
 Η ιδιότητα [PptxOptions.RefreshThumbnail](https://reference.aspose.com/slides/el/net/aspose.slides.export/ipptxoptions/refreshthumbnail/) ελέγχει τη δημιουργία μικρογραφίας κατά την αποθήκευση μιας παρουσίασης σε PPTX:
 
-- Εάν οριστεί σε `true`, η μικρογραφία ανανεώνεται κατά την αποθήκευση. Αυτή είναι η προεπιλογή.
-- Εάν οριστεί σε `false`, η τρέχουσα μικρογραφία διατηρείται. Εάν η παρουσίαση δεν έχει μικρογραφία, δεν δημιουργείται καμία.
+- Εάν οριστεί σε `true`, η μικρογραφία ανανεώνεται κατά την αποθήκευση. Αυτό είναι το προεπιλεγμένο.
+- Εάν οριστεί σε `false`, διατηρείται η τρέχουσα μικρογραφία. Εάν η παρουσίαση δεν έχει μικρογραφία, δεν δημιουργείται νέα.
 
-Στον παρακάτω κώδικα, η παρουσίαση αποθηκεύεται σε PPTX χωρίς να ανανεωθεί η μικρογραφία της.
+Στον κώδικα παρακάτω, η παρουσίαση αποθηκεύεται σε PPTX χωρίς να ανανεώνεται η μικρογραφία της.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation presentation = new Presentation("Sample.pptx"))
 {
     presentation.Save("Output.pptx", SaveFormat.Pptx, new PptxOptions()
@@ -182,16 +206,19 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 {{% alert title="Info" color="info" %}}
-Αυτή η επιλογή βοηθά στη μείωση του χρόνου που απαιτείται για την αποθήκευση μιας παρουσίασης σε μορφή PPTX.
+This option helps reduce the time required to save a presentation in PPTX format.
 {{% /alert %}}
 
-## **Αποθήκευση Ενημερώσεων Προόδου σε Ποσοστό**
+## **Αποθήκευση προόδου σε ποσοστό**
 
-Η διεπαφή [IProgressCallback](https://reference.aspose.com/slides/el/net/aspose.slides/iprogresscallback/) χρησιμοποιείται μέσω της ιδιότητας `ProgressCallback` που εκτίθεται από τη διεπαφή [ISaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/isaveoptions/) και την αφηρημένη κλάση [SaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveoptions/). Εκχωρήστε μια υλοποίηση του [IProgressCallback](https://reference.aspose.com/slides/el/net/aspose.slides/iprogresscallback/) στο `ProgressCallback` για να λαμβάνετε ενημερώσεις προόδου αποθήκευσης ως ποσοστό.
+Η διεπαφή [IProgressCallback](https://reference.aspose.com/slides/el/net/aspose.slides/iprogresscallback/) χρησιμοποιείται μέσω της ιδιότητας `ProgressCallback` που εκτίθεται από τη διεπαφή [ISaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/isaveoptions/) και την αφηρημένη κλάση [SaveOptions](https://reference.aspose.com/slides/el/net/aspose.slides.export/saveoptions/). Αναθέστε μια υλοποίηση [IProgressCallback](https://reference.aspose.com/slides/el/net/aspose.slides/iprogresscallback/) στη `ProgressCallback` για να λαμβάνετε ενημερώσεις προόδου αποθήκευσης ως ποσοστό.
 
 Τα παρακάτω αποσπάσματα κώδικα δείχνουν πώς να χρησιμοποιήσετε το `IProgressCallback`.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 ISaveOptions saveOptions = new PdfOptions();
 saveOptions.ProgressCallback = new ExportProgressHandler();
 
@@ -202,11 +229,13 @@ using (Presentation presentation = new Presentation("Sample.pptx"))
 ```
 
 ```cs
+using Aspose.Slides;
+
 class ExportProgressHandler : IProgressCallback
 {
     public void Reporting(double progressValue)
     {
-        // Χρησιμοποιήστε εδώ την τιμή ποσοστού προόδου.
+        // Χρησιμοποιήστε την τιμή ποσοστού προόδου εδώ.
         int progress = Convert.ToInt32(progressValue);
 
         Console.WriteLine(progress + "% of the file has been converted.");
@@ -215,23 +244,23 @@ class ExportProgressHandler : IProgressCallback
 ```
 
 {{% alert title="Info" color="info" %}}
-Η Aspose έχει αναπτύξει μια [δωρεάν εφαρμογή PowerPoint Splitter](https://products.aspose.app/slides/el/splitter) χρησιμοποιώντας το δικό της API. Η εφαρμογή σας επιτρέπει να χωρίσετε μια παρουσίαση σε πολλαπλά αρχεία αποθηκεύοντας επιλεγμένες διαφάνειες ως νέα αρχεία PPTX ή PPT.
+Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/el/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 {{% /alert %}}
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
-**Υποστηρίζεται η «γρήγορη αποθήκευση» (αυξητική αποθήκευση) έτσι ώστε να γράφονται μόνο οι αλλαγές;**
+**Υποστηρίζεται η «γρήγορη αποθήκευση» (αυξητική αποθήκευση) ώστε να γράφονται μόνο οι αλλαγές;**
 
 Όχι. Η αποθήκευση δημιουργεί το πλήρες αρχείο προορισμού κάθε φορά· η αυξητική «γρήγορη αποθήκευση» δεν υποστηρίζεται.
 
-**Είναι ασφαλές ως προς τα νήματα (thread‑safe) να αποθηκεύσετε το ίδιο αντικείμενο Presentation από πολλαπλά νήματα;**
+**Είναι ασφαλές από νήμα (thread‑safe) το να αποθηκεύετε το ίδιο αντικείμενο Presentation από πολλαπλά νήματα;**
 
-Όχι. Ένα αντικείμενο [Presentation](https://reference.aspose.com/slides/el/net/aspose.slides/presentation/) [δεν είναι thread‑safe](/slides/el/net/multithreading/); αποθηκεύστε το από ένα μόνο νήμα.
+Όχι. Ένα αντικείμενο [Presentation](/slides/el/net/multithreading/) δεν είναι thread‑safe· αποθηκεύστε το από ένα μόνο νήμα.
 
-**Τι συμβαίνει με τους υπερσυνδέσμους και τα εξωτερικά συνδεδεμένα αρχεία κατά την αποθήκευση;**
+**Τι γίνεται με τους υπερσυνδέσμους και τα εξωτερικά συνδεδεμένα αρχεία κατά την αποθήκευση;**
 
-[Hyperlinks](/slides/el/net/manage-hyperlinks/) διατηρούνται. Τα εξωτερικά συνδεδεμένα αρχεία (π.χ. βίντεο μέσω σχετικών διαδρομών) δεν αντιγράφονται αυτόματα· βεβαιωθείτε ότι οι αναφερόμενες διαδρομές παραμένουν προσβάσιμες.
+Οι [Hyperlinks](/slides/el/net/manage-hyperlinks/) διατηρούνται. Τα εξωτερικά συνδεδεμένα αρχεία (π.χ. βίντεο μέσω σχετικών διαδρομών) δεν αντιγράφονται αυτόματα· βεβαιωθείτε ότι οι αναφερόμενες διαδρομές παραμένουν προσβάσιμες.
 
-**Μπορώ να ορίσω/αποθηκεύσω μεταδεδομένα εγγράφου (Συγγραφέας, Τίτλος, Εταιρεία, Ημερομηνία);**
+**Μπορώ να ορίσω/αποθηκεύσω μετα-δεδομένα εγγράφου (Συγγραφέας, Τίτλος, Εταιρεία, Ημερομηνία);**
 
 Ναι. Τα τυπικά [document properties](/slides/el/net/presentation-properties/) υποστηρίζονται και θα γραφτούν στο αρχείο κατά την αποθήκευση.

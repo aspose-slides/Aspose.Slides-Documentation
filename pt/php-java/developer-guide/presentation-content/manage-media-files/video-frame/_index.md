@@ -17,26 +17,26 @@ keywords:
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para PHP via Java. Guia rápido de como‑fazer."
+description: "Aprenda a adicionar e extrair programaticamente quadros de vídeo em slides PowerPoint e OpenDocument usando Aspose.Slides para PHP via Java. Guia rápido passo a passo."
 ---
 ## **Introdução**
 
-Um vídeo bem posicionado em uma apresentação pode tornar sua mensagem mais atraente e aumentar os níveis de engajamento com o público. 
+Um vídeo bem colocado em uma apresentação pode tornar sua mensagem mais envolvente e aumentar o nível de engajamento com o público. 
 
-O PowerPoint permite que você adicione vídeos a um slide em uma apresentação de duas maneiras:
+PowerPoint permite que você adicione vídeos a um slide em uma apresentação de duas maneiras:
 
-* Adicionar ou incorporar um vídeo local (armazenado em sua máquina)
-* Adicionar um vídeo online (de uma fonte da web como o YouTube).
+* Adicionar ou incorporar um vídeo local (armazenado na sua máquina)
+* Adicionar um vídeo online (de uma fonte web como o YouTube).
 
-Para permitir que você adicione vídeos (objetos de vídeo) a uma apresentação, o Aspose.Slides fornece a classe [Vídeo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/) e a classe [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) , além de outros tipos relevantes.
+Para permitir que você adicione vídeos (objetos de vídeo) a uma apresentação, Aspose.Slides fornece a classe [Video](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/), a classe [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) e outros tipos relevantes.
 
 ## **Criar Quadros de Vídeo Incorporados**
 
-Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo em sua apresentação. 
+Se o arquivo de vídeo que você deseja adicionar ao seu slide estiver armazenado localmente, você pode criar um quadro de vídeo para incorporar o vídeo na sua apresentação. 
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
-1. Obtenha a referência de um slide através de seu índice. 
-1. Adicione um objeto [Vídeo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/) e passe o caminho do arquivo de vídeo para incorporá-lo à apresentação.
+1. Obtenha a referência de um slide por meio do seu índice. 
+1. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/) e passe o caminho do arquivo de vídeo para incorporar o vídeo à apresentação.
 1. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) para criar um quadro para o vídeo.
 1. Salve a apresentação modificada. 
 
@@ -61,7 +61,7 @@ Este código PHP mostra como adicionar um vídeo armazenado localmente a uma apr
   }
 ```
 
-Como alternativa, você pode adicionar um vídeo passando seu caminho de arquivo diretamente para o método [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addvideoframe/) :
+Como alternativa, você pode adicionar um vídeo passando diretamente o caminho do arquivo ao método [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shapecollection/addvideoframe/):
 
 ```php
   $pres = new Presentation();
@@ -75,13 +75,14 @@ Como alternativa, você pode adicionar um vídeo passando seu caminho de arquivo
   }
 ```
 
+
 ## **Criar Quadros de Vídeo com Vídeo de Fontes Web**
 
-O Microsoft [PowerPoint 2013 e versões mais recentes](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) suporta vídeos do YouTube nas apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná-lo à sua apresentação através de seu link web. 
+O Microsoft [PowerPoint 2013 e posterior](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) oferece suporte a vídeos do YouTube em apresentações. Se o vídeo que você deseja usar estiver disponível online (por exemplo, no YouTube), você pode adicioná‑lo à sua apresentação através do seu link web. 
 
-1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/)
-1. Obtenha a referência de um slide através de seu índice. 
-1. Adicione um objeto [Vídeo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/) e passe o link para o vídeo.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
+1. Obtenha a referência de um slide por meio do seu índice. 
+1. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/) e passe o link para o vídeo.
 1. Defina uma miniatura para o quadro de vídeo. 
 1. Salve a apresentação. 
 
@@ -104,9 +105,75 @@ Este código PHP mostra como adicionar um vídeo da web a um slide em uma aprese
 
 ```
 
+## **Cortar um Quadro de Vídeo**
+
+Aspose.Slides permite que você controle qual parte de um vídeo é reproduzida definindo os valores trim‑from‑start e trim‑from‑end através de [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#setTrimFromStart) e [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#setTrimFromEnd). Ambos os valores são especificados em milissegundos e definem quanto tempo é pulado do início e do final do vídeo, respectivamente. Essas configurações alteram as opções de reprodução do vídeo na apresentação; elas não cortam nem modificam os dados binários do vídeo incorporado.
+
+**Definir Configurações de Corte**
+
+Para criar um quadro de vídeo e definir suas configurações de corte:
+
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/).
+1. Adicione um objeto [Video](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/) à apresentação.
+1. Adicione um objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) a um slide.
+1. Defina os valores trim‑from‑start e trim‑from‑end através de [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#setTrimFromStart) e [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#setTrimFromEnd).
+1. Salve a apresentação modificada.
+
+O exemplo de código a seguir ignora os primeiros 2,5 s e o último segundo de um vídeo incorporado durante a reprodução:
+
+```php
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoStream = new Java("java.io.FileInputStream", "video.mp4");
+    $video = $presentation->getVideos()->addVideo(
+        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
+    }
+    $presentation->dispose();
+}
+```
+
+**Ler Configurações de Corte**
+
+Para inspecionar as configurações de corte existentes, carregue uma apresentação, encontre um objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) entre as formas do primeiro slide e leia os valores através de [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getTrimFromStart) e [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getTrimFromEnd).
+
+O exemplo de código a seguir localiza o primeiro quadro de vídeo no primeiro slide e relata suas configurações de corte em milissegundos:
+
+```php
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trimFromStart = java_values($videoFrame->getTrimFromStart());
+            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+
+            echo "Trim from start: " . $trimFromStart . " ms\n";
+            echo "Trim from end: " . $trimFromEnd . " ms\n";
+            break;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
 ## **Gerenciar Legendas de Vídeo**
 
-O Aspose.Slides permite que você gerencie legendas fechadas para quadros de vídeo em apresentações PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através do método [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getCaptionTracks).
+Aspose.Slides permite que você gerencie legendas fechadas para quadros de vídeo em apresentações PowerPoint. As legendas são armazenadas no formato WebVTT e são expostas através do método [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getCaptionTracks).
 
 **Adicionar Legendas a um Quadro de Vídeo**
 
@@ -138,7 +205,7 @@ try {
 }
 ```
 
-A classe [CaptionsCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/captionscollection/) também fornece uma sobrecarga que permite adicionar legendas a partir de um fluxo.
+A classe [CaptionsCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/captionscollection/) também oferece uma sobrecarga que permite adicionar legendas a partir de um fluxo.
 
 **Extrair Legendas de um Quadro de Vídeo**
 
@@ -146,7 +213,7 @@ Para extrair legendas de um quadro de vídeo:
 
 1. Carregue a apresentação que contém o vídeo.
 1. Encontre o objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) alvo.
-1. Itere pela coleção [getCaptionTracks](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getCaptionTracks).
+1. Percorra a coleção retornada por [getCaptionTracks](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getCaptionTracks).
 1. Salve cada faixa de legenda em um arquivo `.vtt`.
 
 O código a seguir mostra como extrair legendas de um quadro de vídeo:
@@ -174,7 +241,7 @@ try {
 }
 ```
 
-Cada objeto [Captions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/captions/) expõe o identificador da legenda, rótulo, dados binários e o texto da legenda como uma string UTF-8.
+Cada objeto [Captions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/captions/) expõe o identificador da legenda, o rótulo, os dados binários e o texto da legenda como uma string UTF‑8.
 
 **Remover Legendas de um Quadro de Vídeo**
 
@@ -182,7 +249,7 @@ Para remover legendas de um quadro de vídeo:
 
 1. Carregue a apresentação que contém o vídeo.
 1. Obtenha o objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/) alvo.
-1. Remova as faixas de legenda da coleção [getCaptionTracks](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getCaptionTracks).
+1. Remova as faixas de legenda da coleção retornada por [getCaptionTracks](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/#getCaptionTracks).
 1. Salve a apresentação modificada.
 
 O código a seguir mostra como remover todas as legendas de um quadro de vídeo:
@@ -206,11 +273,11 @@ Se precisar remover apenas uma faixa de legenda, use os métodos [remove](https:
 
 ## **Extrair Vídeo de Slides**
 
-Além de adicionar vídeos aos slides, o Aspose.Slides permite extrair vídeos incorporados em apresentações.
+Além de adicionar vídeos a slides, Aspose.Slides permite extrair vídeos incorporados em apresentações.
 
 1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/) para carregar a apresentação que contém o vídeo.
-2. Itere por todos os objetos [Slide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slide/).
-3. Itere por todos os objetos [Shape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/) para encontrar um [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/).
+2. Percorra todos os objetos [Slide](https://reference.aspose.com/slides/pt/php-java/aspose.slides/slide/).
+3. Percorra todos os objetos [Shape](https://reference.aspose.com/slides/pt/php-java/aspose.slides/shape/) para encontrar um [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/).
 4. Salve o vídeo no disco.
 
 Este código PHP mostra como extrair o vídeo de um slide de apresentação:
@@ -244,11 +311,11 @@ Este código PHP mostra como extrair o vídeo de um slide de apresentação:
   }
 ```
 
-## **Perguntas Frequentes**
+## **FAQ**
 
 **Quais parâmetros de reprodução de vídeo podem ser alterados para um VideoFrame?**
 
-Você pode controlar o [modo de reprodução](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/setplaymode/) (automático ou ao clicar) e a [repetição](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/setplayloopmode/). Essas opções estão disponíveis nas propriedades do objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/).
+Você pode controlar o [modo de reprodução](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/setplaymode/) (automático ou ao clicar) e o [looping](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/setplayloopmode/). Essas opções estão disponíveis nas propriedades do objeto [VideoFrame](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/).
 
 **Adicionar um vídeo afeta o tamanho do arquivo PPTX?**
 
@@ -256,8 +323,8 @@ Sim. Quando você incorpora um vídeo local, os dados binários são incluídos 
 
 **Posso substituir o vídeo em um VideoFrame existente sem alterar sua posição e tamanho?**
 
-Sim. Você pode trocar o [conteúdo de vídeo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/setembeddedvideo/) dentro do quadro preservando a geometria da forma; isso é um cenário comum para atualizar a mídia em um layout existente.
+Sim. Você pode trocar o [conteúdo do vídeo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/videoframe/setembeddedvideo/) dentro do quadro mantendo a geometria da forma; esse é um cenário comum para atualizar mídia em um layout existente.
 
 **É possível determinar o tipo de conteúdo (MIME) de um vídeo incorporado?**
 
-Sim. Um vídeo incorporado possui um [tipo de conteúdo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/getcontenttype/) que você pode ler e usar, por exemplo ao salvá-lo no disco.
+Sim. Um vídeo incorporado possui um [tipo de conteúdo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/video/getcontenttype/) que você pode ler e usar, por exemplo, ao salvá‑lo no disco.

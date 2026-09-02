@@ -1,350 +1,402 @@
 ---
-title: Kelola Seri Data Diagram dalam Presentasi Menggunakan PHP
+title: Kelola Seri Data Diagram dalam Presentasi dengan PHP
 linktitle: Seri Data
 type: docs
 url: /id/php-java/chart-series/
 keywords:
 - seri diagram
-- tumpang tindih seri
+- overlap seri
 - warna seri
-- warna kategori
 - nama seri
 - titik data
+- sel workbook
 - celah seri
+- nilai negatif
 - PowerPoint
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Pelajari cara mengelola seri data diagram dalam PHP untuk PowerPoint (PPT/PPTX) dengan contoh kode praktis dan praktik terbaik untuk meningkatkan presentasi data Anda."
+description: "Pelajari cara mengelola seri diagram, titik data, sel workbook, pemformatan, overlap, lebar celah, dan nilai negatif dalam presentasi dengan PHP."
 ---
 ## **Gambaran Umum**
 
-Artikel ini menjelaskan peran [ChartSeries](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/) di Aspose.Slides, dengan fokus pada bagaimana data disusun dan divisualisasikan dalam presentasi. Objek-objek ini menyediakan elemen dasar yang menentukan kumpulan titik data, kategori, dan parameter tampilan individu dalam sebuah diagram. Dengan menggunakan [ChartSeries](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/), pengembang dapat mengintegrasikan sumber data yang mendasarinya secara mulus dan mempertahankan kontrol penuh atas cara informasi ditampilkan, menghasilkan presentasi yang dinamis dan berbasis data yang dengan jelas menyampaikan wawasan dan analisis.
+Sebuah diagram menyimpan data yang dipetakan dalam workbook data diagram. Sebuah [ChartSeries](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/) mewakili satu set nilai terkait, dan setiap [ChartDataPoint](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/) dalam seri merujuk ke satu atau lebih sel workbook. Objek [ChartCategory](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartcategory/) menyediakan label atau nilai pengelompokan yang dibagi oleh seri. Nama seri, kategori, dan nilai titik oleh karena itu terhubung ke objek [ChartDataCell](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatacell/) bukan hanya disimpan sebagai teks tampilan.
 
-Sebuah seri adalah baris atau kolom angka yang digambarkan dalam diagram.
+Untuk diagram kategori tipikal, workbook default menggunakan baris 0 untuk nama seri, kolom 0 untuk nama kategori, dan sel-sel sisanya untuk nilai seri. Indeks worksheet, baris, dan kolom yang diteruskan ke [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/#getCell) bersifat berbasis nol. Tata letak ini berguna saat Anda membuat diagram dengan data default, tetapi jangan mengasumsikan setiap diagram yang ada menggunakannya. Untuk presentasi yang dimuat, periksa sel-sel yang dirujuk oleh seri, kategori, dan titik data sebelum mengubah nilai workbook.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Pengaturan diagram memiliki tiga lingkup berbeda:
 
-## **Atur Overlap Seri Diagram**
+- Pengaturan tingkat Seri, seperti [ChartSeries.getFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getFormat), menyediakan tampilan default untuk semua titik dalam satu seri.
+- Pengaturan titik data, seperti [ChartDataPoint.getFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getFormat), menimpa tampilan seri untuk satu titik.
+- Pengaturan grup berlaku untuk seri yang kompatibel yang berada dalam [ChartSeriesGroup](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseriesgroup/). Akses grup melalui [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getParentSeriesGroup) ketika Anda perlu mengatur opsi seperti overlap atau lebar celah.
 
-Dengan metode [getParentSeriesGroup](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getParentSeriesGroup), Anda dapat menentukan seberapa banyak batang dan kolom harus saling tumpang tindih pada diagram 2D (rentang: -100 hingga 100). Properti ini berlaku untuk semua seri dalam grup seri induk: ini adalah proyeksi dari properti grup yang sesuai. Oleh karena itu, properti ini hanya dapat dibaca.
+Ketika tidak ada pengisian titik atau seri yang eksplisit, gaya diagram dan tema menentukan tampilan otomatis. Ketika format seri dan titik keduanya ada, format titik memiliki prioritas untuk titik tersebut.
 
-Gunakan metode `ChartSeriesGroup::setOverlap` untuk mengatur nilai `Overlap` yang Anda inginkan.
+![seri-diagram-powerpoint](chart-series-powerpoint.png)
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Tambahkan diagram kolom berkelompok pada slide.
-1. Akses seri diagram pertama.
-1. Akses `ParentSeriesGroup` dari seri diagram dan atur nilai overlap yang Anda inginkan untuk seri tersebut.
-1. Tuliskan presentasi yang telah dimodifikasi ke file PPTX.
+## **Mengatur Overlap Seri Diagram**
 
-This PHP code shows you how to set the overlap for a chart series:
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getOverlap) melaporkan seberapa banyak batang atau kolom tumpang tindih dalam diagram 2D, dari -100 hingga 100 persen. Ini merupakan proyeksi baca-saja dari pengaturan pada grup seri induk. Gunakan [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseriesgroup/#setOverlap) untuk memperbarui setiap seri yang kompatibel dalam grup tersebut. Opsi ini berlaku untuk tipe diagram yang menampilkan batang atau kolom berkelompok; tidak memengaruhi grup seri yang tidak terkait dalam diagram kombinasi.
+
+Contoh berikut mengatur overlap untuk grup yang berisi seri pertama:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Menambahkan diagram
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # Menetapkan tumpang tindih seri
-      $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$overlapPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    // Diagram baru berisi contoh seri, kategori, dan nilai.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setOverlap($overlapPercent);
+
+    $presentation->save("series_overlap.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    # Menulis file presentasi ke disk
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **Ubah Warna Seri**
+Hasilnya:
 
-Aspose.Slides untuk PHP via Java memungkinkan Anda mengubah warna seri dengan cara berikut:
+![Overlap seri](series_overlap.png)
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Tambahkan diagram pada slide.
-1. Akses seri yang warnanya ingin Anda ubah.
-1. Atur tipe isian dan warna isian yang Anda inginkan.
-1. Simpan presentasi yang telah dimodifikasi.
+## **Mengubah Warna Isi Seri**
 
-This PHP code shows you how to change a series' color:
+Gunakan [ChartSeries.getFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getFormat) untuk menetapkan isi default bagi seluruh seri. Jika suatu titik sudah memiliki isi eksplisit, pengaturan [ChartDataPoint.getFormat](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getFormat) menimpa isi seri untuk titik itu.
+
+Contoh berikut menerapkan isi biru solid pada seri pertama:
 
 ```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(1);
-    $point->setExplosion(30);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$blueColor = java("java.awt.Color")->BLUE;
 
-## **Ubah Warna Kategori Seri**
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-Aspose.Slides untuk PHP via Java memungkinkan Anda mengubah warna kategori seri dengan cara berikut:
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Tambahkan diagram pada slide.
-1. Akses kategori seri yang warnanya ingin Anda ubah.
-1. Atur tipe isian dan warna isian yang Anda inginkan.
-1. Simpan presentasi yang telah dimodifikasi.
-
-This code  shows you how to change a series category's color:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ubah Nama Seri** 
-
-Secara default, nama legenda untuk diagram berasal dari isi sel di atas setiap kolom atau baris data.
-
-Dalam contoh kami (gambar contoh),
-
-* kolom adalah *Series 1, Series 2,* dan *Series 3*;
-* baris adalah *Category 1, Category 2, Category 3,* dan *Category 4.*
-
-Aspose.Slides untuk PHP via Java memungkinkan Anda memperbarui atau mengubah nama seri dalam data diagram dan legendanya.
-
-This PHP code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-This PHP code shows you how to change a series name in its legend through `Series`:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("New name");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Atur Warna Isian Seri Diagram**
-
-Aspose.Slides untuk PHP via Java memungkinkan Anda mengatur warna isian otomatis untuk seri diagram di dalam area plot dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Dapatkan referensi slide dengan indeksnya.
-1. Tambahkan diagram dengan data default berdasarkan tipe yang Anda pilih (pada contoh di bawah, kami menggunakan `ChartType::ClusteredColumn`).
-1. Akses seri diagram dan atur warna isian menjadi Automatic.
-1. Simpan presentasi ke file PPTX.
-
-This PHP code shows you how to set the automatic fill color for a chart series:
-
-```php
-  $pres = new Presentation();
-  try {
-    # Membuat diagram kolom berkelompok
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # Menetapkan format isian seri ke otomatis
-    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-      $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
-    }
-    # Menulis file presentasi ke disk
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Atur Warna Isian Terbalik untuk Seri Diagram**
-
-Aspose.Slides memungkinkan Anda mengatur warna isian terbalik untuk seri diagram di dalam area plot dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Dapatkan referensi slide dengan indeksnya.
-1. Tambahkan diagram dengan data default berdasarkan tipe yang Anda pilih (pada contoh di bawah, kami menggunakan `ChartType::ClusteredColumn`).
-1. Akses seri diagram dan atur warna isian menjadi invert.
-1. Simpan presentasi ke file PPTX.
-
-This PHP code demonstrates the operation:
-
-```php
-  $inverColor = java("java.awt.Color")->RED;
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    $workBook = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    # Menambahkan seri dan kategori baru
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
-    # Mengambil seri diagram pertama dan mengisi data serinya.
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 3, 1, -30));
-    $seriesColor = $series->getAutomaticSeriesColor();
-    $series->setInvertIfNegative(true);
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
-    $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($blueColor);
+
+    $presentation->save("series_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Atur Seri untuk Terbalik Saat Nilai Negatif**
+Hasilnya:
 
-Aspose.Slides memungkinkan Anda mengatur pembalikan melalui properti `IChartDataPoint.InvertIfNegative` dan `ChartDataPoint.InvertIfNegative`. Ketika pembalikan diatur menggunakan properti tersebut, titik data akan membalik warna ketika menerima nilai negatif.
+![Warna seri](series_color.png)
 
-This PHP code demonstrates the operation:
+## **Mengubah Nama Seri**
+
+Nama seri disimpan dalam workbook data diagram dan biasanya ditampilkan di legenda. Pada workbook default yang dibuat untuk diagram kolom berkelompok, sel B1 berada di baris 0, kolom 1 dan berisi nama seri pertama. Variabel bernama dalam contoh berikut membuat struktur itu eksplisit:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $chart->getChartData()->getSeries()->clear();
-    $chartSeries = $series->add($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1"), $chart->getType());
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B2", -5));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B3", 3));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B4", -2));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
-    $chartSeries->setInvertIfNegative(false);
-    $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$seriesNameRowIndex = 0;
+$firstSeriesColumnIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $seriesNameRowIndex, $firstSeriesColumnIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Bersihkan Data Titik Spesifik**
-
-Aspose.Slides untuk PHP via Java memungkinkan Anda membersihkan data `DataPoints` untuk seri diagram tertentu dengan cara berikut:
-
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-2. Dapatkan referensi slide melalui indeksnya.
-3. Dapatkan referensi diagram melalui indeksnya.
-4. Iterasi semua `DataPoints` diagram dan atur `XValue` serta `YValue` menjadi null.
-5. Bersihkan semua `DataPoints` untuk seri diagram tertentu.
-6. Tuliskan presentasi yang telah dimodifikasi ke file PPTX.
-
-This PHP code demonstrates the operation:
+Anda juga dapat memperbarui sel yang sudah dirujuk oleh [ChartSeries.getName](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getName). Pendekatan ini menghindari asumsi baris dan kolom tertentu dalam diagram yang ada:
 
 ```php
-  $pres = new Presentation("TestChart.pptx");
-  try {
-    $sl = $pres->getSlides()->get_Item(0);
-    $chart = $sl->getShapes()->get_Item(0);
-    foreach($chart->getChartData()->getSeries()->get_Item(0)->getDataPoints() as $dataPoint) {
-      $dataPoint->getXValue()->getAsCell()->setValue(null);
-      $dataPoint->getYValue()->getAsCell()->setValue(null);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$firstNameCellIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $seriesNameCell = $series->getName()->getAsCells()->get_Item($firstNameCellIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **Atur Lebar Celah Seri**
+Hasilnya:
 
-Aspose.Slides untuk PHP via Java memungkinkan Anda mengatur Lebar Celah (`GapWidth`) untuk sebuah seri melalui properti **`GapWidth`** dengan cara berikut:
+![Nama seri](series_name.png)
 
-1. Buat instance dari kelas [Presentation](https://reference.aspose.com/slides/id/php-java/aspose.slides/Presentation).
-1. Akses slide pertama.
-1. Tambahkan diagram dengan data default.
-1. Akses seri diagram mana saja.
-1. Atur properti `GapWidth`.
-1. Tuliskan presentasi yang telah dimodifikasi ke file PPTX.
+## **Mendapatkan Warna Isi Seri Otomatis**
 
-This code  shows you how to set a series' Gap Width:
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) mengembalikan warna yang dihitung dari indeks seri dan gaya diagram. Ini adalah warna yang digunakan ketika isi seri tidak didefinisikan secara eksplisit. Memanggil metode membaca warna yang dihitung; tidak menetapkan isi baru.
+
+Contoh berikut mencetak warna otomatis setiap seri default:
 
 ```php
-  # Membuat presentasi kosong
-  $pres = new Presentation();
-  try {
-    # Mengakses slide pertama presentasi
-    $slide = $pres->getSlides()->get_Item(0);
-    # Menambahkan diagram dengan data default
-    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # Menetapkan indeks lembar data diagram
-    $defaultWorksheetIndex = 0;
-    # Mendapatkan lembar kerja data diagram
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Menambahkan seri
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Menambahkan Kategori
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Mengambil seri diagram kedua
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Mengisi data seri
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Menetapkan nilai GapWidth
-    $series->getParentSeriesGroup()->setGapWidth(50);
-    # Menyimpan presentasi ke disk
-    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $seriesCount = java_values($chart->getChartData()->getSeries()->size());
+    for ($seriesIndex = 0; $seriesIndex < $seriesCount; $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $automaticColor = $series->getAutomaticSeriesColor();
+        $red = java_values($automaticColor->getRed());
+        $green = java_values($automaticColor->getGreen());
+        $blue = java_values($automaticColor->getBlue());
+        echo "Series " . $seriesIndex . ": java.awt.Color[r=" . $red . ",g=" . $green . ",b=" . $blue . "]" . PHP_EOL;
     }
-  }
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
+
+Contoh output untuk gaya diagram default:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+Warna tepat bergantung pada gaya dan tema diagram.
+
+## **Mengatur Warna Isi Terbalik untuk Seri Diagram**
+
+Untuk seri batang, kolom, dan gelembung, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#setInvertIfNegative) dapat menampilkan nilai negatif dengan isi yang berbeda. Tetapkan isi seri reguler menjadi solid, aktifkan inversi, dan tetapkan warna nilai negatif melalui [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Angka negatif tetap tidak berubah di workbook; hanya warna tampilan yang berubah.
+
+Contoh berikut menggantikan data diagram default dengan satu seri. Baris worksheet 0 berisi nama seri, kolom 0 berisi nama kategori, dan kolom 1 berisi nilai:
+
+```php
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$headerRowIndex = 0;
+$categoryColumnIndex = 0;
+$firstSeriesColumnIndex = 1;
+$firstDataRowIndex = 1;
+
+$categoryNames = ["Category 1", "Category 2", "Category 3"];
+$seriesValues = [-20, 50, -30];
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $headerRowIndex, $firstSeriesColumnIndex, "Series 1");
+    $chartType = $chart->getType();
+    $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+
+    $categoryCount = count($categoryNames);
+    for ($categoryIndex = 0; $categoryIndex < $categoryCount; $categoryIndex++) {
+        $dataRowIndex = $firstDataRowIndex + $categoryIndex;
+        $categoryName = $categoryNames[$categoryIndex];
+        $seriesValue = $seriesValues[$categoryIndex];
+
+        $categoryCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $categoryColumnIndex, $categoryName);
+        $chartData->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $firstSeriesColumnIndex, $seriesValue);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->setInvertIfNegative(true);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+
+    $presentation->save("inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+Hasilnya:
+
+![Warna isi solid terbalik](inverted_solid_fill_color.png)
+
+Anda dapat mengaktifkan inversi untuk satu titik melalui [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Pada contoh berikut, inversi dinonaktifkan untuk seri dan diaktifkan hanya untuk titik yang dipilih. Titik tersebut juga diberikan nilai negatif sehingga efeknya terlihat:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 2;
+$negativeValue = -30;
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+    $series->setInvertIfNegative(false);
+
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue($negativeValue);
+    $dataPoint->setInvertIfNegative(true);
+
+    $presentation->save("data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Mengosongkan Nilai Titik Data Tertentu**
+
+Untuk membuat satu titik kosong tanpa menghapus titik lain, atur sel workbook yang mendasarinya ke `null`. Untuk diagram kolom, nilai yang dipetakan tersedia melalui [ChartDataPoint.getValue](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#getValue). Titik data tetap berada pada posisi kategori yang sama, tetapi diagram memperlakukan nilainya sebagai kosong sesuai dengan pengaturan nilai kosong diagram.
+
+Contoh berikut mengosongkan hanya titik kedua dalam seri pertama:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue(null);
+
+    $presentation->save("clear_data_point_value.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+Diagram sebar menggunakan sel X dan Y terpisah, dan diagram gelembung juga menggunakan sel ukuran. Hanya kosongkan sel yang mewakili nilai yang ingin Anda hapus. Jangan panggil [ChartDataPointCollection.clear](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointcollection/#clear) ketika Anda ingin mempertahankan titik lainnya, karena metode itu menghapus semua titik data dari koleksi.
+
+## **Mengatur Lebar Celah Seri**
+
+Lebar celah adalah ruang antara klaster batang atau kolom yang berdekatan, dinyatakan sebagai persentase lebar batang atau kolom. Sama seperti overlap, lebar celah dimiliki oleh grup seri induk, bukan oleh satu seri. Panggil [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseriesgroup/#setGapWidth) sekali untuk grup tersebut. Nilai yang lebih besar menciptakan lebih banyak ruang antara klaster; nilai yang lebih kecil membuatnya lebih rapat.
+
+Contoh berikut mengubah lebar celah dan menyimpan hanya presentasi akhir:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$gapWidthPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setGapWidth($gapWidthPercent);
+
+    $presentation->save("gap_width_30.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+Hasilnya:
+
+![Lebar celah](gap_width.png)
 
 ## **FAQ**
 
-**Apakah ada batasan jumlah seri yang dapat dimiliki satu diagram?**
+**Jenis diagram apa yang mendukung seri data?**
 
-Aspose.Slides tidak memberlakukan batas tetap pada jumlah seri yang Anda tambahkan. Batas praktis ditentukan oleh keterbacaan diagram dan memori yang tersedia untuk aplikasi Anda.
+Semua tipe diagram yang direpresentasikan oleh enumerasi [ChartType](https://reference.aspose.com/slides/id/php-java/aspose.slides/charttype/) menggunakan data diagram, tetapi seri mereka tidak semua memiliki struktur nilai atau pengaturan yang sama. Misalnya, diagram kategori menggunakan kategori dan nilai, diagram sebar menggunakan nilai X dan Y, dan diagram gelembung menambahkan ukuran gelembung. Gunakan metode pembuatan titik data yang cocok dengan tipe seri. Opsi seperti overlap dan lebar celah hanya berlaku untuk grup batang atau kolom yang kompatibel.
 
-**Bagaimana jika kolom dalam sebuah klaster terlalu dekat atau terlalu jauh satu sama lain?**
+**Apa itu grup seri diagram?**
 
-Sesuaikan pengaturan `GapWidth` untuk seri tersebut (atau grup seri induknya). Meningkatkan nilai akan memperlebar ruang antar kolom, sementara menurunkannya akan mendekatkan kolom tersebut.
+Sebuah [ChartSeriesGroup](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseriesgroup/) berisi seri yang kompatibel yang berbagi pengaturan plot tingkat grup. Diagram kombinasi dapat berisi lebih dari satu grup, sehingga mengubah grup yang dicapai melalui satu seri tidak selalu mengubah setiap seri dalam diagram.
+
+**Apakah diagram yang baru dibuat berisi data default?**
+
+Ya. Secara default, [ShapeCollection.addChart](https://reference.aspose.com/slides/id/php-java/aspose.slides/shapecollection/#addChart) membuat seri, kategori, dan nilai contoh. Anda dapat menyunting sel‑sel tersebut atau mengosongkan koleksi seri dan kategori sebelum menambahkan kumpulan data yang sepenuhnya kustom. Sebuah overload juga dapat membuat diagram tanpa data default.
+
+**Bagaimana objek diagram terhubung ke sel workbook?**
+
+Nama seri, label kategori, dan nilai titik data merujuk ke sel dalam [ChartDataWorkbook](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdataworkbook/). Mengubah sel yang dirujuk memperbarui elemen diagram yang bersangkutan. Saat Anda membangun data kustom, jaga baris kategori dan baris nilai seri tetap selaras sehingga setiap titik dipetakan di bawah kategori yang dimaksud.
+
+**Bagaimana cara mengosongkan satu titik saja, bukan seluruh seri?**
+
+Atur sel nilai yang relevan ke `null` untuk mempertahankan posisi kategori titik sebagai titik kosong. Gunakan [ChartDataPointCollection.clear](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapointcollection/#clear) hanya ketika Anda bermaksud menghapus semua titik dari seri tersebut. Jika Anda juga menghapus kategori, perbarui setiap seri sehingga nilai‑nilai mereka tetap selaras dengan koleksi kategori.
+
+**Bagaimana titik kosong ditampilkan?**
+
+Hasilnya tergantung pada tipe diagram dan nilai yang dikonfigurasi melalui [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/id/php-java/aspose.slides/chart/#setDisplayBlanksAs). Diagram yang didukung dapat menampilkan kosong sebagai celah, sebagai nilai nol, atau dengan menghubungkan titik‑titik tetangga. Pilih pengaturan yang cocok dengan makna data yang hilang dalam presentasi Anda.
+
+**Bagaimana nilai negatif diformat?**
+
+Untuk seri batang, kolom, dan gelembung yang didukung, panggil [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#setInvertIfNegative) dan tetapkan warna yang dikembalikan oleh [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Anda dapat menimpa perilaku untuk titik individual dengan [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Metode‑metode ini memengaruhi pemformatan, bukan nilai numerik yang disimpan.
+
+**Format mana yang menang ketika seri dan titik keduanya diformat?**
+
+Pemformatan titik data eksplisit memiliki prioritas untuk titik tersebut. Titik‑titik lain terus menggunakan format seri eksplisit atau, bila format seri tidak didefinisikan, gaya dan tema diagram otomatis. Pengaturan grup seperti overlap dan lebar celah mengontrol tata letak dan bukan penimpaan format tingkat titik.
+
+**Apakah ada batas berapa banyak seri yang dapat dimiliki sebuah diagram?**
+
+Aspose.Slides tidak memberlakukan batas tetap terpisah untuk jumlah seri. Dalam praktik, batas yang berguna ditentukan oleh batasan file presentasi, memori yang tersedia, waktu render, dan keterbacaan diagram.
+
+**Apa yang harus diubah ketika kolom terlalu berdekatan atau terlalu jauh?**
+
+Panggil [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/id/php-java/aspose.slides/chartseriesgroup/#setGapWidth) pada grup seri induk yang sesuai. Tingkatkan nilai untuk memperlebar ruang antara klaster, atau turunkan nilai untuk mendekatkan klaster satu sama lain.

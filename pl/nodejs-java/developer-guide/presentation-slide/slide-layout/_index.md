@@ -7,7 +7,7 @@ url: /pl/nodejs-java/slide-layout/
 keywords:
 - układ slajdu
 - układ treści
-- pole zastępcze
+- element zastępczy
 - projektowanie prezentacji
 - projektowanie slajdu
 - nieużywany układ
@@ -15,11 +15,11 @@ keywords:
 - slajd tytułowy
 - tytuł i treść
 - nagłówek sekcji
-- dwie zawartości
+- dwa elementy treści
 - porównanie
 - tylko tytuł
 - pusty układ
-- zawartość z podpisem
+- treść z podpisem
 - obraz z podpisem
 - tytuł i pionowy tekst
 - pionowy tytuł i tekst
@@ -29,151 +29,139 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Zarządzaj i dostosowuj układy slajdów w Aspose.Slides dla Node.js. Poznaj typy układów, kontrolę pól zastępczych oraz widoczność stopki na przykładach kodu."
+description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides dla Node.js za pomocą Javy, dodawaj elementy zastępcze, usuwaj nieużywane układy i kontroluj widoczność stopki."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Układ slajdu określa rozmieszczenie pól zastępczych i formatowanie treści na slajdzie. Kontroluje, które pola zastępcze są dostępne i gdzie się pojawiają. Układy slajdów pomagają szybko i konsekwentnie projektować prezentacje — niezależnie od tego, czy tworzysz coś prostego, czy bardziej złożonego. Niektóre z najczęściej używanych układów slajdów w programie PowerPoint to:
+Układ slajdu określa pozycje i formatowanie elementów zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu zapewnia spójną strukturę slajdów, jednocześnie pozwalając każdemu slajdowi zawierać własną treść.
 
-**Układ slajdu tytułowego** – Zawiera dwa pola tekstowe: jedno dla tytułu i drugie dla podtytułu.
+Najczęściej używane układy to:
 
-**Układ tytuł i zawartość** – Zawiera mniejsze pole tytułowe u góry oraz większe poniżej dla głównej treści (takiej jak tekst, listy punktowane, wykresy, obrazy i inne).
+- **Slajd tytułowy**: Zawiera elementy zastępcze tytułu i podtytułu.
+- **Tytuł i treść**: Zawiera element zastępczy tytułu oraz ogólny element zastępczy treści.
+- **Pusty**: Nie zawiera elementów zastępczych i jest przydatny, gdy wszystkie kształty będą rozmieszczane ręcznie.
 
-**Układ pusty** – Nie zawiera pól zastępczych, dając pełną kontrolę nad projektowaniem slajdu od podstaw.
+## **Zrozumienie dziedziczenia układów**
 
-Układy slajdów są częścią mistrza slajdów, który jest slajdem najwyższego poziomu definiującym style układów dla prezentacji. Możesz uzyskać dostęp i modyfikować układy slajdów poprzez mistrza slajdów — zarówno według ich typu, nazwy, jak i unikalnego identyfikatora. Alternatywnie możesz edytować konkretny układ slajdu bezpośrednio w prezentacji.
+Prezentacja ma trzy powiązane poziomy:
 
-Aby pracować z układami slajdów w Aspose.Slides for Node.js, możesz użyć:
+1. [Główny slajd](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/) definiuje motyw, wspólne formatowanie, tła i wspólne obiekty.  
+2. [Układ slajdu](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/) należy do głównego slajdu i określa konkretny układ elementów zastępczych.  
+3. [Normalny slajd](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/) używa jednego układu i przechowuje wprowadzoną dla niego treść.
 
-- Metody, takie jak [getLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getLayoutSlides) i [getMasters](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getMasters) w klasie [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/)
-- Typy, takie jak [LayoutSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/) i [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+Normalny slajd dziedziczy motyw i formatowanie z układu, a układ dziedziczy z głównego slajdu. Wartość ustawiona bezpośrednio na normalnym slajdzie zastępuje dziedziczoną wartość na tym poziomie. Podczas tworzenia normalnego slajdu kształty elementów zastępczych są generowane na podstawie wybranego układu, a treść wprowadzona do tych elementów należy do normalnego slajdu.
 
-{{% alert title="Info" color="info" %}}
-Aby dowiedzieć się więcej o pracy z mistrzami slajdów, zobacz artykuł [Slide Master](/slides/pl/nodejs-java/slide-master/).
-{{% /alert %}}
+Dodaj wymagane elementy zastępcze do układu przed tworzeniem z niego slajdów. Dodanie kolejnego elementu zastępczego do układu później nie spowoduje automatycznego dodania odpowiadającego kształtu elementu zastępczego do istniejących normalnych slajdów.
 
-## **Dodawanie układów slajdów do prezentacji**
+Relacja ta ma dwa ważne konsekwencje:
 
-Aby dostosować wygląd i strukturę swoich slajdów, możesz potrzebować dodać nowe układy slajdów do prezentacji. Aspose.Slides for Node.js umożliwia sprawdzenie, czy określony układ już istnieje, dodanie nowego w razie potrzeby i użycie go do wstawiania slajdów opartych na tym układzie.
+- Zmiana dziedziczonego formatowania lub istniejącej geometrii elementu zastępczego w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu, który jest już używany, sprawdź jego zależne slajdy i przejrzyj wynikową prezentację.  
+- Układ, który jest nadal używany przez slajd, nie może zostać usunięty. Przypisz najpierw jego zależne slajdy do innego układu lub usuń tylko nieużywane układy.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj dostęp do [MasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterlayoutslidecollection/).
-1. Sprawdź, czy żądany układ slajdu już istnieje w kolekcji. Jeśli nie, dodaj potrzebny układ slajdu.
-1. Dodaj pusty slajd oparty na nowym układzie slajdu.
-1. Zapisz prezentację.
+Aby uzyskać więcej informacji o najwyższym poziomie tej hierarchii, zobacz [Slide Master](/slides/pl/nodejs-java/slide-master/).
 
-```js
-// Utwórz instancję klasy Presentation, która reprezentuje plik PowerPoint.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **Wybór i zastosowanie układu slajdu**
+
+Użyj wartości [SlideLayoutType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slidelayouttype/), gdy prezentacja korzysta ze standardowych definicji układów PowerPoint. Nazwy układów można edytować i lokalizować, więc wybór oparty na nazwie jest mniej niezawodny, chyba że kontrolujesz szablon źródłowy.
+
+Poniższy przykład wyszukuje **Title and Content** w pierwszym głównym slajdzie. Jeśli ten układ nie jest dostępny, celowo przechodzi do **Blank**. Drugi warunek null jest potrzebny, ponieważ prezentacja może zawierać tylko własne układy. Wybrany układ jest następnie zastosowany do pierwszego normalnego slajdu za pomocą metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Przejdź przez typy układów slajdów, aby wybrać układ slajdu.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Sytuacja, w której prezentacja nie zawiera wszystkich typów układów.
-        // Plik prezentacji zawiera tylko układy typu Blank i Custom.
-        // Jednak układy slajdów o typach niestandardowych mogą mieć rozpoznawalne nazwy,
-        // takie jak "Title", "Title and Content", etc., które mogą być użyte do wyboru układu slajdu.
-        // Możesz także polegać na zestawie typów kształtów pól zastępczych.
-        // Na przykład slajd Title powinien mieć tylko typ pola zastępczego Title, i tak dalej.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Dodaj pusty slajd, używając dodanego układu slajdu.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Zapisz prezentację na dysku.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Usuwanie nieużywanych układów slajdów**
+Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje elementów zastępczych, dziedziczone formatowanie i powiązania między istniejącymi elementami zastępczymi a nowym układem mogą się zmienić, więc sprawdź wynik przy przełączaniu między znacząco różnymi układami.
 
-Aspose.Slides udostępnia metodę [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) z klasy [Compress](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/), aby umożliwić usunięcie niechcianych i nieużywanych układów slajdów.
+## **Dodanie układu slajdu**
 
-Poniższy kod JavaScript pokazuje, jak usunąć układ slajdu z prezentacji PowerPoint:
+Wybór i tworzenie to odrębne operacje. W poprzednim przykładzie wybierany jest istniejący układ; nie jest on tworzony. Aby utworzyć układ, wywołaj metodę [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) na kolekcji układów docelowego głównego slajdu.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+Poniższy przykład zawsze dodaje nowy układ **Title and Content** o nazwie `Report Title and Content`, a następnie dodaje normalny slajd oparty na tym układzie. Nazwy układów muszą być unikalne w kolekcji.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Dodawanie pól zastępczych do układów slajdów**
+Dodawaj układ tylko wtedy, gdy szablon naprawdę potrzebuje kolejnej wielokrotnego użytku struktury. Jeśli istnieje odpowiedni układ, wybierz i użyj go ponownie zamiast tworzyć duplikat.
 
-Aspose.Slides udostępnia metodę [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager), która pozwala dodawać nowe pola zastępcze do układu slajdu.
+## **Dodawanie elementów zastępczych do układu slajdu**
 
-Ten menedżer zawiera metody dla następujących typów pól zastępczych:
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) zwraca [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/) umożliwiający dodawanie kształtów elementów zastępczych do układu.
 
-| Zastępnik PowerPoint | [LayoutPlaceholderManager] Metoda |
-| -------------------- | --------------------------------- |
-| ![Zawartość](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Zawartość (Pionowa)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Tekst](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Tekst (Pionowy)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Obraz](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Wykres](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabela](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Obraz online](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Placeholder PowerPoint              | `LayoutPlaceholderManager` Method |
+| ----------------------------------- | --------------------------------- |
+| ![Treść](content.png)               | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Treść (pionowa)](contentV.png)    | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Tekst](text.png)                  | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Tekst (pionowy)](textV.png)       | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Obraz](picture.png)               | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Wykres](chart.png)                | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabela](table.png)                | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Obraz online](onlineImage.png)    | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Poniższy kod JavaScript demonstruje, jak dodać nowe kształty pól zastępczych do układu pustego:
+Poniższy przykład weryfikuje, że układ **Blank** istnieje, dodaje do niego cztery elementy zastępcze, a następnie tworzy normalny slajd korzystający z zmodyfikowanego układu. Kolejność jest zamierzona: elementy zastępcze są dodawane przed utworzeniem normalnego slajdu, dzięki czemu Aspose.Slides może wygenerować odpowiadające im kształty na tym slajdzie.
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Pobierz układ slajdu typu Blank.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Pobierz menedżera pól zastępczych układu slajdu.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Dodaj różne pola zastępcze do układu Blank.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Dodaj nowy slajd z układem Blank.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -181,69 +169,87 @@ try {
 
 Wynik:
 
-![Pola zastępcze na slajdzie układu](add_placeholders.png)
+![Elementy zastępcze na slajdzie układu](add_placeholders.png)
 
-## **Ustaw widoczność stopki dla układu slajdu**
+{{% alert color="warning" title="Warning" %}}
+Zmiana dziedziczonego formatowania lub geometrii istniejących elementów zastępczych w układzie może wpłynąć na zależne slajdy. Nowo dodany element zastępczy układu nie jest uzupełniany w istniejących normalnych slajdach. Testuj zmiany układów na kopii prezentacji i sprawdzaj każdy zależny slajd.
+{{% /alert %}}
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i tekst niestandardowy, mogą być wyświetlane lub ukrywane w zależności od układu slajdu. Aspose.Slides for Node.js pozwala kontrolować widoczność tych pól zastępczych stopki. Jest to przydatne, gdy chcesz, aby niektóre układy wyświetlały informacje stopki, a inne pozostawały czyste i minimalistyczne.
+## **Usuwanie nieużywanych układów slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj referencję do układu slajdu według jego indeksu.
-1. Ustaw pole zastępcze stopki slajdu jako widoczne.
-1. Ustaw pole zastępcze numeru slajdu jako widoczne.
-1. Ustaw pole zastępcze daty i czasu jako widoczne.
-1. Zapisz prezentację.
+Użyj metody [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć układy, do których nie odnosi się żaden normalny slajd. Metoda pozostawia nienaruszone układy, które nadal są używane.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Ustaw widoczność stopki potomnej dla slajdu**
+Aby usunąć konkretny układ, najpierw użyj jego metody [hasDependingSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) lub [getDependingSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Przypisz wszelkie zależne slajdy przed wywołaniem [LayoutSlide.remove](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#remove). Próba usunięcia używanego układu powoduje wyrzucenie [PptxEditException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pptxeditexception/).
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i tekst niestandardowy, mogą być kontrolowane na poziomie slajdu mistrza, aby zapewnić spójność we wszystkich układach slajdów. Aspose.Slides for Node.js umożliwia ustawienie widoczności i treści tych pól zastępczych stopki na slajdzie mistrza i propagowanie tych ustawień do wszystkich podrzędnych układów slajdów. To podejście zapewnia jednolitą informację o stopce w całej prezentacji.
+## **Kontrola widoczności stopki w układzie slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj referencję do slajdu mistrza według jego indeksu.
-1. Ustaw pola zastępcze stopki mistrza oraz wszystkich podrzędnych jako widoczne.
-1. Ustaw pola zastępcze numeru slajdu mistrza oraz wszystkich podrzędnych jako widoczne.
-1. Ustaw pola zastępcze daty i czasu mistrza oraz wszystkich podrzędnych jako widoczne.
-1. Zapisz prezentację.
+Układ ma własne elementy zastępcze stopki, numeru slajdu i daty/czasu. Użyj metody [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager), aby sterować tymi elementami w jednym układzie. Jest to przydatne, gdy na przykład układy treści powinny wyświetlać stopki, a układy tytułowe nie powinny.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+Poniższy przykład wybiera układ w sposób bezpieczny i ustawia widoczność elementów stopki:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
+    }
+
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
+    }
+
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kontrola widoczności stopki w głównym slajdzie i jego układach potomnych**
+
+Aby zastosować spójne ustawienia stopki w całej hierarchii głównego slajdu, użyj metody [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody propagacji [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/masterslideheaderfootermanager/) działają na głównym slajdzie oraz jego zależnych układach i normalnych slajdach; nie dotyczą pojedynczego normalnego slajdu.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -251,14 +257,18 @@ try {
 
 ## **FAQ**
 
-**Jaka jest różnica między slajdem mistrza a układem slajdu?**
+**Jaka jest różnica między głównym slajdem a układem slajdu?**
 
-Slajd mistrza określa ogólny motyw i domyślne formatowanie, podczas gdy układy slajdów definiują konkretne rozmieszczenie pól zastępczych dla różnych rodzajów treści.
+Główny slajd definiuje motyw prezentacji i wspólne formatowanie. Układ slajdu należy do głównego slajdu i określa jedną wielokrotnego użytku konfigurację elementów zastępczych. Normalne slajdy używają tych układów i przechowują treść specyficzną dla slajdu.
 
 **Czy mogę skopiować układ slajdu z jednej prezentacji do drugiej?**
 
-Tak, możesz sklonować układ slajdu z kolekcji układów slajdów jednej prezentacji, dostępnej za pomocą metody [getLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/#getLayoutSlides), i wstawić go do innej prezentacji używając metody `addClone`.
+Tak. Dodaj kopię do docelowej kolekcji przy użyciu metody [addClone](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). Przy kopiowaniu między prezentacjami sprawdź również czcionki, motywy, obrazy i inne zasoby użyte w źródłowym układzie.
 
-**Co się stanie, jeśli usunę układ slajdu, który jest nadal używany przez slajd?**
+**Co się stanie, gdy zmodyfikuję układ, który jest już używany?**
 
-Jeśli spróbujesz usunąć układ slajdu, który jest nadal odwoływany przynajmniej przez jeden slajd w prezentacji, Aspose.Slides rzuci wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pptxeditexception/). Aby tego uniknąć, użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), który bezpiecznie usuwa tylko układy slajdów nieużywane.
+Zależne slajdy dziedziczą zmiany układu, chyba że nadpisują dotknięte formatowanie lub obiekty lokalnie. Geometria elementów zastępczych i dziedziczony styl mogą więc zmienić się jednocześnie na wielu slajdach. Użyj [getDependingSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/#getDependingSlides), aby zidentyfikować dotknięte slajdy przed edycją układu.
+
+**Co się stanie, jeśli usunę układ, który jest nadal używany?**
+
+Aspose.Slides rzuca [PptxEditException](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy do innego układu lub użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć tylko nieodwoływane układy.

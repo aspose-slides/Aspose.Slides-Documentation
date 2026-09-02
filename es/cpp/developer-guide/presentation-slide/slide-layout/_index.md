@@ -1,5 +1,5 @@
 ---
-title: Aplicar o cambiar diseños de diapositivas en C++
+title: Aplicar o cambiar diseños de diapositiva en C++
 linktitle: Diseño de diapositiva
 type: docs
 weight: 60
@@ -9,8 +9,8 @@ keywords:
 - diseño de contenido
 - marcador de posición
 - diseño de presentación
-- diseño de la diapositiva
-- diseño no usado
+- diseño de diapositiva
+- diseño sin usar
 - visibilidad del pie de página
 - diapositiva de título
 - título y contenido
@@ -28,249 +28,281 @@ keywords:
 - presentación
 - C++
 - Aspose.Slides
-description: "Administrar y personalizar los diseños de diapositivas en Aspose.Slides para C++. Explore los tipos de diseño, el control de marcadores de posición y la visibilidad del pie de página mediante ejemplos de código en C++."
+description: "Aplicar, crear y modificar diseños de diapositiva en Aspose.Slides para C++, añadir marcadores de posición, eliminar diseños sin usar y controlar la visibilidad del pie de página."
 ---
-
 ## **Descripción general**
 
-Un diseño de diapositiva define la disposición de los cuadros de marcador de posición y el formato del contenido en una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones de forma rápida y coherente, ya sea que esté creando algo sencillo o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
+Un diseño de diapositiva define las posiciones y el formato de los marcadores de posición como títulos, texto, imágenes, gráficos y tablas. Aplicar un diseño proporciona a las diapositivas una estructura coherente mientras permite que cada diapositiva contenga su propio contenido.
 
-**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
+- **Diapositiva de título**: Contiene marcadores de posición de título y subtítulo.  
+- **Título y contenido**: Contiene un marcador de posición de título y un marcador de posición de contenido de uso general.  
+- **En blanco**: No contiene marcadores de posición de contenido y es útil cuando cada forma se posicionará manualmente.
 
-**Diseño de título y contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (como texto, viñetas, gráficos, imágenes y más).
+## **Comprender la herencia de diseños**
 
-**Diseño en blanco** – No contiene marcadores de posición, lo que le permite tener control total para diseñar la diapositiva desde cero.
+Una presentación tiene tres niveles relacionados:
 
-Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar las diapositivas de diseño a través de la diapositiva maestra—ya sea por su tipo, nombre o ID único. Alternativamente, puede editar una diapositiva de diseño específica directamente dentro de la presentación.
+1. Una [diapositiva maestra](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslide/) define el tema, el formato compartido, los fondos y los objetos comunes.  
+1. Una [diapositiva de diseño](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/) pertenece a una maestra y define una disposición particular de marcadores de posición.  
+1. Una [diapositiva normal](https://reference.aspose.com/slides/es/cpp/aspose.slides/islide/) usa un diseño y almacena el contenido introducido para esa diapositiva.
 
-Para trabajar con diseños de diapositiva en Aspose.Slides para Android, puede usar:
+Una diapositiva normal hereda el tema y el formato de su diseño, y el diseño hereda de su maestra. Un valor establecido directamente en una diapositiva normal sobrescribe el valor heredado en ese nivel. Cuando se crea una diapositiva normal, sus formas de marcador de posición se generan a partir del diseño seleccionado, mientras que el contenido introducido en esos marcadores pertenece a la diapositiva normal.
 
-- Métodos como [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/) y [get_Masters](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_masters/) bajo la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/)
-- Tipos como [ILayoutSlide](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) y [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+Agregue los marcadores de posición necesarios a un diseño antes de crear diapositivas a partir de él. Añadir otro marcador de posición a un diseño más tarde no agrega automáticamente una forma de marcador correspondiente a las diapositivas normales existentes.
 
-{{% alert title="Info" color="info" %}}
-Para obtener más información sobre el trabajo con diapositivas maestras, consulte el artículo [Slide Master](/slides/es/cpp/slide-master/).
-{{% /alert %}}
+Esta relación tiene dos consecuencias importantes:
 
-## **Agregar diseños de diapositiva a presentaciones**
+- Cambiar el formato heredado o la geometría de los marcadores de posición existentes en un diseño puede actualizar todas las diapositivas que dependen de él. Antes de editar un diseño que ya está en uso, inspeccione sus diapositivas dependientes y revise la presentación resultante.  
+- Un diseño que aún es usado por una diapositiva no puede eliminarse. Reasigne sus diapositivas dependientes a otro diseño primero, o elimine solo los diseños no usados.
 
-Para personalizar la apariencia y la estructura de sus diapositivas, puede que necesite agregar nuevas diapositivas de diseño a una presentación. Aspose.Slides para Android le permite verificar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
+Para obtener más información sobre el nivel superior de esta jerarquía, consulte [Maestro de diapositivas](/slides/es/cpp/slide-master/).
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Acceder a la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. Verificar si la diapositiva de diseño deseada ya existe en la colección. Si no, agregar la diapositiva de diseño que necesite.
-1. Agregar una diapositiva en blanco basada en la nueva diapositiva de diseño.
-1. Guardar la presentación.
+## **Seleccionar y aplicar un diseño de diapositiva**
 
-El siguiente código C++ muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
+Utilice un tipo de diseño cuando la presentación siga las definiciones estándar de diseños de PowerPoint. Los nombres de los diseños son editables por el usuario y pueden localizarse, por lo que la selección basada en nombres es menos fiable a menos que controle la plantilla origen.
+
+El siguiente ejemplo busca **Título y contenido** en la primera maestra. Si ese diseño no está disponible, recurre deliberadamente a **En blanco**. La segunda comprobación de nulidad es necesaria porque una presentación puede contener solo diseños personalizados. El diseño seleccionado se aplica entonces a la primera diapositiva normal mediante el método [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/es/cpp/aspose.slides/islide/set_layoutslide/).
+
 ```cpp
-// Instanciar la clase Presentation que representa un archivo PowerPoint.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Recorrer los tipos de diapositivas de diseño para seleccionar una diapositiva de diseño.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // Una situación en la que la presentación no contiene todos los tipos de diseño.
-    // El archivo de presentación contiene solo los tipos de diseño Blank y Custom.
-    // Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
-    // como "Title", "Title and Content", etc., que pueden usarse para la selección de diapositivas de diseño.
-    // También puede basarse en un conjunto de tipos de forma de marcador de posición.
-    // Por ejemplo, una diapositiva de título debe tener solo el tipo de marcador de posición Title, etc.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Agregar una diapositiva vacía usando la diapositiva de diseño añadida.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Guardar la presentación en disco.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Cambiar el diseño de una diapositiva no elimina las formas ordinarias añadidas directamente a la diapositiva. Sin embargo, las posiciones de los marcadores, el formato heredado y la correspondencia entre los marcadores existentes y el nuevo diseño pueden variar, por lo que es conveniente inspeccionar la salida al alternar entre diseños sustancialmente diferentes.
 
-## **Eliminar diseños de diapositiva no usados**
+## **Añadir una diapositiva de diseño**
 
-Aspose.Slides proporciona el método [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) de la clase [Compress](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/) para permitirle eliminar diseños de diapositiva no deseados y sin uso.
+La selección y la creación son operaciones separadas. El ejemplo anterior selecciona un diseño existente; no lo crea. Para crear un diseño, invoque el método [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterlayoutslidecollection/add/) en la colección de diseños de la maestra de destino.
 
-El siguiente código C++ muestra cómo eliminar una diapositiva de diseño de una presentación de PowerPoint:
+El siguiente ejemplo siempre añade un nuevo diseño **Título y contenido** llamado `Report Title and Content`, y luego agrega una diapositiva normal basada en él. Los nombres de los diseños deben ser únicos dentro de la colección.
+
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+Añada un diseño solo cuando la plantilla realmente necesite otra estructura reutilizable. Si ya existe un diseño adecuado, selecciónelo y reutilícelo en lugar de crear un duplicado.
 
-## **Agregar marcadores de posición a diseños de diapositiva**
+## **Añadir marcadores de posición a una diapositiva de diseño**
 
-Aspose.Slides proporciona el método [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) que permite agregar nuevos marcadores de posición a una diapositiva de diseño.
+El método [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) proporciona un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/) para agregar formas de marcador de posición a un diseño.
 
-Este gestor contiene métodos para los siguientes tipos de marcador de posición:
+| Marcador de posición de PowerPoint | Método `ILayoutPlaceholderManager` |
+| ---------------------------------- | ----------------------------------- |
+| ![Content](content.png)            | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                  | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)      | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)            | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)                | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)                | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)          | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)   | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-| Marcador de posición de PowerPoint | Método de [ILayoutPlaceholderManager](https://reference.aspose.com/slides/cpp/aspose.slides/ilayoutplaceholdermanager/) |
-| ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| ![Contenido](content.png)          | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Contenido (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Texto](text.png)                 | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Texto (Vertical)](textV.png)    | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Imagen](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Gráfico](chart.png)              | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabla](table.png)                | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)          | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Medios](media.png)               | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Imagen en línea](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+El siguiente ejemplo verifica que el diseño **En blanco** exista, agrega cuatro marcadores de posición a él y, a continuación, crea una diapositiva normal que usa el diseño modificado. El orden es intencional: los marcadores se añaden antes de crear la diapositiva normal, de modo que Aspose.Slides pueda generar las formas de marcador correspondientes en esa diapositiva.
 
-El siguiente código C++ demuestra cómo agregar nuevas formas de marcador de posición al diseño en blanco:
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// Obtener la diapositiva de diseño en blanco.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// Obtener el administrador de marcadores de posición de la diapositiva de diseño.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// Añadir diferentes marcadores de posición a la diapositiva de diseño en blanco.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Añadir una nueva diapositiva con el diseño en blanco.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
-
 
 El resultado:
 
 ![Los marcadores de posición en la diapositiva de diseño](add_placeholders.png)
 
-## **Establecer visibilidad del pie de página para una diapositiva de diseño**
+{{% alert color="warning" title="Advertencia" %}}
+Cambiar el formato heredado o la geometría de los marcadores de posición existentes en un diseño puede afectar a las diapositivas dependientes. Un marcador de posición de diseño recién añadido no se retroalimenta en las diapositivas normales existentes. Pruebe los cambios de diseño en una copia de la presentación y examine cada diapositiva dependiente.
+{{% /alert %}}
 
-En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides para Android le permite controlar la visibilidad de estos marcadores de posición de pie de página. Esto es útil cuando desea que ciertos diseños muestren información del pie de página mientras que otros permanezcan limpios y minimalistas.
+## **Eliminar diapositivas de diseño no usadas**
 
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Obtener una referencia a la diapositiva de diseño por su índice.
-1. Establecer el marcador de posición del pie de página de la diapositiva como visible.
-1. Establecer el marcador de posición del número de diapositiva como visible.
-1. Establecer el marcador de posición de fecha y hora como visible.
-1. Guardar la presentación.
+Utilice el método [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/es/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) para eliminar los diseños a los que ninguna diapositiva normal hace referencia. El método deja intactos los diseños que siguen en uso.
 
-El siguiente código C++ muestra cómo establecer la visibilidad de un pie de página de diapositiva y realizar tareas relacionadas:
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Para eliminar un diseño específico, primero utilice su método [get_HasDependingSlides](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) o [GetDependingSlides](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/getdependingslides/). Reasigne cualquier diapositiva dependiente antes de llamar a [ILayoutSlide::Remove](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/remove/). Intentar eliminar un diseño en uso genera una [PptxEditException](https://reference.aspose.com/slides/es/cpp/aspose.slides/pptxeditexception/).
+
+## **Controlar la visibilidad del pie de página en una diapositiva de diseño**
+
+Un diseño tiene sus propios marcadores de pie de página, número de diapositiva y fecha/hora. Utilice el método [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) para controlar esos marcadores en un diseño. Esto resulta útil, por ejemplo, cuando los diseños de contenido deben mostrar pies de página pero los diseños de título no.
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
 {
-    headerFooterManager->SetFooterVisibility(true);
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 }
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
+if (layoutSlide == nullptr)
 {
-    headerFooterManager->SetSlideNumberVisibility(true);
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
 }
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
 headerFooterManager->SetFooterText(u"Footer text");
 headerFooterManager->SetDateTimeText(u"Date and time text");
 
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
+## **Controlar la visibilidad del pie de página en una maestra y sus diseños hijos**
 
-## **Establecer visibilidad del pie de página hijo para una diapositiva**
+Para aplicar configuraciones de pie de página consistentes en toda la jerarquía de una maestra, utilice el método [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Los métodos de propagación de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/es/cpp/aspose.slides/imasterslideheaderfootermanager/) actúan sobre la maestra y sus diapositivas de diseño y diapositivas normales dependientes; no se centran en una sola diapositiva normal.
 
-En presentaciones de PowerPoint, los elementos del pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de diapositiva maestra para garantizar la coherencia en todas las diapositivas de diseño. Aspose.Slides para Android le permite establecer la visibilidad y el contenido de estos marcadores de posición de pie de página en la diapositiva maestra y propagar estos ajustes a todas las diapositivas de diseño hijas. Este enfoque asegura información uniforme del pie de página en toda la presentación.
-
-1. Crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/).
-1. Obtener una referencia a la diapositiva maestra por su índice.
-1. Establecer los marcadores de posición del pie de página de la maestra y de todas sus hijas como visibles.
-1. Establecer los marcadores de posición del número de diapositiva de la maestra y de todas sus hijas como visibles.
-1. Establecer los marcadores de posición de fecha y hora de la maestra y de todas sus hijas como visibles.
-1. Guardar la presentación.
-
-El siguiente código C++ demuestra esta operación:
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
-
 
 ## **Preguntas frecuentes**
 
 **¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
 
-Una diapositiva maestra define el tema general y el formato predeterminado, mientras que las diapositivas de diseño definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
+Una diapositiva maestra define el tema de la presentación y el formato compartido. Una diapositiva de diseño pertenece a una maestra y define una disposición reutilizable de marcadores de posición. Las diapositivas normales usan esos diseños y almacenan el contenido específico de cada diapositiva.
 
 **¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
 
-Sí, puede clonar una diapositiva de diseño de la colección de diseños de una presentación, accesible mediante el método [get_LayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_layoutslides/), e insertarla en otra presentación usando el método `AddClone`.
+Sí. Añada una copia a la colección de destino con el método [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/es/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Al copiar entre presentaciones, también verifique fuentes, temas, imágenes y demás recursos utilizados por el diseño origen.
 
-**¿Qué ocurre si elimino una diapositiva de diseño que sigue siendo usada por una diapositiva?**
+**¿Qué ocurre cuando modifico un diseño que ya está en uso?**
 
-Si intenta eliminar una diapositiva de diseño que todavía está referenciada por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/cpp/aspose.slides/pptxeditexception/). Para evitarlo, use [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), que elimina de forma segura solo los diseños que no están en uso.
+Las diapositivas dependientes heredan los cambios del diseño, salvo que hayan sobrescrito localmente el formato o los objetos afectados. La geometría de los marcadores y el estilo heredado pueden cambiar en muchas diapositivas a la vez. Utilice [GetDependingSlides](https://reference.aspose.com/slides/es/cpp/aspose.slides/ilayoutslide/getdependingslides/) para identificar las diapositivas afectadas antes de editar el diseño.
+
+**¿Qué ocurre si elimino un diseño que sigue en uso?**
+
+Aspose.Slides lanza una [PptxEditException](https://reference.aspose.com/slides/es/cpp/aspose.slides/pptxeditexception/). Reasigne primero las diapositivas dependientes, o utilice [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/es/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) para eliminar solo los diseños no referenciados.

@@ -15,243 +15,403 @@ keywords:
 - ویرایش نظر
 - پاسخ به نظر
 - حذف نظر
-- حذف نظر
+- پاک کردن نظر
 - PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "نظرات ارائه را با Aspose.Slides برای .NET به‌صورت حرفه‌ای مدیریت کنید: افزودن، خواندن، ویرایش و حذف نظرات در فایل‌های PowerPoint به‌سرعت و به‌راحتی."
+description: "مدیریت نظرات ارائه با Aspose.Slides برای .NET: افزودن، خواندن، ویرایش، پاسخ به و حذف نظرات در ارائه‌های PowerPoint به‌سرعت و به‌راحتی."
 ---
 ## **نمای کلی**
 
-این مقاله چگونگی مدیریت نظرات ارائه در Aspose.Slides را توضیح می‌دهد. انواع اصلی مرتبط با نظر را نشان می‌دهد و نحوه افزودن نظرات به اسلایدها، دسترسی به نظرات موجود، کار با پاسخ‌ها، استفاده از نظرات مدرن و حذف نظرات از یک ارائه را به نمایش می‌گذارد.
+این مقاله توضیح می‌دهد که چگونه نظرات ارائه را با Aspose.Slides برای .NET مدیریت کنید. انواع اصلی مربوط به نظرات را معرفی می‌کند و نشان می‌دهد چگونه نظرات را به اسلایدها اضافه کنید، نظرات موجود را دسترسی داشته باشید، با پاسخ‌ها و نظرات مدرن کار کنید و نظرات را از یک ارائه حذف کنید.
 
-مثال‌ها بر روی سناریوهای متداول بازبینی و همکاری در PowerPoint متمرکز هستند، مانند اختصاص نظرات به نویسندگان، خواندن محتوای نظرات و فراداده‌ها، ساخت زنجیره پاسخ‌ها و پاک‌سازی تمام نظرات یا حذف نظرات انتخابی.
+مثال‌ها شامل سناریوهای رایج بررسی و همکاری در PowerPoint می‌شود، مانند اختصاص نظرات به نویسندگان، خواندن متن نظر و متادیتا، ساخت زنجیره‌های پاسخ و حذف نظرات انتخابی یا تمام نظرات.
 
-در PowerPoint، یک نظر به عنوان یادداشت یا حاشیه‌نویسی روی یک اسلاید ظاهر می‌شود. وقتی بر روی نظر کلیک می‌شود، محتوا یا پیام‌های آن آشکار می‌گردد.
+در PowerPoint، نظرات به‌صورت حاشیه‌نویسی بر روی اسلایدها ظاهر می‌شوند. انتخاب یک نظر متن آن و بحث مرتبط را نشان می‌دهد.
 
 ## **چرا نظرات را به ارائه‌ها اضافه کنیم؟**
 
-ممکن است بخواهید برای ارائه‌ی بازخورد یا برقراری ارتباط با همکارانتان هنگام بازبینی ارائه‌ها از نظرات استفاده کنید.
+می‌توانید از نظرات برای ارائه بازخورد و همکاری با همکاران هنگام بررسی ارائه‌ها استفاده کنید.
 
-برای امکان استفاده از نظرات در ارائه‌های PowerPoint، Aspose.Slides for .NET فراهم می‌کند:
+Aspose.Slides برای .NET APIهای زیر را برای کار با نظرات فراهم می‌کند:
 
-* کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که مجموعه‌های نویسندگان (از ویژگی [CommentAuthorCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/icommentauthorcollection/properties/index)) را شامل می‌شود. نویسندگان نظرات را به اسلایدها اضافه می‌کنند. 
-* اینترفیس [ICommentCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/icommentcollection) که مجموعه‌ای از نظرات برای هر نویسنده را در خود دارد. 
-* کلاس [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) که اطلاعاتی درباره نویسندگان و نظراتشان شامل این است که چه کسی نظر را اضافه کرده، زمان افزودن نظر، موقعیت نظر و غیره. 
-* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/net/aspose.slides/commentauthor) که اطلاعاتی درباره هر نویسنده شامل نام نویسنده، حروف اول وی، نظرات مرتبط با نام نویسنده و غیره را در خود دارد. 
+* کلاس [Presentation](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation) که دسترسی به نویسندگان نظرات ارائه را فراهم می‌کند.
+* رابط [ICommentCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/icommentcollection) که نظرات مرتبط با یک نویسنده خاص را نشان می‌دهد.
+* رابط [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) که اطلاعاتی درباره یک نظر، شامل نویسنده، زمان ایجاد، موقعیت و متن را ارائه می‌دهد.
+* کلاس [CommentAuthor](https://reference.aspose.com/slides/fa/net/aspose.slides/commentauthor) که اطلاعاتی درباره یک نویسنده، شامل نام، حروف اولیه و نظرات مرتبط را فراهم می‌کند.
 
-## **افزودن نظرات به اسلاید**
-این کد C# نشان می‌دهد چگونه یک نظر به اسلایدی در ارائه PowerPoint اضافه کنید:
+## **Add Slide Comments**
+مثال زیر نشان می‌دهد چگونه به اسلایدهای یک ارائه PowerPoint نظرات اضافه کنید:
 
-```c#
-// یک شی از کلاس Presentation را ایجاد می‌کند
-using (Presentation presentation = new Presentation())
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
+var position = new PointF(0.2f, 0.2f);
+var createdTime = DateTime.Now;
+
+author.Comments.AddComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+author.Comments.AddComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
+
+var comments = firstSlide.GetSlideComments(author);
+if (comments.Length > 0)
 {
-    // یک اسلاید خالی اضافه می‌کند
-    presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+    var firstComment = comments[0];
+    Console.WriteLine(firstComment.Text);
 
-    // یک نویسنده اضافه می‌کند
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
-
-    // موقعیت نظرات را تنظیم می‌کند
-    PointF point = new PointF();
-    point.X = 0.2f;
-    point.Y = 0.2f;
-
-    // یک نظر اسلاید برای نویسنده در اسلاید 1 اضافه می‌کند
-    author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
-
-    // یک نظر اسلاید برای نویسنده در اسلاید 2 اضافه می‌کند
-    author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
-
-    // به ISlide 1 دسترسی می‌یابد
-    ISlide slide = presentation.Slides[0];
-
-    // زمانی که null به‌عنوان آرگومان ارسال شود، نظرات تمام نویسندگان به اسلاید انتخاب‌شده منتقل می‌شوند
-    IComment[] Comments = slide.GetSlideComments(author);
-
-    // نظری را که در ایندکس 0 برای اسلاید 1 است دسترسی می‌یابد
-    String str = Comments[0].Text;
-
-    presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.GetLength(0) > 0)
-    {
-        // مجموعه نظرات نویسنده را در ایندکس 0 انتخاب می‌کند
-        ICommentCollection commentCollection = Comments[0].Author.Comments;
-        String Comment = commentCollection[0].Text;
-    }
+    var commentText = firstComment.Author.Comments[0].Text;
+    Console.WriteLine(commentText);
 }
+
+presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **دسترسی به نظرات اسلاید**
-این کد C# نشان می‌دهد چگونه به یک نظر موجود در اسلایدی از یک ارائه PowerPoint دسترسی پیدا کنید:
+مثال زیر نشان می‌دهد چگونه به نظرات موجود در یک ارائه PowerPoint دسترسی پیدا کنید:
 
-```c#
-// یک شی از کلاس Presentation را ایجاد می‌کند
-using (Presentation presentation = new Presentation("Comments1.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Comments1.pptx");
+
+foreach (var author in presentation.CommentAuthors)
 {
-    foreach (var commentAuthor in presentation.CommentAuthors)
+    foreach (var comment in author.Comments)
     {
-        var author = (CommentAuthor) commentAuthor;
-        foreach (var comment1 in author.Comments)
-        {
-            var comment = (Comment) comment1;
-            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " has comment: " + comment.Text + " with Author: " + comment.Author.Name + " posted on time :" + comment.CreatedTime + "\n");
-        }
-    }
-}
-```
-
-## **پاسخ به نظرات**
-یک نظر والد، نظر اصلی یا بالاترین نظر در سلسله‌مراتبی از نظرات یا پاسخ‌ها است. با استفاده از ویژگی [ParentComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/properties/parentcomment) (از اینترفیس [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment)) می‌توانید یک نظر والد را تنظیم یا دریافت کنید. 
-
-این کد C# نشان می‌دهد چگونه نظرات را اضافه کنید و پاسخ‌های آن‌ها را دریافت کنید:
-
-```c#
-using (Presentation pres = new Presentation())
-{
-    // یک نظر اضافه می‌کند
-    ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
-    // پاسخی به comment1 اضافه می‌کند
-    ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply1.ParentComment = comment1;
-
-    // پاسخ دیگری به comment1 اضافه می‌کند
-    IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply2.ParentComment = comment1;
-
-    // پاسخی به پاسخ موجود اضافه می‌کند
-    IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    subReply.ParentComment = reply2;
-
-    IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
-    IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply3.ParentComment = comment3;
-
-    // سلسله مراتب نظرات را در کنسول نمایش می‌دهد
-    ISlide slide = pres.Slides[0];
-    var comments = slide.GetSlideComments(null);
-    for (int i = 0; i < comments.Length; i++)
-    {
-        IComment comment = comments[i];
-        while (comment.ParentComment != null)
-        {
-            Console.Write("\t");
-            comment = comment.ParentComment;
-        }
-
-        Console.Write("{0} : {1}", comments[i].Author.Name, comments[i].Text);
+        Console.WriteLine($"Slide: {comment.Slide.SlideNumber}");
+        Console.WriteLine($"Comment: {comment.Text}");
+        Console.WriteLine($"Author: {comment.Author.Name}");
+        Console.WriteLine($"Posted at: {comment.CreatedTime}");
         Console.WriteLine();
     }
-
-    pres.Save("parent_comment.pptx",SaveFormat.Pptx);
-
-    // comment1 و تمام پاسخ‌های آن را حذف می‌کند
-    comment1.Remove();
-
-    pres.Save("remove_comment.pptx", SaveFormat.Pptx);
 }
 ```
 
-{{% alert color="warning" title="توجه" %}} 
-* وقتی روش [Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/methods/remove) (از اینترفیس [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment)) برای حذف یک نظر استفاده می‌شود، پاسخ‌های آن نظر نیز حذف می‌گردند. 
-* اگر تنظیم [ParentComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/properties/parentcomment) منجر به یک مرجع چرخه‌ای شود، استثنای [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception) پرتاب خواهد شد.
-{{% /alert %}}
+## **Reply to Comments**
+یک نظر والد، نظر اصلی در بالای سلسله‌مراتب پاسخ‌ها است. ویژگی [ParentComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/properties/parentcomment) رابط [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) به شما اجازه می‌دهد والد نظر را دریافت یا تنظیم کنید.
 
-## **افزودن نظرات مدرن**
+مثال زیر نشان می‌دهد چگونه پاسخ‌ها را اضافه کنید و سلسله‌مراتب نظرات حاصل را بررسی کنید:
 
-در سال 2021، مایکروسافت *نظرات مدرن* را در PowerPoint معرفی کرد. ویژگی نظرات مدرن به طور چشمگیری همکاری در PowerPoint را بهبود می‌بخشد. از طریق نظرات مدرن، کاربران PowerPoint می‌توانند نظرات را حل کنند، نظرات را به اشیاء و متون متصل کنند و تعاملات را بسیار راحت‌تر انجام دهند. 
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-در [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/fa/net/aspose-slides-for-net-21-11-release-notes/)، ما پشتیبانی از نظرات مدرن را با افزودن کلاس [ModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncomment) پیاده‌سازی کردیم. روش‌های [AddModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/commentcollection/methods/addmoderncomment) و [InsertModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/commentcollection/methods/insertmoderncomment) به کلاس [CommentCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/commentcollection) اضافه شدند. 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var position = new PointF(10, 10);
+var createdTime = DateTime.Now;
 
-این کد C# نشان می‌دهد چگونه یک نظر مدرن به اسلایدی در ارائه PowerPoint اضافه کنید:
+var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
 
-```c#
-using (Presentation pres = new Presentation())
+var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+reply1.ParentComment = comment1;
+
+var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+reply2.ParentComment = comment1;
+
+var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = reply2;
+
+author2.Comments.AddComment("comment 2", slide, position, createdTime);
+var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+
+var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+reply3.ParentComment = comment3;
+
+var comments = slide.GetSlideComments(null);
+for (var i = 0; i < comments.Length; i++)
 {
-     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
-     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
- 
-     pres.Save("pres.pptx", SaveFormat.Pptx);
-}
-```
-
-## **حذف نظرات**
-
-### **حذف تمام نظرات و نویسندگان**
-
-این کد C# نشان می‌دهد چگونه تمام نظرات و نویسندگان را در یک ارائه حذف کنید:
-
-```c#
-using (var presentation = new Presentation("example.pptx"))
-{
-    // تمام نظرات را از ارائه حذف می‌کند
-    foreach (var author in presentation.CommentAuthors)
+    var comment = comments[i];
+    while (comment.ParentComment != null)
     {
-        author.Comments.Clear();
+        Console.Write("\t");
+        comment = comment.ParentComment;
     }
 
-    // تمام نویسندگان را حذف می‌کند
-    presentation.CommentAuthors.Clear();
-
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
+    Console.WriteLine($"{comments[i].Author.Name}: {comments[i].Text}");
 }
+
+presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
+
+comment1.Remove();
+presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
+```
+
+{{% alert color="warning" title="Attention" %}} 
+
+* وقتی متد [Remove](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/methods/remove) رابط [IComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment) برای حذف یک نظر استفاده می‌شود، تمام پاسخ‌های آن نظر نیز حذف می‌شوند.
+* اگر ویژگی [ParentComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icomment/properties/parentcomment) یک اشاره‌دوره‌ای ایجاد کند، یک [PptxEditException](https://reference.aspose.com/slides/fa/net/aspose.slides/pptxeditexception) پرتاب می‌شود.
+
+{{% /alert %}}
+
+## **Add Modern Comments**
+نظرات مدرن می‌توانند به خود اسلاید، به یک شکل خاص یا به یک بازه متنی داخل یک AutoShape مرتبط شوند. متد [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/icommentcollection/addmoderncomment/) یک آرگومان [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) را علاوه بر اسلاید و مختصات نشانگر نظر می‌پذیرد.
+
+زمانی که برای آرگومان shape مقدار `null` پاس می‌شود، نظر به‌صورت نظر سطح اسلاید است. نشانگر آن توسط مختصات ارائه شده موقعیت می‌گیرد، اما به شکل خاصی مرتبط نیست، بنابراین [IModernComment.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/shape/) مقدار `null` برمی‌گرداند. وقتی یک [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) ارائه شود، نظر به آن شکل پیوست می‌شود. مختصات همچنان موقعیت نشانگر نظر را روی اسلاید تعیین می‌کند، در حالی که ارتباط شکل می‌تواند از طریق [IModernComment.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/shape/) بازیابی شود.
+
+### **پیوست کردن یک نظر مدرن به یک شکل**
+مثال زیر یک نظر مدرن در سطح اسلاید و یک نظر مدرن پیوست شده به یک AutoShape خاص ایجاد می‌کند. سپس شکل مرتبط با هر نظر را می‌خواند.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+shape.Name = "Revenue title";
+shape.TextFrame.Text = "Quarterly revenue";
+
+var createdTime = DateTime.Now;
+var slideCommentPosition = new PointF(20, 20);
+var shapeCommentPosition = new PointF(60, 60);
+var slideComment = author.Comments.AddModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+var shapeComment = author.Comments.AddModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+Console.WriteLine(slideComment.Shape == null);
+Console.WriteLine(shapeComment.Shape?.Name);
+
+presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
+```
+
+### **پیوست کردن نظرات به انواع مختلف شکل‌ها**
+هر شیء اسلایدی که رابط [IShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishape/) را پیاده‌سازی کند می‌تواند به‌عنوان لنگر شکل استفاده شود. مثال‌های رایج شامل [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/)، [IPictureFrame](https://reference.aspose.com/slides/fa/net/aspose.slides/ipictureframe/)، [IGroupShape](https://reference.aspose.com/slides/fa/net/aspose.slides/igroupshape/)، [IConnector](https://reference.aspose.com/slides/fa/net/aspose.slides/iconnector/)، و نمونه‌های [IGraphicalObject](https://reference.aspose.com/slides/fa/net/aspose.slides/igraphicalobject/) مانند نمودارها است.
+
+مثال زیر چند نوع شکل رایج ایجاد می‌کند و یک نظر مدرن را به هر یک از آنها پیوست می‌کند.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var createdTime = DateTime.Now;
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+autoShape.TextFrame.Text = "AutoShape";
+var autoShapeCommentPosition = new PointF(30, 30);
+author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+var imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+var imageData = Convert.FromBase64String(imageBase64);
+var image = presentation.Images.AddImage(imageData);
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+var pictureCommentPosition = new PointF(230, 30);
+author.Comments.AddModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+var groupShape = slide.Shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+groupShape.Shapes.AddAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+var groupCommentPosition = new PointF(40, 150);
+author.Comments.AddModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+var connectorCommentPosition = new PointF(240, 150);
+author.Comments.AddModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+var chartCommentPosition = new PointF(420, 40);
+author.Comments.AddModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+```
+
+### **پیوست کردن یک نظر به متن و تنظیم وضعیت آن**
+برای یک نظر مدرن که به یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) مرتبط است، [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionstart/) موقعیت شروع متن انتخاب شده در فریم متنی شکل را مشخص می‌کند، در حالی که [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionlength/) طول انتخاب را تعیین می‌کند. این دو ویژگی با هم نظر را به بازه متنی خاصی داخل AutoShape مرتبط می‌سازند.
+
+ویژگی [IModernComment.Status](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/status/) می‌تواند خوانده یا با مقداری از enumeration [ModernCommentStatus](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncommentstatus/) به‌روزرسانی شود:
+
+- `NotDefined` — هیچ وضعیت خاصی برای نظر مدرن تعریف نشده است.
+- `Active` — نظر فعال است.
+- `Resolved` — نظر حل شده است.
+- `Closed` — نظر بسته شده است.
+
+مثال زیر یک نظر مدرن پیوست شده به شکل ایجاد می‌کند، آن را به یک انتخاب متنی پیوست می‌نماید، به عنوان حل شده علامت‌گذاری می‌کند، ارائه را ذخیره می‌کند و پس از بازکردن مجدد فایل مقادیر را تأیید می‌کند.
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputFile = "modern_comment_text_anchor.pptx";
+const string shapeText = "Review the quarterly revenue forecast.";
+const string selectedText = "quarterly revenue";
+var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Ordinal);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.Name = "Forecast text";
+shape.TextFrame.Text = shapeText;
+
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var commentPosition = new PointF(60, 60);
+var comment = author.Comments.AddModernComment("Verify this forecast wording.", slide, shape, commentPosition, DateTime.Now);
+comment.TextSelectionStart = expectedSelectionStart;
+comment.TextSelectionLength = selectedText.Length;
+comment.Status = ModernCommentStatus.Resolved;
+
+presentation.Save(outputFile, SaveFormat.Pptx);
+
+using var reopenedPresentation = new Presentation(outputFile);
+var reopenedSlide = reopenedPresentation.Slides[0];
+var reopenedComments = reopenedSlide.GetSlideComments(null);
+
+foreach (var reopenedComment in reopenedComments)
+{
+    if (reopenedComment is not IModernComment modernComment)
+    {
+        continue;
+    }
+
+    var shapeMatches = modernComment.Shape?.Name == "Forecast text";
+    var selectionStartMatches = modernComment.TextSelectionStart == expectedSelectionStart;
+    var selectionLengthMatches = modernComment.TextSelectionLength == selectedText.Length;
+    var statusMatches = modernComment.Status == ModernCommentStatus.Resolved;
+
+    Console.WriteLine($"Shape anchor preserved: {shapeMatches}");
+    Console.WriteLine($"Text selection start preserved: {selectionStartMatches}");
+    Console.WriteLine($"Text selection length preserved: {selectionLengthMatches}");
+    Console.WriteLine($"Resolved status preserved: {statusMatches}");
+}
+```
+
+### **بررسی نظرات مدرن موجود**
+برای بررسی یک ارائه موجود، بررسی کنید کدام نظرات رابط [IModernComment](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/) را پیاده‌سازی می‌کنند، سپس [IModernComment.Shape](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/shape/)، [IModernComment.TextSelectionStart](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionstart/)، [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/textselectionlength/)، و [IModernComment.Status](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/status/) را بررسی کنید. یک شکل `null` نشان‌دهنده نظر سطح اسلاید است. برای لنگر [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) ویژگی‌های انتخاب متن بازه مرتبط در فریم متنی شکل را شناسایی می‌کنند.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("comments.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var comments = slide.GetSlideComments(null);
+    foreach (var comment in comments)
+    {
+        if (comment is not IModernComment modernComment)
+        {
+            continue;
+        }
+
+        Console.WriteLine($"Slide: {slide.SlideNumber}");
+        Console.WriteLine($"Text: {modernComment.Text}");
+        Console.WriteLine($"Status: {modernComment.Status}");
+
+        var shape = modernComment.Shape;
+        if (shape == null)
+        {
+            Console.WriteLine("Anchor: slide level");
+        }
+        else
+        {
+            Console.WriteLine($"Anchor shape: {shape.Name}");
+            Console.WriteLine($"Anchor type: {shape.GetType().Name}");
+
+            if (shape is IAutoShape)
+            {
+                Console.WriteLine($"Text selection start: {modernComment.TextSelectionStart}");
+                Console.WriteLine($"Text selection length: {modernComment.TextSelectionLength}");
+            }
+        }
+
+        Console.WriteLine();
+    }
+}
+```
+
+## **Remove Comments**
+### **حذف همه نظرات و نویسندگان نظرات**
+مثال زیر نشان می‌دهد چگونه همه نظرات و نویسندگان نظرات را از یک ارائه حذف کنید:
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("example.pptx");
+
+foreach (var author in presentation.CommentAuthors)
+{
+    author.Comments.Clear();
+}
+
+presentation.CommentAuthors.Clear();
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
 ### **حذف نظرات خاص**
+مثال زیر نشان می‌دهد چگونه نظرات خاص را از یک اسلاید حذف کنید:
 
-این کد C# نشان می‌دهد چگونه نظرات خاصی را در یک اسلاید حذف کنید:
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```c#
-using (var presentation = new Presentation())
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Author", "A");
+var createdTime = DateTime.Now;
+
+var firstCommentPosition = new PointF(0.2f, 0.2f);
+var secondCommentPosition = new PointF(0.3f, 0.2f);
+author.Comments.AddComment("comment 1", slide, firstCommentPosition, createdTime);
+author.Comments.AddComment("comment 2", slide, secondCommentPosition, createdTime);
+
+foreach (var commentAuthor in presentation.CommentAuthors)
 {
-    ISlide slide = presentation.Slides[0];
-    
-    // نظرات را اضافه کنید...
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
-    author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
-    author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
-    
-    // تمام نظراتی که متن "comment 1" را دارند حذف کنید
-    foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
+    var commentsToRemove = new List<IComment>();
+    var comments = slide.GetSlideComments(commentAuthor);
+
+    foreach (var comment in comments)
     {
-        List<IComment> toRemove = new List<IComment>();
-        foreach (IComment comment in slide.GetSlideComments(commentAuthor))
+        if (comment.Text == "comment 1")
         {
-            if (comment.Text == "comment 1")
-            {
-                toRemove.Add(comment);
-            }
-        }
-        
-        foreach (IComment comment in toRemove)
-        {
-            commentAuthor.Comments.Remove(comment);
+            commentsToRemove.Add(comment);
         }
     }
-    
-    presentation.Save("pres.pptx", SaveFormat.Pptx);
+
+    foreach (var comment in commentsToRemove)
+    {
+        commentAuthor.Comments.Remove(comment);
+    }
 }
+
+presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
-## **سوالات متداول**
+## **FAQ**
+**آیا Aspose.Slides وضعیت حل شده برای نظرات مدرن را پشتیبانی می‌کند؟**
 
-**آیا Aspose.Slides وضعیت «حل‌شده» برای نظرات مدرن را پشتیبانی می‌کند؟**
+بله. ویژگی [IModernComment.Status](https://reference.aspose.com/slides/fa/net/aspose.slides/imoderncomment/status/) می‌تواند خوانده و با مقدار از enumeration [ModernCommentStatus](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncommentstatus/) تنظیم شود، از جمله `Resolved`. وضعیت در ارائه ذخیره می‌شود و پس از باز کردن مجدد فایل قابل خواندن است.
 
-بله. [نظرات مدرن](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncomment/) یک ویژگی [Status](https://reference.aspose.com/slides/fa/net/aspose.slides/moderncomment/status/) را در اختیار می‌گذارند؛ می‌توانید وضعیت یک نظر را بخوانید و تنظیم کنید (برای مثال، آن را به صورت حل‌شده علامت بزنید) و این وضعیت در فایل ذخیره شده و توسط PowerPoint شناخته می‌شود.
+**آیا بحث‌های سلسله‌مراتبی (زنجیره‌های پاسخ) پشتیبانی می‌شوند و آیا محدودیتی برای عمق تو در تویی وجود دارد؟**
 
-**آیا بحث‌های زنجیره‌ای (زنجیره پاسخ) پشتیبانی می‌شود و آیا محدودیتی برای تو در تو بودن وجود دارد؟**
+بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/net/aspose.slides/comment/parentcomment/) خود ارجاع دهد، که زنجیره‌های پاسخ را امکان‌پذیر می‌سازد. API محدودیت خاصی برای عمق تو در تو تعریف نشده است.
 
-بله. هر نظر می‌تواند به [parent comment](https://reference.aspose.com/slides/fa/net/aspose.slides/comment/parentcomment/) خود ارجاع دهد و زنجیره‌های پاسخ دلخواه را امکان‌پذیر می‌سازد. API محدودیتی مشخص برای عمق تو در تویی اعلام نکرده است.
+**موقعیت نشانگر نظر بر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**
 
-**موقعیت نشانگر نظر روی اسلاید در چه سیستم مختصاتی تعریف می‌شود؟**
-
-موقعیت به عنوان یک نقطه شناور در سیستم مختصات اسلاید ذخیره می‌شود. این امکان را می‌دهد که نشانگر نظر را دقیقاً در مکانی که نیاز دارید قرار دهید.
+موقعیت نشانگر با مختصات عددی شناور در سیستم مختصات اسلاید تعریف می‌شود، که به شما امکان می‌دهد آن را دقیقاً روی اسلاید قرار دهید.

@@ -1,6 +1,6 @@
 ---
-title: Hantera video‑ramar i presentationer på Android
-linktitle: Video Ram
+title: Hantera videorutor i presentationer på Android
+linktitle: Videoruta
 type: docs
 weight: 10
 url: /sv/androidjava/video-frame/
@@ -10,7 +10,7 @@ keywords:
 - bädda in video
 - extrahera video
 - hämta video
-- video ram
+- videoruta
 - webbkälla
 - PowerPoint
 - OpenDocument
@@ -18,30 +18,30 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Lär dig programatiskt lägga till och extrahera video‑ramar i PowerPoint- och OpenDocument‑bilder med Aspose.Slides för Android via Java. Snabb steg‑för‑steg‑guide."
+description: "Lär dig programatiskt lägga till och extrahera videorutor i PowerPoint- och OpenDocument-bilder med Aspose.Slides för Android via Java. Snabb guide."
 ---
 ## **Introduktion**
 
-En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsnivåerna hos din publik. 
+En välplacerad video i en presentation kan göra ditt budskap mer övertygande och öka engagemangsgraden hos din publik. 
 
 PowerPoint låter dig lägga till videor på en bild i en presentation på två sätt:
 
-* Lägg till eller bädda in en lokal video (sparad på din maskin)
-* Lägg till en onlinevideo (från en webbkälla såsom YouTube).
+* Lägg till eller bädda in en lokal video (sparad på din dator)
+* Lägg till en online‑video (från en webbkälla såsom YouTube).
 
-För att du ska kunna lägga till videor (videoobjekt) i en presentation tillhandahåller Aspose.Slides gränssnitten [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/) och [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/), samt andra relevanta typer.
+För att låta dig lägga till videor (videoobjekt) i en presentation tillhandahåller Aspose.Slides [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/)‑gränssnittet, [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑gränssnittet och andra relevanta typer.
 
-## **Skapa en inbäddad video ram**
+## **Skapa en inbäddad videoruta**
 
-Om videofilen du vill lägga till på din bild är lagrad lokalt kan du skapa en video‑ram för att bädda in videon i din presentation. 
+Om videofilen du vill lägga till på din bild lagras lokalt kan du skapa en videoruta för att bädda in videon i din presentation. 
 
-1. Skapa en instans av klassen [Presentation ](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation)class.
+1. Skapa en instans av [Presentation ](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation)klass.
 1. Hämta en bilds referens via dess index. 
-1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/)‑objekt och ange videofilens sökväg för att bädda in videon i presentationen.
+1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/)‑objekt och skicka videofilens sökväg för att bädda in videon i presentationen.
 1. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑objekt för att skapa en ram för videon.
-1. Spara den modifierade presentationen. 
+1. Spara den ändrade presentationen. 
 
-Den här Java‑koden visar hur du lägger till en lokalt lagrad video i en presentation:
+Denna Java‑kod visar hur du lägger till en lokalt lagrad video i en presentation:
 
 ```java
 // Instansierar Presentation-klassen
@@ -52,10 +52,10 @@ try {
     
     IVideo video = pres.getVideos().addVideo(fileStream, LoadingStreamBehavior.KeepLocked);
 
-    // Hämtar den första bilden och lägger till en video‑ram
+    // Hämtar den första bilden och lägger till en videoruta
     pres.getSlides().get_Item(0).getShapes().addVideoFrame(10, 10, 150, 250, video);
 
-    // Sparar presentationen till disk
+    // Sparar presentationen på disk
     pres.save("pres-with-video.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
@@ -75,17 +75,15 @@ try {
 }
 ```
 
-## **Skapa en video ram med video från en webbkälla**
+## **Skapa en videoruta med video från en webbkälla**
 
-Microsoft [PowerPoint 2013 och senare](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) stödjer YouTube‑videor i presentationer. Om videon du vill använda finns online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk. 
+Nyare versioner av Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) stöder online‑videor i presentationer. Om videon du vill använda finns online (t.ex. på YouTube) kan du lägga till den i din presentation via dess webblänk.
 
-1. Skapa en instans av klassen [Presentation ](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation)
+1. Skapa en instans av [Presentation ](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation)klass
 1. Hämta en bilds referens via dess index. 
-1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/)‑objekt och ange länken till videon.
-1. Ställ in en miniatyr för videoramen. 
+1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/)‑objekt och skicka länken till videon.
+1. Ställ in en miniatyrbild för videorutan. 
 1. Spara presentationen. 
-
-Den här Java‑koden visar hur du lägger till en video från webben på en bild i en PowerPoint‑presentation:
 
 ```java
 // Instansierar ett Presentation-objekt som representerar en presentationsfil 
@@ -101,12 +99,12 @@ try {
 ```java
 private static void addVideoFromYouTube(Presentation pres, String videoID)
 {
-    // Lägger till en video ram
+    // Lägger till en videoruta
     IVideoFrame videoFrame = pres.getSlides().get_Item(0).getShapes().addVideoFrame(
             10, 10, 427, 240, "https://www.youtube.com/embed/" + videoID);
     videoFrame.setPlayMode(VideoPlayModePreset.Auto);
 
-    // Laddar miniatyr
+    // Laddar miniatyrbild
     String thumbnailUri = "http://img.youtube.com/vi/" + videoID + "/hqdefault.jpg";
     URL url;
 
@@ -121,21 +119,85 @@ private static void addVideoFromYouTube(Presentation pres, String videoID)
 }
 ```
 
-## **Hantera video‑undertexter**
+## **Trimma en videoruta**
 
-Aspose.Slides låter dig hantera stängda undertexter för videoramar i PowerPoint‑presentationer. Undertexter lagras i WebVTT‑format och nås via metoden [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+Aspose.Slides låter dig kontrollera vilken del av en video som spelas upp genom att ange värdena trim‑from‑start och trim‑from‑end via [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) och [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-). Båda värdena anges i millisekunder och definierar hur mycket tid som hoppas över i början respektive slutet av videon. Dessa inställningar ändrar uppspelningsinställningarna i presentationen; de kapar inte eller modifierar den inbäddade videons binära data.
 
-**Lägg till undertexter till en videoram**
+**Ställ in triminställningar**
 
-För att lägga till undertexter till en videoram:
+För att skapa en videoruta och ange dess triminställningar:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/) .
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)klass.
+1. Lägg till ett [IVideo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideo/)‑objekt i presentationen.
+1. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑objekt på en bild.
+1. Ange trim‑from‑start och trim‑from‑end via [IVideoFrame.setTrimFromStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#setTrimFromStart-float-) och [IVideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#setTrimFromEnd-float-).
+1. Spara den ändrade presentationen.
+
+Följande kodexempel hoppar över de första 2,5 sekunderna och den sista sekunden av en inbäddad video under uppspelning:
+
+```java
+Presentation presentation = new Presentation();
+try {
+    FileInputStream videoStream = new FileInputStream("video.mp4");
+    try {
+        IVideo video = presentation.getVideos().addVideo(
+                videoStream, LoadingStreamBehavior.ReadStreamAndRelease);
+        ISlide slide = presentation.getSlides().get_Item(0);
+        IVideoFrame videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500f);
+        videoFrame.setTrimFromEnd(1000f);
+
+        presentation.save("video_with_trim.pptx", SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Läs triminställningar**
+
+För att inspektera befintliga triminställningar, ladda en presentation, hitta ett [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑objekt bland formerna på den första bilden och läs värdena via [IVideoFrame.getTrimFromStart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getTrimFromStart--) och [IVideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getTrimFromEnd--).
+
+Följande kodexempel hittar den första videorutan på den första bilden och rapporterar dess triminställningar i millisekunder:
+
+```java
+Presentation presentation = new Presentation("video_with_trim.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (shape instanceof IVideoFrame) {
+            IVideoFrame videoFrame = (IVideoFrame) shape;
+            float trimFromStart = videoFrame.getTrimFromStart();
+            float trimFromEnd = videoFrame.getTrimFromEnd();
+
+            System.out.println("Trim from start: " + trimFromStart + " ms");
+            System.out.println("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Hantera video‑textning**
+
+Aspose.Slides låter dig hantera closed captions för videorutor i PowerPoint‑presentationer. Textningarna lagras i WebVTT‑format och exponeras via metoden [IVideoFrame.getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
+
+**Lägg till textning till en videoruta**
+
+För att lägga till textning till en videoruta:
+
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/)klass.
 1. Lägg till en video i presentationen.
 1. Lägg till ett [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑objekt på en bild.
-1. Använd den [ICaptionsCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/) som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) för att lägga till ett WebVTT‑undertextspår.
-1. Spara den modifierade presentationen.
+1. Använd den [ICaptionsCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/) som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) för att lägga till ett WebVTT‑textningsspår.
+1. Spara den ändrade presentationen.
 
-Följande kod visar hur du lägger till undertexter till en videoram:
+Följande kod visar hur du lägger till textning till en videoruta:
 
 ```java
 Presentation presentation = new Presentation();
@@ -146,7 +208,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = slide.getShapes().addVideoFrame(0, 0, 100, 100, video);
 
-    // Lägger till ett nytt undertextspår från en WebVTT‑fil.
+    // Lägger till ett nytt textningsspår från en WebVTT-fil.
     videoFrame.getCaptionTracks().add("English", "track.vtt");
 
     presentation.save("video_with_captions.pptx", SaveFormat.Pptx);
@@ -155,18 +217,18 @@ try {
 }
 ```
 
-[ICaptionsCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/)‑gränssnittet erbjuder också en överlagring som låter dig lägga till undertexter från en ström.
+[ICaptionsCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/)‑gränssnittet erbjuder också en överlagring som låter dig lägga till textning från en ström.
 
-**Extrahera undertexter från en videoram**
+**Extrahera textning från en videoruta**
 
-För att extrahera undertexter från en videoram:
+För att extrahera textning från en videoruta:
 
-1. Läs in presentationen som innehåller videon.
-1. Hitta mål‑objektet [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/) .
-1. Iterera genom undertextspåren som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
-1. Spara varje undertextspår till en `.vtt`‑fil.
+1. Ladda presentationen som innehåller videon.
+1. Hitta mål‑[IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑objektet.
+1. Iterera igenom de textningsspår som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+1. Spara varje textningsspår till en `.vtt`‑fil.
 
-Följande kod visar hur du extraherar undertexter från en videoram:
+Följande kod visar hur du extraherar textning från en videoruta:
 
 ```java
 Presentation presentation = new Presentation("video_with_captions.pptx");
@@ -176,7 +238,7 @@ try {
         if (shape instanceof IVideoFrame) {
             IVideoFrame videoFrame = (IVideoFrame) shape;
             for (ICaptions captionTrack : videoFrame.getCaptionTracks()) {
-                // Sparar undertextspåret till en WebVTT-fil.
+                // Sparar textningsspåret till en WebVTT-fil.
                 FileOutputStream outputStream = new FileOutputStream(captionTrack.getCaptionId() + ".vtt");
                 outputStream.write(captionTrack.getBinaryData());
                 outputStream.close();
@@ -188,18 +250,18 @@ try {
 }
 ```
 
-Varje [ICaptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptions/)‑objekt visar undertextens identifierare, etikett, binär data och undertextdata som en UTF‑8‑sträng.
+Varje [ICaptions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptions/)‑objekt exponerar textnings‑identifieraren, etiketten, binärdata och textningsdata som en UTF‑8‑sträng.
 
-**Ta bort undertexter från en videoram**
+**Ta bort textning från en videoruta**
 
-För att ta bort undertexter från en videoram:
+För att ta bort textning från en videoruta:
 
-1. Läs in presentationen som innehåller videon.
-1. Hämta mål‑objektet [IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/) .
-1. Ta bort undertextspår från samlingen som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--) .
-1. Spara den modifierade presentationen.
+1. Ladda presentationen som innehåller videon.
+1. Hämta mål‑[IVideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/)‑objektet.
+1. Ta bort textningsspår från den samling som returneras av [getCaptionTracks](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ivideoframe/#getCaptionTracks--).
+1. Spara den ändrade presentationen.
 
-Följande kod visar hur du tar bort alla undertexter från en videoram:
+Följande kod visar hur du tar bort all textning från en videoruta:
 
 ```java
 Presentation presentation = new Presentation("video_with_captions.pptx");
@@ -207,7 +269,7 @@ try {
     ISlide slide = presentation.getSlides().get_Item(0);
     IVideoFrame videoFrame = (IVideoFrame) slide.getShapes().get_Item(0);
 
-    // Tar bort alla undertexter från videoramen.
+    // Tar bort all textning från videorutan.
     videoFrame.getCaptionTracks().clear();
 
     presentation.save("video_without_captions.pptx", SaveFormat.Pptx);
@@ -216,18 +278,18 @@ try {
 }
 ```
 
-Om du bara behöver ta bort ett undertextspår, använd [remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) eller [removeAt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-)‑metoderna istället för [clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#clear--) .
+Om du bara behöver ta bort ett enskilt textningsspår, använd [remove](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#remove-com.aspose.slides.ICaptions-) eller [removeAt](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#removeAt-int-) i stället för [clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/icaptionscollection/#clear--) .
 
 ## **Extrahera video från en bild**
 
 Förutom att lägga till videor på bilder låter Aspose.Slides dig extrahera videor som är inbäddade i presentationer.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation) för att läsa in presentationen som innehåller videon.
+1. Skapa en instans av [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation)klass för att ladda presentationen som innehåller videon.
 2. Iterera genom alla [ISlide](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/islide/)‑objekt.
-3. Iterera genom alla [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑objekt för att hitta en [VideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/) .
-4. Spara videon till disk.
+3. Iterera genom alla [IShape](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishape/)‑objekt för att hitta ett [VideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/) .
+4. Spara videon på disk.
 
-Den här Java‑koden visar hur du extraherar videon på en presentationsbild:
+Denna Java‑kod visar hur du extraherar videon från en presentationsbild:
 
 ```java
 // Instansierar ett Presentation-objekt som representerar en presentationsfil 
@@ -244,7 +306,7 @@ try {
                 int ss = type.lastIndexOf('-');
                 byte[] buffer = vf.getEmbeddedVideo().getBinaryData();
 
-                // Hämtar filändelsen
+                //Hämtar filändelsen
                 int charIndex = type.indexOf("/");
                 type = type.substring(charIndex + 1);
 
@@ -265,16 +327,16 @@ try {
 
 **Vilka videouppspelningsparametrar kan ändras för en VideoFrame?**
 
-Du kan kontrollera [uppspelningsläget](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto eller på klick) och [loopning](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Dessa alternativ finns tillgängliga via egenskaperna för [VideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/)-objektet.
+Du kan kontrollera [playback‑läget](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/#setPlayMode-int-) (auto eller vid klick) och [loopning](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/#setPlayLoopMode-boolean-). Dessa alternativ är tillgängliga via egenskaperna på objektet [VideoFrame](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/) .
 
 **Påverkar tillägg av en video PPTX‑filens storlek?**
 
-Ja. När du bäddar in en lokal video inkluderas den binära datan i dokumentet, så presentationens storlek ökar i proportion till filens storlek. När du lägger till en online‑video bäddas en länk och en miniatyr in, så ökningen av storleken blir mindre.
+Ja. När du bäddar in en lokal video inkluderas binärdata i dokumentet, vilket gör att presentationens storlek ökar i proportion till videons filstorlek. När du lägger till en online‑video bäddas en länk och en miniatyrbild in, så ökningen blir mindre.
 
 **Kan jag ersätta videon i en befintlig VideoFrame utan att ändra dess position och storlek?**
 
-Ja. Du kan byta ut [videoinnehållet](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) i ramen samtidigt som du bevarar figurens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
+Ja. Du kan byta ut [videoinnehållet](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/videoframe/#setEmbeddedVideo-com.aspose.slides.IVideo-) i rutan samtidigt som du behåller formens geometri; detta är ett vanligt scenario för att uppdatera media i en befintlig layout.
 
 **Kan innehållstypen (MIME) för en inbäddad video bestämmas?**
 
-Ja. En inbäddad video har en [innehållstyp](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/video/#getContentType--) som du kan läsa och använda, exempelvis när du sparar den till disk.
+Ja. En inbäddad video har en [content type](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/video/#getContentType--) som du kan läsa och använda, t.ex. när du sparar den till disk.

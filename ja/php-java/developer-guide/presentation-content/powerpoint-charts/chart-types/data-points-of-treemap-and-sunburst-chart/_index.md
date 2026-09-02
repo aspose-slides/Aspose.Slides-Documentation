@@ -1,113 +1,262 @@
 ---
-title: PHP を使用した Treemap および Sunburst チャートのデータポイントのカスタマイズ
-linktitle: Treemap と Sunburst チャートのデータポイント
+title: PHPでTreemapとSunburstチャートのデータポイントをカスタマイズ
+linktitle: TreemapとSunburstチャートのデータポイント
 type: docs
 url: /ja/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- ツリーマップ チャート
-- サンバースト チャート
+- ツリーマップチャート
+- サンバーストチャート
+- 階層チャート
 - データポイント
-- ラベル色
-- ブランチ色
+- データラベル
+- ブランチカラー
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java を使用して、PowerPoint 形式に対応した Treemap および Sunburst チャートのデータポイントを管理する方法を学びます。"
+description: "Aspose.Slides for PHP via Java を使用して、階層データの作成と Treemap と Sunburst チャートのレベル、ラベル、色のカスタマイズ方法を学びます。"
 ---
+## **概要**
 
-PowerPointの他のチャートタイプの中で、階層型と呼ばれる2つのタイプがあります - **Treemap** と **Sunburst** チャート（Sunburst Graph、Sunburst Diagram、Radial Chart、Radial Graph、または Multi Level Pie Chart とも呼ばれます）。これらのチャートは、葉から枝のトップまでツリー構造として階層データを表示します。葉はシリーズのデータポイントで定義され、次のネストされたグループ化レベルは対応するカテゴリで定義されます。Aspose.Slides for PHP via Java は Sunburst Chart と Treemap のデータポイントの書式設定を可能にします。
+Treemap と Sunburst チャートは同じ階層データを表示しますが、レイアウトが異なります。Treemap は階層をネストされた矩形で描画し、その面積がリーフの値を表します。Sunburst は同心円状のリングで描画し、上位レベルのグループは中心に近く、リーフカテゴリは外側のリングに配置されます。
 
-以下は Sunburst Chart です。Series1 列のデータが葉ノードを定義し、他の列が階層データポイントを定義します:
+Aspose.Slides for PHP via Java では、各数値は [ChartDataPoint](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdatapoint/) です。その [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) メソッドはリーフとその親グループへのアクセスを提供します。本記事ではそのマッピングを説明し、同じサンプルデータから両方のチャートタイプを作成および書式設定する方法を示します。
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Consumer と Business のブランチを含む Treemap チャート](treemap-hierarchy.png)
 
-プレゼンテーションに新しい Sunburst チャートを追加することから始めましょう：
+![同じ Consumer と Business 階層を持つ Sunburst チャート](sunburst-hierarchy.png)
+
+## **カテゴリ、データポイント、およびレベルの理解**
+
+以下で使用するサンプルは 3 つのカテゴリレベルと 1 つの数値系列を持ちます:
+
+| ブランチ | ステム | リーフ | 売上 |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+各行は 1 つのリーフカテゴリと 1 つのデータポイントを作成します。カテゴリのグループ化レベルはそのリーフから親へ向かうパスを示します。最初の行の場合、パスは `Consumer > Computers > Laptops` です。
+
+[ChartDataPoint.getDataPointLevels] が返すインデックスはリーフから上方向へ進みます:
+
+| `getDataPointLevels()` インデックス | 論理レベル | Treemap 表現 | Sunburst 表現 |
+| ---: | --- | --- | --- |
+| `0` | リーフ | Value rectangle | Outer-ring segment |
+| `1` | ステム | Parent rectangle or header | Middle-ring segment |
+| `2` | ブランチ | Top-level rectangle or header | Inner-ring segment |
+
+この順序は両方のチャートタイプで同じですが、視覚レイアウトは異なります。親セグメントは複数のリーフで共有されます。書式設定するには、そのグループ内の最初のデータポイントの対応レベルを使用します。たとえば `Consumer` ブランチは `Laptops` ポイントから始まり、`Software` ステムは `Licenses` ポイントから始まります。`$dataPoints->get_Item(0)` や `$dataPoints->get_Item(6)` のような説明のない式を使用するよりも、これらのポイントへの参照を保持した方が明確で安全です。
+
+## **両方のチャートタイプの作成とカスタマイズ**
+
+以下の完全なサンプルは、最初のスライドに Treemap、2 番目のスライドに Sunburst を作成します。階層を構築し、`Tablets` の値を表示し、選択したレベルに固定色を適用し、ブランチラベルを書式設定し、プレゼンテーションを保存します。
+
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // リーフカテゴリを追加します。新しいグループが始まるときにのみグルーピング項目が設定されます;
+        // 後続のカテゴリは別の項目が設定されるまでそのグループに残ります。
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // Tablets リーフにカテゴリと値を表示します。
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // Consumer ブランチを、そのブランチ内の最初のリーフを通じて書式設定します。
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // Software ステムを、そのステム内の最初のリーフを通じて書式設定します。
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout は Treemap の親ラベルに影響します; Sunburst はリングセグメントを使用します。
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+カテゴリセルと値セルは同じワークシート行を使用するため、コレクション位置は揃ったままになります。既存のチャートを操作する場合は、最初にカテゴリ行を確認し、書式設定対象のデータポイントとレベルへの名前付き参照を保存してください。
 
-{{% alert color="primary" title="See also" %}} 
-- [**PowerPoint プレゼンテーション チャートの作成または更新 (PHP)**](/slides/ja/php-java/create-chart/)
-{{% /alert %}}
+## **動作と実務的な考慮事項**
 
-チャートのデータポイントを書式設定する必要がある場合、以下を使用します：
+### **Treemap と Sunburst の違い**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevelsmanager/), [**ChartDataPointLevel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/) クラスと [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) メソッドは、Treemap と Sunburst チャートのデータポイントの書式設定へのアクセスを提供します。
+- Treemap は面積で値を、ネストされた矩形で階層を表現します。`[ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartseries/#setParentLabelLayout)` メソッドはこのチャートタイプで親ラベルの表示方法を制御します。
+- Sunburst は角度で値を、リングの深さで階層を表現します。`[ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartseries/#setParentLabelLayout)` はリングラベルを制御しません。
+- 両方のチャートタイプは同じカテゴリグループ化レベルと、[ChartDataPoint.getDataPointLevels] が返すリーフから親への順序を使用するため、データ構築およびレベル書式設定コードを共有できます。
+- 親の値は子リーフから計算されます。ブランチやステム用に別個の数値ポイントを追加しないでください。
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevelsmanager/) はマルチレベルカテゴリへアクセスするために使用され、[**ChartDataPointLevel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/) オブジェクトのコンテナを表します。基本的には [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/php-java/aspose.slides/chartcategorylevelsmanager/) のラッパーで、データポイント専用のプロパティが追加されています。 [**ChartDataPointLevel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/) クラスは、[**getFormat**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/#getFormat) と [**getDataLabel**](https://reference.aspose.com/slides/php-java/aspose.slides/chartdatapointlevel/#getLabel) の2つのメソッドを持ち、対応する設定へのアクセスを提供します。
+### **並び替えとセグメント順序**
 
-## **データポイントの値を表示**
+チャートのレイアウトエンジンが矩形やリングセグメントの最終配置を決定します。関連するカテゴリ行をまとめてから追加してください。ただし、特定の矩形位置や開始角度に依存しないでください。順序が意味を持つ場合はラベルに含めるか、明示的なカテゴリ軸を持つチャートタイプを使用します。
 
-「Leaf 4」データポイントの値を表示します：
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
-```
+### **テーマと固定色**
 
+書式設定されていないチャートレベルはプレゼンテーションテーマから色を継承します。例では予測可能な出力のために明示的な RGB 塗りを使用しています。テーマの変更に追従させる場合はスキームカラーを使用し、すべてのレベルを上書きしないようにしてください。また、ブランチやステムの塗りを変更した後はラベルのコントラストも確認してください。
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **ラベルと利用可能なスペース**
 
-## **データポイントのラベルと色を設定**
+セグメントが小さすぎると PowerPoint がラベルを非表示または切り詰めることがあります。チャートサイズを大きくする、カテゴリ名を短くする、表示するラベル項目を減らすなどで、より明確な結果が得られます。`[DataLabelFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/datalabelformat/)` を使用してカテゴリ名、系列名、値を組み合わせることは可能ですが、すべての項目を有効にすると階層チャートの可読性が低下しがちです。
 
-「Branch 1」データラベルをカテゴリ名ではなくシリーズ名（「Series1」）を表示するように設定します。その後、テキスト色を黄色に設定します：
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-```
+### **エクスポートとレンダリング**
 
-
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
-
-## **データポイントのブランチ色を設定**
-
-「Steam 4」ブランチの色を変更します：
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+PPTX で保存するとチャートは編集可能な状態で保持されます。Aspose.Slides がプレゼンテーションを PDF や画像にレンダリングする際、サポートされている塗りとラベル設定がチャートに反映されます。フォントの置き換えや利用可能なレイアウトスペースの差異により改行やラベル表示が変わることがあるため、必要なフォントをインストールし、重要なエクスポート先での確認を行ってください。
 
 ## **FAQ**
 
-**Sunburst/Treemap のセグメントの順序（ソート）を変更できますか？**
+**なぜ親レベルを変更すると複数のリーフに影響が及ぶのですか？**
 
-いいえ。PowerPoint はセグメントを自動的にソートします（通常は降順で時計回り）。Aspose.Slides はこの動作をそのまま反映するため、直接順序を変更することはできません。データを事前処理することで実現します。
+ブランチまたはステムは共有されるビジュアルセグメントです。その `[ChartDataPointLevel](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdatapointlevel/)` は子リーフから取得できますが、書式設定はその共有親セグメント全体に適用されます。
 
-**プレゼンテーションのテーマはセグメントやラベルの色にどのように影響しますか？**
+**データラベルが欠落しているのはなぜですか？**
 
-チャートの色は、明示的に塗りつぶしやフォントを設定しない限り、プレゼンテーションの[テーマ/パレット](/slides/ja/php-java/presentation-theme/)を継承します。一定の結果を得るには、必要なレベルで実体塗りつぶしとテキスト書式設定を固定してください。
+まずラベルの `[DataLabelFormat](https://reference.aspose.com/slides/ja/php-java/aspose.slides/datalabelformat/)` オブジェクトで必要なフィールドを有効にします。その後、セグメントに十分なスペースがあるか確認してください。Treemap の親ラベルレイアウト、チャートのサイズ、ラベル長、フォントサイズ、有効フィールド数がラベル表示に影響します。
 
-**PDF/PNG へのエクスポートはカスタムブランチ色とラベル設定を保持しますか？**
+**セグメントの正確な順序や座標を指定できますか？**
 
-はい。プレゼンテーションをエクスポートする際、チャートの設定（塗りつぶし、ラベル）は出力形式に保持されます。Aspose.Slides はチャートの書式設定を適用した状態でレンダリングするためです。
+行の順序を制御し、各グループを連続させることはできますが、Treemap の矩形や Sunburst の角度を正確に指定することはできません。レイアウトエンジンが階層、値、利用可能スペースに基づいて計算します。
 
-**チャート上にカスタムオーバーレイを配置するためにラベルや要素の実際の座標を計算できますか？**
+**プレゼンテーションテーマを変更すると色が変わるのはなぜですか？**
 
-はい。チャートのレイアウトが検証された後、要素（例: [DataLabel](https://reference.aspose.com/slides/php-java/aspose.slides/datalabel/)）の実際の *x* と *y* が取得可能になり、オーバーレイの正確な配置に役立ちます。
+テーマベースの塗りはプレゼンテーションのパレットに従うよう設計されています。固定したいレベルには明示的な RGB 色を設定するか、テーマ変更に追従させる場合はスキームカラーを使用してください。
+
+**PDF や画像へのエクスポート時にカスタム書式は保持されますか？**
+
+はい、サポートされているチャートの塗りとラベル設定はレンダリング時に含まれます。システム間で一貫した結果を得るために必要なフォントを用意し、ラベルのフィッティングはレイアウトに依存するため最終エクスポートサイズでテストしてください。
+
+## **関連項目**
+
+- [Treemap チャートの作成](/slides/ja/php-java/create-chart/#create-tree-map-charts)
+- [Sunburst チャートの作成](/slides/ja/php-java/create-chart/#create-sunburst-charts)
+- [プレゼンテーションチャートのエクスポート](/slides/ja/php-java/export-chart/)
+- [プレゼンテーションテーマの管理](/slides/ja/php-java/presentation-theme/)

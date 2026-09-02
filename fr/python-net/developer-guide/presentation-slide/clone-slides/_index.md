@@ -1,13 +1,13 @@
 ---
 title: Cloner des diapositives PowerPoint en Python
-linktitle: Cloner des diapositives
+linktitle: Cloner les diapositives
 type: docs
 weight: 40
 url: /fr/python-net/clone-slides/
 keywords:
 - cloner diapositive
 - copier diapositive
-- enregistrer diapositive
+- sauvegarder diapositive
 - PowerPoint
 - présentation
 - Python
@@ -46,11 +46,11 @@ Dans l'exemple ci-dessous, la premiere diapositive (index 0) est clonee et ajout
 ```py
 import aspose.slides as slides
 
-# Instancier la classe Presentation pour représenter le fichier de présentation.
+# Instanciez la classe Presentation pour représenter le fichier de présentation.
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
-    # Cloner la diapositive souhaitée à la fin de la collection de diapositives dans la même présentation.
+    # Clonez la diapositive souhaitée à la fin de la collection de diapositives dans la même présentation.
     presentation.slides.add_clone(presentation.slides[0])
-    # Enregistrer la présentation modifiée sur le disque.
+    # Enregistrez la présentation modifiée sur le disque.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -68,11 +68,11 @@ Dans l'exemple ci-dessous, la diapositive d'index 1 (position 2) est clonee a l'
 ```py
 import aspose.slides as slides
 
-# Instancier la classe Presentation pour représenter le fichier de présentation.
+# Instanciez la classe Presentation pour représenter le fichier de présentation.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # Cloner la diapositive souhaitée à la position spécifiée (index) dans la même présentation.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Enregistrer la présentation modifiée sur le disque.
+    # Enregistrez la présentation modifiée sur le disque.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -91,13 +91,13 @@ Dans l'exemple ci-dessous, la diapositive d'index 0 de la presentation source es
 ```py
 import aspose.slides as slides
 
-# Instancier la classe Presentation pour représenter le fichier de présentation source.
+# Instanciez la classe Presentation pour représenter le fichier de présentation source.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instancier la classe Presentation pour le PPTX de destination (où la diapositive sera clonée).
+    # Instanciez la classe Presentation pour le PPTX de destination (où la diapositive sera clonée).
     with slides.Presentation() as target_presentation:
-        # Cloner la diapositive souhaitée de la présentation source à la fin de la collection de diapositives dans la présentation de destination.
+        # Clonez la diapositive souhaitée de la présentation source à la fin de la collection de diapositives dans la présentation de destination.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Enregistrer la présentation de destination sur le disque.
+        # Enregistrez la présentation de destination sur le disque.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -116,13 +116,13 @@ Dans l'exemple ci-dessous, la diapositive d'index 0 de la presentation source es
 ```py
 import aspose.slides as slides
 
-# Instancier la classe Presentation pour représenter le fichier de présentation source.
+# Instanciez la classe Presentation pour représenter le fichier de présentation source.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instancier la classe Presentation pour le PPTX de destination (où la diapositive doit être clonée).
+    # Instanciez la classe Presentation pour le PPTX de destination (où la diapositive doit être clonée).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
-        # Insérer un clone de la première diapositive de la source à l'index 2 dans la présentation de destination.
+        # Insérez un clone de la première diapositive de la source à l'index 2 dans la présentation de destination.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Enregistrer la présentation de destination sur le disque.
+        # Enregistrez la présentation de destination sur le disque.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -146,19 +146,19 @@ Dans l'exemple ci-dessous, la diapositive d'index 0 de la presentation source es
 ```py
 import aspose.slides as slides
 
-# Instancier la classe Presentation pour représenter le fichier de présentation source.
+# Instanciez la classe Presentation pour représenter le fichier de présentation source.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # Instancier la classe Presentation pour la présentation de destination où la diapositive sera clonée.
+    # Instanciez la classe Presentation pour la présentation de destination où la diapositive sera clonée.
     with slides.Presentation() as target_presentation:
-        # Obtenir la première diapositive de la présentation source.
+        # Obtenez la première diapositive de la présentation source.
         source_slide = source_presentation.slides[0]
-        # Obtenir la diapositive maître utilisée par la première diapositive.
+        # Obtenez la diapositive maître utilisée par la première diapositive.
         source_master = source_slide.layout_slide.master_slide
         # Cloner la diapositive maître dans la collection maîtres de la présentation de destination.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Cloner la diapositive de la présentation source à la fin de la présentation de destination en utilisant le maître cloné.
+        # Clonez la diapositive de la présentation source à la fin de la présentation de destination en utilisant le maître cloné.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Enregistrer la présentation de destination sur le disque.
+        # Enregistrez la présentation de destination sur le disque.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

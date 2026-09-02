@@ -1,13 +1,11 @@
 ---
-title: Định dạng Văn bản Bản trình chiếu trong Java
+title: Định dạng Văn bản Trình chiếu trong Java
 linktitle: Định dạng Văn bản
 type: docs
 weight: 50
 url: /vi/java/text-formatting/
 keywords:
-- đánh dấu văn bản
-- biểu thức chính quy
-- căn chỉnh đoạn
+- căn chỉnh đoạn văn
 - kiểu văn bản
 - nền văn bản
 - độ trong suốt văn bản
@@ -20,93 +18,42 @@ keywords:
 - khoảng cách dòng
 - thuộc tính tự động vừa
 - neo khung văn bản
-- tab văn bản
+- căn tab văn bản
 - ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
 - bản trình chiếu
 - Java
 - Aspose.Slides
-description: "Định dạng và tạo kiểu cho văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Java. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
+description: "Định dạng và tạo kiểu văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Java. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
 ---
 ## **Tổng quan**
 
-Bài viết này trình bày cách định dạng văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Java. Nội dung bao gồm việc đánh dấu, màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn văn, hành vi tự động vừa, neo văn bản, vị trí tab và cài đặt ngôn ngữ.
+Bài viết này trình bày cách định dạng văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides for Java. Nó bao gồm màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn văn, hành vi tự động vừa, neo văn bản, dừng tab và cài đặt ngôn ngữ.
 
-Trong các ví dụ dưới đây, chúng ta sẽ sử dụng tệp có tên “sample.pptx”, chứa một hộp văn bản duy nhất trên slide đầu tiên với nội dung sau:
+Trong các ví dụ dưới đây, chúng tôi sẽ sử dụng tệp có tên "sample.pptx", chứa một hộp văn bản duy nhất trên slide đầu tiên với văn bản sau:
 
 ![Văn bản mẫu](sample_text.png)
 
-## **Đánh dấu văn bản**
-
-Sử dụng phương thức [ITextFrame.highlightText](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-) khi bạn cần đánh dấu văn bản trùng với một mẫu cụ thể trong khung văn bản. Phương thức áp dụng màu đánh dấu cho các đoạn văn bản khớp và có thể được dùng cùng với [TextSearchOptions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textsearchoptions/) để kiểm soát cách tìm kiếm, ví dụ chỉ khớp toàn từ.
-
-Ví dụ mã dưới đây đánh dấu tất cả các lần xuất hiện của chuỗi **"try"** và sau đó chỉ đánh dấu từ đầy đủ **"to"**.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // Lấy hình dạng đầu tiên từ slide đầu tiên.
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Đánh dấu từ "try" trong hình dạng.
-    shape.getTextFrame().highlightText("try", Color.LIGHT_GRAY);
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Đánh dấu từ "to" trong hình dạng.
-    shape.getTextFrame().highlightText("to", Color.MAGENTA, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Kết quả:
-
-![Văn bản đã được đánh dấu](highlighted_text.png)
-
-## **Đánh dấu văn bản bằng biểu thức chính quy**
-
-Phương thức [ITextFrame.highlightRegex](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) đánh dấu các khớp văn bản được tìm thấy bằng một biểu thức chính quy. Trong Java, API này được khai báo trên [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/).
-
-Ví dụ mã dưới đây đánh dấu tất cả các từ có **bảy ký tự hoặc nhiều hơn**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Đánh dấu tất cả các từ có bảy ký tự hoặc nhiều hơn.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Kết quả:
-
-![Văn bản đã được đánh dấu bằng biểu thức chính quy](highlighted_text_using_regex.png)
+Để tìm và làm nổi bật văn bản nguyên thủy hoặc các kết quả khớp biểu thức chính quy, xem [Tìm và Thay thế Văn bản](/slides/vi/java/search-and-replace-text/).
 
 ## **Đặt màu nền cho văn bản**
 
-Sử dụng [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) để đặt màu nền mặc định cho một đoạn, hoặc [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) cho các phần văn bản riêng lẻ.
+Sử dụng [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) để đặt màu làm nổi bật mặc định cho một đoạn văn, hoặc sử dụng [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) cho các phần văn bản riêng lẻ.
 
-Ví dụ mã sau cho biết cách đặt màu nền cho **toàn đoạn**:
+Ví dụ mã dưới đây cho thấy cách đặt màu nền cho **toàn bộ đoạn văn**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt màu nền đánh dấu cho toàn đoạn.
+    // Đặt màu tô sáng cho toàn bộ đoạn văn.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -117,19 +64,23 @@ try {
 
 Kết quả:
 
-![Đoạn màu xám](gray_paragraph.png)
+![Đoạn văn màu xám](gray_paragraph.png)
 
-Ví dụ mã dưới đây cho biết cách đặt màu nền cho **các phần văn bản có phông chữ đậm**:
+Ví dụ mã dưới đây cho thấy cách đặt màu nền cho **các phần văn bản có phông chữ đậm**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Đặt màu nền đánh dấu cho phần văn bản.
+            // Đặt màu tô sáng cho phần văn bản.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -144,19 +95,22 @@ Kết quả:
 
 ![Các phần văn bản màu xám](gray_text_portions.png)
 
-## **Căn chỉnh đoạn văn bản**
+## **Căn chỉnh các đoạn văn bản**
 
-Sử dụng [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) để đặt căn chỉnh đoạn trong một khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
+Sử dụng [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) để đặt căn chỉnh đoạn trong khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
 
-Ví dụ mã sau cho biết cách căn đoạn **ở giữa**:
+Ví dụ mã dưới đây cho thấy cách căn chỉnh đoạn văn về **giữa**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt căn chỉnh của đoạn thành giữa.
+    // Đặt căn chỉnh của đoạn văn về trung tâm.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -167,20 +121,24 @@ try {
 
 Kết quả:
 
-![Đoạn đã được căn chỉnh](aligned_paragraph.png)
+![Đoạn văn đã căn chỉnh](aligned_paragraph.png)
 
 ## **Đặt độ trong suốt cho văn bản**
 
-Độ trong suốt của văn bản được điều khiển thông qua thành phần alpha của màu được gán cho [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Trong các ví dụ dưới đây, `alpha = 50` là giá trị alpha ARGB trên thang 0‑255, không phải phần trăm độ trong suốt.
+Độ trong suốt của văn bản được điều khiển qua thành phần alpha của màu được gán cho [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Trong các ví dụ dưới đây, `alpha = 50` là giá trị alpha‑channel ARGB trên thang 0–255, không phải phần trăm độ trong suốt.
 
-Ví dụ mã sau cho biết cách áp dụng độ trong suốt cho **toàn đoạn**:
+Ví dụ mã dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn văn**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Đặt màu nền của văn bản thành màu trong suốt.
@@ -195,16 +153,20 @@ try {
 
 Kết quả:
 
-![Đoạn trong suốt](transparent_paragraph.png)
+![Đoạn văn trong suốt](transparent_paragraph.png)
 
-Ví dụ mã dưới đây cho biết cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ đậm**:
+Ví dụ mã dưới đây cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ đậm**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -229,15 +191,18 @@ Kết quả:
 
 Sử dụng [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) để mở rộng hoặc thu hẹp khoảng cách giữa các ký tự trong một hộp văn bản.
 
-Ví dụ Java sau cho biết cách mở rộng khoảng cách ký tự trong **toàn đoạn**:
+Ví dụ Java dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn văn**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Lưu ý: Sử dụng giá trị âm để giảm khoảng cách ký tự.
+    // Lưu ý: Sử dụng giá trị âm để nén khoảng cách ký tự.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Mở rộng khoảng cách ký tự.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -248,19 +213,22 @@ try {
 
 Kết quả:
 
-![Khoảng cách ký tự trong đoạn](character_spacing_in_paragraph.png)
+![Khoảng cách ký tự trong đoạn văn](character_spacing_in_paragraph.png)
 
-Ví dụ mã dưới đây cho biết cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ đậm**:
+Ví dụ mã dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ đậm**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Lưu ý: Sử dụng giá trị âm để giảm khoảng cách ký tự.
+            // Lưu ý: Sử dụng giá trị âm để nén khoảng cách ký tự.
             portion.getPortionFormat().setSpacing(3); // Mở rộng khoảng cách ký tự.
         }
     }
@@ -275,16 +243,19 @@ Kết quả:
 
 ![Khoảng cách ký tự trong các phần văn bản](character_spacing_in_text_portions.png)
 
-### **Vô hiệu hoá kerning cho các phông chữ cụ thể**
+### **Vô hiệu hóa Kerning cho các phông chữ cụ thể**
 
-Trong một số trường hợp, văn bản được render bằng Aspose.Slides có thể trông hơi chặt hơn so với cùng văn bản hiển thị trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ đó chứa thông tin kerning hợp lệ và kerning được bật trong cài đặt PowerPoint.
+Trong một số trường hợp, văn bản được render bởi Aspose.Slides có thể trông chặt hơn một chút so với văn bản hiển thị trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ chứa thông tin kerning hợp lệ và kerning đã được bật trong cài đặt PowerPoint.
 
-Để làm cho kết quả render gần hơn với PowerPoint trong những trường hợp này, bạn có thể vô hiệu hoá kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Đặt [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) thành một giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
+Để làm cho kết quả render gần hơn với PowerPoint trong những trường hợp như vậy, bạn có thể vô hiệu hóa kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Đặt [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) thành một giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
@@ -308,21 +279,24 @@ try {
 }
 ```
 
-Cài đặt này ngăn kerning được áp dụng cho các phần văn bản khớp và có thể giúp đồng bộ việc render của Aspose.Slides với đầu ra hình ảnh của PowerPoint đối với các phông chữ bị ảnh hưởng bởi hành vi đặc thù này của PowerPoint.
+Cài đặt này ngăn kerning được áp dụng cho các phần văn bản khớp và có thể giúp đồng bộ render của Aspose.Slides với đầu ra trực quan của PowerPoint cho các phông chữ bị ảnh hưởng bởi hành vi riêng của PowerPoint này.
 
 ## **Quản lý thuộc tính phông chữ của văn bản**
 
-Các thuộc tính phông chữ có thể được đặt ở mức đoạn thông qua [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) hoặc ở mức phần riêng lẻ thông qua [IPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformat/).
+Thuộc tính phông chữ có thể được đặt ở mức đoạn thông qua [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) hoặc trên từng phần thông qua [IPortionFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iportionformat/).
 
-Mã sau đặt phông chữ và kiểu văn bản cho toàn đoạn: áp dụng cỡ phông, in đậm, in nghiêng, gạch chân chấm và phông Times New Roman cho tất cả các phần trong đoạn.
+Mã dưới đây đặt phông chữ và kiểu văn bản cho toàn bộ đoạn: nó áp dụng kích thước phông, đậm, nghiêng, gạch chân chấm và phông Times New Roman cho mọi phần trong đoạn.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt các thuộc tính phông chữ cho đoạn.
+    // Đặt các thuộc tính phông chữ cho đoạn văn.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -337,14 +311,17 @@ try {
 
 Kết quả:
 
-![Thuộc tính phông chữ cho đoạn](font_properties_for_paragraph.png)
+![Thuộc tính phông chữ cho đoạn văn](font_properties_for_paragraph.png)
 
 Ví dụ mã dưới đây áp dụng các thuộc tính tương tự cho **các phần văn bản có phông chữ đậm**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -367,16 +344,19 @@ Kết quả:
 
 ![Thuộc tính phông chữ cho các phần văn bản](font_properties_for_text_portions.png)
 
-## **Đặt góc xoay cho văn bản**
+## **Đặt xoay văn bản**
 
-Sử dụng [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) để đặt hướng văn bản được định sẵn trong một hình.
+Sử dụng [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) để đặt định hướng văn bản được định nghĩa sẵn trong một hình dạng.
 
-Mã sau đặt hướng văn bản trong hình thành `Vertical270`, xoay văn bản **90 độ ngược chiều kim đồng hồ**:
+Ví dụ mã dưới đây đặt định hướng văn bản trong hình dạng thành `Vertical270`, xoay văn bản **90 độ ngược chiều kim đồng hồ**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -388,18 +368,21 @@ try {
 
 Kết quả:
 
-![Góc xoay văn bản](text_rotation.png)
+![Xoay văn bản](text_rotation.png)
 
-## **Đặt góc xoay tùy chỉnh cho khung văn bản**
+## **Đặt xoay tùy chỉnh cho khung văn bản**
 
 Sử dụng [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) để đặt góc xoay tùy chỉnh cho một [ITextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframe/).
 
-Mã sau xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình:
+Ví dụ mã dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -411,21 +394,24 @@ try {
 
 Kết quả:
 
-![Góc xoay tùy chỉnh cho văn bản](custom_text_rotation.png)
+![Xoay tùy chỉnh cho văn bản](custom_text_rotation.png)
 
-## **Đặt khoảng cách dòng cho các đoạn**
+## **Đặt khoảng cách dòng cho các đoạn văn**
 
 Aspose.Slides cung cấp [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) và [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) để điều khiển khoảng cách đoạn. Các thuộc tính này được sử dụng như sau:
 
-* Dùng giá trị dương để chỉ định khoảng cách dòng theo phần trăm chiều cao dòng.
-* Dùng giá trị âm để chỉ định khoảng cách dòng bằng điểm.
+* Sử dụng giá trị dương để chỉ định khoảng cách dòng dưới dạng phần trăm của chiều cao dòng.
+* Sử dụng giá trị âm để chỉ định khoảng cách dòng tính bằng điểm.
 
-Mã sau cho biết cách chỉ định khoảng cách dòng trong đoạn:
+Ví dụ mã dưới đây cho thấy cách chỉ định khoảng cách dòng trong đoạn:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -438,16 +424,19 @@ try {
 
 Kết quả:
 
-![Khoảng cách dòng trong đoạn](line_spacing.png)
+![Khoảng cách dòng trong đoạn văn](line_spacing.png)
 
-## **Đặt kiểu tự động vừa cho khung văn bản**
+## **Đặt loại tự động vừa cho khung văn bản**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) xác định cách văn bản xử lý khi vượt quá giới hạn của vùng chứa. Sử dụng nó để điều khiển việc văn bản co lại, tràn hay tự động thay đổi kích thước hình.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) xác định cách văn bản hành xử khi vượt quá giới hạn của vùng chứa. Sử dụng nó để kiểm soát việc văn bản thu nhỏ, tràn ra ngoài hay tự động thay đổi kích thước hình dạng.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -459,12 +448,15 @@ try {
 
 ## **Đặt neo cho khung văn bản**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) xác định cách văn bản được định vị theo chiều dọc bên trong một hình, ví dụ ở trên, giữa hoặc dưới.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) xác định cách văn bản được đặt vị trí theo chiều dọc bên trong một hình dạng, ví dụ ở trên, giữa hoặc dưới.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -476,12 +468,15 @@ try {
 
 ## **Đặt tab cho văn bản**
 
-Sử dụng [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) và [IParagraphFormat.getTabs](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getTabs--) để cấu hình các vị trí tab trong một đoạn.
+Sử dụng [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) và [IParagraphFormat.getTabs](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraphformat/#getTabs--) để cấu hình các vị trí dừng tab trong một đoạn.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -495,18 +490,21 @@ try {
 
 Kết quả:
 
-![Các tab trong đoạn](paragraph_tabs.png)
+![Các tab của đoạn văn](paragraph_tabs.png)
 
 ## **Đặt ngôn ngữ kiểm tra chính tả**
 
-Aspose.Slides cung cấp [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ này quyết định ngôn ngữ được sử dụng cho kiểm tra chính tả và ngữ pháp trong PowerPoint.
+Aspose.Slides cung cấp [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ này quyết định ngôn ngữ được dùng cho kiểm tra chính tả và ngữ pháp trong PowerPoint.
 
-Mã sau cho biết cách đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản:
+Ví dụ mã dưới đây cho thấy cách đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -521,7 +519,7 @@ try {
     // Đặt Id của ngôn ngữ kiểm tra chính tả.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", SaveFormat.Pptx);
@@ -535,6 +533,8 @@ try {
 Sử dụng [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/vi/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) để xác định ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bản trình chiếu.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -558,12 +558,14 @@ try {
 
 Để áp dụng định dạng văn bản mặc định ở cấp độ bản trình chiếu, sử dụng [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Mã sau cho biết cách đặt phông chữ đậm mặc định kích thước 14 pt cho tất cả văn bản trên các slide trong một bản trình chiếu mới.
+Ví dụ mã dưới đây cho thấy cách đặt phông chữ đậm mặc định với kích thước 14 pt cho mọi văn bản trên tất cả các slide trong một bản trình chiếu mới.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Lấy định dạng đoạn cấp cao nhất.
+    // Lấy định dạng đoạn văn cấp cao nhất.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -577,20 +579,23 @@ try {
 }
 ```
 
-## **Trích xuất văn bản với hiệu ứng All‑Caps**
+## **Trích xuất văn bản với hiệu ứng All Caps**
 
-Trong PowerPoint, áp dụng hiệu ứng phông **All Caps** làm cho văn bản hiển thị bằng chữ hoa trên slide ngay cả khi ban đầu nhập bằng chữ thường. Khi bạn lấy phần văn bản như vậy bằng Aspose.Slides, thư viện sẽ trả về văn bản đúng như khi nhập. Để khớp với văn bản hiển thị, kiểm tra [TextCapType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textcaptype/) và chuyển chuỗi trả về sang chữ hoa khi giá trị là `All`.
+Trong PowerPoint, áp dụng hiệu ứng **All Caps** làm cho văn bản hiển thị ở dạng chữ hoa trên slide ngay cả khi nó được gõ ban đầu bằng chữ thường. Khi bạn lấy phần văn bản đó bằng Aspose.Slides, thư viện sẽ trả về văn bản đúng như khi nhập. Để khớp với văn bản hiển thị, kiểm tra [TextCapType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/textcaptype/) và chuyển chuỗi trả về sang chữ hoa khi giá trị là `All`.
 
 Giả sử chúng ta có hộp văn bản sau trên slide đầu tiên của tệp sample2.pptx.
 
 ![Hiệu ứng All Caps](all_caps_effect.png)
 
-Mã sau cho biết cách trích xuất văn bản với hiệu ứng **All Caps** đã được áp dụng:
+Ví dụ mã dưới đây cho thấy cách trích xuất văn bản với hiệu ứng **All Caps** đã được áp dụng:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -614,10 +619,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **Câu hỏi thường gặp**
 
-**Làm sao để chỉnh sửa văn bản trong bảng trên slide?**
+**Làm thế nào để sửa đổi văn bản trong bảng trên một slide?**
 
-Để chỉnh sửa văn bản trong bảng trên slide, sử dụng [ITable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itable/). Duyệt qua các ô và cập nhật mỗi ô qua [ICell.getTextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icell/#getTextFrame--) và định dạng đoạn qua [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Để sửa đổi văn bản trong bảng trên một slide, sử dụng [ITable](https://reference.aspose.com/slides/vi/java/com.aspose.slides/itable/). Duyệt qua các ô và cập nhật mỗi ô thông qua [ICell.getTextFrame](https://reference.aspose.com/slides/vi/java/com.aspose.slides/icell/#getTextFrame--) và định dạng đoạn bằng [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
-**Làm sao để áp dụng màu gradient cho văn bản trong slide PowerPoint?**
+**Làm thế nào để áp dụng màu gradient cho văn bản trong slide PowerPoint?**
 
 Để áp dụng màu gradient cho văn bản, sử dụng [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Đặt [IFillFormat.setFillType](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifillformat/#setFillType-byte-) thành [FillType.Gradient](https://reference.aspose.com/slides/vi/java/com.aspose.slides/filltype/) và cấu hình các điểm dừng gradient, hướng và độ trong suốt.

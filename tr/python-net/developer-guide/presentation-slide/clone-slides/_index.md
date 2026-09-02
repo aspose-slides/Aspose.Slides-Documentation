@@ -32,6 +32,12 @@ Aspose.Slides for Python via .NET'te, [Presentation](https://reference.aspose.co
 pip install aspose.slides
 ```
 
+## **Kurulum**
+
+```bash
+pip install aspose.slides
+```
+
 ## **Aynı Sunumda Sonuna Klonla**
 
 Aynı sunum içinde bir slaytı klonlamak ve mevcut slaytların sonuna eklemek istiyorsanız `add_clone` yöntemini kullanın. Aşağıdaki adımları izleyin:
@@ -41,7 +47,7 @@ Aynı sunum içinde bir slaytı klonlamak ve mevcut slaytların sonuna eklemek i
 1. Slaytı klonlamak için `add_clone` yöntemini [SlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/) üzerinde çağırın.  
 1. Değiştirilmiş sunumu kaydedin.  
 
-Aşağıdaki örnekte, ilk slayt (indeks 0) klonlanıp sunumun sonuna eklenir.
+Aşağıdaki örnekte, ilk slayt (indeks 0) klonlanır ve sunumun sonuna eklenir.
 
 ```py
 import aspose.slides as slides
@@ -148,7 +154,7 @@ import aspose.slides as slides
 
 # Kaynak sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # Slaytın klonlanacağı hedef sunum için Presentation sınıfını örnekleyin.
+    # Slaytın klonlanacağı hedef sunum için Presentation sınıfının bir örneğini oluşturun.
     with slides.Presentation() as target_presentation:
         # Kaynak sunumdan ilk slaytı alın.
         source_slide = source_presentation.slides[0]
@@ -208,10 +214,10 @@ Bunu ana slaytı ve slaytı klonlamadan önce yapın.
 
 Evet. Not sayfası ve inceleme yorumları klona dahil edilir. Eğer istemiyorsanız, ekledikten sonra [remove them](/slides/tr/python-net/presentation-notes/) adresini kullanarak kaldırabilirsiniz.
 
-**Grafikler ve veri kaynakları nasıl işlenir?**
+### Grafikler ve veri kaynakları nasıl ele alınır?
 
 Grafik nesnesi, biçimlendirme ve gömülü veri kopyalanır. Grafik harici bir kaynağa (ör. OLE‑gömülü bir çalışma kitabı) bağlanmışsa, bu bağlantı bir [OLE object](/slides/tr/python-net/manage-ole/) olarak korunur. Dosyalar arasında taşıdıktan sonra veri erişilebilirliğini ve yenileme davranışını kontrol edin.
 
-**Klonun ekleme konumunu ve bölümlerini kontrol edebilir miyim?**
+### Klonun ekleme konumunu ve bölümlerini kontrol edebilir miyim?
 
 Evet. Klonu belirli bir slayt indeksine ekleyebilir ve seçtiğiniz bir [section](/slides/tr/python-net/slide-section/) içine yerleştirebilirsiniz. Hedef bölüm yoksa, önce bölümü oluşturup ardından slaytı ona taşıyın.

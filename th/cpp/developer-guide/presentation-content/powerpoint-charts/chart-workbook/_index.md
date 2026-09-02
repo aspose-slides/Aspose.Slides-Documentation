@@ -1,5 +1,5 @@
 ---
-title: จัดการสมุดงานแผนภูมิในงานนำเสนอโดยใช้ С++
+title: จัดการสมุดงานแผนภูมิในงานนำเสนอโดยใช้ C++
 linktitle: สมุดงานแผนภูมิ
 type: docs
 weight: 70
@@ -8,26 +8,28 @@ keywords:
 - สมุดงานแผนภูมิ
 - ข้อมูลแผนภูมิ
 - เซลล์สมุดงาน
-- ป้ายกำกับข้อมูล
+- ป้ายข้อมูล
 - แผ่นงาน
 - แหล่งข้อมูล
 - สมุดงานภายนอก
 - ข้อมูลภายนอก
+- แคชของแผนภูมิ
+- การกู้คืนสมุดงาน
 - PowerPoint
-- งานนำเสนอ
-- С++
+- การนำเสนอ
+- C++
 - Aspose.Slides
-description: "ค้นพบ Aspose.Slides สำหรับ С++: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อปรับปรุงข้อมูลงานนำเสนอของคุณ"
+description: "ค้นพบ Aspose.Slides สำหรับ C++: จัดการสมุดงานแผนภูมิในรูปแบบ PowerPoint และ OpenDocument อย่างง่ายดายเพื่อทำให้ข้อมูลการนำเสนอของคุณเป็นระเบียบ"
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยแสดงให้เห็นวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของสมุดงาน ใช้เซลล์ของสมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ เข้าถึงคอลเลกชันของแผ่นงาน และกำหนดประเภทแหล่งข้อมูลสำหรับค่าของแผนภูมิ
+บทความนี้อธิบายวิธีการทำงานกับสมุดงานแผนภูมิใน Aspose.Slides โดยแสดงวิธีการอ่านและเขียนข้อมูลแผนภูมิผ่านสตรีมของสมุดงาน, ใช้เซลล์ของสมุดงานเป็นป้ายข้อมูลแผนภูมิ, เข้าถึงคอลเลกชัน Worksheet, และระบุประเภทของแหล่งข้อมูลสำหรับค่าของแผนภูมิ
 
-นอกจากนี้ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างจะแสดงวิธีสร้างและกำหนดสมุดงานภายนอก ดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ และแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
+นอกจากนี้ยังครอบคลุมการทำงานกับสมุดงานภายนอกเป็นแหล่งข้อมูลของแผนภูมิ ตัวอย่างแสดงวิธีสร้างและกำหนดสมุดงานภายนอก, การดึงเส้นทางของสมุดงานภายนอกที่เชื่อมโยงกับแผนภูมิ, และการแก้ไขข้อมูลแผนภูมิเมื่อสมุดงานพร้อมใช้งาน
 
 ## **อ่านและเขียนข้อมูลแผนภูมิจากสมุดงาน**
 
-Aspose.Slides มีเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ช่วยให้คุณอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งมีข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างที่คล้ายกับแหล่งที่มานั้น
+Aspose.Slides ให้บริการเมธอด [ReadWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) และ [WriteWorkbookStream](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) ที่ช่วยให้คุณอ่านและเขียนสมุดงานข้อมูลแผนภูมิ (ซึ่งเป็นข้อมูลแผนภูมิที่แก้ไขด้วย Aspose.Cells) **หมายเหตุ** ข้อมูลแผนภูมิต้องจัดเรียงในลักษณะเดียวกันหรือมีโครงสร้างคล้ายกับแหล่งข้อมูล
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -43,7 +45,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-โค้ด C++ นี้สาธิตการตั้งค่าสมุดงานข้อมูลแผนภูมิ:
+โค้ด C++ นี้แสดงการตั้งค่าสมุดงานข้อมูลแผนภูมิ:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -75,23 +77,23 @@ series->get_ParentSeriesGroup()->set_IsColorVaried(true);
 pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 ```
 
-## **ตั้งค่าเซลล์ของ WorkBook เป็นป้ายกำกับข้อมูลแผนภูมิ**
+## **ตั้งค่าเซลล์ของ WorkBook เป็นป้ายข้อมูลแผนภูมิ**
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)  
-2. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
 3. เพิ่มแผนภูมิ Bubble พร้อมข้อมูลบางส่วน  
 4. เข้าถึงซีรีส์ของแผนภูมิ  
-5. ตั้งค่าเซลล์ของสมุดงานเป็นป้ายกำกับข้อมูล  
-6. บันทึกงานนำเสนอ  
+5. ตั้งค่าเซลล์ของสมุดงานเป็นป้ายข้อมูล  
+6. บันทึกการนำเสนอ  
 
-โค้ด C++ นี้แสดงวิธีตั้งค่าเซลล์ของสมุดงานเป็นป้ายกำกับข้อมูลแผนภูมิ:
+โค้ด C++ นี้แสดงวิธีตั้งค่าเซลล์ของสมุดงานเป็นป้ายข้อมูลแผนภูมิ:
 
 ``` cpp
 System::String lbl0 = u"Label 0 cell value";
 System::String lbl1 = u"Label 1 cell value";
 System::String lbl2 = u"Label 2 cell value";
 
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์งานนำเสนอ 
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงถึงไฟล์การนำเสนอ 
 auto pres = System::MakeObject<Presentation>(u"chart2.pptx");
 
 auto slide = pres->get_Slides()->idx_get(0);
@@ -111,9 +113,9 @@ series->idx_get(0)->get_Labels()->idx_get(2)->set_ValueFromCell(wb->GetCell(0, u
 pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 ```
 
-## **จัดการแผ่นงาน**
+## **จัดการ Worksheet**
 
-โค้ด C++ นี้สาธิตการทำงานโดยใช้เมธอด [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) เพื่อเข้าถึงคอลเลกชันของแผ่นงาน:
+โค้ด C++ นี้แสดงการดำเนินการที่ใช้เมธอด [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) เพื่อเข้าถึงคอลเลกชัน Worksheet:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -126,9 +128,9 @@ for (auto ws : System::IterateOver(worksheets))
     System::Console::WriteLine(ws->get_Name());
 ```
 
-## **กำหนดประเภทแหล่งข้อมูล**
+## **ระบุประเภทของแหล่งข้อมูล**
 
-โค้ด C++ นี้แสดงวิธีกำหนดประเภทสำหรับแหล่งข้อมูล:
+โค้ด C++ นี้แสดงวิธีระบุประเภทสำหรับแหล่งข้อมูล:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -147,7 +149,7 @@ pres->Save(u"pres.pptx", SaveFormat::Pptx);
 
 ## **ตรวจจับรูปแบบสมุดงานที่ฝังอยู่ที่ไม่รองรับ**
 
-Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel แบบไบนารี (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `get_EmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/) ร่วมกับตัวเลขเชิงลำดับ [WorkbookType](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/workbooktype/) เพื่อตรวจจับรูปแบบที่ไม่รองรับและข้ามแผนภูมินั้น ๆ
+Aspose.Slides ไม่รองรับรูปแบบสมุดงาน Excel binary (.xlsb) ที่อาจฝังอยู่ในบางแผนภูมิ คุณสามารถใช้เมธอด `get_EmbeddedWorkbookType` บน [IChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/) ร่วมกับ enumeration [WorkbookType](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/workbooktype/) เพื่อดักจับรูปแบบที่ไม่รองรับและข้ามแผนภูมิเหล่านั้น
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -166,25 +168,25 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // สมุดงานที่ฝังอยู่เป็นรูปแบบ .xlsb ซึ่งไม่รองรับ.
+        // สมุดงานที่ฝังอยู่ในรูปแบบ .xlsb ซึ่งไม่รองรับ
         continue;
     }
 
-    // อ่านหรือแก้ไขข้อมูลสมุดงานแผนภูมิที่นี่.
+    // อ่านหรือแก้ไขข้อมูลสมุดงานของแผนภูมิที่นี่.
 }
 ```
 
 ## **สมุดงานภายนอก**
 
 {{% alert color="primary" %}} 
-ใน [Aspose.Slides](https://releases.aspose.com/slides/th/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) รุ่น 19.4 เราได้เพิ่มการสนับสนุนสมุดงานภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
+ใน [Aspose.Slides](https://releases.aspose.com/slides/th/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4 เราได้เพิ่มการสนับสนุนสมุดงานภายนอกเป็นแหล่งข้อมูลสำหรับแผนภูมิ
 {{% /alert %}} 
 
 ### **สร้างสมุดงานภายนอก**
 
-โดยใช้เมธอด **`ReadWorkbookStream`** และ **`SetExternalWorkbook`** คุณสามารถสร้างสมุดงานภายนอกจากศูนย์หรือทำให้สมุดงานภายในกลายเป็นภายนอกได้
+ด้วยเมธอด **`ReadWorkbookStream`** และ **`SetExternalWorkbook`** คุณสามารถสร้างสมุดงานภายนอกจากศูนย์หรือทำให้สมุดงานภายในกลายเป็นภายนอกได้
 
-โค้ด C++ นี้สาธิตกระบวนการสร้างสมุดงานภายนอก:
+โค้ด C++ นี้แสดงกระบวนการสร้างสมุดงานภายนอก:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -206,13 +208,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **ตั้งค่าสมุดงานภายนอก**
+### **ตั้งสมุดงานภายนอก**
 
-โดยใช้เมธอด **`IChartData::SetExternalWorkbook`** คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลของมันได้ เมธอดนี้ยังสามารถใช้อัปเดตเส้นทางไปยังสมุดงานภายนอก (หากสมุดงานนั้นถูกย้าย)
+โดยใช้เมธอด **`IChartData::SetExternalWorkbook`** คุณสามารถกำหนดสมุดงานภายนอกให้กับแผนภูมิเป็นแหล่งข้อมูลได้ เมธอดนี้ยังสามารถใช้อัปเดตเส้นทางไปยังสมุดงานภายนอก (หากไฟล์ถูกย้าย)
 
-แม้ว่าคุณจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้ แต่คุณยังคงใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากกำหนดเส้นทางสัมพันธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
+แม้ว่าจะไม่สามารถแก้ไขข้อมูลในสมุดงานที่จัดเก็บในตำแหน่งระยะไกลหรือทรัพยากรได้ แต่คุณยังคงใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ หากระบุเส้นทางสัมพันธ์สำหรับสมุดงานภายนอก ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ
 
-โค้ด C++ นี้แสดงวิธีตั้งค่าสมุดงานภายนอก:
+โค้ด C++ นี้แสดงวิธีตั้งสมุดงานภายนอก:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -236,10 +238,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-พารามิเตอร์ `updateChartData` (ภายใต้เมธอด `SetExternalWorkbook`) ใช้เพื่อระบุว่าจะโหลดสมุดงาน Excel หรือไม่  
+พารามิเตอร์ `updateChartData` (ภายใต้เมธอด `SetExternalWorkbook`) ใช้เพื่อกำหนดว่าจะโหลดสมุดงาน Excel หรือไม่  
 
-* เมื่อค่า `updateChartData` ตั้งเป็น `false` จะอัปเดตเฉพาะเส้นทางของสมุดงาน — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย นี้เหมาะกับสถานการณ์ที่สมุดงานเป้าหมายไม่มีอยู่หรือไม่พร้อมใช้งาน  
-* เมื่อค่า `updateChartData` ตั้งเป็น `true` ข้อมูลแผนภูมิจะถูกอัปเดตจากสมุดงานเป้าหมาย  
+* เมื่อค่าของ `updateChartData` เป็น `false` จะอัปเดตเฉพาะเส้นทางของสมุดงาน — ข้อมูลแผนภูมิจะไม่ถูกโหลดหรืออัปเดตจากสมุดงานเป้าหมาย คุณอาจใช้การตั้งค่านี้เมื่อต้องการทำงานกับสมุดงานเป้าหมายที่ไม่มีหรือไม่พร้อมใช้งาน  
+* เมื่อค่าของ `updateChartData` เป็น `true` ข้อมูลแผนภูมิจะอัปเดตจากสมุดงานเป้าหมาย
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -253,15 +255,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-### **ดึงเส้นทางของสมุดงานแหล่งข้อมูลภายนอกของแผนภูมิ**
+### **รับเส้นทางของสมุดงานแหล่งข้อมูลภายนอกจากแผนภูมิ**
 
 1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)  
-2. ดึงอ้างอิงของสไลด์ผ่านดัชนีของมัน  
-3. สร้างอ็อบเจกต์สำหรับรูปทรงแผนภูมิ  
-4. สร้างอ็อบเจกต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แทนแหล่งข้อมูลของแผนภูมิ  
-5. กำหนดเงื่อนไขที่เกี่ยวข้องตามประเภทแหล่งข้อมูลที่ตรงกับประเภทแหล่งข้อมูลสมุดงานภายนอก  
+2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน  
+3. สร้างอ็อบเจ็กต์สำหรับรูปแบบแผนภูมิ  
+4. สร้างอ็อบเจ็กต์สำหรับประเภทแหล่งข้อมูล (`ChartDataSourceType`) ที่แสดงถึงแหล่งข้อมูลของแผนภูมิ  
+5. ระบุเงื่อนไขที่เกี่ยวข้องตามประเภทแหล่งข้อมูลที่เป็นประเภทเดียวกับแหล่งข้อมูลสมุดงานภายนอก  
 
-โค้ด C++ นี้สาธิตการทำงาน:
+โค้ด C++ นี้แสดงการดำเนินการ:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -280,9 +282,9 @@ pres->Save(u"Result.pptx", SaveFormat::Pptx);
 
 ### **แก้ไขข้อมูลแผนภูมิ**
 
-คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการแก้ไขเนื้อหาของสมุดงานภายใน เมื่อสมุดงานภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
+คุณสามารถแก้ไขข้อมูลในสมุดงานภายนอกได้เช่นเดียวกับการเปลี่ยนแปลงเนื้อหาของสมุดงานภายใน เมื่อสมุดงานภายนอกไม่สามารถโหลดได้ จะเกิดข้อยกเว้น
 
-โค้ด C++ นี้เป็นการนำไปใช้ตามกระบวนการที่อธิบายไว้:
+โค้ด C++ นี้เป็นการดำเนินการตามกระบวนการที่อธิบายไว้:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -298,28 +300,49 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **กู้คืนสมุดงานจากแคชของแผนภูมิ**
+
+หากแผนภูมิใช้สมุดงานภายนอกที่หายไปหรือไม่พร้อมใช้งาน Aspose.Slides สามารถสร้างสมุดงานแผนภูมิจากข้อมูลที่แคชไว้ในพรีเซนเทชันได้ สร้าง [LoadOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/), ตั้งค่าโดยใช้ [set_SpreadsheetOptions](https://reference.aspose.com/slides/th/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), แล้วเรียก [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/th/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) ด้วยค่า `true` ก่อนเปิดพรีเซนเทชัน
+
+ตัวอย่าง C++ ต่อไปนี้เปิดพรีเซนเทชันที่แผนภูมิอ้างอิงสมุดงานภายนอกที่ไม่พร้อมใช้งานและเข้าถึงข้อมูลที่กู้คืนผ่าน [IChart::get_ChartData](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichart/get_chartdata/) และ [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// อ่านหรือแก้ไขข้อมูลสมุดงานที่กู้คืนที่นี่.
+
+presentation->Dispose();
+```
+
+หากสมุดงานภายนอกไม่พร้อมใช้งานและการกู้คืนถูกปิดใช้งาน Aspose.Slides จะโยน `System::InvalidOperationException` เปิดใช้งานการกู้คืนเฉพาะเมื่อการใช้ข้อมูลแผนภูมิที่แคชมเป็นวิธีสำรองที่ยอมรับได้ เนื่องจากแคชอาจไม่มีการเปลี่ยนแปลงที่ทำกับสมุดงานภายนอกหลังจากพรีเซนเทชันอัปเดตครั้งล่าสุด
+
 ## **คำถามที่พบบ่อย**
 
-**ฉันจะกำหนดได้หรือไม่ว่าแผนภูมิใดเชื่อมต่อกับสมุดงานภายนอกหรือสมุดงานที่ฝังอยู่?**
+**ฉันสามารถตรวจสอบได้หรือไม่ว่าแผนภูมิใดเชื่อมโยงกับสมุดงานภายนอกหรือสมุดงานที่ฝังอยู่?**  
+ใช่ แผนภูมิมี [ประเภทแหล่งข้อมูล](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) และ [เส้นทางไปยังสมุดงานภายนอก](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) หากแหล่งเป็นสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าไฟล์ภายนอกกำลังถูกใช้
 
-ได้ แผนภูมิมี [ประเภทแหล่งข้อมูล](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) และ [เส้นทางไปยังสมุดงานภายนอก](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) หากเป็นสมุดงานภายนอก คุณสามารถอ่านเส้นทางเต็มเพื่อยืนยันว่าใช้ไฟล์ภายนอก
+**รองรับเส้นทางสัมพันธ์ไปยังสมุดงานภายนอกหรือไม่ และจะจัดเก็บอย่างไร?**  
+ใช่ หากคุณระบุเส้นทางสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางเต็มโดยอัตโนมัติ ซึ่งสะดวกต่อการพกพาโครงการ; อย่างไรก็ตามพรีเซนเทชันจะบันทึกเส้นทางเต็มไว้ในไฟล์ PPTX
 
-**รองรับเส้นทางสัมพันธ์ไปยังสมุดงานภายนอกหรือไม่ และจัดเก็บอย่างไร?**
+**ฉันสามารถใช้สมุดงานที่อยู่บนทรัพยากร/แชร์เครือข่ายได้หรือไม่?**  
+ได้ สมุดงานเหล่านั้นสามารถใช้เป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตาม Aspose.Slides ไม่รองรับการแก้ไขสมุดงานระยะไกลโดยตรง – สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
 
-รองรับ หากคุณระบุเส้นทางสัมพันธ์ ระบบจะเปลี่ยนเป็นเส้นทางแนิ่นอัตโนมัติ สิ่งนี้สะดวกต่อการพกพาโครงการ แต่ต้องทราบว่าการนำเสนอจะเก็บเส้นทางแนิ่นในไฟล์ PPTX
+**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกพรีเซนเทชันหรือไม่?**  
+ไม่ พรีเซนเทชันจะเก็บ [ลิงก์ไปยังไฟล์ภายนอก](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) และใช้ลิงก์นั้นเพื่ออ่านข้อมูล ไฟล์ภายนอกเองจะไม่ถูกแก้ไขเมื่อบันทึกพรีเซนเทชัน
 
-**ฉันสามารถใช้สมุดงานที่อยู่บนเครือข่าย/แชร์ได้หรือไม่?**
+**จะทำอย่างไรหากไฟล์ภายนอกถูกป้องกันด้วยรหัสผ่าน?**  
+Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการลิงก์ วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่นโดยใช้ [Aspose.Cells](/cells/cpp/)) แล้วลิงก์ไปยังสำเนานั้น
 
-ได้ สามารถใช้สมุดงานเหล่านั้นเป็นแหล่งข้อมูลภายนอกได้ อย่างไรก็ตามการแก้ไขสมุดงานระยะไกลโดยตรงจาก Aspose.Slides ไม่ได้รับการสนับสนุน — สามารถใช้เป็นแหล่งข้อมูลเท่านั้น
-
-**Aspose.Slides จะเขียนทับไฟล์ XLSX ภายนอกเมื่อบันทึกการนำเสนอหรือไม่?**
-
-ไม่ การนำเสนอจะเก็บ [ลิงก์ไปยังไฟล์ภายนอก](https://reference.aspose.com/slides/th/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) และใช้ลิงก์นั้นสำหรับอ่านข้อมูล ไฟล์ภายนอกจะไม่ถูกแก้ไขเมื่อบันทึกการนำเสนอ
-
-**ถ้าไฟล์ภายนอกมีการป้องกันด้วยรหัสผ่าน ฉันควรทำอย่างไร?**
-
-Aspose.Slides ไม่รับรหัสผ่านเมื่อทำการเชื่อมโยง วิธีทั่วไปคือถอดการป้องกันล่วงหน้าหรือเตรียมสำเนาที่ถอดรหัส (เช่นโดยใช้ [Aspose.Cells](/cells/cpp/)) แล้วเชื่อมโยงไปยังสำเนานั้น
-
-**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**
-
-ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดชี้ไปยังไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในทุกแผนภูมิครั้งต่อไปที่โหลดข้อมูล
+**หลายแผนภูมิสามารถอ้างอิงสมุดงานภายนอกเดียวกันได้หรือไม่?**  
+ได้ แต่ละแผนภูมิจะเก็บลิงก์ของตนเอง หากทั้งหมดอ้างอิงไฟล์เดียวกัน การอัปเดตไฟล์นั้นจะสะท้อนในแต่ละแผนภูมิในครั้งต่อไปที่โหลดข้อมูล

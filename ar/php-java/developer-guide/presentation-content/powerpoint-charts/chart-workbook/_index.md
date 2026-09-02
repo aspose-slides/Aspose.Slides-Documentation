@@ -9,26 +9,26 @@ keywords:
 - بيانات المخطط
 - خلية دفتر العمل
 - ملصق البيانات
-- ورقة العمل
+- ورقة عمل
 - مصدر البيانات
 - دفتر عمل خارجي
 - بيانات خارجية
-- بوربوينت
+- ذاكرة مخزن المخطط
+- استعادة دفتر العمل
+- PowerPoint
 - عرض تقديمي
 - PHP
 - Aspose.Slides
-description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة سهلة لدفاتر عمل المخططات في صيغ PowerPoint و OpenDocument لتبسيط بيانات العرض التقديمي الخاص بك."
+description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة دفاتر عمل المخططات بسهولة في صيغ PowerPoint و OpenDocument لتبسيط بيانات عرضك التقديمي."
 ---
 ## **نظرة عامة**
 
-توضح هذه المقالة كيفية العمل مع دفاتر عمل المخطط في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات بيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
+تشرح هذه المقالة كيفية العمل مع دفاتر عمل المخططات في Aspose.Slides. تُظهر كيفية قراءة وكتابة بيانات المخطط عبر تدفقات دفتر العمل، واستخدام خلايا دفتر العمل كملصقات لبيانات المخطط، والوصول إلى مجموعات أوراق العمل، وتحديد نوع مصدر البيانات لقيم المخطط.
 
-كما تغطي العمل مع دفاتر عمل خارجية كمصادر بيانات للمخطط. تُظهر الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر عمل خارجي مرتبط بالمخطط، وتحرير بيانات المخطط عندما يكون دفتر العمل متوفرًا.
+كما تغطي العمل مع دفاتر العمل الخارجية كمصادر بيانات للمخططات. توضح الأمثلة كيفية إنشاء وتعيين دفتر عمل خارجي، واسترجاع مسار دفتر العمل الخارجي المرتبط بمخطط، وتعديل بيانات المخطط عندما يكون دفتر العمل متاحًا.
 
-## **قراءة وكتابة بيانات المخطط من دفتر عمل**
-توفر Aspose.Slides الطرق [readWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#readWorkbookStream) و [writeWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#writeWorkbookStream) التي تسمح لك بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات المخطط المعدلة باستخدام Aspose.Cells). **ملاحظة** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو أن يكون لها بنية مشابهة للمصدر.
-
-يظهر هذا الكود PHP عملية نموذجية:
+## **قراءة وكتابة بيانات المخطط من دفتر العمل**
+Aspose.Slides توفر طرق [readWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#readWorkbookStream) و[writeWorkbookStream](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#writeWorkbookStream) التي تسمح لك بقراءة وكتابة دفاتر عمل بيانات المخطط (التي تحتوي على بيانات مخطط تم تعديلها باستخدام Aspose.Cells). **Note** أن بيانات المخطط يجب أن تكون منظمة بنفس الطريقة أو أن يكون لها بنية مشابهة للمصدر.
 
 ```php
   $pres = new Presentation("chart.pptx");
@@ -46,22 +46,20 @@ description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة سهلة
   }
 ```
 
-## **تعيين خلية دفتر عمل كملصق بيانات المخطط**
+## **تعيين خلية دفتر العمل كعلامة بيانات للمخطط**
 
-1. إنشاء نسخة من الفئة [Presentation](https://apireference.aspose.com/slides/ar/php-java/aspose.slides/presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إضافة مخطط فقاعة مع بعض البيانات.
-4. الوصول إلى سلسلة المخطط.
-5. تعيين خلية دفتر العمل كملصق بيانات.
-6. حفظ العرض التقديمي.
-
-يُظهر هذا الكود PHP كيفية تعيين خلية دفتر عمل كملصق بيانات المخطط:
+1. إنشاء نسخة من الفئة [Presentation](https://apireference.aspose.com/slides/ar/php-java/aspose.slides/presentation) .
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إضافة مخطط فقاعة مع بعض البيانات.
+1. الوصول إلى سلسلة المخطط.
+1. تعيين خلية دفتر العمل كملصق للبيانات.
+1. حفظ العرض التقديمي.
 
 ```php
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # يقوم بإنشاء كائن عرض تقديمي يمثل ملف عرض تقديمي
+  # ينشئ فئة عرض تقديمي تمثل ملف عرض تقديمي
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -83,8 +81,6 @@ description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة سهلة
 
 ## **إدارة أوراق العمل**
 
-يُظهر هذا الكود PHP عملية يتم فيها استخدام طريقة [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdataworkbook/#getWorksheets) للوصول إلى مجموعة أوراق العمل:
-
 ```php
   $pres = new Presentation();
   try {
@@ -101,8 +97,6 @@ description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة سهلة
 ```
 
 ## **تحديد نوع مصدر البيانات**
-
-يُظهر هذا الكود PHP كيفية تحديد نوع لمصدر البيانات:
 
 ```php
   $pres = new Presentation();
@@ -121,9 +115,9 @@ description: "اكتشف Aspose.Slides لـ PHP عبر Java: إدارة سهلة
   }
 ```
 
-## **اكتشاف تنسيقات دفاتر العمل المدمجة غير المدعومة**
+## **الكشف عن تنسيقات دفاتر العمل المدمجة غير المدعومة**
 
-لا تدعم Aspose.Slides تنسيق دفتر العمل الثنائي Excel (.xlsb) الذي يمكن دمجه في بعض المخططات. يمكنك استخدام طريقة `getEmbeddedWorkbookType` على [ChartData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/) مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/workbooktype/) لاكتشاف التنسيقات غير المدعومة وتخطي تلك المخططات.
+Aspose.Slides لا يدعم تنسيق دفتر العمل الثنائي Excel (.xlsb) الذي يمكن تضمينه في بعض المخططات. يمكنك استخدام طريقة `getEmbeddedWorkbookType` على [ChartData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/) جنبًا إلى جنب مع تعداد [WorkbookType](https://reference.aspose.com/slides/ar/php-java/aspose.slides/workbooktype/) للكشف عن التنسيقات غير المدعومة وتجاوز تلك المخططات.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -147,7 +141,7 @@ try {
       continue;
     }
 
-    # قراءة أو تعديل بيانات دفتر عمل المخطط هنا.
+    # اقرأ أو عدل بيانات دفتر عمل المخطط هنا.
   }
 } finally {
   $presentation->dispose();
@@ -156,13 +150,11 @@ try {
 
 ## **دفتر عمل خارجي**
 
-تدعم Aspose.Slides دفاتر العمل الخارجية كمصدر بيانات للمخططات.
+Aspose.Slides يدعم دفاتر العمل الخارجية كمصدر بيانات للمخططات.
 
 ### **إنشاء دفتر عمل خارجي**
 
-باستخدام طريقتي **`readWorkbookStream`** و **`setExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو جعل دفتر عمل داخلي خارجيًا.
-
-يُظهر هذا الكود PHP عملية إنشاء دفتر عمل خارجي:
+باستخدام طريقتي **`readWorkbookStream`** و**`setExternalWorkbook`**، يمكنك إما إنشاء دفتر عمل خارجي من الصفر أو تحويل دفتر عمل داخلي إلى خارجي.
 
 ```php
   $pres = new Presentation();
@@ -194,9 +186,7 @@ try {
 
 باستخدام طريقة **`setExternalWorkbook`**، يمكنك تعيين دفتر عمل خارجي لمخطط كمصدر بيانات له. يمكن أيضًا استخدام هذه الطريقة لتحديث مسار دفتر العمل الخارجي (إذا تم نقل الأخير).
 
-في حين لا يمكنك تحرير البيانات في دفاتر العمل المخزنة في مواقع أو موارد عن بُعد، لا يزال بإمكانك استخدام هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله إلى مسار كامل تلقائيًا.
-
-يُظهر هذا الكود PHP كيفية تعيين دفتر عمل خارجي:
+في حين لا يمكنك تعديل البيانات في دفاتر العمل المخزنة في مواقع أو موارد بعيدة، لا يزال بإمكانك استخدام هذه الدفاتر كمصدر بيانات خارجي. إذا تم توفير مسار نسبي لدفتر عمل خارجي، يتم تحويله تلقائيًا إلى مسار كامل.
 
 ```php
   # ينشئ نسخة من فئة Presentation
@@ -222,8 +212,8 @@ try {
 
 معامل `ChartData` (تحت طريقة `setExternalWorkbook`) يُستخدم لتحديد ما إذا كان سيتم تحميل دفتر عمل Excel أم لا.
 
-* عندما تكون قيمة `ChartData` معينة إلى `false`، يتم فقط تحديث مسار دفتر العمل — لن يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل الهدف. قد ترغب في استخدام هذا الإعداد عندما يكون دفتر العمل الهدف غير موجود أو غير متاح.
-* عندما تكون قيمة `ChartData` معينة إلى `true`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
+* عندما تكون قيمة `ChartData` مضبوطة على `false`، يتم فقط تحديث مسار دفتر العمل — لن يتم تحميل بيانات المخطط أو تحديثها من دفتر العمل الهدف. قد ترغب في استخدام هذا الإعداد عندما يكون دفتر العمل الهدف غير موجود أو غير متاح.
+* عندما تكون قيمة `ChartData` مضبوطة على `true`، يتم تحديث بيانات المخطط من دفتر العمل الهدف.
 
 ```php
   # ينشئ نسخة من فئة Presentation
@@ -240,15 +230,13 @@ try {
   }
 ```
 
-### **الحصول على مسار دفتر العمل المصدر الخارجي لمخطط**
+### **الحصول على مسار دفتر العمل لمصدر البيانات الخارجي لمخطط**
 
-1. إنشاء نسخة من الفئة [Presentation](https://apireference.aspose.com/slides/ar/php-java/aspose.slides/presentation).
-2. الحصول على مرجع الشريحة عبر فهرسها.
-3. إنشاء كائن لشكل المخطط.
-4. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
-5. تحديد الشرط المناسب بناءً على كون نوع المصدر هو نفسه نوع مصدر دفتر العمل الخارجي.
-
-يُظهر هذا الكود PHP العملية:
+1. إنشاء نسخة من الفئة [Presentation](https://apireference.aspose.com/slides/ar/php-java/aspose.slides/presentation) .
+1. الحصول على مرجع الشريحة عبر فهرستها.
+1. إنشاء كائن لشكل المخطط.
+1. إنشاء كائن لنوع المصدر (`ChartDataSourceType`) الذي يمثل مصدر بيانات المخطط.
+1. تحديد الشرط المناسب بناءً على أن نوع المصدر هو نفسه نوع مصدر دفتر العمل الخارجي.
 
 ```php
   # ينشئ نسخة من فئة Presentation
@@ -271,9 +259,7 @@ try {
 
 ### **تحرير بيانات المخطط**
 
-يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر العمل الخارجي، يتم إلقاء استثناء.
-
-هذا الكود PHP يُنفّذ العملية الموضحة:
+يمكنك تحرير البيانات في دفاتر العمل الخارجية بنفس الطريقة التي تجري بها تغييرات على محتويات دفاتر العمل الداخلية. عندما لا يمكن تحميل دفتر عمل خارجي، يتم إthrow استثناء.
 
 ```php
   # ينشئ نسخة من فئة Presentation
@@ -290,28 +276,54 @@ try {
   }
 ```
 
+### **استعادة دفتر العمل من ذاكرة التخزين المؤقت للمخطط**
+
+إذا كان المخطط يستخدم دفتر عمل خارجي مفقود أو غير متاح، يمكن لـ Aspose.Slides إعادة بناء دفتر عمل المخطط من البيانات المخزنة مؤقتًا في العرض التقديمي. أنشئ [LoadOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/loadoptions/)، وقم بتهيئتها باستخدام [SpreadsheetOptions](https://reference.aspose.com/slides/ar/php-java/aspose.slides/spreadsheetoptions/)، ثم استدعِ [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/ar/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) مع `true` قبل فتح العرض التقديمي.
+
+يعرض المثال التالي بلغة PHP طريقة فتح عرض تقديمي يُشير مخططه إلى دفتر عمل خارجي غير متاح والوصول إلى البيانات المستعادة عبر [Chart::getChartData](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chart/#getChartData) و[ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/#getChartDataWorkbook):
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # اقرأ أو عدل بيانات دفتر العمل المستعاد هنا.
+} finally {
+    $presentation->dispose();
+}
+```
+
+إذا كان دفتر العمل الخارجي غير متاح وتم تعطيل الاستعادة، يقوم Aspose.Slides برمي استثناء. قم بتمكين الاستعادة فقط عندما يكون استخدام بيانات المخطط المخزنة مؤقتًا خيارًا مقبولًا، لأن الذاكرة المؤقتة قد لا تحتوي على التغييرات التي أُجريت على دفتر العمل الخارجي بعد آخر تحديث للعرض التقديمي.
+
 ## **الأسئلة الشائعة**
 
 **هل يمكنني تحديد ما إذا كان مخطط معين مرتبطًا بدفتر عمل خارجي أم مدمج؟**
 
-نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getdatasourcetype/) و[مسار دفتر عمل خارجي](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
+نعم. يحتوي المخطط على [نوع مصدر البيانات](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getdatasourcetype/) و[مسار إلى دفتر عمل خارجي](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/)؛ إذا كان المصدر دفتر عمل خارجي، يمكنك قراءة المسار الكامل للتأكد من استخدام ملف خارجي.
 
-**هل تُدعم المسارات النسبية لدفاتر العمل الخارجية، وكيف يتم تخزينها؟**
+**هل يتم دعم المسارات النسبية إلى دفاتر العمل الخارجية، وكيف يتم تخزينها؟**
 
-نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لنقلية المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض سيخزن المسار المطلق في ملف PPTX.
+نعم. إذا حددت مسارًا نسبيًا، يتم تحويله تلقائيًا إلى مسار مطلق. هذا مفيد لقابلية نقل المشروع؛ ومع ذلك، يجب أن تكون على علم بأن العرض التقديمي سيخزن المسار المطلق في ملف PPTX.
 
-**هل يمكنني استخدام دفاتر عمل موجودة على موارد/مشاركات الشبكة؟**
+**هل يمكنني استخدام دفاتر العمل الموجودة على موارد/مشاركات الشبكة؟**
 
-نعم، يمكن استخدام هذه الدفاتر كمصدر بيانات خارجي. ومع ذلك، لا يدعم Aspose.Slides تحرير دفاتر العمل عن بُعد مباشرةً — يمكن استخدامها فقط كمصدر.
+نعم، يمكن استخدام such دفاتر العمل كمصدر بيانات خارجي. ومع ذلك، لا يُدعم تحرير دفاتر العمل البعيدة مباشرةً من Aspose.Slides — يمكن استخدامها فقط كمصدر.
 
-**هل تقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض؟**
+**هل يقوم Aspose.Slides بالكتابة فوق ملف XLSX الخارجي عند حفظ العرض التقديمي؟**
 
-لا. يخزن العرض [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي نفسه عند حفظ العرض.
+لا. يخزن العرض التقديمي [رابطًا إلى الملف الخارجي](https://reference.aspose.com/slides/ar/php-java/aspose.slides/chartdata/getexternalworkbookpath/) ويستخدمه لقراءة البيانات. لا يتم تعديل الملف الخارجي نفسه عند حفظ العرض التقديمي.
 
 **ماذا أفعل إذا كان الملف الخارجي محميًا بكلمة مرور؟**
 
-لا تقبل Aspose.Slides كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (مثلاً باستخدام [Aspose.Cells](/cells/php-java/)) وربطها بهذه النسخة.
+Aspose.Slides لا تقبل كلمة مرور عند الربط. النهج الشائع هو إزالة الحماية مسبقًا أو إعداد نسخة غير مشفرة (على سبيل المثال باستخدام [Aspose.Cells](/cells/php-java/)) والربط بتلك النسخة.
 
 **هل يمكن لعدة مخططات الإشارة إلى نفس دفتر العمل الخارجي؟**
 
-نعم. يخزن كل مخطط رابطه الخاص. إذا كانت جميع الروابط تشير إلى نفس الملف، سيعكس تحديث ذلك الملف التغييرات في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.
+نعم. كل مخطط يخزن رابطه الخاص. إذا كانت جميعها تشير إلى نفس الملف، فإن تحديث هذا الملف سيظهر في كل مخطط في المرة التالية التي يتم فيها تحميل البيانات.

@@ -171,7 +171,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 ```py
 import aspose.slides as slides
 
-# 建立一個新的空白簡報。
+# 建立新的空白簡報。
 with slides.Presentation() as presentation:
     # 基於第一張投影片的版面配置新增一張空白投影片。
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
@@ -208,7 +208,7 @@ target_presentation.slide_size.set_size(
 
 是的。備註頁面與審閱評論會包含在克隆中。如果您不想要它們，請在插入後 [移除它們](/slides/zh-hant/python-net/presentation-notes/)。
 
-**圖表及其資料來源如何處理？**
+### 圖表及其資料來源如何處理？
 
 圖表物件、格式設定與內嵌資料皆會被複製。若圖表連結至外部來源（例如 OLE 嵌入的活頁簿），該連結會以 [OLE 物件](/slides/zh-hant/python-net/manage-ole/) 形式保留。檔案移動後，請驗證資料可用性與重新整理行為。
 

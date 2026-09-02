@@ -1,5 +1,5 @@
 ---
-title: เพิ่มลายเซ็นดิจิทัลให้กับงานนำเสนอใน Java
+title: เพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอใน Java
 linktitle: ลายเซ็นดิจิทัล
 type: docs
 weight: 10
@@ -9,90 +9,174 @@ keywords:
 - ใบรับรองดิจิทัล
 - หน่วยงานออกใบรับรอง
 - ใบรับรอง PFX
+- PKCS#12
+- ตรวจสอบลายเซ็น
 - PowerPoint
-- OpenDocument
-- งานนำเสนอ
+- PPTX
+- ความปลอดภัยของการนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีการเซ็นไฟล์ PowerPoint และ OpenDocument ด้วย Aspose.Slides สำหรับ Java อย่างปลอดภัยในไม่กี่วินาทีด้วยตัวอย่างโค้ดที่ชัดเจน."
+description: "เรียนรู้วิธีลงลายเซ็นในงานนำเสนอ PPTX ที่มีอยู่โดยใช้ใบรับรอง PFX และใช้ Aspose.Slides สำหรับ Java เพื่อตรวจสอบหรือถอนลายเซ็นดิจิทัล."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-**ใบรับรองดิจิทัล** ใช้เพื่อสร้างงานนำเสนอ PowerPoint ที่ป้องกันด้วยรหัสผ่าน, ระบุว่าเป็นการสร้างโดยองค์กรหรือบุคคลเฉพาะ. สามารถขอใบรับรองดิจิทัลได้โดยติดต่อกับองค์กรที่ได้รับอณุมัติ – หน่วยงานออกใบรับรอง. หลังจากติดตั้งใบรับรองดิจิทัลลงในระบบ, สามารถใช้เพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอผ่าน File->Info->Protect Presentation:
+ลายเซ็นดิจิทัลช่วยผู้รับระบุได้ว่าใครเป็นผู้ลงนามการนำเสนอและเนื้อหาที่ลงนามเปลี่ยนแปลงหรือไม่ มีแนวคิดด้านความปลอดภัยที่เกี่ยวข้องสามประการที่สำคัญดังนี้:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **ใบรับรองดิจิทัล** คือข้อมูลประจำตัวอิเล็กทรอนิกส์ที่เชื่อมโยงตัวตนกับกุญแจสาธารณะ หน่วยงานออกใบรับรองที่น่าเชื่อถือ (CA) สามารถออกใบรับรองได้ หรือองค์กรอาจใช้ใบรับรองที่ลงนามด้วยตนเองสำหรับกระบวนการภายใน
+- **ลายเซ็นดิจิทัล** ถูกสร้างจากเนื้อหาการนำเสนอและกุญแจส่วนตัวของผู้ถือใบรับรอง หลังจากนั้นกุญแจสาธารณะของใบรับรองสามารถใช้ตรวจสอบลายเซ็นได้ ลายเซ็นให้หลักฐานเกี่ยวกับต้นกำเนิดและความสมบูรณ์; มันไม่ได้เข้ารหัสการนำเสนอ
+- **การป้องกันด้วยรหัสผ่าน** ควบคุมว่าผู้ใช้สามารถเปิดหรือแก้ไขการนำเสนอได้หรือไม่ แยกจากการลงลายเซ็นดิจิทัลและอธิบายเพิ่มเติมใน [การป้องกันด้วยรหัสผ่าน](/java/password-protected-presentation/)
 
-งานนำเสนออาจมีลายเซ็นดิจิทัลมากกว่าหนึ่งรายการ. หลังจากเพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอ, ข้อความพิเศษจะปรากฏใน PowerPoint:
+PowerPoint มีคำสั่ง **Add a Digital Signature** อยู่ภายใต้ **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![เมนู Protect Presentation ของ PowerPoint พร้อมไฮไลท์ Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-เพื่อทำการเซ็นงานนำเสนอหรือเพื่อตรวจสอบความถูกต้องของลายเซ็นในงานนำเสนอ, **Aspose.Slides API** มีอินเทอร์เฟซ [**IDigitalSignature**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IDigitalSignature), [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IDigitalSignatureCollection) และเมธอด [**IPresentation.getDigitalSignatures**](https://reference.aspose.com/slides/th/java/com.aspose.slides/IPresentation#getDigitalSignatures--) . ปัจจุบัน ลายเซ็นดิจิทัลรองรับเฉพาะรูปแบบ PPTX เท่านั้น.
-## **เพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX**
-ตัวอย่างโค้ดด้านล่างแสดงวิธีเพิ่มลายเซ็นดิจิทัลจากใบรับรอง PFX:
+เมื่อเปิดการนำเสนอที่ลงลายเซ็นแล้ว PowerPoint สามารถแสดงการแจ้งสถานะลายเซ็นได้
 
-1. เปิดไฟล์ PFX และส่งรหัสผ่าน PFX ให้กับอ็อบเจ็กต์ [**DigitalSignature**](https://reference.aspose.com/slides/th/java/com.aspose.slides/DigitalSignature).
-2. เพิ่มลายเซ็นที่สร้างขึ้นไปยังอ็อบเจ็กต์ presentation.
+![การแจ้งของ PowerPoint ระบุว่าการนำเสนอมีลายเซ็นที่ถูกต้อง](digital-signature-status-in-powerpoint.png)
+
+Aspose.Slides เปิดเผยลายเซ็นผ่าน [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getDigitalSignatures--), ซึ่งคืนค่า [IDigitalSignatureCollection](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignaturecollection/) ที่รายการของมันทำหน้าที่เป็น [IDigitalSignature](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignature/). การนำเสนอสามารถมีหลายลายเซ็นได้
+
+## **ทำความเข้าใจใบรับรอง PFX และรหัสผ่าน**
+
+ไฟล์ PFX หรือที่รู้จักกันในชื่อไฟล์ PKCS#12 ซึ่งโดยทั่วไปใช้ส่วนขยาย `.pfx` หรือ `.p12` สามารถบรรจุใบรับรอง X.509, กุญแจส่วนตัวของมัน, และห่วงโซ่ใบรับรอง กุญแจส่วนตัวคือสิ่งที่ทำให้ผู้ถือสามารถสร้างลายเซ็นได้ ใบรับรองที่ไม่มีการเข้าถึงกุญแจส่วนตัวไม่สามารถใช้ลงนามการนำเสนอได้
+
+รหัสผ่านของ PFX ปกป้องแพ็กเกจใบรับรองและกุญแจส่วนตัว **ไม่** เป็นรหัสผ่านสำหรับการเปิดหรือแก้ไขการนำเสนอ อย่าเก็บไฟล์ PFX หรือรหัสผ่านของมันลงในระบบควบคุมเวอร์ชัน ในสภาพแวดล้อมการผลิต ควรจำกัดการเข้าถึงไฟล์ใบรับรองและดึงรหัสผ่านจากที่เก็บความลับหรือแหล่งกำหนดค่าที่ได้รับการปกป้อง ตัวอย่างด้านล่างใช้ตัวแปรสภาพแวดล้อมเพื่อตัวอย่างเท่านั้น ไม่ได้ฝังรหัสผ่านไว้ในโค้ด
+
+## **เพิ่มลายเซ็นดิจิทัลให้กับการนำเสนอ**
+
+เพื่อทำงานลงลายเซ็นการนำเสนอจริง ให้โหลดไฟล์ PPTX ที่มีอยู่, สร้าง [DigitalSignature](https://reference.aspose.com/slides/th/java/com.aspose.slides/digitalsignature/) จากใบรับรอง PFX และรหัสผ่านของมัน, เพิ่มลายเซ็นเข้าไปในคอลเลกชันของการนำเสนอ, แล้วบันทึกเป็นไฟล์ PPTX
 
 ```java
-// กำลังเปิดไฟล์งานนำเสนอ
-Presentation pres = new Presentation();
+String certificatePassword = System.getenv("PFX_PASSWORD");
+if (certificatePassword == null || certificatePassword.isEmpty()) {
+    throw new IllegalStateException("Set the PFX_PASSWORD environment variable.");
+}
+
+Presentation presentation = new Presentation("InputPresentation.pptx");
 try {
-    // สร้างอ็อบเจ็กต์ DigitalSignature ด้วยไฟล์ PFX และรหัสผ่าน PFX 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", "testpass1");
+    DigitalSignature signature = new DigitalSignature("signing-certificate.pfx", certificatePassword);
+    signature.setComments("Approved for release.");
 
-    // ใส่ความคิดเห็นให้ลายเซ็นดิจิทัลใหม่
-    signature.setComments("Aspose.Slides digital signing test.");
-
-    // เพิ่มลายเซ็นดิจิทัลลงในงานนำเสนอ
-    pres.getDigitalSignatures().add(signature);
-
-    // บันทึกงานนำเสนอ
-    pres.save("SomePresentationSigned.pptx", SaveFormat.Pptx);
+    presentation.getDigitalSignatures().add(signature);
+    presentation.save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 } finally {
-    pres.dispose();
+    presentation.dispose();
 }
 ```
 
-ตอนนี้สามารถตรวจสอบได้ว่าผลงานนำเสนอได้รับการเซ็นดิจิทัลและไม่มีการแก้ไขหรือไม่:
+การบันทึกผลลัพธ์ด้วยชื่อใหม่ช่วยรักษาไฟล์ต้นฉบับที่ยังไม่ลงลายเซ็น ค่าที่ตั้งโดย [IDigitalSignature.setComments](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignature/#setComments-java.lang.String-) บรรยายวัตถุประสงค์ของลายเซ็น; ไม่ได้เป็นการควบคุมด้านความปลอดภัย
+
+## **ตรวจสอบลายเซ็นดิจิทัล**
+
+เมื่อโหลดไฟล์ PPTX ที่ลงลายเซ็นแล้ว ให้ตรวจสอบทุกรายการที่คืนโดย [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getDigitalSignatures--). วิธีการ [IDigitalSignature.isValid](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignature/#isValid--) แสดงว่าลายเซ็นที่ฝังอยู่เป็นลายเซ็นที่ถูกต้องสำหรับเนื้อหาการนำเสนอปัจจุบันหรือไม่
 
 ```java
-// เปิดงานนำเสนอ
-Presentation pres = new Presentation("SomePresentationSigned.pptx");
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
 try {
-    if (pres.getDigitalSignatures().size() > 0)
-    {
+    IDigitalSignatureCollection signatures = presentation.getDigitalSignatures();
+    int signatureCount = signatures.size();
+
+    if (signatureCount == 0) {
+        System.out.println("The presentation does not contain digital signatures.");
+    } else {
         boolean allSignaturesAreValid = true;
+        java.text.SimpleDateFormat signTimeFormat = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        java.security.cert.CertificateFactory certificateFactory = java.security.cert.CertificateFactory.getInstance("X.509");
 
-        System.out.println("Signatures used to sign the presentation: ");
+        for (IDigitalSignature signature : signatures) {
+            boolean signatureIsValid = signature.isValid();
+            String signatureStatus = signatureIsValid ? "VALID" : "INVALID";
+            java.util.Date signTime = signature.getSignTime();
+            String formattedSignTime = signTimeFormat.format(signTime);
 
-        // ตรวจสอบว่าลายเซ็นดิจิทัลทั้งหมดถูกต้องหรือไม่
-        for (IDigitalSignature signature : pres.getDigitalSignatures())
-        {
-            System.out.println(signature.getComments() + ", "
-                    + signature.getSignTime().toString() + " -- " + (signature.isValid() ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.isValid();
+            byte[] certificateData = signature.getCertificate();
+            java.io.ByteArrayInputStream certificateStream = new java.io.ByteArrayInputStream(certificateData);
+            java.security.cert.X509Certificate certificate = (java.security.cert.X509Certificate) certificateFactory.generateCertificate(certificateStream);
+            javax.security.auth.x500.X500Principal signerPrincipal = certificate.getSubjectX500Principal();
+            String signerName = signerPrincipal.getName();
+
+            System.out.println(signerName + ", " + formattedSignTime + " -- " + signatureStatus);
+
+            allSignaturesAreValid &= signatureIsValid;
         }
 
-        if (allSignaturesAreValid)
-            System.out.println("Presentation is genuine, all signatures are valid.");
-        else
-            System.out.println("Presentation has been modified since signing.");
+        if (allSignaturesAreValid) {
+            System.out.println("All embedded signatures are valid for the current presentation.");
+        } else {
+            System.out.println("At least one embedded signature is invalid.");
+        }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+ผลลัพธ์ที่ไม่ถูกต้องมักหมายถึงเนื้อหาการนำเสนอหรือข้อมูลลายเซ็นเปลี่ยนแปลงหลังจากลงนาม, หรือไฟล์เสียหาย การลบลายเซ็นทั้งหมดทำให้การนำเสนอไม่มีลายเซ็น, ดังนั้นการตรวจสอบแค่ความถูกต้องของรายการไม่เพียงพอ: กระบวนการที่ต้องคำนึงถึงความปลอดภัยต้องตรวจสอบจำนวนลายเซ็นที่คาดหวังและตัวตนของผู้ลงนามที่คาดว่าจะมีอยู่
+
+ผลลัพธ์ด้านความถูกต้องนี้ไม่ควรถือเป็นการตัดสินใจสุดท้ายเกี่ยวกับความเชื่อถือของใบรับรอง ตามนโยบายความปลอดภัยของคุณ อาจจำเป็นต้องสร้างและตรวจสอบห่วงโซ่ใบรับรอง X.509, ตรวจสอบวันหมดอายุและสถานะการเพิกถอน, ยืนยันหัวข้อหรือรหัสประจำตัวที่คาดหวัง, ตรวจสอบการใช้กุญแจ, และประเมินการลงลายเซ็นด้วยเวลาประทับที่เชื่อถือได้ ค่า [IDigitalSignature.getSignTime](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignature/#getSignTime--) เพียงอย่างเดียวไม่ถือว่ามาจากหน่วยงานให้เวลาประทับที่เชื่อถือได้
+
+## **ลบลายเซ็นดิจิทัล**
+
+การลบลายเซ็นทำให้สถานะความปลอดภัยของการนำเสนอเปลี่ยนแปลง ตัวอย่างต่อไปนี้โหลดไฟล์ PPTX ที่ลงลายเซ็น, ลบลายเซ็นทั้งหมดด้วย [IDigitalSignatureCollection.clear](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignaturecollection/#clear--), แล้วบันทึกสำเนาที่ไม่มีลายเซ็น
+
+```java
+Presentation presentation = new Presentation("InputPresentation-signed.pptx");
+try {
+    presentation.getDigitalSignatures().clear();
+    presentation.save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+หากต้องการลบลายเซ็นเพียงหนึ่งรายการ ให้เรียก [IDigitalSignatureCollection.removeAt](https://reference.aspose.com/slides/th/java/com.aspose.slides/idigitalsignaturecollection/#removeAt-int-) พร้อมดัชนีที่เริ่มจากศูนย์ บันทึกเป็นไฟล์ใหม่เว้นแต่คุณต้องการเขียนทับไฟล์ต้นฉบับที่ลงลายเซ็นโดยเจตนา
+
+## **ข้อควรพิจารณาเรื่องการแก้ไขและรูปแบบไฟล์**
+
+- ลายเซ็นไม่ได้ทำให้การนำเสนอเป็นแบบอ่านอย่างเดียว ผู้ใช้และแอปพลิเคชันยังคงแก้ไขไฟล์ได้ แต่การเปลี่ยนแปลงเนื้อหาที่ลงลายเซ็นมักทำให้ลายเซ็นที่มีอยู่เดิมไม่ถูกต้อง
+- ทำการแก้ไขทั้งหมดก่อนทำการลงลายเซ็น หากต้องการเปลี่ยนแปลงการนำเสนอ ให้บันทึกการนำเสนอที่แก้ไขแล้วและลงลายเซ็นเวอร์ชันนั้นอีกครั้ง
+- ควรเก็บผลลัพธ์สุดท้ายเป็นรูปแบบ PPTX การแปลงการนำเสนอที่ลงลายเซ็นเป็นรูปแบบอื่นจะไม่ถ่ายโอนลายเซ็น PPTX ดั้งเดิมให้เป็นลายเซ็นที่ถูกต้องสำหรับไฟล์ที่แปลงแล้ว
+- ถือกุญแจส่วนตัวของใบรับรองเป็นข้อมูลที่สำคัญ ผู้ที่ได้กุญแจส่วนตัวและรหัสผ่านอาจสร้างลายเซ็นที่ดูเหมือนมาจากผู้ถือใบรับรองนั้น
+- เก็บไฟล์ต้นฉบับที่ยังไม่ลงลายเซ็นหรือสำเนาที่ควบคุมไว้เมื่อแนวทางการเก็บเอกสารของคุณกำหนดให้ต้องทำเช่นนั้น
 
 ## **คำถามที่พบบ่อย**
 
-**สามารถลบลายเซ็นที่มีอยู่ในไฟล์ได้หรือไม่?**
+**ลายเซ็นดิจิทัลเข้ารหัสการนำเสนอหรือไม่?**
 
-ใช่. คอลเลกชันลายเซ็นดิจิทัลสนับสนุนการ [removing individual items](https://reference.aspose.com/slides/th/java/com.aspose.slides/digitalsignaturecollection/#removeAt-int-) และการ [clearing it entirely](https://reference.aspose.com/slides/th/java/com.aspose.slides/digitalsignaturecollection/#clear--); หลังจากคุณบันทึกไฟล์, งานนำเสนอจะไม่มีลายเซ็นใด ๆ.
+ไม่. ลายเซ็นดิจิทัลให้หลักฐานเกี่ยวกับต้นกำเนิดและความสมบูรณ์, แต่เนื้อหาการนำเสนอยังคงอ่านได้ เว้นแต่จะมีการเข้ารหัสแยกต่างหาก ใช้ [การป้องกันด้วยรหัสผ่าน](/java/password-protected-presentation/) เมื่อจำเป็นต้องจำกัดการเข้าถึงเนื้อหา
 
-**ไฟล์จะกลายเป็น "อ่านอย่างเดียว" หลังจากเซ็นหรือไม่?**
+**รหัสผ่าน PFX เป็นรหัสผ่านของการนำเสนอหรือไม่?**
 
-ไม่. ลายเซ็นช่วยรักษาความสมบูรณ์และความเป็นผู้เขียน แต่ไม่ได้บล็อกการแก้ไข. หากต้องการจำกัดการแก้ไข, ให้รวมกับ ["Read-only" or a password](/slides/th/java/password-protected-presentation/).
+ไม่. รหัสผ่าน PFX ใช้ปลดล็อกกุญแจส่วนตัวที่เก็บอยู่ในแพ็กเกจใบรับรอง ไม่ได้ควบคุมว่าผู้ใดสามารถเปิดหรือแก้ไขไฟล์ PPTX ได้
 
-**ลายเซ็นจะแสดงผลอย่างถูกต้องในเวอร์ชันต่าง ๆ ของ PowerPoint หรือไม่?**
+**สามารถใช้ใบรับรองที่ลงนามด้วยตนเองได้หรือไม่?**
 
-ลายเซ็นถูกสร้างสำหรับคอนเทนเนอร์ OOXML (PPTX). เวอร์ชันล่าสุดของ PowerPoint ที่สนับสนุนลายเซ็น OOXML จะแสดงสถานะของลายเซ็นเหล่านั้นอย่างถูกต้อง.
+ตามเทคนิคแล้ว ใบรับรองที่ลงนามด้วยตนเองสามารถใช้ได้หากมีการเข้าถึงกุญแจส่วนตัว ผู้รับจะไม่เชื่อถือโดยอัตโนมัติ เว้นแต่ใบรับรองนั้นจะถูกเพิ่มอย่างชัดเจนในสภาพแวดล้อมที่เชื่อถือได้ งานที่ครอบคลุมหลายองค์กรมักใช้ใบรับรองที่ออกโดย CA ที่เชื่อถือได้
+
+**ทำให้ลายเซ็นไม่ถูกต้องคืออะไร?**
+
+การเปลี่ยนแปลงเนื้อหาการนำเสนอที่ลงลายเซ็นหรือข้อมูลลายเซ็นหลังจากลงนามทำให้ลายเซ็นไม่ถูกต้อง การเสียหายของไฟล์ก็อาจทำให้การตรวจสอบล้มเหลว หากลบลายเซ็นทั้งหมด การนำเสนอจะไม่มีลายเซ็นแทนที่จะมีลายเซ็นที่ไม่ถูกต้อง
+
+**ลายเซ็นที่ถูกต้องหมายความว่าต้องเชื่อถือผู้ลงนามหรือไม่?**
+
+ไม่โดยตนเอง ความสมบูรณ์ของลายเซ็นและความเชื่อถือของผู้ลงนามเป็นการตัดสินใจแยกกัน นโยบายการตรวจสอบในสภาพแวดล้อมการผลิตควรตรวจสอบห่วงโซ่ใบรับรอง, ช่วงเวลาที่ใช้งาน, สถานะการเพิกถอน, ตัวตนที่คาดหวัง, การใช้กุญแจ, และข้อกำหนดเกี่ยวกับเวลาประทับที่เชื่อถือได้
+
+**เกิดอะไรขึ้นเมื่อใบรับรองหมดอายุ?**
+
+การหมดอายุของใบรับรองไม่ได้เปลี่ยนแปลงไบต์ของการนำเสนอ แต่ส่งผลต่อการประเมินความเชื่อถือของใบรับรอง ว่าลายเซ็นยังคงยอมรับได้หรือไม่ขึ้นกับนโยบายของคุณและว่ามีเวลาประทับที่เชื่อถือได้ที่แสดงว่าการลงนามเกิดขึ้นในขณะที่ใบรับรองยังใช้งานอยู่หรือไม่ อย่าพึ่งพาเวลาเซ็นที่แสดงบนหน้าจอเป็นเวลาประทับที่เชื่อถือได้เพียงอย่างเดียว
+
+**การนำเสนอที่ลงลายเซ็นสามารถแก้ไขได้หรือไม่?**
+
+ได้. การลงลายเซ็นไม่ได้ล็อกไฟล์ การแก้ไขเนื้อหาที่ลงลายเซ็นมักทำให้ลายเซ็นที่มีอยู่เดิมไม่ถูกต้อง ดังนั้นควรทำการแก้ไขให้เสร็จสิ้นก่อนลงลายเซ็นเวอร์ชันสุดท้าย
+
+**การนำเสนอสามารถมีลายเซ็นมากกว่าหนึ่งรายการได้หรือไม่?**
+
+ได้. เพิ่มลายเซ็นแต่ละรายการลงในคอลเลกชันที่คืนจาก [IPresentation.getDigitalSignatures](https://reference.aspose.com/slides/th/java/com.aspose.slides/ipresentation/#getDigitalSignatures--) ก่อนบันทึก ระหว่างการตรวจสอบ ให้ตรวจสอบลายเซ็นทุกรายการและยืนยันว่าผู้ลงนามที่ต้องการทั้งหมดมีอยู่
+
+**รูปแบบการนำเสนอใดบ้างที่รองรับการดำเนินการเหล่านี้?**
+
+Aspose.Slides รองรับการดำเนินการเกี่ยวกับลายเซ็นดิจิทัลที่อธิบายไว้ในบทนี้เฉพาะสำหรับ PPTX เท่านั้น รูปแบบ PPT และ OpenDocument ไม่ได้รับการสนับสนุนโดย API นี้
+
+**สามารถลบลายเซ็นโดยไม่กระทบสไลด์ได้หรือไม่?**
+
+ได้. คุณสามารถลบลายเซ็นหนึ่งรายการหรือทำความสะอาดคอลเลกชันทั้งหมดแล้วบันทึกการนำเสนอ เนื้อหาของสไลด์จะคงเหลืออยู่ แต่ไฟล์ที่บันทึกแล้วจะไม่มีหลักฐานลายเซ็นที่ถูกลบแล้ว

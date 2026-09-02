@@ -9,7 +9,7 @@ keywords:
 - 动画
 - 效果
 - 动画形状
-- 动画文本
+- 动画文字
 - 添加动画
 - 获取动画
 - 提取动画
@@ -22,465 +22,499 @@ keywords:
 - 演示文稿
 - PHP
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for PHP via Java 在 PowerPoint 演示文稿中创建和自定义形状动画。脱颖而出！"
+description: "了解如何使用 Aspose.Slides for PHP via Java 添加、检查和自定义形状动画、时间设置、声音、动画后行为以及动画文字。"
 ---
+## **概述**
 
-动画是可以应用于文本、图像、形状或[图表](https://docs.aspose.com/slides/php-java/animated-charts/)的视觉效果。它们为演示文稿或其组成部分赋予生机。
+Aspose.Slides for PHP via Java 将幻灯片动画表示为幻灯片时间轴中的效果。每个效果具有目标形状、动画类型和子类型、触发器、时间设置以及可选属性（如声音或动画后行为）。
 
-## **为什么在演示文稿中使用动画？**
+时间轴包含两种序列：
 
-使用动画，您可以
+- **主序列** 在幻灯片前进时播放。
+- **交互序列** 在其触发形状被单击时开始。
 
-* 控制信息流
-* 强调重要要点
-* 提升观众的兴趣或参与度
-* 使内容更易于阅读、吸收或处理
-* 将读者或观众的注意力引导到演示文稿中的重要部分
+因为文本框、图片、图表、表格和其他幻灯片对象都是形状，您可以使用相同的[Sequence::addEffect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/addeffect/)方法为大多数幻灯片内容添加效果。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effecttype/)类中。
 
-PowerPoint 在 **进入**、**退出**、**强调**和**运动路径**类别中提供了许多动画和动画效果的选项和工具。
+## **添加形状动画**
 
-## **Aspose.Slides 中的动画**
+要添加动画，获取幻灯片的主序列并调用[Sequence::addEffect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/addeffect/)——传入目标形状、效果类型、子类型和触发器。若要创建在另一个形状被单击时启动的效果，请创建一个触发器为该形状的交互序列。
 
-* Aspose.Slides 在 `Aspose.Slides.Animation` 命名空间下提供了处理动画所需的类和类型，  
-* Aspose.Slides 在 [EffectType](https://reference.aspose.com/slides/php-java/aspose.slides/effecttype) 枚举下提供了超过 **150** 种动画效果。这些效果本质上与 PowerPoint 中使用的效果相同（或等效）。
-
-## **将动画应用于文本框**
-
-Aspose.Slides for PHP via Java 允许您对形状中的文本应用动画。
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 添加一个矩形 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。  
-4. 向 `AutoShape` 的 [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/#getTextFrame) 添加文本。  
-5. 获取主效果序列。  
-6. 为 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/) 添加动画效果。  
-7. 使用 `TextAnimation.setBuildType` 方法并提供来自 `BuildType` 枚举的值。  
-8. 将演示文稿写入磁盘为 PPTX 文件。
-
-下面的 PHP 代码演示如何将 `Fade` 效果应用于 AutoShape 并将文本动画设置为 *By 1st Level Paragraphs* 值：
-```php
-  # 实例化一个表示演示文稿文件的 Presentation 类。
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # 添加带文本的新 AutoShape
-    $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
-    $textFrame = $autoShape->getTextFrame();
-    $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
-    # 获取幻灯片的主序列。
-    $sequence = $sld->getTimeline()->getMainSequence();
-    # 为形状添加淡入淡出动画效果
-    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
-    # 按一级段落为形状文本添加动画
-    $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
-    # 将 PPTX 文件保存到磁盘
-    $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-{{%  alert color="primary"  %}} 
-除了对文本应用动画外，您还可以对单个[段落](https://reference.aspose.com/slides/php-java/aspose.slides/paragraph/)应用动画。请参阅[**Animated Text**](/slides/zh/php-java/animated-text/)。
-{{% /alert %}} 
-
-## **将动画应用于图片框**
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 在幻灯片上添加或获取一个 [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe)。  
-4. 获取主效果序列。  
-5. 为 [PictureFrame](https://reference.aspose.com/slides/php-java/aspose.slides/pictureframe) 添加动画效果。  
-6. 将演示文稿写入磁盘为 PPTX 文件。
-
-下面的 PHP 代码演示如何将 `Fly` 效果应用于图片框：
-```php
-  # 实例化一个表示演示文稿文件的 Presentation 类。
-  $pres = new Presentation();
-  try {
-    # 加载要添加到演示文稿图像集合的图像
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # 向幻灯片添加图片框
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
-    # 获取幻灯片的主序列。
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # 向图片框添加从左侧飞入的动画效果
-    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
-    # 将 PPTX 文件保存到磁盘
-    $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **将动画应用于形状**
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 添加一个矩形 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)。  
-4. 添加一个斜面 [AutoShape](https://reference.aspose.com/slides/php-java/aspose.slides/autoshape/)（当点击此对象时，动画将播放）。  
-5. 为斜面形状创建效果序列。  
-6. 创建自定义 `UserPath`。  
-7. 为 `UserPath` 添加移动命令。  
-8. 将演示文稿写入磁盘为 PPTX 文件。
-
-下面的 PHP 代码演示如何将 `PathFootball`（路径足球）效果应用于形状：
-```php
-  # 实例化一个表示 PPTX 文件的 Presentation 类。
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # 为现有形状从头创建 PathFootball 效果。
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-    $ashp->addTextFrame("Animated TextBox");
-    # 添加 PathFootBall 动画效果
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # 创建某种“按钮”。 
-    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-    # 为此按钮创建一系列效果。
-    $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
-    # 创建自定义用户路径。我们的对象将在按钮点击后才移动。
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
-    # 为移动添加命令，因为创建的路径为空。
-    $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = new Point2DFloat[1];
-    $pts[0] = new Point2DFloat(0.076, 0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
-    $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
-    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
-    # 将 PPTX 文件写入磁盘
-    $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **获取应用于形状的动画效果**
-
-以下示例展示如何使用来自 [Sequence](https://reference.aspose.com/slides/php-java/aspose.slides/sequence/) 类的 `getEffectsByShape` 方法获取应用于形状的所有动画效果。
-
-**示例 1：获取普通幻灯片上形状应用的动画效果**
-
-之前，您已经学习了如何向 PowerPoint 演示文稿中的形状添加动画效果。以下示例代码展示如何获取演示文稿 `AnimExample_out.pptx` 中第一张普通幻灯片上第一个形状所应用的效果。
-```php
-  $Array = new java_class("java.lang.reflect.Array");
-  $presentation = new Presentation("AnimExample_out.pptx");
-
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-
-    # 获取幻灯片的主动画序列。
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-
-    # 获取第一张幻灯片上的第一个形状。
-    $shape = $firstSlide->getShapes()->get_Item(0);
-
-    # 获取应用于形状的动画效果。
-    $shapeEffects = $sequence->getEffectsByShape($shape);
-
-    if (java_values($Array->getLength($shapeEffects)) > 0) {
-      echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-
-**示例 2：获取所有动画效果，包括从占位符继承的效果**
-
-如果普通幻灯片上的形状拥有位于布局幻灯片和/或母版幻灯片的占位符，并且这些占位符已添加动画效果，则在放映期间该形状将播放所有效果，包括从占位符继承的效果。
-
-假设我们有一个 PowerPoint 演示文稿文件 `sample.pptx`，其中一张幻灯片仅包含一个页脚形状，文本为 "Made with Aspose.Slides"，并对该形状应用了 **Random Bars** 效果。
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-再假设在 **布局** 幻灯片的页脚占位符上应用了 **Split** 效果。
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-最后，在 **母版** 幻灯片的页脚占位符上应用了 **Fly In** 效果。
-
-![Master shape animation effect](master-shape-animation.png)
-
-以下示例代码展示如何使用来自 [Shape](https://reference.aspose.com/slides/php-java/aspose.slides/shape/) 类的 `getBasePlaceholder` 方法访问形状占位符，并获取应用于页脚形状的动画效果，包括从布局和母版幻灯片上的占位符继承的效果。
-```php
-$presentation = new Presentation("sample.pptx");
-
-$slide = $presentation->getSlides()->get_Item(0);
-
-// 获取普通幻灯片上形状的动画效果。
-$shape = $slide->getShapes()->get_Item(0);
-$shapeEffects = $slide->getTimeline()->getMainSequence()->getEffectsByShape($shape);
-
-// 获取布局幻灯片上占位符的动画效果。
-$layoutShape = $shape->getBasePlaceholder();
-$layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()->getEffectsByShape($layoutShape);
-
-// 获取母版幻灯片上占位符的动画效果。
-$masterShape = $layoutShape->getBasePlaceholder();
-$masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
-
-echo "Main sequence of shape effects:" . PHP_EOL;
-printEffects($masterShapeEffects);
-printEffects($layoutShapeEffects);
-printEffects($shapeEffects);
-
-$presentation->dispose();
-```
+下面的示例创建两种类型的动画并将结果保存为`shape-animations.pptx`。
 
 ```php
-function printEffects($effects) {
-    foreach ($effects as $effect) {
-        echo "Type: " . $effect->getType() . ", subtype: " . $effect->getSubtype() . PHP_EOL;
-    }
-}
-```
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // 飞行, 底部
-Type: 134, subtype: 45            // 拆分, 垂直进入
-Type: 126, subtype: 22            // 随机条纹, 水平
-```
-
-
-## **更改动画效果计时方法**
-
-Aspose.Slides for PHP via Java 允许您更改动画效果的 Timing（计时）属性。
-
-这是 Microsoft PowerPoint 中的动画计时窗格：
-
-![example1_image](shape-animation.png)
-
-以下是 PowerPoint 计时与 [Effect Timing](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming) 属性之间的对应关系：
-
-- PowerPoint 计时 **Start** 下拉列表对应 [Timing::getTriggerType](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerType) 方法。
-- PowerPoint 计时 **Duration** 对应 [Timing::getDuration](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getDuration) 方法。动画的持续时间（秒）是动画完成一次循环所需的总时间。
-- PowerPoint 计时 **Delay** 对应 [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/php-java/aspose.slides/timing/#getTriggerDelayTime) 方法。
-
-以下是更改 Effect Timing（效果计时）属性的方法：
-
-1. [Apply](#apply-animation-to-shape) 或获取动画效果。  
-2. 使用 [Effect::getTiming](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#getTiming) 方法设置所需的新值。  
-3. 保存修改后的 PPTX 文件。
-
-下面的 PHP 代码演示此操作：
-```php
-  # 实例化一个表示演示文稿文件的 Presentation 类。
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # 获取幻灯片的主序列。
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # 获取主序列的第一个效果。
-    $effect = $sequence->get_Item(0);
-    # 将效果的 TriggerType 更改为单击时启动
-    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
-    # 更改效果的持续时间
-    $effect->getTiming()->setDuration(3.0);
-    # 更改效果的 TriggerDelayTime
-    $effect->getTiming()->setTriggerDelayTime(0.5);
-    # 将 PPTX 文件保存到磁盘
-    $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-## **动画效果声音**
-
-Aspose.Slides 提供以下方法，以便在动画效果中使用声音：
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **添加动画效果声音**
-
-下面的 PHP 代码演示如何添加动画效果声音，并在下一个效果开始时停止它：
-```php
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # 将音频添加到演示文稿的音频集合
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$presentation = new Presentation();
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "sampleaudio.wav"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $effectSound = $pres->getAudios()->addAudio($bytes);
-
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # 获取幻灯片的主序列。
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-    # 获取主序列的第一个效果。
-    $firstEffect = $sequence->get_Item(0);
-    # 检查效果是否为“无声音”。
-    if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      # 为第一个效果添加声音。
-      $firstEffect->setSound($effectSound);
-    }
-    # 获取幻灯片的第一个交互序列。
-    $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
-    # 设置效果的“停止先前声音”标志。
-    $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    # 将 PPTX 文件写入磁盘。
-    $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-
-### **提取动画效果声音**
-
-1. 创建 [Presentation](https://reference.aspose.com/slides/php-java/aspose.slides/presentation/) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 获取主效果序列。  
-4. 提取每个动画效果中嵌入的 [setSound(IAudio value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)。
-
-下面的 PHP 代码演示如何提取嵌入在动画效果中的声音：
-```php
-  # 实例化一个表示演示文稿文件的 Presentation 类。
-  $presentation = new Presentation("EffectSound.pptx");
-  try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # 获取幻灯片的主序列。
+
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Click to animate this shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $entranceEffect = $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $entranceEffect->getTiming()->setDuration(1.5);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $presentation->save("shape-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+触发器决定效果何时开始：
+
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effecttriggertype/) 在主序列中等待单击，或在交互序列中等待对触发形状的单击。
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effecttriggertype/) 与前一个效果同时开始。
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effecttriggertype/) 在前一个效果结束后开始。
+
+要为图片、图表或其他形状类型添加动画，请将该对象传递给[Sequence::addEffect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/addeffect/)而不是`$targetShape`。有关图表专用分组选项，请参阅[Animated Charts](/slides/zh/php-java/animated-charts/)。
+
+## **读取形状动画**
+
+当已知目标形状时，使用[Sequence::getEffectsByShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/geteffectsbyshape/)。若要检查每个效果，请枚举主序列和所有交互序列。枚举可避免假设序列在索引`0`处一定有效果。
+
+下面的示例创建一个具有主序列和交互效果的形状，获取针对该形状的效果，然后枚举幻灯片上的每个序列。
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function printSequence($label, $sequence)
+{
+    $effectCount = java_values($sequence->getCount());
+
+    echo "  " . $label . ": " . $effectCount . " effect(s)" . PHP_EOL;
+
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $targetShape = $effect->getTargetShape();
+        $targetName = java_is_null($targetShape) ? "unknown" : java_values($targetShape->getName());
+        $effectType = java_values($effect->getType());
+        $effectSubtype = java_values($effect->getSubtype());
+        $triggerType = java_values($effect->getTiming()->getTriggerType());
+        echo "    type: " . $effectType . "; subtype: " . $effectSubtype . "; target: " . $targetName . "; trigger: " . $triggerType . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Animated shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $targetEffects = $mainSequence->getEffectsByShape($targetShape);
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo "The main sequence contains " . java_values($Array->getLength($targetEffects)) . " effect(s) for " . java_values($targetShape->getName()) . "." . PHP_EOL;
+
+    printSequence("Main sequence", $mainSequence);
+
+    $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+    $interactiveCount = java_values($interactiveSequences->getCount());
+    for ($interactiveIndex = 0; $interactiveIndex < $interactiveCount; $interactiveIndex++) {
+        $sequence = $interactiveSequences->get_Item($interactiveIndex);
+        $sequenceTrigger = $sequence->getTriggerShape();
+        $triggerName = java_is_null($sequenceTrigger) ? "unknown" : java_values($sequenceTrigger->getName());
+        printSequence("Interactive sequence " . ($interactiveIndex + 1) . ", trigger: " . $triggerName, $sequence);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+如果只需要单个形状的效果，请先通过名称、占位符类型或其他稳定属性识别该形状；然后调用[Sequence::getEffectsByShape](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/geteffectsbyshape/)。不要假设[ShapeCollection::get_Item](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shapecollection/get_item/)在索引`0`处一定是目标对象。
+
+## **使用继承占位符效果**
+
+普通幻灯片上的占位符可以继承其版式幻灯片和母版幻灯片上对应占位符的动画行为。[Shape::getBasePlaceholder](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getbaseplaceholder/)返回该父占位符，若不存在父占位符则返回`null`。
+
+在下面的示例演示文稿中，页脚在普通幻灯片上为**Random Bars**，在版式幻灯片上为**Split**，在母版幻灯片上为**Fly In**。
+
+![普通幻灯片上的页脚动画效果](slide-shape-animation.png)
+
+![版式幻灯片上页脚占位符的动画效果](layout-shape-animation.png)
+
+![母版幻灯片上页脚占位符的动画效果](master-shape-animation.png)
+
+下一个示例使用新演示文稿中的占位符层次结构。它向母版占位符、版式占位符以及普通幻灯片上的相应占位符添加效果。每次调用[Shape::getBasePlaceholder](https://reference.aspose.com/slides/zh/php-java/aspose.slides/shape/getbaseplaceholder/)前都会进行检查，以确保返回的形状可用。
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+function findLayoutPlaceholderWithBase($layoutSlide)
+{
+    $shapes = $layoutSlide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (!java_is_null($shape->getBasePlaceholder())) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function findSlidePlaceholderWithBase($slide, $expectedBase)
+{
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $basePlaceholder = $shape->getBasePlaceholder();
+        if (!java_is_null($basePlaceholder) && java_values($basePlaceholder->equals($expectedBase))) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function printEffects($source, $effects)
+{
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo $source . ": " . java_values($Array->getLength($effects)) . " effect(s)" . PHP_EOL;
+
+    foreach ($effects as $effect) {
+        echo "  type: " . java_values($effect->getType()) . "; subtype: " . java_values($effect->getSubtype()) . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+    $layoutPlaceholder = findLayoutPlaceholderWithBase($layoutSlide);
+
+    if ($layoutPlaceholder === null) {
+        throw new RuntimeException("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    $masterPlaceholder = $layoutPlaceholder->getBasePlaceholder();
+    $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->addEffect($masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+    $layoutSlide->getTimeline()->getMainSequence()->addEffect($layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+    $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $slidePlaceholder = findSlidePlaceholderWithBase($slide, $layoutPlaceholder);
+
+    if ($slidePlaceholder === null) {
+        throw new RuntimeException("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    $slide->getTimeline()->getMainSequence()->addEffect($slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+    printEffects("Normal slide", $slide->getTimeline()->getMainSequence()->getEffectsByShape($slidePlaceholder));
+
+    $baseLayoutPlaceholder = $slidePlaceholder->getBasePlaceholder();
+    if (!java_is_null($baseLayoutPlaceholder)) {
+        printEffects("Layout slide", $layoutSlide->getTimeline()->getMainSequence()->getEffectsByShape($baseLayoutPlaceholder));
+
+        $baseMasterPlaceholder = $baseLayoutPlaceholder->getBasePlaceholder();
+        if (!java_is_null($baseMasterPlaceholder)) {
+            printEffects("Master slide", $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($baseMasterPlaceholder));
+        }
+    }
+
+    $presentation->save("placeholder-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **更改动画时间设置**
+
+PowerPoint 的**Timing** 对话框映射到[Timing](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/)的属性。
+
+![PowerPoint 动画效果的 Timing 对话框](shape-animation.png)
+
+- **Start** 映射到[Timing::getTriggerType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/gettriggertype/)。
+- **Duration** 映射到[Timing::getDuration](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/getduration/)，单位为秒。
+- **Delay** 映射到[Timing::getTriggerDelayTime](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/gettriggerdelaytime/)，单位为秒。
+- **Repeat** 映射到[Timing::getRepeatCount](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/getrepeatcount/)、[Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/getrepeatuntilnextclick/)或[Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/getrepeatuntilendslide/)。
+- **Rewind when done playing** 映射到[Timing::getRewind](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/getrewind/)。
+
+此独立示例添加一个效果，通过[Sequence::addEffect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/addeffect/)返回的对象更改其时间设置，并保存结果。保留返回的[Effect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effect/)引用可避免不必要的集合索引。
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Timed animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
+    $effect->getTiming()->setDuration(2.0);
+    $effect->getTiming()->setTriggerDelayTime(0.5);
+    $effect->getTiming()->setRepeatUntilNextClick(false);
+    $effect->getTiming()->setRepeatUntilEndSlide(false);
+    $effect->getTiming()->setRepeatCount(2.0);
+    $effect->getTiming()->setRewind(true);
+
+    $presentation->save("shape-animation-timing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+请仅使用一种重复模式。将重复计数与“until”标志组合会在不同查看器中产生混淆结果。更改重复模式时，请先调用[Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/setrepeatuntilnextclick/)和[Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/setrepeatuntilendslide/)，再调用[Timing::setRepeatCount](https://reference.aspose.com/slides/zh/php-java/aspose.slides/timing/setrepeatcount/)，因为设置任意标志都会改变当前的重复模式。
+
+## **添加和提取动画声音**
+
+动画效果可以通过[Effect::getSound](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effect/getsound/)引用嵌入的音频。[Effect::setStopPreviousSound](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effect/setstopprevioussound/) 指示效果停止先前效果启动的音频。
+
+### **为效果添加声音**
+
+下面的示例期望本地存在名为`animation-sound.wav`的音频文件。它创建两个效果，将该文件嵌入为第一个效果的声音，并将第二个效果配置为停止该声音。示例使用[Sequence::addEffect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/addeffect/)返回的对象，因此不需要序列索引。
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$Files = new JavaClass("java.nio.file.Files");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 100, 240, 80);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 400, 100, 240, 80);
+    $firstShape->addTextFrame("Starts sound");
+    $secondShape->addTextFrame("Stops sound");
+
     $sequence = $slide->getTimeline()->getMainSequence();
-    foreach($sequence as $effect) {
-      if (java_is_null($effect->getSound())) {
-        continue;
-      }
-      # 提取效果声音的字节数组
-      $audio = $effect->getSound()->getBinaryData();
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $firstEffect = $sequence->addEffect($firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $secondEffect = $sequence->addEffect($secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $baseDirectory = getcwd();
+    $audioPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "animation-sound.wav"))->toPath();
+    $audioData = $Files->readAllBytes($audioPath);
+    $effectSound = $presentation->getAudios()->addAudio($audioData);
+    $firstEffect->setSound($effectSound);
+    $secondEffect->setStopPreviousSound(true);
+
+    $presentation->save($baseDirectory . DIRECTORY_SEPARATOR . "shape-animation-sound.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+### **提取嵌入的效果声音**
 
-## **后续动画**
+下面的示例期望本地存在名为`presentation-with-animation-sounds.pptx`的演示文稿。它扫描主序列和交互序列，并将每个嵌入的效果声音写入`extracted-animation-sounds`目录。文件扩展名依据[Audio::getContentType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audio/getcontenttype/)返回的音频 MIME 类型选择。
 
-Aspose.Slides for PHP via Java 允许您更改动画效果的 After animation（后续动画）属性。
-
-这是 Microsoft PowerPoint 中的动画效果窗格和扩展菜单：
-
-![example1_image](shape-after-animation.png)
-
-PowerPoint 效果 **After animation** 下拉列表对应以下方法：
-
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationType) 方法描述后续动画类型：
-  * PowerPoint **More Colors** 对应 [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) 类型；
-  * PowerPoint **Don't Dim** 列表项对应 [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#DoNotDim) 类型（默认后续动画类型）；
-  * PowerPoint **Hide After Animation** 项对应 [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation) 类型；
-  * PowerPoint **Hide on Next Mouse Click** 项对应 [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) 类型；
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAfterAnimationColor) 方法定义后续动画的颜色格式。此方法与 [AfterAnimationType::Color](https://reference.aspose.com/slides/php-java/aspose.slides/afteranimationtype/#Color) 类型配合使用。如果将类型更改为其他类型，后续动画颜色将被清除。
-
-下面的 PHP 代码演示如何更改后续动画效果：
 ```php
-  # 实例化一个表示演示文稿文件的 Presentation 类
-  $pres = new Presentation("AnimImage_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # 获取主序列的第一个效果
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # 将后续动画类型更改为颜色
-    $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    # 设置后续动画的暗淡颜色
-    $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    # 将 PPTX 文件写入磁盘
-    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+function getAudioExtension($contentType)
+{
+    $normalizedType = strtolower($contentType === null ? "" : java_values($contentType));
+
+    if ($normalizedType === "audio/mpeg") {
+        return ".mp3";
     }
-  }
+
+    if ($normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if ($normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if ($normalizedType === "audio/wav" || $normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds($sequence, $outputDirectory, $soundIndex)
+{
+    $effectCount = java_values($sequence->getCount());
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $sound = $effect->getSound();
+        if (java_is_null($sound)) {
+            continue;
+        }
+
+        $extension = getAudioExtension($sound->getContentType());
+        $outputPath = $outputDirectory->resolve("effect-sound-" . $soundIndex . $extension);
+        $outputStream = new Java("java.io.FileOutputStream", $outputPath->toFile());
+        try {
+            $outputStream->write($sound->getBinaryData());
+        } finally {
+            $outputStream->close();
+        }
+        $soundIndex++;
+    }
+
+    return $soundIndex;
+}
+
+$baseDirectory = getcwd();
+$inputPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "presentation-with-animation-sounds.pptx"))->toPath();
+$outputDirectoryName = $baseDirectory . DIRECTORY_SEPARATOR . "extracted-animation-sounds";
+if (!is_dir($outputDirectoryName)) {
+    mkdir($outputDirectoryName, 0777, true);
+}
+$outputDirectory = (new Java("java.io.File", $outputDirectoryName))->toPath();
+
+$presentation = new Presentation($inputPath->toString());
+try {
+    $soundIndex = 1;
+
+    $slides = $presentation->getSlides();
+    $slideCount = java_values($slides->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $slides->get_Item($slideIndex);
+        $soundIndex = saveSounds($slide->getTimeline()->getMainSequence(), $outputDirectory, $soundIndex);
+
+        $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+        $interactiveCount = java_values($interactiveSequences->getCount());
+        for ($sequenceIndex = 0; $sequenceIndex < $interactiveCount; $sequenceIndex++) {
+            $sequence = $interactiveSequences->get_Item($sequenceIndex);
+            $soundIndex = saveSounds($sequence, $outputDirectory, $soundIndex);
+        }
+    }
+
+    echo "Extracted " . ($soundIndex - 1) . " sound file(s) to " . java_values($outputDirectory->toAbsolutePath()->toString()) . "." . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
+对于大型音频对象，请使用[Audio::getStream](https://reference.aspose.com/slides/zh/php-java/aspose.slides/audio/getstream/)并将流复制到文件，而不是将整个对象加载到字节数组中。
 
-## **文本动画**
+## **设置动画后行为**
 
-Aspose.Slides 提供以下方法，以便在动画效果的 *Animate text*（动画文本）块中工作：
+**After animation** 选项控制形状在效果结束后如何处理。
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) 方法描述效果的动画文本类型。形状文本可以被动画化：
-  - 全部一次性 ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#AllAtOnce) 类型)
-  - 按词 ([AnimateTextType::ByWord](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByWord) 类型)
-  - 按字母 ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/php-java/aspose.slides/animatetexttype/#ByLetter) 类型)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) 方法设置动画文本部分（词或字母）之间的延迟。正值指定效果持续时间的百分比，负值指定秒数延迟。
+![PowerPoint 效果选项对话框显示 After animation 设置](shape-after-animation.png)
 
-以下是更改 Effect Animate text（效果动画文本）属性的方法：
+[AfterAnimationType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/afteranimationtype/) 类支持保持形状不变、更改其颜色、在动画后隐藏，或在下次单击时隐藏。当类型为[AfterAnimationType::Color](https://reference.aspose.com/slides/zh/php-java/aspose.slides/afteranimationtype/) 时，还需设置[Effect::getAfterAnimationColor](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effect/getafteranimationcolor/)。
 
-1. [Apply](#apply-animation-to-shape) 或获取动画效果。  
-2. 使用 [setBuildType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/textanimation/#setBuildType) 方法和 [BuildType::AsOneObject](https://reference.aspose.com/slides/php-java/aspose.slides/buildtype/#AsOneObject) 值以关闭 *By Paragraphs* 动画模式。  
-3. 使用 [setAnimateTextType(int value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setAnimateTextType) 和 [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/php-java/aspose.slides/effect/#setDelayBetweenTextParts) 方法设置新值。  
-4. 保存修改后的 PPTX 文件。
+此独立示例创建一个效果，通过返回的效果对象设置其动画后行为，并保存结果。
 
-下面的 PHP 代码演示此操作：
 ```php
-  # 实例化一个表示演示文稿文件的 Presentation 类。
-  $pres = new Presentation("AnimTextBox_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # 获取主序列的第一个效果
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # 将效果的文本动画类型更改为 "As One Object"
-    $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    # 将效果的动画文本类型更改为 "By word"
-    $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
-    # 将单词之间的延迟设置为效果持续时间的 20%
-    $firstEffect->setDelayBetweenTextParts(20.0);
-    # 将 PPTX 文件写入磁盘
-    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\AfterAnimationType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Dim after animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->setAfterAnimationType(AfterAnimationType::Color);
+    $effect->getAfterAnimationColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+
+    $presentation->save("shape-animation-after-effect.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
+将类型从[AfterAnimationType::Color](https://reference.aspose.com/slides/zh/php-java/aspose.slides/afteranimationtype/) 改为其他会清除动画后颜色设置。
+
+## **文字动画**
+
+文字动画有两个相关控制：
+
+- [TextAnimation::getBuildType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/textanimation/getbuildtype/) 控制段落是整体出现还是逐段出现。
+- [Effect::getAnimateTextType](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effect/getanimatetexttype/) 控制文字是一次全部出现、按单词还是按字母出现。[Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/php-java/aspose.slides/effect/getdelaybetweentextparts/) 设置单词或字母之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。
+
+下面的独立示例为文本框中的单词添加动画。[BuildType::AsOneObject](https://reference.aspose.com/slides/zh/php-java/aspose.slides/buildtype/) 禁用段落逐段构建，使单词设置适用于整个文本框。
+
+```php
+use aspose\slides\AnimateTextType;
+use aspose\slides\BuildType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 560, 100);
+    $textBox->addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
+    $effect->setAnimateTextType(AnimateTextType::ByWord);
+    $effect->setDelayBetweenTextParts(20.0);
+
+    $presentation->save("animated-text.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+若要按段落构建文本框，请设置[BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/zh/php-java/aspose.slides/buildtype/)（或其他段落级别）。若要为单个段落单独设置效果，请使用接受[Paragraph](https://reference.aspose.com/slides/zh/php-java/aspose.slides/paragraph/) 的[Sequence::addEffect](https://reference.aspose.com/slides/zh/php-java/aspose.slides/sequence/addeffect/) 重载。请参阅[Animated Text](/slides/zh/php-java/animated-text/)获取段落级别示例。
+
+## **导出与兼容性说明**
+
+- 保存为 PPT 或 PPTX 会保留动画模型，但最终播放由演示文稿查看器控制。
+- PDF 和静态图像不播放动画。需要显示运动时请使用[HTML5 导出](/slides/zh/php-java/export-to-html5/)、动画 GIF 或[视频转换](/slides/zh/php-java/convert-powerpoint-to-video/)。
+- 对于 HTML5，请启用[Html5Options::setAnimateShapes](https://reference.aspose.com/slides/zh/php-java/aspose.slides/html5options/setanimateshapes/)，必要时还可启用[Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/zh/php-java/aspose.slides/html5options/setanimatetransitions/)。
+- 视频渲染支持多种常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请查看当前的[受支持动画和效果](/slides/zh/php-java/convert-powerpoint-to-video/#supported-animations-and-effects)并使用目标 Aspose.Slides 版本对关键演示文稿进行测试。
+- 高级自定义效果以及从其他演示文稿格式导入的效果可能在文件中得以保留，但在 PowerPoint、HTML5 或视频中呈现方式不同。请验证导出结果，而不要仅凭效果名称判断。
 
 ## **常见问题**
 
-**如何确保在将演示文稿发布到网页时保留动画？**
+**为什么动画在 PowerPoint 中出现，但在 PDF 中没有？**
 
-[Export to HTML5](/slides/zh/php-java/export-to-html5/) 并启用负责 [shape](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimateshapes/) 和 [transition](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/setanimatetransitions/) 动画的 [options](https://reference.aspose.com/slides/php-java/aspose.slides/html5options/) 。普通 HTML 不会播放幻灯片动画，而 HTML5 会。
+PDF 是静态格式，动画和幻灯片切换不会播放。需要保留运动时请导出为 HTML5、动画 GIF 或视频。
 
-**更改形状的 Z 顺序（层次顺序）会如何影响动画？**
+**为什么同一效果在视频中表现不同？**
 
-动画顺序和绘制顺序相互独立：效果控制出现/消失的时间和类型，而 [z-order](https://reference.aspose.com/slides/php-java/aspose.slides/shape/getzorderposition/) 决定哪些覆盖哪些。可见结果由两者的组合决定。（这是 PowerPoint 的通用行为，Aspose.Slides 的效果和形状模型遵循相同的逻辑。）
+视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或被近似。请查看受支持的效果表，并在生产使用前对实际演示文稿进行测试。
 
-**将动画转换为视频时，某些效果是否存在限制？**
+**移动形状的前后顺序会改变其动画顺序吗？**
 
-一般来说，[动画受支持](/slides/zh/php-java/convert-powerpoint-to-video/)，但在少数情况下或特定效果可能呈现不同。建议使用您所用的效果和库版本进行测试。
+不会。形状的 Z 顺序控制重叠，序列顺序和触发器控制动画播放。如果需要不同的播放顺序，请更改时间轴。

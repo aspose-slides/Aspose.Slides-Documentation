@@ -32,7 +32,7 @@ description: "Κλωνοποιήστε ή αντιγράψτε γρήγορα δ
 pip install aspose.slides
 ```
 
-## **Κλωνοποίηση στο Τέλος στην Ίδια Παρουσίαση**
+## **Εγκατάσταση**
 
 Αν θέλετε να κλωνοποιήσετε μια διαφάνεια στην ίδια παρουσίαση και να την προσθέσετε στο τέλος των υπαρχουσών διαφανειών, χρησιμοποιήστε τη μέθοδο `add_clone`. Ακολουθήστε τα παρακάτω βήματα:
 
@@ -54,7 +54,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Κλωνοποίηση σε Συγκεκριμένη Θέση στην Ίδια Παρουσίαση**
+## **Κλωνοποίηση σε Συγκεκριμένη Θέση εντός της Ίδιας Παρουσίασης**
 
 Αν θέλετε να κλωνοποιήσετε μια διαφάνεια στην ίδια παρουσίαση και να την τοποθετήσετε σε διαφορετική θέση, χρησιμοποιήστε τη μέθοδο `insert_clone`:
 
@@ -154,7 +154,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         source_slide = source_presentation.slides[0]
         # Λάβετε τη κύρια διαφάνεια που χρησιμοποιείται από την πρώτη διαφάνεια.
         source_master = source_slide.layout_slide.master_slide
-        # Κλωνοποιήστε τη κύρια διαφάνεια στη συλλογή κυρίων διαφανειών της παρουσίασης προορισμού.
+        # Κλωνοποιήστε τη κύρια διαφάνεια στη συλλογή κυρίων διαφανειών της προορισμένης παρουσίασης.
         cloned_master = target_presentation.masters.add_clone(source_master)
         # Κλωνοποιήστε τη διαφάνεια από την πηγαία παρουσίαση στο τέλος της παρουσίασης προορισμού χρησιμοποιώντας τη κλωνοποιημένη κύρια.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)

@@ -46,11 +46,11 @@ No exemplo abaixo, o primeiro slide (índice 0) é clonado e acrescentado ao fin
 ```py
 import aspose.slides as slides
 
-# Instancie a classe Presentation para representar o arquivo de apresentação.
+# Instanciar a classe Presentation para representar o arquivo de apresentação.
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
-    # Clone o slide desejado para o final da coleção de slides na mesma apresentação.
+    # Clonar o slide desejado para o final da coleção de slides na mesma apresentação.
     presentation.slides.add_clone(presentation.slides[0])
-    # Salve a apresentação modificada no disco.
+    # Salvar a apresentação modificada no disco.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -68,11 +68,11 @@ No exemplo abaixo, o slide no índice 1 (posição 2) é clonado para o índice 
 ```py
 import aspose.slides as slides
 
-# Instancie a classe Presentation para representar o arquivo de apresentação.
+# Instanciar a classe Presentation para representar o arquivo de apresentação.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
-    # Clone o slide desejado para a posição especificada (índice) dentro da mesma apresentação.
+    # Clonar o slide desejado para a posição especificada (índice) dentro da mesma apresentação.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Salve a apresentação modificada no disco.
+    # Salvar a apresentação modificada no disco.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -91,13 +91,13 @@ No exemplo abaixo, o slide no índice 0 na apresentação de origem é clonado a
 ```py
 import aspose.slides as slides
 
-# Instancie a classe Presentation para representar o arquivo de apresentação de origem.
+# Instanciar a classe Presentation para representar o arquivo de apresentação de origem.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instancie a classe Presentation para o PPTX de destino (onde o slide será clonado).
+    # Instanciar a classe Presentation para o PPTX de destino (onde o slide será clonado).
     with slides.Presentation() as target_presentation:
-        # Clone o slide desejado da apresentação de origem para o final da coleção de slides na apresentação de destino.
+        # Clonar o slide desejado da apresentação de origem para o final da coleção de slides na apresentação de destino.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Salve a apresentação de destino no disco.
+        # Salvar a apresentação de destino no disco.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -116,13 +116,13 @@ No exemplo abaixo, o slide no índice 0 na apresentação de origem é clonado p
 ```py
 import aspose.slides as slides
 
-# Instancie a classe Presentation para representar o arquivo de apresentação de origem.
+# Instanciar a classe Presentation para representar o arquivo de apresentação de origem.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instancie a classe Presentation para o PPTX de destino (onde o slide será clonado).
+    # Instanciar a classe Presentation para o PPTX de destino (onde o slide será clonado).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # Insira um clone do primeiro slide da origem no índice 2 da apresentação de destino.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Salve a apresentação de destino no disco.
+        # Salvar a apresentação de destino no disco.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -146,19 +146,19 @@ No exemplo abaixo, o slide no índice 0 na apresentação de origem é clonado a
 ```py
 import aspose.slides as slides
 
-# Instancie a classe Presentation para representar o arquivo de apresentação de origem.
+# Instanciar a classe Presentation para representar o arquivo de apresentação de origem.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # Instancie a classe Presentation para a apresentação de destino onde o slide será clonado.
+    # Instanciar a classe Presentation para a apresentação de destino onde o slide será clonado.
     with slides.Presentation() as target_presentation:
-        # Obtenha o primeiro slide da apresentação de origem.
+        # Obter o primeiro slide da apresentação de origem.
         source_slide = source_presentation.slides[0]
-        # Obtenha o slide mestre usado pelo primeiro slide.
+        # Obter o slide mestre usado pelo primeiro slide.
         source_master = source_slide.layout_slide.master_slide
-        # Clone o slide mestre na coleção de mestres da apresentação de destino.
+        # Clonar o slide mestre na coleção de mestres da apresentação de destino.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Clone o slide da apresentação de origem para o final da apresentação de destino usando o mestre clonado.
+        # Clonar o slide da apresentação de origem para o final da apresentação de destino usando o mestre clonado.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Salve a apresentação de destino no disco.
+        # Salvar a apresentação de destino no disco.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -171,19 +171,19 @@ O exemplo Python a seguir mostra como clonar um slide e inserir o clone em uma s
 ```py
 import aspose.slides as slides
 
-# Crie uma nova apresentação em branco.
+# Criar uma nova apresentação em branco.
 with slides.Presentation() as presentation:
-    # Adicione um slide vazio baseado no layout do primeiro slide.
+    # Adicionar um slide vazio baseado no layout do primeiro slide.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Adicione uma forma de elipse ao novo slide; este slide será clonado mais tarde.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Adicione outro slide vazio baseado no layout do primeiro slide.
+    # Adicionar outro slide vazio baseado no layout do primeiro slide.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Crie uma seção chamada "Section2" que começa em slide2.
     section = presentation.sections.add_section("Section2", slide2)
-    # Clone o slide criado anteriormente na seção "Section2".
+    # Clonar o slide criado anteriormente na seção "Section2".
     presentation.slides.add_clone(slide, section)
-    # Salve a apresentação como um arquivo PPTX.
+    # Salvar a apresentação como um arquivo PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -206,9 +206,9 @@ Faça isso antes de clonar o mestre e o slide.
 
 **As notas do apresentador e comentários de revisão são clonados?**
 
-Sim. A página de notas e os comentários de revisão são incluídos na cópia. Se você não quiser them, [remova‑os](/slides/pt/python-net/presentation-notes/) após a inserção.
+Sim. A página de notas e os comentários de revisão são incluídos no clone. Se você não quiser eles, [remova-os](/slides/pt/python-net/presentation-notes/) após a inserção.
 
-**Como os gráficos e suas fontes de dados são tratados?**
+### Como os gráficos e suas fontes de dados são tratados?
 
 O objeto do gráfico, sua formatação e os dados incorporados são copiados. Se o gráfico estava vinculado a uma fonte externa (por exemplo, uma pasta de trabalho OLE incorporada), esse vínculo é mantido como um [objeto OLE](/slides/pt/python-net/manage-ole/). Após mover entre arquivos, verifique a disponibilidade dos dados e o comportamento de atualização.
 

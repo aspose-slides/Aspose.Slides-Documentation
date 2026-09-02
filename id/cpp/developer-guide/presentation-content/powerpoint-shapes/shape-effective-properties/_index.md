@@ -1,5 +1,5 @@
 ---
-title: Dapatkan Properti Bentuk Efektif dari Presentasi dalam C++
+title: Dapatkan Properti Efektif Bentuk dari Presentasi dalam C++
 linktitle: Properti Efektif
 type: docs
 weight: 50
@@ -17,299 +17,341 @@ keywords:
 - presentasi
 - C++
 - Aspose.Slides
-description: "Temukan bagaimana Aspose.Slides untuk C++ menghitung dan menerapkan properti bentuk efektif untuk rendering PowerPoint yang akurat."
+description: "Pelajari cara menggunakan Aspose.Slides untuk C++ guna membedakan pemformatan bentuk lokal, terwarisi, dan efektif dalam presentasi PowerPoint."
 ---
-## **Gambaran Umum**
+## **Pahami Properti Lokal, Terwarisi, dan Efektif**
 
-Topik ini menjelaskan perbedaan antara properti **lokal** dan **efektif**. Nilai lokal adalah nilai yang ditetapkan langsung pada tingkat pemformatan tertentu, seperti:
+Pemformatan PowerPoint dapat berasal dari beberapa sumber. Nilai yang disimpan langsung pada sebuah objek disebut **nilai lokal**. Jika nilai tersebut tidak diatur, PowerPoint akan melihat sumber pemformatan induk, seperti default paragraf, gaya teks, tata letak atau slide master, tema, atau default tingkat presentasi. Nilai-nilai tersebut adalah **nilai terwarisi**. Nilai yang tersisa setelah seluruh hierarki diselesaikan adalah **nilai efektif**—nilai yang digunakan untuk merender objek.
 
-1. Properti bagian pada slide.
-1. Gaya teks bentuk prototipe pada tata letak atau slide master, ketika bentuk bingkai teks bagian memiliki satu.
-1. Pengaturan teks global dalam sebuah presentasi.
+Sebagai contoh, sebuah bagian teks mungkin tidak mendefinisikan tinggi fontnya sendiri. Nilai lokal [tinggi font](https://reference.aspose.com/slides/id/cpp/aspose.slides/ibaseportionformat/) maka adalah `std::numeric_limits<float>::quiet_NaN()`, yang berarti "tidak diatur di sini." Bagian tersebut dapat mewarisi tinggi dari paragrafnya, gaya teks default presentasi, atau sumber lain yang relevan. Memanggil [GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformat/) pada format bagian mengembalikan tinggi yang telah diselesaikan akhir.
 
-Nilai lokal dapat didefinisikan atau dihilangkan pada level apa pun. Ketika Aspose.Slides memerlukan pemformatan akhir "seperti yang ditampilkan", ia menyelesaikan rantai pewarisan dan mengembalikan nilai **efektif**. Anda dapat memperolehnya dengan memanggil metode `GetEffective` pada objek format lokal.
+Gunakan dua jenis data pemformatan untuk tujuan yang berbeda:
 
-Contoh berikut menunjukkan cara memperoleh nilai efektif. Asumsinya, bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) dengan bingkai teks dan setidaknya satu bagian.
+- Baca atau ubah objek format lokal, seperti [IPortionFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformat/), ketika Anda perlu mengontrol di mana nilai didefinisikan.
+- Baca objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformateffectivedata/), ketika Anda memerlukan hasil akhir yang dirender. Data efektif bersifat read‑only.
+
+## **Bandingkan Nilai Lokal, Terwarisi, dan Efektif**
+
+Contoh lengkap berikut membuat sebuah bentuk dan menerapkan tinggi font pada tingkat presentasi, paragraf, dan bagian. Setiap langkah mencetak nilai yang didefinisikan pada tingkat tersebut dan nilai efektif yang dihasilkan untuk bagian teks yang sama. Ini juga menunjukkan mengapa data efektif harus dibaca kembali setelah perubahan pemformatan.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// Tentukan nilai yang diwarisi pada dua level yang berbeda.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // Baca data efektif setelah perubahan sebelumnya.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// Nilai lokal pada bagian mengesampingkan kedua nilai yang diwarisi.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// Mengubah nilai yang diwarisi tidak mengesampingkan nilai lokal yang ada.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// Bersihkan nilai lokal. Bagian kini kembali mewarisi dari paragraf.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// Bersihkan nilai paragraf. Default presentasi kini menyediakan hasilnya.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Prioritas dalam contoh ini adalah pemformatan lokal bagian, kemudian pemformatan paragraf, dan kemudian default presentasi. Objek lain dapat memiliki rantai pewarisan yang berbeda, tetapi prinsipnya sama: nilai eksplisit yang lebih spesifik menang, dan [GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformat/) mengembalikan hasil akhir.
+
+## **Dapatkan Properti Teks Efektif**
+
+Pemformatan teks dibagi menjadi beberapa objek:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformat/) menyelesaikan properti bingkai teks seperti margin, penambatan, autofit, dan arah teks vertikal.
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextstyle/) menyelesaikan pemformatan paragraf untuk setiap level gaya teks.
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/iparagraphformat/) menyelesaikan properti paragraf seperti perataan, indentasi, dan bullet.
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformat/) menyelesaikan properti karakter seperti tinggi font, jenis huruf, warna, tebal, dan miring.
+
+Untuk contoh berikut, `text-formatting.pptx` harus berisi setidaknya satu slide dan satu [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) dengan bingkai teks yang tidak kosong. IAutoShape dapat muncul di posisi mana saja dalam koleksi bentuk; kode mencari objek yang sesuai dan memvalidasinya sebelum digunakan.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-Data pemformatan efektif mewakili pemformatan terhitung saat ini setelah pewarisan diterapkan. Dalam implementasi saat ini, beberapa objek data efektif, seperti [IPortionFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/iportionformateffectivedata/), mungkin disimpan dalam cache secara internal. Memanggil `GetEffective` lagi setelah mengubah pemformatan induk atau yang diwarisi dapat menyegarkan data yang di-cache, dan objek yang sebelumnya diperoleh mungkin tidak lagi mewakili keadaan sebelumnya. Jika Anda perlu mempertahankan nilai efektif untuk penggunaan di kemudian hari, salin properti yang diperlukan, seperti tinggi font, warna isian, gaya font, atau perataan, ke dalam objek data Anda sendiri.
-{{% /alert %}}
-
-## **Dapatkan Properti Efektif Kamera**
-
-Aspose.Slides memungkinkan Anda memperoleh properti efektif kamera. Antarmuka [ICameraEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/icameraeffectivedata/) mewakili objek tak dapat diubah yang berisi properti kamera efektif. Sebuah instansi [ICameraEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/icameraeffectivedata/) diekspos melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/).
-
-Contoh kode berikut menunjukkan cara memperoleh properti efektif untuk kamera. Asumsinya, bentuk pertama pada slide pertama memiliki pemformatan 3D.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **Dapatkan Properti Efektif Rig Cahaya**
-
-Aspose.Slides memungkinkan Anda memperoleh properti efektif rig cahaya. Antarmuka [ILightRigEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilightrigeffectivedata/) mewakili objek tak dapat diubah yang berisi properti rig cahaya efektif. Sebuah instansi [ILightRigEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilightrigeffectivedata/) diekspos melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/).
-
-Contoh kode berikut menunjukkan cara memperoleh properti efektif untuk rig cahaya. Asumsinya, bentuk pertama pada slide pertama memiliki pemformatan 3D.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **Dapatkan Properti Efektif Bentuk Bevel**
-
-Aspose.Slides memungkinkan Anda memperoleh properti efektif bentuk bevel. Antarmuka [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapebeveleffectivedata/) mewakili objek tak dapat diubah yang berisi properti relief wajah efektif untuk sebuah bentuk. Sebuah instansi [IShapeBevelEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapebeveleffectivedata/) diekspos melalui [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformateffectivedata/), yang menyediakan nilai efektif untuk [IThreeDFormat](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/).
-
-Contoh kode berikut menunjukkan cara memperoleh properti efektif untuk bevel atas sebuah bentuk. Asumsinya, bentuk pertama pada slide pertama memiliki pemformatan 3D.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **Dapatkan Properti Efektif Bingkai Teks**
-
-Menggunakan Aspose.Slides, Anda dapat memperoleh properti efektif bingkai teks. Antarmuka [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextframeformateffectivedata/) berisi properti pemformatan bingkai teks efektif.
-
-Contoh kode berikut menunjukkan cara memperoleh properti pemformatan bingkai teks efektif. Asumsinya, bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) dengan bingkai teks.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **Dapatkan Properti Efektif Gaya Teks**
-
-Menggunakan Aspose.Slides, Anda dapat memperoleh properti efektif gaya teks. Antarmuka [ITextStyleEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/itextstyleeffectivedata/) berisi properti gaya teks efektif.
-
-Contoh kode berikut menunjukkan cara memperoleh properti gaya teks efektif. Asumsinya, bentuk pertama pada slide pertama adalah sebuah [IAutoShape](https://reference.aspose.com/slides/id/cpp/aspose.slides/iautoshape/) dengan bingkai teks.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **Dapatkan Nilai Tinggi Font Efektif**
+## **Dapatkan Properti 3D Efektif**
 
-Menggunakan Aspose.Slides, Anda dapat memperoleh tinggi font yang efektif. Kode berikut menunjukkan bagaimana tinggi font efektif sebuah bagian berubah setelah nilai tinggi font lokal diatur pada tingkat struktur presentasi yang berbeda.
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformat/) mengembalikan satu objek [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ithreedformateffectivedata/) yang mengelompokkan semua pengaturan 3D yang telah diselesaikan. Data [kamera](https://reference.aspose.com/slides/id/cpp/aspose.slides/icameraeffectivedata/), [rig cahaya](https://reference.aspose.com/slides/id/cpp/aspose.slides/ilightrigeffectivedata/), [bevel atas](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapebeveleffectivedata/) dan [bevel bawah](https://reference.aspose.com/slides/id/cpp/aspose.slides/ishapebeveleffectivedata/) menampilkan pengaturan efektif yang bersangkutan. Membaca pengaturan terkait ini secara bersamaan memudahkan pemahaman tampilan 3D akhir sebuah bentuk.
+
+Untuk contoh ini, `shape-3d.pptx` harus berisi setidaknya satu bentuk pada slide pertamanya. Terapkan pengaturan kamera 3D, pencahayaan, atau bevel pada bentuk tersebut jika Anda menginginkan output berisi nilai selain default.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **Dapatkan Pemformatan Tabel Efektif**
+
+Pemformatan tabel dapat berasal dari gaya tabel dan dari format yang diterapkan pada seluruh tabel, kolom, baris, atau sel individual. Untuk konflik di antara isian yang didefinisikan secara eksplisit, prioritasnya adalah sel, baris, kolom, dan kemudian seluruh tabel. Format efektif sebuah sel adalah format akhir yang digunakan untuk menggambar sel tersebut.
+
+Untuk contoh ini, `table-formatting.pptx` harus berisi setidaknya satu tabel pada slide pertamanya. Tabel tersebut harus memiliki setidaknya satu baris dan satu kolom. Kode mencari sebuah [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/) alih-alih mengasumsikan bahwa bentuk pertama adalah tabel.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Dapatkan Format Isian Efektif untuk Tabel**
-
-Menggunakan Aspose.Slides, Anda dapat memperoleh pemformatan isian efektif untuk berbagai bagian tabel. Antarmuka [IFillFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifillformateffectivedata/) berisi properti pemformatan isian efektif. Pemformatan sel memiliki prioritas lebih tinggi daripada pemformatan baris, pemformatan baris memiliki prioritas lebih tinggi daripada pemformatan kolom, dan pemformatan kolom memiliki prioritas lebih tinggi daripada pemformatan seluruh tabel.
-
-Sebagai hasilnya, properti [ICellFormatEffectiveData](https://reference.aspose.com/slides/id/cpp/aspose.slides/icellformateffectivedata/) digunakan untuk menggambar sel tabel. Contoh kode berikut menunjukkan cara memperoleh pemformatan isian efektif untuk berbagai bagian tabel. Asumsinya, bentuk pertama pada slide pertama adalah sebuah [ITable](https://reference.aspose.com/slides/id/cpp/aspose.slides/itable/).
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
+
+Jika Anda memerlukan warna bukan hanya jenis isian, pertama periksa [FillType](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifillformateffectivedata/) yang efektif, kemudian baca properti yang berlaku untuk tipe tersebut—misalnya, [SolidFillColor](https://reference.aspose.com/slides/id/cpp/aspose.slides/ifillformateffectivedata/) untuk isian solid.
+
+## **Baca Ulang Data Efektif Setelah Perubahan**
+
+Data efektif menggambarkan hierarki pemformatan pada saat diselesaikan. Panggil `GetEffective` lagi setelah mengubah apa pun yang dapat berpartisipasi dalam hierarki tersebut, termasuk:
+
+- pemformatan lokal objek;
+- default paragraf atau bingkai teks;
+- gaya tabel, tabel, kolom, baris, atau format sel;
+- pemformatan tata letak atau slide master;
+- data tema atau default tingkat presentasi;
+- tata letak atau master yang ditetapkan pada slide.
+
+Jangan menyimpan objek data efektif sebagai snapshot permanen. Aspose.Slides dapat menyimpan beberapa data efektif secara internal, dan panggilan `GetEffective` berikutnya dapat memperbarui data tersebut. Jika Anda perlu membandingkan nilai sebelum dan sesudah perubahan, salin nilai skalar yang diperlukan—misalnya tinggi font, warna, perataan, atau lebar bevel—ke variabel Anda sendiri sebelum melakukan perubahan.
+
+Untuk mengubah nilai, perbarui objek format lokal yang sesuai lalu panggil `GetEffective` untuk memverifikasi hasilnya. Objek data efektif bersifat read‑only.
 
 ## **FAQ**
 
-**Apakah `GetEffective` mengembalikan snapshot?**
+**Bagaimana saya dapat mengetahui level mana yang menyediakan nilai efektif?**
 
-Tidak selalu. Data efektif mewakili pemformatan yang dihitung setelah pewarisan diterapkan, tetapi beberapa objek data efektif dapat disimpan dalam cache secara internal. Panggilan `GetEffective` berikutnya mungkin menghitung ulang pemformatan dan menyegarkan data yang di-cache, sehingga objek yang sebelumnya diperoleh tidak boleh dianggap sebagai snapshot yang tahan lama.
+Data efektif berisi nilai akhir, bukan sumbernya. Periksa objek lokal yang berlaku mulai dari level paling spesifik ke luar. Untuk teks, ini dapat mencakup bagian, paragraf, bingkai teks, tata letak, master, tema, dan default presentasi. Nilai yang tidak terdefinisi seperti `std::numeric_limits<float>::quiet_NaN()` atau `nullptr` menunjukkan bahwa pencarian berlanjut ke level lain.
 
-**Kapan saya harus membaca kembali properti efektif?**
+**Apa yang terjadi ketika tidak ada level yang mendefinisikan properti?**
 
-Panggil `GetEffective` lagi setelah mengubah pemformatan lokal, gaya induk, pemformatan tata letak, pemformatan master, atau nilai default pada tingkat presentasi. Panggilan berikutnya akan mengevaluasi kembali hierarki pemformatan dan mengembalikan hasil efektif saat ini.
+Aspose.Slides menyelesaikan default PowerPoint atau perpustakaan yang sesuai. Nilai yang diselesaikan tersebut muncul dalam data efektif meskipun tidak ada objek lokal yang secara eksplisit mendefinisikannya.
 
-**Apakah mengubah atau menghapus slide tata letak/master memengaruhi properti efektif yang sudah diambil?**
+**Mengapa nilai efektif kadang sama dengan nilai lokal?**
 
-Ya, tetapi perubahan tersebut tercermin pada panggilan `GetEffective` berikutnya. Jika sumber pemformatan induk diubah atau dihapus, data efektif yang sebelumnya diperoleh mungkin sudah tidak up-to-date. Setelah `GetEffective` dipanggil lagi, Aspose.Slides akan mengevaluasi kembali pohon pemformatan dan font, warna, ukuran, atau nilai lain yang dihasilkan dapat berubah.
+Nilai lokal menang dalam perhitungan pewarisan. Hal ini diharapkan ketika properti secara eksplisit diatur pada objek dan tidak ada aturan yang lebih spesifik yang menimpanya.
 
-**Bisakah saya memodifikasi nilai melalui objek data efektif?**
+**Kapan saya harus menggunakan data lokal alih-alih data efektif?**
 
-Tidak. Objek data efektif hanya menampilkan nilai yang telah dihitung. Lakukan perubahan pada objek pemformatan lokal, kemudian peroleh kembali nilai efektif.
-
-**Apa yang terjadi jika suatu properti tidak diatur pada tingkat bentuk, maupun pada tata letak/master, maupun pada pengaturan global?**
-
-Nilai efektif ditentukan oleh mekanisme default, yang mencakup default PowerPoint dan Aspose.Slides. Nilai yang terpecahkan tersebut menjadi bagian dari data efektif saat ini.
-
-**Dari nilai font efektif, dapatkah saya mengetahui level mana yang menyediakan ukuran atau jenis font?**
-
-Tidak secara langsung. Data efektif mengembalikan nilai akhir. Untuk menemukan sumbernya, periksa nilai lokal pada bagian, paragraf, bingkai teks, dan gaya teks pada tata letak, master, serta tingkat presentasi untuk melihat di mana definisi eksplisit pertama muncul.
-
-**Mengapa nilai efektif kadang tampak identik dengan nilai lokal?**
-
-Karena nilai lokal berakhir menjadi nilai akhir (tidak diperlukan pewarisan pada tingkat yang lebih tinggi). Dalam kasus tersebut, nilai efektif sama dengan nilai lokal.
-
-**Kapan saya harus menggunakan properti efektif, dan kapan saya harus bekerja hanya dengan yang lokal?**
-
-Gunakan data efektif ketika Anda memerlukan hasil "seperti yang ditampilkan" setelah semua pewarisan diterapkan, seperti untuk menyelaraskan warna, indentasi, atau ukuran. Jika Anda perlu mempertahankan nilai tersebut terlepas dari perubahan pemformatan di kemudian hari, salin properti yang diperlukan ke dalam objek Anda sendiri. Jika Anda perlu mengubah pemformatan pada tingkat tertentu, ubah properti lokal dan kemudian, jika diperlukan, baca kembali data efektif untuk memverifikasi hasilnya.
+Gunakan data lokal untuk memeriksa atau menyunting level pemformatan tertentu. Gunakan data efektif ketika Anda membutuhkan tampilan akhir setelah pewarisan, aturan tema, dan gaya yang berlaku diselesaikan. [Contoh perbandingan lengkap](#compare-local-inherited-and-effective-values) menunjukkan keduanya dalam alur kerja yang sama.

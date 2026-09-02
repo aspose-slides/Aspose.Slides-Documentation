@@ -1,364 +1,399 @@
 ---
-title: Java kullanarak Sunumlarda Grafik Veri Serilerini Yönetme
+title: Java ile Sunumlarda Grafik Veri Serilerini Yönetme
 linktitle: Veri Serileri
 type: docs
 url: /tr/java/chart-series/
 keywords:
-- grafik serileri
-- seri çakışması
+- grafik serisi
+- seri örtüşmesi
 - seri rengi
-- kategori rengi
 - seri adı
 - veri noktası
+- çalışma kitabı hücresi
 - seri boşluğu
+- negatif değer
 - PowerPoint
 - sunum
 - Java
 - Aspose.Slides
-description: "PowerPoint (PPT/PPTX) için Java’da grafik serilerini nasıl yöneteceğinizi, pratik kod örnekleri ve en iyi uygulamalarla veri sunumlarınızı geliştirmek üzere öğrenin."
+description: "Java kullanarak sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde [ChartSeries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chartseries/) rolünü, verilerin sunumlar içinde nasıl yapılandırıldığını ve görselleştirildiğini odaklanarak açıklar. Bu nesneler, bir grafikte bireysel veri noktası setlerini, kategorileri ve görünüm parametrelerini tanımlayan temel bileşenleri sağlar. [ChartSeries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/chartseries/) ile çalışarak, geliştiriciler temel veri kaynaklarını sorunsuz bir şekilde entegre edebilir ve bilginin nasıl gösterileceği üzerinde tam kontrol sağlayabilir; bu da içgörü ve analizi açıkça ileten dinamik, veri odaklı sunumlar ortaya çıkarır.
+Bir grafik, çizilen verilerini bir grafik veri çalışma kitabında depolar. Bir [IChartSeries](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/) ilgili değerlerin bir kümesini temsil eder ve serideki her [IChartDataPoint](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapoint/) bir veya daha fazla çalışma kitabı hücresine referans verir. [IChartCategory](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartcategory/) nesneleri, seriler arasında paylaşılan etiketleri veya gruplama değerlerini sağlar. Bu nedenle seri adı, kategoriler ve nokta değerleri yalnızca görüntü metni olarak saklanmak yerine [IChartDataCell](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatacell/) nesnelerine bağlanır.
 
-Seri, bir grafikte çizilen bir satır veya sütun sayılardır.
+Tipik bir kategori grafiği için, varsayılan çalışma kitabı seri adları için satır 0, kategori adları için sütun 0 ve geri kalan hücreleri seri değerleri için kullanır. [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) yöntemine geçirilen çalışma sayfası, satır ve sütun dizinleri sıfır tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluştururken faydalıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunum için, çalışma kitabı değerlerini değiştirmeden önce seriler, kategoriler ve veri noktaları tarafından referans verilen hücreleri inceleyin.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Grafik ayarlarının üç farklı kapsamı vardır:
 
-## **Grafik Serisi Çakışmasını Ayarlama**
+- Seri seviyesindeki ayarlar, örneğin [IChartSeries.getFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getFormat--), bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri noktası ayarları, örneğin [IChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapoint/#getFormat--), bir nokta için seri görünümünü geçersiz kılar.
+- Grup ayarları, aynı [IChartSeriesGroup](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseriesgroup/) içinde bulunan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, gruba [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) aracılığıyla erişin.
 
-[IChartSeriesOverlap](https://reference.aspose.com/slides/tr/net/aspose.slides.charts/ichartseries/properties/overlap) özelliği ile, 2B bir grafikte çubukların ve sütunların ne kadar çakışacağını belirtebilirsiniz (aralık: -100 ila 100). Bu özellik, üst seri grubunun tüm serilerine uygulanır: bu, ilgili grup özelliğinin bir yansımasıdır. Bu nedenle, bu özellik salt okunurdur.  
+Açık bir nokta veya seri doldurma ayarı yapılmadığında, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcut olduğunda, nokta biçimlendirmesi o nokta için öncelikli olur.
 
-`ParentSeriesGroup.Overlap` okuma/yazma özelliğini kullanarak `Overlap` için tercih ettiğiniz değeri ayarlayabilirsiniz.  
+![grafik-seri-powerpoint](chart-series-powerpoint.png)
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. Bir slayta kümeleme sütun grafiği ekleyin.  
-1. İlk grafik serisine erişin.  
-1. Grafik serisinin `ParentSeriesGroup` özelliğine erişin ve seri için tercih ettiğiniz çakışma değerini ayarlayın.  
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.  
+## **Grafik Serisi Örtüşmesini Ayarlama**
 
-Bu Java kodu, bir grafik serisinin çakışmasını nasıl ayarlayacağınızı gösterir:
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getOverlap--) 2B bir grafikte çubukların veya sütunların ne kadar örtüştüğünü -%100 ile %100 arasında rapor eder. Bu, üst seriler grubundaki ayarın yalnızca okunabilir bir yansımasıdır. Bu gruptaki her uyumlu seriyi güncellemek için [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) kullanın. Bu seçenek, gruplanmış çubuk veya sütun gösteren grafik türlerine uygulanır; bir kombinasyon grafiğindeki ilgili olmayan seri gruplarını etkilemez.
+
+Aşağıdaki örnek, ilk seriyi içeren grup için örtüşmeyi ayarlar:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Grafik ekler
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Seri çakışmasını ayarlar
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Sunum dosyasını diske yazar
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Yeni grafik örnek seriler, kategoriler ve değerler içerir.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Seri Rengini Değiştirme**
+Sonuç:
 
-Aspose.Slides for Java, bir serinin rengini şu şekilde değiştirmenize olanak tanır:
+![Seri örtüşmesi](series_overlap.png)
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. Slayta bir grafik ekleyin.  
-1. Rengini değiştirmek istediğiniz seriye erişin.  
-1. Tercih ettiğiniz doldurma türünü ve doldurma rengini ayarlayın.  
-1. Değiştirilmiş sunumu kaydedin.  
+## **Seri Doldurma Rengini Değiştirme**
 
-Bu Java kodu, bir serinin rengini nasıl değiştireceğinizi gösterir:
+Bir serinin tamamı için varsayılan doldurmayı ayarlamak üzere [IChartSeries.getFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getFormat--) kullanın. Bir noktanın zaten açık bir doldurması varsa, onun [IChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapoint/#getFormat--) ayarı o nokta için seri doldurmasını geçersiz kılar.
+
+Aşağıdaki örnek, ilk seriye katı mavi bir doldurma uygular:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Seri Kategori Rengini Değiştirme**
+Sonuç:
 
-Aspose.Slides for Java, bir seri kategorisinin rengini şu şekilde değiştirmenize olanak tanır:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. Slayta bir grafik ekleyin.  
-1. Rengini değiştirmek istediğiniz seri kategorisine erişin.  
-1. Tercih ettiğiniz doldurma türünü ve doldurma rengini ayarlayın.  
-1. Değiştirilmiş sunumu kaydedin.  
-
-Bu Java kodu, bir seri kategorisinin rengini nasıl değiştireceğinizi gösterir:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+![Serinin rengi](series_color.png)
 
 ## **Seri Adını Değiştirme**
 
-Varsayılan olarak, bir grafiğin lejand adları, her sütun veya satırın üzerindeki hücrelerin içeriğidir.  
-
-Örnekimizde (örnek resim),
-
-* sütunlar *Series 1, Series 2,* ve *Series 3*;  
-* satırlar *Category 1, Category 2, Category 3,* ve *Category 4.*  
-
-Aspose.Slides for Java, bir serinin adını grafik verisinde ve lejandında güncellemenize veya değiştirmenize olanak tanır.  
-
-Bu Java kodu, `ChartDataWorkbook` içinde bir serinin adını nasıl değiştireceğinizi gösterir:
+Seri adı, grafik veri çalışma kitabında saklanır ve genellikle lejende gösterilir. Küme sütun grafiği için oluşturulan varsayılan çalışma kitabında, B1 hücresi satır 0, sütun 1 konumundadır ve ilk serinin adını içerir. Aşağıdaki örnekteki adlandırılmış sabitler bu yapıyı açıklar:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-Bu Java kodu, `Series` aracılığıyla lejanddaki bir serinin adını nasıl değiştireceğinizi gösterir:
+[IChartSeries.getName](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getName--) tarafından zaten referans verilen hücreyi de güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
+import com.aspose.slides.*;
 
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Grafik Serisi Doldurma Rengini Ayarlama**
+Sonuç:
 
-Aspose.Slides for Java, bir çizim alanı içindeki grafik serileri için otomatik doldurma rengini şu şekilde ayarlamanıza izin verir:
+![Seri adı](series_name.png)
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. Bir slaydın referansını indeksine göre alın.  
-1. Tercih ettiğiniz türe göre (aşağıdaki örnekte `ChartType.ClusteredColumn` kullandık) varsayılan verilerle bir grafik ekleyin.  
-1. Grafik serisine erişin ve doldurma rengini Automatic (Otomatik) olarak ayarlayın.  
-1. Sunumu bir PPTX dosyasına kaydedin.  
+## **Otomatik Seri Doldurma Rengini Alma**
 
-Bu Java kodu, bir grafik serisi için otomatik doldurma rengini nasıl ayarlayacağınızı gösterir:
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) serinin indeksinden ve grafik stilinden hesaplanan rengi döndürür. Bu, seri doldurması açıkça tanımlanmamışsa kullanılan renktir. Yöntemi çağırmak hesaplanan rengi okur; yeni bir doldurma atamaz.
+
+Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Kümeleme sütun grafiği oluşturur
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
+import com.aspose.slides.*;
+import java.awt.Color;
 
-    // Seri dolgu biçimini otomatik olarak ayarlar
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
     }
-
-    // Sunum dosyasını diske yazar
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Varsayılan grafik stili için örnek çıktı:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+Tam renkler grafik stili ve temasına bağlıdır.
 
 ## **Grafik Serisi için Ters Doldurma Rengini Ayarlama**
 
-Aspose.Slides, bir çizim alanı içindeki grafik serileri için ters doldurma rengini şu şekilde ayarlamanıza izin verir:
+Çubuk, sütun ve balon serileri için, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) negatif değerleri farklı bir doldurma ile gösterebilir. Normal seri doldurmasını katı olarak ayarlayın, terslemeyi etkinleştirin ve negatif değer rengini [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) aracılığıyla atayın. Negatif sayılar çalışma kitabında değişmeden kalır; yalnızca görüntüleme renkleri değişir.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. Bir slaydın referansını indeksine göre alın.  
-1. Tercih ettiğiniz türe göre (aşağıdaki örnekte `ChartType.ClusteredColumn` kullandık) varsayılan verilerle bir grafik ekleyin.  
-1. Grafik serisine erişin ve doldurma rengini invert (ters) olarak ayarlayın.  
-1. Sunumu bir PPTX dosyasına kaydedin.  
-
-Bu Java kodu işlemi gösterir:
+Aşağıdaki örnek, varsayılan grafik verilerini tek bir seriyle değiştirir. Çalışma sayfası satır 0 seri adını, sütun 0 kategori adlarını ve sütun 1 değerleri içerir:
 
 ```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
 
-    // Yeni serileri ve kategorileri ekler
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
 
-    // İlk grafik serisini alır ve seri verilerini doldurur.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
 
-## **Değer Negatif Olduğunda Seri için Ters Ayarlama**
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
 
-Aspose.Slides, `IChartDataPoint.InvertIfNegative` ve `ChartDataPoint.InvertIfNegative` özellikleri aracılığıyla ters ayarlamalar yapmanıza olanak tanır. Bu özellikler kullanılarak bir ters ayar yapıldığında, veri noktası negatif bir değer aldığında renklerini tersine çevirir.  
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
 
-Bu Java kodu işlemi gösterir:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-
-    chartSeries.setInvertIfNegative(false);
-
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Belirli Nokta Verilerini Temizleme**
-
-Aspose.Slides for Java, belirli bir grafik serisi için `DataPoints` verilerini şu şekilde temizlemenize olanak tanır:
-
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-2. Bir slaydın referansını indeks üzerinden alın.  
-3. Bir grafiğin referansını indeks üzerinden alın.  
-4. Tüm grafik `DataPoints` değerlerini döngüye alarak `XValue` ve `YValue` değerlerini null olarak ayarlayın.  
-5. Belirli grafik serisi için tüm `DataPoints` değerlerini temizleyin.  
-6. Değiştirilmiş sunumu bir PPTX dosyasına yazın.  
-
-Bu Java kodu işlemi gösterir:
-
-```java
-Presentation pres = new Presentation("TestChart.pptx");
-try {
-    ISlide sl = pres.getSlides().get_Item(0);
-
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
-
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+Sonuç:
+
+![Ters katı doldurma rengi](inverted_solid_fill_color.png)
+
+Bir nokta için terslemeyi [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ile etkinleştirebilirsiniz. Aşağıdaki örnekte, seri için tersleme devre dışı bırakılmış ve yalnızca seçilen nokta için etkinleştirilmiştir. Etkinin görünür olması için nokta ayrıca negatif bir değer alır:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Belirli Bir Veri Noktası Değerini Temizleme**
+
+Diğer noktaları kaldırmadan bir noktayı boş yapmak için, ona ait çalışma kitabı hücresini `null` olarak ayarlayın. Bir sütun grafiğinde, çizilen değer [IChartDataPoint.getValue](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapoint/#getValue--) aracılığıyla elde edilir. Veri noktası aynı kategori konumunda kalır, ancak grafik, boş değer ayarlarına göre bu değeri boş olarak kabul eder.
+
+Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Dağılım grafiklerinde X ve Y hücreleri ayrı ayrı kullanılır, balon grafiklerde ise bir boyut hücresi de bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları tutmak istediğinizde [IChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapointcollection/#clear--) çağırmayın; bu yöntem koleksiyondaki tüm veri noktalarını kaldırır.
 
 ## **Seri Boşluk Genişliğini Ayarlama**
 
-Aspose.Slides for Java, bir serinin **`GapWidth`** özelliği aracılığıyla Boşluk Genişliğini şu şekilde ayarlamanıza imkan tanır:
+Boşluk genişliği, yan yana çubuk veya sütun kümeleri arasındaki boşluktur ve çubuk veya sütun genişliğinin yüzdesi olarak ifade edilir. Örtüşme gibi, tek bir seriye değil, üst seri grubuna aittir. Grup için bir kez [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha yoğun yapar.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/Presentation) sınıfının bir örneğini oluşturun.  
-1. İlk slayta erişin.  
-1. Varsayılan verilerle bir grafik ekleyin.  
-1. Herhangi bir grafik serisine erişin.  
-1. `GapWidth` özelliğini ayarlayın.  
-1. Değiştirilmiş sunumu bir PPTX dosyasına yazın.  
-
-Bu Java kodu, bir serinin Boşluk Genişliğini nasıl ayarlayacağınızı gösterir:
+Aşağıdaki örnek, boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
 ```java
-// Boş sunum oluşturur 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
 try {
-    // Sunumun ilk slaytına erişir
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Varsayılan verilerle bir grafik ekler
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Grafik veri sayfasının indeksini ayarlar
-    int defaultWorksheetIndex = 0;
-    
-    // Grafik veri çalışma sayfasını alır
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Serileri ekler
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Kategorileri ekler
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // İkinci grafik serisini alır
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Seri verilerini doldurur
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // GapWidth değerini ayarlar
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Sunumu diske kaydeder
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Sonuç:
 
-**Bir tek grafiğin içerebileceği seri sayısında bir limit var mı?**
+![Boşluk genişliği](gap_width.png)
 
-Aspose.Slides, eklediğiniz seri sayısı için sabit bir üst sınır koymaz. Pratikteki üst limit, grafiğin okunabilirliği ve uygulamanızın mevcut belleği ile belirlenir.
+## **SSS**
 
-**Küme içindeki sütunlar çok yakın ya da çok uzak olduğunda ne yapılır?**
+**Hangi grafik türleri veri serilerini destekler?**
 
-`GapWidth` ayarını ilgili seri (veya üst seri grubu) için ayarlayın. Değeri artırmak sütunlar arasındaki boşluğu genişletirken, azaltmak onları birbirine daha yakın hâle getirir.
+Tüm grafik türleri, [ChartType](https://reference.aspose.com/slides/tr/java/com.aspose.slides/charttype/) sayımıyla temsil edilen, grafik verilerini kullanır, ancak serileri aynı değer yapısına veya ayarlara sahip değildir. Örneğin, kategori grafikleri kategori ve değerleri, dağılım grafikleri X ve Y değerlerini, balon grafikleri ise balon boyutlarını kullanır. Seri türüne uygun veri‑nokta oluşturma yöntemini kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk veya sütun gruplarına uygulanır.
+
+**Grafik seri grubu nedir?**
+
+[IChartSeriesGroup](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseriesgroup/) aynı grup seviyesindeki çizim ayarlarını paylaşan uyumlu serileri içerir. Bir kombinasyon grafik birden fazla grup içerebilir; bu nedenle bir seriden erişilen grup değiştirilse bile grafikteki tüm seriler zorunlu olarak değişmez.
+
+**Yeni oluşturulan bir grafik varsayılan veri içerir mi?**
+
+Evet. Varsayılan olarak, [IShapeCollection.addChart](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) örnek seriler, kategoriler ve değerler oluşturur. Tamamen özel bir veri kümesi eklemeden önce bu hücreleri düzenleyebilir veya seri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da bir grafik oluşturabilir.
+
+**Grafik nesneleri çalışma kitabı hücrelerine nasıl bağlanır?**
+
+Seri adları, kategori etiketleri ve veri‑nokta değerleri, bir [IChartDataWorkbook](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdataworkbook/) içindeki hücrelere referans verir. Referans verilen bir hücre değiştirildiğinde ilgili grafik öğesi güncellenir. Özel veri oluştururken, kategori satırlarını ve seri‑değer satırlarını hizalı tutun; böylece her nokta amaçlanan kategori altında çizilir.
+
+**Bir serinin tamamı yerine tek bir noktayı nasıl temizlerim?**
+
+İlgili değer hücresini `null` olarak ayarlayarak noktanın kategori konumunu boş bir nokta olarak koruyun. O seriden tüm noktaları kaldırmak istediğinizde yalnızca [IChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapointcollection/#clear--) kullanın. Kategorileri de kaldırıyorsanız, tüm serileri güncelleyerek değerlerin kategori koleksiyonuyla hizalı kalmasını sağlayın.
+
+**Boş noktalar nasıl gösterilir?**
+
+Sonuç, grafik türüne ve [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) ile yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları boşluk (gap), sıfır değer olarak veya komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına uygun ayarı seçin.
+
+**Negatif değerler nasıl biçimlendirilir?**
+
+Desteklenen çubuk, sütun ve balon serileri için, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) çağırın ve [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) tarafından döndürülen rengi ayarlayın. Tek bir nokta için davranışı [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değil.
+
+**Hem seri hem de nokta biçimlendirildiğinde hangi biçimlendirme kazanır?**
+
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri biçimini ya da seri biçimi tanımlı değilse otomatik grafik stili ve temasını kullanmaya devam eder. Örtüşme ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta‑seviyesindeki biçimlendirme geçersiz kılmalarını yapmaz.
+
+**Bir grafiğin içinde kaç seri bulunabileceği konusunda bir sınırlama var mı?**
+
+Aspose.Slides, ayrı bir sabit seri sayısı sınırı koymaz. Uygulamada, sunum dosyası kısıtlamaları, kullanılabilir bellek, render süresi ve grafiğin okunabilirliği faydalı bir sınırı belirler.
+
+**Sütunlar çok birbirine yakın ya da çok uzak olduğunda ne değiştirilmeli?**
+
+Uygun üst seri grubunda [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri daha yakın hale getirin.

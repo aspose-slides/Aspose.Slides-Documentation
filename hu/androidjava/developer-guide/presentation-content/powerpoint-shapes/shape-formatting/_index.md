@@ -7,61 +7,63 @@ url: /hu/androidjava/shape-formatting/
 keywords:
 - alakzat formázása
 - vonal formázása
+- vázlat hatás
+- vázlat alakzat vonal
 - csatlakozási stílus formázása
 - színátmenetes kitöltés
-- minta kitöltés
-- kép kitöltés
+- mintás kitöltés
+- képi kitöltés
 - textúra kitöltés
 - egyszínű kitöltés
-- alakzat átlátszósága
+- alakzat átlátszóság
 - alakzat forgatása
-- 3D rézsút hatás
-- 3D forgatási hatás
+- 3d döntött hatás
+- 3d forgatási hatás
 - formázás visszaállítása
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan formázzák a PowerPoint alakzatokat Androidon az Aspose.Slides használatával – állítsa be a kitöltés, vonal és effektus stílusait PPT, PPTX és ODP fájlokhoz precízen és teljes ellenőrzéssel."
+description: "Ismerje meg, hogyan formázhatja a PowerPoint alakzatokat Androidon az Aspose.Slides használatával—állítsa be a kitöltés, vonal és effektus stílusait PPT, PPTX és ODP fájlokhoz precíz módon és teljes irányítással."
 ---
 ## **Bevezetés**
 
-A PowerPointban alakzatokat adhat hozzá a diákhoz. Mivel az alakzatok vonalakból állnak, formázhatja őket a körvonalak módosításával vagy effektusok alkalmazásával. Ezenkívül alakzatokat is formázhat olyan beállítások megadásával, amelyek szabályozzák, hogyan töltik ki a belsejüket.
+A PowerPointban alakzatokat adhat hozzá a diákhoz. Mivel az alakzatok vonalakból állnak, formázhatja őket a körvonalak módosításával vagy hatások alkalmazásával. Emellett beállíthatja az alakzatok kitöltését szabályozó beállítások megadásával.
 
-![format-shape-powerpoint](format-shape-powerpoint.png)
+![alakzat formázása PowerPointban](format-shape-powerpoint.png)
 
-Az Aspose.Slides for Android via Java interfészeket és metódusokat biztosít, amelyek lehetővé teszik az alakzatok formázását a PowerPointban elérhető ugyanazokkal a beállításokkal.
+Az Aspose.Slides for Android via Java interfészeket és metódusokat biztosít, amelyek segítségével a PowerPointban elérhető ugyanazokkal a beállításokkal formázhatja az alakzatokat.
 
 ## **Vonalak formázása**
 
-Az Aspose.Slides használatával egyedi vonalstílust adhat meg egy alakzathoz. Az alábbi lépések mutatják a folyamatot:
+Az Aspose.Slides segítségével egy alakzat egyéni vonalstílusát adhatja meg. Az alábbi lépések mutatják be az eljárást:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat [line style](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linestyle/) attribútumát.
-1. Állítsa be a vonalvastagságot.
-1. Állítsa be a vonal [dash style](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linedashstyle/) attribútumát.
-1. Állítsa be a vonal színét az alakzathoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be a forma [line style](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linestyle/) attribútumát.  
+1. Állítsa be a vonal vastagságát.  
+1. Állítsa be a vonal [dash style](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linedashstyle/) beállítását.  
+1. Állítsa be a forma vonalszínét.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-A következő kód bemutatja, hogyan formázzunk egy téglalap `AutoShape`-t:
+Az alábbi kód bemutatja, hogyan formázhat egy `AutoShape` téglalapot:
 
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt képvisel.
+// Hozza létre a Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
     // Szerezze meg az első diát.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    // Adjon hozzá egy automatikus alakzatot Téglalap típusban.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
     // Állítsa be a téglalap alakzat kitöltőszínét.
     shape.getFillFormat().setFillType(FillType.NoFill);
 
-    // Alkalmazza a formázást a téglalap vonalaira.
+    // Alkalmazzon formázást a téglalap vonalaira.
     shape.getLineFormat().setStyle(LineStyle.ThickThin);
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(LineDashStyle.Dash);
@@ -70,7 +72,7 @@ try {
     shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // Mentse a PPTX fájlt a lemezre.
     presentation.save("formatted_lines.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -79,35 +81,83 @@ try {
 
 Az eredmény:
 
-![The formatted lines in the presentation](formatted-lines.png)
+![A formázott vonalak a prezentációban](formatted-lines.png)
 
-## **Csatlakozási stílusok formázása**
+## **Vázlat hatások alkalmazása az alakzat vonalaira**
 
-A három csatlakozási típus lehetőség a következő:
+A vázlat hatás úgy teszi, hogy az alakzat vonala kézzel rajzoltnak tűnik. Használja a [IShape.getLineFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishape/) metódust a vonalbeállítások eléréséhez, a [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilineformat/) metódust a vázlat beállításainak eléréséhez, és a [ISketchFormat.setSketchType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isketchformat/) metódust a [LineSketchType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linesketchtype/) felsorolásból érték kiválasztásához.
+
+Az alábbi Java kód megmutatja, hogyan alkalmazzon egy [LineSketchType.Curved](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linesketchtype/) hatást, olvassa el a kifejezetten megadott értéket, és hogyan távolítsa el a hatást a [LineSketchType.None](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/linesketchtype/) használatával:
+
+```java
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // Az alakzat vonalformátumához és vázlatformátumához való hozzáférés.
+    ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // Vázlat hatás alkalmazása.
+    sketchFormat.setSketchType(LineSketchType.Curved);
+
+    // Olvassa be a alakzatra közvetlenül hozzárendelt vázlat hatást.
+    int explicitSketchType = sketchFormat.getSketchType();
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+
+    // A vázlat hatás eltávolítása.
+    sketchFormat.setSketchType(LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+A [ISketchFormat.getSketchType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isketchformat/) által visszaadott érték a forma közvetlenül hozzárendelt beállítását jelenti. Ha a vonalfogalmazás öröklődik egy témából, mester‑diából vagy elrendezési diából, használja a [ILineFormat.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilineformat/) metódust, férjen hozzá a [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilineformateffectivedata/) metódushoz, és olvassa el a [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/isketchformateffectivedata/) értékét. A hatékony érték tükrözi a formázást, amely az öröklődés feloldása után ténylegesen alkalmazásra kerül:
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ILineFormat lineFormat = shape.getLineFormat();
+
+    int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
+    int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+    System.out.println("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Összekapcsolási stílusok formázása**
+
+A három összekapcsolási típus opciója:
 
 * Round
 * Miter
 * Bevel
 
-Alapértelmezés szerint, amikor a PowerPoint két vonalat kapcsol össze egy szögben (például egy alakzat sarkán), a **Round** beállítást használja. Ha azonban éles szögekkel rendelkező alakzatot rajzol, a **Miter** opciót részesítheti előnyben.
+Alapértelmezés szerint, amikor a PowerPoint két vonalat köt össze szögben (például egy alakzat sarkán), a **Round** beállítást használja. Azonban ha éles szögekkel rajzol alakzatot, a **Miter** opció lehet megfelelőbb.
 
-![The join style in the presentation](join-style-powerpoint.png)
+![Az összekapcsolási stílus a prezentációban](join-style-powerpoint.png)
 
-Az alábbi Java kód bemutatja, hogyan hoztak létre három téglalapot (az előző képen látható módon) a Miter, Bevel és Round csatlakozási típus-beállítások használatával:
+Az alábbi Java kód bemutatja, hogyan hoztak létre három téglalapot (az előző képen látható módon) a Miter, Bevel és Round összekapcsolási típus beállításokkal:
 
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// A Presentation osztály példányosítása, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá három Rectangle típusú automatikus alakzatot.
+    // Három téglalap típusú automatikus alakzatot ad hozzá.
     IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
     IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
     IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
 
-    // Állítsa be minden téglalap alakzat kitöltőszínét.
+    // Beállítja minden téglalap alakzat kitöltőszínét.
     shape1.getFillFormat().setFillType(FillType.Solid);
     shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     shape2.getFillFormat().setFillType(FillType.Solid);
@@ -115,12 +165,12 @@ try {
     shape3.getFillFormat().setFillType(FillType.Solid);
     shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
 
-    // Állítsa be a vonalvastagságot.
+    // Beállítja a vonal vastagságát.
     shape1.getLineFormat().setWidth(15);
     shape2.getLineFormat().setWidth(15);
     shape3.getLineFormat().setWidth(15);
 
-    // Állítsa be minden téglalap vonalának színét.
+    // Beállítja minden téglalap vonalának színét.
     shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
     shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
@@ -128,58 +178,60 @@ try {
     shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
     shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
 
-    // Állítsa be a csatlakozási stílust.
+    // Beállítja a csatlakozási stílust.
     shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
     shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
     shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
 
-    // Adjon szöveget minden téglalaphoz.
+    // Szöveget ad minden téglalaphoz.
     shape1.getTextFrame().setText("Miter Join Style");
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
 
-    // Mentse a PPTX fájlt a lemezen.
+    // Mentse a PPTX fájlt a lemezre.
     presentation.save("join_styles.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Gradient kitöltés**
+## **Színátmenetes kitöltés**
 
-A PowerPointban a Gradient Fill egy formázási lehetőség, amely lehetővé teszi, hogy folyamatos színátmenetet alkalmazzon egy alakzatra. Például két vagy több színt adhat meg úgy, hogy az egyik fokozatosan átmenjen a másikba.
+A PowerPointban a Színátmenetes kitöltés egy olyan formázási lehetőség, amely lehetővé teszi, hogy folyamatos színátmenetet alkalmazzon egy alakzatra. Például két vagy több színt alkalmazhat úgy, hogy az egyik fokozatosan elhalványul a másikba.
 
-Íme, hogyan alkalmazzon gradient kitöltést egy alakzatra az Aspose.Slides segítségével:
+Az alábbiak szerint alkalmazhat színátmenetes kitöltést egy alakzatra az Aspose.Slides segítségével:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Gradient`-ra.
-1. Adja hozzá a kívánt két színt a meghatározott pozíciókkal a gradient stop gyűjtemény `add` metódusainak segítségével, amelyet az [IGradientFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igradientformat/) interfész biztosít.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be a forma [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Gradient`‑re.  
+1. Az [IGradientFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/igradientformat/) interfész által biztosított gradient‑stop gyűjtemény `add` metódusaival adja hozzá a kívánt két színt meghatározott pozícióval.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
+Az alábbi Java kód bemutatja, hogyan alkalmazzon színátmenetes kitöltést egy ellipszisre:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// A Presentation osztály példányosítása, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy Ellipse típusú automatikus alakzatot.
+    // Ellipszis típusú automatikus alakzatot ad hozzá.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Alkalmazza a gradient formázást az ellipszisre.
+    // Színátmenetes formázást alkalmaz az ellipszisre.
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
-    // Állítsa be a gradient irányát.
+    // Beállítja a színátmenet irányát.
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // Adjon hozzá két gradient stopot.
+    // Két színátmenet‑stopot ad hozzá.
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // Mentse a PPTX fájlt a lemezre.
     presentation.save("gradient_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -188,46 +240,48 @@ try {
 
 Az eredmény:
 
-![The ellipse with gradient fill](gradient-fill.png)
+![Az ellipszis színátmenetes kitöltéssel](gradient-fill.png)
 
 ## **Minta kitöltés**
 
-A PowerPointban a Pattern Fill egy formázási lehetőség, amely lehetővé teszi, hogy kétszínű mintát (például pontot, csíkot, keresztmintát vagy csekköt) alkalmazzon egy alakzatra. Testreszabhatja a minta elő- és háttérszínét.
+A PowerPointban a Minta kitöltés egy olyan formázási lehetőség, amely két színű mintát – például pontokat, csíkokat, keresztvonalakat vagy négyzeteket – alkalmaz egy alakzatra. A minta előtér és háttér színeit egyéni színekkel állíthatja be.
 
-Az Aspose.Slides több mint 45 előre definiált minta stílust biztosít, amelyet az alakzatokra alkalmazhat a prezentációk vizuális vonzerejének növelése érdekében. Még előre definiált minta kiválasztása után is megadhatja a pontos színeket.
+Az Aspose.Slides több mint 45 előre definiált mintastílust kínál, amelyeket alakzatokra alkalmazhat a prezentációk vizuális vonzerejének növelése érdekében. Még előre definiált minta kiválasztása után is megadhatja a pontos színeket, amelyeket a minta használjon.
 
-Íme, hogyan alkalmazzon minta kitöltést egy alakzatra az Aspose.Slides használatával:
+Az alábbiak szerint alkalmazhat mintás kitöltést egy alakzatra az Aspose.Slides segítségével:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Pattern`-re.
-1. Válasszon egy minta stílust az előre definiált opciók közül.
-1. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/patternformat/#getBackColor--) színét.
-1. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/patternformat/#getForeColor--) színét.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be a forma [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Pattern`‑re.  
+1. Válasszon egy mintastílust a rendelkezésre álló opciók közül.  
+1. Állítsa be a minta [Background Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/patternformat/#getBackColor--) értékét.  
+1. Állítsa be a minta [Foreground Color](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/patternformat/#getForeColor--) értékét.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
+Az alábbi Java kód bemutatja, hogyan alkalmazzon mintás kitöltést egy téglalapra:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// A Presentation osztály példányosítása, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    // Téglalap típusú automatikus alakzatot ad hozzá.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Állítsa be a kitöltés típusát Pattern-re.
+    // A kitöltés típusát Pattern-re állítja.
     shape.getFillFormat().setFillType(FillType.Pattern);
 
-    // Állítsa be a minta stílusát.
+    // A mintastílust állítja be.
     shape.getFillFormat().getPatternFormat().setPatternStyle(PatternStyle.Trellis);
 
-    // Állítsa be a minta háttér- és előtérszíneit.
+    // A minta háttér- és előtérszínét állítja be.
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(Color.LIGHT_GRAY);
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(Color.YELLOW);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // Mentse a PPTX fájlt a lemezre.
     presentation.save("pattern_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -236,54 +290,54 @@ try {
 
 Az eredmény:
 
-![The rectangle with pattern fill](pattern-fill.png)
+![A téglalap mintás kitöltéssel](pattern-fill.png)
 
 ## **Kép kitöltés**
 
-A PowerPointban a Picture Fill egy formázási lehetőség, amely lehetővé teszi egy kép beillesztését egy alakzatba – a képet a forma háttérként használva.
+A PowerPointban a Kép kitöltés egy olyan formázási lehetőség, amely lehetővé teszi, hogy egy képet helyezzen el egy alakzat belsejében – lényegében a képet háttérként használva.
 
-Íme, hogyan használja az Aspose.Slides-t kép kitöltés alkalmazásához egy alakzatra:
+Az alábbiak szerint használhatja az Aspose.Slides‑t képkitöltés alkalmazásához egy alakzatra:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Picture`-ra.
-1. Állítsa be a kép kitöltés módját `Tile`-re (vagy egy másik preferált módra).
-1. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) objektumot a használni kívánt képből.
-1. Adja át a képet az `ISlidesPicture.setImage` metódusnak.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be a forma [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Picture`‑re.  
+1. Állítsa be a kép kitöltés módját `Tile`‑ra (vagy egy másik kívánt módra).  
+1. Hozzon létre egy [IPPImage](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ippimage/) objektumot a használni kívánt képből.  
+1. Adja át a képet az `ISlidesPicture.setImage` metódusnak.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
-Tegyük fel, hogy van egy "lotus.png" fájl a következő képpel:
+Tegyük fel, hogy van egy „lotus.png” nevű fájlunk a következő képpel:
 
-![The lotus picture](lotus.png)
+![A lótusz kép](lotus.png)
 
 Az alábbi Java kód bemutatja, hogyan töltsön ki egy alakzatot a képpel:
 
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// A Presentation osztály példányosítása, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    // Téglalap típusú automatikus alakzatot ad hozzá.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // Állítsa be a kitöltés típusát Picture-re.
+    // A kitöltés típusát Picture-re állítja.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Állítsa be a kép kitöltés módját.
+    // A kép kitöltési módot állítja be.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // Töltsön be egy képet, és adja hozzá a prezentáció erőforrásaihoz.
+    // Kép betöltése és hozzáadása a prezentáció erőforrásaihoz.
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
 
-    // Állítsa be a képet.
+    // A képet állítja be.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // Mentse a PPTX fájlt a lemezre.
     presentation.save("picture_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -292,45 +346,45 @@ try {
 
 Az eredmény:
 
-![The shape with picture fill](picture-fill.png)
+![Az alakzat képpel kitöltve](picture-fill.png)
 
-### **Kép csempézés textúraként**
+### **Kép csempeként textúrához**
 
-Ha egy csempézett képet szeretne textúraként beállítani, és testre szabni a csempézés viselkedését, az alábbi [IPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/) interfész és [PictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/picturefillformat/) osztály metódusait használhatja:
+Ha csempézett képet szeretne beállítani textúraként, és testre szabni a csempézési viselkedést, használhatja a [IPictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/) interfész és a [PictureFillFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/picturefillformat/) osztály következő metódusait:
 
-- [setPictureFillMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): A kép kitöltés módját állítja be – `Tile` vagy `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Meghatározza a csempék elrendezését az alakzaton belül.
-- [setTileFlip](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Szabályozza, hogy a csempe vízszintesen, függőlegesen vagy mindkét irányban legyen-e tükrözve.
-- [setTileOffsetX](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Beállítja a csempe vízszintes eltolását (pontban) az alakzat kiindulópontjától.
-- [setTileOffsetY](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Beállítja a csempe függőleges eltolását (pontban) az alakzat kiindulópontjától.
-- [setTileScaleX](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Meghatározza a csempe vízszintes méretezését százalékban.
+- [setPictureFillMode](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): Beállítja a kép kitöltési módot – `Tile` vagy `Stretch`.  
+- [setTileAlignment](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): Megadja a csempék igazítását az alakzaton belül.  
+- [setTileFlip](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): Meghatározza, hogy a csempe vízszintesen, függőlegesen vagy mindkettő szerint legyen tükrözve.  
+- [setTileOffsetX](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): Beállítja a csempe vízszintes eltolását (pontokban) az alakzat eredeti pontjától.  
+- [setTileOffsetY](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): Beállítja a csempe függőleges eltolását (pontokban) az alakzat eredeti pontjától.  
+- [setTileScaleX](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): Meghatározza a csempe vízszintes méretezését százalékban.  
 - [setTileScaleY](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): Meghatározza a csempe függőleges méretezését százalékban.
 
-Az alábbi kódrészlet mutatja, hogyan adjon hozzá egy téglalap alakzatot csempézett kép kitöltéssel, és állítsa be a csempe opciókat:
+Az alábbi kódrészlet megmutatja, hogyan adjon hozzá egy téglalap alakzatot csempézett kép kitöltéssel, és konfigurálja a csempe beállításait:
 
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// Példányosítja a Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy téglalap automatikus alakzatot.
+    // Téglalap auto alakzatot ad hozzá.
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // Állítsa be az alakzat kitöltés típusát Picture-re.
+    // A forma kitöltés típusát Picture-re állítja.
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // Töltsön be egy képet, és adja hozzá a prezentáció erőforrásaihoz.
+    // Betölti a képet és hozzáadja a prezentáció erőforrásaihoz.
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // Rendelje hozzá a képet az alakzathoz.
+    // A képet a formához rendeli.
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // Állítsa be a kép kitöltés módját és a csempézés tulajdonságait.
+    // A kép kitöltési módját és a csempe tulajdonságait állítja be.
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -339,7 +393,7 @@ try {
     pictureFillFormat.setTileAlignment(RectangleAlignment.BottomRight);
     pictureFillFormat.setTileFlip(TileFlip.FlipBoth);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // A PPTX fájlt a lemezre menti.
     presentation.save("tile.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -348,38 +402,40 @@ try {
 
 Az eredmény:
 
-![The tile options](tile-options.png)
+![A csempe beállításai](tile-options.png)
 
-## **Egyetlen színű kitöltés**
+## **Egyszínű kitöltés**
 
-A PowerPointban a Solid Color Fill egy formázási lehetőség, amely egyetlen, egységes színnel tölti ki az alakzatot. Ez az egyszerű háttérszín alkalmazásra kerül anélkül, hogy gradienteket, textúrákat vagy mintákat tartalmazna.
+A PowerPointban az Egyszínű kitöltés egy formázási lehetőség, amely egyetlen, egyenletes színnel tölti ki az alakzatot. Ez a egyszerű háttérszín nem tartalmaz semmilyen színátmenetet, textúrát vagy mintát.
 
-Az alábbi lépések segítenek egyetlen színű kitöltés alkalmazásában egy alakzatra az Aspose.Slides használatával:
+Az Egyszínű kitöltés alkalmazásához az Aspose.Slides‑ben kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`-ra.
-1. Adja meg a kívánt kitöltő színt az alakzatnak.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be a forma [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`‑ra.  
+1. Rendelje hozzá a kívánt kitöltőszínt az alakzathoz.  
 1. Mentse a módosított prezentációt PPTX fájlként.
 
+Az alábbi Java kód bemutatja, hogyan alkalmazzon egyszínű kitöltést egy téglalapra egy PowerPoint dián:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// Példányosítja a Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    // Téglalap típusú automatikus alakzatot ad hozzá.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Állítsa be a kitöltés típusát Solid-re.
+    // A kitöltés típusát Solid-ra állítja.
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // Állítsa be a kitöltőszínt.
+    // A kitöltőszínt állítja be.
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // A PPTX fájlt a lemezre menti.
     presentation.save("solid_color_fill.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -388,37 +444,39 @@ try {
 
 Az eredmény:
 
-![The shape with solid color fill](solid-color-fill.png)
+![Az alakzat egyszínű kitöltéssel](solid-color-fill.png)
 
 ## **Átlátszóság beállítása**
 
-A PowerPointban, ha egy alakzatra egyszínű, gradient, kép vagy textúra kitöltést alkalmaz, beállíthat egy átlátszósági szintet a kitöltés átlátszatlanságának szabályozására. A magasabb átlátszósági érték átlátszóbbá teszi az alakzatot, lehetővé téve a háttér vagy az alatta lévő objektumok részleges megjelenését.
+A PowerPointban, amikor egyszínű, színátmenetes, kép‑ vagy textúra‑kitöltést alkalmaz alakzatokra, beállíthatja az átlátszósági szintet is, hogy szabályozza a kitöltés átlátszóságát. A magasabb átlátszósági érték átlátszóbbá teszi az alakzatot, így a háttér vagy az alatta lévő objektumok részben láthatóvá válnak.
 
-Az Aspose.Slides lehetővé teszi az átlátszósági szint beállítását a kitöltés színének alfa komponensének módosításával. Íme, hogyan teheti ezt:
+Az Aspose.Slides lehetővé teszi az átlátszósági szint beállítását a kitöltéshez használt szín alfa komponensének módosításával. Így járhat el:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be a [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`-ra.
-1. Használja a `Color` osztályt egy átlátszó szín definiálásához (az `alpha` komponens szabályozza az átlátszóságot).
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be a [FillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/filltype/) értékét `Solid`‑ra.  
+1. Használja a `Color`‑t egy átlátszósággal rendelkező szín definiálásához (az `alpha` komponens szabályozza az átlátszóságot).  
 1. Mentse a prezentációt.
 
+Az alábbi Java kód bemutatja, hogyan alkalmazzon átlátszó kitöltőszínt egy téglalapra:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// A Presentation osztály példányosítása, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy szilárd téglalap automatikus alakzatot.
+    // Szilárd téglalap auto alakzatot ad hozzá.
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Adjon hozzá egy átlátszó téglalap automatikus alakzatot a szilárd alakzat felett.
+    // Átlátszó téglalap auto alakzatot ad hozzá a szilárd alakzat fölött.
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
 
-    // Mentse a PPTX fájlt a lemezen.
+    // A PPTX fájlt a lemezre menti.
     presentation.save("shape_transparency.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -427,34 +485,36 @@ try {
 
 Az eredmény:
 
-![The transparent shape](shape-transparency.png)
+![Az átlátszó alakzat](shape-transparency.png)
 
 ## **Alakzatok forgatása**
 
-Az Aspose.Slides lehetővé teszi alakzatok forgatását PowerPoint prezentációkban. Ez hasznos lehet a vizuális elemek pontos elhelyezéséhez vagy tervezési igényekhez.
+Az Aspose.Slides lehetővé teszi alakzatok forgatását PowerPoint‑prezentációkban. Ez hasznos lehet a vizuális elemek meghatározott igazítási vagy tervezési igényeinek kielégítésére.
 
-Az alakzat forgatásához a dián kövesse az alábbi lépéseket:
+Az alakzat egy dián történő forgatásához kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat forgatási tulajdonságát a kívánt szögre.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Állítsa be az alakzat forgatási tulajdonságát a kívánt szögre.  
 1. Mentse a prezentációt.
 
+Az alábbi Java kód bemutatja, hogyan forgasson egy alakzatot 5 fokkal:
+
 ```java
-// Példányosítsa a Presentation osztályt, amely egy prezentációfájlt reprezentál.
+// Példányosítja a Presentation osztályt, amely egy prezentációfájlt képvisel.
 Presentation presentation = new Presentation();
 try {
-    // Szerezze meg az első diát.
+    // Az első diát lekéri.
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy Rectangle típusú automatikus alakzatot.
+    // Téglalap típusú automatikus alakzatot ad hozzá.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Forgassa el az alakzatot 5 fokkal.
+    // Az alakzatot 5 fokkal elforgatja.
     shape.setRotation(5);
 
-    // Mentse a PPTX fájlt a lemezen.
+    // A PPTX fájlt a lemezre menti.
     presentation.save("shape_rotation.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -463,27 +523,29 @@ try {
 
 Az eredmény:
 
-![The shape rotation](shape-rotation.png)
+![Az alakzat forgatása](shape-rotation.png)
 
-## **3D rézsút hatások hozzáadása**
+## **3D döntött hatások hozzáadása**
 
-Az Aspose.Slides lehetővé teszi 3D rézsút hatások alkalmazását alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
+Az Aspose.Slides lehetővé teszi 3D döntött hatások hozzáadását alakzatokhoz a [ThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
 
-3D rézsút hatások hozzáadásához egy alakzathoz kövesse az alábbi lépéseket:
+A 3D döntött hatások hozzáadásához egy alakzathoz kövesse az alábbi lépéseket:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Állítsa be az alakzat [ThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/threedformat/) tulajdonságait a kívánt rézsút beállításokhoz.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Konfigurálja a forma [ThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/threedformat/) tulajdonságait a döntött beállítások meghatározásához.  
 1. Mentse a prezentációt.
 
+Az alábbi Java kód megmutatja, hogyan alkalmazzon 3D döntött hatásokat egy alakzatra:
+
 ```java
-// Hozzon létre egy példányt a Presentation osztályból.
+// A Presentation osztály példányát hozza létre.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Adjon hozzá egy alakzatot a diára.
+    // Alakzatot ad a diára.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -491,7 +553,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // Állítsa be az alakzat ThreeDFormat tulajdonságait.
+    // Beállítja az alakzat ThreeDFormat tulajdonságait.
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -509,22 +571,24 @@ try {
 
 Az eredmény:
 
-![The 3D bevel effect](3D-bevel-effect.png)
+![A 3D döntött hatás](3D-bevel-effect.png)
 
 ## **3D forgatási hatások hozzáadása**
 
-Az Aspose.Slides lehetővé teszi 3D forgatási hatások alkalmazását alakzatokra a [ThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
+Az Aspose.Slides lehetővé teszi 3D forgatási hatások hozzáadását alakzatokhoz a [ThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/threedformat/) tulajdonságainak konfigurálásával.
 
-3D forgatás alkalmazásához egy alakzatra:
+A 3D forgatási hatások alkalmazásához egy alakzatra:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.
-1. Szerezze be egy dia hivatkozását az indexe alapján.
-1. Adjon egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) elemet a diára.
-1. Használja a [setCameraType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icamera/#setCameraType-int-) és [setLightType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) metódusokat a 3D forgatás meghatározásához.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) osztályból.  
+1. Szerezzen referenciát egy diára az indexe alapján.  
+1. Adjon hozzá egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) alakzatot a diára.  
+1. Használja a [setCameraType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icamera/#setCameraType-int-) és a [setLightType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) metódusokat a 3D forgatás definiálásához.  
 1. Mentse a prezentációt.
 
+Az alábbi Java kód bemutatja, hogyan alkalmazzon 3D forgatási hatásokat egy alakzatra:
+
 ```java
-// Hozzon létre egy példányt a Presentation osztályból.
+// A Presentation osztály példányát hozza létre.
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
@@ -546,17 +610,17 @@ try {
 
 Az eredmény:
 
-![The 3D rotation effect](3D-rotation-effect.png)
+![A 3D forgatási hatás](3D-rotation-effect.png)
 
 ## **Formázás visszaállítása**
 
-Az alábbi Java kód bemutatja, hogyan állítsa vissza egy dia formázását, és hogyan állítsa alapértelmezett értékekre a [LayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/layoutslide/) helyőrzőkkel rendelkező összes alakzat helyzetét, méretét és formázását:
+Az alábbi Java kód megmutatja, hogyan állíthatja vissza egy dia formázását, és hogyan állíthatja vissza a pozíciót, méretet és a helyőrzőkkel rendelkező összes alakzat formázását a [LayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/layoutslide/) alapértelmezett beállításaira:
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // Állítsa vissza a dián lévő minden alakzatot, amelynek helyőrzője van az elrendezésen.
+        // Visszaállítja a dián lévő összes alakzatot, amelynek az elrendezésen helyőrzője van.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -567,14 +631,14 @@ try {
 
 ## **GYIK**
 
-**Bev Impactálja az alakzatok formázása a végleges prezentáció fájlméretét?**
+**A forma formázása befolyásolja a végleges prezentáció fájlméretét?**
 
-Csak minimálisan. A beágyazott képek és médiafájlok foglalják a fájl legnagyobb részét, míg az alakzati paraméterek (színek, effektusok, gradientek) metaadatként tárolódnak, és szinte nem növelik a méretet.
+Csak minimálisan. A beágyazott képek és médiafájlok teszik ki a fájl méretének a legtöbb részét, míg a forma paraméterei, például színek, effektusok és színátmenetek metaadatként tárolódnak, és gyakorlatilag nem növelik jelentősen a méretet.
 
-**Hogyan tudom felismerni az azonos formázású alakzatokat egy dián, hogy csoportosíthassam őket?**
+**Hogyan tudok azonos formázású alakzatokat egy dián azonosítani, hogy csoportosíthassam őket?**
 
-Hasonlítsa össze minden alakzat kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és effekt beállítások. Ha minden érték megegyezik, tekintse a stílusokat azonosnak, és logikailag csoportosítsa az alakzatokat, ami megkönnyíti a későbbi stíluskezelést.
+Hasonlítsa össze minden alakzat kulcsfontosságú formázási tulajdonságait – kitöltés, vonal és effektus beállításait. Ha az összes megfelelő érték megegyezik, tekintse őket azonos stílusúaknak, és logikailag csoportosítsa az alakzatokat, ami megkönnyíti a későbbi stíluskezelést.
 
-**Menthetek egy egyedi alakzatstílus-készletet külön fájlba, hogy más prezentációkban újra felhasználjam?**
+**Menthetek egy egyéni alakzatstílus-csomagot egy külön fájlba, hogy más prezentációkban is újra felhasználhassam?**
 
-Igen. Tárolja a kívánt stílusokkal rendelkező mintaalakzatokat egy sablon diákkészletben vagy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és alkalmazza a formázásukat a kívánt helyeken.
+Igen. Tárolja a kívánt stílusú mintaalakzatokat egy sablon‑diakönyvben vagy egy .POTX sablonfájlban. Új prezentáció létrehozásakor nyissa meg a sablont, klónozza a szükséges stílusú alakzatokat, és a kívánt helyeken alkalmazza a formázásukat.

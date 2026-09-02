@@ -1,178 +1,162 @@
 ---
 title: Použití nebo změna rozložení snímků v PHP
-linktitle: Rozložení snímků
+linktitle: Rozložení snímku
 type: docs
 weight: 60
 url: /cs/php-java/slide-layout/
 keywords:
 - rozložení snímku
 - rozložení obsahu
-- zástupný prvek
+- zástupný symbol
 - návrh prezentace
 - návrh snímku
 - nepoužité rozložení
 - viditelnost zápatí
 - titulní snímek
-- název a obsah
+- nadpis a obsah
 - hlavička sekce
-- dvousloupcový obsah
+- dvě oblasti
 - porovnání
 - pouze nadpis
 - prázdné rozložení
-- obsah s titulkem
-- obrázek s titulkem
-- název a svislý text
-- svislý název a text
+- obsah s popiskem
+- obrázek s popiskem
+- nadpis a vertikální text
+- vertikální nadpis a text
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Spravujte a přizpůsobujte rozložení snímků v Aspose.Slides pro PHP pomocí Javy. Prozkoumejte typy rozložení, řízení placeholderů a viditelnost zápatí pomocí ukázek kódu."
+description: "Používejte, vytvářejte a upravujte rozložení snímků v Aspose.Slides pro PHP pomocí Javy, přidávejte zástupné symboly, odstraňujte nepoužitá rozložení a říďte viditelnost zápatí."
 ---
-## **Úvod**
+## **Přehled**
 
-Rozložení snímku určuje uspořádání polí placeholderů a formátování obsahu na snímku. Řídí, které placeholdery jsou dostupné a kde se zobrazují. Rozložení snímků vám pomáhají navrhovat prezentace rychle a konzistentně – ať už vytváříte něco jednoduchého nebo složitějšího. Mezi nejčastěji používaná rozložení snímků v PowerPointu patří:
+Rozložení snímku definuje polohy a formátování zástupných symbolů, jako jsou nadpisy, text, obrázky, grafy a tabulky. Použitím rozložení získají snímky konzistentní strukturu a zároveň může každý snímek obsahovat vlastní obsah.
 
-**Rozložení titulního snímku** – obsahuje dva textové placeholdery: jeden pro nadpis a druhý pro podnadpis.
+Nejčastější rozložení zahrnují:
 
-**Rozložení Název a obsah** – obsahuje menší placeholder pro název v horní části a větší pod ním pro hlavní obsah (například text, odrážky, grafy, obrázky a další).
+- **Title Slide**: Obsahuje zástupné symboly nadpisu a podnadpisu.
+- **Title and Content**: Obsahuje zástupný symbol nadpisu a obecný zástupný symbol obsahu.
+- **Blank**: Neobsahuje žádné zástupné symboly a je užitečné, když bude každý tvar umístěn ručně.
 
-**Prázdné rozložení** – neobsahuje žádné placeholdery, což vám dává plnou kontrolu nad návrhem snímku od nuly.
+## **Pochopení dědičnosti rozvržení**
 
-Rozložení snímků jsou součástí hlavního snímku, který je nejvyšším úrovní snímku definujícím styly rozložení pro prezentaci. K rozložení snímků můžete získat přístup a upravovat je prostřednictvím hlavního snímku – buď podle jejich typu, názvu nebo unikátního ID. Případně můžete konkrétní rozložení snímku upravit přímo v prezentaci.
+Prezentace má tři související úrovně:
 
-Pro práci s rozloženími snímků v Aspose.Slides for PHP můžete použít:
+1. A [master snímek](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/) určuje motiv, sdílené formátování, pozadí a společné objekty.
+1. A [snímek rozložení](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/) patří k masteru a definuje konkrétní uspořádání zástupných symbolů.
+1. A [normální snímek](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/) používá jedno rozložení a ukládá obsah zadaný pro tento snímek.
 
-- Metody jako [getLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getLayoutSlides) a [getMasters](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getMasters) ve třídě [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) 
-- Typy jako [LayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/), a [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslideheaderfootermanager/)
+Normální snímek dědí motiv a formátování ze svého rozložení a rozložení dědí z masteru. Hodnota nastavená přímo na normálním snímku přepíše zděděnou hodnotu na této úrovni. Když je vytvořen normální snímek, jeho tvary zástupných symbolů jsou generovány ze zvoleného rozložení, zatímco obsah zadaný do těchto symbolů patří k normálnímu snímku.
 
-{{% alert title="Info" color="info" %}}
-Chcete-li se dozvědět více o práci s hlavními snímky, podívejte se na článek [Hlavní snímek](/slides/cs/php-java/slide-master/).
-{{% /alert %}}
+Přidejte požadované zástupné symboly do rozložení před vytvořením snímků z něj. Přidání dalšího zástupného symbolu do rozložení později automaticky nepřidá odpovídající tvar zástupného symbolu do existujících normálních snímků.
 
-## **Přidání rozložení snímků do prezentací**
+Tento vztah má dva důležité důsledky:
 
-Chcete-li přizpůsobit vzhled a strukturu svých snímků, může být nutné přidat do prezentace nová rozložení snímků. Aspose.Slides for PHP vám umožňuje zkontrolovat, zda konkrétní rozložení již existuje, přidat nové podle potřeby a použít jej k vložení snímků založených na tomto rozložení.
+- Změna zděděného formátování nebo existující geometrie zástupných symbolů v rozložení může aktualizovat každý snímek, který na něm závisí. Před úpravou rozložení, které je již používáno, zkontrolujte jeho závislé snímky a přezkoumejte výslednou prezentaci.
+- Rozložení, které je stále používáno nějakým snímkem, nelze odstranit. Nejprve přesuňte jeho závislé snímky na jiné rozložení nebo odstraňte jen nepoužívaná rozložení.
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte přístup ke [MasterLayoutSlideCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterlayoutslidecollection/).
-3. Ověřte, zda požadovaný rozložení snímku již v kolekci existuje. Pokud ne, přidejte potřebné rozložení snímku.
-4. Přidejte prázdný snímek založený na novém rozložení snímku.
-5. Uložte prezentaci.
+Další informace o nejvyšší úrovni této hierarchie najdete v [Slide Master](/slides/cs/php-java/slide-master/).
 
-Následující kód v PHP ukazuje, jak přidat rozložení snímku do prezentace PowerPoint:
+## **Vyberte a použijte rozložení snímku**
+
+Používejte typ rozložení, když prezentace používá standardní definice rozložení PowerPointu. Názvy rozložení jsou upravitelné uživatelem a mohou být lokalizovány, takže výběr podle názvu je méně spolehlivý, pokud nekontrolujete zdrojovou šablonu.
+
+Následující příklad hledá **Title and Content** v prvním masteru. Pokud není toto rozložení k dispozici, úmyslně přejde na **Blank**. Druhá kontrola na null je nutná, protože prezentace může obsahovat jen vlastní rozložení. Vybrané rozložení je pak použito na první normální snímek pomocí metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/cs/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
-// Vytvoří instanci třídy Presentation, která představuje soubor PowerPoint.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Projde typy rozložení snímků a vybere rozložení snímku.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Situace, kdy prezentace neobsahuje všechny typy rozložení.
-        // Soubor prezentace obsahuje pouze typy rozložení Blank a Custom.
-        // Avšak rozložení snímků s vlastními typy mohou mít rozpoznatelné názvy,
-        // například "Title", "Title and Content" atd., které lze použít pro výběr rozložení snímku.
-        // Můžete se také spolehnout na sadu typů tvarů placeholderů.
-        // Například snímek Title by měl mít pouze placeholder typu Title, a tak dále.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Přidej prázdný snímek pomocí přidaného rozložení snímku.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Ulož prezentaci na disk.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Odstranění nepoužívaných rozložení snímků**
+Změna rozložení snímku neodstraňuje běžné tvary přidané přímo do snímku. Nicméně pozice zástupných symbolů, zděděné formátování a shoda mezi existujícími zástupnými symboly a novým rozložením se mohou změnit, proto při přepínání mezi podstatně odlišnými rozloženími zkontrolujte výstup.
 
-Aspose.Slides poskytuje metodu [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) třídy [Compress](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/), která vám umožní smazat nežádoucí a nepoužívaná rozložení snímků.
+## **Přidání snímku rozložení**
 
-Následující kód v PHP ukazuje, jak odstranit rozložení snímku z prezentace PowerPoint:
+Výběr a vytvoření jsou samostatné operace. Předchozí příklad vybere existující rozložení; nevytváří ho. Pro vytvoření rozložení zavolejte metodu [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterlayoutslidecollection/#add) na kolekci rozložení cílového masteru.
+
+Následující příklad vždy přidá nové rozložení **Title and Content** s názvem `Report Title and Content` a poté přidá normální snímek založený na něm. Názvy rozložení musí být v kolekci jedinečné.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Přidání placeholderů do rozložení snímků**
+Přidejte rozložení jen tehdy, když šablona skutečně potřebuje další znovupoužitelnou strukturu. Pokud již existuje vhodné rozložení, vyberte a použijte jej místo vytváření duplikátu.
 
-Aspose.Slides poskytuje metodu [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getPlaceholderManager), která vám umožní přidat nové placeholdery do rozložení snímku.
+## **Přidání zástupných symbolů do snímku rozložení**
 
-Tento manažer obsahuje metody pro následující typy placeholderů:
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getPlaceholderManager) poskytuje objekt [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/) pro přidání tvarů zástupných symbolů do rozložení.
 
-| Placeholder v PowerPointu | [LayoutPlaceholderManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/) Metoda |
-| -------------------------- | ------------------------------------------------------------ |
-| ![Obsah](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Obsah (vertikální)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (vertikální)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Obrázek](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Graf](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabulka](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Média](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online obrázek](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint zástupný symbol          | `LayoutPlaceholderManager` metoda |
+| ----------------------------------- | --------------------------------- |
+| ![Content](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                   | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)                 | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Následující kód v PHP ukazuje, jak přidat nové tvary placeholderů do prázdného rozložení snímku:
+Následující příklad ověřuje, že rozložení **Blank** existuje, přidá k němu čtyři zástupné symboly a poté vytvoří normální snímek, který používá upravené rozložení. Pořadí je záměrné: zástupné symboly jsou přidány před vytvořením normálního snímku, aby Aspose.Slides mohl vygenerovat odpovídající tvary zástupných symbolů na tomto snímku.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Získá prázdné rozložení snímku.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Získá správce placeholderů rozložení snímku.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Přidá různé placeholdery do prázdného rozložení snímku.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Přidá nový snímek s prázdným rozložením.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -180,73 +164,86 @@ try {
 
 Výsledek:
 
-![Placeholdery na rozložení snímku](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Nastavení viditelnosti zápatí pro rozložení snímku**
+{{% alert color="warning" title="Warning" %}}
+Změna zděděného formátování nebo geometrie existujících zástupných symbolů rozložení může ovlivnit závislé snímky. Nově přidaný zástupný symbol rozložení se nevyplní do existujících normálních snímků. Testujte změny rozložení na kopii prezentace a zkontrolujte každý závislý snímek.
+{{% /alert %}}
 
-V prezentacích PowerPoint mohou být prvky zápatí, jako datum, číslo snímku a vlastní text, zobrazeny nebo skryty v závislosti na rozložení snímku. Aspose.Slides for PHP vám umožňuje řídit viditelnost těchto placeholderů zápatí. To je užitečné, když chcete, aby některá rozložení zobrazovala informace v zápatí, zatímco jiná zůstávají čistá a minimalistická.
+## **Odstranění nepoužívaných snímků rozložení**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte referenci na rozložení snímku podle jeho indexu.
-3. Nastavte placeholder zápatí snímku jako viditelný.
-4. Nastavte placeholder čísla snímku jako viditelný.
-5. Nastavte placeholder data a času jako viditelný.
-6. Uložte prezentaci.
-
-Následující kód v PHP ukazuje, jak nastavit viditelnost zápatí snímku a provést související úkoly:
+Použijte metodu [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) pro odstranění rozložení, na která neodkazuje žádný normální snímek. Metoda ponechá rozložení, která jsou stále používána, nedotčena.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
-
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
-    }
-
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-    }
-
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
-    $headerFooterManager->setFooterText("Footer text");
-    $headerFooterManager->setDateTimeText("Date and time text");
-
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Nastavení viditelnosti zápatí pro podřízený snímek**
+Chcete‑li odstranit konkrétní rozložení, nejprve použijte jeho metodu [hasDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#hasDependingSlides) nebo [getDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getDependingSlides). Před voláním [LayoutSlide.remove](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#remove) přesuňte všechny závislé snímky. Pokus o odstranění používaného rozložení vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/).
 
-V prezentacích PowerPoint lze prvky zápatí, jako datum, číslo snímku a vlastní text, řídit na úrovni hlavního snímku, aby byla zajištěna konzistence napříč všemi rozloženími snímků. Aspose.Slides for PHP vám umožňuje nastavit viditelnost a obsah těchto placeholderů zápatí na hlavním snímku a propagovat tato nastavení ke všem podřízeným rozložení snímků. Tento přístup zajišťuje jednotné informace v zápatí po celé prezentaci.
+## **Řízení viditelnosti zápatí na snímku rozložení**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte referenci na hlavní snímek podle jeho indexu.
-3. Nastavte placeholdery zápatí hlavního snímku i všech podřízených jako viditelné.
-4. Nastavte placeholdery čísel snímků hlavního snímku i všech podřízených jako viditelné.
-5. Nastavte placeholdery data a času hlavního snímku i všech podřízených jako viditelné.
-6. Uložte prezentaci.
+Rozložení má své vlastní zástupné symboly zápatí, čísla snímku a data‑času. Použijte metodu [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) pro řízení těchto symbolů u jednoho rozložení. To je užitečné například tehdy, když by obsahová rozložení měla zobrazovat zápatí, ale nadpisová ne.
 
-Následující kód v PHP demonstruje tuto operaci:
+Následující příklad bezpečně vybere rozložení a učiní jeho prvky zápatí viditelnými:
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    }
+
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
+    }
+
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
+
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Řízení viditelnosti zápatí v Masteru a jeho podřízených rozloženích**
+
+Pro jednotné nastavení zápatí v celé hierarchii masteru použijte metodu [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody šíření třídy [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/masterslideheaderfootermanager/) působí na master a jeho závislé snímky rozložení i normální snímky; neomezuje se jen na jeden normální snímek.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -254,14 +251,18 @@ try {
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi hlavním snímkem a rozložením snímku?**
+**Jaký je rozdíl mezi master snímkem a snímkem rozložení?**
 
-Hlavní snímek určuje celkový motiv a výchozí formátování, zatímco rozložení snímků definují konkrétní uspořádání placeholderů pro různé typy obsahu.
+Master snímek určuje motiv prezentace a sdílené formátování. Snímek rozložení patří k masteru a definuje jedno znovupoužitelné uspořádání zástupných symbolů. Normální snímky používají tato rozložení a ukládají obsah specifický pro konkrétní snímek.
 
-**Mohu zkopírovat rozložení snímku z jedné prezentace do druhé?**
+**Mohu kopírovat snímek rozložení z jedné prezentace do druhé?**
 
-Ano, můžete klonovat rozložení snímku z kolekce rozložení snímků jedné prezentace (přístupné metodou [getLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getLayoutSlides)) a vložit jej do jiné prezentace pomocí metody `addClone`.
+Ano. Přidejte kopii do cílové kolekce metodou [addClone](https://reference.aspose.com/slides/cs/php-java/aspose.slides/globallayoutslidecollection/#addClone). Při kopírování mezi prezentacemi také ověřte písma, motivy, obrázky a další zdroje použité ve zdrojovém rozložení.
 
-**Co se stane, když smažu rozložení snímku, které stále používá nějaký snímek?**
+**Co se stane, když upravím rozložení, které je již používáno?**
 
-Pokud se pokusíte smazat rozložení snímku, na který odkazuje alespoň jeden snímek v prezentaci, Aspose.Slides vyhodí výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/). Abyste tomu předešli, použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), která bezpečně odstraní pouze rozložení snímků, která nejsou používána.
+Závislé snímky zdědí změny rozložení, pokud lokálně nepřepisují ovlivněné formátování nebo objekty. Geometrie zástupných symbolů a zděděné stylování se tak mohou najednou změnit na mnoha snímcích. Použijte [getDependingSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/layoutslide/#getDependingSlides) k identifikaci ovlivněných snímků před úpravou rozložení.
+
+**Co se stane, pokud odstraním rozložení, které je stále používáno?**
+
+Aspose.Slides vyvolá výjimku [PptxEditException](https://reference.aspose.com/slides/cs/php-java/aspose.slides/pptxeditexception/). Nejprve přesuňte závislé snímky, nebo použijte [removeUnusedLayoutSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) k odstranění pouze neodkazovaných rozložení.

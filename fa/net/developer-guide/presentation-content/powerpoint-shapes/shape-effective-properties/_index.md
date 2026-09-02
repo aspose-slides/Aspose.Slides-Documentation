@@ -7,275 +7,247 @@ url: /fa/net/shape-effective-properties/
 keywords:
 - ویژگی‌های شکل
 - ویژگی‌های دوربین
-- نورپردازی
-- شکل برجسته
+- نظام نورپردازی
+- ویژگی‌های برش شکل
 - قاب متن
 - سبک متن
 - ارتفاع قلم
-- قالب پر کردن
-- PowerPoint
+- قالب پر شدن
+- پاورپوینت
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "کشف کنید Aspose.Slides برای .NET چگونه ویژگی‌های مؤثر شکل را برای رندر دقیق PowerPoint محاسبه و اعمال می‌کند."
+description: "یاد بگیرید چگونه از Aspose.Slides برای .NET استفاده کنید تا قالب‌بندی شکل‌های محلی، ارث‌برده و مؤثر را در ارائه‌های PowerPoint تشخیص دهید."
 ---
-## **Overview**
+## **درک ویژگی‌های محلی، ارث‌برده و مؤثر**
+PowerPoint قالب‌بندی می‌تواند از چندین منبع سرچشمه بگیرد. مقداری که مستقیماً بر روی یک شی ذخیره می‌شود **مقدار محلی** آن است. اگر آن مقدار تنظیم نشده باشد، PowerPoint به منابع قالب‌بندی والد نگاه می‌کند، مانند پیش‌فرض پاراگراف، سبک متن، طرح یا اسلاید اصلی، تم یا پیش‌فرض‌های سطح ارائه. آن مقادیر **مقادیر ارث‌برده** نامیده می‌شوند. مقداری که پس از حل کل سلسله‌مراتب باقی می‌ماند **مقدار مؤثر** است — مقداری که برای رندر شی استفاده می‌شود.
 
-این موضوع تفاوت بین ویژگی‌های **local** و **effective** را توضیح می‌دهد. مقادیر محلی، مقادیری هستند که مستقیماً در یک سطح خاص قالب‌بندی تنظیم می‌شوند، مانند:
+به عنوان مثال، ممکن است یک بخش متن ارتفاع قلم خود را تعریف نکند. مقدار **محلی** آن بخش [FontHeight](https://reference.aspose.com/slides/fa/net/aspose.slides/ibaseportionformat/fontheight/) سپس `float.NaN` است که به معنای «در اینجا تنظیم نشده» می‌باشد. این بخش می‌تواند ارتفاعی را از پاراگراف خود، سبک متن پیش‌فرض ارائه یا منبع قابل‌اعمال دیگر به ارث ببرد. فراخوانی [GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformat/geteffective/) بر روی فرمت بخش، ارتفاع نهایی حل‌شده را برمی‌گرداند.
 
-1. ویژگی‌های بخش در یک اسلاید.  
-1. سبک‌های متن شکل نمونه در یک طرح‌بندی یا اسلاید مستر، وقتی‌که شکل قاب متن بخش دارای آن باشد.  
-1. تنظیمات متن سراسری در یک ارائه.
+از دو نوع داده قالب‌بندی برای مقاصد مختلف استفاده کنید:
 
-مقادیر محلی می‌توانند در هر سطحی تعریف یا حذف شوند. هنگامی که Aspose.Slides به قالب‌بندی نهایی «as rendered» نیاز دارد، زنجیره وراثت را حل می‌کند و مقادیر **effective** را برمی‌گرداند. می‌توانید با فراخوانی متد `GetEffective` روی شیء قالب‌بندی محلی، این مقادیر را دریافت کنید.
+- خواندن یا تغییر شی قالب محلی، مانند [IPortionFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformat/)، زمانی که نیاز دارید کنترل کنید مقدار از کجا تعریف شده است.
+- خواندن شی داده مؤثر، مانند [IPortionFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformateffectivedata/)، زمانی که به نتیجه نهایی رندر شده نیاز دارید. داده‌های مؤثر فقط‑خواندنی هستند.
 
-مثال زیر نشان می‌دهد چگونه مقادیر effective را به دست آورید. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن و حداقل یک بخش باشد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-داده‌های قالب‌بندی Effective، قالب‌بندی محاسبه‌شده فعلی پس از اعمال وراثت را نشان می‌دهد. در پیاده‌سازی فعلی، برخی از اشیای دادهٔ Effective، مانند [IPortionFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformateffectivedata/)، ممکن است به‌صورت داخلی کش شوند. فراخوانی مجدد `GetEffective` پس از تغییر قالب‌بندی پدر یا وراثتی می‌تواند کش را تازه‌سازی کند و شیء قبلاً به‌دست آمده ممکن است دیگر نمایانگر وضعیت قبلی نباشد. اگر نیاز دارید مقادیر effective را برای استفادهٔ بعدی حفظ کنید، ویژگی‌های مورد نیاز مانند ارتفاع قلم، رنگ پر، سبک قلم یا تراز شدن را در شیء دادهٔ خود کپی کنید.
-{{% /alert %}}
-
-## **Get Effective Properties of a Camera**
-
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های effective دوربین را دریافت کنید. اینترفیس [ICameraEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icameraeffectivedata/) یک شیء غیرقابل تغییر است که ویژگی‌های effective دوربین را شامل می‌شود. یک نمونهٔ [ICameraEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icameraeffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر effective برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را فراهم می‌کند.
-
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های effective دوربین را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
+## **مقایسه مقادیر محلی، ارث‌برده و مؤثر**
+مثال کامل زیر یک شکل ایجاد می‌کند و ارتفاع‌های قلم را در سطوح ارائه، پاراگراف و بخش اعمال می‌نماید. در هر گام مقادیر تعریف‌شده در آن سطوح و مقدار مؤثر حاصل برای همان بخش متن چاپ می‌شود. همچنین نشان می‌دهد چرا پس از تغییرات قالب‌بندی باید داده‌های مؤثر دوباره خوانده شوند.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **Get Effective Properties of a Light Rig**
-
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های effective تنظیمات نور را دریافت کنید. اینترفیس [ILightRigEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrigeffectivedata/) یک شیء غیرقابل تغییر است که ویژگی‌های effective تنظیمات نور را شامل می‌شود. یک نمونهٔ [ILightRigEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ilightrigeffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر effective برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را فراهم می‌کند.
-
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های effective تنظیمات نور را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **Get Effective Properties of a Bevel Shape**
-
-Aspose.Slides به شما امکان می‌دهد ویژگی‌های effective برجستگی (Bevel) یک شکل را دریافت کنید. اینترفیس [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapebeveleffectivedata/) یک شیء غیرقابل تغییر است که ویژگی‌های effective برجستگی برای یک شکل را شامل می‌شود. یک نمونهٔ [IShapeBevelEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapebeveleffectivedata/) از طریق [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) در دسترس قرار می‌گیرد که مقادیر effective برای [IThreeDFormat](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/) را فراهم می‌کند.
-
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های effective برجستگی بالایی یک شکل را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید دارای قالب‌بندی سه‌بعدی باشد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **Get Effective Properties of a Text Frame**
-
-با استفاده از Aspose.Slides می‌توانید ویژگی‌های effective یک قاب متن را دریافت کنید. اینترفیس [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformateffectivedata/) شامل ویژگی‌های قالب‌بندی effective قاب متن است.
-
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های قالب‌بندی effective قاب متن را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن باشد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **Get Effective Properties of a Text Style**
-
-با استفاده از Aspose.Slides می‌توانید ویژگی‌های effective یک سبک متن را دریافت کنید. اینترفیس [ITextStyleEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/itextstyleeffectivedata/) شامل ویژگی‌های سبک متن effective است.
-
-کد نمونهٔ زیر نشان می‌دهد چگونه ویژگی‌های سبک متن effective را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید یک [IAutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/iautoshape/) با یک قاب متن باشد.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **Get the Effective Font Height Value**
-
-با استفاده از Aspose.Slides می‌توانید ارتفاع قلم effective را دریافت کنید. کد زیر نشان می‌دهد چگونه ارتفاع قلم effective یک بخش پس از تنظیم مقادیر محلی ارتفاع قلم در سطوح مختلف ساختار ارائه تغییر می‌کند.
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// تعریف مقادیر ارث‌برده در دو سطح مختلف.
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// یک مقدار محلی در بخش هر دو مقدار ارث‌برده را نادیده می‌گیرد.
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// تغییر یک مقدار ارث‌برده، مقدار محلی موجود را نادیده نمی‌گیرد.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// مقدار محلی را پاک کنید. سپس بخش دوباره از پاراگراف ارث می‌برد.
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// مقدار پاراگراف را پاک کنید. پیش‌فرض ارائه الآن نتیجه را تامین می‌کند.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // پس از تغییرات قبلی داده‌های مؤثر را بخوانید.
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **Get the Effective Fill Format for a Table**
+اولویت در این مثال قالب‌بندی محلی بخش، سپس قالب‌بندی پاراگراف، و در نهایت پیش‌فرض ارائه است. اشیاء دیگر می‌توانند زنجیره‌های وراثتی متفاوتی داشته باشند، اما اصل همان است: یک مقدار صریح و خاص‌تر برنده می‌شود و [GetEffective](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformat/geteffective/) نتیجه نهایی را برمی‌گرداند.
 
-با استفاده از Aspose.Slides می‌توانید قالب‌بندی پر شدن effective برای قسمت‌های مختلف جدول را دریافت کنید. اینترفیس [IFillFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/) شامل ویژگی‌های قالب‌بندی پر شدن effective است. قالب‌بندی سلول نسبت به قالب‌بندی ردیف اولویت بالاتری دارد، قالب‌بندی ردیف نسبت به قالب‌بندی ستون، و قالب‌بندی ستون نسبت به قالب‌بندی کل جدول اولویت بیشتری دارد.
+## **دریافت ویژگی‌های متن مؤثر**
+قالب‌بندی متن در چندین شی تقسیم می‌شود:
 
-در نتیجه، ویژگی‌های [ICellFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/icellformateffectivedata/) برای رسم سلول جدول استفاده می‌شوند. کد نمونهٔ زیر نشان می‌دهد چگونه قالب‌بندی پر شدن effective برای قسمت‌های مختلف جدول را دریافت کنید. فرض می‌شود اولین شکل در اولین اسلاید یک [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) باشد.
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/fa/net/aspose.slides/itextframeformat/geteffective/) ویژگی‌های چارچوب متن مانند حاشیه‌ها، لنگرگذاری، خود‌تنظیم و جهت عمودی متن را حل می‌کند.
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/fa/net/aspose.slides/itextstyle/geteffective/) قالب‌بندی پاراگراف را برای هر سطح سبک متن حل می‌کند.
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/fa/net/aspose.slides/iparagraphformat/geteffective/) ویژگی‌های پاراگراف مانند تراز، تورفتگی و بولت‌ها را حل می‌کند.
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/fa/net/aspose.slides/iportionformat/geteffective/) ویژگی‌های کاراکتر مانند ارتفاع قلم، نوع قلم، رنگ، ضخیم و کج را حل می‌کند.
+
+برای مثال بعدی، فایل `text-formatting.pptx` باید حداقل یک اسلاید و یک [AutoShape](https://reference.aspose.com/slides/fa/net/aspose.slides/autoshape/) با فریم متن غیرخالی داشته باشد. AutoShape می‌تواند در هر موقعیتی از مجموعه اشکال ظاهر شود؛ کد یک شی مناسب را جستجو کرده و پیش از استفاده آن را اعتبارسنجی می‌کند.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
 
-## **FAQ**
+## **دریافت ویژگی‌های 3D مؤثر**
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformat/geteffective/) یک شی [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/) را برمی‌گرداند که تمام تنظیمات 3D حل‌شده را گروه‌بندی می‌کند. ویژگی‌های آن شامل [Camera](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/camera/), [LightRig](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/lightrig/), [BevelTop](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/beveltop/) و [BevelBottom](https://reference.aspose.com/slides/fa/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) داده‌های مؤثر مربوطه را نشان می‌دهند. خواندن این تنظیمات مرتبط به‌صورت 함께، درک ظاهر نهایی 3D یک شکل را آسان‌تر می‌کند.
 
-**آیا `GetEffective` یک snapshot برمی‌گرداند؟**
+برای این مثال، فایل `shape-3d.pptx` باید حداقل یک شکل در اسلاید اول داشته باشد. اگر می‌خواهید خروجی شامل مقادیر دیگری نسبت به پیش‌فرض‌ها باشد، تنظیمات دوربین 3D، نورپردازی یا برجستگی را بر آن شکل اعمال کنید.
 
-همیشه نیست. دادهٔ Effective نمایانگر قالب‌بندی محاسبه‌شده پس از اعمال وراثت است، ولی برخی از اشیای دادهٔ Effective می‌توانند به‌صورت داخلی کش شوند. فراخوانی بعدی `GetEffective` ممکن است قالب‌بندی را دوباره محاسبه کند و کش را تازه‌سازی کند، بنابراین شیء قبلاً به‌دست آمده نباید به‌عنوان یک snapshot پایدار در نظر گرفته شود.
+```csharp
+using System;
+using Aspose.Slides;
 
-**چه زمانی باید دوباره ویژگی‌های effective را بخوانم؟**
+using var presentation = new Presentation("shape-3d.pptx");
 
-بعد از تغییر قالب‌بندی محلی، سبک‌های پدر، قالب‌بندی طرح‌بندی، قالب‌بندی مستر یا پیش‌فرض‌های سطح ارائه، `GetEffective` را دوباره فراخوانی کنید. فراخوانی بعدی سلسله‌مراتب قالب‌بندی را مجدداً ارزیابی می‌کند و نتیجهٔ effective فعلی را برمی‌گرداند.
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
 
-**آیا تغییر یا حذف یک اسلاید طرح‌بندی/مستر بر ویژگی‌های effective که قبلاً دریافت شده‌اند تأثیر می‌گذارد؟**
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
 
-بله، اما تغییر در فراخوانی بعدی `GetEffective` منعکس می‌شود. اگر منبع قالب‌بندی پدر تغییر یا حذف شود، دادهٔ Effective قبلاً به‌دست آمده ممکن است قدیمی باشد. پس از فراخوانی مجدد `GetEffective`، Aspose.Slides درخت قالب‌بندی را دوباره ارزیابی می‌کند و قلم‌ها، رنگ‌ها، اندازه‌ها یا مقادیر دیگر ممکن است تغییر کنند.
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
 
-**آیا می‌توانم مقادیر را از طریق اشیای دادهٔ Effective اصلاح کنم؟**
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
 
-خیر. اشیای دادهٔ Effective فقط مقادیر محاسبه‌شده را نشان می‌دهند. تغییرات را در اشیای قالب‌بندی محلی اعمال کنید و سپس مجدداً مقادیر effective را دریافت کنید.
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
 
-**اگر یک ویژگی در سطح شکل، در طرح‌بندی/مستر یا در تنظیمات سراسری تنظیم نشده باشد چه می‌شود؟**
+## **دریافت قالب‌بندی جدول مؤثر**
+قالب‌بندی جدول می‌تواند از سبک جدول و از قالب‌هایی که بر کل جدول، یک ستون، یک ردیف یا یک سلول منفرد اعمال می‌شود، سرچشمه بگیرد. برای تضادهای موجود در پرکننده‌های صریح، اولویت به ترتیب سلول، ردیف، ستون و سپس کل جدول است. قالب مؤثر یک سلول، قالب نهایی استفاده‌شده برای رسم آن سلول است.
 
-مقدار effective بر پایه مکانیزم پیش‌فرض تعیین می‌شود که شامل پیش‌فرض‌های PowerPoint و Aspose.Slides می‌شود. آن مقدار حل‌شده بخشی از دادهٔ Effective فعلی می‌شود.
+برای این مثال، فایل `table-formatting.pptx` باید حداقل یک جدول در اسلاید اول داشته باشد. جدول باید حداقل یک ردیف و یک ستون داشته باشد. کد به دنبال یک [ITable](https://reference.aspose.com/slides/fa/net/aspose.slides/itable/) می‌گردد به‌جای فرض اینکه `Shapes[0]` یک جدول است.
 
-**از یک مقدار قلم effective، آیا می‌توانم تشخیص دهم کدام سطح اندازه یا نوع قلم را فراهم کرده است؟**
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-به‌صورت مستقیم نمی‌توان. دادهٔ Effective مقدار نهایی را برمی‌گرداند. برای پیدا کردن منبع، مقادیر محلی را در بخش، پاراگراف، قاب متن و سبک‌های متن در طرح‌بندی، مستر و سطوح ارائه بررسی کنید تا ببینید اولین تعریف صریح کجا قرار دارد.
+using var presentation = new Presentation("table-formatting.pptx");
 
-**چرا گاهی مقدارهای effective شبیه مقدارهای محلی به نظر می‌آیند؟**
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-چون مقدار محلی در نهایت نهایی شده است (نیازی به وراثت از سطوح بالاتر نبوده). در این حالت مقدار effective با مقدار محلی مطابقت دارد.
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
 
-**چه زمانی باید از ویژگی‌های effective استفاده کنم و چه زمانی فقط با مقدارهای محلی کار کنم؟**
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
 
-وقتی به نتیجهٔ «as rendered» پس از اعمال تمام وراثت‌ها نیاز دارید (مثل هم‌ترازی رنگ‌ها، تو رفتگی‌ها یا اندازه‌ها) از دادهٔ Effective استفاده کنید. اگر می‌خواهید این مقادیر را صرف‌نظر از تغییرات بعدی قالب‌بندی حفظ کنید، ویژگی‌های مورد نیاز را در شیء خود کپی کنید. اگر می‌خواهید قالب‌بندی را در سطح خاصی تغییر دهید، ویژگی‌های محلی را اصلاح کنید و سپس، در صورت نیاز، دادهٔ Effective را دوباره بخوانید تا نتیجه را تأیید کنید.
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+اگر به رنگ نیاز دارید نه فقط نوع پرکننده، ابتدا [FillType](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/filltype/) مؤثر را بررسی کنید، سپس ویژگی مربوط به آن نوع را بخوانید — برای مثال، [SolidFillColor](https://reference.aspose.com/slides/fa/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) برای پرکنندهٔ جامد.
+
+## **دوباره‌خوانی داده‌های مؤثر پس از تغییرات**
+داده‌های مؤثر سلسله‌مراتبی قالب‌بندی را در زمان حل توصیف می‌کنند. پس از تغییر هر چیزی که می‌تواند در این سلسله‌مراتب شرکت کند، مجدداً `GetEffective` را فراخوانی کنید، شامل:
+
+- قالب‌بندی محلی شی؛
+- پیش‌فرض‌های پاراگراف یا فریم متن؛
+- سبک جدول، جدول، ستون، ردیف یا قالب سلول؛
+- قالب‌بندی چیدمان یا اسلاید اصلی؛
+- داده‌های تم یا پیش‌فرض‌های سطح ارائه؛
+- چیدمان یا اسلاید اصلی اختصاص یافته به یک اسلاید.
+
+یک شی داده مؤثر را به‌عنوان تصویر دائمی نگه ندارید. Aspose.Slides ممکن است برخی داده‌های مؤثر را به‌صورت داخلی کش کند و فراخوانی بعدی `GetEffective` می‌تواند آن داده‌ها را به‌روز کند. اگر نیاز به مقایسه مقادیر قبل و بعد از تغییر دارید، مقادیر اسکالر مورد نیاز خود—مانند ارتفاع قلم، رنگ، تراز یا عرض برجستگی—را قبل از اعمال تغییر در متغیرهای خود کپی کنید.
+
+برای تغییر یک مقدار، شی قالب محلی مناسب را به‌روزرسانی کنید و سپس `GetEffective` را فراخوانی کنید تا نتیجه را تأیید کنید. خود اشیای داده مؤثر فقط‑خواندنی هستند.
+
+## **سوالات متداول**
+**چگونه می‌توانم تعیین کنم کدام سطح مقدار مؤثر را فراهم کرده است؟**
+داده‌های مؤثر مقدار نهایی را شامل می‌شوند، نه منبع آن. اشیای محلی قابل‌استفاده را از سطح خاص‌ترین به سمت بیرون بررسی کنید. برای متن، این می‌تواند شامل بخش، پاراگراف، فریم متن، چیدمان، اسلاید اصلی، تم و پیش‌فرض‌های ارائه باشد. مقادیر تعریف‌نشده مانند `float.NaN` یا `null` نشان می‌دهند که جستجو به سطح دیگری ادامه می‌یابد.
+
+**چه اتفاقی می‌افتد اگر هیچ سطحی ویژگی را تعریف نکند؟**
+Aspose.Slides پیش‌فرض مناسب PowerPoint یا کتابخانه را حل می‌کند. آن مقدار حل‌شده در داده‌های مؤثر ظاهر می‌شود حتی اگر هیچ شی محلی به‌وضوح آن را تعریف نکرده باشد.
+
+**چرا گاهی مقدار مؤثر برابر مقدار محلی است؟**
+مقدار محلی محاسبه وراثت را برنده شده است. این هنگام تنظیم صریح ویژگی بر روی شی و عدم وجود قاعده‌ای خاص‌تر که آن را بازنویسی کند، انتظار می‌رود.
+
+**کی باید از داده‌های محلی به‌جای داده‌های مؤثر استفاده کنم؟**
+از داده‌های محلی برای بازرسی یا ویرایش یک سطح خاص قالب‌بندی استفاده کنید. از داده‌های مؤثر زمانی استفاده کنید که به ظاهر نهایی پس از وراثت، قواعد تم و سبک‌های قابل‌اعمال نیاز دارید. مثال [complete comparison example](#compare-local-inherited-and-effective-values) هر دو را در یک جریان کاری نشان می‌دهد.

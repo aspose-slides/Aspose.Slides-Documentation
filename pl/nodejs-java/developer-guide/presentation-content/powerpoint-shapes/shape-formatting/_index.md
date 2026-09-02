@@ -1,5 +1,5 @@
 ---
-title: Formatuj kształty PowerPoint w JavaScript
+title: Formatowanie kształtów PowerPoint w JavaScript
 linktitle: Formatowanie kształtów
 type: docs
 weight: 20
@@ -7,44 +7,48 @@ url: /pl/nodejs-java/shape-formatting/
 keywords:
 - formatowanie kształtu
 - formatowanie linii
+- efekt szkicu
+- linia szkicu kształtu
 - formatowanie stylu połączenia
 - wypełnienie gradientem
 - wypełnienie wzorem
 - wypełnienie obrazem
 - wypełnienie teksturą
-- wypełnienie jednolitym kolorem
+- wypełnienie kolorem stałym
 - przezroczystość kształtu
-- obracanie kształtu
-- efekt 3D z fazką
-- efekt 3D rotacji
+- obrócenie kształtu
+- efekt 3D fazowania
+- efekt 3D obrotu
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Formatuj kształty PowerPoint w JavaScript przy użyciu Aspose.Slides—ustaw style wypełnienia, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
+description: "Formatuj kształty PowerPoint w JavaScript przy użyciu Aspose.Slides — ustaw style wypełnień, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
 ---
 ## **Wprowadzenie**
 
-W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz formatować je, modyfikując lub stosując efekty do ich konturów. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące sposób wypełniania ich wnętrz.
+W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz je formatować, modyfikując lub stosując efekty na ich obramowaniach. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące sposób wypełnienia ich wnętrza.
 
-![Formatowanie kształtu w PowerPoint](format-shape-powerpoint.png)
+![formatowanie-kształtu-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Node.js via Java udostępnia klasy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
+Aspose.Slides dla Node.js poprzez Java udostępnia klasy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
 
 ## **Formatowanie linii**
 
-Używając Aspose.Slides, możesz określić niestandardowy styl linii dla kształtu. Poniżej opisano kroki procedury:
+Korzystając z Aspose.Slides, możesz określić własny styl linii dla kształtu. Poniższe kroki opisują procedurę:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
 1. Ustaw [styl linii](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/linestyle/) kształtu.
 1. Ustaw szerokość linii.
 1. Ustaw [styl kreskowania](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/linedashstyle/) linii.
 1. Ustaw kolor linii dla kształtu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Poniższy kod demonstruje, jak sformatować prostokąt `AutoShape`:
 
 ```js
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
@@ -53,13 +57,13 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Prostokąt.
+    // Dodaj automatyczny kształt typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 150, 75);
 
     // Ustaw kolor wypełnienia dla prostokątnego kształtu.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
 
-    // Zastosuj formatowanie do linii prostokąta.
+    // Zastosuj formatowanie linii prostokąta.
     shape.getLineFormat().setStyle(java.newByte(aspose.slides.LineStyle.ThickThin));
     shape.getLineFormat().setWidth(7);
     shape.getLineFormat().setDashStyle(java.newByte(aspose.slides.LineDashStyle.Dash));
@@ -68,28 +72,78 @@ try {
     shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("formatted_lines.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
+
+## **Zastosuj efekty szkicu do linii kształtu**
+
+Efekt szkicu sprawia, że linia kształtu wygląda jak odręczna. Użyj [Shape.getLineFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/shape/) aby uzyskać dostęp do ustawień linii, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/lineformat/) aby uzyskać dostęp do ustawień szkicu oraz [SketchFormat.setSketchType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sketchformat/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/linesketchtype/).
+
+Poniższy kod JavaScript pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/linesketchtype/), odczytać jawnie przypisaną wartość oraz usunąć efekt przy użyciu [LineSketchType.None](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/linesketchtype/):
+
+```js
+let presentation = new aspose.slides.Presentation();
+try {
+    let slide = presentation.getSlides().get_Item(0);
+    let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 200, 100);
+
+    // Uzyskaj dostęp do formatu linii kształtu i jego formatu szkicu.
+    let sketchFormat = shape.getLineFormat().getSketchFormat();
+
+    // Zastosuj efekt szkicu.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.Curved);
+
+    // Odczytaj efekt szkicu przypisany bezpośrednio do kształtu.
+    let explicitSketchType = sketchFormat.getSketchType();
+    console.log("Explicit sketch type: " + explicitSketchType);
+
+    // Usuń efekt szkicu.
+    sketchFormat.setSketchType(aspose.slides.LineSketchType.None);
+} finally {
+    presentation.dispose();
+}
+```
+
+Wartość zwrócona przez [SketchFormat.getSketchType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/sketchformat/) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu nadrzędnego lub slajdu układu, użyj [LineFormat.getEffective](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/lineformat/), wywołaj `getSketchFormat` na zwróconym obiekcie, a następnie wywołaj jego metodę `getSketchType`. Wartość efektywna odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia:
+
+```js
+let presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    let shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    let lineFormat = shape.getLineFormat();
+
+    let explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    let effectiveLineFormat = lineFormat.getEffective();
+    let effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    console.log("Explicit sketch type: " + explicitSketchType);
+    console.log("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **Formatowanie stylów połączeń**
 
 Oto trzy dostępne opcje typu połączenia:
 
 * Zaokrąglony
-* Stykowy
+* Kątowy
 * Ścięty
 
-Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w rogu kształtu), używa ustawienia **Zaokrąglony**. Jednak przy rysowaniu kształtu o ostrych kątach możesz preferować opcję **Stykowy**.
+Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w rogu kształtu), używa ustawienia **Round**. Jednak przy rysowaniu kształtu z ostrymi kątami możesz woleć opcję **Miter**.
 
 ![Styl połączenia w prezentacji](join-style-powerpoint.png)
+
+Poniższy kod JavaScript demonstruje, jak trzy prostokąty (jak na powyższym obrazku) zostały utworzone przy użyciu ustawień typu połączenia Miter, Bevel i Round:
 
 ```js
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
@@ -98,7 +152,7 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj trzy auto kształty typu Rectangle.
+    // Dodaj trzy automatyczne kształty typu Rectangle.
     let shape1 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 75);
     let shape2 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 210, 20, 150, 75);
     let shape3 = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 135, 150, 75);
@@ -134,7 +188,7 @@ try {
     shape2.getTextFrame().setText("Bevel Join Style");
     shape3.getTextFrame().setText("Round Join Style");
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("join_styles.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
@@ -143,15 +197,15 @@ try {
 
 ## **Wypełnienie gradientem**
 
-W programie PowerPoint wypełnienie gradientem to opcja formatowania, która pozwala zastosować ciągłe przejście kolorów w kształcie. Na przykład możesz zastosować dwa lub więcej kolorów, tak aby jeden stopniowo przechodził w drugi.
+W programie PowerPoint Wypełnienie gradientem to opcja formatowania, która pozwala zastosować ciągłe przejście kolorów w kształcie. Na przykład możesz zastosować dwa lub więcej kolorów tak, aby jeden stopniowo przechodził w drugi.
 
-Aby zastosować wypełnienie gradientem do kształtu przy użyciu Aspose.Slides:
+Oto jak zastosować wypełnienie gradientem do kształtu przy użyciu Aspose.Slides:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
 1. Ustaw [FillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) kształtu na `Gradient`.
-1. Dodaj dwa wybrane kolory wraz z określonymi pozycjami, używając metod `add` kolekcji przystanków gradientu udostępnianej przez klasę [GradientFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/gradientformat/).
+1. Dodaj dwie wybrane kolory z określonymi pozycjami, używając metod `add` kolekcji przystanków gradientu udostępnianej przez klasę [GradientFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/gradientformat/).
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```js
@@ -161,10 +215,10 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Ellipse.
+    // Dodaj automatyczny kształt typu Ellipse.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // Zastosuj formatowanie gradientowe do elipsy.
+    // Zastosuj formatowanie gradientem do elipsy.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Gradient));
     shape.getFillFormat().getGradientFormat().setGradientShape(java.newByte(aspose.slides.GradientShape.Linear));
 
@@ -175,32 +229,32 @@ try {
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(1.0, aspose.slides.PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor(0, aspose.slides.PresetColor.Red);
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("gradient_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
 ## **Wypełnienie wzorem**
 
-W programie PowerPoint wypełnienie wzorem to opcja formatowania, która pozwala zastosować dwukolorowy wzór — na przykład kropki, paski, krzyżykowanie lub szachownicę — do kształtu. Możesz wybrać własne kolory dla pierwszego planu i tła wzoru.
+W programie PowerPoint Wypełnienie wzorem to opcja formatowania, która umożliwia zastosowanie dwukolorowego wzoru — takiego jak kropki, paski, siatki lub szachownica — do kształtu. Możesz wybrać własne kolory pierwszego planu i tła wzoru.
 
-Aspose.Slides udostępnia ponad 45 wstępnie zdefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu gotowego wzoru możesz określić dokładne kolory, które ma on używać.
+Aspose.Slides udostępnia ponad 45 wstępnie zdefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu wstępnie zdefiniowanego wzoru możesz nadal określić dokładne kolory, które ma używać.
 
-Aby zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
+Oto, jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
 1. Ustaw [FillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) kształtu na `Pattern`.
-1. Wybierz styl wzoru spośród predefiniowanych opcji.
-1. Ustaw [Background Color](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/patternformat/#getBackColor--) wzoru.
-1. Ustaw [Foreground Color](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/patternformat/#getForeColor--) wzoru.
+1. Wybierz styl wzoru spośród dostępnych opcji.
+1. Ustaw [Kolor tła](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/patternformat/#getBackColor--) wzoru.
+1. Ustaw [Kolor pierwszego planu](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/patternformat/#getForeColor--) wzoru.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```js
@@ -210,7 +264,7 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Ustaw typ wypełnienia na Pattern.
@@ -223,31 +277,33 @@ try {
     shape.getFillFormat().getPatternFormat().getBackColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
     shape.getFillFormat().getPatternFormat().getForeColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("pattern_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
 ![Prostokąt z wypełnieniem wzorem](pattern-fill.png)
 
 ## **Wypełnienie obrazem**
 
-W programie PowerPoint wypełnienie obrazem to opcja formatowania, która pozwala wstawić obraz wewnątrz kształtu — efektywnie używając obrazu jako tła kształtu.
+W programie PowerPoint Wypełnienie obrazem to opcja formatowania, która pozwala wstawić obraz wewnątrz kształtu — skutecznie używając obrazu jako tła kształtu.
 
-Jak używać Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
+Oto, jak użyć Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
 1. Ustaw [FillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) kształtu na `Picture`.
-1. Ustaw tryb wypełnienia obrazu na `Tile` (lub inny preferowany tryb).
+1. Ustaw tryb wypełnienia obrazem na `Tile` (lub inny preferowany tryb).
 1. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/ppimage/) z obrazu, którego chcesz użyć.
 1. Przekaż obraz do metody `ISlidesPicture.setImage`.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+
+Załóżmy, że mamy plik "lotus.png" z następującym obrazem:
 
 ![Obraz lotosu](lotus.png)
 
@@ -258,7 +314,7 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 255, 130);
     
     // Ustaw typ wypełnienia na Picture.
@@ -267,7 +323,7 @@ try {
     // Ustaw tryb wypełnienia obrazem.
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(aspose.slides.PictureFillMode.Tile);
 
-    // Załaduj obraz i dodaj go do zasobów prezentacji.
+    // Wczytaj obraz i dodaj go do zasobów prezentacji.
     let image = aspose.slides.Images.fromFile("lotus.png");
     let picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -275,26 +331,26 @@ try {
     // Ustaw obraz.
     shape.getFillFormat().getPictureFillFormat().getPicture().setImage(picture);
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("picture_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
 ![Kształt z wypełnieniem obrazem](picture-fill.png)
 
-### **Użycie obrazu kafelkowego jako tekstury**
+### **Kafelkowanie obrazu jako tekstura**
 
-Jeśli chcesz ustawić obraz kafelkowy jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/):
+Jeśli chcesz ustawić obraz kafelkowany jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/):
 
-- [setPictureFillMode](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Ustawia tryb wypełnienia obrazu — `Tile` lub `Stretch`.
+- [setPictureFillMode](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setPictureFillMode): Ustawia tryb wypełnienia obrazem — `Tile` lub `Stretch`.
 - [setTileAlignment](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileAlignment): Określa wyrównanie kafelków w kształcie.
-- [setTileFlip](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Kontroluje, czy kafelek jest odwrócony poziomo, pionowo czy obu sposobów.
-- [setTileOffsetX](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Ustawia poziome przesunięcie kafelka (w punktach) od początku kształtu.
-- [setTileOffsetY](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Ustawia pionowe przesunięcie kafelka (w punktach) od początku kształtu.
+- [setTileFlip](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileFlip): Kontroluje, czy kafelek jest odbity w poziomie, pionie lub obu kierunkach.
+- [setTileOffsetX](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetX): Ustawia poziomy offset kafelka (w punktach) od pochodzenia kształtu.
+- [setTileOffsetY](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileOffsetY): Ustawia pionowy offset kafelka (w punktach) od pochodzenia kształtu.
 - [setTileScaleX](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileScaleX): Definiuje poziomą skalę kafelka jako procent.
 - [setTileScaleY](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/picturefillformat/#setTileScaleY): Definiuje pionową skalę kafelka jako procent.
 
@@ -305,13 +361,13 @@ try {
     // Pobierz pierwszy slajd.
     let firstSlide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     let shape = firstSlide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 190, 95);
 
     // Ustaw typ wypełnienia kształtu na Picture.
     shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Picture));
 
-    // Załaduj obraz i dodaj go do zasobów prezentacji.
+    // Wczytaj obraz i dodaj go do zasobów prezentacji.
     let sourceImage = aspose.slides.Images.fromFile("lotus.png");
     let presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
@@ -329,28 +385,28 @@ try {
     pictureFillFormat.setTileAlignment(java.newByte(aspose.slides.RectangleAlignment.BottomRight));
     pictureFillFormat.setTileFlip(aspose.slides.TileFlip.FlipBoth);
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("tile.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
 ![Opcje kafelkowania](tile-options.png)
 
-## **Wypełnienie jednolitym kolorem**
+## **Wypełnienie kolorem stałym**
 
-W programie PowerPoint wypełnienie jednolitym kolorem to opcja formatowania, która wypełnia kształt jednym, jednolitym kolorem. To proste tło jest stosowane bez gradientów, tekstur ani wzorów.
+W programie PowerPoint Wypełnienie kolorem stałym to opcja formatowania, która wypełnia kształt jednym, jednolitym kolorem. Ten prosty kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
 
-Aby zastosować wypełnienie jednolitym kolorem do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
+Aby zastosować wypełnienie jednolitym kolorem w kształcie przy użyciu Aspose.Slides, wykonaj następujące kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
 1. Ustaw [FillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) kształtu na `Solid`.
-1. Przypisz preferowany kolor wypełnienia kształtowi.
+1. Przypisz wybrany kolor wypełnienia do kształtu.
 1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```js
@@ -360,7 +416,7 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Ustaw typ wypełnienia na Solid.
@@ -369,66 +425,66 @@ try {
     // Ustaw kolor wypełnienia.
     shape.getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("solid_color_fill.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
-![Kształt z jednolitym wypełnieniem koloru](solid-color-fill.png)
+![Kształt z wypełnieniem kolorem stałym](solid-color-fill.png)
 
-## **Ustawienie przezroczystości**
+## **Ustaw przezroczystość**
 
-W programie PowerPoint, gdy stosujesz wypełnienie jednolitym kolorem, gradientem, obrazem lub teksturą do kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować krycie wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przezroczysty, co pozwala częściowo widzieć tło lub obiekty pod nim.
+W programie PowerPoint, gdy zastosujesz wypełnienie kształtów jednolitym kolorem, gradientem, obrazem lub teksturą, możesz także ustawić poziom przezroczystości, aby kontrolować nieprzezroczystość wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przejrzysty, pozwalając na częściowe widoczność tła lub obiektów pod spodem.
 
-Aspose.Slides umożliwia ustawienie poziomu przezroczystości poprzez dostosowanie wartości alfa w kolorze używanym do wypełnienia. Oto jak to zrobić:
+Aspose.Slides pozwala ustawić poziom przezroczystości, dostosowując wartość alfa w kolorze używanym do wypełnienia. Oto jak to zrobić:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
 1. Ustaw [FillType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/filltype/) kształtu na `Solid`.
-1. Użyj `Color`, aby określić kolor z przezroczystością (składnik `alpha` kontroluje przezroczystość).
+1. Użyj `Color`, aby zdefiniować kolor z przezroczystością (składnik `alpha` kontroluje przezroczystość).
 1. Zapisz prezentację.
 
 ```js
-// Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
-let presentation = new aspose.slides.Presentation();
-try {
-    // Pobierz pierwszy slajd.
-    let slide = presentation.getSlides().get_Item(0);
+    // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
+    let presentation = new aspose.slides.Presentation();
+    try {
+        // Pobierz pierwszy slajd.
+        let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj prostokątny auto kształt wypełniony jednolitym kolorem.
-    let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
+        // Dodaj automatyczny kształt prostokątny wypełniony.
+        let solidShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // Dodaj przezroczysty prostokątny auto kształt nad solidnym kształtem.
-    let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
-    transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
+        // Dodaj automatyczny prostokątny kształt przezroczysty nad kształtem wypełnionym.
+        let transparentShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 150, 75);
+        transparentShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+        transparentShape.getFillFormat().getSolidFillColor().setColor(java.newInstanceSync("java.awt.Color", 255, 255, 0, 204));
 
-    // Zapisz plik PPTX na dysk.
-    presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
+        // Zapisz plik PPTX na dysku.
+        presentation.save("shape_transparency.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
 ```
 
-Rezultat:
+Wynik:
 
-![Kształt z przezroczystością](shape-transparency.png)
+![Przezroczysty kształt](shape-transparency.png)
 
 ## **Obracanie kształtów**
 
-Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne podczas pozycjonowania elementów wizualnych o określonym wyrównaniu lub wymaganiach projektowych.
+Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne przy ustawianiu elementów wizualnych z określonym wyrównaniem lub potrzebami projektowymi.
 
 Aby obrócić kształt na slajdzie, wykonaj następujące kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość rotacji kształtu na żądany kąt.
+1. Ustaw właściwość obrotu kształtu na żądany kąt.
 1. Zapisz prezentację.
 
 ```js
@@ -438,33 +494,33 @@ try {
     // Pobierz pierwszy slajd.
     let slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj auto kształt typu Rectangle.
+    // Dodaj automatyczny kształt typu Rectangle.
     let shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 150, 75);
 
     // Obróć kształt o 5 stopni.
     shape.setRotation(5);
 
-    // Zapisz plik PPTX na dysk.
+    // Zapisz plik PPTX na dysku.
     presentation.save("shape_rotation.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-Rezultat:
+Wynik:
 
 ![Obrót kształtu](shape-rotation.png)
 
-## **Dodawanie efektów 3D z fazką**
+## **Dodaj efekty 3D Bevel**
 
-Aspose.Slides umożliwia zastosowanie efektów 3D z fazką do kształtów poprzez skonfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides pozwala stosować efekty 3D Bevel do kształtów, konfigurując ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/threedformat/).
 
-Aby dodać efekty 3D z fazką do kształtu, wykonaj następujące kroki:
+Aby dodać efekty 3D Bevel do kształtu, wykonaj następujące kroki:
 
-1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-1. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/threedformat/) kształtu, aby określić ustawienia fazki.
+1. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/threedformat/) kształtu, definiując ustawienia bevel.
 1. Zapisz prezentację.
 
 ```js
@@ -497,20 +553,20 @@ try {
 }
 ```
 
-Rezultat:
+Wynik:
 
-![Efekt 3D z fazką](3D-bevel-effect.png)
+![Efekt 3D Bevel](3D-bevel-effect.png)
 
-## **Dodawanie efektów 3D rotacji**
+## **Dodaj efekty obrotu 3D**
 
-Aspose.Slides umożliwia zastosowanie efektów 3D rotacji do kształtów poprzez skonfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/threedformat/).
+Aspose.Slides umożliwia zastosowanie efektów obrotu 3D do kształtów, konfigurując ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/threedformat/).
 
-Aby zastosować 3D rotację do kształtu:
+Aby zastosować obrót 3D do kształtu:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/).
-1. Uzyskaj odwołanie do slajdu za pomocą jego indeksu.
+1. Uzyskaj odwołanie do slajdu według jego indeksu.
 1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/autoshape/) do slajdu.
-1. Użyj [setCameraType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/camera/#setCameraType) i [setLightType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/lightrig/#setLightType), aby określić rotację 3D.
+1. Użyj [setCameraType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/camera/#setCameraType) i [setLightType](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/lightrig/#setLightType), aby zdefiniować obrót 3D.
 1. Zapisz prezentację.
 
 ```js
@@ -534,20 +590,20 @@ try {
 }
 ```
 
-Rezultat:
+Wynik:
 
-![Efekt 3D rotacji](3D-rotation-effect.png)
+![Efekt 3D obrotu](3D-rotation-effect.png)
 
 ## **Resetowanie formatowania**
 
-Poniższy kod Java pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z symbolami na [LayoutSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/) do ich ustawień domyślnych:
+Poniższy kod Java pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/layoutslide/) do ich domyślnych ustawień:
 
 ```js
 let presentation = new aspose.slides.Presentation("sample.pptx");
 try {
     for (let i = 0; i < presentation.getSlides().size(); i++) {
         let slide = presentation.getSlides().get_Item(i);
-        // Zresetuj każdy kształt na slajdzie, który ma symbol zastępczy w układzie.
+        // Zresetuj każdy kształt na slajdzie, który ma placeholder w układzie.
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", aspose.slides.SaveFormat.Pptx);
@@ -560,12 +616,12 @@ try {
 
 **Czy formatowanie kształtów wpływa na ostateczny rozmiar pliku prezentacji?**
 
-Jedynie nieznacznie. Osadzone obrazy i multimedia zajmują większość miejsca w pliku, podczas gdy parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
+Tylko w minimalnym stopniu. Osadzone obrazy i multimedia zajmują większość miejsca w pliku, podczas gdy parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
 
 **Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — ustawienia wypełnienia, linii i efektów. Jeśli wszystkie odpowiadające sobie wartości są takie same, traktuj ich style jako identyczne i logicznie grupuj te kształty, co ułatwia późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — ustawienia wypełnienia, linii i efektów. Jeśli wszystkie odpowiadające sobie wartości są zgodne, potraktuj ich style jako identyczne i logicznie pogrupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw własnych stylów kształtów w osobnym pliku i ponownie wykorzystać go w innych prezentacjach?**
+**Czy mogę zapisać zestaw własnych stylów kształtów w osobnym pliku do ponownego użycia w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z pożądanymi stylami w szablonie slajdów lub pliku szablonu .POTX. Podczas tworzenia nowej prezentacji otwórz szablon, sklonuj potrzebne sformatowane kształty i ponownie zastosuj ich formatowanie w wybranych miejscach.
+Tak. Przechowuj przykładowe kształty z pożądanymi stylami w zestawie slajdów szablonu lub w pliku szablonu .POTX. Tworząc nową prezentację, otwórz szablon, sklonuj potrzebne stylowane kształty i ponownie zastosuj ich formatowanie w wybranych miejscach.

@@ -7,11 +7,11 @@ url: /vi/net/slide-layout/
 keywords:
 - bố cục slide
 - bố cục nội dung
-- phần giữ chỗ
-- thiết kế bài thuyết trình
+- trình giữ chỗ
+- thiết kế bản trình bày
 - thiết kế slide
 - bố cục không sử dụng
-- hiển thị chân trang
+- hiển thị footer
 - slide tiêu đề
 - tiêu đề và nội dung
 - đầu mục phần
@@ -25,243 +25,219 @@ keywords:
 - tiêu đề dọc và văn bản
 - PowerPoint
 - OpenDocument
-- bài thuyết trình
+- bản trình bày
 - C#
 - .NET
 - Aspose.Slides
-description: "Quản lý và tùy chỉnh bố cục slide trong Aspose.Slides cho .NET. Khám phá các loại bố cục, kiểm soát phần giữ chỗ và hiển thị chân trang thông qua các ví dụ mã C#."
+description: "Áp dụng, tạo và sửa đổi bố cục slide trong Aspose.Slides cho .NET, thêm trình giữ chỗ, xóa bố cục không sử dụng và kiểm soát hiển thị footer."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Một bố cục slide định nghĩa cách sắp xếp các hộp giữ chỗ và định dạng cho nội dung trên một slide. Nó kiểm soát những hộp giữ chỗ nào có sẵn và chúng xuất hiện ở đâu. Bố cục slide giúp bạn thiết kế bài thuyết trình nhanh chóng và nhất quán—cho dù bạn đang tạo một thứ đơn giản hay phức tạp hơn. Một số bố cục slide phổ biến nhất trong PowerPoint bao gồm:
+Bố cục slide xác định vị trí và định dạng của các placeholder như tiêu đề, văn bản, hình ảnh, biểu đồ và bảng. Áp dụng một bố cục giúp các slide có cấu trúc nhất quán trong khi cho phép mỗi slide chứa nội dung riêng của nó.
 
-**Bố cục Trang Tiêu đề** – Bao gồm hai hộp giữ chỗ văn bản: một cho tiêu đề và một cho phụ đề.
+Các bố cục phổ biến nhất bao gồm:
 
-**Bố cục Tiêu Đề và Nội Dung** – Có một hộp giữ chỗ tiêu đề nhỏ hơn ở phía trên và một hộp lớn hơn phía dưới cho nội dung chính (như văn bản, dấu đầu dòng, biểu đồ, hình ảnh, và hơn thế nữa).
+- **Title Slide**: Chứa các placeholder tiêu đề và phụ đề.
+- **Title and Content**: Chứa một placeholder tiêu đề và một placeholder nội dung chung.
+- **Blank**: Không chứa placeholder nội dung nào và hữu ích khi mọi hình dạng sẽ được đặt thủ công.
 
-**Bố cục Trống** – Không chứa hộp giữ chỗ nào, cho phép bạn tự do thiết kế slide từ đầu.
+## **Hiểu về Kế thừa Bố cục**
 
-Bố cục slide là một phần của slide master, là slide cấp cao nhất định nghĩa các kiểu bố cục cho toàn bộ bài thuyết trình. Bạn có thể truy cập và sửa đổi các slide bố cục thông qua slide master—bằng loại, tên hoặc ID duy nhất của chúng. Ngoài ra, bạn cũng có thể chỉnh sửa một slide bố cục cụ thể trực tiếp trong bài thuyết trình.
+Một bản trình bày có ba cấp độ liên quan:
 
-Để làm việc với bố cục slide trong Aspose.Slides for .NET, bạn có thể sử dụng:
+1. Một [master slide](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/) xác định chủ đề, định dạng chung, nền và các đối tượng chung.
+2. Một [layout slide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/) thuộc về một master và xác định một sắp xếp cụ thể của các placeholder.
+3. Một [normal slide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/) sử dụng một bố cục và lưu trữ nội dung đã nhập cho slide đó.
 
-- Các thuộc tính như [LayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/layoutslides/) và [Masters](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/masters/) dưới lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/)
-- Các kiểu như [ILayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutplaceholdermanager/), và [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Một normal slide kế thừa chủ đề và định dạng từ bố cục của nó, và bố cục kế thừa từ master của nó. Giá trị được đặt trực tiếp trên một normal slide sẽ ghi đè giá trị kế thừa ở cấp độ đó. Khi một normal slide được tạo, các shape placeholder của nó được tạo ra từ bố cục đã chọn, trong khi nội dung nhập vào các placeholder đó thuộc về normal slide.
 
-{{% alert title="Info" color="info" %}}
+Thêm các placeholder cần thiết vào một bố cục trước khi tạo slide từ nó. Thêm một placeholder khác vào bố cục sau này sẽ không tự động thêm shape placeholder tương ứng vào các normal slide đã tồn tại.
 
-Để tìm hiểu thêm về cách làm việc với slide master, hãy xem bài viết [Slide Master](/slides/vi/net/slide-master/) .
+Mối quan hệ này có hai hậu quả quan trọng:
 
-{{% /alert %}}
+- Thay đổi định dạng kế thừa hoặc hình học của các placeholder hiện có trên một bố cục có thể cập nhật mọi slide phụ thuộc vào nó. Trước khi chỉnh sửa một bố cục đã được sử dụng, hãy kiểm tra các slide phụ thuộc và xem lại bản trình bày kết quả.
+- Một bố cục vẫn đang được một slide sử dụng không thể bị xóa. Đầu tiên hãy gán lại các slide phụ thuộc của nó sang một bố cục khác, hoặc chỉ xóa các bố cục không được sử dụng.
 
-## **Thêm Bố Cục Slide vào Bản Trình Bày**
+Để biết thêm thông tin về cấp cao nhất của cấu trúc này, xem [Slide Master](/slides/vi/net/slide-master/).
 
-Để tùy chỉnh giao diện và cấu trúc của các slide, bạn có thể cần thêm các slide bố cục mới vào một bản trình bày. Aspose.Slides for .NET cho phép bạn kiểm tra xem một bố cục cụ thể đã tồn tại chưa, thêm một bố cục mới nếu cần, và sử dụng nó để chèn slide dựa trên bố cục đó.
+## **Chọn và Áp dụng Bố cục Slide**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
-2. Truy cập vào [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterlayoutslidecollection/).
-3. Kiểm tra xem slide bố cục mong muốn đã tồn tại trong bộ sưu tập chưa. Nếu chưa, thêm slide bố cục bạn cần.
-4. Thêm một slide trống dựa trên slide bố cục mới.
-5. Lưu bản trình bày.
+Sử dụng kiểu bố cục khi bản trình bày tuân theo các định nghĩa bố cục tiêu chuẩn của PowerPoint. Tên bố cục có thể chỉnh sửa bởi người dùng và có thể được địa phương hoá, do đó việc chọn dựa trên tên ít đáng tin cậy trừ khi bạn kiểm soát mẫu nguồn.
 
-Mã C# sau đây minh họa cách thêm một bố cục slide vào bản trình bày PowerPoint:
+Ví dụ sau tìm **Title and Content** trên master đầu tiên. Nếu bố cục đó không khả dụng, nó sẽ cố ý chuyển sang **Blank**. Kiểm tra null thứ hai là cần thiết vì một bản trình bày có thể chỉ chứa các bố cục tùy chỉnh. Bố cục đã chọn sau đó được áp dụng cho slide bình thường đầu tiên thông qua thuộc tính [ISlide.LayoutSlide](https://reference.aspose.com/slides/vi/net/aspose.slides/islide/layoutslide/).
 
-```cs
-// Khởi tạo lớp Presentation đại diện cho tệp PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Duyệt các loại slide bố cục để chọn một slide bố cục.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Trường hợp bản trình bày không chứa tất cả các loại bố cục.
-        // Tệp bản trình bày chỉ chứa các loại bố cục Trống và Tùy chỉnh.
-        // Tuy nhiên, các slide bố cục có loại tùy chỉnh có thể có tên nhận dạng,
-        // như "Title", "Title and Content", v.v., có thể được sử dụng để chọn slide bố cục.
-        // Bạn cũng có thể dựa vào một tập hợp các loại hình dạng giữ chỗ.
-        // Ví dụ, một slide Tiêu đề chỉ nên có loại giữ chỗ Title, và tương tự.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Thêm một slide trống sử dụng slide bố cục đã thêm.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Lưu bản trình bày vào đĩa.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Xóa Các Bố Cục Slide Không Sử Dụng**
+Thay đổi bố cục của một slide không loại bỏ các shape thông thường đã được thêm trực tiếp vào slide. Tuy nhiên, vị trí placeholder, định dạng kế thừa và sự tương ứng giữa các placeholder hiện có và bố cục mới có thể thay đổi, vì vậy hãy kiểm tra đầu ra khi chuyển đổi giữa các bố cục khác nhau đáng kể.
 
-Aspose.Slides cung cấp phương thức [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) trong lớp [Compress](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/) để cho phép bạn xóa các slide bố cục không mong muốn và không được sử dụng.
+## **Thêm Layout Slide**
 
-Mã C# dưới đây cho thấy cách xóa một slide bố cục khỏi bản trình bày PowerPoint:
+Lựa chọn và tạo mới là các thao tác riêng biệt. Ví dụ trước chọn một bố cục hiện có; nó không tạo mới. Để tạo một bố cục, gọi phương thức [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/vi/net/aspose.slides/masterlayoutslidecollection/add/) trên bộ sưu tập bố cục của master mục tiêu.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+Ví dụ sau luôn thêm một bố cục **Title and Content** mới có tên `Report Title and Content`, sau đó thêm một normal slide dựa trên nó. Tên bố cục phải là duy nhất trong bộ sưu tập.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
-## **Thêm Phần Giữ Chỗ Vào Bố Cục Slide**
+Chỉ thêm bố cục khi mẫu thực sự cần một cấu trúc tái sử dụng khác. Nếu đã có một bố cục phù hợp, hãy chọn và tái sử dụng nó thay vì tạo bản sao.
 
-Aspose.Slides cung cấp thuộc tính [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/placeholdermanager/) cho phép bạn thêm các hộp giữ chỗ mới vào một slide bố cục.
+## **Thêm Placeholder vào Layout Slide**
 
-Trình quản lý này chứa các phương thức cho các loại hộp giữ chỗ sau:
+Thuộc tính [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/placeholdermanager/) cung cấp một [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutplaceholdermanager/) để thêm các shape placeholder vào một bố cục.
 
-| PowerPoint Placeholder | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutplaceholdermanager/) Method |
-| ---------------------- | ------------------------------------------------------------ |
-| ![Content](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Placeholder PowerPoint               | `ILayoutPlaceholderManager` Phương thức |
+| ------------------------------------ | --------------------------------------- |
+| ![Content](content.png)              | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png)  | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)        | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)              | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)                  | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)                  | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)            | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                  | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)     | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/vi/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Mã C# sau đây minh họa cách thêm các hình dạng hộp giữ chỗ mới vào slide bố cục Trống:
+Ví dụ sau xác nhận rằng bố cục **Blank** tồn tại, thêm bốn placeholder vào nó, và sau đó tạo một normal slide sử dụng bố cục đã chỉnh sửa. Thứ tự này có chủ đích: các placeholder được thêm trước khi normal slide được tạo, để Aspose.Slides có thể tạo các shape placeholder tương ứng trên slide đó.
 
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Lấy slide bố cục Trống.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Lấy trình quản lý phần giữ chỗ của slide bố cục.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Thêm các phần giữ chỗ khác nhau vào slide bố cục Trống.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Thêm một slide mới với bố cục Trống.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
 ```
 
 Kết quả:
 
-![Các hộp giữ chỗ trên slide bố cục](add_placeholders.png)
+![Các placeholder trên layout slide](add_placeholders.png)
 
-## **Đặt Khả Năng Hiển Thị Chân Trang Cho Bố Cục Slide**
+{{% alert color="warning" title="Warning" %}}
+Thay đổi định dạng kế thừa hoặc hình học của các placeholder hiện có trên bố cục có thể ảnh hưởng đến các slide phụ thuộc. Một placeholder mới được thêm vào không được tự động bổ sung vào các normal slide đã tồn tại. Hãy thử các thay đổi bố cục trên một bản sao của bản trình bày và kiểm tra mọi slide phụ thuộc.
+{{% /alert %}}
 
-Trong các bản trình bày PowerPoint, các thành phần chân trang như ngày tháng, số slide và văn bản tùy chỉnh có thể được hiển thị hoặc ẩn tùy thuộc vào bố cục slide. Aspose.Slides for .NET cho phép bạn kiểm soát khả năng hiển thị của các hộp giữ chỗ chân trang này. Điều này hữu ích khi bạn muốn một số bố cục hiển thị thông tin chân trang trong khi các bố cục khác giữ sạch sẽ và tối giản.
+## **Xóa Layout Slides Không sử dụng**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
-2. Lấy tham chiếu tới một slide bố cục bằng chỉ mục của nó.
-3. Đặt hộp giữ chỗ chân trang slide thành hiện thị.
-4. Đặt hộp giữ chỗ số slide thành hiện thị.
-5. Đặt hộp giữ chỗ ngày‑giờ thành hiện thị.
-6. Lưu bản trình bày.
+Sử dụng phương thức [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để xóa các bố cục mà không có normal slide nào tham chiếu. Phương thức sẽ để nguyên các bố cục vẫn đang được sử dụng.
 
-Mã C# dưới đây cho thấy cách đặt khả năng hiển thị của chân trang slide và thực hiện các thao tác liên quan:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt Khả Năng Hiển Thị Chân Trang Con Cho Slide**
+Để xóa một bố cục cụ thể, đầu tiên hãy sử dụng thuộc tính [HasDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/hasdependingslides/) hoặc phương thức [GetDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/getdependingslides/). Gán lại bất kỳ slide phụ thuộc nào trước khi gọi [ILayoutSlide.Remove](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/remove/). Cố gắng xóa một bố cục đang được sử dụng sẽ gây ra [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/).
 
-​Trong các bản trình bày PowerPoint, các thành phần chân trang như ngày tháng, số slide và văn bản tùy chỉnh có thể được kiểm soát ở mức slide master để đảm bảo tính nhất quán trên tất cả các slide bố cục. Aspose.Slides for .NET cho phép bạn đặt khả năng hiển thị và nội dung của các hộp giữ chỗ chân trang này trên slide master và truyền các thiết lập này tới tất cả các slide bố cục con. Cách tiếp cận này đảm bảo thông tin chân trang đồng nhất trong toàn bộ bài thuyết trình.​
+## **Kiểm soát Hiển thị Footer trên Layout Slide**
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/).
-2. Lấy tham chiếu tới slide master bằng chỉ mục của nó.
-3. Đặt tất cả các hộp giữ chỗ chân trang của master và các slide con thành hiện thị.
-4. Đặt tất cả các hộp giữ chỗ số slide của master và các slide con thành hiện thị.
-5. Đặt tất cả các hộp giữ chỗ ngày‑giờ của master và các slide con thành hiện thị.
-6. Lưu bản trình bày.
+Một layout có footer, số slide và placeholder ngày‑giờ riêng. Sử dụng thuộc tính [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/headerfootermanager/) để điều khiển các placeholder này cho một layout. Điều này hữu ích khi, ví dụ, các layout nội dung cần hiển thị footer nhưng các layout tiêu đề thì không.
 
-Mã C# dưới đây minh họa thao tác này:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
-## **FAQ**
+## **Kiểm soát Hiển thị Footer trên Master và Các Layout Con của Nó**
 
-**Sự khác nhau giữa slide master và slide bố cục là gì?**
+Để áp dụng cài đặt footer nhất quán trên toàn bộ cây master, sử dụng thuộc tính [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslide/headerfootermanager/). Các phương pháp lan truyền của [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/vi/net/aspose.slides/imasterslideheaderfootermanager/) hoạt động trên master và các layout slide cũng như normal slide phụ thuộc; chúng không chỉ ảnh hưởng đến một normal slide duy nhất.
 
-Slide master định nghĩa chủ đề chung và định dạng mặc định, trong khi slide bố cục xác định cách sắp xếp cụ thể của các hộp giữ chỗ cho các loại nội dung khác nhau.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**Tôi có thể sao chép một slide bố cục từ bản trình bày này sang bản trình bày khác không?**
+using var presentation = new Presentation("input.pptx");
 
-Có, bạn có thể sao chép một slide bố cục từ bộ sưu tập [LayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/layoutslides/) của một bản trình bày và chèn nó vào bản trình bày khác bằng phương thức `AddClone`.
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
 
-**Điều gì sẽ xảy ra nếu tôi xóa một slide bố cục mà vẫn đang được một slide sử dụng?**
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
-Nếu bạn cố gắng xóa một slide bố cục mà vẫn được ít nhất một slide tham chiếu trong bản trình bày, Aspose.Slides sẽ ném ra một ngoại lệ [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/). Để tránh điều này, hãy sử dụng [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để an toàn xóa chỉ những slide bố cục không được sử dụng.
+## **Câu hỏi thường gặp**
+
+**Sự khác biệt giữa Master Slide và Layout Slide là gì?**
+
+Master slide xác định chủ đề và định dạng chung của bản trình bày. Layout slide thuộc về một master và xác định một cách sắp xếp placeholder có thể tái sử dụng. Normal slide sử dụng các layout này và lưu trữ nội dung riêng cho từng slide.
+
+**Tôi có thể sao chép Layout Slide từ một bản trình bày sang bản khác không?**
+
+Có. Thêm một bản sao vào bộ sưu tập đích bằng phương pháp [AddClone](https://reference.aspose.com/slides/vi/net/aspose.slides/globallayoutslidecollection/addclone/). Khi sao chép giữa các bản trình bày, cũng cần kiểm tra phông chữ, chủ đề, hình ảnh và các tài nguyên khác mà layout nguồn sử dụng.
+
+**Điều gì sẽ xảy ra nếu tôi chỉnh sửa một Layout đang được sử dụng?**
+
+Các slide phụ thuộc sẽ kế thừa các thay đổi của layout trừ khi chúng đã ghi đè định dạng hoặc đối tượng liên quan cục bộ. Vì vậy hình học placeholder và kiểu định dạng kế thừa có thể thay đổi đồng thời trên nhiều slide. Sử dụng [GetDependingSlides](https://reference.aspose.com/slides/vi/net/aspose.slides/ilayoutslide/getdependingslides/) để xác định các slide bị ảnh hưởng trước khi chỉnh sửa layout.
+
+**Nếu tôi xóa một Layout vẫn đang được sử dụng thì sẽ ra sao?**
+
+Aspose.Slides sẽ ném ra một [PptxEditException](https://reference.aspose.com/slides/vi/net/aspose.slides/pptxeditexception/). Hãy gán lại các slide phụ thuộc trước, hoặc dùng [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/vi/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) để chỉ xóa những layout không được tham chiếu.

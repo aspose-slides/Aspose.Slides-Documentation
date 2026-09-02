@@ -8,551 +8,354 @@ keywords:
 - picture frame
 - add picture frame
 - create picture frame
-- add image
-- create image
+- embedded image
+- linked image
 - extract image
 - raster image
-- vector image
+- SVG image
 - crop image
-- cropped area
-- StretchOff property
+- delete cropped areas
+- compress image
+- StretchOffset
 - picture frame formatting
-- picture frame properties
-- ralative scale
+- relative scale
 - image effect
 - aspect ratio
-- image transparency
 - PowerPoint
 - OpenDocument
 - presentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Add picture frames to PowerPoint and OpenDocument presentations with Aspose.Slides for .NET. Streamline your workflow and enhance slide designs."
+description: "Create, format, link, crop, extract, and compress picture frames in presentations with Aspose.Slides for .NET."
 ---
 
-## **Introduction**
+## **Overview**
 
-A picture frame is a shape that contains an image—it is like a picture in a frame. 
+A picture frame is a slide shape that displays an image. In Aspose.Slides, the image resource and the shape that displays it are separate objects: a [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) owns embedded image resources through its [Images](https://reference.aspose.com/slides/net/aspose.slides/presentation/images/) collection, while an [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) controls the image's position, size, line formatting, rotation, cropping, picture effects, and other frame-level settings.
 
-You can add an image to a slide through a picture frame. This way, you get to format the image by formatting the picture frame.
+This separation is useful when the same image is shown more than once. Add the image to the presentation once, keep the returned [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/), and use that image resource when creating picture frames.
 
-{{% alert  title="Tip" color="info" %}} 
+Picture frames can contain raster images such as PNG or JPEG and vector SVG images. They can also refer to linked images instead of storing the image bytes in the presentation. The choice affects portability, file size, extraction, and export behavior, so it is useful to decide how the image should be stored before applying formatting or optimization.
 
-Aspose provides free converters—[JPEG to PowerPoint](https://products.aspose.app/slides/import/jpg-to-ppt) and [PNG to PowerPoint](https://products.aspose.app/slides/import/png-to-ppt)—that allow people to create presentations quickly from images. 
+## **Add and Format an Embedded Image**
 
-{{% /alert %}} 
+For an embedded image, add the image data to the presentation and create a picture frame with [IShapeCollection.AddPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addpictureframe/). The image becomes part of the presentation package, so the presentation remains self-contained when it is moved to another computer.
 
-## **Create a Picture Frame**
+The following example adds a JPEG image, creates a frame at the image's native dimensions, and applies line formatting and rotation:
 
-1. Create an instance of the [Presentation ](https://reference.aspose.com/slides/net/aspose.slides/presentation)class. 
-2. Get a slide's reference through its index. 
-3. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
-4. Specify the image's width and height.
-5. Create a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) based on the image's width and height through the `AddPictureFrame` method exposed by the shape object associated with the referenced slide.
-6. Add a picture frame (containing the picture) to the slide.
-7. Write the modified presentation as a PPTX file.
-
-This C# code shows you how to create a picture frame:
-
-```c#
+```csharp
 using System.Drawing;
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiates the Presentation class that represents a PPTX file
-using (Presentation pres = new Presentation())
-{
-    // Gets the first slide
-    ISlide slide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Loads an image and adds it to the presentation image collection
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
 
-    // Adds a picture frame with the same height and width
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
+pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
+pictureFrame.LineFormat.Width = 3;
+pictureFrame.Rotation = 15;
 
-    // Applies some formatting to the picture frame
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Writes the presentation to a PPTX file
-    pres.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("picture-frame.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert color="warning" %}} 
+The picture frame controls the displayed geometry; changing the frame size does not change the original pixel dimensions stored in the embedded image resource. This distinction becomes important when cropping or compressing an image later.
 
-Picture frames allow you to quickly create presentation slides based on images. When you combine picture frame with the save options Aspose.Slides, you can manipulate input/output operations to convert images from one format to another. You may want to see these pages: convert [image to JPG](https://products.aspose.com/slides/net/conversion/image-to-jpg/); convert [JPG to image](https://products.aspose.com/slides/net/conversion/jpg-to-image/); convert [JPG to PNG](https://products.aspose.com/slides/net/conversion/jpg-to-png/), convert [PNG to JPG](https://products.aspose.com/slides/net/conversion/png-to-jpg/); convert [PNG to SVG](https://products.aspose.com/slides/net/conversion/png-to-svg/), convert [SVG to PNG](https://products.aspose.com/slides/net/conversion/svg-to-png/).
+## **Use Relative Scale**
 
-{{% /alert %}}
+[IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) exposes relative width and height scaling for the frame. A value of `1.0` corresponds to 100% of the original picture size. Relative scale is useful when a workflow needs to preserve a relationship to the source image size instead of calculating final dimensions manually.
 
-## **Create a Picture Frame with Relative Scale**
-
-By altering an image's relative scaling, you can create a more complicated picture frame. 
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class.
-2. Get a slide's reference through its index. 
-3. Add an image to the presentation image collection.
-4. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
-5. Specify the image's relative width and height in the picture frame.
-6. Write the modified presentation as a PPTX file.
-
-This C# code shows you how to create a picture frame with relative scale:
-
-```c#
+```csharp
+using System.IO;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-// Instantiates the Presentation class that represents a PPTX file
-using (Presentation presentation = new Presentation())
-{
-    // Loads an image and adds it to the presentation image collection
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    // Adds a picture frame to the slide
-    IPictureFrame pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
 
-    // Sets the relative scale width and height
-    pictureFrame.RelativeScaleHeight = 0.8f;
-    pictureFrame.RelativeScaleWidth = 1.35f;
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, image);
+pictureFrame.RelativeScaleWidth = 1.35f;
+pictureFrame.RelativeScaleHeight = 0.8f;
 
-    // Saves the presentation
-    presentation.Save("Adding Picture Frame with Relative Scale_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("relative-scale.pptx", SaveFormat.Pptx);
 ```
 
-## **Extract Raster Images from Picture Frames**
+Relative scale changes the frame's scale settings; it does not resample or compress the embedded image.
 
-You can extract raster images from [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe) objects and save them in PNG, JPG, and other formats. The code example below demonstrates how to extract an image from the document "sample.pptx" and save it in PNG format.
+## **Embedded and Linked Images**
 
-```c#
+An embedded picture stores image data inside the presentation and is therefore the safest choice for portability and predictable rendering. A linked picture stores an external location through the [ISlidesPicture](https://reference.aspose.com/slides/net/aspose.slides/islidespicture/) link path instead of embedding the image data in the same way.
+
+Linked images can reduce the amount of image data stored in the PPTX, but they introduce an external dependency. The linked file must remain accessible to the application that opens or renders the presentation. If the path changes, the file is moved, or the resource is unavailable, the linked picture may not be displayed as expected. For presentations that must be emailed, archived, or rendered in isolated environments, embedded images are usually more reliable.
+
+### **Add a Linked Image**
+
+The following example creates a picture frame and points it to a local image file. It deals only with image linking; video linking is a separate media workflow and is intentionally not mixed into this example.
+
+```csharp
+using System.IO;
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-using (var presentation = new Presentation("sample.pptx"))
-{
-    var firstSlide = presentation.Slides[0];
-    var firstShape = firstSlide.Shapes[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    if (firstShape is IPictureFrame pictureFrame)
-    {
-        var ppImage = pictureFrame.PictureFormat.Picture.Image;
-        ppImage.Image.Save("slide_1_shape_1.png", ImageFormat.Png);
-    }
-}
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 320, 180, null);
+pictureFrame.PictureFormat.Picture.LinkPathLong = Path.GetFullPath("linked-image.jpg");
+
+presentation.Save("linked-image.pptx", SaveFormat.Pptx);
 ```
 
-## **Extract SVG Images from Picture Frames**
+Use links when external file management is intentional. Do not use them merely as a replacement for compression: a small PPTX with broken image dependencies is usually less useful than a larger self-contained presentation.
 
-When a presentation contains SVG graphics placed inside [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) shapes, Aspose.Slides for .NET lets you retrieve the original vector images with full fidelity. By traversing the slide’s shape collection, you can identify each [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), check whether the underlying [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) holds SVG content, and then save that image to disk or a stream in its native SVG format.
+## **Extract Images from Picture Frames**
 
-The following code example demonstrates how to extract an SVG image from a picture frame:
+Before extracting an image from an existing presentation, check that a shape is actually an [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) and that it contains an embedded image. Linked picture frames may not contain image bytes that can be extracted in the same way.
 
-```cs
+### **Extract a Raster Image**
+
+The modern image API uses [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) directly and does not require the older system-image wrapper. The following example finds the first embedded raster picture on a slide and saves it as PNG:
+
+```csharp
+using System;
 using Aspose.Slides;
 
 using var presentation = new Presentation("sample.pptx");
-
 var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
 
-if (shape is IPictureFrame pictureFrame)
+foreach (var shape in slide.Shapes)
 {
-    var svgImage = pictureFrame.PictureFormat.Picture.Image.SvgImage;
-    if (svgImage != null)
+    if (shape is not IPictureFrame pictureFrame)
     {
-        File.WriteAllText("output.svg", svgImage.SvgContent);
+        continue;
     }
+
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    if (embeddedImage == null || embeddedImage.SvgImage != null)
+    {
+        continue;
+    }
+
+    using var rasterImage = embeddedImage.Image;
+    rasterImage.Save("extracted-image.png", Aspose.Slides.ImageFormat.Png);
+    break;
 }
 ```
 
-## **Get Transparency of an Image**
+Saving through [IImage](https://reference.aspose.com/slides/net/aspose.slides/iimage/) converts the extracted image to the requested output format. If you need the encoded bytes stored in the presentation rather than a converted raster file, use the image resource's binary data instead.
 
-Aspose.Slides allows you to get the transparency effect applied to an image. This C# code demonstrates the operation:
+### **Extract an SVG Image**
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Effects;
-
-using (var presentation = new Presentation("Test.pptx"))
-{
-    var pictureFrame = (IPictureFrame)presentation.Slides[0].Shapes[0];
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
-    {
-        if (effect is IAlphaModulateFixed alphaModulateFixed)
-        {
-            var transparencyValue = 100 - alphaModulateFixed.Amount;
-            Console.WriteLine("Picture transparency: " + transparencyValue);
-        }
-    }
-}
-```
-
-## **Get Brightness and Contrast of an Image**
-
-Aspose.Slides allows you to get the brightness and contrast effect applied to an image. The [ILuminance](https://reference.aspose.com/slides/net/aspose.slides.effects/iluminance/) interface represents this image transform effect.
-
-This C# code demonstrates how to get the brightness and contrast settings from a picture frame:
+For an SVG picture, the [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) exposes an [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage/) object. This lets you retrieve the SVG data directly instead of rasterizing the picture first.
 
 ```csharp
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Effects;
 
-using (var presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+
+foreach (var shape in slide.Shapes)
 {
-    var slide = presentation.Slides[0];
-    var shape = slide.Shapes[0];
-    var pictureFrame = (IPictureFrame)shape;
-
-    var imageTransform = pictureFrame.PictureFormat.Picture.ImageTransform;
-    foreach (var effect in imageTransform)
+    if (shape is not IPictureFrame pictureFrame)
     {
-        if (effect is ILuminance luminanceEffect)
-        {
-            var luminance = luminanceEffect.GetEffective();
-            var brightness = luminance.Brightness;
-            var contrast = luminance.Contrast;
-
-            Console.WriteLine("Brightness: " + brightness);
-            Console.WriteLine("Contrast: " + contrast);
-        }
-    }
-}
-```
-
-{{% alert color="info" %}} 
-All effects applied to images can be found in [Aspose.Slides.Effects](https://reference.aspose.com/slides/net/aspose.slides.effects/).
-{{% /alert %}}
-
-## **Picture Frame Formatting**
-
-Aspose.Slides provides many formatting options that can be applied to a picture frame. Using those options, you can alter a picture frame to make it match specific requirements.
-
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-2. Get a slide's reference through its index. 
-3. Create an [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage) object by adding an image to the [IImagescollection](https://reference.aspose.com/slides/net/aspose.slides/iimagecollection) associated with the presentation object that will be used to fill the shape.
-4. Specify the image's width and height.
-5. Create a `PictureFrame` based on the image's width and height through the [AddPictureFrame](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection/methods/addpictureframe) method exposed by the [IShapes](http://www.aspose.com/api/net/slides/aspose.slides/ishapecollection) object associated with the referenced slide.
-6. Add the picture frame (containing the picture) to the slide.
-7. Set the picture frame's line color.
-8. Set the picture frame's line width.
-9. Rotate the picture frame by giving it either a positive or negative value.
-   * A positive value rotates the image clockwise. 
-   * A negative value rotates the image anti-clockwise.
-10. Add the picture frame (containing the picture) to the slide.
-11. Write the modified presentation as a PPTX file.
-
-This C# code demonstrates the picture frame formatting process:
-
-```c#
-using System.Drawing;
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-// Instantiates the Presentation class that represents a PPTX file
-using (Presentation presentation = new Presentation())
-{
-    // Gets the first slide
-    ISlide slide = presentation.Slides[0];
-
-    // Loads an image and adds it to the presentation image collection
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Adds a picture frame with the picture's equivalent height and width
-    IPictureFrame pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, ppImage.Width, ppImage.Height, ppImage);
-
-    // Applies some formatting to the picture frame
-    pictureFrame.LineFormat.FillFormat.FillType = FillType.Solid;
-    pictureFrame.LineFormat.FillFormat.SolidFillColor.Color = Color.Blue;
-    pictureFrame.LineFormat.Width = 20;
-    pictureFrame.Rotation = 45;
-
-    // Writes the presentation to a PPTX file
-    presentation.Save("RectPicFrameFormat_out.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert color="info" %}}
-
-Aspose recently developed a [free Collage Maker](https://products.aspose.app/slides/collage). If you ever need to [merge JPG/JPEG](https://products.aspose.app/slides/collage/jpg) or PNG images, [create grids from photos](https://products.aspose.app/slides/collage/photo-grid), you can use this service. 
-
-{{% /alert %}}
-
-## **Add an Image as a Link**
-
-To avoid large presentation sizes, you can add images (or videos) through links instead of embedding the files directly into presentations. This C# code shows you how to add an image and video into a placeholder:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (var presentation = new Presentation("input.pptx"))
-{
-    var shapesToRemove = new List<IShape>();
-    int shapesCount = presentation.Slides[0].Shapes.Count;
-
-    for (var i = 0; i < shapesCount; i++)
-    {
-        var autoShape = presentation.Slides[0].Shapes[i];
-
-        if (autoShape.Placeholder == null)
-        {
-            continue;
-        }
-
-        switch (autoShape.Placeholder.Type)
-        {
-            case PlaceholderType.Picture:
-                var pictureFrame = presentation.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle,
-                        autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, null);
-
-                pictureFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                shapesToRemove.Add(autoShape);
-                break;
-
-            case PlaceholderType.Media:
-                var videoFrame = presentation.Slides[0].Shapes.AddVideoFrame(
-                    autoShape.X, autoShape.Y, autoShape.Width, autoShape.Height, "");
-
-                videoFrame.PictureFormat.Picture.LinkPathLong =
-                    "https://upload.wikimedia.org/wikipedia/commons/3/3a/I.M_at_Old_School_Public_Broadcasting_in_October_2016_02.jpg";
-
-                videoFrame.LinkPathLong = "https://youtu.be/t_1LYZ102RA";
-
-                shapesToRemove.Add(autoShape);
-                break;
-        }
+        continue;
     }
 
-    foreach (var shape in shapesToRemove)
+    var embeddedImage = pictureFrame.PictureFormat.Picture.Image;
+    var svgImage = embeddedImage?.SvgImage;
+    if (svgImage == null)
     {
-        presentation.Slides[0].Shapes.Remove(shape);
+        continue;
     }
 
-    presentation.Save("output.pptx", SaveFormat.Pptx);
+    File.WriteAllBytes("extracted-image.svg", svgImage.SvgData);
+    break;
 }
 ```
 
-## **Crop Images**
+Keeping SVG content as SVG preserves the vector source inside the presentation. Raster exports such as PNG or JPEG necessarily render that vector content to pixels. PDF or SVG slide export is also a rendering operation, so the exported graphics should not be treated as a byte-for-byte copy of the original embedded SVG; use the embedded [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage/) data when the original vector resource itself is required.
 
-This C# code shows you how to crop an existing image on a slide:
+## **Crop an Image**
 
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
+Cropping changes which part of an image is visible inside the frame. The crop values on [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) are percentages of the source image dimensions. Cropping does not initially delete the hidden pixels from the embedded image; it only changes the visible region.
 
-using (Presentation presentation = new Presentation())
-{
-    // Creates a new image object
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage newImage = presentation.Images.AddImage(image);
-    image.Dispose();
-
-    // Adds a PictureFrame to a Slide
-    IPictureFrame picFrame = presentation.Slides[0].Shapes.AddPictureFrame(
-        ShapeType.Rectangle, 100, 100, 420, 250, newImage);
-
-    // Crops the image (percentage values)
-    picFrame.PictureFormat.CropLeft = 23.6f;
-    picFrame.PictureFormat.CropRight = 21.5f;
-    picFrame.PictureFormat.CropTop = 3;
-    picFrame.PictureFormat.CropBottom = 31;
-
-    // Saves the result
-    presentation.Save("PictureFrameCrop.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Delete Cropped Areas of a Picture**
-
-If you want to delete the cropped areas of an image contained in a frame, you can use the [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method. This method returns the cropped image or the origin image if cropping is unnecessary.
-
-This C# code demonstrates the operation:
-
-```c#
-using Aspose.Slides;
-using Aspose.Slides.Export;
-
-using (Presentation presentation = new Presentation("PictureFrameCrop.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Gets the PictureFrame from the first slide
-    IPictureFrame picFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Deletes cropped areas of the PictureFrame image and returns the cropped image
-    IPPImage croppedImage = picFrame.PictureFormat.DeletePictureCroppedAreas();
-
-    // Saves the result
-    presentation.Save("PictureFrameDeleteCroppedAreas.pptx", SaveFormat.Pptx);
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-The [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) method adds the cropped image to the presentation image collection. If the image is only used in the processed [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/), this setup can reduce the presentation size. Otherwise, the number of images in the resulting presentation will increase.
-
-This method converts WMF/EMF metafiles to raster PNG image in the cropping operation. 
-
-{{% /alert %}}
-
-## **Compress Images**
-
-You can compress a picture in a presentation using the [IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/) method.
-This method compresses an image by reducing its size based on the shape size and specified resolution, with the option to delete cropped areas. 
-
-It adjusts the picture’s size and resolution similarly to PowerPoint’s **Picture Format → Compress Pictures → Resolution** feature.
-
-The following C# examples demonstrate how to compress an image in a presentation by specifying a target resolution and optionally removing cropped areas:
+The following example finds a picture frame safely and applies crop values:
 
 ```csharp
+using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Compress the image with a target resolution of 150 DPI (Web resolution) and remove cropped areas.
-    bool result = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
-
-    // Check the result of the compression.
-    if (result)
-    {
-        Console.WriteLine("Image successfully compressed.");
-    }
-    else
-    {
-        Console.WriteLine("Image compression failed or no changes were necessary.");
-    }
-
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    pictureFrame.PictureFormat.CropLeft = 23.6f;
+    pictureFrame.PictureFormat.CropRight = 21.5f;
+    pictureFrame.PictureFormat.CropTop = 3f;
+    pictureFrame.PictureFormat.CropBottom = 31f;
+    presentation.Save("cropped-image.pptx", SaveFormat.Pptx);
 }
 ```
 
-Or using a custom DPI value directly:
+Because the hidden image data is still present, the crop can be changed later without losing the original pixels. If file size matters more than reversibility, the cropped regions can be physically removed as described in the next section.
+
+## **Remove Cropped Image Data**
+
+[IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) removes image data outside the current crop rectangle and returns the resulting image resource. This can reduce file size, but it is a destructive optimization: after the presentation is saved, the removed pixels are no longer available for a later uncrop operation.
 
 ```csharp
+using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation("demo.pptx"))
+using var presentation = new Presentation("cropped-image.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    ISlide slide = presentation.Slides[0];
-    IPictureFrame pictureFrame = slide.Shapes[0] as IPictureFrame;
-
-    // Compress the image to 150 DPI (web resolution), removing cropped areas.
-    pictureFrame.PictureFormat.CompressImage(true, 150f);
-
-    presentation.Save("CompressedImage.pptx", SaveFormat.Pptx);
+    var croppedImage = pictureFrame.PictureFormat.DeletePictureCroppedAreas();
+    if (croppedImage != null)
+    {
+        presentation.Save("cropped-data-removed.pptx", SaveFormat.Pptx);
+    }
 }
 ```
 
-{{% alert title="NOTE" color="warning" %}} 
+The method may add a new image resource to the presentation. If the original image is also used by other picture frames, those frames still need their existing resource, so deleting cropped areas does not necessarily reduce the total number of images. Cropping WMF or EMF content with this method rasterizes the cropped result to PNG.
 
-The method converts the image to a lower resolution based on the shape’s size and provided DPI. Cropped regions can also be deleted to optimize file size.  
-If the image is a metafile (WMF/EMF) or SVG, compression will not be applied. Also, JPEG quality is preserved or slightly reduced based on resolution, similarly to how PowerPoint handles high-resolution JPEGs.
+## **Compress Raster Images**
 
-{{% /alert %}}
+[IPictureFillFormat.CompressImage](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/compressimage/) reduces raster image resolution relative to the size at which the picture is displayed. It can also remove cropped regions in the same operation. The method returns `true` when the image was resized or cropped and `false` when no change was necessary.
 
-## **Lock Aspect Ratio**
+Use a predefined [PicturesCompression](https://reference.aspose.com/slides/net/aspose.slides.export/picturescompression/) value when a standard target resolution is sufficient:
 
-If you want a shape containing an image to retain its aspect ratio even after you change the image dimensions, you can use the [IPictureFrameLock.AspectRatioLocked](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/aspectratiolocked/) property to set the *Lock Aspect Ratio* setting. 
-
-This C# code shows you how to lock a shape's aspect ratio:
-
-```c#
-using Aspose.Slides;
-
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    ILayoutSlide layout = pres.LayoutSlides.GetByType(SlideLayoutType.Custom);
-    ISlide emptySlide = pres.Slides.AddEmptySlide(layout);
-
-    IImage image = Images.FromFile("image.png");
-    IPPImage presImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = emptySlide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 150, presImage.Width, presImage.Height, presImage);
-
-    // Sets shape to preserve aspect ratio on resizing
-    pictureFrame.PictureFrameLock.AspectRatioLocked = true;
-}
-```
-
-{{% alert title="NOTE" color="warning" %}} 
-
-This *Lock Aspect Ratio* setting preserves only the aspect ratio of the shape and not the image it contains.
-
-{{% /alert %}}
-
-## **Use the StretchOff Property**
-
-Using the [StretchOffsetLeft](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetleft), [StretchOffsetTop](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsettop), [StretchOffsetRight,](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetright) and [StretchOffsetBottom](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat/properties/stretchoffsetbottom) properties from the [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat) interface and [PictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/picturefillformat) class, you can specify a fill rectangle. 
-
-When stretching is specified for an image, a source rectangle is scaled to fit the specified fill rectangle. Each edge of the fill rectangle is defined by a percentage offset from the corresponding edge of the shape's bounding box. A positive percentage specifies an inset while a negative percentage specifies an outset.
-
-1. Create an instance of the [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) class.
-2. Get a slide's reference through its index.
-3. Add a rectangle `AutoShape`. 
-4. Create an image.
-5. Set the shape's fill type.
-6. Set the shape's picture fill mode.
-7. Add a set image to fill the shape.
-8. Specify image offsets from the corresponding edge of the shape's bounding box
-9. Write the modified presentation as a PPTX file.
-
-This C# code demonstrates a process in which a StretchOff property is used:
-
-```c#
+```csharp
+using System;
+using System.Linq;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("sample.pptx");
+var slide = presentation.Slides[0];
+var pictureFrame = slide.Shapes.OfType<IPictureFrame>().FirstOrDefault();
+
+if (pictureFrame != null)
 {
-    IImage image = Images.FromFile("image.png");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    IPictureFrame pictureFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 400, ppImage);
-
-    // Sets the image stretched from each side in the shape body
-    pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
-    pictureFrame.PictureFormat.StretchOffsetLeft = 24;
-    pictureFrame.PictureFormat.StretchOffsetRight = 24;
-    pictureFrame.PictureFormat.StretchOffsetTop = 24;
-    pictureFrame.PictureFormat.StretchOffsetBottom = 24;
-
-    pres.Save("imageStretch.pptx", SaveFormat.Pptx);
+    var compressed = pictureFrame.PictureFormat.CompressImage(true, PicturesCompression.Dpi150);
+    Console.WriteLine(compressed ? "The image was compressed." : "No compression was necessary.");
+    presentation.Save("compressed-image.pptx", SaveFormat.Pptx);
 }
 ```
+
+A custom positive DPI value can be passed instead of an enum value when a specific target is required.
+
+Compression is intended for raster images. SVG and metafile content is not reduced by this raster compression workflow. Also remember that lower resolution and deleted cropped regions cannot be recovered from the optimized presentation. Choose a target resolution based on the largest size at which the image will actually be viewed or exported rather than applying the lowest DPI globally.
+
+## **Manage Image Transform Effects**
+
+For a complete workflow covering brightness, contrast, color transformations, blur, alpha effects, ordered chains, inspection, removal, and round-trip verification, see [Image Transform Effects](/slides/net/image-transform-effects/).
+
+## **Lock Picture Frame Geometry**
+
+The [IPictureFrameLock](https://reference.aspose.com/slides/net/aspose.slides/ipictureframelock/) settings control which editing operations are disabled for a picture frame. For example, the aspect-ratio lock preserves the shape's proportions while it is resized.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.jpg");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 100, image.Width, image.Height, image);
+pictureFrame.PictureFrameLock.AspectRatioLocked = true;
+
+presentation.Save("locked-picture-frame.pptx", SaveFormat.Pptx);
+```
+
+The lock applies to the picture frame shape. It does not force the source image to be resampled or permanently changed to the same aspect ratio.
+
+## **Adjust the StretchOffset Values**
+
+When the picture fill mode is stretch, the stretch-offset values on [IPictureFillFormat](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/) define the fill rectangle relative to the picture frame's bounding box. Positive percentages create an inset from an edge, while negative percentages create an outset.
+
+This is different from cropping. Crop values select which part of the source image is visible; stretch offsets change the rectangle into which the visible picture fill is stretched.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+
+var imageData = File.ReadAllBytes("photo.png");
+var image = presentation.Images.AddImage(imageData);
+
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 10, 10, 400, 300, image);
+pictureFrame.PictureFormat.PictureFillMode = PictureFillMode.Stretch;
+pictureFrame.PictureFormat.StretchOffsetLeft = 12f;
+pictureFrame.PictureFormat.StretchOffsetRight = 12f;
+pictureFrame.PictureFormat.StretchOffsetTop = 8f;
+pictureFrame.PictureFormat.StretchOffsetBottom = 8f;
+
+presentation.Save("stretch-offsets.pptx", SaveFormat.Pptx);
+```
+
+Use stretch offsets for fill placement. Use crop properties when the goal is to hide source-image edges.
+
+## **Storage, File Size, and Export Considerations**
+
+The main tradeoffs are easier to manage when image storage and picture-frame formatting are treated separately:
+
+- **Embedded images** make the presentation self-contained and are the most reliable for sharing and server-side rendering, but large raster images increase PPTX size and memory use.
+- **Linked images** can keep the package smaller, but the presentation depends on external files remaining available at the stored paths or locations.
+- **Cropping** is initially non-destructive. The hidden pixels remain embedded until cropped areas are explicitly deleted or removed during compression.
+- **Compression** can reduce file size substantially for oversized raster images, but it trades away source resolution. It should be applied after the intended on-slide size is known.
+- **SVG images** should remain as SVG when vector preservation is important. Extract the embedded SVG directly when you need the vector resource itself. Raster slide exports always convert the rendered slide to pixels.
+- **Repeated images** should reuse an existing [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) resource when possible instead of repeatedly loading the same file into the presentation workflow.
+
+For large presentations, image optimization is usually most effective when performed selectively: keep logos and diagrams as vector content, compress photographs according to their real display size, remove cropped pixels only when later editing is not required, and avoid external links unless dependency management is part of the deployment design.
 
 ## **FAQ**
 
-### How can I find out which image formats are supported for PictureFrame?
+**What is the difference between a picture frame and an image resource?**
 
-Aspose.Slides supports both raster images (PNG, JPEG, BMP, GIF, etc.) and vector images (for example, SVG) via the image object that is assigned to a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/). The list of supported formats generally overlaps with the capabilities of the slide and image conversion engine.
+An [IPPImage](https://reference.aspose.com/slides/net/aspose.slides/ippimage/) represents an image resource associated with the presentation. An [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) is a shape on a slide that displays an image and stores frame-level geometry and formatting such as size, rotation, crop values, effects, and locks.
 
-### How will adding dozens of large images affect PPTX size and performance?
+**Should I embed or link images?**
 
-Embedding large images increases file size and memory usage; linking images helps keep the presentation size down but requires the external files to remain accessible. Aspose.Slides provides the ability to add images by link to reduce file size.
+Embed images when the presentation must be portable, archived, or rendered without access to external resources. Link images only when keeping image files outside the PPTX is intentional and the external locations can be maintained reliably.
 
-### How can I lock an image object from accidental moving/resizing?
+**Does cropping reduce PPTX file size?**
 
-Use [shape locks](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/pictureframelock/) for a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) (for example, disable moving or resizing). The locking mechanism is described for shapes in a separate [protection article](/slides/net/applying-protection-to-presentation/) and is supported for various shape types, including [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/).
+Not by itself. Normal crop settings hide parts of the source image but keep the underlying pixels. Use [IPictureFillFormat.DeletePictureCroppedAreas](https://reference.aspose.com/slides/net/aspose.slides/ipicturefillformat/deletepicturecroppedareas/) or image compression with cropped-area removal when those pixels can be discarded permanently.
 
-### Is SVG vector fidelity preserved when exporting a presentation to PDF/images?
+**Can I restore image quality after compression?**
 
-Aspose.Slides allows extracting an SVG from a [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/pictureframe/) as the original vector. When [exporting to PDF](/slides/net/convert-powerpoint-to-pdf/) or [raster formats](/slides/net/convert-powerpoint-to-png/), the result may be rasterized depending on the export settings; the fact that the original SVG is stored as a vector is confirmed by the extraction behavior.
+No. Compression can reduce stored raster resolution, and removing cropped regions discards image data. Keep the original source image outside the presentation if later high-resolution editing may be required.
+
+**How should SVG images be handled?**
+
+Keep SVG content as SVG when vector fidelity matters. The embedded [ISvgImage](https://reference.aspose.com/slides/net/aspose.slides/isvgimage/) can be extracted directly. Rendering a slide to a raster format such as PNG or JPEG rasterizes the SVG as part of the slide image.
+
+**How can I avoid unsafe casts when reading existing slides?**
+
+Check the shape type before using picture-frame-specific members. Pattern matching with [IPictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe/) or filtering the shape collection by that interface avoids invalid casts and lets the code handle slides that do not contain picture frames.

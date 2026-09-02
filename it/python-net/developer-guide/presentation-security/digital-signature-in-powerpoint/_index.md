@@ -1,5 +1,5 @@
 ---
-title: Aggiungere firme digitali alle presentazioni con Python
+title: Aggiungere firme digitali alle presentazioni in Python
 linktitle: Firma digitale
 type: docs
 weight: 10
@@ -9,81 +9,161 @@ keywords:
 - certificato digitale
 - autorità di certificazione
 - certificato PFX
+- PKCS#12
+- validare firma
 - PowerPoint
-- OpenDocument
-- presentazione
+- PPTX
+- sicurezza della presentazione
 - Python
 - Aspose.Slides
-description: "Scopri come firmare digitalmente file PowerPoint e OpenDocument con Aspose.Slides per Python via .NET. Proteggi le tue diapositive in pochi secondi con esempi di codice chiari."
+description: "Scopri come firmare presentazioni PPTX esistenti con certificati PFX e utilizzare Aspose.Slides per Python tramite .NET per convalidare o rimuovere firme digitali."
 ---
-## **Introduzione**
+## **Panoramica**
 
-**Digital certificate** è utilizzato per creare una presentazione PowerPoint protetta da password, contrassegnata come creata da una particolare organizzazione o persona. Il certificato digitale può essere ottenuto contattando un'organizzazione autorizzata – un'autorità di certificazione. Dopo aver installato il certificato digitale nel sistema, può essere utilizzato per aggiungere una firma digitale alla presentazione tramite File -> Info -> Proteggi presentazione:
+Una firma digitale aiuta il destinatario a determinare chi ha firmato una presentazione e se il contenuto firmato è stato modificato. Tre concetti di sicurezza correlati sono importanti qui:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- Un **certificato digitale** è una credenziale elettronica che associa un’identità a una chiave pubblica. Un’autorità di certificazione (CA) di fiducia può rilasciare un certificato, oppure un’organizzazione può utilizzare un certificato autofirmato per flussi di lavoro interni.
+- Una **firma digitale** viene creata dal contenuto della presentazione e dalla chiave privata del titolare del certificato. La chiave pubblica del certificato può quindi essere usata per verificare la firma. Una firma fornisce evidenza di origine e integrità; non cripta la presentazione.
+- La **protezione con password** controlla se un utente può aprire o modificare una presentazione. È separata dalla firma digitale ed è descritta in [Password-Protected Presentations](/python-net/password-protected-presentation/).
 
-Una presentazione può contenere più di una firma digitale. Dopo che la firma digitale è stata aggiunta alla presentazione, verrà visualizzato un messaggio speciale in PowerPoint:
+PowerPoint fornisce il comando **Aggiungi una firma digitale** sotto **File > Info > Proteggi presentazione**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation menu with Add a Digital Signature highlighted](add-digital-signature-in-powerpoint.png)
 
-Per firmare una presentazione o verificare l'autenticità delle firme della presentazione, **Aspose.Slides API** fornisce la classe [**DigitalSignature**](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/) , la classe [**DigitalSignatureCollection**](https://reference.aspose.com/slides/it/python-net/aspose.slides/DigitalSignatureCollection/) e la proprietà [**Presentation.digital_signatures**](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/digital_signatures/) . Attualmente, le firme digitali sono supportate solo per il formato PPTX.
+Dopo l’apertura di una presentazione firmata, PowerPoint può visualizzare una notifica sullo stato della firma.
 
-## **Aggiungere firma digitale da certificato PFX**
+![PowerPoint notification stating that the presentation contains valid signatures](digital-signature-status-in-powerpoint.png)
 
-Il esempio di codice seguente mostra come aggiungere una firma digitale da un certificato PFX:
+Aspose.Slides espone le firme tramite [Presentation.digital_signatures](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/digital_signatures/), una [DigitalSignatureCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignaturecollection/) i cui elementi sono oggetti [DigitalSignature](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/). Una presentazione può contenere più firme.
 
-1. Aprire il file PFX e passare la password PFX all'oggetto [**DigitalSignature**](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/).
-2. Aggiungere la firma creata all'oggetto presentazione.
+## **Comprendere i certificati PFX e le password**
 
-```py
+Un file PFX, noto anche come file PKCS#12 e comunemente con estensione `.pfx` o `.p12`, può contenere un certificato X.509, la sua chiave privata e la catena di certificati. La chiave privata è ciò che consente al titolare di creare una firma. Un certificato senza una chiave privata accessibile non può essere usato per firmare una presentazione.
+
+La password PFX protegge il pacchetto del certificato e la chiave privata. **Non** è una password per aprire o modificare la presentazione. Non eseguire il commit di file PFX o delle loro password nel controllo sorgente. In produzione, limita l’accesso al file del certificato e ottieni la sua password da un archivio segreto o da un’altra fonte di configurazione protetta. Gli esempi seguenti usano una variabile d’ambiente solo per evitare di incorporare la password nel codice.
+
+## **Aggiungere una firma digitale a una presentazione**
+
+Per firmare un flusso di lavoro reale, carica un file PPTX esistente, crea una [DigitalSignature](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/) da un certificato PFX e dalla sua password, aggiungi la firma alla raccolta della presentazione e salva in un file PPTX.
+
+```python
+import os
 import aspose.slides as slides
 
-with slides.Presentation() as pres:
-    # Crea l'oggetto DigitalSignature con file PFX e password PFX 
-    signature = slides.DigitalSignature(path + "testsignature1.pfx", "testpass1")
+certificate_password = os.environ.get("PFX_PASSWORD")
+if certificate_password is None:
+    raise RuntimeError("Set the PFX_PASSWORD environment variable.")
 
-    # Aggiungi commento nuova firma digitale
-    signature.comments = "Aspose.Slides digital signing test."
+with slides.Presentation("InputPresentation.pptx") as presentation:
+    signature = slides.DigitalSignature("signing-certificate.pfx", certificate_password)
+    signature.comments = "Approved for release."
 
-    # Aggiungi firma digitale alla presentazione
-    pres.digital_signatures.add(signature)
-
-    # salva presentazione
-    pres.save("SomePresentationSigned.pptx", slides.export.SaveFormat.PPTX)
+    presentation.digital_signatures.add(signature)
+    presentation.save("InputPresentation-signed.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ora è possibile verificare se la presentazione è stata firmata digitalmente e non è stata modificata:
+Salvare il risultato con un nuovo nome preserva il file sorgente non firmato. Il valore di [DigitalSignature.comments](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/comments/) descrive lo scopo della firma; non è un controllo di sicurezza.
 
-```py
-# Apri presentazione
-with slides.Presentation("SomePresentationSigned.pptx") as pres:
-    if len(pres.digital_signatures) > 0:
-        allSignaturesAreValid = True
+## **Convalidare le firme digitali**
 
-        print("Signatures used to sign the presentation: ")
-        # Verifica se tutte le firme digitali sono valide
-        for signature in pres.digital_signatures :
-            print(signature.certificate.subject_name.name + ", "
-                    + signature.sign_time.strftime("yyyy-MM-dd HH:mm") + " -- " + "VALID" if signature.is_valid else "INVALID")
-            allSignaturesAreValid = allSignaturesAreValid and signature.is_valid
-        
+Quando carichi un file PPTX firmato, ispeziona ogni elemento in [Presentation.digital_signatures](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/digital_signatures/). La proprietà [DigitalSignature.is_valid](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/is_valid/) indica se la firma incorporata è valida per il contenuto attuale della presentazione.
 
-        if allSignaturesAreValid:
-            print("Presentation is genuine, all signatures are valid.")
+```python
+import hashlib
+import aspose.slides as slides
+
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    signature_count = len(presentation.digital_signatures)
+
+    if signature_count == 0:
+        print("The presentation does not contain digital signatures.")
+    else:
+        all_signatures_are_valid = True
+
+        for signature in presentation.digital_signatures:
+            signature_status = "VALID" if signature.is_valid else "INVALID"
+            certificate_fingerprint = hashlib.sha256(signature.certificate).hexdigest().upper()
+            signing_time = signature.sign_time.strftime("%Y-%m-%d %H:%M:%S")
+
+            print(
+                f"Certificate SHA-256: {certificate_fingerprint}, "
+                f"{signing_time} -- {signature_status}"
+            )
+
+            all_signatures_are_valid = (all_signatures_are_valid and signature.is_valid)
+
+        if all_signatures_are_valid:
+            print("All embedded signatures are valid for the current presentation.")
         else:
-            print("Presentation has been modified since signing.")
+            print("At least one embedded signature is invalid.")
 ```
 
-## **Domande frequenti**
+Un risultato non valido indica comunemente che il contenuto della presentazione firmata o i dati della firma sono cambiati dopo la firma, oppure che il file è danneggiato. Rimuovere tutte le firme produce una presentazione non firmata, quindi verificare solo la validità degli elementi non è sufficiente: un flusso di lavoro sensibile alla sicurezza deve anche verificare che il numero previsto di firme e le identità dei firmatari attesi siano presenti.
 
-**Posso rimuovere le firme esistenti da un file?**
+La proprietà [DigitalSignature.certificate](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/certificate/) fornisce i dati del certificato come array di byte. L’esempio calcola il suo fingerprint SHA-256 così che l’applicazione possa confrontarlo con il fingerprint di un certificato firmatario atteso.
 
-Sì. La raccolta di firme digitali supporta la [removing individual items](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignaturecollection/remove_at/) e la [clearing it entirely](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignaturecollection/clear/); dopo aver salvato il file, la presentazione non avrà firme.
+Questo risultato di validità non deve essere trattato come una decisione completa di fiducia del certificato. A seconda della tua politica di sicurezza, la tua applicazione potrebbe anche dover costruire e convalidare la catena di certificati X.509, controllare le date di validità e lo stato di revoca del certificato, confermare il soggetto o l’impronta attesi, verificare l’uso della chiave e valutare un timestamp affidabile. Il valore [DigitalSignature.sign_time](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignature/sign_time/) da solo non è prova da un’autorità di timestamp affidabile.
 
-**Il file diventa "sola lettura" dopo la firma?**
+## **Rimuovere le firme digitali**
 
-No. Una firma preserva l'integrità e l'autore, ma non blocca le modifiche. Per limitare la modifica, combinarla con ["Read-only" or a password](/slides/it/python-net/password-protected-presentation/).
+Rimuovere le firme cambia lo stato di sicurezza della presentazione. L’esempio seguente carica un file PPTX firmato, rimuove tutte le firme con [DigitalSignatureCollection.clear](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignaturecollection/clear/), e salva una copia non firmata.
 
-**La firma verrà visualizzata correttamente in diverse versioni di PowerPoint?**
+```python
+import aspose.slides as slides
 
-La firma è creata per il contenitore OOXML (PPTX). Le versioni moderne di PowerPoint che supportano le firme OOXML visualizzano correttamente lo stato di tali firme.
+with slides.Presentation("InputPresentation-signed.pptx") as presentation:
+    presentation.digital_signatures.clear()
+    presentation.save("InputPresentation-unsigned.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Per rimuovere una sola firma, chiama [DigitalSignatureCollection.remove_at](https://reference.aspose.com/slides/it/python-net/aspose.slides/digitalsignaturecollection/remove_at/) con il suo indice zero‑based. Salva in un nuovo file a meno che la sovrascrittura del originale firmato non sia parte esplicita del tuo flusso di lavoro.
+
+## **Considerazioni su modifica e formato**
+
+- Una firma non rende una presentazione di sola lettura. Utenti e applicazioni possono ancora modificare il file, ma le modifiche al contenuto firmato normalmente invalidano la firma esistente.
+- Completa tutte le modifiche previste prima di firmare. Se una presentazione deve essere modificata, salva la versione rivista e firma nuovamente quella revisione.
+- Mantieni l’output finale in formato PPTX. Convertire una presentazione firmata in un altro formato non trasferisce la firma PPTX originale come firma valida per il file convertito.
+- Tratta la chiave privata del certificato come sensibile. Chiunque ottenga la chiave privata e la sua password può creare firme che sembrano provenire dal titolare del certificato.
+- Conserva la sorgente non firmata o un’altra copia controllata quando la tua politica di conservazione dei documenti lo richiede.
+
+## **FAQ**
+
+**Una firma digitale cripta la presentazione?**
+
+No. Una firma digitale fornisce evidenza sull’origine e sull’integrità, ma il contenuto della presentazione rimane leggibile a meno che non venga applicata una crittografia separata. Usa [password protection](/python-net/password-protected-presentation/) quando l’accesso al contenuto deve essere limitato.
+
+**La password PFX è la stessa della password della presentazione?**
+
+No. La password PFX sblocca la chiave privata memorizzata nel pacchetto del certificato. Non controlla chi può aprire o modificare il file PPTX.
+
+**Posso usare un certificato autofirmato?**
+
+Tecnicamente, un certificato autofirmato può essere usato quando include una chiave privata accessibile. Tuttavia, i destinatari non lo fideranno automaticamente, a meno che quel certificato non sia stato aggiunto esplicitamente al loro ambiente fidato. Flussi di lavoro pubblici o inter‑organizzativi generalmente usano un certificato emesso da una CA di fiducia.
+
+**Cosa rende una firma non valida?**
+
+Modificare il contenuto della presentazione firmata o i dati della firma dopo la firma può invalidare la firma. Anche la corruzione del file può far fallire la convalida. Se tutte le firme sono rimosse, la presentazione è non firmata anziché contenere una firma non valida.
+
+**Una firma valida significa che devo fidarmi del firmatario?**
+
+Non da sola. L’integrità della firma e la fiducia nel firmatario sono decisioni separate. Una politica di convalida in produzione dovrebbe anche verificare la catena di certificati, il periodo di validità, lo stato di revoca, l’identità attesa, l’uso della chiave e eventuali requisiti di timestamp affidabile.
+
+**Cosa succede quando il certificato scade?**
+
+La scadenza del certificato non altera i byte della presentazione, ma influisce sulla valutazione della fiducia del certificato. Se una firma rimane accettabile dipende dalla tua politica e dal fatto che un timestamp affidabile dimostri che la firma è avvenuta mentre il certificato era valido. Non fare affidamento solo sul tempo di firma visualizzato come timestamp affidabile.
+
+**Una presentazione firmata può ancora essere modificata?**
+
+Sì. La firma non blocca il file. Modificare il contenuto firmato generalmente rende la firma esistente non valida, quindi termina prima la presentazione e firma la revisione finale.
+
+**Una presentazione può contenere più di una firma?**
+
+Sì. Aggiungi ogni firma a [Presentation.digital_signatures](https://reference.aspose.com/slides/it/python-net/aspose.slides/presentation/digital_signatures/) prima di salvare. Durante la convalida, ispeziona ogni firma e conferma che tutti i firmatari richiesti siano presenti.
+
+**Quali formati di presentazione supportano queste operazioni?**
+
+Aspose.Slides supporta le operazioni di firma digitale descritte qui solo per PPTX. I formati PPT e OpenDocument non sono supportati da questo flusso di lavoro API.
+
+**Posso rimuovere una firma senza influire sulle diapositive?**
+
+Sì. Puoi rimuovere una firma o cancellare l’intera raccolta e poi salvare la presentazione. Il contenuto delle diapositive rimane disponibile, ma il file salvato non contiene più le prove della firma rimossa.

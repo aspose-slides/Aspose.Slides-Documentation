@@ -1,5 +1,5 @@
 ---
-title: แปลงสไลด์พรีเซนเทชันเป็นรูปภาพใน .NET
+title: แปลงสไลด์การนำเสนอเป็นภาพใน .NET
 linktitle: สไลด์เป็นภาพ
 type: docs
 weight: 41
@@ -11,82 +11,82 @@ keywords:
 - บันทึกสไลด์เป็นภาพ
 - สไลด์เป็น PNG
 - สไลด์เป็น JPEG
-- สไลด์เป็น bitmap
+- สไลด์เป็นบิตแมพ
 - สไลด์เป็น TIFF
 - PowerPoint
 - OpenDocument
-- พรีเซนเทชัน
+- การนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "แปลงสไลด์จาก PPT, PPTX และ ODP เป็นรูปภาพใน C# ด้วย Aspose.Slides สำหรับ .NET—เรนเดอร์ที่รวดเร็วและคุณภาพสูงพร้อมตัวอย่างโค้ดที่ชัดเจน."
+description: "แปลงสไลด์จาก PPT, PPTX และ ODP เป็นภาพใน C# ด้วย Aspose.Slides for .NET—เรนเดอร์ที่รวดเร็วและคุณภาพสูงพร้อมตัวอย่างโค้ดที่ชัดเจน."
 ---
 ## **บทนำ**
 
-Aspose.Slides for .NET ช่วยให้คุณแปลงสไลด์ PowerPoint และ OpenDocument เป็นรูปภาพหลากหลายรูปแบบได้อย่างง่ายดาย เช่น BMP, PNG, JPG (JPEG), GIF และอื่น ๆ  
+Aspose.Slides for .NET ช่วยให้คุณสามารถแปลงสไลด์การนำเสนอ PowerPoint และ OpenDocument เป็นรูปแบบภาพต่าง ๆ ได้อย่างง่ายดาย รวมถึง BMP, PNG, JPG (JPEG), GIF และอื่น ๆ
 
-เพื่อแปลงสไลด์เป็นรูปภาพ ให้ทำตามขั้นตอนเหล่านี้:
+เพื่อแปลงสไลด์เป็นรูปภาพ ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. กำหนดการตั้งค่าการแปลงที่ต้องการและเลือกสไลด์ที่ต้องการส่งออกโดยใช้  
-   - อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/itiffoptions/) หรือ  
-   - อินเทอร์เฟซ [IRenderingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/irenderingoptions/)  
-2. สร้างรูปภาพของสไลด์โดยเรียกเมธอด [GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/)
+1. กำหนดค่าการแปลงที่ต้องการและเลือกสไลด์ที่คุณต้องการส่งออกโดยใช้:
+    - อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/itiffoptions/)
+    - อินเทอร์เฟซ [IRenderingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/irenderingoptions/)
+2. สร้างภาพสไลด์โดยเรียกใช้เมธอด [GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/)
 
-ใน .NET, [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) คืออ็อบเจกต์ที่ให้คุณทำงานกับรูปภาพที่กำหนดโดยข้อมูลพิกเซล คุณสามารถใช้อินสแตนซ์ของคลาสนี้เพื่อบันทึกรูปภาพในรูปแบบต่าง ๆ (BMP, JPG, PNG ฯลฯ)
+ใน .NET, [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) คืออ็อบเจกต์ที่ให้คุณทำงานกับภาพที่กำหนดโดยข้อมูลพิกเซล คุณสามารถใช้อินสแตนซ์ของคลาสนี้เพื่อบันทึกภาพในรูปแบบต่าง ๆ อย่างกว้างขวาง (BMP, JPG, PNG ฯลฯ).
 
-## **แปลงสไลด์เป็น Bitmap และบันทึกรูปภาพเป็น PNG**
+## **แปลงสไลด์เป็นบิตแมพและบันทึกรูปภาพเป็น PNG**
 
-คุณสามารถแปลงสไลด์เป็นอ็อบเจกต์ Bitmap แล้วใช้โดยตรงในแอปพลิเคชันของคุณ หรือแปลงสไลด์เป็น Bitmap แล้วบันทึกรูปภาพเป็น JPEG หรือรูปแบบอื่นที่ต้องการ
+คุณสามารถแปลงสไลด์เป็นออบเจกต์บิตแมพและใช้โดยตรงในแอปพลิเคชันของคุณ หรือคุณสามารถแปลงสไลด์เป็นบิตแมพแล้วบันทึกรูปภาพเป็น JPEG หรือรูปแบบใด ๆ ที่คุณต้องการ
 
-โค้ด C# ตัวอย่างนี้แสดงวิธีแปลงสไลด์แรกของพรีเซนเทชันเป็นอ็อบเจกต์ Bitmap แล้วบันทึกเป็นรูปแบบ PNG:
+โค้ด C# นี้แสดงวิธีการแปลงสไลด์แรกของการนำเสนอเป็นออบเจกต์บิตแมพและจากนั้นบันทึกภาพในรูปแบบ PNG:
 
 ```cs
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // แปลงสไลด์แรกในพรีเซนเทชันเป็น bitmap.
+    // แปลงสไลด์แรกในงานนำเสนอเป็นบิตแมพ.
     using (IImage image = presentation.Slides[0].GetImage())
     {
-        // บันทึกรูปภาพในรูปแบบ PNG.
+        // บันทึกภาพในรูปแบบ PNG.
         image.Save("Slide_0.png", ImageFormat.Png);
     }
 }
 ```
 
-## **แปลงสไลด์เป็นรูปภาพด้วยขนาดกำหนดเอง**
+## **แปลงสไลด์เป็นภาพด้วยขนาดกำหนดเอง**
 
-บางครั้งคุณอาจต้องการรูปภาพที่มีขนาดเฉพาะ โดยใช้ overload ของเมธอด [GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/) คุณสามารถแปลงสไลด์เป็นรูปภาพด้วยความกว้างและความสูงที่กำหนด
+คุณอาจต้องการภาพที่มีขนาดเฉพาะ โดยใช้การ overload จากเมธอด [GetImage](https://reference.aspose.com/slides/th/net/aspose.slides/islide/getimage/), คุณสามารถแปลงสไลด์เป็นภาพที่มีมิติที่กำหนด (ความกว้างและความสูง).
 
-ตัวอย่างโค้ดนี้แสดงวิธีทำเช่นนั้น:
+ตัวอย่างโค้ดนี้แสดงวิธีทำเช่นนี้:
 
 ```cs
 Size imageSize = new Size(1820, 1040);
 
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // แปลงสไลด์แรกในพรีเซนเทชันเป็น bitmap ด้วยขนาดที่ระบุ.
+    // แปลงสไลด์แรกในงานนำเสนอเป็นบิตแมพด้วยขนาดที่ระบุ.
     using (IImage image = presentation.Slides[0].GetImage(imageSize))
     {
-        // บันทึกรูปภาพในรูปแบบ JPEG.
+        // บันทึกภาพในรูปแบบ JPEG.
         image.Save("Slide_0.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
-## **แปลงสไลด์พร้อมโน๊ตและคอมเมนต์เป็นรูปภาพ**
+## **แปลงสไลด์ที่มีบันทึกและคอมเมนต์เป็นภาพ**
 
-สไลด์บางสไลด์อาจมีโน๊ตและคอมเมนต์
+บางสไลด์อาจมีบันทึกและคอมเมนต์
 
-Aspose.Slides มีอินเทอร์เฟซสองตัว — [ITiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/itiffoptions/) และ [IRenderingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/irenderingoptions/) — ที่ให้คุณควบคุมการเรนเดอร์สไลด์เป็นรูปภาพ ทั้งสองอินเทอร์เฟซมี property `SlidesLayoutOptions` ซึ่งช่วยกำหนดการเรนเดอร์ของโน๊ตและคอมเมนต์เมื่อต้องการแปลงเป็นรูปภาพ
+Aspose.Slides มีอินเทอร์เฟซสองตัวคือ [ITiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/itiffoptions/) และ [IRenderingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/irenderingoptions/) ซึ่งช่วยให้คุณควบคุมการเรนเดอร์ของสไลด์การนำเสนอเป็นภาพ ทั้งสองอินเทอร์เฟซมีคุณสมบัติ `SlidesLayoutOptions` ที่ทำให้คุณตั้งค่าการเรนเดอร์ของบันทึกและคอมเมนต์บนสไลด์เมื่อต้องการแปลงเป็นภาพ
 
-ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับโน๊ตและคอมเมนต์ในรูปภาพที่ได้
+ด้วยคลาส [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/notescommentslayoutingoptions/) คุณสามารถระบุตำแหน่งที่ต้องการสำหรับบันทึกและคอมเมนต์ในภาพผลลัพธ์
 
-โค้ด C# ตัวอย่างนี้แสดงวิธีแปลงสไลด์พร้อมโน๊ตและคอมเมนต์:
+โค้ด C# นี้แสดงวิธีการแปลงสไลด์ที่มีบันทึกและคอมเมนต์:
 
 ```cs
 float scaleX = 2;
 float scaleY = scaleX;
 
-// โหลดไฟล์พรีเซนเทชัน.
+// โหลดไฟล์งานนำเสนอ.
 using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
 {
     // สร้างตัวเลือกการเรนเดอร์.
@@ -94,62 +94,62 @@ using (Presentation presentation = new Presentation("Presentation_with_notes_and
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
-            NotesPosition = NotesPositions.BottomTruncated,  // ตั้งค่าตำแหน่งของโน๊ต.
-            CommentsPosition = CommentsPositions.Right,      // ตั้งค่าตำแหน่งของคอมเมนต์.
-            CommentsAreaWidth = 500,                         // ตั้งค่าความกว้างของพื้นที่คอมเมนต์.
-            CommentsAreaColor = Color.AntiqueWhite           // ตั้งค่าสีสำหรับพื้นที่คอมเมนต์.
+            NotesPosition = NotesPositions.BottomTruncated,  // ตั้งค่าตำแหน่งของบันทึก.
+            CommentsPosition = CommentsPositions.Right,      // ตั้งค่าตำแหน่งของความคิดเห็น.
+            CommentsAreaWidth = 500,                         // ตั้งค่าความกว้างของพื้นที่ความคิดเห็น.
+            CommentsAreaColor = Color.AntiqueWhite           // ตั้งค่าสีของพื้นที่ความคิดเห็น.
         }
     };
 
-    // แปลงสไลด์แรกของพรีเซนเทชันเป็นภาพ.
+    // แปลงสไลด์แรกของงานนำเสนอเป็นภาพ.
     using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
     {
-        // บันทึกรรูปภาพในรูปแบบ GIF.
+        // บันทึกภาพในรูปแบบ GIF.
         image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     }
 }
 ```
 
 {{% alert title="Note" color="warning" %}} 
-ในกระบวนการแปลงสไลด์เป็นรูปภาพใด ๆ, property [NotesPosition](https://reference.aspose.com/slides/th/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) ไม่สามารถตั้งค่าเป็น `BottomFull` (เพื่อระบุตำแหน่งของโน๊ต) ได้ เนื่องจากข้อความของโน๊ตอาจมีขนาดใหญ่เกินไป ทำให้ไม่สามารถใส่ลงในขนาดภาพที่กำหนดได้
+ในกระบวนการแปลงสไลด์เป็นภาพใด ๆ คุณสมบัติ [NotesPosition](https://reference.aspose.com/slides/th/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) ไม่สามารถตั้งค่าเป็น `BottomFull` (เพื่อระบุตำแหน่งของบันทึก) เนื่องจากข้อความของบันทึกอาจใหญ่เกินไป ทำให้ไม่สามารถใส่ลงในขนาดภาพที่กำหนด
 {{% /alert %}} 
 
-## **แปลงสไลด์เป็นรูปภาพโดยใช้ TIFF Options**
+## **แปลงสไลด์เป็นภาพโดยใช้ TIFF Options**
 
-อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/itiffoptions/) ให้การควบคุมที่ละเอียดขึ้นของภาพ TIFF ที่สร้างขึ้น โดยสามารถกำหนดพารามิเตอร์เช่น ขนาด, ความละเอียด, พาเลตสี ฯลฯ
+อินเทอร์เฟซ [ITiffOptions](https://reference.aspose.com/slides/th/net/aspose.slides.export/itiffoptions/) ให้การควบคุมที่มากขึ้นต่อภาพ TIFF ที่ได้โดยอนุญาตให้คุณระบุพารามิเตอร์เช่น ขนาด, ความละเอียด, พาเลตสี, และอื่น ๆ
 
-โค้ด C# ตัวอย่างนี้แสดงกระบวนการแปลงที่ใช้ TIFF Options เพื่อสร้างภาพขาว-ดำที่ความละเอียด 300 DPI และขนาด 2160 × 2800:
+โค้ด C# นี้แสดงกระบวนการแปลงที่ใช้ TIFF options เพื่อสร้างภาพขาว-ดำด้วยความละเอียด 300 DPI และขนาด 2160 × 2800:
 
 ```cs
-// โหลดไฟล์พรีเซนเทชัน.
+// โหลดไฟล์งานนำเสนอ.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // ดึงสไลด์แรกจากพรีเซนเทชัน.
+    // ดึงสไลด์แรกจากงานนำเสนอ.
     ISlide slide = presentation.Slides[0];
 
-    // กำหนดค่าการตั้งค่าของภาพ TIFF ที่จะส่งออก.
+    // กำหนดค่าการตั้งค่าของภาพ TIFF ที่ส่งออก.
     TiffOptions tiffOptions = new TiffOptions
     {
-        ImageSize = new Size(2160, 2880),                  // ตั้งค่าขนาดของภาพ.
-        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // ตั้งค่ารูปแบบพิกเซล (สีดำและขาว).
-        DpiX = 300,                                        // ตั้งความละเอียดแนวนอน.
-        DpiY = 300                                         // ตั้งความละเอียดแนวตั้ง.
+        ImageSize = new Size(2160, 2880),                  // ตั้งค่าขนาดภาพ.
+        PixelFormat = ImagePixelFormat.Format1bppIndexed,  // ตั้งค่ารูปแบบพิกเซล (ขาว-ดำ).
+        DpiX = 300,                                        // ตั้งค่าความละเอียดแนวนอน.
+        DpiY = 300                                         // ตั้งค่าความละเอียดแนวตั้ง.
     };
 
     // แปลงสไลด์เป็นภาพด้วยตัวเลือกที่ระบุ.
     using (IImage image = slide.GetImage(tiffOptions))
     {
-        // บันทึกรูปภาพในรูปแบบ TIFF.
+        // บันทึกภาพในรูปแบบ TIFF.
         image.Save("output.tiff", ImageFormat.Tiff);
     }
 }
 ```
 
-## **แปลงสไลด์ทั้งหมดเป็นรูปภาพ**
+## **แปลงสไลด์ทั้งหมดเป็นภาพ**
 
-Aspose.Slides ช่วยให้คุณแปลงสไลด์ทั้งหมดในพรีเซนเทชันเป็นรูปภาพได้อย่างง่ายดาย ซึ่งหมายถึงการแปลงพรีเซนเทชันทั้งหมดเป็นชุดของรูปภาพ
+Aspose.Slides ช่วยให้คุณสามารถแปลงสไลด์ทั้งหมดในการนำเสนอเป็นภาพได้อย่างมีประสิทธิภาพ ทำให้การนำเสนอทั้งหมดถูกแปลงเป็นชุดของภาพ
 
-ตัวอย่างโค้ดนี้แสดงวิธีแปลงสไลด์ทั้งหมดในพรีเซนเทชันเป็นรูปภาพด้วย C#:
+ตัวอย่างโค้ดนี้แสดงวิธีการแปลงสไลด์ทั้งหมดในการนำเสนอเป็นภาพด้วย C#:
 
 ```cs
 float scaleX = 2;
@@ -157,33 +157,36 @@ float scaleY = scaleX;
 
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // เรนเดอร์พรีเซนเทชันเป็นภาพสไลด์ต่อสไลด์.
+    // เรนเดอร์งานนำเสนอเป็นภาพสไลด์ต่อสไลด์.
     for (int i = 0; i < presentation.Slides.Count; i++)
     {
-        // ควบคุมสไลด์ที่ซ่อนอยู่ (ไม่เรนเดอร์สไลด์ที่ซ่อนอยู่).
+        // ควบคุมสไลด์ที่ซ่อน (ไม่เรนเดอร์สไลด์ที่ซ่อน).
         if (presentation.Slides[i].Hidden)
             continue;
 
         // แปลงสไลด์เป็นภาพ.
         using (IImage image = presentation.Slides[i].GetImage(scaleX, scaleY))
         {
-            // บันทึกรูปภาพในรูปแบบ JPEG.
+            // บันทึกภาพในรูปแบบ JPEG.
             image.Save($"Slide_{i}.jpg", ImageFormat.Jpeg);
         }
     }
 }
 ```
 
+## **การเรนเดอร์อีโมจีสี**
+
+{{% alert title="Note" color="warning" %}} 
+เพื่อให้การเรนเดอร์อีโมจีสีทำงานถูกต้องเมื่อแปลงสไลด์การนำเสนอเป็นภาพ ฟอนต์อีโมจีที่ใช้ในการนำเสนอจำเป็นต้องติดตั้งและพร้อมใช้งานในระบบที่ทำการแปลง ตัวอย่างเช่น หากการนำเสนอใช้ **Segoe UI Emoji** แต่ฟอนต์นี้ไม่มีอยู่ อีโมจีอาจปรากฏเป็นสีเทาในภาพผลลัพธ์
+{{% /alert %}}
+
 ## **คำถามที่พบบ่อย**
 
-**1. Aspose.Slides รองรับการเรนเดอร์สไลด์พร้อมอนิเมชันหรือไม่?**
+**Aspose.Slides รองรับการเรนเดอร์สไลด์ที่มีแอนิเมชันหรือไม่?**  
+ไม่, เมธอด `GetImage` จะบันทึกเฉพาะภาพนิ่งของสไลด์เท่านั้น โดยไม่มีแอนิเมชัน.
 
-ไม่, เมธอด `GetImage` จะบันทึกรูปภาพแบบคงที่ของสไลด์เท่านั้น ไม่รวมอนิเมชัน
+**สไลด์ที่ซ่อนได้รับการส่งออกเป็นภาพหรือไม่?**  
+ได้, สไลด์ที่ซ่อนสามารถประมวลผลได้เช่นเดียวกับสไลด์ทั่วไป เพียงตรวจสอบให้แน่ใจว่ามีการรวมไว้ในลูปการประมวลผล.
 
-**2. สามารถส่งออกสไลด์ที่ซ่อนอยู่เป็นรูปภาพได้หรือไม่?**
-
-ได้, สไลด์ที่ซ่อนอยู่สามารถประมวลผลได้เช่นเดียวกับสไลด์ปกติ เพียงตรวจสอบให้แน่ใจว่าถูกรวมอยู่ในลูปการประมวลผล
-
-**3. สามารถบันทึกรูปภาพพร้อมเงาและเอฟเฟกต์ได้หรือไม่?**
-
-ได้, Aspose.Slides รองรับการเรนเดอร์เงา, ความโปร่งแสงและเอฟเฟกต์กราฟิกอื่น ๆ เวลาบันทึกสไลด์เป็นรูปภาพ
+**สามารถบันทึกรูปภาพพร้อมกับเงาและเอฟเฟกต์ได้หรือไม่?**  
+ได้, Aspose.Slides รองรับการเรนเดอร์เงา, ความโปร่งใส, และเอฟเฟกต์กราฟิกอื่น ๆ เมื่อบันทึกสไลด์เป็นภาพ.

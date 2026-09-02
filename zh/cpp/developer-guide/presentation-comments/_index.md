@@ -1,143 +1,170 @@
 ---
-title: 使用 C++ 管理演示文稿评论
-linktitle: 演示文稿评论
+title: 在 C++ 中管理演示文稿批注
+linktitle: 演示文稿批注
 type: docs
 weight: 100
 url: /zh/cpp/presentation-comments/
 keywords:
-- 评论
-- 现代评论
-- PowerPoint 评论
-- 演示文稿评论
-- 幻灯片评论
-- 添加评论
-- 访问评论
-- 编辑评论
-- 回复评论
-- 删除评论
-- 删除评论
+- 批注
+- 现代批注
+- PowerPoint 批注
+- 演示文稿批注
+- 幻灯片批注
+- 添加批注
+- 访问批注
+- 编辑批注
+- 回复批注
+- 删除批注
+- 删除批注
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - C++
 - Aspose.Slides
-description: "使用 Aspose.Slides for C++ 精通演示文稿评论：快速轻松地在 PowerPoint 文件中添加、读取、编辑和删除评论。"
+description: "使用 Aspose.Slides for C++ 管理演示文稿批注：在 PowerPoint 演示文稿中快速轻松地添加、读取、编辑、回复和删除批注。"
 ---
+## **概述**
 
-在 PowerPoint 中，评论显示为幻灯片上的备注或注释。单击评论后，其内容或信息会显示出来。
+本文解释了如何使用 Aspose.Slides for C++ 管理演示文稿批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问现有批注、使用回复和现代批注以及从演示文稿中删除批注。
 
-### **为什么要在演示文稿中添加评论？**
+示例涵盖了 PowerPoint 中常见的审阅和协作场景，例如将批注分配给作者、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
 
-在审阅演示文稿时，您可能希望使用评论来提供反馈或与同事交流。
+在 PowerPoint 中，批注以注释的形式显示在幻灯片上。选择批注时会显示其文本和相关讨论。
 
-为了让您在 PowerPoint 演示文稿中使用评论，Aspose.Slides for C++ 提供
+## **为什么向演示文稿添加批注？**
 
-* The [Presentation](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation) 类，包含作者集合（来自 [get_CommentAuthors()](https://reference.aspose.com/slides/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d) 方法）。作者向幻灯片添加评论。 
-* The [ICommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment_collection) 接口，包含针对各个作者的评论集合。 
-* The [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) 类，包含关于作者及其评论的信息：谁添加了评论、添加评论的时间、评论的位置等。 
-* The [CommentAuthor](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_author) 类，包含关于单个作者的信息：作者姓名、其首字母缩写、与作者姓名关联的评论等。 
+在审阅演示文稿时，您可以使用批注提供反馈并与同事协作。
 
-## **添加幻灯片评论**
-此 C++ 代码演示如何向 PowerPoint 演示文稿的幻灯片添加评论：
+Aspose.Slides for C++ 提供以下用于处理批注的 API：
+
+* The [Presentation](https://reference.aspose.com/slides/zh/cpp/aspose.slides/presentation/) 类，提供对演示文稿的批注作者的访问。
+* The [ICommentCollection](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注。
+* The [IComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
+* The [CommentAuthor](https://reference.aspose.com/slides/zh/cpp/aspose.slides/commentauthor/) 类，提供有关作者的信息，包括姓名、首字母和关联的批注。
+
+## **添加幻灯片批注**
+
+以下示例展示了如何在 PowerPoint 演示文稿中向幻灯片添加批注：
+
 ```cpp
-// 实例化 Presentation 类
-auto presentation = System::MakeObject<Presentation>();
-// 添加空幻灯片
-presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlides()->idx_get(0));
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-// 添加作者
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto firstSlide = presentation->get_Slide(0);
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
+auto position = PointF(0.2f, 0.2f);
+auto createdTime = DateTime::get_Now();
 
-// 设置评论的位置
-PointF point;
-point.set_X(0.2f);
-point.set_Y(0.2f);
+author->get_Comments()->AddComment(u"Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+author->get_Comments()->AddComment(u"Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-// 访问 ISlide 1
-auto slide1 = presentation->get_Slides()->idx_get(0);
-// 访问 ISlide 2
-auto slide2 = presentation->get_Slides()->idx_get(1);
+auto comments = firstSlide->GetSlideComments(author);
+if (comments->get_Length() > 0)
+{
+    auto firstComment = comments[0];
+    Console::WriteLine(firstComment->get_Text());
 
-// 为作者在幻灯片 1 上添加幻灯片评论
-author->get_Comments()->AddComment(u"Hello Jawad, this is slide comment", slide1, point, DateTime::get_Now());
-
-// 为作者在幻灯片 2 上添加幻灯片评论
-author->get_Comments()->AddComment(u"Hello Jawad, this is second slide comment", slide2, point, DateTime::get_Now());
-
-// 当参数为 null 时，将所有作者的评论带到选定的幻灯片
-auto comments = slide1->GetSlideComments(author);
-
-// 访问索引 0 处的评论
-String str = comments[0]->get_Text();
+    auto commentText = firstComment->get_Author()->get_Comments()->idx_get(0)->get_Text();
+    Console::WriteLine(commentText);
+}
 
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
-
-if (comments->GetLength(0) > 0)
-{
-    // 选择索引 0 处的作者评论集合
-    auto commentCollection = comments[0]->get_Author()->get_Comments();
-    String Comment = commentCollection->idx_get(0)->get_Text();
-}
 ```
 
+## **访问幻灯片批注**
 
-## **访问幻灯片评论**
-此 C++ 代码演示如何访问 PowerPoint 演示文稿中幻灯片上的现有评论：
+以下示例展示了如何访问 PowerPoint 演示文稿中已有的批注：
+
 ```cpp
-// 实例化 Presentation 类
-auto presentation = System::MakeObject<Presentation>(u"Comments1.pptx");
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-for (auto&& commentAuthor : presentation->get_CommentAuthors())
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Comments1.pptx");
+
+for (auto&& author : presentation->get_CommentAuthors())
 {
-    auto author = System::ExplicitCast<CommentAuthor>(commentAuthor);
-    for (auto&& comment1 : System::IterateOver(author->get_Comments()))
+    for (auto&& comment : author->get_Comments())
     {
-        SmartPtr<Comment> comment = System::ExplicitCast<Comment>(comment1);
-        Console::WriteLine(String(u"ISlide :")
-                        + comment->get_Slide()->get_SlideNumber()
-                        + u" has comment: " + comment->get_Text()
-                        + u" with Author: " + comment->get_Author()->get_Name()
-                        + u" posted on time :" + comment->get_CreatedTime() + u"\n");
+        Console::WriteLine(u"Slide: {0}", comment->get_Slide()->get_SlideNumber());
+        Console::WriteLine(u"Comment: {0}", comment->get_Text());
+        Console::WriteLine(u"Author: {0}", comment->get_Author()->get_Name());
+        Console::WriteLine(u"Posted at: {0}", comment->get_CreatedTime());
+        Console::WriteLine();
     }
 }
 ```
 
+## **回复批注**
 
-## **回复评论**
-父级评论是评论或回复层级中的顶层或原始评论。使用 [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) 属性（来自 [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) 接口），您可以设置或获取父级评论。 
+父批注是回复层级顶部的原始批注。[get_ParentComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/get_parentcomment/) 和 [set_ParentComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/set_parentcomment/) 方法属于 [IComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/) 接口，可用于获取或设置批注的父级。
 
-此 C++ 代码演示如何添加评论并获取其回复：
+以下示例展示了如何添加回复并检查生成的批注层级结构：
+
 ```cpp
-auto pres = System::MakeObject<Presentation>();
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-// 访问 ISlide 1
-auto slide1 = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-// 添加评论
-auto author1 = pres->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto position = PointF(10.0f, 10.0f);
+auto createdTime = DateTime::get_Now();
 
-// 向 comment1 添加回复
-auto author2 = pres->get_CommentAuthors()->AddAuthor(u"Autror_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+
+auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
 reply1->set_ParentComment(comment1);
 
-// 再向 comment1 添加一个回复
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
 reply2->set_ParentComment(comment1);
 
-// 向已有回复添加回复
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
 subReply->set_ParentComment(reply2);
 
-auto comment2 = author2->get_Comments()->AddComment(u"comment 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
 reply3->set_ParentComment(comment3);
 
-// 在控制台显示评论层级
-auto comments = slide1->GetSlideComments(nullptr);
+auto comments = slide->GetSlideComments(nullptr);
 for (int32_t i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
@@ -147,114 +174,378 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
         comment = comment->get_ParentComment();
     }
 
-    Console::Write(u"{0} : {1}", comments[i]->get_Author()->get_Name(), comments[i]->get_Text());
-    Console::WriteLine();
+    Console::WriteLine(u"{0}: {1}", comments[i]->get_Author()->get_Name(), comments[i]->get_Text());
 }
 
-pres->Save(u"parent_comment.pptx", SaveFormat::Pptx);
+presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-// 删除 comment1 及其所有回复
 comment1->Remove();
-
-pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
+presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-
-{{% alert color="warning" title="Attention" %}} 
-
-* 当使用 [Remove](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#a8bb818ae804d142195c4edcf9012cccb) 方法（来自 [IComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment) 接口）删除评论时，该评论的回复也会被删除。 
-* 如果 [ParentComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.i_comment#af3d18815e49ac0eccf38a33cde1ec5e0) 设置导致循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/cpp/namespace/aspose.slides#addf0421015ca476c0664c4f8f451877d)。 
-
+{{% alert color="warning" title="Warning" %}}
+* 当使用 [IComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/) 接口的 [Remove](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/remove/) 方法删除批注时，该批注的所有回复也会被删除。
+* 如果 [set_ParentComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/set_parentcomment/) 方法导致循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/cpp/aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
-## **添加现代评论**
+## **添加现代批注**
 
-2021 年，Microsoft 在 PowerPoint 中引入了*现代评论*。现代评论功能显著提升了 PowerPoint 的协作能力。通过现代评论，PowerPoint 用户可以解决评论、将评论锚定到对象和文本上，并且能够更轻松地进行交互。 
+现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。[ICommentCollection::AddModernComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icommentcollection/addmoderncomment/) 方法在接受幻灯片和批注标记坐标之外，还接受一个 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 参数。
 
-在 [Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/cpp/aspose-slides-for-cpp-21-11-release-notes/) 中，我们通过添加 [ModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.modern_comment) 类实现了对现代评论的支持。向 [CommentCollection](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection) 类新增了 [AddModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#a3627fcb3b05cd639fd430bd8248fe66b) 和 [InsertModernComment](https://reference.aspose.com/slides/cpp/class/aspose.slides.comment_collection#ad11c3efb52f3c17f63238447dcc03c94) 方法。 
+当 `nullptr` 作为形状参数传入时，批注为幻灯片级批注。其标记位置由提供的坐标确定，但不关联到特定形状，因此 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_shape/) 返回 `nullptr`。当提供了 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 时，批注锚定到该形状。坐标仍然定义批注标记在幻灯片上的位置，形状关联可通过 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_shape/) 获取。
 
-此 C++ 代码演示如何向 PowerPoint 演示文稿的幻灯片添加现代评论： 
+### **将现代批注锚定到形状**
+
+以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，然后读取每个批注关联的形状。
+
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-// 访问 ISlide 1
-auto slide1 = pres->get_Slides()->idx_get(0);
+#include <DOM/IAutoShape.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-auto newAuthor = pres->get_CommentAuthors()->AddAuthor(u"Some Author", u"SA");
-auto modernComment = newAuthor->get_Comments()->AddModernComment(u"This is a modern comment", slide1, nullptr, PointF(100.0f, 100.0f), DateTime::get_Now());
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-
-## **删除评论**
-
-### **删除所有评论和作者**
-此 C++ 代码演示如何在演示文稿中删除所有评论和作者：
-```cpp
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
 
-auto presentation = System::MakeObject<Presentation>(u"example.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
+shape->set_Name(u"Revenue title");
+shape->get_TextFrame()->set_Text(u"Quarterly revenue");
 
-// 删除演示文稿中的所有评论
-for (auto author : presentation->get_CommentAuthors())
+auto createdTime = DateTime::get_Now();
+auto slideCommentPosition = PointF(20.0f, 20.0f);
+auto shapeCommentPosition = PointF(60.0f, 60.0f);
+auto slideComment = author->get_Comments()->AddModernComment(u"Review the overall slide layout.", slide, nullptr, slideCommentPosition, createdTime);
+auto shapeComment = author->get_Comments()->AddModernComment(u"Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+Console::WriteLine(slideComment->get_Shape() == nullptr);
+auto shapeAnchor = shapeComment->get_Shape();
+if (shapeAnchor != nullptr)
+{
+    Console::WriteLine(shapeAnchor->get_Name());
+}
+
+presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
+```
+
+### **将批注锚定到不同的形状类型**
+
+任何实现了 [IShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚点。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/cpp/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/cpp/aspose.slides/igraphicalobject/)（如图表）实例。
+
+以下示例创建了几种常见的形状类型，并为每一种关联了一个现代批注。
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IConnector.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/convert.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto createdTime = DateTime::get_Now();
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
+autoShape->get_TextFrame()->set_Text(u"AutoShape");
+auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
+author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+auto imageBase64 = u"iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+auto imageData = Convert::FromBase64String(imageBase64);
+auto image = presentation->get_Images()->AddImage(imageData);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 220.0f, 20.0f, 120.0f, 80.0f, image);
+auto pictureCommentPosition = PointF(230.0f, 30.0f);
+author->get_Comments()->AddModernComment(u"Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+auto groupShape = slide->get_Shapes()->AddGroupShape();
+groupShape->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 80.0f, 40.0f);
+groupShape->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 100.0f, 0.0f, 80.0f, 40.0f);
+auto groupCommentPosition = PointF(40.0f, 150.0f);
+author->get_Comments()->AddModernComment(u"Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 220.0f, 150.0f, 140.0f, 40.0f);
+auto connectorCommentPosition = PointF(240.0f, 150.0f);
+author->get_Comments()->AddModernComment(u"Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 400.0f, 20.0f, 250.0f, 180.0f);
+auto chartCommentPosition = PointF(420.0f, 40.0f);
+author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
+```
+
+### **将批注锚定到文本并设置其状态**
+
+对于关联到 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/) 的现代批注，[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionstart/) 和 [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_textselectionstart/) 控制形状文本框中所选文本的起始位置。类似地，[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 和 [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_textselectionlength/) 控制选区的长度。这些方法共同将批注关联到 AutoShape 中的特定文本范围。
+
+[IModernComment::get_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_status/) 和 [IModernComment::set_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_status/) 方法使用 [ModernCommentStatus](https://reference.aspose.com/slides/zh/cpp/aspose.slides/moderncommentstatus/) 枚举的值：
+
+- `NotDefined` — 未定义特定的现代批注状态。
+- `Active` — 批注处于活动状态。
+- `Resolved` — 批注已解决。
+- `Closed` — 批注已关闭。
+
+以下示例创建了一个锚定到形状的现代批注，关联到文本选区，将其标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ModernCommentStatus.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String outputFile = u"modern_comment_text_anchor.pptx";
+const String shapeText = u"Review the quarterly revenue forecast.";
+const String selectedText = u"quarterly revenue";
+auto expectedSelectionStart = shapeText.IndexOf(selectedText);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
+shape->set_Name(u"Forecast text");
+shape->get_TextFrame()->set_Text(shapeText);
+
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto commentPosition = PointF(60.0f, 60.0f);
+auto comment = author->get_Comments()->AddModernComment(u"Verify this forecast wording.", slide, shape, commentPosition, DateTime::get_Now());
+comment->set_TextSelectionStart(expectedSelectionStart);
+comment->set_TextSelectionLength(selectedText.get_Length());
+comment->set_Status(ModernCommentStatus::Resolved);
+
+presentation->Save(outputFile, SaveFormat::Pptx);
+
+auto reopenedPresentation = MakeObject<Presentation>(outputFile);
+auto reopenedSlide = reopenedPresentation->get_Slide(0);
+auto reopenedComments = reopenedSlide->GetSlideComments(nullptr);
+
+for (auto&& reopenedComment : reopenedComments)
+{
+    auto modernComment = AsCast<IModernComment>(reopenedComment);
+    if (modernComment == nullptr)
+    {
+        continue;
+    }
+
+    auto shapeAnchor = modernComment->get_Shape();
+    auto shapeMatches = shapeAnchor != nullptr && shapeAnchor->get_Name() == u"Forecast text";
+    auto selectionStartMatches = modernComment->get_TextSelectionStart() == expectedSelectionStart;
+    auto selectionLengthMatches = modernComment->get_TextSelectionLength() == selectedText.get_Length();
+    auto statusMatches = modernComment->get_Status() == ModernCommentStatus::Resolved;
+
+    Console::WriteLine(u"Shape anchor preserved: {0}", shapeMatches);
+    Console::WriteLine(u"Text selection start preserved: {0}", selectionStartMatches);
+    Console::WriteLine(u"Text selection length preserved: {0}", selectionLengthMatches);
+    Console::WriteLine(u"Resolved status preserved: {0}", statusMatches);
+}
+```
+
+### **检查现有的现代批注**
+
+要检查现有演示文稿，首先判断哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/)，然后检查 [IModernComment::get_Shape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_shape/)、[IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionstart/)、[IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_textselectionlength/) 和 [IModernComment::get_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_status/)。`nullptr` 形状表示该批注为幻灯片级批注。对于锚定到 [IAutoShape](https://reference.aspose.com/slides/zh/cpp/aspose.slides/iautoshape/) 的批注，文本选区方法可识别形状文本框中的关联范围。
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IComment.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ModernCommentStatus.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"comments.pptx");
+
+for (auto&& slide : presentation->get_Slides())
+{
+    auto comments = slide->GetSlideComments(nullptr);
+    for (auto&& comment : comments)
+    {
+        auto modernComment = AsCast<IModernComment>(comment);
+        if (modernComment == nullptr)
+        {
+            continue;
+        }
+
+        Console::WriteLine(u"Slide: {0}", slide->get_SlideNumber());
+        Console::WriteLine(u"Text: {0}", modernComment->get_Text());
+        Console::WriteLine(u"Status: {0}", modernComment->get_Status());
+
+        auto shape = modernComment->get_Shape();
+        if (shape == nullptr)
+        {
+            Console::WriteLine(u"Anchor: slide level");
+        }
+        else
+        {
+            Console::WriteLine(u"Anchor shape: {0}", shape->get_Name());
+            Console::WriteLine(u"Anchor type: {0}", shape->GetType().get_Name());
+
+            auto autoShape = AsCast<IAutoShape>(shape);
+            if (autoShape != nullptr)
+            {
+                Console::WriteLine(u"Text selection start: {0}", modernComment->get_TextSelectionStart());
+                Console::WriteLine(u"Text selection length: {0}", modernComment->get_TextSelectionLength());
+            }
+        }
+
+        Console::WriteLine();
+    }
+}
+```
+
+## **删除批注**
+
+### **删除所有批注和批注作者**
+
+以下示例展示了如何从演示文稿中删除所有批注和批注作者：
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"example.pptx");
+
+for (auto&& author : presentation->get_CommentAuthors())
 {
     author->get_Comments()->Clear();
 }
-        
-// 删除所有作者
+
 presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
+### **删除特定批注**
 
-### **删除特定评论**
-此 C++ 代码演示如何删除幻灯片上的特定评论：
+以下示例展示了如何从幻灯片中删除特定批注：
+
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/date_time.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 using namespace System::Drawing;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// 添加评论...
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
-author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
-author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
-        
-// 删除所有包含 "comment 1" 文本的评论
-for (auto commentAuthor : presentation->get_CommentAuthors())
+auto createdTime = DateTime::get_Now();
+
+auto firstCommentPosition = PointF(0.2f, 0.2f);
+auto secondCommentPosition = PointF(0.3f, 0.2f);
+author->get_Comments()->AddComment(u"comment 1", slide, firstCommentPosition, createdTime);
+author->get_Comments()->AddComment(u"comment 2", slide, secondCommentPosition, createdTime);
+
+for (auto&& commentAuthor : presentation->get_CommentAuthors())
 {
-    auto toRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IComment>>>();
-    for (auto comment : slide->GetSlideComments(commentAuthor))
+    auto commentsToRemove = MakeObject<List<SharedPtr<IComment>>>();
+    auto comments = slide->GetSlideComments(commentAuthor);
+
+    for (auto&& comment : comments)
     {
         if (comment->get_Text() == u"comment 1")
         {
-            toRemove->Add(comment);
+            commentsToRemove->Add(comment);
         }
     }
-    for (auto comment : toRemove)
+
+    for (auto&& comment : commentsToRemove)
     {
         commentAuthor->get_Comments()->Remove(comment);
     }
 }
-        
+
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-
 ## **常见问题**
 
-**Aspose.Slides 是否支持现代评论的“已解决”等状态？**
+**Aspose.Slides 是否支持现代批注的已解决状态？**
 
-是的。[Modern comments](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/) 提供了 [get_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/get_status/) 和 [set_Status](https://reference.aspose.com/slides/cpp/aspose.slides/moderncomment/set_status/) 方法；您可以读取和设置 [评论的状态](https://reference.aspose.com/slides/cpp/aspose.slides/moderncommentstatus/)（例如，将其标记为已解决），该状态会保存到文件中，并被 PowerPoint 识别。 
+是的。[IModernComment::get_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/get_status/) 和 [IModernComment::set_Status](https://reference.aspose.com/slides/zh/cpp/aspose.slides/imoderncomment/set_status/) 使用 [ModernCommentStatus](https://reference.aspose.com/slides/zh/cpp/aspose.slides/moderncommentstatus/) 的值，其中包括 `Resolved`。该状态会存储在演示文稿中，文件重新打开后仍可读取。
 
-**是否支持线程式讨论（回复链），并且是否有嵌套层级限制？**
+**是否支持线程式讨论（回复链），是否有嵌套层数限制？**
 
-是的。每条评论都可以引用其 [parent comment](https://reference.aspose.com/slides/cpp/aspose.slides/comment/set_parentcomment/)，从而实现任意的回复链。API 并未声明具体的嵌套深度限制。 
+是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/zh/cpp/aspose.slides/icomment/set_parentcomment/)，从而实现回复链。API 并未定义具体的嵌套深度限制。
 
-**评论标记在幻灯片上的位置采用哪种坐标系定义？**
+**批注标记在幻灯片上的位置采用何种坐标系定义？**
 
-位置以浮点坐标点存储在幻灯片的坐标系中。这样您可以精确地将评论标记放置在所需位置。
+标记位置使用幻灯片坐标系中的浮点坐标定义，您可以精确地将其放置在幻灯片的任意位置。

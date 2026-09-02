@@ -1,6 +1,6 @@
 ---
-title: Thêm Các Phương Trình Toán Học vào Bài Thuyết Trình PowerPoint trên Android
-linktitle: Phương Trình Toán Học PowerPoint
+title: Thêm các Phương trình Toán học vào bản trình chiếu PowerPoint trên Android
+linktitle: Phương trình Toán học PowerPoint
 type: docs
 weight: 80
 url: /vi/androidjava/powerpoint-math-equations/
@@ -14,37 +14,37 @@ keywords:
 - thêm công thức toán học
 - thêm văn bản toán học
 - PowerPoint
-- bài thuyết trình
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX bằng Aspose.Slides cho Android, hỗ trợ OMML, các điều khiển định dạng và mẫu mã Java rõ ràng."
+description: "Chèn và chỉnh sửa các phương trình toán học trong PowerPoint PPT và PPTX với Aspose.Slides cho Android, hỗ trợ OMML, các điều khiển định dạng, và các mẫu mã Java rõ ràng."
 ---
 ## **Tổng quan**
 
-PowerPoint lưu các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Android qua Java, bạn có thể tạo cùng loại nội dung toán học một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học được định dạng.
+PowerPoint lưu trữ các phương trình dưới dạng Office Math Markup Language (OMML). Với Aspose.Slides cho Android qua Java, bạn có thể tạo cùng loại nội dung toán học một cách lập trình: phân số, căn bậc, hàm, giới hạn, toán tử N-ary, ma trận, mảng và các khối toán học có định dạng.
 
-Trong PowerPoint, người dùng thường chèn phương trình từ **Insert > Equation**:
+Trong PowerPoint, người dùng thường thêm phương trình từ **Insert > Equation**:
 
 ![Tab Insert của PowerPoint với lệnh Equation được chọn](powerpoint-math-equations_1.png)
 
 Kết quả là văn bản toán học có thể chỉnh sửa trên slide:
 
-![Một slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
+![Slide PowerPoint chứa một phương trình toán học có thể chỉnh sửa](powerpoint-math-equations_2.png)
 
-Aspose.Slides xây dựng văn bản toán học đó thông qua ba đối tượng chính:
+Aspose.Slides tạo ra văn bản toán học đó thông qua ba đối tượng chính:
 
-- Một hình toán học, được tạo bằng [addMathShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/), là hình chứa phương trình.
-- [MathPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathportion/) lưu nội dung toán học bên trong khung văn bản của hình.
+- Một hình dạng toán học, được tạo bằng [addMathShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/), là hình chứa phương trình.
+- [MathPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathportion/) lưu trữ nội dung toán học trong khung văn bản của hình.
 - [MathParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathparagraph/) chứa một hoặc nhiều đối tượng [MathBlock](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathblock/).
 
-Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathematicaltext/) và các phương thức fluent từ [IMathElement](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) để giữ mã ngắn gọn và dễ đọc.
+Hầu hết các ví dụ dưới đây sử dụng [MathematicalText](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathematicaltext/) và các phương thức lưu loát từ [IMathElement](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) để giữ mã ngắn gọn và dễ đọc.
 
-Đối với các kịch bản xuất MathML, xem [Export Math Equations from Presentations on Android](/slides/vi/androidjava/exporting-math-equations/).
+Đối với các trường hợp xuất MathML, xem [Export Math Equations from Presentations on Android](/slides/vi/androidjava/exporting-math-equations/).
 
 ## **Tạo một Phương trình**
 
-Ví dụ này tạo một hình toán học và thêm định lý Pythagore:
+Ví dụ này tạo một hình dạng toán học và thêm định lý Pythagoras:
 
 ![Phương trình c bình phương bằng a bình phương cộng b bình phương](powerpoint-math-equations_3.png)
 
@@ -73,12 +73,10 @@ try {
 ```
 
 {{% alert color="primary" %}}
-
-`addMathShape` tạo một hình đã chứa sẵn một đoạn toán học. Truy cập `MathPortion` đầu tiên, lấy `MathParagraph` của nó và thêm các khối toán hoặc phần tử toán vào đó.
-
+`addMathShape` tạo một hình đã chứa sẵn một đoạn toán học. Truy cập `MathPortion` đầu tiên, lấy `MathParagraph` của nó và thêm các khối toán học hoặc phần tử toán học vào đó.
 {{% /alert %}}
 
-## **Thêm Phân Số**
+## **Thêm Phân số**
 
 Sử dụng `divide` để tạo một phân số. Bạn có thể chọn kiểu phân số bằng [MathFractionTypes](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathfractiontypes/).
 
@@ -110,11 +108,11 @@ try {
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **Thêm Căn Bậc**
+## **Thêm Cân bậc**
 
-Sử dụng `radical` để tạo căn bậc hai, căn bậc ba hoặc các căn bậc khác. Phần tử hiện tại trở thành cơ sở, và đối số trở thành bậc.
+Sử dụng `radical` để tạo căn bậc hai, căn bậc ba hoặc các căn khác. Phần tử hiện tại trở thành cơ số, và đối số trở thành bậc.
 
-![Một biểu thức căn bậc n với x dưới dấu căn](powerpoint-math-equations_5.png)
+![Biểu thức căn bậc n với x nằm dưới dấu căn](powerpoint-math-equations_5.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -136,11 +134,11 @@ try {
 }
 ```
 
-## **Thêm Hàm và Giới Hạn**
+## **Thêm Hàm và Giới hạn**
 
 Sử dụng `asArgumentOfFunction` hoặc `function` cho các hàm như `sin(x)`, `log(x)`, hoặc tên hàm tùy chỉnh. Đối với giới hạn, đặt `lim` trong một [MathLimit](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathlimit/) hoặc sử dụng `setLowerLimit`.
 
-![Giới hạn của x khi x tiến tới vô cùng](powerpoint-math-equations_8.png)
+![Giới hạn của x khi x tiến tới vô hạn](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -169,11 +167,11 @@ try {
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **Thêm Toán Tử N-ary và Tích Phân**
+## **Thêm Toán tử N-ary và Tích phân**
 
-Sử dụng `nary` cho tổng, hợp, giao và các toán tử lớn khác. Sử dụng `integral` cho tích phân. Cả hai phương thức đều cho phép đặt giới hạn dưới và trên.
+Sử dụng `nary` cho các phép cộng, hợp, giao và các toán tử lớn khác. Sử dụng `integral` cho tích phân. Cả hai phương pháp đều cho phép bạn đặt giới hạn dưới và trên.
 
-![Một tổng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
+![Một phép cộng với giới hạn dưới và trên](powerpoint-math-equations_7.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -198,7 +196,7 @@ try {
 }
 ```
 
-Toán tử N-ary là các toán tử lớn có giới hạn tùy chọn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng `MathematicalText` và nối vào biểu thức.
+Các toán tử N-ary dùng cho các toán tử lớn có tùy chọn giới hạn. Các toán tử đơn giản như `+`, `-`, và `=` thường được thêm dưới dạng `MathematicalText` và nối vào biểu thức.
 
 Đối với một tích phân, sử dụng `integral`:
 
@@ -207,9 +205,9 @@ IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("d
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **Thêm Ma Trận**
+## **Thêm Ma trận**
 
-Sử dụng [MathMatrix](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathmatrix/) cho hàng và cột. Mặc định ma trận không có ngoặc, vì vậy hãy bao quanh ma trận khi cần dấu ngoặc tròn, ngoặc vuông hoặc ngoặc nhọn.
+Sử dụng [MathMatrix](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathmatrix/) cho hàng và cột. Ma trận không bao gồm dấu ngoặc theo mặc định, vì vậy hãy bao quanh ma trận khi bạn cần dấu ngoặc đơn, dấu ngoặc vuông hoặc dấu ngoặc nhọn.
 
 ![Một ma trận toán học hai hàng với một ô trống](powerpoint-math-equations_10.png)
 
@@ -237,9 +235,9 @@ try {
 }
 ```
 
-## **Thêm Mảng Phương Trình**
+## **Thêm Mảng Phương trình**
 
-Sử dụng `toMathArray` khi bạn cần các phương trình căn chỉnh hoặc một ngăn xếp dọc của các biểu thức.
+Sử dụng `toMathArray` khi bạn cần các phương trình được căn chỉnh hoặc một chồng dọc các biểu thức.
 
 ![Một mảng toán học dọc với x ở trên y](powerpoint-math-equations_11.png)
 
@@ -264,7 +262,7 @@ try {
 }
 ```
 
-## **Thêm Hàm Lượng Giác**
+## **Thêm Hàm lượng giác**
 
 Sử dụng `asArgumentOfFunction` khi đối số là phần tử hiện tại và tên hàm đã biết.
 
@@ -290,11 +288,11 @@ try {
 }
 ```
 
-## **Thêm Chỉ Số Dưới và Chỉ Số Trên**
+## **Thêm Chỉ mục và Số mũ**
 
-Sử dụng các trợ giúp chỉ số dưới và chỉ số trên cho các chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện ở phía bên trái của cơ sở, sử dụng `setSubSuperscriptOnTheLeft`.
+Sử dụng các trợ giúp subscript và superscript cho chỉ mục và lũy thừa. Khi các chỉ mục phải xuất hiện ở phía bên trái của cơ số, sử dụng `setSubSuperscriptOnTheLeft`.
 
-![Một chữ Y viết hoa với chỉ số dưới bên trái 1 và chỉ số trên n](powerpoint-math-equations_9.png)
+![Chữ Y in hoa với chỉ mục bên trái 1 và số mũ n](powerpoint-math-equations_9.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -316,11 +314,11 @@ try {
 }
 ```
 
-## **Thêm Dấu Phân Cách**
+## **Thêm Dấu bao**
 
-Sử dụng `enclose` để đặt một biểu thức bên trong dấu phân cách. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu phân cách chứa nhiều phần tử.
+Sử dụng `enclose` để đặt một biểu thức bên trong dấu bao. Bạn cũng có thể đặt ký tự phân tách cho các biểu thức dấu bao chứa nhiều phần tử.
 
-![Biểu thức dấu phân cách chứa x, y và z được ngăn cách bằng các thanh dọc](powerpoint-math-equations_13.png)
+![Một biểu thức dấu bao chứa x, y và z được ngăn cách bằng các thanh dọc](powerpoint-math-equations_13.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -345,11 +343,11 @@ try {
 }
 ```
 
-## **Thêm Khung Viền**
+## **Thêm Khung viền**
 
-Sử dụng `toBorderBox` khi phương trình cần được đóng khung.
+Sử dụng `toBorderBox` khi phương trình cần được bao quanh bởi một khung.
 
-![Một phương trình trong hộp với a bình phương = b bình phương cộng c bình phương](powerpoint-math-equations_12.png)
+![Một phương trình được bao trong khung, cho thấy a bình phương bằng b bình phương cộng c bình phương](powerpoint-math-equations_12.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -376,11 +374,11 @@ try {
 }
 ```
 
-## **Nhóm Các Thuật Ngữ**
+## **Nhóm các Thành phần**
 
-Sử dụng `group` để đặt một ký tự nhóm phía trên hoặc phía dưới một biểu thức. Thêm một giới hạn để gắn nhãn cho các thuật ngữ được nhóm.
+Sử dụng `group` để đặt ký tự nhóm phía trên hoặc phía dưới một biểu thức. Thêm giới hạn để dán nhãn cho các thành phần đã nhóm.
 
-![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản phía dưới](powerpoint-math-equations_15.png)
+![Biểu thức x cộng y được nhóm với nhãn bất kỳ văn bản nào phía dưới](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -403,11 +401,11 @@ try {
 }
 ```
 
-## **Định Dạng Các Phần Tử Toán**
+## **Định dạng Các Phần tử Toán học**
 
-Sử dụng các trợ giúp định dạng chỉ khi chúng làm rõ công thức. Ví dụ, `overbar` đặt một thanh phía trên một phần tử toán học.
+Chỉ sử dụng các trợ giúp định dạng khi chúng làm rõ công thức. Ví dụ, `overbar` đặt một thanh phía trên một phần tử toán học.
 
-![Một biểu thức toán học ABC có một thanh trên](powerpoint-math-equations_14.png)
+![Biểu thức toán học ABC có một thanh trên](powerpoint-math-equations_14.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -428,7 +426,7 @@ try {
 }
 ```
 
-## **Tham Khảo Nhanh**
+## **Tham chiếu nhanh**
 
 | Nhiệm vụ | API chính |
 | --- | --- |
@@ -439,24 +437,24 @@ try {
 | Thêm hàm | [function](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
 | Thêm căn bậc | [IMathElement.radical](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
 | Thêm giới hạn | [setLowerLimit](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
-| Thêm ký tự phía trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
-| Thêm tổng và tích phân | [nary](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
+| Thêm chỉ mục bên trái | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
+| Thêm phép cộng và tích phân | [nary](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
 | Thêm ma trận | [MathMatrix](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/mathmatrix/) |
 | Thêm mảng phương trình | [toMathArray](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
-| Thêm dấu phân cách | [enclose](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
-| Thêm thanh và viền | [overbar](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
-| Nhóm các thuật ngữ | [group](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
+| Thêm dấu bao | [enclose](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
+| Thêm thanh và khung viền | [overbar](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
+| Nhóm các thành phần | [group](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathelement/) |
 
-## **Câu Hỏi Thường Gặp**
+## **Câu hỏi thường gặp**
 
 **Tôi có thể chỉnh sửa một phương trình PowerPoint hiện có không?**
 
-Có. Mở bản trình bày, tìm hình chứa `MathPortion`, lấy `MathParagraph` của nó và cập nhật các khối toán trong đoạn đó.
+Có. Mở bản trình chiếu, tìm hình chứa `MathPortion`, lấy `MathParagraph` của nó và cập nhật các khối toán học trong đoạn đó.
 
-**Phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
+**Các phương trình có được lưu dưới dạng toán học PowerPoint có thể chỉnh sửa không?**
 
-Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung Office Math có thể chỉnh sửa.
+Có. Khi lưu dưới dạng PPTX, Aspose.Slides ghi phương trình dưới dạng nội dung toán học Office có thể chỉnh sửa.
 
-**Tôi có thể xuất phương trình sang LaTeX không?**
+**Tôi có thể xuất các phương trình sang LaTeX không?**
 
-Aspose.Slides xuất phương trình toán học sang MathML. Nếu bạn cần LaTeX, hãy xuất sang MathML trước rồi chuyển đổi MathML bằng công cụ hỗ trợ định dạng LaTeX mục tiêu của bạn.
+Có. Lấy [IMathParagraph](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathparagraph/) của phương trình từ [IMathPortion](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathportion/), và gọi [IMathParagraph.toLatex](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/imathparagraph/#toLatex--) để xuất trực tiếp. Đối với ví dụ đầy đủ, xem [Export Math Equations from Presentations in Android via Java](/slides/vi/androidjava/exporting-math-equations/#export-math-equations-to-latex).

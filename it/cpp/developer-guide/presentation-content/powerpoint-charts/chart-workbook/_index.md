@@ -1,33 +1,35 @@
 ---
-title: Gestire le cartelle di lavoro dei grafici nelle presentazioni con С++
-linktitle: Cartella di lavoro del grafico
+title: Gestire i workbook dei grafici nelle presentazioni con C++
+linktitle: Workbook del grafico
 type: docs
 weight: 70
 url: /it/cpp/chart-workbook/
 keywords:
-- cartella di lavoro del grafico
+- workbook del grafico
 - dati del grafico
 - cella del workbook
 - etichetta dati
 - foglio di lavoro
 - origine dati
-- cartella di lavoro esterna
+- workbook esterno
 - dati esterni
+- cache del grafico
+- recupero del workbook
 - PowerPoint
 - presentazione
-- С++
+- C++
 - Aspose.Slides
-description: "Scopri Aspose.Slides per С++: gestisci facilmente le cartelle di lavoro dei grafici in formato PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
+description: "Scopri Aspose.Slides per C++: gestisci facilmente i workbook dei grafici nei formati PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con le cartelle di lavoro dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite i flussi delle cartelle di lavoro, utilizzare le celle della cartella di lavoro come etichette dei dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
+Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati dei grafici tramite flussi di workbook, utilizzare le celle del workbook come etichette dei dati dei grafici, accedere alle collezioni di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Copre anche l'uso di cartelle di lavoro esterne come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare una cartella di lavoro esterna, recuperare il percorso di una cartella di lavoro esterna collegata a un grafico e modificare i dati del grafico quando la cartella di lavoro è disponibile.
+Copre inoltre l’utilizzo di workbook esterni come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
 
-## **Leggere e Scrivere i Dati del Grafico da una Cartella di Lavoro**
+## **Leggere e Scrivere Dati del Grafico da un Workbook**
 
-Aspose.Slides fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) che consentono di leggere e scrivere le cartelle di lavoro dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati allo stesso modo o devono avere una struttura simile a quella della sorgente.
+Aspose.Slides fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/writeworkbookstream/) che consentono di leggere e scrivere i workbook dei dati dei grafici (contenenti dati dei grafici modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o avere una struttura simile a quella della sorgente.
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"chart.pptx");
@@ -43,7 +45,7 @@ stream->set_Position(0);
 data->WriteWorkbookStream(stream);
 ```
 
-Questo codice C++ dimostra l'operazione per impostare una cartella di lavoro dei dati del grafico:
+Questo codice C++ dimostra l’operazione per impostare un workbook dei dati del grafico:
 
 ``` cpp
 auto pres = System::MakeObject<Presentation>(u"Test.pptx");
@@ -77,12 +79,12 @@ pres->Save(u"response2.pptx", Export::SaveFormat::Pptx);
 
 ## **Impostare una Cella del Workbook come Etichetta Dati del Grafico**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
-3. Aggiungi un grafico a bolle con alcuni dati.
-4. Accedi alla serie del grafico.
-5. Imposta la cella del workbook come etichetta dati.
-6. Salva la presentazione.
+1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
+1. Ottenere il riferimento a una diapositiva tramite il suo indice.
+1. Aggiungere un grafico a bolle con alcuni dati.
+1. Accedere alle serie del grafico.
+1. Impostare la cella del workbook come etichetta dati.
+1. Salvare la presentazione.
 
 Questo codice C++ mostra come impostare una cella del workbook come etichetta dati del grafico:
 
@@ -113,7 +115,7 @@ pres->Save(u"resultchart.pptx", SaveFormat::Pptx);
 
 ## **Gestire i Fogli di Lavoro**
 
-Questo codice C++ dimostra un'operazione in cui il metodo [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) viene utilizzato per accedere a una raccolta di fogli di lavoro:
+Questo codice C++ dimostra un’operazione in cui il metodo [IChartDataWorkbook::get_Worksheets](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdataworkbook/get_worksheets/) viene utilizzato per accedere a una collezione di fogli di lavoro:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -128,7 +130,7 @@ for (auto ws : System::IterateOver(worksheets))
 
 ## **Specificare il Tipo di Origine Dati**
 
-Questo codice C++ mostra come specificare un tipo per un'origine dati:
+Questo codice C++ mostra come specificare un tipo per un’origine dati:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -145,9 +147,9 @@ val->set_Data(chartData->get_ChartDataWorkbook()->GetCell(0, u"B1", System::Obje
 pres->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **Rilevare Formati di Cartelle di Lavoro Incorporate Non Supportati**
+## **Rilevare Formati di Workbook Incorporati Non Supportati**
 
-Aspose.Slides non supporta il formato di cartella di lavoro binario di Excel (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `get_EmbeddedWorkbookType` su [IChartData](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/workbooktype/) per rilevare formati non supportati e ignorare quei grafici.
+Aspose.Slides non supporta il formato di workbook binario Excel (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare il metodo `get_EmbeddedWorkbookType` su [IChartData](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/) insieme all’enumerazione [WorkbookType](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/workbooktype/) per rilevare i formati non supportati e saltare quei grafici.
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
@@ -166,7 +168,7 @@ for (auto&& shape : slide->get_Shapes())
     if (chartData->get_DataSourceType() == ChartDataSourceType::InternalWorkbook &&
         chartData->get_EmbeddedWorkbookType() == WorkbookType::WorkbookBinaryMacro)
     {
-        // Il workbook incorporato è nel formato .xlsb, non supportato.
+        // Il workbook incorporato è in formato .xlsb, che non è supportato.
         continue;
     }
 
@@ -174,17 +176,17 @@ for (auto&& shape : slide->get_Shapes())
 }
 ```
 
-## **Cartella di Lavoro Esterna**
+## **Workbook Esterno**
 
 {{% alert color="primary" %}} 
-In [Aspose.Slides](https://releases.aspose.com/slides/it/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, è stato implementato il supporto per le cartelle di lavoro esterne come origine dati per i grafici.
+In [Aspose.Slides](https://releases.aspose.com/slides/it/cpp/release-notes/2019/aspose-slides-for-cpp-19-4-release-notes/) 19.4, abbiamo implementato il supporto per workbook esterni come origine dati per i grafici.
 {{% /alert %}} 
 
-### **Creare una Cartella di Lavoro Esterna**
+### **Creare un Workbook Esterno**
 
-Utilizzando i metodi **`ReadWorkbookStream`** e **`SetExternalWorkbook`**, è possibile creare una cartella di lavoro esterna da zero oppure rendere una cartella di lavoro interna esterna.
+Utilizzando i metodi **`ReadWorkbookStream`** e **`SetExternalWorkbook`**, è possibile creare un workbook esterno da zero o rendere esterno un workbook interno.
 
-Questo codice C++ dimostra il processo di creazione della cartella di lavoro esterna:
+Questo codice C++ dimostra il processo di creazione del workbook esterno:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -206,13 +208,13 @@ chartData->SetExternalWorkbook(System::IO::Path::GetFullPath(workbookPath));
 pres->Save(u"externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-### **Impostare una Cartella di Lavoro Esterna**
+### **Impostare un Workbook Esterno**
 
-Utilizzando il metodo **`IChartData::SetExternalWorkbook`**, è possibile assegnare una cartella di lavoro esterna a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso della cartella di lavoro esterna (se quest'ultima è stata spostata).
+Utilizzando il metodo **`IChartData::SetExternalWorkbook`**, è possibile assegnare un workbook esterno a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso al workbook esterno (se quest’ultimo è stato spostato).
 
-Sebbene non sia possibile modificare i dati nelle cartelle di lavoro archiviate in posizioni remote o risorse, è comunque possibile utilizzare tali cartelle di lavoro come origine dati esterna. Se viene fornito un percorso relativo per una cartella di lavoro esterna, questo viene convertito automaticamente in un percorso completo.
+Pur non potendo modificare i dati in workbook memorizzati in posizioni remote o risorse, è comunque possibile usarli come origine dati esterna. Se viene fornito un percorso relativo per un workbook esterno, questo viene convertito automaticamente in un percorso assoluto.
 
-Questo codice C++ mostra come impostare una cartella di lavoro esterna:
+Questo codice C++ mostra come impostare un workbook esterno:
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -236,10 +238,10 @@ categories->Add(workbook->GetCell(0, u"A4"));
 pres->Save(u"Presentation_with_externalWorkbook.pptx", SaveFormat::Pptx);
 ```
 
-Il parametro `updateChartData` (nel metodo `SetExternalWorkbook`) viene usato per specificare se una cartella di lavoro Excel verrà caricata o meno. 
+Il parametro `updateChartData` (nel metodo `SetExternalWorkbook`) serve a specificare se il workbook Excel deve essere caricato o meno.
 
-* Quando il valore di `updateChartData` è impostato su `false`, viene aggiornato solo il percorso della cartella di lavoro - i dati del grafico non verranno caricati o aggiornati dalla cartella di lavoro di destinazione. È consigliabile usare questa impostazione quando la cartella di lavoro di destinazione è inesistente o non disponibile. 
-* Quando il valore di `updateChartData` è impostato su `true`, i dati del grafico vengono aggiornati dalla cartella di lavoro di destinazione.
+* Quando il valore di `updateChartData` è impostato su `false`, viene aggiornato solo il percorso del workbook — i dati del grafico non vengono caricati né aggiornati dal workbook di destinazione. Si può usare questa impostazione quando il workbook di destinazione è inesistente o non disponibile. 
+* Quando il valore di `updateChartData` è impostato su `true`, i dati del grafico vengono aggiornati dal workbook di destinazione.
 
 ```c++
 auto pres = System::MakeObject<Presentation>();
@@ -253,15 +255,15 @@ concreteChartData->SetExternalWorkbook(u"http://path/doesnt/exists", false);
 pres->Save(u"SetExternalWorkbookWithUpdateChartData.pptx", SaveFormat::Pptx);
 ```
 
-## **Ottenere il Percorso della Cartella di Lavoro Esterna di Origine Dati di un Grafico**
+### **Ottenere il Percorso del Workbook di Origine Dati Esterno di un Grafico**
 
-1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
-2. Ottieni il riferimento a una diapositiva tramite il suo indice.
-3. Crea un oggetto per la forma del grafico.
-4. Crea un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta l'origine dati del grafico.
-5. Specifica la condizione rilevante basata sul fatto che il tipo di origine sia lo stesso del tipo di origine dati della cartella di lavoro esterna.
+1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/).
+1. Ottenere il riferimento a una diapositiva tramite il suo indice.
+1. Creare un oggetto per la forma del grafico.
+1. Creare un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta l’origine dati del grafico.
+1. Specificare la condizione pertinente basata sul tipo di origine che corrisponde al tipo di origine dati del workbook esterno.
 
-Questo codice C++ dimostra l'operazione:
+Questo codice C++ dimostra l’operazione:
 
 ```c++
 auto pres = System::MakeObject<Presentation>(u"pres.pptx");
@@ -278,11 +280,11 @@ if (sourceType == ChartDataSourceType::ExternalWorkbook)
 pres->Save(u"Result.pptx", SaveFormat::Pptx);
 ```
 
-## **Modificare i Dati del Grafico**
+### **Modificare i Dati del Grafico**
 
-È possibile modificare i dati nelle cartelle di lavoro esterne allo stesso modo in cui si apportano modifiche al contenuto delle cartelle di lavoro interne. Quando una cartella di lavoro esterna non può essere caricata, viene sollevata un'eccezione.
+È possibile modificare i dati nei workbook esterni nello stesso modo in cui si modificano i contenuti dei workbook interni. Quando un workbook esterno non può essere caricato, viene generata un’eccezione.
 
-Questo codice C++ è un'implementazione del processo descritto:
+Questo codice C++ è un’implementazione del processo descritto:
 
 ```c++
 const String templatePath = u"../templates/presentation.pptx";
@@ -298,28 +300,55 @@ const String templatePath = u"../templates/presentation.pptx";
 	pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+### **Recuperare un Workbook dalla Cache del Grafico**
+
+Se un grafico utilizza un workbook esterno mancante o non disponibile, Aspose.Slides può ricostruire il workbook del grafico dai dati memorizzati nella presentazione. Creare un oggetto [LoadOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides/loadoptions/), configurarlo con [set_SpreadsheetOptions](https://reference.aspose.com/slides/it/cpp/aspose.slides/loadoptions/set_spreadsheetoptions/), e chiamare [ISpreadsheetOptions::set_RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/cpp/aspose.slides/ispreadsheetoptions/set_recoverworkbookfromchartcache/) impostandolo su `true` prima di aprire la presentazione.
+
+Il seguente esempio C++ apre una presentazione il cui grafico fa riferimento a un workbook esterno non disponibile e accede ai dati recuperati tramite [IChart::get_ChartData](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichart/get_chartdata/) e [IChartData::get_ChartDataWorkbook](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/ichartdata/get_chartdataworkbook/):
+
+```cpp
+auto spreadsheetOptions = MakeObject<SpreadsheetOptions>();
+spreadsheetOptions->set_RecoverWorkbookFromChartCache(true);
+
+auto loadOptions = MakeObject<LoadOptions>();
+loadOptions->set_SpreadsheetOptions(spreadsheetOptions);
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx", loadOptions);
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto chart = System::ExplicitCast<IChart>(shape);
+
+auto recoveredWorkbook = chart->get_ChartData()->get_ChartDataWorkbook();
+
+// Read or modify the recovered workbook data here.
+
+presentation->Dispose();
+```
+
+Se il workbook esterno è non disponibile e il recupero è disabilitato, Aspose.Slides genera un’`System::InvalidOperationException`. Abilitare il recupero solo quando l’utilizzo dei dati del grafico in cache è una soluzione accettabile, poiché la cache potrebbe non contenere le modifiche apportate al workbook esterno dopo l’ultimo aggiornamento della presentazione.
+
 ## **FAQ**
 
-**Posso determinare se un determinato grafico è collegato a una cartella di lavoro esterna o incorporata?**
+**Posso determinare se un grafico specifico è collegato a un workbook esterno o incorporato?**
 
-Sì. Un grafico ha un [tipo di origine dati](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) e un [percorso a una cartella di lavoro esterna](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); se l'origine è una cartella di lavoro esterna, è possibile leggere il percorso completo per verificare che venga utilizzato un file esterno.
+Sì. Un grafico ha un [tipo di origine dati](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_datasourcetype/) e un [percorso a un workbook esterno](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/); se l’origine è un workbook esterno, è possibile leggere il percorso completo per verificare che venga utilizzato un file esterno.
 
-**Sono supportati i percorsi relativi alle cartelle di lavoro esterne e come vengono memorizzati?**
+**Sono supportati i percorsi relativi ai workbook esterni e come vengono memorizzati?**
 
-Sì. Se si specifica un percorso relativo, questo viene automaticamente convertito in un percorso assoluto. È comodo per la portabilità del progetto; tuttavia, è necessario tenere presente che la presentazione memorizzerà il percorso assoluto nel file PPTX.
+Sì. Se si specifica un percorso relativo, questo viene automaticamente convertito in un percorso assoluto. È comodo per la portabilità del progetto; tuttavia, la presentazione memorizzerà il percorso assoluto nel file PPTX.
 
-**Posso utilizzare cartelle di lavoro situate su risorse/condivisioni di rete?**
+**Posso utilizzare workbook situati su risorse di rete/condivisioni?**
 
-Sì, tali cartelle di lavoro possono essere usate come origine dati esterna. Tuttavia, la modifica delle cartelle di lavoro remote direttamente da Aspose.Slides non è supportata - possono essere utilizzate solo come origine.
+Sì, tali workbook possono essere usati come origine dati esterna. Tuttavia, la modifica diretta di workbook remoti da Aspose.Slides non è supportata — possono essere usati solo come sorgente.
 
-**Aspose.Slides sovrascrive il file XLSX esterno durante il salvataggio della presentazione?**
+**Aspose.Slides sovrascrive l’XLSX esterno quando salva la presentazione?**
 
-No. La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato quando la presentazione viene salvata.
+No. La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/it/cpp/aspose.slides.charts/chartdata/get_externalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato al salvataggio della presentazione.
 
-**Cosa devo fare se il file esterno è protetto da password?**
+** Cosa devo fare se il file esterno è protetto da password?**
 
-Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](/cells/cpp/)) e collegarsi a quella copia.
+Aspose.Slides non accetta una password al collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](/cells/cpp/)) e collegarsi a quella copia.
 
-**Più grafici possono fare riferimento alla stessa cartella di lavoro esterna?**
+**Possono più grafici fare riferimento allo stesso workbook esterno?**
 
-Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l'aggiornamento di quel file verrà riflesso in ciascun grafico al successivo caricamento dei dati.
+Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, la modifica di quel file verrà riflessa in ogni grafico al successivo caricamento dei dati.

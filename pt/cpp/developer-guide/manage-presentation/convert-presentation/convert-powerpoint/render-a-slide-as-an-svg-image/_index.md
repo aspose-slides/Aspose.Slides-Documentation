@@ -1,5 +1,5 @@
 ---
-title: Renderizar Slides de Apresentação como Imagens SVG em C++
+title: Renderizar slides de apresentação como imagens SVG em C++
 linktitle: Slide para SVG
 type: docs
 weight: 50
@@ -10,77 +10,295 @@ keywords:
 - slide para SVG
 - PPT para SVG
 - PPTX para SVG
-- salvar PPT como SVG
-- salvar PPTX como SVG
-- exportar PPT para SVG
-- exportar PPTX para SVG
-- renderizar slide
-- converter slide
-- exportar slide
-- imagem vetorial
+- opções de exportação SVG
+- SVG interativo
 - PowerPoint
 - apresentação
 - C++
 - Aspose.Slides
-description: "Aprenda como renderizar slides do PowerPoint como imagens SVG usando Aspose.Slides para C++. Visuais de alta qualidade com exemplos de código simples."
+description: "Exporte slides do PowerPoint como imagens SVG em C++ e controle fontes, texto, imagens, IDs e eventos com Aspose.Slides."
 ---
 ## **Visão geral**
 
-Este artigo explica como renderizar slides de apresentação como imagens SVG usando Aspose.Slides. Descreve o formato SVG e suas vantagens, incluindo escalabilidade, acessibilidade e adequação ao desenvolvimento web.
+SVG é um formato de imagem escalável baseado em XML que funciona bem para publicação na web, visualizadores de slides, fluxos de trabalho de acessibilidade e pós‑processamento automatizado. Aspose.Slides for C++ exporta cada slide para um arquivo SVG separado e permite controlar como texto, fontes, imagens e elementos SVG são gravados.
 
-Você aprenderá como carregar um arquivo de apresentação, iterar sobre seus slides e salvar cada slide como um arquivo SVG separado. O artigo cobre os formatos de apresentação PowerPoint e OpenDocument, incluindo PPT, PPTX, ODP e PPS, e mostra como realizar a conversão programaticamente com a classe `Presentation` e o método `WriteAsSvg`.
+Use [SVGOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/) quando o SVG exportado precisar ser compacto, previsível entre navegadores ou pronto para uso interativo.
 
-## **Formato SVG**
+## **Exportar um slide como SVG**
 
-SVG—um acrônimo para Scalable Vector Graphics—é um tipo ou formato padrão de gráficos usado para renderizar imagens bidimensionais. SVG armazena imagens como vetores em XML com detalhes que definem seu comportamento ou aparência. 
+Crie uma [Presentation](https://reference.aspose.com/slides/pt/cpp/aspose.slides/presentation/), selecione um slide e grave-o em um fluxo. O exemplo a seguir exporta cada slide de uma apresentação como um arquivo SVG separado.
 
-SVG é um dos poucos formatos de imagem que atende a padrões muito elevados nesses termos: escalabilidade, interatividade, desempenho, acessibilidade, programabilidade e outros. Por essas razões, é amplamente usado no desenvolvimento web. 
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/io/file.h>
+#include <system/string.h>
 
-Você pode desejar usar arquivos SVG quando precisar
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
 
-- **imprimir sua apresentação em um *formato muito grande*.** Imagens SVG podem ser escaladas para qualquer resolução ou nível. Você pode redimensionar imagens SVG quantas vezes for necessário sem sacrificar a qualidade.
-- **usar gráficos e tabelas dos seus slides em *diferentes meios ou plataformas*.** A maioria dos visualizadores pode interpretar arquivos SVG. 
-- **usar o *menor tamanho possível de imagens***. Arquivos SVG geralmente são menores que seus equivalentes de alta resolução em outros formatos, especialmente aqueles baseados em bitmap (JPEG ou PNG).
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slideCount = presentation->get_Slides()->get_Count();
 
-## **Renderizar um slide como imagem SVG**
-
-Aspose.Slides for C++ permite exportar slides de suas apresentações como imagens SVG. Siga estas etapas para gerar imagens SVG:
-
-1. Crie uma instância da classe Presentation.
-2. Itere por todos os slides da apresentação.
-3. Grave cada slide em seu próprio arquivo SVG através de FileStream.
-
-{{% alert color="primary" %}} 
-
-Você pode experimentar nosso [aplicativo web gratuito](https://products.aspose.app/slides/pt/conversion/ppt-to-svg) no qual implementamos a função de conversão de PPT para SVG do Aspose.Slides for C++.
-
-{{% /alert %}} 
-
-Este código de exemplo em C++ mostra como converter PPT para SVG usando Aspose.Slides:
-
-``` cpp
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-        
-for (int32_t index = 0; index < pres->get_Slides()->get_Count(); index++)
+for (int slideIndex = 0; slideIndex < slideCount; slideIndex++)
 {
-    auto fileName = String::Format(u"slide-{0}.svg", index);
-    auto fileStream = System::MakeObject<FileStream>(fileName, FileMode::Create, FileAccess::Write);
+    auto slide = presentation->get_Slide(slideIndex);
+    auto svgFileName = String::Format(u"slide-{0}.svg", slide->get_SlideNumber());
+    auto svgStream = File::Create(svgFileName);
 
-    auto slide = pres->get_Slides()->idx_get(index);
-    slide->WriteAsSvg(fileStream);
+    slide->WriteAsSvg(svgStream);
+    svgStream->Dispose();
 }
+
+presentation->Dispose();
 ```
+
+O nome do arquivo usa [ISlide::get_SlideNumber](https://reference.aspose.com/slides/pt/cpp/aspose.slides/islide/get_slidenumber/) em vez do índice do loop. Você também pode exportar uma forma individual com [IShape::WriteAsSvg](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/writeassvg/) quando um visualizador de slides ou página web precisar apenas dessa forma.
+
+## **Configurar a saída SVG**
+
+[SVGOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/) controla a renderização do SVG. Para quadros de texto, [SVGOptions::set_UseFrameSize](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_useframesize/) inclui o quadro de texto na área de renderização, e [SVGOptions::set_UseFrameRotation](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_useframerotation/) determina se a rotação do quadro é aplicada. Defina [SVGOptions::set_DisableFontLigatures](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_disablefontligatures/) como `true` quando o texto precisar ser renderizado sem ligaduras.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_DisableFontLigatures(true);
+svgOptions->set_UseFrameSize(true);
+svgOptions->set_UseFrameRotation(false);
+
+auto slide = presentation->get_Slide(0);
+auto svgStream = File::Create(u"slide-with-custom-options.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+
+## **Controlar texto e fontes**
+
+### **Vectorizar todo o texto**
+
+Defina [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) como `true` para gravar todo o texto do slide como gráficos vetoriais. Isso elimina dependências de fontes e torna o resultado visual mais consistente entre navegadores, porém o texto deixa de ser selecionável ou pesquisável como texto SVG.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_VectorizeText(true);
+
+auto slide = presentation->get_Slide(0);
+auto svgStream = File::Create(u"slide-with-vectorized-text.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+
+### **Escolher como as fontes externas são manipuladas**
+
+[SVGOptions::set_ExternalFontsHandling](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_externalfontshandling/) usa um valor [SvgExternalFontsHandling](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgexternalfontshandling/) para fontes que são carregadas externamente. Escolha `AddLinksToFontFiles` para referenciar arquivos de fonte separados, `Embed` para incluir os dados da fonte no SVG ou `Vectorize` para renderizar como gráficos apenas o texto que usa fontes externas. Verifique a licença das fontes antes de incorporá‑las.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SVGOptions.h>
+#include <Export/SvgExternalFontsHandling.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto slide = presentation->get_Slide(0);
+
+auto linkedFontsOptions = MakeObject<SVGOptions>();
+linkedFontsOptions->set_ExternalFontsHandling(SvgExternalFontsHandling::AddLinksToFontFiles);
+auto linkedFontsStream = File::Create(u"slide-with-font-links.svg");
+slide->WriteAsSvg(linkedFontsStream, linkedFontsOptions);
+linkedFontsStream->Dispose();
+
+auto embeddedFontsOptions = MakeObject<SVGOptions>();
+embeddedFontsOptions->set_ExternalFontsHandling(SvgExternalFontsHandling::Embed);
+auto embeddedFontsStream = File::Create(u"slide-with-embedded-fonts.svg");
+slide->WriteAsSvg(embeddedFontsStream, embeddedFontsOptions);
+embeddedFontsStream->Dispose();
+
+auto vectorizedExternalFontsOptions = MakeObject<SVGOptions>();
+vectorizedExternalFontsOptions->set_ExternalFontsHandling(SvgExternalFontsHandling::Vectorize);
+auto vectorizedExternalFontsStream = File::Create(u"slide-with-vectorized-external-fonts.svg");
+slide->WriteAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+vectorizedExternalFontsStream->Dispose();
+
+presentation->Dispose();
+```
+
+## **Reduzir o tamanho de imagens incorporadas**
+
+Use [SVGOptions::set_PpicturesCompression](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_picturescompression/) para reduzir a resolução das imagens incorporadas, [SVGOptions::set_DeletePicturesCroppedAreas](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_deletepicturescroppedareas/) para omitir áreas de origem recortadas e [SVGOptions::set_JpegQuality](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_jpegquality/) para controlar a qualidade da codificação JPEG. Essas configurações diminuem o tamanho do arquivo ao custo da fidelidade da imagem ou dos dados de imagem retidos.
+
+```cpp
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/PicturesCompression.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_PicturesCompression(PicturesCompression::Dpi150);
+svgOptions->set_DeletePicturesCroppedAreas(true);
+svgOptions->set_JpegQuality(80);
+
+auto slide = presentation->get_Slide(0);
+auto svgStream = File::Create(u"compressed-slide.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+
+## **Atribuir IDs estáveis a formas e texto**
+
+Use [ISvgShapeFormattingController](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/isvgshapeformattingcontroller/) para definir [ISvgShape::set_Id](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/isvgshape/set_id/) para cada forma SVG. Para definir valores [ISvgTSpan::set_Id](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/isvgtspan/set_id/) em elementos `tspan` de texto também, implemente [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/isvgshapeandtextformattingcontroller/). Atribua qualquer um dos controladores com [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/).
+
+O controlador a seguir usa [IShape::get_OfficeInteropShapeId](https://reference.aspose.com/slides/pt/cpp/aspose.slides/ishape/get_officeinteropshapeid/), que é estável durante a vida útil da forma, e um contador repetível para seus trechos de texto. Isso torna os IDs gerados adequados para pós‑processamento de uma apresentação que não foi alterada.
+
+```cpp
+#include <DOM/IPortion.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <Export/ISvgShape.h>
+#include <Export/ISvgShapeAndTextFormattingController.h>
+#include <Export/ISvgTSpan.h>
+#include <Export/SVGOptions.h>
+#include <system/io/file.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+class StableSvgIdController : public ISvgShapeAndTextFormattingController
+{
+private:
+    String m_currentShapeId;
+    int m_textSpanIndex = 0;
+
+public:
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape) override
+    {
+        m_currentShapeId = String::Format(u"shape-{0}", shape->get_OfficeInteropShapeId());
+        m_textSpanIndex = 0;
+        svgShape->set_Id(m_currentShapeId);
+    }
+
+    void FormatText(SharedPtr<ISvgTSpan> svgTSpan, SharedPtr<IPortion> portion,
+                    SharedPtr<ITextFrame> textFrame) override
+    {
+        auto currentTextSpanIndex = m_textSpanIndex;
+        m_textSpanIndex++;
+        svgTSpan->set_Id(String::Format(u"{0}-text-{1}", m_currentShapeId, currentTextSpanIndex));
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_ShapeFormattingController(MakeObject<StableSvgIdController>());
+
+auto slide = presentation->get_Slide(0);
+auto svgStream = File::Create(u"slide-with-stable-ids.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+
+## **Adicionar manipuladores de eventos SVG**
+
+Em um [ISvgShapeFormattingController](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/isvgshapeformattingcontroller/), chame [ISvgShape::SetEventHandler](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/isvgshape/seteventhandler/) com um valor [SvgEvent](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgevent/) para adicionar um manipulador de evento JavaScript a uma forma exportada. Atribua o controlador com [SVGOptions::set_ShapeFormattingController](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_shapeformattingcontroller/) e defina a função JavaScript na página ou documento SVG que hospeda o resultado.
+
+```cpp
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/ISvgShape.h>
+#include <Export/ISvgShapeFormattingController.h>
+#include <Export/SVGOptions.h>
+#include <Export/SvgEvent.h>
+#include <system/io/file.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+class SvgEventController : public ISvgShapeFormattingController
+{
+public:
+    void FormatShape(SharedPtr<ISvgShape> svgShape, SharedPtr<IShape> shape) override
+    {
+        if (shape->get_Name() == u"ActionButton")
+        {
+            svgShape->set_Id(u"action-button");
+            svgShape->SetEventHandler(SvgEvent::OnClick, u"handleShapeClick(event)");
+        }
+    }
+};
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto svgOptions = MakeObject<SVGOptions>();
+svgOptions->set_ShapeFormattingController(MakeObject<SvgEventController>());
+
+auto slide = presentation->get_Slide(0);
+auto svgStream = File::Create(u"interactive-slide.svg");
+slide->WriteAsSvg(svgStream, svgOptions);
+svgStream->Dispose();
+
+presentation->Dispose();
+```
+
+A página host pode definir a função JavaScript referenciada pelo manipulador. Atribuir IDs e manipuladores de eventos habilita visualizadores de slides, aprimoramentos de acessibilidade e outros fluxos de trabalho interativos com SVG.
 
 ## **FAQ**
 
-**Por que o SVG resultante pode parecer diferente entre os navegadores?**
+**Quando devo usar [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) em vez de [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgexternalfontshandling/)?**
 
-O suporte a recursos específicos de SVG é implementado de maneira diferente pelos mecanismos dos navegadores. Os parâmetros [SVGOptions](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/) ajudam a suavizar as incompatibilidades.
+Use [SVGOptions::set_VectorizeText](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgoptions/set_vectorizetext/) quando todo o texto precisar ser independente de fontes. Use [SvgExternalFontsHandling::Vectorize](https://reference.aspose.com/slides/pt/cpp/aspose.slides.export/svgexternalfontshandling/) quando somente o texto que utiliza fontes externas deve ser convertido em gráficos.
 
-**É possível exportar não apenas slides, mas também formas individuais para SVG?**
+**Qual a melhor maneira de tornar um SVG menor?**
 
-Sim. Qualquer [forma pode ser salva como um SVG separado](https://reference.aspose.com/slides/pt/cpp/aspose.slides/shape/writeassvg/), o que é conveniente para ícones, pictogramas e reutilização de gráficos.
+Comece comprimindo imagens incorporadas, excluindo áreas de imagem recortadas e escolhendo arquivos de fonte vinculados quando o ambiente de destino puder fornecê‑los. Teste o resultado, pois redução de resolução da imagem, qualidade JPEG mais baixa e texto vetorizado têm impactos diferentes na qualidade e no tamanho.
 
-**É possível combinar vários slides em um único SVG (faixa/documento)?**
+**Posso modificar os elementos SVG exportados após a exportação?**
 
-O cenário padrão é um slide → um SVG. Combinar vários slides em uma única tela SVG é uma etapa de pós‑processamento feita no nível da aplicação.
+Sim. Atribua IDs por meio de um controlador de formatação e, em seguida, selecione os elementos SVG correspondentes na sua ferramenta de pós‑processamento ou script de navegador.

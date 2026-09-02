@@ -51,6 +51,115 @@ For literal-text operations, use [ITextSearchOptions](https://reference.aspose.c
 
 Regular-expression operations use a `System::Text::RegularExpressions::Regex`, so matching rules such as case sensitivity and word boundaries are defined by the expression and its options.
 
+## **Identify the Owner of a Text Frame**
+
+Generic text-processing workflows often receive an [ITextFrame](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/) while searching, replacing, validating, or exporting text. Use [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/) and [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) to determine which presentation object owns the text frame.
+
+The expected values depend on the owner:
+
+| Text frame owner | `get_ParentShape` | `get_ParentCell` |
+|---|---|---|
+| An AutoShape or another text-containing shape | The owning [IShape](https://reference.aspose.com/slides/cpp/aspose.slides/ishape/) | `nullptr` |
+| A table cell | `nullptr` | The owning [ICell](https://reference.aspose.com/slides/cpp/aspose.slides/icell/) |
+
+Both methods provide read-only navigation. Calling them does not move the text frame or change its owner. Generic code should check both values for `nullptr` and handle the possibility that neither owner is available.
+
+The following example uses [SlideUtil::GetAllTextFrames](https://reference.aspose.com/slides/cpp/aspose.slides.util/slideutil/getalltextframes/) to iterate through the text frames in a presentation. For shapes, it reports the shape name, C++ runtime type, and containing slide. For table cells, it reports the zero-based column and row coordinates and the containing slide.
+
+```cpp
+#include <DOM/IBaseSlide.h>
+#include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <Util/SlideUtil.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::IBaseSlide;
+using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
+using Aspose::Slides::ISlide;
+using Aspose::Slides::ITextFrame;
+using Aspose::Slides::Presentation;
+using Aspose::Slides::Util::SlideUtil;
+using System::AsCast;
+using System::Console;
+using System::MakeObject;
+using System::String;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto textFrames = SlideUtil::GetAllTextFrames(presentation, false);
+
+for (const auto& textFrame : textFrames)
+{
+    auto ownerShape = textFrame->get_ParentShape();
+    if (ownerShape != nullptr)
+    {
+        auto shapeName = String::IsNullOrEmpty(ownerShape->get_Name()) ? u"(unnamed)" : ownerShape->get_Name();
+        auto shapeType = ownerShape->GetType().get_Name();
+        auto baseSlide = ownerShape->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Shape: {0}; type: {1}; {2}", shapeName, shapeType, slideLabel);
+        continue;
+    }
+
+    auto ownerCell = textFrame->get_ParentCell();
+    if (ownerCell != nullptr)
+    {
+        auto baseSlide = ownerCell->get_Slide();
+        String slideLabel;
+        auto slide = AsCast<ISlide>(baseSlide);
+
+        if (slide != nullptr)
+        {
+            slideLabel = String::Format(u"slide {0}", slide->get_SlideNumber());
+        }
+        else
+        {
+            auto notesSlide = AsCast<INotesSlide>(baseSlide);
+            if (notesSlide != nullptr)
+            {
+                slideLabel = String::Format(u"notes for slide {0}", notesSlide->get_ParentSlide()->get_SlideNumber());
+            }
+            else
+            {
+                slideLabel = baseSlide->GetType().get_Name();
+            }
+        }
+
+        Console::WriteLine(u"Table cell: column {0}, row {1}; {2}", ownerCell->get_FirstColumnIndex(), ownerCell->get_FirstRowIndex(), slideLabel);
+        continue;
+    }
+
+    Console::WriteLine(u"The text frame owner is not available as a shape or table cell.");
+}
+```
+
+For SmartArt content, iterate through the shapes in [ISmartArtNode::get_Shapes](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartnode/get_shapes/) and access each [ISmartArtShape::get_TextFrame](https://reference.aspose.com/slides/cpp/aspose.slides.smartart/ismartartshape/get_textframe/). The text frame can be traced to its associated shape through [ITextFrame::get_ParentShape](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentshape/), while [ITextFrame::get_ParentCell](https://reference.aspose.com/slides/cpp/aspose.slides/itextframe/get_parentcell/) returns `nullptr`. Therefore, the shape branch in the example also handles text from SmartArt nodes.
+
 ## **Collect Match Information with a Callback**
 
 Implement [IFindResultCallback](https://reference.aspose.com/slides/cpp/aspose.slides/ifindresultcallback/) to receive a notification for every match. Its [IFindResultCallback::FoundResult](https://reference.aspose.com/slides/cpp/aspose.slides/ifindresultcallback/foundresult/) method provides the related text frame, the source text, the matched text, and the match position.
@@ -60,8 +169,10 @@ The callback does not receive a slide number directly. The implementation below 
 ```cpp
 #include <DOM/IBaseSlide.h>
 #include <DOM/INotesSlide.h>
+#include <DOM/IShape.h>
 #include <DOM/ISlide.h>
 #include <DOM/ITextFrame.h>
+#include <DOM/Table/ICell.h>
 #include <IFindResultCallback.h>
 #include <system/collections/list.h>
 #include <system/nullable.h>
@@ -71,6 +182,7 @@ The callback does not receive a slide number directly. The implementation below 
 using Aspose::Slides::IBaseSlide;
 using Aspose::Slides::IFindResultCallback;
 using Aspose::Slides::INotesSlide;
+using Aspose::Slides::IShape;
 using Aspose::Slides::ISlide;
 using Aspose::Slides::ITextFrame;
 using System::AsCast;
@@ -120,7 +232,23 @@ public:
 private:
     static Nullable<int32_t> GetSlideNumber(SharedPtr<ITextFrame> textFrame)
     {
-        SharedPtr<IBaseSlide> baseSlide = textFrame->get_Slide();
+        auto parentShape = textFrame->get_ParentShape();
+        auto parentCell = textFrame->get_ParentCell();
+        SharedPtr<IBaseSlide> baseSlide;
+
+        if (parentShape != nullptr)
+        {
+            baseSlide = parentShape->get_Slide();
+        }
+        else if (parentCell != nullptr)
+        {
+            baseSlide = parentCell->get_Slide();
+        }
+        else
+        {
+            baseSlide = textFrame->get_Slide();
+        }
+
         auto slide = AsCast<ISlide>(baseSlide);
 
         if (slide != nullptr)

@@ -1,6 +1,6 @@
 ---
 title: PHP에서 프레젠테이션 슬라이드를 SVG 이미지로 렌더링
-linktitle: 슬라이드 to SVG
+linktitle: 슬라이드에서 SVG로
 type: docs
 weight: 50
 url: /ko/php-java/render-a-slide-as-an-svg-image/
@@ -10,82 +10,213 @@ keywords:
 - 슬라이드를 SVG로
 - PPT를 SVG로
 - PPTX를 SVG로
-- PPT를 SVG로 저장
-- PPTX를 SVG로 저장
-- PPT를 SVG로 내보내기
-- PPTX를 SVG로 내보내기
-- 슬라이드 렌더링
-- 슬라이드 변환
-- 슬라이드 내보내기
-- 벡터 이미지
+- SVG 내보내기 옵션
+- 인터랙티브 SVG
 - PowerPoint
 - 프레젠테이션
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java를 사용하여 PowerPoint 슬라이드를 SVG 이미지로 렌더링하는 방법을 알아보세요. 간단한 코드 예제로 고품질 시각 효과를 제공합니다."
+description: "PHP에서 PowerPoint 슬라이드를 SVG 이미지로 내보내고 Aspose.Slides를 사용해 글꼴, 텍스트, 이미지, ID 및 이벤트를 제어합니다."
 ---
 ## **개요**
 
-이 문서는 Aspose.Slides를 사용하여 프레젠테이션 슬라이드를 SVG 이미지로 렌더링하는 방법을 설명합니다. SVG 형식과 확장성, 접근성, 웹 개발에 적합함 등 장점을 설명합니다.
+SVG는 웹 게시, 슬라이드 뷰어, 접근성 워크플로, 자동 후처리 등에 적합한 확장 가능한 XML 기반 이미지 형식입니다. Aspose.Slides는 각 슬라이드를 별도의 SVG 파일로 내보내며 텍스트, 글꼴, 그림 및 SVG 요소가 어떻게 기록되는지를 제어할 수 있습니다.
 
-프레젠테이션 파일을 로드하고 슬라이드를 순회하며 각 슬라이드를 별도의 SVG 파일로 저장하는 방법을 배우게 됩니다. 이 문서는 PPT, PPTX, ODP, PPS 등 PowerPoint 및 OpenDocument 프레젠테이션 형식을 다루며, `Presentation` 클래스와 `writeAsSvg` 메서드를 사용해 프로그래밍 방식으로 변환하는 방법을 보여줍니다.
+내보낸 SVG가 파일 크기가 작고 브라우저 간에 일관되며 인터랙티브하게 사용될 준비가 되어 있어야 할 경우 [SVGOptions](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/)를 사용하십시오.
 
-## **SVG 형식**
+## **슬라이드를 SVG로 내보내기**
 
-SVG(Scalable Vector Graphics의 약어)는 2차원 이미지를 렌더링하는 데 사용되는 표준 그래픽 유형 또는 형식입니다. SVG는 이미지를 XML에 벡터 형태로 저장하며, 동작이나 모양을 정의하는 세부 정보를 포함합니다.
-
-SVG는 확장성, 인터랙티브성, 성능, 접근성, 프로그래밍 가능성 등 매우 높은 기준을 충족하는 몇 안 되는 이미지 형식 중 하나입니다. 이러한 이유로 웹 개발에서 널리 사용됩니다.
-
-다음과 같은 경우 SVG 파일을 사용할 수 있습니다.
-
-- **프레젠테이션을 *매우 큰 형식*으로 인쇄**하고자 할 때. SVG 이미지는 어느 해상도든 확장할 수 있습니다. 품질 저하 없이 필요할 때마다 SVG 이미지를 여러 번 크기 조정할 수 있습니다.
-- **슬라이드에 있는 차트와 그래프를 *다양한 매체 또는 플랫폼*에 사용**합니다. 대부분의 뷰어가 SVG 파일을 해석할 수 있습니다.
-- **가능한 가장 작은 이미지 크기로** 사용합니다. SVG 파일은 일반적으로 다른 형식의 고해상도 파일보다 작으며, 특히 비트맵(JPEG 또는 PNG) 기반 형식보다 작습니다.
-
-## **슬라이드를 SVG 이미지로 렌더링**
-
-Aspose.Slides for PHP via Java를 사용하면 프레젠테이션의 슬라이드를 SVG 이미지로 내보낼 수 있습니다. 다음 단계에 따라 SVG 이미지를 생성하십시오:
-
-1. Presentation 클래스의 인스턴스를 생성합니다.
-2. 프레젠테이션의 모든 슬라이드를 순회합니다.
-3. 각 슬라이드를 FileOutputStream을 통해 개별 SVG 파일로 저장합니다.
-
-{{% alert color="primary" %}} 
-우리는 Aspose.Slides for PHP via Java의 PPT를 SVG로 변환하는 기능을 구현한 [무료 웹 애플리케이션](https://products.aspose.app/slides/ko/conversion/ppt-to-svg)을 사용해 보실 수 있습니다.
-{{% /alert %}} 
-
-다음 샘플 코드는 Aspose.Slides를 사용하여 PPT를 SVG로 변환하는 방법을 보여줍니다.
+[Presentation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/presentation/)을 만들고 슬라이드를 선택한 후 [Slide.writeAsSvg](https://reference.aspose.com/slides/ko/php-java/aspose.slides/slide/#writeAsSvg)으로 스트림에 기록합니다. 다음 예제는 프레젠테이션의 모든 슬라이드를 개별 SVG 파일로 내보냅니다.
 
 ```php
-  $pres = new Presentation("pres.pptx");
-  try {
-    for($index = 0; $index < java_values($pres->getSlides()->size()) ; $index++) {
-      $slide = $pres->getSlides()->get_Item($index);
-      $fileStream = new Java("java.io.FileOutputStream", "slide-" . $index . ".svg");
-      try {
-        $slide->writeAsSvg($fileStream);
-      } finally {
-        $fileStream->close();
-      }
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slideCount = java_values($presentation->getSlides()->size());
+
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $presentation->getSlides()->get_Item($slideIndex);
+        $slideNumber = java_values($slide->getSlideNumber());
+        $outputFileName = sprintf("slide-%d.svg", $slideNumber);
+
+        $svgStream = new Java("java.io.FileOutputStream", $outputFileName);
+        $slide->writeAsSvg($svgStream);
+        $svgStream->close();
     }
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
+
+파일 이름은 루프 인덱스 대신 [Slide.getSlideNumber](https://reference.aspose.com/slides/ko/php-java/aspose.slides/slide/#getSlideNumber)을 사용합니다. 슬라이드 뷰어 또는 웹 페이지에서 특정 도형만 필요할 경우 [Shape.writeAsSvg](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/#writeAsSvg)를 사용해 개별 도형을 내보낼 수도 있습니다.
+
+## **SVG 출력 구성**
+
+[SVGOptions](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/)는 SVG 렌더링을 제어합니다. 텍스트 프레임의 경우 [SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setUseFrameSize)를 사용하면 텍스트 프레임이 렌더링 영역에 포함되고, [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setUseFrameRotation)는 프레임 회전 적용 여부를 결정합니다. 텍스트를 리가처 없이 렌더링해야 할 경우 [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setDisableFontLigatures)를 `true`로 설정하십시오.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setDisableFontLigatures(true);
+    $svgOptions->setUseFrameSize(true);
+    $svgOptions->setUseFrameRotation(false);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-custom-options.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **텍스트 및 글꼴 제어**
+
+### **전체 텍스트 벡터화**
+
+[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setVectorizeText)를 `true`로 설정하면 모든 슬라이드 텍스트가 벡터 그래픽으로 기록됩니다. 이렇게 하면 글꼴 의존성이 사라지고 브라우저 간 시각적 결과가 보다 일관되지만, 텍스트는 SVG 텍스트로서 선택하거나 검색할 수 없게 됩니다.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setVectorizeText(true);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-text.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+### **외부 글꼴 처리 방식 선택**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setExternalFontsHandling)는 외부에서 로드되는 글꼴에 대해 [SvgExternalFontsHandling](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgexternalfontshandling/) 값을 사용합니다. `AddLinksToFontFiles`를 선택하면 별도 글꼴 파일을 참조하고, `Embed`를 선택하면 글꼴 데이터를 SVG에 포함하며, `Vectorize`를 선택하면 외부 글꼴을 사용하는 텍스트만 그래픽으로 렌더링합니다. 글꼴을 포함하기 전에 라이선스를 확인하십시오.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $linkedFontsOptions = new SVGOptions();
+    $linkedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::AddLinksToFontFiles);
+    $linkedFontsStream = new Java("java.io.FileOutputStream", "slide-with-font-links.svg");
+    try {
+        $slide->writeAsSvg($linkedFontsStream, $linkedFontsOptions);
+    } finally {
+        $linkedFontsStream->close();
+    }
+
+    $embeddedFontsOptions = new SVGOptions();
+    $embeddedFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Embed);
+    $embeddedFontsStream = new Java("java.io.FileOutputStream", "slide-with-embedded-fonts.svg");
+    try {
+        $slide->writeAsSvg($embeddedFontsStream, $embeddedFontsOptions);
+    } finally {
+        $embeddedFontsStream->close();
+    }
+
+    $vectorizedExternalFontsOptions = new SVGOptions();
+    $vectorizedExternalFontsOptions->setExternalFontsHandling(SvgExternalFontsHandling::Vectorize);
+    $vectorizedExternalFontsStream = new Java("java.io.FileOutputStream", "slide-with-vectorized-external-fonts.svg");
+    try {
+        $slide->writeAsSvg($vectorizedExternalFontsStream, $vectorizedExternalFontsOptions);
+    } finally {
+        $vectorizedExternalFontsStream->close();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **내장 이미지 크기 축소**
+
+[SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setPicturesCompression)를 사용해 내장 그림의 해상도를 낮추고, [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setDeletePicturesCroppedAreas)를 사용해 잘린 원본 영역을 생략하며, [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setJpegQuality)를 사용해 JPEG 인코딩 품질을 제어합니다. 이러한 설정은 파일 크기를 줄이지만 이미지 충실도 또는 보존되는 이미지 데이터가 감소할 수 있습니다.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $svgOptions = new SVGOptions();
+    $svgOptions->setPicturesCompression(PicturesCompression::Dpi150);
+    $svgOptions->setDeletePicturesCroppedAreas(true);
+    $svgOptions->setJpegQuality(80);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "compressed-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **도형 및 텍스트에 안정적인 ID 할당**
+
+[SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setShapeFormattingController)에 포맷팅 콜백을 제공하여 각 SVG 도형에 대해 [SvgShape.setId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgshape/#setId)를 설정합니다. 콜백은 텍스트 `tspan` 요소에 대해 [SvgTSpan.setId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgtspan/#setId) 값을 설정할 수도 있습니다.
+
+PhpJavaBridge는 스트림 모드에서 `writeAsSvg`가 실행될 때 PHP 콜백을 호출할 수 없습니다. 포맷팅 로직을 작은 Java 헬퍼 클래스로 구현하고 컴파일한 뒤, 결과 JAR 파일을 브리지 클래스패스에 추가하십시오. 헬퍼는 도형 수명 동안 안정적인 [Shape.getOfficeInteropShapeId](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/#getOfficeInteropShapeId)를 사용하고, 텍스트 스팬에 대해 반복 가능한 카운터를 사용합니다. 헬퍼 코드는 [Java implementation of `StableSvgIdController`](/slides/ko/java/render-a-slide-as-an-svg-image/#assign-stable-ids-to-shapes-and-text)를 참조하십시오.
+
+컴파일된 `com.example.slides.StableSvgIdController` 클래스를 브리지 클래스패스에 추가한 뒤, PHP에서 인스턴스화하고 `SVGOptions`에 할당하십시오.
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.StableSvgIdController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "slide-with-stable-ids.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+## **SVG 이벤트 핸들러 추가**
+
+포맷팅 콜백에서 [SvgShape.setEventHandler](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgshape/#setEventHandler)에 [SvgEvent](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgevent/) 값을 지정하면 내보낸 도형에 JavaScript 이벤트 핸들러를 추가할 수 있습니다. 콜백은 [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setShapeFormattingController)로 할당하고, 결과를 호스팅하는 페이지 또는 SVG 문서에 JavaScript 함수를 정의하십시오.
+
+안정적인 ID와 마찬가지로, PhpJavaBridge가 스트림 모드를 사용할 때는 Java 헬퍼에서 콜백을 구현해야 합니다. [Java implementation of `SvgEventController`](/slides/ko/java/render-a-slide-as-an-svg-image/#add-svg-event-handlers)는 `ActionButton`이라는 도형에 ID와 `OnClick` 핸들러를 할당합니다. 해당 헬퍼를 컴파일하고 `com.example.slides.SvgEventController`로 브리지 클래스패스에 추가한 뒤, PHP에서 다음과 같이 사용하십시오:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+$svgStream = null;
+try {
+    $shapeFormattingController = new Java("com.example.slides.SvgEventController");
+
+    $svgOptions = new SVGOptions();
+    $svgOptions->setShapeFormattingController($shapeFormattingController);
+
+    $slide = $presentation->getSlides()->get_Item(0);
+    $svgStream = new Java("java.io.FileOutputStream", "interactive-slide.svg");
+    $slide->writeAsSvg($svgStream, $svgOptions);
+} finally {
+    $svgStream->close();
+    $presentation->dispose();
+}
+```
+
+호스트 페이지는 핸들러가 참조하는 JavaScript 함수를 정의할 수 있습니다. ID와 이벤트 핸들러를 할당하면 슬라이드 뷰어, 접근성 향상 및 기타 인터랙티브 SVG 워크플로를 지원할 수 있습니다.
 
 ## **FAQ**
 
-**왜 브라우저마다 결과 SVG가 다르게 보일 수 있나요?**
+**[SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setVectorizeText)를 언제 사용하고, [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgexternalfontshandling/) 대신 사용해야 합니까?**
 
-특정 SVG 기능에 대한 지원이 브라우저 엔진마다 다르게 구현됩니다. [SVGOptions](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/) 매개변수를 사용하면 호환성 문제를 완화할 수 있습니다.
+모든 텍스트가 글꼴에 독립적이어야 할 경우 [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgoptions/#setVectorizeText)를 사용하십시오. 외부 글꼴을 사용하는 텍스트만 그래픽으로 변환해야 할 경우 [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/ko/php-java/aspose.slides/svgexternalfontshandling/)를 사용하십시오.
 
-**슬라이드뿐만 아니라 개별 도형도 SVG로 내보낼 수 있나요?**
+**SVG 파일을 더 작게 만들기 위한 가장 좋은 방법은 무엇입니까?**
 
-예. 모든 [도형을 별도의 SVG로 저장](https://reference.aspose.com/slides/ko/php-java/aspose.slides/shape/writeassvg/)할 수 있어 아이콘, 픽토그램 및 그래픽 재사용에 편리합니다.
+먼저 내장 그림을 압축하고, 잘린 이미지 영역을 삭제하며, 대상 환경에서 제공할 수 있는 경우 연결된 글꼴 파일을 선택하십시오. 이미지 해상도 감소, JPEG 품질 저하, 텍스트 벡터화 각각이 품질과 크기 사이의 트레이드오프가 다르므로 결과를 테스트하십시오.
 
-**여러 슬라이드를 하나의 SVG(스트립/문서)로 결합할 수 있나요?**
+**내보낸 SVG 요소를 내보낸 후 수정할 수 있나요?**
 
-표준 시나리오는 슬라이드당 하나의 SVG입니다. 여러 슬라이드를 하나의 SVG 캔버스로 결합하는 작업은 애플리케이션 수준에서 수행되는 후처리 단계입니다.
+예. 포맷팅 콜백을 통해 ID를 할당한 다음, 후처리 도구나 브라우저 스크립트에서 해당 SVG 요소를 선택하여 수정할 수 있습니다.

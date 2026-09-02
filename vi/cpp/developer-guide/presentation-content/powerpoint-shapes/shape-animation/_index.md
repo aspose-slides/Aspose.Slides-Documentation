@@ -1,488 +1,574 @@
 ---
-title: "Áp dụng hoạt ảnh Shape trong bài thuyết trình bằng C++"
-linktitle: "Hoạt ảnh Shape"
+title: Áp dụng Hoạt Ảnh Hình trong Bản Trình Chiếu bằng C++
+linktitle: Hoạt Ảnh Hình
 type: docs
 weight: 60
 url: /vi/cpp/shape-animation/
 keywords:
-  - "hình dạng"
-  - "hoạt ảnh"
-  - "hiệu ứng"
-  - "hình dạng hoạt ảnh"
-  - "văn bản hoạt ảnh"
-  - "thêm hoạt ảnh"
-  - "lấy hoạt ảnh"
-  - "trích xuất hoạt ảnh"
-  - "thêm hiệu ứng"
-  - "lấy hiệu ứng"
-  - "trích xuất hiệu ứng"
-  - "âm thanh hiệu ứng"
-  - "áp dụng hoạt ảnh"
-  - "PowerPoint"
-  - "bài thuyết trình"
-  - "C++"
-  - "Aspose.Slides"
-description: "Khám phá cách tạo và tùy chỉnh hoạt ảnh shape trong các bài thuyết trình PowerPoint với Aspose.Slides cho C++. Nổi bật!"
+- hình
+- hoạt ảnh
+- hiệu ứng
+- hình động
+- văn bản động
+- thêm hoạt ảnh
+- lấy hoạt ảnh
+- trích xuất hoạt ảnh
+- thêm hiệu ứng
+- lấy hiệu ứng
+- trích xuất hiệu ứng
+- âm thanh hiệu ứng
+- áp dụng hoạt ảnh
+- PowerPoint
+- bản trình chiếu
+- C++
+- Aspose.Slides
+description: "Học cách thêm, kiểm tra và tùy chỉnh hoạt ảnh hình, thời gian, âm thanh, hành vi sau hoạt ảnh và văn bản động với Aspose.Slides cho C++."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Hoạt ảnh là các hiệu ứng trực quan có thể áp dụng cho văn bản, hình ảnh, hình dạng hoặc [đồ thị](/slides/vi/cpp/animated-charts/). Chúng mang lại sinh khí cho các bài thuyết trình hoặc các thành phần của chúng. 
+Aspose.Slides for C++ biểu diễn hoạt ảnh slide dưới dạng các hiệu ứng trong timeline của slide. Một hiệu ứng có hình mục tiêu, kiểu và phụ kiểu hoạt ảnh, một trigger, cài đặt thời gian, và các thuộc tính tùy chọn như âm thanh hoặc hành vi sau hoạt ảnh.
 
-## **Tại sao nên sử dụng hoạt ảnh trong bài thuyết trình?**
+Timeline chứa hai loại chuỗi:
 
-Sử dụng hoạt ảnh, bạn có thể 
+- **chuỗi chính** phát khi slide được chuyển tiếp.
+- **chuỗi tương tác** bắt đầu khi hình trigger của nó được nhấp.
 
-* kiểm soát luồng thông tin
-* nhấn mạnh các điểm quan trọng
-* tăng sự quan tâm hoặc tham gia của khán giả
-* làm cho nội dung dễ đọc, tiếp thu hoặc xử lý hơn
-* thu hút sự chú ý của người đọc hoặc người xem tới các phần quan trọng trong bài thuyết trình
+Vì các hộp văn bản, hình ảnh, biểu đồ, bảng và các đối tượng slide khác đều triển khai [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/), bạn sử dụng cùng một phương pháp [ISequence::AddEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/addeffect/) cho hầu hết nội dung slide. Các hiệu ứng khả dụng được liệt kê trong kiểu liệt kê [EffectType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effecttype/).
 
-PowerPoint cung cấp nhiều tùy chọn và công cụ cho hoạt ảnh và các hiệu ứng hoạt ảnh trong các danh mục **entrance**, **exit**, **emphasis** và **motion paths**. 
+## **Thêm Hoạt Ảnh Cho Hình**
 
-## **Hoạt ảnh trong Aspose.Slides**
+Để thêm một hoạt ảnh, lấy chuỗi chính của slide và gọi [ISequence::AddEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/addeffect/) với hình mục tiêu, kiểu hiệu ứng, phụ kiểu và trigger. Đối với hiệu ứng bắt đầu khi một hình khác được nhấp, tạo một chuỗi tương tác mà trigger là hình đó.
 
-* Aspose.Slides cung cấp các lớp và kiểu cần thiết để làm việc với hoạt ảnh dưới không gian tên [Aspose.Slides.Animation](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.animation),
-* Aspose.Slides cung cấp hơn **150 hiệu ứng hoạt ảnh** dưới enumeration [EffectType](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.animation#ae0da11508d382465aa4e7a011df1bf31). Những hiệu ứng này về cơ bản là các hiệu ứng (hoặc tương đương) được sử dụng trong PowerPoint.
+Ví dụ sau tạo cả hai loại hoạt ảnh và lưu kết quả vào `shape-animations.pptx`.
 
-## **Áp dụng hoạt ảnh cho TextBox**
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Aspose.Slides for C++ cho phép bạn áp dụng hoạt ảnh cho văn bản trong một shape. 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation/).
-2. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
-3. Thêm một `rectangle` [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape). 
-4. Thêm văn bản vào [IAutoShape.TextFrame](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape#afb267108fea5ee5a213c162c004fcef3).
-5. Lấy chuỗi chính của các hiệu ứng.
-6. Thêm một hiệu ứng hoạt ảnh vào [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape). 
-7. Đặt thuộc tính [TextAnimation.BuildType](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.animation.text_animation#afa90da088213f947baf64f8cdddd18b8) thành giá trị từ enumeration [BuildType](https://reference.aspose.com/slides/vi/cpp/namespace/aspose.slides.animation#a1b0f1615881ac05b1a72c670a125b8e7).
-8. Ghi bài thuyết trình ra đĩa dưới dạng file PPTX.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 
-Mã C++ này cho thấy cách áp dụng hiệu ứng `Fade` cho AutoShape và đặt hoạt ảnh văn bản thành giá trị *By 1st Level Paragraphs*:
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::RoundCornerRectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Click to animate this shape");
 
-```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+auto entranceEffect = mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+entranceEffect->get_Timing()->set_Duration(1.5f);
 
-System::SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
 
-// Thêm AutoShape mới với văn bản
-System::SharedPtr<IAutoShape> autoShape =
-    sld->get_Shapes()->AddAutoShape(Aspose::Slides::ShapeType::Rectangle, 20.0f, 20.0f, 150.0f, 100.0f);
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
 
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-textFrame->set_Text(u"First paragraph \nSecond paragraph \n Third paragraph");
-
-// Lấy chuỗi chính của slide.
-System::SharedPtr<ISequence> sequence = sld->get_Timeline()->get_MainSequence();
-
-// Thêm hiệu ứng hoạt ảnh Fade vào shape
-System::SharedPtr<IEffect> effect = sequence->AddEffect(autoShape, Aspose::Slides::Animation::EffectType::Fade,
-    Aspose::Slides::Animation::EffectSubtype::None, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Hoạt ảnh văn bản shape theo các đoạn cấp độ 1
-effect->get_TextAnimation()->set_BuildType(Aspose::Slides::Animation::BuildType::ByLevelParagraphs1);
-
-// Lưu tệp PPTX vào đĩa
-pres->Save(path + u"AnimText_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-{{%  alert color="primary"  %}} 
-
-Ngoài việc áp dụng hoạt ảnh cho văn bản, bạn cũng có thể áp dụng hoạt ảnh cho một [Paragraph](/slides/vi/cpp/animated-text/) duy nhất. Xem [**Animated Text**](/slides/vi/cpp/animated-text/).
-
-{{% /alert %}} 
-
-## **Áp dụng hoạt ảnh cho PictureFrame**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation/).
-2. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
-3. Thêm hoặc lấy một [PictureFrame](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_picture_frame) trên slide. 
-4. Lấy chuỗi chính của các hiệu ứng.
-5. Thêm một hiệu ứng hoạt ảnh vào [PictureFrame](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_picture_frame).
-6. Ghi bài thuyết trình ra đĩa dưới dạng file PPTX.
-
-Mã C++ này cho thấy cách áp dụng hiệu ứng `Fly` cho một picture frame:
-
-```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// Tải hình ảnh để thêm vào bộ sưu tập ảnh của trình chiếu
-System::SharedPtr<IImage> img = Images::FromFile(u"aspose-logo.jpg");
-System::SharedPtr<IPPImage> image = pres->get_Images()->AddImage(img);
-
-// Thêm khung ảnh vào slide
-System::SharedPtr<IPictureFrame> picFrame =
-    pres->get_Slides()->idx_get(0)->get_Shapes()->AddPictureFrame(Aspose::Slides::ShapeType::Rectangle, 50.0f, 50.0f, 100.0f, 100.0f, image);
-
-// Lấy chuỗi chính của slide.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Thêm hiệu ứng Fly từ bên trái vào khung ảnh
-System::SharedPtr<IEffect> effect = sequence->AddEffect(picFrame, Aspose::Slides::Animation::EffectType::Fly,
-    Aspose::Slides::Animation::EffectSubtype::Left, Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Lưu tệp PPTX vào đĩa
-pres->Save(path + u"AnimImage_out.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Áp dụng hoạt ảnh cho Shape**
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation/).
-2. Lấy tham chiếu tới slide thông qua chỉ mục của nó.
-3. Thêm một `rectangle` [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape). 
-4. Thêm một `Bevel` [IAutoShape](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.i_auto_shape) (khi đối tượng này được nhấp, hoạt ảnh sẽ được phát).
-5. Tạo một chuỗi các hiệu ứng trên shape bevel.
-6. Tạo một `UserPath` tùy chỉnh.
-7. Thêm các lệnh di chuyển tới `UserPath`.
-8. Ghi bài thuyết trình ra đĩa dưới dạng file PPTX.
-
-Mã C++ này cho thấy cách áp dụng hiệu ứng `PathFootball` (đường đi bóng đá) cho một shape:
-
-```c++
-	// Đường dẫn tới thư mục tài liệu.
-	const String outPath = u"../out/AnimationsOnShapes_out.pptx";
-	const String templatePath = u"../templates/ConnectorLineAngle.pptx";
-
-	// Tải bài thuyết trình
-	SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-	// Truy cập slide đầu tiên
-	SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-	// Truy cập bộ sưu tập shape của slide đã chọn
-	SharedPtr<IShapeCollection> shapes = slide->get_Shapes();
-
-	// Tạo hiệu ứng PathFootball cho shape hiện có từ đầu.
-	SharedPtr<IAutoShape> ashp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-
-	ashp->AddTextFrame(u"Animated TextBox");
-
-	// Thêm hiệu ứng PathFootBall
-	slide->get_Timeline()->get_MainSequence()->AddEffect(ashp, EffectType::PathFootball,
-		EffectSubtype::None, EffectTriggerType::AfterPrevious);
-
-	// Tạo một loại "button".
-	SharedPtr<IAutoShape> shapeTrigger = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-
-	// Tạo một chuỗi các hiệu ứng cho nút này.
-	SharedPtr<ISequence> seqInter = slide->get_Timeline()->get_InteractiveSequences()->Add(shapeTrigger);
-	
-	 // Tạo một đường người dùng tùy chỉnh. Đối tượng của chúng ta sẽ di chuyển chỉ sau khi nút được nhấp.
-	SharedPtr<IEffect> fxUserPath = seqInter->AddEffect(ashp, EffectType::PathUser, EffectSubtype::None, EffectTriggerType::OnClick);
-
-	// Thêm các lệnh di chuyển vì đường đã tạo hiện đang rỗng.
-	 SharedPtr<MotionEffect> motionBhv = ExplicitCast<MotionEffect>(fxUserPath->get_Behaviors()->idx_get(0));
-
-	// SharedPtr<PointF> point = MakeObject<PointF >(0.076, 0.59);
-	 const PointF point = PointF (0.076, 0.59);
-	 System::ArrayPtr<PointF> pts = System::MakeObject<System::Array<PointF>>(1, point);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts, MotionPathPointsType::Auto, true);
-	 
-	 //PointF point2[1] = { -0.076, -0.59 };
-	const  PointF point2 = PointF(-0.076, -0.59 );
-
-	 System::ArrayPtr<PointF> pts2 = System::MakeObject<System::Array<PointF>>(1, point2);
-	 motionBhv->get_Path()->Add(MotionCommandPathType::LineTo, pts2, MotionPathPointsType::Auto, false);
-	 
-	 motionBhv->get_Path()->Add(MotionCommandPathType::End, nullptr, MotionPathPointsType::Auto, false);
-	 
-	 //Ghi tệp PPTX vào đĩa
-	 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **Lấy các hiệu ứng hoạt ảnh đã áp dụng cho Shape**
-
-Các ví dụ sau cho thấy cách sử dụng phương thức `GetEffectsByShape` từ giao diện [ISequence](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/) để lấy tất cả các hiệu ứng hoạt ảnh đã áp dụng cho một shape.
-
-**Ví dụ 1: Lấy các hiệu ứng hoạt ảnh đã áp dụng cho một shape trên slide bình thường**
-
-Trước đây, bạn đã học cách thêm các hiệu ứng hoạt ảnh vào các shape trong bài thuyết trình PowerPoint. Mã mẫu dưới đây cho thấy cách lấy các hiệu ứng đã được áp dụng cho shape đầu tiên trên slide bình thường đầu tiên trong bài thuyết trình `AnimExample_out.pptx`.
-
-```c++
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-SharedPtr<ISlide> firstSlide = presentation->get_Slide(0);
-
-// Gets the main animation sequence of the slide.
-SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
-
-// Gets the first shape on the first slide.
-SharedPtr<IShape> shape = firstSlide->get_Shape(0);
-
-// Gets animation effects applied to the shape.
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = sequence->GetEffectsByShape(shape);
-
-if (shapeEffects->get_Length() > 0)
-{
-    Console::WriteLine(u"The shape " + shape->get_Name() + u" has " + shapeEffects->get_Length() + u" animation effects.");
-}
-
+presentation->Save(u"shape-animations.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-**Ví dụ 2: Lấy tất cả các hiệu ứng hoạt ảnh, bao gồm cả những hiệu ứng kế thừa từ placeholder**
+Trigger điều khiển thời điểm một hiệu ứng bắt đầu:
 
-Nếu một shape trên slide bình thường có placeholder nằm trên layout slide và/hoặc master slide, và các hiệu ứng hoạt ảnh đã được thêm vào các placeholder này, thì tất cả các hiệu ứng của shape sẽ được phát trong khi trình diễn, bao gồm cả những hiệu ứng kế thừa từ placeholder.
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effecttriggertype/) chờ một cú nhấp trong chuỗi chính, hoặc chờ một cú nhấp vào hình trigger trong chuỗi tương tác.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effecttriggertype/) bắt đầu cùng với hiệu ứng trước.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effecttriggertype/) bắt đầu khi hiệu ứng trước kết thúc.
 
-Giả sử chúng ta có một tệp PowerPoint `sample.pptx` với một slide chỉ chứa một shape footer có văn bản "Made with Aspose.Slides" và hiệu ứng **Random Bars** được áp dụng cho shape.
+Để hoạt ảnh một hình ảnh, biểu đồ, hoặc một kiểu hình khác, truyền đối tượng đó vào [ISequence::AddEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/addeffect/) thay vì `targetShape`. Đối với các tùy chọn nhóm đặc thù cho biểu đồ, xem mục [Animated Charts](/slides/vi/cpp/animated-charts/).
 
-![Slide shape animation effect](slide-shape-animation.png)
+## **Đọc Hoạt Ảnh Cho Hình**
 
-Giả sử nữa rằng hiệu ứng **Split** được áp dụng cho placeholder footer trên slide **layout**.
+Sử dụng [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/geteffectsbyshape/) khi bạn biết hình mục tiêu. Để kiểm tra mọi hiệu ứng, duyệt qua chuỗi chính và mọi chuỗi tương tác. Việc duyệt tránh việc giả định rằng một chuỗi có hiệu ứng ở chỉ mục `0`.
 
-![Layout shape animation effect](layout-shape-animation.png)
-
-Và cuối cùng, hiệu ứng **Fly In** được áp dụng cho placeholder footer trên slide **master**.
-
-![Master shape animation effect](master-shape-animation.png)
-
-Mã mẫu dưới đây cho thấy cách sử dụng phương thức `GetBasePlaceholder` từ giao diện [IShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides.ishape/) để truy cập các placeholder của shape và lấy các hiệu ứng hoạt ảnh đã áp dụng cho shape footer, bao gồm cả những hiệu ứng kế thừa từ placeholder trên layout và master slide.
+Ví dụ sau tạo một hình với các hiệu ứng chuỗi‑chính và chuỗi‑tương tác, lấy các hiệu ứng mục tiêu hình, rồi duyệt qua mọi chuỗi trên slide.
 
 ```cpp
-void PrintEffects(ArrayPtr<SharedPtr<IEffect>> effects)
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <system/console.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+
+auto printSequence = [](const String& label, const SharedPtr<ISequence>& sequence)
 {
-    for (SharedPtr<IEffect> effect : effects)
+    Console::WriteLine(String::Format(u"  {0}: {1} effect(s)", label, sequence->get_Count()));
+
+    for (const auto& effect : sequence)
     {
-        Console::WriteLine(String::Format(u"Type: {0}, subtype: {1}", effect->get_Type(), effect->get_Subtype()));
+        auto targetName = effect->get_TargetShape() == nullptr ? u"unknown" : effect->get_TargetShape()->get_Name();
+        auto effectDescription = String::Format(u"{0} {1}; target: {2}; trigger: {3}", effect->get_Type(), effect->get_Subtype(), targetName, effect->get_Timing()->get_TriggerType());
+        Console::WriteLine(u"    " + effectDescription);
     }
+};
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto targetShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+targetShape->get_TextFrame()->set_Text(u"Animated shape");
+
+auto mainSequence = slide->get_Timeline()->get_MainSequence();
+mainSequence->AddEffect(targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto triggerShape = slide->get_Shapes()->AddAutoShape(ShapeType::Bevel, 20.0f, 20.0f, 100.0f, 40.0f);
+triggerShape->get_TextFrame()->set_Text(u"Move");
+
+auto interactiveSequence = slide->get_Timeline()->get_InteractiveSequences()->Add(triggerShape);
+interactiveSequence->AddEffect(targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+auto targetEffects = mainSequence->GetEffectsByShape(targetShape);
+Console::WriteLine(String::Format(u"The main sequence contains {0} effect(s) for {1}.", targetEffects->get_Length(), targetShape->get_Name()));
+
+printSequence(u"Main sequence", mainSequence);
+
+int32_t interactiveIndex = 1;
+for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+{
+    auto triggerName = sequence->get_TriggerShape() == nullptr ? u"unknown" : sequence->get_TriggerShape()->get_Name();
+    auto sequenceLabel = String::Format(u"Interactive sequence {0}, trigger: {1}", interactiveIndex, triggerName);
+    printSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
-```cpp
-SharedPtr<Presentation> presentation = MakeObject<Presentation>(u"sample.pptx");
-
-SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// Lấy các hiệu ứng hoạt ảnh của shape trên slide bình thường.
-SharedPtr<IShape> shape = slide->get_Shape(0);
-ArrayPtr<SharedPtr<IEffect>> shapeEffects = slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(shape);
-
-// Lấy các hiệu ứng hoạt ảnh của placeholder trên slide layout.
-SharedPtr<IShape> layoutShape = shape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> layoutShapeEffects = slide->get_LayoutSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(layoutShape);
-
-// Lấy các hiệu ứng hoạt ảnh của placeholder trên slide master.
-SharedPtr<IShape> masterShape = layoutShape->GetBasePlaceholder();
-ArrayPtr<SharedPtr<IEffect>> masterShapeEffects = slide->get_LayoutSlide()->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(masterShape);
 
 presentation->Dispose();
-
-Console::WriteLine(u"Main sequence of shape effects:");
-PrintEffects(masterShapeEffects);
-PrintEffects(layoutShapeEffects);
-PrintEffects(shapeEffects);
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Fly, Bottom
-Type: 134, subtype: 45            // Split, VerticalIn
-Type: 126, subtype: 22            // RandomBars, Horizontal
+Nếu bạn chỉ cần các hiệu ứng cho một hình, trước tiên xác định hình bằng tên, kiểu placeholder, hoặc thuộc tính ổn định khác; sau đó gọi [ISequence::GetEffectsByShape](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/geteffectsbyshape/). Đừng giả định rằng [IShapeCollection::idx_get](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/idx_get/) ở chỉ mục `0` luôn là đối tượng mong muốn.
+
+## **Làm Việc Với Hiệu Ứng Placeholder Kế Thừa**
+
+Một placeholder trên slide bình thường có thể kế thừa hành vi hoạt ảnh từ placeholder tương ứng trên slide bố cục và slide master. [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/getbaseplaceholder/) trả về placeholder cha đó, hoặc `nullptr` khi không có cha.
+
+Trong bản trình chiếu mẫu dưới đây, phần chân trang có **Random Bars** trên slide bình thường, **Split** trên slide bố cục, và **Fly In** trên slide master.
+
+![Footer animation effect on the normal slide](slide-shape-animation.png)
+
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
+
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
+
+Ví dụ tiếp theo tự xây dựng cấu trúc placeholder. Nó thêm hiệu ứng vào một placeholder master, một placeholder layout, và placeholder tương ứng trên slide bình thường. Mọi lần gọi [IShape::GetBasePlaceholder](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishape/getbaseplaceholder/) đều được kiểm tra trước khi sử dụng hình trả về.
+
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/array.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto findPlaceholderWithBase = [](const SharedPtr<ISlide>& slide) -> SharedPtr<IShape>
+{
+    for (const auto& shape : slide->get_Shapes())
+    {
+        if (shape->GetBasePlaceholder() != nullptr)
+            return shape;
+    }
+
+    return nullptr;
+};
+
+auto printEffects = [](const String& source, const ArrayPtr<SharedPtr<IEffect>>& effects)
+{
+    Console::WriteLine(String::Format(u"{0}: {1} effect(s)", source, effects->get_Length()));
+
+    for (const auto& effect : effects)
+        Console::WriteLine(String::Format(u"  {0} {1}", effect->get_Type(), effect->get_Subtype()));
+};
+
+auto presentation = MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto layoutPlaceholder = layoutSlide->get_PlaceholderManager()->AddTextPlaceholder(100.0f, 100.0f, 400.0f, 80.0f);
+layoutSlide->get_Timeline()->get_MainSequence()->AddEffect(layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+auto masterPlaceholder = layoutPlaceholder->GetBasePlaceholder();
+if (masterPlaceholder != nullptr)
+{
+    auto masterSequence = layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence();
+    masterSequence->AddEffect(masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+}
+
+auto slide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto slidePlaceholder = findPlaceholderWithBase(slide);
+
+if (slidePlaceholder == nullptr)
+    throw InvalidOperationException(u"The slide does not contain a placeholder linked to its layout slide.");
+
+slide->get_Timeline()->get_MainSequence()->AddEffect(slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+printEffects(u"Normal slide", slide->get_Timeline()->get_MainSequence()->GetEffectsByShape(slidePlaceholder));
+
+auto baseLayoutPlaceholder = slidePlaceholder->GetBasePlaceholder();
+if (baseLayoutPlaceholder != nullptr)
+{
+    printEffects(u"Layout slide", layoutSlide->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseLayoutPlaceholder));
+
+    auto baseMasterPlaceholder = baseLayoutPlaceholder->GetBasePlaceholder();
+    if (baseMasterPlaceholder != nullptr)
+        printEffects(u"Master slide", layoutSlide->get_MasterSlide()->get_Timeline()->get_MainSequence()->GetEffectsByShape(baseMasterPlaceholder));
+}
+
+presentation->Save(u"placeholder-animations.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Thay đổi thuộc tính thời gian của hiệu ứng hoạt ảnh**
+## **Thay Đổi Thời Gian Hoạt Ảnh**
 
-Aspose.Slides for C++ cho phép bạn thay đổi các thuộc tính Timing của một hiệu ứng hoạt ảnh.
+Hộp thoại PowerPoint **Timing** tương ứng với các phương pháp của [ITiming](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/).
 
-Đây là bảng Timing của Animation trong Microsoft PowerPoint:
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-![example1_image](shape-animation.png)
+- **Start** tương ứng với [ITiming::set_TriggerType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_triggertype/).
+- **Duration** tương ứng với [ITiming::set_Duration](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_duration/), tính bằng giây.
+- **Delay** tương ứng với [ITiming::set_TriggerDelayTime](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_triggerdelaytime/), tính bằng giây.
+- **Repeat** tương ứng với [ITiming::set_RepeatCount](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_repeatcount/), [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/), hoặc [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/).
+- **Rewind when done playing** tương ứng với [ITiming::set_Rewind](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_rewind/).
 
-Các tương quan giữa Timing của PowerPoint và thuộc tính [Effect.Timing](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) như sau:
+Ví dụ độc lập này thêm một hiệu ứng, thay đổi thời gian của nó thông qua đối tượng trả về bởi [ISequence::AddEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/addeffect/), và lưu kết quả. Giữ tham chiếu đến [IEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/) trả về tránh việc phải truy cập chỉ mục bộ sưu tập không cần thiết.
 
-- Danh sách thả xuống **Start** của PowerPoint tương ứng với thuộc tính [Effect.Timing.TriggerType](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.animation.i_timing#a9cec24d555c39e33f0b71dc2210daab3). 
-- **Duration** của PowerPoint tương ứng với thuộc tính [Effect.Timing.Duration](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.animation.i_timing#a4f5eebdec3b0b2e6d57ee944b5a8a340). Thời lượng của một hoạt ảnh (giây) là tổng thời gian hoạt ảnh cần để hoàn thành một chu kỳ. 
-- **Delay** của PowerPoint tương ứng với thuộc tính [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.animation.i_timing#a947ac2f79c7310d0276ef17999b7214b). 
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITiming.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Cách thay đổi các thuộc tính Timing của Effect:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-1. [Apply](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt các giá trị mới cho các thuộc tính [Effect.Timing](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.animation.effect#a333640cbb8d32c413ccda11c1a7c3b4c) mà bạn cần. 
-3. Lưu file PPTX đã sửa đổi.
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Timed animation");
 
-Mã C++ này minh họa thao tác:
-
-```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp bài thuyết trình.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
-
-// Lấy chuỗi chính của slide.
-System::SharedPtr<ISequence> sequence = pres->get_Slides()->idx_get(0)->get_Timeline()->get_MainSequence();
-
-// Lấy hiệu ứng đầu tiên của chuỗi chính.
-System::SharedPtr<IEffect> effect = sequence->idx_get(0);
-
-// Thay đổi TriggerType của hiệu ứng để bắt đầu khi nhấp
-effect->get_Timing()->set_TriggerType(Aspose::Slides::Animation::EffectTriggerType::OnClick);
-
-// Thay đổi Duration của hiệu ứng
-effect->get_Timing()->set_Duration(3.f);
-
-// Thay đổi TriggerDelayTime của hiệu ứng
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_Timing()->set_TriggerType(EffectTriggerType::OnClick);
+effect->get_Timing()->set_Duration(2.0f);
 effect->get_Timing()->set_TriggerDelayTime(0.5f);
+effect->get_Timing()->set_RepeatUntilNextClick(false);
+effect->get_Timing()->set_RepeatUntilEndSlide(false);
+effect->get_Timing()->set_RepeatCount(2.0f);
+effect->get_Timing()->set_Rewind(true);
 
-// Lưu tệp PPTX vào đĩa
-pres->Save(u"AnimExample_changed.pptx", Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Save(u"shape-animation-timing.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Âm thanh của hiệu ứng hoạt ảnh**
+Sử dụng một chế độ lặp duy nhất. Kết hợp số lần lặp với cờ “until” có thể tạo ra kết quả gây nhầm lẫn trong các trình xem khác nhau. Khi thay đổi chế độ lặp, gọi trước [ITiming::set_RepeatUntilNextClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_repeatuntilnextclick/) và [ITiming::set_RepeatUntilEndSlide](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_repeatuntilendslide/) rồi mới đến [ITiming::set_RepeatCount](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itiming/set_repeatcount/), vì việc đặt bất kỳ cờ nào cũng sẽ thay đổi chế độ lặp đang hoạt động.
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn làm việc với âm thanh trong hiệu ứng hoạt ảnh: 
+## **Thêm và Trích Xuất Âm Thanh Hoạt Ảnh**
 
-- [set_Sound()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effect/set_sound/) 
-- [set_StopPreviousSound()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effect/set_stopprevioussound/) 
+Một hiệu ứng hoạt ảnh có thể tham chiếu âm thanh nhúng thông qua [IEffect::set_Sound](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_sound/). [IEffect::set_StopPreviousSound](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_stopprevioussound/) chỉ định hiệu ứng dừng âm thanh đã được một hiệu ứng trước đó khởi động.
 
-### **Thêm âm thanh cho hiệu ứng hoạt ảnh**
+### **Thêm Âm Thanh Vào Hiệu Ứng**
 
-Mã C++ này cho thấy cách thêm âm thanh cho một hiệu ứng hoạt ảnh và dừng nó khi hiệu ứng tiếp theo bắt đầu:
+Ví dụ dưới đây yêu cầu một tệp âm thanh cục bộ tên `animation-sound.wav`. Nó tạo hai hiệu ứng, nhúng tệp đó làm âm thanh cho hiệu ứng thứ nhất, và cấu hình hiệu ứng thứ hai để dừng âm thanh. Nó sử dụng các đối tượng trả về bởi [ISequence::AddEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/addeffect/), vì vậy không cần chỉ mục chuỗi.
 
-```c++
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimExample_out.pptx");
+```cpp
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/IAudioCollection.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file.h>
 
-// Thêm âm thanh vào bộ sưu tập âm thanh của bài thuyết trình
-System::SharedPtr<IAudio> effectSound = pres->get_Audios()->AddAudio(System::IO::File::ReadAllBytes(u"sampleaudio.wav"));
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// Lấy chuỗi chính của slide.
-System::SharedPtr<ISequence> sequence = firstSlide->get_Timeline()->get_MainSequence();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto firstShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 100.0f, 240.0f, 80.0f);
+auto secondShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 400.0f, 100.0f, 240.0f, 80.0f);
+firstShape->get_TextFrame()->set_Text(u"Starts sound");
+secondShape->get_TextFrame()->set_Text(u"Stops sound");
 
-// Lấy hiệu ứng đầu tiên của chuỗi chính
-System::SharedPtr<IEffect> firstEffect = sequence->idx_get(0);
+auto sequence = slide->get_Timeline()->get_MainSequence();
+auto firstEffect = sequence->AddEffect(firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+auto secondEffect = sequence->AddEffect(secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
 
-// Kiểm tra hiệu ứng cho "No Sound"
-if (!firstEffect->get_StopPreviousSound() && firstEffect->get_Sound() == nullptr)
+auto audioData = File::ReadAllBytes(u"animation-sound.wav");
+auto effectSound = presentation->get_Audios()->AddAudio(audioData);
+firstEffect->set_Sound(effectSound);
+secondEffect->set_StopPreviousSound(true);
+
+presentation->Save(u"shape-animation-sound.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **Trích Xuất Âm Thanh Nhúng Của Hiệu Ứng**
+
+Ví dụ dưới đây yêu cầu một bản trình chiếu cục bộ tên `presentation-with-animation-sounds.pptx`. Nó quét cả chuỗi chính và chuỗi tương tác và ghi mọi âm thanh hiệu ứng nhúng vào thư mục `extracted-animation-sounds`. Phần mở rộng được chọn dựa trên MIME type âm thanh được cung cấp bởi [IAudio::get_ContentType](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iaudio/get_contenttype/).
+
+```cpp
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ISequenceCollection.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAudio.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/directory.h>
+#include <system/io/file.h>
+#include <system/io/path.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace System;
+using namespace System::IO;
+
+auto getAudioExtension = [](const String& contentType)
 {
-    // Thêm âm thanh cho hiệu ứng đầu tiên
-    firstEffect->set_Sound(effectSound);
+    auto normalizedType = String::IsNullOrEmpty(contentType) ? String::Empty : contentType.ToLowerInvariant();
+
+    if (normalizedType == u"audio/mpeg")
+        return String(u".mp3");
+
+    if (normalizedType == u"audio/mp4")
+        return String(u".m4a");
+
+    if (normalizedType == u"audio/ogg")
+        return String(u".ogg");
+
+    if (normalizedType == u"audio/wav" || normalizedType == u"audio/x-wav")
+        return String(u".wav");
+
+    return String(u".bin");
+};
+
+auto saveSounds = [&getAudioExtension](const SharedPtr<ISequence>& sequence, const String& outputDirectory, int32_t& soundIndex)
+{
+    for (const auto& effect : sequence)
+    {
+        if (effect->get_Sound() == nullptr)
+            continue;
+
+        auto extension = getAudioExtension(effect->get_Sound()->get_ContentType());
+        auto outputPath = Path::Combine(outputDirectory, String::Format(u"effect-sound-{0}{1}", soundIndex, extension));
+        File::WriteAllBytes(outputPath, effect->get_Sound()->get_BinaryData());
+        soundIndex++;
+    }
+};
+
+auto inputPath = String(u"presentation-with-animation-sounds.pptx");
+auto outputDirectory = String(u"extracted-animation-sounds");
+
+Directory::CreateDirectory_(outputDirectory);
+
+auto presentation = MakeObject<Presentation>(inputPath);
+int32_t soundIndex = 1;
+
+for (const auto& slide : presentation->get_Slides())
+{
+    saveSounds(slide->get_Timeline()->get_MainSequence(), outputDirectory, soundIndex);
+
+    for (const auto& sequence : slide->get_Timeline()->get_InteractiveSequences())
+        saveSounds(sequence, outputDirectory, soundIndex);
 }
 
-// Lấy chuỗi tương tác đầu tiên của slide.
-System::SharedPtr<ISequence> interactiveSequence = firstSlide->get_Timeline()->get_InteractiveSequence(0);
-
-// Đặt cờ "Stop previous sound" cho hiệu ứng
-interactiveSequence->idx_get(0)->set_StopPreviousSound(true);
-
-// Ghi tệp PPTX vào đĩa
-pres->Save(u"AnimExample_Sound_out.pptx", SaveFormat::Pptx);
+Console::WriteLine(String::Format(u"Extracted {0} sound file(s) to {1}.", soundIndex - 1, Path::GetFullPath(outputDirectory)));
+presentation->Dispose();
 ```
 
-### **Trích xuất âm thanh của hiệu ứng hoạt ảnh**
+Đối với các đối tượng âm thanh lớn, sử dụng [IAudio::GetStream](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iaudio/getstream/) và sao chép luồng vào tệp thay vì tải toàn bộ đối tượng vào mảng byte.
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/aspose.slides/presentation/).
-2. Lấy tham chiếu tới slide thông qua chỉ mục của nó. 
-3. Lấy chuỗi chính của các hiệu ứng. 
-4. Trích xuất phương thức [set_Sound()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/effect/set_sound/) được nhúng vào mỗi hiệu ứng hoạt ảnh. 
+## **Đặt Hành Vi Sau Hoạt Ảnh**
 
-Mã C++ này cho thấy cách trích xuất âm thanh được nhúng trong một hiệu ứng hoạt ảnh:
+Tùy chọn **After animation** điều khiển điều gì xảy ra với một hình sau khi hiệu ứng của nó kết thúc.
 
-```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"EffectSound.pptx");
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-// Lấy chuỗi chính của slide.
-System::SharedPtr<ISequence> sequence = slide->get_Timeline()->get_MainSequence();
+Kiểu liệt kê [AfterAnimationType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/) hỗ trợ để lại hình không thay đổi, thay đổi màu, ẩn nó sau hoạt ảnh, hoặc ẩn nó khi nhấp tiếp theo. Khi kiểu là [AfterAnimationType::Color](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/), gọi [IEffect::get_AfterAnimationColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/get_afteranimationcolor/) để thiết lập màu.
 
-for (auto&& effect : sequence)
-{
-    System::SharedPtr<IAudio> sound = effect->get_Sound();
+Ví dụ độc lập này tạo một hiệu ứng, đặt hành vi sau‑hoạt ảnh thông qua đối tượng hiệu ứng trả về, và lưu kết quả.
 
-    if (sound == nullptr)
-        continue;
+```cpp
+#include <DOM/Animation/AfterAnimationType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
 
-    auto audio = sound->get_BinaryData();
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 120.0f, 100.0f, 320.0f, 80.0f);
+shape->get_TextFrame()->set_Text(u"Dim after animation");
+
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->set_AfterAnimationType(AfterAnimationType::Color);
+effect->get_AfterAnimationColor()->set_Color(Color::get_LightGray());
+
+presentation->Save(u"shape-animation-after-effect.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Sau khi hoạt ảnh**
+Thay đổi kiểu khỏi [AfterAnimationType::Color](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/) sẽ xóa cài đặt màu sau‑hoạt ảnh.
 
-Aspose.Slides for C++ cho phép bạn thay đổi thuộc tính After animation của một hiệu ứng hoạt ảnh.
+## **Hoạt Ảnh Văn Bản**
 
-Đây là bảng Animation Effect và menu mở rộng trong Microsoft PowerPoint:
+Hoạt ảnh văn bản có hai điều khiển liên quan:
 
-![example1_image](shape-after-animation.png)
+- [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itextanimation/set_buildtype/) kiểm soát việc các đoạn văn xuất hiện cùng nhau hay theo mức độ đoạn.
+- [IEffect::set_AnimateTextType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) kiểm soát việc văn bản xuất hiện một lần, theo từ, hoặc theo ký tự. [IEffect::set_DelayBetweenTextParts](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) đặt độ trễ giữa các từ hoặc ký tự. Giá trị dương là phần trăm của thời lượng hiệu ứng; giá trị âm là độ trễ tính bằng giây.
 
-Danh sách thả xuống **After animation** của PowerPoint tương ứng với các thuộc tính sau: 
+Ví dụ độc lập dưới đây hoạt ảnh các từ trong một hộp văn bản. [BuildType::AsOneObject](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/buildtype/) vô hiệu hoá việc xây dựng theo đoạn, vì vậy cài đặt từ áp dụng cho toàn bộ khung văn bản.
 
-- Thuộc tính [set_AfterAnimationType()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_afteranimationtype/) mô tả kiểu After animation :
-  * **More Colors** của PowerPoint tương ứng với kiểu [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * Mục **Don't Dim** của PowerPoint tương ứng với kiểu [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/) (kiểu After animation mặc định);
-  * Mục **Hide After Animation** của PowerPoint tương ứng với kiểu [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/) ;
-  * Mục **Hide on Next Mouse Click** của PowerPoint tương ứng với kiểu [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/) ;
-- Thuộc tính [set_AfterAnimationColor()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_afteranimationcolor/) định nghĩa định dạng màu After animation. Thuộc tính này hoạt động cùng với kiểu [AfterAnimationType.Color](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/afteranimationtype/). Nếu bạn thay đổi kiểu sang kiểu khác, màu After animation sẽ bị xóa.
+```cpp
+#include <DOM/Animation/AnimateTextType.h>
+#include <DOM/Animation/BuildType.h>
+#include <DOM/Animation/EffectSubtype.h>
+#include <DOM/Animation/EffectTriggerType.h>
+#include <DOM/Animation/EffectType.h>
+#include <DOM/Animation/IEffect.h>
+#include <DOM/Animation/ISequence.h>
+#include <DOM/Animation/ITextAnimation.h>
+#include <DOM/IAnimationTimeLine.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
 
-Mã C++ này cho thấy cách thay đổi hiệu ứng After animation:
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Animation;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimImage_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto textBox = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 80.0f, 80.0f, 560.0f, 100.0f);
+textBox->get_TextFrame()->set_Text(u"Aspose.Slides animates this sentence word by word.");
 
-// Lấy hiệu ứng đầu tiên của chuỗi chính
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+auto effect = slide->get_Timeline()->get_MainSequence()->AddEffect(textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+effect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+effect->set_AnimateTextType(AnimateTextType::ByWord);
+effect->set_DelayBetweenTextParts(20.0f);
 
-// Thay đổi loại after animation thành Color
-firstEffect->set_AfterAnimationType(AfterAnimationType::Color);
-
-// Đặt màu after animation dim
-firstEffect->get_AfterAnimationColor()->set_Color(System::Drawing::Color::get_AliceBlue());
-
-// Ghi tệp PPTX vào đĩa
-pres->Save(u"AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
+presentation->Save(u"animated-text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Hoạt ảnh văn bản**
+Để xây dựng một hộp văn bản theo đoạn, sử dụng [ITextAnimation::set_BuildType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/itextanimation/set_buildtype/) với [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/buildtype/) hoặc mức độ đoạn khác. Để đặt một đoạn riêng biệt với hiệu ứng riêng, sử dụng phương thức overload của [ISequence::AddEffect](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/isequence/addeffect/) nhận một [IParagraph](https://reference.aspose.com/slides/vi/cpp/aspose.slides/iparagraph/). Xem mục [Animated Text](/slides/vi/cpp/animated-text/) để có các ví dụ cấp đoạn.
 
-Aspose.Slides cung cấp các thuộc tính sau để cho phép bạn làm việc với khối *Animate text* của một hiệu ứng hoạt ảnh:
+## **Xuất Và Lưu Ý Tương Thích**
 
-- [set_AnimateTextType()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) mô tả kiểu animate text của hiệu ứng. Văn bản của shape có thể được hoạt ảnh:
-  - Tất cả cùng một lúc ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/animatetexttype/) )
-  - Theo từ ([AnimateTextType.ByWord](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/animatetexttype/) )
-  - Theo ký tự ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/animatetexttype/) )
-- [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/) đặt độ trễ giữa các phần văn bản được hoạt ảnh (từ hoặc ký tự). Giá trị dương chỉ phần trăm thời lượng hiệu ứng. Giá trị âm chỉ thời gian trễ tính bằng giây.
+- Lưu dưới dạng PPT hoặc PPTX giữ nguyên mô hình hoạt ảnh, nhưng việc phát lại cuối cùng do trình xem bản trình chiếu điều khiển.
+- PDF và hình ảnh tĩnh không phát hoạt ảnh. Sử dụng [HTML5 export](/slides/vi/cpp/export-to-html5/), GIF động, hoặc [video conversion](/slides/vi/cpp/convert-powerpoint-to-video/) khi đầu ra phải hiển thị chuyển động.
+- Đối với HTML5, bật [Html5Options::set_AnimateShapes](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/html5options/set_animateshapes/) và, khi cần, [Html5Options::set_AnimateTransitions](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/html5options/set_animatetransitions/).
+- Kết xuất video hỗ trợ nhiều hiệu ứng vào, nhấn mạnh, ra, và đường chuyển động phổ biến, nhưng không phải mọi hiệu ứng PowerPoint đều được hỗ trợ. Kiểm tra mục [supported animations and effects](/slides/vi/cpp/convert-powerpoint-to-video/#supported-animations-and-effects) hiện tại và kiểm thử các bản trình chiếu quan trọng với phiên bản Aspose.Slides bạn dùng.
+- Các hiệu ứng tùy chỉnh nâng cao và các hiệu ứng được nhập từ định dạng bản trình chiếu khác có thể được lưu trong tệp nhưng hiển thị khác nhau trong PowerPoint, HTML5, hoặc video. Xác thực kết quả xuất thay vì chỉ dựa vào tên hiệu ứng.
 
-Cách thay đổi các thuộc tính Animate text của Effect:
+## **Câu Hỏi Thường Gặp**
 
-1. [Apply](#apply-animation-to-shape) hoặc lấy hiệu ứng hoạt ảnh.
-2. Đặt thuộc tính [set_BuildType()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation.itextanimation/set_buildtype/) thành giá trị [BuildType.AsOneObject](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/buildtype/) để tắt chế độ *By Paragraphs*.
-3. Đặt các giá trị mới cho các thuộc tính [set_AnimateTextType()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_animatetexttype/) và [set_DelayBetweenTextParts()](https://reference.aspose.com/slides/vi/cpp/aspose.slides.animation/ieffect/set_delaybetweentextparts/).
-4. Lưu file PPTX đã sửa đổi.
+**Tại sao một hoạt ảnh xuất hiện trong PowerPoint mà không xuất hiện trong PDF?**
 
-Mã C++ này minh họa thao tác:
+PDF là định dạng tĩnh, vì vậy hoạt ảnh và chuyển đổi slide không được phát. Xuất sang HTML5, GIF động, hoặc video khi cần giữ chuyển động.
 
-```c++
-// Khởi tạo một lớp Presentation đại diện cho tệp trình chiếu.
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>(u"AnimTextBox_out.pptx");
-System::SharedPtr<ISlide> firstSlide = pres->get_Slide(0);
+**Tại sao một hiệu ứng hiển thị khác nhau trong video?**
 
-// Lấy hiệu ứng đầu tiên của chuỗi chính
-System::SharedPtr<IEffect> firstEffect = firstSlide->get_Timeline()->get_MainSequence()->idx_get(0);
+Xuất video render hoạt ảnh thay vì lưu hành vi gốc của PowerPoint. Một số hiệu ứng nâng cao không được hỗ trợ hoặc chỉ được ước tính. Kiểm tra bảng hiệu ứng được hỗ trợ và thử nghiệm bản trình chiếu thực tế trước khi đưa vào sản xuất.
 
-// Thay đổi kiểu hoạt ảnh văn bản của hiệu ứng thành "As One Object"
-firstEffect->get_TextAnimation()->set_BuildType(BuildType::AsOneObject);
+**Di chuyển một hình lên phía trước hoặc phía sau có thay đổi thứ tự hoạt ảnh không?**
 
-// Thay đổi kiểu Animate text của hiệu ứng thành "By word"
-firstEffect->set_AnimateTextType(AnimateTextType::ByWord);
-
-// Đặt độ trễ giữa các từ thành 20% thời lượng hiệu ứng
-firstEffect->set_DelayBetweenTextParts(20.0f);
-
-// Ghi tệp PPTX vào đĩa
-pres->Save(u"AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-```
-
-## **FAQ**
-
-**Làm sao tôi có thể đảm bảo hoạt ảnh được giữ nguyên khi xuất bản bài thuyết trình lên web?**
-
-[Export to HTML5](/slides/vi/cpp/export-to-html5/) và bật các [options](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/html5options/) chịu trách nhiệm cho hoạt ảnh [shape](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/html5options/set_animateshapes/) và [transition](https://reference.aspose.com/slides/vi/cpp/aspose.slides.export/html5options/set_animatetransitions/). HTML thuần không phát hoạt ảnh slide, trong khi HTML5 có.
-
-**Thay đổi thứ tự z-order (thứ tự lớp) của các shape ảnh hưởng như thế nào tới hoạt ảnh?**
-
-Thứ tự hoạt ảnh và thứ tự vẽ là độc lập: một hiệu ứng kiểm soát thời gian và kiểu xuất hiện/biến mất, trong khi [z-order](https://reference.aspose.com/slides/vi/cpp/aspose.slides/shape/get_zorderposition/) quyết định gì che gì. Kết quả hiển thị được xác định bởi sự kết hợp của chúng. (Đây là hành vi chung của PowerPoint; mô hình effects-and-shapes của Aspose.Slides tuân theo logic giống nhau.)
-
-**Có những hạn chế nào khi chuyển hoạt ảnh sang video đối với một số hiệu ứng không?**
-
-Nhìn chung, [animations are supported](/slides/vi/cpp/convert-powerpoint-to-video/), nhưng trong một số trường hợp hiếm hoặc đối với các hiệu ứng cụ thể có thể được render khác nhau. Bạn nên kiểm tra với các hiệu ứng bạn dùng và với phiên bản thư viện hiện tại.
+Không. Z‑order của hình chỉ điều khiển chồng lớp, trong khi thứ tự chuỗi và trigger điều khiển việc phát hoạt ảnh. Thay đổi timeline nếu bạn cần một thứ tự phát khác.

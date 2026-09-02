@@ -5,8 +5,6 @@ type: docs
 weight: 50
 url: /pl/net/text-formatting/
 keywords:
-- podświetlanie tekstu
-- wyrażenie regularne
 - wyrównanie akapitu
 - styl tekstu
 - tło tekstu
@@ -17,9 +15,9 @@ keywords:
 - obrót tekstu
 - kąt obrotu
 - ramka tekstowa
-- odstępy między wierszami
-- właściwość automatycznego dopasowania
-- kotwica ramki tekstowej
+- odstęp linii
+- właściwość autofit
+- kotwiczenie ramki tekstowej
 - tabulacja tekstu
 - język domyślny
 - PowerPoint
@@ -28,78 +26,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Dostosuj czcionki, kolory, wyrównanie i więcej."
+description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Dostosuj czcionki, kolory, wyrównanie i inne."
 ---
 ## **Przegląd**
 
-Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Obejmuje on podświetlanie, kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitów, zachowanie automatycznego dopasowania, kotwiczenie tekstu, tabulatory i ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Obejmuje kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy między akapitami, zachowanie autofit, kotwiczenie tekstu, tabulatory i ustawienia języka.
 
-W poniższych przykładach użyjemy pliku o nazwie "sample.pptx", który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
+W poniższych przykładach użyjemy pliku o nazwie "sample.pptx", który zawiera jedno pole tekstowe na pierwszym slajdzie z następującym tekstem:
 
 ![Przykładowy tekst](sample_text.png)
 
-## **Podświetlanie tekstu**
-
-Użyj metody [ITextFrame.HighlightText](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/highlighttext/), gdy potrzebujesz podświetlić tekst pasujący do określonego wzorca w ramce tekstowej. Metoda aplikuje kolor podświetlenia do pasujących fragmentów tekstu i może być użyta razem z [TextSearchOptions](https://reference.aspose.com/slides/pl/net/aspose.slides/textsearchoptions/), aby kontrolować sposób przeprowadzania wyszukiwania, na przykład aby dopasować tylko całe wyrazy.
-
-Poniższy przykład kodu podświetla wszystkie wystąpienia znaków **"try"** i następnie podświetla tylko pełne słowo **"to"**.
-
-```cs
-using (var presentation = new Presentation("sample.pptx"))
-{
-    // Pobierz pierwszy kształt z pierwszego slajdu.
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    // Podświetl słowo "try" w kształcie.
-    shape.TextFrame.HighlightText("try", Color.LightBlue);
-
-    var searchOptions = new TextSearchOptions()
-    {
-        WholeWordsOnly = true
-    };
-
-    // Podświetl słowo "to" w kształcie.
-    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
-
-    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
-}
-```
-
-Wynik:
-
-![Podświetlony tekst](highlighted_text.png)
-
-## **Podświetlanie tekstu przy użyciu wyrażeń regularnych**
-
-Metoda [ITextFrame.HighlightRegex](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/highlightregex/) podświetla dopasowania tekstu znalezione za pomocą wyrażenia regularnego. W .NET to API jest udostępniane w interfejsie [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/).
-
-Poniższy przykład kodu podświetla wszystkie słowa zawierające **siedem lub więcej znaków**:
-
-```cs
-using (var presentation = new Presentation(folderPath + "sample.pptx"))
-{
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    var regex = new Regex(@"\b[^\s]{7,}\b");
-
-    // Podświetl wszystkie słowa mające siedem lub więcej znaków.
-    shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
-
-    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-}
-```
-
-Wynik:
-
-![Podświetlony tekst przy użyciu wyrażenia regularnego](highlighted_text_using_regex.png)
+Aby znaleźć i podświetlić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/net/search-and-replace-text/).
 
 ## **Ustaw kolor tła tekstu**
 
-Użyj [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/defaultportionformat/), aby ustawić domyślny kolor podświetlenia dla akapitu, lub użyj [IPortionFormat.HighlightColor](https://reference.aspose.com/slides/pl/net/aspose.slides/iportionformat/highlightcolor/), aby ustawić go dla poszczególnych fragmentów tekstu.
+Użyj [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/defaultportionformat/) aby ustawić domyślny kolor podświetlenia dla akapitu, lub użyj [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/highlightcolor/) dla pojedynczych fragmentów tekstu.
 
-Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **całego akapitu**:
+Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **całego akapitu**: 
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -119,6 +68,10 @@ Wynik:
 Poniższy przykład kodu demonstruje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -141,13 +94,16 @@ Wynik:
 
 ![Szare fragmenty tekstu](gray_text_portions.png)
 
-## **Wyrównywanie akapitów tekstu**
+## **Wyrównaj akapity tekstu**
 
-Użyj [IParagraphFormat.Alignment](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/alignment/), aby ustawić wyrównanie akapitu wewnątrz ramki tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, wyjustowana i tak dalej.
+Użyj [IParagraphFormat.Alignment](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/alignment/) aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana itp.
 
 Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -166,11 +122,15 @@ Wynik:
 
 ## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana za pomocą składnika alfa koloru przypisanego do [IPortionFormat.FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iportionformat/fillformat/). W poniższych przykładach `alpha = 50` oznacza wartość kanału alfa w formacie ARGB w skali 0–255, a nie procent przezroczystości.
+Przezroczystość tekstu jest kontrolowana przez komponent alfa koloru przypisanego do [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/fillformat/). W przykładach poniżej `alpha = 50` jest wartością kanału alfa ARGB w skali 0‑255, a nie procentem przezroczystości.
 
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -193,6 +153,10 @@ Wynik:
 Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **fragmentów tekstu z pogrubioną czcionką**:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -204,9 +168,9 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Ustaw przezroczystość fragmentu tekstu.
-            portion.PortionFormat.FillFormat.FillType = FillType.Solid;
-            portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
+                // Ustaw przezroczystość fragmentu tekstu.
+                portion.PortionFormat.FillFormat.FillType = FillType.Solid;
+                portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
     }
 
@@ -218,19 +182,22 @@ Wynik:
 
 ![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
 
-## **Ustaw odstęp między znakami w tekście**
+## **Ustaw odstęp między znakami w tekscie**
 
-Użyj [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/spacing/), aby zwiększyć lub zmniejszyć odstępy między znakami w polu tekstowym.
+Użyj [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/spacing/) aby zwiększyć lub zmniejszyć odstęp między znakami w polu tekstowym.
 
-Poniższy kod C# pokazuje, jak zwiększyć odstęp między znakami w **całym akapicie**:
+Poniższy kod C# pokazuje, jak rozszerzyć odstęp między znakami w **całym akapicie**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
+    // Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
     paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // Zwiększ odstęp między znakami.
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -241,9 +208,12 @@ Wynik:
 
 ![Odstęp między znakami w akapicie](character_spacing_in_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak zwiększyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak rozszerzyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -253,7 +223,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
+            // Uwaga: użyj wartości ujemnych, aby zmniejszyć odstęp między znakami.
             portion.PortionFormat.Spacing = 3;  // Zwiększ odstęp między znakami.
         }
     }
@@ -268,11 +238,14 @@ Wynik:
 
 ### **Wyłącz kerning dla określonych czcionek**
 
-W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco bardziej ściśle niż ten sam tekst wyświetlany w PowerPoint. Może się tak stać, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
+W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się to zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
 
-Aby uzyskać wynik renderowania bliższy PowerPoint w takich przypadkach, możesz wyłączyć kerning dla fragmentów tekstu używających danej czcionki. Ustaw [IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/kerningminimalsize/) na wartość znacznie większą niż rzeczywisty rozmiar czcionki:
+Aby w takich sytuacjach uzyskać wynik bardziej zbliżony do PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/kerningminimalsize/) na wartość znacząco większą niż rzeczywisty rozmiar czcionki:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -298,15 +271,18 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-To ustawienie zapobiega stosowaniu kerningu do pasujących fragmentów tekstu i może pomóc wyrównać renderowanie Aspose.Slides do wizualnego wyniku PowerPoint dla czcionek dotkniętych tym specyficznym zachowaniem PowerPoint.
+To ustawienie zapobiega stosowaniu kerningu do pasujących fragmentów tekstu i może pomóc dopasować renderowanie Aspose.Slides do wizualnego wyjścia PowerPoint dla czcionek dotkniętych tym specyficznym zachowaniem PowerPoint.
 
-## **Zarządzanie właściwościami czcionki tekstu**
+## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawić na poziomie akapitu za pomocą [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/defaultportionformat/) lub na poszczególnych fragmentach za pomocą [IPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iportionformat/).
+Właściwości czcionki można ustawić na poziomie akapitu za pomocą [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/defaultportionformat/) lub na pojedynczych fragmentach poprzez [IPortionFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iportionformat/).
 
-Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, kursywę, przerywaną podkreślenie oraz czcionkę Times New Roman do wszystkich fragmentów w akapicie.
+Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, kursywę, przerywaną podkreślenie oraz czcionkę Times New Roman dla wszystkich fragmentów w akapicie.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -330,6 +306,9 @@ Wynik:
 Poniższy przykład kodu stosuje podobne właściwości do **fragmentów tekstu z pogrubioną czcionką**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -357,11 +336,14 @@ Wynik:
 
 ## **Ustaw obrót tekstu**
 
-Użyj [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/textverticaltype/), aby ustawić predefiniowaną orientację tekstu wewnątrz kształtu.
+Użyj [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/textverticaltype/) aby ustawić wstępną orientację tekstu w kształcie.
 
 Poniższy przykład kodu ustawia orientację tekstu w kształcie na `Vertical270`, co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -378,11 +360,14 @@ Wynik:
 
 ## **Ustaw niestandardowy obrót dla ramek tekstowych**
 
-Użyj [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/rotationangle/), aby ustawić niestandardowy kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/).
+Użyj [ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/rotationangle/) aby ustawić własny kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframe/).
 
-Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
+Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w kształcie:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -397,16 +382,19 @@ Wynik:
 
 ![Niestandardowy obrót tekstu](custom_text_rotation.png)
 
-## **Ustaw interlinię akapitów**
+## **Ustaw odstęp linii w akapitach**
 
-Aspose.Slides udostępnia [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/spacebefore/) oraz [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/spacewithin/), aby kontrolować odstępy akapitów. Właściwości te są używane w następujący sposób:
+Aspose.Slides udostępnia [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/spacebefore/) i [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/spacewithin/), aby kontrolować odstępy akapitów. Właściwości te używane są w następujący sposób:
 
-* Użyj wartości dodatniej, aby określić interlinię jako procent wysokości wiersza.
-* Użyj wartości ujemnej, aby określić interlinię w punktach.
+* Użyj dodatniej wartości, aby określić odstęp linii jako procent wysokości linii.  
+* Użyj ujemnej wartości, aby określić odstęp linii w punktach.
 
-Poniższy przykład kodu pokazuje, jak określić interlinię w akapicie:
+Poniższy przykład kodu pokazuje, jak określić odstęp linii w akapicie:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -420,13 +408,16 @@ using (var presentation = new Presentation("sample.pptx"))
 
 Wynik:
 
-![Interlinia w akapicie](line_spacing.png)
+![Odstęp linii w akapicie](line_spacing.png)
 
-## **Ustaw typ automatycznego dopasowania dla ramek tekstowych**
+## **Ustaw typ autofitu dla ramek tekstowych**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/autofittype/) określa, jak zachowuje się tekst, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się zmniejszać, wypływać poza obręb, czy automatycznie zmieniać rozmiar kształtu.
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/autofittype/) określa, jak tekst zachowuje się po przekroczeniu granic swojego kontenera. Użyj go, aby kontrolować, czy tekst ma się zmniejszyć, wyjść poza granice lub automatycznie zmienić rozmiar kształtu.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -437,11 +428,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Ustaw kotwicę ramek tekstowych**
+## **Ustaw kotwiczenie ramek tekstowych**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/anchoringtype/) określa, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, na przykład u góry, w środku lub na dole.
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/pl/net/aspose.slides/itextframeformat/anchoringtype/) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. na górze, w środku lub na dole.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -454,9 +448,12 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ## **Ustaw tabulację tekstu**
 
-Użyj [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/defaulttabsize/) oraz [IParagraphFormat.Tabs](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/tabs/), aby skonfigurować tabulatory w akapicie.
+Użyj [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/defaulttabsize/) i [IParagraphFormat.Tabs](https://reference.aspose.com/slides/pl/net/aspose.slides/iparagraphformat/tabs/) aby skonfigurować tabulatory w akapicie.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -475,11 +472,14 @@ Wynik:
 
 ## **Ustaw język korekty**
 
-Aspose.Slides udostępnia [IPortionFormat.LanguageId](https://reference.aspose.com/slides/pl/net/aspose.slides/iportionformat/languageid/), który umożliwia ustawienie języka korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
+Aspose.Slides udostępnia [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/languageid/), który pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
 
 Poniższy przykład kodu pokazuje, jak ustawić język korekty dla fragmentu tekstu:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -509,6 +509,8 @@ using (var presentation = new Presentation("presentation.pptx"))
 Użyj [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/pl/net/aspose.slides/loadoptions/defaulttextlanguage/), aby określić domyślny język dla tekstu tworzonego podczas wczytywania lub tworzenia prezentacji.
 
 ```cs
+using Aspose.Slides;
+
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
@@ -516,7 +518,7 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // Dodaj nowy prostokątny kształt z tekstem.
+    // Dodaj nowy kształt prostokąta z tekstem.
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
@@ -530,9 +532,12 @@ using (var presentation = new Presentation(loadOptions))
 
 Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/defaulttextstyle/).
 
-Poniższy przykład kodu pokazuje, jak ustawić domyślną pogrubioną czcionkę o rozmiarze 14 punktów dla całego tekstu na wszystkich slajdach w nowej prezentacji.
+Poniższy przykład kodu pokazuje, jak ustawić domyślną pogrubioną czcionkę o rozmiarze 14 pt dla całego tekstu we wszystkich slajdach nowej prezentacji.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
     // Pobierz format akapitu najwyższego poziomu.
@@ -548,17 +553,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **Wyodrębnij tekst z efektem Wielkich Liter**
+## **Wyodrębnij tekst z efektem wielkich liter**
 
-W programie PowerPoint zastosowanie efektu czcionki **All Caps** powoduje wyświetlanie tekstu wielkimi literami na slajdzie, nawet jeśli został on pierwotnie wpisany małymi literami. Gdy pobierasz taki fragment tekstu przy użyciu Aspose.Slides, biblioteka zwraca tekst dokładnie taki, jaki został wprowadzony. Aby dopasować wyświetlany tekst, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/net/aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to `All`.
+W PowerPoint zastosowanie efektu **All Caps** powoduje, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli został wpisany małymi literami. Podczas pobierania takiego fragmentu tekstu przy pomocy Aspose.Slides biblioteka zwraca tekst dokładnie tak, jak został wprowadzony. Aby dopasować go do wyświetlanej wersji, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/net/aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to `All`.
 
-Załóżmy, że mamy następujące pole tekstowe na pierwszym slajdzie pliku sample2.pptx.
+Załóżmy, że na pierwszym slajdzie pliku sample2.pptx znajduje się następujące pole tekstowe.
 
-![Efekt Wielkich Liter](all_caps_effect.png)
+![Efekt wszystkich wielkich liter](all_caps_effect.png)
 
 Poniższy przykład kodu pokazuje, jak wyodrębnić tekst z zastosowanym efektem **All Caps**:
 
 ```cs
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample2.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -575,7 +582,7 @@ using (var presentation = new Presentation("sample2.pptx"))
 }
 ```
 
-Wyjście:
+Output:
 
 ```text
 Original text: Hello, Aspose!
@@ -590,4 +597,4 @@ Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.a
 
 **Jak zastosować gradientowy kolor do tekstu w slajdzie PowerPoint?**
 
-Aby zastosować gradientowy kolor do tekstu, użyj [IPortionFormat.FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/iportionformat/fillformat/). Ustaw [IFillFormat.FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/ifillformat/filltype/) na [FillType.Gradient](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.
+Aby zastosować gradientowy kolor do tekstu, użyj [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/pl/net/aspose.slides/ibaseportionformat/fillformat/). Ustaw [IFillFormat.FillType](https://reference.aspose.com/slides/pl/net/aspose.slides/ifillformat/filltype/) na [FillType.Gradient](https://reference.aspose.com/slides/pl/net/aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.

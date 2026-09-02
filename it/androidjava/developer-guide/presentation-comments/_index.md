@@ -8,261 +8,480 @@ keywords:
 - commento
 - commento moderno
 - commenti PowerPoint
-- commenti di presentazione
-- commenti diapositiva
-- aggiungere commento
-- accedere al commento
-- modificare commento
-- rispondere al commento
-- rimuovere commento
-- eliminare commento
+- commenti della presentazione
+- commenti della diapositiva
+- aggiungi commento
+- accedi al commento
+- modifica commento
+- rispondi al commento
+- rimuovi commento
+- elimina commento
 - PowerPoint
-- OpenDocument
 - presentazione
 - Android
 - Java
 - Aspose.Slides
-description: "Gestisci i commenti della presentazione con Aspose.Slides per Android via Java: aggiungi, leggi, modifica ed elimina i commenti nei file PowerPoint in modo rapido e semplice."
+description: "Gestisci i commenti della presentazione con Aspose.Slides per Android tramite Java: aggiungi, leggi, modifica, rispondi e rimuovi i commenti nelle presentazioni PowerPoint rapidamente e facilmente."
 ---
-## **Panoramica**
+## **Overview**
 
-Questo articolo spiega come gestire i commenti di presentazione in Aspose.Slides. Mostra i principali tipi correlati ai commenti e dimostra come aggiungere commenti alle diapositive, accedere ai commenti esistenti, lavorare con le risposte, utilizzare i commenti moderni e rimuovere i commenti da una presentazione.
+Questo articolo spiega come gestire i commenti di presentazione con Aspose.Slides per Android tramite Java. Introduce i principali tipi correlati ai commenti e dimostra come aggiungere commenti alle diapositive, accedere ai commenti esistenti, lavorare con le risposte e i commenti moderni, e rimuovere i commenti da una presentazione.
 
-Gli esempi si concentrano su scenari comuni di revisione e collaborazione in PowerPoint, come assegnare commenti agli autori, leggere il contenuto e i metadati dei commenti, costruire catene di risposta e cancellare tutti i commenti o eliminarne di selezionati.
+Gli esempi coprono scenari comuni di revisione e collaborazione in PowerPoint, come assegnare commenti agli autori, leggere il testo e i metadati dei commenti, costruire catene di risposte e rimuovere commenti selezionati o tutti i commenti.
 
-In PowerPoint, un commento appare come una nota o un'annotazione su una diapositiva. Quando si fa clic su un commento, ne vengono rivelati i contenuti o i messaggi.
+In PowerPoint, i commenti appaiono come annotazioni sulle diapositive. Selezionare un commento mostra il suo testo e la discussione correlata.
 
-### **Perché aggiungere commenti alle presentazioni?**
+## **Perché aggiungere commenti alle presentazioni?**
 
-Potresti voler utilizzare i commenti per fornire feedback o comunicare con i colleghi durante la revisione delle presentazioni.
+Puoi utilizzare i commenti per fornire feedback e collaborare con i colleghi durante la revisione delle presentazioni.
 
-Per consentirti di utilizzare i commenti nelle presentazioni PowerPoint, Aspose.Slides per Android via Java fornisce
+Aspose.Slides per Android tramite Java fornisce le seguenti API per lavorare con i commenti:
 
-* La classe [Presentation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/Presentation) che contiene le raccolte di autori (dall'interfaccia [ICommentAuthorCollection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ICommentAuthorCollection)). Gli autori aggiungono commenti alle diapositive.
-* L'interfaccia [ICommentCollection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ICommentCollection) che contiene la raccolta di commenti per singoli autori.
-* La classe [IComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment) che contiene informazioni sugli autori e i loro commenti: chi ha aggiunto il commento, l'ora in cui è stato aggiunto, la posizione del commento, ecc.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/CommentAuthor) che contiene informazioni sugli autori individuali: nome dell'autore, le sue iniziali, i commenti associati al nome dell'autore, ecc.
+* La classe [Presentation](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/presentation/) che fornisce l'accesso agli autori dei commenti della presentazione.
+* L'interfaccia [ICommentCollection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icommentcollection/) che rappresenta i commenti associati a un singolo autore.
+* L'interfaccia [IComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icomment/) che fornisce informazioni su un commento, inclusi autore, data di creazione, posizione e testo.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/commentauthor/) che fornisce informazioni su un autore, inclusi nome, iniziali e commenti associati.
 
-## **Aggiungere un commento a una diapositiva**
-Questo codice Java mostra come aggiungere un commento a una diapositiva in una presentazione PowerPoint:
+## **Aggiungere commenti alle diapositive**
+
+L'esempio seguente mostra come aggiungere commenti alle diapositive in una presentazione PowerPoint:
 
 ```java
-// Istanzia la classe Presentation
-Presentation pres = new Presentation();
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ICommentCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
 try {
-    // Aggiunge una diapositiva vuota
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    PointF position = new PointF(0.2f, 0.2f);
+    Date createdTime = new Date();
 
-    // Aggiunge un autore
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-    // Imposta la posizione per i commenti
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
+    IComment[] comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        IComment firstComment = comments[0];
+        System.out.println(firstComment.getText());
 
-    // Aggiunge un commento alla diapositiva per un autore sulla diapositiva 1
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // Aggiunge un commento alla diapositiva per un autore sulla diapositiva 2
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // Accede a ISlide 1
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Quando si passa null come argomento, i commenti di tutti gli autori vengono riportati alla diapositiva selezionata
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // Accede al commento all'indice 0 per la diapositiva 1
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // Seleziona la raccolta dei commenti dell'autore all'indice 0
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+        ICommentCollection authorComments = firstComment.getAuthor().getComments();
+        String commentText = authorComments.get_Item(0).getText();
+        System.out.println(commentText);
     }
+
+    presentation.save("Comments_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Accedere ai commenti delle diapositive**
-Questo codice Java mostra come accedere a un commento esistente su una diapositiva in una presentazione PowerPoint:
+
+L'esempio seguente mostra come accedere ai commenti esistenti in una presentazione PowerPoint:
 
 ```java
-// Istanzia la classe Presentation
-Presentation pres = new Presentation("Comments1.pptx");
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Comments1.pptx");
 try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        for (IComment comment : author.getComments()) {
+            System.out.println("Slide: " + comment.getSlide().getSlideNumber());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Author: " + comment.getAuthor().getName());
+            System.out.println("Posted at: " + comment.getCreatedTime());
+            System.out.println();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **Rispondere ai commenti**
-Un commento genitore è il commento principale o originale in una gerarchia di commenti o risposte. Utilizzando i metodi [getParentComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment#getParentComment--) o [setParentComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) (dall'interfaccia [IComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment)), è possibile impostare o ottenere un commento genitore.
 
-Questo codice Java mostra come aggiungere commenti e recuperare le risposte a essi:
+Un commento genitore è il commento originale in cima a una gerarchia di risposte. I metodi [IComment.getParentComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icomment/#getParentComment--) e [IComment.setParentComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) consentono di ottenere o impostare il genitore di un commento.
+
+L'esempio seguente mostra come aggiungere risposte e ispezionare la gerarchia di commenti risultante:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Aggiunge un commento
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
 
-    // Aggiunge una risposta a comment1
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    PointF position = new PointF(10, 10);
+    Date createdTime = new Date();
+
+    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
 
-    // Aggiunge un'altra risposta a comment1
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
 
-    // Aggiunge una risposta a una risposta esistente
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
 
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
 
-    // Visualizza la gerarchia dei commenti sulla console
-    ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
+    for (int i = 0; i < comments.length; i++) {
         IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
+        while (comment.getParentComment() != null) {
             System.out.print("\t");
             comment = comment.getParentComment();
         }
 
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        System.out.println(comments[i].getAuthor().getName() + ": " + comments[i].getText());
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // Rimuove comment1 e tutte le risposte ad esso
+    presentation.save("parent_comment.pptx", SaveFormat.Pptx);
+
     comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Quando il metodo [Remove](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment#remove--) (dell'interfaccia [IComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment)) viene usato per eliminare un commento, anche le risposte al commento vengono eliminate.
-* Se l'impostazione [setParentComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) genera un riferimento circolare, verrà generata l'eccezione [PptxEditException](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/PptxEditException).
+{{% alert color="warning" title="Warning" %}}
+* Quando il metodo [IComment.remove](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icomment/#remove--) viene utilizzato per eliminare un commento, tutte le risposte a quel commento vengono anch'esse eliminate.
+* Se [IComment.setParentComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) crea una riferimento circolare, viene generata un'eccezione [PptxEditException](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
-## **Aggiungere un commento moderno**
+## **Aggiungere commenti moderni**
 
-Nel 2021, Microsoft ha introdotto i *commenti moderni* in PowerPoint. La funzionalità dei commenti moderni migliora notevolmente la collaborazione in PowerPoint. Attraverso i commenti moderni, gli utenti di PowerPoint possono risolvere i commenti, ancorare i commenti a oggetti e testi e interagire in modo molto più semplice rispetto al passato.
+I commenti moderni possono essere associati alla diapositiva stessa, a una forma specifica o a un intervallo di testo all'interno di un'AutoShape. Il metodo [ICommentCollection.addModernComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) accetta un argomento [IShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/) oltre alla diapositiva e alle coordinate del marcatore del commento.
 
-Aspose.Slides supporta i commenti moderni tramite la classe [ModernComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ModernComment). I metodi [addModernComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) e [insertModernComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) sono stati aggiunti alla classe [CommentCollection](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/CommentCollection).
+Quando viene passato `null` per l'argomento shape, il commento è un commento a livello di diapositiva. Il suo marcatore è posizionato dalle coordinate fornite, ma non è associato a una forma specifica, quindi [IModernComment.getShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getShape--) restituisce `null`. Quando viene fornito un [IShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/), il commento è ancorato a quella forma. Le coordinate continuano a definire la posizione del marcatore del commento sulla diapositiva, mentre l'associazione alla forma può essere recuperata tramite [IModernComment.getShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getShape--).
 
-Questo codice Java mostra come aggiungere un commento moderno a una diapositiva in una presentazione PowerPoint:
+### **Ancorare un commento moderno a una forma**
 
-```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Rimuovere un commento**
-
-### **Eliminare tutti i commenti e gli autori**
-
-Questo codice Java mostra come rimuovere tutti i commenti e gli autori in una presentazione:
+L'esempio seguente crea sia un commento moderno a livello di diapositiva sia un commento moderno ancorato a una specifica AutoShape. Quindi legge la forma associata da ciascun commento.
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // Elimina tutti i commenti dalla presentazione
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
-    }
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Date;
 
-    // Elimina tutti gli autori
-    presentation.getCommentAuthors().clear();
-
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-### **Eliminare commenti specifici**
-
-Questo codice Java mostra come eliminare commenti specifici su una diapositiva:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
 
-    // aggiunge commenti...
+    Date createdTime = new Date();
+    PointF slideCommentPosition = new PointF(20, 20);
+    PointF shapeCommentPosition = new PointF(60, 60);
+    IModernComment slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    IModernComment shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    System.out.println(slideComment.getShape() == null);
+    System.out.println(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ancorare commenti a diversi tipi di forma**
+
+Qualsiasi oggetto della diapositiva che implementa [IShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ishape/) può essere usato come ancoraggio di forma. Esempi comuni includono [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iconnector/), e istanze [IGraphicalObject](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/igraphicalobject/) come i grafici.
+
+L'esempio seguente crea diversi tipi di forma comuni e associa a ciascuno un commento moderno.
+
+```java
+import com.aspose.slides.ChartType;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IChart;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IConnector;
+import com.aspose.slides.IGroupShape;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.IPictureFrame;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Base64;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Date createdTime = new Date();
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    PointF autoShapeCommentPosition = new PointF(30, 30);
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    IPPImage image = presentation.getImages().addImage(imageData);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+    PointF pictureCommentPosition = new PointF(230, 30);
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    IGroupShape groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+    PointF groupCommentPosition = new PointF(40, 150);
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+    PointF connectorCommentPosition = new PointF(240, 150);
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+    PointF chartCommentPosition = new PointF(420, 40);
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Ancorare un commento al testo e impostarne lo stato**
+
+Per un commento moderno associato a un [IAutoShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/iautoshape/), i metodi [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) e [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) accedono alla posizione iniziale del testo selezionato nel frame di testo della forma. [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) e [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int--) accedono alla lunghezza della selezione. Insieme, questi valori associano il commento a uno specifico intervallo di testo all'interno dell'AutoShape.
+
+I metodi [IModernComment.getStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getStatus--) e [IModernComment.setStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) accedono a un valore delle costanti [ModernCommentStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — nessuno stato specifico del commento moderno è definito.
+- `Active` — il commento è attivo.
+- `Resolved` — il commento è stato risolto.
+- `Closed` — il commento è chiuso.
+
+L'esempio seguente crea un commento moderno ancorato a una forma, lo associa a una selezione di testo, lo segna come risolto, salva la presentazione e verifica i valori dopo aver riaperto il file.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ModernCommentStatus;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Date;
+
+String outputFile = "modern_comment_text_anchor.pptx";
+String shapeText = "Review the quarterly revenue forecast.";
+String selectedText = "quarterly revenue";
+int expectedSelectionStart = shapeText.indexOf(selectedText);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    PointF commentPosition = new PointF(60, 60);
+    IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length());
+    comment.setStatus(ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation(outputFile);
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IComment[] reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (IComment reopenedComment : reopenedComments) {
+        if (!(reopenedComment instanceof IModernComment)) {
+            continue;
+        }
+
+        IModernComment modernComment = (IModernComment) reopenedComment;
+        boolean shapeMatches = modernComment.getShape() != null && "Forecast text".equals(modernComment.getShape().getName());
+        boolean selectionStartMatches = modernComment.getTextSelectionStart() == expectedSelectionStart;
+        boolean selectionLengthMatches = modernComment.getTextSelectionLength() == selectedText.length();
+        boolean statusMatches = modernComment.getStatus() == ModernCommentStatus.Resolved;
+
+        System.out.println("Shape anchor preserved: " + shapeMatches);
+        System.out.println("Text selection start preserved: " + selectionStartMatches);
+        System.out.println("Text selection length preserved: " + selectionLengthMatches);
+        System.out.println("Resolved status preserved: " + statusMatches);
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **Ispezionare commenti moderni esistenti**
+
+Per ispezionare una presentazione esistente, verifica quali commenti implementano [IModernComment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/), quindi esamina [IModernComment.getShape](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getShape--), [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--), [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--), e [IModernComment.getStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getStatus--). Una forma `null` indica un commento a livello di diapositiva. Per un ancoraggio [IAutoShape], i metodi di selezione del testo identificano l'intervallo associato nel frame di testo della forma.
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.IShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        IComment[] comments = slide.getSlideComments(null);
+        for (IComment comment : comments) {
+            if (!(comment instanceof IModernComment)) {
+                continue;
+            }
+
+            IModernComment modernComment = (IModernComment) comment;
+            System.out.println("Slide: " + slide.getSlideNumber());
+            System.out.println("Text: " + modernComment.getText());
+            System.out.println("Status: " + modernComment.getStatus());
+
+            IShape shape = modernComment.getShape();
+            if (shape == null) {
+                System.out.println("Anchor: slide level");
+            } else {
+                System.out.println("Anchor shape: " + shape.getName());
+                System.out.println("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (shape instanceof IAutoShape) {
+                    System.out.println("Text selection start: " + modernComment.getTextSelectionStart());
+                    System.out.println("Text selection length: " + modernComment.getTextSelectionLength());
+                }
+            }
+
+            System.out.println();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Rimuovere i commenti**
+
+### **Rimuovere tutti i commenti e gli autori dei commenti**
+
+L'esempio seguente mostra come rimuovere tutti i commenti e gli autori dei commenti da una presentazione:
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("example.pptx");
+try {
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        author.getComments().clear();
+    }
+
+    presentation.getCommentAuthors().clear();
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Rimuovere commenti specifici**
+
+L'esempio seguente mostra come rimuovere commenti specifici da una diapositiva:
+
+```java
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+    Date createdTime = new Date();
 
-    // rimuove tutti i commenti che contengono il testo "comment 1"
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+    PointF firstCommentPosition = new PointF(0.2f, 0.2f);
+    PointF secondCommentPosition = new PointF(0.3f, 0.2f);
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors()) {
+        List<IComment> commentsToRemove = new ArrayList<IComment>();
+        IComment[] comments = slide.getSlideComments(commentAuthor);
+
+        for (IComment comment : comments) {
+            if ("comment 1".equals(comment.getText())) {
+                commentsToRemove.add(comment);
             }
         }
 
-        for (IComment comment : toRemove)
-        {
+        for (IComment comment : commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
 
     presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **FAQ**
 
-**Aspose.Slides supporta uno stato come “risolto” per i commenti moderni?**
+**Aspose.Slides supporta uno stato risolto per i commenti moderni?**
 
-Sì. I [commenti moderni](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/moderncomment/) espongono il metodo [setStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-); è possibile impostare lo [stato del commento](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/moderncommentstatus/) (ad esempio, contrassegnarlo come risolto), e questo stato viene salvato nel file e riconosciuto da PowerPoint.
+Sì. [IModernComment.getStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#getStatus--) e [IModernComment.setStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte--) accedono a un valore [ModernCommentStatus](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/moderncommentstatus/), incluso `Resolved`. Lo stato è memorizzato nella presentazione e può essere letto nuovamente dopo aver riaperto il file.
 
-**Le discussioni a filo (catene di risposta) sono supportate e c’è un limite di nidificazione?**
+**Le discussioni in thread (catene di risposte) sono supportate e c'è un limite di nidificazione?**
 
-Sì. Ogni commento può fare riferimento al suo [commento genitore](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/comment/#getParentComment--), consentendo catene di risposta arbitrarie. L'API non dichiara un limite specifico di profondità di nidificazione.
+Sì. Ogni commento può fare riferimento al suo [parent comment](https://reference.aspose.com/slides/it/androidjava/com.aspose.slides/icomment/#getParentComment--), consentendo catene di risposte. L'API non definisce un limite specifico di profondità di nidificazione.
 
 **In quale sistema di coordinate è definita la posizione del marcatore di un commento su una diapositiva?**
 
-La posizione è memorizzata come punto a virgola mobile nel sistema di coordinate della diapositiva. Questo consente di posizionare il marcatore del commento esattamente dove necessario.
+La posizione del marcatore è definita da coordinate in virgola mobile nel sistema di coordinate della diapositiva, consentendo di posizionarlo con precisione sulla diapositiva.

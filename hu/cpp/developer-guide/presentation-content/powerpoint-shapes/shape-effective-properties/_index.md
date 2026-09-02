@@ -1,315 +1,357 @@
 ---
-title: Alakzat hatékony tulajdonságainak lekérése előadásokból C++-ban
+title: Alakzat hatékony tulajdonságainak lekérése a bemutatókban C++-ban
 linktitle: Hatékony tulajdonságok
 type: docs
 weight: 50
 url: /hu/cpp/shape-effective-properties/
 keywords:
-- alakzat tulajdonságok
+- alakzat tulajdonságai
 - kamera tulajdonságok
-- fényrig
-- bevel alakzat
-- szövegkeret
+- light rig
+- bevel shape
+- szövegdoboz
 - szövegstílus
 - betűmagasság
-- kitöltő formátum
+- kitöltési formátum
 - PowerPoint
-- prezentáció
+- bemutató
 - C++
 - Aspose.Slides
-description: "Fedezze fel, hogyan számítja és alkalmazza az Aspose.Slides for C++ a hatékony alakzati tulajdonságokat a pontos PowerPoint megjelenítéshez."
+description: "Ismerje meg, hogyan használhatja az Aspose.Slides for C++-ot a helyi, örökölt és hatékony alakzat formázásának megkülönböztetésére PowerPoint bemutatókban."
 ---
-## **Áttekintés**
+## **Helyi, örökölt és hatékony tulajdonságok megértése**
 
-Ez a téma elmagyarázza a **helyi** és **hatékony** tulajdonságok közti különbséget. A helyi értékek olyan értékek, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
+A PowerPoint formázás több helyről származhat. Az objektumon közvetlenül tárolt érték a **helyi érték**. Ha ez az érték nincs beállítva, a PowerPoint a szülő formázási forrásokat vizsgálja, például egy bekezdés alapértelmezését, egy szövegstílust, egy elrendezést vagy minta diát, egy témát vagy a bemutató szintű alapértelmezéseket. Ezek az értékek a **örökölt értékek**. Az az érték, ami a teljes hierarchia feloldása után megmarad, a **hatékony érték**—az objektum megjelenítéséhez használt érték.
 
-1. Rész tulajdonságok egy dián.  
-1. Prototípus alakzat szövegstílusok egy elrendezésen vagy mesterdián, ha a rész szövegkeret alakzatának van ilyen.  
-1. Globális szövegbeállítások egy előadásban.
+Például egy szövegdarab nem definiálhatja a saját betűmagasságát. Ennek a helyi [font height](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ibaseportionformat/) értéke ekkor `std::numeric_limits<float>::quiet_NaN()`, ami azt jelenti, hogy „itt nincs beállítva”. A darab örökölhet magasságot a bekezdéséből, a bemutató alapértelmezett szövegstílusából vagy egy másik alkalmazható forrásból. A [GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformat/) meghívása a darab formátumon visszaadja a végső feloldott magasságot.
 
-A helyi értékek bármely szinten definiálhatók vagy elhagyhatók. Amikor az Aspose.Slides-nek szüksége van a végleges, “renderelt” formázásra, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a helyi formátumobjektum `GetEffective` metódusának meghívásával tudod lekérni.
+Használja a kétféle formázási adatot különböző célokra:
 
-A következő példa bemutatja, hogyan lehet lekérni a hatékony értékeket. Feltételezi, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegkerettel és legalább egy résszel.
+- Olvassa vagy módosítsa a helyi formátumobjektumot, például a [IPortionFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformat/), ha azt szeretné szabályozni, hogy hol van definiálva az érték.
+- Olvassa a hatékony adatobjektumot, például a [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformateffectivedata/), ha a végső, megjelenített eredményre van szüksége. A hatékony adatok csak olvashatók.
+
+## **Helyi, örökölt és hatékony értékek összehasonlítása**
+
+Az alábbi teljes példa egy alakzatot hoz létre, és betűmagasságokat alkalmaz a bemutató, a bekezdés és a darab szintjén. Minden lépés kiírja az azon a szinten definiált értékeket és a ugyanarra a szövegdarabra vonatkozó hatékony értéket. Emellett bemutatja, miért kell a hatékony adatot a formázási változások után újra beolvasni.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// Határozza meg az örökölt értékeket két különböző szinten.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // Olvassa be a hatékony adatokat a korábbi módosítások után.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// A darab helyi értéke felülírja mindkét örökölt értéket.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// Az örökölt érték módosítása nem felülírja a meglévő helyi értéket.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// Törölje a helyi értéket. A darab most újra a bekezdésből örököl.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// Törölje a bekezdés értékét. A bemutató alapértelmezése most adja az eredményt.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+E példában a prioritás a darab helyi formázása, majd a bekezdés formázása, végül a bemutató alapértelmezése. Más objektumoknak eltérő öröklődési láncaik lehetnek, de az elv ugyanaz: egy specifikusabb explicit érték nyer, és a [GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformat/) visszaadja a végső eredményt.
+
+## **Hatékony szövegtulajdonságok lekérése**
+
+A szövegformázás több objektumra oszlik:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformat/) megoldja a szövegdoboz tulajdonságait, például a margókat, rögzítést, automatikus illesztést és a függőleges szövegirányt.
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextstyle/) megoldja a bekezdés formázását minden szövegstílus szintre.
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iparagraphformat/) megoldja a bekezdés tulajdonságait, mint a igazítás, behúzás és felsorolásjel.
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformat/) megoldja a karaktertulajdonságokat, mint a betűmagasság, betűtípus, szín, félkövér és dőlt.
+
+A következő példához a `text-formatting.pptx` fájlnak legalább egy diája és egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) kell tartalmaznia, amelynek nem üres a szövegdobozja. Az IAutoShape megjelenhet a alakzatsorozat bármely pozíciójában; a kód keres egy megfelelő objektumot és használat előtt ellenőrzi azt.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-A hatékony formázási adatok a jelenleg számított formázást képviselik az öröklődés alkalmazása után. A jelenlegi megvalósításban bizonyos hatékony adatobjektumok, például a [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iportionformateffectivedata/), belsőleg gyorsítótárazottak lehetnek. A `GetEffective` újbóli meghívása a szülő vagy az örökölt formázás módosítása után frissítheti a gyorsítótárat, és egy korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha a hatékony értékeket későbbi felhasználásra kell megőrizned, másold a szükséges tulajdonságokat, például betűmagasságot, kitöltő színt, betűstílust vagy igazítást a saját adatobjektumodba.
-{{% /alert %}}
-
-## **A kamera hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérését. A [ICameraEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/) interfész egy immutable objektumot képvisel, amely a kamera hatékony tulajdonságait tartalmazza. Egy [ICameraEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) számára.
-
-A következő kódrészlet bemutatja, hogyan lehet a kamera hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **A fényrig hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides lehetővé teszi a fényrig hatékony tulajdonságainak lekérését. A [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/) interfész egy immutable objektumot képvisel, amely a fényrig hatékony tulajdonságait tartalmazza. Egy [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) számára.
-
-A következő kódrészlet bemutatja, hogyan lehet a fényrig hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **A shape bevel hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides lehetővé teszi egy alakzat bevel hatékony tulajdonságainak lekérését. A [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) interfész egy immutable objektumot képvisel, amely az alakzat felület-nyúlvány tulajdonságait tartalmazza. Egy [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) segítségével érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) számára.
-
-A következő kódrészlet bemutatja, hogyan lehet egy alakzat felső bevel hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **A text frame hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides segítségével lekérheted egy szövegkeret hatékony tulajdonságait. A [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextframeformateffectivedata/) interfész a szövegkeret hatékony formázási tulajdonságait tartalmazza.
-
-A következő kódrészlet bemutatja, hogyan lehet a szövegkeret hatékony formázási tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegkerettel rendelkezik.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **A text style hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides segítségével lekérheted egy szövegstílus hatékony tulajdonságait. A [ITextStyleEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itextstyleeffectivedata/) interfész a szövegstílus hatékony tulajdonságait tartalmazza.
-
-A következő kódrészlet bemutatja, hogyan lehet a szövegstílus hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat egy [IAutoShape](https://reference.aspose.com/slides/hu/cpp/aspose.slides/iautoshape/) szövegkerettel rendelkezik.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **A hatékony betűmagasság értékének lekérése**
+## **Hatékony 3D tulajdonságok lekérése**
 
-Az Aspose.Slides segítségével lekérheted a hatékony betűmagasságot. A következő kód bemutatja, hogyan változik egy rész hatékony betűmagassága, amikor a helyi betűmagasság értékek különböző előadási struktúra szinteken kerülnek beállításra.
+[AThreeDFormat::GetEffective](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformat/) egy [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ithreedformateffectivedata/) objektumot ad vissza, amely az összes feloldott 3D beállítást csoportosítja. Ennek a [camera](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icameraeffectivedata/), [light rig](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ilightrigeffectivedata/), [top bevel](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/), és [bottom bevel](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ishapebeveleffectivedata/) adatainak segítségével megtekinthető a megfelelő hatékony beállítás. Ezeknek a kapcsolódó beállításoknak az egyszerre történő olvasása megkönnyíti a forma végső 3D megjelenésének megértését.
+
+E példához a `shape-3d.pptx` fájlnak az első diáján legalább egy alakzatot kell tartalmaznia. Alkalmazzon 3D kamerát, világítást vagy letörést az alakzatra, ha azt szeretné, hogy a kimenet az alapértelmezetteken kívül értékeket tartalmazzon.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **Hatékony táblázatformázás lekérése**
+
+A táblázatformázás származhat a táblázat stílusából és a teljes táblázatra, egy oszlopra, egy sorra vagy egy egyedi cellára alkalmazott formátumokból. Az explicit kitöltések közötti ütközések esetén a prioritás: cella, sor, oszlop, majd egész táblázat. Egy cella hatékony formátuma a végső formátum, amely a cella rajzolásához használatos.
+
+E példához a `table-formatting.pptx` fájlnak az első diáján legalább egy táblázatot kell tartalmaznia. A táblázatnak legalább egy sort és egy oszlopot kell tartalmaznia. A kód egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) keresésével jár el, ahelyett, hogy azt feltételezné, hogy az első alakzat egy táblázat.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **A táblázat hatékony kitöltő formátumának lekérése**
-
-Az Aspose.Slides segítségével lekérheted a táblázat különböző részeinek hatékony kitöltő formázását. A [IFillFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifillformateffectivedata/) interfész a kitöltő formázás hatékony tulajdonságait tartalmazza. A cella formázásának nagyobb prioritása van, mint a sor formázásának, a sor formázásnak nagyobb prioritása van, mint az oszlop formázásának, és az oszlop formázásnak nagyobb prioritása van, mint a teljes táblázat formázásának.
-
-Ennek következtében a [ICellFormatEffectiveData](https://reference.aspose.com/slides/hu/cpp/aspose.slides/icellformateffectivedata/) tulajdonságai használatosak a táblázat cellájának megrajzolásához. A következő kódrészlet bemutatja, hogyan lehet a táblázat különböző részeinek hatékony kitöltő formázását lekérni. Feltételezi, hogy az első dián az első alakzat egy [ITable](https://reference.aspose.com/slides/hu/cpp/aspose.slides/itable/) példány.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
+
+Ha a színt kell lekérdezni, nem csak a kitöltés típusát, először ellenőrizze a hatékony [FillType](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifillformateffectivedata/), majd olvassa el a típusra vonatkozó tulajdonságot—például a [SolidFillColor](https://reference.aspose.com/slides/hu/cpp/aspose.slides/ifillformateffectivedata/) egy egyszínes kitöltésnél.
+
+## **Hatékony adatok újraelolvasása változtatások után**
+
+A hatékony adatok leírják a formázási hierarchiát a feloldás pillanatában. Hívja meg a `GetEffective`-et újra, miután megváltoztatott bármit, ami részt vehet ebben a hierarchiában, többek között:
+
+- az objektum helyi formázását;
+- bekezdés vagy szövegdoboz alapértelmezéseit;
+- egy táblázat stílusát, táblázat, oszlop, sor vagy cella formátumát;
+- elrendezés vagy minta dia formázását;
+- témaadatokat vagy a bemutató szintű alapértelmezéseket;
+- a diára rendelt elrendezést vagy mintát.
+
+Ne tartson meg egy hatékony adatobjektumot állandó pillanatképként. Az Aspose.Slides belsőleg cache-ölhet bizonyos hatékony adatokat, és egy későbbi `GetEffective` hívás frissítheti azokat. Ha az értékeket változtatás előtt és után szeretné összehasonlítani, másolja a szükséges skaláris értékeket—például betűmagasságot, színt, igazítást vagy a letörés szélességét—saját változókba a módosítás előtt.
+
+Egy érték módosításához frissítse a megfelelő helyi formátumobjektumot, majd hívja meg a `GetEffective`-et az eredmény ellenőrzéséhez. A hatékony adatobjektumok maguk csak olvashatók.
 
 ## **GYIK**
 
-**A `GetEffective` egy pillanatképet ad vissza?**
+**Hogyan tudom megállapítani, melyik szint biztosította a hatékony értéket?**
 
-Nem mindig. A hatékony adatok az öröklődés alkalmazása után számított formázást képviselik, de egyes hatékony adatobjektumok belsőleg gyorsítótárazottak lehetnek. Egy későbbi `GetEffective` hívás újraszámolhatja a formázást és frissítheti a gyorsítótárat, így a korábban kapott objektum nem tekinthető tartós pillanatképként.
+A hatékony adatok csak a végső értéket tartalmazzák, nem annak forrását. Vizsgálja meg a releváns helyi objektumokat a legspecifikusabb szintről kifelé. Szöveg esetén ez lehet a darab, a bekezdés, a szövegdoboz, az elrendezés, a minta, a téma és a bemutató alapértelmezései. A nem definiált értékek, például `std::numeric_limits<float>::quiet_NaN()` vagy `nullptr` azt jelzik, hogy a keresés egy másik szintre folytatódik.
 
-**Mikor kell újra beolvasni a hatékony tulajdonságokat?**
+**Mi történik, ha egy szint sem definiálja a tulajdonságot?**
 
-Hívd meg újból a `GetEffective` metódust a helyi formázás, a szülő stílusok, az elrendezés formázása, a mester formázása vagy az előadás szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát és visszaadja a jelenlegi hatékony eredményt.
+Az Aspose.Slides a megfelelő PowerPoint vagy könyvtári alapértelmezést oldja fel. Ez a feloldott érték megjelenik a hatékony adatokban, még akkor is, ha egy helyi objektum sem definiálta explicit módon.
 
-**A layout/mesterdia módosítása vagy eltávolítása befolyásolja a már lekért hatékony tulajdonságokat?**
+**Miért egyezik néha a hatékony érték a helyi értékkel?**
 
-Igen, de a változás a következő `GetEffective` híváskor jelenik meg. Ha egy szülő formázási forrást módosítanak vagy eltávolítanak, a korábban lekért hatékony adatok elavultak lehetnek. Amint a `GetEffective` újra meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a betűtípusok, színek, méretek vagy egyéb értékek megváltozhatnak.
+A helyi érték nyerte meg az öröklődés számítását. Ez akkor várható, amikor a tulajdonság explicit módon be van állítva az objektumon, és nincs specifikusabb szabály, amely felülírná.
 
-**Módosíthatók a értékek hatékony adatobjektumokon keresztül?**
+**Mikor érdemes helyi adatot használni a hatékony adat helyett?**
 
-Nem. A hatékony adatobjektumok csak a kiszámított értékeket exponálnak. Változtass a helyi formázási objektumokon, majd szerezd be újra a hatékony értékeket.
-
-**Mi történik, ha egy tulajdonság nincs beállítva sem az alakzat szintjén, sem a layout/mester szintjén, sem a globális beállításokban?**
-
-A hatékony értéket az alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. Ez a feloldott érték része lesz a jelenlegi hatékony adatnak.
-
-**A hatékony betűértékből megállapítható, melyik szint biztosította a méretet vagy a betűtípust?**
-
-Nem közvetlenül. A hatékony adatok a végső értéket adják vissza. A forrás megtalálásához ellenőrizd a helyi értékeket a rész, bekezdés, szövegkeret és a szövegstílusok szintjein a layout, master és előadás szintjén, hogy lásd, hol jelent meg először az explicit meghatározás.
-
-**Miért néznek ki a hatékony értékek néha azonosnak a helyi értékekkel?**
-
-Mert a helyi érték végsővé vált (nem volt szükség magasabb szintű öröklődésre). Ilyen esetben a hatékony érték megegyezik a helyivel.
-
-**Mikor használjam a hatékony tulajdonságokat, és mikor csak a helyieket?**
-
-Használd a hatékony adatokat, ha a „renderelt” eredményre van szükséged az összes öröklődés alkalmazása után, például színek, beljebb húzások vagy méretek összehangolásához. Ha meg akarod őrizni ezeket az értékeket a későbbi formázási változások ellenére, másold a szükséges tulajdonságokat saját objektumodba. Ha egy adott szinten szeretnél formázást változtatni, módosítsd a helyi tulajdonságokat, majd szükség esetén olvasd be újra a hatékony adatokat a végeredmény ellenőrzéséhez.
+Használja a helyi adatokat egy adott formázási szint megtekintéséhez vagy szerkesztéséhez. Használja a hatékony adatokat, ha a végső megjelenésre van szüksége az öröklődés, a téma szabályok és a releváns stílusok feloldása után. A [complete comparison example](#compare-local-inherited-and-effective-values) mindkettőt bemutatja ugyanabban a munkafolyamatban.

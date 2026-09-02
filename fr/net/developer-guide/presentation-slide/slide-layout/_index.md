@@ -1,263 +1,245 @@
 ---
-title: Appliquer ou modifier une mise en page de diapositive en C#
-linktitle: Mise en page de diapositive
+title: Appliquer ou modifier les dispositions de diapositives dans .NET
+linktitle: Disposition de diapositive
 type: docs
 weight: 60
 url: /fr/net/slide-layout/
 keywords:
-- mise en page de diapositive
-- mise en page du contenu
+- disposition de diapositive
+- disposition de contenu
 - espace réservé
 - conception de présentation
 - conception de diapositive
-- mise en page inutilisée
+- disposition inutilisée
 - visibilité du pied de page
-- diapositive titre
+- diapositive de titre
 - titre et contenu
 - en-tête de section
 - deux contenus
 - comparaison
-- titre seul
-- mise en page vierge
+- titre uniquement
+- disposition vierge
 - contenu avec légende
 - image avec légende
 - titre et texte vertical
 - titre vertical et texte
+- PowerPoint
+- OpenDocument
+- présentation
 - C#
 - .NET
 - Aspose.Slides
-description: "Apprenez à gérer et personnaliser les mises en page de diapositives dans Aspose.Slides pour .NET. Explorez les types de mise en page, le contrôle des espaces réservés, la visibilité du pied de page et la manipulation des mises en page à l'aide d'exemples de code en C#."
+description: "Appliquer, créer et modifier les dispositions de diapositives dans Aspose.Slides pour .NET, ajouter des espaces réservés, supprimer les dispositions inutilisées et contrôler la visibilité du pied de page."
 ---
+## **Aperçu**
 
-## **Vue d'ensemble**
+Une disposition de diapositive définit les positions et le formatage des espaces réservés tels que les titres, le texte, les images, les graphiques et les tableaux. Appliquer une disposition donne aux diapositives une structure cohérente tout en permettant à chaque diapositive de contenir son propre contenu.
 
-Une disposition de diapositive définit l’agencement des zones réservées et le formatage du contenu d’une diapositive. Elle contrôle quelles zones réservées sont disponibles et où elles apparaissent. Les dispositions de diapositives vous aident à créer des présentations rapidement et de façon cohérente—qu’il s’agisse de quelque chose de simple ou de plus complexe. Parmi les dispositions de diapositives les plus courantes dans PowerPoint :
+Les dispositions les plus courantes comprennent :
 
-**Disposition de diapositive Titre** – Comprend deux zones réservées : une pour le titre et une pour le sous‑titre.
+- **Diapositive de titre** : Contient les espaces réservés du titre et du sous‑titre.
+- **Titre et Contenu** : Contient un espace réservé de titre et un espace réservé de contenu à usage général.
+- **Vide** : Ne contient aucun espace réservé de contenu et est utile lorsque chaque forme sera positionnée manuellement.
 
-**Disposition Titre et Contenu** – Propose une petite zone réservée de titre en haut et une plus grande en dessous pour le contenu principal (texte, puces, graphiques, images, etc.).
+## **Comprendre l’héritage des dispositions**
 
-**Disposition Vide** – Ne contient aucune zone réservée, vous donnant un contrôle total pour concevoir la diapositive à partir de zéro.
+Une présentation possède trois niveaux liés :
 
-Les dispositions de diapositives font partie d’un masque de diapositive, qui est la diapositive de niveau supérieur définissant les styles de disposition pour la présentation. Vous pouvez accéder aux dispositions et les modifier via le masque de diapositives—par leur type, leur nom ou leur ID unique. Vous pouvez également éditer une disposition spécifique directement dans la présentation.
+1. Une [diapositive maître](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslide/) définit le thème, le formatage partagé, les arrière‑plans et les objets communs.
+1. Une [diapositive de disposition](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/) appartient à un maître et définit un agencement particulier d’espaces réservés.
+1. Une [diapositive normale](https://reference.aspose.com/slides/fr/net/aspose.slides/islide/) utilise une disposition et stocke le contenu saisi pour cette diapositive.
 
-Pour travailler avec les dispositions de diapositives dans Aspose.Slides for .NET, vous pouvez utiliser :
+Une diapositive normale hérite du thème et du formatage de sa disposition, et la disposition hérite de son maître. Une valeur définie directement sur une diapositive normale remplace la valeur héritée à ce niveau. Lorsqu’une diapositive normale est créée, ses formes d’espaces réservés sont générées à partir de la disposition sélectionnée, tandis que le contenu saisi dans ces espaces réservés appartient à la diapositive normale.
 
-- Des propriétés telles que [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) et [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) sous la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
-- Des types comme [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) et [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Ajoutez les espaces réservés requis à une disposition avant de créer des diapositives à partir de celle‑ci. Ajouter un autre espace réservé à une disposition ultérieurement n’ajoute pas automatiquement une forme d’espace réservé correspondante aux diapositives normales existantes.
 
-{{% alert title="Info" color="info" %}}
-Pour en savoir plus sur la gestion des masques de diapositives, consultez l’article [Slide Master](/slides/fr/net/slide-master/).
-{{% /alert %}}
+Cette relation a deux conséquences importantes :
 
-## **Ajouter des dispositions de diapositive aux présentations**
+- Modifier le formatage hérité ou la géométrie des espaces réservés existants sur une disposition peut mettre à jour chaque diapositive qui en dépend. Avant de modifier une disposition déjà utilisée, examinez ses diapositives dépendantes et revoyez la présentation résultante.
+- Une disposition encore utilisée par une diapositive ne peut pas être supprimée. Réaffectez d’abord ses diapositives dépendantes à une autre disposition, ou supprimez uniquement les dispositions inutilisées.
 
-Pour personnaliser l’apparence et la structure de vos diapositives, il peut être nécessaire d’ajouter de nouvelles dispositions à une présentation. Aspose.Slides for .NET vous permet de vérifier si une disposition donnée existe déjà, d’en ajouter une nouvelle si besoin, puis d’insérer des diapositives basées sur cette disposition.
+Pour plus d’informations sur le niveau supérieur de cette hiérarchie, voir [Maître de diapositive](/slides/fr/net/slide-master/).
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Accédez à la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/).
-3. Vérifiez si la disposition souhaitée existe déjà dans la collection. Si ce n’est pas le cas, ajoutez la disposition requise.
-4. Ajoutez une diapositive vide basée sur la nouvelle disposition.
-5. Enregistrez la présentation.
+## **Sélectionner et appliquer une disposition de diapositive**
 
-Le code C# suivant montre comment ajouter une disposition de diapositive à une présentation PowerPoint :
-```cs
-// Instancier la classe Presentation qui représente un fichier PowerPoint.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+Utilisez un type de disposition lorsque la présentation suit les définitions standard des dispositions PowerPoint. Les noms de disposition sont éditables par l’utilisateur et peuvent être localisés, ainsi la sélection basée sur le nom est moins fiable à moins de contrôler le modèle source.
+
+L’exemple suivant recherche **Titre et Contenu** sur le premier maître. Si cette disposition n’est pas disponible, il revient délibérément à **Vide**. La deuxième vérification de null est nécessaire parce qu’une présentation peut ne contenir que des dispositions personnalisées. La disposition sélectionnée est ensuite appliquée à la première diapositive normale via la propriété [ISlide.LayoutSlide](https://reference.aspose.com/slides/fr/net/aspose.slides/islide/layoutslide/).
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Parcourir les types de diapositives de mise en page pour sélectionner une mise en page.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Situation où la présentation ne contient pas tous les types de mise en page.
-        // Le fichier de présentation ne contient que les types de mise en page Blank et Custom.
-        // Cependant, les diapositives de mise en page avec des types personnalisés peuvent avoir des noms reconnaissables,
-        // comme "Title", "Title and Content", etc., qui peuvent être utilisés pour la sélection de la diapositive de mise en page.
-        // Vous pouvez également vous appuyer sur un ensemble de types de formes d'espace réservé.
-        // Par exemple, une diapositive Title ne doit contenir que le type d'espace réservé Title, etc.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Ajouter une diapositive vide en utilisant la mise en page ajoutée.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Enregistrer la présentation sur le disque.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
+Modifier la disposition d’une diapositive ne supprime pas les formes ordinaires ajoutées directement à la diapositive. Cependant, les positions des espaces réservés, le formatage hérité et la correspondance entre les espaces réservés existants et la nouvelle disposition peuvent changer, il convient donc d’inspecter le résultat lors du passage entre des dispositions sensiblement différentes.
 
-## **Supprimer les dispositions de diapositive inutilisées**
+## **Ajouter une diapositive de disposition**
 
-Aspose.Slides fournit la méthode [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) de la classe [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) pour vous permettre de supprimer les dispositions de diapositive indésirables et non utilisées.
+La sélection et la création sont des opérations distinctes. L’exemple précédent sélectionne une disposition existante ; il n’en crée pas. Pour créer une disposition, appelez la méthode [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/fr/net/aspose.slides/masterlayoutslidecollection/add/) sur la collection de dispositions du maître cible.
 
-Le code C# suivant montre comment supprimer une disposition de diapositive d’une présentation PowerPoint :
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+L’exemple suivant ajoute toujours une nouvelle disposition **Titre et Contenu** nommée `Report Title and Content`, puis ajoute une diapositive normale basée sur celle‑ci. Les noms de disposition doivent être uniques au sein de la collection.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
+Ajoutez une disposition uniquement lorsque le modèle nécessite réellement une autre structure réutilisable. Si une disposition adaptée existe déjà, sélectionnez‑la et réutilisez‑la au lieu d’en créer une dupliquée.
 
-## **Ajouter des zones réservées aux dispositions de diapositive**
+## **Ajouter des espaces réservés à une diapositive de disposition**
 
-Aspose.Slides fournit la propriété [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) qui permet d’ajouter de nouvelles zones réservées à une disposition.
+La propriété [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/placeholdermanager/) fournit un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutplaceholdermanager/) pour ajouter des formes d’espaces réservés à une disposition.
 
-Ce gestionnaire propose des méthodes pour les types de zones réservées suivants :
+| Espace réservé PowerPoint | `ILayoutPlaceholderManager` Method |
+| -------------------------- | ---------------------------------- |
+| ![Contenu](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Contenu (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Texte](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Texte (Vertical)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Image](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Graphique](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Tableau](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Média](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Image en ligne](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-| Espace réservé PowerPoint          | Méthode ILayoutPlaceholderManager                                 |
-| ----------------------------------- | ----------------------------------------------------------------- |
-| ![Contenu](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Contenu (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Texte](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Texte (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Image](picture.png)                | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Graphique](chart.png)              | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tableau](table.png)                | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)            | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Média](media.png)                  | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Image en ligne](onlineimage.png)   | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+L’exemple suivant vérifie que la disposition **Vide** existe, ajoute quatre espaces réservés à celle‑ci, puis crée une diapositive normale qui utilise la disposition modifiée. L’ordre est intentionnel : les espaces réservés sont ajoutés avant la création de la diapositive normale, afin qu’Aspose.Slides puisse générer les formes d’espaces réservés correspondantes sur cette diapositive.
 
-Le code C# suivant montre comment ajouter de nouvelles formes de zone réservée à la disposition « Blank » :
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Obtenir la diapositive de mise en page vierge.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Obtenir le gestionnaire d'espaces réservés de la diapositive de mise en page.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Ajouter différents espaces réservés à la diapositive de mise en page vierge.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Ajouter une nouvelle diapositive avec la mise en page vierge.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
-```
 
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
+```
 
 Le résultat :
 
 ![Les espaces réservés sur la diapositive de disposition](add_placeholders.png)
 
-## **Définir la visibilité du pied de page pour une disposition de diapositive**
+{{% alert color="warning" title="Avertissement" %}}
+Modifier le formatage hérité ou la géométrie des espaces réservés de la disposition existante peut affecter les diapositives dépendantes. Un espace réservé de disposition ajouté récemment n’est pas rétro‑rempli dans les diapositives normales existantes. Testez les modifications de disposition sur une copie de la présentation et inspectez chaque diapositive dépendante.
+{{% /alert %}}
 
-Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être affichés ou masqués selon la disposition. Aspose.Slides for .NET vous permet de contrôler la visibilité de ces zones réservées de pied de page. Cela est utile lorsque vous souhaitez que certaines dispositions affichent les informations de pied de page tandis que d’autres restent épurées.
+## **Supprimer les diapositives de disposition inutilisées**
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Obtenez une référence à une disposition par son index.
-3. Définissez la zone réservée du pied de page de la diapositive comme visible.
-4. Définissez la zone réservée du numéro de diapositive comme visible.
-5. Définissez la zone réservée de la date‑heure comme visible.
-6. Enregistrez la présentation.
+Utilisez la méthode [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) pour supprimer les dispositions qui ne sont référencées par aucune diapositive normale. La méthode laisse intactes les dispositions encore utilisées.
 
-Le code C# suivant montre comment régler la visibilité du pied de page d’une diapositive :
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
+Pour supprimer une disposition spécifique, utilisez d’abord sa propriété [HasDependingSlides](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/hasdependingslides/) ou la méthode [GetDependingSlides](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/getdependingslides/). Réaffectez les diapositives dépendantes avant d’appeler [ILayoutSlide.Remove](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/remove/). Tenter de supprimer une disposition utilisée déclenche une [PptxEditException](https://reference.aspose.com/slides/fr/net/aspose.slides/pptxeditexception/).
 
-## **Définir la visibilité du pied de page enfant pour une diapositive**
+## **Contrôler la visibilité du pied de page sur une diapositive de disposition**
 
-Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être contrôlés au niveau du masque afin d’assurer la cohérence sur toutes les dispositions. Aspose.Slides for .NET vous permet de définir la visibilité et le contenu de ces zones réservées de pied de page sur le masque maître et de propager ces paramètres à toutes les dispositions enfants. Cette approche garantit une information de pied de page uniforme tout au long de votre présentation.
+Une disposition possède ses propres espaces réservés de pied de page, de numéro de diapositive et de date‑heure. Utilisez la propriété [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/headerfootermanager/) pour contrôler ces espaces réservés pour une disposition. Ceci est utile lorsque, par exemple, les dispositions de contenu doivent afficher les pieds de page mais les dispositions de titre non.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-2. Obtenez une référence au masque de diapositive par son index.
-3. Définissez les zones réservées du pied de page du masque et de tous les enfants comme visibles.
-4. Définissez les zones réservées du numéro de diapositive du masque et de tous les enfants comme visibles.
-5. Définissez les zones réservées de la date‑heure du masque et de tous les enfants comme visibles.
-6. Enregistrez la présentation.
+L’exemple suivant sélectionne une disposition en toute sécurité et rend ses éléments de pied de page visibles :
 
-Le code C# suivant montre cette opération :
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
+## **Contrôler la visibilité du pied de page sur un maître et ses dispositions enfants**
+
+Pour appliquer des paramètres de pied de page cohérents à l’ensemble d’une hiérarchie de maître, utilisez la propriété [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslide/headerfootermanager/). Les méthodes de propagation de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fr/net/aspose.slides/imasterslideheaderfootermanager/) agissent sur le maître ainsi que sur ses diapositives de disposition dépendantes et ses diapositives normales ; elles ne ciblent pas une seule diapositive normale.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
 ## **FAQ**
 
 **Quelle est la différence entre une diapositive maître et une diapositive de disposition ?**
 
-Une diapositive maître définit le thème global et le formatage par défaut, tandis que les diapositives de disposition précisent les agencements spécifiques des zones réservées pour différents types de contenu.
+Une diapositive maître définit le thème de la présentation et le formatage partagé. Une diapositive de disposition appartient à un maître et définit un arrangement réutilisable d’espaces réservés. Les diapositives normales utilisent ces dispositions et stockent le contenu propre à chaque diapositive.
 
 **Puis‑je copier une diapositive de disposition d’une présentation à une autre ?**
 
-Oui, vous pouvez cloner une diapositive de disposition depuis la collection [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) d’une présentation et l’insérer dans une autre en utilisant la méthode `AddClone`.
+Oui. Ajoutez une copie à la collection de destination avec la méthode [AddClone](https://reference.aspose.com/slides/fr/net/aspose.slides/globallayoutslidecollection/addclone/). Lors de la copie entre présentations, vérifiez également les polices, les thèmes, les images et les autres ressources utilisées par la disposition source.
 
-**Que se passe‑t‑il si je supprime une diapositive de disposition encore utilisée par une diapositive ?**
+**Que se passe‑t‑il lorsque je modifie une disposition déjà utilisée ?**
 
-Si vous tentez de supprimer une diapositive de disposition qui est encore référencée par au moins une diapositive de la présentation, Aspose.Slides lèvera une [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/). Pour éviter cela, utilisez [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) qui supprime uniquement les dispositions non utilisées.
+Les diapositives dépendantes héritent des modifications de la disposition, sauf si elles remplacent localement le formatage ou les objets affectés. La géométrie des espaces réservés et le style hérité peuvent ainsi changer sur de nombreuses diapositives d’un coup. Utilisez [GetDependingSlides](https://reference.aspose.com/slides/fr/net/aspose.slides/ilayoutslide/getdependingslides/) pour identifier les diapositives concernées avant de modifier la disposition.
+
+**Que se passe‑t‑il si je supprime une disposition qui est encore utilisée ?**
+
+Aspose.Slides déclenche une [PptxEditException](https://reference.aspose.com/slides/fr/net/aspose.slides/pptxeditexception/). Réaffectez d’abord les diapositives dépendantes, ou utilisez [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fr/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) pour ne supprimer que les dispositions non référencées.

@@ -1,352 +1,416 @@
 ---
 title: JavaScript Kullanarak Sunumlarda Grafik Veri Serilerini Yönetme
-linktitle: Veri Serisi
+linktitle: Veri Serileri
 type: docs
 url: /tr/nodejs-java/chart-series/
 keywords:
-- grafik serileri
+- grafik serisi
 - seri örtüşmesi
 - seri rengi
-- kategori rengi
 - seri adı
 - veri noktası
+- çalışma kitabı hücresi
 - seri boşluğu
+- negatif değer
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "PowerPoint (PPT/PPTX) için JavaScript'te grafik serilerini yönetmeyi, pratik kod örnekleri ve en iyi uygulamalarla verilerinizi daha etkili sunumlar haline getirmeyi öğrenin."
+description: "JavaScript ile sunumlarda grafik serilerini, veri noktalarını, çalışma kitabı hücrelerini, biçimlendirmeyi, örtüşmeyi, boşluk genişliğini ve negatif değerleri nasıl yöneteceğinizi öğrenin."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde [ChartSeries](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/) öğesinin rolünü, verilerin sunumlarda nasıl yapılandırıldığını ve görselleştirildiğini odaklanarak açıklar. Bu nesneler, bir grafikteki bireysel veri noktası kümelerini, kategorileri ve görünüm parametrelerini tanımlayan temel unsurları sağlar. [ChartSeries](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/) ile çalışarak, geliştiriciler veri kaynaklarını sorunsuz bir şekilde entegre edebilir ve bilgilerin nasıl görüntüleneceği üzerinde tam kontrol sağlayabilir; bu da içgörü ve analizleri net bir şekilde ileten dinamik, veri odaklı sunumlar oluşturur.
+Bir grafik, çizilen verilerini bir chart data workbook içinde saklar. Bir [ChartSeries](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/) bir grup ilgili değeri temsil eder ve serideki her [ChartDataPoint](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/) bir veya daha fazla çalışma kitabı hücresine başvurur. [ChartCategory](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartcategory/) nesneleri, seri tarafından paylaşılan etiketleri veya gruplama değerlerini sağlar. Serinin adı, kategoriler ve nokta değerleri bu nedenle yalnızca görüntü metni olarak depolanmak yerine [ChartDataCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatacell/) nesnelerine bağlanır.
 
-Bir seri, bir grafikte çizilen sayıların satırı veya sütunudur.
+Tipik bir kategori grafiği için, varsayılan workbook satır 0'ı seri adları için, sütun 0'ı kategori adları için ve kalan hücreleri seri değerleri için kullanır. [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/#getCell) metoduna geçirilen çalışma sayfası, satır ve sütun indeksleri sıfır‑tabanlıdır. Bu düzen, varsayılan verilerle bir grafik oluşturduğunuzda kullanışlıdır, ancak mevcut her grafiğin bunu kullandığını varsaymayın. Yüklenmiş bir sunumda, workbook değerlerini değiştirmeden önce seriler, kategoriler ve veri noktalarıyla ilişkili hücreleri inceleyin.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Grafik ayarlarının üç farklı kapsamı vardır:
 
-## **Chart Serisi Örtüşmesini Ayarla**
+- Seri‑seviyesi ayarlar, örneğin [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getFormat), bir serideki tüm noktalar için varsayılan görünümü sağlar.
+- Veri‑nokta ayarları, örneğin [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getFormat), bir nokta için serinin görünümünü geçersiz kılar.
+- Grup ayarları, aynı [ChartSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/) içinde yer alan uyumlu serilere uygulanır. Örtüşme veya boşluk genişliği gibi seçenekleri ayarlamanız gerektiğinde, grup üzerinden [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) ile erişin.
 
-With the [ChartSeries.getOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getOverlap) method, you can specify how much bars and columns should overlap on a 2D chart (range: -100 to 100). This property applies to all series of the parent series group: this is a projection of the appropriate group property. Therefore, this property is read-only.
+Açık bir nokta ya da seri dolgusu ayarlanmamışsa, grafik stili ve teması otomatik görünümü belirler. Hem seri hem de nokta biçimlendirmesi mevcutsa, nokta biçimlendirmesi o nokta için önceliklidir.
 
-Use the `ParentSeriesGroup.getOverlap` read/write property to set your preferred value for `Overlap`.
+![grafik-seri-powerpoint](chart-series-powerpoint.png)
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-1. Add a clustered column chart on a slide.
-1. Access the first chart series.
-1. Access the chart series' `ParentSeriesGroup` and set your preferred overlap value for the series.
-1. Write the modified presentation to a PPTX file.
+## **Grafik Seri Örtüşmesini Ayarla**
 
-This JavaScript code shows you how to set the overlap for a chart series:
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getOverlap) 2D bir grafikte çubukların ya da sütunların ne kadar örtüştüğünü –%‑100 ila %100 arasında – raporlar. Bu, üst seri grubundaki ayarın yalnızca okunabilir bir yansımasıdır. O gruptaki tüm uyumlu serileri güncellemek için [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) kullanın. Bu seçenek, gruplanmış çubuk ya da sütun gösteren grafik türlerine uygulanır; birleşik bir grafikte ilişkili olmayan seri gruplarını etkilemez.
+
+Aşağıdaki örnek, ilk seriyi içeren grup için örtüşmeyi ayarlar:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const overlapPercent = java.newByte(30);
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Grafiği ekler
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0) {
-        // Seri örtüşmesini ayarlar
-        series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
-    }
-    // Sunum dosyasını diske yazar
-    pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Yeni grafik örnek seriler, kategoriler ve değerler içerir.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Seri Rengini Değiştir**
+Sonuç:
 
-Aspose.Slides for Node.js via Java allows you to change a series' color this way:
+![Seri örtüşmesi](series_overlap.png)
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-1. Add chart on the slide.
-1. Access the series whose color you want to change.
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+## **Seri Dolgu Rengini Değiştir**
 
-This JavaScript code shows you how to change a series' color:
+Tüm bir seri için varsayılan dolgu ayarlamak üzere [ChartSeries.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getFormat) kullanın. Bir nokta zaten açık bir dolguye sahipse, onun [ChartDataPoint.getFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getFormat) ayarı o nokta için seri dolgusunu geçersiz kılar.
+
+Aşağıdaki örnek, ilk seriye katı mavi bir dolgu uygular:
 
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(blueColor);
+
+    presentation.save("series_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Seri Kategorisinin Rengini Değiştir**
+Sonuç:
 
-Aspose.Slides for Node.js via Java allows you to change a series category's color this way:
+![Seri rengi](series_color.png)
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-1. Add chart on the slide.
-1. Access the series category whose color you want to change.
-1. Set your preferred fill type and fill color.
-1. Save the modified presentation.
+## **Seri Adını Değiştir**
 
-This code in JavaScript shows you how to change a series category's color:
+Bir seri adı, grafik veri workbook'unda saklanır ve genellikle lejende görüntülenir. Kümeleme sütun grafiği için oluşturulan varsayılan workbook'ta, B1 hücresi satır 0, sütun 1'de bulunur ve ilk serinin adını içerir. Aşağıdaki örnekte adlandırılmış sabitler bu yapıyı açıkça gösterir:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const seriesNameRowIndex = 0;
+const firstSeriesColumnIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Seri Adını Değiştir** 
-
-Varsayılan olarak, bir grafiğin lejand adları, her sütun veya satırın üzerindeki hücrelerin içeriğidir. 
-
-In our example (sample image), 
-
-* the columns are *Series 1, Series 2,* and *Series 3*;
-* the rows are *Category 1, Category 2, Category 3,* and *Category 4.* 
-
-Aspose.Slides for Node.js via Java allows you to update or change a series name in its chart data and legend.
-
-This JavaScript code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
+Ayrıca, [ChartSeries.getName](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getName) ile zaten başvurulan hücreyi güncelleyebilirsiniz. Bu yaklaşım, mevcut bir grafikte belirli bir satır ve sütun varsayımından kaçınır:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const firstNameCellIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-This JavaScript code shows you how to change a series name in its legend through `Series`:
+Sonuç:
+
+![Seri adı](series_name.png)
+
+## **Otomatik Seri Dolgu Rengini Al**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) seri indeksine ve grafik stiline göre hesaplanan rengi döndürür. Bu, seri dolgu açıkça tanımlanmadığında kullanılan renktir. Metodu çağırmak hesaplanan rengi okur; yeni bir dolgu atamaz.
+
+Aşağıdaki örnek, her varsayılan serinin otomatik rengini yazdırır:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries().get_Item(0);
-    var name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const seriesCount = chart.getChartData().getSeries().size();
+    for (let seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const automaticColor = series.getAutomaticSeriesColor();
+        const automaticColorText = automaticColor.toString();
+        console.log("Series " + seriesIndex + ": " + automaticColorText);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Grafik Serisi Dolgu Rengini Ayarla**
+Varsayılan grafik stili için örnek çıktı:
 
-Aspose.Slides for Node.js via Java allows you to set the automatic fill color for chart series inside a plot area this way:
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
-1. Access the chart series and set the fill color to Automatic.
-1. Save the presentation to a PPTX file.
-
-This JavaScript code shows you how to set the automatic fill color for a chart series:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Kümelenmiş sütun grafiği oluşturur
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
-    // Seri dolgu biçimini otomatik olarak ayarlar
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-    // Sunum dosyasını diske yazar
-    pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-## **Grafik Serisi Ters Dolgu Renklerini Ayarla**
+Kesin renkler grafik stiline ve temaya bağlıdır.
 
-Aspose.Slides allows you to set the invert fill color for chart series inside a plot area this way:
+## **Bir Grafik Serisi için Ters Çevirme Dolgu Rengini Ayarla**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-1. Obtain a slide's reference by its index.
-1. Add a chart with default data based on your preferred type (in the example below, we used `ChartType.ClusteredColumn`).
-1. Access the chart series and set the fill color to invert.
-1. Save the presentation to a PPTX file.
+Çubuk, sütun ve balon serileri için, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) negatif değerleri farklı bir dolgu ile gösterebilir. Düzenli seri dolgusunu katı olarak ayarlayın, ters çevirme özelliğini etkinleştirin ve negatif değer rengine [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) üzerinden atayın. Negatif sayılar workbook'ta değişmez; yalnızca görüntü renkleri değişir.
 
-This JavaScript code demonstrates the operation:
+Aşağıdaki örnek, varsayılan grafik verisini tek bir seriyle değiştirir. Çalışma sayfasının satır 0'ı seri adını, sütun 0'ı kategori adlarını, sütun 1'i değerleri içerir:
 
 ```javascript
-var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const headerRowIndex = 0;
+const categoryColumnIndex = 0;
+const firstSeriesColumnIndex = 1;
+const firstDataRowIndex = 1;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const categoryNames = ["Category 1", "Category 2", "Category 3"];
+const seriesValues = [-20, 50, -30];
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    var workBook = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-    // Yeni serileri ve kategorileri ekler
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-    // İlk grafik serisini alır ve seri verilerini doldurur.
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    var seriesColor = series.getAutomaticSeriesColor();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    const chartType = chart.getType();
+    const series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (let categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        const dataRowIndex = firstDataRowIndex + categoryIndex;
+        const categoryName = categoryNames[categoryIndex];
+        const seriesValue = seriesValues[categoryIndex];
+
+        const categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    series.getInvertedSolidFillColor().setColor(redColor);
+
+    presentation.save("inverted_solid_fill_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Değer Negatif Olduğunda Seriyi Ters Çevir**
+Sonuç:
 
-Aspose.Slides allows you to set inverts through the`ChartDataPoint.setInvertIfNegative` method. When an invert is set using the properties, the data point inverts its colors when it gets a negative value. 
+![Ters çevrilmiş katı dolgu rengi](inverted_solid_fill_color.png)
 
-This JavaScript code demonstrates the operation:
+Bir nokta için ters çevirme, [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile etkinleştirilebilir. Aşağıdaki örnekte, ters çevirme seri için devre dışı bırakılmış ve yalnızca seçilen nokta için etkinleştirilmiştir. Efektin görülmesi için nokta ayrıca negatif bir değer alır:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 2;
+const negativeValue = -30;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-    var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-    chartSeries.setInvertIfNegative(false);
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(redColor);
+    series.setInvertIfNegative(false);
+
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Belirli Veri Noktalarının Verisini Temizle**
+## **Belirli Bir Veri Noktası Değerini Temizle**
 
-Aspose.Slides for Node.js via Java allows you to clear the `DataPoints` data for a specific chart series this way:
+Diğer noktaları kaldırmadan bir noktayı boş bırakmak için, onun arka plan workbook hücresini `null` olarak ayarlayın. Bir sütun grafiğinde, çizilen değer [ChartDataPoint.getValue](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getValue) üzerinden elde edilebilir. Veri noktası aynı kategori konumunda kalır, ancak grafik değerini boş olarak kabul eder (grafiğin boş‑değer ayarlarına göre).
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-2. Obtain the reference of a slide through its index.
-3. Obtain the reference of a chart through its index.
-4. Iterate through all the chart `DataPoints` and set `XValue` and `YValue` to null.
-5. Clear all `DataPoints` for specific chart series.
-6. Write the modified presentation to a PPTX file.
-
-This JavaScript code demonstrates the operation:
+Aşağıdaki örnek, ilk serideki yalnızca ikinci noktayı temizler:
 
 ```javascript
-var pres = new aspose.slides.Presentation("TestChart.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sl = pres.getSlides().get_Item(0);
-    var chart = sl.getShapes().get_Item(0);
-    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
-        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Dağılım grafiklerinde X ve Y hücreleri ayrı ayrı, balon grafiklerinde ise bir boyut hücresi de bulunur. Kaldırmak istediğiniz değeri temsil eden hücreyi yalnızca temizleyin. Diğer noktaları tutmak istediğinizde [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metodunu çağırmayın; bu metod koleksiyondaki tüm veri noktalarını siler.
 
 ## **Seri Boşluk Genişliğini Ayarla**
 
-Aspose.Slides for Node.js via Java allows you to set a series' Gap Width through the **`GapWidth`** property this way:
+Boşluk genişliği, bitişik çubuk ya da sütun kümeleri arasındaki boşluk olup, çubuk ya da sütun genişliğinin yüzdesi olarak ifade edilir. Örtüşme gibi, bu da bir seri grubuna aittir, tek bir seriye değil. Grup için bir kez [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metodunu çağırın. Daha büyük bir değer kümeler arasındaki boşluğu artırır; daha küçük bir değer onları daha sıklaştırır.
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) class.
-1. Access first slide.
-1. Add chart with default data.
-1. Access any chart series.
-1. Set the `GapWidth` property.
-1. Write the modified presentation to a PPTX file.
-
-This code in JavaScript shows you how to set a series' Gap Width:
+Aşağıdaki örnek boşluk genişliğini değiştirir ve yalnızca son sunumu kaydeder:
 
 ```javascript
-// Boş bir sunum oluşturur
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const gapWidthPercent = 30;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Sunumun ilk slaytına erişir
-    var slide = pres.getSlides().get_Item(0);
-    // Varsayılan verilerle bir grafik ekler
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
-    // Grafik veri sayfasının indeksini ayarlar
-    var defaultWorksheetIndex = 0;
-    // Grafik veri çalışma sayfasını alır
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Serileri ekler
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Kategorileri ekler
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // İkinci grafik serisini alır
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // Seri verilerini doldurur
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // GapWidth değerini ayarlar
-    series.getParentSeriesGroup().setGapWidth(50);
-    // Sunumu diske kaydeder
-    pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Sonuç:
 
-**Tek bir grafiğin içerebileceği seri sayısında bir sınırlama var mı?**
+![Boşluk genişliği](gap_width.png)
 
-Aspose.Slides, eklediğiniz seri sayısı için sabit bir üst sınır koymaz. Uygulamanızın belleği ve grafiğin okunabilirliği pratik sınırı belirler.
+## **SSS**
 
-**Kümelenmiş sütunlar çok yakın veya çok uzak olduğunda ne yapmalı?**
+**Hangi grafik türleri veri serilerini destekler?**
 
-O serinin (veya üst seri grubunun) Gap Width ayarını değiştirin. Değeri artırmak sütunlar arasındaki boşluğu genişletirken, azaltmak onları birbirine yaklaştırır.
+[ChartType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/charttype/) enum'ı tarafından temsil edilen tüm grafik türleri veri kullanır, ancak serileri aynı değer yapısına ya da ayarlara sahip değildir. Örneğin, kategori grafiklerinde kategoriler ve değerler, dağılım grafiklerinde X ve Y değerleri, balon grafiklerinde ise balon boyutları bulunur. Seri tipine uygun veri‑nokta oluşturma metodunu kullanın. Örtüşme ve boşluk genişliği gibi seçenekler yalnızca uyumlu çubuk ya da sütun gruplarına uygulanır.
+
+**Grafik seri grubu nedir?**
+
+[ChartSeriesGroup](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/) aynı grup‑seviyesi çizim ayarlarını paylaşan uyumlu serileri içerir. Bir birleşik grafik birden çok grup içerebilir; bu yüzden bir seriden erişilen grup ayarını değiştirmek, grafikteki tüm serileri zorunlu olarak etkilemez.
+
+**Yeni oluşturulan bir grafikte varsayılan veri bulunur mu?**
+
+Evet. Varsayılan olarak [ShapeCollection.addChart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addChart) örnek seriler, kategoriler ve değerler oluşturur. Bu hücreleri düzenleyebilir ya da tamamen özel bir veri kümesi eklemeden önce serileri ve kategori koleksiyonlarını temizleyebilirsiniz. Bir aşırı yükleme, varsayılan veri olmadan da bir grafik oluşturabilir.
+
+**Grafik nesneleri workbook hücrelerine nasıl bağlanır?**
+
+Seri adları, kategori etiketleri ve veri‑nokta değerleri bir [ChartDataWorkbook](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdataworkbook/) içindeki hücrelere başvurur. Başvurulan bir hücre değiştirilirse ilgili grafik öğesi güncellenir. Özel veri oluştururken, kategori satırları ile seri‑değer satırlarının hizalı olduğundan emin olun; böylece her nokta istenen kategori altında çizilir.
+
+**Bir seriyi değil, sadece bir noktayı nasıl temizlerim?**
+
+İlgili değer hücresini `null` yaparak noktanın kategori konumunu boş bir nokta olarak tutun. Bu seriden tüm noktaları kaldırmak istediğinizde yalnızca [ChartDataPointCollection.clear](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metodunu kullanın. Kategorileri de kaldırıyorsanız, her serinin değerlerini kategori koleksiyonuyla hizalı tutacak şekilde güncelleyin.
+
+**Boş noktalar nasıl görüntülenir?**
+
+Sonuç, grafik türüne ve [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) ile yapılandırılan değere bağlıdır. Desteklenen grafikler boşlukları, sıfır değerlerini ya da komşu noktaları bağlayarak gösterebilir. Sunumunuzdaki eksik verinin anlamına uygun ayarı seçin.
+
+**Negatif değerler nasıl biçimlendirilir?**
+
+Desteklenen çubuk, sütun ve balon serileri için [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) çağırın ve [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) tarafından döndürülen rengi ayarlayın. Bireysel bir nokta için davranışı [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ile geçersiz kılabilirsiniz. Bu yöntemler biçimlendirmeyi etkiler, saklanan sayısal değerleri değil.
+
+**Hem seri hem de nokta biçimlendirilmişse hangi biçimlendirme kazanır?**
+
+Açık veri‑nokta biçimlendirmesi o nokta için önceliklidir. Diğer noktalar açık seri formatını ya da seri formatı tanımlı değilse otomatik grafik stilini ve temayı kullanmaya devam eder. Örtüşme ve boşluk genişliği gibi grup ayarları düzeni kontrol eder ve nokta‑seviyesi biçimlendirme geçersiz kılmaları değildir.
+
+**Bir grafikte kaç seri bulunabilir? Bir limit var mı?**
+
+Aspose.Slides ayrı bir sabit seri sayısı sınırı koymaz. Gerçekte, sunum dosyası kısıtlamaları, mevcut bellek, işleme süresi ve grafiğin okunabilirliği kullanılabilir bir sınır belirler.
+
+**Sütunlar çok yakın ya da çok uzak olduğunda ne değiştirilmelidir?**
+
+Uygun üst seri grubunda [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metodunu çağırın. Değeri artırarak kümeler arasındaki boşluğu genişletin, azaltarak kümeleri birbirine yaklaştırın.

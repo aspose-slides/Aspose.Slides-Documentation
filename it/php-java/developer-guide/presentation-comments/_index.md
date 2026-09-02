@@ -9,7 +9,7 @@ keywords:
 - commento moderno
 - commenti PowerPoint
 - commenti della presentazione
-- commenti diapositiva
+- commenti della diapositiva
 - aggiungi commento
 - accedi al commento
 - modifica commento
@@ -17,229 +17,434 @@ keywords:
 - rimuovi commento
 - elimina commento
 - PowerPoint
-- OpenDocument
 - presentazione
 - PHP
 - Aspose.Slides
-description: "Gestisci i commenti della presentazione con Aspose.Slides per PHP via Java: aggiungi, leggi, modifica ed elimina i commenti nei file PowerPoint in modo rapido e semplice."
+description: "Gestire i commenti della presentazione con Aspose.Slides per PHP via Java: aggiungere, leggere, modificare, rispondere e rimuovere i commenti nelle presentazioni PowerPoint in modo rapido e semplice."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come gestire i commenti di presentazione in Aspose.Slides. Mostra i principali tipi correlati ai commenti e dimostra come aggiungere commenti alle diapositive, accedere ai commenti esistenti, lavorare con le risposte, utilizzare i commenti moderni e rimuovere i commenti da una presentazione.
+Questo articolo spiega come gestire i commenti di una presentazione con Aspose.Slides per PHP via Java. Introduce i principali tipi correlati ai commenti e dimostra come aggiungere commenti alle diapositive, accedere ai commenti esistenti, lavorare con le risposte e i commenti moderni e rimuovere i commenti da una presentazione.
 
-Gli esempi si concentrano su scenari comuni di revisione e collaborazione in PowerPoint, come assegnare i commenti agli autori, leggere il contenuto e i metadati dei commenti, costruire catene di risposte e cancellare tutti i commenti o eliminarne di selezionati.
+Gli esempi coprono scenari comuni di revisione e collaborazione in PowerPoint, come assegnare i commenti agli autori, leggere il testo dei commenti e i relativi metadati, creare catene di risposte e rimuovere commenti selezionati o tutti i commenti.
 
-In PowerPoint, un commento appare come una nota o un'annotazione su una diapositiva. Quando si fa clic su un commento, il suo contenuto o i suoi messaggi vengono visualizzati.
+In PowerPoint, i commenti compaiono come annotazioni sulle diapositive. Selezionare un commento mostra il suo testo e la discussione correlata.
 
 ## **Perché aggiungere commenti alle presentazioni?**
 
-Potresti voler utilizzare i commenti per fornire feedback o comunicare con i colleghi durante la revisione delle presentazioni.
+È possibile utilizzare i commenti per fornire feedback e collaborare con i colleghi durante la revisione delle presentazioni.
 
-Per consentirti di utilizzare i commenti nelle presentazioni PowerPoint, Aspose.Slides for PHP via Java fornisce
+Aspose.Slides per PHP via Java fornisce le seguenti API per lavorare con i commenti:
 
-* La classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) che contiene le collezioni di autori (dalla classe [CommentAuthorCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentauthorcollection/)). Gli autori aggiungono commenti alle diapositive.
-* La classe [CommentCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentcollection/) che contiene la raccolta di commenti per singoli autori.
-* La classe [Comment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/) che contiene informazioni su autori e i loro commenti: chi ha aggiunto il commento, l'ora in cui è stato aggiunto, la posizione del commento, ecc.
-* La classe [CommentAuthor](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentauthor/) che contiene informazioni su singoli autori: il nome dell'autore, le sue iniziali, i commenti associati al nome dell'autore, ecc.
+* La classe [Presentation](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/) che fornisce l'accesso agli autori dei commenti della presentazione.
+* La classe [CommentCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentcollection/) che rappresenta i commenti associati a un singolo autore.
+* La classe [Comment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/) che fornisce informazioni su un commento, inclusi autore, ora di creazione, posizione e testo.
+* La classe [CommentAuthor](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentauthor/) che fornisce informazioni su un autore, inclusi nome, iniziali e commenti associati.
 
 ## **Aggiungere commenti alle diapositive**
-Questo codice PHP mostra come aggiungere un commento a una diapositiva in una presentazione PowerPoint:
+
+La seguente esempio mostra come aggiungere commenti alle diapositive in una presentazione PowerPoint:
 
 ```php
-  # Istanzia la classe Presentation
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Aggiunge una diapositiva vuota
-    $pres->getSlides()->addEmptySlide($pres->getLayoutSlides()->get_Item(0));
-    # Aggiunge un autore
-    $author = $pres->getCommentAuthors()->addAuthor("Jawad", "MF");
-    # Imposta la posizione per i commenti
-    $point = new Point2DFloat(0.2, 0.2);
-    # Aggiunge un commento alla diapositiva per un autore sulla diapositiva 1
-    $author->getComments()->addComment("Hello Jawad, this is slide comment", $pres->getSlides()->get_Item(0), $point, new Java("java.util.Date"));
-    # Aggiunge un commento alla diapositiva per un autore sulla diapositiva 2
-    $author->getComments()->addComment("Hello Jawad, this is second slide comment", $pres->getSlides()->get_Item(1), $point, new Java("java.util.Date"));
-    # Accede a ISlide 1
-    $slide = $pres->getSlides()->get_Item(0);
-    # Quando null viene passato come argomento, i commenti di tutti gli autori vengono riportati alla diapositiva selezionata
-    $Comments = $slide->getSlideComments($author);
-    # Accede al commento all'indice 0 per la diapositiva 1
-    $str = $Comments[0]->getText();
-    $pres->save("Comments_out.pptx", SaveFormat::Pptx);
-    if (java_values($Array->getLength($Comments)) > 0) {
-      # Seleziona la collezione di commenti dell'Autore all'indice 0
-      $commentCollection = $Comments[0]->getAuthor()->getComments();
-      $Comment = $commentCollection->get_Item(0)->getText();
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $firstSlide = $presentation->getSlides()->get_Item(0);
+    $secondSlide = $presentation->getSlides()->addEmptySlide($presentation->getLayoutSlides()->get_Item(0));
+    $author = $presentation->getCommentAuthors()->addAuthor("Jawad", "MF");
+    $position = new Point2DFloat(0.2, 0.2);
+    $createdTime = new Java("java.util.Date");
+
+    $author->getComments()->addComment("Hello Jawad, this is a slide comment", $firstSlide, $position, $createdTime);
+    $author->getComments()->addComment("Hello Jawad, this is the second slide comment", $secondSlide, $position, $createdTime);
+
+    $comments = $firstSlide->getSlideComments($author);
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    if ($commentCount > 0) {
+        $firstComment = $comments[0];
+        echo java_values($firstComment->getText()) . PHP_EOL;
+
+        $authorComments = $firstComment->getAuthor()->getComments();
+        $commentText = $authorComments->get_Item(0)->getText();
+        echo java_values($commentText) . PHP_EOL;
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+
+    $presentation->save("Comments_out.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Accedere ai commenti delle diapositive**
-Questo codice PHP mostra come accedere a un commento esistente su una diapositiva in una presentazione PowerPoint:
+
+La seguente esempio mostra come accedere ai commenti esistenti in una presentazione PowerPoint:
 
 ```php
-  # Istanzia la classe Presentation
-  $pres = new Presentation("Comments1.pptx");
-  try {
-    foreach($pres->getCommentAuthors() as $commentAuthor) {
-      $author = $commentAuthor;
-      foreach($author->getComments() as $comment1) {
-        $comment = $comment1;
-        echo("ISlide :" . $comment->getSlide()->getSlideNumber() . " has comment: " . $comment->getText() . " with Author: " . $comment->getAuthor()->getName() . " posted on time :" . $comment->getCreatedTime() . "\n");
-      }
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Comments1.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        foreach ($author->getComments() as $comment) {
+            echo "Slide: " . java_values($comment->getSlide()->getSlideNumber()) . PHP_EOL;
+            echo "Comment: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Author: " . java_values($comment->getAuthor()->getName()) . PHP_EOL;
+            echo "Posted at: " . java_values($comment->getCreatedTime()->toString()) . PHP_EOL;
+            echo PHP_EOL;
+        }
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Rispondere ai commenti**
-Un commento principale è il commento originale o più alto in una gerarchia di commenti o risposte. Utilizzando i metodi [getParentComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/getparentcomment/) o [setParentComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/setparentcomment/) (dalla classe [Comment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/)), è possibile impostare o ottenere un commento principale.
 
-Questo codice PHP mostra come aggiungere commenti e recuperare le risposte:
+Un commento padre è il commento originale in cima a una gerarchia di risposte. I metodi [Comment::getParentComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/getparentcomment/) e [Comment::setParentComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/setparentcomment/) consentono di ottenere o impostare il commento padre.
+
+La seguente esempio mostra come aggiungere risposte e ispezionare la gerarchia dei commenti risultante:
 
 ```php
-  $pres = new Presentation();
-  $Array = new java_class("java.lang.reflect.Array");
-  try {
-    # Aggiunge un commento
-    $author1 = $pres->getCommentAuthors()->addAuthor("Author_1", "A.A.");
-    $comment1 = $author1->getComments()->addComment("comment1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    # Aggiunge una risposta al comment1
-    $author2 = $pres->getCommentAuthors()->addAuthor("Autror_2", "B.B.");
-    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $position = new Point2DFloat(10, 10);
+    $createdTime = new Java("java.util.Date");
+
+    $author1 = $presentation->getCommentAuthors()->addAuthor("Author_1", "A.A.");
+    $comment1 = $author1->getComments()->addComment("comment 1", $slide, $position, $createdTime);
+
+    $author2 = $presentation->getCommentAuthors()->addAuthor("Author_2", "B.B.");
+    $reply1 = $author2->getComments()->addComment("reply 1 for comment 1", $slide, $position, $createdTime);
     $reply1->setParentComment($comment1);
-    # Aggiunge un'altra risposta al comment1
-    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $reply2 = $author2->getComments()->addComment("reply 2 for comment 1", $slide, $position, $createdTime);
     $reply2->setParentComment($comment1);
-    # Aggiunge una risposta a una risposta esistente
-    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $subReply = $author1->getComments()->addComment("subreply 3 for reply 2", $slide, $position, $createdTime);
     $subReply->setParentComment($reply2);
-    $comment2 = $author2->getComments()->addComment("comment 2", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $comment3 = $author2->getComments()->addComment("comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
-    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $pres->getSlides()->get_Item(0), new Point2DFloat(10, 10), new Java("java.util.Date"));
+
+    $author2->getComments()->addComment("comment 2", $slide, $position, $createdTime);
+    $comment3 = $author2->getComments()->addComment("comment 3", $slide, $position, $createdTime);
+
+    $reply3 = $author1->getComments()->addComment("reply 4 for comment 3", $slide, $position, $createdTime);
     $reply3->setParentComment($comment3);
-    # Visualizza la gerarchia dei commenti sulla console
-    $slide = $pres->getSlides()->get_Item(0);
+
     $comments = $slide->getSlideComments(null);
-    for($i = 0; $i < java_values($Array->getLength($comments)) ; $i++) {
-      $comment = $comments[$i];
-      while (!java_is_null($comment->getParentComment())) {
-        System->out->print("\t");
-        $comment = $comment->getParentComment();
-      } 
-      echo($comments[$i]->getAuthor()->getName() . " : " . $comments[$i]->getText());
-      echo();
+    $arrayClass = new JavaClass("java.lang.reflect.Array");
+    $commentCount = java_values($arrayClass->getLength($comments));
+    for ($i = 0; $i < $commentCount; $i++) {
+        $comment = $comments[$i];
+        while (!java_is_null($comment->getParentComment())) {
+            echo "\t";
+            $comment = $comment->getParentComment();
+        }
+
+        echo java_values($comments[$i]->getAuthor()->getName()) . ": " . java_values($comments[$i]->getText()) . PHP_EOL;
     }
-    $pres->save("parent_comment.pptx", SaveFormat::Pptx);
-    # Rimuove comment1 e tutte le risposte ad esso
+
+    $presentation->save("parent_comment.pptx", SaveFormat::Pptx);
+
     $comment1->remove();
-    $pres->save("remove_comment.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+    $presentation->save("remove_comment.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* Quando si utilizza il metodo [remove](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/remove/) (dalla classe [Comment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/)) per eliminare un commento, anche le risposte al commento vengono eliminate.
-* Se l'impostazione [setParentComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/setparentcomment/) genera un riferimento circolare, verrà sollevata l'eccezione [PptxEditException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxeditexception/).
+{{% alert color="warning" title="Warning" %}}
+* Quando il metodo [Comment::remove](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/remove/) viene utilizzato per eliminare un commento, tutte le risposte a quel commento vengono eliminate.
+* Se [Comment::setParentComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/setparentcomment/) crea un riferimento circolare, viene generata un'eccezione [PptxEditException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxeditexception/).
 {{% /alert %}}
 
 ## **Aggiungere commenti moderni**
 
-Nel 2021, Microsoft ha introdotto i *commenti moderni* in PowerPoint. La funzionalità dei commenti moderni migliora notevolmente la collaborazione in PowerPoint. Attraverso i commenti moderni, gli utenti di PowerPoint possono risolvere i commenti, ancorare i commenti a oggetti e testi e interagire in modo molto più semplice rispetto al passato.
+I commenti moderni possono essere associati alla diapositiva stessa, a una forma specifica o a un intervallo di testo all'interno di un'AutoShape. Il metodo [CommentCollection::addModernComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentcollection/addmoderncomment/) accetta un argomento [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/) oltre alla diapositiva e alle coordinate del marcatore del commento.
 
-Aspose Slides supporta i commenti moderni tramite la classe [ModernComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/). I metodi [addModernComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentcollection/addmoderncomment/) e [insertModernComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentcollection/insertmoderncomment/) sono stati aggiunti alla classe [CommentCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/commentcollection/).
+Quando viene passato `null` per l'argomento shape, il commento è un commento a livello di diapositiva. Il suo marcatore è posizionato dalle coordinate fornite, ma non è associato a una forma specifica, quindi [ModernComment::getShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/getshape/) restituisce `null`. Quando viene fornita una [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/), il commento è ancorato a quella forma. Le coordinate continuano a definire la posizione del marcatore del commento sulla diapositiva, mentre l'associazione alla forma può essere recuperata tramite [ModernComment::getShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/getshape/).
 
-Questo codice PHP mostra come aggiungere un commento moderno a una diapositiva in una presentazione PowerPoint:
+### **Ancora un commento moderno a una forma**
+
+La seguente esempio crea sia un commento moderno a livello di diapositiva sia un commento moderno ancorato a una specifica AutoShape. Quindi legge la forma associata da ciascun commento.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $newAuthor = $pres->getCommentAuthors()->addAuthor("Some Author", "SA");
-    $modernComment = $newAuthor->getComments()->addModernComment("This is a modern comment", $pres->getSlides()->get_Item(0), null, new Point2DFloat(100, 100), new Java("java.util.Date"));
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 300, 80);
+    $shape->setName("Revenue title");
+    $shape->getTextFrame()->setText("Quarterly revenue");
+
+    $createdTime = new Java("java.util.Date");
+    $slideCommentPosition = new Point2DFloat(20, 20);
+    $shapeCommentPosition = new Point2DFloat(60, 60);
+    $slideComment = $author->getComments()->addModernComment("Review the overall slide layout.", $slide, null, $slideCommentPosition, $createdTime);
+    $shapeComment = $author->getComments()->addModernComment("Check this title.", $slide, $shape, $shapeCommentPosition, $createdTime);
+
+    echo (java_is_null($slideComment->getShape()) ? "true" : "false") . PHP_EOL;
+    echo java_values($shapeComment->getShape()->getName()) . PHP_EOL;
+
+    $presentation->save("modern_comments.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Ancora commenti a diversi tipi di forma**
+
+Qualsiasi oggetto della diapositiva rappresentato dalla classe [Shape](https://reference.aspose.com/slides/it/php-java/aspose.slides/shape/) può essere usato come ancoraggio di forma. Esempi comuni includono le istanze [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/), [PictureFrame](https://reference.aspose.com/slides/it/php-java/aspose.slides/pictureframe/), [GroupShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/groupshape/), [Connector](https://reference.aspose.com/slides/it/php-java/aspose.slides/connector/) e [GraphicalObject](https://reference.aspose.com/slides/it/php-java/aspose.slides/graphicalobject/) come i grafici.
+
+La seguente esempio crea diversi tipi di forma comuni e associa a ciascuno un commento moderno.
+
+```php
+use aspose\slides\ChartType;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $createdTime = new Java("java.util.Date");
+
+    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 180, 60);
+    $autoShape->getTextFrame()->setText("AutoShape");
+    $autoShapeCommentPosition = new Point2DFloat(30, 30);
+    $author->getComments()->addModernComment("Comment on an AutoShape.", $slide, $autoShape, $autoShapeCommentPosition, $createdTime);
+
+    $imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    $base64Class = new JavaClass("java.util.Base64");
+    $imageData = $base64Class->getDecoder()->decode($imageBase64);
+    $image = $presentation->getImages()->addImage($imageData);
+    $pictureFrame = $slide->getShapes()->addPictureFrame(ShapeType::Rectangle, 220, 20, 120, 80, $image);
+    $pictureCommentPosition = new Point2DFloat(230, 30);
+    $author->getComments()->addModernComment("Comment on a picture.", $slide, $pictureFrame, $pictureCommentPosition, $createdTime);
+
+    $groupShape = $slide->getShapes()->addGroupShape();
+    $groupShape->getShapes()->addAutoShape(ShapeType::Rectangle, 0, 0, 80, 40);
+    $groupShape->getShapes()->addAutoShape(ShapeType::Ellipse, 100, 0, 80, 40);
+    $groupCommentPosition = new Point2DFloat(40, 150);
+    $author->getComments()->addModernComment("Comment on a group.", $slide, $groupShape, $groupCommentPosition, $createdTime);
+
+    $connector = $slide->getShapes()->addConnector(ShapeType::StraightConnector1, 220, 150, 140, 40);
+    $connectorCommentPosition = new Point2DFloat(240, 150);
+    $author->getComments()->addModernComment("Comment on a connector.", $slide, $connector, $connectorCommentPosition, $createdTime);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 400, 20, 250, 180);
+    $chartCommentPosition = new Point2DFloat(420, 40);
+    $author->getComments()->addModernComment("Comment on a graphical object.", $slide, $chart, $chartCommentPosition, $createdTime);
+
+    $presentation->save("modern_comment_shape_types.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Ancora un commento al testo e impostarne lo stato**
+
+Per un commento moderno associato a un'[AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/), i metodi [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/gettextselectionstart/) e [ModernComment::setTextSelectionStart](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/settextselectionstart/) accedono alla posizione iniziale del testo selezionato nel frame di testo della forma. [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/gettextselectionlength/) e [ModernComment::setTextSelectionLength](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/settextselectionlength/) accedono alla lunghezza della selezione. Insieme, questi valori associano il commento a uno specifico intervallo di testo all'interno dell'AutoShape.
+
+I metodi [ModernComment::getStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/getstatus/) e [ModernComment::setStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/setstatus/) accedono a un valore delle costanti [ModernCommentStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncommentstatus/):
+
+- `NotDefined` — nessuno stato specifico del commento moderno è definito.
+- `Active` — il commento è attivo.
+- `Resolved` — il commento è stato risolto.
+- `Closed` — il commento è chiuso.
+
+La seguente esempio crea un commento moderno ancorato a una forma, lo associa a una selezione di testo, lo segna come risolto, salva la presentazione e verifica i valori dopo aver riaperto il file.
+
+```php
+use aspose\slides\ModernCommentStatus;
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$outputFile = "modern_comment_text_anchor.pptx";
+$shapeText = "Review the quarterly revenue forecast.";
+$selectedText = "quarterly revenue";
+$expectedSelectionStart = strpos($shapeText, $selectedText);
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 400, 100);
+    $shape->setName("Forecast text");
+    $shape->getTextFrame()->setText($shapeText);
+
+    $author = $presentation->getCommentAuthors()->addAuthor("Reviewer", "RV");
+    $commentPosition = new Point2DFloat(60, 60);
+    $comment = $author->getComments()->addModernComment("Verify this forecast wording.", $slide, $shape, $commentPosition, new Java("java.util.Date"));
+    $comment->setTextSelectionStart($expectedSelectionStart);
+    $comment->setTextSelectionLength(strlen($selectedText));
+    $comment->setStatus(ModernCommentStatus::Resolved);
+
+    $presentation->save($outputFile, SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+
+$reopenedPresentation = new Presentation($outputFile);
+try {
+    $reopenedSlide = $reopenedPresentation->getSlides()->get_Item(0);
+    $reopenedComments = $reopenedSlide->getSlideComments(null);
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+
+    foreach ($reopenedComments as $reopenedComment) {
+        if (!java_instanceof($reopenedComment, $modernCommentClass)) {
+            continue;
+        }
+
+        $shape = $reopenedComment->getShape();
+        $shapeMatches = !java_is_null($shape) && java_values($shape->getName()) === "Forecast text";
+        $selectionStartMatches = java_values($reopenedComment->getTextSelectionStart()) === $expectedSelectionStart;
+        $selectionLengthMatches = java_values($reopenedComment->getTextSelectionLength()) === strlen($selectedText);
+        $statusMatches = java_values($reopenedComment->getStatus()) === ModernCommentStatus::Resolved;
+
+        echo "Shape anchor preserved: " . ($shapeMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection start preserved: " . ($selectionStartMatches ? "true" : "false") . PHP_EOL;
+        echo "Text selection length preserved: " . ($selectionLengthMatches ? "true" : "false") . PHP_EOL;
+        echo "Resolved status preserved: " . ($statusMatches ? "true" : "false") . PHP_EOL;
     }
-  }
+} finally {
+    $reopenedPresentation->dispose();
+}
+```
+
+### **Ispezionare i commenti moderni esistenti**
+
+Per ispezionare una presentazione esistente, verificare se ogni commento è un [ModernComment](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/), quindi esaminare [ModernComment::getShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/getshape/), [ModernComment::getTextSelectionStart](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/gettextselectionstart/), [ModernComment::getTextSelectionLength](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/gettextselectionlength/) e [ModernComment::getStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/getstatus/). Una forma `null` indica un commento a livello di diapositiva. Per un ancoraggio [AutoShape](https://reference.aspose.com/slides/it/php-java/aspose.slides/autoshape/), i metodi di selezione del testo identificano l'intervallo associato nel frame di testo della forma.
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("comments.pptx");
+try {
+    $modernCommentClass = new JavaClass("com.aspose.slides.ModernComment");
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+
+    foreach ($presentation->getSlides() as $slide) {
+        $comments = $slide->getSlideComments(null);
+        foreach ($comments as $comment) {
+            if (!java_instanceof($comment, $modernCommentClass)) {
+                continue;
+            }
+
+            echo "Slide: " . java_values($slide->getSlideNumber()) . PHP_EOL;
+            echo "Text: " . java_values($comment->getText()) . PHP_EOL;
+            echo "Status: " . java_values($comment->getStatus()) . PHP_EOL;
+
+            $shape = $comment->getShape();
+            if (java_is_null($shape)) {
+                echo "Anchor: slide level" . PHP_EOL;
+            } else {
+                echo "Anchor shape: " . java_values($shape->getName()) . PHP_EOL;
+                echo "Anchor type: " . java_values($shape->getClass()->getSimpleName()) . PHP_EOL;
+
+                if (java_instanceof($shape, $autoShapeClass)) {
+                    echo "Text selection start: " . java_values($comment->getTextSelectionStart()) . PHP_EOL;
+                    echo "Text selection length: " . java_values($comment->getTextSelectionLength()) . PHP_EOL;
+                }
+            }
+
+            echo PHP_EOL;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **Rimuovere i commenti**
 
-### **Eliminare tutti i commenti e gli autori**
+### **Rimuovere tutti i commenti e gli autori dei commenti**
 
-Questo codice PHP mostra come rimuovere tutti i commenti e gli autori in una presentazione:
+La seguente esempio mostra come rimuovere tutti i commenti e gli autori dei commenti da una presentazione:
 
 ```php
-  $presentation = new Presentation("example.pptx");
-  try {
-    # Elimina tutti i commenti dalla presentazione
-    foreach($presentation->getCommentAuthors() as $author) {
-      $author->getComments()->clear();
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("example.pptx");
+try {
+    foreach ($presentation->getCommentAuthors() as $author) {
+        $author->getComments()->clear();
     }
-    # Elimina tutti gli autori
+
     $presentation->getCommentAuthors()->clear();
     $presentation->save("example_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-### **Eliminare commenti specifici**
+### **Rimuovere commenti specifici**
 
-Questo codice PHP mostra come eliminare commenti specifici su una diapositiva:
+La seguente esempio mostra come rimuovere commenti specifici da una diapositiva:
 
 ```php
-  $presentation = new Presentation();
-  try {
+use aspose\slides\Point2DFloat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation();
+try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # aggiunge commenti...
     $author = $presentation->getCommentAuthors()->addAuthor("Author", "A");
-    $author->getComments()->addComment("comment 1", $slide, new Point2DFloat(0.2, 0.2), new Java("java.util.Date"));
-    $author->getComments()->addComment("comment 2", $slide, new Point2DFloat(0.3, 0.2), new Java("java.util.Date"));
-    # rimuove tutti i commenti che contengono il testo "comment 1"
-    foreach($presentation->getCommentAuthors() as $commentAuthor) {
-      $toRemove = new Java("java.util.ArrayList");
-      foreach($slide->getSlideComments($commentAuthor) as $comment) {
-        if ($comment->getText()->equals("comment 1")) {
-          $toRemove->add($comment);
+    $createdTime = new Java("java.util.Date");
+
+    $firstCommentPosition = new Point2DFloat(0.2, 0.2);
+    $secondCommentPosition = new Point2DFloat(0.3, 0.2);
+    $author->getComments()->addComment("comment 1", $slide, $firstCommentPosition, $createdTime);
+    $author->getComments()->addComment("comment 2", $slide, $secondCommentPosition, $createdTime);
+
+    foreach ($presentation->getCommentAuthors() as $commentAuthor) {
+        $commentsToRemove = new Java("java.util.ArrayList");
+        $comments = $slide->getSlideComments($commentAuthor);
+
+        foreach ($comments as $comment) {
+            if ($comment->getText()->equals("comment 1")) {
+                $commentsToRemove->add($comment);
+            }
         }
-      }
-      foreach($toRemove as $comment) {
-        $commentAuthor->getComments()->remove($comment);
-      }
+
+        foreach ($commentsToRemove as $comment) {
+            $commentAuthor->getComments()->remove($comment);
+        }
     }
+
     $presentation->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
 ## **FAQ**
 
-**Aspose.Slides supporta uno stato come “risolto” per i commenti moderni?**
+**Aspose.Slides supporta uno stato risolto per i commenti moderni?**
 
-Sì. I [commenti moderni](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/) espongono un metodo [setStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/setstatus/); è possibile impostare lo [stato del commento](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncommentstatus/) (ad esempio, marcarlo come risolto) e questo stato viene salvato nel file e riconosciuto da PowerPoint.
+Sì. [ModernComment::getStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/getstatus/) e [ModernComment::setStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncomment/setstatus/) accedono a un valore [ModernCommentStatus](https://reference.aspose.com/slides/it/php-java/aspose.slides/moderncommentstatus/), incluso `Resolved`. Lo stato è memorizzato nella presentazione e può essere letto nuovamente dopo la riapertura del file.
 
-**Le discussioni a thread (catene di risposte) sono supportate e c’è un limite di nidificazione?**
+**Le discussioni a thread (catene di risposte) sono supportate e c'è un limite di nidificazione?**
 
-Sì. Ogni commento può fare riferimento al suo [commento genitore](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/getparentcomment/), consentendo catene di risposte arbitrarie. L'API non dichiara un limite specifico di profondità di nidificazione.
+Sì. Ogni commento può fare riferimento al suo [parent comment](https://reference.aspose.com/slides/it/php-java/aspose.slides/comment/getparentcomment/), consentendo catene di risposte. L'API non definisce un limite specifico per la profondità di nidificazione.
 
 **In quale sistema di coordinate è definita la posizione del marcatore di un commento su una diapositiva?**
 
-La posizione è memorizzata come punto a virgola mobile nel sistema di coordinate della diapositiva. Questo consente di posizionare il marcatore del commento esattamente dove è necessario.
+La posizione del marcatore è definita da coordinate in virgola mobile nel sistema di coordinate della diapositiva, consentendo di posizionarlo con precisione sulla diapositiva.

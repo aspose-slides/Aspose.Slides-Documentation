@@ -1,5 +1,5 @@
 ---
-title: Folienlayout in C# anwenden oder ändern
+title: Folienlayouts in .NET anwenden oder ändern
 linktitle: Folienlayout
 type: docs
 weight: 60
@@ -10,11 +10,11 @@ keywords:
 - Platzhalter
 - Präsentationsdesign
 - Foliendesign
-- unbenutztes Layout
-- Fußzeilensichtbarkeit
+- nicht verwendetes Layout
+- Fußzeilen‑Sichtbarkeit
 - Titelfolie
 - Titel und Inhalt
-- Abschnittsüberschrift
+- Abschnitts‑Überschrift
 - Zwei Inhalte
 - Vergleich
 - Nur Titel
@@ -23,243 +23,223 @@ keywords:
 - Bild mit Beschriftung
 - Titel und vertikaler Text
 - Vertikaler Titel und Text
+- PowerPoint
+- OpenDocument
+- Präsentation
 - C#
 - .NET
 - Aspose.Slides
-description: "Erfahren Sie, wie Sie Folienlayouts in Aspose.Slides für .NET verwalten und anpassen. Erkunden Sie Layout‑Typen, die Steuerung von Platzhaltern, die Sichtbarkeit von Fußzeilen und die Manipulation von Layouts anhand von Code‑Beispielen in C#."
+description: "Folienlayouts in Aspose.Slides für .NET anwenden, erstellen und bearbeiten, Platzhalter hinzufügen, nicht verwendete Layouts entfernen und die Fußzeilen‑Sichtbarkeit steuern."
 ---
-
 ## **Übersicht**
 
-Ein Folienlayout definiert die Anordnung von Platzhalterfeldern und die Formatierung des Inhalts einer Folie. Es steuert, welche Platzhalter verfügbar sind und wo sie erscheinen. Folienlayouts helfen Ihnen, Präsentationen schnell und konsistent zu entwerfen – egal, ob Sie etwas Einfaches oder Komplexeres erstellen. Zu den häufigsten Folienlayouts in PowerPoint gehören:
+Ein Folienlayout definiert die Positionen und das Format von Platzhaltern wie Titeln, Text, Bildern, Diagrammen und Tabellen. Das Anwenden eines Layouts verleiht Folien eine konsistente Struktur, während jede Folie ihren eigenen Inhalt enthalten kann.
 
-**Titel‑Folie‑Layout** – Enthält zwei Textplatzhalter: einen für den Titel und einen für den Untertitel.
+Die gebräuchlichsten Layouts sind:
 
-**Titel‑und‑Inhalt‑Layout** – Verfügt über einen kleineren Titelplatzhalter oben und einen größeren darunter für Hauptinhalt (wie Text, Aufzählungen, Diagramme, Bilder und mehr).
+- **Titelfolie**: Enthält Platzhalter für Titel und Untertitel.
+- **Titel und Inhalt**: Enthält einen Titel‑Platzhalter und einen allgemeinen Inhalts‑Platzhalter.
+- **Leer**: Enthält keine Inhalts‑Platzhalter und ist nützlich, wenn jede Form manuell positioniert wird.
 
-**Leeres Layout** – Enthält keine Platzhalter, sodass Sie die Folie von Grund auf selbst gestalten können.
+## **Verständnis der Layout‑Vererbung**
 
-Folienlayouts sind Teil eines Folienmasters, der die übergeordnete Folie ist, die Layout‑Stile für die Präsentation definiert. Sie können Layout‑Folien über den Folienmaster – nach Typ, Name oder eindeutiger ID – zugreifen und ändern. Alternativ können Sie ein bestimmtes Layout‑Folie‑Element direkt in der Präsentation bearbeiten.
+Eine Präsentation hat drei miteinander verbundene Ebenen:
 
-Um mit Folienlayouts in Aspose.Slides für .NET zu arbeiten, können Sie verwenden:
+1. Eine [Master‑Folie](https://reference.aspose.com/slides/de/net/aspose.slides/imasterslide/) definiert das Design, geteilte Formatierung, Hintergründe und gemeinsame Objekte.  
+1. Eine [Layout‑Folie](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/) gehört zu einem Master und definiert eine bestimmte Anordnung von Platzhaltern.  
+1. Eine [normale Folie](https://reference.aspose.com/slides/de/net/aspose.slides/islide/) verwendet ein Layout und speichert den für diese Folie eingegebenen Inhalt.
 
-- Eigenschaften wie [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/) und [Masters](https://reference.aspose.com/slides/net/aspose.slides/presentation/masters/) in der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/)
-- Typen wie [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/) und [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Eine normale Folie erbt Design und Formatierung von ihrem Layout, und das Layout erbt vom zugehörigen Master. Ein direkt auf einer normalen Folie gesetzter Wert überschreibt den vererbten Wert auf dieser Ebene. Beim Erstellen einer normalen Folie werden die Platzhalter‑Formen aus dem ausgewählten Layout generiert, während der in diese Platzhalter eingegebene Inhalt zur normalen Folie gehört.
 
-{{% alert title="Info" color="info" %}}
+Fügen Sie erforderliche Platzhalter zu einem Layout hinzu, bevor Sie Folien daraus erzeugen. Das spätere Hinzufügen eines weiteren Platzhalters zu einem Layout fügt nicht automatisch die entsprechende Platzhalter‑Form zu bereits vorhandenen normalen Folien hinzu.
 
-Um mehr über die Arbeit mit Folienmastern zu erfahren, lesen Sie den Artikel [Slide Master](/slides/de/net/slide-master/).
+Diese Beziehung hat zwei wichtige Konsequenzen:
 
-{{% /alert %}}
+- Das Ändern vererbter Formatierungen oder vorhandener Platzhalter‑Geometrie in einem Layout kann jede davon abhängige Folie aktualisieren. Prüfen Sie vor dem Bearbeiten eines bereits genutzten Layouts die abhängigen Folien und überprüfen Sie die resultierende Präsentation.  
+- Ein Layout, das noch von einer Folie verwendet wird, kann nicht entfernt werden. Ordnen Sie seine abhängigen Folien zuerst einem anderen Layout zu oder entfernen Sie nur nicht genutzte Layouts.
 
-## **Folienlayouts zu Präsentationen hinzufügen**
+Weitere Informationen zur obersten Ebene dieser Hierarchie finden Sie unter [Slide Master](/slides/de/net/slide-master/).
 
-Um das Aussehen und die Struktur Ihrer Folien anzupassen, müssen Sie möglicherweise neue Layout‑Folien zu einer Präsentation hinzufügen. Aspose.Slides für .NET ermöglicht es Ihnen, zu prüfen, ob ein bestimmtes Layout bereits existiert, bei Bedarf ein neues hinzuzufügen und es zum Einfügen von Folien zu verwenden, die auf diesem Layout basieren.
+## **Auswählen und Anwenden eines Folienlayouts**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Greifen Sie auf die [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/net/aspose.slides/imasterlayoutslidecollection/) zu.
-1. Prüfen Sie, ob die gewünschte Layout‑Folie bereits in der Sammlung vorhanden ist. Wenn nicht, fügen Sie das benötigte Layout hinzu.
-1. Fügen Sie eine leere Folie basierend auf dem neuen Layout ein.
-1. Speichern Sie die Präsentation.
+Verwenden Sie einen Layout‑Typ, wenn die Präsentation den standardmäßigen PowerPoint‑Layout‑Definitionen folgt. Layout‑Namen können vom Benutzer bearbeitet und lokalisiert werden, sodass eine Auswahl nach Namen weniger zuverlässig ist, es sei denn, Sie kontrollieren die Quellvorlage.
 
-Der folgende C#‑Code demonstriert, wie ein Folienlayout zu einer PowerPoint‑Präsentation hinzugefügt wird:
-```cs
-// Instanziiert die Presentation-Klasse, die eine PowerPoint-Datei repräsentiert.
-using (Presentation presentation = new Presentation("Sample.pptx"))
+Das folgende Beispiel sucht nach **Titel und Inhalt** im ersten Master. Wenn dieses Layout nicht verfügbar ist, greift es bewusst auf **Leer** zurück. Die zweite Null‑Prüfung ist nötig, weil eine Präsentation nur benutzerdefinierte Layouts enthalten kann. Das ausgewählte Layout wird dann über die [ISlide.LayoutSlide](https://reference.aspose.com/slides/de/net/aspose.slides/islide/layoutslide/)‑Eigenschaft auf die erste normale Folie angewendet.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
 {
-    // Durchläuft die Layout-Foliensortentypen, um eine Layout-Folie auszuwählen.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Eine Situation, in der die Präsentation nicht alle Layout-Typen enthält.
-        // Die Präsentationsdatei enthält nur die Layout-Typen Blank und Custom.
-        // Allerdings können Layout-Folien mit benutzerdefinierten Typen erkennbare Namen haben,
-        // wie "Title", "Title and Content" usw., die für die Auswahl einer Layout-Folie verwendet werden können.
-        // Man kann sich auch auf eine Menge von Platzhalter-Shape-Typen verlassen.
-        // Zum Beispiel sollte eine Titelfolie nur den Title-Platzhaltertyp haben, usw.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Fügt eine leere Folie mit dem hinzugefügten Layout ein.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Speichert die Präsentation auf dem Datenträger.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
 }
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
 ```
 
+Das Ändern des Layouts einer Folie entfernt nicht die direkt zur Folie hinzugefügten normalen Formen. Platzhalterpositionen, vererbte Formatierungen und die Zuordnung zwischen vorhandenen Platzhaltern und dem neuen Layout können sich jedoch ändern, daher sollten Sie die Ausgabe prüfen, wenn Sie zwischen erheblich unterschiedlichen Layouts wechseln.
 
-## **Unbenutzte Layout‑Folien entfernen**
+## **Hinzufügen einer Layout‑Folie**
 
-Aspose.Slides bietet die Methode [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) aus der Klasse [Compress](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/) an, um unerwünschte und ungenutzte Layout‑Folien zu löschen.
+Auswahl und Erstellung sind separate Vorgänge. Das vorherige Beispiel wählt ein vorhandenes Layout aus; es erstellt keines. Um ein Layout zu erstellen, rufen Sie die [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/de/net/aspose.slides/masterlayoutslidecollection/add/)‑Methode der Layout‑Sammlung des Ziel‑Masters auf.
 
-Der folgende C#‑Code zeigt, wie eine Layout‑Folie aus einer PowerPoint‑Präsentation entfernt wird:
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
-{
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+Das folgende Beispiel fügt stets ein neues **Titel und Inhalt**‑Layout mit dem Namen `Report Title and Content` hinzu und erstellt anschließend eine normale Folie darauf basierend. Layout‑Namen müssen innerhalb der Sammlung eindeutig sein.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
 ```
 
+Fügen Sie ein Layout nur hinzu, wenn die Vorlage wirklich eine weitere wiederverwendbare Struktur benötigt. Existiert bereits ein passendes Layout, wählen Sie dieses aus und verwenden Sie es erneut, anstatt ein Duplikat zu erstellen.
 
-## **Platzhalter zu Folienlayouts hinzufügen**
+## **Platzhalter zu einer Layout‑Folie hinzufügen**
 
-Aspose.Slides stellt die Eigenschaft [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/placeholdermanager/) bereit, mit der Sie neue Platzhalter zu einer Layout‑Folie hinzufügen können.
+Die [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/placeholdermanager/)‑Eigenschaft stellt einen [ILayoutPlaceholderManager](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutplaceholdermanager/) zum Hinzufügen von Platzhalter‑Formen zu einem Layout bereit.
 
-Dieser Manager enthält Methoden für die folgenden Platzhalter‑Typen:
+| PowerPoint‑Platzhalter               | `ILayoutPlaceholderManager` Methode |
+| ------------------------------------ | ----------------------------------- |
+| ![Inhalt](content.png)               | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Inhalt (vertikal)](contentV.png)   | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (vertikal)](textV.png)        | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Bild](picture.png)                 | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Diagramm](chart.png)               | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Tabelle](table.png)                | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)            | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Medium](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online‑Bild](onlineImage.png)      | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/de/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
 
-| PowerPoint‑Platzhalter              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/net/aspose.slides/ilayoutplaceholdermanager/)‑Methode |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Inhalt](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Inhalt (vertikal)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (vertikal)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Bild](picture.png)                | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Diagramm](chart.png)              | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabelle](table.png)               | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Medien](media.png)                | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online‑Bild](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+Das folgende Beispiel prüft, ob das **Leer**‑Layout existiert, fügt ihm vier Platzhalter hinzu und erstellt dann eine normale Folie, die das geänderte Layout verwendet. Die Reihenfolge ist beabsichtigt: Die Platzhalter werden hinzugefügt, bevor die normale Folie erstellt wird, sodass Aspose.Slides die entsprechenden Platzhalter‑Formen auf dieser Folie erzeugen kann.
 
-Der folgende C#‑Code demonstriert, wie neue Platzhalterformen zum leeren Layout‑Folie‑Element hinzugefügt werden:
-```cs
-using (var presentation = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
 {
-    // Hole die Blank-Layout-Folie.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Hole den Platzhalter-Manager der Layout-Folie.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Füge verschiedene Platzhalter zur Blank-Layout-Folie hinzu.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Füge eine neue Folie mit dem Blank-Layout hinzu.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
 }
-```
 
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
+```
 
 Das Ergebnis:
 
 ![Die Platzhalter auf der Layout‑Folie](add_placeholders.png)
 
-## **Fußzeilen‑Sichtbarkeit für ein Layout‑Folie festlegen**
+{{% alert color="warning" title="Warning" %}}
+Das Ändern vererbter Formatierungen oder der Geometrie vorhandener Layout‑Platzhalter kann abhängige Folien beeinflussen. Ein neu hinzugefügter Layout‑Platzhalter wird nicht rückwirkend in bereits vorhandene normale Folien eingefügt. Testen Sie Layout‑Änderungen an einer Kopie der Präsentation und prüfen Sie jede abhängige Folie.
+{{% /alert %}}
 
-In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text je nach Folienlayout ein- oder ausgeblendet werden. Aspose.Slides für .NET ermöglicht die Steuerung der Sichtbarkeit dieser Fußzeilen‑Platzhalter. Das ist nützlich, wenn bestimmte Layouts Fußzeileninformationen anzeigen sollen, während andere minimal bleiben.
+## **Entfernen nicht genutzter Layout‑Folien**
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Holen Sie sich eine Layout‑Folie‑Referenz anhand ihres Index.
-1. Setzen Sie den Fußzeilen‑Platzhalter der Folie auf sichtbar.
-1. Setzen Sie den Folien‑Nummer‑Platzhalter auf sichtbar.
-1. Setzen Sie den Datum‑Uhrzeit‑Platzhalter auf sichtbar.
-1. Speichern Sie die Präsentation.
+Verwenden Sie die [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/de/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)‑Methode, um Layouts zu entfernen, auf die keine normale Folie verweist. Die Methode lässt Layouts, die noch verwendet werden, unverändert.
 
-Der folgende C#‑Code zeigt, wie die Sichtbarkeit einer Folienfußzeile eingestellt wird:
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
+using var presentation = new Presentation("input.pptx");
 
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
+Um ein bestimmtes Layout zu entfernen, prüfen Sie zuerst dessen [HasDependingSlides](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/hasdependingslides/)‑Eigenschaft oder die [GetDependingSlides](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/getdependingslides/)‑Methode. Ordnen Sie alle abhängigen Folien neu zu, bevor Sie [ILayoutSlide.Remove](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/remove/) aufrufen. Der Versuch, ein verwendetes Layout zu entfernen, löst eine [PptxEditException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxeditexception/) aus.
 
-## **Fußzeilen‑Sichtbarkeit für untergeordnete Folien festlegen**
+## **Steuerung der Fußzeilen‑Sichtbarkeit auf einer Layout‑Folie**
 
-​In PowerPoint‑Präsentationen können Fußzeilenelemente wie Datum, Foliennummer und benutzerdefinierter Text auf Master‑Folien‑Ebene gesteuert werden, um Konsistenz über alle Layout‑Folien hinweg sicherzustellen. Aspose.Slides für .NET ermöglicht das Festlegen von Sichtbarkeit und Inhalt dieser Fußzeilen‑Platzhalter auf dem Master‑Folie und das Propagieren dieser Einstellungen zu allen untergeordneten Layout‑Folien. Dieser Ansatz sorgt für einheitliche Fußzeileninformationen in der gesamten Präsentation.​
+Ein Layout besitzt eigene Fußzeilen‑, Folien‑Nummern‑ und Datum‑Zeit‑Platzhalter. Nutzen Sie die [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/headerfootermanager/)‑Eigenschaft, um diese Platzhalter für ein Layout zu steuern. Das ist nützlich, wenn beispielsweise Inhalts‑Layouts Fußzeilen zeigen sollen, Titelfolien jedoch nicht.
 
-1. Erstellen Sie eine Instanz der Klasse [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/).
-1. Holen Sie sich eine Referenz auf die Master‑Folie anhand ihres Index.
-1. Setzen Sie die Fußzeilen‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
-1. Setzen Sie die Folien‑Nummer‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
-1. Setzen Sie die Datum‑Uhrzeit‑Platzhalter des Masters und aller untergeordneten Folien auf sichtbar.
-1. Speichern Sie die Präsentation.
+Das folgende Beispiel wählt ein Layout sicher aus und macht seine Fußzeilen‑Elemente sichtbar:
 
-Der folgende C#‑Code demonstriert diesen Vorgang:
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
+## **Steuerung der Fußzeilen‑Sichtbarkeit auf einem Master und seinen untergeordneten Layouts**
+
+Um konsistente Fußzeilen‑Einstellungen über eine Master‑Hierarchie hinweg anzuwenden, verwenden Sie die [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/de/net/aspose.slides/imasterslide/headerfootermanager/)‑Eigenschaft. Die Propagations‑Methoden von [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/de/net/aspose.slides/imasterslideheaderfootermanager/) wirken auf den Master sowie dessen abhängige Layout‑ und Normal‑Folien; sie richten sich nicht nur an eine einzelne normale Folie.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
+
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
+```
 
 ## **FAQ**
 
 **Was ist der Unterschied zwischen einer Master‑Folie und einer Layout‑Folie?**
 
-Eine Master‑Folie definiert das gesamte Design und die Standardformatierung, während Layout‑Folien bestimmte Anordnungen von Platzhaltern für verschiedene Inhaltsarten festlegen.
+Eine Master‑Folie definiert das Design und die geteilte Formatierung der Präsentation. Eine Layout‑Folie gehört zu einem Master und definiert eine wiederverwendbare Anordnung von Platzhaltern. Normale Folien verwenden diese Layouts und speichern den folienspezifischen Inhalt.
 
 **Kann ich eine Layout‑Folie von einer Präsentation in eine andere kopieren?**
 
-Ja, Sie können eine Layout‑Folie aus der [LayoutSlides](https://reference.aspose.com/slides/net/aspose.slides/presentation/layoutslides/)‑Sammlung einer Präsentation klonen und mit der Methode `AddClone` in eine andere einfügen.
+Ja. Fügen Sie eine Kopie zur Ziel‑Sammlung mit der [AddClone](https://reference.aspose.com/slides/de/net/aspose.slides/globallayoutslidecollection/addclone/)‑Methode hinzu. Beim Kopieren zwischen Präsentationen sollten Sie zudem Schriftarten, Designs, Bilder und weitere Ressourcen des Quell‑Layouts überprüfen.
 
-**Was passiert, wenn ich eine Layout‑Folie lösche, die noch von einer Folie verwendet wird?**
+**Was geschieht, wenn ich ein bereits genutztes Layout bearbeite?**
 
-Versuchen Sie, eine Layout‑Folie zu löschen, die von mindestens einer Folie in der Präsentation referenziert wird, wirft Aspose.Slides eine [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/). Um das zu vermeiden, verwenden Sie [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/), das sicher nur ungenutzte Layout‑Folien entfernt.
+Abhängige Folien erben die Layout‑Änderungen, sofern sie die betroffenen Formatierungen oder Objekte nicht lokal überschreiben. Die Geometrie von Platzhaltern und vererbte Stile können daher gleichzeitig auf vielen Folien geändert werden. Nutzen Sie [GetDependingSlides](https://reference.aspose.com/slides/de/net/aspose.slides/ilayoutslide/getdependingslides/), um die betroffenen Folien vor dem Bearbeiten des Layouts zu identifizieren.
+
+**Was passiert, wenn ich ein noch genutztes Layout entferne?**
+
+Aspose.Slides wirft eine [PptxEditException](https://reference.aspose.com/slides/de/net/aspose.slides/pptxeditexception/). Ordnen Sie zuerst die abhängigen Folien neu zu oder verwenden Sie [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/de/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/), um nur nicht referenzierte Layouts zu entfernen.

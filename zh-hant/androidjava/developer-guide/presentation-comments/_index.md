@@ -1,263 +1,487 @@
 ---
-title: 在 Android 上管理簡報註解
-linktitle: 簡報註解
+title: 在 Android 上管理簡報評論
+linktitle: 簡報評論
 type: docs
 weight: 100
 url: /zh-hant/androidjava/presentation-comments/
 keywords:
-- 註解
-- 現代註解
-- PowerPoint 註解
-- 簡報註解
-- 投影片註解
-- 新增註解
-- 存取註解
-- 編輯註解
-- 回覆註解
-- 移除註解
-- 刪除註解
+- 評論
+- 現代評論
+- PowerPoint 評論
+- 簡報評論
+- 投影片評論
+- 新增評論
+- 存取評論
+- 編輯評論
+- 回覆評論
+- 移除評論
+- 刪除評論
 - PowerPoint
-- OpenDocument
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java 徹底掌握簡報註解：快速且輕鬆地在 PowerPoint 檔案中新增、讀取、編輯與刪除註解。"
+description: "使用 Aspose.Slides for Android via Java 來管理簡報評論：快速且輕鬆地在 PowerPoint 簡報中新增、閱讀、編輯、回覆以及移除評論。"
 ---
 ## **概覽**
 
-本文說明如何在 Aspose.Slides 中管理簡報註解。它展示了主要的與註解相關的類型，並示範如何將註解新增到投影片、存取現有註解、處理回覆、使用現代註解，以及從簡報中移除註解。
+本文說明如何使用 Aspose.Slides for Android via Java 來管理簡報評論。它會介紹主要的與評論相關的型別，並示範如何在投影片上新增評論、存取現有評論、處理回覆與現代評論，以及如何從簡報中移除評論。
 
-範例聚焦於 PowerPoint 中常見的審閱與協作情境，例如將註解指派給作者、讀取註解內容與中繼資料、建立回覆鏈，以及清除所有註解或刪除選取的註解。
+這些範例涵蓋 PowerPoint 中常見的審閱與協作情境，例如指派評論給作者、讀取評論文字與中繼資料、建立回覆鏈，以及移除選取的評論或全部評論。
 
-在 PowerPoint 中，註解會以投影片上的備註或標註形式顯示。點擊註解時，其內容或訊息會展開顯示。
+在 PowerPoint 中，評論會以註記的形式顯示在投影片上。選取評論時會顯示其文字與相關討論。
 
-### **為什麼要在簡報中添加註解？**
+## **為何在簡報中加入評論？**
 
-在審閱簡報時，您可能會想使用註解來提供回饋或與同事溝通。
+在審閱簡報時，可使用評論提供回饋並與同事協作。
 
-為了讓您能在 PowerPoint 簡報中使用註解，Aspose.Slides for Android via Java 提供了
+Aspose.Slides for Android via Java 提供以下 API 以操作評論：
 
-* [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/Presentation) 類別，包含作者集合（來自 [ICommentAuthorCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ICommentAuthorCollection) 介面）。作者會將註解新增至投影片。
-* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ICommentCollection) 介面，包含個別作者的註解集合。
-* [IComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment) 類別，提供作者及其註解的資訊：誰新增了註解、註解的新增時間、註解的位置等。
-* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/CommentAuthor) 類別，包含個別作者的資訊：作者名稱、縮寫、與該作者相關的註解等。
+* [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別，提供存取簡報評論作者的功能。
+* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icommentcollection/) 介面，代表與特定作者相關的評論集合。
+* [IComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/) 介面，提供評論的資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/commentauthor/) 類別，提供作者資訊，包含名稱、縮寫與關聯的評論。
 
-## **新增投影片註解**
-以下 Java 程式碼示範如何在 PowerPoint 簡報的投影片中新增註解：
+## **新增投影片評論**
+
+以下範例示範如何在 PowerPoint 簡報的投影片中新增評論：
 
 ```java
-// 建立 Presentation 類別的實例
-Presentation pres = new Presentation();
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ICommentCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
 try {
-    // 新增空白投影片
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    PointF position = new PointF(0.2f, 0.2f);
+    Date createdTime = new Date();
 
-    // 新增作者
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-    // 設定註解的位置
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
+    IComment[] comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        IComment firstComment = comments[0];
+        System.out.println(firstComment.getText());
 
-    // 為作者在投影片 1 上新增投影片註解
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // 為作者在投影片 2 上新增投影片註解
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // 取得 ISlide 1
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 當參數傳入 null 時，會將所有作者的註解帶入選取的投影片
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // 取得投影片 1 中索引 0 的註解
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // 取得作者在索引 0 的註解集合
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+        ICommentCollection authorComments = firstComment.getAuthor().getComments();
+        String commentText = authorComments.get_Item(0).getText();
+        System.out.println(commentText);
     }
+
+    presentation.save("Comments_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **存取投影片註解**
-以下 Java 程式碼示範如何存取 PowerPoint 簡報中投影片的現有註解：
+## **存取投影片評論**
+
+以下範例示範如何在 PowerPoint 簡報中存取現有評論：
 
 ```java
-// 實例化 Presentation 類別
-Presentation pres = new Presentation("Comments1.pptx");
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Comments1.pptx");
 try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        for (IComment comment : author.getComments()) {
+            System.out.println("Slide: " + comment.getSlide().getSlideNumber());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Author: " + comment.getAuthor().getName());
+            System.out.println("Posted at: " + comment.getCreatedTime());
+            System.out.println();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **回覆註解**
-父註解是註解或回覆階層中的最上層或原始註解。使用 [getParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment#getParentComment--) 或 [setParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) 方法（來自 [IComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment) 介面），即可取得或設定父註解。
+## **回覆評論**
 
-以下 Java 程式碼示範如何新增註解以及取得其回覆：
+父評論是回覆層級頂端的原始評論。[IComment.getParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#getParentComment--) 與 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可讓您取得或設定評論的父項。
+
+以下範例示範如何新增回覆並檢查產生的評論層級結構：
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // 新增註解
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
 
-    // 為 comment1 新增回覆
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    PointF position = new PointF(10, 10);
+    Date createdTime = new Date();
+
+    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
 
-    // 為 comment1 再新增另一個回覆
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
 
-    // 為既有回覆新增回覆
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
 
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
 
-    // 在主控台顯示註解階層
-    ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
+    for (int i = 0; i < comments.length; i++) {
         IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
+        while (comment.getParentComment() != null) {
             System.out.print("\t");
             comment = comment.getParentComment();
         }
 
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        System.out.println(comments[i].getAuthor().getName() + ": " + comments[i].getText());
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // 移除 comment1 以及其所有回覆
+    presentation.save("parent_comment.pptx", SaveFormat.Pptx);
+
     comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="warning" title="Attention" %}} 
-* 當使用 [Remove](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment#remove--) 方法（來自 [IComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment) 介面）刪除註解時，該註解的回覆也會一起被刪除。
-* 若將 [setParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) 設定為循環參考，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/PptxEditException)。
+{{% alert color="warning" title="警告" %}}
+* 使用 [IComment.remove](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#remove--) 方法刪除評論時，該評論的所有回覆也會一起被刪除。
+* 若 [IComment.setParentComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 產生循環參照，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
-## **新增現代註解**
+## **新增現代評論**
 
-2021 年，Microsoft 在 PowerPoint 中推出了 *現代註解*。現代註解功能大幅提升了 PowerPoint 的協作能力。透過現代註解，PowerPoint 使用者可以解決註解、將註解錨定於物件與文字，並更輕鬆地進行互動。
+現代評論可以與投影片本身、特定形狀，或 AutoShape 內的文字範圍關聯。 [ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) 方法除了接受投影片與評論標記座標外，亦接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 參數。
 
-Aspose.Slides 透過 [ModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ModernComment) 類別支援現代註解。已在 [CommentCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/CommentCollection) 類別中加入 [addModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 與 [insertModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 方法。
+當傳入 `null` 作為形狀參數時，該評論為投影片層級的評論。其標記位置由提供的座標決定，但不會與特定形狀關聯，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getShape--) 會回傳 `null`。若提供了 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/)，則評論會錨定在該形狀上。座標仍然決定評論標記在投影片上的位置，而形狀的關聯可透過 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getShape--) 取得。
 
-以下 Java 程式碼示範如何在 PowerPoint 簡報的投影片中新增現代註解：
+### **將現代評論錨定至形狀**
 
-```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **移除註解**
-
-### **刪除所有註解與作者**
-以下 Java 程式碼示範如何在簡報中移除所有註解與作者：
+以下範例同時建立投影片層級的現代評論以及錨定於特定 AutoShape 的現代評論，並讀取每個評論所關聯的形狀：
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // 刪除簡報中的所有註解
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
-    }
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Date;
 
-    // 刪除所有作者
-    presentation.getCommentAuthors().clear();
-
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-### **刪除特定註解**
-以下 Java 程式碼示範如何刪除投影片上的特定註解：
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
 
-    // 新增註解...
+    Date createdTime = new Date();
+    PointF slideCommentPosition = new PointF(20, 20);
+    PointF shapeCommentPosition = new PointF(60, 60);
+    IModernComment slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    IModernComment shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    System.out.println(slideComment.getShape() == null);
+    System.out.println(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **將評論錨定至不同類型的形狀**
+
+任何實作了 [IShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 的投影片物件皆可作為形狀錨點。常見的例子包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iconnector/) 與 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igraphicalobject/)（如圖表）等實例。
+
+以下範例建立多種常見形狀類型，並為每一個形狀關聯一則現代評論：
+
+```java
+import com.aspose.slides.ChartType;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IChart;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IConnector;
+import com.aspose.slides.IGroupShape;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.IPictureFrame;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Base64;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Date createdTime = new Date();
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    PointF autoShapeCommentPosition = new PointF(30, 30);
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    IPPImage image = presentation.getImages().addImage(imageData);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+    PointF pictureCommentPosition = new PointF(230, 30);
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    IGroupShape groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+    PointF groupCommentPosition = new PointF(40, 150);
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+    PointF connectorCommentPosition = new PointF(240, 150);
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+    PointF chartCommentPosition = new PointF(420, 40);
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **將評論錨定至文字並設定其狀態**
+
+對於關聯於 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/) 的現代評論，[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 與 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 可取得形狀文字框中所選文字的起始位置。 [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 可取得選取的長度。這兩個值共同將評論與 AutoShape 內的特定文字範圍關聯起來。
+
+[IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法可取得 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncommentstatus/) 常數中的值：
+
+- `NotDefined` — 未定義特定的現代評論狀態。
+- `Active` — 評論處於活躍狀態。
+- `Resolved` — 評論已解決。
+- `Closed` — 評論已關閉。
+
+以下範例建立一個錨定於形狀的現代評論，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證各項值：
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ModernCommentStatus;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Date;
+
+String outputFile = "modern_comment_text_anchor.pptx";
+String shapeText = "Review the quarterly revenue forecast.";
+String selectedText = "quarterly revenue";
+int expectedSelectionStart = shapeText.indexOf(selectedText);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    PointF commentPosition = new PointF(60, 60);
+    IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length());
+    comment.setStatus(ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation(outputFile);
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IComment[] reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (IComment reopenedComment : reopenedComments) {
+        if (!(reopenedComment instanceof IModernComment)) {
+            continue;
+        }
+
+        IModernComment modernComment = (IModernComment) reopenedComment;
+        boolean shapeMatches = modernComment.getShape() != null && "Forecast text".equals(modernComment.getShape().getName());
+        boolean selectionStartMatches = modernComment.getTextSelectionStart() == expectedSelectionStart;
+        boolean selectionLengthMatches = modernComment.getTextSelectionLength() == selectedText.length();
+        boolean statusMatches = modernComment.getStatus() == ModernCommentStatus.Resolved;
+
+        System.out.println("Shape anchor preserved: " + shapeMatches);
+        System.out.println("Text selection start preserved: " + selectionStartMatches);
+        System.out.println("Text selection length preserved: " + selectionLengthMatches);
+        System.out.println("Resolved status preserved: " + statusMatches);
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **檢查現有的現代評論**
+
+要檢查現有的簡報，先判斷哪些評論實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/)，之後檢查 [IModernComment.getShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 與 [IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形狀表示投影片層級的評論。若是以 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/) 為錨點，文字選取方法會指出該形狀文字框中相關的文字範圍。
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.IShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        IComment[] comments = slide.getSlideComments(null);
+        for (IComment comment : comments) {
+            if (!(comment instanceof IModernComment)) {
+                continue;
+            }
+
+            IModernComment modernComment = (IModernComment) comment;
+            System.out.println("Slide: " + slide.getSlideNumber());
+            System.out.println("Text: " + modernComment.getText());
+            System.out.println("Status: " + modernComment.getStatus());
+
+            IShape shape = modernComment.getShape();
+            if (shape == null) {
+                System.out.println("Anchor: slide level");
+            } else {
+                System.out.println("Anchor shape: " + shape.getName());
+                System.out.println("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (shape instanceof IAutoShape) {
+                    System.out.println("Text selection start: " + modernComment.getTextSelectionStart());
+                    System.out.println("Text selection length: " + modernComment.getTextSelectionLength());
+                }
+            }
+
+            System.out.println();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **移除評論**
+
+### **移除所有評論與評論作者**
+
+以下範例示範如何從簡報中移除所有評論與評論作者：
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("example.pptx");
+try {
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        author.getComments().clear();
+    }
+
+    presentation.getCommentAuthors().clear();
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **移除特定評論**
+
+以下範例示範如何從投影片中移除特定評論：
+
+```java
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+    Date createdTime = new Date();
 
-    // 移除所有包含 "comment 1" 文字的註解
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+    PointF firstCommentPosition = new PointF(0.2f, 0.2f);
+    PointF secondCommentPosition = new PointF(0.3f, 0.2f);
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors()) {
+        List<IComment> commentsToRemove = new ArrayList<IComment>();
+        IComment[] comments = slide.getSlideComments(commentAuthor);
+
+        for (IComment comment : comments) {
+            if ("comment 1".equals(comment.getText())) {
+                commentsToRemove.add(comment);
             }
         }
 
-        for (IComment comment : toRemove)
-        {
+        for (IComment comment : commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
 
     presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ## **常見問題**
 
-**Aspose.Slides 是否支援類似「已解決」的狀態於現代註解？**  
-是的。[Modern comments](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncomment/) 提供 [setStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-) 方法；您可以寫入 [comment’s state](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncommentstatus/)（例如將其標記為已解決），此狀態會儲存在檔案中並被 PowerPoint 識別。
+**Aspose.Slides 是否支援現代評論的已解決狀態？**
 
-**是否支援串聯討論（回覆鏈），且是否有巢狀深度限制？**  
-是的。每個註解都可以參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/comment/#getParentComment--)，從而允許任意深度的回覆鏈。API 並未宣告特定的巢狀深度限制。
+是的。 [IModernComment.getStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 與 [IModernComment.setStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 可取得 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/moderncommentstatus/) 中的值，包括 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可再次讀取。
 
-**註解標記在投影片上的位置是以哪種座標系統定義的？**  
-位置以浮點座標點儲存在投影片的座標系統中，讓您能精確地將註解標記放置在所需位置。
+**是否支援串接式討論（回覆鏈），且有巢狀深度限制嗎？**
+
+支援。每則評論都可以參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icomment/#getParentComment--)，從而形成回覆鏈。API 並未定義特定的巢狀深度上限。
+
+**評論標記在投影片上的位置使用哪種座標系統定義？**
+
+標記位置是以浮點座標在投影片座標系統中定義的，允許您精確地將其放置於投影片的任意位置。

@@ -1,49 +1,50 @@
 ---
-title: สร้างภาพย่อของรูปร่างพรีเซนเทชันใน Java
-linktitle: ภาพย่อรูปร่าง
+title: "สร้างภาพขนาดย่อของรูปร่างงานนำเสนอใน Java"
+linktitle: "ภาพขนาดย่อของรูปทรง"
 type: docs
 weight: 70
 url: /th/java/create-shape-thumbnails/
 keywords:
-- ภาพย่อรูปร่าง
-- รูปภาพรูปร่าง
-- เรนเดอร์รูปร่าง
-- การเรนเดอร์รูปร่าง
+- "ภาพขนาดย่อของรูปทรง"
+- "รูปภาพของรูปทรง"
+- "เรนเดอร์รูปทรง"
+- "การเรนเดอร์รูปทรง"
+- "ขอบเขตการแสดงผล"
+- "ขอบเขตรูปทรง"
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "สร้างภาพย่อของรูปร่างคุณภาพสูงจากสไลด์ PowerPoint ด้วย Aspose.Slides for Java - สร้างและส่งออกรูปภาพย่อของพรีเซนเทชันได้อย่างง่ายดาย."
+description: "สร้างภาพขนาดย่อของรูปทรงคุณภาพสูงจากสไลด์ PowerPoint ด้วย Aspose.Slides for Java – สร้างและส่งออกภาพขนาดย่อของงานนำเสนอได้อย่างง่ายดาย."
 ---
 ## **บทนำ**
 
-Aspose.Slides for Java สามารถใช้สร้างไฟล์พรีเซนเทชันที่แต่ละหน้าตรงกับสไลด์ได้ สไลด์สามารถดูได้โดยเปิดไฟล์พรีเซนเทชันด้วย Microsoft PowerPoint อย่างไรก็ตามนักพัฒนาบางครั้งต้องการดูรูปภาพของรูปร่างแยกออกในโปรแกรมดูรูปภาพ ในกรณีดังกล่าว Aspose.Slides for Java ช่วยให้พวกเขาสร้างภาพย่อของรูปร่างในสไลด์ได้
+Aspose.Slides for Java สามารถใช้สร้างไฟล์งานนำเสนอที่แต่ละหน้าตรงกับสไลด์หนึ่งสไลด์ได้ สไลด์เหล่านี้สามารถดูได้โดยเปิดไฟล์งานนำเสนอด้วย Microsoft PowerPoint อย่างไรก็ตาม นักพัฒนาบางครั้งต้องการดูภาพของรูปร่างแยกต่างหากในโปรแกรมแสดงภาพ ในกรณีเช่นนี้ Aspose.Slides for Java ช่วยให้พวกเขาสร้างภาพขนาดย่อของรูปร่างในสไลด์ได้
 
-บทความนี้อธิบายวิธีการสร้างภาพย่อของสไลด์ในหลายวิธี:
+บทความนี้อธิบายวิธีการสร้างภาพขนาดย่อของสไลด์ในรูปแบบต่าง ๆ :
 
-- สร้างภาพย่อของรูปร่างภายในสไลด์
-- สร้างภาพย่อของรูปร่างในสไลด์โดยกำหนดขนาดตามผู้ใช้
-- สร้างภาพย่อของรูปร่างภายในขอบเขตการแสดงผลของรูปร่าง
+- การสร้างภาพขนาดย่อของรูปร่างภายในสไลด์
+- การสร้างภาพขนาดย่อของรูปร่างสำหรับสไลด์พร้อมขนาดที่กำหนดโดยผู้ใช้
+- การสร้างภาพขนาดย่อของรูปร่างภายในขอบเขตของการแสดงผลของรูปร่าง
 
-## **สร้างภาพย่อของรูปร่างจากสไลด์**
+## **สร้างภาพขนาดย่อของรูปร่างจากสไลด์**
+เพื่อสร้างภาพขนาดย่อของรูปร่างจากสไลด์ใด ๆ ด้วย Aspose.Slides for Java ให้ทำตามขั้นตอนต่อไปนี้ :
 
-เพื่อสร้างภาพย่อของรูปร่างจากสไลด์ใด ๆ ด้วย Aspose.Slides for Java ทำตามขั้นตอนต่อไปนี้:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
+1. รับอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของสไลด์  
+1. [รับภาพขนาดย่อของรูปร่าง](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getImage--) ของสไลด์ที่อ้างอิงบนสเกลเริ่มต้น  
+1. บันทึกภาพขนาดย่อในรูปแบบภาพที่คุณต้องการ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation)
-1. ดึงอ้างอิงของสไลด์ใด ๆ ด้วย ID หรือ index ของมัน
-1. [รับภาพย่อของรูปร่าง](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#getImage--) ของสไลด์ที่อ้างอิงโดยใช้สเกลค่าเริ่มต้น
-1. บันทึกภาพย่อในรูปแบบภาพที่คุณต้องการ
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีสร้างภาพย่อของรูปร่างจากสไลด์:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีการสร้างภาพขนาดย่อของรูปร่างจากสไลด์ :
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แสดงไฟล์พรีเซนเทชัน
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
     // สร้างภาพเต็มสเกล
     IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
     
-    // บันทึกภาพลงดิสก์ในรูปแบบ PNG
+    // บันทึกภาพไปยังดิสก์ในรูปแบบ PNG
     try {
           slideImage.save("output.png", ImageFormat.Png);
     } finally {
@@ -54,25 +55,24 @@ try {
 }
 ```
 
-## **สร้างภาพย่อด้วยอัตราส่วนการขยายที่กำหนดโดยผู้ใช้**
+## **สร้างภาพขนาดย่อที่กำหนดสเกลด้วยตัวเอง**
+เพื่อสร้างภาพขนาดย่อของรูปร่างจากสไลด์ด้วย Aspose.Slides for Java ให้ทำตามขั้นตอนต่อไปนี้ :
 
-เพื่อสร้างภาพย่อของรูปร่างในสไลด์ด้วย Aspose.Slides for Java ทำตามขั้นตอนต่อไปนี้:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
+1. รับอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของสไลด์  
+1. [รับภาพขนาดย่อของรูปร่าง](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getImage-int-float-float-) ของสไลด์ที่อ้างอิงพร้อมขนาดที่กำหนดโดยผู้ใช้  
+1. บันทึกภาพขนาดย่อในรูปแบบภาพที่คุณต้องการ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation)
-1. ดึงอ้างอิงของสไลด์ใด ๆ ด้วย ID หรือ index ของมัน
-1. [รับภาพย่อของรูปร่าง](https://reference.aspose.com/slides/th/java/com.aspose.slides/IShape#getImage-int-float-float-) ของสไลด์ที่อ้างอิงด้วยขนาดที่กำหนดโดยผู้ใช้
-1. บันทึกภาพย่อในรูปแบบภาพที่คุณต้องการ
-
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีสร้างภาพย่อของรูปร่างโดยอิงจากอัตราส่วนการขยายที่กำหนด:
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีการสร้างภาพขนาดย่อของรูปร่างโดยอิงจากสเกลที่กำหนด :
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
     // สร้างภาพเต็มสเกล
     IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Shape, 1, 1);
 
-    // บันทึกภาพลงดิสก์ในรูปแบบ PNG
+    // บันทึกภาพไปยังดิสก์ในรูปแบบ PNG
     try {
           slideImage.save("output.png", ImageFormat.Png);
     } finally {
@@ -83,25 +83,24 @@ try {
 }
 ```
 
-## **สร้างภาพย่อของรูปร่างตามขอบเขตการแสดงผล**
+## **สร้างภาพขนาดย่อตามขอบเขตของการแสดงผลของรูปร่าง**
+วิธีนี้ช่วยให้นักพัฒนาสร้างภาพขนาดย่อของรูปร่างโดยอิงจากขอบเขตการแสดงผลของรูปร่าง ซึ่งคำนึงถึงเอฟเฟกต์ทั้งหมดของรูปร่าง ภาพขนาดย่อที่สร้างจะถูกจำกัดโดยขอบของสไลด์ เพื่อสร้างภาพขนาดย่อของรูปร่างในขอบเขตการแสดงผล ให้ทำตามขั้นตอนต่อไปนี้ :
 
-วิธีนี้ในการสร้างภาพย่อของรูปร่างช่วยให้นักพัฒนาสามารถสร้างภาพย่อภายในขอบเขตการแสดงผลของรูปร่างได้ โดยคำนึงถึงเอฟเฟกต์ทั้งหมดของรูปร่าง ภาพย่อที่สร้างจะถูกจำกัดโดยขอบเขตของสไลด์ เพื่อสร้างภาพย่อของรูปร่างสไลด์ภายในขอบเขตการแสดงผลทำตามขั้นตอนต่อไปนี้:
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation/)  
+1. รับอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของสไลด์  
+1. รับภาพขนาดย่อของสไลด์ที่อ้างอิงโดยใช้ขอบเขตของรูปร่างเป็นการแสดงผล  
+1. บันทึกภาพขนาดย่อในรูปแบบภาพที่คุณต้องการ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/presentation)
-1. ดึงอ้างอิงของสไลด์ใด ๆ ด้วย ID หรือ index ของมัน
-1. ดึงภาพย่อของสไลด์ที่อ้างอิงโดยใช้ขอบเขตรูปร่างเป็นการแสดงผล
-1. บันทึกภาพย่อในรูปแบบภาพที่คุณต้องการ
-
-โค้ดตัวอย่างต่อไปนี้อ้างอิงจากขั้นตอนข้างต้น:
+โค้ดตัวอย่างต่อไปนี้อิงตามขั้นตอนข้างต้น :
 
 ```java
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
+// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์งานนำเสนอ
 Presentation pres = new Presentation("Thumbnail.pptx");
 try {
     // สร้างภาพเต็มสเกล
     IImage slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(ShapeThumbnailBounds.Appearance, 1, 1);
 
-    // บันทึกภาพลงดิสก์ในรูปแบบ PNG
+    // บันทึกภาพไปยังดิสก์ในรูปแบบ PNG
     try {
           slideImage.save("output.png", ImageFormat.Png);
     } finally {
@@ -112,24 +111,56 @@ try {
 }
 ```
 
+## **รับขอบเขตการแสดงผลจริงของรูปร่าง**
+
+คุณสมบัติกรอบของ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) — วิธี `getX()`, `getY()`, `getWidth()`, และ `getHeight()` — อธิบายสี่เหลี่ยมที่จัดเก็บในโมเดลงานนำเสนอ เนื้อหาที่จริง ๆ แล้วถูกเรนเดอร์อาจขยายออกไปนอกกรอบนั้นหรืออยู่ในสี่เหลี่ยมที่จัดแนวตามแกนต่างกัน การหมุน, เส้นขอบ, ลูกศร, การจัดวางข้อความและการล้น, เรขาคณิต SmartArt ที่สร้างขึ้น, และเอฟเฟกต์การเรนเดอร์อื่น ๆ สามารถเปลี่ยนพื้นที่ที่ใช้ได้ทั้งหมด
+
+ใช้ [Shape.getVisualBounds](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getVisualBounds--) เพื่อคำนวณพื้นที่ที่ใช้โดยไม่ต้องสร้างภาพ วิธีนี้คืนค่าเป็น [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) ในพิกัดของสไลด์ สี่เหลี่ยมที่คืนค่าไม่ได้ถูกตัดคลิปกับสไลด์ ดังนั้นพิกัดอาจเป็นค่าลบเมื่อเนื้อหาขยายออกไปนอกจุดกำเนิดของสไลด์
+
+[Shape.getVisualBounds](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getVisualBounds--) ยังไม่ได้ถูกประกาศในอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/) ดังนั้นให้เก็บรูปร่างที่ดึงมาจากคอลเลกชันของสไลด์เป็นค่าอินเทอร์เฟซและทำการแคสเมื่อเรียกใช้เมธอดเท่านั้น
+
+ตัวอย่างต่อไปนี้แสดงการดึงและเปรียบเทียบกรอบและขอบเขตการแสดงผล :
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    Rectangle2D.Float visualBounds = ((Shape) shape).getVisualBounds();
+
+    Rectangle2D.Float frameBounds = new Rectangle2D.Float(
+        shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+
+    System.out.println("Frame bounds: " + frameBounds);
+    System.out.println("Visual bounds: " + visualBounds);
+} finally {
+    presentation.dispose();
+}
+```
+
+[Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) เดียวกันสามารถนำไปใช้จัดตำแหน่งรูปร่างที่อยู่ใกล้เคียงให้ชิดซ้าย, ชิดขวา, ชิดบน หรือชิดล่าง; จองพื้นที่เพียงพอในเลเอาต์ที่สร้าง; หรือตรวจจับเนื้อหานอกเขตที่อนุญาตได้ ขอบเขตการแสดงผลมีประโยชน์เป็นพิเศษสำหรับ SmartArt, กล่องข้อความ, ลูกศร, รูปภาพ, รูปร่างที่หมุน, และกลุ่มรูปร่าง ซึ่งกรอบที่จัดเก็บอาจไม่แสดงผลการเรนเดอร์ที่เต็มรูป
+
+ใช้ [Shape.getVisualBounds](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getVisualBounds--) เมื่อคุณต้องการพิกัดสำหรับการจัดเลเอาต์หรือการตรวจสอบและไม่ต้องการบิตแมพ ใช้ [IShape.getImage](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishape/#getImage--) เมื่อคุณต้องการเรนเดอร์รูปร่าง กับ [ShapeThumbnailBounds](https://reference.aspose.com/slides/th/java/com.aspose.slides/shapethumbnailbounds/) `ShapeThumbnailBounds.Shape` กำหนดขนาดภาพจากขอบเขตของรูปร่างรวมถึงการตั้งค่าเส้นขอบ, ในขณะที่ `ShapeThumbnailBounds.Appearance` กำหนดขนาดจากการแสดงผลของรูปร่างและจำกัดผลลัพธ์ให้อยู่ภายในขอบของสไลด์ ตรงกันข้าม, [Shape.getVisualBounds](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#getVisualBounds--) คืนค่าเฉพาะสี่เหลี่ยมที่คำนวณได้และไม่ตัดคลิปกับสไลด์
+
 ## **คำถามที่พบบ่อย**
 
-**รูปแบบภาพใดบ้างที่สามารถใช้เมื่อบันทึกภาพย่อของรูปร่าง?**
+**รูปแบบภาพใดบ้างที่สามารถใช้เมื่อบันทึกภาพขนาดย่อของรูปร่าง?**
 
-รูปแบบ [PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/th/java/com.aspose.slides/imageformat/), เป็นต้น รูปร่างยังสามารถ [ส่งออกเป็นเวกเตอร์ SVG](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) โดยบันทึกเนื้อหารูปร่างเป็น SVG.
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/th/java/com.aspose.slides/imageformat/), และรูปแบบอื่น ๆ รูปร่างยังสามารถ [exported as vector SVG](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) ได้ด้วยการบันทึกเนื้อหารูปร่างเป็น SVG
 
-**ความแตกต่างระหว่างขอบเขต Shape และ Appearance เมื่อเรนเดอร์ภาพย่อคืออะไร?**
+**ความแตกต่างระหว่างขอบเขต Shape กับ Appearance คืออะไรเมื่อเรนเดอร์ภาพขนาดย่อ?**
 
-`Shape` ใช้เรขาคณิตของรูปร่าง; `Appearance` พิจารณา [เอฟเฟกต์ภาพ](/slides/th/java/shape-effect/) (เงา, ส่องแสง, ฯลฯ) ด้วย
+`Shape` ใช้เรขาคณิตของรูปร่าง; `Appearance` นำ [visual effects](/slides/th/java/shape-effect/) (เงา, แสงสว่าง ฯลฯ) มาพิจารณา
 
-**จะเกิดอะไรขึ้นหากรูปร่างถูกทำเครื่องหมายว่าเป็น hidden? จะยังคงเรนเดอร์เป็นภาพย่อหรือไม่?**
+**ถ้ารูปร่างถูกทำเครื่องหมายว่า hidden จะเกิดอะไรขึ้น? ยังสามารถเรนเดอร์เป็นภาพขนาดย่อได้หรือไม่?**
 
-รูปร่างที่ซ่อนอยู่ยังคงเป็นส่วนหนึ่งของโมเดลและสามารถเรนเดอร์ได้; ธง hidden มีผลต่อการแสดงผลสไลด์โชว์เท่านั้น แต่ไม่ป้องกันการสร้างภาพของรูปร่าง
+รูปร่างที่ซ่อนอยู่ยังคงเป็นส่วนหนึ่งของโมเดลและสามารถเรนเดอร์ได้; ธง hidden มีผลต่อการแสดงในโหมดสไลด์โชว์เท่านั้น ไม่ได้ป้องกันการสร้างภาพของรูปร่าง
 
-**รองรับรูปแบบกลุ่ม, แผนภูมิ, SmartArt และวัตถุซับซ้อนอื่น ๆ หรือไม่?**
+**รูปแบบกลุ่มรูปร่าง, แผนภูมิ, SmartArt, และออบเจ็กต์ซับซ้อนอื่น ๆ รองรับหรือไม่?**
 
-ใช่ วัตถุใด ๆ ที่แสดงเป็น [Shape](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/) (รวมถึง [GroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/th/java/com.aspose.slides/chart/), และ [SmartArt](https://reference.aspose.com/slides/th/java/com.aspose.slides/smartart/)) สามารถบันทึกเป็นภาพย่อหรือเป็น SVG ได้
+ใช่. อ็อบเจ็กต์ใดก็ได้ที่เป็นตัวแทนเป็น [Shape](https://reference.aspose.com/slides/th/java/com.aspose.slides/shape/) (รวมถึง [GroupShape](https://reference.aspose.com/slides/th/java/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/th/java/com.aspose.slides/chart/), และ [SmartArt](https://reference.aspose.com/slides/th/java/com.aspose.slides/smartart/)) สามารถบันทึกเป็นภาพขนาดย่อหรือเป็น SVG ได้
 
-**ฟอนต์ที่ติดตั้งในระบบส่งผลต่อคุณภาพของภาพย่อสำหรับรูปร่างข้อความหรือไม่?**
+**ฟอนต์ที่ติดตั้งในระบบมีผลต่อคุณภาพของภาพขนาดย่อสำหรับรูปร่างข้อความหรือไม่?**
 
-ใช่ คุณควร [จัดหาแบบอักษรที่จำเป็น](/slides/th/java/custom-font/) (หรือ [กำหนดการทดแทนแบบอักษร](/slides/th/java/font-substitution/)) เพื่อหลีกเลี่ยงการเปลี่ยนฟอนต์โดยไม่ต้องการและการจัดข้อความซ้ำ
+ใช่. คุณควร [provide the required fonts](/slides/th/java/custom-font/) (หรือ [configure font substitutions](/slides/th/java/font-substitution/)) เพื่อหลีกเลี่ยงการ fallback ที่ไม่ต้องการและการจัดวางข้อความที่ผิดพลาด

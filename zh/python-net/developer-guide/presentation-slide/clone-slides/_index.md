@@ -130,7 +130,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 
 如果需要将带**母版**的幻灯片从一份演示文稿克隆并在另一份演示文稿中使用，首先将所需的母版幻灯片从源演示文稿克隆到目标演示文稿。随后在克隆幻灯片时使用该目标母版。`add_clone(Slide, MasterSlide)` 方法要求提供**目标演示文稿的母版幻灯片**，而不是源演示文稿的母版。
 
-克隆带母版的幻灯片步骤如下：
+要克隆带有母版的幻灯片，请按以下步骤操作：
 
 1. 为源演示文稿（包含要克隆的幻灯片）创建 \[[演示文稿]{{https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/}}\] 实例。
 1. 为目标演示文稿创建 \[[演示文稿]{{https://reference.aspose.com/slides/zh/python-net/aspose.slides/presentation/}}\] 实例。
@@ -208,7 +208,7 @@ target_presentation.slide_size.set_size(
 
 会。备注页和审阅评论都会包含在克隆中。如果不需要它们，请在插入后[删除它们](/slides/zh/python-net/presentation-notes/)。
 
-**图表及其数据源如何处理？**
+### 图表及其数据源如何处理？
 
 图表对象、格式以及嵌入的数据都会被复制。如果图表链接到外部源（例如 OLE 嵌入的工作簿），该链接会保留为[OLE 对象](/slides/zh/python-net/manage-ole/)。在文件之间移动后，请验证数据可用性并检查刷新行为。
 

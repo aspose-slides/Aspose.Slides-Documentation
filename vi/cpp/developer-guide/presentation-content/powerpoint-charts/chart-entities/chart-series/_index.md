@@ -1,344 +1,563 @@
 ---
-title: Quản lý Series dữ liệu biểu đồ trong bản thuyết trình bằng С++
-linktitle: Series dữ liệu
+title: Quản lý Chuỗi Dữ liệu Biểu đồ trong Bản trình bày bằng C++
+linktitle: Chuỗi Dữ liệu
 type: docs
 url: /vi/cpp/chart-series/
 keywords:
-- series biểu đồ
-- chồng chập series
-- màu series
+- chuỗi biểu đồ
+- độ chồng lấp chuỗi
+- màu chuỗi
 - màu danh mục
-- tên series
+- tên chuỗi
 - điểm dữ liệu
-- khoảng cách series
+- khoảng cách chuỗi
 - PowerPoint
-- bản thuyết trình
-- С++
+- bản trình bày
+- C++
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý series biểu đồ trong С++ cho PowerPoint (PPT/PPTX) với các ví dụ mã thực tế và các thực tiễn tốt nhất để nâng cao bản trình bày dữ liệu của bạn."
+description: "Tìm hiểu cách quản lý chuỗi biểu đồ, điểm dữ liệu, ô workbook, định dạng, độ chồng lấp, độ rộng khoảng cách và các giá trị âm trong bản trình bày bằng C++."
 ---
 ## **Tổng quan**
 
-Bài viết này mô tả vai trò của [ChartSeries](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts.chartseries/) trong Aspose.Slides, tập trung vào cách dữ liệu được cấu trúc và hiển thị trong các bản thuyết trình. Các đối tượng này cung cấp các phần tử nền tảng xác định các tập hợp điểm dữ liệu, danh mục và các tham số hiển thị trong biểu đồ. Khi làm việc với [ChartSeries](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts.chartseries/), các nhà phát triển có thể tích hợp liền mạch các nguồn dữ liệu cơ bản và duy trì kiểm soát hoàn toàn cách thông tin được hiển thị, tạo ra các bản thuyết trình động, dựa trên dữ liệu, truyền đạt rõ ràng các thông tin chi tiết và phân tích.
+Biểu đồ lưu trữ dữ liệu đã vẽ trong một workbook dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/) trong chuỗi tham chiếu đến một hoặc nhiều ô workbook. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các chuỗi. Vì vậy, tên chuỗi, danh mục và giá trị điểm đều được kết nối với các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
 
-Một series là một hàng hoặc cột các số được vẽ trên biểu đồ.
+Đối với một biểu đồ danh mục điển hình, workbook mặc định sử dụng hàng 0 cho tên chuỗi, cột 0 cho tên danh mục và các ô còn lại cho giá trị chuỗi. Các chỉ mục worksheet, hàng và cột được truyền vào [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) là dựa trên chỉ số 0. bố cục này hữu ích khi bạn tạo một biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình bày đã tải, hãy kiểm tra các ô mà các chuỗi, danh mục và điểm dữ liệu tham chiếu trước khi thay đổi giá trị workbook.
+
+Cài đặt biểu đồ có ba phạm vi khác nhau:
+
+- Cài đặt ở mức chuỗi, chẳng hạn như [IChartSeries::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_format/), cung cấp giao diện mặc định cho tất cả các điểm trong một chuỗi.
+- Cài đặt ở mức điểm dữ liệu, chẳng hạn như [IChartDataPoint::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_format/), ghi đè giao diện chuỗi cho một điểm.
+- Cài đặt nhóm áp dụng cho các chuỗi tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/). Truy cập nhóm thông qua [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) khi bạn cần đặt các tùy chọn như độ chồng lấp hoặc chiều rộng khoảng cách.
+
+Khi không có màu nền điểm hoặc chuỗi nào được chỉ định rõ ràng, kiểu biểu đồ và giao diện xác định giao diện tự động. Khi cả định dạng chuỗi và điểm đều tồn tại, định dạng điểm sẽ được ưu tiên cho điểm đó.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Đặt độ chồng chập của Series dữ liệu**
+## **Đặt Độ Trùng Lấp Của Chuỗi Biểu Đồ**
 
-Với phương thức [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb), bạn có thể chỉ định mức độ chồng chập của các thanh và cột trên biểu đồ 2D (phạm vi: -100 đến 100). Thuộc tính này áp dụng cho tất cả series trong nhóm series cha: đây là một phép chiếu của thuộc tính nhóm thích hợp.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_overlap/) báo cáo mức độ các thanh hoặc cột chồng lên nhau trong một biểu đồ 2D, từ -100 đến 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm chuỗi cha. Gọi [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) để cập nhật mọi chuỗi tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột được nhóm lại; nó không ảnh hưởng đến các nhóm chuỗi không liên quan trong một biểu đồ kết hợp.
 
-Sử dụng phương thức `get_ParentSeriesGroup()::set_Overlap()` để đặt giá trị mong muốn cho `Overlap`.
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Thêm biểu đồ cột nhóm vào một slide.
-3. Truy cập series biểu đồ đầu tiên.
-4. Truy cập `ParentSeriesGroup` của series biểu đồ và đặt giá trị chồng chập mong muốn cho series.
-5. Ghi bản thuyết trình đã chỉnh sửa vào tệp PPTX.
-
-Đoạn mã C++ này cho bạn thấy cách đặt độ chồng chập cho một series biểu đồ:
+Ví dụ sau đặt độ trùng lấp cho nhóm chứa chuỗi đầu tiên:
 
 ```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int8_t overlapPercent = 30;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Thêm biểu đồ
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-if (series->idx_get(0)->get_Overlap() == 0)
-{
-    // Đặt chồng chập series
-    series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
-}
+// Biểu đồ mới chứa các chuỗi mẫu, danh mục và giá trị.
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Ghi tệp bản thuyết trình ra đĩa
-presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_Overlap(overlapPercent);
+
+presentation->Save(u"series_overlap.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Thay đổi màu của Series dữ liệu**
+Kết quả:
 
-Aspose.Slides cho C++ cho phép bạn thay đổi màu của một series theo cách này:
+![The series overlap](series_overlap.png)
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Thêm biểu đồ vào slide.
-3. Truy cập series mà bạn muốn thay đổi màu.
-4. Đặt kiểu tô và màu tô mong muốn.
-5. Lưu bản thuyết trình đã chỉnh sửa.
+## **Thay Đổi Màu Nền Của Chuỗi**
 
-Đoạn mã C++ này cho bạn thấy cách thay đổi màu của một series:
+Sử dụng [IChartSeries::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_format/) để đặt màu nền mặc định cho toàn bộ một chuỗi. Nếu một điểm đã có màu nền cụ thể, cài đặt [IChartDataPoint::get_Format](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_format/) của nó sẽ ghi đè màu nền chuỗi cho điểm đó.
+
+Ví dụ sau áp dụng màu nền xanh đậm đặc cho chuỗi đầu tiên:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/shared_ptr.h>
 
-auto chart = shapes->AddChart(ChartType::Pie, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(1);
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
 
-point->set_Explosion(30);
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
-
-## **Thay đổi màu của Danh mục Series dữ liệu**
-
-Aspose.Slides cho C++ cho phép bạn thay đổi màu của một danh mục series theo cách này:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Thêm biểu đồ vào slide.
-3. Truy cập danh mục series mà bạn muốn thay đổi màu.
-4. Đặt kiểu tô và màu tô mong muốn.
-5. Lưu bản thuyết trình đã chỉnh sửa.
-
-Đoạn mã C++ này cho bạn thấy cách thay đổi màu của một danh mục series:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0);
-
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
-
-## **Thay đổi Tên của Series dữ liệu**
-
-Mặc định, tên trong chú giải cho một biểu đồ là nội dung của các ô nằm trên mỗi cột hoặc hàng dữ liệu.
-
-Trong ví dụ của chúng tôi (hình mẫu),
-
-* các cột là *Series 1*, *Series 2* và *Series 3*;
-* các hàng là *Category 1*, *Category 2*, *Category 3* và *Category 4*.
-
-Aspose.Slides cho C++ cho phép bạn cập nhật hoặc thay đổi tên của một series trong dữ liệu biểu đồ và chú giải của nó.
-
-Đoạn mã C++ này cho bạn thấy cách thay đổi tên của một series trong `ChartDataWorkbook` của dữ liệu biểu đồ:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-Đoạn mã C++ này cho bạn thấy cách thay đổi tên của một series trong chú giải thông qua `Series`:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
-
-auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
-```
-
-## **Đặt Màu Tô Tự Động cho Series dữ liệu**
-
-Aspose.Slides cho C++ cho phép bạn đặt màu tô tự động cho các series biểu đồ trong khu vực vẽ theo cách này:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy tham chiếu đến một slide theo chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định dựa trên loại muốn dùng (trong ví dụ dưới, chúng tôi sử dụng `ChartType::ClusteredColumn`).
-4. Truy cập series biểu đồ và đặt màu tô thành Automatic.
-5. Lưu bản thuyết trình vào tệp PPTX.
-
-Đoạn mã C++ này cho bạn thấy cách đặt màu tô tự động cho một series biểu đồ:
-
-```cpp
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Tạo biểu đồ cột nhóm
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Đặt định dạng tô series thành tự động
-for (const auto& series : chart->get_ChartData()->get_Series())
-{
-    series->GetAutomaticSeriesColor();
-}
-
-// Ghi tệp bản thuyết trình ra đĩa
-presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
-```
-
-## **Đặt Màu Tô Đảo Ngược cho Series dữ liệu**
-
-Aspose.Slides cho phép bạn đặt màu tô đảo ngược cho các series biểu đồ trong khu vực vẽ theo cách này:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy tham chiếu đến một slide theo chỉ số của nó.
-3. Thêm một biểu đồ với dữ liệu mặc định dựa trên loại muốn dùng (trong ví dụ dưới, chúng tôi sử dụng `ChartType::ClusteredColumn`).
-4. Truy cập series biểu đồ và đặt màu tô thành invert.
-5. Lưu bản thuyết trình vào tệp PPTX.
-
-Đoạn mã C++ này minh họa thao tác:
-
-```cpp
-Color inverColor = Color::get_Red();
-    
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
-
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto chartData = chart->get_ChartData();
-
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
-
-// Adds new series and categories
-chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
-
-// Takes the first chart series and populates its series data.
-auto series = chartData->get_Series()->idx_get(0);
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-30)));
-Color seriesColor = series->GetAutomaticSeriesColor();
-series->set_InvertIfNegative(true);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesColor = Color::get_Blue();
 series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColor);
-series->get_InvertedSolidFillColor()->set_Color(inverColor);
-pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
+
+presentation->Save(u"series_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Đặt Màu Tô Đảo Ngược cho Một Series Biểu đồ**
+Kết quả:
 
-Aspose.Slides cho phép bạn thiết lập đảo ngược thông qua các phương thức `IChartDataPoint::set_InvertIfNegative()` và `ChartDataPoint.set_InvertIfNegative()`. Khi thiết lập đảo ngược bằng các phương thức này, điểm dữ liệu sẽ đổi màu khi nhận được giá trị âm.
+![The color of the series](series_color.png)
 
-Đoạn mã C++ này minh họa thao tác:
+## **Thay Đổi Tên Chuỗi**
+
+Tên chuỗi được lưu trong workbook dữ liệu biểu đồ và thường được hiển thị trong chú giải. Trong workbook mặc định được tạo cho một biểu đồ cột cụm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của chuỗi đầu tiên. Các hằng số có tên trong ví dụ sau làm cho cấu trúc này trở nên rõ ràng:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-chart->get_ChartData()->get_Series()->Clear();
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-series->Add(workBook->GetCell(0, u"B1"), chart->get_Type());
-auto dataPoints = series->idx_get(0)->get_DataPoints();
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B2", ObjectExt::Box<int32_t>(-5)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B3", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B4", ObjectExt::Box<int32_t>(-2)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B5", ObjectExt::Box<int32_t>(1)));
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-series->idx_get(0)->set_InvertIfNegative(false);
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-pres->Save(u"out.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesNameCell = workbook->GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Xóa Giá trị Điểm Dữ liệu Cụ thể**
-
-Aspose.Slides cho C++ cho phép bạn xóa dữ liệu `DataPoints` của một series biểu đồ cụ thể theo cách này:
-
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Lấy tham chiếu đến một slide qua chỉ số của nó.
-3. Lấy tham chiếu đến một biểu đồ qua chỉ số của nó.
-4. Duyệt toàn bộ `DataPoints` của biểu đồ và đặt `XValue` và `YValue` thành null.
-5. Xóa toàn bộ `DataPoints` cho series biểu đồ cụ thể.
-6. Ghi bản thuyết trình đã chỉnh sửa vào tệp PPTX.
-
-Đoạn mã C++ này minh họa thao tác:
+Bạn cũng có thể cập nhật ô đã được [IChartSeries::get_Name](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_name/) tham chiếu. Cách này tránh việc giả định một hàng và cột cụ thể trong một biểu đồ hiện có:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
-auto sl = pres->get_Slides()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto chart = System::ExplicitCast<IChart>(sl->get_Shapes()->idx_get(0));
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-for (const auto& dataPoint : dataPoints)
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesNameCells = series->get_Name()->get_AsCells();
+auto seriesNameCell = seriesNameCells->idx_get(firstNameCellIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Kết quả:
+
+![The series name](series_name.png)
+
+## **Lấy Màu Nền Tự Động Của Chuỗi**
+
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) trả về màu được tính dựa trên chỉ mục chuỗi và kiểu biểu đồ. Đây là màu được sử dụng khi màu nền chuỗi không được định nghĩa rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu nền mới.
+
+Ví dụ sau in ra màu tự động của mỗi chuỗi mặc định:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Presentation;
+using System::Console;
+using System::String;
+
+const int firstSlideIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+const int seriesCount = seriesCollection->get_Count();
+for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    dataPoint->get_XValue()->get_AsCell()->set_Value(nullptr);
-    dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+    auto series = seriesCollection->idx_get(seriesIndex);
+    auto automaticColor = series->GetAutomaticSeriesColor();
+    auto colorName = automaticColor.get_Name();
+    auto outputLine = String::Format(u"Series {0}: {1}", seriesIndex, colorName);
+    Console::WriteLine(outputLine);
 }
 
-dataPoints->Clear();
-
-pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Đặt Độ Rộng Khoảng Cách của Series dữ liệu**
+Đầu ra mẫu cho kiểu biểu đồ mặc định:
 
-Aspose.Slides cho C++ cho phép bạn đặt Độ Rộng Khoảng Cách (Gap Width) của một series thông qua phương thức **`set_GapWidth()`** theo cách này:
+```text
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
+```
 
-1. Tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/cpp/class/aspose.slides.presentation).
-2. Truy cập slide đầu tiên.
-3. Thêm biểu đồ với dữ liệu mặc định.
-4. Truy cập bất kỳ series nào của biểu đồ.
-5. Đặt thuộc tính `GapWidth`.
-6. Ghi bản thuyết trình đã chỉnh sửa vào tệp PPTX.
+Màu chính xác phụ thuộc vào kiểu biểu đồ và giao diện.
 
-Đoạn mã C++ này cho bạn thấy cách đặt Độ Rộng Khoảng Cách cho một series:
+## **Đặt Màu Nền Đảo Ngược Cho Một Chuỗi Biểu Đồ**
+
+Đối với các chuỗi thanh, cột và bong bóng, [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) có thể hiển thị các giá trị âm với màu nền khác. Đặt màu nền chuỗi thông thường thành đặc, bật tính năng đảo ngược và gán màu cho giá trị âm qua [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Các số âm vẫn không thay đổi trong workbook; chỉ màu hiển thị của chúng thay đổi.
+
+Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một chuỗi. Hàng 0 của worksheet chứa tên chuỗi, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
 
 ```cpp
-// Tạo bản thuyết trình rỗng 
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+using System::String;
+
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+const int categoryCount = 3;
+
+const String categoryNames[] = {u"Category 1", u"Category 2", u"Category 3"};
+const int seriesValues[] = {-20, 50, -30};
+
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Truy cập slide đầu tiên của bản thuyết trình
-auto slide = presentation->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
 
-// Thêm biểu đồ với dữ liệu mặc định
-auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
+auto seriesCollection = chartData->get_Series();
+seriesCollection->Clear();
+chartData->get_Categories()->Clear();
 
-// Đặt chỉ mục của bảng dữ liệu biểu đồ
-int32_t worksheetIndex = 0;
+auto seriesName = ObjectExt::Box<String>(u"Series 1");
+auto seriesNameCell = workbook->GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, seriesName);
+auto chartType = chart->get_Type();
+auto series = seriesCollection->Add(seriesNameCell, chartType);
 
-// Lấy worksheet dữ liệu biểu đồ
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+for (int categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++)
+{
+    const int dataRowIndex = firstDataRowIndex + categoryIndex;
+    auto categoryName = categoryNames[categoryIndex];
+    const int seriesValue = seriesValues[categoryIndex];
 
-// Thêm series
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
 
-// Thêm danh mục
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+    auto boxedSeriesValue = ObjectExt::Box<int>(seriesValue);
+    auto valueCell = workbook->GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, boxedSeriesValue);
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
 
-// Lấy series biểu đồ thứ hai
-auto series = chart->get_ChartData()->get_Series()->idx_get(1);
-auto dataPoints = series->get_DataPoints();
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->set_InvertIfNegative(true);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
 
-// Điền dữ liệu cho series
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
-
-// Đặt giá trị GapWidth
-series->get_ParentSeriesGroup()->set_GapWidth(50);
-
-// Lưu bản thuyết trình vào đĩa
-presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Câu hỏi Thường gặp**
+Kết quả:
 
-**Có giới hạn số lượng series mà một biểu đồ có thể chứa không?**
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Aspose.Slides không áp đặt giới hạn cố định về số series bạn có thể thêm. Giới hạn thực tế bị quyết định bởi khả năng đọc biểu đồ và bộ nhớ có sẵn cho ứng dụng của bạn.
+Bạn có thể bật đảo ngược cho một điểm thông qua [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Trong ví dụ sau, việc đảo ngược được tắt cho chuỗi và chỉ bật cho điểm đã chọn. Điểm này cũng được gán một giá trị âm để hiệu ứng hiển thị:
 
-**Nếu các cột trong một cụm quá gần nhau hoặc quá xa nhau thì sao?**
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 
-Điều chỉnh cài đặt Gap Width cho series đó (hoặc cho nhóm series cha). Tăng giá trị sẽ làm rộng khoảng cách giữa các cột, trong khi giảm giá trị sẽ làm chúng gần nhau hơn.
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
+series->set_InvertIfNegative(false);
+
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+auto boxedNegativeValue = ObjectExt::Box<int>(negativeValue);
+dataPoint->get_YValue()->get_AsCell()->set_Value(boxedNegativeValue);
+dataPoint->set_InvertIfNegative(true);
+
+presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Xóa Giá Trị Cụ Thể Của Một Điểm Dữ Liệu**
+
+Để làm cho một điểm trống mà không xóa các điểm khác, đặt ô workbook hỗ trợ của nó thành `nullptr`. Đối với biểu đồ cột, giá trị đã vẽ có thể truy cập qua [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Điểm dữ liệu vẫn giữ vị trí danh mục, nhưng biểu đồ sẽ coi giá trị của nó là trống theo cài đặt giá trị trống của biểu đồ.
+
+Ví dụ sau chỉ xóa điểm thứ hai trong chuỗi đầu tiên:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+
+presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Biểu đồ scatter sử dụng các ô X và Y riêng biệt, và biểu đồ bong bóng còn sử dụng ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Đừng gọi [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) khi bạn muốn giữ các điểm khác, vì phương thức đó sẽ xóa mọi điểm dữ liệu khỏi bộ sưu tập.
+
+## **Đặt Chiều Rộng Khoảng Cách Giữa Các Chuỗi**
+
+Chiều rộng khoảng cách là khoảng cách giữa các cụm thanh hoặc cột liền kề, biểu thị dưới dạng phần trăm của chiều rộng thanh hoặc cột. Giống như độ trùng lấp, nó thuộc về nhóm chuỗi cha chứ không phải một chuỗi riêng lẻ. Gọi [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) một lần cho nhóm. Giá trị lớn hơn tạo ra nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
+
+Ví dụ sau thay đổi chiều rộng khoảng cách và chỉ lưu bản trình bày cuối cùng:
+
+```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const uint16_t gapWidthPercent = 30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_GapWidth(gapWidthPercent);
+
+presentation->Save(u"gap_width_30.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Kết quả:
+
+![The gap width](gap_width.png)
+
+## **Câu Hỏi Thường Gặp**
+
+**Các loại biểu đồ nào hỗ trợ chuỗi dữ liệu?**
+
+Tất cả các loại biểu đồ được liệt kê trong kiểu liệt kê [ChartType](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng chuỗi của chúng không phải lúc nào cũng có cùng cấu trúc giá trị hoặc cùng cài đặt. Ví dụ, biểu đồ danh mục sử dụng danh mục và giá trị, biểu đồ scatter sử dụng giá trị X và Y, và biểu đồ bong bóng còn thêm kích thước bong bóng. Hãy sử dụng phương pháp tạo điểm dữ liệu tương ứng với loại chuỗi. Các tùy chọn như độ trùng lấp và chiều rộng khoảng cách chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
+
+**Nhóm chuỗi biểu đồ là gì?**
+
+Một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/) chứa các chuỗi tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa nhiều hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một chuỗi không nhất thiết làm thay đổi mọi chuỗi trong biểu đồ.
+
+**Biểu đồ mới tạo có dữ liệu mặc định không?**
+
+Có. Mặc định, [IShapeCollection::AddChart](https://reference.aspose.com/slides/vi/cpp/aspose.slides/ishapecollection/addchart/) tạo các chuỗi, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả hai bộ sưu tập chuỗi và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
+
+**Các đối tượng biểu đồ được kết nối với các ô workbook như thế nào?**
+
+Tên chuỗi, nhãn danh mục và giá trị điểm dữ liệu tham chiếu tới các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật thành phần biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ cho các hàng danh mục và các hàng giá trị chuỗi căn chỉnh để mỗi điểm được vẽ dưới danh mục mong muốn.
+
+**Làm sao để xóa một điểm mà không xóa toàn bộ chuỗi?**
+
+Đặt ô giá trị tương ứng thành `nullptr` để giữ vị trí danh mục của điểm như một điểm trống. Chỉ gọi [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) khi bạn muốn xóa tất cả các điểm trong chuỗi đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi chuỗi để các giá trị vẫn đồng bộ với bộ sưu tập danh mục.
+
+**Các điểm trống được hiển thị như thế nào?**
+
+Kết quả phụ thuộc vào loại biểu đồ và [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Các biểu đồ được hỗ trợ có thể hiển thị các điểm trống dưới dạng khoảng trống, giá trị zero, hoặc bằng cách nối các điểm lân cận. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình bày của bạn.
+
+**Giá trị âm được định dạng như thế nào?**
+
+Đối với các chuỗi thanh, cột và bong bóng được hỗ trợ, gọi [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) và đặt màu qua [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Bạn có thể ghi đè hành vi này cho một điểm riêng lẻ bằng [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Các phương thức này ảnh hưởng đến định dạng, không phải các giá trị số được lưu.
+
+**Định dạng nào thắng khi cả chuỗi và điểm đều được định dạng?**
+
+Định dạng điểm dữ liệu rõ ràng có ưu tiên cho điểm đó. Các điểm khác tiếp tục sử dụng định dạng chuỗi rõ ràng hoặc, nếu chuỗi không có định dạng, sử dụng kiểu biểu đồ và giao diện tự động. Các cài đặt nhóm như độ trùng lấp và chiều rộng khoảng cách kiểm soát bố cục và không phải là các ghi đè định dạng ở mức điểm.
+
+**Có giới hạn về số chuỗi mà một biểu đồ có thể chứa không?**
+
+Aspose.Slides không áp đặt một giới hạn cố định riêng cho số chuỗi. Trong thực tế, các ràng buộc của tệp trình chiếu, bộ nhớ khả dụng, thời gian render và khả năng đọc của biểu đồ quyết định giới hạn hữu dụng.
+
+**Nên thay đổi gì khi các cột quá gần nhau hoặc quá xa nhau?**
+
+Gọi [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/vi/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) trên nhóm chuỗi cha thích hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm giá trị để đưa các cụm lại gần nhau hơn.

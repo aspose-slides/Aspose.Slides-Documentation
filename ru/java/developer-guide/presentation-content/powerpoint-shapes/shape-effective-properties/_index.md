@@ -1,337 +1,299 @@
 ---
-title: Получить эффективные свойства фигур из презентаций на Java
-linktitle: Эффективные свойства
+title: "Получить эффективные свойства фигур из презентаций на Java"
+linktitle: "Эффективные свойства"
 type: docs
 weight: 50
 url: /ru/java/shape-effective-properties/
 keywords:
   - свойства фигур
   - свойства камеры
-  - световой комплект
-  - фаска формы
-  - текстовый кадр
-  - текстовый стиль
+  - система освещения
+  - форма с фаской
+  - текстовый фрейм
+  - стиль текста
   - высота шрифта
-  - формат заполнения
+  - формат заливки
   - PowerPoint
   - презентация
   - Java
   - Aspose.Slides
-description: "Узнайте, как Aspose.Slides для Java вычисляет и применяет эффективные свойства фигур для точного рендеринга PowerPoint."
+description: "Узнайте, как использовать Aspose.Slides для Java, чтобы различать локальное, унаследованное и эффективное форматирование фигур в презентациях PowerPoint."
 ---
-## **Обзор**
+## **Понимание локальных, унаследованных и эффективных свойств**
 
-Эта тема объясняет различие между **локальными** и **эффективными** свойствами. Локальные значения — это значения, которые задаются непосредственно на определённом уровне форматирования, например:
+Форматирование PowerPoint может приходить из разных источников. Значение, хранящееся непосредственно в объекте, является его **локальным значением**. Если это значение не задано, PowerPoint ищет в родительских источниках форматирования, таких как значение по умолчанию абзаца, стиль текста, макет или шаблон слайда, тема или настройки по умолчанию для всей презентации. Эти значения являются **унаследованными значениями**. Значение, оставшееся после разрешения всей иерархии, является **эффективным значением** — значением, используемым при отображении объекта.
 
-1. Свойства фрагмента на слайде.  
-1. Стили текста прототипной формы на макете или главном слайде, когда у формы текстового кадра фрагмента есть такой стиль.  
-1. Глобальные настройки текста в презентации.
+Например, часть текста может не определять собственный размер шрифта. её локальное [getFontHeight](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) значение тогда равно `Float.NaN`, что означает «не задано здесь». Часть может унаследовать высоту от абзаца, стиля текста презентации или другого применимого источника. Вызов [getEffective](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportionformat/#getEffective--) у формата части возвращает окончательно разрешённую высоту.
 
-Локальные значения могут быть заданы или опущены на любом уровне. Когда Aspose.Slides требует окончательное «как отрендерено» форматирование, он разрешает цепочку наследования и возвращает **эффективные** значения. Их можно получить, вызвав метод `getEffective` у локального объекта формата.
+Используйте два типа данных форматирования для разных целей:
 
-Следующий пример показывает, как получить эффективные значения. Предполагается, что первая форма на первом слайде является [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IAutoShape) с текстовым кадром и как минимум одним фрагментом.
+- Читайте или изменяйте локальный объект формата, например [IPortionFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportionformat/), когда нужно контролировать, где определено значение.
+- Читайте объект эффективных данных, например [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportionformateffectivedata/), когда нужен окончательный отрисованный результат. Эффективные данные доступны только для чтения.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **Сравнение локальных, унаследованных и эффективных значений**
 
-    ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-
-    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = paragraph.getPortions().get_Item(0);
-    IPortionFormat localPortionFormat = portion.getPortionFormat();
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-Эффективные данные форматирования представляют текущие вычисленные параметры после применения наследования. В текущей реализации некоторые объекты эффективных данных, такие как [IPortionFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IPortionFormatEffectiveData), могут кэшироваться внутри. Вызов `getEffective` повторно после изменения родительского или унаследованного форматирования может обновить кэшированные данные, и ранее полученный объект может больше не отражать прежнее состояние. Если необходимо сохранить эффективные значения для последующего использования, скопируйте требуемые свойства, например высоту шрифта, цвет заливки, стиль шрифта или выравнивание, в собственный объект данных.
-{{% /alert %}}
-
-## **Получить эффективные свойства камеры**
-
-Aspose.Slides позволяет получить эффективные свойства камеры. Интерфейс [ICameraEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ICameraEffectiveData) представляет неизменяемый объект, содержащий эффективные свойства камеры. Экземпляр [ICameraEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ICameraEffectiveData) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IThreeDFormatEffectiveData), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IThreeDFormat).
-
-Следующий пример кода показывает, как получить эффективные свойства камеры. Предполагается, что первая форма на первом слайде имеет 3D‑форматирование.
+Ниже приведён полный пример, который создаёт фигуру и задаёт высоты шрифта на уровнях презентации, абзаца и части текста. На каждом шаге выводятся значения, определённые на этих уровнях, и получаемое эффективное значение для той же части текста. Пример также демонстрирует, почему после изменения форматирования необходимо заново читать эффективные данные.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
-    int cameraType = cameraEffectiveData.getCameraType();
-    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
-    double zoom = cameraEffectiveData.getZoom();
+import com.aspose.slides.*;
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraType);
-    System.out.println("Field of view: " + fieldOfViewAngle);
-    System.out.println("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
-}
-```
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-## **Получить эффективные свойства светового установки**
+            // Определите унаследованные значения на двух разных уровнях.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-Aspose.Slides позволяет получить эффективные свойства светового оборудования. Интерфейс [ILightRigEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ILightRigEffectiveData) представляет неизменяемый объект, содержащий эффективные свойства световой установки. Экземпляр [ILightRigEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ILightRigEffectiveData) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IThreeDFormatEffectiveData), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IThreeDFormat).
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Следующий пример кода показывает, как получить эффективные свойства световой установки. Предполагается, что первая форма на первом слайде имеет 3D‑форматирование.
+            // Локальное значение в части переопределяет оба унаследованных значения.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
-    int lightType = lightRigEffectiveData.getLightType();
-    int direction = lightRigEffectiveData.getDirection();
+            // Изменение унаследованного значения не переопределяет существующее локальное значение.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightType);
-    System.out.println("Direction: " + direction);
-} finally {
-    presentation.dispose();
-}
-```
+            // Очистите локальное значение. Часть снова наследует значение от абзаца.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-## **Получить эффективные свойства фаски формы**
+            // Очистите значение абзаца. Значение по умолчанию презентации теперь используется.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Aspose.Slides позволяет получить эффективные свойства фаски формы. Интерфейс [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IShapeBevelEffectiveData) представляет неизменяемый объект, содержащий эффективные свойства рельефа фаски формы. Экземпляр [IShapeBevelEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IShapeBevelEffectiveData) доступен через [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IThreeDFormatEffectiveData), который предоставляет эффективные значения для [IThreeDFormat](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IThreeDFormat).
-
-Следующий пример кода показывает, как получить эффективные свойства верхней фаски формы. Предполагается, что первая форма на первом слайде имеет 3D‑форматирование.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
-    int bevelType = bevelTop.getBevelType();
-    double bevelWidth = bevelTop.getWidth();
-    double bevelHeight = bevelTop.getHeight();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelType);
-    System.out.println("Width: " + bevelWidth);
-    System.out.println("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Получить эффективные свойства текстового кадра**
-
-С помощью Aspose.Slides вы можете получить эффективные свойства текстового кадра. Интерфейс [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ITextFrameFormatEffectiveData) содержит эффективные свойства форматирования текстового кадра.
-
-Следующий пример кода показывает, как получить эффективные свойства форматирования текстового кадра. Предполагается, что первая форма на первом слайде является [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IAutoShape) с текстовым кадром.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
-    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    int autofitType = effectiveTextFrameFormat.getAutofitType();
-    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    double marginTop = effectiveTextFrameFormat.getMarginTop();
-    double marginRight = effectiveTextFrameFormat.getMarginRight();
-    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    System.out.println("Anchoring type: " + anchoringType);
-    System.out.println("Autofit type: " + autofitType);
-    System.out.println("Text vertical type: " + textVerticalType);
-    System.out.println("Margins");
-    System.out.println("   Left: " + marginLeft);
-    System.out.println("   Top: " + marginTop);
-    System.out.println("   Right: " + marginRight);
-    System.out.println("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Получить эффективные свойства текстового стиля**
-
-С помощью Aspose.Slides вы можете получить эффективные свойства текстового стиля. Интерфейс [ITextStyleEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ITextStyleEffectiveData) содержит эффективные свойства текстового стиля.
-
-Следующий пример кода показывает, как получить эффективные свойства текстового стиля. Предполагается, что первая форма на первом слайде является [IAutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IAutoShape) с текстовым кадром.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-    
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        int depth = effectiveStyleLevel.getDepth();
-        double indent = effectiveStyleLevel.getIndent();
-        int alignment = effectiveStyleLevel.getAlignment();
-        int fontAlignment = effectiveStyleLevel.getFontAlignment();
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + depth);
-        System.out.println("Indent: " + indent);
-        System.out.println("Alignment: " + alignment);
-        System.out.println("Font alignment: " + fontAlignment);
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Прочитайте эффективные данные после предыдущих изменений.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **Получить эффективное значение высоты шрифта**
+Приоритет в этом примере: локальное форматирование части, затем форматирование абзаца, затем значение по умолчанию презентации. У других объектов могут быть другие цепочки наследования, но принцип остаётся тем же: более конкретное явно заданное значение выигрывает, а [getEffective](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportionformat/#getEffective--) возвращает конечный результат.
 
-С помощью Aspose.Slides вы можете получить эффективную высоту шрифта. Ниже показан пример, демонстрирующий, как эффективная высота шрифта фрагмента изменяется после установки локальных значений высоты шрифта на разных уровнях структуры презентации.
+## **Получение эффективных свойств текста**
+
+Форматирование текста распределено между несколькими объектами:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextframeformat/#getEffective--) разрешает свойства текстового фрейма, такие как отступы, привязка, автоподгонка и направление вертикального текста.
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itextstyle/#getEffective--) разрешает форматирование абзаца для каждого уровня стиля текста.
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iparagraphformat/#getEffective--) разрешает свойства абзаца, такие как выравнивание, отступы и маркеры.
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/ru/java/com.aspose.slides/iportionformat/#getEffective--) разрешает свойства символов, такие как высота шрифта, гарнитура, цвет, жирный и курсив.
+
+Для следующего примера файл `text-formatting.pptx` должен содержать как минимум один слайд и одну [AutoShape](https://reference.aspose.com/slides/ru/java/com.aspose.slides/autoshape/) с непустым текстовым фреймом. AutoShape может находиться в любой позиции коллекции фигур; код ищет подходящий объект и проверяет его перед использованием.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **Получить эффективный формат заполнения для таблицы**
+## **Получение эффективных 3D‑свойств**
 
-С помощью Aspose.Slides вы можете получить эффективное форматирование заполнения для различных частей таблицы. Интерфейс [IFillFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/IFillFormatEffectiveData) содержит эффективные свойства форматирования заполнения. Форматирование ячейки имеет более высокий приоритет, чем форматирование строки, форматирование строки имеет более высокий приоритет, чем форматирование столбца, а форматирование столбца — более высокий приоритет, чем форматирование всей таблицы.
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformat/#getEffective--) возвращает один объект [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformateffectivedata/), который группирует все разрешённые 3D‑настройки. Его методы [getCamera](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformateffectivedata/#getCamera--), [getLightRig](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), [getBevelTop](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--), [getBevelBottom](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) предоставляют соответствующие эффективные данные. Чтение этих связанных настроек вместе упрощает понимание окончательного 3D‑вида фигуры.
 
-В результате свойства [ICellFormatEffectiveData](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ICellFormatEffectiveData) используются для отрисовки ячейки таблицы. Следующий пример кода показывает, как получить эффективное форматирование заполнения для различных частей таблицы. Предполагается, что первая форма на первом слайде является [ITable](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ITable).
+Для этого примера файл `shape-3d.pptx` должен содержать хотя бы одну фигуру на первом слайде. При желании добавьте к этой фигуре 3D‑камеру, освещение или срезы, чтобы в выводе появились значения, отличные от значений по умолчанию.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
-    
-    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+import com.aspose.slides.*;
 
-    IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
-} finally {
-    presentation.dispose();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
+
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+## **Получение эффективного форматирования таблицы**
+
+Форматирование таблицы может поступать из стиля таблицы и из форматов, применённых к всей таблице, столбцу, строке или отдельной ячейке. При конфликте явно заданных заливок приоритет такой: ячейка, строка, столбец, затем вся таблица. Эффективный формат ячейки — это окончательный формат, используемый при её отрисовке.
+
+Для этого примера файл `table-formatting.pptx` должен содержать хотя бы одну таблицу на первом слайде. Таблица должна иметь минимум одну строку и один столбец. Код ищет объект [ITable](https://reference.aspose.com/slides/ru/java/com.aspose.slides/itable/), а не предполагает, что `getShapes().get_Item(0)` является таблицей.
+
+```java
+import com.aspose.slides.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
+
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
+
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
+
+Если нужен цвет, а не только тип заливки, сначала проверьте эффективный [getFillType](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifillformateffectivedata/#getFillType--), а затем вызовите метод, соответствующий этому типу — например, [getSolidFillColor](https://reference.aspose.com/slides/ru/java/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) для сплошной заливки.
+
+## **Повторное чтение эффективных данных после изменений**
+
+Эффективные данные описывают иерархию форматирования в момент их разрешения. Вызовите `getEffective` снова после изменения любого элемента, участвующего в этой иерархии, включая:
+
+- локальное форматирование объекта;
+- значения по умолчанию абзаца или текстового фрейма;
+- стиль таблицы, формат таблицы, столбца, строки или ячейки;
+- форматирование макета или шаблона слайда;
+- данные темы или значения по умолчанию презентации;
+- макет или шаблон, назначенный слайду.
+
+Не храните объект эффективных данных как постоянный снимок. Aspose.Slides может кэшировать некоторые эффективные данные внутри, а последующий вызов `getEffective` может обновить эти данные. Если нужно сравнить значения до и после изменения, скопируйте нужные скалярные значения — например, высоту шрифта, цвет, выравнивание или ширину среза — в свои переменные перед внесением изменений.
+
+Чтобы изменить значение, обновите соответствующий локальный объект формата, а затем вызовите `getEffective` для проверки результата. Объекты эффективных данных сами по себе только для чтения.
 
 ## **FAQ**
 
-**Возвращает ли `getEffective` снимок состояния?**
+**Как определить, какой уровень предоставил эффективное значение?**
 
-Не всегда. Эффективные данные представляют вычисленное форматирование после применения наследования, но некоторые объекты эффективных данных могут кэшироваться внутри. Последующий вызов `getEffective` может пересчитать форматирование и обновить кэш, поэтому ранее полученный объект не следует рассматривать как постоянный снимок.
+Эффективные данные содержат только конечное значение, а не его источник. Проверьте применимые локальные объекты, начиная с самого конкретного уровня и переходя наружу. Для текста это могут быть часть, абзац, текстовый фрейм, макет, шаблон, тема и значения по умолчанию презентации. Неопределённые значения, такие как `Float.NaN` или `null`, указывают, что поиск продолжается на следующем уровне.
 
-**Когда следует снова читать эффективные свойства?**
+**Что происходит, если ни один уровень не задаёт свойство?**
 
-Вызовите `getEffective` повторно после изменения локального форматирования, стилей‑родителей, форматирования макета, форматирования шаблона или параметров по умолчанию презентации. Следующий вызов переоценит иерархию форматирования и вернёт текущий эффективный результат.
+Aspose.Slides разрешает соответствующее значение по умолчанию PowerPoint или библиотеки. Это разрешённое значение появляется в эффективных данных, даже если ни один локальный объект явно его не задаёт.
 
-**Влияют ли изменения или удаление макета/шаблона слайда на уже полученные эффективные свойства?**
+**Почему эффективное значение иногда совпадает с локальным?**
 
-Да, но изменение отразится только при следующем вызове `getEffective`. Если источник форматирования‑родителя изменён или удалён, ранее полученные эффективные данные могут стать устаревшими. После повторного вызова `getEffective` Aspose.Slides переоценит дерево форматирования, и полученные шрифты, цвета, размеры или другие значения могут измениться.
+Локальное значение выиграло в расчёте наследования. Это ожидаемая ситуация, когда свойство явно установлено в объекте и более специфическое правило его не переопределяет.
 
-**Можно ли изменять значения через объекты эффективных данных?**
+**Когда следует использовать локальные данные вместо эффективных?**
 
-Нет. Объекты эффективных данных предоставляют только вычисленные значения. Вносите изменения в локальные объекты форматирования, а затем снова получайте эффективные значения.
-
-**Что происходит, если свойство не задано на уровне формы, макета/шаблона и глобальных настроек?**
-
-Эффективное значение определяется механизмом значений по умолчанию, который включает настройки PowerPoint и Aspose.Slides. Полученное значение становится частью текущих эффективных данных.
-
-**Можно ли по эффективному значению шрифта определить, на каком уровне было задано размер или гарнитура?**
-
-Не напрямую. Эффективные данные возвращают окончательное значение. Чтобы узнать источник, проверьте локальные значения на уровне фрагмента, параграфа, текстового кадра и текстовых стилей на уровнях макета, шаблона и презентации, чтобы увидеть, где впервые появилось явное определение.
-
-**Почему иногда эффективные значения выглядят идентичными локальным?**
-
-Потому что локальное значение оказалось окончательным (не потребовалось наследование из более высокого уровня). В таких случаях эффективное значение совпадает с локальным.
-
-**Когда следует использовать эффективные свойства, а когда работать только с локальными?**
-
-Используйте эффективные данные, когда нужен результат «как отрендерено» после применения всего наследования, например для согласования цветов, отступов или размеров. Если требуется сохранять эти значения независимо от последующих изменений форматирования, скопируйте необходимые свойства в собственный объект. Если нужно изменить форматирование на конкретном уровне, изменяйте локальные свойства и, при необходимости, снова читайте эффективные данные для проверки результата.
+Используйте локальные данные для инспекции или изменения конкретного уровня форматирования. Используйте эффективные данные, когда нужен окончательный вид после учёта наследования, правил темы и применимых стилей. Полный пример сравнения ([complete comparison example](#compare-local-inherited-and-effective-values)) демонстрирует оба подхода в одном рабочем процессе.

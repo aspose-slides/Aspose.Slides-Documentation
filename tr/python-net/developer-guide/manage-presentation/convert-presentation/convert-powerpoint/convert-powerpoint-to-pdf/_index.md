@@ -1,29 +1,39 @@
 ---
-title: "Python'da PPT & PPTX'i PDF'ye Dönüştür | Gelişmiş Seçenekler"
+title: "Python'da PPT ve PPTX'i PDF'ye Dönüştürme | Gelişmiş Seçenekler"
 linktitle: "PowerPoint'ten PDF'ye"
 type: docs
 weight: 40
 url: /tr/python-net/convert-powerpoint-to-pdf/
+aliases:
+  - /python-net/convert-to-pdf/
 keywords:
-- "PowerPoint dönüştür"
-- "sunum"
-- "PowerPoint'ten PDF'ye"
-- "PPT'den PDF'ye"
-- "PPTX'ten PDF'ye"
-- "PowerPoint'i PDF olarak kaydet"
-- "PDF/A1a"
-- "PDF/A1b"
-- "PDF/UA"
-- "Python"
-- "Aspose.Slides for Python"
-description: "Python'da Aspose.Slides ile PPT, PPTX ve ODP'yi yüksek kalite, WCAG uyumlu PDF'lere dönüştürmek için adım adım rehber—şifre koruması, slayt seçimi ve görüntü kalitesi kontrolü içerir."
+  - "PowerPoint dönüştür"
+  - sunum
+  - "PowerPoint'ten PDF'ye"
+  - "PPT'den PDF'ye"
+  - "PPTX'ten PDF'ye"
+  - "PowerPoint'i PDF olarak kaydet"
+  - PDF/A1a
+  - PDF/A1b
+  - PDF/UA
+  - Python
+  - "Aspose.Slides for Python"
+description: "Aspose.Slides ile Python'da PPT, PPTX ve ODP'yi yüksek kalite, WCAG uyumlu PDF'lere dönüştürme adım adım rehberi — şifre koruması, slayt seçimi ve görüntü kalitesi kontrolü içerir."
 showReadingTime: true
 ---
 ## **Genel Bakış**
 
-PowerPoint sunumlarını (PPT, PPTX, ODP) Python'da PDF formatına dönüştürmek, farklı cihazlar arasında uyumluluğu sağlamak ve sunumunuzun yerleşimini ve biçimlendirmesini korumak gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları eklemeyi, PDF belgelerini şifre korumalı yapmayı, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
+PowerPoint sunumlarını (PPT, PPTX, ODP) Python'da PDF formatına dönüştürmek, farklı cihazlarda uyumluluğu sağlamak ve sunumunuzun düzenini ve biçimlendirmesini korumak gibi çeşitli avantajlar sunar. Bu kılavuz, sunumları PDF belgelerine nasıl dönüştüreceğinizi, görüntü kalitesini kontrol etmek için çeşitli seçenekleri nasıl kullanacağınızı, gizli slaytları dahil etmeyi, PDF belgelerini parola ile korumayı, yazı tipi ikamelerini tespit etmeyi, dönüştürme için belirli slaytları seçmeyi ve çıktı belgelerine uyumluluk standartlarını uygulamayı gösterir.
 
-## **PowerPoint'ten PDF'ye Dönüştürmeler**
+## **Kurulum**
+
+```bash
+pip install aspose.slides
+```
+
+Paket, ihtiyaç duyduğu çalışma zamanını içerdiği için, dönüşümü gerçekleştiren makinede Microsoft PowerPoint'in yüklü olmasına gerek yoktur.
+
+## **PowerPoint'ten PDF'ye Dönüşümler**
 
 Aspose.Slides kullanarak bu formatlardaki sunumları PDF'ye dönüştürebilirsiniz:
 
@@ -31,20 +41,22 @@ Aspose.Slides kullanarak bu formatlardaki sunumları PDF'ye dönüştürebilirsi
 * **PPTX**
 * **ODP**
 
-Python'da bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/) sınıfının bir argümanı olarak vermeniz ve ardından sunumu bir PDF olarak [Save](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/#methods) yöntemiyle kaydetmeniz yeterlidir. [Presentation](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [Save](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/#methods) yöntemini sunar.
+Python'da bir sunumu PDF'ye dönüştürmek için, dosya adını [Presentation](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/) sınıfına argüman olarak geçirmeniz ve ardından sunumu bir PDF olarak [Save](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/#methods) yöntemiyle kaydetmeniz yeterlidir. [Presentation](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/) sınıfı, genellikle bir sunumu PDF'ye dönüştürmek için kullanılan [Save](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides/presentation/#methods) yöntemini sunar.
 
 {{%  alert title="NOTE"  color="warning"   %}} 
-Aspose.Slides for Python, çıktı belgelerine API bilgisi ve Versiyon Numarasını doğrudan yazar. Örneğin, bir sunumu PDF'ye dönüştürdüğünde, Aspose.Slides for Python Application alanını '*Aspose.Slides*' değeriyle ve PDF Producer alanını '*Aspose.Slides v XX.XX*' biçiminde bir değerle doldurur. **Not** bu bilgiyi çıktı belgelerinden değiştiremez veya kaldıramazsınız.
+
+Aspose.Slides for Python, çıktıda doğrudan API bilgilerini ve Versiyon Numarasını yazar. Örneğin, bir sunumu PDF'ye dönüştürdüğünde, Aspose.Slides for Python Application alanını '*Aspose.Slides*' değeriyle ve PDF Producer alanını '*Aspose.Slides v XX.XX*' biçiminde bir değerle doldurur. **Not** bu bilgileri çıktı belgelerinden değiştiremez veya kaldıramazsınız.
+
 {{% /alert %}}
 
-Aspose.Slides, aşağıdaki dönüşümleri yapmanıza olanak tanır:
+Aspose.Slides, şunları dönüştürmenize olanak tanır:
 
 * Tüm sunumları PDF'ye
-* Bir sunumdaki belirli slaytları PDF'ye
+* Sunumdaki belirli slaytları PDF'ye
 
-Aspose.Slides sunumları PDF'ye dışa aktararak, ortaya çıkan PDF'lerin içeriğinin orijinal sunumlarla yakından eşleşmesini sağlar. Dönüşüm sırasında öğeler ve öznitelikler doğru bir şekilde işlenir, bunlar şunları içerir:
+Aspose.Slides, sunumları PDF'ye dışa aktarır ve ortaya çıkan PDF'lerin içeriğinin orijinal sunumlara mümkün olduğunca yakın olmasını sağlar. Dönüşümde öğeler ve nitelikler doğru bir şekilde işlenir, şunlar dahil:
 
-* Görüntüler
+* Görseller
 * Metin kutuları ve şekiller
 * Metin biçimlendirme
 * Paragraf biçimlendirme
@@ -55,25 +67,25 @@ Aspose.Slides sunumları PDF'ye dışa aktararak, ortaya çıkan PDF'lerin içer
 
 ## **PowerPoint'i PDF'ye Dönüştür**
 
-Standart PowerPoint PDF dönüştürme işlemi varsayılan seçenekler kullanılarak yürütülür. Bu durumda, Aspose.Slides sağlanan sunumu en yüksek kalite seviyelerinde optimum ayarlarla PDF'ye dönüştürmeye çalışır. Bu Python kodu, bir PowerPoint'i PDF'ye nasıl dönüştüreceğinizi gösterir:
+Standart PowerPoint PDF dönüşüm işlemi, varsayılan seçenekler kullanılarak yürütülür. Bu durumda, Aspose.Slides, sağlanan sunumu en yüksek kalite seviyelerinde optimal ayarlarla PDF'ye dönüştürmeye çalışır. Bu Python kodu, bir PowerPoint'i PDF'ye nasıl dönüştüreceğinizi gösterir:
 
-_Adımlar: Python'da PowerPoint'ten PDF'ye Dönüştürmeler_
+_Adımlar: Python'da PowerPoint'ten PDF'ye Dönüşümler_
 
 The following sample code explains these conversions using Python via .NET
-- <a name="python-net-powerpoint-to-pdf"><strong>Adımlar: Python üzerinden .NET kullanarak PowerPoint'i PDF'ye Dönüştür</a></strong>
-- <a name="python-net-ppt-to-pdf"><strong>Adımlar: Python üzerinden .NET kullanarak PPT'yi PDF'ye Dönüştür</a></strong>
-- <a name="python-net-pptx-to-pdf"><strong>Adımlar: Python üzerinden .NET kullanarak PPTX'i PDF'ye Dönüştür</a></strong>
-- <a name="python-net-odp-to-pdf"><strong>Adımlar: Python üzerinden .NET kullanarak ODP'yi PDF'ye Dönüştür</a></strong>
-- <a name="python-net-odp-to-pdf"><strong>Adımlar: Python üzerinden .NET kullanarak PPS'yi PDF'ye Dönüştür</a></strong>
+- <a name="python-net-powerpoint-to-pdf"><strong>Adımlar: Python via .NET kullanarak PowerPoint'i PDF'ye Dönüştür</a></strong>
+- <a name="python-net-ppt-to-pdf"><strong>Adımlar: Python via .NET kullanarak PPT'yi PDF'ye Dönüştür</a></strong>
+- <a name="python-net-pptx-to-pdf"><strong>Adımlar: Python via .NET kullanarak PPTX'i PDF'ye Dönüştür</a></strong>
+- <a name="python-net-odp-to-pdf"><strong>Adımlar: Python via .NET kullanarak ODP'yi PDF'ye Dönüştür</a></strong>
+- <a name="python-net-odp-to-pdf"><strong>Adımlar: Python via .NET kullanarak PPS'yi PDF'ye Dönüştür</a></strong>
 
-**Kod Adımları:**
+_Kod Adımları:_
 
 - PowerPoint dosyasını sağlayarak [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-  * ._ppt_ uzantısı, _Presentation_ sınıfı içinde **PPT** dosyasını yüklemek için.
-  * ._pptx_ uzantısı, _Presentation_ sınıfı içinde **PPTX** dosyasını yüklemek için.
-  * ._odp_ uzantısı, _Presentation_ sınıfı içinde **ODP** dosyasını yüklemek için.
-  * ._pps_ uzantısı, _Presentation_ sınıfı içinde **PPS** dosyasını yüklemek için.
-- _Presentation_ nesnesini **PDF** formatında kaydetmek için **Save** metodunu çağırın ve **SaveFormat.PDF** enum değerini kullanın.
+  * _.ppt_ uzantısı, _Presentation_ sınıfı içinde **PPT** dosyasını yüklemek için kullanılır.
+  * _.pptx_ uzantısı, _Presentation_ sınıfı içinde **PPTX** dosyasını yüklemek için kullanılır.
+  * _.odp_ uzantısı, _Presentation_ sınıfı içinde **ODP** dosyasını yüklemek için kullanılır.
+  * _.pps_ uzantısı, _Presentation_ sınıfı içinde **PPS** dosyasını yüklemek için kullanılır.
+- _Presentation_'ı **PDF** formatında kaydetmek için **Save** metodunu çağırın ve **SaveFormat.PDF** enum değerini kullanın.
   
 
 ```python
@@ -87,16 +99,18 @@ presentation.save("PPT-to-PDF.pdf", slides.export.SaveFormat.PDF)
 ```
 
 {{%  alert  color="primary"  %}} 
-Aspose, sunumu PDF'ye dönüştürme sürecini gösteren ücretsiz bir çevrimiçi **PowerPoint to PDF dönüştürücü** sağlar. Burada açıklanan prosedürün canlı bir uygulaması için dönüştürücü ile bir test yapabilirsiniz.
+
+Aspose, sunumu PDF'ye dönüştürme sürecini gösteren ücretsiz bir çevrim içi [**PowerPoint to PDF dönüştürücü**](https://products.aspose.app/slides/tr/conversion/ppt-to-pdf) sağlar. Burada açıklanan prosedürün canlı bir uygulaması için dönüştürücü ile bir test yapabilirsiniz.
+
 {{% /alert %}}
 
 ## **PowerPoint'i PDF'ye Seçeneklerle Dönüştür**
 
-Aspose.Slides, PDF'yi (dönüştürme sürecinden elde edilen) özelleştirmenizi, PDF'yi bir şifreyle kilitlemenizi veya dönüşüm sürecinin nasıl gerçekleşeceğini belirlemenizi sağlayan, [PdfOptions](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides.export/pdfoptions/) sınıfı altındaki özel seçenekler—özellikler—sağlar.
+Aspose.Slides, PDF'yi (dönüşüm sürecinin sonucunu) özelleştirmenizi, PDF'yi bir parola ile kilitlemenizi veya dönüşüm sürecinin nasıl ilerleyeceğini belirlemenizi sağlayan özel seçenekler—[PdfOptions](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides.export/pdfoptions/) sınıfının özellikleri—sunar.
 
-### **PowerPoint'i PDF'ye Özel Seçeneklerle Dönüştür**
+### **Özel Seçeneklerle PowerPoint'i PDF'ye Dönüştür**
 
-Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için istediğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini tanımlayabilir, metinler için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI belirleyebilir vb.
+Özel dönüşüm seçeneklerini kullanarak, raster görüntüler için tercih ettiğiniz kalite ayarını belirleyebilir, metafile'ların nasıl işleneceğini tanımlayabilir, metinler için sıkıştırma seviyesini ayarlayabilir, görüntüler için DPI belirleyebilir vb. yapabilirsiniz.
 
 Aşağıdaki kod örneği, bir PowerPoint sunumunun çeşitli özel seçeneklerle PDF'ye dönüştürüldüğü bir işlemi gösterir:
 
@@ -106,13 +120,13 @@ import aspose.slides as slides
 # PdfOptions sınıfını örnekler
 pdf_options = slides.export.PdfOptions()
 
-# JPG görüntülerin kalitesini ayarlar
+# JPG görüntülerinin kalitesini ayarlar
 pdf_options.jpeg_quality = 90
 
 # Görüntüler için DPI ayarlar
 pdf_options.sufficient_resolution = 300
 
-# Metafile'ların davranışını ayarlar
+# Metafile'lerin davranışını ayarlar
 pdf_options.save_metafiles_as_png = True
 
 # Metin içeriği için metin sıkıştırma seviyesini ayarlar
@@ -127,16 +141,16 @@ with slides.Presentation("PowerPoint.pptx") as presentation:
     presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdf_options)
 ```
 
-### **PowerPoint'i Gizli Slaytlarla PDF'ye Dönüştür**
+### **Gizli Slaytlarla PowerPoint'i PDF'ye Dönüştür**
 
-Eğer bir sunum gizli slaytlar içeriyorsa, [PdfOptions](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides.export/pdfoptions/) sınıfındaki `show_hidden_slides` özelliğini kullanarak Aspose.Slides'a gizli slaytları sonuç PDF'de sayfa olarak eklemesini söyleyebilirsiniz.
+Eğer bir sunum gizli slaytlar içeriyorsa, [PdfOptions](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides.export/pdfoptions/) sınıfındaki `show_hidden_slides` özelliğini kullanarak Aspose.Slides'e gizli slaytları ortaya çıkan PDF'de sayfa olarak eklemesini söyleyebilirsiniz.
 
-Bu Python kodu, gizli slaytların dahil edildiği bir PowerPoint sunumunun PDF'ye nasıl dönüştürüleceğini gösterir:
+Bu Python kodu, gizli slaytların dahil edildiği bir PowerPoint sunumunu PDF'ye nasıl dönüştüreceğinizi gösterir:
 
 ```python
 import aspose.slides as slides
 
-# PowerPoint dosyasını temsil eden bir Presentation sınıfını örnekler
+# Bir PowerPoint dosyasını temsil eden Presentation sınıfını örnekler
 presentation = slides.Presentation("PowerPoint.pptx")
 
 # PdfOptions sınıfını örnekler
@@ -145,13 +159,13 @@ pdfOptions = slides.export.PdfOptions()
 # Gizli slaytları ekler
 pdfOptions.show_hidden_slides = True
 
-# Sunumu PDF olarak kaydeder
+# Sunumu bir PDF olarak kaydeder
 presentation.save("PowerPoint-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
-### **PowerPoint'i Şifre Korumalı PDF'ye Dönüştür**
+### **Şifre Korumalıklı PDF'ye PowerPoint Dönüştür**
 
-Bu Python kodu, bir PowerPoint'i şifre korumalı PDF'ye (koruma parametrelerini [PdfOptions](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides.export/pdfoptions/) sınıfından kullanarak) nasıl dönüştüreceğinizi gösterir:
+Bu Python kodu, bir PowerPoint'i [PdfOptions](https://docs.aspose.com/slides/tr/python-net/api-reference/aspose.slides.export/pdfoptions/) sınıfındaki koruma parametrelerini kullanarak şifre korumalıklı bir PDF'ye nasıl dönüştüreceğinizi gösterir:
 
 ```python
 import aspose.slides as slides
@@ -162,11 +176,11 @@ presentation = slides.Presentation("PowerPoint.pptx")
 # PdfOptions sınıfını örnekler
 pdfOptions = slides.export.PdfOptions()
 
-# PDF şifresini ve erişim izinlerini ayarlar
+# PDF şifresi ve erişim izinlerini ayarlar
 pdfOptions.password = "password"
 pdfOptions.access_permissions = slides.export.PdfAccessPermissions.PRINT_DOCUMENT | slides.export.PdfAccessPermissions.HIGH_QUALITY_PRINT
 
-# Sunumu PDF olarak kaydeder
+# Sunumu bir PDF olarak kaydeder
 presentation.save("PPTX-to-PDF.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
@@ -180,14 +194,14 @@ import aspose.slides as slides
 # PowerPoint dosyasını temsil eden bir Presentation nesnesini örnekler
 presentation = slides.Presentation("PowerPoint.pptx")
 
-# Slayt konumlarının bir dizisini ayarlar
+# Slayt konumlarını içeren bir dizi ayarlar
 slides_array = [ 1, 3 ]
 
-# Sunumu PDF olarak kaydeder
+# Sunumu bir PDF olarak kaydeder
 presentation.save("PPTX-to-PDF.pdf", slides_array, slides.export.SaveFormat.PDF)
 ```
 
-## **PowerPoint'i Özel Slayt Boyutu ile PDF'ye Dönüştür**
+## **Özel Slayt Boyutu ile PowerPoint'i PDF'ye Dönüştür**
 
 Bu Python kodu, slayt boyutu belirtilmiş bir PowerPoint'in PDF'ye nasıl dönüştürüleceğini gösterir:
 
@@ -206,15 +220,16 @@ with slides.Presentation("SelectedSlides.pptx") as presentation:
         # Özel slayt boyutunu ayarlar.
         resized_presentation.slide_size.set_size(slide_width, slide_height, slides.SlideSizeScaleType.ENSURE_FIT)
 
-        # Orijinal sunumdan ilk slaytı klonlar.
+        # Orijinal sunumdan ilk slaytı klonlar ve varsayılan boş slaytı kaldırır.
         slide = presentation.slides[0]
         resized_presentation.slides.insert_clone(0, slide)
+        resized_presentation.slides.remove_at(1)
 
-        # Yeniden boyutlandırılmış sunumu notlarla bir PDF olarak kaydeder.
-        resized_presentation.save("PDF_with_notes.pdf", slides.export.SaveFormat.PDF)
+        # Yeniden boyutlandırılmış sunumu PDF olarak kaydeder.
+        resized_presentation.save("PDF_with_custom_slide_size.pdf", slides.export.SaveFormat.PDF)
 ```
 
-## **PowerPoint'i Not Slaytı Görünümünde PDF'ye Dönüştür**
+## **Not Slaytı Görünümünde PowerPoint'i PDF'ye Dönüştür**
 
 Bu Python kodu, bir PowerPoint'i PDF notlarına nasıl dönüştüreceğinizi gösterir:
 
@@ -224,18 +239,20 @@ import aspose.slides as slides
 # PowerPoint dosyasını temsil eden bir Presentation sınıfını örnekler
 presentation = slides.Presentation("NotesFile.pptx")
 
+# Not düzeniyle PDF seçeneklerini yapılandırır
 pdfOptions = slides.export.PdfOptions()
-pdfOptions.notes_comments_layouting.notes_position = slides.export.NotesPositions.BOTTOM_FULL
+pdfOptions.slides_layout_options = slides.export.NotesCommentsLayoutingOptions()
+pdfOptions.slides_layout_options.notes_position = slides.export.NotesPositions.BOTTOM_FULL
 
-# Sunumu PDF notları olarak kaydeder
-presentation.Save("Pdf_Notes_out.tiff", slides.export.SaveFormat.PDF, pdfOptions)
+# Sunumu notlarla bir PDF olarak kaydeder
+presentation.save("Pdf_Notes_out.pdf", slides.export.SaveFormat.PDF, pdfOptions)
 ```
 
 ## **PDF için Erişilebilirlik ve Uyumluluk Standartları**
 
-Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini PDF'ye dışa aktarırken bu uyumluluk standartlarından herhangi birini kullanabilirsiniz: **PDF/A1a**, **PDF/A1b** ve **PDF/UA**.
+Aspose.Slides, [Web Content Accessibility Guidelines (**WCAG**)](https://www.w3.org/TR/WCAG-TECHS/pdf.html) ile uyumlu bir dönüşüm prosedürü kullanmanıza olanak tanır. Bir PowerPoint belgesini PDF'ye, **PDF/A1a**, **PDF/A1b** ve **PDF/UA** gibi bu uyumluluk standartlarından herhangi birini kullanarak dışa aktarabilirsiniz.
 
-Bu Python kodu, farklı uyumluluk standartlarına göre birden fazla PDF elde edilen bir PowerPoint'ten PDF'ye dönüşüm işlemini gösterir:
+Python kodu, farklı uyumluluk standartlarına göre birden çok PDF elde edilen bir PowerPoint'ten PDF'ye dönüşüm işlemini gösterir:
 
 ```python
 import aspose.slides as slides
@@ -255,39 +272,49 @@ pres.save("pres-ua-compliance.pdf", slides.export.SaveFormat.PDF, options)
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Aspose.Slides, PDF dönüşüm işlemleri desteğini en popüler dosya formatlarına PDF dönüştürme olanağına da genişletir. [PDF to HTML](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-jpg/), ve [PDF to PNG](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-png/) dönüşümlerini yapabilirsiniz. Ayrıca, özel formatlara PDF dönüşüm işlemleri—[PDF to SVG](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-tiff/), ve [PDF to XML](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-xml/)—da desteklenir.
+
+Aspose.Slides, PDF dönüşüm işlemleri desteğini, PDF'yi en popüler dosya formatlarına dönüştürmenize izin verecek şekilde genişletir. [PDF to HTML](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-html/), [PDF to image](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-image/), [PDF to JPG](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-jpg/), ve [PDF to PNG](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-png/) dönüşümlerini yapabilirsiniz. Ayrıca, özel formatlara—[PDF to SVG](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-svg/), [PDF to TIFF](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-tiff/), ve [PDF to XML](https://products.aspose.com/slides/tr/python-net/conversion/pdf-to-xml/)—PDF dönüştürme işlemleri de desteklenir.
+
 {{% /alert %}}
 
-> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides SmartArt, grafikler ve formüller gibi karmaşık grafikleri tek bir şekil olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
+> **Not:** PDF/UA'ya dışa aktarırken, Aspose.Slides karmaşık grafikleri (SmartArt, grafikler ve formüller gibi) tek bir şekil olarak ele alır. Tek tek yol öğeleri ayrı içerik olarak korunmaz ve artefakt olarak işaretlenebilir; alternatif metin yalnızca bütün şekil için sağlanır.
 
-## **SSS**
+## **FAQ**
 
-**Aspose.Slides for Python PDF'den uygulama bilgisini kaldırabilir mi?**  
-Hayır, Aspose.Slides for Python çıktı PDF'ye otomatik olarak API bilgisi ve sürüm numarasını ekler. Bu bilgi değiştirilemez veya kaldırılamaz.
+### Aspose.Slides for Python PDF'den uygulama bilgilerini kaldırabilir mi?
 
-**PDF dönüşümünde sadece belirli slaytları nasıl dahil edebilirim?**  
-`save` metoduna slayt konumlarını içeren bir dizi geçirerek dönüştürmek istediğiniz slayt indekslerini belirtebilirsiniz.
+Hayır, Aspose.Slides for Python, çıktıda otomatik olarak API bilgilerini ve sürüm numarasını içerir. Bu bilgiler değiştirilemez veya kaldırılamaz.
 
-**Dönüşüm sırasında PDF'yi şifre korumalı yapmak mümkün mü?**  
+### PDF dönüşümünde yalnızca belirli slaytları nasıl dahil ederim?
+
+İstediğiniz slayt indekslerini `save` metoduna bir slayt konumları dizisi geçirerek belirtebilirsiniz.
+
+### Dönüşüm sırasında PDF'yi şifreyle korumak mümkün mü?
+
 Evet, sunumu PDF olarak kaydetmeden önce `PdfOptions` sınıfını kullanarak bir şifre belirleyebilir ve erişim izinlerini tanımlayabilirsiniz.
 
-**Aspose.Slides PDF'yi diğer formatlara dönüştürmeyi destekliyor mu?**  
-Evet, Aspose.Slides PDF'leri HTML, görsel formatları (JPG, PNG), SVG, TIFF ve XML gibi formatlara dönüştürmeyi destekler.
+### Aspose.Slides PDF'yi diğer formatlara dönüştürmeyi destekliyor mu?
 
-**PDF'imin erişilebilirlik standartlarına uygun olduğundan nasıl emin olabilirim?**  
-Erişilebilirlik yönergelerine uyumu sağlamak için `PdfOptions` içindeki `compliance` özelliğini `PDF_A1A`, `PDF_A1B` veya `PDF_UA` gibi standartlara ayarlayın.
+Evet, Aspose.Slides, PDF'leri HTML, görüntü formatları (JPG, PNG), SVG, TIFF ve XML gibi formatlara dönüştürmeyi destekler.
 
-**PDF çıktısına gizli slaytları ekleyebilir miyim?**  
-Evet, `PdfOptions` içinde `show_hidden_slides` özelliğini `True` olarak ayarladığınızda gizli slaytlar PDF'ye dahil edilir.
+### PDF'min erişilebilirlik standartlarına uygunluğunu nasıl sağlayabilirim?
 
-**Dönüşüm sırasında görüntü kalitesi ve çözünürlüğü nasıl ayarlarım?**  
-Sonuç PDF'deki görüntü kalitesi ve çözünürlüğü kontrol etmek için `PdfOptions` içindeki `jpeg_quality` ve `sufficient_resolution` özelliklerini kullanın.
+Erişilebilirlik yönergelerine uygunluğu sağlamak için `PdfOptions` içinde `compliance` özelliğini `PDF_A1A`, `PDF_A1B` veya `PDF_UA` gibi standartlara ayarlayın.
 
-**Aspose.Slides yazı tipi ikamelerini otomatik olarak yönetiyor mu?**  
-Aspose.Slides dönüşüm sırasında yazı tipi ikamelerini algılar ve bunları `SaveOptions` içindeki `warning_callback` özelliğiyle (şu anda sınırlı) ele alabilirsiniz.
+### PDF çıktısına gizli slaytları dahil edebilir miyim?
+
+Evet, `PdfOptions` içinde `show_hidden_slides` özelliğini `True` olarak ayarlayarak gizli slaytlar PDF'ye dahil edilir.
+
+### Dönüşüm sırasında görüntü kalitesini ve çözünürlüğünü nasıl ayarlarım?
+
+Sonuç PDF'de görüntü kalitesini ve çözünürlüğünü kontrol etmek için `PdfOptions` içinde `jpeg_quality` ve `sufficient_resolution` özelliklerini kullanın.
+
+### Aspose.Slides yazı tipi ikamelerini otomatik olarak yönetiyor mu?
+
+Aspose.Slides, dönüşüm sırasında yazı tipi ikamelerini algılar ve bunları `SaveOptions` içindeki `warning_callback` özelliği ile (şu anda sınırlı olarak) yönetebilirsiniz.
 
 ## **Ek Kaynaklar**
 
-- [Aspose.Slides for .NET Belgelendirmesi](https://docs.aspose.com/slides/tr/python-net/)
+- [Aspose.Slides for .NET Dökümantasyonu](https://docs.aspose.com/slides/tr/python-net/)
 - [Aspose.Slides API Referansı](https://reference.aspose.com/slides/tr/python-net/)
-- [Aspose Ücretsiz Çevrimiçi Dönüştürücüler](https://products.aspose.app/slides/tr/conversion)
+- [Aspose Ücretsiz Çevrim İçi Dönüştürücüler](https://products.aspose.app/slides/tr/conversion)

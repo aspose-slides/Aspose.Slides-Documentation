@@ -1,126 +1,443 @@
 ---
-title: Quản lý các trình giữ chỗ trong bản trình chiếu bằng JavaScript
-linktitle: Quản lý Trình giữ chỗ
+title: Quản lý Placeholder của Bản trình chiếu trong JavaScript
+linktitle: Quản lý Placeholder
 type: docs
 weight: 10
 url: /vi/nodejs-java/manage-placeholder/
 keywords:
-- trình giữ chỗ
-- trình giữ chỗ văn bản
-- trình giữ chỗ hình ảnh
-- trình giữ chỗ biểu đồ
-- văn bản gợi ý
+- placeholder
+- placeholder văn bản
+- placeholder hình ảnh
+- placeholder biểu đồ
+- placeholder nội dung
+- văn bản nhắc
 - PowerPoint
-- OpenDocument
 - bản trình chiếu
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Quản lý trình giữ chỗ một cách dễ dàng trong Aspose.Slides cho Node.js qua Java: thay thế văn bản, tùy chỉnh gợi ý và đặt độ trong suốt hình ảnh trong PowerPoint và OpenDocument."
+description: "Tìm hiểu cách kiểm tra và chỉnh sửa các placeholder văn bản, hình ảnh, biểu đồ và nội dung, cũng như hiểu về kế thừa placeholder với Aspose.Slides cho Node.js thông qua Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn quản lý các placeholder trong bản trình chiếu một cách lập trình. Bài viết này giải thích cách tìm placeholder trên các slide và thay đổi văn bản của chúng, đặt văn bản gợi ý tùy chỉnh cho các layout placeholder, và điều chỉnh độ trong suốt của hình ảnh được sử dụng làm nền cho placeholder. Nó cũng bao gồm một phần FAQ ngắn giải thích sự khác biệt giữa base placeholder và local shape, mô tả cách thay đổi placeholder có thể được áp dụng qua layout hoặc master, và chỉ dẫn quản lý placeholder tiêu đề và chân trang.
+Một placeholder là một hình dạng giữ vị trí cho một loại nội dung cụ thể trong mẫu trình chiếu. Các ví dụ phổ biến là tiêu đề, nội dung, hình ảnh, biểu đồ và các placeholder nội dung đa mục đích. Không giống như hình dạng thông thường, placeholder có thể kế thừa vị trí, kích thước, định dạng và các cài đặt khác từ một slide bố cục hoặc slide master.
 
-## **Thay đổi văn bản trong Placeholder**
+Aspose.Slides cung cấp thông tin placeholder thông qua phương thức [Shape.getPlaceholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getPlaceholder). Phương thức trả về một đối tượng [Placeholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholder/) hoặc `null` đối với hình dạng bình thường. Sử dụng [Placeholder.getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholder/#getType) để xác định placeholder dự định chứa gì.
 
-Sử dụng [Aspose.Slides for Node.js via Java](/slides/vi/nodejs-java/), bạn có thể tìm và sửa đổi các placeholder trên các slide trong bản trình chiếu. Aspose.Slides cho phép bạn thay đổi văn bản trong một placeholder.
+Lớp hình dạng vẫn quan trọng sau khi bạn biết loại placeholder:
 
-**Prerequisite**: Bạn cần một bản trình chiếu có chứa placeholder. Bạn có thể tạo bản trình chiếu như vậy bằng ứng dụng Microsoft PowerPoint tiêu chuẩn.
+- Một placeholder văn bản, hình ảnh, biểu đồ hoặc nội dung trống thường được biểu diễn bằng một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
+- Một placeholder hình ảnh đã được điền có thể được biểu diễn bằng một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/).
+- Một placeholder biểu đồ đã được điền có thể được biểu diễn bằng một [Chart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chart/).
+- Một placeholder nội dung có thể chứa nhiều loại nội dung. Kiểm tra cả [Placeholder.getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholder/#getType) và lớp hình dạng thời gian chạy thay vì giả định rằng mọi placeholder đều là một [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/).
 
-Đây là cách bạn sử dụng Aspose.Slides để thay thế văn bản trong placeholder của bản trình chiếu đó:
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholder/#getType) mô tả vai trò của placeholder; nó không đảm bảo loại hình dạng thời gian chạy. Luôn luôn kiểm tra kiểu trước khi truy cập các thành viên liên quan tới văn bản, hình ảnh, biểu đồ, bảng hoặc phương tiện.
+{{% /alert %}}
 
-1. Khởi tạo lớp [`Presentation`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/Presentation). và truyền bản trình chiếu làm đối số.
-2. Lấy tham chiếu slide thông qua chỉ mục của nó.
-3. Duyệt qua các shape để tìm placeholder.
-4. Ép kiểu shape placeholder thành một [`AutoShape`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AutoShape) và thay đổi văn bản bằng cách sử dụng [`TextFrame`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/TextFrame) gắn với [`AutoShape`](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/AutoShape).
-5. Lưu bản trình chiếu đã sửa đổi.
+## **Hiểu về kế thừa Placeholder**
+
+Placeholder tạo thành một cây phân cấp:
+
+1. Một slide master xác định các kiểu có thể tái sử dụng và, trong một số trường hợp, các placeholder ở mức master.
+2. Một slide layout xác định cách sắp xếp được một hoặc nhiều slide bình thường sử dụng và có thể kế thừa từ master.
+3. Một slide bình thường chứa các placeholder cho slide đó và có thể kế thừa từ layout của nó.
+
+Gọi [Shape.getBasePlaceholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) để di chuyển lên một cấp trong cây phân cấp này. Một placeholder slide thường trả về placeholder layout của nó; một placeholder layout có thể trả về placeholder master. Phương thức trả về `null` khi hình dạng không có placeholder cơ sở.
+
+Ví dụ sau liệt kê các placeholder trên slide đầu tiên và báo cáo placeholder cơ sở của chúng:
 
 ```javascript
-// Tạo một lớp Presentation
-var pres = new aspose.slides.Presentation("ReplacingText.pptx");
-try {
-    // Truy cập slide đầu tiên
-    var sld = pres.getSlides().get_Item(0);
-    // Duyệt qua các shape để tìm placeholder
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (shp.getPlaceholder() != null) {
-            // Thay đổi văn bản trong mỗi placeholder
-            shp.getTextFrame().setText("This is Placeholder");
-        }
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getShapeClassName(shape) {
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        return "AutoShape";
     }
-    // Lưu bản trình chiếu vào đĩa
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+        return "PictureFrame";
     }
+
+    if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+        return "Chart";
+    }
+
+    return "Shape";
 }
-```
 
-## **Đặt Văn bản Gợi ý trong Placeholder**
-
-Các layout chuẩn và đã được xây dựng sẵn chứa văn bản gợi ý placeholder như ***Click to add a title*** hoặc ***Click to add a subtitle***. Sử dụng Aspose.Slides, bạn có thể chèn văn bản gợi ý mà bạn muốn vào các layout placeholder.
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("template.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    // Duyệt qua slide
-    for (let i = 0; i < slide.getSlide().getShapes().size(); i++) {
-        let shape = slide.getSlide().getShapes().get_Item(i);
-        if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
-            var text = "";
-            // PowerPoint hiển thị "Click to add title"
-            if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.CenteredTitle) {
-                text = "Add Title";
-            } else // Thêm phụ đề
-            if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.Subtitle) {
-                text = "Add Subtitle";
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        const shapeClassName = getShapeClassName(shape);
+        const slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape class: " + shapeClassName;
+        console.log(slidePlaceholderMessage);
+
+        const layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            const layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            const layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            const layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            console.log(layoutPlaceholderMessage);
+
+            const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                const masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                const masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                const masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                console.log(masterPlaceholderMessage);
             }
-            shape.getTextFrame().setText(text);
-            console.log("Placeholder with text: " + text);
         }
     }
-    pres.save("Placeholders_PromptText.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Đặt Độ trong Suất Hình ảnh Placeholder**
+Chỉnh sửa một placeholder trên slide bình thường sẽ tạo hoặc thay đổi một ghi đè cục bộ cho slide đó. Chỉnh sửa layout hoặc master liên quan có thể ảnh hưởng tới tất cả các slide vẫn kế thừa thiết lập đó. Một hình dạng bình thường cục bộ không có placeholder cơ sở và không bắt đầu kế thừa chỉ vì nó chiếm cùng tọa độ.
 
-Aspose.Slides cho phép bạn đặt độ trong suốt của hình ảnh nền trong một placeholder văn bản. Bằng cách điều chỉnh độ trong suốt của hình trong khung như vậy, bạn có thể làm nổi bật văn bản hoặc hình ảnh (tùy thuộc vào màu của văn bản và hình ảnh).
+## **Thay đổi Văn bản trong Placeholder**
+
+Tiêu đề, tiêu đề trung tâm, phụ đề, nội dung và placeholder văn bản thường hỗ trợ văn bản. Kiểm tra [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) trước khi sử dụng phương thức [getTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/#getTextFrame) của nó.
+
+Ví dụ này cập nhật placeholder tiêu đề đầu tiên trên slide đầu và lưu kết quả:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
-var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (var i = 0; i < operationCollection.size(); i++) {
-    if (java.instanceOf(operationCollection.get_Item(i), "com.aspose.slides.AlphaModulateFixed")) {
-        var alphaModulate = operationCollection.get_Item(i);
-        var currentValue = 100 - alphaModulate.getAmount();
-        console.log("Current transparency value: " + currentValue);
-        var alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let titleShape = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        if (placeholderType === aspose.slides.PlaceholderType.Title || placeholderType === aspose.slides.PlaceholderType.CenteredTitle) {
+            titleShape = shape;
+            break;
+        }
     }
+
+    if (titleShape == null) {
+        throw new Error("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
-presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
 ```
 
-## **FAQ**
+Mẫu này tránh việc xử lý các placeholder hình ảnh, biểu đồ, bảng hoặc phương tiện như các đối tượng [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/). Nó cũng xác định placeholder theo mục đích thay vì dựa vào chỉ mục hình dạng dễ vỡ.
 
-**Base placeholder là gì, và nó khác gì so với local shape trên slide?**
+## **Đặt Văn bản Nhắc trong Layout**
 
-Base placeholder là shape gốc trên layout hoặc master mà shape của slide kế thừa—kiểu, vị trí và một số định dạng được lấy từ nó. Local shape là độc lập; nếu không có base placeholder, việc kế thừa sẽ không áp dụng.
+Văn bản nhắc là hướng dẫn được hiển thị trong một placeholder trống ở thời điểm thiết kế, chẳng hạn như *Click to add title*. Đặt văn bản nhắc tùy chỉnh trên placeholder layout thay vì cố gắng truy cập nó qua bộ sưu tập hình dạng của slide bình thường. Truy cập layout thông qua [Slide.getLayoutSlide](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/slide/#getLayoutSlide) và lặp qua bộ sưu tập trả về bởi [BaseSlide.getShapes](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseslide/#getShapes).
 
-**Làm thế nào để cập nhật tất cả tiêu đề hoặc chú thích trong toàn bộ bản trình chiếu mà không phải duyệt qua từng slide?**
+Ví dụ sau thay đổi nhắc tiêu đề và phụ đề trên layout được sử dụng bởi slide đầu tiên:
 
-Chỉnh sửa placeholder tương ứng trên layout hoặc master. Các slide dựa trên các layout/master đó sẽ tự động kế thừa thay đổi.
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-**Làm sao để kiểm soát các placeholder tiêu đề/chân trang tiêu chuẩn—ngày & giờ, số slide, và văn bản chân trang?**
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const firstSlide = slides.get_Item(0);
+    const layoutSlide = firstSlide.getLayoutSlide();
+    const shapes = layoutSlide.getShapes();
 
-Sử dụng các trình quản lý HeaderFooter ở phạm vi thích hợp (slide thường, layout, master, ghi chú/handout) để bật hoặc tắt các placeholder đó và đặt nội dung của chúng.
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+
+        if (placeholderType === aspose.slides.PlaceholderType.Title || placeholderType === aspose.slides.PlaceholderType.CenteredTitle) {
+            shape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType === aspose.slides.PlaceholderType.Subtitle) {
+            shape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
+    }
+
+    presentation.save("custom-placeholder-prompts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Văn bản nhắc không phải là nội dung slide bình thường. Nó dành cho các placeholder trống trong các ứng dụng chỉnh sửa như PowerPoint. Khi người dùng hoặc chương trình cung cấp nội dung thực, nhắc sẽ không còn hiển thị. Thay đổi nhắc cũng không thay thế văn bản hiện có trên các slide sử dụng layout đó.
+
+## **Cập nhật Placeholder Hình ảnh**
+
+Có hai trường hợp cần xử lý:
+
+- Nếu placeholder hình ảnh đã được điền và được biểu diễn bằng một [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/), thay thế hình ảnh qua [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picturefillformat/#getPicture) và [Picture.setImage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/picture/#setImage).
+- Nếu nó vẫn là một placeholder trống, thêm một picture frame tại tọa độ của placeholder bằng [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) và loại bỏ placeholder trống.
+
+Ví dụ tiếp theo hỗ trợ cả hai trường hợp và lưu bản trình chiếu:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("picture-template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let picturePlaceholder = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() === aspose.slides.PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new Error("The first slide does not contain a picture placeholder.");
+    }
+
+    const sourceImage = aspose.slides.Images.fromFile("replacement.png");
+    try {
+        const image = presentation.getImages().addImage(sourceImage);
+
+        if (java.instanceOf(picturePlaceholder, "com.aspose.slides.IPictureFrame")) {
+            picturePlaceholder.getPictureFormat().getPicture().setImage(image);
+        } else {
+            const x = picturePlaceholder.getX();
+            const y = picturePlaceholder.getY();
+            const width = picturePlaceholder.getWidth();
+            const height = picturePlaceholder.getHeight();
+            const frameX = java.newFloat(x);
+            const frameY = java.newFloat(y);
+            const frameWidth = java.newFloat(width);
+            const frameHeight = java.newFloat(height);
+            shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, frameX, frameY, frameWidth, frameHeight, image);
+            shapes.remove(picturePlaceholder);
+        }
+    } finally {
+        sourceImage.dispose();
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Việc thay thế được tạo cho một placeholder trống là một picture frame cục bộ, không phải một placeholder mới, vì [Shape.getPlaceholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getPlaceholder) không cung cấp setter. Nó giữ vị trí đã dự trữ nhưng không còn kế thừa hành vi đặc thù của placeholder. Nếu cần duy trì mối quan hệ placeholder, hãy chuẩn bị và điền placeholder trong PowerPoint trước, sau đó cập nhật [PictureFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/pictureframe/) kết quả bằng Aspose.Slides.
+
+Đối với độ trong suốt hình ảnh, cắt ảnh và các hiệu ứng đặc thù khác, xem [Quản lý Khung Hình](/slides/vi/nodejs-java/picture-frame/). Các thao tác này thuộc về picture frame hoặc picture fill, không phải metadata của placeholder.
+
+## **Làm việc với Placeholder Biểu đồ và Nội dung**
+
+Một placeholder biểu đồ đã được điền có thể được biểu diễn bằng một [Chart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chart/). Ví dụ này tìm biểu đồ như vậy bằng cả loại placeholder và lớp thời gian chạy, thay đổi tiêu đề và lưu tệp:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("chart-template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let placeholderChart = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            continue;
+        }
+
+        const placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() === aspose.slides.PlaceholderType.Chart) {
+            placeholderChart = shape;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new Error("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Một placeholder nội dung chung thường có [PlaceholderType.Object](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholdertype/#Object). Trong PowerPoint, nó hoạt động như một trình khởi chạy cho nhiều loại nội dung, bao gồm biểu đồ, bảng, sơ đồ, hình ảnh và phương tiện. Sau khi được điền, kiểm tra lớp hình dạng thực tế để biết nó chứa gì. Các layout chuyên dụng cũng có thể hiển thị [PlaceholderType.Chart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholdertype/#Media) hoặc [PlaceholderType.Diagram](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholdertype/#Diagram).
+
+Aspose.Slides không chuyển một placeholder [AutoShape](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/autoshape/) trống thành một [Chart](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/chart/) chỉ bằng cách thay đổi [Placeholder.getType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/placeholder/#getType); kiểu không thể được thay đổi qua đối tượng. Để điền một khu vực biểu đồ hoặc nội dung trống bằng program, thêm đối tượng cần thiết tại tọa độ của placeholder và sau đó loại bỏ placeholder trống. Ví dụ sau thực hiện việc này cho một biểu đồ:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("content-template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let targetPlaceholder = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        if (placeholderType === aspose.slides.PlaceholderType.Chart || placeholderType === aspose.slides.PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new Error("The first slide does not contain a chart or content placeholder.");
+    }
+
+    const x = targetPlaceholder.getX();
+    const y = targetPlaceholder.getY();
+    const width = targetPlaceholder.getWidth();
+    const height = targetPlaceholder.getHeight();
+    const chartX = java.newFloat(x);
+    const chartY = java.newFloat(y);
+    const chartWidth = java.newFloat(width);
+    const chartHeight = java.newFloat(height);
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, chartX, chartY, chartWidth, chartHeight);
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    shapes.remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Biểu đồ được thêm là một biểu đồ cục bộ thông thường. Nó chiếm vùng của placeholder nhưng không kế thừa từ placeholder layout. Sử dụng các [bài viết quản lý biểu đồ](/slides/vi/nodejs-java/powerpoint-charts/) khi bạn cần thay thế danh mục, series hoặc dữ liệu workbook.
+
+## **Ví dụ hoàn chỉnh: Cập nhật Văn bản hoặc Nội dung Hình ảnh**
+
+Ví dụ end-to-end sau mở một mẫu, tìm kiếm slide đầu tiên cho placeholder tiêu đề hoặc hình ảnh, kiểm tra loại placeholder và hình dạng, cập nhật nội dung phù hợp và lưu kết quả. Ví dụ này cố ý tránh giả định chỉ mục hình dạng hoặc xử lý mọi placeholder như cùng một lớp.
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let updated = false;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        const isTitlePlaceholder = placeholderType === aspose.slides.PlaceholderType.Title || placeholderType === aspose.slides.PlaceholderType.CenteredTitle;
+
+        if (isTitlePlaceholder && java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType === aspose.slides.PlaceholderType.Picture) {
+            const sourceImage = aspose.slides.Images.fromFile("replacement.png");
+            try {
+                const image = presentation.getImages().addImage(sourceImage);
+
+                if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+                    shape.getPictureFormat().getPicture().setImage(image);
+                } else {
+                    const x = shape.getX();
+                    const y = shape.getY();
+                    const width = shape.getWidth();
+                    const height = shape.getHeight();
+                    const frameX = java.newFloat(x);
+                    const frameY = java.newFloat(y);
+                    const frameWidth = java.newFloat(width);
+                    const frameHeight = java.newFloat(height);
+                    shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, frameX, frameY, frameWidth, frameHeight, image);
+                    shapes.remove(shape);
+                }
+            } finally {
+                sourceImage.dispose();
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new Error("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Câu hỏi thường gặp**
+
+**Placeholder cơ sở là gì?**
+
+Placeholder cơ sở là hình dạng tương ứng trên layout hoặc master mà một placeholder khác kế thừa. Sử dụng [Shape.getBasePlaceholder](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/shape/#getBasePlaceholder) để lấy nó. Một hình dạng cục bộ bình thường trả về `null` vì nó không thuộc cây placeholder.
+
+**Tôi có thể thay đổi tất cả tiêu đề slide bằng cách chỉnh sửa placeholder layout không?**
+
+Bạn có thể thay đổi định dạng hoặc văn bản nhắc được kế thừa qua layout, nhưng nội dung tiêu đề hiện có được lưu trên các slide bình thường. Để thay thế văn bản tiêu đề thực tế trên toàn bộ bản trình chiếu, hãy lặp qua các slide và cập nhật mỗi placeholder tiêu đề.
+
+**Làm thế nào để quản lý placeholder ngày, số slide, tiêu đề và chân trang?**
+
+Sử dụng các trình quản lý tiêu đề và chân trang ở cấp slide, layout, master, notes hoặc handout phù hợp. Xem [Quản lý Tiêu đề và Chân trang Bản trình chiếu](/slides/vi/nodejs-java/presentation-header-and-footer/) để có các ví dụ hoàn chỉnh.

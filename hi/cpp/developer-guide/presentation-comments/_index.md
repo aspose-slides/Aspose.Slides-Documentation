@@ -11,139 +11,160 @@ keywords:
 - प्रस्तुति टिप्पणियां
 - स्लाइड टिप्पणियां
 - टिप्पणी जोड़ें
-- टिप्पणी तक पहुंचें
+- टिप्पणी पढ़ें
 - टिप्पणी संपादित करें
 - टिप्पणी का उत्तर दें
-- टिप्पणी हटाएँ
-- टिप्पणी मिटाएँ
+- टिप्पणी हटाएं
+- टिप्पणी मिटाएं
 - PowerPoint
-- OpenDocument
 - प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ के साथ प्रस्तुति टिप्पणियों को मास्टर करें: PowerPoint फाइलों में टिप्पणियां जल्दी और आसानी से जोड़ें, पढ़ें, संपादित करें और हटाएँ।"
+description: "Aspose.Slides for C++ के साथ प्रस्तुति टिप्पणियों का प्रबंधन: PowerPoint प्रस्तुतियों में टिप्पणियों को तेजी से और आसानी से जोड़ें, पढ़ें, संपादित करें, उत्तर दें और हटाएं।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में प्रस्तुतिकरण टिप्पणियों को प्रबंधित करने के तरीके को समझाता है। यह मुख्य टिप्पणी-संबंधी प्रकारों को दिखाता है और स्लाइड्स में टिप्पणियां जोड़ना, मौजूदा टिप्पणियों तक पहुंचना, उत्तरों के साथ काम करना, आधुनिक टिप्पणियों का उपयोग करना, और प्रस्तुति से टिप्पणियों को हटाना प्रदर्शित करता है।
+यह लेख Aspose.Slides for C++ के साथ प्रस्तुति टिप्पणी प्रबंधन को समझाता है। यह मुख्य टिप्पणी‑संबंधित प्रकारों का परिचय देता है और स्लाइड्स में टिप्पणियां जोड़ने, मौजूदा टिप्पणियों तक पहुंचने, उत्तरों और आधुनिक टिप्पणियों के साथ काम करने, तथा प्रस्तुति से टिप्पणियों को हटाने का प्रदर्शन करता है।
 
-उदाहरण सामान्य समीक्षात्मक और सहयोगी परिदृश्यों पर केंद्रित हैं, जैसे कि PowerPoint में टिप्पणियों को लेखकों को असाइन करना, टिप्पणी की सामग्री और मेटाडाटा पढ़ना, उत्तर श्रंखलाएं बनाना, और सभी टिप्पणियों को साफ़ करना या चयनित टिप्पणियों को हटाना।
+उदाहरण सामान्य रिव्यू और सहयोग परिदृश्यों को कवर करते हैं जैसे कि टिप्पणी को लेखक से असाइन करना, टिप्पणी टेक्स्ट और मेटाडाटा पढ़ना, जवाब श्रृंखलाएं बनाना, और चयनित टिप्पणियों या सभी टिप्पणियों को हटाना।
 
-PowerPoint में, एक टिप्पणी स्लाइड पर नोट या एनोटेशन के रूप में दिखाई देती है। जब किसी टिप्पणी पर क्लिक किया जाता है, तो उसकी सामग्री या संदेश प्रदर्शित होते हैं।
+PowerPoint में, टिप्पणियां स्लाइड पर एनोटेशन के रूप में दिखाई देती हैं। किसी टिप्पणी का चयन करने पर उसका टेक्स्ट और संबंधित चर्चा प्रदर्शित होती है।
 
 ## **प्रस्तुति में टिप्पणियां क्यों जोड़ें?**
 
-जब आप प्रस्तुतियों की समीक्षा करते हैं, तो आप प्रतिक्रिया देने या अपने सहयोगियों के साथ संवाद करने के लिए टिप्पणियों का उपयोग करना चाह सकते हैं।
+आप प्रस्तुति की समीक्षा करते समय फ़ीडबैक देने और सहयोगियों के साथ सहयोग करने के लिए टिप्पणियों का उपयोग कर सकते हैं।
 
-PowerPoint प्रस्तुतियों में टिप्पणियों का उपयोग करने के लिए, Aspose.Slides for C++ प्रदान करता है
+Aspose.Slides for C++ टिप्पणी के साथ काम करने के लिए निम्नलिखित API प्रदान करता है:
 
-* The [Presentation](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation) क्लास, जो लेखकों के संग्रह को रखती है ([get_CommentAuthors()](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.presentation#ac100feeb13ea426b85557a829676227d) मेथड से)। लेखक स्लाइड्स में टिप्पणियां जोड़ते हैं। 
-* The [ICommentCollection](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_comment_collection) इंटरफ़ेस, जो व्यक्तिगत लेखकों के लिए टिप्पणियों का संग्रह रखता है। 
-* The [IComment](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.i_comment) क्लास, जो लेखकों और उनकी टिप्पणियों की जानकारी रखती है: किसने टिप्पणी जोड़ी, टिप्पणी कब जोड़ी गई, टिप्पणी की स्थिति आदि। 
-* The [CommentAuthor](https://reference.aspose.com/slides/hi/cpp/class/aspose.slides.comment_author) क्लास, जो व्यक्तिगत लेखकों की जानकारी रखती है: लेखक का नाम, उनके आद्याक्षर, लेखक नाम से जुड़ी टिप्पणियां आदि। 
+* The [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class, which provides access to the presentation's comment authors.
+* The [ICommentCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icommentcollection/) interface, which represents the comments associated with an individual author.
+* The [IComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/) interface, which provides information about a comment, including its author, creation time, position, and text.
+* The [CommentAuthor](https://reference.aspose.com/slides/hi/cpp/aspose.slides/commentauthor/) class, which provides information about an author, including their name, initials, and associated comments.
 
-## **स्लाइड टिप्पणी जोड़ें**
-यह C++ कोड आपको बताता है कि PowerPoint प्रस्तुति में एक स्लाइड पर टिप्पणी कैसे जोड़ें:
+## **स्लाइड टिप्पणियां जोड़ें**
+
+निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में स्लाइड्स में टिप्पणियां कैसे जोड़ी जाएँ:
 
 ```cpp
-// Presentation क्लास का इंस्टेंस बनाएँ
-auto presentation = System::MakeObject<Presentation>();
-// एक खाली स्लाइड जोड़ता है
-presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlides()->idx_get(0));
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-// एक लेखक जोड़ता है
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto firstSlide = presentation->get_Slide(0);
+auto secondSlide = presentation->get_Slides()->AddEmptySlide(presentation->get_LayoutSlide(0));
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Jawad", u"MF");
+auto position = PointF(0.2f, 0.2f);
+auto createdTime = DateTime::get_Now();
 
-// टिप्पणियों के लिए स्थिति सेट करता है
-PointF point;
-point.set_X(0.2f);
-point.set_Y(0.2f);
+author->get_Comments()->AddComment(u"Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+author->get_Comments()->AddComment(u"Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-// ISlide 1 तक पहुँचता है
-auto slide1 = presentation->get_Slides()->idx_get(0);
-// ISlide 2 तक पहुँचता है
-auto slide2 = presentation->get_Slides()->idx_get(1);
+auto comments = firstSlide->GetSlideComments(author);
+if (comments->get_Length() > 0)
+{
+    auto firstComment = comments[0];
+    Console::WriteLine(firstComment->get_Text());
 
-// स्लाइड 1 पर लेखक के लिए स्लाइड टिप्पणी जोड़ता है
-author->get_Comments()->AddComment(u"Hello Jawad, this is slide comment", slide1, point, DateTime::get_Now());
-
-// स्लाइड 2 पर लेखक के लिए स्लाइड टिप्पणी जोड़ता है
-author->get_Comments()->AddComment(u"Hello Jawad, this is second slide comment", slide2, point, DateTime::get_Now());
-
-// जब तर्क के रूप में null पास किया जाता है, सभी लेखकों की टिप्पणियां चयनित स्लाइड पर लाई जाती हैं
-auto comments = slide1->GetSlideComments(author);
-
-// स्लाइड 1 के लिए इंडेक्स 0 पर टिप्पणी तक पहुँचता है
-String str = comments[0]->get_Text();
+    auto commentText = firstComment->get_Author()->get_Comments()->idx_get(0)->get_Text();
+    Console::WriteLine(commentText);
+}
 
 presentation->Save(u"Comments_out.pptx", SaveFormat::Pptx);
-
-if (comments->GetLength(0) > 0)
-{
-    // इंडेक्स 0 पर लेखक की टिप्पणी संग्रह को चुनता है
-    auto commentCollection = comments[0]->get_Author()->get_Comments();
-    String Comment = commentCollection->idx_get(0)->get_Text();
-}
 ```
 
 ## **स्लाइड टिप्पणियों तक पहुंचें**
-यह C++ कोड आपको बताता है कि PowerPoint प्रस्तुति में एक स्लाइड पर मौजूदा टिप्पणी तक कैसे पहुंचें:
+
+निम्नलिखित उदाहरण दिखाता है कि PowerPoint प्रस्तुति में मौजूदा टिप्पणियों तक कैसे पहुंचा जाए:
 
 ```cpp
-// Presentation क्लास का इंस्टेंस बनाता है
-auto presentation = System::MakeObject<Presentation>(u"Comments1.pptx");
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-for (auto&& commentAuthor : presentation->get_CommentAuthors())
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Comments1.pptx");
+
+for (auto&& author : presentation->get_CommentAuthors())
 {
-    auto author = System::ExplicitCast<CommentAuthor>(commentAuthor);
-    for (auto&& comment1 : System::IterateOver(author->get_Comments()))
+    for (auto&& comment : author->get_Comments())
     {
-        SmartPtr<Comment> comment = System::ExplicitCast<Comment>(comment1);
-        Console::WriteLine(String(u"ISlide :")
-                        + comment->get_Slide()->get_SlideNumber()
-                        + u" has comment: " + comment->get_Text()
-                        + u" with Author: " + comment->get_Author()->get_Name()
-                        + u" posted on time :" + comment->get_CreatedTime() + u"\n");
+        Console::WriteLine(u"Slide: {0}", comment->get_Slide()->get_SlideNumber());
+        Console::WriteLine(u"Comment: {0}", comment->get_Text());
+        Console::WriteLine(u"Author: {0}", comment->get_Author()->get_Name());
+        Console::WriteLine(u"Posted at: {0}", comment->get_CreatedTime());
+        Console::WriteLine();
     }
 }
 ```
 
 ## **टिप्पणियों का उत्तर दें**
-एक पैरेंट टिप्पणी वह शीर्ष या मूल टिप्पणी है जो टिप्पणी या उत्तरों की पदानुक्रम में होती है। [ParentComment] प्रॉपर्टी ([IComment] इंटरफ़ेस से) का उपयोग करके आप पैरेंट टिप्पणी सेट या प्राप्त कर सकते हैं।
 
-यह C++ कोड आपको दिखाता है कि टिप्पणियां कैसे जोड़ें और उनके उत्तर कैसे प्राप्त करें:
+एक पैरेंट टिप्पणी उत्तर पदानुक्रम के शीर्ष पर मूल टिप्पणी होती है। [IComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/) इंटरफ़ेस की [get_ParentComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/get_parentcomment/) और [set_ParentComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/set_parentcomment/) मेथड आपको टिप्पणी का पैरेंट प्राप्त या सेट करने की अनुमति देती हैं।
+
+निम्नलिखित उदाहरण दर्शाता है कि उत्तर कैसे जोड़े जाएँ और परिणामी टिप्पणी पदानुक्रम की जाँच कैसे की जाए:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
 
-// ISlide 1 तक पहुँचता है
-auto slide1 = pres->get_Slides()->idx_get(0);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
 
-// एक टिप्पणी जोड़ता है
-auto author1 = pres->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
-auto comment1 = author1->get_Comments()->AddComment(u"comment1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto position = PointF(10.0f, 10.0f);
+auto createdTime = DateTime::get_Now();
 
-// comment1 के लिए उत्तर जोड़ता है
-auto author2 = pres->get_CommentAuthors()->AddAuthor(u"Autror_2", u"B.B.");
-auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto author1 = presentation->get_CommentAuthors()->AddAuthor(u"Author_1", u"A.A.");
+auto comment1 = author1->get_Comments()->AddComment(u"comment 1", slide, position, createdTime);
+
+auto author2 = presentation->get_CommentAuthors()->AddAuthor(u"Author_2", u"B.B.");
+auto reply1 = author2->get_Comments()->AddComment(u"reply 1 for comment 1", slide, position, createdTime);
 reply1->set_ParentComment(comment1);
 
-// comment1 के लिए एक और उत्तर जोड़ता है
-auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply2 = author2->get_Comments()->AddComment(u"reply 2 for comment 1", slide, position, createdTime);
 reply2->set_ParentComment(comment1);
 
-// मौजूदा उत्तर के लिए एक उत्तर जोड़ता है
-auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto subReply = author1->get_Comments()->AddComment(u"subreply 3 for reply 2", slide, position, createdTime);
 subReply->set_ParentComment(reply2);
 
-auto comment2 = author2->get_Comments()->AddComment(u"comment 2", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
-auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+author2->get_Comments()->AddComment(u"comment 2", slide, position, createdTime);
+auto comment3 = author2->get_Comments()->AddComment(u"comment 3", slide, position, createdTime);
 
-auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide1, PointF(10.0f, 10.0f), DateTime::get_Now());
+auto reply3 = author1->get_Comments()->AddComment(u"reply 4 for comment 3", slide, position, createdTime);
 reply3->set_ParentComment(comment3);
 
-// कंसोल पर टिप्पणियों की पदानुक्रम दिखाता है
-auto comments = slide1->GetSlideComments(nullptr);
+auto comments = slide->GetSlideComments(nullptr);
 for (int32_t i = 0; i < comments->get_Length(); i++)
 {
     auto comment = comments[i];
@@ -153,115 +174,378 @@ for (int32_t i = 0; i < comments->get_Length(); i++)
         comment = comment->get_ParentComment();
     }
 
-    Console::Write(u"{0} : {1}", comments[i]->get_Author()->get_Name(), comments[i]->get_Text());
-    Console::WriteLine();
+    Console::WriteLine(u"{0}: {1}", comments[i]->get_Author()->get_Name(), comments[i]->get_Text());
 }
 
-pres->Save(u"parent_comment.pptx", SaveFormat::Pptx);
+presentation->Save(u"parent_comment.pptx", SaveFormat::Pptx);
 
-// comment1 और उसके सभी उत्तरों को हटाता है
 comment1->Remove();
-
-pres->Save(u"remove_comment.pptx", SaveFormat::Pptx);
+presentation->Save(u"remove_comment.pptx", SaveFormat::Pptx);
 ```
 
-{{% alert color="warning" title="ध्यान दें" %}} 
-
-* जब [Remove] मेथड ([IComment] इंटरफ़ेस से) का उपयोग करके टिप्पणी हटाई जाती है, तो टिप्पणी के उत्तर भी हटाए जाते हैं। 
-* यदि [ParentComment] सेटिंग से सर्कुलर रेफ़रेंस बनता है, तो [PptxEditException] फेंका जाएगा।
-
+{{% alert color="warning" title="Warning" %}}
+* जब टिप्पणी को हटाने के लिए [IComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/) इंटरफ़ेस की [Remove](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/remove/) मेथड का उपयोग किया जाता है, तो उस टिप्पणी के सभी उत्तर भी हटाए जाते हैं।
+* यदि [set_ParentComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/set_parentcomment/) मेथड एक सर्कुलर रेफ़रेंस बनाता है, तो एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) फेंका जाता है।
 {{% /alert %}}
 
-## **आधुनिक टिप्पणी जोड़ें**
+## **आधुनिक टिप्पणियां जोड़ें**
 
-2021 में, Microsoft ने PowerPoint में *आधुनिक टिप्पणियां* पेश कीं। आधुनिक टिप्पणी सुविधा PowerPoint में सहयोग को काफी बेहतर बनाती है। आधुनिक टिप्पणियों के माध्यम से, PowerPoint उपयोगकर्ताओं को टिप्पणियों को हल करने, टिप्पणी को वस्तुओं और पाठों से जोड़ने, और पहले की तुलना में बहुत आसान इंटरैक्शन करने की सुविधा मिलती है। 
+आधुनिक टिप्पणियां स्लाइड स्वयं, किसी विशिष्ट आकार, या AutoShape के भीतर टेक्स्ट रेंज से जुड़ी हो सकती हैं। [ICommentCollection::AddModernComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icommentcollection/addmoderncomment/) मेथड स्लाइड और टिप्पणी‑मार्कर कोऑर्डिनेट्स के अतिरिक्त एक [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) आर्गुमेंट स्वीकार करती है।
 
-[Aspose Slides for C++ 21.11](https://docs.aspose.com/slides/hi/cpp/aspose-slides-for-cpp-21-11-release-notes/) में, हमने [ModernComment] क्लास जोड़कर आधुनिक टिप्पणियों के समर्थन को लागू किया। [AddModernComment] और [InsertModernComment] मेथड्स को [CommentCollection] क्लास में जोड़ा गया।
+जब `nullptr` आकार आर्गुमेंट के रूप में पास किया जाता है, तो टिप्पणी एक स्लाइड‑लेवल टिप्पणी होती है। उसका मार्कर प्रदान किए गए कोऑर्डिनेट्स द्वारा स्थित होता है, लेकिन यह किसी विशिष्ट आकार से जुड़ा नहीं होता, इसलिए [IModernComment::get_Shape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_shape/) `nullptr` लौटाता है। जब कोई [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) दिया जाता है, तो टिप्पणी उस आकार से एंकर हो जाती है। कोऑर्डिनेट्स फिर भी स्लाइड पर टिप्पणी मार्कर की स्थिति निर्धारित करते हैं, जबकि आकार संबंध को [IModernComment::get_Shape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_shape/) के माध्यम से पुनः प्राप्त किया जा सकता है।
 
-यह C++ कोड आपको बताता है कि PowerPoint प्रस्तुति में एक स्लाइड पर आधुनिक टिप्पणी कैसे जोड़ें: 
+### **एक आधुनिक टिप्पणी को आकार पर एंकर करें**
 
-```cpp
-auto pres = System::MakeObject<Presentation>();
-// ISlide 1 तक पहुँचता है
-auto slide1 = pres->get_Slides()->idx_get(0);
-
-auto newAuthor = pres->get_CommentAuthors()->AddAuthor(u"Some Author", u"SA");
-auto modernComment = newAuthor->get_Comments()->AddModernComment(u"This is a modern comment", slide1, nullptr, PointF(100.0f, 100.0f), DateTime::get_Now());
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-## **टिप्पणी हटाएँ**
-
-### **सभी टिप्पणियां और लेखक हटाएँ**
-
-यह C++ कोड आपको बताता है कि प्रस्तुति में सभी टिप्पणियां और लेखक कैसे हटाएँ:
+निम्नलिखित उदाहरण दोनों एक स्लाइड‑लेवल आधुनिक टिप्पणी और एक विशिष्ट AutoShape पर एंकर की गई आधुनिक टिप्पणी बनाता है। फिर यह प्रत्येक टिप्पणी से संबंधित आकार को पढ़ता है।
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
 using namespace System::Drawing;
 
-auto presentation = System::MakeObject<Presentation>(u"example.pptx");
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 300.0f, 80.0f);
+shape->set_Name(u"Revenue title");
+shape->get_TextFrame()->set_Text(u"Quarterly revenue");
 
-// प्रस्तुति से सभी टिप्पणियां हटाता है
-for (auto author : presentation->get_CommentAuthors())
+auto createdTime = DateTime::get_Now();
+auto slideCommentPosition = PointF(20.0f, 20.0f);
+auto shapeCommentPosition = PointF(60.0f, 60.0f);
+auto slideComment = author->get_Comments()->AddModernComment(u"Review the overall slide layout.", slide, nullptr, slideCommentPosition, createdTime);
+auto shapeComment = author->get_Comments()->AddModernComment(u"Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+Console::WriteLine(slideComment->get_Shape() == nullptr);
+auto shapeAnchor = shapeComment->get_Shape();
+if (shapeAnchor != nullptr)
+{
+    Console::WriteLine(shapeAnchor->get_Name());
+}
+
+presentation->Save(u"modern_comments.pptx", SaveFormat::Pptx);
+```
+
+### **विभिन्न आकार प्रकारों पर टिप्पणियों को एंकर करें**
+
+कोई भी स्लाइड ऑब्जेक्ट जो [IShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ishape/) को लागू करता है, आकार एंकर के रूप में उपयोग किया जा सकता है। सामान्य उदाहरणों में [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/), [IPictureFrame](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ipictureframe/), [IGroupShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igroupshape/), [IConnector](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iconnector/), और [IGraphicalObject](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igraphicalobject/) जैसी वस्तुएँ शामिल हैं।
+
+निम्नलिखित उदाहरण कई सामान्य आकार प्रकार बनाता है और प्रत्येक के साथ एक आधुनिक टिप्पणी जोड़ता है।
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/IChart.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IConnector.h>
+#include <DOM/IGroupShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IPictureFrame.h>
+#include <DOM/IPPImage.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/convert.h>
+#include <system/date_time.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Charts;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto createdTime = DateTime::get_Now();
+
+auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 20.0f, 20.0f, 180.0f, 60.0f);
+autoShape->get_TextFrame()->set_Text(u"AutoShape");
+auto autoShapeCommentPosition = PointF(30.0f, 30.0f);
+author->get_Comments()->AddModernComment(u"Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+auto imageBase64 = u"iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+auto imageData = Convert::FromBase64String(imageBase64);
+auto image = presentation->get_Images()->AddImage(imageData);
+auto pictureFrame = slide->get_Shapes()->AddPictureFrame(ShapeType::Rectangle, 220.0f, 20.0f, 120.0f, 80.0f, image);
+auto pictureCommentPosition = PointF(230.0f, 30.0f);
+author->get_Comments()->AddModernComment(u"Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+auto groupShape = slide->get_Shapes()->AddGroupShape();
+groupShape->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 0.0f, 0.0f, 80.0f, 40.0f);
+groupShape->get_Shapes()->AddAutoShape(ShapeType::Ellipse, 100.0f, 0.0f, 80.0f, 40.0f);
+auto groupCommentPosition = PointF(40.0f, 150.0f);
+author->get_Comments()->AddModernComment(u"Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+auto connector = slide->get_Shapes()->AddConnector(ShapeType::StraightConnector1, 220.0f, 150.0f, 140.0f, 40.0f);
+auto connectorCommentPosition = PointF(240.0f, 150.0f);
+author->get_Comments()->AddModernComment(u"Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 400.0f, 20.0f, 250.0f, 180.0f);
+auto chartCommentPosition = PointF(420.0f, 40.0f);
+author->get_Comments()->AddModernComment(u"Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+presentation->Save(u"modern_comment_shape_types.pptx", SaveFormat::Pptx);
+```
+
+### **टिप्पणी को टेक्स्ट पर एंकर करें और उसकी स्थिति सेट करें**
+
+एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) से जुड़ी आधुनिक टिप्पणी के लिए, [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_textselectionstart/) और [IModernComment::set_TextSelectionStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/set_textselectionstart/) आकार के टेक्स्ट फ्रेम में चयनित टेक्स्ट की प्रारंभिक स्थिति को नियंत्रित करते हैं। इसी तरह, [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_textselectionlength/) और [IModernComment::set_TextSelectionLength](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/set_textselectionlength/) चयन की लंबाई को नियंत्रित करते हैं। साथ में, ये मेथड AutoShape के भीतर एक विशिष्ट टेक्स्ट रेंज से टिप्पणी को जोड़ते हैं।
+
+[IModernComment::get_Status](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_status/) और [IModernComment::set_Status](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/set_status/) मेथड [ModernCommentStatus](https://reference.aspose.com/slides/hi/cpp/aspose.slides/moderncommentstatus/) एन्ह्यूमरेशन के मान का उपयोग करते हैं:
+
+- `NotDefined` — कोई विशिष्ट आधुनिक‑टिप्पणी स्थिति परिभाषित नहीं है।
+- `Active` — टिप्पणी सक्रिय है।
+- `Resolved` — टिप्पणी का निराकरण किया गया है।
+- `Closed` — टिप्पणी बंद है।
+
+निम्नलिखित उदाहरण एक आकार‑एंकर वाली आधुनिक टिप्पणी बनाता है, उसे एक टेक्स्ट चयन से जोड़ता है, उसे निराकरण के रूप में चिह्नित करता है, प्रस्तुति को सहेजता है, और फ़ाइल को फिर से खोलने के बाद मानों की जाँच करता है।
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ModernCommentStatus.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/console.h>
+#include <system/date_time.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+const String outputFile = u"modern_comment_text_anchor.pptx";
+const String shapeText = u"Review the quarterly revenue forecast.";
+const String selectedText = u"quarterly revenue";
+auto expectedSelectionStart = shapeText.IndexOf(selectedText);
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50.0f, 50.0f, 400.0f, 100.0f);
+shape->set_Name(u"Forecast text");
+shape->get_TextFrame()->set_Text(shapeText);
+
+auto author = presentation->get_CommentAuthors()->AddAuthor(u"Reviewer", u"RV");
+auto commentPosition = PointF(60.0f, 60.0f);
+auto comment = author->get_Comments()->AddModernComment(u"Verify this forecast wording.", slide, shape, commentPosition, DateTime::get_Now());
+comment->set_TextSelectionStart(expectedSelectionStart);
+comment->set_TextSelectionLength(selectedText.get_Length());
+comment->set_Status(ModernCommentStatus::Resolved);
+
+presentation->Save(outputFile, SaveFormat::Pptx);
+
+auto reopenedPresentation = MakeObject<Presentation>(outputFile);
+auto reopenedSlide = reopenedPresentation->get_Slide(0);
+auto reopenedComments = reopenedSlide->GetSlideComments(nullptr);
+
+for (auto&& reopenedComment : reopenedComments)
+{
+    auto modernComment = AsCast<IModernComment>(reopenedComment);
+    if (modernComment == nullptr)
+    {
+        continue;
+    }
+
+    auto shapeAnchor = modernComment->get_Shape();
+    auto shapeMatches = shapeAnchor != nullptr && shapeAnchor->get_Name() == u"Forecast text";
+    auto selectionStartMatches = modernComment->get_TextSelectionStart() == expectedSelectionStart;
+    auto selectionLengthMatches = modernComment->get_TextSelectionLength() == selectedText.get_Length();
+    auto statusMatches = modernComment->get_Status() == ModernCommentStatus::Resolved;
+
+    Console::WriteLine(u"Shape anchor preserved: {0}", shapeMatches);
+    Console::WriteLine(u"Text selection start preserved: {0}", selectionStartMatches);
+    Console::WriteLine(u"Text selection length preserved: {0}", selectionLengthMatches);
+    Console::WriteLine(u"Resolved status preserved: {0}", statusMatches);
+}
+```
+
+### **मौजूदा आधुनिक टिप्पणियों की जाँच करें**
+
+किसी मौजूदा प्रस्तुति की जाँच करने के लिए, देखें कि कौन सी टिप्पणियां [IModernComment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/) को लागू करती हैं, फिर [IModernComment::get_Shape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_shape/), [IModernComment::get_TextSelectionStart](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_textselectionstart/), [IModernComment::get_TextSelectionLength](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_textselectionlength/), और [IModernComment::get_Status](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_status/) की जाँच करें। `nullptr` आकार एक स्लाइड‑लेवल टिप्पणी दर्शाता है। एक [IAutoShape](https://reference.aspose.com/slides/hi/cpp/aspose.slides/iautoshape/) एंकर के लिए, टेक्स्ट‑सेलेक्शन मेथड आकार के टेक्स्ट फ्रेम में संबंधित रेंज को पहचानते हैं।
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IComment.h>
+#include <DOM/IModernComment.h>
+#include <DOM/IShape.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/ModernCommentStatus.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"comments.pptx");
+
+for (auto&& slide : presentation->get_Slides())
+{
+    auto comments = slide->GetSlideComments(nullptr);
+    for (auto&& comment : comments)
+    {
+        auto modernComment = AsCast<IModernComment>(comment);
+        if (modernComment == nullptr)
+        {
+            continue;
+        }
+
+        Console::WriteLine(u"Slide: {0}", slide->get_SlideNumber());
+        Console::WriteLine(u"Text: {0}", modernComment->get_Text());
+        Console::WriteLine(u"Status: {0}", modernComment->get_Status());
+
+        auto shape = modernComment->get_Shape();
+        if (shape == nullptr)
+        {
+            Console::WriteLine(u"Anchor: slide level");
+        }
+        else
+        {
+            Console::WriteLine(u"Anchor shape: {0}", shape->get_Name());
+            Console::WriteLine(u"Anchor type: {0}", shape->GetType().get_Name());
+
+            auto autoShape = AsCast<IAutoShape>(shape);
+            if (autoShape != nullptr)
+            {
+                Console::WriteLine(u"Text selection start: {0}", modernComment->get_TextSelectionStart());
+                Console::WriteLine(u"Text selection length: {0}", modernComment->get_TextSelectionLength());
+            }
+        }
+
+        Console::WriteLine();
+    }
+}
+```
+
+## **टिप्पणियां हटाएं**
+
+### **सभी टिप्पणियां और टिप्पणी लेखकों को हटाएं**
+
+निम्नलिखित उदाहरण दिखाता है कि प्रस्तुति से सभी टिप्पणियां और टिप्पणी लेखक कैसे हटाए जाएँ:
+
+```cpp
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"example.pptx");
+
+for (auto&& author : presentation->get_CommentAuthors())
 {
     author->get_Comments()->Clear();
 }
-        
-// सभी लेखकों को हटाता है
+
 presentation->get_CommentAuthors()->Clear();
 presentation->Save(u"example_out.pptx", SaveFormat::Pptx);
 ```
 
-### **विशिष्ट टिप्पणियां हटाएँ**
+### **विशिष्ट टिप्पणियां हटाएं**
 
-यह C++ कोड आपको बताता है कि स्लाइड पर विशिष्ट टिप्पणियां कैसे हटाएँ:
+निम्नलिखित उदाहरण दिखाता है कि स्लाइड से विशिष्ट टिप्पणियां कैसे हटाई जाएँ:
 
 ```cpp
+#include <DOM/IComment.h>
+#include <DOM/ICommentAuthor.h>
+#include <DOM/ICommentAuthorCollection.h>
+#include <DOM/ICommentCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/point_f.h>
+#include <system/collections/list.h>
+#include <system/date_time.h>
+
 using namespace Aspose::Slides;
 using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Collections::Generic;
 using namespace System::Drawing;
 
-auto presentation = System::MakeObject<Presentation>();
-auto slide = presentation->get_Slides()->idx_get(0);
-        
-// टिप्पणियां जोड़ें...
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
 auto author = presentation->get_CommentAuthors()->AddAuthor(u"Author", u"A");
-author->get_Comments()->AddComment(u"comment 1", slide, PointF(0.2f, 0.2f), System::DateTime::get_Now());
-author->get_Comments()->AddComment(u"comment 2", slide, PointF(0.3f, 0.2f), System::DateTime::get_Now());
-        
-// उन सभी टिप्पणियों को हटाएँ जो "comment 1" टेक्स्ट रखती हैं
-for (auto commentAuthor : presentation->get_CommentAuthors())
+auto createdTime = DateTime::get_Now();
+
+auto firstCommentPosition = PointF(0.2f, 0.2f);
+auto secondCommentPosition = PointF(0.3f, 0.2f);
+author->get_Comments()->AddComment(u"comment 1", slide, firstCommentPosition, createdTime);
+author->get_Comments()->AddComment(u"comment 2", slide, secondCommentPosition, createdTime);
+
+for (auto&& commentAuthor : presentation->get_CommentAuthors())
 {
-    auto toRemove = System::MakeObject<System::Collections::Generic::List<System::SharedPtr<IComment>>>();
-    for (auto comment : slide->GetSlideComments(commentAuthor))
+    auto commentsToRemove = MakeObject<List<SharedPtr<IComment>>>();
+    auto comments = slide->GetSlideComments(commentAuthor);
+
+    for (auto&& comment : comments)
     {
         if (comment->get_Text() == u"comment 1")
         {
-            toRemove->Add(comment);
+            commentsToRemove->Add(comment);
         }
     }
-    for (auto comment : toRemove)
+
+    for (auto&& comment : commentsToRemove)
     {
         commentAuthor->get_Comments()->Remove(comment);
     }
 }
-        
+
 presentation->Save(u"pres.pptx", SaveFormat::Pptx);
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए 'सुलझा हुआ' जैसी स्थिति का समर्थन करता है?**
+**क्या Aspose.Slides आधुनिक टिप्पणियों के लिए निराकरण स्थिति का समर्थन करता है?**
 
-हाँ। [Modern comments] में एक [get_Status] और [set_Status] मेथड उपलब्ध है; आप टिप्पणी की स्थिति पढ़ सकते हैं और सेट कर सकते हैं (उदाहरण के लिए, इसे सुलझा हुआ चिह्नित करें), और यह स्थिति फाइल में सहेजी जाती है और PowerPoint द्वारा पहचानी जाती है।
+हाँ। [IModernComment::get_Status](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/get_status/) और [IModernComment::set_Status](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imoderncomment/set_status/) एक [ModernCommentStatus](https://reference.aspose.com/slides/hi/cpp/aspose.slides/moderncommentstatus/) मान का उपयोग करते हैं, जिसमें `Resolved` भी शामिल है। यह स्थिति प्रस्तुति में संग्रहीत रहती है और फ़ाइल को फिर से खोलने के बाद पुनः पढ़ी जा सकती है।
 
-**क्या थ्रेडेड डिस्कशन (उत्तर श्रृंखलाएं) समर्थित हैं, और क्या कोई नेस्टिंग सीमा है?**
+**क्या थ्रेडेड डिस्कशन (उत्तर श्रृंखलाएं) समर्थित हैं, और क्या किसी नेस्टिंग सीमा है?**
 
-हां। प्रत्येक टिप्पणी अपने [parent comment] को संदर्भित कर सकती है, जिससे मनमानी उत्तर श्रृंखलाएं बनती हैं। API में कोई विशेष नेस्टिंग गहराई सीमा घोषित नहीं की गई है।
+हाँ। प्रत्येक टिप्पणी अपने [parent comment](https://reference.aspose.com/slides/hi/cpp/aspose.slides/icomment/set_parentcomment/) को रेफ़र कर सकती है, जिससे उत्तर श्रृंखलाएं बनती हैं। API विशेष नेस्टिंग‑डैप्थ सीमा निर्धारित नहीं करती।
 
 **स्लाइड पर टिप्पणी मार्कर की स्थिति किस कोऑर्डिनेट सिस्टम में परिभाषित होती है?**
 
-स्थिति स्लाइड के कोऑर्डिनेट सिस्टम में एक फ्लोटिंग-पॉइंट पॉइंट के रूप में संग्रहीत होती है। यह आपको टिप्पणी मार्कर को सटीक रूप से जहाँ चाहिए वहाँ रखने की अनुमति देता है।
+मार्कर स्थिति स्लाइड कोऑर्डिनेट सिस्टम में फ्लोटिंग‑पॉइंट कोऑर्डिनेट्स द्वारा परिभाषित की जाती है, जिससे आप इसे स्लाइड पर सटीक रूप से रख सकते हैं।

@@ -9,7 +9,6 @@ keywords:
 - file format
 - conversion
 - rendering
-- printing
 - formatting
 - PowerPoint
 - OpenDocument
@@ -41,7 +40,7 @@ Aspose.Slides for PHP via Java supports high fidelity rendering of slides in pre
 | :- | :- |
 |Java Supported Image Formats|Using Aspose.Slides for PHP via Java, you get to render presentation slides and images on slides to all the Java supported graphics formats such as TIFF, PNG, BMP, JPEG, GIF.|
 |SVG Format|Aspose.Slides for PHP via Java also provides built-in methods that allow you to export presentation slides to Scalable Vector Graphics (SVG) formats.|
-|Presentation Printing|The latest versions of Aspose.Slides for PHP via Java provide built-in print methods with different options.|
+
 ## **Content Features**
 Aspose.Slides for PHP via Java allows you to access, modify, or create almost all the items or contents of presentation documents. Go through these details:
 

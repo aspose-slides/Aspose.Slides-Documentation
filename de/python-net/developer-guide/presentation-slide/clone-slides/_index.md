@@ -95,9 +95,9 @@ import aspose.slides as slides
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # Instanziieren der Presentation-Klasse für die Ziel-PPTX (wo die Folie geklont wird).
     with slides.Presentation() as target_presentation:
-        # Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Foliensammlung in der Zielpräsentation.
+        # Klonen Sie die gewünschte Folie aus der Quellpräsentation an das Ende der Folienkollektion in der Zielpräsentation.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Speichern Sie die Zielpräsentation auf der Festplatte.
+        # Speichern Sie die Zielpräsentation auf dem Datenträger.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -202,11 +202,11 @@ Machen Sie dies, bevor Sie den Master und die Folie klonen.
 
 ## **FAQ**
 
-**Werden Sprechernotizen und Prüferkommentare geklont?**
+### Werden Rednernotizen und Prüferkommentare geklont?
 
 Ja. Die Notizenseite und die Prüferkommentare werden in den Klon übernommen. Wenn Sie sie nicht möchten, [entfernen Sie sie](/slides/de/python-net/presentation-notes/) nach dem Einfügen.
 
-**Wie werden Diagramme und ihre Datenquellen behandelt?**
+### Wie werden Diagramme und deren Datenquellen behandelt?
 
 Das Diagrammobjekt, die Formatierung und die eingebetteten Daten werden kopiert. Wenn das Diagramm mit einer externen Quelle verknüpft war (z.B. einer OLE‑eingebetteten Arbeitsmappe), bleibt diese Verknüpfung als [OLE‑Objekt](/slides/de/python-net/manage-ole/) erhalten. Nach dem Verschieben zwischen Dateien sollten Sie die Datenverfügbarkeit und das Aktualisierungsverhalten prüfen.
 

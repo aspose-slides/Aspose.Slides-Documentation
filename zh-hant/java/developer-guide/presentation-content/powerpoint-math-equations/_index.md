@@ -1,5 +1,5 @@
 ---
-title: 在 Java 中為 PowerPoint 簡報新增數學方程式
+title: 在 Java 中向 PowerPoint 簡報新增數學方程式
 linktitle: PowerPoint 數學方程式
 type: docs
 weight: 80
@@ -21,31 +21,31 @@ description: "使用 Aspose.Slides for Java 在 PowerPoint PPT 與 PPTX 中插�
 ---
 ## **概述**
 
-PowerPoint 將方程式儲存為 Office Math Markup Language（OMML）。使用 Aspose.Slides for Java，您可以以程式方式建立相同類型的數學內容：分數、根號、函數、極限、N 元運算子、矩陣、陣列以及格式化的數學區塊。
+PowerPoint 以 Office Math Markup Language (OMML) 儲存方程式。使用 Aspose.Slides for Java，您可以以程式方式建立相同類型的數學內容：分數、根號、函數、極限、N 元運算子、矩陣、陣列以及格式化的數學區塊。
 
 在 PowerPoint 中，使用者通常透過 **Insert > Equation** 新增方程式：
 
-![PowerPoint 插入標籤已選取方程式指令](powerpoint-math-equations_1.png)
+![PowerPoint 插入標籤，已選取 Equation 指令](powerpoint-math-equations_1.png)
 
-結果是在投影片上顯示可編輯的數學文字：
+結果是投影片上可編輯的數學文字：
 
 ![包含可編輯數學方程式的 PowerPoint 投影片](powerpoint-math-equations_2.png)
 
-Aspose.Slides 透過三個主要物件建立此數學文字：
+Aspose.Slides 透過下列三個主要物件建構此數學文字：
 
-- 數學形狀，使用 [addMathShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) 建立，為包含方程式的形狀。
-- [MathPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathportion/) 在形狀的文字框內儲存數學內容。
+- 以 [addMathShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishapecollection/#addMathShape-float-float-float-float-) 建立的數學形狀，該形狀內含方程式。
+- [MathPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathportion/) 用於在形狀的文字框中儲存數學內容。
 - [MathParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathparagraph/) 包含一個或多個 [MathBlock](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathblock/) 物件。
 
-以下大多數範例使用 [MathematicalText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathematicaltext/) 與 [IMathElement](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/) 的流式方法，以保持程式碼簡潔且易讀。
+以下大多數範例使用 [MathematicalText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathematicaltext/) 以及 [IMathElement](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/) 的串接方法，以保持程式碼簡潔且易讀。
 
-如需 MathML 匯出情況，請參閱 [Export Math Equations from Presentations in Java](/slides/zh-hant/java/exporting-math-equations/)。
+欲了解 MathML 匯出情境，請參閱 [Export Math Equations from Presentations in Java](/slides/zh-hant/java/exporting-math-equations/)。
 
 ## **建立方程式**
 
 此範例建立一個數學形狀並加入畢氏定理：
 
-![c 平方等於 a 平方加 b 平方的方程式](powerpoint-math-equations_3.png)
+![方程式 c² = a² + b² 的圖示](powerpoint-math-equations_3.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -71,15 +71,15 @@ try {
 }
 ```
 
-{{% alert color="primary" %}}
-`addMathShape` 會建立一個已包含數學段落的形狀。存取第一個 `MathPortion`，取得其 `MathParagraph`，並向其新增數學區塊或數學元素。
+{{% alert color="primary"%}}
+`addMathShape` 會建立已包含數學段落的形狀。存取第一個 `MathPortion`，取得其 `MathParagraph`，然後向其中加入數學區塊或數學元素。
 {{% /alert %}}
 
-## **新增分數**
+## **加入分數**
 
-使用 `divide` 來建立分數。您可以透過 [MathFractionTypes](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathfractiontypes/) 選擇分數樣式。
+使用 `divide` 建立分數。您可以透過 [MathFractionTypes](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathfractiontypes/) 選擇分數樣式。
 
-![斜斜的數學分數，顯示 1 除以 x](powerpoint-math-equations_4.png)
+![顯示 1 除以 x 的斜置分數圖示](powerpoint-math-equations_4.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -101,17 +101,17 @@ try {
 }
 ```
 
-若要堆疊式分數，使用 `MathFractionTypes.Bar`：
+若要堆疊分數，使用 `MathFractionTypes.Bar`：
 
 ```java
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
 ```
 
-## **新增根號**
+## **加入根號**
 
-使用 `radical` 建立平方根、立方根或其他根號。當前元素成為根號底數，參數則為次方。
+使用 `radical` 建立平方根、立方根或其他根號。當前元素成為底，參數則為指數。
 
-![第 n 次根號表達式，x 位於根號符號下方](powerpoint-math-equations_5.png)
+![帶有根號符號且根號下方為 x 的 n 次根圖示](powerpoint-math-equations_5.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -133,11 +133,11 @@ try {
 }
 ```
 
-## **新增函數與極限**
+## **加入函數與極限**
 
-使用 `asArgumentOfFunction` 或 `function` 來表示函數，例如 `sin(x)`、`log(x)`，或自訂函數名稱。對於極限，將 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathlimit/) 或使用 `setLowerLimit`。
+使用 `asArgumentOfFunction` 或 `function` 來建立 `sin(x)`、`log(x)` 或自訂函數名稱。若要表示極限，將 `lim` 放入 [MathLimit](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathlimit/) 或使用 `setLowerLimit`。
 
-![x 趨近於無限大時的極限](powerpoint-math-equations_8.png)
+![當 x 趨近於無限大時的極限圖示](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -160,17 +160,17 @@ try {
 }
 ```
 
-若使用自訂函數名稱，將函數名稱設為當前元素：
+若要使用自訂函數名稱，將函數名稱設為當前元素：
 
 ```java
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **新增 N 元運算子與積分**
+## **加入 N 元運算子與積分**
 
-使用 `nary` 來表示總和、聯集、交集以及其他大型運算子。使用 `integral` 來表示積分。兩種方法皆可設定上下界限。
+使用 `nary` 來表示求和、聯集、交集及其他大型運算子。使用 `integral` 來表示積分。兩者皆可設定上下限。
 
-![帶有上下限的總和符號](powerpoint-math-equations_7.png)
+![帶有上下限的求和符號圖示](powerpoint-math-equations_7.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -195,20 +195,20 @@ try {
 }
 ```
 
-N 元運算子用於具有可選上下限的大型運算子。像 `+`、`-`、`=` 這樣的簡單運算子通常以 `MathematicalText` 形式加入並串接於表達式中。
+N 元運算子適用於帶有可選上下限的大型運算子。像 `+`、`-`、`=` 等簡單運算子通常以 `MathematicalText` 方式加入，並直接串接於表達式中。
 
-若要表示積分，使用 `integral`：
+若要加入積分，使用 `integral`：
 
 ```java
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
 IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **新增矩陣**
+## **加入矩陣**
 
-使用 [MathMatrix](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathmatrix/) 來建立列與欄。矩陣預設不包含括號，如需圓括號、方括號或大括號，須自行將矩陣包起來。
+使用 [MathMatrix](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathmatrix/) 來建立列與欄。矩陣預設不包含括號，若需要括號、方框或大括號，請自行將矩陣包圍起來。
 
-![兩列的數學矩陣，其中一格為空白](powerpoint-math-equations_10.png)
+![含有一個空格的兩列矩陣圖示](powerpoint-math-equations_10.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -234,11 +234,11 @@ try {
 }
 ```
 
-## **新增方程式陣列**
+## **加入方程式陣列**
 
-當需要對齊的方程式或垂直堆疊的表達式時，使用 `toMathArray`。
+需要對齊的方程式或垂直堆疊的表達式時，使用 `toMathArray`。
 
-![垂直的數學陣列，x 在 y 之上](powerpoint-math-equations_11.png)
+![垂直排列，x 在上方、y 在下方的數學陣列圖示](powerpoint-math-equations_11.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -261,11 +261,11 @@ try {
 }
 ```
 
-## **新增三角函數**
+## **加入三角函數**
 
 當參數為當前元素且函數名稱已知時，使用 `asArgumentOfFunction`。
 
-![三角函數 cos 套用於 2x](powerpoint-math-equations_6.png)
+![三角函數 cos 作用於 2x 的圖示](powerpoint-math-equations_6.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -287,11 +287,11 @@ try {
 }
 ```
 
-## **新增下標與上標**
+## **加入下標與上標**
 
-使用下標與上標輔助函式來處理索引與次方。若索引需顯示在基底的左側，請使用 `setSubSuperscriptOnTheLeft`。
+使用下標與上標輔助工具來表示索引與次方。若索引必須出現在基底左側，使用 `setSubSuperscriptOnTheLeft`。
 
-![大寫 Y，左側下標 1 及上標 n](powerpoint-math-equations_9.png)
+![左側下標 1、右側上標 n 的大寫 Y 圖示](powerpoint-math-equations_9.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -313,11 +313,11 @@ try {
 }
 ```
 
-## **新增分界符**
+## **加入分隔符號**
 
-使用 `enclose` 將表達式置於分界符內。對於包含多個元素的分界符表達式，亦可設定分隔符號。
+使用 `enclose` 將表達式包於分隔符號內。亦可設定分隔字元，以在包含多個元素的分隔符號表達式中使用。
 
-![包含 x、y、z，且以直欄分隔的分界符表達式](powerpoint-math-equations_13.png)
+![以垂直條分隔的 x、y、z 分隔符號表達式圖示](powerpoint-math-equations_13.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -342,11 +342,11 @@ try {
 }
 ```
 
-## **新增邊框盒**
+## **加入外框盒**
 
-當方程式本身需要加框時，使用 `toBorderBox`。
+若整個方程式需要被框住，使用 `toBorderBox`。
 
-![帶框的方程式，a 平方等於 b 平方加 c 平方](powerpoint-math-equations_12.png)
+![帶有方框的方程式 a² = b² + c² 圖示](powerpoint-math-equations_12.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -375,9 +375,9 @@ try {
 
 ## **分組項目**
 
-使用 `group` 在表達式上方或下方放置分組符號。加入上下限以標記分組的項目。
+使用 `group` 在表達式上方或下方放置分組字元。加入上下限以標註分組的項目。
 
-![表達式 x 加 y 之上有分組符號，且下方標示任意文字](powerpoint-math-equations_15.png)
+![帶有「任意文字」標籤的 x 加 y 之分組圖示](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -402,9 +402,9 @@ try {
 
 ## **格式化數學元素**
 
-僅在能提升公式可讀性時使用格式化輔助函式。例如，`overbar` 會在數學元素上方加上一條橫線。
+僅在能提升公式可讀性時使用格式化輔助工具。例如，`overbar` 會在數學元素上方加上一條橫線。
 
-![帶上橫線的數學表達式 ABC](powerpoint-math-equations_14.png)
+![帶有上橫線的數學表達式 ABC 圖示](powerpoint-math-equations_14.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -430,30 +430,30 @@ try {
 | 任務 | 主要 API |
 | --- | --- |
 | 建立數學文字 | [MathematicalText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathematicaltext/) |
-| 合併元素 | [IMathElement.join](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
+| 結合元素 | [IMathElement.join](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#join-com.aspose.slides.IMathElement-) |
 | 建立分數 | [IMathElement.divide](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#divide-com.aspose.slides.IMathElement-) |
-| 新增上標或下標 | [setSuperscript](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
-| 新增函數 | [function](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
-| 新增根號 | [IMathElement.radical](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
-| 新增極限 | [setLowerLimit](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
-| 新增左側上下標 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| 新增總和與積分 | [nary](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
-| 新增矩陣 | [MathMatrix](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathmatrix/) |
-| 新增方程式陣列 | [toMathArray](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#toMathArray--) |
-| 新增分界符 | [enclose](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#enclose-char-char-) |
-| 新增橫線與邊框 | [overbar](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#toBorderBox--) |
+| 加入上標或下標 | [setSuperscript](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setSuperscript-com.aspose.slides.IMathElement-), [setSubscript](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setSubscript-com.aspose.slides.IMathElement-) |
+| 加入函數 | [function](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#function-com.aspose.slides.IMathElement-), [asArgumentOfFunction](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#asArgumentOfFunction-com.aspose.slides.IMathElement-) |
+| 加入根號 | [IMathElement.radical](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#radical-com.aspose.slides.IMathElement-) |
+| 加入極限 | [setLowerLimit](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setLowerLimit-com.aspose.slides.IMathElement-), [setUpperLimit](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setUpperLimit-com.aspose.slides.IMathElement-) |
+| 加入左側標記 | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#setSubSuperscriptOnTheLeft-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| 加入求和與積分 | [nary](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#nary-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-), [integral](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#integral-int-com.aspose.slides.IMathElement-com.aspose.slides.IMathElement-) |
+| 加入矩陣 | [MathMatrix](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/mathmatrix/) |
+| 加入方程式陣列 | [toMathArray](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#toMathArray--) |
+| 加入分隔符號 | [enclose](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#enclose-char-char-) |
+| 加入橫線與外框 | [overbar](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#overbar--), [toBorderBox](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#toBorderBox--) |
 | 分組項目 | [group](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathelement/#group-char-int-int-) |
 
 ## **常見問題**
 
-**我可以編輯現有的 PowerPoint 方程式嗎？**
+**我可以編輯已存在的 PowerPoint 方程式嗎？**
 
-是的。開啟簡報，尋找包含 `MathPortion` 的形狀，取得其 `MathParagraph`，並在該段落中更新數學區塊。
+可以。開啟投影片，找到包含 `MathPortion` 的形狀，取得其 `MathParagraph`，然後更新該段落中的數學區塊。
 
-**方程式是否儲存為可編輯的 PowerPoint 數學內容？**
+**方程式會儲存為可編輯的 PowerPoint 數學嗎？**
 
-是的。儲存為 PPTX 時，Aspose.Slides 會將方程式寫入為可編輯的 Office 數學內容。
+會。當您儲存為 PPTX 時，Aspose.Slides 會將方程式寫入為可編輯的 Office 數學內容。
 
 **我可以將方程式匯出為 LaTeX 嗎？**
 
-Aspose.Slides 會將數學方程式匯出為 MathML。若需要 LaTeX，請先匯出為 MathML，然後使用支援目標 LaTeX 方言的工具將 MathML 轉換為 LaTeX。
+可以。從其 [IMathPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathportion/) 取得方程式的 [IMathParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathparagraph/)，然後呼叫 [IMathParagraph.toLatex](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/imathparagraph/#toLatex--) 直接匯出。完整範例請參閱 [Export Math Equations from Presentations in Java](/slides/zh-hant/java/exporting-math-equations/#export-math-equations-to-latex)。

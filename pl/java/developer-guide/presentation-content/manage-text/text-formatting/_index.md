@@ -1,27 +1,25 @@
 ---
-title: Formatowanie tekstu prezentacji w Javie
+title: Formatuj tekst prezentacji w Javie
 linktitle: Formatowanie tekstu
 type: docs
 weight: 50
 url: /pl/java/text-formatting/
 keywords:
-- podświetlanie tekstu
-- wyrażenie regularne
-- wyrównywanie akapitu
+- wyrównanie akapitu
 - styl tekstu
 - tło tekstu
 - przezroczystość tekstu
-- odstęp między znakami
+- odstępy między znakami
 - właściwości czcionki
 - rodzina czcionek
 - obrót tekstu
 - kąt obrotu
 - ramka tekstowa
-- odstęp między wierszami
+- odstępy wierszy
 - właściwość autofit
-- kotwica ramki tekstowej
+- zakotwienie ramki tekstowej
 - tabulacja tekstu
-- domyślny język
+- język domyślny
 - PowerPoint
 - OpenDocument
 - prezentacja
@@ -31,79 +29,28 @@ description: "Formatuj i stylizuj tekst w prezentacjach PowerPoint i OpenDocumen
 ---
 ## **Przegląd**
 
-Ten artykuł opisuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla języka Java. Omówiono podświetlanie, kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitów, zachowanie autofit, kotwiczenie tekstu, tabulatory oraz ustawienia języka.
+Ten artykuł pokazuje, jak formatować tekst w prezentacjach PowerPoint i OpenDocument przy użyciu Aspose.Slides for Java. Omówiono kolory tła, przezroczystość, odstępy między znakami, właściwości czcionki, obrót, odstępy akapitów, zachowanie autofit, zakotwiczanie tekstu, tabulatory i ustawienia języka.
 
-W poniższych przykładach używamy pliku o nazwie **sample.pptx**, który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
+W poniższych przykładach użyjemy pliku o nazwie „sample.pptx”, który zawiera pojedyncze pole tekstowe na pierwszym slajdzie z następującym tekstem:
 
 ![Przykładowy tekst](sample_text.png)
 
-## **Podświetlanie tekstu**
+Aby znaleźć i wyróżnić dosłowny tekst lub dopasowania wyrażeń regularnych, zobacz [Wyszukiwanie i zamiana tekstu](/slides/pl/java/search-and-replace-text/).
 
-Użyj metody [ITextFrame.highlightText](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-) , gdy potrzebujesz podświetlić tekst pasujący do określonego wzorca w ramce tekstowej. Metoda stosuje kolor podświetlenia do pasujących fragmentów tekstu i może być używana razem z [TextSearchOptions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textsearchoptions/), aby kontrolować sposób wyszukiwania, np. aby dopasować tylko całe wyrazy.
+## **Ustaw kolor tła tekstu**
 
-Poniższy przykład kodu podświetla wszystkie wystąpienia znaków **"try"**, a następnie podświetla tylko całe słowo **"to"**.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // Pobierz pierwszy kształt z pierwszego slajdu.
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Podświetl słowo "try" w kształcie.
-    shape.getTextFrame().highlightText("try", Color.LIGHT_GRAY);
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Podświetl słowo "to" w kształcie.
-    shape.getTextFrame().highlightText("to", Color.MAGENTA, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Wynik:
-
-![Podświetlony tekst](highlighted_text.png)
-
-## **Podświetlanie tekstu przy użyciu wyrażeń regularnych**
-
-Metoda [ITextFrame.highlightRegex](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) podświetla dopasowania znalezione przy pomocy wyrażenia regularnego. W Javie API to jest dostępne na interfejsie [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/).
-
-Poniższy przykład kodu podświetla wszystkie słowa zawierające **siedem lub więcej znaków**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Podświetl wszystkie słowa mające siedem lub więcej znaków.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Wynik:
-
-![Podświetlony tekst przy użyciu wyrażenia regularnego](highlighted_text_using_regex.png)
-
-## **Ustawienie koloru tła tekstu**
-
-Użyj metody [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) , aby ustawić domyślny kolor podświetlenia dla akapitu, lub [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) dla poszczególnych fragmentów tekstu.
+Użyj [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) aby ustawić domyślny kolor podświetlenia dla akapitu lub użyj [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) dla pojedynczych fragmentów tekstu.
 
 Poniższy przykład kodu pokazuje, jak ustawić kolor tła dla **całego akapitu**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Ustaw kolor podświetlenia dla całego akapitu.
@@ -119,12 +66,16 @@ Wynik:
 
 ![Szary akapit](gray_paragraph.png)
 
-Poniższy przykład kodu demonstruje, jak ustawić kolor tła dla **fragmentów tekstu z pogrubioną czcionką**:
+Przykład kodu poniżej demonstruje, jak ustawić kolor tła dla **fragmentów tekstu o pogrubionej czcionce**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -144,16 +95,19 @@ Wynik:
 
 ![Szare fragmenty tekstu](gray_text_portions.png)
 
-## **Wyrównywanie akapitów tekstu**
+## **Wyrównaj akapity tekstu**
 
-Użyj metody [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) , aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, wyjustowana itp.
+Użyj [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) aby ustawić wyrównanie akapitu w ramce tekstowej. Wartość może być wyśrodkowana, wyrównana do lewej, do prawej, justowana itp.
 
-Poniższy przykład kodu pokazuje, jak wyśrodkować akapit **w poziomie**:
+Poniższy przykład kodu pokazuje, jak wyrównać akapit do **środka**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Ustaw wyrównanie akapitu na środku.
@@ -167,20 +121,24 @@ try {
 
 Wynik:
 
-![Wyśrodkowany akapit](aligned_paragraph.png)
+![Wyrównany akapit](aligned_paragraph.png)
 
-## **Ustawienie przezroczystości tekstu**
+## **Ustaw przezroczystość tekstu**
 
-Przezroczystość tekstu jest kontrolowana za pośrednictwem składnika alfa koloru przypisanego do [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). W poniższych przykładach `alpha = 50` oznacza wartość kanału alfa ARGB w skali 0‑255, a nie procent przezroczystości.
+Przezroczystość tekstu jest kontrolowana poprzez komponent alfa koloru przypisanego do [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). W poniższych przykładach `alpha = 50` to wartość kanału alfa ARGB w skali 0–255, a nie procent przezroczystości.
 
-Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **całego akapitu**:
+Przykład kodu poniżej pokazuje, jak zastosować przezroczystość do **całego akapitu**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Ustaw kolor wypełnienia tekstu na kolor przezroczysty.
@@ -197,14 +155,18 @@ Wynik:
 
 ![Przezroczysty akapit](transparent_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **fragmentów tekstu z pogrubioną czcionką**:
+Poniższy przykład kodu pokazuje, jak zastosować przezroczystość do **fragmentów tekstu o pogrubionej czcionce**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -225,20 +187,23 @@ Wynik:
 
 ![Przezroczyste fragmenty tekstu](transparent_text_portions.png)
 
-## **Ustawienie odstępu między znakami w tekście**
+## **Ustaw odstępy między znakami w tekście**
 
-Użyj metody [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) , aby zwiększyć lub zmniejszyć odstęp między znakami w polu tekstowym.
+Użyj [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) aby rozszerzyć lub skurczyć odstępy między znakami w ramce tekstowej.
 
-Poniższy kod Javy pokazuje, jak zwiększyć odstęp między znakami w **całym akapicie**:
+Poniższy kod Java pokazuje, jak rozszerzyć odstępy znaków w **całym akapicie**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Uwaga: Użyj wartości ujemnych, aby skompresować odstęp między znakami.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Zwiększ odstęp między znakami.
+    // Uwaga: Użyj ujemnych wartości, aby skompresować odstęp między znakami.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Rozszerz odstęp między znakami.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -250,18 +215,21 @@ Wynik:
 
 ![Odstęp między znakami w akapicie](character_spacing_in_paragraph.png)
 
-Poniższy przykład kodu pokazuje, jak zwiększyć odstęp między znakami w **fragmentach tekstu z pogrubioną czcionką**:
+Przykład kodu poniżej pokazuje, jak rozszerzyć odstępy znaków w **fragmentach tekstu o pogrubionej czcionce**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Uwaga: użyj wartości ujemnych, aby skompresować odstęp między znakami.
-            portion.getPortionFormat().setSpacing(3); // Zwiększ odstęp między znakami.
+            // Uwaga: Użyj ujemnych wartości, aby skompresować odstęp między znakami.
+            portion.getPortionFormat().setSpacing(3); // Rozszerz odstęp między znakami.
         }
     }
 
@@ -275,16 +243,19 @@ Wynik:
 
 ![Odstęp między znakami w fragmentach tekstu](character_spacing_in_text_portions.png)
 
-### **Wyłączenie kerningu dla określonych czcionek**
+### **Wyłącz kerning dla określonych czcionek**
 
 W niektórych przypadkach tekst renderowany przez Aspose.Slides może wyglądać nieco ściślej niż ten sam tekst wyświetlany w PowerPoint. Może się tak zdarzyć, ponieważ PowerPoint może ignorować dane kerningu dla niektórych czcionek, nawet gdy czcionka zawiera prawidłowe informacje o kerningu i kerning jest włączony w ustawieniach PowerPoint.
 
-Aby w takich przypadkach uzyskać wynik bardziej zbliżony do PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających danej czcionki. Ustaw [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na wartość znacząco większą niż rzeczywisty rozmiar czcionki:
+Aby w takich sytuacjach uzyskać wyświetlanie bliższe PowerPoint, możesz wyłączyć kerning dla fragmentów tekstu używających dotkniętej czcionki. Ustaw [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) na wartość znacznie większą niż rzeczywisty rozmiar czcionki:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
@@ -308,18 +279,21 @@ try {
 }
 ```
 
-To ustawienie zapobiega stosowaniu kerningu do pasujących fragmentów tekstu i może pomóc wyrównać renderowanie Aspose.Slides z wizualnym wynikiem PowerPoint dla czcionek dotkniętych tym specyficznym zachowaniem PowerPoint.
+To ustawienie zapobiega stosowaniu kerningu do dopasowanych fragmentów tekstu i może pomóc uzyskać renderowanie Aspose.Slides zgodne z wizualnym wyjściem PowerPoint dla czcionek objętych tym specyficznym zachowaniem PowerPoint.
 
-## **Zarządzanie właściwościami czcionki tekstu**
+## **Zarządzaj właściwościami czcionki tekstu**
 
-Właściwości czcionki można ustawiać na poziomie akapitu za pomocą [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) lub na poszczególnych fragmentach za pomocą [IPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportionformat/).
+Właściwości czcionki można ustawić na poziomie akapitu poprzez [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) lub na poszczególnych fragmentach poprzez [IPortionFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iportionformat/).
 
-Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, pochylenie, podkreślenie kropkowane oraz czcionkę Times New Roman do wszystkich fragmentów w akapicie.
+Poniższy kod ustawia czcionkę i styl tekstu dla całego akapitu: stosuje rozmiar czcionki, pogrubienie, kursywę, podkreślenie kropkowe oraz czcionkę Times New Roman dla wszystkich fragmentów w akapicie.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Ustaw właściwości czcionki dla akapitu.
@@ -339,12 +313,15 @@ Wynik:
 
 ![Właściwości czcionki dla akapitu](font_properties_for_paragraph.png)
 
-Poniższy przykład kodu stosuje podobne właściwości do **fragmentów tekstu z pogrubioną czcionką**:
+Przykład kodu poniżej stosuje podobne właściwości do **fragmentów tekstu o pogrubionej czcionce**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
@@ -367,16 +344,19 @@ Wynik:
 
 ![Właściwości czcionki dla fragmentów tekstu](font_properties_for_text_portions.png)
 
-## **Ustawienie obrotu tekstu**
+## **Ustaw obrót tekstu**
 
-Użyj metody [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) , aby ustawić predefiniowaną orientację tekstu w obrębie kształtu.
+Użyj [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) aby ustawić predefiniowaną orientację tekstu w kształcie.
 
 Poniższy przykład kodu ustawia orientację tekstu w kształcie na `Vertical270`, co obraca tekst **o 90 stopni przeciwnie do ruchu wskazówek zegara**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -390,16 +370,19 @@ Wynik:
 
 ![Obrót tekstu](text_rotation.png)
 
-## **Ustawienie własnego obrotu dla ramek tekstowych**
+## **Ustaw niestandardowy obrót dla ramek tekstowych**
 
-Użyj metody [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) , aby ustawić własny kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/).
+Użyj [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) aby ustawić niestandardowy kąt obrotu dla [ITextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframe/).
 
-Poniższy przykład kodu obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w obrębie kształtu:
+Przykład kodu poniżej obraca ramkę tekstową o 3 stopnie zgodnie z ruchem wskazówek zegara w kształcie:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -411,21 +394,24 @@ try {
 
 Wynik:
 
-![Własny obrót tekstu](custom_text_rotation.png)
+![Niestandardowy obrót tekstu](custom_text_rotation.png)
 
-## **Ustawienie odstępu między wierszami akapitów**
+## **Ustaw odstępy wierszy akapitów**
 
-Aspose.Slides udostępnia metody [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) i [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) do kontrolowania odstępów akapitów. Te właściwości używa się w następujący sposób:
+Aspose.Slides udostępnia [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) i [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) do kontrolowania odstępów akapitów. Właściwości te używa się w następujący sposób:
 
-* Użyj wartości dodatniej, aby określić odstęp jako procent wysokości wiersza.
-* Użyj wartości ujemnej, aby określić odstęp w punktach.
+* Użyj dodatniej wartości, aby określić odstęp wierszy jako procent wysokości wiersza.
+* Użyj ujemnej wartości, aby określić odstęp w punktach.
 
-Poniższy przykład kodu pokazuje, jak określić odstęp między wierszami w obrębie akapitu:
+Poniższy przykład kodu pokazuje, jak określić odstęp wierszy w akapicie:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -438,16 +424,19 @@ try {
 
 Wynik:
 
-![Odstęp między wierszami w akapicie](line_spacing.png)
+![Odstępy wierszy w akapicie](line_spacing.png)
 
-## **Ustawienie typu Autofit dla ramek tekstowych**
+## **Ustaw typ autofit dla ramek tekstowych**
 
-Metoda [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) określa, jak tekst zachowuje się, gdy przekracza granice swojego pojemnika. Użyj jej, aby kontrolować, czy tekst ma być zmniejszany, przelamywany lub automatycznie zmieniał rozmiar kształtu.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) określa, jak tekst zachowuje się, gdy przekracza granice swojego kontenera. Użyj go, aby kontrolować, czy tekst się kurczy, wypływa poza ramkę lub automatycznie zmienia rozmiar kształtu.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -457,14 +446,17 @@ try {
 }
 ```
 
-## **Ustawienie kotwicy dla ramek tekstowych**
+## **Ustaw zakotwienie ramek tekstowych**
 
-Metoda [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub na dole.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) definiuje, jak tekst jest pozycjonowany pionowo wewnątrz kształtu, np. u góry, w środku lub na dole.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -474,14 +466,17 @@ try {
 }
 ```
 
-## **Ustawienie tabulacji tekstu**
+## **Ustaw tabulację tekstu**
 
-Użyj metod [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) i [IParagraphFormat.getTabs](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getTabs--) , aby skonfigurować tabulatory w akapicie.
+Użyj [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) i [IParagraphFormat.getTabs](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraphformat/#getTabs--) aby skonfigurować tabulatory w akapicie.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -497,16 +492,19 @@ Wynik:
 
 ![Tabulatory w akapicie](paragraph_tabs.png)
 
-## **Ustawienie języka korekty**
+## **Ustaw język korekty**
 
-Aspose.Slides udostępnia metodę [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), która pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany przy sprawdzaniu pisowni i gramatyki w PowerPoint.
+Aspose.Slides udostępnia [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), co pozwala ustawić język korekty dla fragmentu tekstu. Język korekty określa język używany do sprawdzania pisowni i gramatyki w PowerPoint.
 
 Poniższy przykład kodu pokazuje, jak ustawić język korekty dla fragmentu tekstu:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -521,7 +519,7 @@ try {
     // Ustaw Id języka korekty.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", SaveFormat.Pptx);
@@ -530,11 +528,13 @@ try {
 }
 ```
 
-## **Ustawienie domyślnego języka**
+## **Ustaw domyślny język**
 
-Użyj metody [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) , aby zdefiniować domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji.
+Użyj [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/pl/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) aby określić domyślny język dla tekstu tworzonego podczas ładowania lub tworzenia prezentacji.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -542,7 +542,7 @@ Presentation presentation = new Presentation(loadOptions);
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Dodaj nowy kształt prostokąta z tekstem.
+    // Dodaj nowy prostokątny kształt z tekstem.
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
@@ -554,13 +554,15 @@ try {
 }
 ```
 
-## **Ustawienie domyślnego stylu tekstu**
+## **Ustaw domyślny styl tekstu**
 
 Aby zastosować domyślne formatowanie tekstu na poziomie prezentacji, użyj [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Poniższy przykład kodu pokazuje, jak ustawić domyślną pogrubioną czcionkę o rozmiarze 14 pt dla całego tekstu we wszystkich slajdach nowej prezentacji.
+Poniższy przykład kodu pokazuje, jak ustawić domyślną pogrubioną czcionkę o rozmiarze 14 punktów dla całego tekstu we wszystkich slajdach nowej prezentacji.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Pobierz format akapitu najwyższego poziomu.
@@ -577,20 +579,23 @@ try {
 }
 ```
 
-## **Wyodrębnianie tekstu z efektem wielkich liter**
+## **Wyodrębnij tekst z efektem wielkich liter**
 
-W PowerPoint zastosowanie efektu **All Caps** powoduje, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeżeli został wprowadzony małymi literami. Gdy pobierasz taki fragment tekstu za pomocą Aspose.Slides, biblioteka zwraca dokładnie wprowadzony tekst. Aby dopasować go do wyświetlanego, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textcaptype/) i przekształć zwrócony ciąg na wielkie litery, gdy wartość to `All`.
+W PowerPoint zastosowanie efektu **All Caps** sprawia, że tekst wyświetlany jest wielkimi literami na slajdzie, nawet jeśli został wprowadzony małymi literami. Gdy pobierasz taki fragment tekstu przy użyciu Aspose.Slides, biblioteka zwraca dokładnie wprowadzony tekst. Aby dopasować go do wyświetlanego, sprawdź [TextCapType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/textcaptype/) i zamień zwrócony ciąg na wielkie litery, gdy wartość to `All`.
 
-Załóżmy, że mamy następujące pole tekstowe na pierwszym slajdzie pliku **sample2.pptx**.
+Załóżmy, że mamy następujące pole tekstowe na pierwszym slajdzie pliku sample2.pptx.
 
-![Efekt All Caps](all_caps_effect.png)
+![Efekt wielkich liter](all_caps_effect.png)
 
 Poniższy przykład kodu pokazuje, jak wyodrębnić tekst z zastosowanym efektem **All Caps**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -605,7 +610,7 @@ try {
 }
 ```
 
-Output:
+Wyjście:
 
 ```text
 Original text: Hello, Aspose!
@@ -616,8 +621,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Jak zmodyfikować tekst w tabeli na slajdzie?**
 
-Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itable/). Iteruj po komórkach i aktualizuj każdą komórkę za pomocą [ICell.getTextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icell/#getTextFrame--) oraz formatowanie akapitu za pomocą [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Aby zmodyfikować tekst w tabeli na slajdzie, użyj [ITable](https://reference.aspose.com/slides/pl/java/com.aspose.slides/itable/). Przejdź przez komórki i zaktualizuj każdą komórkę poprzez [ICell.getTextFrame](https://reference.aspose.com/slides/pl/java/com.aspose.slides/icell/#getTextFrame--) oraz formatowanie akapitu poprzez [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Jak zastosować gradientowy kolor do tekstu w slajdzie PowerPoint?**
 
-Aby zastosować gradientowy kolor do tekstu, użyj [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ustaw [IFillFormat.setFillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) i skonfiguruj przystanki gradientu, kierunek oraz przezroczystość.
+Aby zastosować gradientowy kolor do tekstu, użyj [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Ustaw [IFillFormat.setFillType](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifillformat/#setFillType-byte-) na [FillType.Gradient](https://reference.aspose.com/slides/pl/java/com.aspose.slides/filltype/) i skonfiguruj przerywane gradientu, kierunek oraz przezroczystość.

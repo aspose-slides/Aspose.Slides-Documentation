@@ -1,334 +1,402 @@
 ---
-title: Beheer diagramgegevensreeksen in presentaties met PHP
-linktitle: Gegevensreeks
+title: Beheer grafiekgegevensreeksen in presentaties met PHP
+linktitle: Gegevensreeksen
 type: docs
 url: /nl/php-java/chart-series/
 keywords:
-- grafiekreeksen
-- reeks overlap
+- grafiekreeks
+- reeks overlapping
 - reeks kleur
-- categorie kleur
 - reeksnaam
-- gegevenspunt
-- reeksafstand
+- datapunt
+- werkboekcel
+- reeksgatbreedte
+- negatieve waarde
 - PowerPoint
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u diagramgegevensreeksen kunt beheren in PHP voor PowerPoint (PPT/PPTX) met praktische codevoorbeelden en best practices om uw gegevenspresentaties te verbeteren."
+description: "Leer hoe u grafiekreeksen, datapunten, werkboekcellen, opmaak, overlapping, gatbreedte en negatieve waarden in presentaties kunt beheren met PHP."
 ---
 ## **Overzicht**
 
-Dit artikel beschrijft de rol van [ChartSeries](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/) in Aspose.Slides, met nadruk op hoe gegevens worden gestructureerd en gevisualiseerd binnen presentaties. Deze objecten leveren de fundamentele elementen die individuele verzamelingen van gegevenspunten, categorieën en weergave‑parameters in een diagram definiëren. Door met [ChartSeries](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/) te werken, kunnen ontwikkelaars moeiteloos onderliggende gegevensbronnen integreren en volledige controle behouden over hoe informatie wordt weergegeven, wat resulteert in dynamische, data‑gedreven presentaties die duidelijk inzichten en analyses overbrengen.
+Een grafiek slaat de weergegeven gegevens op in een grafiek‑databoek. Een [ChartSeries](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/) vertegenwoordigt één set gerelateerde waarden, en elk [ChartDataPoint](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/) in de reeks verwijst naar één of meer cellen in het werkboek. [ChartCategory](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartcategory/)‑objecten bieden de labels of groepeer‑waarden die door de reeksen gedeeld worden. De naam van de reeks, de categorieën en de puntwaarden zijn daarom gekoppeld aan [ChartDataCell](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatacell/)‑objecten in plaats van alleen als weergavetekst te worden opgeslagen.
 
-Een serie is een rij of kolom met getallen die in een diagram worden uitgezet.
+Voor een typische categoriegrafiek gebruikt het standaardwerkboek rij 0 voor reeksnamen, kolom 0 voor categorienamen en de resterende cellen voor reekswaarden. Werkblad‑, rij‑ en kolom‑indexen die aan [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/#getCell) worden doorgegeven, zijn nul‑gebaseerd. Deze opzet is handig wanneer je een grafiek met standaardgegevens maakt, maar ga er niet van uit dat elke bestaande grafiek dit gebruikt. Voor een geladen presentatie, inspecteer de cellen die door de reeksen, categorieën en datapunten worden aangeduid voordat je werkboekwaarden wijzigt.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Grafiek‑instellingen hebben drie verschillende bereikniveaus:
 
-## **Stel de overlapping van Chart Series in**
+- Instellingen op reeksniveau, zoals [ChartSeries.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getFormat), bieden de standaarduitstraling voor alle punten in één reeks.
+- Instellingen per datapunt, zoals [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#getFormat), overschrijven de reeks‑uitstraling voor één punt.
+- Groepsinstellingen gelden voor compatibele reeksen die behoren tot dezelfde [ChartSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/). Benader de groep via [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getParentSeriesGroup) wanneer je opties wilt instellen zoals overlapping of gat‑breedte.
 
-Met de [getParentSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getParentSeriesGroup) methode kun je aangeven hoeveel balken en kolommen moeten overlappen in een 2D‑diagram (bereik: -100 tot 100). Deze eigenschap is van toepassing op alle series van de bovenliggende series‑groep: dit is een projectie van de overeenkomstige groepseigenschap. Daarom is deze eigenschap alleen‑lezen.
+Wanneer geen expliciete punt‑ of reeks‑vulling is ingesteld, bepalen de grafiek‑stijl en het thema de automatische uitstraling. Wanneer zowel reeks‑ als punt‑opmaak aanwezig zijn, heeft de punt‑opmaak voorrang voor dat punt.
 
-Gebruik de `ChartSeriesGroup::setOverlap` methode om je gewenste waarde voor `Overlap` in te stellen.
+![grafiekreeks-powerpoint](chart-series-powerpoint.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Voeg een gegroepeerde kolomgrafiek toe aan een dia.  
-3. Open de eerste diagramserie.  
-4. Open de `ParentSeriesGroup` van de diagramserie en stel de gewenste overlapwaarde voor de serie in.  
-5. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+## **De overlapping van de grafiekreeks instellen**
+
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getOverlap) geeft weer hoeveel balken of kolommen overlappen in een 2D‑grafiek, van -100 tot 100 percent. Het is een alleen‑lezen projectie van de instelling op de bovenliggende reeks‑groep. Gebruik [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/#setOverlap) om elke compatibele reeks in die groep bij te werken. Deze optie geldt voor grafiek‑typen die gegroepeerde balken of kolommen weergeven; hij beïnvloedt geen niet‑gerelateerde reeks‑groepen in een combinatie‑grafiek.
+
+Het volgende voorbeeld stelt de overlapping in voor de groep die de eerste reeks bevat:
 
 ```php
-  $pres = new Presentation();
-  try {
-    # Voegt diagram toe
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    if (java_values($series->get_Item(0)->getOverlap()) == 0) {
-      # Stelt overlappen van de reeks in
-      $series->get_Item(0)->getParentSeriesGroup()->setOverlap(-30);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$overlapPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    // De nieuwe grafiek bevat voorbeeldreeksen, categorieën en waarden.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setOverlap($overlapPercent);
+
+    $presentation->save("series_overlap.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    # Schrijft het presentatiebestand naar schijf
-    $pres->save("SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **Wijzig de kleur van de serie**
+Het resultaat:
 
-Aspose.Slides for PHP via Java stelt je in staat een seriekleur op deze manier te wijzigen:
+![De overlapping van de reeks](series_overlap.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Voeg een diagram toe aan de dia.  
-3. Open de serie waarvan je de kleur wilt wijzigen.  
-4. Stel het gewenste vultype en de vulkleur in.  
-5. Sla de gewijzigde presentatie op.
+## **De vulkleur van de reeks wijzigen**
 
-```php
-  $pres = new Presentation("test.pptx");
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Pie, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(1);
-    $point->setExplosion(30);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+Gebruik [ChartSeries.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getFormat) om de standaardvulling voor een volledige reeks in te stellen. Als een punt al een expliciete vulling heeft, overschrijft zijn [ChartDataPoint.getFormat](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#getFormat) instelling de reeks‑vulling voor dat punt.
 
-## **Wijzig de kleur van de seriecategorie**
-
-Aspose.Slides for PHP via Java stelt je in staat een seriecategorie‑kleur op deze manier te wijzigen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Voeg een diagram toe aan de dia.  
-3. Open de seriecategorie waarvan je de kleur wilt wijzigen.  
-4. Stel het gewenste vultype en de vulkleur in.  
-5. Sla de gewijzigde presentatie op.
+Het volgende voorbeeld past een effen blauwe vulling toe op de eerste reeks:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400);
-    $point = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->get_Item(0);
-    $point->getFormat()->getFill()->setFillType(FillType::Solid);
-    $point->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
-    $pres->save("output.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$blueColor = java("java.awt.Color")->BLUE;
 
-## **Wijzig de naam van de serie**
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
 
-Standaard zijn de legendarenaam voor een diagram de inhoud van de cellen boven elke kolom of rij met gegevens.
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
 
-In ons voorbeeld (voorbeeldafbeelding),
-
-* de kolommen zijn *Series 1, Series 2* en *Series 3*;  
-* de rijen zijn *Category 1, Category 2, Category 3* en *Category 4*.
-
-Aspose.Slides for PHP via Java maakt het mogelijk om een serienaam in de diagramgegevens en de legende bij te werken of te wijzigen.
-
-Deze PHP‑code laat zien hoe je de naam van een serie wijzigt in de diagramgegevens `ChartDataWorkbook`:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $seriesCell = $chart->getChartData()->getChartDataWorkbook()->getCell(0, 0, 1);
-    $seriesCell->setValue("New name");
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-Deze PHP‑code laat zien hoe je een serienaam wijzigt in de legende via `Series`:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Column3D, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $name = $series->getName();
-    $name->getAsCells()->get_Item(0)->setValue("New name");
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Stel de opvulkleur van de diagramserie in**
-
-Aspose.Slides for PHP via Java maakt het mogelijk om de automatische opvulkleur voor diagramseries binnen een plotgebied op deze manier in te stellen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens gebaseerd op het type naar keuze (in het onderstaande voorbeeld gebruikten we `ChartType::ClusteredColumn`).  
-4. Open de diagramserie en stel de opvulkleur in op Automatic.  
-5. Sla de presentatie op als een PPTX‑bestand.
-
-```php
-  $pres = new Presentation();
-  try {
-    # Maakt een gegroepeerde kolomgrafiek
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 50, 600, 400);
-    # Stelt vulformaat van de serie in op automatisch
-    for($i = 0; $i < java_values($chart->getChartData()->getSeries()->size()) ; $i++) {
-      $chart->getChartData()->getSeries()->get_Item($i)->getAutomaticSeriesColor();
-    }
-    # Schrijft het presentatiebestand naar schijf
-    $pres->save("AutoFillSeries_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Stel de omgekeerde opvulkleur in voor een diagramserie**
-
-Aspose.Slides maakt het mogelijk om de omgekeerde opvulkleur voor diagramseries binnen een plotgebied op deze manier in te stellen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Haal een referentie naar een dia op via de index.  
-3. Voeg een diagram toe met standaardgegevens gebaseerd op het type naar keuze (in het onderstaande voorbeeld gebruikten we `ChartType::ClusteredColumn`).  
-4. Open de diagramserie en stel de opvulkleur in op invert.  
-5. Sla de presentatie op als een PPTX‑bestand.
-
-```php
-  $inverColor = java("java.awt.Color")->RED;
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 100, 100, 400, 300);
-    $workBook = $chart->getChartData()->getChartDataWorkbook();
-    $chart->getChartData()->getSeries()->clear();
-    $chart->getChartData()->getCategories()->clear();
-    # Voegt nieuwe series en categorieën toe
-    $chart->getChartData()->getSeries()->add($workBook->getCell(0, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 1, 0, "Category 1"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 2, 0, "Category 2"));
-    $chart->getChartData()->getCategories()->add($workBook->getCell(0, 3, 0, "Category 3"));
-    # Neemt de eerste diagramserie en vult de seriedata.
-    $series = $chart->getChartData()->getSeries()->get_Item(0);
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 1, 1, -20));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($workBook->getCell(0, 3, 1, -30));
-    $seriesColor = $series->getAutomaticSeriesColor();
-    $series->setInvertIfNegative(true);
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
     $series->getFormat()->getFill()->setFillType(FillType::Solid);
-    $series->getFormat()->getFill()->getSolidFillColor()->setColor($seriesColor);
-    $series->getInvertedSolidFillColor()->setColor($inverColor);
-    $pres->save("SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($blueColor);
+
+    $presentation->save("series_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Stel een serie in om om te keren wanneer de waarde negatief is**
+Het resultaat:
 
-Aspose.Slides maakt het mogelijk om omkeringen in te stellen via de `IChartDataPoint.InvertIfNegative` en `ChartDataPoint.InvertIfNegative` eigenschappen. Wanneer een omkering is ingesteld met deze eigenschappen, keert het gegevenspunt zijn kleuren om wanneer het een negatieve waarde krijgt.
+![De kleur van de reeks](series_color.png)
+
+## **De naam van de reeks wijzigen**
+
+Een reekstenaam wordt opgeslagen in het grafiek‑databoek en normaal weergegeven in de legende. In het standaardwerkboek dat wordt aangemaakt voor een gegroepeerde kolomgrafiek, staat cel B1 op rij 0, kolom 1 en bevat de naam van de eerste reeks. De benoemde variabelen in het volgende voorbeeld maken die structuur expliciet:
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::ClusteredColumn, 50, 50, 600, 400, true);
-    $series = $chart->getChartData()->getSeries();
-    $chart->getChartData()->getSeries()->clear();
-    $chartSeries = $series->add($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B1"), $chart->getType());
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B2", -5));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B3", 3));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B4", -2));
-    $chartSeries->getDataPoints()->addDataPointForBarSeries($chart->getChartData()->getChartDataWorkbook()->getCell(0, "B5", 1));
-    $chartSeries->setInvertIfNegative(false);
-    $chartSeries->getDataPoints()->get_Item(2)->setInvertIfNegative(true);
-    $pres->save("out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$seriesNameRowIndex = 0;
+$firstSeriesColumnIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $workbook = $chart->getChartData()->getChartDataWorkbook();
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $seriesNameRowIndex, $firstSeriesColumnIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-  }
+}
 ```
 
-## **Specifieke puntgegevens wissen**
-
-Aspose.Slides for PHP via Java maakt het mogelijk om de `DataPoints`‑gegevens van een specifieke diagramserie op deze manier te wissen:
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Haal de referentie van een dia op via de index.  
-3. Haal de referentie van een diagram op via de index.  
-4. Itereer door alle `DataPoints` van het diagram en stel `XValue` en `YValue` in op null.  
-5. Wis alle `DataPoints` voor de specifieke diagramserie.  
-6. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+Je kunt ook de cel bijwerken die al wordt aangeduid door [ChartSeries.getName](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getName). Deze aanpak vermijdt een aanname over een bepaalde rij of kolom in een bestaande grafiek:
 
 ```php
-  $pres = new Presentation("TestChart.pptx");
-  try {
-    $sl = $pres->getSlides()->get_Item(0);
-    $chart = $sl->getShapes()->get_Item(0);
-    foreach($chart->getChartData()->getSeries()->get_Item(0)->getDataPoints() as $dataPoint) {
-      $dataPoint->getXValue()->getAsCell()->setValue(null);
-      $dataPoint->getYValue()->getAsCell()->setValue(null);
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$firstNameCellIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $seriesNameCell = $series->getName()->getAsCells()->get_Item($firstNameCellIndex);
+    $seriesNameCell->setValue("Revenue");
+
+    $presentation->save("series_name.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
     }
-    $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints()->clear();
-    $pres->save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+}
 ```
 
-## **Stel de Gap Width van de serie in**
+Het resultaat:
 
-Aspose.Slides for PHP via Java maakt het mogelijk om de Gap Width van een serie in te stellen via de **`GapWidth`** eigenschap op deze manier:
+![De naam van de reeks](series_name.png)
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/Presentation) klasse aan.  
-2. Open de eerste dia.  
-3. Voeg een diagram toe met standaardgegevens.  
-4. Open een willekeurige diagramserie.  
-5. Stel de `GapWidth` eigenschap in.  
-6. Schrijf de gewijzigde presentatie naar een PPTX‑bestand.
+## **De automatische vulkleur van de reeks ophalen**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getAutomaticSeriesColor) retourneert de kleur die wordt berekend op basis van de reeks‑index en de grafiek‑stijl. Dit is de kleur die wordt gebruikt wanneer de reeks‑vulling niet expliciet is gedefinieerd. Het aanroepen van de methode leest de berekende kleur; hij wijst geen nieuwe vulling toe.
+
+Het volgende voorbeeld drukt de automatische kleur van elke standaardreeks af:
 
 ```php
-  # Creëert een lege presentatie
-  $pres = new Presentation();
-  try {
-    # Benadert de eerste dia van de presentatie
-    $slide = $pres->getSlides()->get_Item(0);
-    # Voegt een diagram toe met standaardgegevens
-    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 0, 0, 500, 500);
-    # Stelt de index van het diagramdata-werkblad in
-    $defaultWorksheetIndex = 0;
-    # Haalt het diagramdata-werkblad op
-    $fact = $chart->getChartData()->getChartDataWorkbook();
-    # Voegt series toe
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 1, "Series 1"), $chart->getType());
-    $chart->getChartData()->getSeries()->add($fact->getCell($defaultWorksheetIndex, 0, 2, "Series 2"), $chart->getType());
-    # Voegt categorieën toe
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    $chart->getChartData()->getCategories()->add($fact->getCell($defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    # Neemt de tweede diagramserie
-    $series = $chart->getChartData()->getSeries()->get_Item(1);
-    # Vult de seriedata
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 1, 20));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 1, 50));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 1, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 1, 2, 30));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 2, 2, 10));
-    $series->getDataPoints()->addDataPointForBarSeries($fact->getCell($defaultWorksheetIndex, 3, 2, 60));
-    # Stelt GapWidth-waarde in
-    $series->getParentSeriesGroup()->setGapWidth(50);
-    # Slaat de presentatie op op schijf
-    $pres->save("GapWidth_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$firstSlideIndex = 0;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $seriesCount = java_values($chart->getChartData()->getSeries()->size());
+    for ($seriesIndex = 0; $seriesIndex < $seriesCount; $seriesIndex++) {
+        $series = $chart->getChartData()->getSeries()->get_Item($seriesIndex);
+        $automaticColor = $series->getAutomaticSeriesColor();
+        $red = java_values($automaticColor->getRed());
+        $green = java_values($automaticColor->getGreen());
+        $blue = java_values($automaticColor->getBlue());
+        echo "Series " . $seriesIndex . ": java.awt.Color[r=" . $red . ",g=" . $green . ",b=" . $blue . "]" . PHP_EOL;
     }
-  }
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
 ```
+
+Voorbeeldoutput voor de standaardgrafiek‑stijl:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+De exacte kleuren hangen af van de grafiek‑stijl en het thema.
+
+## **Inverteer de vulkleur voor een grafiekreeks**
+
+Voor balk‑, kolom‑ en bubbel‑reeksen kan [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#setInvertIfNegative) negatieve waarden met een andere vulling weergeven. Stel de gewone reeks‑vulling in op effen, schakel inversie in en ken de negatieve‑waarde‑kleur toe via [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Negatieve getallen blijven ongewijzigd in het werkboek; alleen hun weergave‑kleur verandert.
+
+Het volgende voorbeeld vervangt de standaardgrafiek‑gegevens door één reeks. Werkblad‑rij 0 bevat de reekstenaam, kolom 0 bevat categorienamen, en kolom 1 bevat de waarden:
+
+```php
+$firstSlideIndex = 0;
+$worksheetIndex = 0;
+$headerRowIndex = 0;
+$categoryColumnIndex = 0;
+$firstSeriesColumnIndex = 1;
+$firstDataRowIndex = 1;
+
+$categoryNames = ["Category 1", "Category 2", "Category 3"];
+$seriesValues = [-20, 50, -30];
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+    $chartData = $chart->getChartData();
+    $workbook = $chartData->getChartDataWorkbook();
+
+    $chartData->getSeries()->clear();
+    $chartData->getCategories()->clear();
+
+    $seriesNameCell = $workbook->getCell($worksheetIndex, $headerRowIndex, $firstSeriesColumnIndex, "Series 1");
+    $chartType = $chart->getType();
+    $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+
+    $categoryCount = count($categoryNames);
+    for ($categoryIndex = 0; $categoryIndex < $categoryCount; $categoryIndex++) {
+        $dataRowIndex = $firstDataRowIndex + $categoryIndex;
+        $categoryName = $categoryNames[$categoryIndex];
+        $seriesValue = $seriesValues[$categoryIndex];
+
+        $categoryCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $categoryColumnIndex, $categoryName);
+        $chartData->getCategories()->add($categoryCell);
+
+        $valueCell = $workbook->getCell($worksheetIndex, $dataRowIndex, $firstSeriesColumnIndex, $seriesValue);
+        $series->getDataPoints()->addDataPointForBarSeries($valueCell);
+    }
+
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->setInvertIfNegative(true);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+
+    $presentation->save("inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+Het resultaat:
+
+![De omgekeerde effen vulkleur](inverted_solid_fill_color.png)
+
+Je kunt inversie voor één punt inschakelen via [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). In het volgende voorbeeld is inversie uitgeschakeld voor de reeks en alleen ingeschakeld voor het geselecteerde punt. Het punt krijgt bovendien een negatieve waarde zodat het effect zichtbaar is:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 2;
+$negativeValue = -30;
+$redColor = java("java.awt.Color")->RED;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $automaticSeriesColor = $series->getAutomaticSeriesColor();
+    $series->getFormat()->getFill()->setFillType(FillType::Solid);
+    $series->getFormat()->getFill()->getSolidFillColor()->setColor($automaticSeriesColor);
+    $series->getInvertedSolidFillColor()->setColor($redColor);
+    $series->setInvertIfNegative(false);
+
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue($negativeValue);
+    $dataPoint->setInvertIfNegative(true);
+
+    $presentation->save("data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+## **Een specifieke datapuntwaarde wissen**
+
+Om één punt leeg te maken zonder de andere punten te verwijderen, stel je de onderliggende werkboekcel in op `null`. Voor een kolomgrafiek is de weergegeven waarde beschikbaar via [ChartDataPoint.getValue](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#getValue). Het datapunt blijft op dezelfde categoriep­ositie, maar de grafiek behandelt zijn waarde als leeg volgens de instellingen voor lege waarden van de grafiek.
+
+Het volgende voorbeeld wist alleen het tweede punt in de eerste reeks:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$targetDataPointIndex = 1;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::ClusteredColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $dataPoint = $series->getDataPoints()->get_Item($targetDataPointIndex);
+    $dataPoint->getValue()->getAsCell()->setValue(null);
+
+    $presentation->save("clear_data_point_value.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+Scatter‑grafieken gebruiken aparte X‑ en Y‑cellen, en bubbel‑grafieken gebruiken ook een grootte‑cel. Wis alleen de cel die de waarde vertegenwoordigt die je wilt verwijderen. Roep [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapointcollection/#clear) niet aan wanneer je de andere punten wilt behouden, want die methode verwijdert elk datapunt uit de collectie.
+
+## **De gat‑breedte van de reeks instellen**
+
+Gat‑breedte is de ruimte tussen aangrenzende balk‑ of kolomclusters, uitgedrukt als een percentage van de balk‑ of kolombreedte. Net als overlapping behoort het tot de bovenliggende reeks‑groep in plaats van tot één reeks. Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/#setGapWidth) eenmaal aan voor de groep. Een hogere waarde creëert meer ruimte tussen clusters; een lagere waarde maakt ze dichter.
+
+Het volgende voorbeeld wijzigt de gat‑breedte en slaat alleen de uiteindelijke presentatie op:
+
+```php
+$firstSlideIndex = 0;
+$firstSeriesIndex = 0;
+$gapWidthPercent = 30;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item($firstSlideIndex);
+
+    $chart = $slide->getShapes()->addChart(ChartType::StackedColumn, 20, 20, 500, 200);
+
+    $series = $chart->getChartData()->getSeries()->get_Item($firstSeriesIndex);
+    $series->getParentSeriesGroup()->setGapWidth($gapWidthPercent);
+
+    $presentation->save("gap_width_30.pptx", SaveFormat::Pptx);
+} finally {
+    if (!java_is_null($presentation)) {
+        $presentation->dispose();
+    }
+}
+```
+
+Het resultaat:
+
+![De gat‑breedte](gap_width.png)
 
 ## **FAQ**
 
-**Is er een limiet aan hoeveel series een enkel diagram kan bevatten?**
+**Welke grafiek‑typen ondersteunen dataseries?**
 
-Aspose.Slides stelt geen vaste limiet aan het aantal series dat je kunt toevoegen. De praktische grens wordt bepaald door de leesbaarheid van het diagram en door het beschikbare geheugen van je applicatie.
+Alle grafiek‑typen die door de [ChartType](https://reference.aspose.com/slides/nl/php-java/aspose.slides/charttype/)‑enumeratie worden vertegenwoordigd, gebruiken grafiek‑data, maar hun reeksen hebben niet allemaal dezelfde waardestructuur of instellingen. Bijvoorbeeld, categoriegrafieken gebruiken categorieën en waarden, scatter‑grafieken gebruiken X‑ en Y‑waarden, en bubbel‑grafieken voegen bubbelgroottes toe. Gebruik de datapunt‑creatiemethode die overeenkomt met het type reeks. Opties zoals overlapping en gat‑breedte gelden alleen voor compatibele balk‑ of kolomgroepen.
 
-**Wat als de kolommen binnen een cluster te dicht bij elkaar liggen of te ver uit elkaar staan?**
+**Wat is een grafiekreeks‑groep?**
 
-Pas de `GapWidth`‑instelling voor die serie (of de bovenliggende series‑groep) aan. Een hogere waarde vergroot de ruimte tussen de kolommen, terwijl een lagere waarde ze dichter bij elkaar brengt.
+Een [ChartSeriesGroup](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/) bevat compatibele reeksen die groeps‑level plot‑instellingen delen. Een combinatie‑grafiek kan meer dan één groep bevatten, dus het wijzigen van de groep die via één reeks wordt bereikt, verandert niet per se elke reeks in de grafiek.
+
+**Bevat een nieuw aangemaakte grafiek standaarddata?**
+
+Ja. Standaard creëert [ShapeCollection.addChart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/#addChart) voorbeeldreeksen, -categorieën en -waarden. Je kunt die cellen bewerken of zowel de reeksen‑ als de categorie‑collecties wissen voordat je een volledig aangepaste dataset toevoegt. Een overload kan ook een grafiek zonder standaarddata maken.
+
+**Hoe zijn grafiek‑objecten gekoppeld aan werkboekcellen?**
+
+Reeksnamen, categorielabels en datapunt‑waarden verwijzen naar cellen in een [ChartDataWorkbook](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdataworkbook/). Het veranderen van een aangeduide cel werkt het overeenkomstige grafiekelement bij. Wanneer je aangepaste data bouwt, houd je rijen met categorieën en rijen met reeks‑waarden uitgelijnd zodat elk punt onder de beoogde categorie wordt uitgezet.
+
+**Hoe wis ik één punt in plaats van de hele reeks?**
+
+Stel de relevante waardecel in op `null` om de positie van het punt in de categorie te behouden als een leeg punt. Gebruik [ChartDataPointCollection.clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapointcollection/#clear) alleen wanneer je alle punten uit die reeks wilt verwijderen. Als je ook categorieën verwijdert, werk dan elke reeks bij zodat hun waarden uitgelijnd blijven met de categorieverzameling.
+
+**Hoe worden lege punten weergegeven?**
+
+Het resultaat hangt af van het grafiek‑type en de waarde die is geconfigureerd via [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chart/#setDisplayBlanksAs). Ondersteunde grafieken kunnen lege punten weergeven als gaten, als nul‑waarden, of door naburige punten te verbinden. Kies de instelling die overeenkomt met de betekenis van ontbrekende data in je presentatie.
+
+**Hoe worden negatieve waarden opgemaakt?**
+
+Voor ondersteunde balk‑, kolom‑ en bubbel‑reeksen, roep [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#setInvertIfNegative) aan en stel de kleur in die wordt geretourneerd door [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Je kunt het gedrag voor een individueel punt overschrijven met [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Deze methoden beïnvloeden de opmaak, niet de opgeslagen numerieke waarden.
+
+**Welke opmaak wint wanneer zowel een reeks als een punt zijn opgemaakt?**
+
+Expliciete datapunt‑opmaak heeft voorrang voor dat punt. Andere punten blijven de expliciete reeks‑opmaak gebruiken of, wanneer de reeks‑opmaak niet gedefinieerd is, de automatische grafiek‑stijl en het thema. Groepsinstellingen zoals overlapping en gat‑breedte bepalen de lay‑out en zijn geen punt‑niveau opmaak‑overschrijvingen.
+
+**Is er een limiet aan het aantal reeksen dat een grafiek kan bevatten?**
+
+Aspose.Slides legt geen aparte vaste limiet op voor het aantal reeksen. In de praktijk bepalen bestands‑beperkingen van de presentatie, beschikbaar geheugen, render‑tijd en leesbaarheid van de grafiek een praktisch limiet.
+
+**Wat moet ik aanpassen wanneer kolommen te dicht bij elkaar of te ver van elkaar staan?**
+
+Roep [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/nl/php-java/aspose.slides/chartseriesgroup/#setGapWidth) aan op de betreffende bovenliggende reeks‑groep. Verhoog de waarde om de ruimte tussen clusters te vergroten, of verlaag de waarde om de clusters dichter bij elkaar te brengen.

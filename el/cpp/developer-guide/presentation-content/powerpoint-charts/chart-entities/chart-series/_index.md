@@ -1,11 +1,11 @@
 ---
-title: Διαχείριση Σειρών Δεδομένων Γραφήματος σε Παρουσιάσεις με С++
+title: Διαχείριση Σειρών Δεδομένων Γραφήματος σε Παρουσιάσεις με C++
 linktitle: Σειρές Δεδομένων
 type: docs
 url: /el/cpp/chart-series/
 keywords:
 - σειρά γραφήματος
-- επικάλυψη σειρών
+- επικάλυψη σειράς
 - χρώμα σειράς
 - χρώμα κατηγορίας
 - όνομα σειράς
@@ -13,316 +13,551 @@ keywords:
 - διάστημα σειράς
 - PowerPoint
 - παρουσίαση
-- С++
+- C++
 - Aspose.Slides
-description: "Μάθετε πώς να διαχειρίζεστε τις σειρές γραφήματος σε С++ για PowerPoint (PPT/PPTX) με πρακτικά παραδείγματα κώδικα και βέλτιστες πρακτικές για να ενισχύσετε τις παρουσιάσεις δεδομένων σας."
+description: "Μάθετε πώς να διαχειρίζεστε τις σειρές γραφήματος, τα σημεία δεδομένων, τα κελιά του βιβλίου εργασίας, τη μορφοποίηση, την επικάλυψη, το πλάτος κενού και τις αρνητικές τιμές σε παρουσιάσεις με C++."
 ---
 ## **Επισκόπηση**
 
-Αυτό το άρθρο περιγράφει τον ρόλο του [ChartSeries](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartseries/) στο Aspose.Slides, εστιάζοντας στο πώς τα δεδομένα δομούνται και απεικονίζονται μέσα σε παρουσιάσεις. Αυτά τα αντικείμενα παρέχουν τα θεμελιώδη στοιχεία που ορίζουν μεμονωμένα σύνολα σημείων δεδομένων, κατηγορίες και παραμέτρους εμφάνισης σε ένα γράφημα. Εργαζόμενοι με το [ChartSeries](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/chartseries/), οι προγραμματιστές μπορούν να ενσωματώσουν απρόσκοπτα τις υποκείμενες πηγές δεδομένων και να διατηρούν πλήρη έλεγχο πάνω στο πώς προβάλλεται η πληροφορία, με αποτέλεσμα δυναμικές, δεδομενο‑οδηγούμενες παρουσιάσεις που μεταδίδουν σαφώς ιδέες και αναλύσεις.
+Ένα γράφημα αποθηκεύει τα σχεδιασμένα δεδομένα του σε ένα βιβλίο εργασίας δεδομένων γραφήματος. Ένα [IChartSeries](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/) αντιπροσωπεύει ένα σύνολο σχετικών τιμών, και κάθε [IChartDataPoint](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/) στη σειρά αναφέρεται σε ένα ή περισσότερα κελιά του βιβλίου εργασίας. Αντικείμενα [IChartCategory](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartcategory/) παρέχουν τις ετικέτες ή τις τιμές ομαδοποίησης που μοιράζονται οι σειρές. Το όνομα της σειράς, οι κατηγορίες και οι τιμές των σημείων είναι επομένως συνδεδεμένα με αντικείμενα [IChartDataCell](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatacell/) αντί να αποθηκεύονται μόνο ως κείμενο εμφάνισης.
 
-Μία σειρά είναι μια γραμμή ή στήλη αριθμών που απεικονίζονται σε ένα γράφημα.
+Για ένα τυπικό γράφημα κατηγορίας, το προεπιλεγμένο βιβλίο εργασίας χρησιμοποιεί τη γραμμή 0 για τα ονόματα των σειρών, τη στήλη 0 για τα ονόματα των κατηγοριών και τα υπόλοιπα κελιά για τις τιμές των σειρών. Οι δείκτες φύλλου, γραμμής και στήλης που περνούν στο [IChartDataWorkbook::GetCell](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/getcell/) είναι μηδενικής βάσης. Αυτή η διάταξη είναι χρήσιμη όταν δημιουργείτε ένα γράφημα με προεπιλεγμένα δεδομένα, αλλά μην υποθέετε ότι κάθε υπάρχον γράφημα τη χρησιμοποιεί. Για μια φορτωμένη παρουσίαση, εξετάστε τα κελιά στα οποία αναφέρονται οι σειρές, οι κατηγορίες και τα σημεία δεδομένων πριν αλλάξετε τις τιμές του βιβλίου εργασίας.
+
+Οι ρυθμίσεις γραφήματος έχουν τρία διαφορετικά επίπεδα:
+
+- Ρυθμίσεις σε επίπεδο σειράς, όπως [IChartSeries::get_Format](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_format/), παρέχουν την προεπιλεγμένη εμφάνιση για όλα τα σημεία σε μία σειρά.
+- Ρυθμίσεις σημείου δεδομένων, όπως [IChartDataPoint::get_Format](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/get_format/), αντικαθιστούν την εμφάνιση της σειράς για ένα σημείο.
+- Οι ρυθμίσεις ομάδας εφαρμόζονται σε συμβατές σειρές που ανήκουν στην ίδια [IChartSeriesGroup](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseriesgroup/). Πρόσβαση στην ομάδα μέσω [IChartSeries::get_ParentSeriesGroup](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_parentseriesgroup/) όταν χρειάζεται να ορίσετε επιλογές όπως η επικάλυψη ή το πλάτος κενών.
+
+Όταν δεν έχει οριστεί ρητή γεμίσματος σημείου ή σειράς, το στυλ και το θέμα του γραφήματος καθορίζουν την αυτόματη εμφάνιση. Όταν υπάρχουν τόσο η μορφοποίηση σειράς όσο και του σημείου, η μορφοποίηση του σημείου έχει προτεραιότητα για εκείνο το σημείο.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Ορισμός της Επικάλυψης της Σειράς Δεδομένων**
+## **Ορισμός Επικάλυψης Σειράς Γραφήματος**
 
-Με τη μέθοδο [IChartSeries::get_Overlap()](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.charts.i_chart_series#a5ae56346bd11dc0a2264ff049a3e72bb), μπορείτε να καθορίσετε πόση επικάλυψη πρέπει να έχουν οι γραμμές και οι στήλες σε ένα 2D γράφημα (εύρος: -100 έως 100). Αυτή η ιδιότητα εφαρμόζεται σε όλες τις σειρές της γονικής ομάδας σειρών: πρόκειται για μια προβολή της αντίστοιχης ιδιότητας της ομάδας.
+[IChartSeries::get_Overlap](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_overlap/) αναφέρει πόσο επικάλυπται οι ράβδοι ή οι στήλες σε ένα 2Δ γράφημα, από -100 μέχρι 100 τοις εκατό. Είναι μια προβολή μόνο για ανάγνωση της ρύθμισης στην γονική ομάδα σειρών. Καλέστε [IChartSeriesGroup::set_Overlap](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseriesgroup/set_overlap/) για να ενημερώσετε κάθε συμβατή σειρά στην ομάδα. Αυτή η επιλογή εφαρμόζεται σε τύπους γραφήματος που εμφανίζουν ομαδοποιημένους ράβδους ή στήλες· δεν επηρεάζει μη σχετικές ομάδες σειρών σε ένα συνδυαστικό γράφημα.
 
-Χρησιμοποιήστε τη μέθοδο `get_ParentSeriesGroup()::set_Overlap()` για να ορίσετε την προτιμώμενη τιμή για το `Overlap`.
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Προσθέστε ένα ομαδοποιημένο γράφημα στήλης σε μια διαφάνεια.
-1. Αποκτήστε πρόσβαση στην πρώτη σειρά γραφήματος.
-1. Αποκτήστε πρόσβαση στο `ParentSeriesGroup` της σειράς γραφήματος και ορίστε την προτιμώμενη τιμή επικάλυψης για τη σειρά.
-1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Το παρακάτω παράδειγμα ορίζει την επικάλυψη για την ομάδα που περιέχει την πρώτη σειρά:
 
 ```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int8_t overlapPercent = 30;
+
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Προσθέτει γράφημα
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-if (series->idx_get(0)->get_Overlap() == 0)
-{
-    // Ορίζει την επικάλυψη της σειράς
-    series->idx_get(0)->get_ParentSeriesGroup()->set_Overlap(-30);
-}
+// Το νέο γράφημα περιλαμβάνει δείγμα σειρών, κατηγορίες και τιμές.
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Γράφει το αρχείο παρουσίασης στο δίσκο
-presentation->Save(u"SetChartSeriesOverlap_out.pptx", SaveFormat::Pptx);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_Overlap(overlapPercent);
+
+presentation->Save(u"series_overlap.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Αλλαγή Χρώματος Σειράς Δεδομένων**
+Το αποτέλεσμα:
 
-Aspose.Slides for C++ σας επιτρέπει να αλλάξετε το χρώμα μιας σειράς με τον εξής τρόπο:
+![The series overlap](series_overlap.png)
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Προσθέστε ένα γράφημα στη διαφάνεια.
-1. Αποκτήστε πρόσβαση στη σειρά του οποίου το χρώμα θέλετε να αλλάξετε.
-1. Ορίστε τον προτιμώμενο τύπο γεμίσματος και το χρώμα γεμίσματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+## **Αλλαγή Χρώματος Γεμίσματος Σειράς**
 
-```cpp
-auto pres = System::MakeObject<Presentation>(u"test.pptx");
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
+Χρησιμοποιήστε [IChartSeries::get_Format](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_format/) για να ορίσετε το προεπιλεγμένο γέμισμα ολόκληρης μιας σειράς. Εάν ένα σημείο έχει ήδη ρητό γέμισμα, η ρύθμιση [IChartDataPoint::get_Format](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/get_format/) του παρακάμπτει το γέμισμα της σειράς για εκείνο το σημείο.
 
-auto chart = shapes->AddChart(ChartType::Pie, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(1);
-
-point->set_Explosion(30);
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
-
-## **Αλλαγή Χρώματος Κατηγορίας Σειράς Δεδομένων**
-
-Aspose.Slides for C++ σας επιτρέπει να αλλάξετε το χρώμα μιας κατηγορίας σειράς με τον εξής τρόπο:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Προσθέστε ένα γράφημα στη διαφάνεια.
-1. Αποκτήστε πρόσβαση στην κατηγορία σειράς του οποίου το χρώμα θέλετε να αλλάξετε.
-1. Ορίστε τον προτιμώμενο τύπο γεμίσματος και το χρώμα γεμίσματος.
-1. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Το παρακάτω παράδειγμα εφαρμόζει συμπαγές μπλε γέμισμα στην πρώτη σειρά:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f);
-auto point = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/shared_ptr.h>
 
-point->get_Format()->get_Fill()->set_FillType(FillType::Solid);
-point->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(Color::get_Blue());
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
 
-pres->Save(u"output.pptx", SaveFormat::Pptx);
-```
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-## **Αλλαγή Ονόματος Σειράς Δεδομένων**
-
-Από προεπιλογή, τα ονόματα του υπόμνησης (legend) για ένα γράφημα είναι τα περιεχόμενα των κελιών πάνω από κάθε στήλη ή γραμμή δεδομένων.
-
-Στο παράδειγμά μας (δείγμα εικόνας),
-
-* οι στήλες είναι *Series 1, Series 2,* και *Series 3*·
-* οι γραμμές είναι *Category 1, Category 2, Category 3,* και *Category 4*·
-
-Το Aspose.Slides for C++ σάς επιτρέπει να ενημερώσετε ή να αλλάξετε το όνομα μιας σειράς στα δεδομένα του γραφήματος και στο υπόμνημα.
-
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε το όνομα μιας σειράς στα δεδομένα γραφήματος `ChartDataWorkbook`:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-
-auto seriesCell = chart->get_ChartData()->get_ChartDataWorkbook()->GetCell(0, 0, 1);
-seriesCell->set_Value(ObjectExt::Box<String>(u"New name"));
-
-pres->Save(u"pres.pptx", SaveFormat::Pptx);
-```
-
-Αυτός ο κώδικας C++ δείχνει πώς να αλλάξετε το όνομα μιας σειράς στο υπόμνημα μέσω του `Series`:
-
-```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-
-auto chart = shapes->AddChart(ChartType::Column3D, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series()->idx_get(0);
-
-auto name = series->get_Name();
-name->get_AsCells()->idx_get(0)->set_Value(ObjectExt::Box<String>(u"New name"));
-```
-
-## **Ορισμός Χρώματος Γέμισματος Σειράς Δεδομένων**
-
-Aspose.Slides for C++ σας επιτρέπει να ορίσετε το αυτόματο χρώμα γεμίσματος για τις σειρές γραφήματος μέσα σε μια περιοχή σχεδίασης με τον εξής τρόπο:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με το δείκτη της.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα βάσει του προτιμώμενου τύπου σας (στο παρακάτω παράδειγμα χρησιμοποιήσαμε `ChartType::ClusteredColumn`).
-1. Αποκτήστε πρόσβαση στη σειρά του γραφήματος και ορίστε το χρώμα γεμίσματος σε Automatic.
-1. Αποθηκεύστε την παρουσίαση σε αρχείο PPTX.
-
-```cpp
 auto presentation = System::MakeObject<Presentation>();
-auto shapes = presentation->get_Slides()->idx_get(0)->get_Shapes();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Δημιουργεί ένα ομαδοποιημένο γράφημα στήλης
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 50.0f, 600.0f, 400.0f);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
 
-// Ορίζει τη μορφή γεμίσματος της σειράς σε αυτόματο
-for (const auto& series : chart->get_ChartData()->get_Series())
-{
-    series->GetAutomaticSeriesColor();
-}
-
-// Γράφει το αρχείο παρουσίασης στο δίσκο
-presentation->Save(u"AutoFillSeries_out.pptx", SaveFormat::Pptx);
-```
-
-## **Ορισμός Αντιστροφής Χρωμάτων Γέμισματος Σειράς Δεδομένων**
-
-Aspose.Slides σας επιτρέπει να ορίσετε την αντιστροφή του χρώματος γεμίσματος για τις σειρές γραφήματος μέσα σε μια περιοχή σχεδίασης με τον εξής τρόπο:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Αποκτήστε μια αναφορά σε μια διαφάνεια με το δείκτη της.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα βάσει του προτιμώμενου τύπου σας (στο παρακάτω παράδειγμα χρησιμοποιήσαμε `ChartType::ClusteredColumn`).
-1. Αποκτήστε πρόσβαση στη σειρά του γραφήματος και ορίστε το χρώμα γεμίσματος σε invert.
-1. Αποθηκεύστε την παρουσίαση σε αρχείο PPTX.
-
-```cpp
-Color inverColor = Color::get_Red();
-    
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 100.0f, 100.0f, 400.0f, 300.0f);
-
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-auto chartData = chart->get_ChartData();
-
-chartData->get_Series()->Clear();
-chartData->get_Categories()->Clear();
-
-// Adds new series and categories
-chartData->get_Series()->Add(workBook->GetCell(0, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chartData->get_Categories()->Add(workBook->GetCell(0, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chartData->get_Categories()->Add(workBook->GetCell(0, 3, 0, ObjectExt::Box<String>(u"Category 3")));
-
-// Takes the first chart series and populates its series data.
-auto series = chartData->get_Series()->idx_get(0);
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 1, 1, ObjectExt::Box<int32_t>(-20)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 2, 1, ObjectExt::Box<int32_t>(50)));
-series->get_DataPoints()->AddDataPointForBarSeries(workBook->GetCell(0, 3, 1, ObjectExt::Box<int32_t>(-30)));
-Color seriesColor = series->GetAutomaticSeriesColor();
-series->set_InvertIfNegative(true);
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesColor = Color::get_Blue();
 series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
 series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(seriesColor);
-series->get_InvertedSolidFillColor()->set_Color(inverColor);
-pres->Save(u"SetInvertFillColorChart_out.pptx", SaveFormat::Pptx);
+
+presentation->Save(u"series_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Ορισμός Αντιστροφής Χρώματος Γέμισματος για Σειρά Γραφήματος**
+Το αποτέλεσμα:
 
-Το Aspose.Slides σάς επιτρέπει να ορίσετε αντιστροφές μέσω των μεθόδων `IChartDataPoint::set_InvertIfNegative()` και `ChartDataPoint.set_InvertIfNegative()`. Όταν μια αντιστροφή ορίζεται με αυτές τις μεθόδους, το σημείο δεδομένων αντιστρέφει τα χρώματά του όταν λαμβάνει μια αρνητική τιμή.
+![The color of the series](series_color.png)
+
+## **Αλλαγή Ονόματος Σειράς**
+
+Το όνομα μιας σειράς αποθηκεύεται στο βιβλίο εργασίας δεδομένων γραφήματος και εμφανίζεται συνήθως στη λεζάντα. Στο προεπιλεγμένο βιβλίο εργασίας που δημιουργείται για ένα γράφημα συγκεντρωτικών στηλών, το κελί B1 είναι στη γραμμή 0, στήλη 1 και περιέχει το όνομα της πρώτης σειράς. Οι σταθερές ονομάσεις στο παρακάτω παράδειγμα κάνουν αυτή τη δομή σαφή:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>();
-auto shapes = pres->get_Slides()->idx_get(0)->get_Shapes();
-auto chart = shapes->AddChart(ChartType::ClusteredColumn, 50.0f, 50.0f, 600.0f, 400.0f, true);
-auto series = chart->get_ChartData()->get_Series();
-chart->get_ChartData()->get_Series()->Clear();
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto workBook = chart->get_ChartData()->get_ChartDataWorkbook();
-series->Add(workBook->GetCell(0, u"B1"), chart->get_Type());
-auto dataPoints = series->idx_get(0)->get_DataPoints();
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B2", ObjectExt::Box<int32_t>(-5)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B3", ObjectExt::Box<int32_t>(3)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B4", ObjectExt::Box<int32_t>(-2)));
-dataPoints->AddDataPointForBarSeries(workBook->GetCell(0, u"B5", ObjectExt::Box<int32_t>(1)));
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-series->idx_get(0)->set_InvertIfNegative(false);
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-series->idx_get(0)->get_DataPoints()->idx_get(2)->set_InvertIfNegative(true);
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-pres->Save(u"out.pptx", SaveFormat::Pptx);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+auto seriesNameCell = workbook->GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Καθαρισμός Συγκεκριμένων Τιμών Σημείων Δεδομένων**
-
-Aspose.Slides for C++ σας επιτρέπει να καθαρίσετε τα δεδομένα `DataPoints` για μια συγκεκριμένη σειρά γραφήματος με τον εξής τρόπο:
-
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-2. Αποκτήστε την αναφορά μιας διαφάνειας μέσω του δείκτη της.
-3. Αποκτήστε την αναφορά ενός γραφήματος μέσω του δείκτη του.
-4. Διατρέξτε όλα τα `DataPoints` του γραφήματος και ορίστε τα `XValue` και `YValue` σε null.
-5. Καθαρίστε όλα τα `DataPoints` για τη συγκεκριμένη σειρά γραφήματος.
-6. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Μπορείτε επίσης να ενημερώσετε το κελί που ήδη αναφέρεται από το [IChartSeries::get_Name](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_name/). Αυτή η προσέγγιση αποφεύγει την υπόθεση συγκεκριμένης γραμμής και στήλης σε ένα υπάρχον γράφημα:
 
 ```cpp
-auto pres = System::MakeObject<Presentation>(u"TestChart.pptx");
-auto sl = pres->get_Slides()->idx_get(0);
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCellCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IStringChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
 
-auto chart = System::ExplicitCast<IChart>(sl->get_Shapes()->idx_get(0));
-auto dataPoints = chart->get_ChartData()->get_Series()->idx_get(0)->get_DataPoints();
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::ObjectExt;
+using System::String;
 
-for (const auto& dataPoint : dataPoints)
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto seriesNameCells = series->get_Name()->get_AsCells();
+auto seriesNameCell = seriesNameCells->idx_get(firstNameCellIndex);
+auto seriesName = ObjectExt::Box<String>(u"Revenue");
+seriesNameCell->set_Value(seriesName);
+
+presentation->Save(u"series_name.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Το αποτέλεσμα:
+
+![The series name](series_name.png)
+
+## **Λήψη Αυτόματου Χρώματος Γεμίσματος Σειράς**
+
+[IChartSeries::GetAutomaticSeriesColor](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/getautomaticseriescolor/) επιστρέφει το χρώμα που υπολογίζεται από το δείκτη της σειράς και το στυλ του γραφήματος. Πρόκειται για το χρώμα που χρησιμοποιείται όταν το γέμισμα της σειράς δεν έχει οριστεί ρητά. Η κλήση της μεθόδου διαβάζει το υπολογισμένο χρώμα· δεν αναθέτει νέο γέμισμα.
+
+Το παρακάτω παράδειγμα εκτυπώνει το αυτόματο χρώμα κάθε προεπιλεγμένης σειράς:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <drawing/color.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Presentation;
+using System::Console;
+using System::String;
+
+const int firstSlideIndex = 0;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+const int seriesCount = seriesCollection->get_Count();
+for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    dataPoint->get_XValue()->get_AsCell()->set_Value(nullptr);
-    dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+    auto series = seriesCollection->idx_get(seriesIndex);
+    auto automaticColor = series->GetAutomaticSeriesColor();
+    auto colorName = automaticColor.get_Name();
+    auto outputLine = String::Format(u"Series {0}: {1}", seriesIndex, colorName);
+    Console::WriteLine(outputLine);
 }
 
-dataPoints->Clear();
-
-pres->Save(u"ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Ορισμός Πλάτους Κενού Σειράς Δεδομένων**
+Παράδειγμα εξόδου για το προεπιλεγμένο στυλ γραφήματος:
 
-Aspose.Slides for C++ σας επιτρέπει να ορίσετε το πλάτος κενού (Gap Width) μιας σειράς μέσω της μεθόδου **`set_GapWidth()`** με τον εξής τρόπο:
+```text
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
+```
 
-1. Δημιουργήστε ένα αντικείμενο της κλάσης [Presentation](https://reference.aspose.com/slides/el/cpp/class/aspose.slides.presentation).
-1. Αποκτήστε πρόσβαση στην πρώτη διαφάνεια.
-1. Προσθέστε ένα γράφημα με προεπιλεγμένα δεδομένα.
-1. Αποκτήστε πρόσβαση σε οποιαδήποτε σειρά γραφήματος.
-1. Ορίστε την ιδιότητα `GapWidth`.
-1. Γράψτε την τροποποιημένη παρουσίαση σε αρχείο PPTX.
+Τα ακριβή χρώματα εξαρτώνται από το στυλ και το θέμα του γραφήματος.
+
+## **Ορισμός Αντιστροφής Χρώματος Γεμίσματος για Σειρά Γραφήματος**
+
+Για σειρές ράβδων, στηλών και φυσαλίδων, το [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) μπορεί να εμφανίζει τις αρνητικές τιμές με διαφορετικό γέμισμα. Ορίστε το κανονικό γέμισμα της σειράς σε συμπαγές, ενεργοποιήστε την αντιστροφή και ορίστε το χρώμα αρνητικής τιμής μέσω του [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Οι αρνητικοί αριθμοί παραμένουν αμετάβλητοι στο βιβλίο εργασίας· αλλάζει μόνο το χρώμα εμφάνισης.
+
+Το παρακάτω παράδειγμα αντικαθιστά τα προεπιλεγμένα δεδομένα γραφήματος με μία σειρά. Η γραμμή 0 του φύλλου περιέχει το όνομα της σειράς, η στήλη 0 περιέχει τα ονόματα των κατηγοριών και η στήλη 1 περιέχει τις τιμές:
 
 ```cpp
-// Δημιουργεί κενή παρουσίαση 
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartCategoryCollection.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPointCollection.h>
+#include <DOM/Chart/IChartDataWorkbook.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+using System::String;
+
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+const int categoryCount = 3;
+
+const String categoryNames[] = {u"Category 1", u"Category 2", u"Category 3"};
+const int seriesValues[] = {-20, 50, -30};
+
 auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
 
-// Πρόσβαση στην πρώτη διαφάνεια της παρουσίασης
-auto slide = presentation->get_Slides()->idx_get(0);
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+auto chartData = chart->get_ChartData();
+auto workbook = chartData->get_ChartDataWorkbook();
 
-// Προσθέτει γράφημα με προεπιλεγμένα δεδομένα
-auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 0.0f, 0.0f, 500.0f, 500.0f);
+auto seriesCollection = chartData->get_Series();
+seriesCollection->Clear();
+chartData->get_Categories()->Clear();
 
-// Ορίζει τον δείκτη του φύλλου δεδομένων του γραφήματος
-int32_t worksheetIndex = 0;
+auto seriesName = ObjectExt::Box<String>(u"Series 1");
+auto seriesNameCell = workbook->GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, seriesName);
+auto chartType = chart->get_Type();
+auto series = seriesCollection->Add(seriesNameCell, chartType);
 
-// Λαμβάνει το φύλλο εργασίας δεδομένων του γραφήματος
-auto workbook = chart->get_ChartData()->get_ChartDataWorkbook();
+for (int categoryIndex = 0; categoryIndex < categoryCount; categoryIndex++)
+{
+    const int dataRowIndex = firstDataRowIndex + categoryIndex;
+    auto categoryName = categoryNames[categoryIndex];
+    const int seriesValue = seriesValues[categoryIndex];
 
-// Προσθέτει σειρές
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 1, ObjectExt::Box<String>(u"Series 1")), chart->get_Type());
-chart->get_ChartData()->get_Series()->Add(workbook->GetCell(worksheetIndex, 0, 2, ObjectExt::Box<String>(u"Series 2")), chart->get_Type());
+    auto boxedCategoryName = ObjectExt::Box<String>(categoryName);
+    auto categoryCell = workbook->GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, boxedCategoryName);
+    chartData->get_Categories()->Add(categoryCell);
 
-// Προσθέτει κατηγορίες
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 1, 0, ObjectExt::Box<String>(u"Category 1")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 2, 0, ObjectExt::Box<String>(u"Category 2")));
-chart->get_ChartData()->get_Categories()->Add(workbook->GetCell(worksheetIndex, 3, 0, ObjectExt::Box<String>(u"Category 3")));
+    auto boxedSeriesValue = ObjectExt::Box<int>(seriesValue);
+    auto valueCell = workbook->GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, boxedSeriesValue);
+    series->get_DataPoints()->AddDataPointForBarSeries(valueCell);
+}
 
-// Παίρνει τη δεύτερη σειρά γραφήματος
-auto series = chart->get_ChartData()->get_Series()->idx_get(1);
-auto dataPoints = series->get_DataPoints();
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->set_InvertIfNegative(true);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
 
-// Συμπληρώνει τα δεδομένα της σειράς
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 1, ObjectExt::Box<int32_t>(20)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 1, ObjectExt::Box<int32_t>(50)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 1, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 1, 2, ObjectExt::Box<int32_t>(30)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 2, 2, ObjectExt::Box<int32_t>(10)));
-dataPoints->AddDataPointForBarSeries(workbook->GetCell(worksheetIndex, 3, 2, ObjectExt::Box<int32_t>(60)));
-
-// Ορίζει την τιμή GapWidth
-series->get_ParentSeriesGroup()->set_GapWidth(50);
-
-// Αποθηκεύει την παρουσίαση στο δίσκο
-presentation->Save(u"GapWidth_out.pptx", SaveFormat::Pptx);
+presentation->Save(u"inverted_solid_fill_color.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **Συχνές Ερωτήσεις**
+Το αποτέλεσμα:
 
-**Υπάρχει όριο στον αριθμό των σειρών που μπορεί να περιέχει ένα μεμονωμένο γράφημα;**
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Το Aspose.Slides δεν επιβάλλει συγκεκριμένο όριο στον αριθμό των σειρών που προσθέτετε. Το πρακτικό όριο καθορίζεται από την αναγνωσιμότητα του γραφήματος και από τη μνήμη που είναι διαθέσιμη στην εφαρμογή σας.
+Μπορείτε να ενεργοποιήσετε την αντιστροφή για ένα σημείο μέσω του [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Στο παρακάτω παράδειγμα η αντιστροφή είναι απενεργοποιημένη για τη σειρά και ενεργοποιείται μόνο για το επιλεγμένο σημείο. Το σημείο ανατίθεται επίσης μια αρνητική τιμή ώστε το εφέ να είναι ορατό:
 
-**Τι γίνεται αν οι στήλες μέσα σε ένα σύμπλεγμα είναι πολύ κοντά μεταξύ τους ή πολύ μακριά;**
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/Chart/IFormat.h>
+#include <DOM/FillType.h>
+#include <DOM/IChart.h>
+#include <DOM/IColorFormat.h>
+#include <DOM/IFillFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
 
-Ρυθμίστε την τιμή του πλάτους κενού (gap width) για εκείνη τη σειρά (ή την γονική ομάδα σειρών). Η αύξηση της τιμής διευρύνει το κενό μεταξύ των στηλών, ενώ η μείωση την φέρνει πιο κοντά.
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::FillType;
+using Aspose::Slides::Presentation;
+using System::Drawing::Color;
+using System::ObjectExt;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto automaticSeriesColor = series->GetAutomaticSeriesColor();
+auto invertedSeriesColor = Color::get_Red();
+series->get_Format()->get_Fill()->set_FillType(FillType::Solid);
+series->get_Format()->get_Fill()->get_SolidFillColor()->set_Color(automaticSeriesColor);
+series->get_InvertedSolidFillColor()->set_Color(invertedSeriesColor);
+series->set_InvertIfNegative(false);
+
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+auto boxedNegativeValue = ObjectExt::Box<int>(negativeValue);
+dataPoint->get_YValue()->get_AsCell()->set_Value(boxedNegativeValue);
+dataPoint->set_InvertIfNegative(true);
+
+presentation->Save(u"data_point_invert_color_if_negative.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Καθαρισμός Συγκεκριμένης Τιμής Σημείου Δεδομένων**
+
+Για να κάνετε ένα σημείο κενό χωρίς να αφαιρέσετε τα άλλα σημεία, ορίστε το υποκείμενο κελί του βιβλίου εργασίας σε `nullptr`. Για ένα γράφημα στήλης, η σχεδιασμένη τιμή είναι διαθέσιμη μέσω του [IChartDataPoint::get_YValue](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/get_yvalue/). Το σημείο παραμένει στην ίδια θέση κατηγορίας, αλλά το γράφημα το θεωρεί κενό σύμφωνα με τις ρυθμίσεις κενών τιμών του γραφήματος.
+
+Το παρακάτω παράδειγμα καθαρίζει μόνο το δεύτερο σημείο στην πρώτη σειρά:
+
+```cpp
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartDataCell.h>
+#include <DOM/Chart/IChartDataPoint.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IDoubleChartValue.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::ClusteredColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+auto dataPoint = series->get_DataPoint(targetDataPointIndex);
+dataPoint->get_YValue()->get_AsCell()->set_Value(nullptr);
+
+presentation->Save(u"clear_data_point_value.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Τα γραφήματα διασποράς χρησιμοποιούν ξεχωριστά κελιά X και Y, και τα γραφήματα φυσαλίδων επίσης χρησιμοποιούν κελί μεγέθους. Καθαρίστε μόνο το κελί που αντιπροσωπεύει την τιμή που θέλετε να αφαιρέσετε. Μην καλέσετε το [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) όταν θέλετε να διατηρήσετε τα άλλα σημεία, επειδή αυτή η μέθοδος αφαιρεί κάθε σημείο δεδομένων από τη συλλογή.
+
+## **Ορισμός Πλάτους Κενού Σειράς**
+
+Το πλάτος κενού είναι ο χώρος μεταξύ διαδοχικών ομάδων ράβδων ή στηλών, εκφρασμένο ως ποσοστό του πλάτους της ράβδου ή στήλης. Όπως η επικάλυψη, ανήκει στην γονική ομάδα σειρών αντί σε μία μόνο σειρά. Καλέστε [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) μία φορά για την ομάδα. Μετρεούμενη τιμή μεγαλύτερη δημιουργεί περισσότερο χώρο μεταξύ των ομάδων· μικρότερη τιμή τις κάνει πιο πυκνές.
+
+Το παρακάτω παράδειγμα αλλάζει το πλάτος κενού και αποθηκεύει μόνο την τελική παρουσίαση:
+
+```cpp
+#include <cstdint>
+#include <DOM/Chart/ChartType.h>
+#include <DOM/Chart/IChartData.h>
+#include <DOM/Chart/IChartSeries.h>
+#include <DOM/Chart/IChartSeriesCollection.h>
+#include <DOM/Chart/IChartSeriesGroup.h>
+#include <DOM/IChart.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/shared_ptr.h>
+
+using Aspose::Slides::Charts::ChartType;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const uint16_t gapWidthPercent = 30;
+
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(firstSlideIndex);
+
+auto chart = slide->get_Shapes()->AddChart(ChartType::StackedColumn, 20.0f, 20.0f, 500.0f, 200.0f);
+
+auto seriesCollection = chart->get_ChartData()->get_Series();
+auto series = seriesCollection->idx_get(firstSeriesIndex);
+series->get_ParentSeriesGroup()->set_GapWidth(gapWidthPercent);
+
+presentation->Save(u"gap_width_30.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Το αποτέλεσμα:
+
+![The gap width](gap_width.png)
+
+## **FAQ**
+
+**Ποιοι τύποι γραφήματος υποστηρίζουν σειρές δεδομένων;**
+
+Όλοι οι τύποι γραφήματος που αντιπροσωπεύονται από την απαρίθμηση [ChartType](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/charttype/) χρησιμοποιούν δεδομένα γραφήματος, αλλά οι σειρές τους δεν έχουν όλοι την ίδια δομή τιμών ή ρυθμίσεις. Για παράδειγμα, τα γραφήματα κατηγορίας χρησιμοποιούν κατηγορίες και τιμές, τα γραφήματα διασποράς χρησιμοποιούν τιμές X και Y, και τα γραφήματα φυσαλίδων προσθέτουν μεγέθη φυσαλίδων. Χρησιμοποιήστε τη μέθοδο δημιουργίας σημείου δεδομένων που ταιριάζει στον τύπο σειράς. Επιλογές όπως η επικάλυψη και το πλάτος κενών εφαρμόζονται μόνο σε συμβατές ομάδες ράβδων ή στηλών.
+
+**Τι είναι μια ομάδα σειρών γραφήματος;**
+
+Μια [IChartSeriesGroup](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseriesgroup/) περιέχει συμβατές σειρές που μοιράζονται ρυθμίσεις ομαδοποίησης. Ένα συνδυαστικό γράφημα μπορεί να περιέχει περισσότερες από μία ομάδες, έτσι η αλλαγή της ομάδας μέσω μιας σειράς δεν αλλάζει απαραίτητα κάθε σειρά στο γράφημα.
+
+**Ένα νεοδημιουργημένο γράφημα περιέχει προεπιλεγμένα δεδομένα;**
+
+Ναι. Από προεπιλογή, το [IShapeCollection::AddChart](https://reference.aspose.com/slides/el/cpp/aspose.slides/ishapecollection/addchart/) δημιουργεί δείγματα σειρών, κατηγοριών και τιμών. Μπορείτε να επεξεργαστείτε αυτά τα κελιά ή να διαγράψετε τόσο τις συλλογές σειρών όσο και κατηγοριών πριν προσθέσετε ένα εντελώς προσαρμοσμένο σύνολο δεδομένων. Μια υπερφόρτωση μπορεί επίσης να δημιουργήσει γράφημα χωρίς προεπιλεγμένα δεδομένα.
+
+**Πώς συνδέονται τα αντικείμενα γραφήματος με κελιά βιβλίου εργασίας;**
+
+Τα ονόματα σειρών, οι ετικέτες κατηγοριών και οι τιμές σημείων δεδομένων αναφέρονται σε κελιά ενός [IChartDataWorkbook](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdataworkbook/). Η αλλαγή ενός αναφερόμενου κελιού ενημερώνει το αντίστοιχο στοιχείο γραφήματος. Όταν δημιουργείτε προσαρμοσμένα δεδομένα, διατηρήστε τις γραμμές κατηγοριών και τις γραμμές τιμών σειρών ευθυγραμμισμένες ώστε κάθε σημείο να σχεδιάζεται κάτω από τη σωστή κατηγορία.
+
+**Πώς καθαρίζω ένα σημείο αντί ολόκληρης σειράς;**
+
+Ορίστε το σχετικό κελί τιμής σε `nullptr` για να διατηρήσετε τη θέση της κατηγορίας του σημείου ως κενό σημείο. Καλέστε το [IChartDataPointCollection::Clear](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapointcollection/clear/) μόνο όταν θέλετε να αφαιρέσετε όλα τα σημεία από εκείνη τη σειρά. Εάν αφαιρείτε επίσης κατηγορίες, ενημερώστε κάθε σειρά ώστε οι τιμές τους να παραμείνουν ευθυγραμμισμένες με τη συλλογή κατηγοριών.
+
+**Πώς εμφανίζονται τα κενά σημεία;**
+
+Το αποτέλεσμα εξαρτάται από τον τύπο γραφήματος και το [IChart::get_DisplayBlanksAs](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichart/get_displayblanksas/). Τα υποστηριζόμενα γραφήματα μπορούν να εμφανίζουν κενά ως κενά, ως μηδενικές τιμές ή συνδέοντας τα γειτονικά σημεία. Επιλέξτε τη ρύθμιση που ταιριάζει με το νόημα των ελλιπών δεδομένων στην παρουσίασή σας.
+
+**Πώς μορφοποιούνται οι αρνητικές τιμές;**
+
+Για υποστηριζόμενες σειρές ράβδων, στηλών και φυσαλίδων, καλέστε το [IChartSeries::set_InvertIfNegative](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/set_invertifnegative/) και ορίστε το χρώμα μέσω του [IChartSeries::get_InvertedSolidFillColor](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseries/get_invertedsolidfillcolor/). Μπορείτε να παρακάμψετε τη συμπεριφορά για ένα μεμονωμένο σημείο χρησιμοποιώντας το [IChartDataPoint::set_InvertIfNegative](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartdatapoint/set_invertifnegative/). Αυτές οι μέθοδοι επηρεάζουν τη μορφοποίηση, όχι τις αποθηκευμένες αριθμητικές τιμές.
+
+**Ποια μορφοποίηση επικρατεί όταν τόσο η σειρά όσο και το σημείο μορφοποιούνται;**
+
+Η ρητή μορφοποίηση σημείου δεδομένων έχει προτεραιότητα για εκείνο το σημείο. Τα άλλα σημεία συνεχίζουν να χρησιμοποιούν τη ρητή μορφοποίηση σειράς ή, όταν η μορφοποίηση σειράς δεν είναι ορισμένη, το αυτόματο στυλ και θέμα του γραφήματος. Οι ρυθμίσεις ομάδας όπως η επικάλυψη και το πλάτος κενών ελέγχουν τη διάταξη και δεν παρακάμπτουν τη μορφοποίηση σημείου.
+
+**Υπάρχει όριο στον αριθμό σειρών που μπορεί να περιέχει ένα γράφημα;**
+
+Το Aspose.Slides δεν επιβάλλει ξεχωριστό σταθερό όριο αριθμού σειρών. Στην πράξη, οι περιορισμοί του αρχείου παρουσίασης, η διαθέσιμη μνήμη, ο χρόνος απόδοσης και η αναγνωσιμότητα του γραφήματος καθορίζουν ένα πρακτικό όριο.
+
+**Τι πρέπει να αλλάξω όταν οι στήλες είναι πολύ κοντά ή πολύ μακριά;**
+
+Καλέστε το [IChartSeriesGroup::set_GapWidth](https://reference.aspose.com/slides/el/cpp/aspose.slides.charts/ichartseriesgroup/set_gapwidth/) στην κατάλληλη γονική ομάδα σειρών. Αυξήστε την τιμή για να διευρύνετε το χώρο μεταξύ των ομάδων ή μειώστε την για να φέρετε τις ομάδες πιο κοντά.

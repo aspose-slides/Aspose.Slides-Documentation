@@ -1,5 +1,5 @@
 ---
-title: Manage Slide Sections in Presentations Using C++
+title: Manage Slide Sections in Presentations with C++
 linktitle: Slide Section
 type: docs
 weight: 100
@@ -10,91 +10,223 @@ keywords:
 - edit section
 - change section
 - section name
+- retrieve section slides
+- process section slides
 - PowerPoint
-- OpenDocument
 - presentation
 - C++
 - Aspose.Slides
-description: "Streamline slide sections in PowerPoint and OpenDocument with Aspose.Slides for C++ — split, rename, and reorder to optimize PPTX and ODP workflows."
+description: "Manage slide sections with Aspose.Slides for C++: create, rename, reorder, retrieve, and process section slides in PPTX presentations."
 ---
 
 ## **Introduction**
 
-With Aspose.Slides for C++, you can organize a PowerPoint Presentation into sections. You get to create sections that contain specific slides. 
+Sections organize consecutive slides into named groups without changing the slide content. With Aspose.Slides for C++, you can create, reorder, rename, inspect, and remove sections through the [Presentation::get_Sections](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_sections/) method.
 
-You may want to create sections and use them to organize or divide slides in a presentation into logical parts in these situations:
+Sections are especially useful when:
 
-- When you are working on a large presentation with other people or a team—and you need to assign certain slides to a colleague or some team members. 
-- When you are dealing with a presentation that contains many slides—and you are struggling to manage or edit its contents at once.
+- a large presentation needs to be divided into logical topics or chapters;
+- different groups of slides are assigned to different collaborators;
+- slides need to be processed, moved, or merged as groups.
 
-Ideally, you should create a section that houses similar slides—the slides have something in common or they can exist in a group based on a rule—and give the section a name that describes the slides inside it. 
+Choose concise section names that describe the purpose of the grouped slides. Because sections are part of the presentation structure, use the section APIs to determine membership instead of deriving it from slide positions.
 
-## **Create Sections in Presentations**
+## **Create and Manage Sections**
 
-To add a section that will house slides in a presentation, Aspose.Slides for C++ provides the AddSection method that allows you to specify the name of the section you intend to create and the slide from which the section starts. 
+Use [ISectionCollection::AddSection](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/addsection/) to create a section by specifying its name and starting slide. Aspose.Slides determines which slides belong to the section from the presentation's current section structure.
 
-This sample code shows you to create a section in a presentation in C++:
+The same [ISectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/) also lets you:
 
-``` cpp
-#include <DOM/IGlobalLayoutSlideCollection.h>
+- move a section together with its slides by using [ISectionCollection::ReorderSectionWithSlides](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/reordersectionwithslides/);
+- remove only the section definition with [ISectionCollection::RemoveSection](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/removesection/), which retains its slides;
+- remove a section and its slides with [ISectionCollection::RemoveSectionWithSlides](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/removesectionwithslides/);
+- add an empty section at the end with [ISectionCollection::AppendEmptySection](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/appendemptysection/).
+
+The following example creates two sections, moves one of them, removes it together with its slides, and appends an empty section:
+
+```cpp
 #include <DOM/ISectionCollection.h>
 #include <DOM/ISlideCollection.h>
 #include <DOM/Presentation.h>
-#include <Export/SaveFormat.h>
+
 using namespace Aspose::Slides;
-using namespace Aspose::Slides::Export;
 
-auto pres = System::MakeObject<Presentation>();
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto titleSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto resultsSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
 
-auto defaultSlide = pres->get_Slides()->idx_get(0);
-auto newSlide1 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide2 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide3 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
-auto newSlide4 = pres->get_Slides()->AddEmptySlide(pres->get_LayoutSlides()->idx_get(0));
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", titleSlide);
+auto resultsSection = sections->AddSection(u"Results", resultsSlide);
 
-auto section1 = pres->get_Sections()->AddSection(u"Section 1", newSlide1);
-auto section2 = pres->get_Sections()->AddSection(u"Section 2", newSlide3);
-// section1 will be ended at newSlide2 and after it section2 will start   
-
-pres->Save(u"pres-sections.pptx", SaveFormat::Pptx);
-
-pres->get_Sections()->ReorderSectionWithSlides(section2, 0);
-pres->Save(u"pres-sections-moved.pptx", SaveFormat::Pptx);
-
-pres->get_Sections()->RemoveSectionWithSlides(section2);
-
-pres->get_Sections()->AppendEmptySection(u"Last empty section");
-
-pres->Save(u"pres-section-with-empty.pptx", SaveFormat::Pptx);
+sections->ReorderSectionWithSlides(resultsSection, 0);
+sections->RemoveSectionWithSlides(resultsSection);
+sections->AppendEmptySection(u"Appendix");
 ```
 
-## **Change the Names of Sections**
+After these operations, the presentation contains the `Introduction` section with its slides and an empty `Appendix` section. The `Results` section and its slides have been removed.
 
-After you create a section in a PowerPoint presentation, you may decide to change its name. 
+## **Rename Sections**
 
-This sample code shows you how to change the name of a section in a presentation in C++ using Aspose.Slides:
+To rename a section, call [ISection::set_Name](https://reference.aspose.com/slides/cpp/aspose.slides/isection/set_name/). The section's slides and position remain unchanged.
 
-``` cpp
+The following example creates a section and changes its name:
+
+```cpp
 #include <DOM/ISection.h>
 #include <DOM/ISectionCollection.h>
 #include <DOM/Presentation.h>
+
 using namespace Aspose::Slides;
 
-auto pres = System::MakeObject<Presentation>(u"pres.pptx");
-auto section = pres->get_Sections()->idx_get(0);
-section->set_Name(u"My section");
+auto presentation = System::MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto section = presentation->get_Sections()->AddSection(u"Overview", slide);
+section->set_Name(u"Introduction");
 ```
+
+## **Retrieve Slides from Sections**
+
+The [Presentation::get_Sections](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_sections/) method returns an [ISectionCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isectioncollection/) that you can enumerate. For each [ISection](https://reference.aspose.com/slides/cpp/aspose.slides/isection/), call [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/cpp/aspose.slides/isection/getslideslistofsection/) to obtain the slides that currently belong to it. The method returns an [ISectionSlideCollection](https://reference.aspose.com/slides/cpp/aspose.slides/isectionslidecollection/), which provides a count, indexed access, and enumeration.
+
+The following example creates two populated sections and one empty section, then prints each section's [name](https://reference.aspose.com/slides/cpp/aspose.slides/isection/get_name/), [identifier](https://reference.aspose.com/slides/cpp/aspose.slides/isection/get_sectionid/), [starting slide](https://reference.aspose.com/slides/cpp/aspose.slides/isection/get_startedfromslide/), slide count, and slide numbers. It uses indexed access to read the first slide and a range-based `for` loop to process every slide. For the empty section, the returned collection has a count of zero, indexed access is not used, and enumeration performs no iterations.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+sections->AddSection(u"Introduction", firstSlide);
+sections->AddSection(u"Details", thirdSlide);
+sections->AppendEmptySection(u"Appendix");
+
+for (const auto& section : sections)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    auto startingSlide = section->get_StartedFromSlide();
+
+    System::Console::WriteLine(u"Section: {0}", section->get_Name());
+    System::Console::WriteLine(u"ID: {0}", section->get_SectionId().ToString());
+    if (startingSlide == nullptr)
+    {
+        System::Console::WriteLine(u"Starting slide: none");
+    }
+    else
+    {
+        System::Console::WriteLine(u"Starting slide: {0}", startingSlide->get_SlideNumber());
+    }
+    System::Console::WriteLine(u"Slide count: {0}", sectionSlides->get_Count());
+
+    if (sectionSlides->get_Count() > 0)
+    {
+        System::Console::WriteLine(u"First slide via index: {0}", sectionSlides->idx_get(0)->get_SlideNumber());
+    }
+
+    System::Console::Write(u"Slide numbers:");
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+}
+```
+
+Section membership is determined by the presentation's section structure. Do not calculate a section's range manually from [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/cpp/aspose.slides/isection/get_startedfromslide/), slide indexes, and the next section's starting slide.
+
+Structural edits can change both the slides returned for a section and their slide numbers. This includes reordering slides, cloning a slide into a section, moving a section together with its slides, removing slides, and removing sections. The next example calls [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/cpp/aspose.slides/isection/getslideslistofsection/) after every such change instead of retaining assumptions about the section's former boundaries.
+
+```cpp
+#include <DOM/ISection.h>
+#include <DOM/ISectionCollection.h>
+#include <DOM/ISectionSlideCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/shared_ptr.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+
+auto presentation = System::MakeObject<Presentation>();
+auto layoutSlide = presentation->get_LayoutSlide(0);
+auto firstSlide = presentation->get_Slide(0);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+auto thirdSlide = presentation->get_Slides()->AddEmptySlide(layoutSlide);
+presentation->get_Slides()->AddEmptySlide(layoutSlide);
+
+auto sections = presentation->get_Sections();
+auto firstSection = sections->AddSection(u"First", firstSlide);
+auto secondSection = sections->AddSection(u"Second", thirdSlide);
+
+auto printSectionSlides = [](const System::String& label, const System::SharedPtr<ISection>& section)
+{
+    auto sectionSlides = section->GetSlidesListOfSection();
+    System::Console::Write(u"{0} ({1} slides):", label, sectionSlides->get_Count());
+    for (const auto& slide : sectionSlides)
+    {
+        System::Console::Write(u" {0}", slide->get_SlideNumber());
+    }
+    System::Console::WriteLine();
+};
+
+printSectionSlides(u"Initially", firstSection);
+
+auto slidesBeforeClone = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->AddClone(slidesBeforeClone->idx_get(0), firstSection);
+printSectionSlides(u"After cloning into the section", firstSection);
+
+auto slidesBeforeReorder = firstSection->GetSlidesListOfSection();
+auto firstSlideInSection = slidesBeforeReorder->idx_get(0);
+auto lastSlideInSection = slidesBeforeReorder->idx_get(slidesBeforeReorder->get_Count() - 1);
+auto firstSectionPosition = firstSlideInSection->get_SlideNumber() - 1;
+presentation->get_Slides()->Reorder(firstSectionPosition, lastSlideInSection);
+printSectionSlides(u"After reordering slides", firstSection);
+
+sections->ReorderSectionWithSlides(firstSection, 1);
+printSectionSlides(u"After moving the section", firstSection);
+
+auto slidesBeforeRemoval = firstSection->GetSlidesListOfSection();
+presentation->get_Slides()->Remove(slidesBeforeRemoval->idx_get(0));
+printSectionSlides(u"After removing a slide", firstSection);
+
+sections->RemoveSectionWithSlides(secondSection);
+for (const auto& section : sections)
+{
+    printSectionSlides(u"Remaining section", section);
+}
+```
+
+Call [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/cpp/aspose.slides/isection/getslideslistofsection/) again whenever slides or sections are reordered, cloned, moved, or removed. This keeps subsequent processing aligned with the current presentation structure.
+
+The PPT (PowerPoint 97–2003) format does not preserve section metadata. Use this workflow with a format that supports sections, such as PPTX; converting to PPT removes the section structure needed for later enumeration.
 
 ## **FAQ**
 
-### Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?
+**Are sections preserved when saving to the PPT (PowerPoint 97–2003) format?**
 
 No. The PPT format does not support section metadata, so section grouping is lost when saving to .ppt.
 
-### Can an entire section be "hidden"?
+**Can an entire section be "hidden"?**
 
-No. Only individual slides can be hidden. A section as an entity has no "hidden" state.
+No. A section has no visibility state. To hide its contents, call [ISlide::set_Hidden](https://reference.aspose.com/slides/cpp/aspose.slides/islide/set_hidden/) for each slide in the section.
 
-### Can I quickly find a section by a slide and, conversely, the first slide of a section?
+**How can I find the section that contains a slide?**
 
-Yes. A section is uniquely defined by its starting slide; given a slide you can determine which section it belongs to, and for a section you can access its first slide.
+Enumerate [Presentation::get_Sections](https://reference.aspose.com/slides/cpp/aspose.slides/presentation/get_sections/), call [ISection::GetSlidesListOfSection](https://reference.aspose.com/slides/cpp/aspose.slides/isection/getslideslistofsection/) for each section, and compare the returned slides with the target slide. For a non-empty section, [ISection::get_StartedFromSlide](https://reference.aspose.com/slides/cpp/aspose.slides/isection/get_startedfromslide/) returns its first slide; for an empty section, it returns `nullptr`.

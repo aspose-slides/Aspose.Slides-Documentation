@@ -7,7 +7,7 @@ url: /ru/python-net/clone-slides/
 keywords:
 - клонирование слайда
 - копировать слайд
-- сохранить слайд
+- сохранять слайд
 - PowerPoint
 - презентация
 - Python
@@ -32,7 +32,7 @@ description: "Быстро клонируйте или дублируйте сл
 pip install aspose.slides
 ```
 
-## **Клонирование в конец в той же презентации**
+## **Клонирование в конец внутри той же презентации**
 
 Если нужно клонировать слайд в той же презентации и добавить его в конец существующих слайдов, используйте метод `add_clone`. Выполните следующие шаги:
 
@@ -50,7 +50,7 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # Клонируйте нужный слайд в конец коллекции слайдов в той же презентации.
     presentation.slides.add_clone(presentation.slides[0])
-    # Сохраните изменённую презентацию на диск.
+    # Сохранить изменённую презентацию на диск.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -72,7 +72,7 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # Клонируйте нужный слайд в указанную позицию (индекс) в той же презентации.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Сохраните изменённую презентацию на диск.
+    # Сохранить изменённую презентацию на диск.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -97,7 +97,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     with slides.Presentation() as target_presentation:
         # Клонируйте нужный слайд из исходной презентации в конец коллекции слайдов в целевой презентации.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Сохраните целевую презентацию на диск.
+        # Сохранить целевую презентацию на диск.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -118,11 +118,11 @@ import aspose.slides as slides
 
 # Создайте экземпляр класса Presentation, представляющий файл исходной презентации.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Создайте экземпляр класса Presentation для целевого PPTX (куда будет клонирован слайд).
+    # Создать экземпляр класса Presentation для целевого PPTX (куда будет клонирован слайд).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # Вставьте клон первого слайда из исходной презентации в позицию с индексом 2 в целевой презентации.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Сохраните целевую презентацию на диск.
+        # Сохранить целевую презентацию на диск.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -150,15 +150,15 @@ import aspose.slides as slides
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
     # Создайте экземпляр класса Presentation для целевой презентации, в которой будет клонирован слайд.
     with slides.Presentation() as target_presentation:
-        # Получите первый слайд из исходной презентации.
+        # Получить первый слайд из исходной презентации.
         source_slide = source_presentation.slides[0]
-        # Получите мастер‑слайд, используемый первым слайдом.
+        # Получить мастер‑слайд, используемый первым слайдом.
         source_master = source_slide.layout_slide.master_slide
         # Клонируйте мастер‑слайд в коллекцию мастеров целевой презентации.
         cloned_master = target_presentation.masters.add_clone(source_master)
         # Клонируйте слайд из исходной презентации в конец целевой презентации, используя склонированный мастер.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Сохраните целевую презентацию на диск.
+        # Сохранить целевую презентацию на диск.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -171,19 +171,19 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 ```py
 import aspose.slides as slides
 
-# Создайте новую пустую презентацию.
+# Создать новую пустую презентацию.
 with slides.Presentation() as presentation:
-    # Добавьте пустой слайд на основе макета первого слайда.
+    # Добавить пустой слайд на основе макета первого слайда.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Добавьте эллипс к новому слайду; этот слайд будет позже клонирован.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Добавьте ещё один пустой слайд на основе макета первого слайда.
+    # Добавить ещё один пустой слайд на основе макета первого слайда.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Создайте раздел с именем "Section2", начинающийся со slide2.
     section = presentation.sections.add_section("Section2", slide2)
     # Клонируйте ранее созданный слайд в раздел "Section2".
     presentation.slides.add_clone(slide, section)
-    # Сохраните презентацию в файл PPTX.
+    # Сохранить презентацию в виде файла PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -208,7 +208,7 @@ target_presentation.slide_size.set_size(
 
 Да. Страница заметок и комментарии включаются в клон. Если они не нужны, [удалите их](/slides/ru/python-net/presentation-notes/) после вставки.
 
-**Как обрабатываются диаграммы и их источники данных?**
+### Как обрабатываются диаграммы и их источники данных?
 
 Объект диаграммы, форматирование и встроенные данные копируются. Если диаграмма была связана с внешним источником (например, встраиваемой книгой OLE), связь сохраняется как [OLE object](/slides/ru/python-net/manage-ole/). После перемещения между файлами проверьте доступность данных и поведение обновления.
 

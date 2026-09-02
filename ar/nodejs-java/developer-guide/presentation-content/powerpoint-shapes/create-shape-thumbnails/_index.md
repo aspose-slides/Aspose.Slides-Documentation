@@ -1,34 +1,46 @@
 ---
-title: إنشاء صور مصغرة للأشكال
+title: إنشاء صور مصغرة لأشكال العروض التقديمية باستخدام JavaScript
+linktitle: مصغرات الأشكال
 type: docs
 weight: 70
 url: /ar/nodejs-java/create-shape-thumbnails/
+keywords:
+- مصغرة الشكل
+- صورة الشكل
+- عرض الشكل
+- تصيير الشكل
+- الحدود البصرية
+- حدود الشكل
+- PowerPoint
+- العرض التقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "إنشاء صور مصغرة عالية الجودة للأشكال من شرائح PowerPoint باستخدام JavaScript و Aspose.Slides لـ Node.js – إنشاء وتصدير صور مصغرة للعرض التقديمي بسهولة."
 ---
+## **مقدمة**
 
-## **نظرة عامة**
-{{% alert color="primary" %}} 
+يُستخدم Aspose.Slides لإنشاء ملفات العروض التقديمية حيث تكون كل صفحة شريحة. يمكن عرض هذه الشرائح بفتح ملفات العرض باستخدام Microsoft PowerPoint. لكن أحيانًا قد يحتاج المطورون إلى عرض صور الأشكال بشكل منفصل في عارض صور. في مثل هذه الحالات، يساعدك Aspose.Slides على إنشاء صور مصغرة لأشكال الشريحة. يتم شرح كيفية استخدام هذه الميزة في هذا المقال.
 
-يمكن استخدام Aspose.Slides for Node.js via Java لإنشاء ملفات عرض تقديمي حيث تتطابق كل صفحة مع شريحة. يمكن عرض الشرائح بفتح ملفات العرض باستخدام Microsoft PowerPoint. ومع ذلك، يحتاج المطورون أحيانًا إلى عرض صور الأشكال بشكل منفصل في عارض صور. في مثل هذه الحالات، يساعد Aspose.Slides for Node.js via Java في إنشاء صور مصغرة لأشكال الشرائح.
+يوضح هذا المقال كيفية إنشاء صور مصغرة للشرائح بطرق مختلفة:
 
-{{% /alert %}} 
+- إنشاء صورة مصغرة لشكل داخل شريحة.
+- إنشاء صورة مصغرة لشكل شريحة بأبعاد محددة من قبل المستخدم.
+- إنشاء صورة مصغرة داخل حدود مظهر الشكل.
 
-في هذا الموضوع، سنُظهر كيفية إنشاء مصغرات الشرائح في حالات مختلفة:
+## **إنشاء صور مصغرة للأشكال من الشرائح**
 
-- إنشاء مصغرة الشكل داخل شريحة.
-- إنشاء مصغرة الشكل لشكل شريحة بأبعاد يحددها المستخدم.
-- إنشاء مصغرة الشكل ضمن حدود مظهر الشكل.
+لإنشاء صورة مصغرة لشكل من أي شريحة باستخدام Aspose.Slides لـ Node.js عبر Java، قم بما يلي:
 
-## **إنشاء مصغرات الشكل من الشرائح**
-لإنشاء مصغرة شكل من أي شريحة باستخدام Aspose.Slides for Node.js via Java، اتبع الخطوات التالية:
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation).
+1. الحصول على مرجع أي شريحة باستخدام معرّفها أو فهرسها.
+1. [احصل على صورة مصغرة للشكل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Shape#getImage--) من الشريحة المرجعية بالمقياس الافتراضي.
+1. احفظ صورة المصغرة بالتنسيق الصورة المفضل لديك.
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. احصل على مرجع أي شريحة باستخدام معرّفها أو فهرسها.
-1. احصل على صورة مصغرة للشكل من الشريحة المرجعية بمقياس افتراضي.
-1. احفظ صورة المصغرة بالتنسيق المفضل لديك.
+يعرض لك هذا الكود المثال كيفية إنشاء صورة مصغرة لشكل من شريحة:
 
-يوضح هذا الكود النموذجي كيفية إنشاء مصغرة شكل من شريحة:
 ```javascript
-// إنشاء كائن من فئة Presentation التي تمثل ملف العرض
+// إنشاء كائن من فئة Presentation التي تمثل ملف العرض التقديمي
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
     // إنشاء صورة بمقياس كامل
@@ -48,18 +60,19 @@ try {
 }
 ```
 
+## **إنشاء صور مصغرة للأشكال بمعامل تحجيم معرف من قبل المستخدم**
 
-## **إنشاء مصغرات الشكل باستخدام معامل التحجيم المحدد من قبل المستخدم**
-لإنشاء مصغرة شكل من شريحة باستخدام Aspose.Slides for Node.js via Java، اتبع الخطوات التالية:
+لإنشاء صورة مصغرة لشكل شريحة باستخدام Aspose.Slides لـ Node.js عبر Java، قم بما يلي:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. احصل على مرجع أي شريحة باستخدام معرّفها أو فهرسها.
-1. احصل على صورة مصغرة للشكل من الشريحة المرجعية بأبعاد يحددها المستخدم.
-1. احفظ صورة المصغرة بالتنسيق المفضل لديك.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation).
+1. الحصول على مرجع أي شريحة باستخدام معرّفها أو فهرسها.
+1. [احصل على صورة مصغرة للشكل](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/Shape#getImage-int-float-float-) من الشريحة المرجعية بأبعاد محددة من قبل المستخدم.
+1. احفظ صورة المصغرة بالتنسيق الصورة المفضل لديك.
 
-يوضح هذا الكود النموذجي كيفية إنشاء مصغرة شكل استنادًا إلى معامل التحجيم المحدد:
+يعرض لك هذا الكود المثال كيفية إنشاء صورة مصغرة لشكل بناءً على معامل تحجيم محدد:
+
 ```javascript
-// إنشاء كائن من فئة Presentation التي تمثل ملف العرض
+// إنشاء كائن من فئة Presentation التي تمثل ملف العرض التقديمي
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
     // إنشاء صورة بمقياس كامل
@@ -79,18 +92,19 @@ try {
 }
 ```
 
+## **إنشاء صورة مصغرة للشكل ضمن الحدود**
 
-## **إنشاء مصغرة شكل للحدود**
-تتيح هذه الطريقة لإنشاء مصغرات الأشكال للمطورين إنشاء مصغرة ضمن حدود مظهر الشكل. وهي تأخذ في الاعتبار جميع تأثيرات الشكل. تكون مصغرة الشكل التي تم إنشاؤها مقيدة بحدود الشريحة. لإنشاء مصغرة لشكل شريحة ضمن حدود مظهره، اتبع الخطوات التالية:
+تتيح هذه الطريقة لإنشاء صور مصغرة للأشكال للمطورين إنشاء صورة مصغرة ضمن حدود مظهر الشكل. تأخذ جميع تأثيرات الشكل في الاعتبار. تُقيد الصورة المصغرة التي تم إنشاؤها بحدود الشريحة. لإنشاء صورة مصغرة لشكل شريحة ضمن حد مظهره، قم بما يلي:
 
-1. إنشاء نسخة من الفئة [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation).
-1. احصل على مرجع أي شريحة باستخدام معرّفها أو فهرسها.
-1. احصل على صورة المصغرة للشريحة المرجعية مع حدود الشكل كمظهر.
-1. احفظ صورة المصغرة بالتنسيق المفضل لديك.
+1. إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation).
+1. الحصول على مرجع أي شريحة باستخدام معرّفها أو فهرسها.
+1. احصل على صورة المصغرة للشريحة المرجعية بحدود الشكل كالمظهر.
+1. احفظ صورة المصغرة بالتنسيق الصورة المفضل لديك.
 
-هذا الكود النموذجي يعتمد على الخطوات أعلاه:
+يعتمد هذا الكود المثال على الخطوات أعلاه:
+
 ```javascript
-// إنشاء كائن من فئة Presentation التي تمثل ملف العرض
+// إنشاء كائن من فئة Presentation التي تمثل ملف العرض التقديمي
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
     // إنشاء صورة بمقياس كامل
@@ -110,25 +124,68 @@ try {
 }
 ```
 
+## **الحصول على الحدود البصرية الفعلية للشكل**
 
-## **FAQ**
+تصف خصائص الإطار لكائن [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/)—الطرق `getX()`, `getY()`, `getWidth()`, و`getHeight()`—المستطيل المخزن في نموذج العرض. يمكن للمحتوى الذي يتم عرضه فعليًا أن يمتد خارج ذلك الإطار أو يشغل مستطيلًا محوريًا مختلفًا. يمكن أن تُغيّر الدوران، والحدود، ورؤوس الأسهم، وتخطيط النص وتفريغه، والهندسة المولدة لـ SmartArt، وغيرها من تأثيرات العرض المنطقة المشغولة.
 
-**ما تنسيقات الصور التي يمكن استخدامها عند حفظ مصغرات الشكل؟**
+استخدم [Shape.getVisualBounds](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getVisualBounds--) لحساب تلك المنطقة المشغولة دون إنشاء صورة. تُعيد الطريقة كائنًا من نوع [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) في إحداثيات الشريحة. المستطيل المُعاد غير مقصوص إلى الشريحة، لذا قد تكون إحداثياته سلبية عندما يمتد المحتوى خارج أصل الشريحة.
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/nodejs-java/aspose.slides/imageformat/)، وغيرها. يمكن أيضًا [تصديرها كـ SVG متجه](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/writeassvg/) بحفظ محتوى الشكل كـ SVG.
+المثال التالي يحصل على حدود الإطار والحدود البصرية ويقارن بينها:
 
-**ما الفرق بين حدود Shape وAppearance عند إنشاء مصغرة؟**
+```javascript
+const presentation = new aspose.slides.Presentation("example.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
 
-`Shape` يستخدم هندسة الشكل؛ `Appearance` يأخذ [التأثيرات البصرية](/slides/ar/nodejs-java/shape-effect/) (الظلال، التوهجات، إلخ) في الاعتبار.
+    const visualBounds = shape.getVisualBounds();
 
-**ماذا يحدث إذا تم تعليم شكل على أنه مخفي؟ هل سيظل يُظهر كمصغرة؟**
+    const frameBounds = {
+        x: shape.getX(),
+        y: shape.getY(),
+        width: shape.getWidth(),
+        height: shape.getHeight()
+    };
+    const visualBoundsValues = {
+        x: visualBounds.getX(),
+        y: visualBounds.getY(),
+        width: visualBounds.getWidth(),
+        height: visualBounds.getHeight()
+    };
 
-يبقى الشكل المخفي جزءًا من النموذج ويمكن عرضه؛ علم الإخفاء يؤثر على عرض العرض التقديمي لكنه لا يمنع إنشاء صورة الشكل.
+    console.log(
+        `Frame bounds (x, y, width, height): ${frameBounds.x}, ${frameBounds.y}, ${frameBounds.width}, ${frameBounds.height}`
+    );
+    console.log(
+        `Visual bounds (x, y, width, height): ${visualBoundsValues.x}, ${visualBoundsValues.y}, ${visualBoundsValues.width}, ${visualBoundsValues.height}`
+    );
+} finally {
+    presentation.dispose();
+}
+```
 
-**هل تُدعم الأشكال الجماعية والرسوم البيانية وSmartArt وغيرها من الكائنات المعقدة؟**
+يمكن استخدام نفس المستطيل لمحاذاة الأشكال القريبة إلى حافته اليسرى أو اليمنى أو العليا أو السفلى؛ وحجز مساحة كافية في تخطيط مُولد؛ أو اكتشاف محتوى خارج المنطقة المسموح بها. تكون الحدود البصرية مفيدة بشكل خاص لـ SmartArt، وصناديق النص، والسهام، والصور، والأشكال المدورة، وأشكال المجموعات، حيث قد لا يمثل الإطار المخزن النتيجة الكاملة المعروضة.
 
-نعم. يمكن حفظ أي كائن يُمثل كـ [Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) (بما في ذلك [GroupShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/groupshape/)، [Chart](https://reference.aspose.com/slides/nodejs-java/aspose.slides/chart/)، و[SmartArt](https://reference.aspose.com/slides/nodejs-java/aspose.slides/smartart/)) كمصغرة أو كـ SVG.
+استخدم [Shape.getVisualBounds](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getVisualBounds--) عندما تحتاج إحداثيات للتخطيط أو التحقق ولا تحتاج إلى صورة نقطية. استخدم [Shape.getImage](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getImage--) عندما تحتاج إلى عرض الشكل. مع [ShapeThumbnailBounds](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapethumbnailbounds/)، يقوم `ShapeThumbnailBounds.Shape` بتحديد حجم الصورة بناءً على حدود الشكل، بما في ذلك إعدادات الحدود، بينما يقوم `ShapeThumbnailBounds.Appearance` بتحديد الحجم بناءً على مظهر الشكل ويقيد النتيجة بحدود الشريحة. بالمقابل، تُعيد [Shape.getVisualBounds](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/#getVisualBounds--) المستطيل المُحسب فقط ولا تقصه إلى الشريحة.
 
-**هل تؤثر الخطوط المثبتة على النظام على جودة المصغرات للأشكال النصية؟**
+## **الأسئلة المتكررة**
 
-نعم. يجب عليك [توفير الخطوط المطلوبة](/slides/ar/nodejs-java/custom-font/) (أو [تهيئة استبدالات الخط](/slides/ar/nodejs-java/font-substitution/)) لتجنب التحويلات غير المرغوبة وإعادة تنسيق النص.
+**ما هي صيغ الصور التي يمكن استخدامها عند حفظ صور مصغرة للأشكال؟**
+
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/imageformat/)، وغيرها. يمكن أيضًا تصدير الأشكال كـ [SVG متجهة](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/writeassvg/) عن طريق حفظ محتوى الشكل كـ SVG.
+
+**ما الفرق بين حدود الشكل وحدود المظهر عند إنشاء صورة مصغرة؟**
+
+`Shape` يستخدم هندسة الشكل؛ `Appearance` يأخذ [التأثيرات البصرية](/slides/ar/nodejs-java/shape-effect/) (الظلال، التوهج، إلخ) في الاعتبار.
+
+**ماذا يحدث إذا تم تعيين الشكل ك مخفي؟ هل سيظل يُنشأ له صورة مصغرة؟**
+
+يبقى الشكل المخفي جزءًا من النموذج ويمكن عرضه؛ علم الإخفاء يؤثر على عرض الشرائح لكنه لا يمنع إنشاء صورة الشكل.
+
+**هل يتم دعم الأشكال الجماعية، المخططات، SmartArt، وغيرها من الكائنات المعقدة؟**
+
+نعم. أي كائن مُمثل كـ [Shape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shape/) (بما في ذلك [GroupShape](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/groupshape/)، [Chart](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/chart/)، و[SmartArt](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/smartart/)) يمكن حفظه كصورة مصغرة أو كـ SVG.
+
+**هل تؤثر الخطوط المثبتة بالنظام على جودة الصور المصغرة للأشكال النصية؟**
+
+نعم. يجب عليك [توفير الخطوط المطلوبة](/slides/ar/nodejs-java/custom-font/) (أو [تكوين استبدالات الخطوط](/slides/ar/nodejs-java/font-substitution/)) لتجنب fallback غير مرغوب فيه وإعادة تدفق النص.

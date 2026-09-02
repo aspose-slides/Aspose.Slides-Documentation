@@ -1,33 +1,35 @@
 ---
-title: Gestire i workbook dei grafici nelle presentazioni in .NET
-linktitle: Workbook del grafico
+title: Gestire le cartelle di lavoro dei grafici nelle presentazioni in .NET
+linktitle: Cartella di lavoro del grafico
 type: docs
 weight: 70
 url: /it/net/chart-workbook/
 keywords:
-- workbook del grafico
+- cartella di lavoro del grafico
 - dati del grafico
-- cella del workbook
+- cella della cartella di lavoro
 - etichetta dati
 - foglio di lavoro
 - origine dati
-- workbook esterno
+- cartella di lavoro esterna
 - dati esterni
+- cache del grafico
+- recupero della cartella di lavoro
 - PowerPoint
 - presentazione
 - .NET
 - C#
 - Aspose.Slides
-description: "Scopri Aspose.Slides per .NET: gestisci facilmente i workbook dei grafici in formati PowerPoint e OpenDocument per semplificare i dati della tua presentazione."
+description: "Scopri Aspose.Slides per .NET: gestisci facilmente le cartelle di lavoro dei grafici in PowerPoint e nei formati OpenDocument per ottimizzare i dati della tua presentazione."
 ---
 ## **Panoramica**
 
-Questo articolo spiega come lavorare con i workbook dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati dei grafici tramite flussi di workbook, utilizzare le celle del workbook come etichette dei dati del grafico, accedere alle raccolte di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
+Questo articolo spiega come lavorare con le cartelle di lavoro dei grafici in Aspose.Slides. Mostra come leggere e scrivere i dati del grafico tramite flussi di cartella di lavoro, usare le celle della cartella di lavoro come etichette dei dati del grafico, accedere alle collezioni di fogli di lavoro e specificare il tipo di origine dati per i valori del grafico.
 
-Copre inoltre il lavoro con workbook esterni come origini dati per i grafici. Gli esempi dimostrano come creare e assegnare un workbook esterno, recuperare il percorso di un workbook esterno collegato a un grafico e modificare i dati del grafico quando il workbook è disponibile.
+Copre anche il lavoro con cartelle di lavoro esterne come fonti dati per i grafici. Gli esempi dimostrano come creare e assegnare una cartella di lavoro esterna, recuperare il percorso di una cartella di lavoro esterna collegata a un grafico e modificare i dati del grafico quando la cartella di lavoro è disponibile.
 
-## **Leggere e scrivere dati del grafico da un workbook**
-Aspose.Slides fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/writeworkbookstream/) che consentono di leggere e scrivere i workbook dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Nota** che i dati del grafico devono essere organizzati nello stesso modo o devono avere una struttura simile a quella della sorgente.
+## **Leggere e scrivere dati del grafico da una cartella di lavoro**
+Aspose.Slides fornisce i metodi [ReadWorkbookStream](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/readworkbookstream/) e [WriteWorkbookStream](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/writeworkbookstream/) che consentono di leggere e scrivere le cartelle di lavoro dei dati del grafico (contenenti dati del grafico modificati con Aspose.Cells). **Note** i dati del grafico devono essere organizzati nello stesso modo o devono avere una struttura simile a quella della sorgente.
 
 Questo codice C# dimostra un’operazione di esempio:
 
@@ -47,15 +49,15 @@ using (Presentation pres = new Presentation("chart.pptx"))
 }
 ```
 
-## **Impostare una cella del workbook come etichetta dei dati del grafico**
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
-1. Aggiungere un grafico Bubble con alcuni dati.
-1. Accedere alla serie del grafico.
-1. Impostare la cella del workbook come etichetta dei dati.
-1. Salvare la presentazione.
+## **Impostare una cella di WorkBook come etichetta dei dati del grafico**
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
+1. Ottieni il riferimento a una diapositiva tramite il suo indice.
+1. Aggiungi un grafico a bolle con alcuni dati.
+1. Accedi alle serie del grafico.
+1. Imposta la cella della cartella di lavoro come etichetta dei dati.
+1. Salva la presentazione.
 
-Questo codice C# mostra come impostare una cella del workbook come etichetta dei dati del grafico:
+Questo codice C# mostra come impostare una cella di WorkBook come etichetta dei dati del grafico:
 
 ```c#
 string lbl0 = "Label 0 cell value";
@@ -63,7 +65,6 @@ string lbl1 = "Label 1 cell value";
 string lbl2 = "Label 2 cell value";
 
 // Istanzia una classe di presentazione che rappresenta un file di presentazione 
-
 using (Presentation pres = new Presentation("chart2.pptx"))
 {
     ISlide slide = pres.Slides[0];
@@ -87,7 +88,7 @@ using (Presentation pres = new Presentation("chart2.pptx"))
 
 ## **Gestire i fogli di lavoro**
 
-Questo codice C# dimostra un’operazione in cui la proprietà [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) è usata per accedere a una raccolta di fogli di lavoro:
+Questo codice C# dimostra un'operazione in cui la proprietà [IChartDataWorkbook.Worksheets](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdataworkbook/properties/worksheets) viene utilizzata per accedere a una collezione di fogli di lavoro:
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -101,7 +102,7 @@ using (Presentation pres = new Presentation())
 
 ## **Specificare il tipo di origine dati**
 
-Questo codice C# mostra come specificare un tipo per un’origine dati:
+Questo codice C# mostra come specificare un tipo per una fonte dati:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -119,9 +120,9 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Rilevare formati di workbook incorporati non supportati**
+## **Rilevare i formati di cartelle di lavoro incorporati non supportati**
 
-Aspose.Slides non supporta il formato di workbook Excel binario (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare la proprietà `EmbeddedWorkbookType` su [IChartData](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/) insieme all’enumerazione [WorkbookType](https://reference.aspose.com/slides/it/net/aspose.slides.charts/workbooktype/) per rilevare i formati non supportati e ignorare quei grafici.
+Aspose.Slides non supporta il formato cartella di lavoro binaria Excel (.xlsb) che può essere incorporato in alcuni grafici. È possibile utilizzare la proprietà `EmbeddedWorkbookType` su [IChartData](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/) insieme all'enumerazione [WorkbookType](https://reference.aspose.com/slides/it/net/aspose.slides.charts/workbooktype/) per rilevare formati non supportati e saltare quei grafici.
 
 ```csharp
 using (var presentation = new Presentation("sample.pptx"))
@@ -146,16 +147,16 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Workbook esterno**
+## **Cartella di lavoro esterna**
 
 {{% alert color="primary" %}} 
-In [Aspose.Slides 19.4](https://docs.aspose.com/slides/it/net/aspose-slides-for-net-19-4-release-notes/), abbiamo implementato il supporto per workbook esterni come origine dati per i grafici.
+In [Aspose.Slides 19.4](https://docs.aspose.com/slides/it/net/aspose-slides-for-net-19-4-release-notes/), abbiamo implementato il supporto per le cartelle di lavoro esterne come fonte dati per i grafici.
 {{% /alert %}} 
 
-### **Creare un workbook esterno**
-Utilizzando i metodi **`ReadWorkbookStream`** e **`SetExternalWorkbook`**, è possibile creare un workbook esterno da zero o rendere esterno un workbook interno.
+### **Creare una cartella di lavoro esterna**
+Utilizzando i metodi **`ReadWorkbookStream`** e **`SetExternalWorkbook`**, è possibile creare una cartella di lavoro esterna da zero o rendere esterna una cartella di lavoro interna.
 
-Questo codice C# dimostra il processo di creazione del workbook esterno:
+Questo codice C# dimostra il processo di creazione della cartella di lavoro esterna:
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -175,15 +176,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Impostare un workbook esterno**
-Utilizzando il metodo **`SetExternalWorkbook`**, è possibile assegnare un workbook esterno a un grafico come sua origine dati. Questo metodo può anche essere usato per aggiornare il percorso del workbook esterno (se quest’ultimo è stato spostato).
+### **Impostare una cartella di lavoro esterna**
+Utilizzando il metodo **`SetExternalWorkbook`**, è possibile assegnare una cartella di lavoro esterna a un grafico come sua fonte dati. Questo metodo può anche essere usato per aggiornare il percorso della cartella di lavoro esterna (se quest’ultima è stata spostata).
 
-Sebbene non sia possibile modificare i dati nei workbook memorizzati in posizioni remote o risorse, è comunque possibile utilizzare tali workbook come origine dati esterna. Se viene fornito un percorso relativo per un workbook esterno, esso viene convertito automaticamente in un percorso completo.
+Sebbene non sia possibile modificare i dati nelle cartelle di lavoro memorizzate in posizioni remote o risorse, è comunque possibile utilizzare tali cartelle di lavoro come fonte dati esterna. Se viene fornito un percorso relativo per una cartella di lavoro esterna, questo viene convertito automaticamente in un percorso completo.
 
-Questo codice C# mostra come impostare un workbook esterno:
+Questo codice C# mostra come impostare una cartella di lavoro esterna:
 
 ```c#
-// Il percorso della cartella dei documenti.
+// Il percorso della directory dei documenti.
 using (Presentation pres = new Presentation())
 {
     IChart chart = pres.Slides[0].Shapes.AddChart(ChartType.Pie, 50, 50, 400, 600, false);
@@ -204,10 +205,10 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-Il parametro `ChartData` (nel metodo `SetExternalWorkbook`) è usato per specificare se un workbook Excel deve essere caricato o meno.
+Il parametro `ChartData` (sotto il metodo `SetExternalWorkbook`) è usato per specificare se una cartella di lavoro Excel verrà caricata o meno. 
 
-* Quando il valore di `ChartData` è impostato su `false`, viene aggiornato solo il percorso del workbook: i dati del grafico non verranno caricati né aggiornati dal workbook di destinazione. È opportuno utilizzare questa impostazione quando il workbook di destinazione è inesistente o non disponibile. 
-* Quando il valore di `ChartData` è impostato su `true`, i dati del grafico vengono aggiornati dal workbook di destinazione.
+* Quando il valore di `ChartData` è impostato su `false`, viene aggiornato solo il percorso della cartella di lavoro — i dati del grafico non verranno caricati né aggiornati dalla cartella di lavoro di destinazione. È consigliabile usare questa impostazione quando la cartella di lavoro di destinazione non esiste o non è disponibile. 
+* Quando il valore di `ChartData` è impostato su `true`, i dati del grafico vengono aggiornati dalla cartella di lavoro di destinazione.
 
 ```c#
 using (Presentation pres = new Presentation())
@@ -221,15 +222,15 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-### **Ottenere il percorso del workbook esterno di origine dati di un grafico**
+### **Ottenere il percorso della cartella di lavoro sorgente dati esterna di un grafico**
 
-1. Creare un’istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
-1. Ottenere il riferimento a una diapositiva tramite il suo indice.
-1. Creare un oggetto per la forma del grafico.
-1. Creare un oggetto per il tipo di origine (`ChartDataSourceType`) che rappresenta l’origine dati del grafico.
-1. Specificare la condizione pertinente in base al fatto che il tipo di origine sia lo stesso del tipo di origine dati del workbook esterno.
+1. Crea un'istanza della classe [Presentation](https://reference.aspose.com/slides/it/net/aspose.slides/presentation/).
+1. Ottieni il riferimento a una diapositiva tramite il suo indice.
+1. Crea un oggetto per la forma del grafico.
+1. Crea un oggetto per il tipo di sorgente (`ChartDataSourceType`) che rappresenta la fonte dati del grafico.
+1. Specifica la condizione pertinente in base al fatto che il tipo di sorgente sia lo stesso del tipo di sorgente della cartella di lavoro esterna.
 
-Questo codice C# dimostra l’operazione:
+Questo codice C# dimostra l'operazione:
 
 ```c#
 using (Presentation pres = new Presentation("pres.pptx"))
@@ -249,9 +250,9 @@ using (Presentation pres = new Presentation("pres.pptx"))
 
 ### **Modificare i dati del grafico**
 
-È possibile modificare i dati nei workbook esterni allo stesso modo in cui si apportano modifiche al contenuto dei workbook interni. Quando un workbook esterno non può essere caricato, viene generata un’eccezione.
+È possibile modificare i dati nelle cartelle di lavoro esterne allo stesso modo in cui si modificano i contenuti delle cartelle di lavoro interne. Quando una cartella di lavoro esterna non può essere caricata, viene generata un'eccezione.
 
-Questo codice C# implementa il processo descritto:
+Questo codice C# è un'implementazione del processo descritto:
 
 ```c#
 using (Presentation pres = new Presentation("presentation.pptx"))
@@ -265,28 +266,53 @@ using (Presentation pres = new Presentation("presentation.pptx"))
 }
 ```
 
+### **Recuperare una cartella di lavoro dalla cache del grafico**
+
+Se un grafico utilizza una cartella di lavoro esterna mancante o non disponibile, Aspose.Slides può ricostruire la cartella di lavoro del grafico dai dati memorizzati nella presentazione. Crea un oggetto [LoadOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/), configura le sue [SpreadsheetOptions](https://reference.aspose.com/slides/it/net/aspose.slides/loadoptions/spreadsheetoptions/), e imposta [ISpreadsheetOptions.RecoverWorkbookFromChartCache](https://reference.aspose.com/slides/it/net/aspose.slides/ispreadsheetoptions/recoverworkbookfromchartcache/) su `true` prima di aprire la presentazione.
+
+Il seguente esempio C# apre una presentazione il cui grafico fa riferimento a una cartella di lavoro esterna non disponibile e accede ai dati recuperati tramite [IChart.ChartData](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichart/chartdata/) e [IChartData.ChartDataWorkbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/ichartdata/chartdataworkbook/):
+
+```csharp
+var loadOptions = new LoadOptions
+{
+    SpreadsheetOptions = new SpreadsheetOptions
+    {
+        RecoverWorkbookFromChartCache = true
+    }
+};
+
+using var presentation = new Presentation("presentation.pptx", loadOptions);
+
+var chart = (IChart)presentation.Slides[0].Shapes[0];
+var recoveredWorkbook = chart.ChartData.ChartDataWorkbook;
+
+// Read or modify the recovered workbook data here.
+```
+
+Se la cartella di lavoro esterna non è disponibile e il recupero è disabilitato, Aspose.Slides lancia un `InvalidOperationException`. Abilita il recupero solo quando è accettabile utilizzare i dati del grafico memorizzati nella cache, poiché la cache potrebbe non contenere le modifiche apportate alla cartella di lavoro esterna dopo l'ultimo aggiornamento della presentazione.
+
 ## **FAQ**
 
-**Posso determinare se un grafico specifico è collegato a un workbook esterno o incorporato?**
+**Posso determinare se un grafico specifico è collegato a una cartella di lavoro esterna o incorporata?**
 
-Sì. Un grafico dispone di un [tipo di origine dati](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chartdata/datasourcetype/) e di un [percorso a un workbook esterno](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chartdata/externalworkbookpath/); se la sorgente è un workbook esterno, è possibile leggere il percorso completo per verificare che sia stato utilizzato un file esterno.
+Sì. Un grafico ha un [data source type](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chartdata/datasourcetype/) e un [path to an external workbook](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chartdata/externalworkbookpath/); se la sorgente è una cartella di lavoro esterna, è possibile leggere il percorso completo per verificare che venga utilizzato un file esterno.
 
-**Sono supportati i percorsi relativi ai workbook esterni e come vengono memorizzati?**
+**I percorsi relativi alle cartelle di lavoro esterne sono supportati e come vengono memorizzati?**
 
-Sì. Se si specifica un percorso relativo, questo viene automaticamente convertito in un percorso assoluto. Ciò è comodo per la portabilità del progetto; tuttavia, tenere presente che la presentazione memorizzerà il percorso assoluto nel file PPTX.
+Sì. Se specifichi un percorso relativo, questo viene convertito automaticamente in un percorso assoluto. È comodo per la portabilità del progetto; tuttavia, tieni presente che la presentazione memorizzerà il percorso assoluto nel file PPTX.
 
-**Posso usare workbook situati su risorse/condivisioni di rete?**
+**Posso usare cartelle di lavoro situate su risorse o condivisioni di rete?**
 
-Sì, tali workbook possono essere usati come origine dati esterna. Tuttavia, la modifica diretta di workbook remoti da Aspose.Slides non è supportata: possono essere usati solo come fonte.
+Sì, tali cartelle di lavoro possono essere usate come fonte dati esterna. Tuttavia, la modifica diretta di cartelle di lavoro remote da Aspose.Slides non è supportata — possono essere usate solo come fonte.
 
-**Aspose.Slides sovrascrive il file XLSX esterno quando salva la presentazione?**
+**Aspose.Slides sovrascrive il file XLSX esterno durante il salvataggio della presentazione?**
 
-No. La presentazione memorizza un [collegamento al file esterno](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chartdata/externalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato al salvataggio della presentazione.
+No. La presentazione memorizza un [link to the external file](https://reference.aspose.com/slides/it/net/aspose.slides.charts/chartdata/externalworkbookpath/) e lo utilizza per leggere i dati. Il file esterno stesso non viene modificato quando la presentazione viene salvata.
 
 **Cosa devo fare se il file esterno è protetto da password?**
 
-Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio usando [Aspose.Cells](/cells/net/)) e collegare a quella copia.
+Aspose.Slides non accetta una password durante il collegamento. Un approccio comune è rimuovere la protezione in anticipo o preparare una copia decrittata (ad esempio, usando [Aspose.Cells](/cells/net/)) e collegarsi a quella copia.
 
-**Più grafici possono fare riferimento allo stesso workbook esterno?**
+**Più grafici possono fare riferimento alla stessa cartella di lavoro esterna?**
 
-Sì. Ogni grafico memorizza il proprio collegamento. Se tutti puntano allo stesso file, l’aggiornamento di quel file si rifletterà in ciascun grafico al successivo caricamento dei dati.
+Sì. Ogni grafico memorizza il proprio link. Se tutti puntano allo stesso file, l'aggiornamento di quel file sarà riflesso in ciascun grafico al successivo caricamento dei dati.

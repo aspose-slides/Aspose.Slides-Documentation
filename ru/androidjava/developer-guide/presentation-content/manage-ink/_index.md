@@ -1,5 +1,5 @@
 ---
-title: Управление объектами чернил в презентациях на Android
+title: Управление объектами чернил презентации на Android
 linktitle: Управление чернилами
 type: docs
 weight: 95
@@ -7,95 +7,224 @@ url: /ru/androidjava/manage-ink/
 keywords:
 - чернила
 - объект чернил
-- след чернила
+- след чернил
 - управление чернилами
-- рисование чернил
+- рисовать чернилами
 - рисование
+- экспорт чернил
+- рендеринг чернил
+- скрыть чернила
+- IInkOptions
 - PowerPoint
 - презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Управляйте объектами чернил PowerPoint — создавайте, редактируйте и стилизуйте цифровые чернила с помощью Aspose.Slides для Android. Получите примеры кода Java для следов, цвета и размера кисти."
+description: "Управляйте объектами чернил PowerPoint, редактируйте следы и свойства кисти, а также контролируйте отображение чернил при экспорте в PDF, HTML, SVG, TIFF и изображения с помощью Aspose.Slides для Android."
 ---
+## **Введение**
 
-PowerPoint предоставляет функцию «инк», позволяющую рисовать нестандартные фигуры, которые можно использовать для выделения других объектов, отображения связей и процессов, а также привлечения внимания к определённым элементам на слайде. 
+PowerPoint предоставляет функцию «чернила», позволяющую рисовать произвольные штрихи. Чернила можно использовать для выделения других объектов, отображения связей и процессов, а также привлечения внимания к конкретным элементам на слайде.
 
-Aspose.Slides предоставляет все типы Ink (например, класс [Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ink/)), необходимые для создания и управления объектами ink.
+Aspose.Slides предоставляет типы, необходимые для работы с объектами чернил. Например, интерфейс [IInk](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iink/) представляет объект чернил на слайде.
 
-## **Различия между обычными объектами и объектами Ink**
+## **Различия между обычными объектами и объектами чернил**
 
-Объекты на слайде PowerPoint обычно представляются объектами формы. Объект формы в своей простейшей форме — это контейнер, определяющий область самого объекта (его кадр) вместе с его свойствами. Последние включают размер области контейнера, форму контейнера, фон контейнера и т.д. Смотрите раздел [Shape Layout Format](https://docs.aspose.com/slides/androidjava/shape-manipulations/#access-layout-formats-for-shape) для получения дополнительной информации.
+Объекты на слайде PowerPoint обычно представлены объектами формы. В своей простейшей форме форма представляет собой контейнер, определяющий область самого объекта (его рамку) вместе с такими свойствами, как размер контейнера, форма и фон. Для получения дополнительной информации смотрите [Shape Layout Format](https://docs.aspose.com/slides/ru/androidjava/shape-manipulations/#access-layout-formats-for-shape).
 
-Однако когда PowerPoint работает с объектом ink, он игнорирует все свойства кадра объекта (контейнера), за исключением его размера. Размер области контейнера определяется стандартными значениями `width` и `height`:
+Однако когда PowerPoint обрабатывает объект чернил, он игнорирует все свойства рамки объекта (контейнера), кроме его размеров. Размер области контейнера определяется стандартными методами [IShape.getWidth](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/#getWidth--) и [IShape.getHeight](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishape/#getHeight--) методов:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **Следы Inkshape**
+## **Следы чернил**
 
-След — это базовый элемент или стандарт, используемый для записи траектории пера, когда пользователь пишет цифровой ink. Следы — это записи, описывающие последовательности связанных точек. 
+След чернил — это базовый элемент, используемый для записи траектории пера, когда пользователь пишет цифровыми чернилами. След хранит последовательность соединённых точек.
 
-Самая простая форма кодировки указывает координаты X и Y каждой точки выборки. Когда все связанные точки отрисованы, они образуют изображение, подобное этому:
+Самая простая форма кодирования указывает координаты X и Y каждой выборочной точки. Когда все соединённые точки отрисовываются, они образуют изображение, подобное следующему:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
 ## **Свойства кисти для рисования**
 
-Для рисования линий, соединяющих точки элементов следа, можно использовать кисть. У кисти есть свой собственный цвет и размер, соответствующие свойствам `Brush.Color` и `Brush.Size`. 
+Кисть используется для рисования линий, соединяющих точки следа чернил. Кисть имеет собственный цвет и размер, представленные методами [IInkBrush.getColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkbrush/#getColor--) и [IInkBrush.getSize](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkbrush/#getSize--) .
 
-### **Установка цвета кисти Ink**
+### **Установить цвет кисти чернил**
 
-Этот код Java показывает, как задать цвет кисти:
+Этот фрагмент кода Java показывает, как установить цвет кисти чернил:
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import android.graphics.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IInkTrace[] traces = ink.getTraces();
-    IInkBrush brush = traces[0].getBrush();
-    Color brushColor = brush.getColor();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IInk ink = (IInk) slide.getShapes().get_Item(0);
+    IInkBrush brush = ink.getTraces()[0].getBrush();
     brush.setColor(Color.RED);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+### **Установить размер кисти чернил**
 
-### **Установка размера кисти Ink** 
+Этот фрагмент кода Java показывает, как установить размер кисти чернил:
 
-Этот код Java показывает, как задать размер кисти:
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IInkTrace[] traces = ink.getTraces();
-    IInkBrush brush = traces[0].getBrush();
-    Dimension2D brushSize = brush.getSize();
-    brush.setSize(new Dimension(5, 10));
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IInk ink = (IInk) slide.getShapes().get_Item(0);
+    IInkBrush brush = ink.getTraces()[0].getBrush();
+    SizeF brushSize = new SizeF(5, 10);
+    brush.setSize(brushSize);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-Как правило, ширина и высота кисти не совпадают, поэтому PowerPoint не отображает размер кисти (раздел данных серый). Но когда ширина и высота кисти совпадают, PowerPoint отображает её размер так:
+Как правило, ширина и высота кисти не совпадают, поэтому PowerPoint не отображает размер кисти (соответствующий раздел данных серый). Когда ширина и высота кисти совпадают, PowerPoint отображает её размер следующим образом:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-Для наглядности увеличим высоту объекта ink и рассмотрим важные размеры: 
+Для наглядности увеличим высоту объекта чернил и рассмотрим важные размеры:
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-Контейнер (кадр) не учитывает размер кистей — он всегда предполагает, что толщина линии равна нулю (см. последнее изображение). 
+Контейнер (рамка) не учитывает размер кистей — он всегда предполагает, что толщина линии равна нулю (см. предыдущее изображение).
 
-Следовательно, чтобы определить видимую область всего объекта ink, необходимо учитывать размер кисти объектов следа. Здесь целевой объект (след рукописного текста) был масштабирован до размера контейнера (кадра). Когда размер контейнера (кадра) меняется, размер кисти остаётся постоянным и наоборот. 
+Следовательно, чтобы определить видимую область всего объекта чернил, необходимо учитывать размер кисти его следов. Здесь целевой объект (след рукописного текста) масштабирован до размера контейнера (рамки). При изменении размера контейнера размер кисти остаётся постоянным, и наоборот.
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint демонстрирует аналогичное поведение при работе с текстом:
+PowerPoint использует аналогичное поведение для текстовых объектов:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**Дополнительные материалы**
+## **Управление отображением чернил при экспорте и рендеринге**
 
-* Чтобы узнать о формах в целом, смотрите раздел [PowerPoint Shapes](https://docs.aspose.com/slides/androidjava/powerpoint-shapes/).
-* Для получения дополнительной информации об эффективных значениях см. [Shape Effective Properties](https://docs.aspose.com/slides/androidjava/shape-effective-properties/#getting-effective-font-height-value).
+Aspose.Slides предоставляет интерфейс [IInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/) , позволяющий управлять тем, как объекты чернил отображаются в экспортируемом или отрендеренном выводе. Вы можете использовать его свойства, чтобы полностью скрыть чернила или изменить способ интерпретации операций маски кисти чернил.
+
+Параметры чернил доступны через параметры экспорта или рендеринга для нескольких типов вывода:
+
+| Вывод | Свойство параметров чернил |
+| --- | --- |
+| PDF | [PdfOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pdfoptions/#getInkOptions--) |
+| HTML | [HtmlOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/htmloptions/#getInkOptions--) |
+| SVG | [SVGOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/svgoptions/#getInkOptions--) |
+| TIFF | [TiffOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/tiffoptions/#getInkOptions--) |
+| Изображение слайда | [RenderingOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/renderingoptions/#getInkOptions--) |
+
+Следующие методы [IInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/) предоставляют те же два параметра:
+
+- [IInkOptions.getHideInk](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#getHideInk--) определяет, включаются ли объекты чернил в вывод. Значение по умолчанию — `false`.
+- [IInkOptions.getInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#getInterpretMaskOpAsOpacity--) определяет, интерпретируется ли операция маски как непрозрачность при рендеринге кисти чернил. Значение по умолчанию — `true`; вызовите [IInkOptions.setInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#setInterpretMaskOpAsOpacity-boolean-) с `false`, чтобы вместо этого использовать операцию ROP.
+
+### **Скрыть объекты чернил в выводе PDF**
+
+По умолчанию объекты чернил остаются видимыми при экспорте. Чтобы получить чистый вывод без рукописных аннотаций или другого содержимого чернил, вызовите [IInkOptions.setHideInk](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#setHideInk-boolean-) с `true`.
+
+Следующий пример на Java экспортирует презентацию в PDF, скрывая все объекты чернил:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.getInkOptions().setHideInk(true);
+
+    presentation.save("presentation_without_ink.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Скрыть объекты чернил при рендеринге слайда как изображения**
+
+Чтобы скрыть объекты чернил при рендеринге слайдов как растровых изображений, настройте [RenderingOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/renderingoptions/#getInkOptions--) и передайте параметры рендеринга в [ISlide.getImage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-).
+
+Следующий пример на Java рендерит первый слайд как PNG‑изображение без объектов чернил:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    RenderingOptions renderingOptions = new RenderingOptions();
+    renderingOptions.getInkOptions().setHideInk(true);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IImage image = slide.getImage(renderingOptions);
+    try {
+        image.save("slide_without_ink.png", ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Управление рендерингом маски чернил**
+
+Параметр [IInkOptions.getInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#getInterpretMaskOpAsOpacity--) контролирует, как операции маски интерпретируются при рендеринге кистей чернил. Значение по умолчанию — `true`, что использует непрозрачность. Чтобы вместо этого использовать операцию ROP, вызовите [IInkOptions.setInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#setInterpretMaskOpAsOpacity-boolean-) с `false`.
+
+Следующий пример на Java экспортирует слайд в SVG и использует рендеринг на основе ROP для операций маски чернил:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.getInkOptions().setInterpretMaskOpAsOpacity(false);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    FileOutputStream stream = new FileOutputStream("slide.svg");
+    try {
+        slide.writeAsSvg(stream, svgOptions);
+    } finally {
+        stream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+То же самое настройку можно применить через [TiffOptions.getInkOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/tiffoptions/#getInkOptions--) при экспорте презентации или рендеринге слайда в TIFF.
+
+### **Выберите, скрывать или сохранять чернила**
+
+Когда вам нужна чистая версия аннотированной презентации для распространения без отметок рецензии, вызовите [IInkOptions.setHideInk](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#setHideInk-boolean-) с `true` во время экспорта.
+
+Оставьте [IInkOptions.getHideInk](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#getHideInk--) со значением по умолчанию `false`, если аннотации чернил являются частью предполагаемого содержимого, например комментарии рецензии, рукописные заметки, выделения или рисунки, которые должны оставаться видимыми в экспортированном результате. Это позволяет приложениям генерировать отдельные рецензионные и финальные выводы из одной презентации без изменения исходных объектов чернил.
+
+## **Часто задаваемые вопросы**
+
+**Можно ли изменить цвет или размер существующего штриха чернил?**
+
+Да. Получите след через [IInk.getTraces](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iink/#getTraces--), затем измените его [IInkTrace.getBrush](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinktrace/#getBrush--). Вызовите [IInkBrush.setColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkbrush/#setColor-java.lang.Integer-) или [IInkBrush.setSize](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkbrush/#setSize-com.aspose.slides.android.SizeF-) для изменения кисти.
+
+**Изменяет ли скрытие чернил исходную презентацию?**
+
+Нет. Вызов [IInkOptions.setHideInk](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iinkoptions/#setHideInk-boolean-) влияет только на отрендеренный или экспортированный результат; он не удаляет и не изменяет объекты чернил в исходной презентации.
+
+**Какие форматы экспорта поддерживают параметры чернил?**
+
+Вы можете настроить параметры чернил для PDF, HTML, SVG, TIFF и растровых изображений слайдов через соответствующие параметры экспорта или рендеринга, указанные выше.
+
+## **Дополнительные ресурсы**
+
+* Чтобы узнать о фигурах в целом, смотрите раздел [PowerPoint Shapes](https://docs.aspose.com/slides/ru/androidjava/powerpoint-shapes/).
+* Для получения информации об эффективных значениях см. [Shape Effective Properties](https://docs.aspose.com/slides/ru/androidjava/shape-effective-properties/#get-effective-font-height-value).
+* Подробности экспорта в PDF см. в статье [Convert PPT and PPTX to PDF](https://docs.aspose.com/slides/ru/androidjava/convert-powerpoint-to-pdf/).
+* Подробности экспорта в HTML см. в статье [Convert PowerPoint Presentations to HTML](https://docs.aspose.com/slides/ru/androidjava/convert-powerpoint-to-html/).
+* Подробности экспорта в SVG см. в статье [Render Presentation Slides as SVG Images](https://docs.aspose.com/slides/ru/androidjava/render-a-slide-as-an-svg-image/).
+* Подробности экспорта в TIFF см. в статье [Convert PowerPoint Presentations to TIFF](https://docs.aspose.com/slides/ru/androidjava/convert-powerpoint-to-tiff/).
+* Подробности рендеринга слайдов в изображения см. в статье [Convert Presentation Slides to Images](https://docs.aspose.com/slides/ru/androidjava/convert-slide/).

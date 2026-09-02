@@ -1,37 +1,41 @@
 ---
-title: Skapa miniatyrer av presentationsformer i Java
-linktitle: Formminiatyrer
+title: Skapa miniatyrbilder av presentationsformer i Java
+linktitle: Formminiatyrbilder
 type: docs
 weight: 70
 url: /sv/java/create-shape-thumbnails/
 keywords:
-- form miniatyr
+- formminiatyrbild
 - form bild
 - rendera form
 - formrendering
+- visuella avgränsningar
+- formavgränsningar
 - PowerPoint
 - presentation
 - Java
 - Aspose.Slides
-description: "Generera högkvalitativa formminiatyrer från PowerPoint-bilder med Aspose.Slides för Java – skapa och exportera presentationsminiatyrer enkelt."
+description: "Skapa högkvalitativa miniatyrbilder av former från PowerPoint-bilder med Aspose.Slides för Java – skapa och exportera presentationsminiatyrbilder enkelt."
 ---
 ## **Introduktion**
 
-Aspose.Slides for Java kan användas för att skapa presentationsfiler där varje sida motsvarar en bild. Bilderna kan visas genom att öppna presentationsfilerna i Microsoft PowerPoint. I vissa situationer behöver utvecklare dock visa bilderna av formerna separat i en bildvisare. I sådana fall hjälper Aspose.Slides for Java dem att skapa miniatyrbilder av bildformerna.
+Aspose.Slides for Java kan användas för att skapa presentationsfiler där varje sida motsvarar en bild. Bilden kan visas genom att öppna presentationsfilerna i Microsoft PowerPoint. I vissa fall behöver utvecklare dock visa formernas bilder separat i en bildvisare. I sådana fall hjälper Aspose.Slides for Java dem att generera miniatyrbilder av bildformerna.
 
-Denna artikel förklarar hur man genererar bild‑miniatyrer på olika sätt:
+Den här artikeln förklarar hur man genererar bildminiatyrer på olika sätt:
 
-- Skapa en miniatyrbild av en form inuti en bild.
-- Skapa en miniatyrbild av en form för en bildform med användardefinierade dimensioner.
-- Skapa en miniatyrbild av en form inom gränserna för formens utseende.
+- Generera en miniatyrbild av en form inom en bild.
+- Generera en miniatyrbild av en form för en bildform med användardefinierade dimensioner.
+- Generera en miniatyrbild av en form inom ramen för formens utseende.
 
-## **Skapa en Form‑miniatyr från en Bild**
-För att skapa en form‑miniatyr från vilken bild som helst med Aspose.Slides for Java, gör så här:
+## **Generera en miniatyrbild av en form från en bild**
+För att generera en miniatyrbild av en form från någon bild med Aspose.Slides for Java, gör så här:
 
-1. Skapa en instans av klassen Presentation.
-2. Hämta referensen till någon bild med dess ID eller index.
-3. Hämta formens miniatyrbild [Get the shape thumbnail image](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShape#getImage--) för den refererade bilden med standardskala.
-4. Spara miniatyrbilden i önskat bildformat.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Hämta referensen till någon bild med dess ID eller index.
+1. [Hämta miniatyrbild för formen](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getImage--) av den refererade bilden med standard skala.
+1. Spara miniatyrbilden i ditt föredragna bildformat.
+
+Den här exempelkoden visar hur du genererar en miniatyrbild av en form från en bild:
 
 ```java
 // Instansiera en Presentation-klass som representerar presentationsfilen
@@ -51,13 +55,15 @@ try {
 }
 ```
 
-## **Skapa en Miniatyr med Användardefinierad Skalningsfaktor**
-För att skapa formens miniatyr för en bild med Aspose.Slides for Java, gör så här:
+## **Generera en miniatyrbild med användardefinierad skalningsfaktor**
+För att generera en miniatyrbild av en form för en bild med Aspose.Slides for Java, gör så här:
 
-1. Skapa en instans av klassen Presentation.
-2. Hämta referensen till någon bild med dess ID eller index.
-3. Hämta formens miniatyrbild [Get the shape thumbnail image](https://reference.aspose.com/slides/sv/java/com.aspose.slides/IShape#getImage-int-float-float-) för den refererade bilden med användardefinierade dimensioner.
-4. Spara miniatyrbilden i önskat bildformat.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Hämta referensen till någon bild med dess ID eller index.
+1. [Hämta miniatyrbild för formen](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getImage-int-float-float-) av den refererade bilden med användardefinierade dimensioner.
+1. Spara miniatyrbilden i ditt föredragna bildformat.
+
+Den här exempelkoden visar hur du genererar en miniatyrbild av en form baserat på en definierad skalningsfaktor:
 
 ```java
 // Instansiera en Presentation-klass som representerar presentationsfilen
@@ -77,13 +83,15 @@ try {
 }
 ```
 
-## **Skapa en Gränsbaserad Formutseende‑miniatyr**
-Denna metod för att skapa miniatyrer av former låter utvecklare generera en miniatyr inom formens utseendes gränser. Den tar hänsyn till alla formeffekter. Den genererade form‑miniatyren begränsas av bildens gränser. För att skapa en miniatyr av en bildform inom dess utseendes gräns, gör så här:
+## **Skapa en miniatyrbild av formens utseende baserad på avgränsningar**
+Denna metod för att skapa miniatyrbilder av former låter utvecklare generera en miniatyrbild inom ramen för formens utseende. Den tar hänsyn till alla formeffekter. Den genererade miniatyrbilden är begränsad av bildens avgränsningar. För att generera en miniatyrbild av en bildform inom ramen för dess utseende, gör så här:
 
-1. Skapa en instans av klassen Presentation.
-2. Hämta referensen till någon bild med dess ID eller index.
-3. Hämta miniatyrbilden för den refererade bilden med formens gränser som utseende.
-4. Spara miniatyrbilden i önskat bildformat.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/java/com.aspose.slides/presentation/).
+1. Hämta referensen till någon bild med dess ID eller index.
+1. Hämta miniatyrbilden för den refererade bilden med formens avgränsning som utseende.
+1. Spara miniatyrbilden i ditt föredragna bildformat.
+
+Den här exempelkoden är baserad på stegen ovan:
 
 ```java
 // Instansiera en Presentation-klass som representerar presentationsfilen
@@ -103,24 +111,56 @@ try {
 }
 ```
 
+## **Hämta den faktiska visuella avgränsningen för en form**
+
+Ramens egenskaper för [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/) — dess `getX()`, `getY()`, `getWidth()`‑ och `getHeight()`‑metoder — beskriver den rektangel som lagras i presentationsmodellen. Innehållet som faktiskt renderas kan sträcka sig utanför den ramen eller uppta en annan axel‑aligned rektangel. Rotation, konturer, pilspetsar, textlayout och översvämning, genererad SmartArt‑geometri och andra renderingseffekter kan alla förändra det upptagna området.
+
+Använd [Shape.getVisualBounds](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#getVisualBounds--) för att beräkna det upptagna området utan att skapa en bild. Metoden returnerar en [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) i bildkoordinater. Den returnerade rektangeln är inte beskuren till bilden, så dess koordinater kan vara negativa när innehållet sträcker sig bortom bildens ursprung.
+
+[Shape.getVisualBounds](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#getVisualBounds--) är för närvarande inte deklarerad i [IShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/)‑gränssnittet. Därför bör du behålla formen som hämtas från bildens formssamling som ett gränssnittsvärde och endast kasta den när du anropar metoden.
+
+Följande exempel hämtar och jämför ramen och den visuella avgränsningen:
+
+```java
+Presentation presentation = new Presentation("example.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape shape = slide.getShapes().get_Item(0);
+
+    Rectangle2D.Float visualBounds = ((Shape) shape).getVisualBounds();
+
+    Rectangle2D.Float frameBounds = new Rectangle2D.Float(
+        shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight());
+
+    System.out.println("Frame bounds: " + frameBounds);
+    System.out.println("Visual bounds: " + visualBounds);
+} finally {
+    presentation.dispose();
+}
+```
+
+Samma [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) kan användas för att justera närliggande former till dess vänstra, högra, övre eller nedre kant; reservera tillräckligt med utrymme i en genererad layout; eller upptäcka innehåll utanför ett tillåtet område. Visuella avgränsningar är särskilt användbara för SmartArt, textrutor, pilar, bilder, roterade former och gruppformer, där den lagrade ramen kanske inte representerar hela det renderade resultatet.
+
+Använd [Shape.getVisualBounds](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#getVisualBounds--) när du behöver koordinater för layout eller validering och inte behöver en bitmap. Använd [IShape.getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/ishape/#getImage--) när du behöver rendera formen. Med [ShapeThumbnailBounds](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shapethumbnailbounds/) gör `ShapeThumbnailBounds.Shape` storleken på bilden utifrån formens avgränsning, inklusive konturinställningar, medan `ShapeThumbnailBounds.Appearance` storlekar den utifrån formens utseende och begränsar resultatet till bildens avgränsning. I kontrast returnerar [Shape.getVisualBounds](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#getVisualBounds--) endast den beräknade rektangeln och beskär den inte till bilden.
+
 ## **FAQ**
 
-**Vilka bildformat kan användas vid sparande av form‑miniatyrer?**
+**Vilka bildformat kan användas när du sparar miniatyrbilder av former?**
 
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imageformat/), och andra. Former kan också [exporteras som vektorgrafik SVG](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) genom att spara formens innehåll som SVG.
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/sv/java/com.aspose.slides/imageformat/), och andra. Former kan också [exporteras som vektor‑SVG](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-) genom att spara formens innehåll som SVG.
 
-**Vad är skillnaden mellan Shape‑ och Appearance‑gränser när en miniatyr renderas?**
+**Vad är skillnaden mellan Shape‑ och Appearance‑avgränsningarna när en miniatyrbild renderas?**
 
-`Shape` använder formens geometri; `Appearance` tar hänsyn till [visual effects](/slides/sv/java/shape-effect/) (skuggor, glöd, etc.).
+`Shape` använder formens geometri; `Appearance` tar hänsyn till [visuella effekter](/slides/sv/java/shape-effect/) (skuggor, glöd, etc.).
 
-**Vad händer om en form är markerad som dold? Renderas den fortfarande som en miniatyr?**
+**Vad händer om en form är markerad som dold? Renderas den fortfarande som en miniatyrbild?**
 
-En dold form förblir en del av modellen och kan renderas; dold‑flaggan påverkar bara bildspelvisning men hindrar inte generering av formens bild.
+En dold form förblir en del av modellen och kan renderas; den dolda flaggan påverkar bildspelets visning men hindrar inte genereringen av formens bild.
 
 **Stöds gruppformer, diagram, SmartArt och andra komplexa objekt?**
 
-Ja. Alla objekt som representeras som Shape (inklusive GroupShape, Chart och SmartArt) kan sparas som miniatyr eller som SVG.
+Ja. Alla objekt som representeras som [Shape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/shape/) (inklusive [GroupShape](https://reference.aspose.com/slides/sv/java/com.aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/sv/java/com.aspose.slides/chart/), och [SmartArt](https://reference.aspose.com/slides/sv/java/com.aspose.slides/smartart/)) kan sparas som en miniatyrbild eller som SVG.
 
-**Påverkar systeminstallerade typsnitt kvaliteten på miniatyrer för textformer?**
+**Påverkar systeminstallerade typsnitt kvaliteten på miniatyrbilder för textformer?**
 
-Ja. Du bör [tillhandahålla de nödvändiga typsnitten](/slides/sv/java/custom-font/) (eller [konfigurera typsnittssubstitutioner](/slides/sv/java/font-substitution/)) för att undvika oönskade fallback‑typsnitt och textomflyttning.
+Ja. Du bör [tillhandahålla de nödvändiga typsnitten](/slides/sv/java/custom-font/) (eller [konfigurera typsnitts‑substitutioner](/slides/sv/java/font-substitution/)) för att undvika oönskade fallback‑tecken och textomflöde.

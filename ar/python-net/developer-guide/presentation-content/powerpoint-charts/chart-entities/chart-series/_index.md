@@ -1,5 +1,5 @@
 ---
-title: إدارة سلاسل بيانات المخطط في بايثون
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام بايثون
 linktitle: سلاسل البيانات
 type: docs
 url: /ar/python-net/chart-series/
@@ -9,305 +9,360 @@ keywords:
 - لون السلسلة
 - لون الفئة
 - اسم السلسلة
-- نقطة البيانات
+- نقطة بيانات
 - فجوة السلسلة
 - PowerPoint
-- العرض التقديمي
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل بيانات المخطط في بايثون لبرنامج PowerPoint (PPT/PPTX) باستخدام أمثلة عملية على الشيفرة وأفضل الممارسات لتحسين عروض بياناتك."
+description: "تعلم كيفية إدارة سلاسل المخططات، نقاط البيانات، خلايا دفتر العمل، التنسيق، التداخل، عرض الفجوة، والقيم السالبة في العروض التقديمية باستخدام بايثون."
 ---
-
 ## **نظرة عامة**
 
-تصف هذه المقالة دور [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/) في Aspose.Slides for Python، مع التركيز على كيفية تنظيم البيانات وتصويرها داخل العروض التقديمية. توفر هذه الكائنات العناصر الأساسية التي تحدد مجموعات منفصلة من نقاط البيانات، الفئات، ومعلمات المظهر في المخطط. من خلال العمل مع [ChartSeries](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/)، يمكن للمطورين دمج مصادر البيانات الأساسية بسلاسة والحفاظ على تحكم كامل في طريقة عرض المعلومات، مما ينتج عروضاً تقديمية ديناميكية مدفوعة بالبيانات تنقل الأفكار والتحليل بوضوح.
+يخزن المخطط بياناته المرسومة في دفتر بيانات المخطط. يمثل [ChartSeries](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/) مجموعة واحدة من القيم المرتبطة، وكل [ChartDataPoint](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [ChartCategory](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartcategory/) الملصقات أو قيم التجميع المشتركة بين السلاسل. لذلك يتم ربط اسم السلسلة والفئات وقيم النقاط بكائنات [ChartDataCell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatacell/) بدلاً من تخزينها كنص عرض فقط.
 
-السلسلة هي صف أو عمود من الأرقام يتم تمثيله في مخطط.
+بالنسبة إلى مخطط الفئات النموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وبقية الخلايا لقيم السلسلة. الفهارس الخاصة بورقة العمل والصف والعمود التي تُمرَّر إلى [ChartDataWorkbook.get_cell](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/get_cell/) هي صفرية. هذا التخطيط مفيد عندما تنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة إلى عرض تقديمي محمَّل، افحص الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تغيير قيم دفتر العمل.
+
+لإعدادات المخطط ثلاث نطاقات مختلفة:
+
+- إعدادات على مستوى السلسلة، مثل [ChartSeries.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/format/)، توفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات نقطة البيانات، مثل [ChartDataPoint.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/format/)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [ChartSeriesGroup](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/). يمكن الوصول إلى المجموعة عبر [ChartSeries.parent_series_group](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/parent_series_group/) عندما تحتاج إلى تعيين خيارات مثل التداخل أو عرض الفجوة.
+
+عندما لا يتم ضبط تعبئة صريحة للنقطة أو السلسلة، فإن نمط المخطط والموضوع يحددان المظهر التلقائي. عندما تكون كل من تنسيق السلسلة وتنسيق النقطة موجودين، يأخذ تنسيق النقطة الأسبقية لتلك النقطة.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **تعيين تداخل السلسلة**
+## **ضبط تداخل سلسلة المخطط**
 
-[ChartSeries.overlap](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/overlap/) تتحكم الخاصية في كيفية تداخل الأشرطة والأعمدة في مخطط ثنائي الأبعاد عن طريق تحديد نطاق من -100 إلى 100. بما أن هذه الخاصية مرتبطة بمجموعة السلاسل وليس بالسلسلة الفردية، فهي للقراءة فقط على مستوى السلسلة. لتكوين قيم التداخل، استخدم الخاصية `parent_series_group.overlap` القابلة للقراءة والكتابة، التي تطبق التداخل المحدد على جميع السلاسل في تلك المجموعة.
+[ChartSeries.overlap](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/overlap/) يُظهر مقدار تداخل الأشرطة أو الأعمدة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمائة. وهو إسقاط للقراءة فقط لإعداد التداخل في مجموعة السلاسل الأصلية. اضبط [ChartSeriesGroup.overlap](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/overlap/) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أشرطة أو أعمدة مجمَّعة؛ ولا يؤثر على مجموعات السلاسل غير المتصلة في مخطط مركب.
 
-فيما يلي مثال بلغة Python يوضح كيفية إنشاء عرض تقديمي، إضافة مخطط أعمدة مجمع، الوصول إلى السلسلة الأولى في المخطط، ضبط إعداد التداخل، ثم حفظ النتيجة كملف PPTX:
+المثال التالي يضبط التداخل للمجموعة التي تحتوي على السلسلة الأولى:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_overlap = 30
+first_slide_index = 0
+first_series_index = 0
+overlap_percent = 30
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # إضافة مخطط أعمدة مجمع ببيانات افتراضية.
+    # المخطط الجديد يحتوي على سلاسل عينات وفئات وقيم.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    series = chart.chart_data.series[0]
-    if series.overlap == 0:
-        # تعيين تداخل السلسلة.
-        series.parent_series_group.overlap = series_overlap
+    series = chart.chart_data.series[first_series_index]
+    series.parent_series_group.overlap = overlap_percent
 
-    # حفظ ملف العرض التقديمي على القرص.
     presentation.save("series_overlap.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 النتيجة:
-![تداخل السلسلة](series_overlap.png)
+
+![The series overlap](series_overlap.png)
 
 ## **تغيير لون تعبئة السلسلة**
 
-تجعل Aspose.Slides من السهل تخصيص ألوان تعبئة سلاسل المخطط، مما يتيح لك تمييز نقاط بيانات معينة وإنشاء مخططات جذابة بصرياً. يتم ذلك عبر كائن [Format](https://reference.aspose.com/slides/python-net/aspose.slides.charts/format/)، الذي يدعم أنواع تعبئة مختلفة، وتكوينات ألوان، وخيارات تنسيق متقدمة أخرى. بعد إضافة مخطط إلى شريحة والوصول إلى السلسلة المطلوبة، ما عليك سوى الحصول على السلسلة وتطبيق لون التعبئة المناسب. بخلاف التعبئة الصلبة، يمكنك أيضًا الاستفادة من التعبئة المتدرجة أو نمطية للحصول على مرونة تصميمية محسنة. بمجرد ضبط الألوان وفق متطلباتك، احفظ العرض التقديمي لتثبيت المظهر المحدث.
+استخدم [ChartSeries.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/format/) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كان للنقطة تعبئة صريحة، فإن إعداد [ChartDataPoint.format](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/format/) يتجاوز تعبئة السلسلة لتلك النقطة.
 
-يظهر مثال الشيفرة التالي بلغة Python كيفية تغيير لون السلسلة الأولى:
+المثال التالي يطبق تعبئة صلبة زرقاء على السلسلة الأولى:
+
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
-series_color = draw.Color.blue
+first_slide_index = 0
+first_series_index = 0
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # إضافة مخطط أعمدة مجمع ببيانات افتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # تعيين لون السلسلة الأولى.
-    series = chart.chart_data.series[0]
+    series = chart.chart_data.series[first_series_index]
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = series_color
+    series.format.fill.solid_fill_color.color = drawing.Color.blue
 
-    # حفظ ملف العرض التقديمي على القرص.
     presentation.save("series_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 النتيجة:
-![لون السلسلة](series_color.png)
 
-## **إعادة تسمية سلسلة**
+![The color of the series](series_color.png)
 
-توفر Aspose.Slides طريقة بسيطة لتعديل أسماء سلاسل المخطط، مما يسهل تسمية البيانات بطريقة واضحة ذات معنى. من خلال الوصول إلى الخلية المناسبة في ورقة العمل داخل بيانات المخطط، يمكن للمطورين تخصيص طريقة عرض البيانات. يكون هذا التعديل مفيدًا خصوصًا عندما تحتاج أسماء السلاسل إلى تحديث أو توضيح بناءً على سياق البيانات. بعد إعادة تسمية السلسلة، يمكن حفظ العرض التقديمي لتثبيت التغييرات.
+## **تغيير اسم السلسلة**
 
-فيما يلي مقتطف شفرة بلغة Python يوضح هذه العملية عمليًا.
+يُخزن اسم السلسلة في دفتر بيانات المخطط وعادةً ما يُعرض في وسيلة الإيضاح. في دفتر العمل الافتراضي الذي يُنشأ لمخطط عمود مجمع، الخلية B1 هي الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المسماة في المثال التالي تجعل هذا الهيكل واضحًا:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_name = "New name"
+first_slide_index = 0
+worksheet_index = 0
+series_name_row_index = 0
+first_series_column_index = 1
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # إضافة مخطط أعمدة مجمع ببيانات افتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    
-    # تعيين اسم السلسلة الأولى.
-    series_cell = chart.chart_data.chart_data_workbook.get_cell(0, 0, 1)
-    series_cell.value = series_name
-    
-    # حفظ ملف العرض التقديمي على القرص.
+
+    workbook = chart.chart_data.chart_data_workbook
+    series_name_cell = workbook.get_cell(worksheet_index, series_name_row_index, first_series_column_index)
+    series_name_cell.value = "Revenue"
+
     presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+يمكنك أيضًا تحديث الخلية التي يشير إليها [ChartSeries.name](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/name/). يبتعد هذا النهج عن الافتراض بوجود صف وعمود معينين في مخطط موجود:
 
-تظهر الشيفرة التالية بلغة Python طريقة بديلة لتغيير اسم السلسلة:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-series_name = "New name"
+first_slide_index = 0
+first_series_index = 0
+first_name_cell_index = 0
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-    # إضافة مخطط أعمدة مجمع ببيانات افتراضية.
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    series = chart.chart_data.series[0]
-    
-    # تعيين اسم السلسلة الأولى.
-    series.name.as_cells[0].value = series_name
 
-    # حفظ ملف العرض التقديمي على القرص.
-    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX) 
+    series = chart.chart_data.series[first_series_index]
+    series_name_cell = series.name.as_cells[first_name_cell_index]
+    series_name_cell.value = "Revenue"
+
+    presentation.save("series_name.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 النتيجة:
-![اسم السلسلة](series_name.png)
+
+![The series name](series_name.png)
 
 ## **الحصول على لون تعبئة السلسلة التلقائي**
 
-تتيح Aspose.Slides for Python الحصول على لون التعبئة التلقائي لسلاسل المخطط داخل منطقة الرسم. بعد إنشاء مثال من الفئة [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)، يمكنك الحصول على مرجع للشفرة المطلوبة باستخدام الفهرس، ثم إضافة مخطط باستخدام النوع المفضلة لديك (مثل `ChartType.CLUSTERED_COLUMN`). من خلال الوصول إلى السلسلة في المخطط، يمكنك الحصول على لون التعبئة التلقائي.
+[ChartSeries.get_automatic_series_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/get_automatic_series_color/) يُعيد اللون المُحسب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا تُحدد تعبئة السلسلة صراحة. قراءة الطريقة تُعيد اللون المحسوب؛ ولا تُعيّن تعبئة جديدة.
 
-توضح الشيفرة التالية بلغة Python هذه العملية بالتفصيل.
+المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
+
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+first_slide_index = 0
 
-    # إضافة مخطط أعمدة مجمع ببيانات افتراضية.
+with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
+
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    for i in range(len(chart.chart_data.series)):
-        # الحصول على لون تعبئة السلسلة.
-        color = chart.chart_data.series[i].get_automatic_series_color()
-        print(f"Series {i} color: {color.name}")
+    series_count = len(chart.chart_data.series)
+    for series_index in range(series_count):
+        series = chart.chart_data.series[series_index]
+        automatic_color = series.get_automatic_series_color()
+        print(f"Series {series_index}: {automatic_color.name}")
 ```
 
+مخرجات المثال لنمط المخطط الافتراضي:
 
-مثال على المخرجات:
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
+الألوان الدقيقة تعتمد على نمط المخطط والموضوع.
 
-## **تعيين ألوان تعبئة معكوسة لسلسلة**
+## **تعيين لون تعبئة عكسي لسلسلة المخطط**
 
-عندما تحتوي سلسلة البيانات الخاصة بك على قيم موجبة وسالبة، فإن تلوين كل عمود أو شريط بنفس اللون قد يجعل المخطط يصعب قراءته. تتيح Aspose.Slides for Python تعيين لون تعبئة معكوس—تعبئة منفصلة تُطبق تلقائيًا على نقاط البيانات التي تقع تحت الصفر—حتى تبرز القيم السالبة بصورة فورية. في هذا القسم ستتعلم كيفية تفعيل هذا الخيار، اختيار اللون المناسب، وحفظ العرض التقديمي المحدث.
+بالنسبة إلى السلاسل الشريطية والعمودية والفقاعية، يمكن لـ [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/invert_if_negative/) عرض القيم السالبة بتعبئة مختلفة. اضبط تعبئة السلسلة العادية لتكون صلبة، وفعل الانعكاس، وعيّن لون القيمة السالبة عبر [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). تظل الأرقام السالبة دون تغيير في دفتر العمل؛ فقط يتغير لون عرضها.
 
-يظهر المثال التالي الشيفرة العملية:
+المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. الصف 0 في ورقة العمل يحتوي على اسم السلسلة، العمود 0 يحتوي على أسماء الفئات، والعمود 1 يحتوي على القيم:
+
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
 
-invert_color = draw.Color.red
+first_slide_index = 0
+worksheet_index = 0
+header_row_index = 0
+category_column_index = 0
+first_series_column_index = 1
+first_data_row_index = 1
+
+category_names = ["Category 1", "Category 2", "Category 3"]
+series_values = [-20, 50, -30]
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
     chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
-    workBook = chart.chart_data.chart_data_workbook
+    chart_data = chart.chart_data
+    workbook = chart_data.chart_data_workbook
 
-    chart.chart_data.series.clear()
-    chart.chart_data.categories.clear()
+    chart_data.series.clear()
+    chart_data.categories.clear()
 
-    # إضافة فئات جديدة.
-    chart.chart_data.categories.add(workBook.get_cell(0, 1, 0, "Category 1"))
-    chart.chart_data.categories.add(workBook.get_cell(0, 2, 0, "Category 2"))
-    chart.chart_data.categories.add(workBook.get_cell(0, 3, 0, "Category 3"))
+    series_name_cell = workbook.get_cell(worksheet_index, header_row_index, first_series_column_index, "Series 1")
+    series = chart_data.series.add(series_name_cell, chart.type)
 
-    # إضافة سلسلة جديدة.
-    series = chart.chart_data.series.add(workBook.get_cell(0, 0, 1, "Series 1"), chart.type)
+    category_count = len(category_names)
+    for category_index in range(category_count):
+        data_row_index = first_data_row_index + category_index
+        category_name = category_names[category_index]
+        series_value = series_values[category_index]
 
-    # تعبئة بيانات السلسلة.
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 1, 1, -20))
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 2, 1, 50))
-    series.data_points.add_data_point_for_bar_series(workBook.get_cell(0, 3, 1, -30))
+        category_cell = workbook.get_cell(worksheet_index, data_row_index, category_column_index, category_name)
+        chart_data.categories.add(category_cell)
 
-    # تعيين إعدادات اللون للسلسلة.
-    series_color = series.get_automatic_series_color()
-    series.invert_if_negative = True
+        value_cell = workbook.get_cell(worksheet_index, data_row_index, first_series_column_index, series_value)
+        series.data_points.add_data_point_for_bar_series(value_cell)
+
+    automatic_series_color = series.get_automatic_series_color()
     series.format.fill.fill_type = slides.FillType.SOLID
-    series.format.fill.solid_fill_color.color = series_color
-    series.inverted_solid_fill_color.color = invert_color
+    series.format.fill.solid_fill_color.color = automatic_series_color
+    series.invert_if_negative = True
+    series.inverted_solid_fill_color.color = drawing.Color.red
+
     presentation.save("inverted_solid_fill_color.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 النتيجة:
-![لون التعبئة الصلب المعكوس](inverted_solid_fill_color.png)
 
-يمكنك عكس لون التعبئة لنقطة بيانات واحدة بدلاً من السلسلة بأكملها. ما عليك سوى الوصول إلى `ChartDataPoint` المطلوبة وتعيين الخاصية `invert_if_negative` إلى `True`.
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-يوضح المثال التالي كيفية القيام بذلك:
+يمكنك تمكين الانعكاس لنقطة واحدة عبر [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). في المثال التالي، يكون الانعكاس معطلًا للسلسلة ومفعلًا فقط للنقطة المحددة. تُعيّن النقطة أيضًا قيمة سالبة لتوضيح التأثير:
+
 ```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
+
+first_slide_index = 0
+first_series_index = 0
+target_data_point_index = 2
+negative_value = -30
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    slide = presentation.slides[first_slide_index]
 
-	chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200, True)
-	chart.chart_data.series.clear()
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-	series = series.add(chart.chart_data.chart_data_workbook.get_cell(0, "B1"), chart.type)
+    series = chart.chart_data.series[first_series_index]
+    automatic_series_color = series.get_automatic_series_color()
+    series.format.fill.fill_type = slides.FillType.SOLID
+    series.format.fill.solid_fill_color.color = automatic_series_color
+    series.inverted_solid_fill_color.color = drawing.Color.red
+    series.invert_if_negative = False
 
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B2", -5))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B3", 3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B4", -3))
-	series.data_points.add_data_point_for_bar_series(chart.chart_data.chart_data_workbook.get_cell(0, "B5", 1))
+    data_point = series.data_points[target_data_point_index]
+    data_point.value.as_cell.value = negative_value
+    data_point.invert_if_negative = True
 
-	series.invert_if_negative = False
-	series.data_points[2].invert_if_negative = True
-
-	presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("data_point_invert_color_if_negative.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+## **مسح قيمة نقطة بيانات محددة**
 
-## **مسح البيانات لنقاط بيانات محددة**
+لجعل نقطة واحدة فارغة دون إزالة النقاط الأخرى، اضبط خلية دفتر العمل الداعمة لها إلى `None`. بالنسبة إلى مخطط عمودي، القيمة المرسومة متاحة عبر [ChartDataPoint.value](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/value/). تبقى نقطة البيانات في نفس موضع الفئة، لكن المخطط يعامل قيمتها كفارغة وفقًا لإعدادات القيم الفارغة للمخطط.
 
-أحيانًا يحتوي المخطط على قيم اختبار أو قيم شاذة أو إدخالات غير صالحة تحتاج إلى إزالتها دون إعادة بناء السلسلة بأكملها. تتيح Aspose.Slides for Python استهداف أي نقطة بيانات عن طريق الفهرس، مسح محتواها، وتحديث الرسم فورًا بحيث تتحرك النقاط المتبقية وتُعيد المحاور ضبط الحجم تلقائيًا.
+المثال التالي يمسح النقطة الثانية فقط في السلسلة الأولى:
 
-يوضح المثال التالي العملية:
 ```py
 import aspose.slides as slides
 import aspose.slides.charts as charts
 
-with slides.Presentation("test_chart.pptx") as presentation:
-    slide = presentation.slides[0]
-    chart = slide.shapes[0]
-    series = chart.chart_data.series[0]
+first_slide_index = 0
+first_series_index = 0
+target_data_point_index = 1
 
-    for data_point in series.data_points:
-        data_point.x_value.as_cell.value = None
-        data_point.y_value.as_cell.value = None
-
-    series.data_points.clear()
-
-    presentation.save("clear_data_points.pptx", slides.export.SaveFormat.PPTX)
-```
-
-
-## **تعيين عرض الفجوة للسلسلة**
-
-يتحكم عرض الفجوة في مقدار المساحة الفارغة بين الأعمدة أو الأشرطة المتجاورة—الفجوات الأوسع تبرز الفئات الفردية، بينما الفجوات الضيقة تخلق مظهرًا أكثر كثافة وتضييقًا. عبر Aspose.Slides for Python يمكنك ضبط هذه المعلمة بدقة لسلسلة كاملة، لتحقيق التوازن البصري المطلوب في عرضك التقديمي دون تعديل البيانات الأساسية.
-
-يوضح المثال التالي كيف يمكن تعيين عرض الفجوة لسلسلة:
-```py
-import aspose.slides as slides
-import aspose.slides.charts as charts
-
-gap_width = 30
-
-# إنشاء عرض تقديمي فارغ.
 with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
 
-    # الوصول إلى الشريحة الأولى.
-    slide = presentation.slides[0]
+    chart = slide.shapes.add_chart(charts.ChartType.CLUSTERED_COLUMN, 20, 20, 500, 200)
 
-    # إضافة مخطط ببيانات افتراضية.
+    series = chart.chart_data.series[first_series_index]
+    data_point = series.data_points[target_data_point_index]
+    data_point.value.as_cell.value = None
+
+    presentation.save("clear_data_point_value.pptx", slides.export.SaveFormat.PPTX)
+```
+
+تستخدم مخططات التبعثر خلايا X وY منفصلة، وتستخدم مخططات الفقاعات أيضًا خلية حجم. امسح الخلية التي تمثل القيمة التي ترغب في إزالتها فقط. لا تُستدعِ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapointcollection/clear/) عندما تريد الاحتفاظ بالنقاط الأخرى، لأن هذه الطريقة تُزيل كل نقاط البيانات من المجموعة.
+
+## **ضبط عرض الفجوة بين السلاسل**
+
+عرض الفجوة هو المسافة بين مجموعات الأشرطة أو الأعمدة المتجاورة، يُعبَّر عنها كنسبة مئوية من عرض العمود أو الشريط. مثل التداخل، يخص مجموعة السلاسل الأصلية وليس سلسلة واحدة. اضبط [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) مرة واحدة للمجموعة. قيمة أكبر تُنشئ مساحة أكبر بين المجموعات؛ قيمة أصغر تجعلها أضيق.
+
+المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
+
+```py
+import aspose.slides as slides
+import aspose.slides.charts as charts
+
+first_slide_index = 0
+first_series_index = 0
+gap_width_percent = 30
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[first_slide_index]
+
     chart = slide.shapes.add_chart(charts.ChartType.STACKED_COLUMN, 20, 20, 500, 200)
 
-    # حفظ العرض التقديمي على القرص.
-    presentation.save("default_gap_width.pptx", slides.export.SaveFormat.PPTX)
+    series = chart.chart_data.series[first_series_index]
+    series.parent_series_group.gap_width = gap_width_percent
 
-    # تعيين قيمة gap_width.
-    series = chart.chart_data.series[0]
-    series.parent_series_group.gap_width = gap_width
-
-    # حفظ العرض التقديمي على القرص.
     presentation.save("gap_width_30.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-
 النتيجة:
-![عرض الفجوة](gap_width.png)
+
+![The gap width](gap_width.png)
 
 ## **الأسئلة المتكررة**
 
-**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها مخطط واحد؟**
+**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
 
-لا تفرض Aspose.Slides حدًا ثابتًا لعدد السلاسل التي يمكن إضافتها. الحد العملي يحدده وضوح المخطط والذاكرة المتاحة لتطبيقك.
+جميع أنواع المخططات الممثلة في تعداد [ChartType](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تشترك جميعًا في نفس هيكل القيم أو الإعدادات. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، وتستخدم مخططات التبعثر قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقاط البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأشرطة أو الأعمدة المتوافقة.
 
-**ماذا لو كانت الأعمدة داخل التجمع قريبة جدًا أو متباعدة جدًا؟**
+**ما هي مجموعة سلسلة المخطط؟**
 
-قم بضبط إعداد [gap_width](https://reference.aspose.com/slides/python-net/aspose.slides.charts/chartseries/gap_width/) لتلك السلسلة (أو مجموعة السلاسل الأم). زيادة القيمة توسع المسافة بين الأعمدة، بينما تقليلها يقربها من بعضها.
+[ChartSeriesGroup](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/) تحتوي على سلاسل متوافقة تشترك في إعدادات رسم على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا تغيير المجموعة من خلال سلسلة واحدة لا يغيّر بالضرورة كل السلاسل في المخطط.
+
+**هل يحتوي المخطط المنشأ حديثًا على بيانات افتراضية؟**
+
+نعم. افتراضيًا، [ShapeCollection.add_chart](https://reference.aspose.com/slides/ar/python-net/aspose.slides/shapecollection/add_chart/) ينشئ سلاسل وعلاقات وفئات عينات. يمكنك تعديل تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة تمامًا. يمكن أيضًا لاستدعاء بديل إنشاء مخطط دون بيانات افتراضية.
+
+**كيف ترتبط كائنات المخطط بخلايا دفتر العمل؟**
+
+أسماء السلاسل وتسمية الفئات وقيم نقاط البيانات تُشير إلى خلايا في [ChartDataWorkbook](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdataworkbook/). تعديل خلية مُشار إليها يُحدث العنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+
+**كيف أمسح نقطة واحدة بدلاً من مسح السلسلة كاملة؟**
+
+اضبط خلية القيمة ذات الصلة إلى `None` لتُبقي موقع الفئة للنقطة كنقطة فارغة. استخدم [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapointcollection/clear/) فقط عندما تريد إزالة جميع النقاط من تلك السلسلة. إذا أزلت الفئات أيضًا، حدّث كل السلاسل بحيث تظل قيمها مُحاذاة مع مجموعة الفئات.
+
+**كيف تُعرض النقاط الفارغة؟**
+
+النتيجة تعتمد على نوع المخطط وإعداد [Chart.display_blanks_as](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chart/display_blanks_as/). يمكن للمخططات المدعومة عرض الفارغ كفجوة أو كقيمة صفر أو بربط النقاط المجاورة. اختر الإعداد الذي يتوافق مع معنى البيانات المفقودة في عرضك.
+
+**كيف تُنسق القيم السالبة؟**
+
+للأشرطة والأعمدة والفقاعات المدعومة، فعّل [ChartSeries.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/invert_if_negative/) واضبط [ChartSeries.inverted_solid_fill_color](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseries/inverted_solid_fill_color/). يمكنك تجاوز السلوك لنقطة فردية عبر [ChartDataPoint.invert_if_negative](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartdatapoint/invert_if_negative/). هذه الخصائص تؤثر على التنسيق فقط، لا على القيم العددية المخزنة.
+
+**أي تنسيق ينتصر عندما تُنسق كل من السلسلة والنقطة؟**
+
+التنسيق الصريح لنقطة البيانات يتفوّق على أي تنسيق للسلسلة لتلك النقطة. تستمر باقي النقاط في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدَّد تنسيق للسلسلة، نمط المخطط والموضوع التلقائي. خصائص المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط ولا تُعدّ تعديلات تنسيق على مستوى النقطة.
+
+**هل هناك حد لعدد السلاسل التي يمكن أن يحتويها المخطط؟**
+
+Aspose.Slides لا يفرض حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تحديات حجم ملف العرض، الذاكرة المتاحة، وقت التصيير، وقابلية قراءة المخطط تحدد الحد العملي.
+
+**ماذا أفعل عندما تكون الأعمدة قريبة جدًا أو متباعدة كثيرًا؟**
+
+اضبط [ChartSeriesGroup.gap_width](https://reference.aspose.com/slides/ar/python-net/aspose.slides.charts/chartseriesgroup/gap_width/) في مجموعة السلاسل الأصلية المناسبة. زد القيمة لتوسيع المسافة بين المجموعات، أو قلّلها لجعل المجموعات أقرب إلى بعضها.

@@ -1,6 +1,6 @@
 ---
-title: Quản lý Trình giữ chỗ Bài thuyết trình trên Android
-linktitle: Quản lý Trình giữ chỗ
+title: Quản lý Placeholder trong Bản trình chiếu trên Android
+linktitle: Quản lý Placeholder
 type: docs
 weight: 10
 url: /vi/androidjava/manage-placeholder/
@@ -9,130 +9,369 @@ keywords:
 - trình giữ chỗ văn bản
 - trình giữ chỗ hình ảnh
 - trình giữ chỗ biểu đồ
+- trình giữ chỗ nội dung
 - văn bản gợi ý
 - PowerPoint
-- OpenDocument
-- bài thuyết trình
+- bản trình chiếu
 - Android
 - Java
 - Aspose.Slides
-description: "Quản lý trình giữ chỗ trong Aspose.Slides cho Android qua Java một cách dễ dàng: thay thế văn bản, tùy chỉnh lời nhắc và thiết lập độ trong suốt hình ảnh trong PowerPoint và OpenDocument."
+description: "Tìm hiểu cách kiểm tra và chỉnh sửa các placeholder văn bản, hình ảnh, biểu đồ và nội dung, cũng như hiểu cách kế thừa placeholder với Aspose.Slides cho Android bằng Java."
 ---
 ## **Tổng quan**
 
-Aspose.Slides cho phép bạn quản lý các trình giữ chỗ trong bài thuyết trình một cách lập trình. Bài viết này giải thích cách tìm trình giữ chỗ trên các slide và thay đổi văn bản của chúng, đặt văn bản gợi ý tùy chỉnh cho các bố cục trình giữ chỗ, và điều chỉnh độ trong suốt của hình ảnh được sử dụng làm nền cho trình giữ chỗ. Nó cũng bao gồm một phần Câu hỏi thường gặp ngắn gọn làm rõ sự khác biệt giữa trình giữ chỗ cơ sở và hình dạng cục bộ, giải thích cách các thay đổi trình giữ chỗ có thể được áp dụng thông qua bố cục hoặc master, và chỉ dẫn quản lý các trình giữ chỗ tiêu đề và chân trang.
+Một placeholder là một hình dạng định vị vị trí cho một loại nội dung cụ thể trong mẫu bản trình chiếu. Các ví dụ phổ biến gồm tiêu đề, nội dung, hình ảnh, biểu đồ và các placeholder nội dung đa năng. Không giống như một hình dạng thông thường, placeholder có thể kế thừa vị trí, kích thước, định dạng và các thiết lập khác từ một layout slide hoặc master slide.
 
-## **Thay đổi văn bản trong Trình giữ chỗ**
-Sử dụng [Aspose.Slides for Android via Java](/slides/vi/androidjava/), bạn có thể tìm và sửa đổi các trình giữ chỗ trên các slide trong bài thuyết trình. Aspose.Slides cho phép bạn thực hiện các thay đổi đối với văn bản trong một trình giữ chỗ.
+Aspose.Slides cung cấp thông tin placeholder thông qua phương thức [IShape.getPlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/). Phương thức trả về một đối tượng [IPlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholder/) hoặc `null` đối với một hình dạng bình thường. Sử dụng [IPlaceholder.getType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholder/) để xác định placeholder dự định chứa gì.
 
-**Yêu cầu trước**: Bạn cần một bài thuyết trình chứa trình giữ chỗ. Bạn có thể tạo một bài thuyết trình như vậy bằng ứng dụng Microsoft PowerPoint tiêu chuẩn.
+Giao diện hình dạng vẫn quan trọng sau khi bạn biết loại placeholder:
 
-Đây là cách bạn sử dụng Aspose.Slides để thay thế văn bản trong trình giữ chỗ của bài thuyết trình đó:
+- Một placeholder văn bản, hình ảnh, biểu đồ hoặc nội dung trống thường được biểu diễn bằng một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/).
+- Một placeholder hình ảnh đã được điền có thể được biểu diễn bằng một [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/).
+- Một placeholder biểu đồ đã được điền có thể được biểu diễn bằng một [IChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/).
+- Một placeholder nội dung có thể chứa nhiều loại nội dung. Hãy kiểm tra cả [IPlaceholder.getType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholder/) và giao diện hình dạng thời gian chạy thay vì giả định mọi placeholder đều là một [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/).
 
-1. Khởi tạo lớp [`Presentation`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/Presentation) và truyền bài thuyết trình làm đối số.
-2. Lấy một tham chiếu slide thông qua chỉ mục của nó.
-3. Duyệt qua các shape để tìm trình giữ chỗ.
-4. Chuyển kiểu shape trình giữ chỗ sang một [`AutoShape`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/AutoShape) và thay đổi văn bản bằng cách sử dụng [`TextFrame`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/TextFrame) liên kết với [`AutoShape`](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/AutoShape).
-5. Lưu bài thuyết trình đã sửa đổi.
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholder/) mô tả vai trò của một placeholder; nó không đảm bảo kiểu thời gian chạy của hình dạng. Luôn luôn thực hiện kiểm tra kiểu trước khi truy cập các thành viên đặc thù cho văn bản, hình ảnh, biểu đồ, bảng hoặc phương tiện.
+{{% /alert %}}
 
-Đoạn mã Java này cho thấy cách thay đổi văn bản trong một trình giữ chỗ:
+## **Hiểu Kế thừa Placeholder**
+
+Placeholder tạo thành một cấu trúc phân cấp:
+
+1. Một master slide định nghĩa các kiểu có thể tái sử dụng và, trong một số trường hợp, các placeholder ở mức master.
+2. Một layout slide xác định cách bố trí được một hoặc nhiều slide bình thường sử dụng và có thể kế thừa từ master.
+3. Một slide bình thường chứa các placeholder cho slide đó và có thể kế thừa từ layout của nó.
+
+Gọi [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) để lên một cấp trong phân cấp này. Một placeholder của slide thường trả về placeholder của layout; một placeholder của layout có thể trả về placeholder của master. Phương thức trả về `null` khi hình dạng không có base placeholder.
+
+Ví dụ sau liệt kê các placeholder trên slide đầu tiên và báo cáo base placeholder của chúng:
 
 ```java
-// Khởi tạo một lớp Presentation
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // Truy cập slide đầu tiên
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // Duyệt qua các shape để tìm trình giữ chỗ
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // Thay đổi văn bản trong mỗi trình giữ chỗ
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
         }
     }
-
-    // Lưu bài thuyết trình vào đĩa
-    pres.save("output.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt văn bản gợi ý trong Trình giữ chỗ**
-Các bố cục tiêu chuẩn và được xây dựng sẵn chứa các văn bản gợi ý cho trình giữ chỗ như ***Click to add a title*** hoặc ***Click to add a subtitle***. Sử dụng Aspose.Slides, bạn có thể chèn các văn bản gợi ý ưa thích của mình vào các bố cục trình giữ chỗ.
+Chỉnh sửa một placeholder trên slide bình thường sẽ tạo hoặc thay đổi một ghi đè cục bộ cho slide đó. Chỉnh sửa layout hoặc master liên quan có thể ảnh hưởng đến tất cả các slide vẫn kế thừa thiết lập đó. Một hình dạng bình thường cục bộ không có base placeholder và không bắt đầu kế thừa chỉ vì nó chiếm cùng tọa độ.
 
-Đoạn mã Java này cho bạn biết cách đặt văn bản gợi ý trong một trình giữ chỗ:
+## **Thay đổi Văn bản trong Placeholder**
+
+Placeholder tiêu đề, tiêu đề trung tâm, phụ đề, nội dung và văn bản thường hỗ trợ văn bản. Kiểm tra xem nó có phải là [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) trước khi sử dụng phương thức [getTextFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) của nó.
+
+Ví dụ này cập nhật placeholder tiêu đề đầu tiên trên slide đầu tiên và lưu kết quả:
 
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // Duyệt qua slide
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint hiển thị "Click to add title"
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // Thêm phụ đề
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Đặt độ trong suốt cho hình ảnh Trình giữ chỗ**
+Mẫu này tránh việc ép kiểu các placeholder hình ảnh, biểu đồ, bảng hoặc phương tiện sang [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/). Nó cũng xác định placeholder theo mục đích thay vì dựa vào chỉ số hình dạng dễ vỡ.
 
-Aspose.Slides cho phép bạn đặt độ trong suốt của hình ảnh nền trong một trình giữ chỗ văn bản. Bằng cách điều chỉnh độ trong suốt của hình ảnh trong khung này, bạn có thể làm cho văn bản hoặc hình ảnh nổi bật hơn (tùy thuộc vào màu sắc của văn bản và hình ảnh).
+## **Đặt Văn bản Gợi ý trên Layout**
 
-Đoạn mã Java này cho bạn biết cách thiết lập độ trong suốt cho nền hình ảnh (bên trong một shape):
+Văn bản gợi ý là chỉ dẫn thời gian thiết kế hiển thị trong một placeholder trống, chẳng hạn *Click to add title*. Đặt văn bản gợi ý tùy chỉnh trên placeholder của layout thay vì cố gắng truy cập qua bộ sưu tập hình dạng của slide bình thường. Truy cập layout thông qua [ISlide.getLayoutSlide](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islide/) và duyệt qua bộ sưu tập trả về bởi [ILayoutSlide.getShapes](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ibaseslide/).
+
+Ví dụ sau thay đổi gợi ý tiêu đề và phụ đề trên layout được sử dụng bởi slide đầu tiên:
 
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
 
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Văn bản gợi ý không phải là nội dung slide bình thường. Nó dành cho các placeholder trống trong các ứng dụng chỉnh sửa như PowerPoint. Khi người dùng hoặc chương trình cung cấp nội dung thực, gợi ý sẽ không còn hiển thị. Thay đổi gợi ý cũng không thay thế văn bản hiện có trên các slide sử dụng layout đó.
+
+## **Cập nhật Placeholder Hình ảnh**
+
+Có hai trường hợp cần xử lý:
+
+- Nếu placeholder hình ảnh đã được điền và được biểu diễn bằng một [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/), thay thế ảnh qua [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipicturefillformat/) và [ISlidesPicture.setImage](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/islidespicture/).
+- Nếu nó vẫn là một placeholder trống, thêm một picture frame tại tọa độ của placeholder bằng [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishapecollection/) và xóa placeholder trống.
+
+Ví dụ tiếp theo hỗ trợ cả hai trường hợp và lưu bản trình chiếu:
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Việc thay thế được tạo cho một placeholder trống là một picture frame cục bộ, không phải một placeholder mới, vì [IShape.getPlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) không cung cấp setter. Nó giữ vị trí đã dành nhưng không còn kế thừa hành vi đặc thù của placeholder. Nếu việc giữ mối quan hệ placeholder là quan trọng, hãy chuẩn bị và điền placeholder trong PowerPoint trước, sau đó cập nhật [IPictureFrame](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ipictureframe/) kết quả bằng Aspose.Slides.
+
+Đối với độ trong suốt ảnh, cắt ảnh và các hiệu ứng riêng của hình ảnh, xem [Manage Picture Frames](/slides/vi/androidjava/picture-frame/). Các thao tác này thuộc về picture frame hoặc picture fill, không phải metadata của placeholder.
+
+## **Làm việc với Placeholder Biểu đồ và Nội dung**
+
+Một placeholder biểu đồ đã được điền có thể được biểu diễn bằng một [IChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/). Ví dụ này tìm biểu đồ như vậy bằng cả loại placeholder và giao diện thời gian chạy, thay đổi tiêu đề và lưu tệp:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Một placeholder nội dung chung thường có [PlaceholderType.Object](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholdertype/). Trong PowerPoint nó hoạt động như một trình khởi chạy cho nhiều loại nội dung, bao gồm biểu đồ, bảng, sơ đồ, hình ảnh và phương tiện. Sau khi được điền, kiểm tra giao diện hình dạng thực tế để biết nó chứa gì. Các layout chuyên biệt cũng có thể mở ra [PlaceholderType.Chart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholdertype/), hoặc [PlaceholderType.Diagram](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholdertype/).
+
+Aspose.Slides không chuyển đổi một placeholder [IAutoShape](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/iautoshape/) trống thành một [IChart](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ichart/) chỉ bằng cách thay đổi [IPlaceholder.getType](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/placeholder/); kiểu không thể thay đổi qua giao diện. Để điền một biểu đồ hoặc khu vực nội dung trống bằng chương trình, thêm đối tượng cần thiết tại tọa độ của placeholder và sau đó xóa placeholder trống. Ví dụ sau thực hiện việc này cho một biểu đồ:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Biểu đồ được thêm là một biểu đồ cục bộ bình thường. Nó chiếm vùng của placeholder nhưng không kế thừa từ placeholder của layout. Sử dụng các bài viết [chart management](/slides/vi/androidjava/powerpoint-charts/) khi bạn cần thay thế danh mục, chuỗi hoặc dữ liệu workbook của nó.
+
+## **Ví dụ Hoàn chỉnh: Cập nhật Văn bản hoặc Nội dung Hình ảnh**
+
+Ví dụ end-to-end sau mở một mẫu, tìm kiếm slide đầu tiên để xác định placeholder tiêu đề hoặc hình ảnh, kiểm tra loại placeholder và hình dạng, cập nhật nội dung phù hợp và lưu đầu ra. Ví dụ này cố tình tránh giả định chỉ số hình dạng hoặc ép kiểu mọi placeholder sang cùng một giao diện.
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            IPPImage image;
+            try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+                image = presentation.getImages().addImage(imageStream);
+            }
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **Câu hỏi thường gặp**
 
-**Trình giữ chỗ cơ sở là gì, và nó khác gì so với shape cục bộ trên một slide?**
+**Placeholder cơ sở là gì?**
 
-Trình giữ chỗ cơ sở là shape gốc trên một layout hoặc master mà shape của slide kế thừa—loại, vị trí và một số định dạng được lấy từ nó. Shape cục bộ là độc lập; nếu không có trình giữ chỗ cơ sở, việc kế thừa sẽ không áp dụng.
+Placeholder cơ sở là hình dạng tương ứng trên layout hoặc master mà một placeholder khác kế thừa. Sử dụng [IShape.getBasePlaceholder](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ishape/) để lấy nó. Một hình dạng cục bộ bình thường trả về `null` vì nó không thuộc phân cấp placeholder.
 
-**Làm thế nào để cập nhật tất cả tiêu đề hoặc chú thích trong toàn bộ bài thuyết trình mà không phải duyệt từng slide?**
+**Tôi có thể thay đổi tất cả tiêu đề slide bằng cách chỉnh sửa placeholder trên layout không?**
 
-Chỉnh sửa trình giữ chỗ tương ứng trên layout hoặc master. Các slide dựa trên những layout/master đó sẽ tự động kế thừa thay đổi.
+Bạn có thể thay đổi định dạng kế thừa hoặc văn bản gợi ý thông qua layout, nhưng nội dung tiêu đề hiện có được lưu trên các slide bình thường. Để thay thế tiêu đề thực tế trên toàn bộ bản trình chiếu, hãy duyệt qua các slide và cập nhật mỗi placeholder tiêu đề.
 
-**Làm sao tôi có thể kiểm soát các trình giữ chỗ tiêu đề/chân trang tiêu chuẩn—ngày & giờ, số slide và văn bản chân trang?**
+**Làm thế nào để quản lý placeholder ngày, số slide, header và footer?**
 
-Sử dụng các trình quản lý HeaderFooter ở phạm vi thích hợp (slide thường, layout, master, ghi chú/bản phát tay) để bật hoặc tắt các trình giữ chỗ đó và để đặt nội dung của chúng.
+Sử dụng các trình quản lý header và footer ở phạm vi slide, layout, master, notes hoặc handout tương ứng. Xem [Manage Presentation Header and Footer](/slides/vi/androidjava/presentation-header-and-footer/) để có các ví dụ hoàn chỉnh.

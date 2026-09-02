@@ -1,52 +1,52 @@
 ---
-title: "افزودن معادلات ریاضی به ارائه‌های پاورپوینت در جاوااسکریپت"
-linktitle: "معادلات ریاضی پاورپوینت"
+title: اضافه‌کردن معادلات ریاضی به ارائه‌های PowerPoint در JavaScript
+linktitle: معادلات ریاضی PowerPoint
 type: docs
 weight: 80
 url: /fa/nodejs-java/powerpoint-math-equations/
 keywords:
-  - "معادله ریاضی"
-  - "نماد ریاضی"
-  - "فرمول ریاضی"
-  - "متن ریاضی"
-  - "افزودن معادله ریاضی"
-  - "افزودن نماد ریاضی"
-  - "افزودن فرمول ریاضی"
-  - "افزودن متن ریاضی"
-  - "پاورپوینت"
-  - "ارائه"
-  - "Node.js"
-  - "جاوااسکریپت"
-  - "Aspose.Slides"
-description: "درج و ویرایش معادلات ریاضی در فایل‌های PPT و PPTX پاورپوینت با Aspose.Slides برای Node.js از طریق Java، با پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های کد واضح جاوااسکریپت."
+- معادله ریاضی
+- نماد ریاضی
+- فرمول ریاضی
+- متن ریاضی
+- افزودن معادله ریاضی
+- افزودن نماد ریاضی
+- افزودن فرمول ریاضی
+- افزودن متن ریاضی
+- PowerPoint
+- ارائه
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "در PowerPoint (PPT و PPTX) معادلات ریاضی را با Aspose.Slides برای Node.js از طریق Java وارد و ویرایش کنید؛ با پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های واضح کد JavaScript."
 ---
 ## **مرور کلی**
 
-PowerPoint معادلات را به صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای Node.js از طریق Java می‌توانید همان نوع محتواهای ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدود، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
+PowerPoint معادلات را به صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای Node.js از طریق Java، می‌توانید همان نوع محتویات ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدها، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
 
 در PowerPoint، کاربران معمولاً معادلات را از **Insert > Equation** اضافه می‌کنند:
 
-![زبانه Insert در PowerPoint با فرمان Equation انتخاب‌شده](powerpoint-math-equations_1.png)
+![تب Insert در PowerPoint با فرمان Equation انتخاب شده](powerpoint-math-equations_1.png)
 
-نتیجه یک متن ریاضی قابل ویرایش بر روی اسلاید است:
+نتیجه متن ریاضی قابل ویرایش بر روی اسلاید است:
 
-![یک اسلاید PowerPoint شامل یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
+![یک اسلاید PowerPoint حاوی معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
 
-Aspose.Slides متن ریاضی را از طریق سه شیء اصلی می‌سازد:
+Aspose.Slides این متن ریاضی را از طریق سه شیء اصلی می‌سازد:
 
-- یک شکل ریاضی که با [addMathShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/#addMathShape) ایجاد می‌شود، همان شکلی است که معادله را دربردارد.
-- [MathPortion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathportion/) محتوای ریاضی را داخل فریم متن شکل ذخیره می‌کند.
+- یک شکل ریاضی، که با [addMathShape](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/shapecollection/#addMathShape) ساخته می‌شود، شکلی است که معادله را در خود دارد.
+- [MathPortion](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathportion/) محتویات ریاضی را در داخل فریم متن شکل ذخیره می‌کند.
 - [MathParagraph](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathparagraph/) شامل یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathblock/) است.
 
-بیشتر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathematicaltext/) و متدهای زنجیره‌ای [MathElementBase](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای کوتاه و خوانا نگه داشتن کد استفاده می‌کنند.
+بیشتر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathematicaltext/) و متدهای زنجیره‌ای [MathElementBase](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده می‌کنند تا کد کوتاه و خوانا بماند.
 
-برای سناریوهای خروجی MathML، به [Export Math Equations from Presentations in Node.js via Java](/slides/fa/nodejs-java/exporting-math-equations/) مراجعه کنید.
+برای سناریوهای صدور MathML، به [صدور معادلات ریاضی از ارائه‌ها در Node.js از طریق Java](/slides/fa/nodejs-java/exporting-math-equations/) مراجعه کنید.
 
 ## **ایجاد یک معادله**
 
-این مثال یک شکل ریاضی ایجاد کرده و تئوری فیثاغورث را اضافه می‌کند:
+این مثال یک شکل ریاضی ایجاد کرده و قضیه فیثاغورس را اضافه می‌کند:
 
-![معادله c² = a² + b²](powerpoint-math-equations_3.png)
+![معادله c² برابر a² به‌علاوه b²](powerpoint-math-equations_3.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -73,14 +73,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` یک شکل ایجاد می‌کند که از پیش شامل یک پاراگراف ریاضی است. به اولین `MathPortion` دسترسی پیدا کنید، `MathParagraph` آن را دریافت کنید و بلوک‌ها یا عناصر ریاضی را به آن اضافه کنید.
+`addMathShape` یک شکل ایجاد می‌کند که قبلاً شامل یک پاراگراف ریاضی است. اولین `MathPortion` را دسترسی پیدا کنید، `MathParagraph` آن را بگیرید و بلوک‌های ریاضی یا عناصر ریاضی را به آن اضافه کنید.
 {{% /alert %}}
 
-## **اضافه‌کردن کسرها**
+## **افزودن کسرها**
 
-از [`divide`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای ایجاد یک کسر استفاده کنید. می‌توانید سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathfractiontypes/) انتخاب کنید.
+از [`divide`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای ایجاد یک کسر استفاده کنید. می‌توانید یک سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathfractiontypes/) انتخاب کنید.
 
-![یک کسر مورب که نشان می‌دهد ۱ بر x تقسیم می‌شود](powerpoint-math-equations_4.png)
+![یک کسر ریاضی کشیده که یک تقسیم بر x را نشان می‌دهد](powerpoint-math-equations_4.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -102,17 +102,17 @@ try {
 }
 ```
 
-برای یک کسر طبقه‌بندی‌شده، از `MathFractionTypes.Bar` استفاده کنید:
+برای یک کسر لایه‌ای، از `MathFractionTypes.Bar` استفاده کنید:
 
 ```javascript
 let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1", aspose.slides.MathFractionTypes.Bar);
 ```
 
-## **اضافه‌کردن رادیکال‌ها**
+## **افزودن رادیکال‌ها**
 
-از [`radical`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای ایجاد رادیکال درجه دوم، سوم یا سایر رادیکال‌ها استفاده کنید. عنصر فعلی به عنوان پایه در می‌آید و آرگومان به عنوان درجه رادیکال.
+از [`radical`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای ایجاد ریشه دوم، ریشه سوم یا ریشه‌های دیگر استفاده کنید. عنصر فعلی به عنوان پایه می‌شود و آرگومان درجه ریشه را تعیین می‌کند.
 
-![یک عبارت رادیکال nام که x زیر علامت رادیکال قرار دارد](powerpoint-math-equations_5.png)
+![یک عبارت رادیکال n-ام با x زیر علامت رادیکال](powerpoint-math-equations_5.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -134,11 +134,11 @@ try {
 }
 ```
 
-## **اضافه‌کردن توابع و حدود**
+## **افزودن توابع و حدود**
 
-از [`asArgumentOfFunction`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) یا [`function`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای توابعی مانند `sin(x)`, `log(x)` یا نام‌های توابع دلخواه استفاده کنید. برای حدود، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathlimit/) قرار دهید یا از [`setLowerLimit`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
+از [`asArgumentOfFunction`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) یا [`function`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای توابعی مانند `sin(x)`, `log(x)` یا نام‌های تابع سفارشی استفاده کنید. برای حدود، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathlimit/) قرار دهید یا از [`setLowerLimit`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
 
-![حد x هنگامی که x به بی‌نهایت می‌رود](powerpoint-math-equations_8.png)
+![حد x هنگامی که x به بی‌نهایت نزدیک می‌شود](powerpoint-math-equations_8.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -161,17 +161,17 @@ try {
 }
 ```
 
-برای نام توابع سفارشی، نام تابع را به‌عنوان عنصر فعلی تنظیم کنید:
+برای نام تابع سفارشی، نام تابع را عنصر فعلی کنید:
 
 ```javascript
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **اضافه‌کردن عملگرهای N-ary و انتگرال‌ها**
+## **افزودن عملگرهای N-ary و انتگرال‌ها**
 
-از [`nary`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای جمع‌ها، اتحادیه‌ها، تقاطع‌ها و سایر عملگرهای بزرگ استفاده کنید. برای انتگرال‌ها از [`integral`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید. هر دو متد امکان تنظیم حدود پایین و بالا را می‌دهند.
+از [`nary`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای جمع‌ها، اتحادیه‌ها، تقاطع‌ها و دیگر عملگرهای بزرگ استفاده کنید. از [`integral`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای انتگرال‌ها استفاده کنید. هر دو متد به شما امکان تنظیم حد پایین و بالا را می‌دهند.
 
-![یک جمع با حدود پایین و بالایی](powerpoint-math-equations_7.png)
+![یک جمع با حدهای پایین و بالا](powerpoint-math-equations_7.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -196,7 +196,7 @@ try {
 }
 ```
 
-عملگرهای N-ary برای عملگرهای بزرگ با حدود اختیاری استفاده می‌شوند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌صورت `MathematicalText` اضافه شده و در عبارت ترکیب می‌شوند.
+عملگرهای N-ary برای عملگرهای بزرگ با حدهای اختیاری هستند. عملگرهای ساده مانند `+`, `-`, `=` معمولاً به‌عنوان `MathematicalText` اضافه شده و به عبارت پیوست می‌شوند.
 
 برای یک انتگرال، از `integral` استفاده کنید:
 
@@ -205,9 +205,9 @@ let integralBase = new aspose.slides.MathematicalText("x").join(new aspose.slide
 let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0", "1");
 ```
 
-## **اضافه‌کردن ماتریس‌ها**
+## **افزودن ماتریس‌ها**
 
-از [MathMatrix](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها براکت ندارند؛ بنابراین هنگامی که نیاز به پرانتز، براکت یا کروشه دارید، ماتریس را درون آنها بگذارید.
+از [MathMatrix](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. ماتریس‌ها به‌طور پیش‌فرض پرانتز یا کروشه ندارند، بنابراین هنگام نیاز به پرانتز، کروشه یا آکولاد، ماتریس را درون آن‌ها بپیچید.
 
 ![یک ماتریس ریاضی دو ردیفی با یک سلول خالی](powerpoint-math-equations_10.png)
 
@@ -235,11 +235,11 @@ try {
 }
 ```
 
-## **اضافه‌کردن آرایه‌های معادله‌ای**
+## **افزودن آرایه‌های معادله**
 
-هنگامی که به معادلات هم‌تراز یا پشته‌ای عمودی از عبارات نیاز دارید، از [`toMathArray`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
+از [`toMathArray`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) وقتی به معادلات هم‌تراز یا یک پشته عمودی از عبارات نیاز دارید، استفاده کنید.
 
-![یک آرایه ریاضی عمودی که x بالای y قرار دارد](powerpoint-math-equations_11.png)
+![یک آرایه ریاضی عمودی با x بالای y](powerpoint-math-equations_11.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -262,11 +262,11 @@ try {
 }
 ```
 
-## **اضافه‌کردن توابع مثلثاتی**
+## **افزودن توابع مثلثاتی**
 
-وقتی آرگومان عنصر فعلی است و نام تابع شناخته شده، از [`asArgumentOfFunction`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
+از [`asArgumentOfFunction`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) وقتی آرگومان عنصر فعلی است و نام تابع شناخته شده است، استفاده کنید.
 
-![تابع مثلثاتی cos بر ۲x اعمال شده است](powerpoint-math-equations_6.png)
+![تابع مثلثاتی cos بر 2x اعمال شده](powerpoint-math-equations_6.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -288,11 +288,11 @@ try {
 }
 ```
 
-## **اضافه‌کردن زیرنویس‌ها و بالانویس‌ها**
+## **افزودن زیرنویس و بالانویس**
 
-از کمکی‌های زیرنویس و بالانویس برای اندیس‌ها و توان‌ها استفاده کنید. وقتی اندیس‌ها باید در سمت چپ پایه ظاهر شوند، از [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
+از کمک‌کننده‌های زیرنویس و بالانویس برای شاخص‌ها و توان‌ها استفاده کنید. وقتی شاخص‌ها باید در سمت چپ پایه ظاهر شوند، از [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
 
-![یک حرف بزرگ Y با زیرنویس ۱ سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
+![حرف بزرگ Y با زیرنویس سمت چپ 1 و بالانویس n](powerpoint-math-equations_9.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -314,11 +314,11 @@ try {
 }
 ```
 
-## **اضافه‌کردن جداکننده‌ها**
+## **افزودن جداکننده‌ها**
 
-از [`enclose`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای قرار دادن یک عبارت داخل جداکننده‌ها استفاده کنید. می‌توانید یک کاراکتر جداکننده برای عبارات شامل چند عنصر نیز تنظیم کنید.
+از [`enclose`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای قرار دادن یک عبارت داخل جداکننده‌ها استفاده کنید. می‌توانید برای عبارات جداکننده که شامل چند عنصر هستند، کاراکتر جدا کننده تعیین کنید.
 
-![یک عبارت جداکننده شامل x، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
+![یک عبارت جداکننده حاوی x، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -343,11 +343,11 @@ try {
 }
 ```
 
-## **اضافه‌کردن جعبهٔ حاشیه‌ای**
+## **افزودن جعبه حاشیه‌دار**
 
-وقتی معادله خود باید داخل یک قاب باشد، از [`toBorderBox`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) استفاده کنید.
+از [`toBorderBox`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) وقتی معادله خود به‌صورت چارچوب‌دار باشد، استفاده کنید.
 
-![یک معادله داخل جعبه که a² = b² + c² را نشان می‌دهد](powerpoint-math-equations_12.png)
+![یک معادله درون جعبه نشان می‌دهد a² = b² + c²](powerpoint-math-equations_12.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -376,9 +376,9 @@ try {
 
 ## **گروه‌بندی عبارات**
 
-از [`group`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای قرار دادن یک کاراکتر گروه‌بندی بالا یا پایین یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی‌شده می‌توانید یک حد اضافه کنید.
+از [`group`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) برای قرار دادن یک کاراکتر گروه‌بندی بالای یا زیر یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی شده می‌توانید حدی اضافه کنید.
 
-![عبارتی x + y که با برچسب متنی زیرین گروه‌بندی شده است](powerpoint-math-equations_15.png)
+![عبارتی x به‌علاوه y که با برچسب any text زیر آن گروه‌بندی شده است](powerpoint-math-equations_15.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -403,9 +403,9 @@ try {
 
 ## **قالب‌بندی عناصر ریاضی**
 
-از کمکی‌های قالب‌بندی فقط در جایی استفاده کنید که فرمول را واضح‌تر می‌کند. برای مثال، [`overbar`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) یک نوار بالای عنصر ریاضی می‌گذارد.
+از کمک‌کننده‌های قالب‌بندی فقط در جایی استفاده کنید که فرمول را واضح‌تر می‌کنند. برای مثال، [`overbar`](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) یک خط بالای یک عنصر ریاضی می‌گذارد.
 
-![یک عبارت ریاضی ABC با یک نوار بالای آن](powerpoint-math-equations_14.png)
+![یک عبارت ریاضی ABC با یک خط بالای آن](powerpoint-math-equations_14.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -428,7 +428,7 @@ try {
 
 ## **مرجع سریع**
 
-| کار | API اصلی |
+| وظیفه | API اصلی |
 | --- | --- |
 | ایجاد متن ریاضی | [MathematicalText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathematicaltext/) |
 | ترکیب عناصر | [join](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
@@ -440,21 +440,21 @@ try {
 | افزودن اسکریپت‌های سمت چپ | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
 | افزودن جمع‌ها و انتگرال‌ها | [nary](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/), [integral](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
 | افزودن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathmatrix/) |
-| افزودن آرایه‌های معادله‌ای | [toMathArray](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
+| افزودن آرایه‌های معادله | [toMathArray](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
 | افزودن جداکننده‌ها | [enclose](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
-| افزودن نوارها و قاب‌ها | [overbar](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
+| افزودن نوارها و حاشیه‌ها | [overbar](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/), [toBorderBox](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
 | گروه‌بندی عبارات | [group](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathelementbase/) |
 
-## **سوالات متداول**
+## **FAQ**
 
 **آیا می‌توانم یک معادله موجود در PowerPoint را ویرایش کنم؟**
 
 بله. ارائه را باز کنید، شکل حاوی `MathPortion` را پیدا کنید، `MathParagraph` آن را دریافت کنید و بلوک‌های ریاضی در آن پاراگراف را به‌روزرسانی کنید.
 
-**آیا معادلات به‌صورت ریاضی قابل ویرایش در PowerPoint ذخیره می‌شوند؟**
+**آیا معادلات به‌صورت ریاضی قابل ویرایش PowerPoint ذخیره می‌شوند؟**
 
-بله. هنگام ذخیره به فرمت PPTX، Aspose.Slides معادله را به عنوان محتوای ریاضی Office قابل ویرایش می‌نویسد.
+بله. هنگام ذخیره به PPTX، Aspose.Slides معادله را به‌عنوان محتویات ریاضی Office قابل ویرایش می‌نویسد.
 
 **آیا می‌توانم معادلات را به LaTeX صادر کنم؟**
 
-Aspose.Slides معادلات ریاضی را به MathML صادر می‌کند. اگر به LaTeX نیاز دارید، ابتدا به MathML صادر کنید و سپس با ابزارهایی که از دیالکت LaTeX هدف پشتیبانی می‌کنند، MathML را به LaTeX تبدیل کنید.
+بله. `MathParagraph` معادله را از `MathPortion` دریافت کنید و متد [MathParagraph.toLatex](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/mathparagraph/#toLatex--) را فراخوانی کنید تا مستقیماً صادر شود. برای مثال کامل، به [صدور معادلات ریاضی از ارائه‌ها در Node.js از طریق Java](/slides/fa/nodejs-java/exporting-math-equations/#export-math-equations-to-latex) مراجعه کنید.

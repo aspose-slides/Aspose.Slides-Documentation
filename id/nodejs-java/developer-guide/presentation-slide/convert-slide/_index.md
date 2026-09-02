@@ -1,12 +1,12 @@
 ---
-title: Konversi Slide Presentasi menjadi Gambar dalam JavaScript
+title: Mengonversi Slide Presentasi menjadi Gambar dalam JavaScript
 linktitle: Slide ke Gambar
 type: docs
 weight: 35
 url: /id/nodejs-java/convert-slide/
 keywords:
-- konversi slide
-- ekspor slide
+- mengonversi slide
+- mengekspor slide
 - slide ke gambar
 - simpan slide sebagai gambar
 - slide ke PNG
@@ -19,7 +19,7 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Konversi slide dari PPT, PPTX, dan ODP menjadi gambar dalam JavaScript menggunakan Aspose.Slides untuk Node.js via Java — rendering cepat dengan kualitas tinggi dan contoh kode yang jelas."
+description: "Mengonversi slide dari PPT, PPTX, dan ODP menjadi gambar dalam JavaScript menggunakan Aspose.Slides untuk Node.js via Java — rendering cepat dan berkualitas tinggi dengan contoh kode yang jelas."
 ---
 ## **Pendahuluan**
 
@@ -28,22 +28,22 @@ Aspose.Slides untuk Node.js via Java memungkinkan Anda dengan mudah mengonversi 
 Untuk mengonversi slide menjadi gambar, ikuti langkah-langkah berikut:
 
 1. Tentukan pengaturan konversi yang diinginkan dan pilih slide yang ingin Anda ekspor dengan menggunakan:
-    - Kelas [TiffOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tiffoptions/), atau
-    - Kelas [RenderingOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/renderingoptions/).
-2. Hasilkan gambar slide dengan memanggil metode [getImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#getImage).
+    - Kelas [TiffOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tiffoptions/) , atau
+    - Kelas [RenderingOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/renderingoptions/) .
+2. Hasilkan gambar slide dengan memanggil metode [getImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#getImage) .
 
-Di Aspose.Slides untuk Node.js via Java, sebuah [IImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/iimage/) adalah kelas yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan kelas ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
+Dalam Aspose.Slides untuk Node.js via Java, sebuah [IImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/iimage/) adalah kelas yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan kelas ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
 
-## **Konversi Slide ke Bitmap dan Simpan Gambar dalam PNG**
+## **Mengonversi Slide ke Bitmap dan Menyimpan Gambar dalam PNG**
 
-Anda dapat mengonversi slide ke objek bitmap dan menggunakannya langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide ke bitmap lalu menyimpan gambar dalam format JPEG atau format lain yang diinginkan.
+Anda dapat mengonversi slide menjadi objek bitmap dan menggunakannya langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide menjadi bitmap lalu menyimpan gambar dalam format JPEG atau format lain yang Anda inginkan.
 
-Kode JavaScript berikut memperlihatkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
+Kode JavaScript berikut menunjukkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
 
 ```js
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Konversi slide pertama dalam presentasi menjadi bitmap.
+    // Mengonversi slide pertama dalam presentasi menjadi bitmap.
     let image = presentation.getSlides().get_Item(0).getImage();
     try {
         // Simpan gambar dalam format PNG.
@@ -56,18 +56,18 @@ try {
 }
 ```
 
-## **Konversi Slide ke Gambar dengan Ukuran Kustom**
+## **Mengonversi Slide ke Gambar dengan Ukuran Kustom**
 
-Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [getImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#getImage), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi).
+Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [getImage](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/slide/#getImage), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi). 
 
-Kode contoh berikut memperlihatkan cara melakukannya:
+Kode contoh berikut menunjukkan cara melakukannya:
 
 ```js
 let imageSize = java.newInstanceSync("java.awt.Dimension", 1820, 1040);
 
 let presentation = new aspose.slides.Presentation("Presentation.pptx");
 try {
-    // Konversi slide pertama dalam presentasi menjadi bitmap dengan ukuran yang ditentukan.
+    // Mengonversi slide pertama dalam presentasi menjadi bitmap dengan ukuran yang ditentukan.
     let image = presentation.getSlides().get_Item(0).getImage(imageSize);
     try {
         // Simpan gambar dalam format JPEG.
@@ -80,21 +80,21 @@ try {
 }
 ```
 
-## **Konversi Slide dengan Catatan dan Komentar menjadi Gambar**
+## **Mengonversi Slide dengan Catatan dan Komentar ke Gambar**
 
 Beberapa slide mungkin berisi catatan dan komentar.
 
-Aspose.Slides menyediakan dua kelas—[TiffOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tiffoptions/) dan [RenderingOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/renderingoptions/)—yang memungkinkan Anda mengontrol rendering slide presentasi menjadi gambar. Kedua kelas menyertakan metode `setSlidesLayoutOptions`, yang memungkinkan Anda mengonfigurasi rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
+Aspose.Slides menyediakan dua kelas—[TiffOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tiffoptions/) dan [RenderingOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/renderingoptions/)—yang memungkinkan Anda mengontrol proses rendering slide presentasi ke gambar. Kedua kelas tersebut menyertakan metode `setSlidesLayoutOptions`, yang memungkinkan Anda mengkonfigurasi rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
 
-Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notescommentslayoutingoptions/), Anda dapat menentukan posisi yang diinginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
+Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notescommentslayoutingoptions/) , Anda dapat menentukan posisi yang diinginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
 
-Kode JavaScript berikut memperlihatkan cara mengonversi slide dengan catatan dan komentar:
+Kode JavaScript berikut menunjukkan cara mengonversi slide dengan catatan dan komentar:
 
 ```js
 const scaleX = 2;
 const scaleY = scaleX;
 
-// Load a presentation file.
+// Muat file presentasi.
 let presentation = new aspose.slides.Presentation("Presentation_with_notes_and_comments.pptx");
 try {
     let notesCommentsOptions = new aspose.slides.NotesCommentsLayoutingOptions();
@@ -107,7 +107,7 @@ try {
     let options = new aspose.slides.RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
  
-    // Konversi slide pertama presentasi menjadi gambar.
+    // Konversi slide pertama dari presentasi menjadi gambar.
     let image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
     try {
         // Simpan gambar dalam format GIF.
@@ -120,17 +120,15 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
+{{% alert title="Catatan" color="warning" %}} 
 Dalam proses konversi slide ke gambar apa pun, metode [setNotesPosition](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) tidak dapat menerapkan `BottomFull` (untuk menentukan posisi catatan) karena teks catatan mungkin terlalu besar, sehingga tidak dapat muat dalam ukuran gambar yang ditentukan.
-
 {{% /alert %}} 
 
-## **Konversi Slide ke Gambar Menggunakan Opsi TIFF**
+## **Mengonversi Slide ke Gambar dengan Menggunakan Opsi TIFF**
 
-Kelas [TiffOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tiffoptions/) menyediakan kontrol yang lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lainnya.
+Kelas [TiffOptions](https://reference.aspose.com/slides/id/nodejs-java/aspose.slides/tiffoptions/) memberikan kontrol yang lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lainnya.
 
-Kode JavaScript berikut memperlihatkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
+Kode JavaScript berikut menunjukkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
 
 ```js
 // Muat file presentasi.
@@ -159,17 +157,15 @@ try {
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-
+{{% alert title="Catatan" color="warning" %}} 
 Dukungan TIFF tidak dijamin pada versi sebelum JDK 9.
-
 {{% /alert %}} 
 
-## **Konversi Semua Slide menjadi Gambar**
+## **Mengonversi Semua Slide ke Gambar**
 
-Aspose.Slides memungkinkan Anda mengonversi semua slide dalam sebuah presentasi menjadi gambar, secara efektif mengubah seluruh presentasi menjadi serangkaian gambar.
+Aspose.Slides memungkinkan Anda mengonversi semua slide dalam sebuah presentasi menjadi gambar, sehingga secara efektif mengubah seluruh presentasi menjadi serangkaian gambar.
 
-Kode contoh berikut memperlihatkan cara mengonversi semua slide dalam sebuah presentasi menjadi gambar menggunakan JavaScript:
+Kode contoh berikut menunjukkan cara mengonversi semua slide dalam sebuah presentasi menjadi gambar menggunakan JavaScript:
 
 ```js
 const scaleX = 2;
@@ -198,7 +194,13 @@ try {
 }
 ```
 
-## **FAQ**
+## **Rendering Emoji Berwarna**
+
+{{% alert title="Catatan" color="warning" %}} 
+Untuk merender emoji berwarna dengan benar saat mengonversi slide presentasi menjadi gambar, font emoji yang digunakan dalam presentasi harus terinstal dan tersedia pada sistem yang melakukan konversi. Misalnya, jika presentasi menggunakan **Segoe UI Emoji** dan font ini tidak ada, emoji dapat muncul dalam monokrom pada gambar output.
+{{% /alert %}} 
+
+## **Tanya Jawab**
 
 **Apakah Aspose.Slides mendukung rendering slide dengan animasi?**
 
@@ -206,7 +208,7 @@ Tidak, metode `getImage` hanya menyimpan gambar statis dari slide, tanpa animasi
 
 **Apakah slide tersembunyi dapat diekspor sebagai gambar?**
 
-Ya, slide tersembunyi dapat diproses seperti slide biasa. Pastikan saja mereka termasuk dalam loop pemrosesan.
+Ya, slide tersembunyi dapat diproses seperti slide biasa. Pastikan saja slide tersebut termasuk dalam loop pemrosesan.
 
 **Apakah gambar dapat disimpan dengan bayangan dan efek?**
 

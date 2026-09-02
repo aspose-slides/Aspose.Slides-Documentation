@@ -203,6 +203,7 @@ target_presentation.slide_size.set_size(
 Lakukan ini sebelum mengklon master dan slide.
 
 ## **FAQ**
+### Apakah catatan pembicara dan komentar reviewer dikloning?
 
 **Apakah catatan pembicara dan komentar peninjau ikut diklon?**
 
@@ -212,6 +213,6 @@ Ya. Halaman catatan dan komentar peninjau termasuk dalam klon. Jika Anda tidak m
 
 Objek chart, format, dan data tersemat disalin. Jika chart terhubung ke sumber eksternal (misalnya buku kerja yang di‑embed OLE), tautan tersebut dipertahankan sebagai [objek OLE](/slides/id/python-net/manage-ole/). Setelah dipindahkan antar file, verifikasi ketersediaan data dan perilaku penyegaran.
 
-**Bisakah saya mengontrol posisi penyisipan dan seksi untuk klon?**
+### Bisakah saya mengontrol posisi penyisipan dan seksi untuk klon?
 
 Ya. Anda dapat menyisipkan klon pada indeks slide tertentu dan menempatkannya ke [seksi](/slides/id/python-net/slide-section/) pilihan. Jika seksi target belum ada, buat dulu kemudian pindahkan slide ke dalamnya.

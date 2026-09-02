@@ -7,7 +7,7 @@ url: /cs/php-java/shape-effective-properties/
 keywords:
 - vlastnosti tvaru
 - vlastnosti kamery
-- světelné zařízení
+- světelná výbava
 - zkosený tvar
 - textový rámec
 - textový styl
@@ -17,333 +17,301 @@ keywords:
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides pro PHP prostřednictvím Java vypočítává a aplikuje efektivní vlastnosti tvarů pro přesné vykreslení PowerPointu."
+description: "Naučte se používat Aspose.Slides pro PHP přes Java k rozlišení lokálního, zděděného a efektivního formátování tvarů v prezentacích PowerPoint."
 ---
-## **Přehled**
+## **Pochopte lokální, zděděné a efektivní vlastnosti**
 
-Toto téma vysvětluje rozdíl mezi **lokálními** a **efektivními** vlastnostmi. Lokální hodnoty jsou hodnoty nastavené přímo na konkrétní úrovni formátování, například:
+Formátování PowerPointu může pocházet z několika míst. Hodnota uložená přímo na objektu je jeho **lokální hodnota**. Pokud tato hodnota není nastavena, PowerPoint se podívá na zdroje formátování nadřazené, jako je výchozí nastavení odstavce, textový styl, rozvržení nebo hlavní snímek, motiv nebo výchozí nastavení na úrovni prezentace. Tyto hodnoty jsou **zděděné hodnoty**. Hodnota, která zůstane po vyřešení celé hierarchie, je **efektivní hodnota** — hodnota použitá k vykreslení objektu.
 
-1. Vlastnosti úseku na snímku.
-1. Textové styly prototypu tvaru na rozložení nebo hlavním snímku, pokud má úsek textového rámce tvar.
-1. Globální nastavení textu v prezentaci.
+Například část textu nemusí definovat vlastní výšku písma. Její lokální hodnota [getFontHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/) je pak `NAN`, což znamená „není zde nastavena.“ Část může zdědit výšku ze svého odstavce, výchozího textového stylu prezentace nebo jiného relevantního zdroje. Voláním [getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/geteffective/) na formát části se vrátí finální vypočtená výška.
 
-Lokální hodnoty mohou být na libovolné úrovni definovány nebo vynechány. Když Aspose.Slides potřebuje finální „vypočtené“ formátování, rozpozná řetězec dědičnosti a vrátí **efektivní** hodnoty. Získáte je voláním metody `getEffective` na objektu lokálního formátu.
+Používejte dva typy formátovacích dat pro různé účely:
 
-Následující příklad ukazuje, jak získat efektivní hodnoty. Předpokládá, že první tvar na prvním snímku je [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) s textovým rámcem a alespoň jedním úsekem.
+- Číst nebo měnit lokální formátovací objekt, například [PortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/), když potřebujete kontrolovat, kde je hodnota definována.
+- Číst objekt efektivních dat, například [data vrácená metodou PortionFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/geteffective/), když potřebujete finální, vykreslený výsledek. Efektivní data jsou jen pro čtení.
+
+Před spuštěním příkladů [nainstalujte Aspose.Slides pro PHP přes Java](/slides/cs/php-java/installation/).
+
+## **Porovnejte lokální, zděděné a efektivní hodnoty**
+
+Následující kompletní příklad vytvoří tvar a aplikuje výšky písma na úrovních prezentace, odstavce a části. Každý krok vypíše hodnoty definované na těchto úrovních a výslednou efektivní hodnotu pro stejnou část textu. Také ukazuje, proč je potřeba po změnách formátování znovu načíst efektivní data.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+function formatLocalValue($value)
+{
+    return $value === null || is_nan($value) ? "<not set>" : (string)$value;
+}
+
+function printFontHeights($caption, $presentation, $paragraph, $portion)
+{
+    $presentationValue = java_values($presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->getFontHeight());
+    $paragraphValue = java_values($paragraph->getParagraphFormat()->getDefaultPortionFormat()->getFontHeight());
+    $localValue = java_values($portion->getPortionFormat()->getFontHeight());
+
+    // Přečtěte efektivní data po předchozích změnách.
+    $effectiveValue = java_values($portion->getPortionFormat()->getEffective()->getFontHeight());
+
+    echo $caption . PHP_EOL;
+    echo "  Presentation default: " . formatLocalValue($presentationValue) . PHP_EOL;
+    echo "  Paragraph default:    " . formatLocalValue($paragraphValue) . PHP_EOL;
+    echo "  Portion local:        " . formatLocalValue($localValue) . PHP_EOL;
+    echo "  Portion effective:    " . $effectiveValue . PHP_EOL;
+}
+
+$presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $localTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $effectiveTextFrameFormat = $localTextFrameFormat->getEffective();
-
-    $paragraph = $shape->getTextFrame()->getParagraphs()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 500, 80, false);
+    $textFrame = $shape->addTextFrame("Effective formatting");
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
     $portion = $paragraph->getPortions()->get_Item(0);
 
-    $localPortionFormat = $portion->getPortionFormat();
-    $effectivePortionFormat = $localPortionFormat->getEffective();
+    // Definujte zděděné hodnoty na dvou různých úrovních.
+    $presentation->getDefaultTextStyle()->getLevel(0)->getDefaultPortionFormat()->setFontHeight(20);
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(28);
+
+    printFontHeights("The portion inherits from the paragraph", $presentation, $paragraph, $portion);
+
+    // Lokální hodnota v části přepíše obě zděděné hodnoty.
+    $portion->getPortionFormat()->setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", $presentation, $paragraph, $portion);
+
+    // Změna zděděné hodnoty nepřepíše existující lokální hodnotu.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(30);
+    printFontHeights("The local value still has priority", $presentation, $paragraph, $portion);
+
+    // Vymažte lokální hodnotu. Část nyní opět zdědí hodnotu z odstavce.
+    $portion->getPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The local value is cleared", $presentation, $paragraph, $portion);
+
+    // Vymažte hodnotu odstavce. Výchozí hodnota prezentace nyní poskytuje výsledek.
+    $paragraph->getParagraphFormat()->getDefaultPortionFormat()->setFontHeight(NAN);
+    printFontHeights("The paragraph value is cleared", $presentation, $paragraph, $portion);
+
+    $presentation->save("effective-properties.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Data efektivního formátování představují aktuální vypočítané formátování po aplikaci dědičnosti. V aktuální implementaci mohou být některé objekty efektivních dat vrácené metodami, jako je [PortionFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/geteffective/), interně uloženy v cache. Opětovné volání `getEffective` po změně rodičovského nebo zděděného formátování může obnovit data v cache a dříve získaný objekt již nemusí představovat předchozí stav. Pokud potřebujete zachovat efektivní hodnoty pro pozdější použití, zkopírujte požadované vlastnosti, například výšku písma, barvu výplně, styl písma nebo zarovnání, do svého vlastního datového objektu.
-{{% /alert %}}
+Priorita v tomto příkladu je lokální formátování části, pak formátování odstavce a nakonec výchozí nastavení prezentace. Ostatní objekty mohou mít jiné řetězce dědičnosti, ale princip je stejný: konkrétnější explicitní hodnota vítězí a [getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/geteffective/) vrací finální výsledek.
 
-## **Získání efektivních vlastností kamery**
+## **Získání efektivních textových vlastností**
 
-Aspose.Slides umožňuje získat efektivní vlastnosti kamery. Efektivní data vrácená metodou [ThreeDFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/) obsahují konečné vlastnosti kamery pro [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
+Formátování textu je rozděleno mezi několik objektů:
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+- [TextFrameFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/geteffective/) určuje vlastnosti textového rámce, jako jsou okraje, ukotvení, automatické přizpůsobení a svislý směr textu.
+- [TextStyle.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textstyle/geteffective/) určuje formátování odstavce pro každou úroveň textového stylu.
+- [ParagraphFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/geteffective/) určuje vlastnosti odstavce, jako jsou zarovnání, odsazení a odrážky.
+- [PortionFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/geteffective/) určuje vlastnosti znaků, jako jsou výška písma, typ písma, barva, tučné a kurzíva.
+
+Pro následující příklad musí soubor `text-formatting.pptx` obsahovat alespoň jeden snímek a jeden [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) s nepřázdným textovým rámcem. AutoShape může být kdekoliv v kolekci tvarů; kód vyhledá vhodný objekt a před použitím jej ověří.
 
 ```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+use aspose\slides\Presentation;
 
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $camera = $threeDEffectiveData->getCamera();
-    $cameraType = $camera->getCameraType();
-    $fieldOfViewAngle = $camera->getFieldOfViewAngle();
-    $zoom = $camera->getZoom();
-
-    echo "= Effective camera properties =" . PHP_EOL;
-    echo "Type: " . $cameraType . PHP_EOL;
-    echo "Field of view: " . $fieldOfViewAngle . PHP_EOL;
-    echo "Zoom: " . $zoom . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    if ($value === null) {
+        return "<not set>";
+    }
+    if (is_bool($value)) {
+        return $value ? "true" : "false";
+    }
+    return (string)$value;
 }
-```
 
-## **Získání efektivních vlastností světelného zařízení**
-
-Aspose.Slides umožňuje získat efektivní vlastnosti světelného zařízení. Efektivní data vrácená metodou [ThreeDFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/) obsahují konečné vlastnosti světelného zařízení pro [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti světelného zařízení. Předpokládá, že první tvar na prvním snímku má 3D formátování.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $lightRig = $threeDEffectiveData->getLightRig();
-    $lightType = $lightRig->getLightType();
-    $direction = $lightRig->getDirection();
-
-    echo "= Effective light rig properties =" . PHP_EOL;
-    echo "Type: " . $lightType . PHP_EOL;
-    echo "Direction: " . $direction . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function hasNonEmptyText($shape)
+{
+    $textFrame = $shape->getTextFrame();
+    if (java_is_null($textFrame)) {
+        return false;
+    }
+    if (java_values($textFrame->getParagraphs()->getCount()) === 0) {
+        return false;
+    }
+    return java_values($textFrame->getParagraphs()->get_Item(0)->getPortions()->getCount()) > 0;
 }
-```
 
-## **Získání efektivních vlastností zkoseného tvaru**
-
-Aspose.Slides umožňuje získat efektivní vlastnosti zkosení tvaru. Efektivní data vrácená metodou [ThreeDFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/) obsahují konečné vlastnosti reliéfu pro [ThreeDFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/).
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá, že první tvar na prvním snímku má 3D formátování.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $threeDEffectiveData = $shape->getThreeDFormat()->getEffective();
-    $bevelTop = $threeDEffectiveData->getBevelTop();
-    $bevelType = $bevelTop->getBevelType();
-    $bevelWidth = $bevelTop->getWidth();
-    $bevelHeight = $bevelTop->getHeight();
-
-    echo "= Effective shape's top face relief properties =" . PHP_EOL;
-    echo "Type: " . $bevelType . PHP_EOL;
-    echo "Width: " . $bevelWidth . PHP_EOL;
-    echo "Height: " . $bevelHeight . PHP_EOL;
-} finally {
-    $presentation->dispose();
+function findAutoShapeWithText($slide)
+{
+    $autoShapeClass = new JavaClass("com.aspose.slides.AutoShape");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $candidate = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($candidate, $autoShapeClass) && hasNonEmptyText($candidate)) {
+            return $candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Získání efektivních vlastností textového rámce**
-
-Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového rámce. Efektivní data vrácená metodou [TextFrameFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/geteffective/) obsahují vlastnosti formátování textového rámce.
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá, že první tvar na prvním snímku je [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) s textovým rámcem.
-
-```php
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation("text-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $effectiveTextFrameFormat = $shape->getTextFrame()->getTextFrameFormat()->getEffective();
-    $anchoringType = $effectiveTextFrameFormat->getAnchoringType();
-    $autofitType = $effectiveTextFrameFormat->getAutofitType();
-    $textVerticalType = $effectiveTextFrameFormat->getTextVerticalType();
-    $marginLeft = $effectiveTextFrameFormat->getMarginLeft();
-    $marginTop = $effectiveTextFrameFormat->getMarginTop();
-    $marginRight = $effectiveTextFrameFormat->getMarginRight();
-    $marginBottom = $effectiveTextFrameFormat->getMarginBottom();
+    $shape = findAutoShapeWithText($presentation->getSlides()->get_Item(0));
+    if ($shape === null) {
+        throw new RuntimeException("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    echo "Anchoring type: " . $anchoringType . PHP_EOL;
-    echo "Autofit type: " . $autofitType . PHP_EOL;
-    echo "Text vertical type: " . $textVerticalType . PHP_EOL;
-    echo "Margins" . PHP_EOL;
-    echo "   Left: " . $marginLeft . PHP_EOL;
-    echo "   Top: " . $marginTop . PHP_EOL;
-    echo "   Right: " . $marginRight . PHP_EOL;
-    echo "   Bottom: " . $marginBottom . PHP_EOL;
-} finally {
-    $presentation->dispose();
-}
-```
+    $textFrame = $shape->getTextFrame();
+    $paragraph = $textFrame->getParagraphs()->get_Item(0);
+    $portion = $paragraph->getPortions()->get_Item(0);
 
-## **Získání efektivních vlastností textového stylu**
+    $textFrameEffective = $textFrame->getTextFrameFormat()->getEffective();
+    $paragraphEffective = $paragraph->getParagraphFormat()->getEffective();
+    $portionEffective = $portion->getPortionFormat()->getEffective();
 
-Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového stylu. Efektivní data vrácená metodou [TextStyle.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textstyle/geteffective/) obsahují vlastnosti textového stylu.
+    echo "Text frame margins:" . PHP_EOL;
+    echo "  Left: " . formatEffectiveValue($textFrameEffective->getMarginLeft()) . PHP_EOL;
+    echo "  Top: " . formatEffectiveValue($textFrameEffective->getMarginTop()) . PHP_EOL;
+    echo "  Right: " . formatEffectiveValue($textFrameEffective->getMarginRight()) . PHP_EOL;
+    echo "  Bottom: " . formatEffectiveValue($textFrameEffective->getMarginBottom()) . PHP_EOL;
+    echo "Paragraph alignment: " . formatEffectiveValue($paragraphEffective->getAlignment()) . PHP_EOL;
+    echo "Font height: " . formatEffectiveValue($portionEffective->getFontHeight()) . PHP_EOL;
+    echo "Bold: " . formatEffectiveValue($portionEffective->getFontBold()) . PHP_EOL;
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá, že první tvar na prvním snímku je [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) s textovým rámcem.
-
-```php
-$presentation = new Presentation("sample.pptx");
-try {
-    $slide = $presentation->getSlides()->get_Item(0);
-    $shape = $slide->getShapes()->get_Item(0);
-
-    $textFrameFormat = $shape->getTextFrame()->getTextFrameFormat();
-    $textStyle = $textFrameFormat->getTextStyle();
-    $effectiveTextStyle = $textStyle->getEffective();
-    $levelCount = 9;
-
-    for ($levelIndex = 0; $levelIndex < $levelCount; $levelIndex++) {
-        $effectiveStyleLevel = $effectiveTextStyle->getLevel($levelIndex);
-        $depth = $effectiveStyleLevel->getDepth();
-        $indent = $effectiveStyleLevel->getIndent();
-        $alignment = $effectiveStyleLevel->getAlignment();
-        $fontAlignment = $effectiveStyleLevel->getFontAlignment();
-
-        echo "= Effective paragraph formatting for style level #" . $levelIndex . " =" . PHP_EOL;
-
-        echo "Depth: " . $depth . PHP_EOL;
-        echo "Indent: " . $indent . PHP_EOL;
-        echo "Alignment: " . $alignment . PHP_EOL;
-        echo "Font alignment: " . $fontAlignment . PHP_EOL;
+    $effectiveTextStyle = $textFrame->getTextFrameFormat()->getTextStyle()->getEffective();
+    for ($level = 0; $level < 9; $level++) {
+        $levelEffective = $effectiveTextStyle->getLevel($level);
+        echo "Level " . $level . " indent: " . formatEffectiveValue($levelEffective->getIndent()) . PHP_EOL;
     }
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Získání efektivní hodnoty výšky písma**
+## **Získání efektivních 3D vlastností**
 
-Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód demonstruje, jak se efektivní výška písma úseku mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
+[ThreeDFormat.getEffective](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/) vrací jeden objekt efektivních dat, který seskupuje všechna vyřešená 3D nastavení. Jeho metody [getCamera](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/), [getLightRig](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/), [getBevelTop](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/) a [getBevelBottom](https://reference.aspose.com/slides/cs/php-java/aspose.slides/threedformat/geteffective/) vystavují odpovídající efektivní data. Čtení těchto souvisejících nastavení dohromady usnadňuje pochopení finálního 3D vzhledu tvaru.
+
+Pro tento příklad musí soubor `shape-3d.pptx` obsahovat alespoň jeden tvar na první snímku. Pokud chcete, aby výstup obsahoval hodnoty jiných než výchozí, aplikujte na tento tvar 3D kameru, osvětlení nebo nastavení zkosení.
 
 ```php
-$presentation = new Presentation();
+use aspose\slides\Presentation;
+
+function formatEffectiveValue($javaValue)
+{
+    $value = java_values($javaValue);
+    return $value === null ? "<not set>" : (string)$value;
+}
+
+$presentation = new Presentation("shape-3d.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0 || java_values($presentation->getSlides()->get_Item(0)->getShapes()->size()) === 0) {
+        throw new RuntimeException("The first slide must contain a shape.");
+    }
 
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 100, 100, 400, 75, false);
-    $autoShape->addTextFrame("");
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $threeDEffective = $shape->getThreeDFormat()->getEffective();
 
-    $paragraph = $autoShape->getTextFrame()->getParagraphs()->get_Item(0);
-    $paragraph->getPortions()->clear();
+    echo "Camera:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getCamera()->getCameraType()) . PHP_EOL;
+    echo "  Field of view: " . formatEffectiveValue($threeDEffective->getCamera()->getFieldOfViewAngle()) . PHP_EOL;
+    echo "  Zoom: " . formatEffectiveValue($threeDEffective->getCamera()->getZoom()) . PHP_EOL;
 
-    $firstPortion = new Portion("Sample text with first portion");
-    $secondPortion = new Portion(" and second portion.");
+    echo "Light rig:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getLightRig()->getLightType()) . PHP_EOL;
+    echo "  Direction: " . formatEffectiveValue($threeDEffective->getLightRig()->getDirection()) . PHP_EOL;
 
-    $paragraph->getPortions()->add($firstPortion);
-    $paragraph->getPortions()->add($secondPortion);
-
-    $firstEffectivePortionFormat = $firstPortion->getPortionFormat()->getEffective();
-    $secondEffectivePortionFormat = $secondPortion->getPortionFormat()->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height just after creation:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $defaultStyleLevel = $presentation->getDefaultTextStyle()->getLevel(0);
-    $defaultPortionFormat = $defaultStyleLevel->getDefaultPortionFormat();
-    $defaultPortionFormat->setFontHeight(24);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting the presentation default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $paragraphDefaultPortionFormat = $paragraph->getParagraphFormat()->getDefaultPortionFormat();
-    $paragraphDefaultPortionFormat->setFontHeight(40);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting paragraph default font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $firstPortionFormat->setFontHeight(55);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #0 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $secondPortionFormat->setFontHeight(18);
-    $firstEffectivePortionFormat = $firstPortionFormat->getEffective();
-    $secondEffectivePortionFormat = $secondPortionFormat->getEffective();
-
-    $firstFontHeight = $firstEffectivePortionFormat->getFontHeight();
-    $secondFontHeight = $secondEffectivePortionFormat->getFontHeight();
-    echo "Effective font height after setting portion #1 font height:" . PHP_EOL;
-    echo "Portion #0: " . $firstFontHeight . PHP_EOL;
-    echo "Portion #1: " . $secondFontHeight . PHP_EOL;
-
-    $presentation->save("SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
+    echo "Top bevel:" . PHP_EOL;
+    echo "  Type: " . formatEffectiveValue($threeDEffective->getBevelTop()->getBevelType()) . PHP_EOL;
+    echo "  Width: " . formatEffectiveValue($threeDEffective->getBevelTop()->getWidth()) . PHP_EOL;
+    echo "  Height: " . formatEffectiveValue($threeDEffective->getBevelTop()->getHeight()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Získání efektivního formátu výplně pro tabulku**
+## **Získání efektivního formátování tabulky**
 
-Pomocí Aspose.Slides můžete získat efektivní formátování výplně pro různé části tabulky. Efektivní data vrácená objekty formátování obsahují vlastnosti [FillFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/). Formátování buňky má vyšší prioritu než formátování řádku, formátování řádku má vyšší prioritu než formátování sloupce a formátování sloupce má vyšší prioritu než formátování celé tabulky.
+Formátování tabulky může pocházet ze stylu tabulky a z formátů aplikovaných na celou tabulku, sloupec, řádek nebo jednotlivou buňku. V případě konfliktů mezi explicitně definovanými výplněmi je prioritou buňka, řádek, sloupec a pak celá tabulka. Efektivní formát buňky je finální formát použité k vykreslení této buňky.
 
-V důsledku toho jsou pro vykreslení buňky tabulky použity efektivní vlastnosti [CellFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/cellformat/). Následující ukázkový kód ukazuje, jak získat efektivní formátování výplně pro různé části tabulky. Předpokládá, že první tvar na prvním snímku je [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/).
+Pro tento příklad musí soubor `table-formatting.pptx` obsahovat alespoň jednu tabulku na první snímku. Tabulka musí mít alespoň jeden řádek a jeden sloupec. Kód hledá [Table](https://reference.aspose.com/slides/cs/php-java/aspose.slides/table/) místo předpokladu, že `getShapes()->get_Item(0)` je tabulka.
 
 ```php
-$presentation = new Presentation("sample.pptx");
+use aspose\slides\Presentation;
+
+function findTable($slide)
+{
+    $tableClass = new JavaClass("com.aspose.slides.Table");
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, $tableClass)) {
+            return $shape;
+        }
+    }
+    return null;
+}
+
+$presentation = new Presentation("table-formatting.pptx");
 try {
-    $slide = $presentation->getSlides()->get_Item(0);
+    if (java_values($presentation->getSlides()->size()) === 0) {
+        throw new RuntimeException("The presentation contains no slides.");
+    }
 
-    $table = $slide->getShapes()->get_Item(0);
-    $tableFormatEffective = $table->getTableFormat()->getEffective();
+    $table = findTable($presentation->getSlides()->get_Item(0));
+    if ($table === null) {
+        throw new RuntimeException("The first slide must contain a table.");
+    }
+    if (java_values($table->getRows()->size()) === 0 || java_values($table->getColumns()->size()) === 0) {
+        throw new RuntimeException("The table must contain at least one cell.");
+    }
 
-    $row = $table->getRows()->get_Item(0);
-    $rowFormatEffective = $row->getRowFormat()->getEffective();
+    $tableEffective = $table->getTableFormat()->getEffective();
+    $rowEffective = $table->getRows()->get_Item(0)->getRowFormat()->getEffective();
+    $columnEffective = $table->getColumns()->get_Item(0)->getColumnFormat()->getEffective();
+    $cellEffective = $table->get_Item(0, 0)->getCellFormat()->getEffective();
 
-    $column = $table->getColumns()->get_Item(0);
-    $columnFormatEffective = $column->getColumnFormat()->getEffective();
-
-    $cell = $table->get_Item(0, 0);
-    $cellFormatEffective = $cell->getCellFormat()->getEffective();
-
-    $tableFillFormatEffective = $tableFormatEffective->getFillFormat();
-    $rowFillFormatEffective = $rowFormatEffective->getFillFormat();
-    $columnFillFormatEffective = $columnFormatEffective->getFillFormat();
-    $cellFillFormatEffective = $cellFormatEffective->getFillFormat();
+    echo "Table fill: " . java_values($tableEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Row fill: " . java_values($rowEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Column fill: " . java_values($columnEffective->getFillFormat()->getFillType()) . PHP_EOL;
+    echo "Final cell fill: " . java_values($cellEffective->getFillFormat()->getFillType()) . PHP_EOL;
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Často kladené otázky**
+Pokud potřebujete barvu místo jen typu výplně, nejprve zkontrolujte efektivní hodnotu [getFillType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/geteffective/), a potom použijte metodu odpovídající tomuto typu — například [getSolidFillColor](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fillformat/geteffective/) pro plnou výplň.
 
-**Vrací `getEffective` snímek?**
+## **Znovu načtěte efektivní data po změnách**
 
-Ne vždy. Data efektivního formátování představují vypočítané formátování po aplikaci dědičnosti, ale některé objekty mohou být interně uloženy v cache. Následující volání `getEffective` může formátování přepočítat a aktualizovat cache, takže dříve získaný objekt by neměl být považován za trvalý snímek.
+Efektivní data popisují hierarchii formátování v okamžiku, kdy jsou vyřešena. Zavolejte `getEffective` znovu po změně čehokoliv, co může být součástí této hierarchie, včetně:
 
-**Kdy bych měl znovu načíst efektivní vlastnosti?**
+- lokálního formátování objektu;
+- výchozích nastavení odstavce nebo textového rámce;
+- stylu tabulky, tabulky, sloupce, řádku nebo formátu buňky;
+- formátování rozvržení nebo hlavního snímku;
+- dat motivu nebo výchozích nastavení na úrovni prezentace;
+- rozvržení nebo hlavního snímku přiřazeného ke snímku.
 
-Zavolejte `getEffective` znovu po změně lokálního formátování, rodičovských stylů, formátování rozložení, formátování hlavního snímku nebo výchozích nastavení na úrovni prezentace. Další volání znovu vyhodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
+Neponechávejte objekt efektivních dat jako trvalý snímek. Aspose.Slides může vnitřně kešovat některá efektivní data a pozdější volání `getEffective` může tato data aktualizovat. Pokud potřebujete porovnat hodnoty před a po změně, zkopírujte požadované skalární hodnoty — například výšku písma, barvu, zarovnání nebo šířku zkosení — do vlastních proměnných před provedením změny.
 
-**Ovlivní změna nebo odebrání rozložení/hlavního snímku efektivní vlastnosti, které už byly získány?**
+Pro změnu hodnoty aktualizujte příslušný lokální formátovací objekt a poté zavolejte `getEffective` k ověření výsledku. Objektů efektivních dat jsou samy o sobě jen pro čtení.
 
-Ano, ale změna se projeví až při dalším volání `getEffective`. Pokud se změní nebo odstraní zdroj rodičovského formátování, dříve získaná efektivní data mohou být zastaralá. Po opětovném volání `getEffective` Aspose.Slides znovu vyhodnotí strom formátování a výsledná písma, barvy, velikosti nebo jiné hodnoty se mohou změnit.
+## **FAQ**
 
-**Mohu měnit hodnoty pomocí objektů efektivních dat?**
+**Jak mohu zjistit, která úroveň poskytla efektivní hodnotu?**
 
-Ne. Objekty efektivních dat pouze poskytují vypočtené hodnoty. Proveďte změny v lokálních objektech formátování a poté znovu získáte efektivní hodnoty.
+Efektivní data obsahují finální hodnotu, nikoli její zdroj. Prozkoumejte příslušné lokální objekty od nejspecifičtější úrovně směrem ven. Pro text to může zahrnovat část, odstavec, textový rámec, rozvržení, hlavní snímek, motiv a výchozí nastavení prezentace. Nedefinované hodnoty jako `NAN` nebo `null` signalizují, že hledání pokračuje na další úrovni.
 
-**Co se stane, když není vlastnost nastavena na úrovni tvaru, ani v rozložení/hlavním snímku, ani v globálním nastavení?**
+**Co se stane, když žádná úroveň nenastaví vlastnost?**
 
-Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí nastavení PowerPointu a Aspose.Slides. Tato vyřešená hodnota se stane součástí aktuálních efektivních dat.
+Aspose.Slides určuje odpovídající výchozí hodnotu PowerPointu nebo knihovny. Tato vyřešená hodnota se objeví v efektivních datech, i když ji žádný lokální objekt explicitně nedefinuje.
 
-**Z efektivní hodnoty písma mohu zjistit, na které úrovni byla velikost nebo typ písma zadán?**
+**Proč se někdy efektivní hodnota rovná lokální hodnotě?**
 
-Není to přímo možné. Efektivní data vracejí konečnou hodnotu. Pro zjištění zdroje prohlédněte lokální hodnoty v úseku, odstavci, textovém rámci a textových stylech na úrovni rozložení, hlavního snímku a prezentace, abyste zjistili, kde se objevila první explicitní definice.
+Lokální hodnota vyhrála výpočet dědičnosti. To je očekávané, když je vlastnost explicitně nastavena na objektu a žádné specifičtější pravidlo ji nepřepíše.
 
-**Proč se efektivní hodnoty někdy shodují s lokálními?**
+**Kdy bych měl použít lokální data místo efektivních dat?**
 
-Protože lokální hodnota se ukázala jako konečná (nebylo potřeba vyšší úrovně dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
-
-**Kdy bych měl používat efektivní vlastnosti a kdy pracovat pouze s lokálními?**
-
-Používejte efektivní data, když potřebujete výsledek „jak je vykresleno“ po aplikaci celé dědičnosti, například pro zarovnání barev, odsazení nebo velikostí. Pokud potřebujete tyto hodnoty zachovat bez ohledu na pozdější změny formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud chcete změnit formátování na konkrétní úrovni, upravte lokální vlastnosti a následně, pokud je to nutné, znovu načtěte efektivní data k ověření výsledku.
+Používejte lokální data k prohlížení nebo úpravě konkrétní úrovně formátování. Používejte efektivní data, když potřebujete finální vzhled po aplikaci dědičnosti, pravidel motivu a příslušných stylů. [Kompletní příklad porovnání](#compare-local-inherited-and-effective-values) ukazuje oba přístupy ve stejném postupu.

@@ -178,6 +178,13 @@ This PHP code shows you how to access and work with an existing table:
   }
 ```
 
+## **Find the Cell That Owns a Text Frame**
+
+When generic text-processing code receives a [TextFrame](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/) from a table, use the [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) method to retrieve the owning [Cell](https://reference.aspose.com/slides/php-java/aspose.slides/cell/). For a table-cell text frame, [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) returns the owner and [TextFrame::getParentShape](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentShape) returns `null`, even though the table itself is a shape.
+
+The cell coordinates are available through the read-only [Cell::getFirstColumnIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getFirstColumnIndex) and [Cell::getFirstRowIndex](https://reference.aspose.com/slides/php-java/aspose.slides/cell/#getFirstRowIndex) methods. [TextFrame::getParentCell](https://reference.aspose.com/slides/php-java/aspose.slides/textframe/#getParentCell) also provides read-only navigation: it returns the owner but does not change ownership. Always check the returned cell with `java_is_null` before using it.
+
+For a complete example that identifies table-cell and shape owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/php-java/search-and-replace-text/).
 
 ## **Align Text in a Table**
 
@@ -308,14 +315,14 @@ This PHP code shows you how to lock the aspect ratio for a table:
 
 ## **FAQ**
 
-### Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?
+**Can I enable right-to-left (RTL) reading direction for an entire table and the text in its cells?**
 
 Yes. The table exposes a [setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/table/setrighttoleft/) method, and paragraphs have [ParagraphFormat::setRightToLeft](https://reference.aspose.com/slides/php-java/aspose.slides/paragraphformat/setrighttoleft/). Using both ensures the correct RTL order and rendering inside cells.
 
-### How can I prevent users from moving or resizing a table in the final file?
+**How can I prevent users from moving or resizing a table in the final file?**
 
 Use shape locks to disable moving, resizing, selection, etc. These locks apply to tables as well.
 
-### Is inserting an image inside a cell as a background supported?
+**Is inserting an image inside a cell as a background supported?**
 
 Yes. You can set a [picture fill](https://reference.aspose.com/slides/php-java/aspose.slides/picturefillformat/) for a cell; the image will cover the cell area according to the chosen mode (stretch or tile).

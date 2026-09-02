@@ -1,5 +1,5 @@
 ---
-title: Video‑frames beheren in presentaties met PHP
+title: Beheer video‑frames in presentaties met PHP
 linktitle: Video‑frame
 type: docs
 weight: 10
@@ -17,41 +17,41 @@ keywords:
 - presentatie
 - PHP
 - Aspose.Slides
-description: "Leer hoe u programmatically video‑frames kunt toevoegen en extraheren in PowerPoint‑ en OpenDocument‑slides met Aspose.Slides voor PHP via Java. Snelle stapsgewijze handleiding."
+description: "Leer hoe u programmatisch video‑frames kunt toevoegen en extraheren in PowerPoint‑ en OpenDocument‑slides met Aspose.Slides voor PHP via Java. Snelle stap‑voor‑stap‑gids."
 ---
 ## **Inleiding**
 
-Een goed geplaatste video in een presentatie kan uw boodschap overtuigender maken en het betrokkenheidsniveau van uw publiek verhogen. 
+Een goed geplaatst video in een presentatie kan uw boodschap overtuigender maken en de betrokkenheid van uw publiek vergroten. 
 
-PowerPoint stelt u in staat om video’s aan een dia in een presentatie toe te voegen op twee manieren:
+PowerPoint maakt het mogelijk om video's aan een dia in een presentatie toe te voegen op twee manieren:
 
-* Voeg een lokale video toe of embed een lokale video (opgeslagen op uw computer)
+* Voeg een lokale video toe of embed deze (opgeslagen op uw computer)
 * Voeg een online video toe (van een webbron zoals YouTube).
 
-Om u in staat te stellen video‑objecten aan een presentatie toe te voegen, biedt Aspose.Slides de klasse [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/) , de klasse [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) en andere relevante types.
+Om u video's (video‑objecten) aan een presentatie toe te laten voegen, biedt Aspose.Slides de klasse [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/) , de klasse [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) , en andere relevante types.
 
-## **Maak Ingesloten Video‑frames**
+## **Maak Ingebedde Video‑Frames**
 
-Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie in te sluiten. 
+Als het videobestand dat u aan uw dia wilt toevoegen lokaal is opgeslagen, kunt u een video‑frame maken om de video in uw presentatie te embedden. 
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan.  
-1. Haal een verwijzing naar een dia op via de index.  
-1. Voeg een [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/) object toe en geef het pad naar het videobestand door om de video in de presentatie in te sluiten.  
-1. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) object toe om een frame voor de video te maken.  
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) .
+1. Haal een referentie naar een dia op via de index. 
+1. Voeg een [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/)‑object toe en geef het pad naar het videobestand op om de video in de presentatie te embedden.
+1. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/)‑object toe om een frame voor de video te maken.
 1. Sla de gewijzigde presentatie op. 
 
-Deze PHP‑code laat zien hoe u een lokaal opgeslagen video aan een presentatie toevoegt:
+Deze PHP‑code laat zien hoe u een lokaal opgeslagen video aan een presentatie kunt toevoegen:
 
 ```php
-  # Instantieert de Presentation-klasse
+  # Instantieert de Presentation‑klasse
   $pres = new Presentation("pres.pptx");
   try {
     # Laadt de video
     $fileStream = new Java("java.io.FileInputStream", "Wildlife.mp4");
     $video = $pres->getVideos()->addVideo($fileStream, LoadingStreamBehavior->KeepLocked);
-    # Haalt de eerste dia op en voegt een video-frame toe
+    # Haalt de eerste dia op en voegt een videoframe toe
     $pres->getSlides()->get_Item(0)->getShapes()->addVideoFrame(10, 10, 150, 250, $video);
-    # Slaat de presentatie op naar schijf
+    # Slaat de presentatie op schijf
     $pres->save("pres-with-video.pptx", SaveFormat::Pptx);
   } catch (JavaException $e) {
   } finally {
@@ -61,7 +61,7 @@ Deze PHP‑code laat zien hoe u een lokaal opgeslagen video aan een presentatie 
   }
 ```
 
-U kunt ook een video toevoegen door het bestandspad rechtstreeks door te geven aan de methode [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/addvideoframe/):
+U kunt ook een video toevoegen door het bestandspad rechtstreeks door te geven aan de methode [addVideoFrame(float x, float y, float width, float height, Video video)](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shapecollection/addvideoframe/) :
 
 ```php
   $pres = new Presentation();
@@ -75,20 +75,21 @@ U kunt ook een video toevoegen door het bestandspad rechtstreeks door te geven a
   }
 ```
 
-## **Video‑frames Maken met Video van Webbronnen**
+
+## **Maak Video‑Frames met Video van Webbronnen**
 
 Microsoft [PowerPoint 2013 en nieuwer](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) ondersteunt YouTube‑video’s in presentaties. Als de video die u wilt gebruiken online beschikbaar is (bijv. op YouTube), kunt u deze via de web‑link aan uw presentatie toevoegen. 
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan.  
-1. Haal een verwijzing naar een dia op via de index.  
-1. Voeg een [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/) object toe en geef de link naar de video door.  
-1. Stel een miniatuurafbeelding in voor het video‑frame.  
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) 
+1. Haal een referentie naar een dia op via de index. 
+1. Voeg een [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/)‑object toe en geef de link naar de video op.
+1. Stel een miniatuurafbeelding in voor het video‑frame. 
 1. Sla de presentatie op. 
 
-Deze PHP‑code laat zien hoe u een video van het internet aan een dia in een PowerPoint‑presentatie toevoegt:
+Deze PHP‑code laat zien hoe u een video van het web aan een dia in een PowerPoint‑presentatie kunt toevoegen:
 
 ```php
-  # Instantieert een Presentation-object dat een presentatiebestand vertegenwoordigt
+  # Instantieert een Presentation-object dat een presentiebestand vertegenwoordigt
   $pres = new Presentation();
   try {
     addVideoFromYouTube($pres, "Tj75Arhq5ho");
@@ -104,21 +105,87 @@ Deze PHP‑code laat zien hoe u een video van het internet aan een dia in een Po
 
 ```
 
-## **Video‑bijschriften Beheren**
+## **Trim een Video‑Frame**
 
-Aspose.Slides stelt u in staat om ondertitels voor video‑frames in PowerPoint‑presentaties te beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en kunnen worden benaderd via de methode [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks).
+Met Aspose.Slides kunt u bepalen welk deel van een video wordt afgespeeld door de trim‑from‑start‑ en trim‑from‑end‑waarden in te stellen via [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#setTrimFromStart) en [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#setTrimFromEnd). Beide waarden worden opgegeven in milliseconden en geven aan hoeveel tijd vanaf het begin respectievelijk het einde van de video wordt overgeslagen. Deze instellingen wijzigen de weergave‑instellingen van de video in de presentatie; ze knippen of wijzigen de ingebedde videobinaire gegevens niet.
 
-**Ondertitels aan een Video‑frame Toevoegen**
+**Stel Trim‑Instellingen In**
 
-Om ondertitels aan een video‑frame toe te voegen:
+Om een video‑frame te maken en de trim‑instellingen in te stellen:
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan.  
-1. Voeg een video toe aan de presentatie.  
-1. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) object toe aan een dia.  
-1. Gebruik de collectie [CaptionsCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/) die wordt geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks) om een WebVTT‑ondertiteltrack toe te voegen.  
-1. Sla de gewijzigde presentatie op. 
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) .
+1. Voeg een [Video](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/)‑object toe aan de presentatie.
+1. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/)‑object toe aan een dia.
+1. Stel de trim‑from‑start‑ en trim‑from‑end‑waarden in via [VideoFrame::setTrimFromStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#setTrimFromStart) en [VideoFrame::setTrimFromEnd](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#setTrimFromEnd) .
+1. Sla de gewijzigde presentatie op.
 
-De volgende code laat zien hoe u ondertitels aan een video‑frame toevoegt:
+Het volgende codevoorbeeld slaat de eerste 2,5 seconde en de laatste seconde van een ingebedde video over tijdens het afspelen:
+
+```php
+$presentation = new Presentation();
+$videoStream = null;
+try {
+    $videoStream = new Java("java.io.FileInputStream", "video.mp4");
+    $video = $presentation->getVideos()->addVideo(
+        $videoStream, LoadingStreamBehavior::ReadStreamAndRelease);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $videoFrame = $slide->getShapes()->addVideoFrame(50, 50, 640, 360, $video);
+
+    $videoFrame->setTrimFromStart(2500);
+    $videoFrame->setTrimFromEnd(1000);
+
+    $presentation->save("video_with_trim.pptx", SaveFormat::Pptx);
+} finally {
+    if ($videoStream !== null) {
+        $videoStream->close();
+    }
+    $presentation->dispose();
+}
+```
+
+**Lees Trim‑Instellingen**
+
+Om bestaande trim‑instellingen te inspecteren, laad een presentatie, vind een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/)‑object onder de shapes op de eerste dia, en lees de waarden via [VideoFrame::getTrimFromStart](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getTrimFromStart) en [VideoFrame::getTrimFromEnd](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getTrimFromEnd) .
+
+Het volgende codevoorbeeld vindt het eerste video‑frame op de eerste dia en rapporteert de trim‑instellingen in milliseconden:
+
+```php
+$presentation = new Presentation("video_with_trim.pptx");
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeCount = java_values($slide->getShapes()->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $slide->getShapes()->get_Item($shapeIndex);
+        if (java_instanceof($shape, new JavaClass("com.aspose.slides.VideoFrame"))) {
+            $videoFrame = $shape;
+            $trimFromStart = java_values($videoFrame->getTrimFromStart());
+            $trimFromEnd = java_values($videoFrame->getTrimFromEnd());
+
+            echo "Trim from start: " . $trimFromStart . " ms\n";
+            echo "Trim from end: " . $trimFromEnd . " ms\n";
+            break;
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Beheer Video‑Ondertitels**
+
+Met Aspose.Slides kunt u gesloten ondertitels voor video‑frames in PowerPoint‑presentaties beheren. Ondertitels worden opgeslagen in WebVTT‑formaat en zijn toegankelijk via de methode [VideoFrame::getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+
+**Voeg Ondertitels toe aan een Video‑Frame**
+
+Om ondertitels toe te voegen aan een video‑frame:
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) .
+1. Voeg een video toe aan de presentatie.
+1. Voeg een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/)‑object toe aan een dia.
+1. Gebruik de collectie [CaptionsCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/) die wordt geretourneerd door [getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks) om een WebVTT‑ondertiteltrack toe te voegen.
+1. Sla de gewijzigde presentatie op.
+
+De volgende code laat zien hoe u ondertitels aan een video‑frame kunt toevoegen:
 
 ```php
 $presentation = new Presentation();
@@ -140,14 +207,14 @@ try {
 
 De klasse [CaptionsCollection](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/) biedt ook een overload waarmee u ondertitels vanuit een stream kunt toevoegen.
 
-**Ondertitels uit een Video‑frame Extraheren**
+**Extraheer Ondertitels uit een Video‑Frame**
 
 Om ondertitels uit een video‑frame te extraheren:
 
-1. Laad de presentatie die de video bevat.  
-1. Zoek het doel-[VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) object.  
-1. Itereer door de collectie [getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks).  
-1. Sla elke ondertiteltrack op naar een `.vtt`‑bestand.  
+1. Laad de presentatie die de video bevat.
+1. Vind het doel‑[VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/)‑object.
+1. Iterate door de collectie [getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+1. Sla elke ondertiteltrack op in een `.vtt`‑bestand.
 
 De volgende code laat zien hoe u ondertitels uit een video‑frame kunt extraheren:
 
@@ -174,16 +241,16 @@ try {
 }
 ```
 
-Elk [Captions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captions/) object geeft de ondertitel‑identifier, label, binaire gegevens en de ondertiteltekst weer als een UTF‑8‑string.
+Elk [Captions](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captions/)‑object maakt de ondertitel‑identifier, label, binaire data en ondertitel‑tekst beschikbaar als een UTF‑8‑string.
 
-**Ondertitels uit een Video‑frame Verwijderen**
+**Verwijder Ondertitels uit een Video‑Frame**
 
 Om ondertitels uit een video‑frame te verwijderen:
 
-1. Laad de presentatie die de video bevat.  
-1. Haal het doel-[VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) object op.  
-1. Verwijder ondertitel‑tracks uit de collectie [getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks).  
-1. Sla de gewijzigde presentatie op.  
+1. Laad de presentatie die de video bevat.
+1. Haal het doel‑[VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/)‑object op.
+1. Verwijder ondertiteltracks uit de collectie [getCaptionTracks](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/#getCaptionTracks) .
+1. Sla de gewijzigde presentatie op.
 
 De volgende code laat zien hoe u alle ondertitels uit een video‑frame kunt verwijderen:
 
@@ -202,21 +269,21 @@ try {
 }
 ```
 
-Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/#remove) of [removeAt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/#removeAt) in plaats van [clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/#clear).
+Als u slechts één ondertiteltrack wilt verwijderen, gebruik dan de methoden [remove](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/#remove) of [removeAt](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/#removeAt) in plaats van [clear](https://reference.aspose.com/slides/nl/php-java/aspose.slides/captionscollection/#clear) .
 
-## **Video Uit Dia’s Extraheren**
+## **Video extraheren uit Slides**
 
-Naast het toevoegen van video’s aan dia’s, stelt Aspose.Slides u in staat om video’s die in presentaties zijn ingesloten te extraheren.
+Naast het toevoegen van video's aan dia's, maakt Aspose.Slides het mogelijk om video's die in presentaties zijn ingebed te extraheren.
 
-1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) aan om de presentatie met de video te laden.  
-2. Itereer door alle [Slide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/) objecten.  
-3. Itereer door alle [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/) objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) te vinden.  
-4. Sla de video op naar schijf.  
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/php-java/aspose.slides/presentation/) om de presentatie met de video te laden.
+2. Iterate door alle [Slide](https://reference.aspose.com/slides/nl/php-java/aspose.slides/slide/)‑objecten.
+3. Iterate door alle [Shape](https://reference.aspose.com/slides/nl/php-java/aspose.slides/shape/)‑objecten om een [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) te vinden.
+4. Sla de video op schijf.
 
-Deze PHP‑code laat zien hoe u de video van een presentatiedia kunt extraheren:
+Deze PHP‑code laat zien hoe u de video op een presentatiedia kunt extraheren:
 
 ```php
-  # Instantieert een Presentation-object dat een presentatiebestand vertegenwoordigt
+  # Instantieert een Presentation-object dat een presentiebestand vertegenwoordigt
   $pres = new Presentation("VideoSample.pptx");
   try {
     foreach($pres->getSlides() as $slide) {
@@ -246,18 +313,18 @@ Deze PHP‑code laat zien hoe u de video van een presentatiedia kunt extraheren:
 
 ## **FAQ**
 
-**Welke afspeelparameters van een video kunnen worden aangepast voor een VideoFrame?**
+**Welke video‑afspeelparameters kunnen worden gewijzigd voor een VideoFrame?**
 
-U kunt de [playback mode](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/setplaymode/) (auto of bij klikken) en [looping](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/setplayloopmode/) regelen. Deze opties zijn beschikbaar via de eigenschappen van het [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) object.
+U kunt de [playback‑mode](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/setplaymode/) (auto of bij klik) en het [looping](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/setplayloopmode/) aanpassen. Deze opties zijn beschikbaar via de eigenschappen van het object [VideoFrame](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/) .
 
-**Heeft het toevoegen van een video invloed op de bestandsgrootte van het PPTX‑bestand?**
+**Heeft het toevoegen van een video invloed op de bestandsgrootte van de PPTX?**
 
-Ja. Wanneer u een lokale video insluit, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte evenredig toeneemt met de bestandsgrootte. Wanneer u een online video toevoegt, worden alleen een link en een miniatuurafbeelding ingesloten, waardoor de toename van de grootte kleiner is.
+Ja. Wanneer u een lokale video embedt, worden de binaire gegevens in het document opgenomen, waardoor de presentatiegrootte evenredig met de bestandsgrootte toeneemt. Wanneer u een online video toevoegt, worden een link en een miniatuurafbeelding ingebed, waardoor de grootte‑toename kleiner is.
 
 **Kan ik de video in een bestaand VideoFrame vervangen zonder de positie en grootte te wijzigen?**
 
-Ja. U kunt de [video content](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/setembeddedvideo/) binnen het frame vervangen terwijl u de geometrie van de vorm behoudt; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
+Ja. U kunt de [video‑content](https://reference.aspose.com/slides/nl/php-java/aspose.slides/videoframe/setembeddedvideo/) binnen het frame verwisselen terwijl de geometrie van de shape behouden blijft; dit is een veelvoorkomend scenario voor het bijwerken van media in een bestaande lay-out.
 
-**Kan het content‑type (MIME) van een ingesloten video worden bepaald?**
+**Kan het inhoudstype (MIME) van een ingebedde video worden bepaald?**
 
-Ja. Een ingesloten video heeft een [content type](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/getcontenttype/) dat u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.
+Ja. Een ingebedde video heeft een [content type](https://reference.aspose.com/slides/nl/php-java/aspose.slides/video/getcontenttype/) dat u kunt lezen en gebruiken, bijvoorbeeld bij het opslaan naar schijf.

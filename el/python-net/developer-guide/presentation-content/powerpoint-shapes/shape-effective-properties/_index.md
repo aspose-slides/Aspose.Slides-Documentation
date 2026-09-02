@@ -1,5 +1,5 @@
 ---
-title: Λήψη αποτελεσματικών ιδιοτήτων σχήματος από παρουσιάσεις με Python
+title: Απόκτηση Αποτελεσματικών Ιδιοτήτων Σχήματος από Παρουσιάσεις σε Python
 linktitle: Αποτελεσματικές Ιδιότητες
 type: docs
 weight: 50
@@ -7,8 +7,8 @@ url: /el/python-net/shape-effective-properties/
 keywords:
 - ιδιότητες σχήματος
 - ιδιότητες κάμερας
-- φωτιστικό
-- λοξότμηση σχήματος
+- σύστημα φωτισμού
+- σχήμα λοξοτομίας
 - πλαίσιο κειμένου
 - στυλ κειμένου
 - ύψος γραμματοσειράς
@@ -17,291 +17,243 @@ keywords:
 - παρουσίαση
 - Python
 - Aspose.Slides
-description: "Ανακαλύψτε πώς το Aspose.Slides για Python μέσω .NET υπολογίζει και εφαρμόζει τις αποτελεσματικές ιδιότητες σχήματος για ακριβή απόδοση PowerPoint."
+description: "Μάθετε πώς να χρησιμοποιείτε το Aspose.Slides για Python μέσω .NET για να διακρίνετε τη τοπική, κληρονομική και αποτελεσματική μορφοποίηση σχήματος σε παρουσιάσεις PowerPoint."
 ---
-## **Επισκόπηση**
+## **Κατανόηση Τοπικών, Κληρονομικών και Αποτελεσματικών Ιδιοτήτων**
 
-Αυτό το θέμα εξηγεί τη διαφορά μεταξύ ιδιοτήτων **τοπικές** και **αποτελεσματικές**. Οι τοπικές τιμές είναι τιμές που ορίζονται άμεσα σε ένα συγκεκριμένο επίπεδο μορφοποίησης, όπως:
+Η μορφοποίηση του PowerPoint μπορεί να προέρχεται από πολλαπλές πηγές. Η τιμή που αποθηκεύεται απευθείας σε ένα αντικείμενο είναι η **τοπική τιμή**. Αν αυτή η τιμή δεν έχει οριστεί, το PowerPoint εξετάζει τις γονικές πηγές μορφοποίησης, όπως η προεπιλογή παραγράφου, ένα στυλ κειμένου, μια διάταξη ή ενδεικτική διαφάνεια, ένα θέμα ή προεπιλογές σε επίπεδο παρουσίασης. Αυτές οι τιμές είναι **κληρονομικές τιμές**. Η τιμή που απομένει αφού λυθεί ολόκληρη η ιεραρχία είναι η **αποτελεσματική τιμή**, η οποία χρησιμοποιείται για την απόδοση του αντικειμένου.
 
-1. Ιδιότητες τμήματος σε μια διαφάνεια.  
-1. Στυλ κειμένου προτύπου σχήματος σε μια διάταξη ή κύρια διαφάνεια, όταν το σχήμα πλαισίου κειμένου του τμήματος διαθέτει ένα.  
-1. Καθολικές ρυθμίσεις κειμένου σε μια παρουσίαση.
+Για παράδειγμα, ένα τμήμα κειμένου μπορεί να μην καθορίζει το ύψος της γραμματοσειράς του. Η τοπική του [font_height](https://reference.aspose.com/slides/el/python-net/aspose.slides/ibaseportionformat/font_height/) είναι τότε `float("nan")`, που σημαίνει «δεν ορίστηκε εδώ». Το τμήμα μπορεί να κληρονομήσει ένα ύψος από την παράγραφο, το προεπιλεγμένο στυλ κειμένου της παρουσίασης ή κάποια άλλη σχετική πηγή. Καλώντας [get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/iportionformat/get_effective/) στο μορφότυπο του τμήματος επιστρέφει το τελικό επιλυμένο ύψος.
 
-Οι τοπικές τιμές μπορούν να οριστούν ή να παραλειφθούν σε οποιοδήποτε επίπεδο. Όταν το Aspose.Slides χρειάζεται την τελική μορφοποίηση «όπως αποδίδεται», ερευνά την αλυσίδα κληρονομικότητας και επιστρέφει τις **αποτελεσματικές** τιμές. Μπορείτε να τις λάβετε καλώντας τη μέθοδο `get_effective` στο τοπικό αντικείμενο μορφής.
+Χρησιμοποιήστε τα δύο είδη δεδομένων μορφοποίησης για διαφορετικούς σκοπούς:
 
-Το παρακάτω παράδειγμα δείχνει πώς να λάβετε αποτελεσματικές τιμές. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) με πλαίσιο κειμένου και τουλάχιστον ένα τμήμα.
+- Διαβάστε ή αλλάξτε ένα τοπικό αντικείμενο μορφοποίησης, όπως το [IPortionFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/iportionformat/), όταν χρειάζεται να ελέγξετε πού ορίζεται μια τιμή.
+- Διαβάστε ένα αποτελεσματικό δεδομένο, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/iportionformateffectivedata/), όταν χρειάζεστε το τελικό, αποδιδόμενο αποτέλεσμα. Τα αποτελεσματικά δεδομένα είναι μόνο για ανάγνωση.
 
-```py
+## **Σύγκριση Τοπικών, Κληρονομικών και Αποτελεσματικών Τιμών**
+
+Το παρακάτω πλήρες παράδειγμα δημιουργεί ένα σχήμα και εφαρμόζει τα ύψη γραμματοσειράς σε επίπεδο παρουσίασης, παραγράφου και τμήματος. Κάθε βήμα εκτυπώνει τις τιμές που ορίζονται σε εκείνα τα επίπεδα και την προκύπτουσα αποτελεσματική τιμή για το ίδιο τμήμα κειμένου. Επιπλέον δείχνει γιατί τα αποτελεσματικά δεδομένα πρέπει να αναγιγνώσκονται ξανά μετά από αλλαγές μορφοποίησης.
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
-Τα δεδομένα αποτελεσματικής μορφοποίησης αντιπροσωπεύουν τη τρέχουσα υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας. Στην τρέχουσα υλοποίηση, ορισμένα αντικείμενα αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/iportionformateffectivedata/), μπορεί να αποθηκεύονται προσωρινά εσωτερικά. Η επανάκληση του `get_effective` μετά την αλλαγή της γονικής ή κληρονομικής μορφοποίησης μπορεί να ανανεώσει τα προσωρινά δεδομένα, και ένα προηγουμένως ληφθέν αντικείμενο ενδέχεται να μην αντιπροσωπεύει πλέον την προηγούμενη κατάσταση. Εάν χρειάζεται να διατηρήσετε τις αποτελεσματικές τιμές για μελλοντική χρήση, αντιγράψτε τις απαιτούμενες ιδιότητες, όπως το ύψος γραμματοσειράς, το χρώμα γεμίσματος, το στυλ γραμματοσειράς ή την ευθυγράμμιση, στο δικό σας αντικείμενο δεδομένων.
-{{% /alert %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-## **Λήψη αποτελεσματικών ιδιοτήτων κάμερας**
+    # Διαβάστε τα αποτελεσματικά δεδομένα μετά τις προηγούμενες αλλαγές.
+    effective_value = portion.portion_format.get_effective().font_height
 
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες μιας κάμερας. Ο τύπος [ICameraEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/icameraeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες κάμερας. Μια παρουσίαση του [ICameraEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/icameraeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [ThreeDFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/threedformat/).
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για την κάμερα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων φωτιστικού**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες ενός φωτιστικού. Ο τύπος [ILightRigEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ilightrigeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες φωτιστικού. Μια παρουσίαση του [ILightRigEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ilightrigeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [ThreeDFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/threedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το φωτιστικό. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων λοξότμησης σχήματος**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες λοξότμησης ενός σχήματος. Ο τύπος [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ishapebeveleffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες ανάπλασης προσώπου για ένα σχήμα. Μια παρουσίαση του [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ishapebeveleffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [ThreeDFormat](https://reference.aspose.com/slides/el/python-net/aspose.slides/threedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για την άνω λοξότμηση ενός σχήματος. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων πλαισίου κειμένου**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός πλαισίου κειμένου. Ο τύπος [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/itextframeformateffectivedata/) περιέχει αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) με πλαίσιο κειμένου.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων στυλ κειμένου**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός στυλ κειμένου. Ο τύπος [ITextStyleEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/itextstyleeffectivedata/) περιέχει αποτελεσματικές ιδιότητες στυλ κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες στυλ κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) με πλαίσιο κειμένου.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **Λήψη τιμής αποτελεσματικού ύψους γραμματοσειράς**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε το αποτελεσματικό ύψος γραμματοσειράς. Ο παρακάτω κώδικας δείχνει πώς το αποτελεσματικό ύψος γραμματοσειράς ενός τμήματος αλλάζει μετά τον ορισμό τοπικών τιμών ύψους γραμματοσειράς σε διαφορετικά επίπεδα δομής παρουσίασης.
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # Ορίστε κληρονομικές τιμές σε δύο διαφορετικά επίπεδα.
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # Μια τοπική τιμή στο τμήμα αντικαθιστά και τις δύο κληρονομικές τιμές.
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Η αλλαγή μιας κληρονομικής τιμής δεν αντικαθιστά μια υπάρχουσα τοπική τιμή.
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # Καθαρίστε τη τοπική τιμή. Το τμήμα τώρα κληρονομεί ξανά από την παράγραφο.
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Καθαρίστε την τιμή της παραγράφου. Η προεπιλογή της παρουσίασης τώρα παρέχει το αποτέλεσμα.
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Λήψη αποτελεσματικής μορφής γεμίσματος για πίνακα**
+Η προτεραιότητα σε αυτό το παράδειγμα είναι η τοπική μορφοποίηση του τμήματος, μετά η μορφοποίηση της παραγράφου και τέλος η προεπιλογή της παρουσίασης. Άλλα αντικείμενα μπορούν να έχουν διαφορετικές αλυσίδες κληρονόμησης, αλλά η αρχή παραμένει η ίδια: μια πιο συγκεκριμένη ρητή τιμή κερδίζει, και [get_effective](https://reference.aspose.com/slides/el/python-net/aspose.slides/iportionformat/get_effective/) επιστρέφει το τελικό αποτέλεσμα.
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε τη αποτελεσματική μορφή γεμίσματος για διαφορετικά τμήματα πίνακα. Ο τύπος [IFillFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ifillformateffectivedata/) περιέχει αποτελεσματικές ιδιότητες μορφοποίησης γεμίσματος. Η μορφοποίηση κελιού έχει μεγαλύτερη προτεραιότητα από τη μορφοποίηση σειράς, η μορφοποίηση σειράς έχει μεγαλύτερη προτεραιότητα από τη μορφοποίηση στήλης, και η μορφοποίηση στήλης έχει μεγαλύτερη προτεραιότητα από τη μορφοποίηση ολόκληρου του πίνακα.
+## **Λήψη Αποτελεσματικών Ιδιοτήτων Κειμένου**
 
-Ως αποτέλεσμα, χρησιμοποιούνται οι ιδιότητες [ICellFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/icellformateffectivedata/) για τη σχεδίαση του κελιού του πίνακα. Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τη αποτελεσματική μορφή γεμίσματος για διαφορετικά τμήματα πίνακα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/).
+Η μορφοποίηση κειμένου διαχωρίζεται σε πολλά αντικείμενα:
 
-```py
+- Η [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/el/python-net/aspose.slides/itextframeformat/get_effective/) επιλύει ιδιότητες πλαισίου κειμένου όπως τα περιθώρια, η αγκύρωση, η αυτόματη προσαρμογή και η κατακόρυφη κατεύθυνση του κειμένου.
+- Η [ITextStyle.get_effective()](https://reference.aspose.com/slides/el/python-net/aspose.slides/itextstyle/get_effective/) επιλύει μορφοποίηση παραγράφου για κάθε επίπεδο στυλ κειμένου.
+- Η [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/el/python-net/aspose.slides/iparagraphformat/get_effective/) επιλύει ιδιότητες παραγράφου όπως ευθυγράμμιση, εσοχές και κουκίδες.
+- Η [IPortionFormat.get_effective()](https://reference.aspose.com/slides/el/python-net/aspose.slides/iportionformat/get_effective/) επιλύει ιδιότητες χαρακτήρων όπως ύψος γραμματοσειράς, τύπο γραμματοσειράς, χρώμα, έντονη και πλάγια γραφή.
+
+Για το επόμενο παράδειγμα, το `text-formatting.pptx` πρέπει να περιέχει τουλάχιστον μια διαφάνεια και ένα [AutoShape](https://reference.aspose.com/slides/el/python-net/aspose.slides/autoshape/) με μη κενό πλαίσιο κειμένου. Το AutoShape μπορεί να εμφανίζεται σε οποιαδήποτε θέση στη συλλογή σχημάτων· ο κώδικας αναζητά ένα κατάλληλο αντικείμενο και το επικυρώνει πριν το χρησιμοποιήσει.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
 
-## **Συχνές ερωτήσεις**
+## **Λήψη Αποτελεσματικών 3Δ Ιδιοτήτων**
 
-**Επιστρέφει η `get_effective` ένα στιγμιότυπο;**
+Η [IThreeDFormat.get_effective()](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformat/get_effective/) επιστρέφει ένα αντικείμενο [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/) που ομαδοποιεί όλες τις επιλυμένες 3Δ ρυθμίσεις. Οι ιδιότητες του, όπως το [camera](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/camera/), το [light_rig](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/light_rig/), το [bevel_top](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/) και το [bevel_bottom](https://reference.aspose.com/slides/el/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/), εκθέτουν τα αντίστοιχα αποτελεσματικά δεδομένα. Η ανάγνωση αυτών των σχετικών ρυθμίσεων μαζί καθιστά πιο εύκολο να κατανοήσετε την τελική 3Δ εμφάνιση ενός σχήματος.
 
-Δεν είναι πάντα. Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τη μορφοποίηση που υπολογίστηκε μετά την εφαρμογή της κληρονομικότητας, αλλά ορισμένα αντικείμενα αποτελεσματικών δεδομένων μπορεί να αποθηκεύονται προσωρινά εσωτερικά. Μια επακόλουθη κλήση της `get_effective` μπορεί να επαναϋπολογίσει τη μορφοποίηση και να ανανεώσει τα προσωρινά δεδομένα, ώστε ένα προηγουμένως ληφθέν αντικείμενο να μην θεωρείται βιώσιμο στιγμιότυπο.
+Για αυτό το παράδειγμα, το `shape-3d.pptx` πρέπει να περιέχει τουλάχιστον ένα σχήμα στην πρώτη του διαφάνεια. Εφαρμόστε ρυθμίσεις κάμερας 3Δ, φωτισμού ή λοξοτομίας σε εκείνο το σχήμα αν θέλετε το αποτέλεσμα να περιέχει τιμές διαφορετικές από τις προεπιλογές.
 
-**Πότε πρέπει να διαβάζω ξανά τις αποτελεσματικές ιδιότητες;**
+```python
+import aspose.slides as slides
 
-Καλέστε ξανά τη `get_effective` μετά την αλλαγή της τοπικής μορφοποίησης, των γονικών στυλ, της μορφοποίησης διάταξης, της μορφοποίησης κύριας διαφάνειας ή των προεπιλογών επιπέδου παρουσίασης. Η επόμενη κλήση επαναεκτιμά τη ιεραρχία μορφοποίησης και επιστρέφει το τρέχον αποτελεσματικό αποτέλεσμα.
 
-**Η αλλαγή ή η αφαίρεση μιας διάταξης/κύριας διαφάνειας επηρεάζει τις αποτελεσματικές ιδιότητες που έχουν ήδη ληφθεί;**
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
 
-Ναι, αλλά η αλλαγή αντανακλάται στην επόμενη κλήση της `get_effective`. Εάν μια πηγή γονικής μορφοποίησης αλλάξει ή αφαιρεθεί, τα προηγουμένως ληφθέντα αποτελεσματικά δεδομένα μπορεί να είναι παλιά. Μόλις κληθεί ξανά η `get_effective`, το Aspose.Slides επαναεκτιμά το δέντρο μορφοποίησης και οι γράμματα, τα χρώματα, τα μεγέθη ή άλλες τιμές μπορεί να αλλάξουν.
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
 
-**Μπορώ να τροποποιήσω τιμές μέσω των αντικειμένων αποτελεσματικών δεδομένων;**
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
 
-Όχι. Τα αντικείμενα αποτελεσματικών δεδομένων εκθέτουν υπολογισμένες τιμές. Κάντε αλλαγές στα τοπικά αντικείμενα μορφοποίησης και, στη συνέχεια, λάβετε ξανά τις αποτελεσματικές τιμές.
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
 
-**Τι συμβαίνει εάν μια ιδιότητα δεν ορισθεί σε επίπεδο σχήματος, ούτε στη διάταξη/κύρια, ούτε στις καθολικές ρυθμίσεις;**
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
 
-Η αποτελεσματική τιμή καθορίζεται από τον μηχανισμό προεπιλογής, που περιλαμβάνει τις προεπιλογές του PowerPoint και του Aspose.Slides. Η επιλυθείσα τιμή γίνεται μέρος των τρεχόντων αποτελεσματικών δεδομένων.
+## **Λήψη Αποτελεσματικής Μορφοποίησης Πίνακα**
 
-**Από μια αποτελεσματική τιμή γραμματοσειράς, μπορώ να καταλάβω ποιο επίπεδο παρείχε το μέγεθος ή το είδος γραμματοσειράς;**
+Η μορφοποίηση πίνακα μπορεί να προέρχεται από το στυλ πίνακα και από μορφές που εφαρμόζονται σε όλο τον πίνακα, σε μια στήλη, σε μια σειρά ή σε ένα μεμονωμένο κελί. Σε περίπτωση συγκρούσεων μεταξύ ρητά ορισμένων γεμίσματος, η προτεραιότητα είναι κελί, σειρά, στήλη και, τέλος, ολόκληρος ο πίνακας. Η αποτελεσματική μορφή ενός κελιού είναι η τελική μορφή που χρησιμοποιείται για την απόδοση εκείνου του κελιού.
 
-Ούτε άμεσα. Τα αποτελεσματικά δεδομένα επιστρέφουν την τελική τιμή. Για να βρείτε την πηγή, ελέγξτε τις τοπικές τιμές στο τμήμα, την παράγραφο, το πλαίσιο κειμένου και τα στυλ κειμένου στη διάταξη, την κύρια διαφάνεια και το επίπεδο παρουσίασης για να εντοπίσετε πού εμφανίζεται η πρώτη ρητή δήλωση.
+Για αυτό το παράδειγμα, το `table-formatting.pptx` πρέπει να περιέχει τουλάχιστον έναν πίνακα στην πρώτη του διαφάνεια. Ο πίνακας πρέπει να έχει τουλάχιστον μια σειρά και μια στήλη. Ο κώδικας αναζητά ένα [Table](https://reference.aspose.com/slides/el/python-net/aspose.slides/table/) αντί να υποθέτει ότι το `shapes[0]` είναι πίνακας.
 
-**Γιατί οι αποτελεσματικές τιμές μερικές φορές φαίνονται πανομοιότυπες με τις τοπικές;**
+```python
+import aspose.slides as slides
 
-Επειδή η τοπική τιμή κατέληξε στο τελικό αποτέλεσμα (δεν απαιτήθηκε κληρονομικότητα ανώτερου επιπέδου). Σε τέτοιες περιπτώσεις, η αποτελεσματική τιμή ταιριάζει με την τοπική.
 
-**Πότε πρέπει να χρησιμοποιώ αποτελεσματικές ιδιότητες και πότε μόνο τοπικές;**
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
 
-Χρησιμοποιήστε τα αποτελεσματικά δεδομένα όταν χρειάζεστε το αποτέλεσμα «όπως αποδίδεται» μετά την εφαρμογή όλης της κληρονομικότητας, π.χ. για εναρμόνιση χρωμάτων, εσοχών ή μεγεθών. Εάν χρειάζεται να διατηρήσετε αυτές τις τιμές ανεξάρτητα από μελλοντικές αλλαγές μορφοποίησης, αντιγράψτε τις απαιτούμενες ιδιότητες σε δικό σας αντικείμενο. Εάν χρειάζεται να αλλάξετε τη μορφοποίηση σε συγκεκριμένο επίπεδο, τροποποιήστε τις τοπικές ιδιότητες και, εάν χρειάζεται, διαβάστε ξανά τα αποτελεσματικά δεδομένα για να επαληθεύσετε το αποτέλεσμα.
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+Αν χρειάζεστε το χρώμα αντί μόνο του τύπου γεμίσματος, ελέγξτε πρώτα την αποτελεσματική [fill_type](https://reference.aspose.com/slides/el/python-net/aspose.slides/ifillformateffectivedata/fill_type/), και μετά διαβάστε την ιδιότητα που ισχύει για εκείνο τον τύπο, για παράδειγμα την [solid_fill_color](https://reference.aspose.com/slides/el/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) για ένα συμπαγές γέμισμα.
+
+## **Επανα‑ανάγνωση Αποτελεσματικών Δεδομένων Μετά τις Αλλαγές**
+
+Τα αποτελεσματικά δεδομένα περιγράφουν την ιεραρχία μορφοποίησης τη στιγμή που επιλύεται. Καλέστε ξανά το `get_effective` μετά από αλλαγή οτιδήποτε μπορεί να συμμετέχει σε αυτήν την ιεραρχία, συμπεριλαμβανομένων:
+
+- της τοπικής μορφοποίησης του αντικειμένου·
+- των προεπιλογών παραγράφου ή πλαισίου κειμένου·
+- ενός στυλ πίνακα, πίνακα, στήλης, σειράς ή μορφής κελιού·
+- της μορφοποίησης διάταξης ή ενδεικτικής διαφάνειας·
+- των δεδομένων θέματος ή των προεπιλογών σε επίπεδο παρουσίασης·
+- της διάταξης ή ενδεικτικής διαφάνειας που έχει εκχωρηθεί σε μια διαφάνεια·
+
+Μην διατηρείτε ένα αντικείμενο αποτελεσματικών δεδομένων ως μόνιμη φωτογράφιση. Το Aspose.Slides μπορεί να αποθηκεύει προσωρινά κάποια αποτελεσματικά δεδομένα εσωτερικά, και μια μετέπειτα κλήση `get_effective` μπορεί να τα ανανεώσει. Εάν χρειάζεται να συγκρίνετε τιμές πριν και μετά από μια αλλαγή, αντιγράψτε τις απαραίτητες αριθμητικές τιμές, όπως ύψος γραμματοσειράς, χρώμα, ευθυγράμμιση ή πλάτος λοξότομης, σε δικές σας μεταβλητές πριν πραγματοποιήσετε την αλλαγή.
+
+Για να αλλάξετε μια τιμή, ενημερώστε το κατάλληλο τοπικό αντικείμενο μορφοποίησης και, στη συνέχεια, καλέστε το `get_effective` για να επαληθεύσετε το αποτέλεσμα. Τα αντικείμενα αποτελεσματικών δεδομένων είναι μόνο για ανάγνωση.
+
+## **FAQ**
+
+**Πώς μπορώ να διακρίνω ποιο επίπεδο παρείχε μια αποτελεσματική τιμή;**
+
+Τα αποτελεσματικά δεδομένα περιέχουν τη τελική τιμή, όχι την πηγή της. Εξετάστε τα σχετικά τοπικά αντικείμενα από το πιο συγκεκριμένο επίπεδο προς τα έξω. Για κείμενο, αυτό μπορεί να περιλαμβάνει το τμήμα, την παράγραφο, το πλαίσιο κειμένου, τη διάταξη, την ενδεικτική διαφάνεια, το θέμα και τις προεπιλογές της παρουσίασης. Απροσδιόριστες τιμές όπως `float("nan")` ή `None` υποδεικνύουν ότι η αναζήτηση συνεχίζεται σε άλλο επίπεδο.
+
+**Τι συμβαίνει όταν κανένα επίπεδο δεν ορίζει μια ιδιότητα;**
+
+Το Aspose.Slides επιλύει την κατάλληλη προεπιλογή του PowerPoint ή της βιβλιοθήκης. Η επιλυμένη τιμή εμφανίζεται στα αποτελεσματικά δεδομένα, ακόμη και αν κανένα τοπικό αντικείμενο δεν τη ορίζει ρητά.
+
+**Γιατί μερικές φορές μια αποτελεσματική τιμή ισούται με την τοπική τιμή;**
+
+Η τοπική τιμή κέρδισε τον υπολογισμό της κληρονόμησης. Αυτό είναι αναμενόμενο όταν η ιδιότητα έχει οριστεί ρητά στο αντικείμενο και κανένας πιο συγκεκριμένος κανόνας δεν την αντικαθιστά.
+
+**Πότε πρέπει να χρησιμοποιήσω τοπικά δεδομένα αντί για αποτελεσματικά δεδομένα;**
+
+Χρησιμοποιήστε τοπικά δεδομένα για να εξετάσετε ή να επεξεργαστείτε ένα συγκεκριμένο επίπεδο μορφοποίησης. Χρησιμοποιήστε αποτελεσματικά δεδομένα όταν χρειάζεστε την τελική εμφάνιση μετά από κληρονόμηση, κανόνες θέματος και εφαρμοσμένα στυλ. Το [complete comparison example](#compare-local-inherited-and-effective-values) δείχνει και τα δύο στην ίδια ροή εργασίας.

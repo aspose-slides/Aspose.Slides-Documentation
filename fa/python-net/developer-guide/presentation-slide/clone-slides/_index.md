@@ -34,7 +34,7 @@ pip install aspose.slides
 
 ## **کلون در انتهای همان ارائه**
 
-اگر می‌خواهید یک اسلاید را در همان ارائه کلون کنید و آن را به انتهای اسلایدهای موجود اضافه کنید، از متد `add_clone` استفاده کنید. مراحل زیر را دنبال کنید:
+اگر می‌خواهید اسلایدی را در همان ارائه کلون کنید و به انتهای اسلایدهای موجود اضافه کنید، از متد `add_clone` استفاده کنید. مراحل زیر را دنبال کنید:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) ایجاد کنید.
 1. مجموعه اسلایدها را از شیء [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) دریافت کنید.
@@ -50,7 +50,7 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # اسلاید موردنظر را به انتهای مجموعه اسلایدها در همان ارائه کلون کنید.
     presentation.slides.add_clone(presentation.slides[0])
-    # ارائهٔ تغییر یافته را روی دیسک ذخیره کنید.
+    # ارائه تغییر یافته را بر روی دیسک ذخیره می‌کند.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -68,11 +68,11 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 ```py
 import aspose.slides as slides
 
-# یک نمونه از کلاس Presentation برای نمایندگی فایل ارائه ایجاد کنید.
+# یک نمونه از کلاس Presentation ایجاد می‌کند تا فایل ارائه را نمایندگی کند.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # اسلاید موردنظر را به موقعیت مشخص‌شده (اندیس) در همان ارائه کلون کنید.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # ارائهٔ تغییر یافته را روی دیسک ذخیره کنید.
+    # ارائه تغییر یافته را بر روی دیسک ذخیره می‌کند.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -93,11 +93,11 @@ import aspose.slides as slides
 
 # یک نمونه از کلاس Presentation برای نمایندگی فایل ارائه منبع ایجاد کنید.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # یک نمونه از کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید کلون می‌شود) ایجاد کنید.
+    # یک نمونه از کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید کلون می‌شود) ایجاد می‌کند.
     with slides.Presentation() as target_presentation:
         # اسلاید موردنظر را از ارائه منبع به انتهای مجموعه اسلایدها در ارائه مقصد کلون کنید.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # ارائهٔ مقصد را روی دیسک ذخیره کنید.
+        # ارائه مقصد را بر روی دیسک ذخیره می‌کند.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -118,11 +118,11 @@ import aspose.slides as slides
 
 # یک نمونه از کلاس Presentation برای نمایندگی فایل ارائه منبع ایجاد کنید.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # یک نمونه از کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید کلون می‌شود) ایجاد کنید.
+    # یک نمونه از کلاس Presentation برای فایل PPTX مقصد (جایی که اسلاید کلون می‌شود) ایجاد می‌کند.
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # یک کلون از اولین اسلاید منبع را در اندیس 2 در ارائه مقصد وارد کنید.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # ارائهٔ مقصد را روی دیسک ذخیره کنید.
+        # ارائه مقصد را بر روی دیسک ذخیره می‌کند.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -158,7 +158,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         cloned_master = target_presentation.masters.add_clone(source_master)
         # اسلاید را از ارائه منبع به انتهای ارائه مقصد کلون کنید، با استفاده از مستر کلون شده.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # ارائهٔ مقصد را روی دیسک ذخیره کنید.
+        # ارائه مقصد را بر روی دیسک ذخیره می‌کند.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -183,7 +183,7 @@ with slides.Presentation() as presentation:
     section = presentation.sections.add_section("Section2", slide2)
     # اسلاید ایجاد شده قبلی را در بخش "Section2" کلون کنید.
     presentation.slides.add_clone(slide, section)
-    # ارائه را به صورت فایل PPTX ذخیره کنید.
+    # ارائه را به عنوان فایل PPTX ذخیره می‌کند.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -212,6 +212,6 @@ target_presentation.slide_size.set_size(
 
 شیء نمودار، قالب‌بندی و داده‌های توکار کپی می‌شوند. اگر نمودار به منبع خارجی (مثلاً یک کارپوشهٔ OLE-توکار) لینک داشت، آن لینک به عنوان یک [شیء OLE](/slides/fa/python-net/manage-ole/) حفظ می‌شود. پس از انتقال بین فایل‌ها، در دسترس بودن داده‌ها و رفتار تازه‌سازی را بررسی کنید.
 
-**آیا می‌توانم موقعیت درج و بخش‌های کلون را کنترل کنم؟**
+### آیا می‌توانم موقعیت درج و بخش‌های کلون را کنترل کنم؟
 
 بله. می‌توانید کلون را در اندیس اسلاید خاصی درج کنید و آن را به یک [بخش](/slides/fa/python-net/slide-section/) انتخابی منتقل کنید. اگر بخش هدف وجود نداشته باشد، ابتدا آن را ایجاد کنید و سپس اسلاید را به آنجا منتقل کنید.

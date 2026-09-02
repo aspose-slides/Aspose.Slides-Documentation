@@ -7,8 +7,8 @@ url: /cs/androidjava/shape-effective-properties/
 keywords:
 - vlastnosti tvaru
 - vlastnosti kamery
-- světelné zařízení
-- zkosený tvar
+- osvětlení
+- tvar s úkosy
 - textový rámec
 - textový styl
 - výška písma
@@ -18,298 +18,283 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Objevte, jak Aspose.Slides pro Android pomocí Javy vypočítává a aplikuje efektivní vlastnosti tvaru pro přesné vykreslování v PowerPointu."
+description: "Naučte se, jak pomocí Aspose.Slides pro Android v Javě rozlišovat místní, zděděné a efektivní formátování tvarů v prezentacích PowerPoint."
 ---
-## **Přehled**
+## **Pochopte místní, zděděné a efektivní vlastnosti**
 
-Toto téma vysvětluje rozdíl mezi **lokálními** a **efektivními** vlastnostmi. Lokální hodnoty jsou hodnoty, které jsou nastaveny přímo na konkrétní úrovni formátování, například:
+Formátování PowerPointu může pocházet z několika míst. Hodnota uložená přímo na objektu je jeho **místní hodnota**. Pokud tato hodnota není nastavena, PowerPoint se podívá na nadřazené zdroje formátování, jako je výchozí nastavení odstavce, textový styl, rozvržení nebo hlavní snímek, motiv nebo výchozí nastavení na úrovni celé prezentace. Tyto hodnoty jsou **zděděné hodnoty**. Hodnota, která zůstane po vyřešení celé hierarchie, je **efektivní hodnota** — hodnota použitá k vykreslení objektu.
 
-1. Vlastnosti úseku na snímku.  
-1. Prototypové textové styly tvaru na rozložení nebo hlavním snímku, pokud má tvar textového rámečku úseku.  
-1. Globální nastavení textu v prezentaci.
+Například textová část nemusí definovat svou vlastní výšku písma. Její místní [getFontHeight](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) hodnota je pak `Float.NaN`, což znamená „není zde nastaveno“. Část může zdědit výšku ze svého odstavce, výchozího textového stylu prezentace nebo jiného relevantního zdroje. Voláním [getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformat/#getEffective--) na formát části získáte finální vyřešenou výšku.
 
-Lokální hodnoty mohou být na jakékoli úrovni definovány nebo vynechány. Když Aspose.Slides potřebuje finální „jak je vykresleno“ formátování, vyřeší řetězec dědičnosti a vrátí **efektivní** hodnoty. Získáte je voláním metody `getEffective()` na objektu lokálního formátu.
+Používejte oba typy formátovacích dat pro různé účely:
 
-Následující příklad ukazuje, jak získat efektivní hodnoty. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámečkem a alespoň jedním úsekem.
+- Čtěte nebo měňte místní objekt formátu, například [IPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformat/), když potřebujete řídit, kde je hodnota definována.
+- Čtěte efektivní datový objekt, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformateffectivedata/), když potřebujete konečný, vykreslený výsledek. Efektivní data jsou jen pro čtení.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **Porovnejte místní, zděděné a efektivní hodnoty**
 
-    ITextFrame textFrame = shape.getTextFrame();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrame.getTextFrameFormat().getEffective();
-
-    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormatEffectiveData effectivePortionFormat = portion.getPortionFormat().getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-Data efektivního formátování představují aktuální vypočítané formátování po aplikaci dědičnosti. V současné implementaci mohou být některé objekty efektivních dat, například [IPortionFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformateffectivedata/), uloženy v mezipaměti interně. Opětovné volání `getEffective()` po změně nadřazeného nebo zděděného formátování může mezipaměť aktualizovat a dříve získaný objekt již nemusí představovat předchozí stav. Pokud potřebujete efektivní hodnoty zachovat pro pozdější použití, zkopírujte požadované vlastnosti, jako je výška písma, barva výplně, styl písma nebo zarovnání, do vlastního datového objektu.
-{{% /alert %}}
-
-## **Získání efektivních vlastností kamery**
-
-Aspose.Slides umožňuje získat efektivní vlastnosti kamery. Rozhraní [ICameraEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icameraeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti kamery. Instance [ICameraEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icameraeffectivedata/) je vystavena prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), která poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti kamery. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+Následující úplný příklad vytvoří tvar a aplikuje výšky písma na úrovni prezentace, odstavce a části. Každý krok vytiskne hodnoty definované na těchto úrovních a výslednou efektivní hodnotu pro stejnou textovou část. Také ukazuje, proč je třeba po změnách formátování znovu načíst efektivní data.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraEffectiveData.getCameraType());
-    System.out.println("Field of view: " + cameraEffectiveData.getFieldOfViewAngle());
-    System.out.println("Zoom: " + cameraEffectiveData.getZoom());
-} finally {
-    presentation.dispose();
-}
-```
+            // Definujte zděděné hodnoty na dvou různých úrovních.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-## **Získání efektivních vlastností světelného zařízení**
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Aspose.Slides umožňuje získat efektivní vlastnosti světelného zařízení. Rozhraní [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrigeffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti světelného zařízení. Instance [ILightRigEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilightrigeffectivedata/) je vystavena prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), která poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
+            // Místní hodnota v části přepisuje obě zděděné hodnoty.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti světelného zařízení. Předpokládá, že první tvar na prvním snímku má 3D formátování.
+            // Změna zděděné hodnoty nepřepíše existující místní hodnotu.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+            // Vymažte místní hodnotu. Část nyní opět zdědí hodnotu z odstavce.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
+            // Vymažte hodnotu odstavce. Výchozí nastavení prezentace nyní poskytuje výsledek.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightRigEffectiveData.getLightType());
-    System.out.println("Direction: " + lightRigEffectiveData.getDirection());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Získání efektivních vlastností zkoseného tvaru**
-
-Aspose.Slides umožňuje získat efektivní vlastnosti zkoseného tvaru. Rozhraní [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapebeveleffectivedata/) představuje neměnný objekt, který obsahuje efektivní vlastnosti reliéfu pro tvar. Instance [IShapeBevelEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapebeveleffectivedata/) je vystavena prostřednictvím [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/), která poskytuje efektivní hodnoty pro [IThreeDFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/).
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti horního zkosení tvaru. Předpokládá, že první tvar na prvním snímku má 3D formátování.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTopEffectiveData = threeDEffectiveData.getBevelTop();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelTopEffectiveData.getBevelType());
-    System.out.println("Width: " + bevelTopEffectiveData.getWidth());
-    System.out.println("Height: " + bevelTopEffectiveData.getHeight());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Získání efektivních vlastností textového rámce**
-
-Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového rámce. Rozhraní [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformateffectivedata/) obsahuje efektivní vlastnosti formátování textového rámce.
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti formátování textového rámce. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-
-    System.out.println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    System.out.println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    System.out.println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
-    System.out.println("Margins");
-    System.out.println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    System.out.println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    System.out.println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    System.out.println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Získání efektivních vlastností textového stylu**
-
-Pomocí Aspose.Slides můžete získat efektivní vlastnosti textového stylu. Rozhraní [ITextStyleEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextstyleeffectivedata/) obsahuje efektivní vlastnosti textového stylu.
-
-Následující ukázkový kód ukazuje, jak získat efektivní vlastnosti textového stylu. Předpokládá, že první tvar na prvním snímku je [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) s textovým rámcem.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + effectiveStyleLevel.getDepth());
-        System.out.println("Indent: " + effectiveStyleLevel.getIndent());
-        System.out.println("Alignment: " + effectiveStyleLevel.getAlignment());
-        System.out.println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Přečtěte efektivní data po předchozích změnách.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **Získání hodnoty efektivní výšky písma**
+Prioritou v tomto příkladu je místní formátování části, pak formátování odstavce a nakonec výchozí nastavení prezentace. Ostatní objekty mohou mít odlišné řetězce dědičnosti, ale princip je stejný: konkrétnější explicitní hodnota vyhrává a [getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformat/#getEffective--) vrací finální výsledek.
 
-Pomocí Aspose.Slides můžete získat efektivní výšku písma. Následující kód ukazuje, jak se efektivní výška písma úseku mění po nastavení lokálních hodnot výšky písma na různých úrovních struktury prezentace.
+## **Získání efektivních textových vlastností**
+
+Formátování textu je rozděleno mezi několik objektů:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#getEffective--) řeší vlastnosti textového rámce, jako jsou okraje, ukotvení, automatické přizpůsobení a svislý směr textu.
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextstyle/#getEffective--) řeší formátování odstavce pro každou úroveň textového stylu.
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#getEffective--) řeší vlastnosti odstavce, jako jsou zarovnání, odsazení a odrážky.
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportionformat/#getEffective--) řeší vlastnosti znaků, jako jsou výška písma, typ písma, barva, tučnost a kurzíva.
+
+Pro další příklad musí `text-formatting.pptx` obsahovat alespoň jeden snímek a jednu [AutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/autoshape/) s neprázdným textovým rámcem. AutoShape může být umístěna na libovolné pozici ve sbírce tvarů; kód hledá vhodný objekt a před použitím jej ověří.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **Získání efektivního formátu výplně pro tabulku**
+## **Získání efektivních 3D vlastností**
 
-Pomocí Aspose.Slides můžete získat efektivní formátování výplně pro různé části tabulky. Rozhraní [IFillFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifillformateffectivedata/) obsahuje efektivní vlastnosti formátování výplně. Formátování buňky má vyšší prioritu než formátování řádku, formátování řádku má vyšší prioritu než formátování sloupce a formátování sloupce má vyšší prioritu než formátování celé tabulky.
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformat/#getEffective--) vrací jeden objekt [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/) , který seskupuje všechna vyřešená 3D nastavení. Jeho metody [getCamera](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/#getCamera--) , [getLightRig](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/#getLightRig--) , [getBevelTop](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--) a [getBevelBottom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) poskytují odpovídající efektivní data. Čtení těchto souvisejících nastavení dohromady usnadňuje pochopení konečného 3D vzhledu tvaru.
 
-Výsledkem je, že vlastnosti [ICellFormatEffectiveData](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icellformateffectivedata/) jsou použity při vykreslování buňky tabulky. Následující ukázkový kód ukazuje, jak získat efektivní formátování výplně pro různé části tabulky. Předpokládá, že první tvar na prvním snímku je [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itable/).
+Pro tento příklad musí `shape-3d.pptx` obsahovat alespoň jeden tvar na svém prvním snímku. Pokud chcete, aby výstup obsahoval hodnoty odlišné od výchozích, aplikujte na tento tvar 3D kameru, osvětlení nebo nastavení sklonu.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IRow row = table.getRows().get_Item(0);
-    IColumn column = table.getColumns().get_Item(0);
-    ICell cell = table.get_Item(0, 0);
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
 
-    IFillFormatEffectiveData tableFillFormatEffective = table.getTableFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = row.getRowFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = column.getColumnFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cell.getCellFormat().getEffective().getFillFormat();
-} finally {
-    presentation.dispose();
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+## **Získání efektivního formátování tabulky**
+
+Formátování tabulky může pocházet ze stylu tabulky a z formátů aplikovaných na celou tabulku, sloupec, řádek nebo jednotlivou buňku. V případě konfliktů mezi explicitně definovanými výplněmi je prioritou buňka, řádek, sloupec a pak celá tabulka. Efektivní formát buňky je konečný formát použitý k vykreslení této buňky.
+
+Pro tento příklad musí `table-formatting.pptx` obsahovat alespoň jednu tabulku na svém prvním snímku. Tabulka musí mít alespoň jeden řádek a jeden sloupec. Kód hledá [ITable](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itable/) místo aby předpokládal, že `getShapes().get_Item(0)` je tabulka.
+
+```java
+import com.aspose.slides.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
+
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
+
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
+
+Pokud potřebujete barvu místo pouze typu výplně, nejdříve zkontrolujte efektivní [getFillType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifillformateffectivedata/#getFillType--) , a potom přečtěte metodu, která odpovídá tomuto typu — například [getSolidFillColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) pro pevnou výplň.
+
+## **Znovu načíst efektivní data po změnách**
+
+Efektivní data popisují hierarchii formátování v okamžiku, kdy jsou vyřešena. Zavolejte `getEffective` znovu po změně čehokoli, co může v této hierarchii participovat, včetně:
+
+- místního formátování objektu;
+- výchozích nastavení odstavce nebo textového rámce;
+- stylu tabulky, tabulky, sloupce, řádku nebo formátu buňky;
+- formátování rozvržení nebo hlavního snímku;
+- dat motivu nebo výchozích nastavení na úrovni prezentace;
+- rozvržení nebo hlavního snímku přiřazeného ke snímku.
+
+Neponechávejte objekt efektivních dat jako trvalý snímek. Aspose.Slides může interně některá efektivní data kešovat a pozdější volání `getEffective` může tato data aktualizovat. Pokud potřebujete porovnat hodnoty před a po změně, zkopírujte skalární hodnoty, které potřebujete — například výšku písma, barvu, zarovnání nebo šířku sklonu — do vlastních proměnných před provedením změny.
+
+Chcete-li hodnotu změnit, aktualizujte příslušný místní objekt formátu a poté zavolejte `getEffective` pro ověření výsledku. Objektů efektivních dat jsou samy o sobě jen pro čtení.
 
 ## **Často kladené otázky**
 
-**Vrací `getEffective()` snímek?**
+**Jak zjistit, která úroveň poskytla efektivní hodnotu?**
 
-Ne vždy. Efektivní data představují vypočítané formátování po aplikaci dědičnosti, ale některé objekty efektivních dat mohou být uloženy v mezipaměti interně. Následující volání `getEffective()` může formátování přepočítat a aktualizovat mezipaměť, takže dříve získaný objekt by neměl být považován za trvalý snímek.
+Efektivní data obsahují finální hodnotu, nikoli její zdroj. Prohlédněte si příslušné místní objekty od nejkonkrétnější úrovně směrem ven. Pro text to může zahrnovat část, odstavec, textový rámec, rozvržení, hlavní snímek, motiv a výchozí nastavení prezentace. Nedefinované hodnoty jako `Float.NaN` nebo `null` naznačují, že vyhledávání pokračuje na další úrovni.
 
-**Kdy bych měl znovu načíst efektivní vlastnosti?**
+**Co se stane, když žádná úroveň nedefinuje vlastnost?**
 
-Zavolejte `getEffective()` znovu po změně lokálního formátování, nadřazených stylů, formátování rozložení, hlavního formátování nebo výchozích nastavení na úrovni prezentace. Další volání přehodnotí hierarchii formátování a vrátí aktuální efektivní výsledek.
+Aspose.Slides vyřeší příslušnou výchozí hodnotu PowerPointu nebo knihovny. Tato vyřešená hodnota se objeví v efektivních datech, i když žádný místní objekt ji explicitně nedefinuje.
 
-**Ovlivní změna nebo odebrání rozložení/hlavního snímku efektivní vlastnosti, které již byly načteny?**
+**Proč se efektivní hodnota někdy rovná místní hodnotě?**
 
-Ano, ale změna se projeví při příštím volání `getEffective()`. Pokud je změněn nebo odebrán nadřazený zdroj formátování, dříve získaná efektivní data mohou být zastaralá. Po opětovném volání `getEffective()` Aspose.Slides přehodnotí strom formátování a výsledná písma, barvy, velikosti nebo jiné hodnoty se mohou změnit.
+Místní hodnota vyhrála výpočet dědičnosti. To je očekávané, když je vlastnost explicitně nastavena na objektu a žádné specifičtější pravidlo ji nepřepíše.
 
-**Mohu měnit hodnoty přes objekty efektivních dat?**
+**Kdy mám používat místní data místo efektivních dat?**
 
-Ne. Objekty efektivních dat poskytují pouze vypočítané hodnoty. Změny provádějte v objektech lokálního formátování a poté znovu získávejte efektivní hodnoty.
-
-**Co se stane, pokud není vlastnost nastavena na úrovni tvaru, rozložení/hlavního snímku ani v globálním nastavení?**
-
-Efektivní hodnota je určena výchozím mechanismem, který zahrnuje výchozí nastavení PowerPointu a Aspose.Slides. Tato získaná hodnota se stane součástí aktuálních efektivních dat.
-
-**Z efektivní hodnoty písma mohu zjistit, která úroveň poskytla velikost nebo typ písma?**
-
-Ne přímo. Efektivní data vracejí finální hodnotu. Pro zjištění zdroje zkontrolujte lokální hodnoty v úseku, odstavci, textovém rámečku a textových stylech na úrovních rozložení, hlavního snímku a prezentace, abyste zjistili, kde se objevila první explicitní definice.
-
-**Proč se efektivní hodnoty někdy shodují s lokálními?**
-
-Protože lokální hodnota se stala finální (nebyla zapotřebí žádná vyšší úroveň dědičnosti). V takových případech se efektivní hodnota shoduje s lokální.
-
-**Kdy mám používat efektivní vlastnosti a kdy pracovat pouze s lokálními?**
-
-Používejte efektivní data, když potřebujete výsledek „jak je vykresleno“ po aplikaci veškeré dědičnosti, například pro sladění barev, odsazení nebo velikostí. Pokud potřebujete tyto hodnoty zachovat bez ohledu na pozdější změny formátování, zkopírujte požadované vlastnosti do vlastního objektu. Pokud chcete změnit formátování na konkrétní úrovni, upravte lokální vlastnosti a poté, pokud je to nutné, znovu načtěte efektivní data k ověření výsledku.
+Používejte místní data k inspekci nebo úpravě konkrétní úrovně formátování. Používejte efektivní data, když potřebujete finální vzhled po aplikaci dědičnosti, pravidel motivu a příslušných stylů. [Kompletní příklad srovnání](#compare-local-inherited-and-effective-values) demonstruje obojí ve stejném pracovním postupu.

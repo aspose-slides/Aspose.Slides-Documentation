@@ -10,13 +10,13 @@ keywords:
 - 占位符
 - 演示文稿设计
 - 幻灯片设计
-- 未使用的布局
+- 未使用布局
 - 页脚可见性
 - 标题幻灯片
 - 标题和内容
 - 节标题
 - 双内容
-- 对比
+- 比较
 - 仅标题
 - 空白布局
 - 带标题的内容
@@ -25,221 +25,204 @@ keywords:
 - 垂直标题和文本
 - PowerPoint
 - OpenDocument
+- 演示文稿
 - Python
 - Aspose.Slides
-description: "了解如何在 Aspose.Slides for Python（通过 .NET）中管理和自定义幻灯片布局。探索布局类型、占位符控制、页脚可见性以及通过 Python 代码示例进行布局操作。"
+description: 在 Aspose.Slides for Python via .NET 中应用、创建和修改幻灯片布局，添加占位符，删除未使用的布局，并控制页脚可见性。
 ---
-
 ## **概述**
 
-幻灯片布局定义了占位框的排列方式以及幻灯片内容的格式。它控制哪些占位符可用以及它们出现的位置。幻灯片布局帮助您快速且一致地设计演示文稿——无论是创建简单的还是更复杂的内容。PowerPoint 中最常见的幻灯片布局包括：
+幻灯片布局定义了占位符（如标题、文本、图片、图表和表格）的位置和格式。应用布局可为幻灯片提供一致的结构，同时允许每张幻灯片包含各自的内容。
 
-**Title Slide layout** – 包含两个文本占位符：一个用于标题，另一个用于副标题。
+最常用的布局包括：
 
-**Title and Content layout** – 在顶部提供较小的标题占位符，在其下方提供更大的占位符，用于主要内容（如文本、项目符号、图表、图像等）。
+- **标题幻灯片**：包含标题和副标题占位符。
+- **标题和内容**：包含标题占位符和通用内容占位符。
+- **空白**：不包含内容占位符，适用于需要手动定位每个形状的情况。
 
-**Blank layout** – 不包含任何占位符，您可以完全自行从头设计幻灯片。
+## **了解布局继承**
 
-幻灯片布局是幻灯片母版的一部分，母版是定义演示文稿布局样式的顶层幻灯片。您可以通过母版访问和修改布局幻灯片——可以按类型、名称或唯一 ID 进行操作。或者，您也可以直接在演示文稿中编辑特定的布局幻灯片。
+演示文稿有三个相关层级：
 
-要在 Aspose.Slides for Python 中使用幻灯片布局，您可以使用：
+1. 一个[母版幻灯片](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterslide/)定义主题、共享格式、背景和公共对象。
+2. 一个[布局幻灯片](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/)属于母版，并定义特定的占位符布局。
+3. 一个[普通幻灯片](https://reference.aspose.com/slides/zh/python-net/aspose.slides/slide/)使用一个布局并存储该幻灯片的内容。
 
-- 属性，例如 [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) 和 [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/)，位于 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类下
-- 类型，例如 [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/)、[MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/)、[LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) 和 [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
+普通幻灯片从其布局继承主题和格式，布局又从其母版继承。直接在普通幻灯片上设置的值会覆盖该层级继承的值。创建普通幻灯片时，其占位符形状会根据所选布局生成，而填入这些占位符的内容属于普通幻灯片。
 
-{{% alert title="Info" color="info" %}}
+在从布局创建幻灯片之前，请先向布局添加所需的占位符。随后向布局添加其他占位符不会自动在已有的普通幻灯片中添加相应的占位符形状。
 
-了解更多关于母版幻灯片的使用，请查看 [在 Python 中管理 PowerPoint 幻灯片母版](/slides/zh/python-net/slide-master/) 文章。
+此关系有两个重要的后果：
 
-{{% /alert %}}
+- 更改布局上继承的格式或现有占位符的几何形状可能会更新所有依赖该布局的幻灯片。在编辑已在使用的布局之前，请检查其依赖的幻灯片并审阅生成的演示文稿。
+- 正在被幻灯片使用的布局无法被删除。请先将其依赖的幻灯片重新分配到其他布局，或仅删除未使用的布局。
 
-## **向演示文稿添加幻灯片布局**
+欲了解此层级顶层的更多信息，请参阅[幻灯片母版](/slides/zh/python-net/slide-master/)。
 
-若要自定义幻灯片的外观和结构，您可能需要向演示文稿中添加新的布局幻灯片。Aspose.Slides for Python 允许您检查特定布局是否已存在，必要时添加新布局，并使用该布局插入幻灯片。
+## **选择并应用幻灯片布局**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 访问 [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/)。
-1. 检查所需的布局幻灯片是否已存在于集合中。如果不存在，则添加所需的布局幻灯片。
-1. 基于新布局幻灯片添加空白幻灯片。
-1. 保存演示文稿。
+当演示文稿遵循标准 PowerPoint 布局定义时，请使用布局类型。布局名称可由用户编辑并可本地化，因此基于名称的选择可靠性较低，除非您控制源模板。
 
-以下 Python 代码演示了如何向 PowerPoint 演示文稿添加幻灯片布局：
+以下示例在第一个母版上查找**标题和内容**。如果该布局不可用，则有意回退到**空白**。第二个空检查是必需的，因为演示文稿可能仅包含自定义布局。随后通过[Slide.layout_slide](https://reference.aspose.com/slides/zh/python-net/aspose.slides/slide/layout_slide/)属性将选定的布局应用于第一个普通幻灯片。
+
 ```python
 import aspose.slides as slides
 
-    # 实例化 Presentation 类以打开演示文稿文件。
-    with slides.Presentation("sample.pptx") as presentation:
-        # 遍历布局幻灯片类型以选择布局幻灯片。
-        layout_slides = presentation.masters[0].layout_slides
-        layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-        if layout_slide is None:
-             layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+with slides.Presentation("input.pptx") as presentation:
+    layout_slides = presentation.masters[0].layout_slides
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-        if layout_slide is None:
-            # 演示文稿不包含所有布局类型的情况。
-            # 演示文稿文件仅包含 Blank 和 Custom 布局类型。
-            # 但是，具有自定义类型的布局幻灯片可能有可识别的名称，
-            # 如 “Title”、 “Title and Content”等，可用于布局幻灯片选择。
-            # 也可以依赖一组占位符形状类型。
-            # 例如，标题幻灯片应仅包含 Title 占位符类型，依此类推。
-            for title_and_object_layout_slide in layout_slides:
-                if title_and_object_layout_slide.name == "Title and Object":
-                    layout_slide = title_and_object_layout_slide
-                    break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-            if layout_slide is None:
-                for title_layout_slide in layout_slides:
-                    if title_layout_slide.name == "Title":
-                        layout_slide = title_layout_slide
-                        break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-                if layout_slide is None:
-                    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                    if layout_slide is None:
-                        layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-        # 使用添加的布局幻灯片插入空白幻灯片。
-        presentation.slides.insert_empty_slide(0, layout_slide)
-
-        # 将演示文稿保存到磁盘。
-        presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+更改幻灯片的布局不会删除直接添加到幻灯片的普通形状。但占位符位置、继承的格式以及现有占位符与新布局之间的对应关系可能会变化，因此在切换差异较大的布局时请检查输出。
 
-## **删除未使用的布局幻灯片**
+## **添加布局幻灯片**
 
-Aspose.Slides 提供了位于 [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) 类中的 [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) 方法，以便删除不需要的未使用布局幻灯片。
+选择和创建是分开的操作。前面的示例仅选择了已有布局，并未创建新布局。要创建布局，请在目标母版的布局集合上调用[MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterlayoutslidecollection/add/)方法。
 
-以下 Python 代码展示了如何从 PowerPoint 演示文稿中删除布局幻灯片：
+以下示例始终添加一个名为 `Report Title and Content` 的新**标题和内容**布局，然后基于该布局添加普通幻灯片。布局名称在集合中必须唯一。
+
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+仅在模板确实需要另一个可复用结构时才添加布局。如果已有合适的布局，请选择并复用，而不是创建重复布局。
 
 ## **向布局幻灯片添加占位符**
 
-Aspose.Slides 提供了 [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/) 属性，允许您向布局幻灯片添加新的占位符。
+[LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/placeholder_manager/)属性提供一个[LayoutPlaceholderManager](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/)，用于向布局添加占位符形状。
 
-该管理器包含以下占位符类型对应的方法：
+| PowerPoint 占位符               | `LayoutPlaceholderManager` Method |
+| -------------------------------- | --------------------------------- |
+| 内容                              | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| 内容（垂直）                      | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| 文本                              | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| 文本（垂直）                      | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| 图片                              | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| 图表                              | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| 表格                              | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| SmartArt                         | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| 媒体                              | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| 在线图片                          | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-| PowerPoint 占位符                 | [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) 方法 |
-| --------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)           | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Content (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text](text.png)                 | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Text (Vertical)](textV.png)     | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Picture](picture.png)           | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Chart](chart.png)               | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Table](table.png)               | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png)         | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Media](media.png)               | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Online Image](onlineimage.png)  | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+以下示例验证 **空白** 布局是否存在，向其添加四个占位符，然后创建使用该修改后布局的普通幻灯片。顺序是有意的：在创建普通幻灯片之前先添加占位符，以便 Aspose.Slides 能在该幻灯片上生成相应的占位符形状。
 
-以下 Python 代码演示了如何向 Blank 布局幻灯片添加新的占位符形状：
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # 获取 Blank 布局幻灯片。
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # 获取布局幻灯片的占位符管理器。
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # 向 Blank 布局幻灯片添加不同的占位符。
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # 使用 Blank 布局添加新幻灯片。
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 结果：
 
 ![The placeholders on the layout slide](add_placeholders.png)
 
-## **设置布局幻灯片的页脚可见性**
+{{% alert color="warning" title="Warning" %}}
+更改布局上继承的格式或现有占位符的几何形状可能会影响依赖的幻灯片。新添加的布局占位符不会自动填充到已有的普通幻灯片中。请在演示文稿的副本上测试布局更改，并检查每个依赖的幻灯片。
+{{% /alert %}}
 
-在 PowerPoint 演示文稿中，页脚元素（如日期、幻灯片编号和自定义文本）可以根据幻灯片布局显示或隐藏。Aspose.Slides for Python 允许您控制这些页脚占位符的可见性。这在您希望某些布局显示页脚信息，而其他布局保持简洁时非常有用。
+## **删除未使用的布局幻灯片**
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 按索引获取布局幻灯片的引用。
-1. 将幻灯片页脚占位符设为可见。
-1. 将幻灯片编号占位符设为可见。
-1. 将日期时间占位符设为可见。
-1. 保存演示文稿。
+使用[Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/)方法删除没有普通幻灯片引用的布局。该方法会保留仍在使用中的布局。
 
-以下 Python 代码展示了如何设置幻灯片页脚的可见性及相关操作：
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+要删除特定布局，首先使用其[has_depending_slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/has_depending_slides/)属性或[get_depending_slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/get_depending_slides/)方法。在调用[LayoutSlide.remove](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/remove/)之前，请重新分配所有依赖的幻灯片。尝试删除正在使用的布局会抛出[PptxEditException](https://reference.aspose.com/slides/zh/python-net/aspose.slides/pptxeditexception/)。
 
-## **为幻灯片设置子页脚可见性**
+## **控制布局幻灯片的页脚可见性**
 
-在 PowerPoint 演示文稿中，页脚元素（如日期、幻灯片编号和自定义文本）可以在母版层面进行控制，以确保所有布局幻灯片的一致性。Aspose.Slides for Python 使您能够在母版幻灯片上设置这些页脚占位符的可见性和内容，并将这些设置传播到所有子布局幻灯片，从而在整个演示文稿中保持统一的页脚信息。
+布局拥有其自己的页脚、幻灯片编号和日期时间占位符。使用[LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/header_footer_manager/)属性可为单个布局控制这些占位符。例如，内容布局应显示页脚而标题布局不应显示时，这非常有用。
 
-1. 创建 [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/) 类的实例。
-1. 按索引获取母版幻灯片的引用。
-1. 将母版及所有子页脚占位符设为可见。
-1. 将母版及所有子幻灯片编号占位符设为可见。
-1. 将母版及所有子日期时间占位符设为可见。
-1. 保存演示文稿。
+以下示例安全地选择一个布局，并使其页脚元素可见：
 
-以下 Python 代码演示了此操作：
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **控制母版及其子布局的页脚可见性**
+
+要在母版层级中应用一致的页脚设置，请使用[MasterSlide.header_footer_manager](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterslide/header_footer_manager/)属性。[MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/zh/python-net/aspose.slides/masterslideheaderfootermanager/)的传播方法作用于母版及其依赖的布局幻灯片和普通幻灯片；它们不会仅针对单个普通幻灯片。
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **常见问题**
 
-**主幻灯片和布局幻灯片有什么区别？**
+**母版幻灯片与布局幻灯片的区别是什么？**
 
-主幻灯片定义整体主题和默认格式，而布局幻灯片为不同类型的内容定义特定的占位符排列。
+母版幻灯片定义演示文稿的主题和共享格式。布局幻灯片属于母版，定义一种可复用的占位符排列。普通幻灯片使用这些布局并存储特定于幻灯片的内容。
 
 **我可以将布局幻灯片从一个演示文稿复制到另一个吗？**
 
-可以，您可以从一个演示文稿的 [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) 集合中克隆布局幻灯片，并使用 `add_clone` 方法将其插入到另一个演示文稿中。
+可以。使用[add_clone](https://reference.aspose.com/slides/zh/python-net/aspose.slides/globallayoutslidecollection/add_clone/)方法将副本添加到目标集合。在跨演示文稿复制时，还需检查源布局使用的字体、主题、图像和其他资源。
 
-**如果我删除仍被幻灯片使用的布局幻灯片会怎样？**
+**当我修改已在使用的布局时会发生什么？**
 
-如果尝试删除仍被至少一张幻灯片引用的布局幻灯片，Aspose.Slides 将抛出 [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/)。为避免此情况，请使用 [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/)，该方法只安全地删除未被使用的布局幻灯片。
+除非依赖幻灯片在本地覆盖了受影响的格式或对象，否则它们会继承布局的更改。因此，占位符的几何形状和继承的样式可能会一次性在多张幻灯片上改变。在编辑布局前，使用[get_depending_slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides/layoutslide/get_depending_slides/)来识别受影响的幻灯片。
+
+**如果我删除仍在使用的布局会怎样？**
+
+Aspose.Slides 会抛出[PptxEditException](https://reference.aspose.com/slides/zh/python-net/aspose.slides/pptxeditexception/)。请先重新分配依赖的幻灯片，或使用[remove_unused_layout_slides](https://reference.aspose.com/slides/zh/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/)仅删除未被引用的布局。

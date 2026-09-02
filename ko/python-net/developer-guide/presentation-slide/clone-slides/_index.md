@@ -1,5 +1,5 @@
 ---
-title: Python에서 PowerPoint 슬라이드 복제
+title: Python에서 PowerPoint 슬라이드 복제하기
 linktitle: 슬라이드 복제
 type: docs
 weight: 40
@@ -52,7 +52,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **동일 프레젠테이션 내 특정 위치에 클론**
+## **같은 프레젠테이션 내 특정 위치에 클론하기**
 
 동일 프레젠테이션 내에서 슬라이드를 클론하고 다른 위치에 배치하려면 `insert_clone` 메서드를 사용합니다:
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
@@ -65,7 +65,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 ```py
 import aspose.slides as slides
 
-# Presentation 클래스를 인스턴스화하여 프레젠테이션 파일을 나타냅니다.
+# 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # 같은 프레젠테이션 내에서 지정된 위치(인덱스)로 원하는 슬라이드를 복제합니다.
     presentation.slides.insert_clone(2, presentation.slides[1])
@@ -73,7 +73,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **다른 프레젠테이션 끝에 클론**
+## **다른 프레젠테이션 끝에 클론하기**
 
 하나의 프레젠테이션에서 슬라이드를 클론하여 다른 프레젠테이션 끝에 추가해야 하는 경우:
 1. 복제할 슬라이드가 포함된 소스 프레젠테이션의 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스 인스턴스를 생성합니다.
@@ -87,7 +87,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 ```py
 import aspose.slides as slides
 
-# 소스 프레젠테이션 파일을 나타내기 위해 Presentation 클래스를 인스턴스화합니다.
+# 소스 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # 슬라이드가 복제될 대상 PPTX에 대해 Presentation 클래스를 인스턴스화합니다.
     with slides.Presentation() as target_presentation:
@@ -97,7 +97,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **다른 프레젠테이션의 특정 위치에 클론**
+## **다른 프레젠테이션 특정 위치에 클론하기**
 
 하나의 프레젠테이션에서 슬라이드를 클론하여 다른 프레젠테이션의 특정 위치에 삽입해야 하는 경우:
 1. 복제할 슬라이드가 포함된 소스 프레젠테이션의 [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스 인스턴스를 생성합니다.
@@ -111,7 +111,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# 소스 프레젠테이션 파일을 나타내기 위해 Presentation 클래스를 인스턴스화합니다.
+# 소스 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # 슬라이드가 복제될 대상 PPTX에 대해 Presentation 클래스를 인스턴스화합니다.
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
@@ -121,7 +121,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **마스터 슬라이드와 함께 슬라이드를 다른 프레젠테이션에 클론**
+## **마스터 슬라이드와 함께 슬라이드 클론하기**
 
 하나의 프레젠테이션에서 **마스터와 함께** 슬라이드를 클론하여 다른 프레젠테이션에서 사용해야 하는 경우, 먼저 소스 프레젠테이션의 필요한 마스터 슬라이드를 대상 프레젠테이션으로 클론합니다. 그런 다음 슬라이드를 클론할 때 해당 대상 마스터를 사용합니다. `add_clone(Slide, MasterSlide)` 메서드는 **소스가 아니라 대상 프레젠테이션의** 마스터 슬라이드를 기대합니다.
 
@@ -140,9 +140,9 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# 소스 프레젠테이션 파일을 나타내기 위해 Presentation 클래스를 인스턴스화합니다.
+# 소스 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # 슬라이드가 복제될 대상 프레젠테이션을 위해 Presentation 클래스를 인스턴스화합니다.
+    # 슬라이드가 복제될 대상 프레젠테이션을 위한 Presentation 클래스를 인스턴스화합니다.
     with slides.Presentation() as target_presentation:
         # 소스 프레젠테이션에서 첫 번째 슬라이드를 가져옵니다.
         source_slide = source_presentation.slides[0]

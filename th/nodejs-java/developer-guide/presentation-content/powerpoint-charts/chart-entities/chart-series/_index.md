@@ -1,352 +1,416 @@
 ---
-title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอด้วย JavaScript
-linktitle: ชุดข้อมูล
+title: จัดการข้อมูลซีรีส์แผนภูมิในงานนำเสนอด้วย JavaScript
+linktitle: ซีรีส์ข้อมูล
 type: docs
 url: /th/nodejs-java/chart-series/
 keywords:
-- ชุดข้อมูลแผนภูมิ
-- การทับของซีรีส์
+- ซีรีส์แผนภูมิ
+- การทับซ้อนของซีรีส์
 - สีของซีรีส์
-- สีของหมวดหมู่
-- ชื่อของซีรีส์
+- ชื่อซีรีส์
 - จุดข้อมูล
+- เซลล์ workbook
 - ช่องว่างของซีรีส์
+- ค่าติดลบ
 - PowerPoint
 - งานนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิใน JavaScript สำหรับ PowerPoint (PPT/PPTX) พร้อมตัวอย่างโค้ดที่ใช้งานได้จริงและแนวปฏิบัติที่ดีที่สุดเพื่อยกระดับการนำเสนอข้อมูลของคุณ."
+description: "เรียนรู้วิธีจัดการซีรีส์แผนภูมิ, จุดข้อมูล, เซลล์ workbook, การจัดรูปแบบ, การทับซ้อน, ความกว้างของช่องว่าง, และค่าติดลบในงานนำเสนอด้วย JavaScript."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายบทบาทของ [ChartSeries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/) ใน Aspose.Slides โดยมุ่งเน้นที่วิธีการจัดโครงสร้างและแสดงผลข้อมูลภายในงานนำเสนอ วัตถุเหล่านี้ให้องค์ประกอบพื้นฐานที่กำหนดชุดข้อมูล จุดข้อมูล หมวดหมู่ และพารามิเตอร์การแสดงผลในแผนภูมิ ด้วยการทำงานกับ [ChartSeries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/) นักพัฒนาสามารถบูรณาการแหล่งข้อมูลพื้นฐานได้อย่างราบรื่นและควบคุมการแสดงข้อมูลได้อย่างเต็มที่ ส่งผลให้ได้งานนำเสนอที่มีข้อมูลขับเคลื่อนและแสดงผลเชิงวิเคราะห์อย่างชัดเจน
+แผนภูมิจะเก็บข้อมูลที่ถูกพล็อตไว้ใน workbook ของข้อมูลแผนภูมิ ช่วงข้อมูล [ChartSeries](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/) แสดงชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [ChartDataPoint](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/) ในชุดข้อมูลจะอ้างอิงถึงหนึ่งหรือหลายเซลล์ของ workbook วัตถุ [ChartCategory](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartcategory/) ให้ป้ายหรือค่าการจัดกลุ่มที่ใช้ร่วมกันโดยซีรีส์ ชื่อของซีรีส์, หมวดหมู่และค่าของจุดจึงถูกเชื่อมต่อกับวัตถุ [ChartDataCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatacell/) แทนที่จะเก็บไว้เป็นข้อความแสดงผลอย่างเดียว
 
-ซีรีส์คือแถวหรือคอลัมน์ของตัวเลขที่ถูกพล็อตในแผนภูมิ
+สำหรับแผนภูมิตามประเภทหมวดหมู่ทั่วไป workbook เริ่มต้นจะใช้แถวที่ 0 สำหรับชื่อซีรีส์, คอลัมน์ที่ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าของซีรีส์ ดัชนี worksheet, แถวและคอลัมน์ที่ส่งให้เมธอด [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/#getCell) มีค่าเริ่มต้นเป็นศูนย์ การจัดวางนี้เป็นประโยชน์เมื่อคุณสร้างแผนภูมิพร้อมข้อมูลเริ่มต้น แต่ไม่ได้หมายความว่าทุกแผนภูมิที่มีอยู่ใช้รูปแบบนี้ สำหรับงานนำเสนอที่โหลดแล้ว ให้ตรวจสอบเซลล์ที่อ้างอิงโดยซีรีส์, หมวดหมู่และจุดข้อมูลก่อนทำการเปลี่ยนแปลงค่าของ workbook
+
+การตั้งค่าแผนภูมิมีสามระดับความครอบคลุม:
+
+- การตั้งค่าระดับซีรีส์ เช่น [ChartSeries.getFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getFormat) ให้ลักษณะเริ่มต้นสำหรับจุดทั้งหมดในซีรีส์หนึ่ง
+- การตั้งค่าจุดข้อมูล เช่น [ChartDataPoint.getFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#getFormat) ทำให้ลักษณะของซีรีส์ถูกแทนที่สำหรับจุดเดียว
+- การตั้งค่ากลุ่มจะใช้กับซีรีส์ที่เข้ากันได้ซึ่งอยู่ใน [ChartSeriesGroup](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseriesgroup/) เดียวกัน เข้าถึงกลุ่มผ่าน [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) เมื่อคุณต้องการตั้งค่าตัวเลือกเช่นการทับซ้อนหรือความกว้างของช่องว่าง
+
+เมื่อไม่มีการกำหนดการเติมสีจุดหรือซีรีส์อย่างชัดเจน สไตล์และธีมของแผนภูมิกำหนดลักษณะที่แสดงโดยอัตโนมัติ เมื่อมีการกำหนดรูปแบบทั้งของซีรีส์และจุดอยู่พร้อมกัน การกำหนดรูปแบบของจุดจะมีลำดับความสำคัญสำหรับจุดนั้น
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **กำหนดการทับของซีรีส์แผนภูมิ**
+## **ตั้งค่าการทับซ้อนของซีรีส์แผนภูมิ**
 
-ด้วยเมธอด [ChartSeries.getOverlap](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getOverlap) คุณสามารถระบุว่าบาร์และคอลัมน์ควรทับกันเท่าใดในแผนภูมิ 2 มิติ (ช่วง: -100 ถึง 100) คุณสมบัตินี้ใช้กับซีรีส์ทั้งหมดของกลุ่มซีรีส์แม่: เป็นการสืบทอดคุณสมบัติของกลุ่มที่เหมาะสม ดังนั้นคุณสมบัตินี้เป็นแบบอ่านอย่างเดียว
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getOverlap) รายงานระดับการทับซ้อนของแท่งหรือคอลัมน์ในแผนภูมิ 2 มิติ ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการแสดงผลแบบอ่านอย่างเดียวของการตั้งค่าในกลุ่มซีรีส์แม่ ใช้ [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) เพื่ออัปเดตทุกซีรีส์ที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับแผนภูมิที่แสดงแท่งหรือคอลัมน์แบบจัดกลุ่ม; ไม่ส่งผลต่อกลุ่มซีรีส์ที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม
 
-ใช้คุณสมบัติ `ParentSeriesGroup.getOverlap` แบบอ่าน/เขียนเพื่อกำหนดค่าที่คุณต้องการสำหรับ `Overlap`
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. เพิ่มแผนภูมิคอลัมน์แบบกลุ่มบนสไลด์
-1. เข้าถึงซีรีส์แรกของแผนภูมิ
-1. เข้าถึง `ParentSeriesGroup` ของซีรีส์และกำหนดค่าการทับที่คุณต้องการ
-1. เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX
-
-โค้ด JavaScript นี้แสดงวิธีตั้งค่าการทับสำหรับซีรีส์แผนภูมิ:
+ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่ประกอบด้วยซีรีส์แรก:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const overlapPercent = java.newByte(30);
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // เพิ่มแผนภูมิ
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0) {
-        // ตั้งค่าการทับของซีรีส์
-        series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
-    }
-    // เขียนไฟล์งานนำเสนอไปยังดิสก์
-    pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // แผนภูมิใหม่มีซีรีส์ตัวอย่าง, หมวดหมู่, และค่า.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **เปลี่ยนสีของซีรีส์**
+ผลลัพธ์:
 
-Aspose.Slides สำหรับ Node.js via Java ทำให้คุณสามารถเปลี่ยนสีของซีรีส์ได้ดังนี้:
+![The series overlap](series_overlap.png)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. เพิ่มแผนภูมิบนสไลด์
-1. เข้าถึงซีรีส์ที่ต้องการเปลี่ยนสี
-1. กำหนดประเภทการเติมและสีการเติมที่คุณต้องการ
-1. บันทึกงานนำเสนอที่แก้ไขแล้ว
+## **เปลี่ยนสีเติมของซีรีส์**
 
-โค้ด JavaScript นี้แสดงวิธีเปลี่ยนสีของซีรีส์:
+ใช้ [ChartSeries.getFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getFormat) เพื่อตั้งค่าสีเติมเริ่มต้นสำหรับซีรีส์ทั้งหมด หากจุดหนึ่งมีการกำหนดสีเติมไว้แล้ว การตั้งค่า [ChartDataPoint.getFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#getFormat) ของจุดนั้นจะทับการเติมสีของซีรีส์สำหรับจุดนั้น
+
+ตัวอย่างต่อไปนี้ใส่สีเติมเต็มสีน้ำเงินเข้มให้กับซีรีส์แรก:
 
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(blueColor);
+
+    presentation.save("series_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **เปลี่ยนสีของหมวดหมู่ซีรีส์**
+ผลลัพธ์:
 
-Aspose.Slides สำหรับ Node.js via Java ทำให้คุณสามารถเปลี่ยนสีของหมวดหมู่ซีรีส์ได้ดังนี้:
+![The color of the series](series_color.png)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. เพิ่มแผนภูมิบนสไลด์
-1. เข้าถึงหมวดหมู่ของซีรีส์ที่ต้องการเปลี่ยนสี
-1. กำหนดประเภทการเติมและสีการเติมที่คุณต้องการ
-1. บันทึกงานนำเสนอที่แก้ไขแล้ว
+## **เปลี่ยนชื่อซีรีส์**
 
-โค้ด JavaScript นี้แสดงวิธีเปลี่ยนสีของหมวดหมู่ซีรีส์:
+ชื่อซีรีส์ถูกเก็บใน workbook ของข้อมูลแผนภูมิและโดยปกติจะแสดงในคำอธิบาย (legend) ใน workbook เริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบกลุ่ม เซลล์ B1 อยู่ที่แถว 0, คอลัมน์ 1 และบรรจุชื่อของซีรีส์แรก ค่าคงที่ที่ตั้งชื่อตัวแปรในตัวอย่างต่อไปนี้ทำให้โครงสร้างดังกล่าวชัดเจน:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const seriesNameRowIndex = 0;
+const firstSeriesColumnIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **เปลี่ยนชื่อของซีรีส์** 
-
-โดยค่าเริ่มต้น ชื่อในตำนานของแผนภูมิจะมาจากเนื้อหาของเซลล์เหนือคอลัมน์หรือแถวของข้อมูล
-
-ในตัวอย่างของเรา (ภาพตัวอย่าง)
-
-* คอลัมน์คือ *Series 1, Series 2,* และ *Series 3*;
-* แถวคือ *Category 1, Category 2, Category 3,* และ *Category 4.*
-
-Aspose.Slides สำหรับ Node.js via Java ทำให้คุณสามารถอัปเดตหรือเปลี่ยนชื่อของซีรีส์ในข้อมูลแผนภูมิและตำนานได้
-
-โค้ด JavaScript นี้แสดงวิธีเปลี่ยนชื่อของซีรีส์ในข้อมูลแผนภูมิ `ChartDataWorkbook`:
+คุณยังสามารถอัปเดตเซลล์ที่อ้างอิงโดย [ChartSeries.getName](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getName) วิธีนี้ช่วยหลีกเลี่ยงการสันนิษฐานแถวและคอลัมน์เฉพาะในแผนภูมิที่มีอยู่:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const firstNameCellIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-โค้ด JavaScript นี้แสดงวิธีเปลี่ยนชื่อของซีรีส์ในตำนานผ่าน `Series`:
+ผลลัพธ์:
+
+![The series name](series_name.png)
+
+## **รับสีเติมอัตโนมัติของซีรีส์**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) คืนค่าสีที่คำนวณจากดัชนีซีรีส์และสไตล์ของแผนภูมิ นี่คือสีที่ใช้เมื่อการเติมสีของซีรีส์ไม่ได้กำหนดไว้โดยชัดเจน การเรียกเมธอดนี้จะอ่านสีที่คำนวณได้; ไม่ได้กำหนดสีเติมใหม่
+
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละซีรีส์เริ่มต้น:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries().get_Item(0);
-    var name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const seriesCount = chart.getChartData().getSeries().size();
+    for (let seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const automaticColor = series.getAutomaticSeriesColor();
+        const automaticColorText = automaticColor.toString();
+        console.log("Series " + seriesIndex + ": " + automaticColorText);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **กำหนดสีเติมอัตโนมัติสำหรับซีรีส์แผนภูมิ**
+ตัวอย่างผลลัพธ์สำหรับสไตล์แผนภูมิเบื้องต้น:
 
-Aspose.Slides สำหรับ Node.js via Java ทำให้คุณสามารถกำหนดสีเติมอัตโนมัติสำหรับซีรีส์แผนภูมิภายในพื้นที่พล็อตได้ดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. รับอ้างอิงของสไลด์ตามดัชนี
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นตามประเภทที่คุณต้องการ (ในตัวอย่างด้านล่าง เราใช้ `ChartType.ClusteredColumn`)
-1. เข้าถึงซีรีส์ของแผนภูมิและกำหนดสีเติมเป็น Automatic
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX
-
-โค้ด JavaScript นี้แสดงวิธีกำหนดสีเติมอัตโนมัติสำหรับซีรีส์แผนภูมิ:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // สร้างแผนภูมิคอลัมน์แบบกลุ่ม
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
-    // ตั้งค่ารูปแบบการเติมของซีรีส์เป็นอัตโนมัติ
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-    // เขียนไฟล์งานนำเสนอลงดิสก์
-    pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-## **กำหนดสีเติมกลับด้านสำหรับซีรีส์แผนภูมิ**
+สีที่ได้จะขึ้นกับสไตล์และธีมของแผนภูมิ
 
-Aspose.Slides ทำให้คุณสามารถกำหนดสีเติมกลับด้านสำหรับซีรีส์แผนภูมิภายในพื้นที่พล็อตได้ดังนี้:
+## **ตั้งค่าสีเติมกลับด้านสำหรับซีรีส์แผนภูมิ**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. รับอ้างอิงของสไลด์ตามดัชนี
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นตามประเภทที่คุณต้องการ (ในตัวอย่างด้านล่าง เราใช้ `ChartType.ClusteredColumn`)
-1. เข้าถึงซีรีส์ของแผนภูมิและกำหนดสีเติมเป็น invert
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX
+สำหรับซีรีส์แท่ง, คอลัมน์และบับเบิล, [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) สามารถแสดงค่าลบด้วยสีเติมที่แตกต่างกัน ตั้งค่าสีเติมของซีรีส์เป็นสีทึบ, เปิดการกลับด้าน, และกำหนดสีค่าลบผ่าน [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) ตัวเลขลบจะยังคงอยู่ใน workbook; เพียงสีที่แสดงที่เปลี่ยนแปลง
 
-โค้ด JavaScript นี้สาธิตการดำเนินการ:
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเบื้องต้นด้วยซีรีส์หนึ่งซีรีส์ แถว worksheet 0 มีชื่อซีรีส์, คอลัมน์ 0 มีชื่อหมวดหมู่, และคอลัมน์ 1 มีค่าต่าง ๆ:
 
 ```javascript
-var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const headerRowIndex = 0;
+const categoryColumnIndex = 0;
+const firstSeriesColumnIndex = 1;
+const firstDataRowIndex = 1;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const categoryNames = ["Category 1", "Category 2", "Category 3"];
+const seriesValues = [-20, 50, -30];
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    var workBook = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-    // เพิ่มซีรีส์และหมวดหมู่ใหม่
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-    // ดึงซีรีส์แรกของแผนภูมิและใส่ข้อมูลซีรีส์
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    var seriesColor = series.getAutomaticSeriesColor();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    const chartType = chart.getType();
+    const series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (let categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        const dataRowIndex = firstDataRowIndex + categoryIndex;
+        const categoryName = categoryNames[categoryIndex];
+        const seriesValue = seriesValues[categoryIndex];
+
+        const categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    series.getInvertedSolidFillColor().setColor(redColor);
+
+    presentation.save("inverted_solid_fill_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **กำหนดให้ซีรีส์กลับด้านเมื่อค่าติดลบ**
+ผลลัพธ์:
 
-Aspose.Slides ทำให้คุณสามารถกำหนดการกลับด้านผ่านเมธอด `ChartDataPoint.setInvertIfNegative` เมื่อกำหนดการกลับด้านโดยใช้คุณสมบัตินี้ จุดข้อมูลจะกลับสีเมื่อค่าติดลบ
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-โค้ด JavaScript นี้สาธิตการดำเนินการ:
+คุณสามารถเปิดการกลับด้านสำหรับจุดเดียวผ่าน [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) ตัวอย่างต่อไปนี้ปิดการกลับด้านสำหรับซีรีส์และเปิดเฉพาะสำหรับจุดที่เลือก จุดนั้นยังถูกกำหนดให้มีค่าเป็นลบเพื่อให้เห็นผล:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 2;
+const negativeValue = -30;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-    var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-    chartSeries.setInvertIfNegative(false);
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(redColor);
+    series.setInvertIfNegative(false);
+
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **ลบข้อมูลของจุดข้อมูลที่ระบุ**
+## **ลบค่าของจุดข้อมูลเฉพาะ**
 
-Aspose.Slides สำหรับ Node.js via Java ทำให้คุณสามารถลบข้อมูล `DataPoints` ของซีรีส์แผนภูมิเฉพาะได้ดังนี้:
+เพื่อทำให้จุดหนึ่งเป็นค่าว่างโดยไม่ลบจุดอื่น ๆ ให้ตั้งค่าเซลล์ workbook ที่เป็นฐานของจุดนั้นเป็น `null` สำหรับแผนภูมิคอลัมน์, ค่าที่พล็อตสามารถเข้าถึงได้ผ่าน [ChartDataPoint.getValue](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#getValue) จุดข้อมูลจะคงอยู่ที่ตำแหน่งหมวดหมู่เดียวกัน, แต่แผนภูมิจะถือค่านั้นเป็นค่าว่างตามการตั้งค่าแสดงค่าว่างของแผนภูมิ
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-2. รับอ้างอิงของสไลด์ตามดัชนี
-3. รับอ้างอิงของแผนภูมิตามดัชนี
-4. วนลูปผ่าน `DataPoints` ทั้งหมดของแผนภูมิและกำหนด `XValue` และ `YValue` เป็น null
-5. ลบ `DataPoints` ทั้งหมดสำหรับซีรีส์ที่ระบุ
-6. เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX
-
-โค้ด JavaScript นี้สาธิตการดำเนินการ:
+ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองในซีรีส์แรก:
 
 ```javascript
-var pres = new aspose.slides.Presentation("TestChart.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sl = pres.getSlides().get_Item(0);
-    var chart = sl.getShapes().get_Item(0);
-    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
-        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **กำหนดช่องว่างของซีรีส์ (Gap Width)**
+แผนภูมิกระจายใช้เซลล์ X และ Y แยกกัน, และแผนภูมิบับเบิลยังใช้เซลล์ขนาดเพิ่มเติม ให้ลบเฉพาะเซลล์ที่เป็นค่าที่คุณต้องการลบ อย่าเรียก [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapointcollection/#clear) เวลาต้องการคงจุดอื่นไว้ เพราะเมธอดนี้จะลบทุกจุดข้อมูลจากคอลเลกชัน
 
-Aspose.Slides สำหรับ Node.js via Java ทำให้คุณสามารถกำหนดช่องว่างของซีรีส์ผ่านคุณสมบัติ **`GapWidth`** ได้ดังนี้:
+## **ตั้งค่าความกว้างช่องว่างของซีรีส์**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Presentation)
-1. เข้าถึงสไลด์แรก
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้น
-1. เข้าถึงซีรีส์ใด ๆ ของแผนภูมิ
-1. กำหนดคุณสมบัติ `GapWidth`
-1. เขียนงานนำเสนอที่แก้ไขแล้วเป็นไฟล์ PPTX
+ความกว้างช่องว่างคือระยะห่างระหว่างกลุ่มแท่งหรือคอลัมน์ที่อยู่ติดกัน แทนเป็นเปอร์เซ็นต์ของความกว้างแท่งหรือคอลัมน์ เช่นเดียวกับการทับซ้อน มันเป็นของกลุ่มซีรีส์แม่ ไม่ใช่ของซีรีส์เดียว ใช้ [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) เพียงครั้งเดียวสำหรับกลุ่ม ค่าที่ใหญ่ขึ้นจะทำให้ช่องว่างระหว่างกลุ่มมากขึ้น; ค่าที่เล็กลงจะทำให้กลุ่มแน่นขึ้น
 
-โค้ด JavaScript นี้แสดงวิธีกำหนดช่องว่างของซีรีส์:
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างช่องว่างและบันทึกเพียงงานนำเสนอสุดท้าย:
 
 ```javascript
-// สร้างงานนำเสนอเปล่า
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const gapWidthPercent = 30;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // เข้าถึงสไลด์แรกของงานนำเสนอ
-    var slide = pres.getSlides().get_Item(0);
-    // เพิ่มแผนภูมิกับข้อมูลเริ่มต้น
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
-    // ตั้งค่าดัชนีของชีตข้อมูลแผนภูมิ
-    var defaultWorksheetIndex = 0;
-    // รับชีตงานข้อมูลแผนภูมิ
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // เพิ่มซีรีส์
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // เพิ่มหมวดหมู่
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // ดึงซีรีส์แผนภูมที่สอง
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // ใส่ข้อมูลให้ซีรีส์
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // ตั้งค่าค่า GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+ผลลัพธ์:
+
+![The gap width](gap_width.png)
 
 ## **คำถามที่พบบ่อย**
 
-**มีขีดจำกัดจำนวนซีรีส์ที่แผนภูมิเดียวสามารถบรรจุได้หรือไม่?**
+**ประเภทแผนภูมิใดบ้างที่สนับสนุนซีรีส์ข้อมูล?**
 
-Aspose.Slides ไม่ได้กำหนดขีดจำกัดคงที่สำหรับจำนวนซีรีส์ที่คุณเพิ่ม ขีดจำกัดเชิงปฏิบัติมาจากความอ่านง่ายของแผนภูมิและหน่วยความจำที่แอปพลิเคชันของคุณมี
+ทุกประเภทแผนภูมิที่ระบุโดย enumeration [ChartType](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/charttype/) ใช้ข้อมูลแผนภูมิ, แต่ซีรีส์ของพวกมันไม่ได้มีโครงสร้างหรือการตั้งค่าเดียวกัน ตัวอย่างเช่น แผนภูมิประเภทหมวดหมู่ใช้หมวดหมู่และค่า, แผนภูมิกระจายใช้ค่า X และ Y, และแผนภูมิบับเบิลเพิ่มขนาดบับเบิล ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทของซีรีส์ ตัวเลือกเช่นการทับซ้อนและความกว้างช่องว่างใช้ได้เฉพาะกับกลุ่มแท่งหรือคอลัมน์ที่เข้ากันได้
 
-**ถ้าคอลัมน์ภายในกลุ่มใกล้กันเกินไปหรือห่างกันเกินไปต้องทำอย่างไร?**
+**กลุ่มซีรีส์แผนภูมิคืออะไร?**
 
-ปรับค่าการตั้งค่า Gap Width สำหรับซีรีส์นั้น (หรือกลุ่มซีรีส์แม่) การเพิ่มค่าจะขยายช่องว่างระหว่างคอลัมน์ ส่วนการลดค่าจะทำให้คอลัมน์เข้าหากันมากขึ้น.
+[ChartSeriesGroup](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseriesgroup/) ประกอบด้วยซีรีส์ที่เข้ากันได้และแชร์การตั้งค่าการพล็อตระดับกลุ่ม แผนภูมิแบบผสมอาจมีมากกว่าหนึ่งกลุ่ม ดังนั้นการเปลี่ยนแปลงกลุ่มผ่านซีรีส์หนึ่งอาจไม่ได้เปลี่ยนแปลงทุกซีรีส์ในแผนภูมิ
+
+**แผนภูมิที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
+
+ใช่ โดยค่าเริ่มต้น [ShapeCollection.addChart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapecollection/#addChart) จะสร้างซีรีส์, หมวดหมู่และค่าตัวอย่าง คุณสามารถแก้ไขเซลล์เหล่านั้นหรือเคลียร์ทั้งคอลเลกชันซีรีส์และหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองแบบเต็ม ๆ อีกทางเลือกหนึ่งคือการใช้ overload ที่สร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้น
+
+**วัตถุแผนภูมิเชื่อมโยงกับเซลล์ workbook อย่างไร?**
+
+ชื่อซีรีส์, ป้ายหมวดหมู่และค่าจุดข้อมูลอ้างอิงเซลล์ใน [ChartDataWorkbook](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdataworkbook/) การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิเกี่ยวข้อง เมื่อต้องสร้างข้อมูลแบบกำหนดเอง ใหักำหนดแถวหมวดหมู่และแถวค่าของซีรีส์ให้สอดคล้องกันเพื่อให้แต่ละจุดถูกพล็อตภายใต้หมวดหมู่ที่ต้องการ
+
+**ฉันจะลบจุดเดียวโดยไม่ลบทั้งซีรีส์ได้อย่างไร?**
+
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อคงตำแหน่งหมวดหมู่ของจุดนั้นเป็นจุดว่าง ใช้ [ChartDataPointCollection.clear](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapointcollection/#clear) เฉพาะเมื่อคุณต้องการลบจุดทั้งหมดจากซีรีส์นั้น หากคุณลบหมวดหมู่ด้วย ให้ปรับปรุงทุกซีรีส์เพื่อให้ค่าของพวกมันยังคงสอดคล้องกับคอลเลกชันหมวดหมู่
+
+**จุดว่างจะแสดงผลอย่างไร?**
+
+ผลลัพธ์ขึ้นกับประเภทแผนภูมิและค่าที่กำหนดผ่าน [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs) แผนภูมิที่สนับสนุนสามารถแสดงค่าว่างเป็นช่องว่าง, เป็นค่า 0, หรือโดยการเชื่อมต่อจุดใกล้เคียง เลือกการตั้งค่าที่สอดคล้องกับความหมายของข้อมูลหายในงานนำเสนอของคุณ
+
+**ค่าลบจะถูกฟอร์แมตอย่างไร?**
+
+สำหรับซีรีส์แท่ง, คอลัมน์และบับเบิลที่สนับสนุน ให้เรียก [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) และตั้งค่าสีที่คืนจาก [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) คุณสามารถแทนที่พฤติกรรมสำหรับจุดเดียวโดยใช้ [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) วิธีเหล่านี้ส่งผลต่อการฟอร์แมต ไม่กระทบต่อค่าตัวเลขที่จัดเก็บ
+
+**รูปแบบใดชนะเมื่อทั้งซีรีส์และจุดถูกฟอร์แมต?**
+
+การฟอร์แมตจุดข้อมูลอย่างชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น จุดอื่น ๆ จะใช้รูปแบบของซีรีส์ที่กำหนดไว้หรือหากไม่ได้กำหนดรูปแบบซีรีส์ ระบบจะใช้สไตล์และธีมของแผนภูมิอัตโนมัติ การตั้งค่ากลุ่มเช่นการทับซ้อนและความกว้างช่องว่างควบคุมการจัดวางและไม่ใช่การแทนที่ระดับจุด
+
+**แผนภูมิสามารถมีซีรีส์ได้มากเท่าใด?**
+
+Aspose.Slides ไม่กำหนดขีดจำกัดจำนวนซีรีส์แบบคงที่ อย่างไรก็ตาม ข้อจำกัดของไฟล์งานนำเสนอ, หน่วยความจำที่มี, เวลาเรนเดอร์และความอ่านง่ายของแผนภูมิจะกำหนดขีดจำกัดที่เหมาะสมในทางปฏิบัติ
+
+**ควรเปลี่ยนอะไรเมื่อคอลัมน์อยู่ใกล้กันเกินไปหรือห่างกันเกินไป?**
+
+เรียก [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) บนกลุ่มซีรีส์แม่ที่เหมาะสม เพิ่มค่ากว่าเพื่อขยายช่องว่างระหว่างกลุ่ม หรือ ลดค่าเพื่อทำให้กลุ่มเข้าหากันมากขึ้น

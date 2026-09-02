@@ -162,7 +162,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Clona alla Fine in una Sezione Specificata**
+## **Clonare alla fine in una sezione specificata**
 
 Con Aspose.Slides per Python via .NET, è possibile clonare una diapositiva da una sezione di una presentazione e inserirla in un'altra sezione all'interno della stessa presentazione. Per farlo, utilizza il metodo `add_clone(Slide, Section)` della classe [SlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/).
 
@@ -171,19 +171,19 @@ Il seguente esempio Python mostra come clonare una diapositiva e inserire il clo
 ```py
 import aspose.slides as slides
 
-# Crea una nuova presentazione vuota.
+# Creare una nuova presentazione vuota.
 with slides.Presentation() as presentation:
-    # Aggiungi una diapositiva vuota basata sul layout della prima diapositiva.
+    # Aggiungere una diapositiva vuota basata sul layout della prima diapositiva.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Aggiungi una forma ellittica alla nuova diapositiva; questa diapositiva sarà clonata in seguito.
+    # Aggiungere una forma ellisse alla nuova diapositiva; questa diapositiva sarà clonata in seguito.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Aggiungi un'altra diapositiva vuota basata sul layout della prima diapositiva.
+    # Aggiungere un'altra diapositiva vuota basata sul layout della prima diapositiva.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Crea una sezione chiamata "Section2" che inizia da slide2.
+    # Creare una sezione chiamata "Section2" che inizia da slide2.
     section = presentation.sections.add_section("Section2", slide2)
-    # Clona la diapositiva creata in precedenza nella sezione "Section2".
+    # Clonare la diapositiva creata in precedenza nella sezione "Section2".
     presentation.slides.add_clone(slide, section)
-    # Salva la presentazione come file PPTX.
+    # Salvare la presentazione come file PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 

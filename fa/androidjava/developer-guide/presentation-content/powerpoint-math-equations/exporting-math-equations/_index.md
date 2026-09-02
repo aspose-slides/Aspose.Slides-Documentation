@@ -1,11 +1,13 @@
 ---
-title: صادر کردن معادلات ریاضی از ارائه‌ها در Android
-linktitle: صادر کردن معادلات
+title: صادرات معادلات ریاضی از ارائه‌ها در اندروید
+linktitle: صادرات معادلات
 type: docs
 weight: 30
 url: /fa/androidjava/exporting-math-equations/
 keywords:
-- صادر کردن معادلات ریاضی
+- صادرات معادلات ریاضی
+- صادرات معادلات به LaTeX
+- PowerPoint به LaTeX
 - MathML
 - LaTeX
 - PowerPoint
@@ -13,21 +15,71 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "قابلیت صدور یکپارچهٔ معادلات ریاضی از PowerPoint به MathML را با استفاده از Aspose.Slides برای Android از طریق Java فعال کنید—قالب‌بندی را حفظ کنید و سازگاری را افزایش دهید."
+description: "صادرات معادلات ریاضی از ارائه‌های PowerPoint به LaTeX یا MathML به‌صورت مستقیم با Aspose.Slides برای اندروید از طریق Java."
 ---
-## **معرفی**
+## **مقدمه**
 
-Aspose.Slides برای Android از طریق Java به شما امکان صادرات معادلات ریاضی از ارائه‌ها را می‌دهد. به عنوان مثال، ممکن است نیاز داشته باشید معادلات ریاضی موجود در اسلایدها (از یک ارائه خاص) را استخراج کرده و در برنامه یا پلتفرم دیگری استفاده کنید.
+Aspose.Slides for Android via Java به شما امکان استخراج معادلات ریاضی از ارائه‌ها را می‌دهد. به عنوان مثال، ممکن است نیاز داشته باشید معادلات ریاضی موجود در اسلایدها (از یک ارائه خاص) را استخراج کرده و در برنامه یا پلتفرم دیگری استفاده کنید.
 
 {{% alert color="primary" %}} 
-می‌توانید معادلات را به MathML صادر کنید، قالب یا استانداردی محبوب برای معادلات ریاضی و محتوای مشابه که در وب و بسیاری از برنامه‌ها دیده می‌شود. 
+می‌توانید معادلات را مستقیماً به LaTeX یا به MathML صادر کنید؛ یک استاندارد محبوب برای محتوای ریاضی که در وب و بسیاری از برنامه‌ها استفاده می‌شود.
 {{% /alert %}}
 
-## **صادرات معادلات ریاضی از ارائه‌ها**
+## **استخراج معادلات ریاضی به LaTeX**
 
-در حالی که انسان‌ها به راحتی می‌توانند کد برخی فرمت‌های معادله مانند LaTeX را بنویسند، برای نوشتن کد MathML دچار مشکل می‌شوند، زیرا این فرمت به‌صورت خودکار توسط برنامه‌ها تولید می‌شود. برنامه‌ها می‌توانند MathML را به‌راحتی بخوانند و تجزیه کنند، زیرا کد آن در XML است، بنابراین MathML به‌عنوان فرمت خروجی و چاپ در بسیاری از حوزه‌ها مورد استفاده قرار می‌گیرد.
+Aspose.Slides می‌تواند یک معادله ریاضی PowerPoint را به‌طور مستقیم به LaTeX تبدیل کند؛ نیازی به فایل MathML میانی یا مبدل خارجی نیست. یک معادله ریاضی به‌صورت یک [IMathPortion](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imathportion/) در یک فریم متن ذخیره می‌شود. از [IMathPortion.getMathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imathportion/#getMathParagraph--) برای دریافت یک [IMathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imathparagraph/) استفاده کنید و سپس [IMathParagraph.toLatex](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imathparagraph/#toLatex--) را فراخوانی کنید. این متد یک رشته برمی‌گرداند که می‌توانید آن را ذخیره، نمایش، به برنامه دیگری بفرستید یا به‌طور بیشتر پردازش کنید.
+
+مثال زیر هر فریم متن را در هر اسلاید بررسی می‌کند، تمام بخش‌های ریاضی را پیدا می‌کند و هر معادله را به یک فایل مجزا با پسوند `.tex` می‌نویسد:
+
+```java
+Presentation presentation = new Presentation("equations.pptx");
+try {
+    int slideCount = presentation.getSlides().size();
+    for (int slideIndex = 0; slideIndex < slideCount; slideIndex++) {
+        ISlide slide = presentation.getSlides().get_Item(slideIndex);
+        int slideNumber = slideIndex + 1;
+        int equationNumber = 1;
+        ITextFrame[] textFrames = SlideUtil.getAllTextBoxes(slide);
+
+        for (ITextFrame textFrame : textFrames) {
+            for (IParagraph paragraph : textFrame.getParagraphs()) {
+                for (IPortion portion : paragraph.getPortions()) {
+                    if (!(portion instanceof IMathPortion))
+                        continue;
+
+                    IMathPortion mathPortion = (IMathPortion) portion;
+                    IMathParagraph mathParagraph = mathPortion.getMathParagraph();
+                    String latexFileName = "slide_" + slideNumber + "_equation_" + equationNumber + ".tex";
+
+                    String latexText = mathParagraph.toLatex();
+                    File latexFile = new File(latexFileName);
+                    byte[] latexBytes = latexText.getBytes(StandardCharsets.UTF_8);
+                    FileOutputStream outputStream = new FileOutputStream(latexFile);
+                    try {
+                        outputStream.write(latexBytes);
+                    } finally {
+                        outputStream.close();
+                    }
+                    equationNumber++;
+                }
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[SlideUtil.getAllTextBoxes](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/slideutil/#getAllTextBoxes-com.aspose.slides.IBaseSlide-) تمام فریم‌های متنی موجود در یک اسلاید را برمی‌گرداند. بررسی نوع [IMathPortion](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/imathportion/) معادلات قابل ویرایش واقعی را از متن و تصاویر عادی جدا می‌کند.
+
+موتورهای LaTeX و قالب‌های سند همگی از یک‌سان دستورات، بسته‌ها یا کاراکترهای یونیکد پشتیبانی نمی‌کنند. رشته‌ی بازگشتی را با موتوری که برنامه‌تان استفاده می‌کند تست کنید. اگر نمادی یا عنصر Office Math در آن محیط نمایانگر مناسب نداشته باشد، آن را در رشته‌ی بازگشتی با دستوری مخصوص پروژه جایگزین کنید یا معادله را نادیده بگیرید و مشکل را برای بررسی ثبت کنید.
+
+## **ذخیره معادلات ریاضی به عنوان MathML**
+
+در حالی که افراد به راحتی می‌توانند کد برخی قالب‌های معادله مانند LaTeX را بنویسند، نوشتن کد برای MathML دشوار است زیرا این قالب برای تولید خودکار توسط برنامه‌ها طراحی شده است. برنامه‌ها به راحتی MathML را می‌خوانند و تجزیه می‌کنند چون کد آن در XML است، بنابراین MathML به‌طور گسترده‌ای به عنوان قالب خروجی و چاپ در بسیاری از زمینه‌ها استفاده می‌شود.
 
 این کد نمونه نشان می‌دهد چگونه یک معادله ریاضی را از یک ارائه به MathML صادر کنید:
+
 ```java
 Presentation pres = new Presentation();
 try {
@@ -50,24 +102,24 @@ try {
 }
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**دقیقاً چه چیزی به MathML صادر می‌شود—یک پاراگراف یا یک بلوک فرمول جداگانه؟**
+**دقیقا چه چیزی به‌صورت MathML صادر می‌شود—یک پاراگراف یا یک بلوک فرمول جداگانه؟**
 
-می‌توانید یا یک پاراگراف ریاضی کامل ([MathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathparagraph/)) یا یک بلوک جداگانه ([MathBlock](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathblock/)) را به MathML صادر کنید. هر دو نوع متدی برای نوشتن به MathML فراهم می‌کنند.
+می‌توانید یا یک پاراگراف کامل ریاضی ([MathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathparagraph/)) یا یک بلوک جداگانه ([MathBlock](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathblock/)) را به MathML صادر کنید. هر دو نوع یک متد برای نوشتن به MathML فراهم می‌کنند.
 
-**چگونه می‌توانم تشخیص دهم که یک شیء در اسلاید یک فرمول ریاضی است یا متن یا تصویر معمولی؟**
+**چگونه می‌توانم تشخیص دهم که یک شیء در اسلاید یک فرمول ریاضی است نه متن یا تصویر عادی؟**
 
-یک فرمول در یک [MathPortion](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathportion/) قرار دارد و دارای یک [MathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathparagraph/) است. تصاویر و بخش‌های متنی معمولی که [MathParagraph] ندارند، فرمول‌های قابل صادرات نیستند.
+یک فرمول در یک [MathPortion](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathportion/) قرار دارد و دارای یک [MathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathparagraph/) است. تصاویر و بخش‌های متنی عادی که [MathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathparagraph/) ندارند، فرمول‌هایی برای صادرات نیستند.
 
-**MathML در یک ارائه از کجا می‌آید—آیا خاص PowerPoint است یا استاندارد؟**
+**MathML در یک ارائه از کجا می‌آید—آیا مخصوص PowerPoint است یا یک استاندارد؟**
 
-صادرات به MathML استاندارد (XML) هدف دارد. Aspose از Presentation MathML استفاده می‌کند—زیرمجموعهٔ ارائه‌ای استاندارد که به‌ طور گسترده در برنامه‌ها و وب استفاده می‌شود.
+هدف صادرات یک MathML استاندارد (XML) است. Aspose از Presentation MathML استفاده می‌کند—زیرمجموعه ارائه‌ای استاندارد که به‌طور گسترده در برنامه‌ها و وب به کار می‌رود.
 
 **آیا صادرات فرمول‌ها درون جدول‌ها، SmartArt، گروه‌ها و غیره پشتیبانی می‌شود؟**
 
-بله، اگر آن اشیاء شامل بخش‌های متنی با یک [MathParagraph] (یعنی فرمول‌های واقعی PowerPoint) باشند، صادر می‌شوند. اگر فرمول به‌عنوان تصویر جاسازی شده باشد، صادر نمی‌شود.
+بله، اگر آن اشیاء شامل بخش‌های متنی با یک [MathParagraph](https://reference.aspose.com/slides/fa/androidjava/com.aspose.slides/mathparagraph/) باشند (یعنی فرمول‌های واقعی PowerPoint)، صادر می‌شوند. اگر فرمول به‌صورت تصویر嵌入 شده باشد، صادر نمی‌شود.
 
-**آیا صادرات به MathML فایل ارائهٔ اصلی را تغییر می‌دهد؟**
+**آیا صادرات به MathML باعث تغییر ارائه اصلی می‌شود؟**
 
-خیر. نوشتن MathML سریال‌سازی محتوای فرمول است؛ این کار فایل ارائه را تغییر نمی‌دهد.
+نه. نوشتن MathML صرفاً سریال‌سازی محتوای فرمول است؛ فایل ارائه اصلی را تغییر نمی‌دهد.

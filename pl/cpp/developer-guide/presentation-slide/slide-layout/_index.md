@@ -1,5 +1,5 @@
 ---
-title: Zastosuj lub zmień układy slajdów w C++
+title: Zastosowanie lub zmiana układów slajdów w C++
 linktitle: Układ slajdu
 type: docs
 weight: 60
@@ -28,248 +28,287 @@ keywords:
 - prezentacja
 - C++
 - Aspose.Slides
-description: "Zarządzaj i dostosowuj układy slajdów w Aspose.Slides dla C++. Poznaj typy układów, kontrolę pól zastępczych i widoczność stopki poprzez przykłady kodu C++."
+description: "Zastosuj, utwórz i modyfikuj układy slajdów w Aspose.Slides dla C++, dodaj pola zastępcze, usuń nieużywane układy i kontroluj widoczność stopki."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Układ slajdu określa rozmieszczenie pól zastępczych i formatowanie treści na slajdzie. Kontroluje, które pola zastępcze są dostępne i gdzie się pojawiają. Układy slajdów pomagają szybko i konsekwentnie projektować prezentacje — niezależnie od tego, czy tworzysz coś prostego, czy bardziej złożonego. Niektóre z najczęściej używanych układów slajdów w programie PowerPoint to:
+Układ slajdu definiuje pozycje i formatowanie pól zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu zapewnia spójną strukturę slajdów, jednocześnie pozwalając każdemu slajdowi zawierać własną treść.
 
-**Układ slajdu tytułowego** – Zawiera dwa pola tekstowe: jedno dla tytułu i drugie dla podtytułu.
+Najczęściej używane układy to:
 
-**Układ tytuł i treść** – Zawiera mniejsze pole tytułu u góry oraz większe poniżej przeznaczone na główną treść (taką jak tekst, wypunktowania, wykresy, obrazy i inne).
+- **Slajd tytułowy**: Zawiera pola zastępcze tytułu i podtytułu.
+- **Tytuł i treść**: Zawiera pole zastępcze tytułu oraz ogólne pole zastępcze treści.
+- **Pusty**: Nie zawiera pól zastępczych i jest przydatny, gdy wszystkie kształty będą rozmieszczane ręcznie.
 
-**Układ pusty** – Nie zawiera żadnych pól zastępczych, co daje pełną kontrolę nad projektowaniem slajdu od podstaw.
+## **Zrozumienie dziedziczenia układów**
 
-Układy slajdów są częścią głównego slajdu (slide master), który jest slajdem najwyższego poziomu definiującym style układów w prezentacji. Możesz uzyskać dostęp i modyfikować układy slajdów poprzez główny slajd — korzystając z ich typu, nazwy lub unikalnego identyfikatora. Alternatywnie możesz edytować konkretny układ slajdu bezpośrednio w prezentacji.
+Prezentacja ma trzy powiązane poziomy:
 
-Do pracy z układami slajdów w Aspose.Slides dla Androida możesz używać:
-- Metody takie jak [get_LayoutSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_layoutslides/) i [get_Masters](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_masters/) w klasie [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-- Typy takie jak [ILayoutSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/), oraz [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+1. [Slajd nadrzędny](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/) definiuje motyw, współdzielone formatowanie, tła i wspólne obiekty.
+1. [Układ slajdu](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/) należy do slajdu nadrzędnego i określa konkretny układ pól zastępczych.
+1. [Zwykły slajd](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/) używa jednego układu i przechowuje treść wprowadzoną dla tego slajdu.
 
-{{% alert title="Info" color="info" %}}
-Aby dowiedzieć się więcej o pracy z głównymi slajdami, zapoznaj się z artykułem [Slide Master](/slides/pl/cpp/slide-master/).
-{{% /alert %}}
+Zwykły slajd dziedziczy motyw i formatowanie z jego układu, a układ dziedziczy z nadrzędnego. Wartość ustawiona bezpośrednio na zwykłym slajdzie nadpisuje dziedziczoną wartość na tym poziomie. Gdy tworzony jest zwykły slajd, jego kształty pól zastępczych są generowane na podstawie wybranego układu, natomiast treść wprowadzona do tych pól należy do zwykłego slajdu.
 
-## **Dodawanie układów slajdów do prezentacji**
+Dodaj wymagane pola zastępcze do układu przed tworzeniem z niego slajdów. Dodanie kolejnego pola zastępczego do układu później nie dodaje automatycznie odpowiadającego kształtu pola zastępczego do istniejących zwykłych slajdów.
 
-Aby dostosować wygląd i strukturę swoich slajdów, możesz potrzebować dodać nowe układy slajdów do prezentacji. Aspose.Slides dla Androida umożliwia sprawdzenie, czy określony układ już istnieje, dodanie nowego w razie potrzeby oraz użycie go do wstawiania slajdów opartego na tym układzie.
+Ten związek ma dwa ważne konsekwencje:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-1. Uzyskaj dostęp do [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. Sprawdź, czy żądany układ slajdu już istnieje w kolekcji. Jeśli nie, dodaj potrzebny układ slajdu.
-1. Dodaj pusty slajd oparty na nowym układzie slajdu.
-1. Zapisz prezentację.
-1. Zapisz prezentację.
+- Zmiana dziedziczonego formatowania lub istniejącej geometrii pól zastępczych w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu, który jest już używany, sprawdź jego zależne slajdy i przejrzyj powstałą prezentację.
+- Układ, który jest nadal używany przez slajd, nie może być usunięty. Przypisz najpierw jego zależne slajdy do innego układu lub usuń tylko nieużywane układy.
 
-Przykładowy kod C++ pokazuje, jak dodać układ slajdu do prezentacji PowerPoint:
+Po więcej informacji o najwyższym poziomie tej hierarchii, zobacz [Slide Master](/slides/pl/cpp/slide-master/).
+
+## **Wybór i zastosowanie układu slajdu**
+
+Używaj typu układu, gdy prezentacja stosuje standardowe definicje układów PowerPoint. Nazwy układów są edytowalne przez użytkownika i mogą być lokalizowane, więc wybór oparty na nazwie jest mniej niezawodny, chyba że kontrolujesz szablon źródłowy.
+
+Poniższy przykład wyszukuje **Title and Content** na pierwszym masterze. Jeśli ten układ nie jest dostępny, celowo przechodzi do **Blank**. Drugi warunek null jest potrzebny, ponieważ prezentacja może zawierać tylko niestandardowe układy. Wybrany układ jest następnie stosowany do pierwszego zwykłego slajdu za pomocą metody [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/set_layoutslide/).
 
 ```cpp
-// Utwórz instancję klasy Presentation, która reprezentuje plik PowerPoint.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Go through the layout slide types to select a layout slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // Sytuacja, w której prezentacja nie zawiera wszystkich typów układów.
-    // Plik prezentacji zawiera tylko typy układów Blank i Custom.
-    // Jednak układy slajdów o typach niestandardowych mogą mieć rozpoznawalne nazwy,
-    // takie jak "Title", "Title and Content" itp., które mogą być użyte do wyboru układu slajdu.
-    // Możesz także polegać na zestawie typów kształtów pól zastępczych.
-    // Na przykład slajd tytułowy powinien mieć tylko typ pola zastępczego Title i podobnie.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Dodaj pusty slajd przy użyciu dodanego układu slajdu.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Zapisz prezentację na dysku.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Usuwanie nieużywanych układów slajdów**
+Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje pól zastępczych, dziedziczone formatowanie i powiązania między istniejącymi polami a nowym układem mogą się zmienić, więc sprawdź wynik przy przełączaniu między znacznie różnymi układami.
 
-Aspose.Slides udostępnia metodę [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) z klasy [Compress](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/), umożliwiając usunięcie niechcianych i nieużywanych układów slajdów.
+## **Dodanie układu slajdu**
 
-Przykładowy kod C++ pokazuje, jak usunąć układ slajdu z prezentacji PowerPoint:
+Wybór i tworzenie to odrębne operacje. Poprzedni przykład wybiera istniejący układ; nie tworzy go. Aby utworzyć układ, wywołaj metodę [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterlayoutslidecollection/add/) na kolekcji układów docelowego mastera.
+
+Poniższy przykład zawsze dodaje nowy układ **Title and Content** o nazwie `Report Title and Content`, a następnie dodaje zwykły slajd oparty na nim. Nazwy układów muszą być unikalne w ramach kolekcji.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Dodawanie pól zastępczych do układów slajdów**
+Dodawaj układ tylko wtedy, gdy szablon rzeczywiście potrzebuje kolejnej wielokrotnego użytku struktury. Jeśli odpowiedni układ już istnieje, wybierz i użyj go ponownie zamiast tworzyć duplikat.
 
-Aspose.Slides udostępnia metodę [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/), która pozwala dodawać nowe pola zastępcze do układu slajdu.
+## **Dodawanie pól zastępczych do układu slajdu**
 
-Ten menedżer zawiera metody dla następujących typów pól zastępczych:
+Metoda [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) udostępnia [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/) do dodawania kształtów pól zastępczych do układu.
 
-| PowerPoint Placeholder | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/) Metoda |
-| ---------------------- | ------------------------------------------------------------ |
-| ![Zawartość](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Zawartość (pionowa)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Tekst](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Tekst (pionowy)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Obraz](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Wykres](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabela](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Obraz online](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder              | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Content](content.png)             | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)             | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)                 | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)                 | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-Przykładowy kod C++ pokazuje, jak dodać nowe kształty pól zastępczych do układu pustego:
+Poniższy przykład weryfikuje, że istnieje układ **Blank**, dodaje do niego cztery pola zastępcze, a następnie tworzy zwykły slajd korzystający z zmodyfikowanego układu. Kolejność jest zamierzona: pola zastępcze są dodawane przed utworzeniem zwykłego slajdu, aby Aspose.Slides mógł wygenerować odpowiadające kształty pól zastępczych na tym slajdzie.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// Pobierz układ slajdu Blank.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// Pobierz menedżera pól zastępczych układu slajdu.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// Dodaj różne pola zastępcze do układu slajdu Blank.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Dodaj nowy slajd z układem Blank.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Wynik:
 
-![Pola zastępcze na układzie slajdu](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Ustawienie widoczności stopki dla układu slajdu**
+{{% alert color="warning" title="Warning" %}}
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i własny tekst, mogą być wyświetlane lub ukrywane w zależności od układu slajdu. Aspose.Slides dla Androida umożliwia kontrolowanie widoczności tych pól zastępczych stopki. Jest to przydatne, gdy chcesz, aby niektóre układy wyświetlały informacje o stopce, a inne pozostawały czyste i minimalistyczne.
+Zmiana dziedziczonego formatowania lub geometrii istniejących pól zastępczych w układzie może wpłynąć na zależne slajdy. Nowo dodane pole zastępcze nie jest automatycznie uzupełniane w istniejących zwykłych slajdach. Testuj zmiany układu na kopii prezentacji i sprawdzaj każdy zależny slajd.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-1. Pobierz odniesienie do układu slajdu według jego indeksu.
-1. Ustaw pole zastępcze stopki slajdu jako widoczne.
-1. Ustaw pole zastępcze numeru slajdu jako widoczne.
-1. Ustaw pole zastępcze daty i czasu jako widoczne.
-1. Zapisz prezentację.
+{{% /alert %}}
 
-Przykładowy kod C++ pokazuje, jak ustawić widoczność stopki slajdu i wykonać powiązane zadania:
+## **Usuwanie nieużywanych układów slajdów**
+
+Użyj metody [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) aby usunąć układy, do których nie odwołuje żaden zwykły slajd. Metoda pozostawia niezmienione układy wciąż używane.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
-{
-    headerFooterManager->SetFooterVisibility(true);
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
-{
-    headerFooterManager->SetSlideNumberVisibility(true);
-}
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
-headerFooterManager->SetFooterText(u"Footer text");
-headerFooterManager->SetDateTimeText(u"Date and time text");
-
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ustawienie widoczności stopki dziecka dla slajdu**
+Aby usunąć konkretny układ, najpierw użyj jego metody [get_HasDependingSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) lub [GetDependingSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/getdependingslides/). Przypisz wszystkie zależne slajdy przed wywołaniem [ILayoutSlide::Remove](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/remove/). Próba usunięcia używanego układu generuje [PptxEditException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxeditexception/).
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i własny tekst, mogą być kontrolowane na poziomie głównego slajdu, aby zapewnić spójność we wszystkich układach slajdów. Aspose.Slides dla Androida umożliwia ustawienie widoczności i treści tych pól zastępczych stopki na głównym slajdzie oraz propagowanie tych ustawień do wszystkich układów podrzędnych. To podejście zapewnia jednolitą informację o stopce w całej prezentacji.
+## **Kontrola widoczności stopki w układzie slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/).
-1. Pobierz odniesienie do głównego slajdu według jego indeksu.
-1. Ustaw pola zastępcze stopki głównego slajdu oraz wszystkich podrzędnych jako widoczne.
-1. Ustaw pola zastępcze numeru slajdu głównego oraz wszystkich podrzędnych jako widoczne.
-1. Ustaw pola zastępcze daty i czasu głównego oraz wszystkich podrzędnych jako widoczne.
-1. Zapisz prezentację.
+Układ ma własne pola zastępcze stopki, numeru slajdu i daty/czasu. Użyj metody [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) aby sterować tymi polami dla jednego układu. Jest to przydatne, gdy na przykład układy treści powinny wyświetlać stopki, a układy tytułowe nie.
 
-Przykładowy kod C++ demonstruje tę operację:
+Poniższy przykład bezpiecznie wybiera układ i ustawia jego elementy stopki jako widoczne:
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
+{
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+}
+
+if (layoutSlide == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
+}
+
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Kontrola widoczności stopki w masterze i jego podukładach**
+
+Aby zastosować spójne ustawienia stopki w całej hierarchii mastera, użyj metody [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/get_headerfootermanager/). Metody propagacji z [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslideheaderfootermanager/) działają na masterze oraz jego zależnych układach i zwykłych slajdach; nie dotyczą pojedynczego zwykłego slajdu.
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **FAQ**
 
-**Jaka jest różnica między głównym slajdem a układem slajdu?**
+**Jaka jest różnica między slajdem master a układem slajdu?**
 
-Główny slajd definiuje ogólny motyw i domyślne formatowanie, natomiast układy slajdów określają konkretne rozmieszczenie pól zastępczych dla różnych typów treści.
+Slajd master definiuje motyw prezentacji i współdzielone formatowanie. Układ slajdu należy do mastera i definiuje jeden wielokrotnego użytku układ pól zastępczych. Zwykłe slajdy używają tych układów i przechowują treść specyficzną dla slajdu.
 
 **Czy mogę skopiować układ slajdu z jednej prezentacji do drugiej?**
 
-Tak, możesz sklonować układ slajdu z kolekcji układów slajdów jednej prezentacji, dostępnej za pomocą metody [get_LayoutSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_layoutslides/), i wstawić go do innej prezentacji, używając metody `AddClone`.
+Tak. Dodaj kopię do docelowej kolekcji za pomocą metody [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/pl/cpp/aspose.slides/igloballayoutslidecollection/addclone/). Przy kopiowaniu między prezentacjami sprawdź również czcionki, motywy, obrazy i inne zasoby użyte przez źródłowy układ.
 
-**Co się stanie, jeśli usunę układ slajdu, który jest nadal używany przez slajd?**
+**Co się stanie, gdy zmodyfikuję układ, który jest już używany?**
 
-Jeśli spróbujesz usunąć układ slajdu, który jest nadal odwoływany przez co najmniej jeden slajd w prezentacji, Aspose.Slides zgłosi wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxeditexception/). Aby temu zapobiec, użyj [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), który bezpiecznie usuwa tylko nieużywane układy slajdów.
+Zależne slajdy dziedziczą zmiany układu, chyba że nadpisują dotknięte formatowanie lub obiekty lokalnie. Geometria pól zastępczych i dziedziczone style mogą więc zmienić się na wielu slajdach jednocześnie. Użyj [GetDependingSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/getdependingslides/) aby zidentyfikować dotknięte slajdy przed edycją układu.
+
+**Co się stanie, jeśli usunę układ, który jest nadal używany?**
+
+Aspose.Slides zgłasza [PpptxEditException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy lub użyj [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) aby usunąć tylko niepowiązane układy.

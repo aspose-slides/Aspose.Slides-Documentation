@@ -179,7 +179,7 @@ with slides.Presentation() as presentation:
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Hozzon létre egy "Section2" nevű szekciót, amely a slide2-nél kezdődik.
     section = presentation.sections.add_section("Section2", slide2)
-    # Klónozza a korábban létrehozott diát a "Section2" szekcióba.
+    # Klónozzuk az előzőleg létrehozott diát a "Section2" szekcióba.
     presentation.slides.add_clone(slide, section)
     # Mentse a bemutatót PPTX fájlként.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
@@ -206,7 +206,7 @@ Ezt a master és a dia klónozása előtt tegye meg.
 
 Igen. A jegyzetoldal és a felülvizsgálati megjegyzések a klónba kerülnek. Ha nem kívánja őket, [távolítsa el őket](/slides/hu/python-net/presentation-notes/) a beillesztés után.
 
-**Hogyan kezelik a diagramokat és azok adatforrásait?**
+### Hogyan kezelik a diagramok és azok adatforrásait?
 
 A diagram objektuma, formázása és a beágyazott adatok másolásra kerülnek. Ha a diagram külső forráshoz (például OLE-beágyazott munkafüzethez) volt csatolva, ez a kapcsolat egy [OLE objektum](/slides/hu/python-net/manage-ole/) formájában marad meg. Fájlok közti áthelyezés után ellenőrizze az adatok elérhetőségét és a frissítési viselkedést.
 
