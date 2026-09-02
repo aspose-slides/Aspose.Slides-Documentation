@@ -32,82 +32,83 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Конвертировать презентации PowerPoint и OpenDocument в PPTX, PDF, HTML, изображения, XPS, TIFF и многое другое с помощью Aspose.Slides для Android через Java."
+description: "Конвертировать презентации PowerPoint и OpenDocument в PPTX, PDF, HTML, изображения, XPS, TIFF и другие форматы с помощью Aspose.Slides for Android via Java."
 ---
 ## **Обзор**
 
-Aspose.Slides for Android via Java может загружать презентации PowerPoint и OpenDocument и сохранять или рендерить их в множество других форматов без Microsoft PowerPoint, OpenOffice или LibreOffice. Вы можете конвертировать устаревшие файлы PPT в современные PPTX, экспортировать презентации в документы фиксированного макета, такие как PDF и XPS, публиковать слайды как HTML или рендерить слайды в файлы изображений для превью, миниатюр и архивов.
+Aspose.Slides for Android via Java может загружать презентации PowerPoint и OpenDocument и сохранять или рендерить их во многие другие форматы без Microsoft PowerPoint, OpenOffice или LibreOffice. Вы можете конвертировать устаревшие файлы PPT в современные PPTX, экспортировать презентации в документы фиксированного макета, такие как PDF и XPS, публиковать слайды как HTML или рендерить слайды в виде изображений для предварительного просмотра, миниатюр и архивов.
 
-Большинство конвертаций документов используют общий рабочий процесс: загрузить исходный файл, выбрать требуемый выходной формат и при необходимости применить параметры, специфичные для формата. Для форматов изображений каждый слайд рендерится отдельно, а затем сохраняется как растровое или векторное изображение. Специализированные статьи, указанные ниже, предоставляют детали реализации для каждого случая.
+Большинство конвертаций документов используют один и тот же общий процесс: загрузить исходный файл, выбрать требуемый формат вывода и при необходимости применить параметры, специфичные для формата. Для форматов изображений каждый слайд рендерится отдельно, а затем сохраняется как растровое или векторное изображение. Ниже приведены статьи с подробными реализациями для каждого случая.
 
 ## **Выберите сценарий конвертации**
 
-Используйте статьи ниже для полных примеров Java и параметров, специфичных для формата.
+Используйте приведённые ниже статьи для полноценных примеров на Java и параметров, специфичных для формата.
 
-| Сценарий | Когда требуется | Статья |
+| Сценарий | Когда использовать | Статья |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | Модернизировать устаревшие файлы PPT, нормализовать существующие файлы PPTX или преобразовать презентации OpenDocument в PowerPoint PPTX. | [Преобразовать PPT в PPTX](/slides/ru/androidjava/convert-ppt-to-pptx/), [Преобразовать ODP в PPTX](/slides/ru/androidjava/convert-odp-to-pptx/), [Сохранить презентации](/slides/ru/androidjava/save-presentation/) |
-| PPTX to PPT |\* Сохранить современную презентацию PowerPoint в более старом бинарном формате PPT для совместимости со старыми рабочими процессами. | [Преобразовать PPTX в PPT](/slides/ru/androidjava/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | Создать портативные, поисковые документы фиксированного макета для обмена, печати или архивирования. | [Преобразовать PowerPoint в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | Экспортировать заметки докладчика вместе с содержимым слайдов. | [Преобразовать PowerPoint в PDF с заметками](/slides/ru/androidjava/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | Публиковать презентации как HTML‑страницы и управлять изображениями, шрифтами, заметками и параметрами адаптивного макета. | [Преобразовать PowerPoint в HTML](/slides/ru/androidjava/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | Экспортировать слайды в HTML5 для просмотра в браузере с сохранением форматирования и интерактивности. | [Экспортировать презентации в HTML5](/slides/ru/androidjava/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | Рендерить каждый слайд в изображение PNG для превью, миниатюр или веб‑вывода. | [Преобразовать PowerPoint в PNG](/slides/ru/androidjava/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | Рендерить слайды в изображения JPG и управлять их размерами и качеством. | [Преобразовать PowerPoint в JPG](/slides/ru/androidjava/convert-powerpoint-to-jpg/) |
-| Slide to SVG | Экспортировать отдельные слайды как масштабируемую векторную графику. | [Рендерить слайд как SVG](/slides/ru/androidjava/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | Генерировать документы фиксированного макета XPS. | [Преобразовать PowerPoint в XPS](/slides/ru/androidjava/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | Сохранить презентацию как многостраничный файл TIFF для печати, сканирования, факса или архивных процессов. | [Преобразовать PowerPoint в TIFF](/slides/ru/androidjava/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | Сохранить слайды с заметками докладчика в TIFF. | [Преобразовать PowerPoint в TIFF с заметками](/slides/ru/androidjava/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Word | Преобразовать слайды в документ Word, когда нужен вывод в стиле документа. | [Преобразовать PowerPoint в Word](/slides/ru/androidjava/convert-powerpoint-to-word/) |
-| PPT/PPTX to Markdown | Извлечь содержимое презентации в Markdown для документации и текстовых рабочих процессов. | [Преобразовать PowerPoint в Markdown](/slides/ru/androidjava/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | Создать анимированный GIF из слайдов. | [Преобразовать PowerPoint в анимированный GIF](/slides/ru/androidjava/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | Организовать экспорт презентации в виде видео. | [Преобразовать PowerPoint в видео](/slides/ru/androidjava/convert-powerpoint-to-video/) |
-| Presentation to XAML | Экспортировать слайды в XAML для сценариев Android или Java UI. | [Экспортировать презентации в XAML](/slides/ru/androidjava/export-to-xaml/) |
+| PPT/PPTX/ODP в PPTX | Модернизировать устаревшие файлы PPT, нормализовать существующие файлы PPTX или конвертировать презентации OpenDocument в PowerPoint PPTX. | [Конвертировать PPT в PPTX](/slides/ru/androidjava/convert-ppt-to-pptx/),[Конвертировать ODP в PPTX](/slides/ru/androidjava/convert-odp-to-pptx/),[Сохранить презентацию](/slides/ru/androidjava/save-presentation/) |
+| PPTX в PPT | Сохранить современную презентацию PowerPoint в старом бинарном формате PPT для совместимости со старыми рабочими процессами. | [Конвертировать PPTX в PPT](/slides/ru/androidjava/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP в PDF | Создать переносимые, индексируемые документы фиксированного макета для обмена, печати или архивации. | [Конвертировать PowerPoint в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP в PDF с нотами | Экспортировать заметки докладчика вместе с содержимым слайдов. | [Конвертировать PowerPoint в PDF с нотами](/slides/ru/androidjava/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP в HTML | Публиковать презентации как HTML‑страницы и управлять изображениями, шрифтами, нотами и параметрами адаптивного макета. | [Конвертировать PowerPoint в HTML](/slides/ru/androidjava/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP в HTML5 | Экспортировать слайды в HTML5 для просмотра в браузере с сохранённым форматированием и интерактивностью. | [Экспортировать презентацию в HTML5](/slides/ru/androidjava/export-to-html5/) |
+| PPT/PPTX/ODP в PNG | Рендерить каждый слайд в PNG‑изображение для предварительного просмотра, миниатюр или веб‑вывода. | [Конвертировать PowerPoint в PNG](/slides/ru/androidjava/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP в JPG | Рендерить слайды в JPG‑изображения и управлять их размерами и качеством. | [Конвертировать PowerPoint в JPG](/slides/ru/androidjava/convert-powerpoint-to-jpg/) |
+| Слайд в SVG | Экспортировать отдельные слайды как масштабируемую векторную графику. | [Рендерить слайд как SVG](/slides/ru/androidjava/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP в XPS | Генерировать документы фиксированного макета XPS. | [Конвертировать PowerPoint в XPS](/slides/ru/androidjava/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP в TIFF | Сохранить презентацию как многополосный TIFF‑файл для печати, сканирования, факса или архивных процессов. | [Конвертировать PowerPoint в TIFF](/slides/ru/androidjava/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP в TIFF с нотами | Сохранить слайды с нотами докладчика в TIFF. | [Конвертировать PowerPoint в TIFF с нотами](/slides/ru/androidjava/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX в Word | Конвертировать слайды в документ Word, когда нужен вывод в текстовом формате. | [Конвертировать PowerPoint в Word](/slides/ru/androidjava/convert-powerpoint-to-word/) |
+| PPT/PPTX в Markdown | Извлечь содержимое презентации в Markdown для документирования и текстовых рабочих процессов. | [Конвертировать PowerPoint в Markdown](/slides/ru/androidjava/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP в XML | Создать текстовый PowerPoint XML Presentation для анализа, сравнения, устранения неполадок или XML‑ориентированных процессов. | [Конвертировать PowerPoint в XML](/slides/ru/androidjava/convert-powerpoint-to-xml/) |
+| PPT/PPTX в анимированный GIF | Создать анимированный GIF из слайдов. | [Конвертировать PowerPoint в анимированный GIF](/slides/ru/androidjava/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX в видео | Построить процесс экспорта презентации в видео. | [Конвертировать PowerPoint в видео](/slides/ru/androidjava/convert-powerpoint-to-video/) |
+| Презентация в XAML | Экспортировать слайды в XAML для сценариев Android или Java UI. | [Экспортировать презентацию в XAML](/slides/ru/androidjava/export-to-xaml/) |
 
 Для более полного списка входных и выходных форматов см. [Поддерживаемые форматы файлов](/slides/ru/androidjava/supported-file-formats/).
 
 ## **Конвертация PowerPoint и OpenDocument**
 
-Aspose.Slides for Android via Java поддерживает конвертацию из часто используемых форматов презентаций, таких как PPT, PPTX, PPS, PPSX, POT, POTX и ODP. Один и тот же API конвертации используется как для файлов PowerPoint, так и для OpenDocument, поэтому рабочий процесс, сохраняющий файл PPTX в PDF, обычно можно применить к файлу ODP, изменив только входной файл.
+Aspose.Slides for Android via Java поддерживает конвертацию из часто используемых форматов презентаций, таких как PPT, PPTX, PPS, PPSX, POT, POTX и ODP. Один и тот же API конвертации используется для файлов PowerPoint и OpenDocument, поэтому рабочий процесс, сохраняющий PPTX в PDF, обычно можно применить к ODP, изменив лишь входной файл.
 
-При конвертации файлов ODP помните, что приложения PowerPoint и OpenDocument не поддерживают каждый элемент макета и форматирования одинаково. Если файл ODP был создан в LibreOffice или OpenOffice Impress, проверьте результат и используйте параметры, описанные в [Преобразовании OpenDocument презентаций](/slides/ru/androidjava/convert-openoffice-odp/), когда требуется руководство по конкретному формату.
+При конвертации ODP‑файлов помните, что приложения PowerPoint и OpenDocument не поддерживают каждую компоновку и форматирование одинаково. Если ODP‑файл был создан в LibreOffice или OpenOffice Impress, проверьте результат и используйте параметры, описанные в [Конвертировать OpenDocument презентацию](/slides/ru/androidjava/convert-openoffice-odp/), когда требуется руководство по конкретному формату.
 
 ## **Конвертация PPT в PPTX**
 
-PPT — это старый бинарный формат PowerPoint, тогда как PPTX — современный формат Office Open XML. Aspose.Slides for Android via Java поддерживает высокоточное преобразование PPT в PPTX, сохраняющее сложные структуры презентаций, такие как мастер‑страницы, макеты, слайды, диаграммы, группированные фигуры, заполнительные элементы, текстовые рамки, текстуры и заливки изображениями.
+PPT — это старый бинарный формат PowerPoint, а PPTX — современный формат Office Open XML. Aspose.Slides for Android via Java поддерживает высокоточные конвертации PPT в PPTX с сохранением сложных структур презентации, таких как шаблоны, макеты, слайды, диаграммы, сгруппированные объекты, заполнительные элементы, текстовые кадры, текстуры и заливки изображениями.
 
-Подробности см. в [Преобразовать PPT в PPTX](/slides/ru/androidjava/convert-ppt-to-pptx/) и [PPT vs PPTX](/slides/ru/androidjava/ppt-vs-pptx/).
+Подробности см. в [Конвертировать PPT в PPTX](/slides/ru/androidjava/convert-ppt-to-pptx/) и [PPT vs PPTX](/slides/ru/androidjava/ppt-vs-pptx/).
 
-## **Экспорт фиксированного макета**
+## **Экспорт в фиксированный макет**
 
-PDF, XPS и TIFF полезны, когда вывод должен выглядеть одинаково на всех устройствах и не должен редактироваться как презентация. Специализированные статьи по PDF, XPS и TIFF объясняют, как управлять соответствием стандартам, скрытыми слайдами, заметками, качеством изображений, сжатием, форматом пикселей и размером вывода.
+PDF, XPS и TIFF полезны, когда вывод должен выглядеть одинаково на всех устройствах и не должен редактироваться как презентация. Специальные статьи по PDF, XPS и TIFF объясняют, как управлять соответствием стандартам, скрытыми слайдами, нотами, качеством изображений, сжатием, форматом пикселей и размером вывода.
 
-## **Экспорт HTML и изображений**
+## **Экспорт в HTML и изображения**
 
-Экспорт в HTML и HTML5 удобен для просмотра в браузере, web‑публикаций и лёгкого обмена. Экспорт изображений полезен, когда каждый слайд должен стать отдельным превью, миниатюрой или растровым ресурсом. Используйте статьи по PNG, JPG и SVG для получения рекомендаций по рендерингу, специфичному для форматов.
+Экспорт в HTML и HTML5 полезен для просмотра в браузере, веб‑публикаций и лёгкого обмена. Экспорт изображений нужен, когда каждый слайд должен стать отдельным превью, миниатюрой или растровым ресурсом. Используйте статьи по PNG, JPG и SVG для рекомендаций по рендерингу, специфичному для формата.
 
 ## **FAQ**
 
 **Нужен ли мне Microsoft PowerPoint для конвертации презентаций?**
 
-Нет. Aspose.Slides for Android via Java — это автономная библиотека и она не требует Microsoft PowerPoint или автоматизации Office.
+Нет. Aspose.Slides for Android via Java — это автономная библиотека, не требующая Microsoft PowerPoint или автоматизации Office.
 
-**Можно ли пакетно конвертировать множество презентаций?**
+**Можно ли пакетно конвертировать большое количество презентаций?**
 
 Да. Загружайте каждую презентацию, сохраняйте её в требуемый формат и освобождайте объект презентации после обработки. Для параллельной обработки используйте отдельные экземпляры презентаций и следуйте рекомендациям по [многопоточности](/slides/ru/androidjava/multithreading/).
 
 **Можно ли экспортировать только выбранные слайды?**
 
-Да. Несколько методов экспорта позволяют передать индексы слайдов или рендерить отдельные слайды, в зависимости от формата вывода. См. специализированную статью для целевого формата.
+Да. Несколько методов экспорта позволяют передавать индексы слайдов или рендерить отдельные слайды, в зависимости от формата вывода. См. специальную статью для нужного формата.
 
-**Можно ли включить скрытые слайды при экспорте в PDF или XPS?**
+**Можно ли включать скрытые слайды при экспорте в PDF или XPS?**
 
-Да. Используйте настройки экспорта скрытых слайдов, описанные в статьях о [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/) и [XPS](/slides/ru/androidjava/convert-powerpoint-to-xps/).
+Да. Используйте параметры экспорта скрытых слайдов, описанные в статьях по [PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/) и [XPS](/slides/ru/androidjava/convert-powerpoint-to-xps/).
 
 **Можно ли создать вывод PDF/A?**
 
-Да. Параметры соответствия PDF доступны при экспорте в PDF. Подробнее см. в статье [Преобразовать PowerPoint в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/).
+Да. Для экспорта PDF доступны настройки соответствия стандарту PDF/A. Смотрите детали в [Конвертировать PowerPoint в PDF](/slides/ru/androidjava/convert-powerpoint-to-pdf/).
 
-**Как обрабатываются шрифты во время конвертации?**
+**Как обрабатываются шрифты при конвертации?**
 
-Aspose.Slides может использовать встроенные шрифты, резервные шрифты и параметры подстановки шрифтов. См. [Встроенный шрифт](/slides/ru/androidjava/embedded-font/), [Резервный шрифт](/slides/ru/androidjava/fallback-font/) и [Подстановка шрифтов](/slides/ru/androidjava/font-substitution/).
+Aspose.Slides может использовать встроенные шрифты, резервные шрифты и параметры замены шрифтов. См. [Встроенный шрифт](/slides/ru/androidjava/embedded-font/), [Резервный шрифт](/slides/ru/androidjava/fallback-font/) и [Замена шрифтов](/slides/ru/androidjava/font-substitution/).

@@ -1,5 +1,5 @@
 ---
-title: تبدیل ارائه‌ها به فرمت‌های متعدد در جاوااسکریپت
+title: تبدیل ارائه‌ها به چندین فرمت در JavaScript
 linktitle: تبدیل ارائه
 type: docs
 weight: 70
@@ -32,75 +32,82 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "تبدیل ارائه‌های PowerPoint و OpenDocument به PPTX، PDF، HTML، تصاویر، XPS، TIFF و موارد دیگر با Aspose.Slides برای Node.js از طریق Java."
+description: تبدیل ارائه‌های PowerPoint و OpenDocument به PPTX، PDF، HTML، تصاویر، XPS، TIFF و موارد دیگر با Aspose.Slides برای Node.js via Java.
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-Aspose.Slides for Node.js via Java می‌تواند ارائه‌های PowerPoint و OpenDocument را بارگذاری کرده و بدون نیاز به Microsoft PowerPoint، OpenOffice یا LibreOffice، آنها را به بسیاری از فرمت‌های دیگر ذخیره یا رندر کند. می‌توانید فایل‌های PPT کهنه را به PPTX مدرن تبدیل کنید، ارائه‌ها را به اسناد با طرح ثابت مانند PDF و XPS صادر کنید، اسلایدها را به صورت HTML منتشر کنید یا اسلایدها را به عنوان فایل‌های تصویر برای پیش‌نمایش، تصویر بندانگشتی و بایگانی رندر کنید.
+Aspose.Slides for Node.js via Java می‌تواند ارائه‌های PowerPoint و OpenDocument را بارگذاری کرده و بدون نیاز به Microsoft PowerPoint، OpenOffice یا LibreOffice، آن‌ها را در بسیاری از فرمت‌های دیگر ذخیره یا رندر کند. می‌توانید فایل‌های PPT قدیمی را به PPTX مدرن تبدیل کنید، ارائه‌ها را به اسناد با طرح ثابت مانند PDF و XPS صادر کنید، اسلایدها را به‌صورت HTML منتشر کنید یا اسلایدها را به‌عنوان فایل‌های تصویر برای پیش‌نمایش، تصویر بندانگشتی و آرشیو رندر کنید.
 
-اکثریت تبدیل‌های سند از یک گردش کار کلی استفاده می‌کنند: بارگذاری فایل منبع، انتخاب فرمت خروجی مورد نیاز و اعمال گزینه‌های مخصوص فرمت در صورت لزوم. برای فرمت‌های تصویری، هر اسلاید به‌صورت جداگانه رندر شده و سپس به عنوان تصویر رستر یا بردار ذخیره می‌شود. مقالات اختصاصی زیر جزئیات پیاده‌سازی هر مورد را ارائه می‌دهند.
+اکثر تبدیل‌های سند از یک جریان کاری کلی مشابه استفاده می‌کنند: بارگذاری فایل منبع، انتخاب فرمت خروجی مورد نیاز و در صورت لزوم اعمال گزینه‌های مرتبط با فرمت. برای فرمت‌های تصویری، هر اسلاید به‌صورت جداگانه رندر شده و سپس به‌عنوان تصویر رستر یا وکتور ذخیره می‌شود. مقالات اختصاصی پیوند داده شده در زیر جزئیات پیاده‌سازی هر مورد را ارائه می‌دهند.
 
-## **انتخاب سناریوی تبدیل**
+## **انتخاب یک سناریوی تبدیل**
 
-از مقالات زیر برای مثال‌های کامل JavaScript و گزینه‌های مخصوص فرمت استفاده کنید.
+از مقالات زیر برای مثال‌های کامل JavaScript و گزینه‌های مخصوص هر فرمت استفاده کنید.
 
-| سناریو | از آن استفاده کنید وقتی نیاز دارید به | مقاله |
+| سناریو | زمانی که نیاز دارید | مقاله |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | سازماندهی مجدد فایل‌های PPT قدیمی، نرمال‌سازی فایل‌های PPTX موجود، یا تبدیل ارائه‌های OpenDocument به PowerPoint PPTX. | [Convert PPT to PPTX](/slides/fa/nodejs-java/convert-ppt-to-pptx/),[Convert ODP to PPTX](/slides/fa/nodejs-java/convert-odp-to-pptx/),[Save Presentations](/slides/fa/nodejs-java/save-presentation/) |
-| PPTX to PPT | ذخیره یک ارائه مدرن PowerPoint به فرمت باینری قدیمی PPT برای سازگاری با گردش کارهای قدیمی. | [Convert PPTX to PPT](/slides/fa/nodejs-java/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | ایجاد اسناد قابل حمل، جستجوپذیر و با طرح ثابت برای به اشتراک گذاری، چاپ یا بایگانی. | [Convert PowerPoint to PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | صادر کردن یادداشت‌های گوینده به همراه محتوای اسلاید. | [Convert PowerPoint to PDF with Notes](/slides/fa/nodejs-java/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | انتشار ارائه‌ها به عنوان صفحات HTML و کنترل تصاویر، قلم‌ها، یادداشت‌ها و گزینه‌های طرح واکنش‌گرا. | [Convert PowerPoint to HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | صادر کردن اسلایدها به HTML5 برای مشاهده در مرورگر با حفظ قالب‌بندی و تعامل. | [Convert Presentations to HTML5](/slides/fa/nodejs-java/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | رندر کردن هر اسلاید به تصویر PNG برای پیش‌نمایش، تصویر بندانگشتی یا خروجی وب. | [Convert PowerPoint to PNG](/slides/fa/nodejs-java/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | رندر کردن اسلایدها به تصاویر JPG و کنترل ابعاد و کیفیت تصویر. | [Convert PowerPoint to JPG](/slides/fa/nodejs-java/convert-powerpoint-to-jpg/) |
-| Slide to SVG | صادر کردن اسلایدهای جداگانه به عنوان گرافیک‌های برداری مقیاس‌پذیر (SVG). | [Render Slide as SVG](/slides/fa/nodejs-java/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | تولید اسناد XPS با طرح ثابت. | [Convert PowerPoint to XPS](/slides/fa/nodejs-java/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | ذخیره یک ارائه به عنوان فایل TIFF چندصفحه‌ای برای چاپ، اسکن، فکس یا گردش کار بایگانی. | [Convert PowerPoint to TIFF](/slides/fa/nodejs-java/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | ذخیره اسلایدها همراه با یادداشت‌های گوینده به فرمت TIFF. | [Convert PowerPoint to TIFF with Notes](/slides/fa/nodejs-java/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Markdown | استخراج محتوای ارائه به Markdown برای مستندسازی و گردش کار مبتنی بر متن. | [Convert PowerPoint to Markdown](/slides/fa/nodejs-java/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | ایجاد GIF انیمیشنی از اسلایدها. | [Convert PowerPoint to Animated GIF](/slides/fa/nodejs-java/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | ساخت یک گردش کار خروجی ویدئو از اسلایدهای ارائه. | [Convert PowerPoint to Video](/slides/fa/nodejs-java/convert-powerpoint-to-video/) |
-| Presentation to XAML | صادر کردن اسلایدها به XAML برای سناریوهای رابط کاربری JavaScript یا Java. | [Export Presentations to XAML](/slides/fa/nodejs-java/export-to-xaml/) |
+| PPT/PPTX/ODP به PPTX | مدرن‌سازی فایل‌های PPT قدیمی، نرمال‌سازی فایل‌های PPTX موجود، یا تبدیل ارائه‌های OpenDocument به PowerPoint PPTX. | [تبدیل PPT به PPTX](/slides/fa/nodejs-java/convert-ppt-to-pptx/), [تبدیل ODP به PPTX](/slides/fa/nodejs-java/convert-odp-to-pptx/), [ذخیره ارائه‌ها](/slides/fa/nodejs-java/save-presentation/) |
+| PPTX به PPT | ذخیره یک ارائه PowerPoint مدرن به فرمت باینری قدیمی PPT برای سازگاری با گردش‌کارهای قدیمی. | [تبدیل PPTX به PPT](/slides/fa/nodejs-java/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP به PDF | ایجاد اسناد قابل حمل، جستجوپذیر و با طرح ثابت برای اشتراک‌گذاری، چاپ یا آرشیو. | [تبدیل PowerPoint به PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP به PDF با یادداشت‌ها | استخراج یادداشت‌های سخنران همراه با محتوای اسلاید. | [تبدیل PowerPoint به PDF با یادداشت‌ها](/slides/fa/nodejs-java/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP به HTML | انتشار ارائه‌ها به صورت صفحات HTML و کنترل تصاویر، قلم‌ها، یادداشت‌ها و گزینه‌های طرح واکنش‌گرا. | [تبدیل PowerPoint به HTML](/slides/fa/nodejs-java/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP به HTML5 | استخراج اسلایدها به HTML5 برای مشاهده در مرورگر با حفظ قالب‌بندی و تعامل. | [تبدیل ارائه‌ها به HTML5](/slides/fa/nodejs-java/export-to-html5/) |
+| PPT/PPTX/ODP به PNG | رندر هر اسلاید به تصویر PNG برای پیش‌نمایش، تصویر بندانگشتی یا خروجی وب. | [تبدیل PowerPoint به PNG](/slides/fa/nodejs-java/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP به JPG | رندر اسلایدها به تصاویر JPG و کنترل ابعاد و کیفیت تصویر. | [تبدیل PowerPoint به JPG](/slides/fa/nodejs-java/convert-powerpoint-to-jpg/) |
+| اسلاید به SVG | استخراج اسلایدهای فردی به عنوان گرافیک‌های برداری مقیاس‌پذیر. | [رندر اسلاید به SVG](/slides/fa/nodejs-java/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP به XPS | تولید اسناد XPS با طرح ثابت. | [تبدیل PowerPoint به XPS](/slides/fa/nodejs-java/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP به TIFF | ذخیره یک ارائه به عنوان فایل TIFF چندصفحه‌ای برای چاپ، اسکن، فکس یا گردش‌کارهای آرشیوی. | [تبدیل PowerPoint به TIFF](/slides/fa/nodejs-java/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP به TIFF با یادداشت‌ها | ذخیره اسلایدها همراه با یادداشت‌های سخنران به TIFF. | [تبدیل PowerPoint به TIFF با یادداشت‌ها](/slides/fa/nodejs-java/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX به Markdown | استخراج محتوای ارائه به Markdown برای مستندسازی و گردش‌کارهای متنی. | [تبدیل PowerPoint به Markdown](/slides/fa/nodejs-java/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP به XML | ایجاد یک ارائه PowerPoint XML مبتنی بر متن برای بازرسی، مقایسه، عیب‌یابی یا گردش‌کارهای مبتنی بر XML. | [تبدیل PowerPoint به XML](/slides/fa/nodejs-java/convert-powerpoint-to-xml/) |
+| PPT/PPTX به GIF متحرک | ایجاد یک GIF متحرک از اسلایدها. | [تبدیل PowerPoint به GIF متحرک](/slides/fa/nodejs-java/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX به ویدیو | ساخت یک گردش‌کار صادرات ویدیو از اسلایدهای ارائه. | [تبدیل PowerPoint به ویدیو](/slides/fa/nodejs-java/convert-powerpoint-to-video/) |
+| ارائه به XAML | استخراج اسلایدها به XAML برای سناریوهای UI در JavaScript یا Java. | [صادرات ارائه‌ها به XAML](/slides/fa/nodejs-java/export-to-xaml/) |
 
-برای لیست گسترده‌تری از فرمت‌های ورودی و خروجی، به [فرمت‌های فایل پشتیبانی‌شده](/slides/fa/nodejs-java/supported-file-formats/) مراجعه کنید.
+برای لیست گسترده‌تر فرمت‌های ورودی و خروجی، به [فرمت‌های فایل پشتیبانی‌شده](/slides/fa/nodejs-java/supported-file-formats/) مراجعه کنید.
 
 ## **تبدیل PowerPoint و OpenDocument**
 
-Aspose.Slides for Node.js via Java از تبدیل فرمت‌های ارائه رایج مانند PPT، PPTX، PPS، PPSX، POT، POTX و ODP پشتیبانی می‌کند. همان API تبدیل برای فایل‌های PowerPoint و OpenDocument استفاده می‌شود، به‌طوری که یک گردش کار که یک فایل PPTX را به PDF ذخیره می‌کند معمولاً می‌تواند با تغییر تنها فایل ورودی به ODP اعمال شود.
+Aspose.Slides for Node.js via Java از تبدیل بین فرمت‌های ارائه‌ای پرکاربرد مانند PPT، PPTX، PPS، PPSX، POT، POTX و ODP پشتیبانی می‌کند. همان API تبدیل برای فایل‌های PowerPoint و OpenDocument استفاده می‌شود، بنابراین یک گردش‌کار که یک فایل PPTX را به PDF ذخیره می‌کند، معمولاً می‌تواند با تغییر فقط فایل ورودی به ODP اعمال شود.
 
-هنگام تبدیل فایل‌های ODP، به یاد داشته باشید که برنامه‌های PowerPoint و OpenDocument هر ویژگی چیدمان و قالب‌بندی را به‌طور یکسان پشتیبانی نمی‌کنند. اگر یک فایل ODP در LibreOffice یا OpenOffice Impress ایجاد شده باشد، خروجی را بازبینی کنید و از گزینه‌های توضیح داده‌شده در [Convert OpenDocument Presentations](/slides/fa/nodejs-java/convert-openoffice-odp/) وقتی که به راهنمایی مخصوص فرمت نیاز دارید، استفاده کنید.
+در زمان تبدیل فایل‌های ODP، به یاد داشته باشید که برنامه‌های PowerPoint و OpenDocument هر ویژگی چیدمان و قالب‌بندی را دقیقاً به‌طور یکسان پشتیبانی نمی‌کنند. اگر فایلی ODP در LibreOffice یا OpenOffice Impress ایجاد شده باشد، خروجی را بررسی کنید و از گزینه‌های توضیح داده شده در [تبدیل ارائه‌های OpenDocument](/slides/fa/nodejs-java/convert-openoffice-odp/) هنگام نیاز به راهنمایی‌های خاص فرمت استفاده کنید.
 
 ## **تبدیل PPT به PPTX**
 
-PPT فرمت باینری قدیمی PowerPoint است، در حالی که PPTX فرمت مدرن Office Open XML است. Aspose.Slides for Node.js via Java تبدیل دقیق PPT به PPTX را با حفظ ساختارهای پیچیده ارائه مانند ماسٹرها، طرح‌ها، اسلایدها، نمودارها، اشکال گروهی، جای‌دارها، فریم‌های متنی، بافت‌ها و پرکننده‌های تصویر پشتیبانی می‌کند.
+PPT فرمت باینری قدیمی PowerPoint است، در حالی که PPTX فرمت مدرن Office Open XML می‌باشد. Aspose.Slides for Node.js via Java تبدیل دقیق PPT به PPTX را با حفظ ساختارهای پیچیده ارائه مانند مسترها، لایه‌ها، اسلایدها، نمودارها، اشکال گروهی، مکان‌گیرها، فریم‌های متنی، بافت‌ها و پرکننده‌های تصویر پشتیبانی می‌کند.
 
-برای جزئیات، به [Convert PPT to PPTX](/slides/fa/nodejs-java/convert-ppt-to-pptx/) و [PPT vs PPTX](/slides/fa/nodejs-java/ppt-vs-pptx/) مراجعه کنید.
+برای جزئیات بیشتر، به [تبدیل PPT به PPTX](/slides/fa/nodejs-java/convert-ppt-to-pptx/) و [PPT در مقابل PPTX](/slides/fa/nodejs-java/ppt-vs-pptx/) مراجعه کنید.
 
-## **خروجی با طرح ثابت**
+## **صادرات با طرح ثابت**
 
-PDF، XPS و TIFF زمانی مفید هستند که خروجی باید در تمام دستگاه‌ها یک‌دست ظاهر شود و نباید به‌عنوان ارائه ویرایش شود. مقالات اختصاصی PDF، XPS و TIFF توضیح می‌دهند که چگونه انطباق، اسلایدهای مخفی، یادداشت‌ها، کیفیت تصویر، فشرده‌سازی، فرمت پیکسل و اندازه خروجی را کنترل کنید.
+PDF، XPS و TIFF هنگامی مفید هستند که خروجی باید در همه دستگاه‌ها یک‌گونه به‌نظر برسد و به‌عنوان یک ارائه ویرایش‌پذیر نباشد. مقالات اختصاصی PDF، XPS و TIFF توضیح می‌دهند چگونه تطبیق، اسلایدهای پنهان، یادداشت‌ها، کیفیت تصویر، فشرده‌سازی، فرمت پیکسل و اندازه خروجی را کنترل کنید.
 
-## **خروجی HTML و تصویر**
+## **صادرات HTML و تصویر**
 
-خروجی HTML و HTML5 برای مشاهده در مرورگر، انتشار وب و اشتراک‌گذاری سبک مفید هستند. خروجی تصویر زمانی کاربرد دارد که هر اسلاید باید به یک پیش‌نمایش، تصویر بندانگشتی یا دارایی رستر جداگانه تبدیل شود. برای راهنمایی مخصوص فرمت، از مقالات PNG، JPG و SVG استفاده کنید.
+صادرات HTML و HTML5 برای نمایش در مرورگر، انتشار وب و اشتراک‌گذاری سبک مناسب است. صادرات تصویر زمانی مفید است که هر اسلاید باید به‌عنوان یک پیش‌نمایش، تصویر بندانگشتی یا دارایی رستری جداگانه درآید. برای راهنمایی‌های خاص فرمت، به مقالات PNG، JPG و SVG مراجعه کنید.
 
 ## **سوالات متداول**
 
-**آیا برای تبدیل ارائه‌ها به Microsoft PowerPoint نیاز دارم؟**  
+**آیا برای تبدیل ارائه‌ها به Microsoft PowerPoint نیاز دارم؟**
+
 نه. Aspose.Slides for Node.js via Java یک کتابخانه مستقل است و نیازی به Microsoft PowerPoint یا خودکارسازی Office ندارد.
 
-**آیا می‌توانم بسیاری از ارائه‌ها را به صورت دسته‌ای تبدیل کنم؟**  
-بله. هر ارائه را بارگذاری کنید، به فرمت مورد نیاز ذخیره کنید و پس از پردازش شی ارائه را آزاد کنید. برای پردازش موازی، از نمونه‌های جداگانه ارائه استفاده کنید و راهنمایی‌های [multithreading](/slides/fa/nodejs-java/multithreading/) را دنبال کنید.
+**آیا می‌توانم به‌صورت دسته‌ای بسیاری از ارائه‌ها را تبدیل کنم؟**
 
-**آیا می‌توانم فقط اسلایدهای انتخاب شده را صادر کنم؟**  
-بله. چندین روش خروجی امکان پاس دادن ایندکس‌های اسلاید یا رندر اسلایدهای فردی را بسته به فرمت خروجی فراهم می‌کنند. مقالهٔ اختصاصی برای فرمت هدف را ببینید.
+بله. هر ارائه را بارگذاری کنید، به فرمت مورد نیاز ذخیره کنید و پس از پردازش شی ارائه را آزاد کنید. برای پردازش موازی، از نمونه‌های جداگانه ارائه استفاده کنید و راهنمایی‌های [چندریسمانی](/slides/fa/nodejs-java/multithreading/) را دنبال کنید.
 
-**آیا می‌توانم اسلایدهای مخفی را هنگام خروجی به PDF یا XPS گنجانده شود؟**  
-بله. از تنظیمات خروجی اسلایدهای مخفی توضیح داده‌شده در مقالات [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) و [XPS](/slides/fa/nodejs-java/convert-powerpoint-to-xps/) استفاده کنید.
+**آیا می‌توانم فقط اسلایدهای انتخابی را صادر کنم؟**
 
-**آیا می‌توانم خروجی PDF/A ایجاد کنم؟**  
-بله. تنظیمات انطباق PDF برای خروجی PDF در دسترس هستند. برای جزئیات به [Convert PowerPoint to PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) مراجعه کنید.
+بله. چندین روش صادرات امکان عبور ایندکس‌های اسلاید یا رندر اسلایدهای منفرد را بسته به فرمت خروجی فراهم می‌کنند. مقاله اختصاصی برای فرمت هدف را ببینید.
 
-**قلم‌ها در هنگام تبدیل چگونه مدیریت می‌شوند؟**  
-Aspose.Slides می‌تواند از قلم‌های جاسازی‌شده، قلم‌های جایگزین و تنظیمات جایگزینی قلم استفاده کند. به [Embedded Font](/slides/fa/nodejs-java/embedded-font/)، [Fallback Font](/slides/fa/nodejs-java/fallback-font/) و [Font Substitution](/slides/fa/nodejs-java/font-substitution/) نگاه کنید.
+**آیا می‌توانم اسلایدهای پنهان را هنگام صادرات به PDF یا XPS شامل کنم؟**
+
+بله. از تنظیمات صادرات اسلایدهای پنهان که در مقالات [PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) و [XPS](/slides/fa/nodejs-java/convert-powerpoint-to-xps/) توضیح داده شده‌اند استفاده کنید.
+
+**آیا می‌توانم خروجی PDF/A ایجاد کنم؟**
+
+بله. تنظیمات تطبیق PDF برای صادرات PDF در دسترس هستند. برای جزئیات به [تبدیل PowerPoint به PDF](/slides/fa/nodejs-java/convert-powerpoint-to-pdf/) مراجعه کنید.
+
+**فونت‌ها هنگام تبدیل چگونه مدیریت می‌شوند؟**
+
+Aspose.Slides می‌تواند از فونت‌های داخلی، بازگشت به فونت پیش‌فرض و تنظیمات جایگزینی فونت استفاده کند. به مقالات [فونت داخلی](/slides/fa/nodejs-java/embedded-font/)، [فونت بازگشتی](/slides/fa/nodejs-java/fallback-font/) و [جایگزینی فونت](/slides/fa/nodejs-java/font-substitution/) نگاه کنید.

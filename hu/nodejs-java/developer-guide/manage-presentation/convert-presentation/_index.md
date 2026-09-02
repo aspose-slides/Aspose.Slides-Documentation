@@ -1,106 +1,113 @@
 ---
-title: Prezentációk konvertálása több formátumba JavaScriptben
-linktitle: Prezentáció konvertálása
+title: "Prezentációk konvertálása több formátumba JavaScript-ben"
+linktitle: "Prezentáció konvertálása"
 type: docs
 weight: 70
 url: /hu/nodejs-java/convert-presentation/
 keywords:
-- prezentáció konvertálása
-- prezentáció exportálása
-- PPT to PPTX
-- PPTX to PPT
-- ODP to PPTX
-- PPT to PDF
-- PPTX to PDF
-- ODP to PDF
-- PPT to HTML
-- PPTX to HTML
-- ODP to HTML
-- PPT to PNG
-- PPTX to PNG
-- ODP to PNG
-- PPTX to JPG
-- ODP to JPG
-- PPT to XPS
-- PPTX to XPS
-- ODP to XPS
-- PPT to TIFF
-- PPTX to TIFF
-- ODP to TIFF
-- PowerPoint
-- OpenDocument
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Konvertálja a PowerPoint és OpenDocument bemutatókat PPTX, PDF, HTML, képek, XPS, TIFF és egyéb formátumokra az Aspose.Slides for Node.js via Java segítségével."
+- "prezentáció konvertálása"
+- "prezentáció exportálása"
+- "PPT → PPTX"
+- "PPTX → PPT"
+- "ODP → PPTX"
+- "PPT → PDF"
+- "PPTX → PDF"
+- "ODP → PDF"
+- "PPT → HTML"
+- "PPTX → HTML"
+- "ODP → HTML"
+- "PPT → PNG"
+- "PPTX → PNG"
+- "ODP → PNG"
+- "PPTX → JPG"
+- "ODP → JPG"
+- "PPT → XPS"
+- "PPTX → XPS"
+- "ODP → XPS"
+- "PPT → TIFF"
+- "PPTX → TIFF"
+- "ODP → TIFF"
+- "PowerPoint"
+- "OpenDocument"
+- "Node.js"
+- "JavaScript"
+- "Aspose.Slides"
+description: "Konvertálja a PowerPoint és OpenDocument prezentációkat PPTX, PDF, HTML, képek, XPS, TIFF és egyéb formátumokba az Aspose.Slides for Node.js via Java segítségével."
 ---
 ## **Áttekintés**
 
-Az Aspose.Slides for Node.js via Java betöltheti a PowerPoint és OpenDocument bemutatókat, és sok más formátumba mentheti vagy renderelheti őket a Microsoft PowerPoint, OpenOffice vagy LibreOffice nélkül. Átalakíthatja a régi PPT fájlokat modern PPTX formátumba, exportálhatja a bemutatókat rögzített elrendezésű dokumentumokba, például PDF és XPS, közzéteheti a diákot HTML-ként, vagy renderelheti a diákat képfájlokként előnézetekhez, miniatűrökhöz és archívumokhoz.
+Az Aspose.Slides for Node.js via Java képes betölteni PowerPoint és OpenDocument prezentációkat, és számos más formátumba menteni vagy renderelni őket a Microsoft PowerPoint, OpenOffice vagy LibreOffice nélkül. Átalakíthatja a régi PPT fájlokat modern PPTX-re, exportálhat prezentációkat rögzített elrendezésű dokumentumokba, például PDF és XPS, közzéteheti a diákot HTML-ként, vagy a diákból képfájlokat készíthet előnézetekhez, bélyegképekhez és archívumokhoz.
 
-A legtöbb dokumentumkonverzió ugyanazt az általános munkafolyamatot használja: betölti a forrásfájlt, kiválasztja a kívánt kimeneti formátumot, és szükség esetén alkalmazza a formátumspecifikus beállításokat. Képfájlformátumok esetén minden diát külön renderelnek, majd raszter vagy vektor képként mentik. Az alább hivatkozott dedikált cikkek részletezik a megvalósítást minden esetben.
+A legtöbb dokumentumkonverzió ugyanazt az általános munkafolyamatot használja: betölti a forrásfájlt, kiválasztja a kívánt kimeneti formátumot, és szükség esetén alkalmazza a formátumspecifikus beállításokat. Képfájlok esetén minden diát külön renderelnek, majd raszter vagy vektor képként mentik. Az alább található dedikált cikkek tartalmazzák a részletes megvalósítást.
 
-## **Válasszon egy konverziós szcenáriót**
+## **Válasszon egy konverziós forgatókönyvet**
 
-Használja az alábbi cikkeket teljes JavaScript példákhoz és formátumspecifikus beállításokhoz.
+Használja az alábbi cikkeket a teljes JavaScript példákhoz és formátumspecifikus beállításokhoz.
 
-| Szcenárió | Használja, ha | Cikk |
+| Forgatókönyv | Használja, ha szüksége van rá | Cikk |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | Legyen korszerű a régi PPT fájlok, normalizálja a meglévő PPTX fájlokat, vagy konvertálja az OpenDocument bemutatókat PowerPoint PPTX formátumba. | [Convert PPT to PPTX](/slides/hu/nodejs-java/convert-ppt-to-pptx/),[Convert ODP to PPTX](/slides/hu/nodejs-java/convert-odp-to-pptx/),[Save Presentations](/slides/hu/nodejs-java/save-presentation/) |
-| PPTX to PPT | Mentse a modern PowerPoint bemutatót a régi bináris PPT formátumba a régebbi munkafolyamatok kompatibilitásáért. | [Convert PPTX to PPT](/slides/hu/nodejs-java/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | Hozzon létre hordozható, kereshető, rögzített elrendezésű dokumentumokat megosztáshoz, nyomtatáshoz vagy archiváláshoz. | [Convert PowerPoint to PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | Exportálja a előadói jegyzeteket a diákat tartalommal együtt. | [Convert PowerPoint to PDF with Notes](/slides/hu/nodejs-java/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | Tegye közzé a bemutatókat HTML oldalként, és irányítsa a képeket, betűtípusokat, jegyzeteket és a reszponzív elrendezési beállításokat. | [Convert PowerPoint to HTML](/slides/hu/nodejs-java/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | Exportálja a diákat HTML5-be a böngészőben való megjelenítéshez, megőrizve a formázást és az interaktivitást. | [Convert Presentations to HTML5](/slides/hu/nodejs-java/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | Renderelje minden diát PNG képre előnézetekhez, miniatűrökhöz vagy webes kimenethez. | [Convert PowerPoint to PNG](/slides/hu/nodejs-java/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | Renderelje a diákat JPG képekké, és szabályozza a kép méretét és minőségét. | [Convert PowerPoint to JPG](/slides/hu/nodejs-java/convert-powerpoint-to-jpg/) |
-| Slide to SVG | Exportáljon egyedi diákat méretezhető vektoros grafikaként. | [Render Slide as SVG](/slides/hu/nodejs-java/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | Generáljon rögzített elrendezésű XPS dokumentumokat. | [Convert PowerPoint to XPS](/slides/hu/nodejs-java/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | Mentse a bemutatót több oldalas TIFF fájlként nyomtatáshoz, szkenneléshez, faxhoz vagy archiválási munkafolyamatokhoz. | [Convert PowerPoint to TIFF](/slides/hu/nodejs-java/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | Mentse a diákat előadói jegyzetekkel TIFF-be. | [Convert PowerPoint to TIFF with Notes](/slides/hu/nodejs-java/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Markdown | Nyújtsa ki a bemutató tartalmát Markdown-be dokumentáció és szöveges munkafolyamatok céljából. | [Convert PowerPoint to Markdown](/slides/hu/nodejs-java/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | Hozzon létre animált GIF-et a diákról. | [Convert PowerPoint to Animated GIF](/slides/hu/nodejs-java/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | Építsen videó export munkafolyamatot a bemutató diákból. | [Convert PowerPoint to Video](/slides/hu/nodejs-java/convert-powerpoint-to-video/) |
-| Presentation to XAML | Exportálja a diákat XAML-be JavaScript vagy Java UI szcenáriókhoz. | [Export Presentations to XAML](/slides/hu/nodejs-java/export-to-xaml/) |
+| PPT/PPTX/ODP → PPTX | Régi PPT fájlok modernizálása, meglévő PPTX fájlok normalizálása, vagy OpenDocument prezentációk PowerPoint PPTX formátumba konvertálása. | [PPT konvertálása PPTX-be](/slides/hu/nodejs-java/convert-ppt-to-pptx/), [ODP konvertálása PPTX-be](/slides/hu/nodejs-java/convert-odp-to-pptx/), [Prezentációk mentése](/slides/hu/nodejs-java/save-presentation/) |
+| PPTX → PPT | Modern PowerPoint prezentáció mentése a régi bináris PPT formátumba az idősebb munkafolyamatok kompatibilitásáért. | [PPTX konvertálása PPT-be](/slides/hu/nodejs-java/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP → PDF | Hordozható, kereshető, rögzített elrendezésű dokumentumok létrehozása megosztáshoz, nyomtatáshoz vagy archiváláshoz. | [PowerPoint konvertálása PDF-be](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP → PDF jegyzetekkel | Előadói jegyzetek exportálása a dia tartalmával együtt. | [PowerPoint konvertálása PDF-be jegyzetekkel](/slides/hu/nodejs-java/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP → HTML | Prezentációk közzététele HTML oldalakon, valamint képek, betűtípusok, jegyzetek és reszponzív elrendezés vezérlése. | [PowerPoint konvertálása HTML-be](/slides/hu/nodejs-java/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP → HTML5 | Diai exportálás HTML5-be böngészőben történő megtekintéshez, a formázás és interaktivitás megőrzésével. | [Prezentációk konvertálása HTML5-be](/slides/hu/nodejs-java/export-to-html5/) |
+| PPT/PPTX/ODP → PNG | Minden dia PNG képpé renderelése előnézetekhez, bélyegképekhez vagy webes kimenethez. | [PowerPoint konvertálása PNG-be](/slides/hu/nodejs-java/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP → JPG | Diai exportálás JPG képként, a kép méretének és minőségének szabályozásával. | [PowerPoint konvertálása JPG-be](/slides/hu/nodejs-java/convert-powerpoint-to-jpg/) |
+| Dia → SVG | Egyedi diák exportálása méretezhető vektoros grafikaként. | [Dia renderelése SVG képként](/slides/hu/nodejs-java/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP → XPS | Rögzített elrendezésű XPS dokumentumok létrehozása. | [PowerPoint konvertálása XPS-be](/slides/hu/nodejs-java/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP → TIFF | Prezentáció mentése többoldalas TIFF fájlként nyomtatáshoz, szkenneléshez, faxhoz vagy archiválási folyamatokhoz. | [PowerPoint konvertálása TIFF-be](/slides/hu/nodejs-java/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP → TIFF jegyzetekkel | Diák mentése előadói jegyzetekkel TIFF-be. | [PowerPoint konvertálása TIFF-be jegyzetekkel](/slides/hu/nodejs-java/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX → Markdown | Prezentáció tartalmának kinyerése Markdown formátumba dokumentációhoz és szöveges munkafolyamatokhoz. | [PowerPoint konvertálása Markdown-be](/slides/hu/nodejs-java/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP → XML | Szöveges alapú PowerPoint XML prezentáció létrehozása ellenőrzéshez, összehasonlításhoz, hibaelhárításhoz vagy XML-alapú munkafolyamatokhoz. | [PowerPoint konvertálása XML-be](/slides/hu/nodejs-java/convert-powerpoint-to-xml/) |
+| PPT/PPTX → animált GIF | Animált GIF létrehozása diákból. | [PowerPoint konvertálása animált GIF-be](/slides/hu/nodejs-java/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX → videó | Videó export munkafolyamat létrehozása a prezentáció diákból. | [PowerPoint konvertálása videóba](/slides/hu/nodejs-java/convert-powerpoint-to-video/) |
+| Prezentáció → XAML | Diák exportálása XAML-be JavaScript vagy Java UI forgatókönyvekhez. | [Prezentációk exportálása XAML-be](/slides/hu/nodejs-java/export-to-xaml/) |
 
-A bemeneti és kimeneti formátumok szélesebb listájáért lásd a [Supported File Formats](/slides/hu/nodejs-java/supported-file-formats/).
+A bemeneti és kimeneti formátumok szélesebb listájáért lásd a [Támogatott fájlformátumok](/slides/hu/nodejs-java/supported-file-formats/) oldalt.
 
-## **PowerPoint és OpenDocument konverzió**
+## **PowerPoint és OpenDocument átalakítás**
 
-Az Aspose.Slides for Node.js via Java támogatja a konverziót a gyakran használt bemutatóformátumokból, például PPT, PPTX, PPS, PPSX, POT, POTX és ODP. Ugyanazt a konverziós API-t használják a PowerPoint és OpenDocument fájlokhoz, így egy munkafolyamat, amely PPTX fájlt PDF-be ment, általában alkalmazható ODP fájlra is, csak a bemeneti fájlt kell cserélni.
+Az Aspose.Slides for Node.js via Java támogatja a gyakran használt prezentációformátumok, például PPT, PPTX, PPS, PPSX, POT, POTX és ODP konvertálását. Ugyanazt a konverziós API-t használja a PowerPoint és OpenDocument fájlok esetén, így egy PPTX fájlt PDF-be mentő munkafolyamat általában alkalmazható ODP fájlra is, csak a bemeneti fájlt kell módosítani.
 
-ODP fájlok konvertálásakor tartsa szem előtt, hogy a PowerPoint és OpenDocument alkalmazások nem támogatják ugyanúgy minden elrendezési és formázási funkciót. Ha egy ODP fájl LibreOffice vagy OpenOffice Impress-ben készült, ellenőrizze a kimenetet, és használja a [Convert OpenDocument Presentations](/slides/hu/nodejs-java/convert-openoffice-odp/) leírt beállításokat, ha formátumspecifikus útmutatásra van szükség.
+ODP fájlok konvertálásakor vegye figyelembe, hogy a PowerPoint és az OpenDocument alkalmazások nem támogatják minden elrendezési és formázási funkciót pontosan ugyanúgy. Ha egy ODP fájl a LibreOffice vagy az OpenOffice Impress programban készült, ellenőrizze a kimenetet, és használja a [OpenDocument prezentációk konvertálása](/slides/hu/nodejs-java/convert-openoffice-odp/) leírt beállításokat, ha formátumspecifikus útmutatásra van szüksége.
 
 ## **PPT → PPTX konverzió**
 
-A PPT a régebbi bináris PowerPoint formátum, míg a PPTX a modern Office Open XML formátum. Az Aspose.Slides for Node.js via Java magas hűségű PPT → PPTX konverziót támogat, megőrizve a komplex bemutatóstruktúrákat, például master oldalakat, elrendezéseket, diákat, diagramokat, csoportosított alakzatokat, helyőrzőket, szövegkereteket, textúrákat és képtöltéseket.
+A PPT a régebbi bináris PowerPoint formátum, míg a PPTX a modern Office Open XML formátum. Az Aspose.Slides for Node.js via Java magas pontosságú PPT → PPTX konverziót támogat, miközben megőrzi a komplex prezentációs struktúrákat, például mesterlapokat, elrendezéseket, diák, diagramok, csoportosított alakzatok, helykitöltőket, szövegkereteket, textúrákat és képkitöltéseket.
 
-Részletekért lásd a [Convert PPT to PPTX](/slides/hu/nodejs-java/convert-ppt-to-pptx/) és a [PPT vs PPTX](/slides/hu/nodejs-java/ppt-vs-pptx/) oldalakat.
+Részletekért lásd a [PPT konvertálása PPTX-be](/slides/hu/nodejs-java/convert-ppt-to-pptx/) és a [PPT vs PPTX](/slides/hu/nodejs-java/ppt-vs-pptx/) cikkeket.
 
 ## **Rögzített elrendezésű export**
 
-A PDF, XPS és TIFF hasznos, ha a kimenetnek minden eszközön ugyanolyannak kell lennie, és nem szabad szerkeszteni bemutatóként. A dedikált PDF, XPS és TIFF cikkek bemutatják, hogyan szabályozható a kompatibilitás, rejtett diák, jegyzetek, képminőség, tömörítés, pixel formátum és a kimeneti méret.
+A PDF, XPS és TIFF hasznos, ha a kimenetnek minden eszközön ugyanúgy kell kinéznie, és nem szabad prezentációként szerkeszteni. A dedikált PDF, XPS és TIFF cikkek bemutatják, hogyan lehet szabályozni a megfelelőséget, rejtett diákot, jegyzeteket, képminőséget, tömörítést, pixel formátumot és a kimeneti méretet.
 
-## **HTML és kép export**
+## **HTML és képek exportálása**
 
-A HTML és HTML5 export hasznos a böngészőben történő megtekintéshez, webes közzétételhez és könnyű megosztáshoz. Kép export akkor hasznos, amikor minden diát külön előnézetként, miniatűrként vagy raszter eszközként kell kezelni. Használja a PNG, JPG és SVG cikkeket a formátumspecifikus renderelési útmutatáshoz.
+A HTML és HTML5 export hasznos a böngészőben való megtekintéshez, webes közzétételhez és könnyű megosztáshoz. Kép export akkor hasznos, ha minden diához külön előnézet, bélyegkép vagy raszter elem szükséges. A PNG, JPG és SVG cikkek nyújtanak formátumspecifikus renderelési útmutatást.
 
-## **GYIK**
+## **FAQ**
 
-**Szükségem van Microsoft PowerPoint-ra a bemutatók konvertálásához?**  
-Nem. Az Aspose.Slides for Node.js via Java egy önálló könyvtár, és nem igényli a Microsoft PowerPoint vagy Office automatizálást.
+**Szükségem van a Microsoft PowerPoint-re a prezentációk konvertálásához?**
 
-**Tömegesen konvertálhatok sok bemutatót?**  
-Igen. Töltse be minden bemutatót, mentse a kívánt formátumba, majd a feldolgozás után szüntesse meg a bemutató objektumot. Párhuzamos feldolgozás esetén használjon külön bemutató példányokat, és kövesse a [multithreading](/slides/hu/nodejs-java/multithreading/) útmutatót.
+Nem. Az Aspose.Slides for Node.js via Java egy önálló könyvtár, és nem igényli a Microsoft PowerPoint vagy az Office automatizálást.
 
-**Exportálhatok csak a kiválasztott diákat?**  
-Igen. Számos exportálási módszer lehetővé teszi, hogy diák indexeit adja meg vagy egyes diákat rendereljen, a kimeneti formátumtól függően. Lásd a cél formátumra vonatkozó dedikált cikket.
+**Tömegesen konvertálhatok sok prezentációt?**
 
-**Bele tudom-e foglalni a rejtett diákat PDF vagy XPS exportálásakor?**  
-Igen. Használja a rejtett-diák export beállításait, amelyek a [PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) és [XPS](/slides/hu/nodejs-java/convert-powerpoint-to-xps/) konverziós cikkekben vannak leírva.
+Igen. Töltsön be minden prezentációt, mentse a kívánt formátumba, és a feldolgozás után szabadítsa fel a prezentáció objektumot. Párhuzamos feldolgozás esetén használjon külön prezentációs példányokat, és kövesse a [több szálú](/slides/hu/nodejs-java/multithreading/) útmutatót.
 
-**Létrehozhatok PDF/A kimenetet?**  
-Igen. A PDF exporthez elérhetők a PDF-kompatibilitási beállítások. Részletekért lásd a [Convert PowerPoint to PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) oldalt.
+**Exportálhatok csak kiválasztott diákot?**
 
-**Hogyan kezelődnek a betűtípusok a konverzió során?**  
-Az Aspose.Slides használhat beágyazott betűtípusokat, betűtípus fallback-et és betűtípus helyettesítési beállításokat. Lásd a [Embedded Font](/slides/hu/nodejs-java/embedded-font/), [Fallback Font](/slides/hu/nodejs-java/fallback-font/) és a [Font Substitution](/slides/hu/nodejs-java/font-substitution/) cikkeket.
+Igen. Számos exportálási módszer lehetővé teszi a diák indexének megadását vagy egyedi diák renderelését a kimeneti formátumtól függően. Tekintse meg a célformátumra vonatkozó dedikált cikket.
+
+**Bele tudom-e foglalni a rejtett diákot PDF vagy XPS exportálásakor?**
+
+Igen. Használja a [PDF](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) és [XPS](/slides/hu/nodejs-java/convert-powerpoint-to-xps/) konverziós cikkekben leírt rejtett dia export beállításokat.
+
+**Létrehozhatok PDF/A kimenetet?**
+
+Igen. PDF megfelelőségi beállítások elérhetők a PDF exporthoz. Részletekért lásd a [PowerPoint konvertálása PDF-be](/slides/hu/nodejs-java/convert-powerpoint-to-pdf/) cikket.
+
+**Hogyan kezelődnek a betűtípusok a konverzió során?**
+
+Az Aspose.Slides használhat beágyazott betűtípusokat, betűtípus tartalékot és betűtípus helyettesítési beállításokat. Lásd a [Beágyazott betűtípus](/slides/hu/nodejs-java/embedded-font/), [Betűtípus tartalék](/slides/hu/nodejs-java/fallback-font/), és a [Betűtípus helyettesítés](/slides/hu/nodejs-java/font-substitution/) cikkeket.

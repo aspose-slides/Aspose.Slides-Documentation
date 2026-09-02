@@ -7,26 +7,26 @@ url: /de/cpp/convert-presentation/
 keywords:
 - Präsentation konvertieren
 - Präsentation exportieren
-- PPT nach PPTX
-- PPTX nach PPT
-- ODP nach PPTX
-- PPT nach PDF
-- PPTX nach PDF
-- ODP nach PDF
-- PPT nach HTML
-- PPTX nach HTML
-- ODP nach HTML
-- PPT nach PNG
-- PPTX nach PNG
-- ODP nach PNG
-- PPTX nach JPG
-- ODP nach JPG
-- PPT nach XPS
-- PPTX nach XPS
-- ODP nach XPS
-- PPT nach TIFF
-- PPTX nach TIFF
-- ODP nach TIFF
+- PPT zu PPTX
+- PPTX zu PPT
+- ODP zu PPTX
+- PPT zu PDF
+- PPTX zu PDF
+- ODP zu PDF
+- PPT zu HTML
+- PPTX zu HTML
+- ODP zu HTML
+- PPT zu PNG
+- PPTX zu PNG
+- ODP zu PNG
+- PPTX zu JPG
+- ODP zu JPG
+- PPT zu XPS
+- PPTX zu XPS
+- ODP zu XPS
+- PPT zu TIFF
+- PPTX zu TIFF
+- ODP zu TIFF
 - PowerPoint
 - OpenDocument
 - C++
@@ -35,55 +35,56 @@ description: "Konvertieren Sie PowerPoint- und OpenDocument-Präsentationen in P
 ---
 ## **Übersicht**
 
-Aspose.Slides für C++ kann PowerPoint‑ und OpenDocument‑Präsentationen laden und sie in viele andere Formate speichern oder rendern, ohne Microsoft PowerPoint, OpenOffice oder LibreOffice zu benötigen. Sie können alte PPT‑Dateien in das moderne PPTX‑Format konvertieren, Präsentationen in Dokumente mit festem Layout wie PDF und XPS exportieren, Folien als HTML veröffentlichen oder Folien als Bilddateien für Vorschaubilder, Miniaturansichten und Archive rendern.
+Aspose.Slides für C++ kann PowerPoint- und OpenDocument-Präsentationen laden und in viele andere Formate speichern oder rendern, ohne Microsoft PowerPoint, OpenOffice oder LibreOffice zu benötigen. Sie können legacy PPT‑Dateien in moderne PPTX konvertieren, Präsentationen in feste Layout‑Dokumente wie PDF und XPS exportieren, Folien als HTML veröffentlichen oder Folien als Bilddateien für Vorschaubilder, Thumbnails und Archive rendern.
 
-Die meisten Dokumentkonvertierungen nutzen denselben allgemeinen Arbeitsablauf: Laden Sie die Quelldatei, wählen Sie das gewünschte Ausgabeformat und wenden Sie bei Bedarf formatbezogene Optionen an. Bei Bildformaten wird jede Folie einzeln gerendert und anschließend als Raster‑ oder Vektorbild gespeichert. Die nachstehend verlinkten Artikel enthalten die Implementierungsdetails für jeden Fall.
+Die meisten Dokumentkonvertierungen folgen demselben allgemeinen Ablauf: Laden Sie die Quelldatei, wählen Sie das gewünschte Ausgabformat und wenden Sie bei Bedarf formatbezogene Optionen an. Für Bildformate wird jede Folie separat gerendert und dann als Raster‑ oder Vektorbild gespeichert. Die unten verlinkten Artikel enthalten die Implementierungsdetails für jeden Fall.
 
 ## **Wählen Sie ein Konvertierungsszenario**
 
-Verwenden Sie die nachstehenden Artikel für vollständige C++‑Beispiele und formatbezogene Optionen.
+Verwenden Sie die nachfolgenden Artikel für vollständige C++‑Beispiele und formatbezogene Optionen.
 
 | Szenario | Verwenden Sie es, wenn Sie | Artikel |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | Legacy‑PPT‑Dateien modernisieren, vorhandene PPTX‑Dateien normalisieren oder OpenDocument‑Präsentationen in PowerPoint‑PPTX konvertieren. | [PPT nach PPTX konvertieren](/slides/de/cpp/convert-ppt-to-pptx/), [ODP nach PPTX konvertieren](/slides/de/cpp/convert-odp-to-pptx/), [Präsentationen speichern](/slides/de/cpp/save-presentation/) |
-| PPTX to PPT | Speichern Sie eine moderne PowerPoint‑Präsentation im älteren binären PPT‑Format für die Kompatibilität mit älteren Workflows. | [PPTX nach PPT konvertieren](/slides/de/cpp/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | Erstellen Sie portable, durchsuchbare Dokumente mit festem Layout zum Teilen, Drucken oder Archivieren. | [PowerPoint nach PDF konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | Exportieren Sie Referenten‑Notizen zusammen mit dem Folieninhalt. | [PowerPoint nach PDF mit Notizen konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | Veröffentlichen Sie Präsentationen als HTML‑Seiten und steuern Sie Bilder, Schriftarten, Notizen und Optionen für responsives Layout. | [PowerPoint nach HTML konvertieren](/slides/de/cpp/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | Exportieren Sie Folien nach HTML5 für die browserbasierte Anzeige mit erhaltenem Format und Interaktivität. | [Präsentationen nach HTML5 konvertieren](/slides/de/cpp/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | Rendern Sie jede Folie als PNG‑Bild für Vorschaubilder, Miniaturansichten oder Webausgabe. | [PowerPoint nach PNG konvertieren](/slides/de/cpp/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | Rendern Sie Folien zu JPG‑Bildern und steuern Sie Bildabmessungen und -qualität. | [PowerPoint nach JPG konvertieren](/slides/de/cpp/convert-powerpoint-to-jpg/) |
-| Slide to SVG | Exportieren Sie einzelne Folien als skalierbare Vektorgrafiken. | [Folien als SVG rendern](/slides/de/cpp/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | Erzeugen Sie XPS‑Dokumente mit festem Layout. | [PowerPoint nach XPS konvertieren](/slides/de/cpp/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | Speichern Sie eine Präsentation als mehrseitige TIFF‑Datei zum Drucken, Scannen, Faxen oder für Archivierungs‑Workflows. | [PowerPoint nach TIFF konvertieren](/slides/de/cpp/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | Speichern Sie Folien mit Referenten‑Notizen als TIFF. | [PowerPoint nach TIFF mit Notizen konvertieren](/slides/de/cpp/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Word | Konvertieren Sie Folien in ein Word‑Dokument, wenn Sie eine Ausgabe im Dokumentstil benötigen. | [PowerPoint nach Word konvertieren](/slides/de/cpp/convert-powerpoint-to-word/) |
-| PPT/PPTX to Markdown | Extrahieren Sie den Präsentationsinhalt in Markdown für Dokumentation und textbasierte Workflows. | [PowerPoint nach Markdown konvertieren](/slides/de/cpp/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | Erstellen Sie ein animiertes GIF aus Folien. | [PowerPoint nach animiertem GIF konvertieren](/slides/de/cpp/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | Erstellen Sie einen Video‑Export‑Workflow aus Präsentationsfolien. | [PowerPoint nach Video konvertieren](/slides/de/cpp/convert-powerpoint-to-video/) |
-| Presentation to XAML | Exportieren Sie Folien nach XAML für C++‑UI‑Szenarien. | [Präsentationen nach XAML exportieren](/slides/de/cpp/export-to-xaml/) |
+| PPT/PPTX/ODP zu PPTX | Legacy‑PPT‑Dateien modernisieren, vorhandene PPTX‑Dateien normalisieren oder OpenDocument‑Präsentationen in PowerPoint‑PPTX konvertieren. | [PPT zu PPTX konvertieren](/slides/de/cpp/convert-ppt-to-pptx/), [ODP zu PPTX konvertieren](/slides/de/cpp/convert-odp-to-pptx/), [Präsentationen speichern](/slides/de/cpp/save-presentation/) |
+| PPTX zu PPT | Eine moderne PowerPoint‑Präsentation im alten Binär‑PPT‑Format speichern, um mit älteren Workflows kompatibel zu sein. | [PPTX zu PPT konvertieren](/slides/de/cpp/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP zu PDF | Portable, durchsuchbare Dokumente mit festem Layout für das Teilen, Drucken oder Archivieren erstellen. | [PowerPoint zu PDF konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP zu PDF mit Notizen | Sprechernotizen zusammen mit dem Folieninhalt exportieren. | [PowerPoint zu PDF mit Notizen konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP zu HTML | Präsentationen als HTML‑Seiten veröffentlichen und Bilder, Schriften, Notizen sowie responsive Layout‑Optionen steuern. | [PowerPoint zu HTML konvertieren](/slides/de/cpp/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP zu HTML5 | Folien nach HTML5 exportieren für browserbasierte Ansicht mit erhaltenem Layout und Interaktivität. | [Präsentationen zu HTML5 konvertieren](/slides/de/cpp/export-to-html5/) |
+| PPT/PPTX/ODP zu PNG | Jede Folie als PNG‑Bild für Vorschaubilder, Thumbnails oder Webausgabe rendern. | [PowerPoint zu PNG konvertieren](/slides/de/cpp/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP zu JPG | Folien zu JPG‑Bildern rendern und Bildabmessungen sowie Qualität steuern. | [PowerPoint zu JPG konvertieren](/slides/de/cpp/convert-powerpoint-to-jpg/) |
+| Folie zu SVG | Einzelne Folien als skalierbare Vektorgrafiken exportieren. | [Folie als SVG rendern](/slides/de/cpp/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP zu XPS | XPS‑Dokumente mit festem Layout erzeugen. | [PowerPoint zu XPS konvertieren](/slides/de/cpp/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP zu TIFF | Eine Präsentation als mehrseitige TIFF‑Datei zum Drucken, Scannen, Faxen oder Archivieren speichern. | [PowerPoint zu TIFF konvertieren](/slides/de/cpp/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP zu TIFF mit Notizen | Folien mit Sprechernotizen als TIFF speichern. | [PowerPoint zu TIFF mit Notizen konvertieren](/slides/de/cpp/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX zu Word | Folien in ein Word‑Dokument konvertieren, wenn ein dokumentenähnlicher Output benötigt wird. | [PowerPoint zu Word konvertieren](/slides/de/cpp/convert-powerpoint-to-word/) |
+| PPT/PPTX zu Markdown | Präsentationsinhalte in Markdown extrahieren für Dokumentation und textbasierte Workflows. | [PowerPoint zu Markdown konvertieren](/slides/de/cpp/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP zu XML | Eine textbasierte PowerPoint‑XML‑Präsentation zur Inspektion, zum Vergleich, zur Fehlersuche oder XML‑basierten Workflows erstellen. | [PowerPoint zu XML konvertieren](/slides/de/cpp/convert-powerpoint-to-xml/) |
+| PPT/PPTX zu animiertem GIF | Ein animiertes GIF aus den Folien erstellen. | [PowerPoint zu animiertem GIF konvertieren](/slides/de/cpp/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX zu Video | Einen Video‑Export‑Workflow aus Präsentationsfolien erstellen. | [PowerPoint zu Video konvertieren](/slides/de/cpp/convert-powerpoint-to-video/) |
+| Präsentation zu XAML | Folien nach XAML exportieren für C++‑UI‑Szenarien. | [Präsentationen zu XAML exportieren](/slides/de/cpp/export-to-xaml/) |
 
 Für eine umfassendere Liste von Eingabe‑ und Ausgabeformaten siehe [Unterstützte Dateiformate](/slides/de/cpp/supported-file-formats/).
 
-## **PowerPoint- und OpenDocument-Konvertierung**
+## **PowerPoint- und OpenDocument‑Konvertierung**
 
-Aspose.Slides für C++ unterstützt die Konvertierung von gängigen Präsentationsformaten wie PPT, PPTX, PPS, PPSX, POT, POTX und ODP. Die gleiche Konvertierungs‑API wird für PowerPoint‑ und OpenDocument‑Dateien verwendet, sodass ein Workflow, der eine PPTX‑Datei nach PDF speichert, in der Regel auch auf eine ODP‑Datei anwendbar ist, indem nur die Eingabedatei geändert wird.
+Aspose.Slides für C++ unterstützt die Konvertierung aus gängigen Präsentationsformaten wie PPT, PPTX, PPS, PPSX, POT, POTX und ODP. dieselbe Konvertierungs‑API wird für PowerPoint‑ und OpenDocument‑Dateien verwendet, sodass ein Workflow, der eine PPTX‑Datei nach PDF speichert, in der Regel auch auf eine ODP‑Datei angewendet werden kann, indem nur die Eingabedatei geändert wird.
 
-Beim Konvertieren von ODP‑Dateien sollten Sie beachten, dass PowerPoint‑ und OpenDocument‑Anwendungen nicht jedes Layout‑ und Formatierungsfeature exakt gleich unterstützen. Wenn eine ODP‑Datei in LibreOffice oder OpenOffice Impress erstellt wurde, überprüfen Sie das Ergebnis und verwenden Sie die in [OpenDocument‑Präsentationen konvertieren](/slides/de/cpp/convert-openoffice-odp/) beschriebenen Optionen, wenn Sie formatbezogene Anleitungen benötigen.
+Beim Konvertieren von ODP‑Dateien beachten Sie, dass PowerPoint‑ und OpenDocument‑Anwendungen nicht jedes Layout‑ und Formatierungsfeature exakt gleich unterstützen. Wurde eine ODP‑Datei in LibreOffice oder OpenOffice Impress erstellt, prüfen Sie das Ergebnis und verwenden Sie die in [OpenDocument‑Präsentationen konvertieren](/slides/de/cpp/convert-openoffice-odp/) beschriebenen Optionen, wenn Sie formatbezogene Anleitungen benötigen.
 
-## **PPT-zu-PPTX-Konvertierung**
+## **PPT‑zu‑PPTX‑Konvertierung**
 
-PPT ist das ältere binäre PowerPoint‑Format, während PPTX das moderne Office Open‑XML‑Format ist. Aspose.Slides für C++ unterstützt die hochpräzise PPT‑zu‑PPTX‑Konvertierung und bewahrt dabei komplexe Präsentationsstrukturen wie Master‑Folien, Layouts, Folien, Diagramme, Gruppierte Formen, Platzhalter, Textfelder, Texturen und Bildfüllungen.
+PPT ist das ältere binäre PowerPoint‑Format, während PPTX das moderne Office‑Open‑XML‑Format ist. Aspose.Slides für C++ unterstützt eine hochgenaue PPT‑zu‑PPTX‑Konvertierung und bewahrt dabei komplexe Präsentationsstrukturen wie Master, Layouts, Folien, Diagramme, Gruppierungen von Formen, Platzhalter, Text‑Frames, Texturen und Bildfüllungen.
 
-Weitere Details finden Sie unter [PPT nach PPTX konvertieren](/slides/de/cpp/convert-ppt-to-pptx/).
+Weitere Details finden Sie unter [PPT zu PPTX konvertieren](/slides/de/cpp/convert-ppt-to-pptx/).
 
 ## **Export mit festem Layout**
 
-PDF, XPS und TIFF sind nützlich, wenn die Ausgabe auf allen Geräten gleich aussehen und nicht als Präsentation bearbeitet werden soll. Die speziellen PDF‑-, XPS‑ und TIFF‑Artikel erklären, wie man Konformität, versteckte Folien, Notizen, Bildqualität, Kompression, Pixelformat und Ausgabegröße steuert.
+PDF, XPS und TIFF sind nützlich, wenn die Ausgabe auf allen Geräten identisch aussehen und nicht als Präsentation bearbeitet werden soll. Die entsprechenden PDF‑, XPS‑ und TIFF‑Artikel erklären, wie Compliance, versteckte Folien, Notizen, Bildqualität, Kompression, Pixelformat und Ausgabengröße gesteuert werden.
 
-## **HTML- und Bildexport**
+## **HTML‑ und Bild‑Export**
 
-HTML‑ und HTML5‑Export sind nützlich für die Anzeige im Browser, das Web‑Publishing und leichtes Teilen. Bildexport ist hilfreich, wenn jede Folie zu einem separaten Vorschaubild, einer Miniaturansicht oder einem Raster‑Asset werden soll. Verwenden Sie die PNG‑-, JPG‑‑ und SVG‑Artikel für formatbezogene Rendereinstellungen.
+HTML‑ und HTML5‑Export sind nützlich für die Browser‑Ansicht, Webveröffentlichung und leichtes Teilen. Bild‑Export ist sinnvoll, wenn jede Folie zu einer eigenen Vorschau, einem Thumbnail oder einem Raster‑Asset werden soll. Nutzen Sie die PNG‑, JPG‑ und SVG‑Artikel für formatbezogene Render‑Anleitungen.
 
 ## **FAQ**
 
@@ -93,20 +94,20 @@ Nein. Aspose.Slides für C++ ist eine eigenständige Bibliothek und erfordert we
 
 **Kann ich viele Präsentationen stapelweise konvertieren?**
 
-Ja. Laden Sie jede Präsentation, speichern Sie sie im gewünschten Format und geben Sie das Präsentations‑Objekt nach der Verarbeitung frei. Für parallele Verarbeitung verwenden Sie separate Präsentations‑Instanzen und folgen Sie den [Multithreading](/slides/de/cpp/multithreading/)-Hinweisen.
+Ja. Laden Sie jede Präsentation, speichern Sie sie im gewünschten Format und entsorgen Sie das Präsentations‑Objekt nach der Verarbeitung. Für parallele Verarbeitung verwenden Sie separate Präsentationsinstanzen und befolgen Sie die Anweisungen zum [Multithreading](/slides/de/cpp/multithreading/).
 
 **Kann ich nur ausgewählte Folien exportieren?**
 
-Ja. Mehrere Exportmethoden ermöglichen das Übergeben von Folienindizes oder das Rendern einzelner Folien, je nach Ausgabeformat. Siehe den entsprechenden Artikel für das Ziel‑Format.
+Ja. Mehrere Exportmethoden ermöglichen das Übergeben von Folienindizes oder das Rendern einzelner Folien, abhängig vom Ausgabeformat. Siehe den entsprechenden Artikel für das Ziel‑Format.
 
 **Kann ich versteckte Folien beim Export nach PDF oder XPS einbeziehen?**
 
-Ja. Verwenden Sie die Export‑Einstellungen für versteckte Folien, die in den [PDF](/slides/de/cpp/convert-powerpoint-to-pdf/)- und [XPS](/slides/de/cpp/convert-powerpoint-to-xps/)-Konvertierungsartikeln beschrieben sind.
+Ja. Verwenden Sie die Export‑Einstellungen für versteckte Folien, die in den [PDF](/slides/de/cpp/convert-powerpoint-to-pdf/)‑ und [XPS](/slides/de/cpp/convert-powerpoint-to-xps/)‑Konvertierungsartikeln beschrieben sind.
 
-**Kann ich PDF/A‑Ausgabe erzeugen?**
+**Kann ich PDF/A‑Ausgabe erstellen?**
 
-Ja. PDF‑Konformitätseinstellungen stehen für den PDF‑Export zur Verfügung. Siehe [PowerPoint nach PDF konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf/) für Details.
+Ja. PDF‑Compliance‑Einstellungen stehen für den PDF‑Export zur Verfügung. Siehe [PowerPoint zu PDF konvertieren](/slides/de/cpp/convert-powerpoint-to-pdf/) für Details.
 
-**Wie werden Schriftarten während der Konvertierung behandelt?**
+**Wie werden Schriftarten bei der Konvertierung behandelt?**
 
-Aspose.Slides kann eingebettete Schriftarten, Font‑Fallback und Schriftarten‑Substitutions‑Einstellungen verwenden. Siehe [Eingebettete Schriftart](/slides/de/cpp/embedded-font/), [Fallback‑Schriftart](/slides/de/cpp/fallback-font/), und [Schriftart‑Substitution](/slides/de/cpp/font-substitution/).
+Aspose.Slides kann eingebettete Schriftarten, Schriftarten‑Fallback und Schriftarten‑Substitutionseinstellungen verwenden. Siehe [Eingebettete Schriftart](/slides/de/cpp/embedded-font/), [Fallback‑Schriftart](/slides/de/cpp/fallback-font/), und [Schriftarten‑Substitution](/slides/de/cpp/font-substitution/).

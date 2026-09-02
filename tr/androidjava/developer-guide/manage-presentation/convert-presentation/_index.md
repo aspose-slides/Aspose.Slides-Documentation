@@ -1,5 +1,5 @@
 ---
-title: Android'de Sunumları Birden Çok Formata Dönüştürme
+title: Android'de Sunumları Çoklu Formata Dönüştürün
 linktitle: Sunumu Dönüştür
 type: docs
 weight: 70
@@ -8,24 +8,24 @@ keywords:
 - sunumu dönüştür
 - sunumu dışa aktar
 - PPT'den PPTX'e
-- PPTX'ten PPT'ye
+- PPTX'den PPT'ye
 - ODP'den PPTX'e
 - PPT'den PDF'e
-- PPTX'ten PDF'e
+- PPTX'den PDF'e
 - ODP'den PDF'e
 - PPT'den HTML'e
-- PPTX'ten HTML'e
+- PPTX'den HTML'e
 - ODP'den HTML'e
 - PPT'den PNG'e
-- PPTX'ten PNG'e
+- PPTX'den PNG'e
 - ODP'den PNG'e
-- PPTX'ten JPG'e
+- PPTX'den JPG'e
 - ODP'den JPG'e
 - PPT'den XPS'e
-- PPTX'ten XPS'e
+- PPTX'den XPS'e
 - ODP'den XPS'e
 - PPT'den TIFF'e
-- PPTX'ten TIFF'e
+- PPTX'den TIFF'e
 - ODP'den TIFF'e
 - PowerPoint
 - OpenDocument
@@ -36,76 +36,73 @@ description: "Aspose.Slides for Android via Java ile PowerPoint ve OpenDocument 
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for Android via Java, Microsoft PowerPoint, OpenOffice veya LibreOffice kullanmadan PowerPoint ve OpenDocument sunumlarını yükleyebilir ve bunları birçok başka formata kaydedebilir veya işleyebilir. Eski PPT dosyalarını modern PPTX formatına dönüştürebilir, sunumları PDF ve XPS gibi sabit düzenli belgelere aktarabilir, slaytları HTML olarak yayımlayabilir veya önizlemeler, küçük resimler ve arşivler için slaytları görüntü dosyaları olarak işleyebilirsiniz.
+Aspose.Slides for Android via Java, Microsoft PowerPoint, OpenOffice veya LibreOffice gerektirmeden PowerPoint ve OpenDocument sunumlarını yükleyebilir ve birçok başka formata kaydedebilir veya renderleyebilir. Eski PPT dosyalarını modern PPTX'e dönüştürebilir, sunumları PDF ve XPS gibi sabit düzenli belgelere dışa aktarabilir, slaytları HTML olarak yayınlayabilir veya ön izlemeler, küçük resimler ve arşivler için slaytları görüntü dosyaları olarak renderleyebilirsiniz.
 
-Çoğu belge dönüştürmesi aynı genel iş akışını izler: kaynak dosyayı yükleyin, istenen çıktı formatını seçin ve gerektiğinde formata özgü seçenekleri uygulayın. Görüntü formatları için her slayt ayrı ayrı işlenir ve ardından raster veya vektör görüntü olarak kaydedilir. Aşağıda bağlantılı özel makaleler her senaryo için uygulanış ayrıntılarını sağlar.
+Çoğu belge dönüşümü aynı genel iş akışını izler: kaynak dosyayı yükleyin, gerekli çıktı formatını seçin ve gerektiğinde formata özgü seçenekleri uygulayın. Görüntü formatları için her slayt ayrı ayrı renderlenir ve ardından raster veya vektör görüntüsü olarak kaydedilir. Aşağıda bağlantısı verilen özel makaleler, her durum için uygulama ayrıntılarını sunar.
 
-## **Bir Dönüştürme Senaryosu Seçin**
+## **Bir Dönüşüm Senaryosu Seçin**
+
+Aşağıdaki makaleler, tam Java örnekleri ve format‑özgü seçenekler içerir.
 
 | Senaryo | İhtiyacınız olduğunda | Makale |
 | --- | --- | --- |
-| PPT/PPTX/ODP to PPTX | Legacy PPT dosyalarını modernize edin, mevcut PPTX dosyalarını normalleştirin veya OpenDocument sunumlarını PowerPoint PPTX formatına dönüştürün. | [PPT'yi PPTX'e Dönüştür](/slides/tr/androidjava/convert-ppt-to-pptx/), [ODP'yi PPTX'e Dönüştür](/slides/tr/androidjava/convert-odp-to-pptx/), [Sunumları Kaydet](/slides/tr/androidjava/save-presentation/) |
-| PPTX to PPT | Modern bir PowerPoint sunumunu, eski iş akışlarıyla uyumluluk için eski ikili PPT formatına kaydedin. | [PPTX'i PPT'ye Dönüştür](/slides/tr/androidjava/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP to PDF | Paylaşım, baskı veya arşivleme için taşınabilir, aranabilir, sabit düzenli belgeler oluşturun. | [PowerPoint'i PDF'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP to PDF with notes | Konuşmacı notlarını slayt içeriğiyle birlikte dışa aktarın. | [PowerPoint'i Notlarla PDF'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP to HTML | Sunumları HTML sayfaları olarak yayımlayın ve görüntüler, yazı tipleri, notlar ve duyarlı düzen seçeneklerini kontrol edin. | [PowerPoint'i HTML'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP to HTML5 | Slaytları, biçimlendirme ve etkileşim korunarak tarayıcı tabanlı görüntüleme için HTML5'e dışa aktarın. | [Sunumları HTML5'e Dönüştür](/slides/tr/androidjava/export-to-html5/) |
-| PPT/PPTX/ODP to PNG | Her slaytı önizleme, küçük resim veya web çıktısı için PNG görüntüsüne işleyin. | [PowerPoint'i PNG'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP to JPG | Slaytları JPG görüntülerine işleyin ve görüntü boyutları ile kalitesini kontrol edin. | [PowerPoint'i JPG'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-jpg/) |
-| Slide to SVG | Tek tek slaytları ölçeklenebilir vektör grafikleri (SVG) olarak dışa aktarın. | [Slaytı SVG olarak İşle](/slides/tr/androidjava/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP to XPS | Sabit düzenli XPS belgeleri oluşturun. | [PowerPoint'i XPS'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP to TIFF | Sunumu, baskı, tarama, faks veya arşivleme iş akışları için çok sayfalı bir TIFF dosyası olarak kaydedin. | [PowerPoint'i TIFF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP to TIFF with notes | Slaytları konuşmacı notlarıyla birlikte TIFF dosyasına kaydedin. | [PowerPoint'i Notlarla TIFF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX to Word | Belgeler gibi bir çıktı gerektiğinde slaytları bir Word belgesine dönüştürün. | [PowerPoint'i Word'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-word/) |
-| PPT/PPTX to Markdown | Belgelendirme ve metin tabanlı iş akışları için sunum içeriğini Markdown'a çıkarın. | [PowerPoint'i Markdown'a Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-markdown/) |
-| PPT/PPTX to animated GIF | Slaytlardan animasyonlu bir GIF oluşturun. | [PowerPoint'i Animasyonlu GIF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX to video | Sunum slaytlarından bir video dışa aktarma iş akışı oluşturun. | [PowerPoint'i Videoya Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-video/) |
-| Presentation to XAML | Android veya Java UI senaryoları için slaytları XAML'e dışa aktarın. | [Sunumları XAML'e Dışa Aktar](/slides/tr/androidjava/export-to-xaml/) |
+| PPT/PPTX/ODP'den PPTX'e | Eski PPT dosyalarını modernize edin, mevcut PPTX dosyalarını normalleştirin veya OpenDocument sunumlarını PowerPoint PPTX'e dönüştürün. | [PPT'yi PPTX'e Dönüştür](/slides/tr/androidjava/convert-ppt-to-pptx/), [ODP'yi PPTX'e Dönüştür](/slides/tr/androidjava/convert-odp-to-pptx/), [Sunumları Kaydet](/slides/tr/androidjava/save-presentation/) |
+| PPTX'ten PPT'ye | Modern bir PowerPoint sunumunu eski ikili PPT formatına kaydederek eski iş akışlarıyla uyumluluğu sağlayın. | [PPTX'i PPT'ye Dönüştür](/slides/tr/androidjava/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP'den PDF'e | Paylaşım, baskı veya arşivleme için taşınabilir, aranabilir, sabit‑düzen belgeler oluşturun. | [PowerPoint'i PDF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP'den PDF'e notlarla | Sunum içeriğiyle birlikte konuşmacı notlarını dışa aktarın. | [PowerPoint'i Notlarla PDF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP'den HTML'e | Sunumları HTML sayfaları olarak yayınlayın ve görüntüler, yazı tipleri, notlar ve duyarlı düzen seçeneklerini kontrol edin. | [PowerPoint'i HTML'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP'den HTML5'e | Formatlamayı ve etkileşimi koruyarak tarayıcı tabanlı görüntüleme için slaytları HTML5'e dışa aktarın. | [Sunumları HTML5'e Dönüştür](/slides/tr/androidjava/export-to-html5/) |
+| PPT/PPTX/ODP'den PNG'e | Ön izlemeler, küçük resimler veya web çıktısı için her slaytı PNG görüntüsü olarak renderleyin. | [PowerPoint'i PNG'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP'den JPG'e | Slaytları JPG görüntülerine renderleyin ve görüntü boyutları ile kaliteyi kontrol edin. | [PowerPoint'i JPG'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-jpg/) |
+| Slaytı SVG'ye | Tek tek slaytları ölçeklenebilir vektör grafik olarak dışa aktarın. | [Slaytı SVG Olarak Renderle](/slides/tr/androidjava/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP'den XPS'e | Sabit‑düzen XPS belgeleri oluşturun. | [PowerPoint'i XPS'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP'den TIFF'e | Yazdırma, tarama, faks veya arşiv akışları için çok sayfalı TIFF dosyası olarak sunumu kaydedin. | [PowerPoint'i TIFF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP'den TIFF'e notlarla | Slaytları konuşmacı notlarıyla birlikte TIFF formatında kaydedin. | [PowerPoint'i Notlarla TIFF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX'ten Word'e | Belge‑stili çıktı istediğinizde slaytları bir Word belgesine dönüştürün. | [PowerPoint'i Word'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-word/) |
+| PPT/PPTX'ten Markdown'a | Sunum içeriğini belgeleme ve metin‑tabanlı iş akışları için Markdown olarak çıkarın. | [PowerPoint'i Markdown'a Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP'den XML'e | İnceleme, karşılaştırma, sorun giderme veya XML‑tabanlı iş akışları için metin‑tabanlı PowerPoint XML sunumu oluşturun. | [PowerPoint'i XML'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-xml/) |
+| PPT/PPTX'ten animasyonlu GIF'e | Slaytlardan animasyonlu GIF oluşturun. | [PowerPoint'i Animasyonlu GIF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX'ten videoya | Sunum slaytlarından video dışa aktarma iş akışı oluşturun. | [PowerPoint'i Videoya Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-video/) |
+| Sunumu XAML'e | Android veya Java UI senaryoları için slaytları XAML'e dışa aktarın. | [Sunumları XAML'e Dışa Aktar](/slides/tr/androidjava/export-to-xaml/) |
 
-Giriş ve çıkış formatlarının daha geniş bir listesi için, [Desteklenen Dosya Formatları](/slides/tr/androidjava/supported-file-formats/) sayfasına bakın.
+Daha geniş bir giriş ve çıkış formatı listesi için [Desteklenen Dosya Formatları](/slides/tr/androidjava/supported-file-formats/) sayfasına bakın.
 
-## **PowerPoint ve OpenDocument Dönüştürme**
+## **PowerPoint ve OpenDocument Dönüşümü**
 
-Aspose.Slides for Android via Java, PPT, PPTX, PPS, PPSX, POT, POTX ve ODP gibi yaygın kullanılan sunum formatlarından dönüşümü destekler. Aynı dönüşüm API'si PowerPoint ve OpenDocument dosyaları için kullanılır; bu nedenle bir PPTX dosyasını PDF'ye kaydeden iş akışı, yalnızca giriş dosyasını değiştirerek genellikle bir ODP dosyasına da uygulanabilir.
+Aspose.Slides for Android via Java, PPT, PPTX, PPS, PPSX, POT, POTX ve ODP gibi yaygın kullanılan sunum formatlarından dönüşümü destekler. PowerPoint ve OpenDocument dosyaları için aynı dönüşüm API'si kullanılır; bu nedenle bir PPTX dosyasını PDF'e kaydeden iş akışı, yalnızca girdi dosyasını değiştirerek bir ODP dosyasına da uygulanabilir.
 
-ODP dosyalarını dönüştürürken, PowerPoint ve OpenDocument uygulamalarının her düzen ve biçimlendirme özelliğini tam olarak aynı şekilde desteklemediğini unutmayın. ODP dosyası LibreOffice veya OpenOffice Impress'te oluşturulduysa, çıktıyı inceleyin ve format‑özel rehberliğe ihtiyaç duyduğunuzda [OpenDocument Sunumlarını Dönüştür](/slides/tr/androidjava/convert-openoffice-odp/) bölümünde açıklanan seçenekleri kullanın.
+ODP dosyalarını dönüştürürken, PowerPoint ve OpenDocument uygulamalarının her düzen ve biçimlendirme özelliğini tam olarak aynı şekilde desteklemediğini unutmayın. Bir ODP dosyası LibreOffice veya OpenOffice Impress ile oluşturulmuşsa, çıktıyı inceleyin ve format‑özgü rehberlik için [OpenDocument Sunumları Dönüştür](/slides/tr/androidjava/convert-openoffice-odp/) makalesinde açıklanan seçenekleri kullanın.
 
-## **PPT'den PPTX'e Dönüştürme**
+## **PPT'den PPTX'e Dönüşüm**
 
-PPT, eski ikili PowerPoint formatıdır, PPTX ise modern Office Open XML formatıdır. Aspose.Slides for Android via Java, ana sayfalar, düzenler, slaytlar, grafikler, gruplanmış şekiller, yer tutucular, metin çerçeveleri, dokular ve resim doldurmaları gibi karmaşık sunum yapılarını koruyarak yüksek kaliteli PPT'den PPTX'e dönüşümü destekler.
+PPT eski ikili PowerPoint formatıdır, PPTX ise modern Office Open XML formatıdır. Aspose.Slides for Android via Java, master'lar, düzenler, slaytlar, grafikler, gruplanmış şekiller, yer tutucular, metin çerçeveleri, doku ve resim doldurmaları gibi karmaşık yapıların korunarak yüksek doğruluklu PPT'den PPTX'e dönüşümü destekler.
 
-Ayrıntılar için, [PPT'yi PPTX'e Dönüştür](/slides/tr/androidjava/convert-ppt-to-pptx/) ve [PPT vs PPTX](/slides/tr/androidjava/ppt-vs-pptx/) bölümlerine bakın.
+Ayrıntılar için [PPT'yi PPTX'e Dönüştür](/slides/tr/androidjava/convert-ppt-to-pptx/) ve [PPT vs PPTX](/slides/tr/androidjava/ppt-vs-pptx/) makalelerine bakın.
 
-## **Sabit Düzen Dışa Aktarma**
+## **Sabit‑Düzen Dışa Aktarım**
 
-PDF, XPS ve TIFF, çıktının cihazlar arasında aynı görünmesi gerektiğinde ve bir sunum olarak düzenlenmemesi gerektiğinde kullanışlıdır. Ayrı ayrı PDF, XPS ve TIFF makaleleri, uyumluluk, gizli slaytlar, notlar, görüntü kalitesi, sıkıştırma, piksel formatı ve çıktı boyutunu nasıl kontrol edeceğinizi açıklar.
+PDF, XPS ve TIFF, çıktının cihazlar arasında aynı görünmesini ve sunum olarak düzenlenmemesini istediğiniz durumlarda kullanışlıdır. Ayrı PDF, XPS ve TIFF makaleleri, uyumluluk, gizli slaytlar, notlar, görüntü kalitesi, sıkıştırma, piksel biçimi ve çıktı boyutu kontrolünü nasıl yapacağınızı açıklar.
 
-## **HTML ve Görüntü Dışa Aktarma**
+## **HTML ve Görüntü Dışa Aktarım**
 
-HTML ve HTML5 dışa aktarma, tarayıcı görüntüleme, web yayınlama ve hafif paylaşım için kullanışlıdır. Görüntü dışa aktarma, her slaytın ayrı bir önizleme, küçük resim veya raster varlık haline gelmesi gerektiğinde faydalıdır. Biçim‑özel işleme rehberliği için PNG, JPG ve SVG makalelerini kullanın.
+HTML ve HTML5 dışa aktarımı, tarayıcı görüntüleme, web yayınlama ve hafif paylaşım için faydalıdır. Görüntü dışa aktarımı, her slaytın ayrı bir ön izleme, küçük resim veya raster varlık haline getirilmesi gerektiğinde kullanılır. PNG, JPG ve SVG makaleleri, format‑özgü render rehberliği sağlar.
 
 ## **SSS**
 
-**Sunumları dönüştürmek için Microsoft PowerPoint'e ihtiyacım var mı?**
+**Sunumları dönüştürmek için Microsoft PowerPoint'e ihtiyacım var mı?**  
+Hayır. Aspose.Slides for Android via Java bağımsız bir kütüphanedir ve Microsoft PowerPoint veya Office otomasyonu gerektirmez.
 
-Hayır. Aspose.Slides for Android via Java, bağımsız bir kütüphanedir ve Microsoft PowerPoint veya Office otomasyonuna ihtiyaç duymaz.
+**Birçok sunumu toplu olarak dönüştürebilir miyim?**  
+Evet. Her bir sunumu yükleyin, istediğiniz formata kaydedin ve işleme sonrasında sunum nesnesini serbest bırakın. Paralel işlem için ayrı sunum örnekleri kullanın ve [çoklu iş parçacığı](/slides/tr/androidjava/multithreading/) yönergelerini izleyin.
 
-**Birçok sunumu toplu olarak dönüştürebilir miyim?**
+**Sadece seçili slaytları dışa aktarabilir miyim?**  
+Evet. Çıktı formatına bağlı olarak slayt indekslerini belirtebilir veya tek tek slaytları renderleyebilirsiniz. Hedef format için ayrıntılı makaleye bakın.
 
-Evet. Her bir sunumu yükleyin, gerekli formata kaydedin ve işlem sonrası sunum nesnesini ortadan kaldırın. Paralel işleme için ayrı sunum örnekleri kullanın ve [çoklu iş parçacığı](/slides/tr/androidjava/multithreading/) rehberliğini izleyin.
+**PDF veya XPS dışa aktarırken gizli slaytları dahil edebilir miyim?**  
+Evet. Gizli‑slayt dışa aktarım ayarlarını, [PDF](/slides/tr/androidjava/convert-powerpoint-to-pdf/) ve [XPS](/slides/tr/androidjava/convert-powerpoint-to-xps/) dönüşüm makalelerinde açıklandığı gibi kullanın.
 
-**Yalnızca seçili slaytları dışa aktarabilir miyim?**
+**PDF/A çıktısı oluşturabilir miyim?**  
+Evet. PDF dışa aktarımı için PDF uyumluluk ayarları mevcuttur. Ayrıntılar için [PowerPoint'i PDF'e Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf/) sayfasına bakın.
 
-Evet. Çıktı formatına bağlı olarak, çeşitli dışa aktarma yöntemleri slayt indekslerini geçirmenize veya tek tek slaytları işlemenize olanak tanır. Hedef format için ayrı makaleye bakın.
-
-**PDF veya XPS'ye dışa aktarırken gizli slaytları dahil edebilir miyim?**
-
-Evet. [PDF](/slides/tr/androidjava/convert-powerpoint-to-pdf/) ve [XPS](/slides/tr/androidjava/convert-powerpoint-to-xps/) dönüşüm makalelerinde açıklanan gizli‑slayt dışa aktarma ayarlarını kullanın.
-
-**PDF/A çıktısı oluşturabilir miyim?**
-
-Evet. PDF dışa aktarma için PDF uyumluluk ayarları mevcuttur. Ayrıntılar için [PowerPoint'i PDF'ye Dönüştür](/slides/tr/androidjava/convert-powerpoint-to-pdf/) bölümüne bakın.
-
-**Dönüşüm sırasında yazı tipleri nasıl ele alınır?**
-
-Aspose.Slides, gömülü yazı tipleri, yedek yazı tipleri ve yazı tipi ikame ayarlarını kullanabilir. [Gömülü Yazı Tipi](/slides/tr/androidjava/embedded-font/), [Yedek Yazı Tipi](/slides/tr/androidjava/fallback-font/) ve [Yazı Tipi İkamesi](/slides/tr/androidjava/font-substitution/) bölümlerine bakın.
+**Dönüşüm sırasında yazı tipleri nasıl ele alınır?**  
+Aspose.Slides, gömülü yazı tiplerini, yedekleme (fallback) yazı tiplerini ve yazı tipi ikamesi ayarlarını kullanabilir. Ayrıntılar: [Gömülü Yazı Tipi](/slides/tr/androidjava/embedded-font/), [Yedek Yazı Tipi](/slides/tr/androidjava/fallback-font/), [Yazı Tipi İkamesi](/slides/tr/androidjava/font-substitution/).

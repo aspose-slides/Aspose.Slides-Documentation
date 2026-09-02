@@ -1,88 +1,89 @@
 ---
-title: "PHP ile Sunumları Çeşitli Formata Dönüştürme"
-linktitle: "Sunumu Dönüştür"
+title: PHP'de Sunumları Birden Çok Formata Dönüştürme
+linktitle: Sunumu Dönüştür
 type: docs
 weight: 70
 url: /tr/php-java/convert-presentation/
 keywords:
-- "sunumu dönüştür"
-- "sunumu dışa aktar"
-- "PPT'den PPTX'e"
-- "PPTX'ten PPT'ye"
-- "ODP'den PPTX'e"
-- "PPT'den PDF'e"
-- "PPTX'ten PDF'e"
-- "ODP'den PDF'e"
-- "PPT'den HTML'e"
-- "PPTX'ten HTML'e"
-- "ODP'den HTML'e"
-- "PPT'den PNG'e"
-- "PPTX'ten PNG'e"
-- "ODP'den PNG'e"
-- "PPTX'ten JPG'e"
-- "ODP'den JPG'e"
-- "PPT'den XPS'e"
-- "PPTX'ten XPS'e"
-- "ODP'den XPS'e"
-- "PPT'den TIFF'e"
-- "PPTX'ten TIFF'e"
-- "ODP'den TIFF'e"
+- sunumu dönüştür
+- sunumu dışa aktar
+- PPT'den PPTX'e
+- PPTX'den PPT'e
+- ODP'den PPTX'e
+- PPT'den PDF'e
+- PPTX'den PDF'e
+- ODP'den PDF'e
+- PPT'den HTML'e
+- PPTX'den HTML'e
+- ODP'den HTML'e
+- PPT'den PNG'e
+- PPTX'den PNG'e
+- ODP'den PNG'e
+- PPTX'den JPG'e
+- ODP'den JPG'e
+- PPT'den XPS'e
+- PPTX'den XPS'e
+- ODP'den XPS'e
+- PPT'den TIFF'e
+- PPTX'den TIFF'e
+- ODP'den TIFF'e
 - PowerPoint
 - OpenDocument
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java ile PowerPoint ve OpenDocument sunumlarını PPTX, PDF, HTML, görüntüler, XPS, TIFF ve daha fazlasına dönüştürün."
+description: "Aspose.Slides for PHP via Java kullanarak PowerPoint ve OpenDocument sunumlarını PPTX, PDF, HTML, görüntüler, XPS, TIFF ve daha fazlasına dönüştürün."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides for PHP via Java, Microsoft PowerPoint, OpenOffice veya LibreOffice olmadan PowerPoint ve OpenDocument sunumlarını yükleyebilir ve bunları birçok başka formata kaydedebilir veya işleyebilir. Eski PPT dosyalarını modern PPTX'e dönüştürebilir, sunumları PDF ve XPS gibi sabit düzenli belgeler olarak dışa aktarabilir, slaytları HTML olarak yayımlayabilir veya slaytları ön izleme, küçük resim ve arşivler için görüntü dosyaları olarak işleyebilirsiniz.
+Aspose.Slides for PHP via Java, Microsoft PowerPoint, OpenOffice veya LibreOffice olmadan PowerPoint ve OpenDocument sunumlarını yükleyebilir ve birçok başka formata kaydedebilir veya işleyebilir. Eski PPT dosyalarını modern PPTX'e dönüştürebilir, sunumları PDF ve XPS gibi sabit‑düzen belgelerine aktarabilir, slaytları HTML olarak yayımlayabilir veya ön izlemeler, küçük resimler ve arşivler için slaytları görsel dosyalar olarak işleyebilirsiniz.
 
-Çoğu belge dönüştürmesi aynı genel iş akışını kullanır: kaynak dosyayı yükle, gerekli çıkış formatını seç ve gerektiğinde formata özgü seçenekleri uygula. Görüntü formatları için her slayt ayrı ayrı işlenir ve ardından raster ya da vektör görüntü olarak kaydedilir. Aşağıdaki özel makaleler her durum için uygulama ayrıntılarını sunar.
+Çoğu belge dönüşümü aynı genel iş akışını izler: kaynak dosyayı yükle, istenen çıktı formatını seç ve gerektiğinde format‑özel seçenekleri uygula. Görsel formatları için her slayt ayrı ayrı işlenir ve ardından raster ya da vektör görsel olarak kaydedilir. Aşağıdaki bağlantılı makaleler her durum için uygulama ayrıntılarını sunar.
 
 ## **Bir Dönüştürme Senaryosu Seçin**
 
-Aşağıdaki makaleleri tam PHP örnekleri ve formata özgü seçenekler için kullanın.
+Aşağıdaki makaleleri tam PHP örnekleri ve format‑özel seçenekler için kullanın.
 
-| Senaryo | Ne zaman ihtiyacınız olursa | Makale |
+| Senaryo | Şu durumlarda kullanın | Makale |
 | --- | --- | --- |
-| PPT/PPTX/ODP'den PPTX'e | Legacy PPT dosyalarını modernleştirin, mevcut PPTX dosyalarını normalleştirin veya OpenDocument sunumlarını PowerPoint PPTX'e dönüştürün. | [PPT'yi PPTX'e Dönüştür](/slides/tr/php-java/convert-ppt-to-pptx/), [ODP'yi PPTX'e Dönüştür](/slides/tr/php-java/convert-odp-to-pptx/), [Sunumları Kaydet](/slides/tr/php-java/save-presentation/) |
-| PPTX'den PPT'ye | Modern bir PowerPoint sunumunu, eski iş akışlarıyla uyumluluk için daha eski ikili PPT formatına kaydedin. | [PPTX'yi PPT'ye Dönüştür](/slides/tr/php-java/convert-pptx-to-ppt/) |
-| PPT/PPTX/ODP'den PDF'ye | Paylaşım, baskı veya arşivleme için taşınabilir, aranabilir, sabit düzenli belgeler oluşturun. | [PowerPoint'i PDF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-pdf/) |
-| PPT/PPTX/ODP'den Notlarla PDF'ye | Sunucu notlarını slayt içeriğiyle birlikte dışa aktarın. | [PowerPoint'i Notlarla PDF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-pdf-with-notes/) |
-| PPT/PPTX/ODP'den HTML'ye | Sunumları HTML sayfaları olarak yayınlayın ve görüntüler, yazı tipleri, notlar ve duyarlı düzen seçeneklerini kontrol edin. | [PowerPoint'i HTML'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-html/) |
-| PPT/PPTX/ODP'den HTML5'e | Slaytları, biçimlendirme ve etkileşim korunarak tarayıcı tabanlı görüntüleme için HTML5'e aktarın. | [Sunumları HTML5'e Dönüştür](/slides/tr/php-java/export-to-html5/) |
-| PPT/PPTX/ODP'den PNG'ye | Her slaytı ön izleme, küçük resim veya web çıktısı için PNG görüntüsüne işleyin. | [PowerPoint'i PNG'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-png/) |
-| PPT/PPTX/ODP'den JPG'ye | Slaytları JPG görüntülerine işleyin ve görüntü boyutları ile kalitesini kontrol edin. | [PowerPoint'i JPG'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-jpg/) |
-| Slaytı SVG'ye | Tek tek slaytları ölçeklenebilir vektör grafikleri olarak dışa aktarın. | [Slaytı SVG Olarak İşle](/slides/tr/php-java/render-a-slide-as-an-svg-image/) |
-| PPT/PPTX/ODP'den XPS'ye | Sabit düzen XPS belgeleri oluşturun. | [PowerPoint'i XPS'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-xps/) |
-| PPT/PPTX/ODP'den TIFF'e | Sunumu baskı, tarama, faks veya arşiv iş akışları için çok sayfalı TIFF dosyası olarak kaydedin. | [PowerPoint'i TIFF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-tiff/) |
-| PPT/PPTX/ODP'den Notlarla TIFF'e | Slaytları konuşmacı notlarıyla birlikte TIFF'e kaydedin. | [PowerPoint'i Notlarla TIFF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-tiff-with-notes/) |
-| PPT/PPTX'den Markdown'a | Sunum içeriğini belgeleme ve metin tabanlı iş akışları için Markdown'a çıkarın. | [PowerPoint'i Markdown'a Dönüştür](/slides/tr/php-java/convert-powerpoint-to-markdown/) |
-| PPT/PPTX'den animasyonlu GIF'e | Slaytlardan animasyonlu GIF oluşturun. | [PowerPoint'i Animasyonlu GIF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-animated-gif/) |
-| PPT/PPTX'den videoya | Sunum slaytlarından video dışa aktarma iş akışı oluşturun. | [PowerPoint'i Videoya Dönüştür](/slides/tr/php-java/convert-powerpoint-to-video/) |
-| Sunumu XAML'e | Slaytları PHP veya Java UI senaryoları için XAML'e dışa aktarın. | [Sunumları XAML'e Dışa Aktar](/slides/tr/php-java/export-to-xaml/) |
+| PPT/PPTX/ODP to PPTX | Eski PPT dosyalarını modernleştirin, mevcut PPTX dosyalarını normalleştirin veya OpenDocument sunumlarını PowerPoint PPTX'e dönüştürün. | [PPT'yi PPTX'e Dönüştür](/slides/tr/php-java/convert-ppt-to-pptx/), [ODP'yi PPTX'e Dönüştür](/slides/tr/php-java/convert-odp-to-pptx/), [Sunumları Kaydet](/slides/tr/php-java/save-presentation/) |
+| PPTX to PPT | Modern PowerPoint sunumunu daha eski ikili PPT formatına kaydederek eski iş akışlarıyla uyumluluğu sağlayın. | [PPTX'i PPT'ye Dönüştür](/slides/tr/php-java/convert-pptx-to-ppt/) |
+| PPT/PPTX/ODP to PDF | Paylaşım, yazdırma veya arşivleme için taşınabilir, aranabilir, sabit‑düzen belgeler oluşturun. | [PowerPoint'i PDF'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-pdf/) |
+| PPT/PPTX/ODP to PDF with notes | Konuşmacı notlarını slayt içeriğiyle birlikte dışa aktarın. | [PowerPoint'i Notlarla PDF'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-pdf-with-notes/) |
+| PPT/PPTX/ODP to HTML | Sunumları HTML sayfaları olarak yayımlayın ve görseller, yazı tipleri, notlar ve duyarlı düzen seçeneklerini kontrol edin. | [PowerPoint'i HTML'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-html/) |
+| PPT/PPTX/ODP to HTML5 | Biçimlendirme ve etkileşimi koruyarak tarayıcıda görüntülenebilen HTML5'e dışa aktarın. | [Sunumları HTML5'e Dışa Aktar](/slides/tr/php-java/export-to-html5/) |
+| PPT/PPTX/ODP to PNG | Ön izlemeler, küçük resimler veya web çıktısı için her slaytı PNG görsele işleyin. | [PowerPoint'i PNG'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-png/) |
+| PPT/PPTX/ODP to JPG | Slaytları JPG görsellere işleyin ve görsel boyutları ile kalitesini yönetin. | [PowerPoint'i JPG'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-jpg/) |
+| Slide to SVG | Tek tek slaytları ölçeklenebilir vektör grafiği (SVG) olarak dışa aktarın. | [Slaytı SVG Olarak İşle](/slides/tr/php-java/render-a-slide-as-an-svg-image/) |
+| PPT/PPTX/ODP to XPS | Sabit‑düzen XPS belgeleri oluşturun. | [PowerPoint'i XPS'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-xps/) |
+| PPT/PPTX/ODP to TIFF | Baskı, tarama, faks veya arşivleme iş akışları için çok sayfalı TIFF dosyası olarak kaydedin. | [PowerPoint'i TIFF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-tiff/) |
+| PPT/PPTX/ODP to TIFF with notes | Konuşmacı notlarıyla birlikte slaytları TIFF olarak kaydedin. | [PowerPoint'i Notlarla TIFF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-tiff-with-notes/) |
+| PPT/PPTX to Markdown | Dokümantasyon ve metin‑tabanlı iş akışları için sunum içeriğini Markdown'a çıkartın. | [PowerPoint'i Markdown'a Dönüştür](/slides/tr/php-java/convert-powerpoint-to-markdown/) |
+| PPT/PPTX/ODP to XML | Denetleme, karşılaştırma, sorun giderme veya XML‑tabanlı iş akışları için metin‑tabanlı PowerPoint XML Sunumu oluşturun. | [PowerPoint'i XML'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-xml/) |
+| PPT/PPTX to animated GIF | Slaytlardan animasyonlu GIF oluşturun. | [PowerPoint'i Animasyonlu GIF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-animated-gif/) |
+| PPT/PPTX to video | Sunum slaytlarından video dışa aktarma iş akışı oluşturun. | [PowerPoint'i Videoya Dönüştür](/slides/tr/php-java/convert-powerpoint-to-video/) |
+| Presentation to XAML | PHP veya Java UI senaryoları için slaytları XAML'e dışa aktarın. | [Sunumları XAML'e Dışa Aktar](/slides/tr/php-java/export-to-xaml/) |
 
-Daha geniş bir giriş ve çıkış formatları listesi için [Desteklenen Dosya Formatları](/slides/tr/php-java/supported-file-formats/) sayfasına bakın.
+Daha geniş bir giriş ve çıkış formatı listesi için [Desteklenen Dosya Formatları](/slides/tr/php-java/supported-file-formats/) sayfasına bakın.
 
-## **PowerPoint ve OpenDocument Dönüştürme**
+## **PowerPoint ve OpenDocument Dönüşümü**
 
-Aspose.Slides for PHP via Java, PPT, PPTX, PPS, PPSX, POT, POTX ve ODP gibi yaygın olarak kullanılan sunum formatlarından dönüşümü destekler. PowerPoint ve OpenDocument dosyaları için aynı dönüşüm API'si kullanılır; bu nedenle bir PPTX dosyasını PDF'ye kaydeden bir iş akışı, yalnızca giriş dosyasını değiştirerek ODP dosyası için de uygulanabilir.
+Aspose.Slides for PHP via Java, PPT, PPTX, PPS, PPSX, POT, POTX ve ODP gibi yaygın kullanılan sunum formatlarından dönüşümü destekler. Aynı dönüşüm API'si PowerPoint ve OpenDocument dosyaları için kullanılır; bu nedenle bir PPTX dosyasını PDF'ye kaydeden iş akışı, yalnızca giriş dosyasını ODP olarak değiştirerek ODP dosyasına da uygulanabilir.
 
-ODP dosyalarını dönüştürürken, PowerPoint ve OpenDocument uygulamalarının her bir düzen ve biçimlendirme özelliğini tam olarak aynı şekilde desteklemediğini unutmayın. ODP dosyası LibreOffice ya da OpenOffice Impress ile oluşturulmuşsa, çıktıyı gözden geçirin ve format‑özel rehberlik gerektiğinde [Convert OpenDocument Presentations](/slides/tr/php-java/convert-openoffice-odp/) bölümündeki seçenekleri kullanın.
+ODP dosyalarını dönüştürürken, PowerPoint ve OpenDocument uygulamalarının her düzen ve biçimlendirme özelliğini tam olarak aynı şekilde desteklemediğini unutmayın. Bir ODP dosyası LibreOffice veya OpenOffice Impress ile oluşturulmuşsa, çıktıyı gözden geçirin ve format‑özel rehberlik için [OpenDocument Sunumları Dönüştür](/slides/tr/php-java/convert-openoffice-odp/) makalesinde açıklanan seçenekleri kullanın.
 
 ## **PPT'den PPTX'e Dönüştürme**
 
-PPT, eski ikili PowerPoint formatıdır; PPTX ise modern Office Open XML formatıdır. Aspose.Slides for PHP via Java, karmaşık sunum yapıları (master'lar, düzenler, slaytlar, grafikler, gruplanmış şekiller, tutucu öğeler, metin çerçeveleri, dokular ve resim dolguları) korunarak yüksek sadakatli PPT'den PPTX'e dönüşümü destekler.
+PPT eski ikili PowerPoint formatıdır, PPTX ise modern Office Open XML formatıdır. Aspose.Slides for PHP via Java, master'lar, düzenler, slaytlar, grafikler, gruplanmış şekiller, yer tutucular, metin çerçeveleri, dokular ve resim doldurmaları gibi karmaşık sunum yapılarını koruyarak yüksek doğrulukta PPT'den PPTX'e dönüşümü destekler.
 
 Ayrıntılar için [PPT'yi PPTX'e Dönüştür](/slides/tr/php-java/convert-ppt-to-pptx/) ve [PPT vs PPTX](/slides/tr/php-java/ppt-vs-pptx/) makalelerine bakın.
 
-## **Sabit Düzen Dışa Aktarma**
+## **Sabit‑Düzen Dışa Aktarım**
 
-PDF, XPS ve TIFF, çıktının cihazlar arasında aynı görünmesini sağlamak ve bir sunum olarak düzenlenmemesini istemek gerektiğinde kullanışlıdır. Özel PDF, XPS ve TIFF makaleleri, uyumluluk, gizli slaytlar, notlar, görüntü kalitesi, sıkıştırma, piksel formatı ve çıktı boyutu kontrolünü açıklar.
+PDF, XPS ve TIFF, çıktının cihazlar arasında aynı görünmesini sağlamak ve bir sunum olarak düzenlenmemesini istendiğinde kullanışlıdır. Ayrı PDF, XPS ve TIFF makaleleri, uyumluluk, gizli slaytlar, notlar, görsel kalitesi, sıkıştırma, piksel formatı ve çıktı boyutu gibi ayarların nasıl kontrol edileceğini açıklar.
 
-## **HTML ve Görüntü Dışa Aktarma**
+## **HTML ve Görsel Dışa Aktarım**
 
-HTML ve HTML5 dışa aktarma, tarayıcı görüntüleme, web yayınlama ve hafif paylaşım için faydalıdır. Görüntü dışa aktarma, her slaytın ayrı bir ön izleme, küçük resim veya raster varlığı olması gerektiğinde kullanılır. Format‑özel işleme yönergeleri için PNG, JPG ve SVG makalelerini inceleyin.
+HTML ve HTML5 dışa aktarım, tarayıcı görüntüleme, web yayını ve hafif paylaşım için uygundur. Görsel dışa aktarım, her slaytın ayrı bir ön izleme, küçük resim veya raster varlık haline gelmesi gerektiğinde faydalıdır. Format‑özel işleme rehberi için PNG, JPG ve SVG makalelerini kullanın.
 
 ## **SSS**
 
@@ -92,20 +93,20 @@ Hayır. Aspose.Slides for PHP via Java bağımsız bir kütüphanedir ve Microso
 
 **Birçok sunumu toplu olarak dönüştürebilir miyim?**
 
-Evet. Her sunumu yükleyin, istediğiniz formata kaydedin ve işlendikten sonra sunum nesnesini serbest bırakın. Paralel işleme için ayrı sunum örnekleri kullanın ve [multithreading](/slides/tr/php-java/multithreading/) rehberini izleyin.
+Evet. Her sunumu yükleyin, gereken formata kaydedin ve işlem sonrası sunum nesnesini serbest bırakın. Paralel işleme için ayrı sunum örnekleri kullanın ve [çoklu iş parçacığı](/slides/tr/php-java/multithreading/) yönergelerini izleyin.
 
 **Yalnızca seçili slaytları dışa aktarabilir miyim?**
 
-Evet. Çeşitli dışa aktarma yöntemleri, slayt indekslerini geçirmenize veya çıktı formatına bağlı olarak tek tek slaytları işlemenize olanak tanır. Hedef format için özel makaleye bakın.
+Evet. Çıktı formatına bağlı olarak slayt indekslerini iletebilir veya tek tek slaytları işleyebilirsiniz. Hedef format için ayrılmış makaleye bakın.
 
 **PDF veya XPS'e dışa aktarırken gizli slaytları dahil edebilir miyim?**
 
-Evet. Gizli‑slayt dışa aktarma ayarlarını [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/) ve [XPS](/slides/tr/php-java/convert-powerpoint-to-xps/) dönüşüm makalelerinde açıklandığı gibi kullanın.
+Evet. Gizli‑slayt dışa aktarma ayarları, [PDF](/slides/tr/php-java/convert-powerpoint-to-pdf/) ve [XPS](/slides/tr/php-java/convert-powerpoint-to-xps/) dönüşüm makalelerinde açıklanmıştır.
 
 **PDF/A çıktısı oluşturabilir miyim?**
 
-Evet. PDF dışa aktarma için PDF uyumluluk ayarları mevcuttur. Ayrıntılar için [PowerPoint'i PDF'e Dönüştür](/slides/tr/php-java/convert-powerpoint-to-pdf/) sayfasına bakın.
+Evet. PDF dışa aktarımında uyumluluk ayarları mevcuttur. Ayrıntılar için [PowerPoint'i PDF'ye Dönüştür](/slides/tr/php-java/convert-powerpoint-to-pdf/) sayfasına bakın.
 
-**Dönüştürme sırasında yazı tipleri nasıl ele alınır?**
+**Dönüştürme sırasında yazı tipleri nasıl işlenir?**
 
-Aspose.Slides gömülü yazı tiplerini, yedekleme (fallback) ve yazı tipi ikamesi ayarlarını kullanabilir. Ayrıntılar için [Embedded Font](/slides/tr/php-java/embedded-font/), [Fallback Font](/slides/tr/php-java/fallback-font/) ve [Font Substitution](/slides/tr/php-java/font-substitution/) sayfalarına göz atın.
+Aspose.Slides, gömülü yazı tipleri, yazı tipi geri dönüşü ve yazı tipi ikamesi ayarlarını kullanabilir. Ayrıntılar için [Gömülü Yazı Tipi](/slides/tr/php-java/embedded-font/), [Geri Dönüş Yazı Tipi](/slides/tr/php-java/fallback-font/) ve [Yazı Tipi İkamesi](/slides/tr/php-java/font-substitution/) makalelerine göz atın.
