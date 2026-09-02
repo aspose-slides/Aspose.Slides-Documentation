@@ -4,6 +4,9 @@ linktitle: 단락 관리
 type: docs
 weight: 40
 url: /ko/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
+  - /androidjava/portion/
 keywords:
 - 텍스트 추가
 - 단락 추가
@@ -11,10 +14,10 @@ keywords:
 - 단락 관리
 - 글머리표 관리
 - 단락 들여쓰기
-- 매달린 들여쓰기
+- 걸림 들여쓰기
 - 단락 글머리표
 - 번호 매기기 목록
-- 글머리 목록
+- 글머리표 목록
 - 단락 속성
 - HTML 가져오기
 - 텍스트를 HTML로
@@ -23,87 +26,80 @@ keywords:
 - 텍스트를 이미지로
 - 단락 내보내기
 - PowerPoint
-- OpenDocument
 - 프레젠테이션
 - Android
 - Java
 - Aspose.Slides
-description: "Android용 Aspose.Slides로 단락 서식을 마스터하고, Java에서 PPT, PPTX 및 ODP 프레젠테이션의 정렬, 간격 및 스타일을 최적화합니다."
+description: "Aspose.Slides for Android via Java를 사용하여 단락, 구획, 글머리표, 번호 매기기 목록, 들여쓰기, HTML 콘텐츠 및 단락 이미지를 만들고 서식 지정하는 방법을 배웁니다."
 ---
-## **소개**
+## **개요**
 
-Aspose.Slides는 Java에서 PowerPoint 텍스트, 단락 및 구문을 작업하는 데 필요한 모든 인터페이스와 클래스를 제공합니다.
+Aspose.Slides for Android via Java 은 텍스트를 텍스트 프레임, 단락 및 구획의 계층 구조로 나타냅니다.
 
-* Aspose.Slides는 단락을 나타내는 객체를 추가할 수 있도록 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 인터페이스를 제공합니다. `ITextFame` 객체는 하나 이상의 단락을 가질 수 있습니다(각 단락은 캐리지 리턴을 통해 생성됩니다).
-* Aspose.Slides는 구문을 나타내는 객체를 추가할 수 있도록 [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 인터페이스를 제공합니다. `IParagraph` 객체는 하나 이상의 구문을 가질 수 있습니다(iPortions 객체의 컬렉션).
-* Aspose.Slides는 텍스트와 해당 서식 속성을 나타내는 객체를 추가할 수 있도록 [IPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/) 인터페이스를 제공합니다.
+* [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 은 도형의 텍스트 컨테이너를 나타내며 해당 도형의 단락 컬렉션에 접근할 수 있게 합니다.
+* [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 은 텍스트 프레임 내의 하나의 단락을 나타내며 그 구획들과 단락 수준 서식에 접근할 수 있습니다.
+* [IPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/) 은 단락 내의 텍스트 실행을 나타냅니다. 각 구획은 자체 텍스트와 문자 수준 서식을 가질 수 있습니다.
 
-`IParagraph` 객체는 기본 `IPortion` 객체를 통해 다양한 서식 속성을 가진 텍스트를 처리할 수 있습니다.
+따라서 단락은 여러 구획을 사용하여 서로 다른 글꼴, 색상, 크기 및 기타 서식을 가진 텍스트를 포함할 수 있습니다.
 
-## **여러 텍스트 구문을 포함하는 다중 단락 추가**
+## **단락 만들기 및 서식 지정**
 
-다음 단계에서는 3개의 단락을 포함하고 각 단락에 3개의 구문을 포함하는 텍스트 프레임을 추가하는 방법을 보여줍니다.
+### **여러 구획을 가진 단락 만들기**
 
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 해당 슬라이드의 참조에 접근합니다.
-3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)와 연결된 ITextFrame을 가져옵니다.
-5. 두 개의 [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 객체를 생성하고 이를 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)의 `IParagraphs` 컬렉션에 추가합니다.
-6. 각 새로운 `IParagraph`에 대해 세 개의 [IPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/) 객체를 생성하고(기본 단락에 대해 두 개의 Portion 객체) 각 `IPortion` 객체를 해당 `IParagraph`의 IPortion 컬렉션에 추가합니다.
-7. 각 구문에 텍스트를 설정합니다.
-8. `IPortion` 객체가 제공하는 서식 속성을 사용하여 각 구문에 원하는 서식 기능을 적용합니다.
+다음 단계는 세 개의 구획을 각각 포함하는 세 개의 단락을 가진 텍스트 프레임을 생성합니다.
+
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스를 사용하여 해당 슬라이드에 접근합니다.
+3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
+5. 기본 단락을 사용하고 텍스트 프레임에 두 개의 추가 [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 객체를 추가합니다.
+6. 각 단락이 세 개의 구획을 포함하도록 충분한 [IPortion](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/) 객체를 추가합니다. 기본 단락에는 이미 빈 구획 하나가 포함되어 있습니다.
+7. 각 구획의 텍스트를 설정합니다.
+8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/#getPortionFormat--) 을 통해 문자 수준 서식을 적용합니다.
 9. 수정된 프레젠테이션을 저장합니다.
 
+다음 Android via Java 예제가 단계들을 구현합니다:
+
 ```java
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // 사각형 형태의 AutoShape를 추가합니다
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // AutoShape의 TextFrame에 접근합니다
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // 다양한 텍스트 형식으로 단락과 구문을 생성합니다
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -112,359 +108,289 @@ try {
         }
     }
 
-    // PPTX를 디스크에 저장합니다
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **단락 글머리표 관리**
+## **글머리표 및 번호 매기기 목록 만들기**
 
-글머리표 목록은 정보를 빠르고 효율적으로 구성하고 제시하는 데 도움이 됩니다. 글머리표가 있는 단락은 항상 읽고 이해하기 쉽습니다.
+### **글머리표 또는 번호 매기기 목록 만들기**
 
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 해당 슬라이드의 참조에 접근합니다.
-3. 선택된 슬라이드에 [자동 도형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. 자동 도형의 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
-5. `TextFrame`의 기본 단락을 제거합니다.
-6. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 클래스를 사용하여 첫 번째 단락 인스턴스를 생성합니다.
-7. 단락의 글머리표 `Type`을 `Symbol`으로 설정하고 글머리표 문자를 지정합니다.
-8. 단락 `Text`를 설정합니다.
-9. 글머리표에 대한 단락 `Indent`를 설정합니다.
-10. 글머리표 색상을 설정합니다.
-11. 글머리표 높이를 설정합니다.
-12. 새 단락을 `TextFrame`의 단락 컬렉션에 추가합니다.
-13. 두 번째 단락을 추가하고 단계 7~13의 과정을 반복합니다.
-14. 프레젠테이션을 저장합니다.
+글머리표와 번호 매기기는 관련 항목을 더 쉽게 스캔할 수 있게 합니다. Aspose.Slides에서는 목록 설정이 [IBulletFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/) 을 통해 정의됩니다.
 
-```java
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
-try {
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 자동 도형을 추가하고 접근합니다
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스를 사용하여 해당 슬라이드에 접근합니다.
+3. 선택한 슬라이드에 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
+5. 텍스트 프레임에서 기본 단락을 제거합니다.
+6. 기호 글머리표용 [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 을 생성합니다.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 을 [BulletType.Symbol](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/bullettype/) 로 설정하고 글머리 기호 문자를 지정합니다.
+8. 단락 텍스트, 들여쓰기, 글머리 색상 및 글머리 높이를 설정합니다.
+9. 단락을 텍스트 프레임에 추가합니다.
+10. 두 번째 단락을 생성하고 [IBulletFormat.setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 을 [BulletType.Numbered](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/bullettype/) 로 설정합니다.
+11. 번호 매기기 글머리 스타일을 구성하고 단락을 텍스트 프레임에 추가합니다.
+12. 프레젠테이션을 저장합니다.
 
-    // 자동 도형의 텍스트 프레임에 접근합니다
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // 기본 단락을 제거합니다
-    txtFrm.getParagraphs().removeAt(0);
-
-    // 단락을 생성합니다
-    Paragraph para = new Paragraph();
-
-    // 단락 글머리표 스타일과 기호를 설정합니다
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // 단락 텍스트를 설정합니다
-    para.setText("Welcome to Aspose.Slides");
-
-    // 글머리표 들여쓰기를 설정합니다
-    para.getParagraphFormat().setIndent(25);
-
-    // 글머리표 색상을 설정합니다
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor를 true로 설정하여 사용자 정의 글머리표 색상을 사용합니다
-
-    // 글머리표 높이를 설정합니다
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // 텍스트 프레임에 단락을 추가합니다
-    txtFrm.getParagraphs().add(para);
-
-    // 두 번째 단락을 생성합니다
-    Paragraph para2 = new Paragraph();
-
-    // 단락 글머리표 유형과 스타일을 설정합니다
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // 단락 텍스트를 추가합니다
-    para2.setText("This is numbered bullet");
-
-    // 글머리표 들여쓰기를 설정합니다
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor를 true로 설정하여 사용자 정의 글머리표 색상을 사용합니다
-
-    // 글머리표 높이를 설정합니다
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // 텍스트 프레임에 단락을 추가합니다
-    txtFrm.getParagraphs().add(para2);
-    
-    // 수정된 프레젠테이션을 저장합니다
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **그림 글머리표 관리**
-
-글머리표 목록은 정보를 빠르고 효율적으로 구성하고 제시하는 데 도움이 됩니다. 그림 단락은 읽고 이해하기 쉽습니다.
-
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 해당 슬라이드의 참조에 접근합니다.
-3. 슬라이드에 [자동 도형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. 자동 도형의 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
-5. `TextFrame`의 기본 단락을 제거합니다.
-6. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 클래스를 사용하여 첫 번째 단락 인스턴스를 생성합니다.
-7. [IPPImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ippimage/)에서 이미지를 로드합니다.
-8. 글머리표 유형을 [Picture](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ippimage/)으로 설정하고 이미지를 지정합니다.
-9. Paragraph `Text`를 설정합니다.
-10. 글머리표에 대한 Paragraph `Indent`를 설정합니다.
-11. 글머리표 색상을 설정합니다.
-12. 글머리표 높이를 설정합니다.
-13. 새 단락을 `TextFrame`의 단락 컬렉션에 추가합니다.
-14. 두 번째 단락을 추가하고 이전 단계의 과정을 반복합니다.
-15. 수정된 프레젠테이션을 저장합니다.
+다음 Android via Java 예제가 기호 글머리표와 번호 매기기 글머리표를 생성합니다:
 
 ```java
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
-    // 첫 번째 슬라이드에 접근합니다
     ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // 글머리표용 이미지를 인스턴스화합니다
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    // 자동 도형을 추가하고 접근합니다
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
 
-    // 자동 도형의 텍스트 프레임에 접근합니다
-    ITextFrame textFrame = autoShape.getTextFrame();
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
 
-    // 기본 단락을 제거합니다
-    textFrame.getParagraphs().removeAt(0);
-
-    // 새 단락을 생성합니다
-    Paragraph paragraph = new Paragraph();
-    paragraph.setText("Welcome to Aspose.Slides");
-
-    // 단락 글머리표 스타일과 이미지를 설정합니다
-    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // 글머리표 높이를 설정합니다
-    paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // 텍스트 프레임에 단락을 추가합니다
-    textFrame.getParagraphs().add(paragraph);
-
-    // 프레젠테이션을 PPTX 파일로 저장합니다
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // 프레젠테이션을 PPT 파일로 저장합니다
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **다단계 글머리표 관리**
+### **그림 글머리표 사용**
 
-글머리표 목록은 정보를 빠르고 효율적으로 구성하고 제시하는 데 도움이 됩니다. 다단계 글머리표는 읽고 이해하기 쉽습니다.
+그림 글머리표를 사용하면 기호 또는 숫자 대신 사용자 정의 이미지를 사용할 수 있습니다.
 
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 해당 슬라이드의 참조에 접근합니다.
-3. 새 슬라이드에 [자동 도형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. 자동 도형의 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
-5. `TextFrame`의 기본 단락을 제거합니다.
-6. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 클래스를 통해 첫 번째 단락 인스턴스를 생성하고 깊이를 0으로 설정합니다.
-7. `Paragraph` 클래스를 통해 두 번째 단락 인스턴스를 생성하고 깊이를 1로 설정합니다.
-8. `Paragraph` 클래스를 통해 세 번째 단락 인스턴스를 생성하고 깊이를 2로 설정합니다.
-9. `Paragraph` 클래스를 통해 네 번째 단락 인스턴스를 생성하고 깊이를 3으로 설정합니다.
-10. 새 단락들을 `TextFrame` 단락 컬렉션에 추가합니다.
-11. 수정된 프레젠테이션을 저장합니다.
-
-```java
-// PPTX 파일을 나타내는 Presentation 클래스를 인스턴스화합니다
-Presentation pres = new Presentation();
-try {
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 자동 도형을 추가하고 접근합니다
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // 생성된 자동 도형의 텍스트 프레임에 접근합니다
-    ITextFrame text = aShp.addTextFrame("");
-
-    // 기본 단락을 제거합니다
-    text.getParagraphs().clear();
-
-    // 첫 번째 단락을 추가합니다
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 글머리표 레벨을 설정합니다
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // 두 번째 단락을 추가합니다
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 글머리표 레벨을 설정합니다
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // 세 번째 단락을 추가합니다
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 글머리표 레벨을 설정합니다
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // 네 번째 단락을 추가합니다
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 글머리표 레벨을 설정합니다
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // 단락들을 컬렉션에 추가합니다
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // 프레젠테이션을 PPTX 파일로 저장합니다
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **사용자 지정 번호 매기기 목록이 있는 단락 관리**
-
-[IBulletFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/) 인터페이스는 [NumberedBulletStartWith](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 속성 및 기타 속성을 제공하여 사용자 지정 번호 매기기 또는 서식이 있는 단락을 관리할 수 있게 합니다.
-
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 단락이 포함된 슬라이드에 접근합니다.
-3. 슬라이드에 [자동 도형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. 자동 도형의 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)에 접근합니다.
-5. `TextFrame`의 기본 단락을 제거합니다.
-6. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 클래스를 사용하여 첫 번째 단락 인스턴스를 생성하고 [NumberedBulletStartWith](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-)을 2로 설정합니다.
-7. `Paragraph` 클래스를 사용하여 두 번째 단락 인스턴스를 생성하고 `NumberedBulletStartWith`을 3으로 설정합니다.
-8. `Paragraph` 클래스를 사용하여 세 번째 단락 인스턴스를 생성하고 `NumberedBulletStartWith`을 7로 설정합니다.
-9. 새 단락들을 `TextFrame` 단락 컬렉션에 추가합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 인덱스를 사용하여 해당 슬라이드에 접근합니다.
+3. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가하고 해당 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
+4. 텍스트 프레임에서 기본 단락을 제거합니다.
+5. 글머리 이미지를 로드하고 이를 [IPPImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ippimage/) 로 프레젠테이션 이미지 컬렉션에 추가합니다.
+6. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 을 생성하고 텍스트를 설정합니다.
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setType-int-) 을 [BulletType.Picture](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/bullettype/) 로 설정합니다.
+8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#getPicture--) 을 통해 이미지를 할당하고 글머리 높이를 설정합니다.
+9. 단락을 텍스트 프레임에 추가합니다.
 10. 수정된 프레젠테이션을 저장합니다.
 
-```java
-Presentation presentation = new Presentation();
-try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // 생성된 자동 도형의 텍스트 프레임에 접근합니다
-    ITextFrame textFrame = shape.getTextFrame();
-
-    // 기본 존재 단락을 제거합니다
-    textFrame.getParagraphs().removeAt(0);
-
-    // 첫 번째 목록
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
-
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-
-
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **단락의 첫 줄 들여쓰기 설정**
-
-[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 메서드를 사용하여 단락의 첫 줄 들여쓰기를 제어합니다. 이 메서드는 단락의 왼쪽 여백에 대해 첫 번째 줄만 이동시킵니다. 양수 값은 첫 줄을 오른쪽으로 이동시키고, 나머지 줄은 단락 본문에 맞춰 정렬됩니다.
-
-전체 단락을 이동해야 할 경우 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)을 사용합니다. 첫 번째 줄만 이동해야 할 경우 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)을 사용합니다.
-
-아래 예제는 여러 단락을 생성하고 서로 다른 들여쓰기 값을 적용하여 첫 줄 들여쓰기가 단락 레이아웃에 어떻게 영향을 미치는지 보여줍니다.
-
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 대상 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 [AutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/autoshape/)을 추가합니다.
-4. 모양에 빈 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/textframe/)을 추가하고 기본 단락을 제거합니다.
-5. 여러 단락을 만들고 각각에 서로 다른 [Indent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 설정합니다.
-6. 단락들을 텍스트 프레임에 추가합니다.
-7. 수정된 프레젠테이션을 저장합니다.
+다음 Android via Java 예제가 그림 글머리표를 생성합니다:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
+    }
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
-    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph firstParagraph = new Paragraph();
+    Paragraph paragraph = new Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
+
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **다단계 목록 만들기**
+
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 를 설정하여 단락을 목록의 서로 다른 수준에 배치합니다. 최상위 수준은 깊이가 `0` 입니다.
+
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 을 생성하고 슬라이드에 접근합니다.
+2. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가하고 해당 텍스트 프레임에서 기본 단락을 삭제합니다.
+3. 네 개의 단락을 만들고 글머리 기호를 구성합니다.
+4. 각 단락의 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) 값을 `0`, `1`, `2`, `3` 으로 설정합니다.
+5. 단락을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
+
+다음 Android via Java 예제가 네 단계 글머리 목록을 생성합니다:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
+
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
+
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
+
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **번호 매기기 항목을 사용자 지정 값으로 시작**
+
+[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 를 사용하여 번호 매기기 단락에 표시될 초기 번호를 설정합니다.
+
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 을 생성하고 슬라이드에 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
+2. 도형의 텍스트 프레임에서 기본 단락을 삭제합니다.
+3. 세 개의 번호 매기기 단락을 생성합니다.
+4. 각 단락에 대해 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 를 각각 `2`, `3`, `7` 로 설정합니다.
+5. 단락을 텍스트 프레임에 추가하고 프레젠테이션을 저장합니다.
+
+다음 Android via Java 예제가 각 단락에 사용자 지정 시작 번호를 할당합니다:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **단락 레이아웃 및 끝 속성 제어**
+
+### **첫 줄 들여쓰기 설정**
+
+[IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 를 사용하여 단락의 첫 줄 들여쓰기를 제어합니다. 이 메서드는 단락의 왼쪽 여백에 상대적으로 첫 번째 줄만 이동시킵니다. 양수 값은 첫 줄을 오른쪽으로 이동시키고, 나머지 줄은 단락 본문에 맞춰 정렬됩니다.
+
+전체 단락을 이동하려면 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 를 사용하고, 첫 줄만 이동하려면 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 를 사용합니다.
+
+아래 예제는 여러 단락을 생성하고 다양한 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값으로 첫 줄 들여쓰기가 단락 레이아웃에 어떤 영향을 미치는지 보여 줍니다.
+
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 대상 슬라이드에 접근합니다.
+3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근하고 기본 단락을 제거합니다.
+5. 여러 단락을 만들고 각각에 다른 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 설정합니다.
+6. 단락을 텍스트 프레임에 추가합니다.
+7. 수정된 프레젠테이션을 저장합니다.
+
+다음 코드는 단락 들여쓰기를 설정하는 방법을 보여 줍니다:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
     firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -473,8 +399,7 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
@@ -483,48 +408,53 @@ finally {
 
 ![단락의 첫 줄 들여쓰기](first_line_indent.png)
 
-## **단락의 매달린 들여쓰기 설정**
+### **걸림 들여쓰기 설정**
 
-매달린 들여쓰기는 첫 줄이 나머지 줄보다 왼쪽에서 시작하는 단락 레이아웃입니다. Aspose.Slides에서는 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 메서드를 사용해 이 효과를 만들 수 있습니다. 들여쓰기를 음수 값으로 설정하면 첫 줄이 단락 본문에 비해 왼쪽으로 이동합니다.
+걸림 들여쓰기는 첫 줄이 나머지 줄보다 왼쪽에서 시작되는 단락 레이아웃입니다. Aspose.Slides에서는 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 에 음수 값을 전달하여 첫 줄을 단락 본문에 상대적으로 왼쪽으로 이동시킵니다.
 
-실제로 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)은 단락 본문의 왼쪽 위치를 정의하고, [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-)은 해당 여백에 대한 첫 줄의 위치를 정의합니다. 매달린 들여쓰기를 만들려면 `MarginLeft` 값을 양수로, `Indent` 값을 음수로 설정합니다.
+실제로는 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 이 단락 본문의 왼쪽 위치를 정의하고, [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 이 첫 줄의 위치를 그 여백에 상대적으로 정의합니다. 걸림 들여쓰기를 만들려면 `setMarginLeft` 에 양수 값을, `setIndent` 에 음수 값을 전달합니다.
 
-이 서식은 참고문헌, 인용, 용어해설 및 줄 바꿈된 줄이 첫 번째 줄의 첫 문자 아래가 아니라 단락 본문 아래에 정렬되어야 하는 다른 단락에 유용합니다.
+이 서식은 참고문헌, 인용문, 용어 사전 항목 및 다른 단락에서 줄 바꿈이 첫 줄 첫 글자 아래가 아니라 본문 아래에 정렬되어야 할 때 유용합니다.
 
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 2. 대상 슬라이드에 접근합니다.
-3. 슬라이드에 사각형 [AutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/autoshape/)을 추가합니다.
-4. 모양에 빈 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/textframe/)을 추가하고 기본 단락을 제거합니다.
-5. 각 단락에 대해 양의 [MarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 값을 설정합니다.
-6. 매달린 들여쓰기 효과를 만들기 위해 음의 [Indent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 값을 설정합니다.
-7. 단락들을 텍스트 프레임에 추가합니다.
+3. 슬라이드에 사각형 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
+4. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근하고 기본 단락을 제거합니다.
+5. 각 단락에 대해 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 에 양수 값을 전달합니다.
+6. 걸림 들여쓰기 효과를 만들기 위해 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) 에 음수 값을 전달합니다.
+7. 단락을 텍스트 프레임에 추가합니다.
 8. 수정된 프레젠테이션을 저장합니다.
 
+다음 코드는 단락에 걸림 들여쓰기를 설정하는 방법을 보여 줍니다:
+
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -532,246 +462,247 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 결과:
 
-![단락의 매달린 들여쓰기](hanging_indent.png)
+![단락의 걸림 들여쓰기](hanging_indent.png)
 
-## **끝 단락 실행 속성 관리**
+### **끝 단락 실행 속성 설정**
 
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 위치를 통해 해당 단락이 포함된 슬라이드의 참조를 가져옵니다.
-3. 슬라이드에 사각형 [자동 도형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. 사각형에 두 개의 단락이 있는 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)을 추가합니다.
-5. 단락들의 `FontHeight`와 글꼴 유형을 설정합니다.
-6. 단락들의 End 속성을 설정합니다.
-7. 수정된 프레젠테이션을 PPTX 파일로 저장합니다.
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 은 단락 끝 표시(marks)의 서식을 제어합니다. 다음 예제는 두 번째 단락의 끝 표시에 글꼴 크기와 라틴 글꼴을 할당합니다.
+
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 을 로드하고 슬라이드에 접근합니다.
+2. [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가하고 기본 단락을 삭제합니다.
+3. 두 개의 단락을 만들고 텍스트 구획을 추가합니다.
+4. 두 번째 단락의 끝 표시를 위한 [PortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/portionformat/) 을 생성합니다.
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 와 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) 를 설정합니다.
+6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 로 형식을 할당하고 프레젠테이션을 저장합니다.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **HTML 텍스트를 단락으로 가져오기**
+## **단락 내용 가져오기 및 내보내기**
 
-Aspose.Slides는 HTML 텍스트를 단락으로 가져오는 기능을 강화했습니다.
+### **HTML 텍스트를 단락으로 가져오기**
 
-1. 다음 [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
-2. 인덱스를 통해 해당 슬라이드의 참조에 접근합니다.
-3. 슬라이드에 [자동 도형](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/)을 추가합니다.
-4. `autoshape`에 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/)을 추가하고 접근합니다.
-5. `ITextFrame`의 기본 단락을 제거합니다.
-6. TextReader를 사용하여 원본 HTML 파일을 읽습니다.
-7. [Paragraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraph/) 클래스를 사용하여 첫 번째 단락 인스턴스를 생성합니다.
-8. 읽은 TextReader의 HTML 파일 내용을 TextFrame의 [ParagraphCollection](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/)에 추가합니다.
-9. 수정된 프레젠테이션을 저장합니다.
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 을 사용하여 HTML 마크업을 텍스트 프레임의 단락 및 구획으로 변환합니다.
+
+1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
+2. 슬라이드에 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 추가합니다.
+3. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근하고 기본 단락을 삭제합니다.
+4. 원본 HTML 파일을 읽습니다.
+5. HTML 문자열을 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 에 전달합니다.
+6. 수정된 프레젠테이션을 저장합니다.
+
+다음 Android via Java 예제가 HTML을 텍스트 프레임에 가져옵니다:
 
 ```java
-// 빈 프레젠테이션 인스턴스를 생성합니다
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // 프레젠테이션의 기본 첫 번째 슬라이드에 접근합니다
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // HTML 콘텐츠를 수용하기 위해 AutoShape를 추가합니다
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // 도형에 텍스트 프레임을 추가합니다
-    ashape.addTextFrame("");
-
-    // 추가된 텍스트 프레임의 모든 단락을 삭제합니다
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // 스트림 리더를 사용하여 HTML 파일을 로드합니다
-    TextReader tr = new StreamReader("file.html");
-
-    // 텍스트 프레임에 HTML 스트림 리더의 텍스트를 추가합니다
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // 프레젠테이션을 저장합니다
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **단락 텍스트를 HTML로 내보내기**
+### **단락 텍스트를 HTML로 내보내기**
 
-Aspose.Slides는 단락에 포함된 텍스트를 HTML로 내보내는 기능을 강화했습니다.
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 을 사용하여 선택된 단락 범위를 HTML로 내보냅니다.
 
 1. [Presentation](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/presentation/) 클래스의 인스턴스를 생성하고 원하는 프레젠테이션을 로드합니다.
-2. 인덱스를 통해 해당 슬라이드의 참조에 접근합니다.
-3. HTML로 내보낼 텍스트가 포함된 쉐이프에 접근합니다.
-4. 쉐이프의 [TextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/textframe/)에 접근합니다.
-5. `StreamWriter` 인스턴스를 생성하고 새 HTML 파일을 추가합니다.
-6. StreamWriter에 시작 인덱스를 제공하고 원하는 단락을 내보냅니다.
+2. 슬라이드에 접근하고 텍스트가 포함된 [IAutoShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iautoshape/) 를 찾습니다.
+3. 도형의 [ITextFrame](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframe/) 에 접근합니다.
+4. 시작 단락 인덱스와 내보낼 단락 수를 지정하여 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 를 호출합니다.
+5. 반환된 HTML 문자열을 파일에 씁니다.
+
+다음 Android via Java 예제가 첫 번째 텍스트 도형의 모든 단락을 내보냅니다:
 
 ```java
-// 프레젠테이션 파일을 로드합니다
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // 프레젠테이션의 기본 첫 번째 슬라이드에 접근합니다
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 원하는 인덱스
-    int index = 0;
-
-    // 추가된 도형에 접근합니다
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // 출력 HTML 파일을 생성합니다
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //첫 번째 단락을 HTML로 추출합니다
-    // 단락 시작 인덱스와 복사할 총 단락 수를 제공하여 단락 데이터를 HTML에 씁니다
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **단락을 이미지로 저장**
+### **단락을 이미지로 렌더링**
 
-이 섹션에서는 [IParagraph](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/) 인터페이스로 표현되는 텍스트 단락을 이미지로 저장하는 방법을 보여주는 두 가지 예제를 살펴봅니다. 두 예제 모두 [IShape](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishape/) 인터페이스의 `getImage` 메서드를 사용해 단락이 포함된 쉐이프의 이미지를 얻고, 쉐이프 내 단락의 경계를 계산한 뒤 비트맵 이미지로 내보냅니다. 이러한 접근 방식은 PowerPoint 프레젠테이션에서 텍스트의 특정 부분을 추출하여 별도 이미지로 저장할 때 유용합니다.
+[IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage--) 은 개별 단락을 직접 렌더링하고 [IImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iimage/) 를 반환합니다. 반환된 이미지는 [IImage.save](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) 로 파일이나 스트림에 저장할 수 있습니다. 포함된 도형을 렌더링하거나 비트맵을 수동으로 자를 필요가 없습니다.
 
-sample.pptx라는 파일에 슬라이드가 하나 있고, 첫 번째 쉐이프가 세 개의 단락을 포함하는 텍스트 상자라고 가정해 보겠습니다.
+[IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage--) 은 단락이 상위 컬렉션에 없거나 유효한 렌더링 경계가 없거나 렌더링할 수 없을 경우 `null` 을 반환할 수 있습니다. 저장하기 전에 결과를 확인하고 사용 후 반환된 이미지를 반드시 해제하십시오.
+
+#### **기본 배율로 단락 렌더링**
+
+예를 들어 sample.pptx 파일에 슬라이드가 하나 있고 첫 번째 도형이 세 개의 단락을 포함하는 텍스트 상자라고 가정합니다.
 
 ![세 개의 단락이 있는 텍스트 상자](paragraph_to_image_input.png)
 
-**예제 1**
-
-이 예제에서는 두 번째 단락을 이미지로 얻습니다. 프레젠테이션의 첫 번째 슬라이드에서 쉐이프 이미지를 추출한 다음, 쉐이프의 텍스트 프레임에서 두 번째 단락의 경계를 계산합니다. 그런 다음 단락을 새 비트맵 이미지에 다시 그려 PNG 형식으로 저장합니다. 이 방법은 텍스트의 정확한 크기와 서식을 유지하면서 특정 단락을 별도 이미지로 저장해야 할 때 특히 유용합니다.
+다음 예제는 두 번째 단락을 일반 텍스트 도형에서 기본 배율로 렌더링하고 PNG 형식으로 저장합니다. `finally` 블록은 이미지가 올바르게 해제되도록 보장합니다.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 도형을 메모리에 비트맵으로 저장합니다.
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // 메모리에서 도형 비트맵을 생성합니다.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // 두 번째 단락의 경계를 계산합니다.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // 출력 이미지의 좌표와 크기를 계산합니다 (최소 크기 - 1x1 픽셀).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // 도형 비트맵을 잘라서 단락 비트맵만 얻습니다.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
+
+결과:
 
 ![단락 이미지](paragraph_to_image_output.png)
 
-**예제 2**
+#### **표 셀에서 배율을 적용해 단락 렌더링**
 
-이 예제에서는 앞 예제에 스케일 팩터를 추가합니다. 프레젠테이션에서 쉐이프를 추출하고 스케일 팩터 `2`로 이미지를 저장합니다. 이를 통해 단락을 내보낼 때 더 높은 해상도 출력을 얻을 수 있습니다. 그런 다음 스케일을 고려하여 단락 경계를 계산합니다. 스케일은 고품질 인쇄물 등에서 더 상세한 이미지가 필요할 때 특히 유용합니다.
+`float scaleX` 와 `float scaleY` 매개변수를 받는 [IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) 오버로드를 사용하여 가로 및 세로 배율을 설정합니다. 다음 예제는 표를 만들고 첫 번째 셀의 단락을 기본 폭·높이의 두 배로 렌더링한 뒤 PNG 이미지로 저장합니다.
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // 도형을 메모리에 비트맵으로 저장하고 스케일을 적용합니다.
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Create a shape bitmap from memory.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Calculate the boundaries of the second paragraph.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // Calculate the coordinates and size for the output image (minimum size - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // Crop the shape bitmap to get the paragraph bitmap only.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
+
+배율 계수 `1` 은 해당 축을 기본 픽셀 크기로 유지합니다. 예를 들어 두 계수를 모두 `2` 로 지정하면 이미지의 가로·세로가 기본 치수의 약 두 배가 되어 픽셀 수는 네 배가 됩니다. 큰 계수는 확대하거나 고해상도 출력 시 텍스트를 더 선명하게 만들지만 메모리 사용량과 파일 크기도 증가합니다. `1` 이하의 계수는 상세 정보가 적은 작은 이미지를 생성합니다. 비율을 유지하려면 가로·세로 계수를 동일하게 사용하고, 서로 다른 값을 사용하면 이미지가 개별 축에 따라 늘어나거나 줄어듭니다.
+
+전체 도형을 [IShape.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ishape/#getImage--) 로 렌더링하는 것은 도형의 채우기, 테두리 또는 기타 시각적 컨텍스트를 포함해야 할 때 여전히 유용합니다. 단락 전용 이미지는 [IParagraph.getImage](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getImage--) 를 사용하십시오.
 
 ## **FAQ**
 
 **텍스트 프레임 내부에서 줄 바꿈을 완전히 비활성화할 수 있나요?**
 
-예. 텍스트 프레임의 줄 바꿈 설정([setWrapText](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-))을 사용하여 줄 바꿈을 끄면 프레임 가장자리에 줄이 끊기지 않습니다.
+예. [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) 를 설정하여 텍스트 프레임의 가장자에서 줄이 끊기지 않도록 할 수 있습니다.
 
-**특정 단락의 슬라이드 상 정확한 경계값을 어떻게 얻을 수 있나요?**
+**특정 단락의 정확한 슬라이드 내 경계를 어떻게 얻을 수 있나요?**
 
-단락(및 개별 구문)의 경계 사각형을 검색하여 슬라이드에서 정확한 위치와 크기를 알 수 있습니다.
+[IParagraph.getRect](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraph/#getRect--) 을 사용하여 단락의 경계 사각형을 가져옵니다. [IPortion.getRect](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iportion/#getRect--) 은 개별 구획의 경계를 제공합니다.
 
-**단락 정렬(왼쪽/오른쪽/가운데/양쪽 맞춤)은 어디에서 제어되나요?**
+**단락 정렬(왼쪽, 오른쪽, 가운데, 양쪽 맞춤)은 어디에서 제어되나요?**
 
-[Alignment](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-)은 [ParagraphFormat](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/paragraphformat/)에서 단락 수준 설정으로, 개별 구문의 서식과 관계없이 전체 단락에 적용됩니다.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) 은 단락 수준 설정이며 개별 구획 서식에 관계없이 전체 단락에 적용됩니다.
 
-**단락의 일부분(예: 한 단어)만 맞춤법 검사 언어를 설정할 수 있나요?**
+**단락의 일부에 교정 언어를 설정할 수 있나요?**
 
-예. 언어는 [PortionFormat.setLanguageId](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)을 통해 구문 수준에서 설정되므로 하나의 단락 내에 여러 언어를 동시에 사용할 수 있습니다.
+예. 개별 구획에 대해 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ko/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) 을 설정하면 하나의 단락에 여러 언어의 텍스트를 포함시킬 수 있습니다.

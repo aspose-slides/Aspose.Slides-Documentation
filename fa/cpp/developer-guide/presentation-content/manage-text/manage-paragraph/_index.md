@@ -4,503 +4,457 @@ linktitle: مدیریت پاراگراف
 type: docs
 weight: 40
 url: /fa/cpp/manage-paragraph/
+aliases:
+  - /cpp/paragraph/
+  - /cpp/portion/
 keywords:
-- افزودن متن
-- افزودن پاراگراف
+- اضافه کردن متن
+- اضافه کردن پاراگراف
 - مدیریت متن
 - مدیریت پاراگراف
-- مدیریت گلوله
+- مدیریت نقطه
 - تورفتگی پاراگراف
 - تورفتگی معلق
-- گلوله پاراگراف
-- فهرست شماره‌دار
-- فهرست گلوله‌ای
+- نقطه پاراگراف
+- فهرست عددی
+- فهرست نقطه‌دار
 - ویژگی‌های پاراگراف
 - وارد کردن HTML
 - متن به HTML
 - پاراگراف به HTML
 - پاراگراف به تصویر
 - متن به تصویر
-- صادرات پاراگراف
+- صادر کردن پاراگراف
 - PowerPoint
-- OpenDocument
 - ارائه
 - C++
 - Aspose.Slides
-description: "قالب‌بندی پیشرفته پاراگراف‌ها را با Aspose.Slides برای C++ به دست آورید—تراز، فواصل و سبک را در ارائه‌های PPT، PPTX و ODP در C++ بهینه کنید."
+description: "یاد بگیرید چگونه با Aspose.Slides برای C++ پاراگراف‌ها، بخش‌ها، نقطه‌ها، فهرست‌های عددی، تورفتگی‌ها، محتوای HTML و تصاویر پاراگراف را ایجاد و قالب‌بندی کنید."
 ---
-## **معرفی**
+## **بررسی کلی**
 
-Aspose.Slides تمام رابط‌ها و کلاس‌هایی را که برای کار با متون، پاراگراف‌ها و بخش‌های PowerPoint در C++ نیاز دارید، ارائه می‌دهد.
+Aspose.Slides for C++ متن را به‌صورت سلسله‌مراتبی از فریم‌های متنی، پاراگراف‌ها و بخش‌ها نمایش می‌دهد:
 
-* Aspose.Slides رابط [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) را فراهم می‌کند تا امکان افزودن اشیائی که یک پاراگراف را نمایندگی می‌کنند، فراهم شود. یک شی `ITextFame` می‌تواند یک یا چند پاراگراف داشته باشد (هر پاراگراف از طریق یک بازگشت کاراکتر ایجاد می‌شود).
-* Aspose.Slides رابط [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) را فراهم می‌کند تا امکان افزودن اشیائی که بخش‌ها را نمایندگی می‌کنند، فراهم شود. یک شی `IParagraph` می‌تواند یک یا چند بخش داشته باشد (مجموعه‌ای از اشیاء iPortions).
-* Aspose.Slides رابط [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) را فراهم می‌کند تا امکان افزودن اشیائی که متن‌ها و ویژگی‌های قالب‌بندی آن‌ها را نمایندگی می‌کنند، فراهم شود.
+* [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) مخزن متن در یک شکل را نشان می‌دهد و دسترسی به مجموعه پاراگراف‌های آن را فراهم می‌کند.
+* [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) یک پاراگراف در فریم متنی را نشان می‌دهد و دسترسی به بخش‌ها و قالب‌بندی سطح پاراگراف را فراهم می‌کند.
+* [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) یک بخش متنی درون یک پاراگراف را نشان می‌دهد. هر بخش می‌تواند متن و قالب‌بندی سطح کاراکتر خود را داشته باشد.
 
-یک شی `IParagraph` می‌تواند متن‌ها را با ویژگی‌های قالب‌بندی مختلف از طریق اشیاء `IPortion` زیرین خود، مدیریت کند.
+بنابراین یک پاراگراف می‌تواند متنی با قلم‌ها، رنگ‌ها، اندازه‌ها و قالب‌بندی‌های مختلف داشته باشد که با استفاده از بخش‌های متعدد ایجاد می‌شود.
 
-## **افزودن چندین پاراگراف حاوی چندین بخش**
+## **ایجاد و قالب‌بندی پاراگراف‌ها**
 
-این مراحل نشان می‌دهند که چگونه یک فریم متن حاوی ۳ پاراگراف و هر پاراگراف حاوی ۳ بخش اضافه کنید:
+### **ایجاد پاراگراف‌ها با بخش‌های متعدد**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیل به اسلاید اضافه کنید.
-4. فریم متن ITextFrame مرتبط با [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) را دریافت کنید.
-5. دو شیء [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) ایجاد کنید و آن‌ها را به مجموعه `IParagraphs` از [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) اضافه کنید.
-6. برای هر `IParagraph` جدید، سه شیء [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) ایجاد کنید (دو شیء Portion برای پاراگراف پیش‌فرض) و هر شیء `IPortion` را به مجموعه IPortion هر `IParagraph` اضافه کنید.
-7. برای هر بخش متنی مقداردهی کنید.
-8. ویژگی‌های قالب‌بندی دلخواه خود را به هر بخش با استفاده از ویژگی‌های قالب‌بندی موجود در شیء `IPortion` اعمال کنید.
-9. ارائه تغییر یافته را ذخیره کنید.
-
-این کد C++ پیاده‌سازی مراحلی برای افزودن پاراگراف‌های حاوی بخش‌ها است:
-
-```c++
-// مسیر به پوشه اسناد.
-const String outPath = u"../out/MultipleParagraphs_out.pptx";
-
-
-
-// بارگذاری ارائه مورد نظر
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// دسترسی به اسلاید اول
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
-// افزودن AutoShape از نوع Rectangle
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-
-// افزودن TextFrame به Rectangle
-SharedPtr<ITextFrame> tf=ashp->AddTextFrame(u" ");
-
-
-// دسترسی به پاراگراف اول
-SharedPtr<IParagraph> para0 = tf->get_Paragraphs()->idx_get(0);
-	
-SharedPtr<Portion> port01 = MakeObject<Portion>();
-SharedPtr<Portion> port02 = MakeObject<Portion>();
-para0->get_Portions()->Add(port01);
-para0->get_Portions()->Add(port02);
-
-// افزودن پاراگراف دوم
-SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
-tf->get_Paragraphs()->Add(para1);
-SharedPtr<Portion> port10 = MakeObject<Portion>();
-SharedPtr<Portion> port11 = MakeObject<Portion>();
-SharedPtr<Portion> port12 = MakeObject<Portion>();
-para1->get_Portions()->Add(port10);
-para1->get_Portions()->Add(port11);
-para1->get_Portions()->Add(port12);
-
-// افزودن پاراگراف سوم
-SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
-tf->get_Paragraphs()->Add(para2);
-SharedPtr<Portion> port20 = MakeObject<Portion>();
-SharedPtr<Portion> port21 = MakeObject<Portion>();
-SharedPtr<Portion> port22 = MakeObject<Portion>();
-para2->get_Portions()->Add(port20);
-para2->get_Portions()->Add(port21);
-para2->get_Portions()->Add(port22);
-
-
-for (int i = 0; i < 3; i++)
-{
-	for (int j = 0; j < 3; j++)
-	{
-		tf->get_Paragraphs()->idx_get(i)->get_Portions()->idx_get(j)->set_Text(u"Portion_"+j);
-		SharedPtr<IPortionFormat>format = tf->get_Paragraphs()->idx_get(i)->get_Portions()->idx_get(j)->get_PortionFormat();
-
-		if (j == 0)
-		{
-			format->get_FillFormat()->set_FillType(FillType::Solid);
-			format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
-			format->set_FontBold(NullableBool::True);
-			format->set_FontHeight(15);
-		}
-		else if (j == 1)
-		{
-			format->get_FillFormat()->set_FillType(FillType::Solid);
-			format->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-			format->set_FontBold(NullableBool::True);
-			format->set_FontHeight(18);
-		}
-	}
-
-}
-
-// ذخیره PPTX روی دیسک
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
-```
-
-## **مدیریت گلوله‌های پاراگراف**
-
-فهرست‌های گلوله‌ای به شما کمک می‌کنند تا اطلاعات را به‌سرعت و به‌صورت کارآمد سازماندهی و ارائه دهید. پاراگراف‌های دارای گلوله همیشه خواندن و درک آسان‌تری دارند.
+مراحل زیر یک فریم متنی با سه پاراگراف، هر کدام شامل سه بخش، ایجاد می‌کند:
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
 2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [autoshape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید انتخاب شده اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید.
-7. ویژگی `Type` گلوله برای پاراگراف را به `Symbol` تنظیم کنید و کاراکتر گلوله را تعیین کنید.
-8. متن پاراگراف را تنظیم کنید.
-9. تورفتگی `Indent` پاراگراف برای گلوله را تنظیم کنید.
-10. رنگی برای گلوله تعیین کنید.
-11. ارتفاع گلوله را تنظیم کنید.
-12. پاراگراف جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-13. پاراگراف دوم را اضافه کنید و فرآیند را از مرحله 7 تا 13 تکرار کنید.
-14. ارائه را ذخیره کنید.
-
-این کد C++ نشان می‌دهد که چگونه یک گلوله پاراگراف اضافه کنید:
-
-```c++
-// مسیر به پوشه اسناد.
-const String outPath = u"../out/ParagraphBullets_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
-const String ImagePath = u"../templates/Tulips.jpg";
-
-// بارگذاری ارائه مورد نظر
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
-
-// دسترسی به اسلاید اول
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
-
-// افزودن AutoShape از نوع Rectangle
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 150, 75, 150, 50);
-
-// افزودن TextFrame به Rectangle
-ashp->AddTextFrame(u"");
-
-// دسترسی به فریم متن
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-txtFrame->get_Paragraphs()->Clear();
-
-// ایجاد شی Paragraph برای فریم متن
-SharedPtr<Paragraph> paragraph = MakeObject<Paragraph>();
-
-// تنظیم متن
-paragraph->set_Text(u"Welcome to Aspose.Slides");
-
-// تنظیم تورفتگی گلوله
-paragraph->get_ParagraphFormat()->set_Indent (25);
-
-// تنظیم رنگ گلوله
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType ( ColorType::RGB);
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
-	
-// تنظیم IsBulletHardColor به true برای استفاده از رنگ دلخواه گلوله
-paragraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True); 
-																		
-// تنظیم ارتفاع گلوله
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
-
-// افزودن Paragraph به فریم متن
-txtFrame->get_Paragraphs()->Add(paragraph);
-
-// ایجاد پاراگراف دوم
-// ایجاد شی Paragraph برای فریم متن
-SharedPtr<Paragraph> paragraph2 = MakeObject<Paragraph>();
-
-// تنظیم متن
-paragraph2->set_Text(u"This is numbered bullet");
-
-// تنظیم نوع و سبک گلوله پاراگراف
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Type ( BulletType::Numbered);
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle ( NumberedBulletStyle::BulletCircleNumWDBlackPlain);
-
-// تنظیم تورفتگی گلوله
-paragraph2->get_ParagraphFormat()->set_Indent(25);
-
-// تنظیم رنگ گلوله
-paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
-paragraph2->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
-
-// تنظیم IsBulletHardColor به true برای استفاده از رنگ دلخواه گلوله
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
-
-// تنظیم ارتفاع گلوله
-paragraph2->get_ParagraphFormat()->get_Bullet()->set_Height(100);
-
-// افزودن Paragraph به فریم متن
-txtFrame->get_Paragraphs()->Add(paragraph2);
-
-
-// ذخیره PPTX روی دیسک
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-```
-
-## **مدیریت گلوله‌های تصویری**
-
-فهرست‌های گلوله‌ای به شما کمک می‌کنند تا اطلاعات را به‌سرعت و به‌صورت کارآمد سازماندهی و ارائه دهید. پاراگراف‌های تصویری خواندن و درک آسان‌تری دارند.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [autoshape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را با استفاده از کلاس [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید.
-7. تصویر را در [IPPImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) بارگیری کنید.
-8. نوع گلوله را به [Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) تنظیم کنید و تصویر را تعیین کنید.
-9. متن پاراگراف را تنظیم کنید.
-10. تورفتگی `Indent` پاراگراف برای گلوله را تنظیم کنید.
-11. رنگی برای گلوله تعیین کنید.
-12. ارتفاع گلوله را تنظیم کنید.
-13. پاراگراف جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-14. پاراگراف دوم را اضافه کنید و فرآیند را بر اساس مراحل قبلی تکرار کنید.
-15. ارائه تغییر یافته را ذخیره کنید.
-
-این کد C++ نشان می‌دهد که چگونه گلوله‌های تصویری را اضافه و مدیریت کنید:
-
-```c++
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر فایل PPTX است
-System::SharedPtr<Presentation> presentation = System::MakeObject<Presentation>();
-
-// به اسلاید اول دسترسی می‌یابد
-System::SharedPtr<ISlide> slide = presentation->get_Slide(0);
-
-// یک تصویر برای گلوله‌ها ایجاد می‌کند
-System::SharedPtr<IImage> image = Images::FromFile(u"bullets.png");
-System::SharedPtr<IPPImage> ippxImage = presentation->get_Images()->AddImage(image);
-
-// یک Autoshape اضافه می‌کند و به آن دسترسی می‌یابد
-System::SharedPtr<IAutoShape> autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// به TextFrame شکل دسترسی می‌یابد
-System::SharedPtr<ITextFrame> textFrame = autoShape->get_TextFrame();
-
-// پاراگراف پیش‌فرض را حذف می‌کند
-System::SharedPtr<IParagraphCollection> paragraphs = textFrame->get_Paragraphs();
-paragraphs->RemoveAt(0);
-
-// یک پاراگراف جدید ایجاد می‌کند
-System::SharedPtr<Paragraph> paragraph = System::MakeObject<Paragraph>();
-paragraph->set_Text(u"Welcome to Aspose.Slides");
-
-// سبک گلوله پاراگراف و تصویر را تنظیم می‌کند
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
-paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(ippxImage);
-
-// ارتفاع گلوله را تنظیم می‌کند
-paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100.0f);
-
-// پاراگراف را به TextFrame اضافه می‌کند
-paragraphs->Add(paragraph);
-
-// ارائه را به عنوان فایل PPTX ذخیره می‌کند
-presentation->Save(u"ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-
-// ارائه را به عنوان فایل PPT ذخیره می‌کند
-presentation->Save(u"ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-```
-
-## **مدیریت گلوله‌های چندسطحی**
-
-فهرست‌های گلوله‌ای به شما کمک می‌کنند تا اطلاعات را به‌سرعت و به‌صورت کارآمد سازماندهی و ارائه دهید. گلوله‌های چندسطحی خواندن و درک آسان‌تری دارند.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [autoshape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) در اسلاید جدید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید و عمق را به ۰ تنظیم کنید.
-7. دومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۱ تنظیم کنید.
-8. سومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۲ تنظیم کنید.
-9. چهارمین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و عمق را به ۳ تنظیم کنید.
-10. پاراگراف‌های جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-11. ارائه تغییر یافته را ذخیره کنید.
-
-این کد C++ نشان می‌دهد که چگونه گلوله‌های چندسطحی را اضافه و مدیریت کنید:
-
-```c++
-// یک شی از کلاس Presentation ایجاد می‌کند که نمایانگر فایل PPTX است
-System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
-
-// به اسلاید اول دسترسی می‌یابد
-System::SharedPtr<ISlide> slide = pres->get_Slide(0);
-
-// یک Autoshape اضافه می‌کند و به آن دسترسی می‌یابد
-System::SharedPtr<IAutoShape> aShp = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// به فریم متن شکل ایجاد شده دسترسی می‌یابد
-System::SharedPtr<ITextFrame> text = aShp->AddTextFrame(u"");
-
-// پاراگراف پیش‌فرض را پاک می‌کند
-text->get_Paragraphs()->Clear();
-
-// پاراگراف اول را اضافه می‌کند
-System::SharedPtr<IParagraph> para1 = System::MakeObject<Paragraph>();
-para1->set_Text(u"Content");
-System::SharedPtr<IParagraphFormat> para1Format = para1->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet1Format = para1Format->get_Bullet();
-bullet1Format->set_Type(BulletType::Symbol);
-bullet1Format->set_Char(System::Convert::ToChar(8226));
-System::SharedPtr<IFillFormat> defaultFillFormat1 = para1Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat1->set_FillType(FillType::Solid);
-defaultFillFormat1->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// تنظیم سطح گلوله
-para1Format->set_Depth(0);
-
-// پاراگراف دوم را اضافه می‌کند
-System::SharedPtr<IParagraph> para2 = System::MakeObject<Paragraph>();
-para2->set_Text(u"Second Level");
-System::SharedPtr<IParagraphFormat> para2Format = para2->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet2Format = para2Format->get_Bullet();
-bullet2Format->set_Type(BulletType::Symbol);
-bullet2Format->set_Char(u'-');
-System::SharedPtr<IFillFormat> defaultFillFormat2 = para2Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat2->set_FillType(FillType::Solid);
-defaultFillFormat2->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// تنظیم سطح گلوله
-para2Format->set_Depth(1);
-
-// پاراگراف سوم را اضافه می‌کند
-System::SharedPtr<IParagraph> para3 = System::MakeObject<Paragraph>();
-para3->set_Text(u"Third Level");
-System::SharedPtr<IParagraphFormat> para3Format = para3->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet3Format = para3Format->get_Bullet();
-bullet3Format->set_Type(BulletType::Symbol);
-bullet3Format->set_Char(System::Convert::ToChar(8226));
-System::SharedPtr<IFillFormat> defaultFillFormat3 = para3Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat3->set_FillType(FillType::Solid);
-defaultFillFormat3->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// تنظیم سطح گلوله
-para3Format->set_Depth(2);
-
-// پاراگراف چهارم را اضافه می‌کند
-System::SharedPtr<IParagraph> para4 = System::MakeObject<Paragraph>();
-para4->set_Text(u"Fourth Level");
-System::SharedPtr<IParagraphFormat> para4Format = para4->get_ParagraphFormat();
-System::SharedPtr<IBulletFormat> bullet4Format = para4Format->get_Bullet();
-bullet4Format->set_Type(BulletType::Symbol);
-bullet4Format->set_Char(u'-');
-System::SharedPtr<IFillFormat> defaultFillFormat4 = para4Format->get_DefaultPortionFormat()->get_FillFormat();
-defaultFillFormat4->set_FillType(FillType::Solid);
-defaultFillFormat4->get_SolidFillColor()->set_Color(System::Drawing::Color::get_Black());
-// تنظیم سطح گلوله
-para4Format->set_Depth(3);
-
-// پاراگراف‌ها را به مجموعه اضافه می‌کند
-System::SharedPtr<IParagraphCollection> paragraphs = text->get_Paragraphs();
-paragraphs->Add(para1);
-paragraphs->Add(para2);
-paragraphs->Add(para3);
-paragraphs->Add(para4);
-
-// ارائه را به صورت فایل PPTX ذخیره می‌کند
-pres->Save(u"MultilevelBullet.pptx", SaveFormat::Pptx);
-```
-
-## **مدیریت پاراگراف با فهرست شماره‌گذاری سفارشی**
-
-رابط [IBulletFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/) ویژگی [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) و سایر ویژگی‌ها را فراهم می‌کند که به شما امکان مدیریت پاراگراف‌ها با شماره‌گذاری یا قالب‌بندی سفارشی را می‌دهد.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. به اسلایدی که حاوی پاراگراف است دسترسی پیدا کنید.
-3. یک [autoshape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض در `TextFrame` را حذف کنید.
-6. اولین نمونه پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید و [NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) را بر روی ۲ تنظیم کنید.
-7. دومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را بر روی ۳ تنظیم کنید.
-8. سومین نمونه پاراگراف را از طریق کلاس `Paragraph` ایجاد کنید و `NumberedBulletStartWith` را بر روی ۷ تنظیم کنید.
-9. پاراگراف‌های جدید را به مجموعه پاراگراف‌های `TextFrame` اضافه کنید.
-10. ارائه تغییر یافته را ذخیره کنید.
-
-این کد C++ نشان می‌دهد که چگونه پاراگراف‌ها را با شماره‌گذاری یا قالب‌بندی سفارشی اضافه و مدیریت کنید:
-
-```c++
-auto presentation = System::MakeObject<Presentation>();
-
-auto shape = presentation->get_Slide(0)->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200.0f, 200.0f, 400.0f, 200.0f);
-
-// به فریم متن شکل ایجاد شده دسترسی می‌یابد
-System::SharedPtr<ITextFrame> textFrame = shape->get_TextFrame();
-
-// پاراگراف پیش‌فرض موجود را حذف می‌کند
-textFrame->get_Paragraphs()->RemoveAt(0);
-
-// فهرست اول
-auto paragraph1 = System::MakeObject<Paragraph>();
-paragraph1->set_Text(u"bullet 2");
-auto paragraph1Format = paragraph1->get_ParagraphFormat();
-paragraph1Format->set_Depth(4);
-auto bullet1Format = paragraph1Format->get_Bullet();
-bullet1Format->set_NumberedBulletStartWith(2);
-bullet1Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph1);
-
-auto paragraph2 = System::MakeObject<Paragraph>();
-paragraph2->set_Text(u"bullet 3");
-auto paragraph2Format = paragraph2->get_ParagraphFormat();
-paragraph2Format->set_Depth(4);
-auto bullet2Format = paragraph2Format->get_Bullet();
-bullet2Format->set_NumberedBulletStartWith(3);
-bullet2Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph2);
-
-auto paragraph5 = System::MakeObject<Paragraph>();
-paragraph5->set_Text(u"bullet 7");
-auto paragraph5Format = paragraph5->get_ParagraphFormat();
-paragraph5Format->set_Depth(4);
-auto bullet5Format = paragraph5Format->get_Bullet();
-bullet5Format->set_NumberedBulletStartWith(7);
-bullet5Format->set_Type(BulletType::Numbered);
-textFrame->get_Paragraphs()->Add(paragraph5);
-
-presentation->Save(u"SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
-```
-
-## **تنظیم تورفتگی خط اول برای یک پاراگراف**
-
-از متد [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت خط اول را به راست می‌برد، در حالی که خطوط باقی‌مانده به بدنه پاراگراف هم‌راستا می‌مانند.
-
-هنگامی که نیاز به جابجایی کل پاراگراف دارید، از [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) استفاده کنید. برای جابجایی فقط خط اول از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) استفاده کنید.
-
-مثال زیر چندین پاراگراف ایجاد می‌کند و مقادیر مختلف `Indent` را برای نشان دادن تأثیر تورفتگی خط اول بر چینش پاراگراف اعمال می‌نماید.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. به اسلاید هدف دسترسی پیدا کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/autoshape/) مستطیل به اسلاید اضافه کنید.
-4. یک [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframe/) خالی به شکل اضافه کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. چندین پاراگراف ایجاد کنید و مقادیر مختلف [Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای آن‌ها تنظیم کنید.
-6. پاراگراف‌ها را به فریم متن اضافه کنید.
-7. ارائه تغییر یافته را ذخیره کنید.
-
-این کد نشان می‌دهد که چگونه تورفتگی پاراگراف را تنظیم کنید:
+3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
+5. از پاراگراف پیش‌فرض استفاده کنید و دو شیء دیگر از نوع [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) به فریم متن اضافه کنید.
+6. به اندازه کافی شیء [IPortion](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/) اضافه کنید تا هر پاراگراف شامل سه بخش باشد. پاراگراف پیش‌فرض قبلاً یک بخش خالی دارد.
+7. متن هر بخش را تنظیم کنید.
+8. قالب‌بندی سطح کاراکتر را از طریق [IPortion::get_PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/get_portionformat/) اعمال کنید.
+9. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+
+این مثال C++ مراحل را پیاده‌سازی می‌کند:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/string.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+auto textFrame = shape->get_TextFrame();
+
+auto firstParagraph = textFrame->get_Paragraph(0);
+firstParagraph->get_Portions()->Add(MakeObject<Portion>());
+firstParagraph->get_Portions()->Add(MakeObject<Portion>());
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+secondParagraph->get_Portions()->Add(MakeObject<Portion>());
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+thirdParagraph->get_Portions()->Add(MakeObject<Portion>());
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+
+auto paragraphCount = textFrame->get_Paragraphs()->get_Count();
+for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++)
+{
+    auto paragraph = textFrame->get_Paragraph(paragraphIndex);
+    auto portionCount = paragraph->get_Portions()->get_Count();
+    for (int portionIndex = 0; portionIndex < portionCount; portionIndex++)
+    {
+        auto portion = paragraph->get_Portion(portionIndex);
+        portion->set_Text(String::Format(u"Portion {0}.{1}", paragraphIndex + 1, portionIndex + 1));
+        auto portionFormat = portion->get_PortionFormat();
+
+        if (portionIndex == 0)
+        {
+            portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+            portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Red());
+            portionFormat->set_FontBold(NullableBool::True);
+            portionFormat->set_FontHeight(15);
+        }
+        else if (portionIndex == 1)
+        {
+            portionFormat->get_FillFormat()->set_FillType(FillType::Solid);
+            portionFormat->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
+            portionFormat->set_FontItalic(NullableBool::True);
+            portionFormat->set_FontHeight(18);
+        }
+    }
+}
+
+presentation->Save(u"paragraphs_with_portions.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **ایجاد فهرست‌های نقطه‌دار و عددی**
+
+### **ایجاد فهرست نقطه‌دار یا عددی**
+
+نقطه‌ها و شماره‌گذاری موارد مرتبط را برای اسکن آسان‌تر می‌کند. در Aspose.Slides تنظیمات فهرست از طریق [IBulletFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/) تعریف می‌شود.
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید انتخاب شده اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
+5. پاراگراف پیش‌فرض را از فریم متن حذف کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) برای نقطه نماد ایجاد کنید.
+7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Symbol](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید و کاراکتر نقطه را مشخص کنید.
+8. متن پاراگراف، تورفتگی، رنگ نقطه و ارتفاع نقطه را تنظیم کنید.
+9. پاراگراف را به فریم متن اضافه کنید.
+10. پاراگراف دوم را ایجاد کنید و [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Numbered](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
+11. سبک نقطه عددی را پیکربندی کنید و پاراگراف را به فریم متن اضافه کنید.
+12. ارائه را ذخیره کنید.
+
+این مثال C++ یک نقطه نمادی و یک نقطه عددی ایجاد می‌کند:
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/ColorType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/NullableBool.h>
+#include <DOM/NumberedBulletStyle.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto symbolParagraph = MakeObject<Paragraph>();
+symbolParagraph->set_Text(u"Welcome to Aspose.Slides");
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
+symbolParagraph->get_ParagraphFormat()->set_Indent(25);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
+symbolParagraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(symbolParagraph);
+
+auto numberedParagraph = MakeObject<Paragraph>();
+numberedParagraph->set_Text(u"This is a numbered item");
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+numberedParagraph->get_ParagraphFormat()->set_Indent(25);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_ColorType(ColorType::RGB);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->get_Color()->set_Color(Color::get_Black());
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_IsBulletHardColor(NullableBool::True);
+numberedParagraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(numberedParagraph);
+
+presentation->Save(u"bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **استفاده از نقطه‌های تصویری**
+
+نقطه‌های تصویری به شما امکان می‌دهند به‌جای نماد یا شماره از یک تصویر سفارشی استفاده کنید.
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
+2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) آن دسترسی پیدا کنید.
+4. پاراگراف پیش‌فرض را از فریم متن حذف کنید.
+5. تصویر نقطه را بارگذاری کنید و به‌عنوان یک [IPPImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ippimage/) به مجموعه تصویرهای ارائه اضافه کنید.
+6. یک [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید و متن آن را تنظیم کنید.
+7. [IBulletFormat::set_Type](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_type/) را به [BulletType::Picture](https://reference.aspose.com/slides/fa/cpp/aspose.slides/bullettype/) تنظیم کنید.
+8. تصویر را از طریق [ISlidesPicture::set_Image](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islidespicture/set_image/) اختصاص دهید و ارتفاع نقطه را تنظیم کنید.
+9. پاراگراف را به فریم متن اضافه کنید.
+10. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+
+این مثال C++ یک نقطه تصویری ایجاد می‌کند:
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IImageCollection.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <IImage.h>
+#include <Util/Images.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
 
-auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
-rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
-rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+auto bulletImage = Images::FromFile(u"bullets.png");
+auto presentationImage = presentation->get_Images()->AddImage(bulletImage);
+bulletImage->Dispose();
 
-auto textFrame = rectangleShape->AddTextFrame(u"");
-textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
-textFrame->get_Paragraphs()->RemoveAt(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto paragraph = MakeObject<Paragraph>();
+paragraph->set_Text(u"Welcome to Aspose.Slides");
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Picture);
+paragraph->get_ParagraphFormat()->get_Bullet()->get_Picture()->set_Image(presentationImage);
+paragraph->get_ParagraphFormat()->get_Bullet()->set_Height(100);
+textFrame->get_Paragraphs()->Add(paragraph);
+
+presentation->Save(u"picture_bullet.pptx", SaveFormat::Pptx);
+presentation->Save(u"picture_bullet.ppt", SaveFormat::Ppt);
+presentation->Dispose();
+```
+
+### **ایجاد فهرست چندسطحی**
+
+[İParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) را تنظیم کنید تا پاراگراف‌ها در سطوح مختلف فهرست قرار گیرند. سطح بالای فهرست عمق `0` دارد.
+
+1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و به یک اسلاید دسترسی پیدا کنید.
+2. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض را از فریم متن آن پاک کنید.
+3. چهار پاراگراف ایجاد کنید و نمادهای نقطه آن‌ها را پیکربندی کنید.
+4. مقدارهای [İParagraphFormat::set_Depth](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_depth/) آن‌ها را به ترتیب `0`، `1`، `2` و `3` تنظیم کنید.
+5. پاراگراف‌ها را به فریم متن اضافه کنید و ارائه را ذخیره کنید.
+
+این مثال C++ یک فهرست نقطه‌دار چهار سطحی ایجاد می‌کند:
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+#include <system/convert.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
 
 auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"Content");
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
-firstParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-firstParagraph->get_ParagraphFormat()->set_Indent(0.f);
+firstParagraph->get_ParagraphFormat()->set_Depth(0);
 
 auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Second level");
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(u'-');
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
-secondParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-secondParagraph->get_ParagraphFormat()->set_Indent(20.f);
+secondParagraph->get_ParagraphFormat()->set_Depth(1);
 
 auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"Third level");
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(Convert::ToChar(0x2022));
 thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+thirdParagraph->get_ParagraphFormat()->set_Depth(2);
+
+auto fourthParagraph = MakeObject<Paragraph>();
+fourthParagraph->set_Text(u"Fourth level");
+fourthParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Symbol);
+fourthParagraph->get_ParagraphFormat()->get_Bullet()->set_Char(u'-');
+fourthParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+fourthParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+fourthParagraph->get_ParagraphFormat()->set_Depth(3);
+
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+textFrame->get_Paragraphs()->Add(fourthParagraph);
+
+presentation->Save(u"multilevel_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+### **شروع موارد فهرست عددی با مقادیر دلخواه**
+
+از [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) برای تنظیم عدد اولیه نمایش داده‌شده برای یک پاراگراف عددی استفاده کنید.
+
+1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
+2. پاراگراف پیش‌فرض را از فریم متنی شکل حذف کنید.
+3. سه پاراگراف عددی ایجاد کنید.
+4. برای پاراگراف‌های مربوطه، [IBulletFormat::set_NumberedBulletStartWith](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibulletformat/set_numberedbulletstartwith/) را به ترتیب به `2`، `3` و `7` تنظیم کنید.
+5. پاراگراف‌ها را به فریم متن اضافه کنید و ارائه را ذخیره کنید.
+
+این مثال C++ عدد شروع سفارشی را به هر پاراگراف اختصاص می‌دهد:
+
+```cpp
+#include <DOM/BulletType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"Start at 2");
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+firstParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(2);
+textFrame->get_Paragraphs()->Add(firstParagraph);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"Start at 3");
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+secondParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(3);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+auto thirdParagraph = MakeObject<Paragraph>();
+thirdParagraph->set_Text(u"Start at 7");
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_Type(BulletType::Numbered);
+thirdParagraph->get_ParagraphFormat()->get_Bullet()->set_NumberedBulletStartWith(7);
+textFrame->get_Paragraphs()->Add(thirdParagraph);
+
+presentation->Save(u"custom_numbered_list.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **کنترل چیدمان پاراگراف و ویژگی‌های انتهایی**
+
+### **تنظیم تورفتگی خط اول**
+
+از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) برای کنترل تورفتگی خط اول یک پاراگراف استفاده کنید. این متد فقط خط اول را نسبت به حاشیه سمت چپ پاراگراف جابه‌جا می‌کند. مقدار مثبت، خط اول را به راست می‌برد، در حالی که خطوط دیگر به بدنه پاراگراف تراز می‌مانند.
+
+زمانی که نیاز به جابه‌جایی کل پاراگراف دارید، از [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) استفاده کنید. برای جابه‌جایی فقط خط اول از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) استفاده کنید.
+
+نمونه زیر چند پاراگراف ایجاد می‌کند و مقادیر متفاوتی از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای نمایش تأثیر تورفتگی خط اول بر چیدمان پاراگراف اعمال می‌کند.
+
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
+2. به اسلاید هدف دسترسی پیدا کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
+5. چند پاراگراف ایجاد کنید و مقادیر مختلفی از [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) برای آن‌ها تنظیم کنید.
+6. پاراگراف‌ها را به فریم متن اضافه کنید.
+7. ارائه‌ی اصلاح‌شده را ذخیره کنید.
+
+این کد نشان می‌دهد چگونه تورفتگی پاراگراف را تنظیم کنید:
+
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
+
+auto textFrame = shape->get_TextFrame();
+textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"No first-line indent. Wrapped lines start at the same position as the first line.");
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+firstParagraph->get_ParagraphFormat()->set_Indent(0);
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+secondParagraph->get_ParagraphFormat()->set_Indent(20);
+
+auto thirdParagraph = MakeObject<Paragraph>();
 thirdParagraph->set_Text(u"First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
-thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20.f);
-thirdParagraph->get_ParagraphFormat()->set_Indent(40.f);
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+thirdParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
+thirdParagraph->get_ParagraphFormat()->set_MarginLeft(20);
+thirdParagraph->get_ParagraphFormat()->set_Indent(40);
 
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
@@ -510,366 +464,338 @@ presentation->Save(u"paragraph_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![تورفتگی خط اول پاراگراف‌ها](first_line_indent.png)
+نتیجه:
 
-## **تنظیم تورفتگی معلق برای یک پاراگراف**
+![The first-line indent of the paragraphs](first_line_indent.png)
 
-تورفتگی معلق یک چیدمان پاراگراف است که در آن خط اول نسبت به خطوط باقی‌مانده به سمت چپ شروع می‌شود. در Aspose.Slides، این اثر را با متد [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) ایجاد می‌کنید. مقدار منفی این ویژگی خط اول را نسبت به بدنه پاراگراف به سمت چپ جابه‌جا می‌کند.
+### **تنظیم تورفتگی معلق**
 
-در عمل، [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) موقعیت چپ بدنه پاراگراف را تعریف می‌کند و [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) موقعیت خط اول را نسبت به آن حاشیه تعیین می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت `MarginLeft` و مقدار منفی `Indent` را تنظیم کنید.
+یک تورفتگی معلق به معنای چیدمان پاراگرافی است که در آن خط اول سمت چپ خطوط باقی‌مانده قرار می‌گیرد. در Aspose.Slides این اثر را با [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) ایجاد می‌کنید. برای جابه‌جایی خط اول به سمت چپ مقدار منفی تنظیم کنید.
 
-این قالب‌بندی برای کتابشناسی‌ها، مراجع، ورودی‌های واژه‌نامه و سایر پاراگراف‌هایی که خطوط بسته‌بندی شده باید زیر بدنه پاراگراف و نه زیر اولین کاراکتر خط اول قرار گیرند، مفید است.
+در عمل، [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) موقعیت سمت چپ بدنه پاراگراف را تعریف می‌کند و [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) موقعیت خط اول نسبت به آن حاشیه را تعیین می‌کند. برای ایجاد تورفتگی معلق، مقدار مثبت margin‑left و مقدار منفی indent تنظیم کنید.
+
+این قالب‌بندی برای کتابشناسی‌ها، مراجع، واژه‌نامه‌ها و سایر پاراگراف‌هایی که خطوط بسته‌شده باید زیر بدنه پاراگراف تراز شوند، مفید است.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
 2. به اسلاید هدف دسترسی پیدا کنید.
-3. یک [AutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/autoshape/) مستطیل به اسلاید اضافه کنید.
-4. یک [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframe/) خالی به شکل اضافه کنید و پاراگراف پیش‌فرض را حذف کنید.
-5. پاراگراف‌ها را ایجاد کنید و برای هر پاراگراف مقدار مثبت [MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) تنظیم کنید.
-6. مقدار منفی [Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) را برای ایجاد اثر تورفتگی معلق تنظیم کنید.
+3. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیلی به اسلاید اضافه کنید.
+4. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را حذف کنید.
+5. پاراگراف‌ها را ایجاد کنید و برای هر پاراگراف مقدار مثبت [IParagraphFormat::set_MarginLeft](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_marginleft/) تنظیم کنید.
+6. برای ایجاد اثر تورفتگی معلق، مقدار منفی [IParagraphFormat::set_Indent](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_indent/) تنظیم کنید.
 7. پاراگراف‌ها را به فریم متن اضافه کنید.
-8. ارائه تغییر یافته را ذخیره کنید.
+8. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
-این کد نشان می‌دهد که چگونه تورفتگی معلق برای یک پاراگراف تنظیم شود:
+این کد نشان می‌دهد چگونه تورفتگی معلق را برای یک پاراگراف تنظیم کنید:
 
 ```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <DOM/TextAutofitType.h>
+#include <Export/SaveFormat.h>
+#include <drawing/color.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::Drawing;
+
 auto presentation = MakeObject<Presentation>();
 auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
+shape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
 
-auto rectangleShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
-rectangleShape->get_FillFormat()->set_FillType(FillType::NoFill);
-rectangleShape->get_LineFormat()->get_FillFormat()->set_FillType(FillType::Solid);
-rectangleShape->get_LineFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Gray());
-
-auto textFrame = rectangleShape->AddTextFrame(u"");
+auto textFrame = shape->get_TextFrame();
 textFrame->get_TextFrameFormat()->set_AutofitType(TextAutofitType::Shape);
-textFrame->get_Paragraphs()->RemoveAt(0);
+textFrame->get_Paragraphs()->Clear();
 
 auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 firstParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-firstParagraph->set_Text(u"A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
-firstParagraph->get_ParagraphFormat()->set_MarginLeft(40.f);
-firstParagraph->get_ParagraphFormat()->set_Indent(-20.f);
+firstParagraph->get_ParagraphFormat()->set_MarginLeft(40);
+firstParagraph->get_ParagraphFormat()->set_Indent(-20);
 
 auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->set_FillType(FillType::Solid);
 secondParagraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Black());
-secondParagraph->set_Text(u"This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
-secondParagraph->get_ParagraphFormat()->set_MarginLeft(60.f);
-secondParagraph->get_ParagraphFormat()->set_Indent(-30.f);
+secondParagraph->get_ParagraphFormat()->set_MarginLeft(60);
+secondParagraph->get_ParagraphFormat()->set_Indent(-30);
 
 textFrame->get_Paragraphs()->Add(firstParagraph);
 textFrame->get_Paragraphs()->Add(secondParagraph);
 
-presentation->Save(u"hhang indent.pptx", SaveFormat::Pptx);
+presentation->Save(u"hhanging_indent.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-![تورفتگی معلق پاراگراف‌ها](hanging_indent.png)
+نتیجه:
 
-## **مدیریت ویژگی‌های انتهای پاراگراف**
+![The hanging indent of the paragraphs](hanging_indent.png)
+
+### **تنظیم ویژگی‌های اجرای انتهای پاراگراف**
+
+[IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) قالب‌بندی علامت پایان پاراگراف را کنترل می‌کند. مثال زیر اندازه فونت و فونت لاتین را برای علامت پایان پاراگراف دوم تعیین می‌کند:
+
+1. یک [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) بارگذاری کنید و به یک اسلاید دسترسی پیدا کنید.
+2. یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید و پاراگراف پیش‌فرض آن را پاک کنید.
+3. دو پاراگراف ایجاد کنید و به آن‌ها بخش‌های متنی اضافه کنید.
+4. یک [PortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/portionformat/) برای علامت پایان پاراگراف دوم ایجاد کنید.
+5. [IBasePortionFormat::set_FontHeight](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_fontheight/) و [IBasePortionFormat::set_LatinFont](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_latinfont/) را تنظیم کنید.
+6. قالب را با [IParagraph::set_EndParagraphPortionFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/set_endparagraphportionformat/) اختصاص دهید و ارائه را ذخیره کنید.
+
+```cpp
+#include <DOM/Fonts/FontData.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/Paragraph.h>
+#include <DOM/Portion.h>
+#include <DOM/PortionFormat.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Test.pptx");
+auto slide = presentation->get_Slide(0);
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+auto textFrame = shape->get_TextFrame();
+textFrame->get_Paragraphs()->Clear();
+
+auto firstParagraph = MakeObject<Paragraph>();
+firstParagraph->get_Portions()->Add(MakeObject<Portion>(u"Sample text"));
+
+auto secondParagraph = MakeObject<Paragraph>();
+secondParagraph->get_Portions()->Add(MakeObject<Portion>(u"Sample text 2"));
+
+auto endParagraphFormat = MakeObject<PortionFormat>();
+endParagraphFormat->set_FontHeight(48);
+endParagraphFormat->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
+secondParagraph->set_EndParagraphPortionFormat(endParagraphFormat);
+
+textFrame->get_Paragraphs()->Add(firstParagraph);
+textFrame->get_Paragraphs()->Add(secondParagraph);
+
+presentation->Save(u"end_paragraph_format.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **واردات و صادرات محتوای پاراگراف**
+
+### **وارد کردن متن HTML به پاراگراف‌ها**
+
+از [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/addfromhtml/) برای تبدیل نشانه‌گذاری HTML به پاراگراف‌ها و بخش‌ها در یک فریم متنی استفاده کنید.
 
 1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع اسلاید حاوی پاراگراف را از طریق موقعیت آن دریافت کنید.
-1. یک [autoshape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) مستطیل به اسلاید اضافه کنید.
-1. یک [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) با دو پاراگراف به مستطیل اضافه کنید.
-1. `FontHeight` و نوع فونت را برای پاراگراف‌ها تنظیم کنید.
-1. ویژگی‌های End را برای پاراگراف‌ها تنظیم کنید.
-1. ارائه تغییر یافته را به‌صورت فایل PPTX ذخیره کنید.
+2. به یک اسلاید دسترسی پیدا کنید و یک [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) اضافه کنید.
+3. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید و پاراگراف پیش‌فرض را پاک کنید.
+4. فایل HTML منبع را بخوانید.
+5. رشته HTML را به [IParagraphCollection::AddFromHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/addfromhtml/) پاس دهید.
+6. ارائه‌ی اصلاح‌شده را ذخیره کنید.
 
-این کد C++ نشان می‌دهد که چگونه ویژگی‌های End را برای پاراگراف‌ها در PowerPoint تنظیم کنید:
+این مثال C++ HTML را به یک فریم متنی وارد می‌کند:
 
-```c++
-// مسیر به پوشه اسناد.
-const String outPath = u"../out/EndParaGraphProperties_out.pptx";
-//const String templatePath = u"../templates/DefaultFonts.pptx";
+```cpp
+#include <DOM/FillType.h>
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/ISlideSize.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/io/stream_reader.h>
 
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
 
-// بارگذاری ارائه مورد نظر
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto slideSize = presentation->get_SlideSize()->get_Size();
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, slideSize.get_Width() - 20, slideSize.get_Height() - 20);
+shape->get_FillFormat()->set_FillType(FillType::NoFill);
+shape->get_TextFrame()->get_Paragraphs()->Clear();
 
-// دسترسی به اسلاید اول
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto reader = MakeObject<StreamReader>(u"file.html");
+auto html = reader->ReadToEnd();
+reader->Close();
+shape->get_TextFrame()->get_Paragraphs()->AddFromHtml(html);
 
-// افزودن AutoShape از نوع Rectangle
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100, 100, 300, 300);
-
-// افزودن TextFrame به Rectangle
-SharedPtr<ITextFrame> tf = ashp->AddTextFrame(String::Empty);
-
-// افزودن پاراگراف اول
-//SharedPtr<IParagraph> para1 = tf->get_Paragraphs()->idx_get(0);
-
-SharedPtr<Paragraph> para1 = MakeObject<Paragraph>();
-SharedPtr<Portion> port01 = MakeObject<Portion>(u"Sample text");
-
-para1->get_Portions()->Add(port01);
-
-// افزودن پاراگراف دوم
-SharedPtr<Paragraph> para2 = MakeObject<Paragraph>();
-SharedPtr<Portion> port02 = MakeObject<Portion>(u"Sample text 2");
-
-para2->get_Portions()->Add(port02);
-
-
-SharedPtr<PortionFormat> endParagraphPortionFormat = MakeObject< PortionFormat>();
-endParagraphPortionFormat->set_FontHeight ( 48);
-endParagraphPortionFormat->set_LatinFont ( MakeObject< FontData>(u"Times New Roman"));
-para2->set_EndParagraphPortionFormat(endParagraphPortionFormat);
-
-ashp->get_TextFrame()->get_Paragraphs()->Add(para1);
-ashp->get_TextFrame()->get_Paragraphs()->Add(para2);
-
-
-// ذخیره PPTX روی دیسک
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
-
+presentation->Save(u"html_text.pptx", SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **وارد کردن متن HTML به پاراگراف‌ها**
+### **صادرکردن متن پاراگراف به HTML**
 
-Aspose.Slides پشتیبانی پیشرفته‌ای برای وارد کردن متن HTML به پاراگراف‌ها فراهم می‌کند.
+از [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/exporttohtml/) برای صدور یک بازه‌ی انتخابی از پاراگراف‌ها به صورت HTML استفاده کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. یک [autoshape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) به اسلاید اضافه کنید.
-4. `autoshape` را اضافه کنید و به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) دسترسی پیدا کنید.
-5. پاراگراف پیش‌فرض در `ITextFrame` را حذف کنید.
-6. فایل HTML منبع را در یک TextReader بخوانید.
-7. اولین نمونه پاراگراف را از طریق کلاس [Paragraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraph/) ایجاد کنید.
-8. محتوای فایل HTML را از TextReader خوانده شده به [ParagraphCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraphcollection/) فریم متن اضافه کنید.
-9. ارائه تغییر یافته را ذخیره کنید.
+1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و ارائه‌ی موردنظر را بارگذاری کنید.
+2. به اسلاید دسترسی پیدا کنید و [IAutoShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iautoshape/) که حاوی متن است را پیدا کنید.
+3. به [ITextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
+4. متد [IParagraphCollection::ExportToHtml](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphcollection/exporttohtml/) را با اندیس پاراگراف شروع و تعداد پاراگراف‌های موردنظر صدا بزنید.
+5. رشته HTML بازگشتی را در فایلی بنویسید.
 
-این کد C++ پیاده‌سازی مراحلی برای وارد کردن متون HTML به پاراگراف‌ها است:
+این مثال C++ تمام پاراگراف‌های اولین شکل متنی را صادر می‌کند:
 
-```c++
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// مسیر به پوشه اسناد.
-const String outPath = u"../out/ImportingHTMLText_out.pptx";
-const String sampleHtml = u"../templates/file.html";
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/io/stream_writer.h>
+#include <system/object_ext.h>
+#include <system/text/encoding.h>
 
-	
-// بارگذاری ارائه مورد نظر
-SharedPtr<Presentation> pres = MakeObject<Presentation>();
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::IO;
+using namespace System::Text;
 
-// دسترسی به اسلاید اول
-SharedPtr<ISlide> sld = pres->get_Slides()->idx_get(0);
+auto presentation = MakeObject<Presentation>(u"ExportingHTMLText.pptx");
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto textShape = AsCast<IAutoShape>(shape);
 
-// افزودن AutoShape از نوع Rectangle
-SharedPtr<IAutoShape>  ashp = sld->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 10, 10, 700, 500);
-	
-//Resetting default fill color
-ashp->get_FillFormat()->set_FillType(FillType::NoFill);
-	
-// افزودن TextFrame به Rectangle
-ashp->AddTextFrame(u" ");
+if (textShape != nullptr && textShape->get_TextFrame() != nullptr)
+{
+    auto paragraphs = textShape->get_TextFrame()->get_Paragraphs();
+    auto html = paragraphs->ExportToHtml(0, paragraphs->get_Count(), nullptr);
+    auto writer = MakeObject<StreamWriter>(u"paragraphs.html", false, Encoding::get_UTF8());
+    writer->Write(html);
+    writer->Close();
+}
+else
+{
+    Console::WriteLine(u"The first shape is not a text shape.");
+}
 
-// دسترسی به فریم متن
-SharedPtr<ITextFrame>  txtFrame = ashp->get_TextFrame();
-
-//GetParagraphs collection
-SharedPtr<Aspose::Slides::IParagraphCollection>ParaCollection = txtFrame->get_Paragraphs();
-
-// Clearing all paragraphs in added text frame
-ParaCollection->Clear();
-
-// بارگذاری فایل HTML با استفاده از StreamReader
-SharedPtr<System::IO::StreamReader>  tr = MakeObject<System::IO::StreamReader>(sampleHtml);
-
-// افزودن متن از StreamReader HTML به فریم متن
-ParaCollection->AddFromHtml(tr->ReadToEnd());
-
-
-// ایجاد شی Paragraph برای فریم متن
-SharedPtr<IParagraph> paragraph = txtFrame->get_Paragraphs()->idx_get(0);
-
-// ایجاد شی Portion برای پاراگراف
-SharedPtr<IPortion> portion = paragraph->get_Portions()->idx_get(0);
-portion->set_Text(u"Aspose TextBox");
-
-//Get portion format
-SharedPtr<IPortionFormat> pf = portion->get_PortionFormat();
-
-// تنظیم فونت برای Portion
-pf->set_LatinFont(MakeObject<FontData>(u"Times New Roman"));
-
-// تنظیم ویژگی Bold برای فونت
-pf->set_FontBold(NullableBool::True);
-
-// تنظیم ویژگی Italic برای فونت
-pf->set_FontItalic(NullableBool::True);
-
-// تنظیم ویژگی Underline برای فونت
-pf->set_FontUnderline(TextUnderlineType::Single);
-
-// تنظیم ارتفاع فونت
-pf->set_FontHeight(25);
-
-// تنظیم رنگ فونت
-pf->get_FillFormat()->set_FillType(FillType::Solid);
-pf->get_FillFormat()->get_SolidFillColor()->set_Color(Color::get_Blue());
-
-// ذخیره PPTX روی دیسک
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-## **صادرات متن پاراگراف به HTML**
+### **رندر کردن پاراگراف به عنوان تصویر**
 
-Aspose.Slides پشتیبانی پیشرفته‌ای برای صادرف متن‌ها (موجود در پاراگراف‌ها) به HTML فراهم می‌کند.
+[IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) یک پاراگراف منفرد را مستقیماً رندر می‌کند و یک [IImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iimage/) بازمی‌گرداند. می‌توانید نتیجه را با [IImage::Save](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iimage/save/) در فایل یا جریان ذخیره کنید. نیازی به رندر شکل حاوی آن یا برش بیت‌مپ دستی نیست.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید و ارائه مورد نظر را بارگذاری کنید.
-2. از طریق اندیس، به مرجع اسلاید مربوطه دسترسی پیدا کنید.
-3. به شکلی که متن مورد نظر برای صادرات به HTML در آن باشد دسترسی پیدا کنید.
-4. به [TextFrame](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframe/) شکل دسترسی پیدا کنید.
-5. یک نمونه از `StreamWriter` ایجاد کنید و فایل HTML جدید را اضافه کنید.
-6. یک اندیس شروع به StreamWriter بدهید و پاراگراف‌های دلخواه خود را صادر کنید.
+[IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) ممکن است `nullptr` برگرداند اگر پاراگراف در مجموعه والد موجود نباشد، مرزهای رندر معتبری نداشته باشد یا قابل رندر نباشد. قبل از ذخیره‌سازی نتیجه را بررسی کنید و پس از استفاده تصویر بازگردانده‌شده را آزاد کنید.
 
-این کد C++ نشان می‌دهد که چگونه متون پاراگراف‌های PowerPoint را به HTML صادر کنید:
-
-```c++
-For complete examples and data files, please go to https://github.com/aspose-slides/Aspose.Slides-for-C
-// مسیر به پوشه اسناد.
-const String outPath = u"../out/output.html";
-const String tempplatePath = u"../templates/DefaultFonts.pptx";
-
-// بارگذاری ارائه مورد نظر
-SharedPtr<Presentation> pres = MakeObject<Presentation>(tempplatePath);
-
-
-// دسترسی به اسلاید اول پیش‌فرض ارائه
-SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
-
-// اندیس مورد نظر
-int index = 0;
-
-// دسترسی به شکل اضافه شده
-SharedPtr<IShape> shape = slide->get_Shapes()->idx_get(0);
-
-SharedPtr<AutoShape> ashape = DynamicCast<Aspose::Slides::AutoShape>(shape);
-
-// استخراج اولین پاراگراف به‌صورت HTML
-SharedPtr<System::IO::StreamWriter> sw = MakeObject<System::IO::StreamWriter>(outPath, false, Encoding::get_UTF8());
-//	System::IO::StreamWriter^ sr = gcnew System::IO::StreamWriter("TestFile.txt", false, Encoding::get_UTF8());
-
-// نوشتن داده‌های پاراگراف‌ها به HTML با ارائه اندیس شروع پاراگراف و تعداد کل پاراگراف‌های قابل کپی
-sw->Write(ashape->get_TextFrame()->get_Paragraphs()->ExportToHtml(0, ashape->get_TextFrame()->get_Paragraphs()->get_Count(), nullptr));
-
-sw->Close();
-```
-
-## **ذخیره یک پاراگراف به‌صورت تصویر**
-
-در این بخش، دو مثال را بررسی می‌کنیم که نشان می‌دهند چگونه یک پاراگراف متنی، نماینده توسط رابط [IParagraph](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/) را به‌صورت تصویر ذخیره کنیم. هر دو مثال شامل دریافت تصویر شکل حاوی پاراگراف با استفاده از متدهای `GetImage` از رابط [IShape](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/)، محاسبه مرزهای پاراگراف داخل شکل و صادرات آن به‌صورت تصویر bitmap هستند. این روش‌ها به شما امکان استخراج بخش‌های خاصی از متن از ارائه‌های PowerPoint و ذخیره آن‌ها به‌عنوان تصاویر جداگانه را می‌دهند که می‌تواند در سناریوهای مختلف مفید باشد.
+#### **رندر کردن پاراگراف در مقیاس پیش‌فرض**
 
 فرض کنید فایلی به نام sample.pptx داریم که شامل یک اسلاید است و اولین شکل آن یک جعبه متن حاوی سه پاراگراف است.
 
-![جعبه متن با سه پاراگراف](paragraph_to_image_input.png)
+![The text box with three paragraphs](paragraph_to_image_input.png)
 
-**مثال 1**
-
-در این مثال، پاراگراف دوم را به‌صورت تصویر دریافت می‌کنیم. برای این کار، تصویر شکل را از اسلاید اول ارائه استخراج می‌کنیم و سپس مرزهای پاراگراف دوم را در فریم متن شکل محاسبه می‌کنیم. سپس پاراگراف بر روی تصویر bitmap جدید رسم می‌شود که به فرمت PNG ذخیره می‌شود. این روش به‌ویژه زمانی مفید است که نیاز به ذخیره یک پاراگراف خاص به‌صورت تصویر جداگانه داشته باشید در حالی که ابعاد و قالب‌بندی دقیق متن حفظ می‌شود.
+مثال زیر پاراگراف دوم را در یک شکل متنی عادی در مقیاس پیش‌فرض رندر می‌کند و تصویر بازگشتی را در قالب PNG ذخیره می‌نماید.
 
 ```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto textShape = AsCast<IAutoShape>(shape);
 
-// Save the shape in memory as a bitmap.
-auto shapeImage = firstShape->GetImage();
-auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
-shapeImage->Dispose();
+if (textShape != nullptr && textShape->get_TextFrame() != nullptr && textShape->get_TextFrame()->get_Paragraphs()->get_Count() > 1)
+{
+    auto paragraph = textShape->get_TextFrame()->get_Paragraph(1);
+    auto paragraphImage = paragraph->GetImage();
 
-// Create a shape bitmap from memory.
-shapeImageStream->set_Position(0);
-auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
-
-// Calculate the boundaries of the second paragraph.
-auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
-auto paragraphRectangle = secondParagraph->GetRect();
-
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
-auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
-
-// Prepare a bitmap for the paragraph.
-auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
-
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
-RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
-imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
-imageGraphics->Dispose();
-
-paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+    if (paragraphImage != nullptr)
+    {
+        paragraphImage->Save(u"paragraph.png", ImageFormat::Png);
+        paragraphImage->Dispose();
+    }
+    else
+    {
+        Console::WriteLine(u"The paragraph could not be rendered.");
+    }
+}
+else
+{
+    Console::WriteLine(u"The expected text shape or paragraph was not found.");
+}
 
 presentation->Dispose();
 ```
 
 نتیجه:
 
-![تصویر پاراگراف](paragraph_to_image_output.png)
+![The paragraph image](paragraph_to_image_output.png)
 
-**مثال 2**
+#### **رندر کردن پاراگراف در یک سلول جدول با مقیاس‌بندی**
 
-در این مثال، رویکرد قبلی را با افزودن مقیاس‌ها به تصویر پاراگراف گسترش می‌دهیم. شکل از ارائه استخراج می‌شود و با یک مقیاس `۲` به‌صورت تصویر ذخیره می‌شود. این امکان خروجی با وضوح بالاتر را هنگام صادرات پاراگراف فراهم می‌کند. سپس مرزهای پاراگراف با در نظر گرفتن مقیاس محاسبه می‌شود. مقیاس‌بندی می‌تواند وقتی تصویر دقیق‌تری لازم باشد، مفید باشد، به‌عنوان مثال برای استفاده در مواد چاپی با کیفیت بالا.
+از نسخه‌ی overload متد [IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) که پارامترهای `float scaleX` و `float scaleY` را می‌پذیرد برای تنظیم ضریب‌های افقی و عمودی استفاده کنید. مثال زیر یک جدول ایجاد می‌کند، پاراگراف را در اولین سلول آن با عرض و ارتفاع دو برابر پیش‌فرض رندر می‌کند و نتیجه را به‌صورت تصویر PNG ذخیره می‌نماید.
 
 ```cpp
-auto imageScaleX = 2.0f;
-auto imageScaleY = imageScaleX;
+#include <DOM/IParagraph.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ITable.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+#include <system/array.h>
+#include <system/console.h>
 
-auto presentation = MakeObject<Presentation>(u"sample.pptx");
-auto firstShape = ExplicitCast<IAutoShape>(presentation->get_Slide(0)->get_Shape(0));
+using namespace Aspose::Slides;
+using namespace System;
 
-// Save the shape in memory as a bitmap with scaling.
-auto shapeImage = firstShape->GetImage(ShapeThumbnailBounds::Shape, imageScaleX, imageScaleY);
-auto shapeImageStream = MakeObject<MemoryStream>();
-shapeImage->Save(shapeImageStream, ImageFormat::Png);
-shapeImage->Dispose();
+auto scaleX = 2.0f;
+auto scaleY = 2.0f;
 
-// Create a shape bitmap from memory.
-shapeImageStream->set_Position(0);
-auto shapeBitmap = MakeObject<Bitmap>(Image::FromStream(shapeImageStream));
+auto presentation = MakeObject<Presentation>();
+auto slide = presentation->get_Slide(0);
+auto table = slide->get_Shapes()->AddTable(50, 50, MakeArray<double>({300}), MakeArray<double>({80}));
+auto paragraph = table->idx_get(0, 0)->get_TextFrame()->get_Paragraph(0);
+paragraph->set_Text(u"Text in a table cell");
 
-// Calculate the boundaries of the second paragraph.
-auto secondParagraph = firstShape->get_TextFrame()->get_Paragraph(1);
-auto paragraphRectangle = secondParagraph->GetRect();
-paragraphRectangle.set_X(paragraphRectangle.get_X() * imageScaleX);
-paragraphRectangle.set_Y(paragraphRectangle.get_Y() * imageScaleY);
-paragraphRectangle.set_Width(paragraphRectangle.get_Width() * imageScaleX);
-paragraphRectangle.set_Height(paragraphRectangle.get_Height() * imageScaleY);
-
-// Calculate the size for the output image (minimum size - 1x1 pixel).
-auto imageWidth = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Width()));
-auto imageHeight = std::max(1, (int)Math::Ceiling(paragraphRectangle.get_Height()));
-
-// Prepare a bitmap for the paragraph.
-auto paragraphBitmap = MakeObject<Bitmap>(imageWidth, imageHeight);
-
-// Redraw the paragraph from the shape bitmap to the paragraph bitmap.
-auto imageGraphics = Graphics::FromImage(paragraphBitmap.get());
-RectangleF drawingRectangle(0, 0, paragraphRectangle.get_Width(), paragraphRectangle.get_Height());
-imageGraphics->DrawImage(shapeBitmap.get(), drawingRectangle, paragraphRectangle, GraphicsUnit::Pixel);
-imageGraphics->Dispose();
-
-paragraphBitmap->Save(u"paragraph.png", Imaging::ImageFormat::get_Png());
+auto paragraphImage = paragraph->GetImage(scaleX, scaleY);
+if (paragraphImage != nullptr)
+{
+    paragraphImage->Save(u"table_paragraph.png", ImageFormat::Png);
+    paragraphImage->Dispose();
+}
+else
+{
+    Console::WriteLine(u"The paragraph could not be rendered.");
+}
 
 presentation->Dispose();
 ```
 
-## **پرسش‌پاسخ**
+ضریب مقیاس `1` اندازه‌ی píxel پیش‌فرض را حفظ می‌کند. به‌عنوان مثال، `2` برای هر دو ضریب، تصویر با عرض و ارتفاعی تقریباً دو برابر اندازه‌های پیش‌فرض تولید می‌کند که چهار برابر پیکسل دارد. ضریب‌های بزرگ‌تر معمولاً متن واضح‌تری برای زوم یا خروجی با وضوح بالا تولید می‌کند، اما مصرف حافظه و اندازه فایل را نیز افزایش می‌دهد. ضریب‌های زیر `1` تصاویر کوچکتر با جزئیات کمتر تولید می‌کنند. برای حفظ نسبت ابعاد پاراگراف از ضریب‌های برابر استفاده کنید؛ ضریب‌های متفاوت افقی و عمودی خروجی را به‌صورت مستقل کشیده می‌کند.
 
-**آیا می‌توانم به‌طور کامل بسته‌بندی خط داخل فریم متن را غیرفعال کنم؟**
+رندر کل یک شکل با [IShape::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ishape/getimage/) زمانی مفید است که خروجی باید شامل پرکردن، حاشیه یا سایر زمینه‌های بصری شکل باشد. برای تصویر فقط شامل پاراگراف، از [IParagraph::GetImage](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getimage/) استفاده کنید.
 
-بله. از متد بسته‌بندی فریم متن ([set_WrapText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/textframeformat/set_wraptext/)) استفاده کنید تا بسته‌بندی غیرفعال شود و خطوط در لبه‌های فریم شکسته نشوند.
+## **سوالات متداول**
 
-**چگونه می‌توانم مرزهای دقیق یک پاراگراف خاص را روی اسلاید به‌دست آورم؟**
+**آیا می‌توانم به‌طور کامل بسته شدن خط داخل فریم متن را غیرفعال کنم؟**
 
-می‌توانید مستطیل محدب پاراگراف (و حتی یک بخش منفرد) را بازیابی کنید تا موقعیت و اندازه دقیق آن را روی اسلاید بدانید.
+بله. از [ITextFrameFormat::set_WrapText](https://reference.aspose.com/slides/fa/cpp/aspose.slides/itextframeformat/set_wraptext/) برای غیرفعال کردن بسته شدن استفاده کنید تا خطوط در لبه‌های فریم متن شکست نخورند.
 
-**کنترل ترازبندی پاراگراف (چپ/راست/وسط/توزیع) در کجا انجام می‌شود؟**
+**چگونه می‌توانم مرزهای دقیق یک پاراگراف خاص را روی اسلاید دریافت کنم؟**
 
-ترازبندی ([Alignment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraphformat/set_alignment/)) یک تنظیم سطح پاراگراف در [ParagraphFormat](https://reference.aspose.com/slides/fa/cpp/aspose.slides/paragraphformat/) است؛ به‌طور کلی به کل پاراگراف اعمال می‌شود صرف‌نظر از قالب‌بندی هر بخش منفرد.
+از [IParagraph::GetRect](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraph/getrect/) برای دریافت مستطیل محدوده پاراگراف استفاده کنید. [IPortion::GetRect](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iportion/getrect/) مرزهای یک بخش منفرد را فراهم می‌کند.
 
-**آیا می‌توانم زبان بررسی املا را فقط برای بخشی از یک پاراگراف (مثلاً یک کلمه) تنظیم کنم؟**
+**محوریت پاراگراف (چپ، راست، وسط یا توزیع) در کجا کنترل می‌شود؟**
 
-بله. زبان در سطح بخش تنظیم می‌شود با استفاده از ([PortionFormat::set_LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/baseportionformat/set_languageid/))، بنابراین می‌توان چندین زبان را در یک پاراگراف داشته باشید.
+[IParagraphFormat::set_Alignment](https://reference.aspose.com/slides/fa/cpp/aspose.slides/iparagraphformat/set_alignment/) یک تنظیم سطح پاراگراف است و بر کل پاراگراف اعمال می‌شود، صرف‌نظر از قالب‌بندی بخش‌های جداگانه.
+
+**آیا می‌توانم زبان اصلاح‌نویسی را برای بخشی از پاراگراف تنظیم کنم؟**
+
+بله. از [IBasePortionFormat::set_LanguageId](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ibaseportionformat/set_languageid/) برای بخش‌های جداگانه استفاده کنید؛ بنابراین یک پاراگراف می‌تواند متنی با چند زبان مختلف داشته باشد.

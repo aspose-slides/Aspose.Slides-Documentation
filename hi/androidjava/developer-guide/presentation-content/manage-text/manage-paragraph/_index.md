@@ -1,111 +1,105 @@
 ---
-title: Android पर PowerPoint टेक्स्ट पैराग्राफ़ प्रबंधित करें
-linktitle: पैराग्राफ़ प्रबंधित करें
+title: "Android पर PowerPoint टेक्स्ट पैराग्राफ़ प्रबंधित करें"
+linktitle: "पैराग्राफ़ प्रबंधित करें"
 type: docs
 weight: 40
 url: /hi/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
+  - /androidjava/portion/
 keywords:
-- पाठ जोड़ें
-- पैराग्राफ़ जोड़ें
-- पाठ प्रबंधित करें
-- पैराग्राफ़ प्रबंधित करें
-- बुलेट प्रबंधित करें
-- पैराग्राफ़ इंडेंट
-- हैंगिंग इंडेंट
-- पैराग्राफ़ बुलेट
-- क्रमांकित सूची
-- बुलेटेड सूची
-- पैराग्राफ़ गुण
-- HTML आयात करें
-- पाठ को HTML में
-- पैराग्राफ़ को HTML में
-- पैराग्राफ़ को इमेज में
-- पाठ को इमेज में
-- पैराग्राफ़ निर्यात करें
-- PowerPoint
-- OpenDocument
-- प्रेजेंटेशन
-- Android
-- Java
-- Aspose.Slides
-description: "Aspose.Slides for Android के साथ पैराग्राफ़ फ़ॉर्मेटिंग में महारत हासिल करें—Java में PPT, PPTX और ODP प्रेजेंटेशन में संरेखण, अंतराल और शैली को अनुकूलित करें।"
+- "टेक्स्ट जोड़ें"
+- "पैराग्राफ़ जोड़ें"
+- "टेक्स्ट प्रबंधित करें"
+- "पैराग्राफ़ प्रबंधित करें"
+- "बुलेट प्रबंधित करें"
+- "पैराग्राफ़ इंडेंट"
+- "हैंगिंग इंडेंट"
+- "पैराग्राफ़ बुलेट"
+- "क्रमांकित सूची"
+- "बुलेटेड सूची"
+- "पैराग्राफ़ गुण"
+- "HTML आयात करें"
+- "टेक्स्ट को HTML"
+- "पैराग्राफ़ को HTML"
+- "पैराग्राफ़ को इमेज"
+- "टेक्स्ट को इमेज"
+- "पैराग्राफ़ निर्यात"
+- "PowerPoint"
+- "प्रेज़ेंटेशन"
+- "Android"
+- "Java"
+- "Aspose.Slides"
+description: "Aspose.Slides for Android via Java के साथ पैराग्राफ़, पोर्शन, बुलेट, क्रमांकित सूचियाँ, इंडेंट, HTML सामग्री, और पैराग्राफ़ इमेज कैसे बनाएं और स्वरूपित करें, सीखें।"
 ---
 ## **परिचय**
 
-Aspose.Slides जावा में PowerPoint पाठ, पैराग्राफ और भागों के साथ काम करने के लिए आवश्यक सभी इंटरफ़ेस और क्लासेज़ प्रदान करता है।
+Aspose.Slides for Android via Java टेक्स्ट को टेक्स्ट फ्रेम, पैराग्राफ और पोर्शन की पदानुक्रम के रूप में दर्शाता है:
 
-* Aspose.Slides [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) इंटरफ़ेस प्रदान करता है जिससे आप पैराग्राफ का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ सकते हैं। एक `ITextFame` ऑब्जेक्ट में एक या कई पैराग्राफ हो सकते हैं (प्रत्येक पैराग्राफ कैरिज रिटर्न द्वारा बनाया जाता है)।
-* Aspose.Slides [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) इंटरफ़ेस प्रदान करता है जिससे आप भागों का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ सकते हैं। एक `IParagraph` ऑब्जेक्ट में एक या कई भाग (iPortions ऑब्जेक्ट की संग्रह) हो सकते हैं।
-* Aspose.Slides [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) इंटरफ़ेस प्रदान करता है जिससे आप पाठ और उनके स्वरूपण गुणों का प्रतिनिधित्व करने वाले ऑब्जेक्ट जोड़ सकते हैं।
+* [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) आकार में टेक्स्ट कंटेनर को दर्शाता है और उसके पैराग्राफ संग्रह तक पहुँच प्रदान करता है।
+* [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) एक टेक्स्ट फ्रेम में एक पैराग्राफ को दर्शाता है और पोर्शन तथा पैराग्राफ-स्तर के फॉर्मेटिंग तक पहुँच प्रदान करता है।
+* [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) पैराग्राफ के भीतर एक टेक्स्ट रन को दर्शाता है। प्रत्येक पोर्शन का अपना टेक्स्ट और अक्षर-स्तर फॉर्मेटिंग हो सकता है।
 
-एक `IParagraph` ऑब्जेक्ट अपने अंतर्निहित `IPortion` ऑब्जेक्ट्स के माध्यम से विभिन्न स्वरूपण गुणों वाले पाठ को संभालने में सक्षम है।
+इस प्रकार एक पैराग्राफ में विभिन्न फ़ॉन्ट, रंग, आकार और अन्य फॉर्मेटिंग वाले टेक्स्ट को कई पोर्शन का उपयोग करके रखा जा सकता है।
 
-## **एकाधिक पैराग्राफ़ों में कई टेक्स्ट पोर्शन जोड़ें**
+## **पैराग्राफ बनाना और स्वरूपित करना**
 
-इन चरणों में दिखाया गया है कि 3 पैराग्राफ़ और प्रत्येक पैराग्राफ़ में 3 पोर्शन वाले टेक्स्ट फ्रेम को कैसे जोड़ें:
+### **कई पोर्शन के साथ पैराग्राफ बनाना**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
+निम्नलिखित चरणों से तीन पैराग्राफ वाले एक टेक्स्ट फ्रेम का निर्माण होता है, प्रत्येक में तीन पोर्शन होते हैं:
+
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
 3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. उस [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) से जुड़ा ITextFrame प्राप्त करें।
-5. दो [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) ऑब्जेक्ट बनाएं और उन्हें [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) की `IParagraphs` संग्रह में जोड़ें।
-6. प्रत्येक नए `IParagraph` के लिए तीन [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) ऑब्जेक्ट बनाएं (डिफ़ॉल्ट पैराग्राफ के लिए दो Portion ऑब्जेक्ट) और प्रत्येक `IPortion` ऑब्जेक्ट को प्रत्येक `IParagraph` के IPortion संग्रह में जोड़ें।
-7. प्रत्येक पोर्शन के लिए कुछ टेक्स्ट सेट करें।
-8. `IPortion` ऑब्जेक्ट द्वारा उजागर किए गए स्वरूपण गुणों का उपयोग करके प्रत्येक पोर्शन पर अपने पसंदीदा स्वरूपण फ़ीचर लागू करें।
-9. संशोधित प्रेजेंटेशन सहेजें।
+4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+5. डिफ़ॉल्ट पैराग्राफ का उपयोग करें और टेक्स्ट फ्रेम में दो अतिरिक्त [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) ऑब्जेक्ट जोड़ें।
+6. प्रत्येक पैराग्राफ में तीन पोर्शन रखने के लिये पर्याप्त [IPortion](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/) ऑब्जेक्ट जोड़ें। डिफ़ॉल्ट पैराग्राफ में पहले से ही एक खाली पोर्शन मौजूद है।
+7. प्रत्येक पोर्शन का टेक्स्ट सेट करें।
+8. [IPortion.getPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/#getPortionFormat--) के द्वारा अक्षर-स्तर फॉर्मेटिंग लागू करें।
+9. संशोधित प्रेज़ेंटेशन को सहेजें।
 
-यह जावा कोड पैराग्राफ़ों में पोर्शन जोड़ने के चरणों का कार्यान्वयन है:
+यह Android via Java उदाहरण इन चरणों को लागू करता है:
 
 ```java
-// एक Presentation क्लास का इंस्टेंस बनाएँ जो PPTX फ़ाइल का प्रतिनिधित्व करता है
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँच रहा है
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // Rectangle प्रकार का AutoShape जोड़ें
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // AutoShape का TextFrame एक्सेस करें
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // विभिन्न टेक्स्ट फ़ॉर्मेट के साथ Paragraphs और Portions बनाएं
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -114,369 +108,289 @@ try {
         }
     }
 
-    // PPTX को डिस्क पर लिखें
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **पैराग्राफ बुलेट प्रबंधित करें**
+## **बुलेटेड और क्रमांकित सूचियाँ बनाना**
 
-बुलेट सूचियां जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती हैं। बुलेटेड पैराग्राफ़ पढ़ने और समझने में हमेशा आसान होते हैं।
+### **बुलेटेड या क्रमांकित सूची बनाना**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. चयनित स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. autoshape की [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएं।
-7. पैराग्राफ के बुलेट `Type` को `Symbol` सेट करें और बुलेट कैरेक्टर सेट करें।
-8. पैराग्राफ का `Text` सेट करें।
-9. बुलेट के लिए पैराग्राफ `Indent` सेट करें।
-10. बुलेट के लिए एक रंग सेट करें।
-11. बुलेट की ऊँचाई सेट करें।
-12. नई पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
-13. दूसरा पैराग्राफ जोड़ें और चरण 7 से 13 तक की प्रक्रिया दोहराएँ।
-14. प्रेजेंटेशन सहेजें।
+बुलेट और नंबरिंग से संबंधित आइटम आसानी से स्कैन किए जा सकते हैं। Aspose.Slides में सूची सेटिंग्स को [IBulletFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/) के माध्यम से परिभाषित किया जाता है।
 
-यह जावा कोड आपको बुलेट पैराग्राफ़ कैसे जोड़ें दिखाता है:
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+3. चयनित स्लाइड में एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
+4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+5. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+6. एक सिंबल बुलेट के लिये एक [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) बनाएँ।
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) को [BulletType.Symbol](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/bullettype/) पर सेट करें और बुलेट कैरेक्टर निर्दिष्ट करें।
+8. पैराग्राफ टेक्स्ट, इंडेंट, बुलेट रंग और बुलेट ऊँचाई सेट करें।
+9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
+10. दूसरा पैराग्राफ बनाकर [IBulletFormat.setType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) को [BulletType.Numbered](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/bullettype/) पर सेट करें।
+11. क्रमांकित बुलेट शैली को कॉन्फ़िगर करें और पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
+12. प्रेज़ेंटेशन को सहेजें।
 
-```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Autoshape जोड़ता और एक्सेस करता है
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Autoshape के टेक्स्ट फ्रेम को एक्सेस करता है
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // डिफ़ॉल्ट पैराग्राफ को हटाता है
-    txtFrm.getParagraphs().removeAt(0);
-
-    // एक पैराग्राफ बनाता है
-    Paragraph para = new Paragraph();
-
-    // पैराग्राफ बुलेट शैली और प्रतीक सेट करता है
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // पैराग्राफ का टेक्स्ट सेट करता है
-    para.setText("Welcome to Aspose.Slides");
-
-    // बुलेट इंडेंट सेट करता है
-    para.getParagraphFormat().setIndent(25);
-
-    // बुलेट रंग सेट करता है
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor को true सेट करें ताकि अपना बुलेट रंग उपयोग कर सकें
-
-    // बुलेट ऊँचाई सेट करता है
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // पैराग्राफ को टेक्स्ट फ्रेम में जोड़ता है
-    txtFrm.getParagraphs().add(para);
-
-    // दूसरा पैराग्राफ बनाता है
-    Paragraph para2 = new Paragraph();
-
-    // पैराग्राफ बुलेट प्रकार और शैली सेट करता है
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // पैराग्राफ का टेक्स्ट जोड़ता है
-    para2.setText("This is numbered bullet");
-
-    // बुलेट इंडेंट सेट करता है
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // IsBulletHardColor को true सेट करें ताकि अपना बुलेट रंग उपयोग कर सकें
-
-    // बुलेट ऊँचाई सेट करता है
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // पैराग्राफ को टेक्स्ट फ्रेम में जोड़ता है
-    txtFrm.getParagraphs().add(para2);
-    
-    // संशोधित प्रेजेंटेशन सहेजता है
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **चित्र बुलेट प्रबंधित करें**
-
-बुलेट सूचियां जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती हैं। चित्र पैराग्राफ़ पढ़ने और समझने में आसान होते हैं।
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. autoshape की [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) क्लास का उपयोग करके पहला पैराग्राफ इंस्टेंस बनाएं।
-7. [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) में इमेज लोड करें।
-8. बुलेट प्रकार को [Picture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) पर सेट करें और इमेज सेट करें।
-9. पैराग्राफ का `Text` सेट करें।
-10. बुलेट के लिए पैराग्राफ `Indent` सेट करें।
-11. बुलेट के लिए एक रंग सेट करें।
-12. बुलेट की ऊँचाई सेट करें।
-13. नई पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
-14. दूसरा पैराग्राफ जोड़ें और पिछले चरणों के आधार पर प्रक्रिया दोहराएँ।
-15. संशोधित प्रेजेंटेशन सहेजें।
-
-यह जावा कोड आपको चित्र बुलेट कैसे जोड़ें और प्रबंधित करें दिखाता है:
+यह Android via Java उदाहरण एक सिंबल बुलेट और एक क्रमांकित बुलेट बनाता है:
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
-    // पहली स्लाइड तक पहुँचता है
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **चित्र बुलेट्स का उपयोग करना**
+
+चित्र बुलेट्स से आप एक कस्टम इमेज को सिंबल या नंबर के स्थान पर उपयोग कर सकते हैं।
+
+1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएँ।
+2. उसके इंडेक्स के माध्यम से संबंधित स्लाइड तक पहुँचें।
+3. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसका [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) एक्सेस करें।
+4. टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. बुलेट इमेज लोड करें और इसे प्रेज़ेंटेशन की इमेज कलेक्शन में एक [IPPImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ippimage/) के रूप में जोड़ें।
+6. एक [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) बनाकर उसका टेक्स्ट सेट करें।
+7. [IBulletFormat.setType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setType-int-) को [BulletType.Picture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/bullettype/) पर सेट करें।
+8. [IBulletFormat.getPicture](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#getPicture--) के द्वारा इमेज असाइन करें और बुलेट ऊँचाई सेट करें।
+9. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
+10. संशोधित प्रेज़ेंटेशन को सहेजें।
+
+यह Android via Java उदाहरण एक चित्र बुलेट बनाता है:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // बुलेट्स के लिए इमेज इंस्टैंसिएट करता है
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
     try {
-        picture = presentation.getImages().addImage(image);
+        presentationImage = presentation.getImages().addImage(bulletImage);
     } finally {
-        if (image != null) image.dispose();
+        bulletImage.dispose();
     }
-    // Autoshape जोड़ता और एक्सेस करता है
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // autoshape का टेक्स्टफ़्रेम एक्सेस करता है
-    ITextFrame textFrame = autoShape.getTextFrame();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // डिफ़ॉल्ट पैराग्राफ़ को हटाता है
-    textFrame.getParagraphs().removeAt(0);
-
-    // एक नया पैराग्राफ़ बनाता है
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
-
-    // पैराग्राफ़ बुलेट शैली और इमेज सेट करता है
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // बुलेट ऊँचाई सेट करता है
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
     paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // पैराग्राफ़ को टेक्स्ट फ़्रेम में जोड़ता है
     textFrame.getParagraphs().add(paragraph);
 
-    // प्रेज़ेंटेशन को PPTX फ़ाइल के रूप में लिखता है
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // प्रेज़ेंटेशन को PPT फ़ाइल के रूप में लिखता है
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **बहु-स्तरीय बुलेट प्रबंधित करें**
+### **बहु-स्तरीय सूची बनाना**
 
-बुलेट सूचियां जानकारी को जल्दी और प्रभावी ढंग से व्यवस्थित और प्रस्तुत करने में मदद करती हैं। बहु-स्तरीय बुलेट पढ़ने और समझने में आसान होते हैं।
+[IParagraphFormat.setDepth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) को सेट करके पैराग्राफ को सूची के विभिन्न स्तरों पर रखा जा सकता है। शीर्ष स्तर की गहराई `0` होती है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. नई स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. autoshape की [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएं और गहराई को 0 सेट करें।
-7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ इंस्टेंस बनाएं और गहराई को 1 सेट करें।
-8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ इंस्टेंस बनाएं और गहराई को 2 सेट करें।
-9. `Paragraph` क्लास के माध्यम से चौथा पैराग्राफ इंस्टेंस बनाएं और गहराई को 3 सेट करें।
-10. नई पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
-11. संशोधित प्रेजेंटेशन सहेजें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) बनाकर स्लाइड तक पहुँचें।
+2. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसके टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को साफ़ करें।
+3. चार पैराग्राफ बनाकर उनके बुलेट सिंबल कॉन्फ़िगर करें।
+4. उनके [IParagraphFormat.setDepth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) मान क्रमशः `0`, `1`, `2` और `3` सेट करें।
+5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रेज़ेंटेशन को सहेजें।
 
-यह जावा कोड आपको बहु-स्तरीय बुलेट कैसे जोड़ें और प्रबंधित करें दिखाता है:
+यह Android via Java उदाहरण चार‑स्तरीय बुलेटेड सूची बनाता है:
 
 ```java
-// PPTX फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाता है
-Presentation pres = new Presentation();
-try {
-    // पहली स्लाइड तक पहुँचता है
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // Autoshape जोड़ता और एक्सेस करता है
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // बनाए गए autoshape के टेक्स्ट फ्रेम को एक्सेस करता है
-    ITextFrame text = aShp.addTextFrame("");
-
-    // डिफ़ॉल्ट पैराग्राफ़ को साफ़ करता है
-    text.getParagraphs().clear();
-
-    // पहला पैराग्राफ़ जोड़ता है
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // बुलेट स्तर सेट करता है
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // दूसरा पैराग्राफ़ जोड़ता है
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // बुलेट स्तर सेट करता है
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // तीसरा पैराग्राफ़ जोड़ता है
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // बुलेट स्तर सेट करता है
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // चौथा पैराग्राफ़ जोड़ता है
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // बुलेट स्तर सेट करता है
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // पैराग्राफ़ों को संग्रह में जोड़ता है
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखता है
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **कस्टम क्रमांकित सूची के साथ पैराग्राफ प्रबंधित करें**
-
-[IBulletFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/) इंटरफ़ेस [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) प्रॉपर्टी और अन्य प्रदान करता है जिससे आप कस्टम क्रमांक या स्वरूपण के साथ पैराग्राफ़ों को प्रबंधित कर सकते हैं।
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. पैराग्राफ़ वाले स्लाइड तक पहुँचें।
-3. स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. autoshape के [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
-5. `TextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएं और [NumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) को 2 सेट करें।
-7. `Paragraph` क्लास के माध्यम से दूसरा पैराग्राफ इंस्टेंस बनाएं और `NumberedBulletStartWith` को 3 सेट करें।
-8. `Paragraph` क्लास के माध्यम से तीसरा पैराग्राफ इंस्टेंस बनाएं और `NumberedBulletStartWith` को 7 सेट करें।
-9. नई पैराग्राफ को `TextFrame` पैराग्राफ संग्रह में जोड़ें।
-10. संशोधित प्रेजेंटेशन सहेजें।
-
-यह जावा कोड आपको कस्टम क्रमांकित या स्वरूपित पैराग्राफ़ कैसे जोड़ें और प्रबंधित करें दिखाता है:
-
-```java
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // बनाए गए autoshape के टेक्स्ट फ्रेम को एक्सेस करता है
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // डिफ़ॉल्ट मौज़ूद पैराग्राफ़ को हटाता है
-    textFrame.getParagraphs().removeAt(0);
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
 
-    // पहली सूची
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
 
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
 
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
 
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
 
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **पैराग्राफ के लिए प्रथम-रेखा इंडेंट सेट करें**
+### **कस्टम मानों से क्रमांकित सूची आइटम शुरू करना**
 
-[IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मेथड का उपयोग करके पैराग्राफ की प्रथम-रेखा इंडेंट को नियंत्रित करें। यह मेथड केवल पैराग्राफ की बायीं मार्जिन के सापेक्ष पहली पंक्ति को ही स्थानांतरित करता है। सकारात्मक मान पहली पंक्ति को दाएँ शिफ्ट करता है, जबकि बाकी पंक्तियाँ पैराग्राफ बॉडी के साथ संरेखित रहती हैं।
+[IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) का उपयोग करके क्रमांकित पैराग्राफ के प्रारंभिक नंबर को सेट किया जा सकता है।
 
-पूरे पैराग्राफ को स्थानांतरित करने की आवश्यकता होने पर [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) उपयोग करें। केवल पहली पंक्ति को स्थानांतरित करने के लिए [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) उपयोग करें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) बनाकर एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) को स्लाइड पर जोड़ें।
+2. आकार के टेक्स्ट फ्रेम से डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+3. तीन क्रमांकित पैराग्राफ बनाएँ।
+4. प्रत्येक पैराग्राफ के लिये [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) को क्रमशः `2`, `3` और `7` सेट करें।
+5. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें और प्रेज़ेंटेशन को सहेजें।
 
-नीचे दिया गया उदाहरण कई पैराग्राफ बनाता है और विभिन्न इंडेंट मान लागू करता है जिससे प्रथम-रेखा इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है प्रदर्शित हो।
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. लक्ष्य स्लाइड तक पहुँचें।
-3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/autoshape/) जोड़ें।
-4. शैप में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-5. कई पैराग्राफ बनाएं और उनके लिए विभिन्न [Indent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान सेट करें।
-6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-7. संशोधित प्रेजेंटेशन सहेजें।
-
-यह कोड आपको पैराग्राफ इंडेंट कैसे सेट करें दिखाता है:
+यह Android via Java उदाहरण प्रत्येक पैराग्राफ को कस्टम प्रारम्भिक संख्या असाइन करता है:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **पैराग्राफ लेआउट और अंत गुणों का नियंत्रण**
+
+### **पहली‑लाइन इंडेंट सेट करना**
+
+[IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) का उपयोग करके पैराग्राफ की पहली‑लाइन इंडेंट नियंत्रित की जा सकती है। यह विधि केवल पहली लाइन को पैराग्राफ के बाएँ मार्जिन की तुलना में़ बदलती है। सकारात्मक मान पहली लाइन को दायें शिफ्ट करता है, जबकि बाकी लाइनों को पैराग्राफ बॉडी के साथ संरेखित रखता है।
+
+पूरे पैराग्राफ को शिफ्ट करने की आवश्यकता होने पर [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) उपयोग करें। केवल पहली लाइन को शिफ्ट करने हेतु [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) प्रयोग करें।
+
+निम्न उदाहरण कई पैराग्राफ बनाता है और विभिन्न [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान लागू करके दिखाता है कि पहली‑लाइन इंडेंट पैराग्राफ लेआउट को कैसे प्रभावित करता है।
+
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
+2. लक्षित स्लाइड तक पहुँचें।
+3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
+4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. कई पैराग्राफ बनाकर उनके लिये विभिन्न [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान सेट करें।
+6. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
+7. संशोधित प्रेज़ेंटेशन को सहेजें।
+
+यह कोड आपको पैराग्राफ इंडेंट सेट करने का तरीका दिखाता है:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -485,60 +399,62 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 परिणाम:
 
-![पैराग्राफ़ों की प्रथम-रेखा इंडेंट](first_line_indent.png)
+![पैराग्राफ की पहली‑लाइन इंडेंट](first_line_indent.png)
 
-## **पैराग्राफ के लिए हैंगिंग इंडेंट सेट करें**
+### **हैंगिंग इंडेंट सेट करना**
 
-हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली पंक्ति शेष पंक्तियों के बाएँ शुरू होती है। Aspose.Slides में आप इस प्रभाव को [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मेथड से बनाते हैं। इंडेंट को नकारात्मक मान सेट करके पहली पंक्ति को पैराग्राफ बॉडी के सापेक्ष बाएँ ले जाते हैं।
+हैंगिंग इंडेंट वह पैराग्राफ लेआउट है जिसमें पहली लाइन शेष लाइनों के बाएँ स्थित होती है। Aspose.Slides में यह प्रभाव [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) द्वारा प्राप्त किया जाता है। पैराग्राफ बॉडी की तुलना में पहली लाइन को बाएँ ले जाने के लिये नकारात्मक मान पास करें।
 
-व्यवहार में, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) पैराग्राफ बॉडी की बायीँ स्थिति निर्धारित करता है, और [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) पहली पंक्ति की स्थिति को उस मार्जिन के सापेक्ष निर्धारित करता है। हैंगिंग इंडेंट बनाने के लिए एक सकारात्मक `MarginLeft` मान और एक नकारात्मक `Indent` मान सेट करें।
+व्यावहारिक रूप से, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) पैराग्राफ बॉडी के बाएँ स्थान को निर्धारित करता है, और [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) उस मार्जिन के सापेक्ष पहली लाइन की स्थिति तय करता है। हैंगिंग इंडेंट बनाने के लिये `setMarginLeft` को सकारात्मक मान और `setIndent` को नकारात्मक मान दें।
 
-यह स्वरूपण बिब्लियोग्राफी, संदर्भ, शब्दकोश प्रविष्टियों और अन्य पैराग्राफ़ों के लिए उपयोगी है जहाँ लपेटी गई पंक्तियों को पैराग्राफ बॉडी के अंतर्गत संरेखित होना चाहिए, न कि पहली पंक्ति के पहले अक्षर के नीचे।
+यह फॉर्मेटिंग बिब्लियोग्राफी, रेफ़रेंस, ग्लॉसरी एंट्री आदि के लिये उपयोगी है जहाँ रॅॅप्ड लाइनों को पैराग्राफ बॉडी के नीचे संरेखित होना चाहिए, पहली लाइन के पहले अक्षर के नीचे नहीं।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. लक्ष्य स्लाइड तक पहुँचें।
-3. स्लाइड में एक आयताकार [AutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/autoshape/) जोड़ें।
-4. शैप में एक खाली [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/textframe/) जोड़ें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-5. प्रत्येक पैराग्राफ के लिए एक सकारात्मक [MarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) मान सेट करें।
-6. हैंगिंग इंडेंट प्रभाव बनाने के लिए एक नकारात्मक [Indent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) मान सेट करें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाएँ।
+2. लक्षित स्लाइड तक पहुँचें।
+3. स्लाइड में एक आयताकार [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
+4. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+5. प्रत्येक पैराग्राफ के लिये [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) को सकारात्मक मान दें।
+6. हैंगिंग इंडेंट प्रभाव के लिये [IParagraphFormat.setIndent](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) को नकारात्मक मान पास करें।
 7. पैराग्राफ को टेक्स्ट फ्रेम में जोड़ें।
-8. संशोधित प्रेजेंटेशन सहेजें।
+8. संशोधित प्रेज़ेंटेशन को सहेजें।
 
-यह कोड आपको पैराग्राफ के लिए हैंगिंग इंडेंट कैसे सेट करें दिखाता है:
+यह कोड आपको पैराग्राफ के लिए हैंगिंग इंडेंट सेट करने का तरीका दिखाता है:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -546,254 +462,247 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 परिणाम:
 
-![पैराग्राफ़ों की हैंगिंग इंडेंट](hanging_indent.png)
+![पैराग्राफ की हैंगिंग इंडेंट](hanging_indent.png)
 
-## **एंड पैराग्राफ रन प्रॉपर्टीज़ प्रबंधित करें**
+### **एंड पैराग्राफ रन गुण सेट करना**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-1. उसकी स्थिति के माध्यम से पैराग्राफ़ वाले स्लाइड का रेफ़रेंस प्राप्त करें।
-1. स्लाइड में एक आयताकार [autoshape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-1. आयत में दो पैराग्राफ़ों के साथ एक [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) जोड़ें।
-1. पैराग्राफ़ों के लिए `FontHeight` और फ़ॉन्ट प्रकार सेट करें।
-1. पैराग्राफ़ों के लिए End प्रॉपर्टीज़ सेट करें।
-1. संशोधित प्रेजेंटेशन को PPTX फ़ाइल के रूप में लिखें।
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) पैराग्राफ अंत चिह्न के फॉर्मेटिंग को नियंत्रित करता है। नीचे दिया गया उदाहरण दूसरे पैराग्राफ के अंत चिह्न को फॉन्ट साइज और लैटिन फॉन्ट असाइन करता है:
 
-यह जावा कोड आपको PowerPoint में पैराग्राफ़ों के लिए End प्रॉपर्टीज़ कैसे सेट करें दिखाता है:
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) लोड करें और स्लाइड तक पहुँचें।
+2. एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें और उसका डिफ़ॉल्ट पैराग्राफ साफ़ करें।
+3. दो पैराग्राफ बनाकर उनमें टेक्स्ट पोर्शन जोड़ें।
+4. दूसरे पैराग्राफ के अंत चिह्न के लिये एक [PortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/portionformat/) बनाएँ।
+5. [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) और [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-) सेट करें।
+6. [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) के द्वारा फॉर्मेट असाइन करें और प्रेज़ेंटेशन सहेजें।
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **HTML टेक्स्ट को पैराग्राफ़ों में आयात करें**
+## **पैराग्राफ सामग्री का आयात और निर्यात**
 
-Aspose.Slides पैराग्राफ़ों में HTML टेक्स्ट आयात करने के लिए उन्नत समर्थन प्रदान करता है।
+### **HTML टेक्स्ट को पैराग्राफ में आयात करना**
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. स्लाइड में एक [autoshape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
-4. `autoshape` का [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) जोड़ें और पहुंचें।
-5. `ITextFrame` में डिफ़ॉल्ट पैराग्राफ को हटाएँ।
-6. एक TextReader में स्रोत HTML फ़ाइल पढ़ें।
-7. [Paragraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraph/) क्लास के माध्यम से पहला पैराग्राफ इंस्टेंस बनाएं।
-8. पढ़े गए TextReader की HTML फ़ाइल सामग्री को TextFrame की [ParagraphCollection](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/) में जोड़ें।
-9. संशोधित प्रेजेंटेशन सहेजें।
+[ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) का उपयोग करके HTML मार्कअप को टेक्स्ट फ्रेम में पैराग्राफ और पोर्शन में परिवर्तित किया जा सकता है।
 
-यह जावा कोड पैराग्राफ़ों में HTML टेक्स्ट आयात करने के चरणों का कार्यान्वयन है:
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का इंस्टेंस बनाएँ।
+2. एक स्लाइड तक पहुँचें और एक [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) जोड़ें।
+3. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें और डिफ़ॉल्ट पैराग्राफ को हटाएँ।
+4. स्रोत HTML फ़ाइल पढ़ें।
+5. HTML स्ट्रिंग को [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) में पास करें।
+6. संशोधित प्रेज़ेंटेशन को सहेजें।
+
+यह Android via Java उदाहरण HTML को टेक्स्ट फ्रेम में आयात करता है:
 
 ```java
-// खाली प्रेजेंटेशन इंस्टेंस बनाएँ
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // प्रेजेंटेशन की डिफ़ॉल्ट पहली स्लाइड तक पहुँचें
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // HTML सामग्री को समायोजित करने के लिए AutoShape जोड़ रहे हैं
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // शेप में टेक्स्ट फ्रेम जोड़ें
-    ashape.addTextFrame("");
-
-    // जोड़े गए टेक्स्ट फ्रेम में सभी पैराग्राफ़ साफ़ करें
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // स्ट्रीम रीडर का उपयोग करके HTML फ़ाइल लोड करें
-    TextReader tr = new StreamReader("file.html");
-
-    // टेक्स्ट फ्रेम में HTML स्ट्रीम रीडर से टेक्स्ट जोड़ें
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // प्रेजेंटेशन सहेजें
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **पैराग्राफ टेक्स्ट को HTML में निर्यात करें**
+### **पैराग्राफ टेक्स्ट को HTML में निर्यात करना**
 
-Aspose.Slides पैराग्राफ़ों में मौजूद टेक्स्ट को HTML में निर्यात करने के लिए उन्नत समर्थन प्रदान करता है।
+[ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) का उपयोग करके चयनित पैराग्राफ रेंज को HTML के रूप में निर्यात किया जा सकता है।
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) क्लास का एक इंस्टेंस बनाएं और इच्छित प्रेजेंटेशन लोड करें।
-2. इंडेक्स के माध्यम से संबंधित स्लाइड का रेफ़रेंस प्राप्त करें।
-3. HTML में निर्यात किए जाने वाले टेक्स्ट वाले शेप तक पहुँचें।
-4. शेप के [TextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/textframe/) तक पहुँचें।
-5. एक `StreamWriter` इंस्टेंस बनाएं और नई HTML फ़ाइल जोड़ें।
-6. StreamWriter को एक प्रारंभिक इंडेक्स प्रदान करें और अपने पसंदीदा पैराग्राफ़ निर्यात करें।
+1. एक [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/presentation/) इंस्टेंस बनाकर आवश्यक प्रेज़ेंटेशन लोड करें।
+2. स्लाइड तक पहुँचें और उस [IAutoShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iautoshape/) को खोजें जिसमें टेक्स्ट है।
+3. आकार के [ITextFrame](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframe/) तक पहुँचें।
+4. प्रारम्भिक पैराग्राफ इंडेक्स और निर्यात करने वाले पैराग्राफ की संख्या के साथ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) को कॉल करें।
+5. प्राप्त HTML स्ट्रिंग को फ़ाइल में लिखें।
 
-यह जावा कोड आपको PowerPoint पैराग्राफ़ टेक्स्ट को HTML में निर्यात कैसे करें दिखाता है:
+यह Android via Java उदाहरण पहले टेक्स्ट शेप से सभी पैराग्राफ निर्यात करता है:
 
 ```java
-// प्रस्तुति फ़ाइल लोड करें
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // प्रस्तुति की डिफ़ॉल्ट पहली स्लाइड तक पहुँचें
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // इच्छित इंडेक्स
-    int index = 0;
-
-    // जोड़ी गई शेप तक पहुँच रहे हैं
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // आउटपुट HTML फ़ाइल बना रहे हैं
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //पहला पैराग्राफ़ HTML के रूप में निकाल रहे हैं
-    // पैराग्राफ़ डेटा को HTML में लिख रहे हैं, पैराग्राफ़ शुरूआती इंडेक्स और कॉपी किए जाने वाले कुल पैराग्राफ़ प्रदान करके
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **पैराग्राफ को इमेज के रूप में सहेजें**
+### **पैराग्राफ को इमेज के रूप में रेंडर करना**
 
-इस अनुभाग में, हम दो उदाहरणों की जाँच करेंगे जो दिखाते हैं कि [IParagraph](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/) इंटरफ़ेस द्वारा प्रतिनिधित्व किए गए टेक्स्ट पैराग्राफ़ को इमेज के रूप में कैसे सहेजा जाए। दोनों उदाहरणों में शेप की इमेज प्राप्त करना शामिल है जिसमें पैराग्राफ़ शामिल है, `getImage` मेथड्स का उपयोग करके [IShape](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/) इंटरफ़ेस से, पैराग्राफ़ के बाउंड्स की गणना करना, और उसे बिटमैप इमेज के रूप में निर्यात करना शामिल है। ये दृष्टिकोण आपको PowerPoint प्रेजेंटेशनों से टेक्स्ट के विशिष्ट भागों को निकालने और अलग-अलग इमेज के रूप में सहेजने की सुविधा देते हैं, जो विभिन्न परिस्थितियों में उपयोगी हो सकते हैं।
+[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) एक व्यक्तिगत पैराग्राफ को सीधे रेंडर करता है और एक [IImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/) लौटाता है। परिणाम को फ़ाइल या स्ट्रीम में [IImage.save](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) के द्वारा सहेजा जा सकता है। आपको सम्मिलित आकार को रेंडर करने या बिटमैप को मैन्युअली क्रॉप करने की जरूरत नहीं।
 
-मान लें कि हमारे पास sample.pptx नाम की एक प्रेजेंटेशन फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहली शेप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ़ हैं।
+यदि पैराग्राफ नहीं मिला, वैध रेंडरिंग बाउंड नहीं हैं, या रेंडर नहीं हो पाया तो [IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) `null` लौटा सकता है। सहेजने से पहले परिणाम जाँचें और उपयोग के बाद रिटर्न किए गए इमेज को डिस्पोज़ करें।
 
-![तीन पैराग्राफ़ों के साथ टेक्स्ट बॉक्स](paragraph_to_image_input.png)
+#### **डिफ़ॉल्ट स्केल पर पैराग्राफ रेंडर करना**
 
-**उदाहरण 1**
+मान लेते हैं कि हमारे पास `sample.pptx` नामक एक प्रेज़ेंटेशन फ़ाइल है जिसमें एक स्लाइड है, जहाँ पहला शेप एक टेक्स्ट बॉक्स है जिसमें तीन पैराग्राफ हैं।
 
-इस उदाहरण में हम दूसरा पैराग्राफ़ इमेज के रूप में प्राप्त करते हैं। ऐसा करने के लिए, हम प्रेजेंटेशन की पहली स्लाइड से शेप की इमेज निकालते हैं और फिर शेप के टेक्स्ट फ्रेम में दूसरे पैराग्राफ़ के बाउंड्स की गणना करते हैं। पैराग्राफ़ को फिर नई बिटमैप इमेज पर पुनःरेखित किया जाता है, जिसे PNG फ़ॉर्मेट में सहेजा जाता है। यह विधि विशेष रूप से तब उपयोगी होती है जब आपको किसी विशिष्ट पैराग्राफ़ को अलग इमेज के रूप में सहेजना हो और उसके आकार और स्वरूपण को सटीक रूप से संरक्षित रखना हो।
+![तीन पैराग्राफ वाला टेक्स्ट बॉक्स](paragraph_to_image_input.png)
+
+निम्न उदाहरण डिफ़ॉल्ट स्केल पर दूसरे पैराग्राफ को रेंडर करता है और PNG फ़ॉर्मेट में इमेज सहेजता है। `finally` ब्लॉक इमेज को सही ढंग से डिस्पोज़ करता है।
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // आकृति को मेमोरी में एक बिटमैप के रूप में सहेजें।
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // मेमोरी से एक आकृति बिटमैप बनाएं।
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // दूसरे पैराग्राफ़ की सीमाएँ गणना करें।
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // आउटपुट इमेज के लिए कॉर्डिनेट्स और आकार गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // आकृति बिटमैप को काटें ताकि केवल पैराग्राफ़ बिटमैप प्राप्त हो।
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 परिणाम:
 
-![पैराग्राफ़ इमेज](paragraph_to_image_output.png)
+![पैराग्राफ इमेज](paragraph_to_image_output.png)
 
-**उदाहरण 2**
+#### **टेबल सेल में स्केलिंग के साथ पैराग्राफ रेंडर करना**
 
-इस उदाहरण में हम पिछले दृष्टिकोण का विस्तार करते हैं और पैराग्राफ़ इमेज में स्केलिंग फैक्टर जोड़ते हैं। शेप को प्रेजेंटेशन से निकाला जाता है और `2` स्केलिंग फैक्टर के साथ इमेज के रूप में सहेजा जाता है। यह पैराग्राफ़ निर्यात करते समय उच्च रेज़ॉल्यूशन आउटपुट की अनुमति देता है। फिर स्केल को ध्यान में रखते हुए पैराग्राफ़ बाउंड्स की गणना की जाती है। स्केलिंग तब उपयोगी होती है जब अधिक विस्तृत इमेज की आवश्यकता होती है, उदाहरण के लिए उच्च‑गुणवत्ता वाली प्रिंटेड सामग्रियों में।
+[IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) ओवरलोड का उपयोग करके `float scaleX` और `float scaleY` पैरामीटर पास करके क्षैतिज और ऊर्ध्वाधर स्केल फ़ैक्टर सेट किए जा सकते हैं। नीचे दिया गया उदाहरण एक टेबल बनाता है, पहले सेल में पैराग्राफ को डिफ़ॉल्ट चौड़ाई और ऊँचाई के दो गुना पर रेंडर करता है, और PNG इमेज के रूप में सहेजता है।
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // स्केलिंग के साथ आकृति को मेमोरी में बिटमैप के रूप में सहेजें।
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // मेमोरी से आकृति बिटमैप बनाएं।
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // दूसरे पैराग्राफ़ की सीमाएँ गणना करें।
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // आउटपुट इमेज के लिए कॉर्डिनेट्स और आकार गणना करें (न्यूनतम आकार - 1x1 पिक्सेल)।
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // आकृति बिटमैप को काटें ताकि केवल पैराग्राफ़ बिटमैप प्राप्त हो।
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+`1` का स्केल फ़ैक्टर अक्ष को उसकी डिफ़ॉल्ट पिक्सेल आकार पर रखता है। उदाहरण के लिये, दोनों फ़ैक्टर को `2` सेट करने से इमेज की चौड़ाई और ऊँचाई लगभग दो गुना हो जाता है, जिससे पिक्सेल चार गुना बढ़ जाते हैं। बड़े फ़ैक्टर ज़ूमिंग या हाई‑रिज़ॉल्यूशन आउटपुट के लिये अधिक तेज़ टेक्स्ट देते हैं, लेकिन मेमोरी उपयोग और फ़ाइल आकार भी बढ़ाते हैं। `1` से नीचे के फ़ैक्टर छोटे इमेज कम विवरण के साथ बनाते हैं। समान फ़ैक्टर रखने से पैराग्राफ का एस्पेक्ट रेशियो बना रहता है; अलग क्षैतिज और ऊर्ध्विक फ़ैक्टर आउटपुट को स्वतंत्र रूप से स्ट्रेच करते हैं।
 
-**क्या मैं टेक्स्ट फ्रेम के भीतर लाइन रैपिंग को पूरी तरह से बंद कर सकता हूँ?**
+पूरा शेप रेंडर करने के लिये [IShape.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishape/#getImage--) उपयोगी रहता है जब आउटपुट में शेप की फ़िल, बॉर्डर या अन्य विज़ुअल कंटेक्स्ट शामिल होना आवश्यक हो। केवल पैराग्राफ‑केवल इमेज के लिये [IParagraph.getImage](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getImage--) का उपयोग करें।
 
-हाँ। लाइन रैपिंग को बंद करने के लिए टेक्स्ट फ्रेम की रैपिंग सेटिंग ([setWrapText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) का उपयोग करें ताकि लाइनों को फ्रेम के किनारों पर नहीं तोड़ा जाए।
+## **FAQ**
 
-**मैं किसी विशिष्ट पैराग्राफ़ की स्लाइड पर सटीक बाउंड्स कैसे प्राप्त कर सकता हूँ?**
+**क्या मैं टेक्स्ट फ्रेम के भीतर लाइन रैपिंग को पूरी तरह निष्क्रिय कर सकता हूँ?**
 
-आप पैराग्राफ़ (और यहाँ तक कि एकल पोर्शन) का बाउंडिंग रेक्टेंगल निकाल सकते हैं जिससे आप स्लाइड पर उसकी सटीक स्थिति और आकार जान सकें।
+हाँ। रैपिंग को निष्क्रिय करने हेतु [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) को सेट करें ताकि लाइनें टेक्स्ट फ्रेम के किनारों पर न टूटें।
 
-**पैराग्राफ़ संरेखण (बायाँ/दायाँ/केंद्रीय/जस्टिफाई) कहाँ नियंत्रित होता है?**
+**मैं किसी विशिष्ट पैराग्राफ की स्लाइड पर सटीक बाउंड्स कैसे प्राप्त करूँ?**
 
-[Alignment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) एक पैराग्राफ‑लेवल सेटिंग है [ParagraphFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/paragraphformat/) में; यह पूरे पैराग्राफ़ पर लागू होती है चाहे व्यक्तिगत पोर्शन का स्वरूपण कुछ भी हो।
+[IParagraph.getRect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraph/#getRect--) का उपयोग करके पैराग्राफ का बाउंडिंग रेक्टैंगल प्राप्त करें। [IPortion.getRect](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iportion/#getRect--) व्यक्तिगत पोर्शन की बाउंड्स देता है।
 
-**क्या मैं पैराग्राफ़ के केवल एक भाग (जैसे एक शब्द) के लिए स्पेल‑चेक भाषा सेट कर सकता हूँ?**
+**पैराग्राफ अलाइनमेंट (बाएँ, दाएँ, केंद्र या जस्टिफ़ाई) कहाँ नियंत्रित होता है?**
 
-हाँ। भाषा पोर्शन स्तर पर सेट की जाती है ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), इसलिए एक पैराग्राफ़ में कई भाषाएँ मौजूद हो सकती हैं।
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) पैराग्राफ‑स्तर की सेटिंग है और व्यक्तिगत पोर्शन फॉर्मेटिंग से स्वतंत्र रूप से पूरे पैराग्राफ पर लागू होती है।
+
+**क्या मैं पैराग्राफ के हिस्से के लिये प्रमाणन भाषा सेट कर सकता हूँ?**
+
+हाँ। व्यक्तिगत पोर्शन के लिये [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) सेट करें, जिससे एक पैराग्राफ कई भाषाओं में टेक्स्ट रख सकता है।

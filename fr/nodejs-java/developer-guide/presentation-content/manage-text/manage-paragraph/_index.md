@@ -1,440 +1,396 @@
 ---
-title: Gestion des paragraphes de texte PowerPoint en JavaScript
+title: Gérer les paragraphes de texte PowerPoint en JavaScript
 linktitle: Gérer le paragraphe
 type: docs
 weight: 40
 url: /fr/nodejs-java/manage-paragraph/
+aliases:
+  - /nodejs-java/paragraph/
+  - /nodejs-java/portion/
 keywords:
-- ajouter du texte
-- ajouter un paragraphe
-- gérer le texte
-- gérer le paragraphe
-- gérer les puces
-- indentation de paragraphe
-- indentation suspendue
-- puce de paragraphe
-- liste numérotée
-- liste à puces
-- propriétés du paragraphe
-- importer HTML
-- texte vers HTML
-- paragraphe vers HTML
-- paragraphe vers image
-- texte vers image
-- exporter le paragraphe
-- PowerPoint
-- OpenDocument
-- présentation
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "Maîtrisez le formatage des paragraphes avec Aspose.Slides pour Node.js via Java — optimisez l’alignement, l’espacement et le style dans les présentations PPT, PPTX et ODP en JavaScript."
+  - ajouter du texte
+  - ajouter un paragraphe
+  - gérer le texte
+  - gérer le paragraphe
+  - gérer les puces
+  - retrait de paragraphe
+  - retrait suspendu
+  - puce de paragraphe
+  - liste numérotée
+  - liste à puces
+  - propriétés du paragraphe
+  - importer du HTML
+  - texte vers HTML
+  - paragraphe vers HTML
+  - paragraphe vers image
+  - texte vers image
+  - exporter le paragraphe
+  - PowerPoint
+  - présentation
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "Apprenez à créer et formater des paragraphes, portions, puces, listes numérotées, retraits, contenu HTML et images de paragraphes avec Aspose.Slides for Node.js via Java."
 ---
-Aspose.Slides fournit toutes les classes dont vous avez besoin pour travailler avec les textes, paragraphes et portions PowerPoint en Java.
+## **Vue d'ensemble**
 
-* Aspose.Slides fournit la classe [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) pour vous permettre d’ajouter des objets représentant un paragraphe. Un objet `TextFame` peut contenir un ou plusieurs paragraphes (chaque paragraphe est créé via un retour chariot).
-* Aspose.Slides fournit la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) pour vous permettre d’ajouter des objets représentant des portions. Un objet `Paragraph` peut contenir une ou plusieurs portions (collection d’objets de portion de texte).
-* Aspose.Slides fournit la classe [Portion](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portion/) pour vous permettre d’ajouter des objets représentant des textes et leurs propriétés de formatage.
+Aspose.Slides for Node.js via Java représente le texte comme une hiérarchie de cadres de texte, de paragraphes et de portions :
 
-Un objet `Paragraph` peut gérer des textes avec différentes propriétés de formatage grâce à ses objets sous‑jacent `Portion`.
+* [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) représente le conteneur de texte d'une forme et fournit l'accès à sa collection de paragraphes.
+* [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) représente un paragraphe dans un cadre de texte et fournit l'accès à ses portions ainsi qu'au formatage au niveau du paragraphe.
+* [Portion](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portion/) représente un segment de texte à l'intérieur d'un paragraphe. Chaque portion peut avoir son propre texte et son formatage au niveau des caractères.
 
-## **Ajouter plusieurs paragraphes contenant plusieurs portions**
+Un paragraphe peut donc contenir du texte avec différentes polices, couleurs, tailles et autres formats en utilisant plusieurs portions.
 
-Ces étapes montrent comment ajouter un cadre de texte contenant 3 paragraphes et chaque paragraphe contenant 3 portions :
+## **Créer et formater des paragraphes**
+
+### **Créer des paragraphes avec plusieurs portions**
+
+Les étapes suivantes créent un cadre de texte avec trois paragraphes, chacun contenant trois portions :
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-2. Accédez à la référence de la diapositive souhaitée par son indice.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangle à la diapositive.
-4. Obtenez le `ITextFrame` associé à l’[AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/).
-5. Créez deux objets [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) et ajoutez‑les à la collection `IParagraphs` du [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/).
-6. Créez trois objets [Portion](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portion/) pour chaque nouveau `Paragraph` (deux objets Portion pour le paragraphe par défaut) et ajoutez chaque objet `Portion` à la collection `IPortion` de chaque `Paragraph`.
-7. Définissez du texte pour chaque portion.
-8. Appliquez les caractéristiques de formatage souhaitées à chaque portion en utilisant les propriétés de formatage exposées par l’objet `Portion`.
+2. Accédez à la diapositive concernée via son index.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme.
+5. Utilisez le paragraphe par défaut et ajoutez deux autres objets [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) au cadre de texte.
+6. Ajoutez suffisamment d'objets [Portion](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portion/) pour que chaque paragraphe contienne trois portions. Le paragraphe par défaut contient déjà une portion vide.
+7. Définissez le texte de chaque portion.
+8. Appliquez le formatage au niveau des caractères via [Portion.getPortionFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portion/getportionformat/).
 9. Enregistrez la présentation modifiée.
 
-Ce code Javascript implémente les étapes pour ajouter des paragraphes contenant des portions :
+This JavaScript example implements the steps:
 
 ```javascript
-// Instancier une classe Presentation qui représente un fichier PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accéder à la première diapositive
-    var slide = pres.getSlides().get_Item(0);
-    // Ajouter une AutoShape de type Rectangle
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
-    // Accéder au TextFrame de l'AutoShape
-    var tf = ashp.getTextFrame();
-    // Créer des Paragraphs et Portions avec différents formats de texte
-    var para0 = tf.getParagraphs().get_Item(0);
-    var port01 = new aspose.slides.Portion();
-    var port02 = new aspose.slides.Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
-    var para1 = new aspose.slides.Paragraph();
-    tf.getParagraphs().add(para1);
-    var port10 = new aspose.slides.Portion();
-    var port11 = new aspose.slides.Portion();
-    var port12 = new aspose.slides.Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
-    var para2 = new aspose.slides.Paragraph();
-    tf.getParagraphs().add(para2);
-    var port20 = new aspose.slides.Portion();
-    var port21 = new aspose.slides.Portion();
-    var port22 = new aspose.slides.Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-    for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < 3; j++) {
-            var portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j);
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
+    const textFrame = shape.getTextFrame();
+
+    const firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new aspose.slides.Portion());
+    firstParagraph.getPortions().add(new aspose.slides.Portion());
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    textFrame.getParagraphs().add(secondParagraph);
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    const paragraphCount = textFrame.getParagraphs().getCount();
+    for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        const portionCount = paragraph.getPortions().getCount();
+        for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            const portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
+
+            if (portionIndex === 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex === 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-                portion.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(18);
             }
         }
     }
-    // Écrire le PPTX sur le disque
-    pres.save("multiParaPort_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("paragraphs_with_portions.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Gestion des puces de paragraphe**
+## **Créer des listes à puces et numérotées**
 
-Les listes à puces vous aident à organiser et présenter l’information rapidement et efficacement. Les paragraphes à puces sont toujours plus faciles à lire et à comprendre.
+### **Créer une liste à puces ou numérotée**
+
+Les puces et la numérotation facilitent la lecture d'éléments liés. Dans Aspose.Slides, les paramètres de liste sont définis via [BulletFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/).
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-2. Accédez à la référence de la diapositive souhaitée par son indice.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) à la diapositive sélectionnée.
-4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de l’auto‑forme.
-5. Supprimez le paragraphe par défaut dans le `TextFrame`.
-6. Créez la première instance de paragraphe en utilisant la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/).
-7. Définissez le `Type` de puce du paragraphe sur `Symbol` et spécifiez le caractère de puce.
-8. Définissez le `Text` du paragraphe.
-9. Définissez l’`Indent` du paragraphe pour la puce.
-10. Définissez une couleur pour la puce.
-11. Définissez une hauteur pour la puce.
-12. Ajoutez le nouveau paragraphe à la collection de paragraphes du `TextFrame`.
-13. Ajoutez le deuxième paragraphe et répétez le processus décrit aux étapes 7 à 13.
-14. Enregistrez la présentation.
+2. Accédez à la diapositive concernée via son index.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) à la diapositive sélectionnée.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme.
+5. Supprimez le paragraphe par défaut du cadre de texte.
+6. Créez un [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) pour une puce de type symbole.
+7. Définissez [BulletFormat.setType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/settype/) sur [BulletType.Symbol](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bullettype/) et spécifiez le caractère de la puce.
+8. Définissez le texte du paragraphe, le retrait, la couleur de la puce et la hauteur de la puce.
+9. Ajoutez le paragraphe au cadre de texte.
+10. Créez un second paragraphe et définissez [BulletFormat.setType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/settype/) sur [BulletType.Numbered](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bullettype/).
+11. Configurez le style de puce numérotée et ajoutez le paragraphe au cadre de texte.
+12. Enregistrez la présentation.
 
-Ce code Javascript montre comment ajouter une puce de paragraphe :
+This JavaScript example creates a symbol bullet and a numbered bullet:
 
 ```javascript
-// Instancie une classe Presentation qui représente un fichier PPTX
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accède à la première diapositive
-    var slide = pres.getSlides().get_Item(0);
-    // Ajoute et accède à l'AutoShape
-    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Accède au cadre de texte de l'auto‑forme
-    var txtFrm = aShp.getTextFrame();
-    // Supprime le paragraphe par défaut
-    txtFrm.getParagraphs().removeAt(0);
-    // Crée un paragraphe
-    var para = new aspose.slides.Paragraph();
-    // Définit le style de puce et le symbole du paragraphe
-    para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar(8226);
-    // Définit le texte du paragraphe
-    para.setText("Welcome to Aspose.Slides");
-    // Définit l'indentation de la puce
-    para.getParagraphFormat().setIndent(25);
-    // Définit la couleur de la puce
-    para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// définir IsBulletHardColor sur true pour utiliser une couleur de puce personnalisée
-    // Définit la hauteur de la puce
-    para.getParagraphFormat().getBullet().setHeight(100);
-    // Ajoute le paragraphe au cadre de texte
-    txtFrm.getParagraphs().add(para);
-    // Crée le deuxième paragraphe
-    var para2 = new aspose.slides.Paragraph();
-    // Définit le type et le style de puce du paragraphe
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-    // Ajoute le texte du paragraphe
-    para2.setText("This is numbered bullet");
-    // Définit l'indentation de la puce
-    para2.getParagraphFormat().setIndent(25);
-    para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// définir IsBulletHardColor sur true pour utiliser une couleur de puce personnalisée
-    // Définit la hauteur de la puce
-    para2.getParagraphFormat().getBullet().setHeight(100);
-    // Ajoute le paragraphe au cadre de texte
-    txtFrm.getParagraphs().add(para2);
-    // Enregistre la présentation modifiée
-    pres.save("Bullet_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const symbolParagraph = new aspose.slides.Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    symbolParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    const numberedParagraph = new aspose.slides.Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(java.newByte(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain));
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Gestion des puces d’image**
+### **Utiliser des puces image**
 
-Les listes à puces vous aident à organiser et présenter l’information rapidement et efficacement. Les paragraphes avec image sont faciles à lire et à comprendre.
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-2. Accédez à la référence de la diapositive souhaitée par son indice.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) à la diapositive.
-4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de l’auto‑forme.
-5. Supprimez le paragraphe par défaut dans le `TextFrame`.
-6. Créez la première instance de paragraphe en utilisant la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/).
-7. Chargez l’image dans [PPImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ppimage/).
-8. Définissez le type de puce sur [Picture](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ppimage/) et affectez l’image.
-9. Définissez le `Text` du paragraphe.
-10. Définissez l’`Indent` du paragraphe pour la puce.
-11. Définissez une couleur pour la puce.
-12. Définissez une hauteur pour la puce.
-13. Ajoutez le nouveau paragraphe à la collection de paragraphes du `TextFrame`.
-14. Ajoutez le deuxième paragraphe et répétez le processus basé sur les étapes précédentes.
-15. Enregistrez la présentation modifiée.
-
-Ce code Javascript montre comment ajouter et gérer des puces d’image :
-
-```javascript
-// Instancie une classe Presentation qui représente un fichier PPTX
-var presentation = new aspose.slides.Presentation();
-try {
-    // Accède à la première diapositive
-    var slide = presentation.getSlides().get_Item(0);
-    // Instancie l'image pour les puces
-    var picture;
-    var image = aspose.slides.Images.fromFile("bullets.png");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // Ajoute et accède à l'AutoShape
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Accède au cadre de texte de l'autoshape
-    var textFrame = autoShape.getTextFrame();
-    // Supprime le paragraphe par défaut
-    textFrame.getParagraphs().removeAt(0);
-    // Crée un nouveau paragraphe
-    var paragraph = new aspose.slides.Paragraph();
-    paragraph.setText("Welcome to Aspose.Slides");
-    // Définit le style de puce du paragraphe et l'image
-    paragraph.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-    // Définit la hauteur de la puce
-    paragraph.getParagraphFormat().getBullet().setHeight(100);
-    // Ajoute le paragraphe au cadre de texte
-    textFrame.getParagraphs().add(paragraph);
-    // Enregistre la présentation au format PPTX
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
-    // Enregistre la présentation au format PPT
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", aspose.slides.SaveFormat.Ppt);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **Gestion des puces à niveaux multiples**
-
-Les listes à puces vous aident à organiser et présenter l’information rapidement et efficacement. Les puces à plusieurs niveaux sont faciles à lire et à comprendre.
+Les puces image vous permettent d'utiliser une image personnalisée au lieu d'un symbole ou d'un numéro.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-2. Accédez à la référence de la diapositive souhaitée par son indice.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) dans la nouvelle diapositive.
-4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de l’auto‑forme.
-5. Supprimez le paragraphe par défaut dans le `TextFrame`.
-6. Créez la première instance de paragraphe via la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) et définissez la profondeur à 0.
-7. Créez la deuxième instance de paragraphe via la classe `Paragraph` et définissez la profondeur à 1.
-8. Créez la troisième instance de paragraphe via la classe `Paragraph` et définissez la profondeur à 2.
-9. Créez la quatrième instance de paragraphe via la classe `Paragraph` et définissez la profondeur à 3.
-10. Ajoutez les nouveaux paragraphes à la collection de paragraphes du `TextFrame`.
-11. Enregistrez la présentation modifiée.
-
-Ce code Javascript montre comment ajouter et gérer des puces à niveaux multiples :
-
-```javascript
-// Instancie une classe Presentation qui représente un fichier PPTX
-var pres = new aspose.slides.Presentation();
-try {
-    // Accède à la première diapositive
-    var slide = pres.getSlides().get_Item(0);
-    // Ajoute et accède à l'AutoShape
-    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Accède au cadre de texte de l'AutoShape créé
-    var text = aShp.addTextFrame("");
-    // Vide le paragraphe par défaut
-    text.getParagraphs().clear();
-    // Ajoute le premier paragraphe
-    var para1 = new aspose.slides.Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar(8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Définit le niveau de la puce
-    para1.getParagraphFormat().setDepth(0);
-    // Ajoute le deuxième paragraphe
-    var para2 = new aspose.slides.Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Définit le niveau de la puce
-    para2.getParagraphFormat().setDepth(1);
-    // Ajoute le troisième paragraphe
-    var para3 = new aspose.slides.Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar(8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Définit le niveau de la puce
-    para3.getParagraphFormat().setDepth(2);
-    // Ajoute le quatrième paragraphe
-    var para4 = new aspose.slides.Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // Définit le niveau de la puce
-    para4.getParagraphFormat().setDepth(3);
-    // Ajoute les paragraphes à la collection
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-    // Enregistre la présentation au format PPTX
-    pres.save("MultilevelBullet.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **Gestion des paragraphes avec liste numérotée personnalisée**
-
-La classe [BulletFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/) fournit la propriété [NumberedBulletStartWith](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) et d’autres qui vous permettent de gérer des paragraphes avec une numérotation ou un formatage personnalisé.
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-2. Accédez à la diapositive contenant le paragraphe.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) à la diapositive.
-4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de l’auto‑forme.
-5. Supprimez le paragraphe par défaut dans le `TextFrame`.
-6. Créez la première instance de paragraphe via la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) et définissez [NumberedBulletStartWith](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) à 2.
-7. Créez la deuxième instance de paragraphe via la classe `Paragraph` et définissez `NumberedBulletStartWith` à 3.
-8. Créez la troisième instance de paragraphe via la classe `Paragraph` et définissez `NumberedBulletStartWith` à 7.
-9. Ajoutez les nouveaux paragraphes à la collection de paragraphes du `TextFrame`.
+2. Accédez à la diapositive concernée via son index.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) et accédez à son [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/).
+4. Supprimez le paragraphe par défaut du cadre de texte.
+5. Chargez l'image de la puce et ajoutez‑la à la collection d'images de la présentation sous forme de [PPImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/ppimage/).
+6. Créez un [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/) et définissez son texte.
+7. Définissez [BulletFormat.setType](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/settype/) sur [BulletType.Picture](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bullettype/).
+8. Assignez l'image via [BulletFormat.getPicture](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/getpicture/) et définissez la hauteur de la puce.
+9. Ajoutez le paragraphe au cadre de texte.
 10. Enregistrez la présentation modifiée.
 
-Ce code Javascript montre comment ajouter et gérer des paragraphes avec une numérotation ou un formatage personnalisé :
-
 ```javascript
-var presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // Accède au cadre de texte de l'auto-shape créée
-    var textFrame = shape.getTextFrame();
-    // Supprime le paragraphe par défaut existant
-    textFrame.getParagraphs().removeAt(0);
-    // Première liste
-    var paragraph1 = new aspose.slides.Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth(4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
-    paragraph1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
-    var paragraph2 = new aspose.slides.Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth(4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
-    paragraph2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-    var paragraph5 = new aspose.slides.Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth(4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(7);
-    paragraph5.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-    presentation.save("SetCustomBulletsNumber-slides.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const bulletImage = aspose.slides.Images.fromFile("image.png");
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
     }
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const paragraph = new aspose.slides.Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Picture));
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
+
+    presentation.save("picture_bullet.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", aspose.slides.SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Définir l’indentation de première ligne d’un paragraphe**
+### **Créer une liste à plusieurs niveaux**
 
-Utilisez la méthode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) pour contrôler l’indentation de la première ligne d’un paragraphe. Cette méthode ne déplace que la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes suivantes restent alignées au corps du paragraphe.
+Définissez [ParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setdepth/) pour placer les paragraphes à différents niveaux d'une liste. Le niveau supérieur a une profondeur de `0`.
 
-Utilisez [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) lorsque vous devez déplacer le paragraphe entier. Utilisez [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) lorsque vous ne devez déplacer que la première ligne.
+1. Créez une [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) et accédez à une diapositive.
+2. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) et effacez le paragraphe par défaut de son cadre de texte.
+3. Créez quatre paragraphes et configurez leurs symboles de puce.
+4. Définissez leurs valeurs [ParagraphFormat.setDepth](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setdepth/) à `0`, `1`, `2` et `3`.
+5. Ajoutez les paragraphes au cadre de texte et enregistrez la présentation.
 
-L’exemple ci‑dessous crée plusieurs paragraphes et applique différentes valeurs d’indentation pour illustrer l’impact de l’indentation de première ligne sur la mise en page du paragraphe.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    firstParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    firstParagraph.getParagraphFormat().setDepth(java.newShort(0));
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    secondParagraph.getParagraphFormat().getBullet().setChar(java.newChar(45));
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    secondParagraph.getParagraphFormat().setDepth(java.newShort(1));
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    thirdParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    thirdParagraph.getParagraphFormat().setDepth(java.newShort(2));
+
+    const fourthParagraph = new aspose.slides.Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    fourthParagraph.getParagraphFormat().getBullet().setChar(java.newChar(45));
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    fourthParagraph.getParagraphFormat().setDepth(java.newShort(3));
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Démarrer les éléments de liste numérotée à des valeurs personnalisées**
+
+Utilisez [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) pour définir le numéro initial affiché pour un paragraphe numéroté.
+
+1. Créez une [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) et ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) à une diapositive.
+2. Effacez le paragraphe par défaut du cadre de texte de la forme.
+3. Créez trois paragraphes numérotés.
+4. Définissez [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) à `2`, `3` et `7` pour les paragraphes respectifs.
+5. Ajoutez les paragraphes au cadre de texte et enregistrez la présentation.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(2));
+    textFrame.getParagraphs().add(firstParagraph);
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(3));
+    textFrame.getParagraphs().add(secondParagraph);
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(7));
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Contrôler la mise en forme des paragraphes et les propriétés de fin**
+
+### **Définir un retrait de première ligne**
+
+Utilisez [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) pour contrôler le retrait de la première ligne d'un paragraphe. Cette méthode déplace uniquement la première ligne par rapport à la marge gauche du paragraphe. Une valeur positive décale la première ligne vers la droite, tandis que les lignes restantes restent alignées avec le corps du paragraphe.
+
+Utilisez [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) lorsque vous devez déplacer tout le paragraphe. Utilisez [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) lorsque vous ne devez déplacer que la première ligne.
+
+L'exemple ci‑dessous crée plusieurs paragraphes et applique différentes valeurs [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) pour démontrer comment le retrait de première ligne affecte la mise en page du paragraphe.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
 2. Accédez à la diapositive cible.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
-4. Ajoutez un [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) vide à la forme et supprimez le paragraphe par défaut.
-5. Créez plusieurs paragraphes et définissez différentes valeurs d’[Indent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) pour chacun.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme et supprimez le paragraphe par défaut.
+5. Créez plusieurs paragraphes et définissez différentes valeurs [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) pour chacun.
 6. Ajoutez les paragraphes au cadre de texte.
 7. Enregistrez la présentation modifiée.
 
-Ce code montre comment définir une indentation de paragraphe :
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let rectangleShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    rectangleShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
 
-    let textFrame = rectangleShape.addTextFrame("");
+    const textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
-    let firstParagraph = new aspose.slides.Paragraph();
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20);
     firstParagraph.getParagraphFormat().setIndent(0);
 
-    let secondParagraph = new aspose.slides.Paragraph();
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20);
     secondParagraph.getParagraphFormat().setIndent(20);
 
-    let thirdParagraph = new aspose.slides.Paragraph();
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20);
     thirdParagraph.getParagraphFormat().setIndent(40);
 
@@ -443,60 +399,59 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
-Le résultat :
+![Le retrait de première ligne des paragraphes](first_line_indent.png)
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+### **Définir un retrait suspendu**
 
-## **Définir une indentation suspendue pour un paragraphe**
+Un retrait suspendu est une mise en forme de paragraphe dans laquelle la première ligne commence à gauche des lignes restantes. Dans Aspose.Slides, vous créez cet effet avec [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/). Passez une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
 
-Une indentation suspendue est une mise en page où la première ligne commence à gauche des lignes suivantes. Dans Aspose.Slides, vous créez cet effet avec la méthode [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/). Définissez l’indentation sur une valeur négative pour déplacer la première ligne vers la gauche par rapport au corps du paragraphe.
+En pratique, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) définit la position gauche du corps du paragraphe, et [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) définit la position de la première ligne par rapport à cette marge. Pour créer un retrait suspendu, passez une valeur positive à `setMarginLeft` et une valeur négative à `setIndent`.
 
-En pratique, [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) définit la position gauche du corps du paragraphe, et [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) définit la position de la première ligne par rapport à cette marge. Pour créer une indentation suspendue, définissez une valeur positive pour `MarginLeft` et une valeur négative pour `Indent`.
-
-Ce formatage est utile pour les bibliographies, références, entrées de glossaire et tout autre paragraphe où les lignes enroulées doivent être alignées sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
+Ce formatage est utile pour les bibliographies, références, entrées de glossaire et autres paragraphes où les lignes renvoyées doivent être alignées sous le corps du paragraphe plutôt que sous le premier caractère de la première ligne.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
 2. Accédez à la diapositive cible.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
-4. Ajoutez un [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) vide à la forme et supprimez le paragraphe par défaut.
-5. Créez des paragraphes et définissez une valeur positive pour [MarginLeft](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) pour chaque paragraphe.
-6. Définissez une valeur négative pour [Indent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) afin de créer l’effet d’indentation suspendue.
+3. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangulaire à la diapositive.
+4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme et supprimez le paragraphe par défaut.
+5. Créez des paragraphes et passez une valeur positive à [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) pour chaque paragraphe.
+6. Passez une valeur négative à [ParagraphFormat.setIndent](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setindent/) pour créer l'effet de retrait suspendu.
 7. Ajoutez les paragraphes au cadre de texte.
 8. Enregistrez la présentation modifiée.
 
-Ce code montre comment définir une indentation suspendue pour un paragraphe :
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-```js
-let presentation = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let rectangleShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    rectangleShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
 
-    let textFrame = rectangleShape.addTextFrame("");
+    const textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
-    let firstParagraph = new aspose.slides.Paragraph();
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40);
     firstParagraph.getParagraphFormat().setIndent(-20);
 
-    let secondParagraph = new aspose.slides.Paragraph();
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60);
     secondParagraph.getParagraphFormat().setIndent(-30);
 
@@ -504,259 +459,250 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
-Le résultat :
+![Le retrait suspendu des paragraphes](hanging_indent.png)
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+### **Définir les propriétés de fin de paragraphe**
 
-## **Gestion des propriétés de fin d’exécution du paragraphe**
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) contrôle le formatage du caractère de fin de paragraphe. L'exemple suivant attribue une taille de police et une police latine au caractère de fin du deuxième paragraphe :
+
+1. Créez ou chargez une [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) et accédez à une diapositive.
+2. Ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) et effacez son paragraphe par défaut.
+3. Créez deux paragraphes et ajoutez des portions de texte à ceux‑ci.
+4. Créez un [PortionFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portionformat/) pour le caractère de fin du deuxième paragraphe.
+5. Définissez [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) et [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseportionformat/#setLatinFont).
+6. Appliquez le format avec [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) et enregistrez la présentation.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.getPortions().add(new aspose.slides.Portion("Sample text"));
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.getPortions().add(new aspose.slides.Portion("Sample text 2"));
+
+    const endParagraphFormat = new aspose.slides.PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    presentation.save("end_paragraph_format.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Importer et exporter le contenu des paragraphes**
+
+### **Importer du texte HTML dans les paragraphes**
+
+Utilisez [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) pour convertir le balisage HTML en paragraphes et portions dans un cadre de texte.
 
 1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-1. Obtenez la référence de la diapositive contenant le paragraphe par sa position.
-1. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) rectangle à la diapositive.
-1. Ajoutez un [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) avec deux paragraphes au rectangle.
-1. Définissez le `FontHeight` et le type de police pour les paragraphes.
-1. Définissez les propriétés End pour les paragraphes.
-1. Enregistrez la présentation modifiée au format PPTX.
-
-Ce code Javascript montre comment définir les propriétés End pour les paragraphes dans PowerPoint :
+2. Accédez à une diapositive et ajoutez une [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/).
+3. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme et effacez le paragraphe par défaut.
+4. Définissez ou lisez la chaîne HTML source.
+5. Transférez la chaîne HTML à [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/).
+6. Enregistrez la présentation modifiée.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
-    var para1 = new aspose.slides.Paragraph();
-    para1.getPortions().add(new aspose.slides.Portion("Sample text"));
-    var para2 = new aspose.slides.Paragraph();
-    para2.getPortions().add(new aspose.slides.Portion("Sample text 2"));
-    var portionFormat = new aspose.slides.PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
-    pres.save(resourcesOutputPath + "pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Importer du texte HTML dans des paragraphes**
+### **Exporter le texte du paragraphe vers HTML**
 
-Aspose.Slides offre une prise en charge améliorée de l’importation de texte HTML dans des paragraphes.
+Utilisez [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) pour exporter une plage sélectionnée de paragraphes en HTML.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
-2. Accédez à la référence de la diapositive souhaitée par son indice.
-3. Ajoutez un [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) à la diapositive.
-4. Ajoutez et accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de l’AutoShape.
-5. Supprimez le paragraphe par défaut dans le `TextFrame`.
-6. Lisez le fichier HTML source dans un `TextReader`.
-7. Créez la première instance de paragraphe via la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/).
-8. Ajoutez le contenu du fichier HTML lu par le `TextReader` à la [ParagraphCollection](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphcollection/) du TextFrame.
-9. Enregistrez la présentation modifiée.
-
-Ce code Javascript implémente les étapes d’importation de textes HTML dans des paragraphes :
+1. Créez ou chargez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/).
+2. Accédez à la diapositive et trouvez la [AutoShape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/autoshape/) qui contient le texte.
+3. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme.
+4. Appelez [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) avec l'indice du paragraphe de départ et le nombre de paragraphes à exporter.
+5. Écrivez la chaîne HTML renvoyée dans un fichier.
 
 ```javascript
-// Créer une instance de présentation vide
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accéder à la première diapositive par défaut de la présentation
-    var slide = pres.getSlides().get_Item(0);
-    // Ajouter l'AutoShape pour accueillir le contenu HTML
-    var ashape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, pres.getSlideSize().getSize().getWidth() - 20, pres.getSlideSize().getSize().getHeight() - 10);
-    ashape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // Ajouter un cadre de texte à la forme
-    ashape.addTextFrame("");
-    // Effacer tous les paragraphes du cadre de texte ajouté
-    ashape.getTextFrame().getParagraphs().clear();
-    // Charger le fichier HTML à l'aide d'un lecteur de flux
-    var tr = java.newInstanceSync("StreamReader", "file.html");
-    // Ajouter le texte du lecteur de flux HTML dans le cadre de texte
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-    // Enregistrer la présentation
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
+    const sourceTextFrame = sourceShape.getTextFrame();
+    sourceTextFrame.getParagraphs().clear();
+    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
+        const sourceParagraph = new aspose.slides.Paragraph();
+        sourceParagraph.setText(text);
+        sourceTextFrame.getParagraphs().add(sourceParagraph);
     }
+    const shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        const textFrame = shape.getTextFrame();
+        if (textFrame !== null) {
+            const paragraphs = textFrame.getParagraphs();
+            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            fs.writeFileSync("paragraphs.html", html, "utf8");
+        } else {
+            console.log("The first shape does not contain a text frame.");
+        }
+    } else {
+        console.log("The first shape is not a text shape.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Exporter le texte des paragraphes vers HTML**
+### **Rendre un paragraphe sous forme d'image**
 
-Aspose.Slides offre une prise en charge améliorée de l’exportation de textes (contenus dans des paragraphes) vers HTML.
+[Paragraph.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/#getImage) rend directement un paragraphe individuel et renvoie un [IImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/iimage/). Enregistrez le résultat dans un fichier avec [IImage.save](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/iimage/#save). Vous n'avez pas besoin de rendre la forme contenant ou de recadrer manuellement un bitmap.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/presentation/) et chargez la présentation souhaitée.
-2. Accédez à la référence de la diapositive pertinente par son indice.
-3. Accédez à la forme contenant le texte à exporter vers HTML.
-4. Accédez au [TextFrame](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframe/) de la forme.
-5. Créez une instance de `StreamWriter` et ajoutez le nouveau fichier HTML.
-6. Fournissez un indice de départ à `StreamWriter` et exportez les paragraphes souhaités.
+[Paragraph.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/#getImage) peut renvoyer `null` si le paragraphe est introuvable dans sa collection parente, n'a pas de limites de rendu valides, ou ne peut pas être rendu. Vérifiez le résultat avant de l'enregistrer et libérez l'image renvoyée après utilisation.
 
-Ce code Javascript montre comment exporter les textes de paragraphes PowerPoint vers HTML :
+#### **Rendre un paragraphe à l'échelle par défaut**
+
+La zone de texte suivante contient trois paragraphes :
+
+![La zone de texte avec trois paragraphes](paragraph_to_image_input.png)
+
+L'exemple suivant rend le deuxième paragraphe dans une forme de texte ordinaire à l'échelle par défaut et enregistre l'image renvoyée au format PNG. Le bloc `finally` garantit que l'image est correctement libérée.
 
 ```javascript
-// Charger le fichier de présentation
-var pres = new aspose.slides.Presentation("ExportingHTMLText.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Accéder à la première diapositive par défaut de la présentation
-    var slide = pres.getSlides().get_Item(0);
-    // Index souhaité
-    var index = 0;
-    // Accéder à la forme ajoutée
-    var ashape = slide.getShapes().get_Item(index);
-    // Créer le fichier HTML de sortie
-    var os = java.newInstanceSync("java.io.FileOutputStream", "output.html");
-    var writer = java.newInstanceSync("java.io.OutputStreamWriter", os, "UTF-8");
-    // Extraire le premier paragraphe en HTML
-    // Écrire les données des paragraphes en HTML en fournissant l'index de départ du paragraphe et le nombre total de paragraphes à copier
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
+    const sourceTextFrame = sourceShape.getTextFrame();
+    sourceTextFrame.getParagraphs().clear();
+    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
+        const sourceParagraph = new aspose.slides.Paragraph();
+        sourceParagraph.setText(text);
+        sourceTextFrame.getParagraphs().add(sourceParagraph);
     }
+    const shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        const textFrame = shape.getTextFrame();
+        if (textFrame !== null && textFrame.getParagraphs().getCount() > 1) {
+            const paragraph = textFrame.getParagraphs().get_Item(1);
+            const paragraphImage = paragraph.getImage();
+
+            if (paragraphImage !== null) {
+                try {
+                    paragraphImage.save("paragraph.png", aspose.slides.ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                console.log("The paragraph could not be rendered.");
+            }
+        } else {
+            console.log("The expected paragraph was not found.");
+        }
+    } else {
+        console.log("The first shape is not a text shape.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Enregistrer un paragraphe en tant qu’image**
+![L'image du paragraphe](paragraph_to_image_output.png)
 
-Dans cette section, nous explorerons deux exemples illustrant comment enregistrer un paragraphe de texte, représenté par la classe [Paragraph](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/), sous forme d’image. Les deux exemples comprennent l’obtention de l’image d’une forme contenant le paragraphe à l’aide des méthodes `getImage` de la classe [Shape](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/), le calcul des limites du paragraphe dans la forme, et l’exportation sous forme d’image bitmap. Ces approches permettent d’extraire des parties spécifiques du texte d’une présentation PowerPoint et de les enregistrer comme images séparées, ce qui peut être utile dans divers scénarios.
+#### **Rendre un paragraphe dans une cellule de tableau avec mise à l'échelle**
 
-Supposons que nous disposions d’un fichier de présentation nommé **sample.pptx** contenant une diapositive, où la première forme est une zone de texte contenant trois paragraphes.
+Utilisez la surcharge de [Paragraph.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/#getImage) qui accepte les paramètres `scaleX` et `scaleY` pour définir les facteurs d'échelle horizontaux et verticaux. L'exemple suivant crée un tableau, rend le paragraphe dans sa première cellule à deux fois sa largeur et hauteur par défaut, et enregistre le résultat sous forme d'image PNG.
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-**Example 1**
+const scaleX = 2;
+const scaleY = 2;
 
-Dans cet exemple, nous obtenons le deuxième paragraphe sous forme d’image. Pour ce faire, nous extrayons l’image de la forme de la première diapositive de la présentation, puis calculons les limites du deuxième paragraphe dans le cadre de texte de la forme. Le paragraphe est ensuite redessiné sur une nouvelle image bitmap, enregistrée au format PNG. Cette méthode est particulièrement utile lorsque vous devez enregistrer un paragraphe spécifique comme image séparée tout en conservant les dimensions et le formatage exacts du texte.
-
-```java
-const imageio = java.import("javax.imageio.ImageIO");
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const columnWidths = java.newArray("double", [300]);
+    const rowHeights = java.newArray("double", [80]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    const paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // Enregistrer la forme en mémoire sous forme de bitmap.
-    const shapeImage = firstShape.getImage();
-        
-    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
-    shapeImage.dispose();
-    shapeImageStream.flush();
-    
-    // Créer un bitmap de forme à partir de la mémoire.
-    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
-    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
-    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
-    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
-    const shapeBitmap = imageio.read(shapeImageInputStream);
-
-    // Calculer les limites du deuxième paragraphe.
-    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    const paragraphRectangle = secondParagraph.getRect();
-
-    // Calculer les coordonnées et la taille de l'image de sortie (taille minimale - 1x1 pixel).
-    const imageX = Math.floor(paragraphRectangle.getX());
-    const imageY = Math.floor(paragraphRectangle.getY());
-    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
-    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
-
-    // Recadrer le bitmap de la forme pour obtenir uniquement le bitmap du paragraphe.
-    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    const file = java.newInstanceSync("java.io.File", "paragraph.png");
-
-    imageio.write(paragraphBitmap, "png", file);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage !== null) {
+        try {
+            paragraphImage.save("table_paragraph.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        console.log("The paragraph could not be rendered.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-Le résultat :
+Un facteur d'échelle de `1` maintient cet axe à sa taille de pixel par défaut. Par exemple, `2` pour les deux facteurs produit une image dont la largeur et la hauteur sont approximativement deux fois les dimensions par défaut, ce qui donne quatre fois plus de pixels. Des facteurs plus élevés produisent généralement un texte plus net pour le zoom ou la sortie haute résolution, mais ils augmentent également l'utilisation de mémoire et la taille du fichier. Des facteurs inférieurs à `1` produisent des images plus petites avec moins de détails. Utilisez des facteurs égaux pour conserver le rapport d'aspect du paragraphe ; des facteurs horizontaux et verticaux différents étirent la sortie indépendamment.
 
-![The paragraph image](paragraph_to_image_output.png)
-
-**Example 2**
-
-Dans cet exemple, nous étendons l’approche précédente en ajoutant des facteurs d’échelle à l’image du paragraphe. La forme est extraite de la présentation et enregistrée en tant qu’image avec un facteur d’échelle de `2`. Cela permet d’obtenir une sortie à plus haute résolution lors de l’exportation du paragraphe. Les limites du paragraphe sont alors calculées en tenant compte de l’échelle. Le redimensionnement peut être particulièrement utile lorsqu’une image plus détaillée est requise, par exemple pour une utilisation dans des documents imprimés de haute qualité.
-
-```java
-const imageScaleX = 2;
-const imageScaleY = imageScaleX;
-
-const imageio = java.import("javax.imageio.ImageIO");
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Enregistrer la forme en mémoire sous forme de bitmap avec mise à l'échelle.
-    const shapeImage = firstShape.getImage(aspose.slides.ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Créer un bitmap de forme à partir de la mémoire.
-    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
-    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
-    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
-    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
-    const shapeBitmap = imageio.read(shapeImageInputStream);
-
-    // Calculer les limites du deuxième paragraphe.
-    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    const paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.setRect(
-            paragraphRectangle.getX() * imageScaleX,
-            paragraphRectangle.getY() * imageScaleY,
-            paragraphRectangle.getWidth() * imageScaleX,
-            paragraphRectangle.getHeight() * imageScaleY
-    );
-
-    // Calculer les coordonnées et la taille de l'image de sortie (taille minimale - 1x1 pixel).
-    const imageX = Math.floor(paragraphRectangle.getX());
-    const imageY = Math.floor(paragraphRectangle.getY());
-    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
-    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
-
-    // Recadrer le bitmap de la forme pour obtenir uniquement le bitmap du paragraphe.
-    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    const file = java.newInstanceSync("java.io.File", "paragraph.png");
-
-    imageio.write(paragraphBitmap, "png", file);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
+Rendre une forme entière avec [Shape.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/shape/#getImage) reste utile lorsque la sortie doit inclure le remplissage, la bordure ou autre contexte visuel de la forme. Pour une image ne contenant que le paragraphe, utilisez [Paragraph.getImage](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/#getImage).
 
 ## **FAQ**
 
-**Puis‑je désactiver complètement le retour à la ligne dans un cadre de texte ?**
+**Puis‑je désactiver complètement le retour à la ligne à l'intérieur d'un cadre de texte ?**
 
-Oui. Utilisez le paramètre de retour à la ligne du cadre de texte ([setWrapText](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframeformat/setwraptext/)) pour désactiver le retour à la ligne afin que les lignes ne se coupent pas aux bords du cadre.
+Oui. Définissez [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/textframeformat/setwraptext/) pour désactiver le retour à la ligne afin que les lignes ne se coupent pas aux bords du cadre de texte.
 
-**Comment obtenir les limites exactes d’un paragraphe spécifique sur la diapositive ?**
+**Comment obtenir les limites exactes sur la diapositive d'un paragraphe spécifique ?**
 
-Vous pouvez récupérer le rectangle englobant du paragraphe (et même d’une seule portion) pour connaître sa position et sa taille précises sur la diapositive.
+Utilisez [Paragraph.getRect](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraph/getrect/) pour récupérer le rectangle englobant du paragraphe. [Portion.getRect](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/portion/#getRect) fournit les limites d'une portion individuelle.
 
-**Où est‑ce que l’alignement du paragraphe (gauche/droite/centré/justifié) est contrôlé ?**
+**Où le alignement du paragraphe (gauche, droite, centre ou justifié) est‑il contrôlé ?**
 
-[setAlignment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setalignment/) est une méthode de réglage au niveau du paragraphe dans [ParagraphFormat](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/); elle s’applique à l’ensemble du paragraphe indépendamment du formatage des portions individuelles.
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/paragraphformat/setalignment/) est un réglage au niveau du paragraphe et s'applique à tout le paragraphe, quel que soit le formatage des portions individuelles.
 
-**Puis‑je définir une langue de vérification orthographique pour une seule partie d’un paragraphe (par ex., un mot) ?**
+**Puis‑je définir la langue de vérification orthographique pour une partie d'un paragraphe ?**
 
-Oui. La langue est définie au niveau de la portion ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)), de sorte que plusieurs langues peuvent coexister au sein d’un même paragraphe.
+Oui. Définissez [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/fr/nodejs-java/aspose.slides/baseportionformat/#setLanguageId) pour des portions individuelles, de sorte qu'un paragraphe puisse contenir du texte dans plusieurs langues.

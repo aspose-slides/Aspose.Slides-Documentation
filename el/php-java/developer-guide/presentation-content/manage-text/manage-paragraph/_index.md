@@ -1,100 +1,109 @@
 ---
-title: "Διαχείριση Κειμένου Παραγράφων PowerPoint σε PHP"
-linktitle: "Διαχείριση Παραγράφου"
+title: Διαχείριση Παραγράφων Κειμένου PowerPoint σε PHP
+linktitle: Διαχείριση Παραγράφου
 type: docs
 weight: 40
 url: /el/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
+  - /php-java/portion/
 keywords:
-- "προσθήκη κειμένου"
-- "προσθήκη παραγράφου"
-- "διαχείριση κειμένου"
-- "διαχείριση παραγράφου"
-- "διαχείριση κουκίδας"
-- "εσοχή παραγράφου"
-- "αναρτημένη εσοχή"
-- "κουκίδα παραγράφου"
-- "αριθμημένη λίστα"
-- "λίστα με κουκίδες"
-- "ιδιότητες παραγράφου"
-- "εισαγωγή HTML"
-- "κείμενο σε HTML"
-- "παράγραφος σε HTML"
-- "παράγραφος σε εικόνα"
-- "κείμενο σε εικόνα"
-- "εξαγωγή παραγράφου"
-- "PowerPoint"
-- "OpenDocument"
-- "παρουσίαση"
-- "PHP"
-- "Aspose.Slides"
-description: "Μάθετε να διαμορφώνετε παραγράφες με το Aspose.Slides για PHP μέσω Java — βελτιστοποιήστε την στοίχηση, το κενό και το στυλ σε παρουσιάσεις PPT, PPTX και ODP."
+- προσθήκη κειμένου
+- προσθήκη παραγράφου
+- διαχείριση κειμένου
+- διαχείριση παραγράφου
+- διαχείριση κουκίδας
+- εσοχή παραγράφου
+- εσώματιση
+- κουκίδα παραγράφου
+- αριθμημένη λίστα
+- λίστα με κουκίδες
+- ιδιότητες παραγράφου
+- εισαγωγή HTML
+- κείμενο σε HTML
+- παράγραφος σε HTML
+- παράγραφος σε εικόνα
+- κείμενο σε εικόνα
+- εξαγωγή παραγράφου
+- PowerPoint
+- παρουσίαση
+- PHP
+- Aspose.Slides
+description: "Μάθετε πώς να δημιουργείτε και να μορφοποιείτε παραγράφους, τμήματα, κουκίδες, αριθμημένες λίστες, εσοχές, περιεχόμενο HTML και εικόνες παραγράφων με το Aspose.Slides για PHP μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Το Aspose.Slides παρέχει όλες τις κλάσεις που χρειάζεστε για να εργαστείτε με κείμενα PowerPoint, παραγράφους και τμήματα.
+Το Aspose.Slides for PHP μέσω Java αντιπροσωπεύει το κείμενο ως ιεραρχία πλαισίων κειμένου, παραγράφων και τμημάτων:
 
-* Το Aspose.Slides παρέχει την κλάση [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) που σας επιτρέπει να προσθέσετε αντικείμενα που αντιπροσωπεύουν μια παράγραφο. Ένα αντικείμενο `TextFame` μπορεί να περιέχει μία ή πολλαπλές παραγράφους (κάθε παράγραφος δημιουργείται μέσω μιας αλλαγής γραμμής).
-* Το Aspose.Slides παρέχει την κλάση [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) που σας επιτρέπει να προσθέσετε αντικείμενα που αντιπροσωπεύουν τμήματα. Ένα αντικείμενο `Paragraph` μπορεί να περιέχει ένα ή πολλαπλά τμήματα (συλλογή αντικειμένων τμημάτων).
-* Το Aspose.Slides παρέχει την κλάση [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) που σας επιτρέπει να προσθέσετε αντικείμενα που αντιπροσωπεύουν κείμενα και τις ιδιότητες μορφοποίησής τους.
+* [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) αναπαριστά το δοχείο κειμένου σε ένα σχήμα και παρέχει πρόσβαση στη συλλογή παραγράφων του.
+* [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) αναπαριστά μία παράγραφο σε ένα πλαίσιο κειμένου και παρέχει πρόσβαση στα τμήματα του καθώς και στη διαμόρφωση σε επίπεδο παραγράφου.
+* [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) αντιπροσωπεύει μια διαδοχή κειμένου μέσα σε μια παράγραφο. Κάθε τμήμα μπορεί να έχει το δικό του κείμενο και διαμόρφωση σε επίπεδο χαρακτήρων.
 
-Ένα αντικείμενο `Paragraph` είναι σε θέση να διαχειρίζεται κείμενα με διαφορετικές ιδιότητες μορφοποίησης μέσω των υποκείμενων αντικειμένων `Portion`.
+Μια παράγραφος μπορεί λοιπόν να περιέχει κείμενο με διαφορετικές γραμματοσειρές, χρώματα, μεγέθη και άλλες διαμορφώσεις, χρησιμοποιώντας πολλαπλά τμήματα.
 
-## **Προσθήκη Πολλαπλών Παραγράφων που Περιέχουν Πολλαπλά Τμήματα**
+## **Δημιουργία και Διαμόρφωση Παραγράφων**
 
-These steps show you how to add a text frame containing 3 paragraphs and each paragraph containing 3 portions:
+### **Δημιουργία Παραγράφων με Πολλαπλά Τμήματα**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
+Τα παρακάτω βήματα δημιουργούν ένα πλαίσιο κειμένου με τρεις παραγράφους, καθεμία από τις οποίες περιέχει τρία τμήματα:
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Αποκτήστε το ITextFrame που σχετίζεται με το [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).
-5. Δημιουργήστε δύο αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) και προσθέστε τα στη συλλογή παραγράφων του [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/).
-6. Δημιουργήστε τρία αντικείμενα [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) για κάθε νέο `Paragraph` (δύο αντικείμενα Portion για την προεπιλεγμένη Paragraph) και προσθέστε κάθε αντικείμενο `Portion` στη συλλογή τμημάτων του αντίστοιχου `Paragraph`.
-7. Ορίστε κάποιο κείμενο για κάθε τμήμα.
-8. Εφαρμόστε τις προτιμώμενες μορφοποιητικές ιδιότητες σε κάθε τμήμα χρησιμοποιώντας τις ιδιότητες μορφοποίησης που εκτίθενται από το αντικείμενο `Portion`.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
+5. Χρησιμοποιήστε την προεπιλεγμένη παράγραφο και προσθέστε δύο ακόμη αντικείμενα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) στο πλαίσιο κειμένου.
+6. Προσθέστε αρκετά αντικείμενα [Portion](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/) ώστε κάθε παράγραφος να περιέχει τρία τμήματα. Η προεπιλεγμένη παράγραφος περιέχει ήδη ένα κενό τμήμα.
+7. Ορίστε το κείμενο κάθε τμήματος.
+8. Εφαρμόστε διαμόρφωση επιπέδου χαρακτήρων μέσω του [Portion::getPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/#getPortionFormat--).
+9. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτό το παράδειγμα PHP υλοποιεί τα βήματα:
 
 ```php
-# Δημιουργία αντικειμένου Presentation που αντιπροσωπεύει αρχείο PPTX
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Πρόσβαση στην πρώτη διαφάνεια
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθήκη AutoShape τύπου Rectangle
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Πρόσβαση στο TextFrame του AutoShape
-    $tf = $ashp->getTextFrame();
-    # Δημιουργία Παραγράφων και Τμημάτων με διαφορετικές μορφές κειμένου
-    $para0 = $tf->getParagraphs()->get_Item(0);
-    $port01 = new Portion();
-    $port02 = new Portion();
-    $para0->getPortions()->add($port01);
-    $para0->getPortions()->add($port02);
-    $para1 = new Paragraph();
-    $tf->getParagraphs()->add($para1);
-    $port10 = new Portion();
-    $port11 = new Portion();
-    $port12 = new Portion();
-    $para1->getPortions()->add($port10);
-    $para1->getPortions()->add($port11);
-    $para1->getPortions()->add($port12);
-    $para2 = new Paragraph();
-    $tf->getParagraphs()->add($para2);
-    $port20 = new Portion();
-    $port21 = new Portion();
-    $port22 = new Portion();
-    $para2->getPortions()->add($port20);
-    $para2->getPortions()->add($port21);
-    $para2->getPortions()->add($port22);
-    for($i = 0; $i < 3; $i++) {
-        for($j = 0; $j < 3; $j++) {
-            $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
-            $portion->setText("Portion0" . $j);
-            if ($j == 0) {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+    $textFrame = $shape->getTextFrame();
+
+    $firstParagraph = $textFrame->getParagraphs()->get_Item(0);
+    $firstParagraph->getPortions()->add(new Portion());
+    $firstParagraph->getPortions()->add(new Portion());
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $paragraphCount = java_values($textFrame->getParagraphs()->getCount());
+    for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+        $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+        $portionCount = java_values($paragraph->getPortions()->getCount());
+        for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+            $portion = $paragraph->getPortions()->get_Item($portionIndex);
+            $portion->setText("Portion " . ($paragraphIndex + 1) . "." . ($portionIndex + 1));
+
+            if ($portionIndex == 0) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
                 $portion->getPortionFormat()->setFontBold(NullableBool::True);
                 $portion->getPortionFormat()->setFontHeight(15);
-            } else if ($j == 1) {
+            } else if ($portionIndex == 1) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
                 $portion->getPortionFormat()->setFontItalic(NullableBool::True);
@@ -102,330 +111,311 @@ try {
             }
         }
     }
-    # Αποθήκευση PPTX στο δίσκο
-    $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
+
+    $presentation->save("paragraphs_with_portions.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Διαχείριση Κουκίδων Παραγράφων**
+## **Δημιουργία Λιστών με Κουκίδες και Αρίθμιση**
 
-Bullet lists help you to organize and present information quickly and efficiently. Bulleted paragraphs are always easier to read and understand.
+### **Δημιουργία Λίστας με Κουκίδες ή Αρίθμηση**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στην επιλεγμένη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του AutoShape.
-5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
-6. Δημιουργήστε το πρώτο αντικείμενο παραγράφου χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/).
-7. Ορίστε τον `Type` της κουκίδας για την παράγραφο σε `Symbol` και ορίστε το χαρακτήρα της κουκίδας.
-8. Ορίστε το `Text` της παραγράφου.
-9. Ορίστε το `Indent` της παραγράφου για την κουκίδα.
-10. Ορίστε χρώμα για την κουκίδα.
-11. Ορίστε ύψος για την κουκίδα.
-12. Προσθέστε τη νέα παράγραφο στη συλλογή παραγράφων του `TextFrame`.
-13. Προσθέστε τη δεύτερη παράγραφο και επαναλάβετε τη διαδικασία των βημάτων 7 έως 12.
-14. Αποθηκεύστε την παρουσίαση.
+Οι κουκίδες και η αρίθμηση διευκολύνουν την ανάγνωση σχετικών στοιχείων. Στο Aspose.Slides, οι ρυθμίσεις λίστας ορίζονται μέσω του [BulletFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/).
 
-```php
-# Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει αρχείο PPTX
-$pres = new Presentation();
-try {
-    # Πρόσβαση στην πρώτη διαφάνεια
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθέτει και προσπελάζει το AutoShape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Πρόσβαση στο πλαίσιο κειμένου του AutoShape
-    $txtFrm = $aShp->getTextFrame();
-    # Αφαίρεση της προεπιλεγμένης παραγράφου
-    $txtFrm->getParagraphs()->removeAt(0);
-    # Δημιουργία παραγράφου
-    $para = new Paragraph();
-    # Ορίζει το στυλ και το σύμβολο της κουκίδας παραγράφου
-    $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para->getParagraphFormat()->getBullet()->setChar(8226);
-    # Ορίζει κείμενο παραγράφου
-    $para->setText("Welcome to Aspose.Slides");
-    # Ορίζει την εσοχή της κουκίδας
-    $para->getParagraphFormat()->setIndent(25);
-    # Ορίζει το χρώμα της κουκίδας
-    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// ορίζει IsBulletHardColor σε true για χρήση προσαρμοσμένου χρώματος κουκίδας
-
-    # Ορίζει το ύψος της κουκίδας
-    $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # Προσθήκη παραγράφου στο πλαίσιο κειμένου
-    $txtFrm->getParagraphs()->add($para);
-    # Δημιουργία δεύτερης παραγράφου
-    $para2 = new Paragraph();
-    # Ορίζει τύπο και στυλ κουκίδας παραγράφου
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
-    # Προσθέτει κείμενο παραγράφου
-    $para2->setText("This is numbered bullet");
-    # Ορίζει την εσοχή της κουκίδας
-    $para2->getParagraphFormat()->setIndent(25);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// ορίζει IsBulletHardColor σε true για χρήση προσαρμοσμένου χρώματος κουκίδας
-
-    # Ορίζει το ύψος της κουκίδας
-    $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # Προσθήκη παραγράφου στο πλαίσιο κειμένου
-    $txtFrm->getParagraphs()->add($para2);
-    # Αποθηκεύει την τροποποιημένη παρουσίαση
-    $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-## **Διαχείριση Κουκίδων Εικόνας**
-
-Bullet lists help you to organize and present information quickly and efficiently. Picture paragraphs are easy to read and understand.
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
 3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του AutoShape.
-5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
-6. Δημιουργήστε το πρώτο αντικείμενο παραγράφου χρησιμοποιώντας την κλάση [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/).
-7. Φορτώστε την εικόνα στο [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
-8. Ορίστε τον τύπο της κουκίδας σε [Picture](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/#Picture) και ορίστε την εικόνα.
-9. Ορίστε το `Text` της Paragraph.
-10. Ορίστε το `Indent` της Paragraph για την κουκίδα.
-11. Ορίστε χρώμα για την κουκίδα.
-12. Ορίστε ύψος για την κουκίδα.
-13. Προσθέστε τη νέα παράγραφο στη συλλογή παραγράφων του `TextFrame`.
-14. Προσθέστε τη δεύτερη παράγραφο και επαναλάβετε τη διαδικασία βάσει των προηγούμενων βημάτων.
-15. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
+5. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) για μια κουκίδα σύμβολου.
+7. Ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Symbol](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/) και καθορίστε τον χαρακτήρα της κουκίδας.
+8. Ορίστε το κείμενο της παραγράφου, την εσοχή, το χρώμα και το ύψος της κουκίδας.
+9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+10. Δημιουργήστε δεύτερη παράγραφο και ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Numbered](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/).
+11. Διαμορφώστε το στυλ της αριθμημένης κουκίδας και προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+12. Αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα PHP δημιουργεί μια κουκίδα σύμβολου και μια αριθμημένη κουκίδα:
 
 ```php
-# Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει αρχείο PPTX
+use aspose\slides\BulletType;
+use aspose\slides\ColorType;
+use aspose\slides\NullableBool;
+use aspose\slides\NumberedBulletStyle;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    # Πρόσβαση στην πρώτη διαφάνεια
     $slide = $presentation->getSlides()->get_Item(0);
-    # Δημιουργεί την εικόνα για τις κουκίδες
-    $picture;
-    $image = Images->fromFile("bullets.png");
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $symbolParagraph = new Paragraph();
+    $symbolParagraph->setText("Welcome to Aspose.Slides");
+    $symbolParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $symbolParagraph->getParagraphFormat()->setIndent(25);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($symbolParagraph);
+
+    $numberedParagraph = new Paragraph();
+    $numberedParagraph->setText("This is a numbered item");
+    $numberedParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+    $numberedParagraph->getParagraphFormat()->setIndent(25);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($numberedParagraph);
+
+    $presentation->save("bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Χρήση Κουκίδων Εικόνας**
+
+Οι κουκίδες εικόνας σας επιτρέπουν να χρησιμοποιήσετε μια προσαρμοσμένη εικόνα αντί για σύμβολο ή αριθμό.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Πρόσβαση στη σχετική διαφάνεια μέσω του δείκτη της.
+3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/).
+4. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου.
+5. Φορτώστε την εικόνα της κουκίδας και προσθέστε τη στη συλλογή εικόνων της παρουσίασης ως [PPImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/ppimage/).
+6. Δημιουργήστε ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) και ορίστε το κείμενό του.
+7. Ορίστε το [BulletFormat::setType](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setType-int-) σε [BulletType::Picture](https://reference.aspose.com/slides/el/php-java/aspose.slides/bullettype/).
+8. Αντιστοιχίστε την εικόνα μέσω του [BulletFormat::getPicture](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#getPicture--) και ορίστε το ύψος της κουκίδας.
+9. Προσθέστε την παράγραφο στο πλαίσιο κειμένου.
+10. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτό το παράδειγμα PHP δημιουργεί μια κουκίδα εικόνας:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\Images;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $bulletImage = Images::fromFile("bullets.png");
     try {
-        $picture = $presentation->getImages()->addImage($image);
+        $presentationImage = $presentation->getImages()->addImage($bulletImage);
     } finally {
-        if (!java_is_null($image)) {
-            $image->dispose();
-        }
+        $bulletImage->dispose();
     }
-    # Προσθέτει και προσπελάζει το AutoShape
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Πρόσβαση στο πλαίσιο κειμένου του AutoShape
-    $textFrame = $autoShape->getTextFrame();
-    # Αφαίρεση της προεπιλεγμένης παραγράφου
-    $textFrame->getParagraphs()->removeAt(0);
-    # Δημιουργία νέας παραγράφου
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
     $paragraph = new Paragraph();
     $paragraph->setText("Welcome to Aspose.Slides");
-    # Ορίζει το στυλ κουκίδας παραγράφου και την εικόνα
     $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
-    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Ορίζει το ύψος της κουκίδας
+    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($presentationImage);
     $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # Προσθήκη παραγράφου στο πλαίσιο κειμένου
     $textFrame->getParagraphs()->add($paragraph);
-    # Αποθηκεύει την παρουσίαση ως αρχείο PPTX
-    $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-    # Αποθηκεύει την παρουσίαση ως αρχείο PPT
-    $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-} catch (JavaException $e) {
+
+    $presentation->save("picture_bullet.pptx", SaveFormat::Pptx);
+    $presentation->save("picture_bullet.ppt", SaveFormat::Ppt);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Διαχείριση Πολυεπίπεδων Κουκίδων**
+### **Δημιουργία Πολυεπίπεδης Λίστας**
 
-Bullet lists help you to organize and present information quickly and efficiently. Multilevel bullets are easy to read and understand.
+Ορίστε το [ParagraphFormat::setDepth](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDepth-short-) για να τοποθετήσετε παραγράφους σε διαφορετικά επίπεδα λίστας. Το ανώτερο επίπεδο έχει βάθος `0`.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στην νέα διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του AutoShape.
-5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
-6. Δημιουργήστε το πρώτο αντικείμενο παραγράφου μέσω της κλάσης [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) και ορίστε το βάθος σε 0.
-7. Δημιουργήστε το δεύτερο αντικείμενο παραγράφου μέσω της κλάσης `Paragraph` και ορίστε το βάθος σε 1.
-8. Δημιουργήστε το τρίτο αντικείμενο παραγράφου μέσω της κλάσης `Paragraph` και ορίστε το βάθος σε 2.
-9. Δημιουργήστε το τέταρτο αντικείμενο παραγράφου μέσω της κλάσης `Paragraph` και ορίστε το βάθος σε 3.
-10. Προσθέστε τις νέες παραγράφους στη συλλογή παραγράφων του `TextFrame`.
-11. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του.
+3. Δημιουργήστε τέσσερις παραγράφους και διαμορφώστε τα σύμβολα των κουκίδων τους.
+4. Ορίστε τις τιμές του [ParagraphFormat::setDepth](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setDepth-short-) σε `0`, `1`, `2` και `3`.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα PHP δημιουργεί μια λίστα με τέσσερα επίπεδα κουκίδων:
 
 ```php
-# Δημιουργεί ένα αντικείμενο Presentation που αντιπροσωπεύει αρχείο PPTX
-$pres = new Presentation();
+use aspose\slides\BulletType;
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Πρόσβαση στην πρώτη διαφάνεια
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθέτει και προσπελάζει το AutoShape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Πρόσβαση στο πλαίσιο κειμένου του δημιουργημένου AutoShape
-    $text = $aShp->addTextFrame("");
-    # Αφαιρεί την προεπιλεγμένη παράγραφο
-    $text->getParagraphs()->clear();
-    # Προσθήκη της πρώτης παραγράφου
-    $para1 = new Paragraph();
-    $para1->setText("Content");
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ορίζει το επίπεδο της κουκίδας
-    $para1->getParagraphFormat()->setDepth(0);
-    # Προσθήκη της δεύτερης παραγράφου
-    $para2 = new Paragraph();
-    $para2->setText("Second Level");
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para2->getParagraphFormat()->getBullet()->setChar('-');
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ορίζει το επίπεδο της κουκίδας
-    $para2->getParagraphFormat()->setDepth(1);
-    # Προσθήκη της τρίτης παραγράφου
-    $para3 = new Paragraph();
-    $para3->setText("Third Level");
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ορίζει το επίπεδο της κουκίδας
-    $para3->getParagraphFormat()->setDepth(2);
-    # Προσθήκη της τέταρτης παραγράφου
-    $para4 = new Paragraph();
-    $para4->setText("Fourth Level");
-    $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para4->getParagraphFormat()->getBullet()->setChar('-');
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Ορίζει το επίπεδο της κουκίδας
-    $para4->getParagraphFormat()->setDepth(3);
-    # Προσθέτει τις παραγράφους στη συλλογή
-    $text->getParagraphs()->add($para1);
-    $text->getParagraphs()->add($para2);
-    $text->getParagraphs()->add($para3);
-    $text->getParagraphs()->add($para4);
-    # Αποθηκεύει την παρουσίαση ως αρχείο PPTX
-    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Content");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $firstParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->getParagraphFormat()->setDepth(0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Second level");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $secondParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->getParagraphFormat()->setDepth(1);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Third level");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $thirdParagraph->getParagraphFormat()->setDepth(2);
+
+    $fourthParagraph = new Paragraph();
+    $fourthParagraph->setText("Fourth level");
+    $fourthParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $fourthParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $fourthParagraph->getParagraphFormat()->setDepth(3);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+    $textFrame->getParagraphs()->add($fourthParagraph);
+
+    $presentation->save("multilevel_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Διαχείριση Παραγράφου με Προσαρμοσμένη Αριθμημένη Λίστα**
+### **Έναρξη Αριθμημένων Στοιχείων Λίστας με Προσαρμοσμένες Τιμές**
 
-The [BulletFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/) class provides the [setNumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) method and others that allow you to manage paragraphs with custom numbering or formatting.
+Χρησιμοποιήστε το [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) για να ορίσετε τον αρχικό αριθμό που εμφανίζεται σε αριθμημένη παράγραφο.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στη διαφάνεια που περιέχει την παράγραφο.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του AutoShape.
-5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
-6. Δημιουργήστε το πρώτο αντικείμενο παραγράφου μέσω της κλάσης [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) και ορίστε το [NumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) σε 2.
-7. Δημιουργήστε το δεύτερο αντικείμενο παραγράφου μέσω της κλάσης `Paragraph` και ορίστε το `NumberedBulletStartWith` σε 3.
-8. Δημιουργήστε το τρίτο αντικείμενο παραγράφου μέσω της κλάσης `Paragraph` και ορίστε το `NumberedBulletStartWith` σε 7.
-9. Προσθέστε τις νέες παραγράφους στη συλλογή παραγράφων του `TextFrame`.
-10. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+1. Δημιουργήστε μια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) σε μια διαφάνεια.
+2. Αφαιρέστε την προεπιλεγμένη παράγραφο από το πλαίσιο κειμένου του σχήματος.
+3. Δημιουργήστε τρεις αριθμημένες παραγράφους.
+4. Ορίστε το [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/el/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) σε `2`, `3` και `7` για τις αντίστοιχες παραγράφους.
+5. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου και αποθηκεύστε την παρουσία.
+
+Αυτό το παράδειγμα PHP αντιστοιχεί έναν προσαρμοσμένο αρχικό αριθμό σε κάθε παράγραφο:
 
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Πρόσβαση στο πλαίσιο κειμένου του δημιουργημένου autoshape
     $textFrame = $shape->getTextFrame();
-    # Αφαιρεί την προεπιλεγμένη υπάρχουσα παράγραφο
-    $textFrame->getParagraphs()->removeAt(0);
-    # Πρώτη λίστα
-    $paragraph1 = new Paragraph();
-    $paragraph1->setText("bullet 2");
-    $paragraph1->getParagraphFormat()->setDepth(4);
-    $paragraph1->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
-    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph1);
-    $paragraph2 = new Paragraph();
-    $paragraph2->setText("bullet 3");
-    $paragraph2->getParagraphFormat()->setDepth(4);
-    $paragraph2->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
-    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph2);
-    $paragraph5 = new Paragraph();
-    $paragraph5->setText("bullet 7");
-    $paragraph5->getParagraphFormat()->setDepth(4);
-    $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
-    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph5);
-    $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Start at 2");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $firstParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
+    $textFrame->getParagraphs()->add($firstParagraph);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Start at 3");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $secondParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Start at 7");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $presentation->save("custom_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Ορισμός Εσοχής Πρώτης Γραμμής για Παράγραφο**
+## **Έλεγχος Διάταξης Παραγράφου και Ιδιοτήτων Τέλους**
 
-Use the [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setindent/) method to control the first-line indent of a paragraph. This method moves only the first line relative to the paragraph's left margin. A positive value shifts the first line to the right, while the remaining lines stay aligned to the paragraph body.
+### **Ορισμός Εσοχής Πρώτης Γραμμής**
 
-Use [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setmarginleft/) when you need to move the whole paragraph. Use [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setindent/) when you need to move only the first line.
+Χρησιμοποιήστε το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να ελέγξετε την εσοχή της πρώτης γραμμής μιας παραγράφου. Αυτή η μέθοδος μετακινεί μόνο την πρώτη γραμμή σε σχέση με το αριστερό περιθώριο της παραγράφου. Μια θετική τιμή μετακινεί την πρώτη γραμμή προς τα δεξιά, ενώ οι υπόλοιπες γραμμές παραμένουν ευθυγραμμισμένες με το σώμα της παραγράφου.
 
-The example below creates several paragraphs and applies different indent values to demonstrate how the first-line indent affects paragraph layout.
+Χρησιμοποιήστε το [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) όταν χρειάζεται να μετακινήσετε ολόκληρη την παράγραφο. Χρησιμοποιήστε το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) όταν θέλετε να μετακινήσετε μόνο την πρώτη γραμμή.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+Το παρακάτω παράδειγμα δημιουργεί αρκετές παραγράφους και εφαρμόζει διαφορετικές τιμές του [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να δείξει πώς η εσοχή πρώτης γραμμής επηρεάζει τη διάταξη.
+
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
 2. Πρόσβαση στη στοχευμένη διαφάνεια.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσθέστε ένα κενό [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) στο σχήμα και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές [Indent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setindent/) για αυτές.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+5. Δημιουργήστε πολλές παραγράφους και ορίστε διαφορετικές τιμές του [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για καθεμία.
 6. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-7. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+7. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε εσοχή παραγράφου:
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $firstParagraph->getParagraphFormat()->setIndent(0.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $secondParagraph->getParagraphFormat()->setIndent(20.0);
 
     $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $thirdParagraph->getParagraphFormat()->setIndent(40.0);
 
@@ -443,48 +433,57 @@ try {
 
 ![Η εσοχή πρώτης γραμμής των παραγράφων](first_line_indent.png)
 
-## **Ορισμός Αναρτημένης Εσοχής για Παράγραφο**
+### **Ορισμός Εσώματισης (Hanging Indent)**
 
-A hanging indent is a paragraph layout in which the first line starts to the left of the remaining lines. In Aspose.Slides, you create this effect with the [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setindent/) method. Set the indent to a negative value to move the first line to the left relative to the paragraph body.
+Η εσώματιση είναι μια διάταξη παραγράφου όπου η πρώτη γραμμή ξεκινά αριστερότερα από τις υπόλοιπες γραμμές. Στο Aspose.Slides, δημιουργείτε αυτό το εφέ με το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-). Δώστε μια αρνητική τιμή για να μετακινήσετε την πρώτη γραμμή αριστερά σχετικά με το σώμα της παραγράφου.
 
-In practice, [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setmarginleft/) defines the left position of the paragraph body, and [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setindent/) defines the position of the first line relative to that margin. To create a hanging indent, set a positive `MarginLeft` value and a negative `Indent` value.
+Στην πράξη, το [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) ορίζει τη θέση αριστερά του σώματος της παραγράφου, ενώ το [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) ορίζει τη θέση της πρώτης γραμμής σε σχέση με αυτό το περιθώριο. Για εσώματιση, δώστε μια θετική τιμή στο `setMarginLeft` και μια αρνητική τιμή στο `setIndent`.
 
-This formatting is useful for bibliographies, references, glossary entries, and other paragraphs where wrapped lines must align under the paragraph body rather than under the first character of the first line.
+Αυτή η μορφοποίηση είναι χρήσιμη για βιβλιογραφίες, παραπομπές, καταχωρήσεις γλωσσολογικού λεξικού και άλλες παραγράφους όπου οι αναδιπλωμένες γραμμές πρέπει να ευθυγραμμίζονται κάτω από το σώμα της παραγράφου και όχι κάτω από τον πρώτο χαρακτήρα της πρώτης γραμμής.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+1. Δημιουργήστε μια παρουσία της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
 2. Πρόσβαση στη στοχευμένη διαφάνεια.
 3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσθέστε ένα κενό [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) στο σχήμα και αφαιρέστε την προεπιλεγμένη παράγραφο.
-5. Δημιουργήστε παραγράφους και ορίστε μια θετική τιμή [MarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setmarginleft/) για κάθε παράγραφο.
-6. Ορίστε μια αρνητική τιμή [Indent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setindent/) για να δημιουργήσετε το εφέ της αναρτημένης εσοχής.
+4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+5. Δημιουργήστε παραγράφους και δώστε μια θετική τιμή στο [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) για κάθε παράγραφο.
+6. Δώστε μια αρνητική τιμή στο [ParagraphFormat::setIndent](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setIndent-float-) για να δημιουργήσετε το εφέ της εσώματισης.
 7. Προσθέστε τις παραγράφους στο πλαίσιο κειμένου.
-8. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+8. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτός ο κώδικας PHP δείχνει πώς να ορίσετε εσώματιση για μια παράγραφο:
 
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(40.0);
     $firstParagraph->getParagraphFormat()->setIndent(-20.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(60.0);
     $secondParagraph->getParagraphFormat()->setIndent(-30.0);
 
@@ -499,235 +498,238 @@ try {
 
 Το αποτέλεσμα:
 
-![Η αναρτημένη εσοχή των παραγράφων](hanging_indent.png)
+![Η εσώματιση των παραγράφων](hanging_indent.png)
 
-## **Διαχείριση Ιδιοτήτων Τερματισμού Παραγράφου**
+### **Ορισμός Ιδιοτήτων Τέλους Παραγράφου**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-1. Λάβετε την αναφορά για τη διαφάνεια που περιέχει την παράγραφο μέσω της θέσης της.
-1. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-1. Προσθέστε ένα [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) με δύο παραγράφους στο Rectangle.
-1. Ορίστε το ύψος της γραμματοσειράς και τον τύπο γραμματοσειράς για τις παραγράφους.
-1. Ορίστε τις ιδιότητες End για τις παραγράφους.
-1. Γράψτε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
+Η μέθοδος [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) ελέγχει τη διαμόρφωση του σημείου τέλους της παραγράφου. Το παρακάτω παράδειγμα PHP αναθέτει μέγεθος γραμματοσειράς και λατινική γραμματοσειρά στο τέλος της δεύτερης παραγράφου:
+
+1. Φορτώστε μια [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και προσπελάστε μια διαφάνεια.
+2. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) και αφαιρέστε την προεπιλεγμένη του παράγραφο.
+3. Δημιουργήστε δύο παραγράφους και προσθέστε τμήματα κειμένου σε αυτές.
+4. Δημιουργήστε ένα [PortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/portionformat/) για το σημείο τέλους της δεύτερης παραγράφου.
+5. Ορίστε το [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) και το [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Αναθέστε τη μορφή με το [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) και αποθηκεύστε την παρουσία.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\FontData;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation("Test.pptx");
 try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
-    $para1 = new Paragraph();
-    $para1->getPortions()->add(new Portion("Sample text"));
-    $para2 = new Paragraph();
-    $para2->getPortions()->add(new Portion("Sample text 2"));
-    $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(48);
-    $portionFormat::setLatinFont(new FontData("Times New Roman"));
-    $para2->setEndParagraphPortionFormat($portionFormat);
-    $shape->getTextFrame()->getParagraphs()->add($para1);
-    $shape->getTextFrame()->getParagraphs()->add($para2);
-    $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getPortions()->add(new Portion("Sample text"));
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion("Sample text 2"));
+
+    $endParagraphFormat = new PortionFormat();
+    $endParagraphFormat->setFontHeight(48);
+    $endParagraphFormat->setLatinFont(new FontData("Times New Roman"));
+    $secondParagraph->setEndParagraphPortionFormat($endParagraphFormat);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $presentation->save("end_paragraph_format.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Εισαγωγή Κειμένου HTML σε Παραγράφους**
+## **Εισαγωγή και Εξαγωγή Περιεχομένου Παραγράφου**
 
-Aspose.Slides provides enhanced support for importing HTML text into paragraphs.
+### **Εισαγωγή HTML Κειμένου σε Παραγράφους**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
-2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) στη διαφάνεια.
-4. Προσθέστε και αποκτήστε πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του AutoShape.
-5. Αφαιρέστε την προεπιλεγμένη παράγραφο στο `TextFrame`.
-6. Διαβάστε το αρχείο HTML πηγής σε έναν TextReader.
-7. Δημιουργήστε το πρώτο αντικείμενο παραγράφου μέσω της κλάσης [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/).
-8. Προσθέστε το περιεχόμενο του αρχείου HTML από το TextReader στην [ParagraphCollection](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/) του TextFrame.
-9. Αποθηκεύστε την τροποποιημένη παρουσίαση.
+Χρησιμοποιήστε το [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) για να μετατρέψετε σήμανση HTML σε παραγράφους και τμήματα σε ένα πλαίσιο κειμένου.
+
+1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/).
+2. Πρόσβαση σε μια διαφάνεια και προσθήκη ενός [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).
+3. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος και αφαίρεση της προεπιλεγμένης παραγράφου.
+4. Διαβάστε το αρχείο HTML πηγής.
+5. Μετάβαλε το κείμενο HTML στο [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Αποθηκεύστε την τροποποιημένη παρουσία.
+
+Αυτό το παράδειγμα PHP εισάγει HTML σε ένα πλαίσιο κειμένου:
 
 ```php
-# Δημιουργία κενής παρουσίασης
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Πρόσβαση στην προεπιλεγμένη πρώτη διαφάνεια της παρουσίασης
-    $slide = $pres->getSlides()->get_Item(0);
-    # Προσθήκη AutoShape για τη φιλοξενία του HTML περιεχομένου
-    $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
-    $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # Προσθήκη πλαισίου κειμένου στο σχήμα
-    $ashape->addTextFrame("");
-    # Καθαρισμός όλων των παραγράφων στο προστεθέν πλαίσιο κειμένου
-    $ashape->getTextFrame()->getParagraphs()->clear();
-    # Φόρτωση του αρχείου HTML χρησιμοποιώντας StreamReader
-    $tr = new StreamReader("file.html");
-    # Προσθήκη κειμένου από το StreamReader HTML στο πλαίσιο κειμένου
-    $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
-    # Αποθήκευση παρουσίασης
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
+    $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $html = file_get_contents("file.html");
+    if ($html !== false) {
+        $shape->getTextFrame()->getParagraphs()->addFromHtml($html);
+        $presentation->save("html_text.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The HTML file could not be read.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Εξαγωγή Κειμένου Παραγράφου σε HTML**
+### **Εξαγωγή Κειμένου Παραγράφου σε HTML**
 
-Aspose.Slides provides enhanced support for exporting texts (contained in paragraphs) to HTML.
+Χρησιμοποιήστε το [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) για να εξάγετε ένα επιλεγμένο εύρος παραγράφων ως HTML.
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την επιθυμούν παρουσίαση.
-2. Πρόσβαση στην αναφορά της σχετικής διαφάνειας μέσω του δείκτη της.
-3. Πρόσβαση στο σχήμα που περιέχει το κείμενο που θα εξαχθεί σε HTML.
-4. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
-5. Δημιουργήστε μια εμφάνιση `StreamWriter` και προσθέστε το νέο αρχείο HTML.
-6. Παρέχετε έναν αρχικό δείκτη στο StreamWriter και εξαχθείτε τις προτιμώμενες παραγράφους.
+1. Δημιουργήστε μια παρουσία της [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) και φορτώστε την επιθυμητή παρουσία.
+2. Πρόσβαση στη διαφάνεια και εντοπισμός του [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) που περιέχει το κείμενο.
+3. Πρόσβαση στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframe/) του σχήματος.
+4. Καλέστε το [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) με το αρχικό δείκτη παραγράφου και τον αριθμό παραγράφων προς εξαγωγή.
+5. Γράψτε το επιστρεφόμενο κείμενο HTML σε αρχείο.
+
+Αυτό το παράδειγμα PHP εξάγει όλες τις παραγράφους από το πρώτο σχήμα κειμένου:
 
 ```php
-# Φόρτωση του αρχείου παρουσίασης
-$pres = new Presentation("ExportingHTMLText.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    # Πρόσβαση στην προεπιλεγμένη πρώτη διαφάνεια της παρουσίασης
-    $slide = $pres->getSlides()->get_Item(0);
-    # Επιθυμητός δείκτης
-    $index = 0;
-    # Πρόσβαση στο προστεθέν σχήμα
-    $ashape = $slide->getShapes()->get_Item($index);
-    # Δημιουργία αρχείου εξόδου HTML
-    $os = new Java("java.io.FileOutputStream", "output.html");
-    $writer = new OutputStreamWriter($os, "UTF-8");
-    # Εξαγωγή της πρώτης παραγράφου ως HTML
-    # Εγγραφή δεδομένων παραγράφων σε HTML με παροχή δείκτη έναρξης παραγράφου και συνολικού αριθμού παραγράφων προς αντιγραφή
-    $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
-    $writer->close();
-} catch (JavaException $e) {
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame)) {
+            $paragraphs = $textFrame->getParagraphs();
+            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
+            if (file_put_contents("paragraphs.html", $html) === false) {
+                echo "The HTML file could not be written.";
+            }
+        } else {
+            echo "The first shape does not contain a text frame.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Αποθήκευση Παραγράφου ως Εικόνα**
+### **Απόδοση Παραγράφου ως Εικόνας**
 
-In this section, we will explore two examples that demonstrate how to save a text paragraph, represented by the [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/) class, as an image. Both examples include obtaining the image of a shape containing the paragraph using the `getImage` methods from the [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) class, calculating the bounds of the paragraph within the shape, and exporting it as a bitmap image. These approaches allow you to extract specific parts of the text from PowerPoint presentations and save them as separate images, which can be useful for further use in various scenarios.
+Η μέθοδος [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--) αποδίδει άμεσα μια μεμονωμένη παράγραφο και επιστρέφει ένα [IImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/). Αποθηκεύστε το αποτέλεσμα σε αρχείο ή ρεύμα με το [IImage::save](https://reference.aspose.com/slides/el/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Δεν χρειάζεται να αποδώσετε ολόκληρο το σχήμα ή να περικόψετε το bitmap χειροκίνητα.
 
-Let's assume we have a presentation file called sample.pptx with one slide, where the first shape is a text box containing three paragraphs.
+Το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--) μπορεί να επιστρέψει `null` αν η παράγραφος δεν βρεθεί στη γονική της συλλογή, δεν έχει έγκυρα όρια απόδοσης ή δεν μπορεί να αποδοθεί. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε και διαγράψτε την εικόνα μετά τη χρήση.
+
+#### **Απόδοση Παραγράφου στην Προεπιλεγμένη Κλίμακα**
+
+Ας υποθέσουμε ότι έχουμε ένα αρχείο παρουσίασης με όνομα sample.pptx με μία διαφάνεια, όπου το πρώτο σχήμα είναι ένα πλαίσιο κειμένου που περιέχει τρεις παραγράφους.
 
 ![Το πλαίσιο κειμένου με τρεις παραγράφους](paragraph_to_image_input.png)
 
-**Example 1**
-
-In this example, we obtain the second paragraph as an image. To do this, we extract the image of the shape from the first slide of the presentation and then calculate the bounds of the second paragraph in the shape's text frame. The paragraph is then redrawn onto a new bitmap image, which is saved in PNG format. This method is especially useful when you need to save a specific paragraph as a separate image while preserving the exact dimensions and formatting of the text.
+Το παρακάτω παράδειγμα PHP αποδίδει τη δεύτερη παράγραφο σε ένα κανονικό σχήμα κειμένου στην προεπιλεγμένη κλίμακα και αποθηκεύει την εικόνα σε μορφή PNG. Το μπλοκ `finally` εξασφαλίζει τη σωστή απελευθέρωση της εικόνας.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Αποθήκευση του σχήματος στη μνήμη ως bitmap.
-    $shapeImage = $firstShape->getImage();
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame) && java_values($textFrame->getParagraphs()->getCount()) > 1) {
+            $paragraph = $textFrame->getParagraphs()->get_Item(1);
+            $paragraphImage = $paragraph->getImage();
 
-    // Δημιουργία bitmap σχήματος από τη μνήμη.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Υπολογισμός των ορίων της δεύτερης παραγράφου.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-
-    // Υπολογισμός των συντεταγμένων και του μεγέθους για την εικόνα εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Περικοπή του bitmap σχήματος ώστε να ληφθεί μόνο το bitmap της παραγράφου.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+            if (!java_is_null($paragraphImage)) {
+                try {
+                    $paragraphImage->save("paragraph.png", ImageFormat::Png);
+                } finally {
+                    $paragraphImage->dispose();
+                }
+            } else {
+                echo "The paragraph could not be rendered.";
+            }
+        } else {
+            echo "The expected paragraph was not found.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-The result:
+Το αποτέλεσμα:
 
-![Το εικόνα της παραγράφου](paragraph_to_image_output.png)
+![Η εικόνα της παραγράφου](paragraph_to_image_output.png)
 
-**Example 2**
+#### **Απόδοση Παραγράφου σε Κελί Πίνακα με Κλιμάκωση**
 
-In this example, we extend the previous approach by adding scaling factors to the paragraph image. The shape is extracted from the presentation and saved as an image with a scaling factor of `2`. This allows for a higher resolution output when exporting the paragraph. The paragraph bounds are then calculated considering the scale. Scaling can be particularly useful when a more detailed image is needed, for example, for use in high-quality printed materials.
+Χρησιμοποιήστε την υπερφόρτωση του [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage-float-float-) που δέχεται τις παραμέτρους `$scaleX` και `$scaleY` για να ορίσετε τους οριζόντιους και κατακόρυφους παράγοντες κλίμακας. Το παρακάτω παράδειγμα PHP δημιουργεί έναν πίνακα, αποδίδει την παράγραφο στο πρώτο του κελί με διπλάσιο πλάτος και ύψος από την προεπιλεγμένη και αποθηκεύει το αποτέλεσμα ως εικόνα PNG.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
-$imageScaleX = 2;
-$imageScaleY = $imageScaleX;
+$scaleX = 2;
+$scaleY = 2;
 
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
+    $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->setText("Text in a table cell");
 
-    // Αποθήκευση του σχήματος στη μνήμη ως bitmap με κλιμάκωση.
-    $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
-
-    // Δημιουργία bitmap σχήματος από τη μνήμη.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Υπολογισμός των ορίων της δεύτερης παραγράφου.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-    $paragraphRectangle->setRect(
-            java_values($paragraphRectangle->getX()) * $imageScaleX,
-            java_values($paragraphRectangle->getY()) * $imageScaleY,
-            java_values($paragraphRectangle->getWidth()) * $imageScaleX,
-            java_values($paragraphRectangle->getHeight()) * $imageScaleY
-    );
-
-    // Υπολογισμός των συντεταγμένων και του μεγέθους για την εικόνα εξόδου (ελάχιστο μέγεθος - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Περικοπή του bitmap σχήματος ώστε να ληφθεί μόνο το bitmap της παραγράφου.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+    $paragraphImage = $paragraph->getImage($scaleX, $scaleY);
+    if (!java_is_null($paragraphImage)) {
+        try {
+            $paragraphImage->save("table_paragraph.png", ImageFormat::Png);
+        } finally {
+            $paragraphImage->dispose();
+        }
+    } else {
+        echo "The paragraph could not be rendered.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
+
+Ένας παράγοντας κλίμακας `1` διατηρεί τον άξονα στο προεπιλεγμένο μέγεθος εικονοστοιχείου. Για παράδειγμα, `2` και για τους δύο παράγοντες παράγει εικόνα του οποίας το πλάτος και το ύψος είναι περίπου διπλάσιο από τις προεπιλεγμένες διαστάσεις, με αποτέλεσμα τέσσερις φορές περισσότερα εικονοστοιχεία. Μεγαλύτεροι παράγοντες γενικά παράγουν πιο οξυρήμένο κείμενο για ζουμ ή υψηλής ανάλυσης έξοδο, αλλά αυξάνουν τη μνήμη και το μέγεθος του αρχείου. Παράγοντες κάτω από `1` παράγουν μικρότερες εικόνες με λιγότερες λεπτομέρειες. Χρησιμοποιήστε ίσους παράγοντες για να διατηρήσετε την αναλογία διαστάσεων της παραγράφου· διαφορετικοί οριζόντιοι και κατακόρυφοι παράγοντες τεντώσουν το αποτέλεσμα ανεξάρτητα.
+
+Η απόδοση ολόκληρου σχήματος με το [Shape::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/#getImage--) παραμένει χρήσιμη όταν η έξοδος πρέπει να περιλαμβάνει το γέμισμα, το περίγραμμα ή άλλο οπτικό περιεχόμενο του σχήματος. Για εικόνα μόνο της παραγράφου, χρησιμοποιήστε το [Paragraph::getImage](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getImage--).
 
 ## **Συχνές Ερωτήσεις**
 
-**Μπορώ να απενεργοποιήσω πλήρως την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
+**Μπορώ να απενεργοποιήσω εντελώς την αναδίπλωση γραμμών μέσα σε ένα πλαίσιο κειμένου;**
 
-Ναι. Χρησιμοποιήστε τη ρύθμιση αναδίπλωσης του πλαισίου κειμένου ([setWrapText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/setwraptext/)) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάνε στα άκρα του πλαισίου.
+Ναι. Ορίστε το [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/el/php-java/aspose.slides/textframeformat/#setWrapText-byte-) για να απενεργοποιήσετε την αναδίπλωση ώστε οι γραμμές να μην σπάνε στα άκρα του πλαισίου κειμένου.
 
-**Πώς μπορώ να λάβω τις ακριβείς διαστάσεις στην διαφάνεια ενός συγκεκριμένου παραγράφου;**
+**Πώς μπορώ να λάβω τα ακριβή όρια στην διαφάνεια ενός συγκεκριμένου παραγράφου;**
 
-Μπορείτε να ανακτήσετε το ορθογώνιο περιγράμματα του παραγράφου (και ακόμη και ενός μεμονωμένου τμήματος) για να γνωρίζετε τη συγκεκριμένη θέση και το μέγεθός του στην διαφάνεια.
+Χρησιμοποιήστε το [Paragraph::getRect](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/#getRect--) για να ανακτήσετε το ορθογώνιο περιοριστικό της παραγράφου. Το [Portion::getRect](https://reference.aspose.com/slides/el/php-java/aspose.slides/portion/#getRect--) παρέχει τα όρια ενός μεμονωμένου τμήματος.
 
-**Πού ελέγχεται η στοίχηση της παραγράφου (αριστερά/δεξιά/κέντρο/στοίχωση);**
+**Πού ελέγχεται η στοίχιση παραγράφου (αριστερά, δεξιά, κέντρο ή πλήρης στοίχιση);**
 
-[Alignment](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/setalignment/) είναι ρύθμιση επιπέδου παραγράφου στο [ParagraphFormat](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/); εφαρμόζεται σε ολόκληρη την παράγραφο ανεξαρτήτως μορφοποίησης επιμέρους τμημάτων.
+Το [ParagraphFormat::setAlignment](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraphformat/#setAlignment-int-) είναι ρύθμιση σε επίπεδο παραγράφου και εφαρμόζεται σε ολόκληρη την παράγραφο ανεξάρτητα από τη διαμόρφωση μεμονωμένων τμημάτων.
 
-**Μπορώ να ορίσω γλώσσα ελέγχου ορθογραφίας μόνο για ένα τμήμα της παραγράφου (π.χ. μια λέξη);**
+**Μπορώ να ορίσω τη γλώσσα απόδειξης για μέρος μιας παραγράφου;**
 
-Ναι. Η γλώσσα ορίζεται σε επίπεδο τμήματος ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLanguageId)), έτσι ώστε να μπορούν να συνυπάρχουν πολλαπλές γλώσσες σε μια ενιαία παράγραφο.
+Ναι. Ορίστε το [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/el/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) για μεμονωμένα τμήματα, ώστε μια παράγραφος να μπορεί να περιέχει κείμενο σε πολλές γλώσσες.

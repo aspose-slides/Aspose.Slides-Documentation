@@ -1,111 +1,105 @@
 ---
-title: "Mengelola Paragraf Teks PowerPoint di Android"
-linktitle: "Kelola Paragraf"
+title: Kelola Paragraf Teks PowerPoint di Android
+linktitle: Kelola Paragraf
 type: docs
 weight: 40
 url: /id/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
+  - /androidjava/portion/
 keywords:
-- "tambahkan teks"
-- "tambahkan paragraf"
-- "kelola teks"
-- "kelola paragraf"
-- "kelola bullet"
-- "indentasi paragraf"
-- "indentasi menggantung"
-- "bullet paragraf"
-- "daftar bernomor"
-- "daftar berpoin"
-- "properti paragraf"
-- "impor HTML"
-- "teks ke HTML"
-- "paragraf ke HTML"
-- "paragraf ke gambar"
-- "teks ke gambar"
-- "ekspor paragraf"
-- "PowerPoint"
-- "OpenDocument"
-- "presentasi"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "Kuasa format paragraf dengan Aspose.Slides untuk Android - optimalkan perataan, spasi, dan gaya dalam presentasi PPT, PPTX, serta ODP menggunakan Java."
+- menambah teks
+- menambah paragraf
+- mengelola teks
+- mengelola paragraf
+- mengelola bullet
+- indentasi paragraf
+- indentasi menggantung
+- bullet paragraf
+- daftar bernomor
+- daftar bullet
+- properti paragraf
+- impor HTML
+- teks ke HTML
+- paragraf ke HTML
+- paragraf ke gambar
+- teks ke gambar
+- ekspor paragraf
+- PowerPoint
+- presentasi
+- Android
+- Java
+- Aspose.Slides
+description: "Pelajari cara membuat dan memformat paragraf, bagian, bullet, daftar bernomor, indentasi, konten HTML, dan gambar paragraf dengan Aspose.Slides untuk Android via Java."
 ---
-## **Pendahuluan**
+## **Ikhtisar**
 
-Aspose.Slides menyediakan semua antarmuka dan kelas yang Anda perlukan untuk bekerja dengan teks, paragraf, dan bagian PowerPoint dalam Java.
+Aspose.Slides untuk Android via Java merepresentasikan teks sebagai hierarki bingkai teks, paragraf, dan bagian:
 
-* Aspose.Slides menyediakan antarmuka [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) untuk memungkinkan Anda menambahkan objek yang mewakili sebuah paragraf. Sebuah objek `ITextFame` dapat memiliki satu atau beberapa paragraf (setiap paragraf dibuat melalui karakter kembali baris).
-* Aspose.Slides menyediakan antarmuka [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/) untuk memungkinkan Anda menambahkan objek yang mewakili bagian-bagian. Sebuah objek `IParagraph` dapat memiliki satu atau beberapa bagian (koleksi objek iPortions).
-* Aspose.Slides menyediakan antarmuka [IPortion](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportion/) untuk memungkinkan Anda menambahkan objek yang mewakili teks dan properti formatnya.
+* [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) mewakili kontainer teks dalam sebuah bentuk dan menyediakan akses ke koleksi paragrafnya.
+* [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/) mewakili satu paragraf dalam sebuah bingkai teks dan menyediakan akses ke bagian‑bagian serta pemformatan tingkat paragraf.
+* [IPortion](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportion/) mewakili sebuah run teks di dalam paragraf. Setiap bagian dapat memiliki teks dan pemformatan tingkat karakter masing‑masing.
 
-Sebuah objek `IParagraph` mampu menangani teks dengan properti format yang berbeda melalui objek `IPortion` yang mendasarinya.
+Sehingga sebuah paragraf dapat berisi teks dengan font, warna, ukuran, dan pemformatan lain yang berbeda dengan menggunakan beberapa bagian.
 
-## **Menambahkan Beberapa Paragraf yang Memuat Beberapa Bagian Teks**
+## **Buat dan Format Paragraf**
 
-Langkah‑langkah ini menunjukkan cara menambahkan bingkai teks yang berisi 3 paragraf dan setiap paragraf berisi 3 bagian:
+### **Buat Paragraf dengan Beberapa Bagian**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah Rectangle [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-4. Dapatkan ITextFrame yang terkait dengan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/).
-5. Buat dua objek [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/) dan tambahkan ke koleksi `IParagraphs` dari [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/).
-6. Buat tiga objek [IPortion](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportion/) untuk setiap `IParagraph` baru (dua objek Portion untuk Paragraf default) dan tambahkan masing‑masing objek `IPortion` ke koleksi IPortion setiap `IParagraph`.
-7. Tetapkan teks untuk setiap bagian.
-8. Terapkan fitur format pilihan Anda ke setiap bagian menggunakan properti format yang diekspos oleh objek `IPortion`.
+Langkah‑langkah berikut membuat sebuah bingkai teks dengan tiga paragraf, masing‑masing berisi tiga bagian:
+
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
+2. Akses slide yang relevan melalui indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) berbentuk persegi panjang ke slide.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) milik shape.
+5. Gunakan paragraf default dan tambahkan dua objek [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/) lagi ke dalam text frame.
+6. Tambahkan cukup objek [IPortion](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportion/) untuk setiap paragraf agar masing‑masing berisi tiga bagian. Paragraf default sudah berisi satu bagian kosong.
+7. Atur teks setiap bagian.
+8. Terapkan pemformatan tingkat karakter melalui [IPortion.getPortionFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
 9. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java berikut merupakan implementasi langkah‑langkah menambahkan paragraf yang memuat bagian-bagian:
+Contoh Android via Java ini mengimplementasikan langkah‑langkah tersebut:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Mengakses slide pertama
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // Tambahkan AutoShape bertipe Rectangle
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // Akses TextFrame dari AutoShape
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // Buat Paragraph dan Portion dengan format teks yang berbeda
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -114,373 +108,287 @@ try {
         }
     }
 
-    //Tulis PPTX ke Disk
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Buat Daftar Bullet dan Bernomor**
 
-## **Mengelola Bullet Paragraf**
+### **Buat Daftar Bullet atau Bernomor**
 
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Paragraf berpoin selalu lebih mudah dibaca dan dipahami.
+Bullet dan penomoran memudahkan pemindaian item terkait. Di Aspose.Slides, pengaturan daftar didefinisikan melalui [IBulletFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/).
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide yang dipilih.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dari autoshape.
-5. Hapus paragraf default di dalam `TextFrame`.
-6. Buat instance paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/).
-7. Atur `Type` bullet untuk paragraf menjadi `Symbol` dan tetapkan karakter bullet.
-8. Atur `Text` paragraf.
-9. Atur `Indent` paragraf untuk bullet.
-10. Atur warna bullet.
-11. Atur tinggi bullet.
-12. Tambahkan paragraf baru ke koleksi paragraf `TextFrame`.
-13. Tambahkan paragraf kedua dan ulangi proses pada langkah 7 sampai 13.
-14. Simpan presentasi.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
+2. Akses slide yang relevan melalui indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide yang dipilih.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) milik shape.
+5. Hapus paragraf default dari text frame.
+6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/) untuk bullet simbol.
+7. Setel [IBulletFormat.setType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setType-int-) ke [BulletType.Symbol](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/bullettype/) dan tentukan karakter bullet.
+8. Atur teks paragraf, indent, warna bullet, dan tinggi bullet.
+9. Tambahkan paragraf ke text frame.
+10. Buat paragraf kedua dan setel [IBulletFormat.setType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setType-int-) ke [BulletType.Numbered](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/bullettype/).
+11. Konfigurasikan gaya bullet bernomor dan tambahkan paragraf ke text frame.
+12. Simpan presentasi.
 
-Kode Java berikut menunjukkan cara menambahkan bullet paragraf:
-
-```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-try {
-    // Mengakses slide pertama
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Menambahkan dan mengakses Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Mengakses text frame autoshape
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // Menghapus paragraf default
-    txtFrm.getParagraphs().removeAt(0);
-
-    // Membuat paragraf
-    Paragraph para = new Paragraph();
-
-    // Mengatur gaya bullet paragraf dan simbol
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // Mengatur teks paragraf
-    para.setText("Welcome to Aspose.Slides");
-
-    // Mengatur indent bullet
-    para.getParagraphFormat().setIndent(25);
-
-    // Mengatur warna bullet
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // set IsBulletHardColor ke true untuk menggunakan warna bullet sendiri
-
-    // Mengatur Tinggi Bullet
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // Menambahkan Paragraf ke text frame
-    txtFrm.getParagraphs().add(para);
-
-    // Membuat paragraf kedua
-    Paragraph para2 = new Paragraph();
-
-    // Mengatur tipe dan gaya bullet paragraf
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // Menambahkan teks paragraf
-    para2.setText("This is numbered bullet");
-
-    // Mengatur indent bullet
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // set IsBulletHardColor ke true untuk menggunakan warna bullet sendiri
-
-    // Mengatur Tinggi Bullet
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // Menambahkan Paragraf ke text frame
-    txtFrm.getParagraphs().add(para2);
-    
-    // Menyimpan presentasi yang telah dimodifikasi
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Mengelola Bullet Gambar**
-
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Paragraf gambar mudah dibaca dan dipahami.
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dari autoshape.
-5. Hapus paragraf default di dalam `TextFrame`.
-6. Buat instance paragraf pertama menggunakan kelas [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/).
-7. Muat gambar ke dalam [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/).
-8. Atur tipe bullet menjadi [Picture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/) dan tetapkan gambar.
-9. Atur `Text` Paragraph.
-10. Atur `Indent` Paragraph untuk bullet.
-11. Atur warna bullet.
-12. Atur tinggi bullet.
-13. Tambahkan paragraf baru ke koleksi paragraf `TextFrame`.
-14. Tambahkan paragraf kedua dan ulangi proses berdasarkan langkah‑langkah sebelumnya.
-15. Simpan presentasi yang telah dimodifikasi.
-
-Kode Java berikut menunjukkan cara menambahkan dan mengelola bullet gambar:
+Contoh Android via Java ini membuat bullet simbol dan bullet bernomor:
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
-    // Mengakses slide pertama
     ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // Membuat instance gambar untuk bullet
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    // Menambahkan dan mengakses Autoshape
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
 
-    // Mengakses textframe autoshape
-    ITextFrame textFrame = autoShape.getTextFrame();
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
 
-    // Menghapus paragraf default
-    textFrame.getParagraphs().removeAt(0);
-
-    // Membuat paragraf baru
-    Paragraph paragraph = new Paragraph();
-    paragraph.setText("Welcome to Aspose.Slides");
-
-    // Mengatur gaya bullet paragraf dan gambar
-    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // Mengatur Tinggi Bullet
-    paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // Menambahkan paragraf ke text frame
-    textFrame.getParagraphs().add(paragraph);
-
-    // Menulis presentasi sebagai file PPTX
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // Menulis presentasi sebagai file PPT
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+### **Gunakan Bullet Gambar**
 
-## **Mengelola Bullet Multi‑level**
+Bullet gambar memungkinkan Anda menggunakan gambar khusus alih‑alih simbol atau angka.
 
-Daftar bullet membantu Anda mengatur dan menyajikan informasi dengan cepat dan efisien. Bullet multi‑level mudah dibaca dan dipahami.
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) pada slide baru.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dari autoshape.
-5. Hapus paragraf default di dalam `TextFrame`.
-6. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/) dan atur depth ke 0.
-7. Buat instance paragraf kedua melalui kelas `Paragraph` dan atur depth ke 1.
-8. Buat instance paragraf ketiga melalui kelas `Paragraph` dan atur depth ke 2.
-9. Buat instance paragraf keempat melalui kelas `Paragraph` dan atur depth ke 3.
-10. Tambahkan paragraf‑paragraf baru ke koleksi paragraf `TextFrame`.
-11. Simpan presentasi yang telah dimodifikasi.
-
-Kode Java berikut menunjukkan cara menambahkan dan mengelola bullet multi‑level:
-
-```java
-// Membuat instance kelas Presentation yang mewakili file PPTX
-Presentation pres = new Presentation();
-try {
-    // Mengakses slide pertama
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Menambahkan dan mengakses Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Mengakses text frame autoshape yang dibuat
-    ITextFrame text = aShp.addTextFrame("");
-
-    // Menghapus paragraf default
-    text.getParagraphs().clear();
-
-    // Menambahkan paragraf pertama
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Mengatur tingkat bullet
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // Menambahkan paragraf kedua
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Mengatur tingkat bullet
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // Menambahkan paragraf ketiga
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Mengatur tingkat bullet
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // Menambahkan paragraf keempat
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Mengatur tingkat bullet
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // Menambahkan paragraf ke koleksi
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // Menulis presentasi sebagai file PPTX
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **Mengelola Paragraf dengan Daftar Bernomor Kustom**
-
-Antarmuka [IBulletFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/) menyediakan properti [NumberedBulletStartWith](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) dan lainnya yang memungkinkan Anda mengelola paragraf dengan penomoran atau format kustom.
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses slide yang berisi paragraf.
-3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dari autoshape.
-5. Hapus paragraf default di dalam `TextFrame`.
-6. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/) dan atur [NumberedBulletStartWith](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) menjadi 2.
-7. Buat instance paragraf kedua melalui kelas `Paragraph` dan atur `NumberedBulletStartWith` menjadi 3.
-8. Buat instance paragraf ketiga melalui kelas `Paragraph` dan atur `NumberedBulletStartWith` menjadi 7.
-9. Tambahkan paragraf‑paragraf baru ke koleksi paragraf `TextFrame`.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
+2. Akses slide yang relevan melalui indeksnya.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dan akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) miliknya.
+4. Hapus paragraf default dari text frame.
+5. Muat gambar bullet dan tambahkan ke koleksi gambar presentasi sebagai [IPPImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ippimage/).
+6. Buat sebuah [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/) dan atur teksnya.
+7. Setel [IBulletFormat.setType](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setType-int-) ke [BulletType.Picture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/bullettype/).
+8. Tetapkan gambar melalui [IBulletFormat.getPicture](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#getPicture--) dan atur tinggi bullet.
+9. Tambahkan paragraf ke text frame.
 10. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java berikut menunjukkan cara menambahkan dan mengelola paragraf dengan penomoran atau format kustom:
+Contoh Android via Java ini membuat bullet gambar:
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+import com.aspose.slides.*;
 
-    // Mengakses text frame autoshape yang dibuat
-    ITextFrame textFrame = shape.getTextFrame();
-
-    // Menghapus paragraf default yang ada
-    textFrame.getParagraphs().removeAt(0);
-
-    // Daftar pertama
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
-
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-
-
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-## **Menetapkan Indent Baris Pertama untuk Paragraf**
-
-Gunakan metode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk mengontrol indent baris pertama suatu paragraf. Metode ini hanya memindahkan baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris lainnya tetap sejajar dengan badan paragraf.
-
-Gunakan [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) bila Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) bila Anda hanya perlu memindahkan baris pertama.
-
-Contoh di bawah membuat beberapa paragraf dan menerapkan nilai indent yang berbeda untuk memperlihatkan bagaimana indent baris pertama memengaruhi tata letak paragraf.
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses slide target.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
-4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframe/) kosong ke shape dan hapus paragraf default.
-5. Buat beberapa paragraf dan atur nilai [Indent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) yang berbeda untuk masing‑masing.
-6. Tambahkan paragraf‑paragraf ke text frame.
-7. Simpan presentasi yang telah dimodifikasi.
-
-Kode ini menunjukkan cara menetapkan indent paragraf:
-
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
+    }
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
-    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph firstParagraph = new Paragraph();
+    Paragraph paragraph = new Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
+
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Buat Daftar Multilevel**
+
+Setel [IParagraphFormat.setDepth](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) untuk menempatkan paragraf pada level daftar yang berbeda. Level teratas memiliki kedalaman `0`.
+
+1. Buat sebuah [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan akses sebuah slide.
+2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dan bersihkan paragraf default dari bingkai teksnya.
+3. Buat empat paragraf dan konfigurasikan simbol bullet masing‑masing.
+4. Setel nilai [IParagraphFormat.setDepth](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) mereka menjadi `0`, `1`, `2`, dan `3`.
+5. Tambahkan paragraf ke text frame dan simpan presentasi.
+
+Contoh Android via Java ini membuat daftar bullet empat level:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
+
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
+
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
+
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Mulai Item Daftar Bernomor dengan Nilai Kustom**
+
+Gunakan [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) untuk mengatur nomor awal yang ditampilkan pada paragraf bernomor.
+
+1. Buat sebuah [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
+2. Bersihkan paragraf default dari bingkai teks shape.
+3. Buat tiga paragraf bernomor.
+4. Setel [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) ke `2`, `3`, dan `7` untuk paragraf masing‑masing.
+5. Tambahkan paragraf ke text frame dan simpan presentasi.
+
+Contoh Android via Java ini menetapkan nomor awal kustom untuk setiap paragraf:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Kontrol Tata Letak Paragraf dan Properti Akhir**
+
+### **Atur Indent Baris Pertama**
+
+Gunakan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk mengontrol indent baris pertama sebuah paragraf. Metode ini memindahkan hanya baris pertama relatif terhadap margin kiri paragraf. Nilai positif menggeser baris pertama ke kanan, sementara baris‑baris lainnya tetap rata dengan badan paragraf.
+
+Gunakan [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) ketika Anda perlu memindahkan seluruh paragraf. Gunakan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ketika Anda hanya perlu memindahkan baris pertama.
+
+Contoh di bawah ini membuat beberapa paragraf dan menerapkan nilai‑nilai [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) yang berbeda untuk menunjukkan bagaimana indent baris pertama memengaruhi tata letak paragraf.
+
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
+2. Akses slide target.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) persegi panjang ke slide.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) milik shape dan hapus paragraf default.
+5. Buat beberapa paragraf dan setel nilai‑nilai [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) yang berbeda untuk masing‑masing.
+6. Tambahkan paragraf ke text frame.
+7. Simpan presentasi yang telah dimodifikasi.
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
     firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -489,60 +397,60 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Indent baris pertama paragraf](first_line_indent.png)
+![Indent baris pertama dari paragraf](first_line_indent.png)
 
-## **Menetapkan Indent Menggantung untuk Paragraf**
+### **Atur Indent Menggantung**
 
-Indent menggantung adalah tata letak paragraf di mana baris pertama dimulai lebih ke kiri dibandingkan baris‑baris berikutnya. Di Aspose.Slides, Anda menciptakan efek ini dengan metode [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Tetapkan indent ke nilai negatif untuk menggeser baris pertama ke kiri relatif terhadap badan paragraf.
+Indent menggantung adalah tata letak paragraf di mana baris pertama mulai di sebelah kiri baris‑baris berikutnya. Di Aspose.Slides, Anda menciptakan efek ini dengan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Berikan nilai negatif untuk menggerakkan baris pertama ke kiri relatif terhadap badan paragraf.
 
-Secara praktik, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) menentukan posisi kiri badan paragraf, dan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, atur nilai `MarginLeft` positif dan nilai `Indent` negatif.
+Dalam praktiknya, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) menentukan posisi kiri badan paragraf, dan [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) menentukan posisi baris pertama relatif terhadap margin tersebut. Untuk membuat indent menggantung, berikan nilai positif pada `setMarginLeft` dan nilai negatif pada `setIndent`.
 
-Format ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris yang dibungkus harus sejajar di bawah badan paragraf, bukan di bawah karakter pertama baris pertama.
+Pemformatan ini berguna untuk bibliografi, referensi, entri glosarium, dan paragraf lain di mana baris‑baris yang dibungkus harus rata di bawah badan paragraf bukan di bawah karakter pertama baris pertama.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
 2. Akses slide target.
-3. Tambahkan sebuah [AutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/autoshape/) berbentuk persegi panjang ke slide.
-4. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframe/) kosong ke shape dan hapus paragraf default.
-5. Buat paragraf‑paragraf dan atur nilai [MarginLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) positif untuk masing‑masing.
-6. Atur nilai [Indent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) negatif untuk menciptakan efek indent menggantung.
-7. Tambahkan paragraf‑paragraf ke text frame.
+3. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) persegi panjang ke slide.
+4. Akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) milik shape dan hapus paragraf default.
+5. Buat paragraf‑paragraf dan berikan nilai positif pada [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) untuk masing‑masing.
+6. Berikan nilai negatif pada [IParagraphFormat.setIndent](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) untuk menciptakan efek indent menggantung.
+7. Tambahkan paragraf ke text frame.
 8. Simpan presentasi yang telah dimodifikasi.
 
-Kode ini menunjukkan cara menetapkan indent menggantung untuk paragraf:
-
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -550,256 +458,247 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
-Hasilnya:
+Hasil:
 
-![Indent menggantung paragraf](hanging_indent.png)
+![Indent menggantung dari paragraf](hanging_indent.png)
 
-## **Mengelola Properti Jalur Akhir Paragraf**
+### **Setel Properti Run Akhir Paragraf**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-1. Dapatkan referensi slide yang berisi paragraf melalui posisinya.
-1. Tambahkan sebuah rectangle [autoshape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-1. Tambahkan sebuah [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) dengan dua paragraf ke Rectangle.
-1. Tetapkan `FontHeight` dan jenis Font untuk paragraf‑paragraf.
-1. Tetapkan properti End untuk paragraf‑paragraf.
-1. Tulis presentasi yang telah dimodifikasi sebagai file PPTX.
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) mengontrol pemformatan tanda akhir paragraf. Contoh berikut menetapkan ukuran font dan font Latin pada tanda akhir paragraf kedua:
 
-Kode Java berikut menunjukkan cara menetapkan properti End untuk paragraf dalam PowerPoint:
+1. Muat sebuah [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan akses sebuah slide.
+2. Tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) dan bersihkan paragraf defaultnya.
+3. Buat dua paragraf dan tambahkan bagian‑bagian teks ke dalamnya.
+4. Buat sebuah [PortionFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/portionformat/) untuk tanda akhir paragraf kedua.
+5. Setel [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) dan [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Tetapkan format tersebut dengan [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) dan simpan presentasi.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **Impor dan Ekspor Konten Paragraf**
 
-## **Mengimpor Teks HTML ke dalam Paragraf**
+### **Impor Teks HTML ke dalam Paragraf**
 
-Aspose.Slides menyediakan dukungan yang ditingkatkan untuk mengimpor teks HTML ke dalam paragraf.
+Gunakan [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) untuk mengonversi markup HTML menjadi paragraf dan bagian dalam sebuah bingkai teks.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-2. Akses referensi slide yang relevan melalui indeksnya.
-3. Tambahkan sebuah [autoshape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) ke slide.
-4. Tambahkan dan akses `autoshape` [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/).
-5. Hapus paragraf default di dalam `ITextFrame`.
-6. Baca file HTML sumber menggunakan TextReader.
-7. Buat instance paragraf pertama melalui kelas [Paragraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraph/).
-8. Tambahkan konten file HTML yang dibaca dari TextReader ke [ParagraphCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphcollection/) pada TextFrame.
-9. Simpan presentasi yang telah dimodifikasi.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
+2. Akses sebuah slide dan tambahkan sebuah [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/).
+3. Akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) shape dan bersihkan paragraf defaultnya.
+4. Baca file HTML sumber.
+5. Serahkan string HTML ke [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Simpan presentasi yang telah dimodifikasi.
 
-Kode Java ini merupakan implementasi langkah‑langkah mengimpor teks HTML ke dalam paragraf:
+Contoh Android via Java ini mengimpor HTML ke dalam bingkai teks:
 
 ```java
-// Buat instance presentasi kosong
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // Akses slide pertama default dari presentasi
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // Menambahkan AutoShape untuk menampung konten HTML
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Menambahkan text frame ke shape
-    ashape.addTextFrame("");
-
-    // Membersihkan semua paragraf di text frame yang ditambahkan
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // Memuat file HTML menggunakan stream reader
-    TextReader tr = new StreamReader("file.html");
-
-    // Menambahkan teks dari stream reader HTML ke text frame
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // Menyimpan Presentasi
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+### **Ekspor Teks Paragraf ke HTML**
 
-## **Mengekspor Teks Paragraf ke HTML**
+Gunakan [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) untuk mengekspor rentang paragraf yang dipilih sebagai HTML.
 
-Aspose.Slides menyediakan dukungan yang ditingkatkan untuk mengekspor teks (yang terdapat dalam paragraf) ke HTML.
+1. Buat sebuah instance dari kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi yang diinginkan.
+2. Akses slide dan temukan [IAutoShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iautoshape/) yang berisi teks.
+3. Akses [ITextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframe/) shape.
+4. Panggil [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) dengan indeks paragraf awal dan jumlah paragraf yang akan diekspor.
+5. Tulis string HTML yang dikembalikan ke sebuah file.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/) dan muat presentasi yang diinginkan.
-2. Akses referensi slide yang relevan melalui indeksnya.
-3. Akses shape yang berisi teks yang akan diekspor ke HTML.
-4. Akses [TextFrame](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframe/) pada shape tersebut.
-5. Buat instance `StreamWriter` dan tambahkan file HTML baru.
-6. Berikan indeks awal ke StreamWriter dan ekspor paragraf‑paragraf pilihan Anda.
-
-Kode Java berikut menunjukkan cara mengekspor teks paragraf PowerPoint ke HTML:
+Contoh Android via Java ini mengekspor semua paragraf dari shape teks pertama:
 
 ```java
-// Muat file presentasi
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // Akses slide pertama default dari presentasi
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Indeks yang diinginkan
-    int index = 0;
-
-    // Mengakses shape yang ditambahkan
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // Membuat file HTML output
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    // Mengekstrak paragraf pertama sebagai HTML
-    // Menulis data Paragraf ke HTML dengan memberikan indeks awal paragraf, total paragraf yang akan disalin
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Menyimpan Paragraf sebagai Gambar**
+### **Render Paragraf sebagai Gambar**
 
-Pada bagian ini, kami akan mengeksplorasi dua contoh yang menunjukkan cara menyimpan paragraf teks, yang diwakili oleh antarmuka [IParagraph](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/), sebagai gambar. Kedua contoh mencakup memperoleh gambar shape yang berisi paragraf menggunakan metode `getImage` dari antarmuka [IShape](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/), menghitung batas paragraf di dalam shape, dan mengekspornya sebagai gambar bitmap. Pendekatan ini memungkinkan Anda mengekstrak bagian‑bagian tertentu dari teks dalam presentasi PowerPoint dan menyimpannya sebagai gambar terpisah, yang dapat berguna untuk penggunaan lebih lanjut dalam berbagai skenario.
+[IParagraph.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#getImage--) merender sebuah paragraf individu secara langsung dan mengembalikan sebuah [IImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/). Simpan hasilnya ke file atau stream dengan [IImage.save](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Anda tidak perlu merender shape yang memuatnya atau memotong bitmap secara manual.
 
-Misalkan kita memiliki file presentasi bernama **sample.pptx** dengan satu slide, di mana shape pertama adalah kotak teks yang berisi tiga paragraf.
+[IParagraph.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#getImage--) dapat mengembalikan `null` jika paragraf tidak ditemukan dalam koleksi induknya, tidak memiliki batas render yang valid, atau tidak dapat dirender. Periksa hasilnya sebelum menyimpannya dan buang gambar yang dikembalikan setelah penggunaan.
+
+#### **Render Paragraf pada Skala Default**
+
+Misalkan kita memiliki file presentasi bernama sample.pptx dengan satu slide, di mana shape pertama adalah kotak teks yang berisi tiga paragraf.
 
 ![Kotak teks dengan tiga paragraf](paragraph_to_image_input.png)
 
-**Contoh 1**
-
-Dalam contoh ini, kami memperoleh paragraf kedua sebagai gambar. Untuk melakukannya, kami mengekstrak gambar shape dari slide pertama presentasi, kemudian menghitung batas paragraf kedua dalam text frame shape tersebut. Paragraf kemudian digambar ulang pada gambar bitmap baru, yang disimpan dalam format PNG. Metode ini sangat berguna ketika Anda perlu menyimpan paragraf tertentu sebagai gambar terpisah sambil mempertahankan dimensi dan format teks yang tepat.
+Contoh berikut merender paragraf kedua dalam shape teks biasa pada skala default dan menyimpan gambar yang dikembalikan dalam format PNG. Blok `finally` memastikan gambar dibuang dengan benar.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Simpan shape dalam memori sebagai bitmap.
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // Buat bitmap shape dari memori.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Hitung batas paragraf kedua.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // Hitung koordinat dan ukuran untuk gambar output (ukuran minimum - 1x1 piksel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // Potong bitmap shape untuk mendapatkan bitmap paragraf saja.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-Hasilnya:
+Hasil:
 
 ![Gambar paragraf](paragraph_to_image_output.png)
 
-**Contoh 2**
+#### **Render Paragraf dalam Sel Tabel dengan Skala**
 
-Dalam contoh ini, kami memperluas pendekatan sebelumnya dengan menambahkan faktor skala pada gambar paragraf. Shape diekstrak dari presentasi dan disimpan sebagai gambar dengan faktor skala `2`. Hal ini memungkinkan keluaran dengan resolusi lebih tinggi saat mengekspor paragraf. Batas paragraf kemudian dihitung dengan mempertimbangkan skala. Skala dapat sangat berguna ketika dibutuhkan gambar yang lebih detail, misalnya untuk penggunaan dalam materi cetak berkualitas tinggi.
+Gunakan overload [IParagraph.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) yang menerima parameter `float scaleX` dan `float scaleY` untuk mengatur faktor skala horizontal dan vertikal. Contoh berikut membuat sebuah tabel, merender paragraf dalam sel pertama dengan lebar dan tinggi dua kali lipat skala default, dan menyimpan hasilnya sebagai gambar PNG.
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // Simpan shape dalam memori sebagai bitmap dengan skala.
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Buat bitmap shape dari memori.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Hitung batas paragraf kedua.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // Hitung koordinat dan ukuran untuk gambar output (ukuran minimum - 1x1 piksel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // Potong bitmap shape untuk mendapatkan bitmap paragraf saja.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+Faktor skala `1` mempertahankan ukuran pixel default pada sumbu tersebut. Misalnya, `2` untuk kedua faktor menghasilkan gambar yang lebar dan tingginya kira‑kira dua kali dimensi default, sehingga memiliki empat kali lebih banyak pixel. Faktor yang lebih besar umumnya menghasilkan teks yang lebih tajam untuk zoom atau output resolusi tinggi, tetapi juga meningkatkan penggunaan memori dan ukuran file. Faktor di bawah `1` menghasilkan gambar lebih kecil dengan detail lebih sedikit. Gunakan faktor yang sama untuk mempertahankan rasio aspek paragraf; faktor horizontal dan vertikal yang berbeda akan meregangkan output secara independen.
+
+Merender seluruh shape dengan [IShape.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ishape/#getImage--) tetap berguna ketika output harus mencakup isi, batas, atau konteks visual lain dari shape. Untuk gambar hanya paragraf, gunakan [IParagraph.getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#getImage--).
+
 ## **FAQ**
 
-**Apakah saya dapat menonaktifkan sepenuhnya pembungkus baris di dalam text frame?**
+**Apakah saya dapat sepenuhnya menonaktifkan pembungkusan baris di dalam text frame?**
 
-Ya. Gunakan pengaturan pembungkus text frame ([setWrapText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) untuk mematikan pembungkus sehingga baris tidak terpotong di tepi frame.
+Ya. Setel [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) untuk menonaktifkan pembungkusan sehingga baris tidak terputus di tepi text frame.
 
-**Bagaimana cara mendapatkan batas tepat pada slide untuk paragraf tertentu?**
+**Bagaimana saya dapat memperoleh batas tepat pada slide dari paragraf tertentu?**
 
-Anda dapat memperoleh persegi panjang pembatas paragraf (bahkan untuk satu bagian) untuk mengetahui posisi dan ukuran tepatnya pada slide.
+Gunakan [IParagraph.getRect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraph/#getRect--) untuk mengambil persegi panjang pembatas paragraf. [IPortion.getRect](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iportion/#getRect--) menyediakan batas bagian individu.
 
-**Di mana pengaturan perataan paragraf (kiri/kanan/tengah/justify) dikendalikan?**
+**Di mana pengaturan perataan paragraf (kiri, kanan, tengah, atau justify) dikontrol?**
 
-[Alignment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) adalah pengaturan tingkat paragraf di [ParagraphFormat](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/paragraphformat/); ia berlaku untuk seluruh paragraf terlepas dari format bagian individual.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) adalah pengaturan tingkat paragraf dan berlaku untuk seluruh paragraf terlepas dari pemformatan bagian individu.
 
-**Apakah saya dapat menetapkan bahasa pemeriksaan ejaan hanya untuk bagian tertentu dari paragraf (misalnya satu kata)?**
+**Apakah saya dapat mengatur bahasa pemeriksaan ejaan untuk sebagian paragraf?**
 
-Ya. Bahasa diatur pada tingkat bagian ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)), sehingga beberapa bahasa dapat hidup berdampingan dalam satu paragraf.
+Ya. Setel [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) untuk bagian‑bagian individu, sehingga satu paragraf dapat berisi teks dalam beberapa bahasa.

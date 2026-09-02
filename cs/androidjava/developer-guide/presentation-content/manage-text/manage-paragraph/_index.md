@@ -1,9 +1,12 @@
 ---
-title: Správa textových odstavců PowerPointu na Androidu
-linktitle: Správa odstavce
+title: Správa odstavců textu PowerPointu na Androidu
+linktitle: Spravovat odstavec
 type: docs
 weight: 40
 url: /cs/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
+  - /androidjava/portion/
 keywords:
 - přidat text
 - přidat odstavec
@@ -11,10 +14,10 @@ keywords:
 - spravovat odstavec
 - spravovat odrážku
 - odsazení odstavce
-- zavěšené odsazení
+- závěsné odsazení
 - odrážka odstavce
 - číslovaný seznam
-- seznam s odrážkami
+- odrážkový seznam
 - vlastnosti odstavce
 - importovat HTML
 - text do HTML
@@ -23,89 +26,80 @@ keywords:
 - text na obrázek
 - exportovat odstavec
 - PowerPoint
-- OpenDocument
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Ovládněte formátování odstavců pomocí Aspose.Slides pro Android — optimalizujte zarovnání, rozestupy a styl v prezentacích PPT, PPTX a ODP v jazyce Java."
+description: "Naučte se, jak vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro Android přes Java."
 ---
-## **Úvod**
+## **Přehled**
 
-Aspose.Slides poskytuje všechny rozhraní a třídy, které potřebujete pro práci s texty, odstavci a částmi PowerPointu v jazyce Java.
+Aspose.Slides pro Android via Java představuje text jako hierarchii textových rámců, odstavců a částí:
 
-* Aspose.Slides poskytuje rozhraní [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) , které vám umožní přidávat objekty představující odstavec. Objekt `ITextFame` může obsahovat jeden nebo více odstavců (každý odstavec je vytvořen pomocí návratového znaku).
-* Aspose.Slides poskytuje rozhraní [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) , které vám umožní přidávat objekty představující části. Objekt `IParagraph` může mít jednu nebo více částí (kolekci objektů iPortions).
-* Aspose.Slides poskytuje rozhraní [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) , které vám umožní přidávat objekty představující texty a jejich formátovací vlastnosti.
+* [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho kolekci odstavců.
+* [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
+* [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) představuje běh textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
 
-Objekt `IParagraph` je schopen zpracovávat texty s různými formátovacími vlastnostmi prostřednictvím svých podřízených objektů `IPortion`.
+Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí více částí.
 
-## **Přidání více odstavců obsahujících více textových částí**
+## **Vytváření a formátování odstavců**
 
-Tyto kroky vám ukážou, jak přidat textový rámec obsahující 3 odstavce a každý odstavec obsahující 3 části:
+### **Vytvoření odstavců s více částmi**
+
+Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři části:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte na snímek obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-4. Získejte ITextFrame spojený s [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-5. Vytvořte dva objekty [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) , a přidejte je do kolekce `IParagraphs` v [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/).
-6. Vytvořte tři objekty [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) pro každý nový `IParagraph` (dvě objekty Portion pro výchozí odstavec) a přidejte každý objekt `IPortion` do kolekce IPortion každého `IParagraph`.
+2. Přistupte k odpovídajícímu snímku pomocí jeho indexu.
+3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru.
+5. Použijte výchozí odstavec a přidejte další dva objekty [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) do textového rámce.
+6. Přidejte dostatek objektů [IPortion](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/) pro každý odstavec tak, aby obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
 7. Nastavte text pro každou část.
-8. Použijte požadované formátovací vlastnosti na každou část pomocí formátovacích vlastností nabízených objektem `IPortion`.
+8. Použijte formátování na úrovni znaků pomocí [IPortion.getPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/#getPortionFormat--).
 9. Uložte upravenou prezentaci.
 
-Tento Java kód je implementací kroků pro přidání odstavců obsahujících části:
+Tento příklad Android via Java implementuje tyto kroky:
 
 ```java
-// Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // Přístup k prvnímu snímku
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // Přidejte AutoShape typu Obdélník
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // Získejte TextFrame AutoShape
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // Vytvořte odstavce a části s různými formáty textu
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -114,369 +108,289 @@ try {
         }
     }
 
-    // Uložte PPTX na disk
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Správa odrážek odstavců**
+## **Vytváření odrážkových a číslovaných seznamů**
 
-Seznamy s odrážkami vám pomáhají rychle a efektivně organizovat a prezentovat informace. Odstavce s odrážkami jsou vždy snazší číst a pochopit.
+### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte na vybraný snímek [autoshape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/).
-7. Nastavte typ odrážky `Type` odstavce na `Symbol` a nastavte znak odrážky.
-8. Nastavte `Text` odstavce.
-9. Nastavte `Indent` odstavce pro odrážku.
-10. Nastavte barvu odrážky.
-11. Nastavte výšku odrážky.
-12. Přidejte nový odstavec do kolekce odstavců `TextFrame`.
-13. Přidejte druhý odstavec a opakujte postup uvedený v krocích 7 až 13.
-14. Uložte prezentaci.
-
-Tento Java kód vám ukazuje, jak přidat odrážku odstavce:
-
-```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Přistupuje k prvnímu snímku
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Přidá a přistoupí k Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Přistupuje k textovému rámci autoshape
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // Odstraní výchozí odstavec
-    txtFrm.getParagraphs().removeAt(0);
-
-    // Vytvoří odstavec
-    Paragraph para = new Paragraph();
-
-    // Nastaví styl odrážky odstavce a symbol
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // Nastaví text odstavce
-    para.setText("Welcome to Aspose.Slides");
-
-    // Nastaví odsazení odrážky
-    para.getParagraphFormat().setIndent(25);
-
-    // Nastaví barvu odrážky
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // nastavit IsBulletHardColor na true pro použití vlastní barvy odrážky
-
-    // Nastaví výšku odrážky
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // Přidá odstavec do textového rámce
-    txtFrm.getParagraphs().add(para);
-
-    // Vytvoří druhý odstavec
-    Paragraph para2 = new Paragraph();
-
-    // Nastaví typ a styl odrážky odstavce
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // Přidá text odstavce
-    para2.setText("This is numbered bullet");
-
-    // Nastaví odsazení odrážky
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // nastavit IsBulletHardColor na true pro použití vlastní barvy odrážky
-
-    // Nastaví výšku odrážky
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // Přidá odstavec do textového rámce
-    txtFrm.getParagraphs().add(para2);
-    
-    // Uloží upravenou prezentaci
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Správa obrázkových odrážek**
-
-Seznamy s odrážkami vám pomáhají rychle a efektivně organizovat a prezentovat informace. Odrážky s obrázky jsou snadno čitelné a pochopitelné.
+Odrážky a číslování usnadňují skenování souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [IBulletFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/).
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte na snímek [autoshape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/).
-7. Načtěte obrázek do [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/).
-8. Nastavte typ odrážky na [Picture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/) a nastavte obrázek.
-9. Nastavte `Text` odstavce.
-10. Nastavte `Indent` odstavce pro odrážku.
-11. Nastavte barvu odrážky.
-12. Nastavte výšku odrážky.
-13. Přidejte nový odstavec do kolekce odstavců `TextFrame`.
-14. Přidejte druhý odstavec a opakujte postup podle předchozích kroků.
-15. Uložte upravenou prezentaci.
+2. Přistupte k odpovídajícímu snímku pomocí jeho indexu.
+3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na vybraný snímek.
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru.
+5. Odstraňte výchozí odstavec z textového rámce.
+6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/) pro symbolickou odrážku.
+7. Nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Symbol](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/bullettype/) a určete znak odrážky.
+8. Nastavte text odstavce, odsazení, barvu odrážky a výšku odrážky.
+9. Přidejte odstavec do textového rámce.
+10. Vytvořte druhý odstavec a nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Numbered](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/bullettype/).
+11. Nakonfigurujte styl číslované odrážky a přidejte odstavec do textového rámce.
+12. Uložte prezentaci.
 
-Tento Java kód vám ukazuje, jak přidávat a spravovat obrázkové odrážky:
+Tento příklad Android via Java vytvoří symbolickou odrážku a číslovanou odrážku:
 
 ```java
-    // Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-    Presentation presentation = new Presentation();
-    try {
-        // Přistupuje k prvnímu snímku
-        ISlide slide = presentation.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-        // Vytvoří obrázek pro odrážky
-        IPPImage picture;
-        IImage image = Images.fromFile("bullets.png");
-        try {
-            picture = presentation.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-        // Přidá a získá autoshape
-        IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-        // Přistupuje k textovému rámci autoshape
-        ITextFrame textFrame = autoShape.getTextFrame();
-
-        // Odstraní výchozí odstavec
-        textFrame.getParagraphs().removeAt(0);
-
-        // Vytvoří nový odstavec
-        Paragraph paragraph = new Paragraph();
-        paragraph.setText("Welcome to Aspose.Slides");
-
-        // Nastaví styl odrážky odstavce a obrázek
-        paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-        paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-        // Nastaví výšku odrážky
-        paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-        // Přidá odstavec do textového rámce
-        textFrame.getParagraphs().add(paragraph);
-
-        // Uloží prezentaci jako soubor PPTX
-        presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-        // Uloží prezentaci jako soubor PPT
-        presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-    } catch (IOException e) {
-    } finally {
-        if (presentation != null) presentation.dispose();
-    }
-```
-
-## **Správa vícestupňových odrážek**
-
-Seznamy s odrážkami vám pomáhají rychle a efektivně organizovat a prezentovat informace. Vícestupňové odrážky jsou snadno čitelné a pochopitelné.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte na nový snímek [autoshape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/) a nastavte hloubku na 0.
-7. Vytvořte druhý odstavec pomocí třídy `Paragraph` a nastavte hloubku na 1.
-8. Vytvořte třetí odstavec pomocí třídy `Paragraph` a nastavte hloubku na 2.
-9. Vytvořte čtvrtý odstavec pomocí třídy `Paragraph` a nastavte hloubku na 3.
-10. Přidejte nové odstavce do kolekce odstavců `TextFrame`.
-11. Uložte upravenou prezentaci.
-
-Tento Java kód vám ukazuje, jak přidávat a spravovat vícestupňové odrážky:
-
-```java
-// Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-Presentation pres = new Presentation();
-try {
-    // Přistupuje k prvnímu snímku
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // Přidá a přistoupí k Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Přistupuje k textovému rámci vytvořeného autoshape
-    ITextFrame text = aShp.addTextFrame("");
-
-    // Vymaže výchozí odstavec
-    text.getParagraphs().clear();
-
-    // Přidá první odstavec
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Nastaví úroveň odrážky
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // Přidá druhý odstavec
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Nastaví úroveň odrážky
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // Přidá třetí odstavec
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Nastaví úroveň odrážky
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // Přidá čtvrtý odstavec
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // Nastaví úroveň odrážky
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // Přidá odstavce do kolekce
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // Uloží prezentaci jako soubor PPTX
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Správa odstavce s vlastním číslovaným seznamem**
-
-Rozhraní [IBulletFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/) poskytuje vlastnost [NumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) a další, které vám umožňují spravovat odstavce s vlastním číslováním nebo formátováním.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte snímek obsahující odstavec.
-3. Přidejte na snímek [autoshape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/) a nastavte [NumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) na 2.
-7. Vytvořte druhý odstavec pomocí třídy `Paragraph` a nastavte `NumberedBulletStartWith` na 3.
-8. Vytvořte třetí odstavec pomocí třídy `Paragraph` a nastavte `NumberedBulletStartWith` na 7.
-9. Přidejte nové odstavce do kolekce odstavců `TextFrame`.
-10. Uložte upravenou prezentaci.
-
-Tento Java kód vám ukazuje, jak přidávat a spravovat odstavce s vlastním číslováním nebo formátováním:
-
-```java
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // Přistupuje k textovému rámci vytvořeného autoshape
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // Odstraňuje výchozí existující odstavec
-    textFrame.getParagraphs().removeAt(0);
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
 
-    // První seznam
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
 
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-
-
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Nastavení odsazení první řádky odstavce**
+### **Použití obrázkových odrážek**
 
-Použijte metodu [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) , která řídí odsazení první řádky odstavce. Tato metoda posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbylé řádky zůstávají zarovnány k tělu odstavce.
-
-Použijte [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) , když potřebujete posunout celý odstavec. Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) , když potřebujete posunout jen první řádek.
-
-Níže uvedený příklad vytvoří několik odstavců a použije různé hodnoty odsazení, aby ukázal, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte cílový snímek.
-3. Přidejte na snímek obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/autoshape/).
-4. Přidejte k tvaru prázdný [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textframe/) a odstraňte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [Indent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) .
-6. Přidejte odstavce do textového rámce.
-7. Uložte upravenou prezentaci.
+2. Přistupte k odpovídajícímu snímku pomocí jeho indexu.
+3. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a získejte jeho [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/).
+4. Odstraňte výchozí odstavec z textového rámce.
+5. Načtěte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [IPPImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ippimage/).
+6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/) a nastavte jeho text.
+7. Nastavte [IBulletFormat.setType](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setType-int-) na [BulletType.Picture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/bullettype/).
+8. Přiřaďte obrázek pomocí [IBulletFormat.getPicture](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#getPicture--) a nastavte výšku odrážky.
+9. Přidejte odstavec do textového rámce.
+10. Uložte upravenou prezentaci.
 
-Tento kód vám ukazuje, jak nastavit odsazení odstavce:
+Tento příklad Android via Java vytvoří obrázkovou odrážku:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
+    }
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
-    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph firstParagraph = new Paragraph();
+    Paragraph paragraph = new Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
+
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Vytvoření víceúrovňového seznamu**
+
+Nastavte [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
+
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a přistupte k snímku.
+2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a vymažte výchozí odstavec z jeho textového rámce.
+3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
+4. Nastavte jejich hodnoty [IParagraphFormat.setDepth](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) na `0`, `1`, `2` a `3`.
+5. Přidejte odstavce do textového rámce a uložte prezentaci.
+
+Tento příklad Android via Java vytvoří čtyřúrovňový odrážkový seznam:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
+
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
+
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
+
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **Zahájení číslovaných položek seznamu vlastní hodnotou**
+
+Použijte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) pro nastavení počátečního čísla zobrazovaného pro číslovaný odstavec.
+
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+2. Vymažte výchozí odstavec z textového rámce tvaru.
+3. Vytvořte tři číslované odstavce.
+4. Nastavte [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) na `2`, `3` a `7` pro příslušné odstavce.
+5. Přidejte odstavce do textového rámce a uložte prezentaci.
+
+Tento příklad Android via Java přiřadí každému odstavci vlastní počáteční číslo:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Řízení rozvržení odstavců a koncových vlastností**
+
+### **Nastavení odsazení první řádky**
+
+Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pro kontrolu odsazení první řádky odstavce. Tato metoda posouvá jen první řádek relativně k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbývající řádky zůstanou zarovnané k tělu odstavce.
+
+Použijte [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) když potřebujete posunout celý odstavec. Použijte [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) když potřebujete posunout jen první řádek.
+
+Níže uvedený příklad vytvoří několik odstavců a aplikuje různé hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) k demonstraci, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
+2. Přistupte k cílovému snímku.
+3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-).
+6. Přidejte odstavce do textového rámce.
+7. Uložte upravenou prezentaci.
+
+Tento kód ukazuje, jak nastavit odsazení odstavce:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
     firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -485,8 +399,7 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
@@ -495,50 +408,53 @@ Výsledek:
 
 ![Odsazení první řádky odstavců](first_line_indent.png)
 
-## **Nastavení zavěšeného odsazení pro odstavec**
+### **Nastavení závěsného odsazení**
 
-Zavěšené odsazení je rozvržení odstavce, kde první řádek začíná vlevo od zbylých řádků. V Aspose.Slides vytvoříte tento efekt pomocí metody [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) . Nastavte odsazení na zápornou hodnotu, aby se první řádek posunul doleva vůči tělu odstavce.
+Závěsné odsazení je rozvržení odstavce, ve kterém první řádek začíná vlevo od zbývajících řádků. V Aspose.Slides tento efekt vytvoříte pomocí [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-). Zadejte zápornou hodnotu pro posun první řádky doleva relativně k tělu odstavce.
 
-V praxi [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) určuje levý pozici těla odstavce a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
+V praxi [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) určuje levou pozici těla odstavce a [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) určuje pozici první řádky relativně k tomuto okraji. Pro vytvoření závěsného odsazení zadejte kladnou hodnotu do `setMarginLeft` a zápornou hodnotu do `setIndent`.
 
-Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde musí zalomené řádky být zarovnány pod tělem odstavce místo pod prvním znakem první řádky.
+Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde obalované řádky musí být zarovnány pod tělo odstavce místo pod první znak první řádky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte cílový snímek.
-3. Přidejte na snímek obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/autoshape/).
-4. Přidejte k tvaru prázdný [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textframe/) a odstraňte výchozí odstavec.
-5. Vytvořte odstavce a nastavte pro každý odstavec kladnou hodnotu [MarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) .
-6. Nastavte zápornou hodnotu [Indent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) , aby vznikl efekt zavěšeného odsazení.
+2. Přistupte k cílovému snímku.
+3. Přidejte obdélníkový [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) na snímek.
+4. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte odstavce a zadejte kladnou hodnotu do [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) pro každý odstavec.
+6. Zadejte zápornou hodnotu do [IParagraphFormat.setIndent](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) pro vytvoření efektu závěsného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
 
-Tento kód vám ukazuje, jak nastavit zavěšené odsazení pro odstavec:
+Tento kód ukazuje, jak nastavit závěsné odsazení odstavce:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -546,185 +462,190 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 Výsledek:
 
-![Zavěšené odsazení odstavců](hanging_indent.png)
+![Závěsné odsazení odstavců](hanging_indent.png)
 
-## **Správa koncových vlastností běhu odstavce**
+### **Nastavení koncových vlastností běhu odstavce**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte odkaz na snímek obsahující odstavec pomocí jeho pozice.
-3. Přidejte na snímek obdélníkový [autoshape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) .
-4. Přidejte do obdélníku [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) se dvěma odstavci.
-5. Nastavte `FontHeight` a typ písma pro odstavce.
-6. Nastavte koncové (End) vlastnosti pro odstavce.
-7. Zapište upravenou prezentaci jako soubor PPTX.
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) řídí formátování koncového značky odstavce. Následující příklad přiřadí velikost písma a latinské písmo ke koncové značce druhého odstavce:
 
-Tento Java kód vám ukazuje, jak nastavit koncové (End) vlastnosti pro odstavce v PowerPointu:
+1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a přistupte k snímku.
+2. Přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) a vymažte jeho výchozí odstavec.
+3. Vytvořte dva odstavce a přidejte k nim textové části.
+4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/portionformat/) pro koncovou značku druhého odstavce.
+5. Nastavte [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) a [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Přiřaďte formát pomocí [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) a uložte prezentaci.
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Import HTML textu do odstavců**
+## **Import a export obsahu odstavců**
 
-Aspose.Slides poskytuje rozšířenou podporu pro import HTML textu do odstavců.
+### **Import HTML textu do odstavců**
+
+Použijte [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) pro konverzi HTML značek na odstavce a části v textovém rámci.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte na snímek [autoshape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/) .
-4. Přidejte a získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) autoshape.
-5. Odstraňte výchozí odstavec v `ITextFrame` .
-6. Načtěte zdrojový HTML soubor pomocí TextReader.
-7. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraph/) .
-8. Přidejte obsah HTML souboru ze čteného TextReaderu do [ParagraphCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/) TextFrame.
-9. Uložte upravenou prezentaci.
+2. Přistupte k snímku a přidejte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/).
+3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru a vymažte jeho výchozí odstavec.
+4. Přečtěte zdrojový HTML soubor.
+5. Předávejte HTML řetězec metodě [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Uložte upravenou prezentaci.
 
-Tento Java kód je implementací kroků pro import HTML textů do odstavců:
+Tento příklad Android via Java importuje HTML do textového rámce:
 
 ```java
-// Vytvořte prázdnou instanci prezentace
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // Přistupte k výchozímu prvnímu snímku prezentace
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // Přidání AutoShape pro uložení HTML obsahu
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // Přidání textového rámce do tvaru
-    ashape.addTextFrame("");
-
-    // Vymazání všech odstavců v přidaném textovém rámci
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // Načtení HTML souboru pomocí StreamReaderu
-    TextReader tr = new StreamReader("file.html");
-
-    // Přidání textu z HTML stream readeru do textového rámce
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // Ukládání prezentace
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Export textu odstavce do HTML**
+### **Export textu odstavce do HTML**
 
-Aspose.Slides poskytuje rozšířenou podporu pro export textů (obsažených v odstavcích) do HTML.
+Použijte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) pro export vybraného rozsahu odstavců jako HTML.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/) a načtěte požadovanou prezentaci.
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Získejte tvar obsahující text, který bude exportován do HTML.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textframe/) tvar.
-5. Vytvořte instanci `StreamWriter` a přidejte nový HTML soubor.
-6. Zadejte počáteční index do StreamWriter a exportujte vámi vybrané odstavce.
+2. Přistupte k snímku a najděte [IAutoShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iautoshape/), který obsahuje text.
+3. Získejte [ITextFrame](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframe/) tvaru.
+4. Zavolejte [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) s počátečním indexem odstavce a počtem odstavců k exportu.
+5. Zapište vrácený HTML řetězec do souboru.
 
-Tento Java kód vám ukazuje, jak exportovat texty odstavců PowerPointu do HTML:
+Tento příklad Android via Java exportuje všechny odstavce z prvního textového tvaru:
 
 ```java
-// Načíst soubor prezentace
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // Přistupuje k výchozímu prvnímu snímku prezentace
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Požadovaný index
-    int index = 0;
-
-    // Přístup k přidanému tvaru
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // Vytváří výstupní HTML soubor
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //Extrahuje první odstavec jako HTML
-    // Zapisuje data odstavců do HTML poskytnutím počátečního indexu odstavce, celkového počtu odstavců ke kopírování
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Uložení odstavce jako obrázku**
+### **Vykreslení odstavce jako obrázku**
 
-V této sekci prozkoumáme dva příklady, které demonstrují, jak uložit textový odstavec, reprezentovaný rozhraním [IParagraph](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/) , jako obrázek. Oba příklady zahrnují získání obrázku tvaru obsahujícího odstavec pomocí metod `getImage` z rozhraní [IShape](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/) , výpočet ohraničení odstavce uvnitř tvaru a jeho export jako bitmapový obrázek. Tyto přístupy vám umožňují extrahovat konkrétní části textu z prezentací PowerPoint a uložit je jako samostatné obrázky, což může být užitečné pro další použití v různých scénářích.
+[IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--) vykreslí samostatný odstavec přímo a vrátí [IImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage.save](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-). Není nutné vykreslovat celý tvar nebo ručně ořezávat bitmapu.
+
+[IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--) může vrátit `null`, pokud odstavec nelze nalézt v rodičovské kolekci, nemá platné vykreslovací rozměry nebo jej nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
+
+#### **Vykreslení odstavce v základním měřítku**
 
 Předpokládejme, že máme soubor prezentace s názvem sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-**Příklad 1**
-
-V tomto příkladu získáme druhý odstavec jako obrázek. K tomu extrahujeme obrázek tvaru z prvního snímku prezentace a poté vypočítáme ohraničení druhého odstavce v textovém rámci tvaru. Odstavec je následně překreslen na nový bitmapový obrázek, který je uložen ve formátu PNG. Tato metoda je zvláště užitečná, když potřebujete uložit konkrétní odstavec jako samostatný obrázek a zachovat přesné rozměry a formátování textu.
+Následující příklad vykreslí druhý odstavec v běžném textovém tvaru v základním měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajistí správné uvolnění obrázku.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // Uložte tvar v paměti jako bitmapu.
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // Vytvořte bitmapu tvaru z paměti.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Vypočítejte ohraničení druhého odstavce.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // Vypočítejte souřadnice a velikost výstupního obrázku (minimální velikost - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // Ořízněte bitmapu tvaru, aby obsahovala pouze bitmapu odstavce.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
@@ -732,68 +653,56 @@ Výsledek:
 
 ![Obrázek odstavce](paragraph_to_image_output.png)
 
-**Příklad 2**
+#### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-V tomto příkladu rozšíříme předchozí přístup přidáním škálovacích faktorů k obrázku odstavce. Tvar je extrahován z prezentace a uložen jako obrázek se škálovacím faktorem `2`. To umožňuje výstup s vyšším rozlišením při exportu odstavce. Ohraničení odstavce je poté vypočítáno s ohledem na škálování. Škálování může být zvláště užitečné, když je potřeba detailnější obrázek, například pro použití v vysoce kvalitních tištěných materiálech.
+Použijte přetížení [IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) přijímající parametry `float scaleX` a `float scaleY` k nastavení horizontálního a vertikálního měřítka. Následující příklad vytvoří tabulku, vykreslí odstavec v její první buňce dvojnásobně v šířce i výšce a uloží výsledek jako PNG obrázek.
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // Uložte tvar v paměti jako bitmapu se škálováním.
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // Vytvořte bitmapu tvaru z paměti.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // Vypočítejte ohraničení druhého odstavce.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // Vypočítejte souřadnice a velikost výstupního obrázku (minimální velikost - 1x1 pixel).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // Ořízněte bitmapu tvaru, aby obsahovala pouze bitmapu odstavce.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
+Měřítko `1` zachovává danou osu v jejím výchozím pixelovém rozměru. Například `2` pro oba faktory vytvoří obrázek, jehož šířka a výška jsou přibližně dvojnásobné výchozích rozměrů, což vede k čtyřnásobku pixelů. Větší faktory obecně poskytují ostřejší text pro zvětšení nebo výstup ve vysokém rozlišení, ale také zvyšují využití paměti a velikost souboru. Faktory pod `1` vytvářejí menší obrázky s méně podrobným obsahem. Použijte stejné faktory pro zachování poměru stran odstavce; odlišné horizontální a vertikální faktory rozšiřují výstup nezávisle.
+
+Vykreslování celého tvaru pomocí [IShape.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishape/#getImage--) zůstává užitečné, když výstup musí zahrnovat výplň, okraj nebo jiný vizuální kontext tvaru. Pro obrázek pouze odstavce použijte [IParagraph.getImage](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getImage--).
+
 ## **Často kladené otázky**
 
-**Mohu zcela vypnout zalamování řádků uvnitř textového rámce?**
+**Mohu úplně zakázat zalamování řádků v textovém rámci?**
 
-Ano. Použijte nastavení zalamování textového rámce ([setWrapText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) , které vypne zalamování, takže řádky nebudou přerušeny na okrajích rámce.
+Ano. Nastavte [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) pro vypnutí zalamování, takže řádky nebudou přerušovány na okrajích textového rámce.
 
-**Jak mohu získat přesné ohraničení konkrétního odstavce na snímku?**
+**Jak mohu získat přesné rozměry konkrétního odstavce na snímku?**
 
-Můžete získat ohraničující obdélník odstavce (a dokonce i jednotlivé části), abyste znali jeho přesnou polohu a velikost na snímku.
+Použijte [IParagraph.getRect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraph/#getRect--) pro získání ohraničujícího obdélníku odstavce. [IPortion.getRect](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iportion/#getRect--) poskytuje rozměry jednotlivé části.
 
-**Kde se řídí zarovnání odstavce (levé/pravé/středové/justify)?**
+**Kde je řízena zarovnání odstavce (levé, pravé, středové nebo do bloku)?**
 
-[Alignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) je nastavení na úrovni odstavce v [ParagraphFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/paragraphformat/) ; vztahuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) je nastavení na úrovni odstavce a vztahuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
 
-**Mohu nastavit jazyk kontroly pravopisu jen pro část odstavce (např. jedno slovo)?**
+**Mohu nastavit jazyk korektury pro část odstavce?**
 
-Ano. Jazyk se nastavuje na úrovni části ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)) , takže v jednom odstavci může koexistovat více jazyků.
+Ano. Nastavte [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.

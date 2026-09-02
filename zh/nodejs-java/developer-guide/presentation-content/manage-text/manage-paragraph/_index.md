@@ -4,6 +4,9 @@ linktitle: 管理段落
 type: docs
 weight: 40
 url: /zh/nodejs-java/manage-paragraph/
+aliases:
+  - /nodejs-java/paragraph/
+  - /nodejs-java/portion/
 keywords:
 - 添加文本
 - 添加段落
@@ -23,406 +26,379 @@ keywords:
 - 文本转图像
 - 导出段落
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "通过 Aspose.Slides for Node.js（基于 Java）掌握段落格式化——在 PPT、PPTX 和 ODP 演示文稿中优化对齐、间距和样式（JavaScript）。"
+description: "了解如何使用 Aspose.Slides for Node.js via Java 创建和格式化段落、文本段、项目符号、编号列表、缩进、HTML 内容以及段落图像。"
 ---
-Aspose.Slides 提供了在 Java 中处理 PowerPoint 文本、段落和片段所需的所有类。
+## **概述**
 
-* Aspose.Slides 提供了 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 类，允许您添加表示段落的对象。`TextFame` 对象可以包含一个或多个段落（每个段落通过回车创建）。
-* Aspose.Slides 提供了 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类，允许您添加表示片段的对象。`Paragraph` 对象可以包含一个或多个片段（文本片段对象的集合）。
-* Aspose.Slides 提供了 [Portion](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portion/) 类，允许您添加表示文本及其格式属性的对象。
+Aspose.Slides for Node.js via Java 将文本表示为文本框、段落和文本段的层次结构：
 
-`Paragraph` 对象能够通过其底层的 `Portion` 对象处理具有不同格式属性的文本。
+* [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 表示形状中的文本容器，并提供对其段落集合的访问。
+* [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 表示文本框中的一个段落，并提供对其文本段和段落级格式的访问。
+* [Portion](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portion/) 表示段落中的一个文本运行。每个文本段可以拥有自己的文本和字符级格式。
 
-## **添加包含多个片段的多个段落**
+因此，一个段落可以通过使用多个文本段来包含具有不同字体、颜色、大小和其他格式的文本。
 
-以下步骤演示如何添加一个包含 3 个段落且每个段落包含 3 个片段的文本框：
+## **创建和格式化段落**
+
+### **使用多个文本段创建段落**
+
+以下步骤创建一个包含三个段落、每个段落包含三个文本段的文本框：
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引访问相关幻灯片的引用。
-3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 获取与 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 关联的 ITextFrame。
-5. 创建两个 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 对象，并将它们添加到 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 的 `IParagraphs` 集合中。
-6. 为每个新 `Paragraph` 创建三个 [Portion](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portion/) 对象（默认 Paragraph 为两个 Portion 对象），并将每个 `Portion` 对象添加到相应 `Paragraph` 的 IPortion 集合中。
-7. 为每个片段设置一些文本。
-8. 使用 `Portion` 对象公开的格式属性，为每个片段应用您首选的格式设置。
+2. 通过索引访问相应的幻灯片。
+3. 在幻灯片上添加一个矩形的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
+5. 使用默认段落，并向文本框再添加两个 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 对象。
+6. 为每个段落添加足够的 [Portion](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portion/) 对象，使其包含三个文本段。默认段落已包含一个空的文本段。
+7. 为每个文本段设置文本。
+8. 通过 [Portion.getPortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portion/getportionformat/) 应用字符级格式。
 9. 保存修改后的演示文稿。
 
+以下 JavaScript 示例演示了这些步骤：
+
 ```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 类
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 访问第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加一个矩形类型的 AutoShape
-    var ashp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
-    // 访问 AutoShape 的 TextFrame
-    var tf = ashp.getTextFrame();
-    // 创建具有不同文本格式的段落和片段
-    var para0 = tf.getParagraphs().get_Item(0);
-    var port01 = new aspose.slides.Portion();
-    var port02 = new aspose.slides.Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
-    var para1 = new aspose.slides.Paragraph();
-    tf.getParagraphs().add(para1);
-    var port10 = new aspose.slides.Portion();
-    var port11 = new aspose.slides.Portion();
-    var port12 = new aspose.slides.Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
-    var para2 = new aspose.slides.Paragraph();
-    tf.getParagraphs().add(para2);
-    var port20 = new aspose.slides.Portion();
-    var port21 = new aspose.slides.Portion();
-    var port22 = new aspose.slides.Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-    for (var i = 0; i < 3; i++) {
-        for (var j = 0; j < 3; j++) {
-            var portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j);
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 150, 300, 150);
+    const textFrame = shape.getTextFrame();
+
+    const firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new aspose.slides.Portion());
+    firstParagraph.getPortions().add(new aspose.slides.Portion());
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    secondParagraph.getPortions().add(new aspose.slides.Portion());
+    textFrame.getParagraphs().add(secondParagraph);
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    thirdParagraph.getPortions().add(new aspose.slides.Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    const paragraphCount = textFrame.getParagraphs().getCount();
+    for (let paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        const paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        const portionCount = paragraph.getPortions().getCount();
+        for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            const portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
+
+            if (portionIndex === 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-                portion.getPortionFormat().setFontBold(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontBold(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex === 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-                portion.getPortionFormat().setFontItalic(aspose.slides.NullableBool.True);
+                portion.getPortionFormat().setFontItalic(java.newByte(aspose.slides.NullableBool.True));
                 portion.getPortionFormat().setFontHeight(18);
             }
         }
     }
-    // 将 PPTX 写入磁盘
-    pres.save("multiParaPort_out.pptx", aspose.slides.SaveFormat.Pptx);
+
+    presentation.save("paragraphs_with_portions.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **管理段落项目符号**
+## **创建项目符号和编号列表**
 
-项目符号列表帮助您快速高效地组织和呈现信息。使用项目符号的段落更易于阅读和理解。
+### **创建项目符号或编号列表**
+
+项目符号和编号使相关项目更易于浏览。在 Aspose.Slides 中，列表设置通过 [BulletFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/) 定义。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引访问相关幻灯片的引用。
-3. 向选定的幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 访问 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 移除 `TextFrame` 中的默认段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类创建第一个段落实例。
-7. 将段落的项目符号 `Type` 设置为 `Symbol`，并设置项目符号字符。
-8. 设置段落的 `Text`。
-9. 为项目符号设置段落的 `Indent`。
-10. 设置项目符号的颜色。
-11. 设置项目符号的高度。
-12. 将新段落添加到 `TextFrame` 的段落集合中。
-13. 添加第二个段落并重复步骤 7 至 12 中的过程。
-14. 保存演示文稿。
+2. 通过索引访问相应的幻灯片。
+3. 在选定的幻灯片上添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
+5. 从文本框中移除默认段落。
+6. 为符号项目符号创建一个 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/)。
+7. 将 [BulletFormat.setType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/settype/) 设置为 [BulletType.Symbol](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bullettype/) 并指定项目符号字符。
+8. 设置段落文本、缩进、项目符号颜色和项目符号高度。
+9. 将段落添加到文本框中。
+10. 创建第二个段落，并将 [BulletFormat.setType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/settype/) 设置为 [BulletType.Numbered](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bullettype/)。
+11. 配置编号项目符号样式并将段落添加到文本框中。
+12. 保存演示文稿。
+
+以下 JavaScript 示例创建了符号项目符号和编号项目符号：
 
 ```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 类
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 访问第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加并访问 AutoShape
-    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // 访问 AutoShape 的文本框
-    var txtFrm = aShp.getTextFrame();
-    // 移除默认段落
-    txtFrm.getParagraphs().removeAt(0);
-    // 创建段落
-    var para = new aspose.slides.Paragraph();
-    // 设置段落的项目符号样式和符号
-    para.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar(8226);
-    // 设置段落文本
-    para.setText("Welcome to Aspose.Slides");
-    // 设置项目符号缩进
-    para.getParagraphFormat().setIndent(25);
-    // 设置项目符号颜色
-    para.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// 将 IsBulletHardColor 设置为 true 以使用自定义项目符号颜色
-    // 设置项目符号高度
-    para.getParagraphFormat().getBullet().setHeight(100);
-    // 将段落添加到文本框
-    txtFrm.getParagraphs().add(para);
-    // 创建第二段落
-    var para2 = new aspose.slides.Paragraph();
-    // 设置段落项目符号类型和样式
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-    // 添加段落文本
-    para2.setText("This is numbered bullet");
-    // 设置项目符号缩进
-    para2.getParagraphFormat().setIndent(25);
-    para2.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    para2.getParagraphFormat().getBullet().setBulletHardColor(aspose.slides.NullableBool.True);// 将 IsBulletHardColor 设置为 true 以使用自定义项目符号颜色
-    // 设置项目符号高度
-    para2.getParagraphFormat().getBullet().setHeight(100);
-    // 将段落添加到文本框
-    txtFrm.getParagraphs().add(para2);
-    // 保存修改后的演示文稿
-    pres.save("Bullet_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const symbolParagraph = new aspose.slides.Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    symbolParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    const numberedParagraph = new aspose.slides.Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(java.newByte(aspose.slides.NumberedBulletStyle.BulletCircleNumWDBlackPlain));
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(aspose.slides.ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(java.newByte(aspose.slides.NullableBool.True));
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **管理图片项目符号**
+### **使用图片项目符号**
 
-项目符号列表帮助您快速高效地组织和呈现信息。图片段落易于阅读和理解。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引访问相关幻灯片的引用。
-3. 向幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 访问 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 移除 `TextFrame` 中的默认段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类创建第一个段落实例。
-7. 在 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 中加载图像。
-8. 将项目符号类型设置为 [Picture](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 并设定图像。
-9. 设置段落的 `Text`。
-10. 为项目符号设置段落的 `Indent`。
-11. 设置项目符号的颜色。
-12. 设置项目符号的高度。
-13. 将新段落添加到 `TextFrame` 的段落集合中。
-14. 添加第二个段落并重复上述步骤。
-15. 保存修改后的演示文稿。
-
-```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 类
-var presentation = new aspose.slides.Presentation();
-try {
-    // 访问第一张幻灯片
-    var slide = presentation.getSlides().get_Item(0);
-    // 实例化用于项目符号的图像
-    var picture;
-    var image = aspose.slides.Images.fromFile("bullets.png");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
-        }
-    }
-    // 添加并访问 AutoShape
-    var autoShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // 访问 AutoShape 的文本框
-    var textFrame = autoShape.getTextFrame();
-    // 移除默认段落
-    textFrame.getParagraphs().removeAt(0);
-    // 创建新段落
-    var paragraph = new aspose.slides.Paragraph();
-    paragraph.setText("Welcome to Aspose.Slides");
-    // 设置段落的项目符号样式和图像
-    paragraph.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-    // 设置项目符号高度
-    paragraph.getParagraphFormat().getBullet().setHeight(100);
-    // 将段落添加到文本框
-    textFrame.getParagraphs().add(paragraph);
-    // 将演示文稿保存为 PPTX 文件
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", aspose.slides.SaveFormat.Pptx);
-    // 将演示文稿保存为 PPT 文件
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", aspose.slides.SaveFormat.Ppt);
-} catch (e) {console.log(e);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
-}
-```
-
-## **管理多级项目符号**
-
-项目符号列表帮助您快速高效地组织和呈现信息。多级项目符号易于阅读和理解。
+图片项目符号允许使用自定义图像而不是符号或数字。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引访问相关幻灯片的引用。
-3. 在新幻灯片中添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 访问 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 移除 `TextFrame` 中的默认段落。
-6. 通过 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类创建第一个段落实例，并将深度设置为 0。
-7. 通过 `Paragraph` 类创建第二个段落实例，并将深度设置为 1。
-8. 通过 `Paragraph` 类创建第三个段落实例，并将深度设置为 2。
-9. 通过 `Paragraph` 类创建第四个段落实例，并将深度设置为 3。
-10. 将新段落添加到 `TextFrame` 的段落集合中。
-11. 保存修改后的演示文稿。
-
-```javascript
-// 实例化一个表示 PPTX 文件的 Presentation 类
-var pres = new aspose.slides.Presentation();
-try {
-    // 访问第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加并访问 AutoShape
-    var aShp = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // 访问创建的 AutoShape 的文本框
-    var text = aShp.addTextFrame("");
-    // 清除默认段落
-    text.getParagraphs().clear();
-    // 添加第一段落
-    var para1 = new aspose.slides.Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar(8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 设置项目符号级别
-    para1.getParagraphFormat().setDepth(0);
-    // 添加第二段落
-    var para2 = new aspose.slides.Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 设置项目符号级别
-    para2.getParagraphFormat().setDepth(1);
-    // 添加第三段落
-    var para3 = new aspose.slides.Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar(8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 设置项目符号级别
-    para3.getParagraphFormat().setDepth(2);
-    // 添加第四段落
-    var para4 = new aspose.slides.Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    // 设置项目符号级别
-    para4.getParagraphFormat().setDepth(3);
-    // 将段落添加到集合中
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-    // 将演示文稿保存为 PPTX 文件
-    pres.save("MultilevelBullet.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
-
-## **管理具有自定义编号列表的段落**
-
-[BulletFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/) 类提供了 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) 属性等，可用于管理具有自定义编号或格式的段落。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 访问包含该段落的幻灯片。
-3. 向幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 访问 AutoShape 的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 移除 `TextFrame` 中的默认段落。
-6. 通过 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类创建第一个段落实例，并将 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) 设置为 2。
-7. 通过 `Paragraph` 类创建第二个段落实例，并将 `NumberedBulletStartWith` 设置为 3。
-8. 通过 `Paragraph` 类创建第三个段落实例，并将 `NumberedBulletStartWith` 设置为 7。
-9. 将新段落添加到 `TextFrame` 的段落集合中。
+2. 通过索引访问相应的幻灯片。
+3. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 并访问其 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
+4. 从文本框中移除默认段落。
+5. 加载项目符号图像并将其作为 [PPImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/ppimage/) 添加到演示文稿的图像集合中。
+6. 创建一个 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 并设置其文本。
+7. 将 [BulletFormat.setType](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/settype/) 设置为 [BulletType.Picture](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bullettype/)。
+8. 通过 [BulletFormat.getPicture](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/getpicture/) 分配图像并设置项目符号高度。
+9. 将段落添加到文本框中。
 10. 保存修改后的演示文稿。
 
+以下 JavaScript 示例创建了图片项目符号：
+
 ```javascript
-var presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
-    // 访问创建的 AutoShape 的文本框
-    var textFrame = shape.getTextFrame();
-    // 移除默认的已有段落
-    textFrame.getParagraphs().removeAt(0);
-    // 第一个列表
-    var paragraph1 = new aspose.slides.Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth(4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith(2);
-    paragraph1.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
-    var paragraph2 = new aspose.slides.Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth(4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith(3);
-    paragraph2.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-    var paragraph5 = new aspose.slides.Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth(4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith(7);
-    paragraph5.getParagraphFormat().getBullet().setType(aspose.slides.BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-    presentation.save("SetCustomBulletsNumber-slides.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+
+    const bulletImage = aspose.slides.Images.fromFile("image.png");
+    let presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
     }
+
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const paragraph = new aspose.slides.Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Picture));
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
+
+    presentation.save("picture_bullet.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", aspose.slides.SaveFormat.Ppt);
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **为段落设置首行缩进**
+### **创建多级列表**
 
-使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 方法可控制段落的首行缩进。该方法仅移动相对于段落左侧边距的第一行。正值会将首行向右移动，而其余行保持与段落正文对齐。
+通过设置 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setdepth/) 将段落放置在列表的不同层级。顶层的深度为 `0`。
 
-在需要移动整段时使用 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)。仅需移动首行时使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/)。
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 并访问一个幻灯片。
+2. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 并清除其文本框中的默认段落。
+3. 创建四个段落并配置它们的项目符号符号。
+4. 将它们的 [ParagraphFormat.setDepth](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setdepth/) 值设置为 `0`、`1`、`2` 和 `3`。
+5. 将段落添加到文本框并保存演示文稿。
 
-下面的示例创建了多个段落，并对它们应用不同的缩进值，以演示首行缩进对段落布局的影响。
+以下 JavaScript 示例创建了四级项目符号列表：
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    firstParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    firstParagraph.getParagraphFormat().setDepth(java.newShort(0));
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    secondParagraph.getParagraphFormat().getBullet().setChar(java.newChar(45));
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    secondParagraph.getParagraphFormat().setDepth(java.newShort(1));
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    thirdParagraph.getParagraphFormat().getBullet().setChar(java.newChar(0x2022));
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    thirdParagraph.getParagraphFormat().setDepth(java.newShort(2));
+
+    const fourthParagraph = new aspose.slides.Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Symbol));
+    fourthParagraph.getParagraphFormat().getBullet().setChar(java.newChar(45));
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
+    fourthParagraph.getParagraphFormat().setDepth(java.newShort(3));
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **自定义编号列表起始值**
+
+使用 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 设置编号段落的起始数字。
+
+1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 并向幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+2. 清除形状的文本框中的默认段落。
+3. 创建三个编号段落。
+4. 为相应的段落将 [BulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) 设置为 `2`、`3` 和 `7`。
+5. 将段落添加到文本框并保存演示文稿。
+
+以下 JavaScript 示例为每个段落分配自定义起始编号：
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 200, 200, 400, 200);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(2));
+    textFrame.getParagraphs().add(firstParagraph);
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(3));
+    textFrame.getParagraphs().add(secondParagraph);
+
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(java.newByte(aspose.slides.BulletType.Numbered));
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith(java.newShort(7));
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **控制段落布局和结束属性**
+
+### **设置首行缩进**
+
+使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 控制段落的首行缩进。此方法仅移动相对于段落左边距的第一行。正值会将首行向右移动，而其余行保持与段落正文对齐。
+
+当需要移动整个段落时使用 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setmarginleft/)。当只需移动首行时使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/)。
+
+下面的示例创建了多个段落，并应用不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 值，以演示首行缩进如何影响段落布局。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
 2. 访问目标幻灯片。
-3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 向形状添加一个空的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 并移除默认段落。
-5. 创建多个段落并为它们设置不同的 [Indent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 值。
-6. 将段落添加到文本框中。
+3. 在幻灯片上添加一个矩形的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 并移除默认段落。
+5. 创建多个段落并为它们设置不同的 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 值。
+6. 将段落添加到文本框。
 7. 保存修改后的演示文稿。
 
-```js
-let presentation = new aspose.slides.Presentation();
+以下代码演示如何设置段落缩进：
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let rectangleShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    rectangleShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
 
-    let textFrame = rectangleShape.addTextFrame("");
+    const textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
-    let firstParagraph = new aspose.slides.Paragraph();
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20);
     firstParagraph.getParagraphFormat().setIndent(0);
 
-    let secondParagraph = new aspose.slides.Paragraph();
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20);
     secondParagraph.getParagraphFormat().setIndent(20);
 
-    let thirdParagraph = new aspose.slides.Paragraph();
+    const thirdParagraph = new aspose.slides.Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20);
     thirdParagraph.getParagraphFormat().setIndent(40);
 
@@ -431,8 +407,7 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
@@ -441,48 +416,54 @@ finally {
 
 ![段落的首行缩进](first_line_indent.png)
 
-## **为段落设置悬挂缩进**
+### **设置悬挂缩进**
 
-悬挂缩进是一种段落布局，其中第一行相对于其余行向左开始。在 Aspose.Slides 中，可使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 方法实现此效果。将缩进设为负值，即可使第一行相对于段落正文向左移动。
+悬挂缩进是一种段落布局，其中第一行位于其余行的左侧。在 Aspose.Slides 中，可使用 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 实现此效果。传入负值可将第一行相对于段落正文向左移动。
 
-在实际使用中，[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 定义段落正文的左侧位置，而 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 定义第一行相对于该左侧边距的位置。要实现悬挂缩进，需将 `MarginLeft` 设为正值，将 `Indent` 设为负值。
+实际上，[ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 定义段落正文的左侧位置，而 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 定义第一行相对于该边距的位置。要创建悬挂缩进，需要向 `setMarginLeft` 传入正值，并向 `setIndent` 传入负值。
 
-此格式在参考文献、词汇表条目等需要第二行及之后的行对齐到段落正文下方的场景中非常有用。
+此格式在参考文献、引用、词汇表条目以及其他需要换行后行对齐至段落正文而非首行首字符的段落中非常有用。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
 2. 访问目标幻灯片。
-3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 向形状添加一个空的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 并移除默认段落。
-5. 为每个段落设置正的 [MarginLeft](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 值。
-6. 设置负的 [Indent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 值以创建悬挂缩进效果。
-7. 将段落添加到文本框中。
+3. 在幻灯片上添加一个矩形的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+4. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 并移除默认段落。
+5. 创建段落，并为每个段落向 [ParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setmarginleft/) 传入正值。
+6. 向 [ParagraphFormat.setIndent](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setindent/) 传入负值以创建悬挂缩进效果。
+7. 将段落添加到文本框。
 8. 保存修改后的演示文稿。
 
-```js
-let presentation = new aspose.slides.Presentation();
+以下代码演示如何为段落设置悬挂缩进：
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
 
-    let rectangleShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    rectangleShape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getLineFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "GRAY"));
 
-    let textFrame = rectangleShape.addTextFrame("");
+    const textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
-    let firstParagraph = new aspose.slides.Paragraph();
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40);
     firstParagraph.getParagraphFormat().setIndent(-20);
 
-    let secondParagraph = new aspose.slides.Paragraph();
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLACK"));
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60);
     secondParagraph.getParagraphFormat().setIndent(-30);
 
@@ -490,8 +471,7 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", aspose.slides.SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
@@ -500,167 +480,188 @@ finally {
 
 ![段落的悬挂缩进](hanging_indent.png)
 
-## **管理段落的结束运行属性**
+### **设置段落结束运行属性**
+
+[Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) 控制段落结束标记的格式。下面的示例为第二段的结束标记分配字体大小和拉丁字体：
+
+1. 创建或加载一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 并访问一个幻灯片。
+2. 添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/) 并清除其默认段落。
+3. 创建两个段落并向其添加文本段。
+4. 为第二段的结束标记创建一个 [PortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portionformat/)。
+5. 设置 [BasePortionFormat.setFontHeight](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setFontHeight) 和 [BasePortionFormat.setLatinFont](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setLatinFont)。
+6. 使用 [Paragraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/setendparagraphportionformat/) 分配该格式并保存演示文稿。
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
+    const textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    const firstParagraph = new aspose.slides.Paragraph();
+    firstParagraph.getPortions().add(new aspose.slides.Portion("Sample text"));
+
+    const secondParagraph = new aspose.slides.Paragraph();
+    secondParagraph.getPortions().add(new aspose.slides.Portion("Sample text 2"));
+
+    const endParagraphFormat = new aspose.slides.PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    presentation.save("end_paragraph_format.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **导入和导出段落内容**
+
+### **将 HTML 文本导入段落**
+
+使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/) 将 HTML 标记转换为文本框中的段落和文本段。
 
 1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过位置获取包含该段落的幻灯片的引用。
-3. 向幻灯片添加一个矩形 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 向矩形添加一个包含两个段落的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 设置段落的 `FontHeight` 和字体类型。
-6. 为段落设置 End 属性。
-7. 将修改后的演示文稿写入为 PPTX 文件。
+2. 访问一个幻灯片并添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+3. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/) 并清除其默认段落。
+4. 定义或读取源 HTML 字符串。
+5. 将 HTML 字符串传递给 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphcollection/addfromhtml/)。
+6. 保存修改后的演示文稿。
+
+以下 JavaScript 示例将 HTML 导入文本框：
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, 200, 250);
-    var para1 = new aspose.slides.Paragraph();
-    para1.getPortions().add(new aspose.slides.Portion("Sample text"));
-    var para2 = new aspose.slides.Paragraph();
-    para2.getPortions().add(new aspose.slides.Portion("Sample text 2"));
-    var portionFormat = new aspose.slides.PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new aspose.slides.FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
-    pres.save(resourcesOutputPath + "pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeWidth = presentation.getSlideSize().getSize().getWidth() - 20;
+    const shapeHeight = presentation.getSlideSize().getSize().getHeight() - 20;
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
+    shape.getTextFrame().getParagraphs().clear();
+
+    const html = "<p><b>Aspose.Slides</b> imports HTML text into presentation paragraphs.</p>";
+    shape.getTextFrame().getParagraphs().addFromHtml(html);
+    presentation.save("html_text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **将 HTML 文本导入段落**
+### **将段落文本导出为 HTML**
 
-Aspose.Slides 提供了增强的 HTML 文本导入到段落的支持。
+使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) 将选定范围的段落导出为 HTML。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例。
-2. 通过索引访问相关幻灯片的引用。
-3. 向幻灯片添加一个 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
-4. 添加并访问 `AutoShape` 的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 移除 `TextFrame` 中的默认段落。
-6. 使用 TextReader 读取源 HTML 文件。
-7. 通过 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类创建第一个段落实例。
-8. 将读取的 TextReader 中的 HTML 文件内容添加到 TextFrame 的 [ParagraphCollection](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphcollection/) 中。
-9. 保存修改后的演示文稿。
+1. 创建或加载一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 实例。
+2. 访问幻灯片并找到包含文本的 [AutoShape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/autoshape/)。
+3. 访问形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
+4. 调用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphcollection/exporttohtml/) ，传入起始段落索引和要导出的段落数量。
+5. 将返回的 HTML 字符串写入文件。
+
+以下独立的 JavaScript 示例创建一个文本形状并导出其所有段落：
 
 ```javascript
-// 创建空的演示文稿实例
-var pres = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+const fs = require("fs");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // 访问演示文稿的默认第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 添加 AutoShape 以容纳 HTML 内容
-    var ashape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 10, 10, pres.getSlideSize().getSize().getWidth() - 20, pres.getSlideSize().getSize().getHeight() - 10);
-    ashape.getFillFormat().setFillType(java.newByte(aspose.slides.FillType.NoFill));
-    // 向形状添加文本框
-    ashape.addTextFrame("");
-    // 清除已添加文本框中的所有段落
-    ashape.getTextFrame().getParagraphs().clear();
-    // 使用流读取器加载 HTML 文件
-    var tr = java.newInstanceSync("StreamReader", "file.html");
-    // 将 HTML 流读取器中的文本添加到文本框
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-    // 保存演示文稿
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
+    const sourceTextFrame = sourceShape.getTextFrame();
+    sourceTextFrame.getParagraphs().clear();
+    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
+        const sourceParagraph = new aspose.slides.Paragraph();
+        sourceParagraph.setText(text);
+        sourceTextFrame.getParagraphs().add(sourceParagraph);
     }
+    const shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        const textFrame = shape.getTextFrame();
+        if (textFrame !== null) {
+            const paragraphs = textFrame.getParagraphs();
+            const html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            fs.writeFileSync("paragraphs.html", html, "utf8");
+        } else {
+            console.log("The first shape does not contain a text frame.");
+        }
+    } else {
+        console.log("The first shape is not a text shape.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **将段落文本导出为 HTML**
+### **将段落渲染为图像**
 
-Aspose.Slides 提供了增强的将段落中的文本导出为 HTML 的支持。
+[Paragraph.getImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/#getImage) 直接渲染单个段落并返回一个 [IImage]。使用 [IImage.save](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/iimage/#save) 将结果保存到文件。无需渲染包含的形状或手动裁剪位图。
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/presentation/) 类的实例并加载所需的演示文稿。
-2. 通过索引访问相关幻灯片的引用。
-3. 访问将要导出为 HTML 的文本所在的形状。
-4. 访问该形状的 [TextFrame](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframe/)。
-5. 创建 `StreamWriter` 实例并添加新的 HTML 文件。
-6. 为 StreamWriter 提供起始索引并导出您选择的段落。
+如果在父集合中未找到段落、没有有效的渲染边界或无法渲染，[Paragraph.getImage] 可能返回 `null`。在保存之前检查结果，并在使用完毕后释放返回的图像。
 
-```javascript
-// 加载演示文稿文件
-var pres = new aspose.slides.Presentation("ExportingHTMLText.pptx");
-try {
-    // 访问演示文稿的默认第一张幻灯片
-    var slide = pres.getSlides().get_Item(0);
-    // 所需索引
-    var index = 0;
-    // 访问已添加的形状
-    var ashape = slide.getShapes().get_Item(index);
-    // 创建输出 HTML 文件
-    var os = java.newInstanceSync("java.io.FileOutputStream", "output.html");
-    var writer = java.newInstanceSync("java.io.OutputStreamWriter", os, "UTF-8");
-    // 将第一段落提取为 HTML
-    // 通过提供段落起始索引和要复制的段落总数，将段落数据写入 HTML
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+#### **以默认比例渲染段落**
 
-## **将段落保存为图像**
-
-在本节中，我们将展示两个示例，演示如何将由 [Paragraph](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/) 类表示的文本段落保存为图像。这些示例都包括使用 [Shape](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/) 类的 `getImage` 方法获取包含段落的形状图像，计算段落在形状中文本框的边界，并将其导出为位图图像。这些方法可帮助您从 PowerPoint 演示文稿中提取特定文本并保存为独立图像，以便在各种场景中进一步使用。
-
-假设我们有一个名为 sample.pptx 的演示文稿，只有一张幻灯片，第一 个形状是包含三个段落的文本框。
+以下文本框包含三个段落：
 
 ![包含三个段落的文本框](paragraph_to_image_input.png)
 
-**示例 1**
+以下示例以默认比例渲染常规文本形状中的第二段，并以 PNG 格式保存返回的图像。`finally` 块确保正确释放图像。
 
-在此示例中，我们获取第二个段落的图像。为此，我们先从演示文稿的第一张幻灯片中提取形状图像，然后计算该形状文本框中第二个段落的边界。随后将该段落重新绘制到新的位图图像中，并以 PNG 格式保存。此方法在需要将特定段落单独保存为图像且保持文本的精确尺寸和格式时特别有用。
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-```java
-const imageio = java.import("javax.imageio.ImageIO");
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation();
 try {
-    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // 将形状保存到内存中为位图。
-    const shapeImage = firstShape.getImage();
-        
-    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
-    shapeImage.dispose();
-    shapeImageStream.flush();
-    
-    // 从内存创建形状位图。
-    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
-    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
-    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
-    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
-    const shapeBitmap = imageio.read(shapeImageInputStream);
-
-    // 计算第二段落的边界。
-    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    const paragraphRectangle = secondParagraph.getRect();
-
-    // 计算输出图像的坐标和尺寸（最小大小 - 1x1 像素）。
-    const imageX = Math.floor(paragraphRectangle.getX());
-    const imageY = Math.floor(paragraphRectangle.getY());
-    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
-    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
-
-    // 裁剪形状位图，仅获取段落位图。
-    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    const file = java.newInstanceSync("java.io.File", "paragraph.png");
-
-    imageio.write(paragraphBitmap, "png", file);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const sourceShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 400, 100);
+    const sourceTextFrame = sourceShape.getTextFrame();
+    sourceTextFrame.getParagraphs().clear();
+    for (const text of ["First paragraph", "Second paragraph", "Third paragraph"]) {
+        const sourceParagraph = new aspose.slides.Paragraph();
+        sourceParagraph.setText(text);
+        sourceTextFrame.getParagraphs().add(sourceParagraph);
     }
+    const shape = slide.getShapes().get_Item(0);
+
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        const textFrame = shape.getTextFrame();
+        if (textFrame !== null && textFrame.getParagraphs().getCount() > 1) {
+            const paragraph = textFrame.getParagraphs().get_Item(1);
+            const paragraphImage = paragraph.getImage();
+
+            if (paragraphImage !== null) {
+                try {
+                    paragraphImage.save("paragraph.png", aspose.slides.ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                console.log("The paragraph could not be rendered.");
+            }
+        } else {
+            console.log("The expected paragraph was not found.");
+        }
+    } else {
+        console.log("The first shape is not a text shape.");
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
@@ -668,75 +669,60 @@ try {
 
 ![段落图像](paragraph_to_image_output.png)
 
-**示例 2**
+#### **在表格单元格中缩放渲染段落**
 
-在此示例中，我们在前一种方法的基础上为段落图像添加了缩放因子。形状从演示文稿中提取，并以 `2` 的缩放因子保存为图像，从而在导出段落时获得更高分辨率的输出。随后在考虑缩放的情况下计算段落边界。缩放在需要更高细节的图像时非常有用，例如用于高质量印刷材料。
+使用接受 `scaleX` 和 `scaleY` 参数的 [Paragraph.getImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/#getImage) 重载来设置水平和垂直缩放因子。以下示例创建一个表格，在其第一个单元格中以默认宽高的两倍渲染段落，并将结果保存为 PNG 图像。
 
-```java
-const imageScaleX = 2;
-const imageScaleY = imageScaleX;
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-const imageio = java.import("javax.imageio.ImageIO");
-const presentation = new aspose.slides.Presentation("sample.pptx");
+const scaleX = 2;
+const scaleY = 2;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    const firstShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const columnWidths = java.newArray("double", [300]);
+    const rowHeights = java.newArray("double", [80]);
+    const table = slide.getShapes().addTable(50, 50, columnWidths, rowHeights);
+    const paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // 将形状以缩放方式保存为内存中的位图。
-    const shapeImage = firstShape.getImage(aspose.slides.ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    const shapeImageStream = java.newInstanceSync("java.io.ByteArrayOutputStream");
-    shapeImage.save(shapeImageStream, aspose.slides.ImageFormat.Png);
-    shapeImage.dispose();
-
-    // 从内存创建形状位图。
-    const byteBuffer = java.callMethodSync(shapeImageStream, "toByteArray");    
-    const javaBytes = java.newArray("byte", Array.from(byteBuffer));
-    const ByteArrayInputStream = java.import("java.io.ByteArrayInputStream");
-    const shapeImageInputStream = new ByteArrayInputStream(javaBytes);
-    const shapeBitmap = imageio.read(shapeImageInputStream);
-
-    // 计算第二段落的边界。
-    const secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    const paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.setRect(
-            paragraphRectangle.getX() * imageScaleX,
-            paragraphRectangle.getY() * imageScaleY,
-            paragraphRectangle.getWidth() * imageScaleX,
-            paragraphRectangle.getHeight() * imageScaleY
-    );
-
-    // 计算输出图像的坐标和尺寸（最小尺寸为 1x1 像素）。
-    const imageX = Math.floor(paragraphRectangle.getX());
-    const imageY = Math.floor(paragraphRectangle.getY());
-    const imageWidth = Math.max(1, Math.ceil(paragraphRectangle.getWidth()));
-    const imageHeight = Math.max(1, Math.ceil(paragraphRectangle.getHeight()));
-
-    // 裁剪形状位图，仅获取段落位图。
-    const paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    const file = java.newInstanceSync("java.io.File", "paragraph.png");
-
-    imageio.write(paragraphBitmap, "png", file);
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
+    const paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage !== null) {
+        try {
+            paragraphImage.save("table_paragraph.png", aspose.slides.ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        console.log("The paragraph could not be rendered.");
     }
+} finally {
+    presentation.dispose();
 }
 ```
+
+比例因子为 `1` 时保持该轴的默认像素大小。例如，两个因子均为 `2` 会生成宽高约为默认尺寸两倍的图像，像素数量约为四倍。更大的因子通常能在放大或高分辨率输出时产生更清晰的文字，但也会增加内存使用和文件大小。低于 `1` 的因子会生成细节较少的较小图像。使用相等的因子可保持段落的宽高比；不同的水平和垂直因子会分别拉伸输出。
+
+当输出必须包含形状的填充、边框或其他视觉上下文时，使用 [Shape.getImage](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/shape/#getImage) 渲染整个形状仍然有用。若只需段落图像，请使用 [Paragraph.getImage]。
 
 ## **常见问题**
 
 **我可以完全禁用文本框内的自动换行吗？**
 
-可以。使用文本框的换行设置 ([setWrapText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/setwraptext/)) 将换行关闭，行就不会在框边缘处断开。
+可以。将 [TextFrameFormat.setWrapText](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/textframeformat/setwraptext/) 设置为禁用换行，使行在文本框边缘处不换行。
 
 **如何获取特定段落在幻灯片上的精确边界？**
 
-您可以检索段落（甚至单个片段）的边界矩形，以了解其在幻灯片上的精确位置和尺寸。
+使用 [Paragraph.getRect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraph/getrect/) 获取段落的边界矩形。[Portion.getRect](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/portion/#getRect) 提供单个文本段的边界。
 
-**段落的对齐方式（左/右/居中/两端对齐）在哪里进行控制？**
+**段落对齐（左、右、居中或两端对齐）在哪里控制？**
 
-[setAlignment](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setalignment/) 是 [ParagraphFormat](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/) 中的段落级设置方法；它适用于整个段落，不受单个片段格式的影响。
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/paragraphformat/setalignment/) 是段落级别的设置，适用于整个段落，而不受单个文本段格式的影响。
 
-**我可以仅为段落的一部分（例如一个单词）设置拼写检查语言吗？**
+**我可以为段落的一部分设置校对语言吗？**
 
-可以。语言在片段级别设置 ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setLanguageId))，因此一个段落中可以共存多种语言。
+可以。为各个文本段设置 [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh/nodejs-java/aspose.slides/baseportionformat/#setLanguageId)，这样一个段落可以包含多种语言的文本。

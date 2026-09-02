@@ -1,9 +1,12 @@
 ---
-title: Správa textových odstavců PowerPointu v PHP
+title: Správa textových odstavců PowerPoint v PHP
 linktitle: Správa odstavce
 type: docs
 weight: 40
 url: /cs/php-java/manage-paragraph/
+aliases:
+  - /php-java/paragraph/
+  - /php-java/portion/
 keywords:
 - přidat text
 - přidat odstavec
@@ -11,90 +14,96 @@ keywords:
 - spravovat odstavec
 - spravovat odrážku
 - odsazení odstavce
-- visící odsazení
+- zavěšené odsazení
 - odrážka odstavce
 - číslovaný seznam
-- seznam s odrážkami
+- odrážkový seznam
 - vlastnosti odstavce
-- importovat HTML
+- import HTML
 - text do HTML
 - odstavec do HTML
 - odstavec na obrázek
 - text na obrázek
 - exportovat odstavec
 - PowerPoint
-- OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Mistrovské formátování odstavců s Aspose.Slides pro PHP přes Java — optimalizujte zarovnání, mezery a styl v prezentacích PPT, PPTX a ODP."
+description: "Naučte se, jak vytvářet a formátovat odstavce, části, odrážky, číslované seznamy, odsazení, HTML obsah a obrázky odstavců pomocí Aspose.Slides pro PHP přes Java."
 ---
-## **Úvod**
+## **Přehled**
 
-Aspose.Slides poskytuje všechny třídy, které potřebujete pro práci s texty, odstavci a částmi v PowerPointu.
+Aspose.Slides pro PHP přes Java představuje text jako hierarchii textových rámců, odstavců a částí:
 
-* Aspose.Slides poskytuje třídu [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) , která vám umožní přidávat objekty představující odstavec. Objekt `TextFame` může obsahovat jeden nebo více odstavců (každý odstavec je vytvořen pomocí návratu řádku).
-* Aspose.Slides poskytuje třídu [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) , která vám umožní přidávat objekty představující části. Objekt `Paragraph` může mít jednu nebo více částí (kolekci objektů částí).
-* Aspose.Slides poskytuje třídu [Portion](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portion/) , která vám umožní přidávat objekty představující texty a jejich formátovací vlastnosti.
+* [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) představuje kontejner textu ve tvaru a poskytuje přístup k jeho sbírce odstavců.
+* [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) představuje jeden odstavec v textovém rámci a poskytuje přístup k jeho částem a formátování na úrovni odstavce.
+* [Portion](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portion/) představuje běh textu v odstavci. Každá část může mít vlastní text a formátování na úrovni znaků.
 
-Objekt `Paragraph` je schopen zpracovávat texty s různými formátovacími vlastnostmi prostřednictvím svých podkladových objektů `Portion`.
+Odstavec tak může obsahovat text s různými písmy, barvami, velikostmi a dalším formátováním pomocí více částí.
 
-## **Přidání více odstavců obsahujících více částí**
+## **Vytváření a formátování odstavců**
 
-Tyto kroky ukazují, jak přidat textový rámec obsahující 3 odstavce a každý odstavec obsahující 3 části:
+### **Vytváření odstavců s více částmi**
+
+Následující kroky vytvoří textový rámec se třemi odstavci, z nichž každý obsahuje tři části:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-4. Získejte ITextFrame spojený s [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
-5. Vytvořte dva objekty [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) a přidejte je do kolekce odstavců [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/).
-6. Vytvořte tři objekty [Portion](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portion/) pro každý nový `Paragraph` (dvě objekty Portion pro výchozí odstavec) a přidejte každý objekt `Portion` do kolekce částí každého `Paragraph`.
-7. Nastavte text pro každou část.
-8. Použijte požadované formátovací funkce na každou část pomocí formátovacích vlastností poskytovaných objektem `Portion`.
+2. Získejte požadovaný snímek podle jeho indexu.
+3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) do snímku.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru.
+5. Použijte výchozí odstavec a přidejte dva další objekty [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) do textového rámce.
+6. Přidejte dostatek objektů [Portion](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portion/) tak, aby každý odstavec obsahoval tři části. Výchozí odstavec již obsahuje jednu prázdnou část.
+7. Nastavte text každé části.
+8. Použijte formátování na úrovni znaků pomocí [Portion::getPortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portion/#getPortionFormat--).
 9. Uložte upravenou prezentaci.
 
+Tento příklad v PHP implementuje výše uvedené kroky:
+
 ```php
-# Vytvořte instanci třídy Presentation, která představuje soubor PPTX
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\NullableBool;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Přístup k prvnímu snímku
-    $slide = $pres->getSlides()->get_Item(0);
-    # Přidejte AutoShape typu Obdélník
-    $ashp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
-    # Získejte TextFrame AutoShape
-    $tf = $ashp->getTextFrame();
-    # Vytvořte odstavce a části s různými formáty textu
-    $para0 = $tf->getParagraphs()->get_Item(0);
-    $port01 = new Portion();
-    $port02 = new Portion();
-    $para0->getPortions()->add($port01);
-    $para0->getPortions()->add($port02);
-    $para1 = new Paragraph();
-    $tf->getParagraphs()->add($para1);
-    $port10 = new Portion();
-    $port11 = new Portion();
-    $port12 = new Portion();
-    $para1->getPortions()->add($port10);
-    $para1->getPortions()->add($port11);
-    $para1->getPortions()->add($port12);
-    $para2 = new Paragraph();
-    $tf->getParagraphs()->add($para2);
-    $port20 = new Portion();
-    $port21 = new Portion();
-    $port22 = new Portion();
-    $para2->getPortions()->add($port20);
-    $para2->getPortions()->add($port21);
-    $para2->getPortions()->add($port22);
-    for($i = 0; $i < 3; $i++) {
-        for($j = 0; $j < 3; $j++) {
-            $portion = $tf->getParagraphs()->get_Item($i)->getPortions()->get_Item($j);
-            $portion->setText("Portion0" . $j);
-            if ($j == 0) {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 300, 150);
+    $textFrame = $shape->getTextFrame();
+
+    $firstParagraph = $textFrame->getParagraphs()->get_Item(0);
+    $firstParagraph->getPortions()->add(new Portion());
+    $firstParagraph->getPortions()->add(new Portion());
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $secondParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $thirdParagraph->getPortions()->add(new Portion());
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $paragraphCount = java_values($textFrame->getParagraphs()->getCount());
+    for ($paragraphIndex = 0; $paragraphIndex < $paragraphCount; $paragraphIndex++) {
+        $paragraph = $textFrame->getParagraphs()->get_Item($paragraphIndex);
+        $portionCount = java_values($paragraph->getPortions()->getCount());
+        for ($portionIndex = 0; $portionIndex < $portionCount; $portionIndex++) {
+            $portion = $paragraph->getPortions()->get_Item($portionIndex);
+            $portion->setText("Portion " . ($paragraphIndex + 1) . "." . ($portionIndex + 1));
+
+            if ($portionIndex == 0) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
                 $portion->getPortionFormat()->setFontBold(NullableBool::True);
                 $portion->getPortionFormat()->setFontHeight(15);
-            } else if ($j == 1) {
+            } else if ($portionIndex == 1) {
                 $portion->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
                 $portion->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
                 $portion->getPortionFormat()->setFontItalic(NullableBool::True);
@@ -102,330 +111,311 @@ try {
             }
         }
     }
-    # Uložte PPTX na disk
-    $pres->save("multiParaPort_out.pptx", SaveFormat::Pptx);
+
+    $presentation->save("paragraphs_with_portions.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Správa odstavcových odrážek**
+## **Vytváření odrážkových a číslovaných seznamů**
 
-Seznamy s odrážkami vám pomáhají rychle a efektivně organizovat a prezentovat informace. Odstavce s odrážkami jsou vždy snazší číst a pochopit.
+### **Vytvoření odrážkového nebo číslovaného seznamu**
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na vybraný snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/).
-7. Nastavte pro odstavec typ odrážky `Type` na `Symbol` a nastavte znak odrážky.
-8. Nastavte odstavci `Text`.
-9. Nastavte odstavci `Indent` pro odrážku.
-10. Nastavte barvu odrážky.
-11. Nastavte výšku odrážky.
-12. Přidejte nový odstavec do kolekce odstavců `TextFrame`.
-13. Přidejte druhý odstavec a opakujte postup uvedený v krocích 7 až 13.
-14. Uložte prezentaci.
-
-```php
-# Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-$pres = new Presentation();
-try {
-    # Přistupuje k prvnímu snímku
-    $slide = $pres->getSlides()->get_Item(0);
-    # Přidá a přistoupí k Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Přistupuje k textovému rámci autoshape
-    $txtFrm = $aShp->getTextFrame();
-    # Odstraní výchozí odstavec
-    $txtFrm->getParagraphs()->removeAt(0);
-    # Vytvoří odstavec
-    $para = new Paragraph();
-    # Nastaví styl odrážky odstavce a symbol
-    $para->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para->getParagraphFormat()->getBullet()->setChar(8226);
-    # Nastaví text odstavce
-    $para->setText("Welcome to Aspose.Slides");
-    # Nastaví odsazení odrážky
-    $para->getParagraphFormat()->setIndent(25);
-    # Nastaví barvu odrážky
-    $para->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// nastavit IsBulletHardColor na true pro použití vlastní barvy odrážky
-
-    # Nastaví výšku odrážky
-    $para->getParagraphFormat()->getBullet()->setHeight(100);
-    # Přidá odstavec do textového rámce
-    $txtFrm->getParagraphs()->add($para);
-    # Vytvoří druhý odstavec
-    $para2 = new Paragraph();
-    # Nastaví typ a styl odrážky odstavce
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $para2->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle->BulletCircleNumWDBlackPlain);
-    # Přidá text odstavce
-    $para2->setText("This is numbered bullet");
-    # Nastaví odsazení odrážky
-    $para2->getParagraphFormat()->setIndent(25);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
-    $para2->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
-    $para2->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);// nastavit IsBulletHardColor na true pro použití vlastní barvy odrážky
-
-    # Nastaví výšku odrážky
-    $para2->getParagraphFormat()->getBullet()->setHeight(100);
-    # Přidá odstavec do textového rámce
-    $txtFrm->getParagraphs()->add($para2);
-    # Uloží upravenou prezentaci
-    $pres->save("Bullet_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-## **Správa obrázkových odrážek**
-
-Seznamy s odrážkami vám pomáhají rychle a efektivně organizovat a prezentovat informace. Odstavce s obrázkovými odrážkami jsou snadno čitelné a pochopitelné.
+Odrážky a číslování usnadňují skenování souvisejících položek. V Aspose.Slides jsou nastavení seznamu definována pomocí [BulletFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/).
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/).
-7. Načtěte obrázek pomocí [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/).
-8. Nastavte typ odrážky na [Picture](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bullettype/#Picture) a přiřaďte obrázek.
-9. Nastavte odstavci `Text`.
-10. Nastavte odstavci `Indent` pro odrážku.
-11. Nastavte barvu odrážky.
-12. Nastavte výšku odrážky.
-13. Přidejte nový odstavec do kolekce odstavců `TextFrame`.
-14. Přidejte druhý odstavec a opakujte postup podle předchozích kroků.
-15. Uložte upravenou prezentaci.
+2. Získejte požadovaný snímek podle jeho indexu.
+3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) k vybranému snímku.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru.
+5. Odstraňte výchozí odstavec z textového rámce.
+6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) pro symbolickou odrážku.
+7. Nastavte [BulletFormat::setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/#setType-int-) na [BulletType::Symbol](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bullettype/) a určete znak odrážky.
+8. Nastavte text odstavce, odsazení, barvu odrážky a výšku odrážky.
+9. Přidejte odstavec do textového rámce.
+10. Vytvořte druhý odstavec a nastavte [BulletFormat::setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/#setType-int-) na [BulletType::Numbered](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bullettype/).
+11. Nakonfigurujte styl číslované odrážky a přidejte odstavec do textového rámce.
+12. Uložte prezentaci.
+
+Tento příklad v PHP vytváří symbolickou odrážku a číslovanou odrážku:
 
 ```php
-# Vytvoří instanci třídy Presentation, která představuje soubor PPTX
+use aspose\slides\BulletType;
+use aspose\slides\ColorType;
+use aspose\slides\NullableBool;
+use aspose\slides\NumberedBulletStyle;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
-    # Přistupuje k prvnímu snímku
     $slide = $presentation->getSlides()->get_Item(0);
-    # Vytvoří obrázek pro odrážky
-    $picture;
-    $image = Images->fromFile("bullets.png");
-    try {
-        $picture = $presentation->getImages()->addImage($image);
-    } finally {
-        if (!java_is_null($image)) {
-            $image->dispose();
-        }
-    }
-    # Přidá a přistoupí k Autoshape
-    $autoShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Přistupuje k textovému rámci autoshape
-    $textFrame = $autoShape->getTextFrame();
-    # Odstraní výchozí odstavec
-    $textFrame->getParagraphs()->removeAt(0);
-    # Vytvoří nový odstavec
-    $paragraph = new Paragraph();
-    $paragraph->setText("Welcome to Aspose.Slides");
-    # Nastaví styl odrážky odstavce a obrázek
-    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
-    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($picture);
-    # Nastaví výšku odrážky
-    $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
-    # Přidá odstavec do textového rámce
-    $textFrame->getParagraphs()->add($paragraph);
-    # Zapíše prezentaci jako soubor PPTX
-    $presentation->save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat::Pptx);
-    # Zapíše prezentaci jako soubor PPT
-    $presentation->save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat::Ppt);
-} catch (JavaException $e) {
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $symbolParagraph = new Paragraph();
+    $symbolParagraph->setText("Welcome to Aspose.Slides");
+    $symbolParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $symbolParagraph->getParagraphFormat()->setIndent(25);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $symbolParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $symbolParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($symbolParagraph);
+
+    $numberedParagraph = new Paragraph();
+    $numberedParagraph->setText("This is a numbered item");
+    $numberedParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStyle(NumberedBulletStyle::BulletCircleNumWDBlackPlain);
+    $numberedParagraph->getParagraphFormat()->setIndent(25);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColorType(ColorType::RGB);
+    $numberedParagraph->getParagraphFormat()->getBullet()->getColor()->setColor(java("java.awt.Color")->BLACK);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setBulletHardColor(NullableBool::True);
+    $numberedParagraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($numberedParagraph);
+
+    $presentation->save("bulleted_and_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Správa víceúrovňových odrážek**
+### **Použití obrázkových odrážek**
 
-Seznamy s odrážkami vám pomáhají rychle a efektivně organizovat a prezentovat informace. Víceúrovňové odrážky jsou snadno čitelné a pochopitelné.
-
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape] na nový snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) a nastavte úroveň (depth) na 0.
-7. Vytvořte druhý odstavec pomocí třídy `Paragraph` a nastavte úroveň na 1.
-8. Vytvořte třetí odstavec pomocí třídy `Paragraph` a nastavte úroveň na 2.
-9. Vytvořte čtvrtý odstavec pomocí třídy `Paragraph` a nastavte úroveň na 3.
-10. Přidejte nové odstavce do kolekce odstavců `TextFrame`.
-11. Uložte upravenou prezentaci.
-
-```php
-# Vytvoří instanci třídy Presentation, která představuje soubor PPTX
-$pres = new Presentation();
-try {
-    # Přistupuje k prvnímu snímku
-    $slide = $pres->getSlides()->get_Item(0);
-    # Přidá a přistoupí k Autoshape
-    $aShp = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Přistupuje k textovému rámci vytvořeného autoshape
-    $text = $aShp->addTextFrame("");
-    # Vymaže výchozí odstavec
-    $text->getParagraphs()->clear();
-    # Přidá první odstavec
-    $para1 = new Paragraph();
-    $para1->setText("Content");
-    $para1->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para1->getParagraphFormat()->getBullet()->setChar(8226);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para1->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Nastaví úroveň odrážky
-    $para1->getParagraphFormat()->setDepth(0);
-    # Přidá druhý odstavec
-    $para2 = new Paragraph();
-    $para2->setText("Second Level");
-    $para2->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para2->getParagraphFormat()->getBullet()->setChar('-');
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para2->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Nastaví úroveň odrážky
-    $para2->getParagraphFormat()->setDepth(1);
-    # Přidá třetí odstavec
-    $para3 = new Paragraph();
-    $para3->setText("Third Level");
-    $para3->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para3->getParagraphFormat()->getBullet()->setChar(8226);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para3->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Nastaví úroveň odrážky
-    $para3->getParagraphFormat()->setDepth(2);
-    # Přidá čtvrtý odstavec
-    $para4 = new Paragraph();
-    $para4->setText("Fourth Level");
-    $para4->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
-    $para4->getParagraphFormat()->getBullet()->setChar('-');
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $para4->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    # Nastaví úroveň odrážky
-    $para4->getParagraphFormat()->setDepth(3);
-    # Přidá odstavce do kolekce
-    $text->getParagraphs()->add($para1);
-    $text->getParagraphs()->add($para2);
-    $text->getParagraphs()->add($para3);
-    $text->getParagraphs()->add($para4);
-    # Zapíše prezentaci jako soubor PPTX
-    $pres->save("MultilevelBullet.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
-}
-```
-
-## **Správa odstavce s vlastním číslovaným seznamem**
-
-Třída [BulletFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/) poskytuje metodu [setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/setnumberedbulletstartwith/) a další, které vám umožní spravovat odstavce s vlastním číslováním nebo formátováním.
+Obrázkové odrážky vám umožní použít vlastní obrázek místo symbolu nebo čísla.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte snímek obsahující odstavec.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) autoshape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) a nastavte [NumberedBulletStartWith] na 2.
-7. Vytvořte druhý odstavec pomocí třídy `Paragraph` a nastavte `NumberedBulletStartWith` na 3.
-8. Vytvořte třetí odstavec pomocí třídy `Paragraph` a nastavte `NumberedBulletStartWith` na 7.
-9. Přidejte nové odstavce do kolekce odstavců `TextFrame`.
+2. Získejte požadovaný snímek podle jeho indexu.
+3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) a získejte jeho [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/).
+4. Odstraňte výchozí odstavec z textového rámce.
+5. Načtěte obrázek odrážky a přidejte jej do kolekce obrázků prezentace jako [PPImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/ppimage/).
+6. Vytvořte [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) a nastavte jeho text.
+7. Nastavte [BulletFormat::setType](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/#setType-int-) na [BulletType::Picture](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bullettype/).
+8. Přiřaďte obrázek pomocí [BulletFormat::getPicture](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/#getPicture--) a nastavte výšku odrážky.
+9. Přidejte odstavec do textového rámce.
 10. Uložte upravenou prezentaci.
 
+Tento příklad v PHP vytváří obrázkovou odrážku:
+
 ```php
+use aspose\slides\BulletType;
+use aspose\slides\Images;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+
+    $bulletImage = Images::fromFile("bullets.png");
+    try {
+        $presentationImage = $presentation->getImages()->addImage($bulletImage);
+    } finally {
+        $bulletImage->dispose();
+    }
+
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $paragraph = new Paragraph();
+    $paragraph->setText("Welcome to Aspose.Slides");
+    $paragraph->getParagraphFormat()->getBullet()->setType(BulletType::Picture);
+    $paragraph->getParagraphFormat()->getBullet()->getPicture()->setImage($presentationImage);
+    $paragraph->getParagraphFormat()->getBullet()->setHeight(100);
+    $textFrame->getParagraphs()->add($paragraph);
+
+    $presentation->save("picture_bullet.pptx", SaveFormat::Pptx);
+    $presentation->save("picture_bullet.ppt", SaveFormat::Ppt);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Vytvoření víceúrovňového seznamu**
+
+Nastavte [ParagraphFormat::setDepth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setDepth-short-) pro umístění odstavců na různé úrovně seznamu. Nejvyšší úroveň má hloubku `0`.
+
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) a získejte snímek.
+2. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) a vymažte výchozí odstavec z jeho textového rámce.
+3. Vytvořte čtyři odstavce a nakonfigurujte jejich symboly odrážek.
+4. Nastavte jejich hodnoty [ParagraphFormat::setDepth](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setDepth-short-) na `0`, `1`, `2` a `3`.
+5. Přidejte odstavce do textového rámce a uložte prezentaci.
+
+Tento příklad v PHP vytváří čtyřúrovňový odrážkový seznam:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Content");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $firstParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $firstParagraph->getParagraphFormat()->setDepth(0);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Second level");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $secondParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $secondParagraph->getParagraphFormat()->setDepth(1);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Third level");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setChar("•");
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $thirdParagraph->getParagraphFormat()->setDepth(2);
+
+    $fourthParagraph = new Paragraph();
+    $fourthParagraph->setText("Fourth level");
+    $fourthParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Symbol);
+    $fourthParagraph->getParagraphFormat()->getBullet()->setChar('-');
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $fourthParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
+    $fourthParagraph->getParagraphFormat()->setDepth(3);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+    $textFrame->getParagraphs()->add($fourthParagraph);
+
+    $presentation->save("multilevel_list.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+### **Zahájení číslovaných položek seznamu vlastními hodnotami**
+
+Použijte [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) pro nastavení počátečního čísla zobrazeného u číslovaného odstavce.
+
+1. Vytvořte [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) a přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
+2. Vymažte výchozí odstavec z textového rámce tvaru.
+3. Vytvořte tři číslované odstavce.
+4. Nastavte [BulletFormat::setNumberedBulletStartWith](https://reference.aspose.com/slides/cs/php-java/aspose.slides/bulletformat/#setNumberedBulletStartWith-short-) na `2`, `3` a `7` pro příslušné odstavce.
+5. Přidejte odstavce do textového rámce a uložte prezentaci.
+
+Tento příklad v PHP přiřazuje vlastní počáteční číslo každému odstavci:
+
+```php
+use aspose\slides\BulletType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
 $presentation = new Presentation();
 try {
     $shape = $presentation->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 200, 200, 400, 200);
-    # Přistupuje k textovému rámci vytvořeného autoshape
     $textFrame = $shape->getTextFrame();
-    # Odstraňuje výchozí existující odstavec
-    $textFrame->getParagraphs()->removeAt(0);
-    # První seznam
-    $paragraph1 = new Paragraph();
-    $paragraph1->setText("bullet 2");
-    $paragraph1->getParagraphFormat()->setDepth(4);
-    $paragraph1->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
-    $paragraph1->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph1);
-    $paragraph2 = new Paragraph();
-    $paragraph2->setText("bullet 3");
-    $paragraph2->getParagraphFormat()->setDepth(4);
-    $paragraph2->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
-    $paragraph2->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph2);
-    $paragraph5 = new Paragraph();
-    $paragraph5->setText("bullet 7");
-    $paragraph5->getParagraphFormat()->setDepth(4);
-    $paragraph5->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
-    $paragraph5->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
-    $textFrame->getParagraphs()->add($paragraph5);
-    $presentation->save("SetCustomBulletsNumber-slides.pptx", SaveFormat::Pptx);
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->setText("Start at 2");
+    $firstParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $firstParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(2);
+    $textFrame->getParagraphs()->add($firstParagraph);
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->setText("Start at 3");
+    $secondParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $secondParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(3);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("Start at 7");
+    $thirdParagraph->getParagraphFormat()->getBullet()->setType(BulletType::Numbered);
+    $thirdParagraph->getParagraphFormat()->getBullet()->setNumberedBulletStartWith(7);
+    $textFrame->getParagraphs()->add($thirdParagraph);
+
+    $presentation->save("custom_numbered_list.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Nastavení odsazení první řádky odstavce**
+## **Řízení rozvržení odstavců a vlastností konce**
 
-Použijte metodu [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setindent/), která řídí odsazení první řádky odstavce. Tato metoda posouvá pouze první řádek vzhledem k levému okraji odstavce. Kladná hodnota posune první řádek doprava, zatímco zbylé řádky zůstávají zarovnané k tělu odstavce.
+### **Nastavení odsazení první řádky**
 
-Použijte [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setmarginleft/), pokud potřebujete přesunout celý odstavec. Použijte [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setindent/), pokud chcete přesunout pouze první řádek.
+Použijte [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-) pro ovládání odsazení první řádky odstavce. Tato metoda posouvá pouze první řádku vzhledem k levému okraji odstavce. Kladná hodnota posouvá první řádku doprava, zatímco zbylé řádky zůstávají zarovnané k tělu odstavce.
 
-Následující příklad vytvoří několik odstavců a použije různé hodnoty odsazení, aby ukázal, jak odsazení první řádky ovlivňuje rozvržení odstavce.
+Použijte [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) když potřebujete posunout celý odstavec. Použijte [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-) když chcete posunout jen první řádku.
+
+Níže uvedený příklad vytváří několik odstavců a aplikuje různé hodnoty [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-) pro demonstraci, jak odsazení první řádky ovlivňuje rozvržení odstavce.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
 2. Získejte cílový snímek.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-4. Přidejte prázdný [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) do tvaru a odstraňte výchozí odstavec.
-5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [Indent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setindent/).
+3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) do snímku.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte několik odstavců a nastavte pro ně různé hodnoty [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-).
 6. Přidejte odstavce do textového rámce.
 7. Uložte upravenou prezentaci.
 
+Tento kód v PHP ukazuje, jak nastavit odsazení odstavce:
+
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $firstParagraph->getParagraphFormat()->setIndent(0.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $secondParagraph->getParagraphFormat()->setIndent(20.0);
 
     $thirdParagraph = new Paragraph();
+    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $thirdParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $thirdParagraph->setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     $thirdParagraph->getParagraphFormat()->setMarginLeft(20.0);
     $thirdParagraph->getParagraphFormat()->setIndent(40.0);
 
@@ -439,50 +429,61 @@ try {
 }
 ```
 
+Výsledek:
+
 ![Odsazení první řádky odstavců](first_line_indent.png)
 
-## **Nastavení visícího odsazení odstavce**
+### **Nastavení zavěšeného odsazení**
 
-Visící odsazení je rozvržení odstavce, ve kterém první řádek začíná vlevo od zbylých řádků. V Aspose.Slides vytvoříte tento efekt pomocí metody [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setindent/). Nastavte odsazení na zápornou hodnotu, aby se první řádek posunul doleva vzhledem k tělu odstavce.
+Zavěšené odsazení je rozvržení odstavce, kde první řádka začíná vlevo od zbytku řádků. V Aspose.Slides tento efekt vytvoříte pomocí [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-). Přiřaďte zápornou hodnotu pro posun první řádky vlevo vzhledem k tělu odstavce.
 
-V praxi [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setmarginleft/) určuje levý požadavek těla odstavce a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setindent/) určuje polohu první řádky vůči tomuto okraji. Pro vytvoření visícího odsazení nastavte kladnou hodnotu `MarginLeft` a zápornou hodnotu `Indent`.
+V praxi [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) definuje levý okraj těla odstavce a [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-) určuje pozici první řádky vzhledem k tomuto okraji. Pro vytvoření zavěšeného odsazení použijte kladnou hodnotu pro `setMarginLeft` a zápornou hodnotu pro `setIndent`.
 
-Toto formátování je užitečné pro bibliografie, odkazy, položky glosáře a další odstavce, kde zalomené řádky musí být zarovnány pod tělo odstavce místo pod první znak první řádky.
+Toto formátování je užitečné pro bibliografie, reference, glosáře a další odstavce, kde musí být zalomené řádky zarovnány pod tělo odstavce, nikoli pod první znak první řádky.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
 2. Získejte cílový snímek.
-3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-4. Přidejte prázdný [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) do tvaru a odstraňte výchozí odstavec.
-5. Vytvořte odstavce a nastavte pro každý odstavec kladnou hodnotu [MarginLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setmarginleft/).
-6. Nastavte zápornou hodnotu [Indent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setindent/) pro vytvoření efektu visícího odsazení.
+3. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) do snímku.
+4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru a odstraňte výchozí odstavec.
+5. Vytvořte odstavce a přiřaďte kladnou hodnotu [ParagraphFormat::setMarginLeft](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setMarginLeft-float-) pro každý odstavec.
+6. Přiřaďte zápornou hodnotu [ParagraphFormat::setIndent](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setIndent-float-) pro vytvoření efektu zavěšeného odsazení.
 7. Přidejte odstavce do textového rámce.
 8. Uložte upravenou prezentaci.
 
+Tento kód v PHP ukazuje, jak nastavit zavěšené odsazení pro odstavec:
+
 ```php
+use aspose\slides\FillType;
+use aspose\slides\Paragraph;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+use aspose\slides\TextAutofitType;
+
 $presentation = new Presentation();
 try {
     $slide = $presentation->getSlides()->get_Item(0);
 
-    $rectangleShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle,50,50,420,220);
-    $rectangleShape->getFillFormat()->setFillType(FillType::NoFill);
-    $rectangleShape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
-    $rectangleShape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 420, 220);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
+    $shape->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->GRAY);
 
-    $textFrame = $rectangleShape->addTextFrame("");
+    $textFrame = $shape->getTextFrame();
     $textFrame->getTextFrameFormat()->setAutofitType(TextAutofitType::Shape);
-    $textFrame->getParagraphs()->removeAt(0);
+    $textFrame->getParagraphs()->clear();
 
     $firstParagraph = new Paragraph();
+    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $firstParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $firstParagraph->setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     $firstParagraph->getParagraphFormat()->setMarginLeft(40.0);
     $firstParagraph->getParagraphFormat()->setIndent(-20.0);
 
     $secondParagraph = new Paragraph();
+    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
     $secondParagraph->getParagraphFormat()->getDefaultPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLACK);
-    $secondParagraph->setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     $secondParagraph->getParagraphFormat()->setMarginLeft(60.0);
     $secondParagraph->getParagraphFormat()->setIndent(-30.0);
 
@@ -495,163 +496,182 @@ try {
 }
 ```
 
-![Visící odsazení odstavců](hanging_indent.png)
+Výsledek:
 
-## **Správa koncových vlastností odstavce**
+![Zavěšené odsazení odstavců](hanging_indent.png)
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-1. Získejte odkaz na snímek obsahující odstavec podle jeho pozice.
-1. Přidejte obdélníkový [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-1. Přidejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) se dvěma odstavci do obdélníku.
-1. Nastavte výšku písma a typ písma pro odstavce.
-1. Nastavte koncové vlastnosti pro odstavce.
-1. Uložte upravenou prezentaci jako soubor PPTX.
+### **Nastavení vlastností koncového běhu odstavce**
+
+[Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) řídí formátování koncového znaku odstavce. Následující příklad v PHP přiřazuje velikost písma a latinské písmo ke koncovému znaku druhého odstavce:
+
+1. Načtěte [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) a získejte snímek.
+2. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) a vymažte jeho výchozí odstavec.
+3. Vytvořte dva odstavce a přidejte k nim textové části.
+4. Vytvořte [PortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portionformat/) pro koncový znak druhého odstavce.
+5. Nastavte [BasePortionFormat::setFontHeight](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setFontHeight-float-) a [BasePortionFormat::setLatinFont](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setLatinFont-com.aspose.slides.IFontData-).
+6. Přiřaďte formát pomocí [Paragraph::setEndParagraphPortionFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#setEndParagraphPortionFormat-com.aspose.slides.PortionFormat-) a uložte prezentaci.
 
 ```php
-$pres = new Presentation();
+use aspose\slides\FontData;
+use aspose\slides\Paragraph;
+use aspose\slides\Portion;
+use aspose\slides\PortionFormat;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation("Test.pptx");
 try {
-    $shape = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
-    $para1 = new Paragraph();
-    $para1->getPortions()->add(new Portion("Sample text"));
-    $para2 = new Paragraph();
-    $para2->getPortions()->add(new Portion("Sample text 2"));
-    $portionFormat = new PortionFormat();
-    $portionFormat::setFontHeight(48);
-    $portionFormat::setLatinFont(new FontData("Times New Roman"));
-    $para2->setEndParagraphPortionFormat($portionFormat);
-    $shape->getTextFrame()->getParagraphs()->add($para1);
-    $shape->getTextFrame()->getParagraphs()->add($para2);
-    $pres->save($resourcesOutputPath . "pres.pptx", SaveFormat::Pptx);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, 200, 250);
+    $textFrame = $shape->getTextFrame();
+    $textFrame->getParagraphs()->clear();
+
+    $firstParagraph = new Paragraph();
+    $firstParagraph->getPortions()->add(new Portion("Sample text"));
+
+    $secondParagraph = new Paragraph();
+    $secondParagraph->getPortions()->add(new Portion("Sample text 2"));
+
+    $endParagraphFormat = new PortionFormat();
+    $endParagraphFormat->setFontHeight(48);
+    $endParagraphFormat->setLatinFont(new FontData("Times New Roman"));
+    $secondParagraph->setEndParagraphPortionFormat($endParagraphFormat);
+
+    $textFrame->getParagraphs()->add($firstParagraph);
+    $textFrame->getParagraphs()->add($secondParagraph);
+
+    $presentation->save("end_paragraph_format.pptx", SaveFormat::Pptx);
 } finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
-    }
+    $presentation->dispose();
 }
 ```
 
-## **Import HTML textu do odstavců**
+## **Import a export obsahu odstavců**
 
-Aspose.Slides poskytuje rozšířenou podporu pro import HTML textu do odstavců.
+### **Import HTML textu do odstavců**
+
+Použijte [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) k převodu HTML značek na odstavce a části v textovém rámci.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/).
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/) na snímek.
-4. Přidejte a získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) AutoShape.
-5. Odstraňte výchozí odstavec v `TextFrame`.
-6. Přečtěte zdrojový HTML soubor pomocí TextReader.
-7. Vytvořte první odstavec pomocí třídy [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/).
-8. Přidejte obsah HTML souboru ze čteného TextReader do [ParagraphCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphcollection/) TextFrame.
-9. Uložte upravenou prezentaci.
+2. Získejte snímek a přidejte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/).
+3. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru a vymažte jeho výchozí odstavec.
+4. Přečtěte zdrojový soubor HTML.
+5. Předávejte řetězec HTML metodě [ParagraphCollection::addFromHtml](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-).
+6. Uložte upravenou prezentaci.
+
+Tento příklad v PHP importuje HTML do textového rámce:
 
 ```php
-# Vytvořte prázdnou instanci prezentace
-$pres = new Presentation();
+use aspose\slides\FillType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
 try {
-    # Přístup k výchozímu prvnímu snímku prezentace
-    $slide = $pres->getSlides()->get_Item(0);
-    # Přidání AutoShape pro uložení HTML obsahu
-    $ashape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $pres->getSlideSize()->getSize()->getWidth() - 20, $pres->getSlideSize()->getSize()->getHeight() - 10);
-    $ashape->getFillFormat()->setFillType(FillType::NoFill);
-    # Přidání textového rámce do tvaru
-    $ashape->addTextFrame("");
-    # Vyčištění všech odstavců v přidaném textovém rámci
-    $ashape->getTextFrame()->getParagraphs()->clear();
-    # Načtení HTML souboru pomocí StreamReaderu
-    $tr = new StreamReader("file.html");
-    # Přidání textu z HTML stream readeru do textového rámce
-    $ashape->getTextFrame()->getParagraphs()->addFromHtml($tr->readToEnd());
-    # Uložit prezentaci
-    $pres->save("output_out.pptx", SaveFormat::Pptx);
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shapeWidth = java_values($presentation->getSlideSize()->getSize()->getWidth()) - 20;
+    $shapeHeight = java_values($presentation->getSlideSize()->getSize()->getHeight()) - 20;
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 10, 10, $shapeWidth, $shapeHeight);
+    $shape->getFillFormat()->setFillType(FillType::NoFill);
+    $shape->getTextFrame()->getParagraphs()->clear();
+
+    $html = file_get_contents("file.html");
+    if ($html !== false) {
+        $shape->getTextFrame()->getParagraphs()->addFromHtml($html);
+        $presentation->save("html_text.pptx", SaveFormat::Pptx);
+    } else {
+        echo "The HTML file could not be read.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Export textu odstavce do HTML**
+### **Export textu odstavce do HTML**
 
-Aspose.Slides poskytuje rozšířenou podporu pro export textů (obsažených v odstavcích) do HTML.
+Použijte [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) k exportu vybraného rozsahu odstavců jako HTML.
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/) a načtěte požadovanou prezentaci.
-2. Získejte odkaz na příslušný snímek pomocí jeho indexu.
-3. Získejte tvar obsahující text, který bude exportován do HTML.
-4. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru.
-5. Vytvořte instanci `StreamWriter` a přidejte nový HTML soubor.
-6. Poskytněte počáteční index StreamWriteru a exportujte požadované odstavce.
+2. Získejte snímek a najděte [AutoShape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/autoshape/), který obsahuje text.
+3. Získejte [TextFrame](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframe/) tvaru.
+4. Zavolejte [ParagraphCollection::exportToHtml](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) s počátečním indexem odstavce a počtem odstavců k exportu.
+5. Zapište vrácený řetězec HTML do souboru.
+
+Tento příklad v PHP exportuje všechny odstavce z prvního textového tvaru:
 
 ```php
-# Načíst soubor prezentace
-$pres = new Presentation("ExportingHTMLText.pptx");
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    # Přístup k výchozímu prvnímu snímku prezentace
-    $slide = $pres->getSlides()->get_Item(0);
-    # Požadovaný index
-    $index = 0;
-    # Přístup k přidanému tvaru
-    $ashape = $slide->getShapes()->get_Item($index);
-    # Vytvoření výstupního HTML souboru
-    $os = new Java("java.io.FileOutputStream", "output.html");
-    $writer = new OutputStreamWriter($os, "UTF-8");
-    # Extrahování prvního odstavce jako HTML
-    # Zapisování dat odstavců do HTML poskytnutím počátečního indexu odstavce a celkového počtu odstavců ke kopírování
-    $writer->write($ashape->getTextFrame()->getParagraphs()->exportToHtml(0, $ashape->getTextFrame()->getParagraphs()->getCount(), null));
-    $writer->close();
-} catch (JavaException $e) {
-} finally {
-    if (!java_is_null($pres)) {
-        $pres->dispose();
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame)) {
+            $paragraphs = $textFrame->getParagraphs();
+            $html = $paragraphs->exportToHtml(0, $paragraphs->getCount(), null);
+            if (file_put_contents("paragraphs.html", $html) === false) {
+                echo "The HTML file could not be written.";
+            }
+        } else {
+            echo "The first shape does not contain a text frame.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **Uložení odstavce jako obrázku**
+### **Vykreslení odstavce jako obrázku**
 
-V této sekci prozkoumáme dva příklady, které ukazují, jak uložit textový odstavec reprezentovaný třídou [Paragraph](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/) jako obrázek. Oba příklady zahrnují získání obrázku tvaru obsahujícího odstavec pomocí metod `getImage` ze třídy [Shape](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/), výpočet ohraničení odstavce v rámci tvaru a jeho export jako bitmapový obrázek. Tyto přístupy vám umožňují extrahovat konkrétní části textu z prezentací PowerPoint a uložit je jako samostatné obrázky, což může být užitečné pro další použití v různých scénářích.
+[Paragraph::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#getImage--) vykreslí jednotlivý odstavec přímo a vrátí objekt [IImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/). Výsledek uložte do souboru nebo proudu pomocí [IImage::save](https://reference.aspose.com/slides/cs/php-java/aspose.slides/iimage/#save-java.lang.String-int-). Nemusíte vykreslovat celý tvar ani ručně ořezávat bitmapu.
 
-Předpokládejme, že máme soubor prezentace nazvaný sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
+[Paragraph::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#getImage--) může vrátit `null`, pokud není odstavec nalezen v nadřazené kolekci, nemá platné vykreslovací hranice nebo nelze vykreslit. Zkontrolujte výsledek před uložením a po použití uvolněte vrácený obrázek.
+
+#### **Vykreslení odstavce ve výchozím měřítku**
+
+Předpokládejme, že máme soubor prezentace s názvem sample.pptx s jedním snímkem, kde je první tvar textové pole obsahující tři odstavce.
 
 ![Textové pole se třemi odstavci](paragraph_to_image_input.png)
 
-**Příklad 1**
-
-V tomto příkladu získáme druhý odstavec jako obrázek. K tomu nejprve extrahujeme obrázek tvaru z prvního snímku prezentace a poté vypočítáme ohraničení druhého odstavce v textovém rámci tvaru. Odstavec je následně překreslen na nový bitmapový obrázek, který je uložen ve formátu PNG. Tato metoda je zvláště užitečná, když potřebujete uložit konkrétní odstavec jako samostatný obrázek při zachování přesných rozměrů a formátování textu.
+Následující příklad v PHP vykreslí druhý odstavec v běžném textovém tvaru ve výchozím měřítku a uloží vrácený obrázek ve formátu PNG. Blok `finally` zajistí správné uvolnění obrázku.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
 $presentation = new Presentation("sample.pptx");
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
 
-    // Uložte tvar v paměti jako bitmapu.
-    $shapeImage = $firstShape->getImage();
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
+    if (java_instanceof($shape, new JavaClass("com.aspose.slides.AutoShape"))) {
+        $textFrame = $shape->getTextFrame();
+        if (!java_is_null($textFrame) && java_values($textFrame->getParagraphs()->getCount()) > 1) {
+            $paragraph = $textFrame->getParagraphs()->get_Item(1);
+            $paragraphImage = $paragraph->getImage();
 
-    // Vytvořte bitmapu tvaru z paměti.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Vypočítejte ohraničení druhého odstavce.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-
-    // Vypočítejte souřadnice a velikost výstupního obrázku (minimální velikost - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Ořežte bitmapu tvaru, aby obsahovala jen bitmapu odstavce.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+            if (!java_is_null($paragraphImage)) {
+                try {
+                    $paragraphImage->save("paragraph.png", ImageFormat::Png);
+                } finally {
+                    $paragraphImage->dispose();
+                }
+            } else {
+                echo "The paragraph could not be rendered.";
+            }
+        } else {
+            echo "The expected paragraph was not found.";
+        }
+    } else {
+        echo "The first shape is not a text shape.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
@@ -659,71 +679,57 @@ Výsledek:
 
 ![Obrázek odstavce](paragraph_to_image_output.png)
 
-**Příklad 2**
+#### **Vykreslení odstavce v buňce tabulky se škálováním**
 
-V tomto příkladu rozšiřujeme předchozí přístup přidáním škálovacích faktorů k obrázku odstavce. Tvar je extrahován z prezentace a uložen jako obrázek se škálovacím faktorem `2`. To umožňuje výstup s vyšším rozlišením při exportu odstavce. Ohraničení odstavce je pak vypočítáno s ohledem na měřítko. Škálování může být zvláště užitečné, když je potřeba podrobnější obrázek, například pro použití v vysoce kvalitních tištěných materiálech.
+Použijte přetížení [Paragraph::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#getImage-float-float-) přijímající parametry `$scaleX` a `$scaleY` pro nastavení horizontálního a vertikálního škálovacího faktoru. Následující příklad v PHP vytvoří tabulku, vykreslí odstavec v její první buňce dvakrát širší a vyšší než výchozí a uloží výsledek jako PNG obrázek.
 
 ```php
-$imageIO = new Java("javax.imageio.ImageIO");
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
 
-$imageScaleX = 2;
-$imageScaleY = $imageScaleX;
+$scaleX = 2;
+$scaleY = 2;
 
-$presentation = new Presentation("sample.pptx");
+$presentation = new Presentation();
 try {
-    $firstShape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $slide = $presentation->getSlides()->get_Item(0);
+    $table = $slide->getShapes()->addTable(50, 50, array(300), array(80));
+    $paragraph = $table->get_Item(0, 0)->getTextFrame()->getParagraphs()->get_Item(0);
+    $paragraph->setText("Text in a table cell");
 
-    // Uložte tvar v paměti jako bitmapu se škálováním.
-    $shapeImage = $firstShape->getImage(ShapeThumbnailBounds::Shape, $imageScaleX, $imageScaleY);
-    $shapeImageStream = new Java("java.io.ByteArrayOutputStream");
-    $shapeImage->save($shapeImageStream, ImageFormat::Png);
-    $shapeImage->dispose();
-
-    // Vytvořte bitmapu tvaru z paměti.
-    $shapeImageInputStream = new Java("java.io.ByteArrayInputStream", $shapeImageStream->toByteArray());
-    $shapeBitmap = $imageIO->read($shapeImageInputStream);
-
-    // Vypočítejte ohraničení druhého odstavce.
-    $secondParagraph = $firstShape->getTextFrame()->getParagraphs()->get_Item(1);
-    $paragraphRectangle = $secondParagraph->getRect();
-    $paragraphRectangle->setRect(
-            java_values($paragraphRectangle->getX()) * $imageScaleX,
-            java_values($paragraphRectangle->getY()) * $imageScaleY,
-            java_values($paragraphRectangle->getWidth()) * $imageScaleX,
-            java_values($paragraphRectangle->getHeight()) * $imageScaleY
-    );
-
-    // Vypočítejte souřadnice a velikost výstupního obrázku (minimální velikost - 1x1 pixel).
-    $imageX = floor(java_values($paragraphRectangle->getX()));
-    $imageY = floor(java_values($paragraphRectangle->getY()));
-    $imageWidth = max(1, ceil(java_values($paragraphRectangle->getWidth())));
-    $imageHeight = max(1, ceil(java_values($paragraphRectangle->getHeight())));
-
-    // Ořízněte bitmapu tvaru, aby obsahovala jen bitmapu odstavce.
-    $paragraphBitmap = $shapeBitmap->getSubimage($imageX, $imageY, $imageWidth, $imageHeight);
-
-    $imageIO->write($paragraphBitmap, "png", new Java("java.io.File", "paragraph.png"));
-} finally {
-    if (!java_is_null($presentation)) {
-        $presentation->dispose();
+    $paragraphImage = $paragraph->getImage($scaleX, $scaleY);
+    if (!java_is_null($paragraphImage)) {
+        try {
+            $paragraphImage->save("table_paragraph.png", ImageFormat::Png);
+        } finally {
+            $paragraphImage->dispose();
+        }
+    } else {
+        echo "The paragraph could not be rendered.";
     }
+} finally {
+    $presentation->dispose();
 }
 ```
 
-## **FAQ**
+Škálovací faktor `1` zachová výchozí velikost pixelu na dané ose. Například `2` pro oba faktory vytvoří obrázek, jehož šířka i výška jsou přibližně dvojnásobek výchozích rozměrů, tedy čtyřnásobek počtu pixelů. Větší faktory obecně poskytují ostřejší text při zoomování nebo výstupu ve vysokém rozlišení, ale také zvyšují využití paměti a velikost souboru. Faktory menší než `1` produkují menší obrázky s menšími detaily. Použijte stejné faktory pro zachování poměru stran odstavce; různé horizontální a vertikální faktory rozšiřují výstup nezávisle.
 
-**Mohu zcela zakázat zalamování řádků v textovém rámci?**
+Vykreslení celého tvaru pomocí [Shape::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/shape/#getImage--) je užitečné, když výstup musí zahrnovat výplň, okraj nebo další vizuální kontext tvaru. Pro obrázek pouze odstavce použijte [Paragraph::getImage](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#getImage--).
 
-Ano. Použijte nastavení zalamování textového rámce ([setWrapText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/setwraptext/)) a vypněte zalamování, aby se řádky nelámají na okrajích rámce.
+## **Často kladené otázky**
 
-**Jak mohu získat přesné ohraničení konkrétního odstavce na snímku?**
+**Mohu zcela zakázat zalamování textu uvnitř textového rámce?**
 
-Můžete získat ohraničující obdélník odstavce (a dokonce i jedné části), abyste znali jeho přesnou polohu a velikost na snímku.
+Ano. Nastavte [TextFrameFormat::setWrapText](https://reference.aspose.com/slides/cs/php-java/aspose.slides/textframeformat/#setWrapText-byte-) pro zakázání zalamování, aby řádky nečelily okrajům textového rámce.
 
-**Kde se řídí zarovnání odstavce (levé/pravé/středové/justify)?**
+**Jak mohu získat přesné souřadnice odstavce na snímku?**
 
-[Alignment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/setalignment/) je nastavení na úrovni odstavce v [ParagraphFormat](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/); vztahuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
+Použijte [Paragraph::getRect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraph/#getRect--) k získání ohraničujícího obdélníku odstavce. [Portion::getRect](https://reference.aspose.com/slides/cs/php-java/aspose.slides/portion/#getRect--) poskytuje souřadnice jednotlivé části.
 
-**Mohu nastavit jazyk kontroly pravopisu jen pro část odstavce (např. jedno slovo)?**
+**Kde se řídí zarovnání odstavce (leve, pravé, středové nebo do bloku)?**
 
-Ano. Jazyk se nastavuje na úrovni části ([PortionFormat::setLanguageId](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setLanguageId)), takže v jednom odstavci může koexistovat více jazyků.
+[ParagraphFormat::setAlignment](https://reference.aspose.com/slides/cs/php-java/aspose.slides/paragraphformat/#setAlignment-int-) je nastavení na úrovni odstavce a vztahuje se na celý odstavec bez ohledu na formátování jednotlivých částí.
+
+**Mohu nastavit jazyk kontroly pravopisu pro část odstavce?**
+
+Ano. Nastavte [BasePortionFormat::setLanguageId](https://reference.aspose.com/slides/cs/php-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) pro jednotlivé části, takže jeden odstavec může obsahovat text v několika jazycích.

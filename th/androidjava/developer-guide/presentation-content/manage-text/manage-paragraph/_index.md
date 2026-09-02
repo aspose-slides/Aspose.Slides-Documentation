@@ -4,108 +4,102 @@ linktitle: จัดการย่อหน้า
 type: docs
 weight: 40
 url: /th/androidjava/manage-paragraph/
+aliases:
+  - /androidjava/paragraph/
+  - /androidjava/portion/
 keywords:
-- เพิ่มข้อความ
-- เพิ่มย่อหน้า
-- จัดการข้อความ
-- จัดการย่อหน้า
-- จัดการหัวข้อสัญลักษณ์
-- ย่อหน้าการเยื้อง
-- เยื้องลอย
-- ย่อหน้าแบบ bullet
-- รายการลำดับเลข
-- รายการหัวข้อสัญลักษณ์
-- คุณสมบัติย่อหน้า
-- นำเข้า HTML
-- ข้อความเป็น HTML
-- ย่อหน้าเป็น HTML
-- ย่อหน้าเป็นรูปภาพ
-- ข้อความเป็นรูปภาพ
-- ส่งออกย่อหน้า
-- PowerPoint
-- OpenDocument
-- งานนำเสนอ
-- Android
-- Java
-- Aspose.Slides
-description: "เชี่ยวชาญการจัดรูปแบบย่อหน้าด้วย Aspose.Slides สำหรับ Android—เพิ่มประสิทธิภาพการจัดแนว, ระยะห่างและสไตล์ในงานนำเสนอ PPT, PPTX และ ODP ด้วย Java."
+  - เพิ่มข้อความ
+  - เพิ่มย่อหน้า
+  - จัดการข้อความ
+  - จัดการย่อหน้า
+  - จัดการหัวข้อแบบจุด
+  - ระยะเยื้องย่อหน้า
+  - ระยะเยื้องแขวน
+  - หัวข้อย่อหน้า
+  - รายการเลขลำดับ
+  - รายการหัวข้อแบบจุด
+  - คุณสมบัติย่อหน้า
+  - นำเข้า HTML
+  - ข้อความเป็น HTML
+  - ย่อหน้าเป็น HTML
+  - ย่อหน้าเป็นภาพ
+  - ข้อความเป็นภาพ
+  - ส่งออกย่อหน้า
+  - PowerPoint
+  - งานนำเสนอ
+  - Android
+  - Java
+  - Aspose.Slides
+description: "เรียนรู้วิธีสร้างและจัดรูปแบบย่อหน้า, ส่วนย่อย, จุดหัวข้อ, รายการลำดับเลข, ระยะเยื้อง, เนื้อหา HTML, และภาพย่อหน้าด้วย Aspose.Slides สำหรับ Android ผ่าน Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-Aspose.Slides ให้ทุกอินเทอร์เฟซและคลาสที่คุณต้องการในการทำงานกับข้อความ PowerPoint, ย่อหน้า และส่วนข้อความใน Java.
+Aspose.Slides for Android via Java แสดงข้อความเป็นลำดับชั้นของกรอบข้อความ, ย่อหน้า, และส่วนย่อย:
 
-* Aspose.Slides ให้อินเทอร์เฟซ [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) เพื่อให้คุณสามารถเพิ่มวัตถุที่แทนย่อหน้าได้ วัตถุ `ITextFame` สามารถมีหนึ่งหรือหลายย่อหน้า (แต่ละย่อหน้าถูกสร้างด้วยการขึ้นบรรทัดใหม่)
-* Aspose.Slides ให้อินเทอร์เฟซ [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) เพื่อให้คุณสามารถเพิ่มวัตถุที่แทนส่วนข้อความได้ วัตถุ `IParagraph` สามารถมีหนึ่งหรือหลายส่วน (คอลเลกชันของวัตถุ iPortions)
-* Aspose.Slides ให้อินเทอร์เฟซ [IPortion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/) เพื่อให้คุณสามารถเพิ่มวัตถุที่แทนข้อความและคุณสมบัติการจัดรูปแบบของมันได้
+* [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) แสดงเป็นคอนเทนเนอร์ข้อความในรูปทรงและให้เข้าถึงคอลเลกชันย่อหน้าได้
+* [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) แสดงย่อหน้าเดียวในกรอบข้อความและให้เข้าถึงส่วนย่อยและการจัดรูปแบบระดับย่อหน้า
+* [IPortion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/) แสดงการไหลของข้อความภายในย่อหน้า แต่ละส่วนย่อยสามารถมีข้อความและการจัดรูปแบบระดับอักขระของตนเองได้
 
-วัตถุ `IParagraph` สามารถจัดการข้อความที่มีคุณสมบัติการจัดรูปแบบต่าง ๆ ผ่านวัตถุ `IPortion` ที่เป็นพื้นฐานของมัน
+ดังนั้นย่อหน้าจึงสามารถมีข้อความที่ใช้แบบอักษร, สี, ขนาด, และการจัดรูปแบบอื่น ๆ ที่แตกต่างกันโดยใช้หลายส่วนย่อย
 
-## **เพิ่มหลายย่อหน้าที่มีหลายส่วนข้อความ**
+## **สร้างและจัดรูปแบบย่อหน้า**
 
-ขั้นตอนต่อไปนี้แสดงวิธีเพิ่ม TextFrame ที่ประกอบด้วย 3 ย่อหน้าและแต่ละย่อหน้ามี 3 ส่วน:
+### **สร้างย่อหน้าที่มีหลายส่วนย่อย**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
+ขั้นตอนต่อไปนี้สร้างกรอบข้อความที่มีสามย่อหน้า, แต่ละย่อหน้ามีสามส่วนย่อย:
+
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
 2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
-3. เพิ่มสี่เหลี่ยม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ลงในสไลด์
-4. รับ ITextFrame ที่เชื่อมโยงกับ [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
-5. สร้างอ็อบเจกต์ [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) สองรายการและเพิ่มเข้าไปในคอลเลกชัน `IParagraphs` ของ [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/)
-6. สร้างอ็อบเจกต์ [IPortion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/) สามรายการสำหรับแต่ละ `IParagraph` ใหม่ (สอง Portion สำหรับ Paragraph เริ่มต้น) และเพิ่มแต่ละอ็อบเจกต์ `IPortion` เข้าไปในคอลเลกชัน IPortion ของแต่ละ `IParagraph`
-7. กำหนดข้อความบางส่วนสำหรับแต่ละ Portion
-8. ใช้คุณสมบัติการจัดรูปแบบที่ต้องการกับแต่ละ Portion ผ่านคุณสมบัติการจัดรูปแบบของอ็อบเจกต์ `IPortion`
-9. บันทึกพรีเซนเทชันที่ถูกแก้ไข
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) แบบสี่เหลี่ยมผืนผ้าไปยังสไลด์
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของรูปร่าง
+5. ใช้ย่อหน้าเริ่มต้นและเพิ่มอ็อบเจ็กต์ [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) อีกสองอันไปยังกรอบข้อความ
+6. เพิ่มอ็อบเจ็กต์ [IPortion](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/) ให้เพียงพอสำหรับแต่ละย่อหน้าเพื่อให้มีสามส่วนย่อย ส่วนย่อหน้าเริ่มต้นมีส่วนย่อยว่างหนึ่งส่วนอยู่แล้ว
+7. ตั้งค่าข้อความของแต่ละส่วนย่อย
+8. ใช้การจัดรูปแบบระดับอักขระผ่าน [IPortion.getPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/#getPortionFormat--)
+9. บันทึกงานนำเสนอที่แก้ไขแล้ว
 
-โค้ด Java นี้เป็นการนำขั้นตอนข้างต้นไปใช้สำหรับการเพิ่มย่อหน้าที่มี Portion:
+ตัวอย่าง Android ผ่าน Java นี้ทำตามขั้นตอนดังกล่าว:
 
 ```java
-// สร้างออบเจกต์ Presentation ที่เป็นตัวแทนไฟล์ PPTX
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // เขาถึงสไลด์แรก
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // เพิ่ม AutoShape ประเภท Rectangle
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // เขาถึง TextFrame ของ AutoShape
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // สร้าง Paragraphs และ Portions ด้วยรูปแบบข้อความที่แตกต่างกัน
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -114,369 +108,289 @@ try {
         }
     }
 
-    // บันทึก PPTX ลงดิสก์
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **จัดการ Bullet ของย่อหน้า**
+## **สร้างรายการแบบหัวข้อและลำดับเลข**
 
-Bullet List ช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ ย่อหน้าที่มี Bullet จะอ่านและเข้าใจได้ง่ายกว่าเสมอ
+### **สร้างรายการแบบหัวข้อหรือแบบลำดับเลข**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
+หัวข้อและการนับลำดับทำให้รายการที่เกี่ยวข้องอ่านง่ายขึ้น ใน Aspose.Slides การตั้งค่ารายการถูกกำหนดผ่าน [IBulletFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/)
+
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
 2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
-3. เพิ่ม [autoshape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ลงในสไลด์ที่เลือก
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของ autoshape
-5. ลบย่อหน้าเริ่มต้นใน `TextFrame`
-6. สร้างอินสแตนซ์ย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/)
-7. ตั้งค่า `Type` ของ bullet เป็น `Symbol` และกำหนดอักขระ bullet
-8. ตั้งค่า `Text` ของย่อหน้า
-9. ตั้งค่า `Indent` ของ bullet สำหรับย่อหน้า
-10. ตั้งค่าสีสำหรับ bullet
-11. ตั้งค่าความสูงของ bullet
-12. เพิ่มย่อหน้าใหม่เข้าไปในคอลเลกชันย่อหน้าของ `TextFrame`
-13. เพิ่มย่อหน้าที่สองและทำซ้ำขั้นตอนตั้งแต่ 7 ถึง 13
-14. บันทึกพรีเซนเทชัน
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ไปยังสไลด์ที่เลือก
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของรูปร่าง
+5. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/) สำหรับหัวข้อสัญลักษณ์
+7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Symbol](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/bullettype/) และกำหนดอักขระหัวข้อ
+8. ตั้งค่าข้อความย่อหน้า, ระยะเยื้อง, สีหัวข้อ, และความสูงของหัวข้อ
+9. เพิ่มย่อหน้าไปยังกรอบข้อความ
+10. สร้างย่อหน้าที่สองและตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Numbered](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/bullettype/)
+11. กำหนดสไตล์หัวข้อเลขและเพิ่มย่อหน้าไปยังกรอบข้อความ
+12. บันทึกงานนำเสนอ
 
-โค้ด Java นี้แสดงวิธีเพิ่ม Bullet ให้กับย่อหน้า:
+ตัวอย่าง Android ผ่าน Java นี้สร้างหัวข้อสัญลักษณ์และหัวข้อเลข:
 
 ```java
-// สร้างออบเจกต์ Presentation ที่เป็นตัวแทนไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เขาถึงสไลด์แรก
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // เพิ่มและเข้าถึง Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // เขาถึง TextFrame ของ Autoshape
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // ลบย่อหน้าเริ่มต้น
-    txtFrm.getParagraphs().removeAt(0);
-
-    // สร้างย่อหน้า
-    Paragraph para = new Paragraph();
-
-    // ตั้งค่าสไตล์และสัญลักษณ์ bullet ของย่อหน้า
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // ตั้งค่าข้อความของย่อหน้า
-    para.setText("Welcome to Aspose.Slides");
-
-    // ตั้งค่าการเยื้องของ bullet
-    para.getParagraphFormat().setIndent(25);
-
-    // ตั้งค่าสีของ bullet
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // ตั้งค่า IsBulletHardColor เป็น true เพื่อใช้สี bullet ของตนเอง
-
-    // ตั้งค่าความสูงของ Bullet
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // เพิ่มย่อหน้าไปยัง TextFrame
-    txtFrm.getParagraphs().add(para);
-
-    // สร้างย่อหน้าที่สอง
-    Paragraph para2 = new Paragraph();
-
-    // ตั้งค่าชนิดและสไตล์ของ bullet ในย่อหน้า
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // เพิ่มข้อความย่อหน้า
-    para2.setText("This is numbered bullet");
-
-    // ตั้งค่าการเยื้องของ bullet
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // ตั้งค่า IsBulletHardColor เป็น true เพื่อใช้สี bullet ของตนเอง
-
-    // ตั้งค่าความสูงของ Bullet
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // เพิ่มย่อหน้าไปยัง TextFrame
-    txtFrm.getParagraphs().add(para2);
-    
-    // บันทึกพรีเซนเทชันที่แก้ไขแล้ว
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **จัดการ Bullet แบบรูปภาพ**
-
-Bullet List ช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ ย่อหน้าที่ใช้รูปภาพเป็น Bullet อ่านและเข้าใจได้ง่าย
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
-3. เพิ่ม [autoshape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ลงในสไลด์
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของ autoshape
-5. ลบย่อหน้าเริ่มต้นใน `TextFrame`
-6. สร้างอินสแตนซ์ย่อหน้าแรกโดยใช้คลาส [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/)
-7. โหลดรูปภาพใน [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/)
-8. ตั้งค่า bullet type เป็น [Picture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/) และกำหนดรูปภาพ
-9. ตั้งค่า `Text` ของ Paragraph
-10. ตั้งค่า `Indent` ของ bullet สำหรับ Paragraph
-11. ตั้งค่าสีสำหรับ bullet
-12. ตั้งค่าความสูงของ bullet
-13. เพิ่มย่อหน้าใหม่เข้าไปในคอลเลกชันย่อหน้าของ `TextFrame`
-14. เพิ่มย่อหน้าที่สองและทำซ้ำขั้นตอนตามที่ระบุไว้ข้างต้น
-15. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
-
-โค้ด Java นี้แสดงวิธีเพิ่มและจัดการ Bullet แบบรูปภาพ:
-
-```java
-// สร้างออบเจกต์ Presentation ที่เป็นตัวแทนไฟล์ PPTX
 Presentation presentation = new Presentation();
 try {
-    // เขาถึงสไลด์แรก
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
+
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
+
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **ใช้หัวข้อภาพ**
+
+หัวข้อภาพช่วยให้คุณใช้รูปภาพกำหนดเองแทนสัญลักษณ์หรือหมายเลข
+
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) และเข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของมัน
+4. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความ
+5. โหลดรูปภาพหัวข้อและเพิ่มลงในคอลเลกชันรูปภาพของงานนำเสนอเป็น [IPPImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ippimage/)
+6. สร้าง [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/) และตั้งค่าข้อความของมัน
+7. ตั้งค่า [IBulletFormat.setType](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setType-int-) เป็น [BulletType.Picture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/bullettype/)
+8. กำหนดรูปภาพผ่าน [IBulletFormat.getPicture](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#getPicture--) และตั้งค่าความสูงของหัวข้อ
+9. เพิ่มย่อหน้าไปยังกรอบข้อความ
+10. บันทึกงานนำเสนอที่แก้ไขแล้ว
+
+ตัวอย่าง Android ผ่าน Java นี้สร้างหัวข้อภาพ:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // สร้างอิมเมจสำหรับ bullet
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
     try {
-        picture = presentation.getImages().addImage(image);
+        presentationImage = presentation.getImages().addImage(bulletImage);
     } finally {
-        if (image != null) image.dispose();
+        bulletImage.dispose();
     }
-    // เพิ่มและเข้าถึง Autoshape
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
 
-    // เขาถึง textframe ของ autoshape
-    ITextFrame textFrame = autoShape.getTextFrame();
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // ลบย่อหน้าเริ่มต้น
-    textFrame.getParagraphs().removeAt(0);
-
-    // สร้างย่อหน้าใหม่
     Paragraph paragraph = new Paragraph();
     paragraph.setText("Welcome to Aspose.Slides");
-
-    // ตั้งค่าสไตล์และรูปภาพของ bullet ในย่อหน้า
     paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // ตั้งค่าความสูงของ bullet
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
     paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // เพิ่มย่อหน้าไปยัง text frame
     textFrame.getParagraphs().add(paragraph);
 
-    // บันทึกพรีเซนเทชันเป็นไฟล์ PPTX
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // บันทึกพรีเซนเทชันเป็นไฟล์ PPT
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **จัดการ Bullet แบบหลายระดับ**
+### **สร้างรายการหลายระดับ**
 
-Bullet List ช่วยให้คุณจัดระเบียบและนำเสนอข้อมูลได้อย่างรวดเร็วและมีประสิทธิภาพ Bullet แบบหลายระดับอ่านและเข้าใจได้ง่าย
+ตั้งค่า [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) เพื่อวางย่อหน้าในระดับต่าง ๆ ของรายการ ระดับบนสุดมีความลึกเป็น `0`
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
-3. เพิ่ม [autoshape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ใส่ในสไลด์ใหม่
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของ autoshape
-5. ลบย่อหน้าเริ่มต้นใน `TextFrame`
-6. สร้างอินสแตนซ์ย่อหน้าแรกผ่านคลาส [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/) และตั้งค่า depth เป็น 0
-7. สร้างอินสแตนซ์ย่อหน้าที่สองผ่านคลาส `Paragraph` และตั้งค่า depth เป็น 1
-8. สร้างอินสแตนซ์ย่อหน้าที่สามผ่านคลาส `Paragraph` และตั้งค่า depth เป็น 2
-9. สร้างอินสแตนซ์ย่อหน้าที่สี่ผ่านคลาส `Paragraph` และตั้งค่า depth เป็น 3
-10. เพิ่มย่อหน้าใหม่เข้าไปในคอลเลกชันย่อหน้าของ `TextFrame`
-11. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
+1. สร้าง [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และเข้าถึงสไลด์หนึ่งสไลด์
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของมัน
+3. สร้างสี่ย่อหน้าและกำหนดสัญลักษณ์หัวข้อของแต่ละย่อหน้า
+4. ตั้งค่าความลึกของพวกมันโดยใช้ [IParagraphFormat.setDepth](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setDepth-short-) ที่ค่า `0`, `1`, `2`, และ `3`
+5. เพิ่มย่อหน้าเหล่านั้นไปยังกรอบข้อความและบันทึกงานนำเสนอ
 
-โค้ด Java นี้แสดงวิธีเพิ่มและจัดการ Bullet หลายระดับ:
+ตัวอย่าง Android ผ่าน Java นี้สร้างรายการหัวข้อสี่ระดับ:
 
 ```java
-// สร้างออบเจกต์ Presentation ที่เป็นตัวแทนไฟล์ PPTX
-Presentation pres = new Presentation();
-try {
-    // เขาถึงสไลด์แรก
-    ISlide slide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
+import android.graphics.Color;
 
-    // เพิ่มและเข้าถึง Autoshape
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // เขาถึง text frame ของ Autoshape ที่สร้างขึ้น
-    ITextFrame text = aShp.addTextFrame("");
-
-    // ลบย่อหน้าเริ่มต้น
-    text.getParagraphs().clear();
-
-    // เพิ่มย่อหน้าแรก
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // ตั้งค่าระดับ bullet
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // เพิ่มย่อหน้าที่สอง
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // ตั้งค่าระดับ bullet
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // เพิ่มย่อหน้าที่สาม
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // ตั้งค่าระดับ bullet
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // เพิ่มย่อหน้าที่สี่
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // ตั้งค่าระดับ bullet
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // เพิ่มย่อหน้าเข้าสู่คอลเลกชัน
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // บันทึกพรีเซนเทชันเป็นไฟล์ PPTX
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **จัดการย่อหน้าที่มีรายการลำดับเลขกำหนดเอง**
-
-อินเทอร์เฟซ [IBulletFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/) ให้คุณสมบัติ [NumberedBulletStartWith](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) และอื่น ๆ ที่ช่วยให้คุณจัดการย่อหน้าที่มีการตั้งค่าลำดับเลขหรือการจัดรูปแบบแบบกำหนดเองได้
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่มีย่อหน้า
-3. เพิ่ม [autoshape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ลงในสไลด์
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของ autoshape
-5. ลบย่อหน้าเริ่มต้นใน `TextFrame`
-6. สร้างอินสแตนซ์ย่อหน้าแรกผ่านคลาส [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/) และกำหนด [NumberedBulletStartWith](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เป็น 2
-7. สร้างอินสแตนซ์ย่อหน้าที่สองผ่านคลาส `Paragraph` และกำหนด `NumberedBulletStartWith` เป็น 3
-8. สร้างอินสแตนซ์ย่อหน้าที่สามผ่านคลาส `Paragraph` และกำหนด `NumberedBulletStartWith` เป็น 7
-9. เพิ่มย่อหน้าใหม่เข้าไปในคอลเลกชันย่อหน้าของ `TextFrame`
-10. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
-
-โค้ด Java นี้แสดงวิธีเพิ่มและจัดการย่อหน้าที่มีการตั้งค่าลำดับเลขแบบกำหนดเอง:
-
-```java
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // เขาถึง text frame ของ autoshape ที่สร้างขึ้น
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // ลบย่อหน้าเริ่มต้นที่มีอยู่
-    textFrame.getParagraphs().removeAt(0);
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
 
-    // รายการแรก
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
 
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
 
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
 
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
 
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าการเยื้องบรรทัดแรกของย่อหน้า**
+### **ตั้งค่าตำแหน่งเริ่มต้นของรายการเลขที่กำหนดเอง**
 
-ใช้เมธอด [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อควบคุมการเยื้องบรรทัดแรกของย่อหน้า เมธอดนี้จะย้ายบรรทัดแรกเท่านั้นสัมพันธ์กับขอบซ้ายของย่อหน้า ค่าเป็นบวกจะเลื่อนบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ตามตำแหน่งเดิมของเนื้อหาย่อหน้า
+ใช้ [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) เพื่อกำหนดหมายเลขเริ่มต้นที่แสดงสำหรับย่อหน้าแบบลำดับเลข
 
-ใช้ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) เมื่อคุณต้องการย้ายทั้งย่อหน้า ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เมื่อคุณต้องการย้ายเฉพาะบรรทัดแรกเท่านั้น
+1. สร้าง [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) แล้วเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ไปยังสไลด์หนึ่งสไลด์
+2. ลบย่อหน้าเริ่มต้นออกจากกรอบข้อความของรูปร่าง
+3. สร้างย่อหน้าเลขสามย่อหน้า
+4. ตั้งค่า [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) ให้เป็น `2`, `3`, และ `7` สำหรับย่อหน้าที่เกี่ยวข้องแต่ละอัน
+5. เพิ่มย่อหน้าเหล่านั้นไปยังกรอบข้อความและบันทึกงานนำเสนอ
 
-ตัวอย่างด้านล่างสร้างหลายย่อหน้าและกำหนดค่าการเยื้องที่แตกต่างกันเพื่อแสดงผลของการเยื้องบรรทัดแรกต่อการจัดวางของย่อหน้า
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/autoshape/) สี่เหลี่ยมลงบนสไลด์
-4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframe/) ที่ว่างเปล่าให้กับรูปร่างและลบย่อหน้าเริ่มต้น
-5. สร้างหลายย่อหน้าและกำหนดค่า [Indent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ที่แตกต่างกันให้กับแต่ละย่อหน้า
-6. เพิ่มย่อหน้าเหล่านั้นลงใน TextFrame
-7. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
-
-โค้ดนี้แสดงวิธีตั้งค่าการเยื้องของย่อหน้า:
+ตัวอย่าง Android ผ่าน Java นี้กำหนดหมายเลขเริ่มต้นแบบกำหนดเองให้แต่ละย่อหน้า:
 
 ```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **ควบคุมการจัดรูปแบบและคุณสมบัติเส้นสิ้นสุดของย่อหน้า**
+
+### **ตั้งค่าระยะเยื้องบรรทัดแรก**
+
+ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อควบคุมระยะเยื้องบรรทัดแรกของย่อหน้า วิธีนี้จะย้ายบรรทัดแรกเท่านั้นเมื่อเทียบกับขอบซ้ายของย่อหน้า ค่าเป็นบวกจะย้ายบรรทัดแรกไปทางขวา ส่วนบรรทัดที่เหลือคงอยู่ตรงกับเนื้อหาย่อหน้า
+
+ใช้ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) หากต้องการย้ายทั้งย่อหน้า ใช้ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เมื่อต้องการย้ายเฉพาะบรรทัดแรกเท่านั้น
+
+ตัวอย่างด้านล่างสร้างย่อหน้าหลายย่อหน้าและใช้ค่าต่าง ๆ ของ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อแสดงว่าระยะเยื้องบรรทัดแรกส่งผลต่อการจัดเรียงย่ออย่างไร
+
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์เป้าหมาย
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) แบบสี่เหลี่ยมผืนผ้าไปยังสไลด์
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของรูปร่างและลบย่อหน้าเริ่มต้นออก
+5. สร้างย่อหน้าหลายย่อหน้าและตั้งค่าค่าต่าง ๆ ของ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ให้กับพวกมัน
+6. เพิ่มย่อหน้าเหล่านั้นไปยังกรอบข้อความ
+7. บันทึกงานนำเสนอที่แก้ไขแล้ว
+
+โค้ดนี้แสดงวิธีตั้งค่าระยะเยื้องของย่อหน้า:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -485,60 +399,62 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 ผลลัพธ์:
 
-![การเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
+![ระยะเยื้องบรรทัดแรกของย่อหน้า](first_line_indent.png)
 
-## **ตั้งค่าการเยื้องลอยของย่อหน้า**
+### **ตั้งค่าระยะเยื้องแขวน**
 
-การเยื้องลอยคือการจัดวางย่อหน้าที่บรรทัดแรกเริ่มอยู่ด้านซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วยเมธอด [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) ตั้งค่าเยื้องเป็นค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายสัมพันธ์กับเนื้อหาย่อหน้า
+ระยะเยื้องแขวนคือการจัดรูปแบบย่อหน้าโดยที่บรรทัดแรกเริ่มอยู่ด้านซ้ายของบรรทัดที่เหลือ ใน Aspose.Slides คุณสร้างเอฟเฟกต์นี้ด้วย [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) โดยส่งค่าลบเพื่อย้ายบรรทัดแรกไปทางซ้ายเมื่อเทียบกับเนื้อหาย่อหน้า
 
-โดยปกติ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า, ส่วน [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) กำหนดตำแหน่งของบรรทัดแรกสัมพันธ์กับ MarginLeft นั้น เพื่อสร้างการเยื้องลอย ให้กำหนดค่า `MarginLeft` เป็นบวกและ `Indent` เป็นลบ
+โดยปฏิบัติการ, [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) กำหนดตำแหน่งซ้ายของเนื้อหาย่อหน้า, ส่วน [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) กำหนดตำแหน่งของบรรทัดแรกเมื่อเทียบกับขอบซ้านั้น เพื่อสร้างระยะเยื้องแขวน ให้กำหนดค่าเป็นบวกกับ `setMarginLeft` และค่าลบกับ `setIndent`
 
-การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, การอ้างอิง, รายการพจนานุกรม และย่อหน้าอื่น ๆ ที่บรรทัดต่อเนื่องต้องจัดตำแหน่งอยู่ใต้เนื้อหาย่อหน้าแทนที่ใต้ตัวอักษรแรกของบรรทัดแรก
+การจัดรูปแบบนี้มีประโยชน์สำหรับบรรณานุกรม, อ้างอิง, รายการอภิธานศัพท์, และย่อหน้าอื่น ๆ ที่บรรทัดที่พับควรอยู่ใต้เนื้อหาย่อหน้าแทนที่จะอยู่ใต้ตัวอักษรแรกของบรรทัดแรก
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
 2. เข้าถึงสไลด์เป้าหมาย
-3. เพิ่ม [AutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/autoshape/) สี่เหลี่ยมลงบนสไลด์
-4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframe/) ที่ว่างเปล่าให้กับรูปร่างและลบย่อหน้าเริ่มต้น
-5. สร้างย่อหน้าและตั้งค่า [MarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) เป็นค่าบวกสำหรับแต่ละย่อหน้า
-6. ตั้งค่า [Indent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เป็นค่าลบเพื่อสร้างเอฟเฟ็กต์การเยื้องลอย
-7. เพิ่มย่อหน้าเหล่านั้นลงใน TextFrame
-8. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
+3. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) แบบสี่เหลี่ยมผืนผ้าไปยังสไลด์
+4. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของรูปร่างและลบย่อหน้าเริ่มต้นออก
+5. สร้างย่อหน้าและกำหนดค่าเป็นบวกให้กับ [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) สำหรับแต่ละย่อหน้า
+6. กำหนดค่าเป็นลบให้กับ [IParagraphFormat.setIndent](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setIndent-float-) เพื่อสร้างเอฟเฟกต์ระยะเยื้องแขวน
+7. เพิ่มย่อหน้าเหล่านั้นไปยังกรอบข้อความ
+8. บันทึกงานนำเสนอที่แก้ไขแล้ว
 
-โค้ดนี้แสดงวิธีตั้งค่าการเยื้องลอยของย่อหน้า:
+โค้ดนี้แสดงวิธีตั้งค่าระยะเยื้องแขวนสำหรับย่อหน้า:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -546,254 +462,247 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 ผลลัพธ์:
 
-![การเยื้องลอยของย่อหน้า](hanging_indent.png)
+![ระยะเยื้องแขวนของย่อหน้า](hanging_indent.png)
 
-## **จัดการคุณสมบัติ Run ของย่อหน้า (End)**
+### **ตั้งค่าคุณสมบัติการรันของย่อหน้าสิ้นสุด**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. รับอ้างอิงของสไลด์ที่มีย่อหน้าผ่านตำแหน่งของมัน
-3. เพิ่มสี่เหลี่ยม [autoshape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ลงบนสไลด์
-4. เพิ่ม [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ที่มีสองย่อหน้าเข้าไปในสี่เหลี่ยม
-5. ตั้งค่า `FontHeight` และประเภทฟอนต์สำหรับย่อหน้า
-6. ตั้งค่าคุณสมบัติ End สำหรับย่อหน้า
-7. เขียนพรีเซนเทชันที่แก้ไขแล้วเป็นไฟล์ PPTX
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) ควบคุมการจัดรูปแบบของสัญลักษณ์สิ้นสุดย่อหน้า ตัวอย่างต่อไปนี้กำหนดขนาดฟอนต์และฟอนต์ Latin ให้กับสัญลักษณ์สิ้นสุดของย่อหน้าที่สอง:
 
-โค้ด Java นี้แสดงวิธีตั้งค่าคุณสมบัติ End สำหรับย่อหน้าใน PowerPoint:
+1. โหลด [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และเข้าถึงสไลด์หนึ่งสไลด์
+2. เพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) แล้วลบย่อหน้าเริ่มต้นของมัน
+3. สร้างย่อหน้าสองอันและเพิ่มส่วนข้อความไปยังพวกมัน
+4. สร้าง [PortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/portionformat/) สำหรับสัญลักษณ์สิ้นสุดของย่อหน้าที่สอง
+5. ตั้งค่า [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) และ [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)
+6. นำฟอร์แม็ตไปใช้ด้วย [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) แล้วบันทึกงานนำเสนอ
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **นำเข้า HTML Text ไปยังย่อหน้า**
+## **นำเข้าและส่งออกเนื้อหาย่อหน้า**
 
-Aspose.Slides มีการสนับสนุนขั้นสูงสำหรับการนำเข้า HTML Text ไปยังย่อหน้า
+### **นำเข้า HTML ลงในย่อหน้า**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
-2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
-3. เพิ่ม [autoshape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ลงบนสไลด์
-4. เพิ่มและเข้าถึง `autoshape` [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/)
-5. ลบย่อหน้าเริ่มต้นใน `ITextFrame`
-6. อ่านไฟล์ HTML ต้นฉบับด้วย TextReader
-7. สร้างอินสแตนซ์ย่อหน้าแรกผ่านคลาส [Paragraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraph/)
-8. เพิ่มเนื้อหาไฟล์ HTML ที่อ่านจาก TextReader ไปยัง [ParagraphCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/) ของ TextFrame
-9. บันทึกพรีเซนเทชันที่แก้ไขแล้ว
+ใช้ [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) เพื่อแปลงมาร์กอัป HTML เป็นย่อหน้าและส่วนย่อยภายในกรอบข้อความ
 
-โค้ด Java นี้เป็นการนำขั้นตอนการนำเข้า HTML Text ไปยังย่อหน้ามาปฏิบัติ:
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/)
+2. เข้าถึงสไลด์และเพิ่ม [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/)
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของรูปร่างและลบย่อหน้าเริ่มต้นออก
+4. อ่านไฟล์ HTML ต้นทาง
+5. ส่งสตริง HTML ไปยัง [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)
+6. บันทึกงานนำเสนอที่แก้ไขแล้ว
+
+ตัวอย่าง Android ผ่าน Java นี้นำเข้า HTML ไปยังกรอบข้อความ:
 
 ```java
-// สร้างอินสแตนซ์ Presentation ว่าง
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // เขาถึงสไลด์แรกเริ่มต้นของพรีเซนเทชัน
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // เพิ่ม AutoShape เพื่อรองรับเนื้อหา HTML
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // เพิ่ม TextFrame ให้กับรูปร่าง
-    ashape.addTextFrame("");
-
-    // ลบย่อหน้าทั้งหมดใน TextFrame ที่เพิ่มเข้ามา
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // โหลดไฟล์ HTML ด้วย StreamReader
-    TextReader tr = new StreamReader("file.html");
-
-    // เพิ่มข้อความจาก StreamReader HTML ลงใน TextFrame
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // บันทึกพรีเซนเทชัน
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ส่งออกข้อความย่อหน้าเป็น HTML**
+### **ส่งออกข้อความย่อหน้าเป็น HTML**
 
-Aspose.Slides มีการสนับสนุนขั้นสูงสำหรับการส่งออกข้อความ (ที่อยู่ในย่อหน้า) เป็น HTML
+ใช้ [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) เพื่อส่งออกช่วงของย่อหน้าที่เลือกเป็น HTML
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) และโหลดพรีเซนเทชันที่ต้องการ
-2. เข้าถึงสไลด์ที่ต้องการผ่านดัชนีของมัน
-3. เข้าถึงรูปร่างที่มีข้อความที่จะส่งออกเป็น HTML
-4. เข้าถึง [TextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframe/) ของรูปร่าง
-5. สร้างอินสแตนซ์ของ `StreamWriter` และเพิ่มไฟล์ HTML ใหม่
-6. ระบุดัชนีเริ่มต้นให้กับ StreamWriter และส่งออกย่อหน้าที่ต้องการ
+1. สร้างอินสแทนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) แล้วโหลดงานนำเสนอที่ต้องการ
+2. เข้าถึงสไลด์และหาตัว [IAutoShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iautoshape/) ที่บรรจุข้อความ
+3. เข้าถึง [ITextFrame](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframe/) ของรูปร่างนั้น
+4. เรียก [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) พร้อมดัชนีย่อหน้าเริ่มต้นและจำนวนย่อหน้าที่ต้องการส่งออก
+5. เขียนสตริง HTML ที่ได้ลงในไฟล์
 
-โค้ด Java นี้แสดงวิธีส่งออกข้อความย่อหน้า PowerPoint เป็น HTML:
+ตัวอย่าง Android ผ่าน Java นี้ส่งออกย่อหน้าทั้งหมดจากรูปข้อความแรก:
 
 ```java
-// โหลดไฟล์พรีเซนเทชัน
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // เขาถึงสไลด์แรกเริ่มต้นของพรีเซนเทชัน
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // ดัชนีที่ต้องการ
-    int index = 0;
-
-    // เขาถึงรูปร่างที่เพิ่มเข้ามา
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // สร้างไฟล์ HTML ผลลัพธ์
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //ดึงย่อหน้าแรกเป็น HTML
-    // Writing Paragraphs data to HTML by providing paragraph starting index, total paragraphs to be copied
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **บันทึกย่อหน้าเป็นรูปภาพ**
+### **เรนเดอร์ย่อหน้าเป็นภาพ**
 
-ในส่วนนี้เราจะสำรวจสองตัวอย่างที่แสดงวิธีบันทึกย่อความข้อความที่แสดงโดยอินเทอร์เฟซ [IParagraph](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/) เป็นรูปภาพ ตัวอย่างทั้งสองใช้วิธีการดึงรูปภาพของรูปร่างที่มีย่อหน้าผ่านเมธอด `getImage` ของอินเทอร์เฟซ [IShape](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/) คำนวณขอบเขตของย่อหน้าภายในรูปร่าง และส่งออกเป็นรูปบิตแมพ วิธีเหล่านี้ช่วยให้คุณดึงส่วนของข้อความจากพรีเซนเทชัน PowerPoint และบันทึกเป็นรูปแยกต่างหาก ซึ่งอาจมีประโยชน์ในหลายสถานการณ์
+[IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage--) เรนเดอร์ย่อหน้าเดี่ยวโดยตรงและคืนค่า [IImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/) คุณสามารถบันทึกผลลัพธ์เป็นไฟล์หรือสตรีมด้วย [IImage.save](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iimage/#save-java.lang.String-int-) ไม่จำเป็นต้องเรนเดอร์รูปร่างที่บรรจุหรือครอบตัดบิตแมปด้วยตนเอง
 
-สมมติว่าเรามีไฟล์พรีเซนเทชันชื่อ sample.pptx ที่มีหนึ่งสไลด์ โดยรูปร่างแรกเป็นกล่องข้อความที่มีสามย่อหน้า
+[IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage--) อาจคืนค่า `null` หากไม่พบย่อหน้าในคอลเลกชันพาเรนท์, ไม่มีขอบเขตการเรนเดอร์ที่ถูกต้อง, หรือไม่สามารถเรนเดอร์ได้ ตรวจสอบผลลัพธ์ก่อนบันทึกและทำลายภาพที่คืนค่าหลังการใช้
+
+#### **เรนเดอร์ย่อหน้าที่สเกลเริ่มต้น**
+
+สมมติว่ามีไฟล์งานนำเสนอชื่อ sample.pptx ที่มีสไลด์เดียว, รูปร่างแรกเป็นกล่องข้อความที่มีสามย่อหน้า
 
 ![กล่องข้อความที่มีสามย่อหน้า](paragraph_to_image_input.png)
 
-**ตัวอย่างที่ 1**
-
-ในตัวอย่างนี้ เราจะดึงย่อหน้าที่สองเป็นรูปภาพ เพื่อทำเช่นนั้น เราจะดึงรูปของรูปร่างจากสไลด์แรกของพรีเซนเทชัน จากนั้นคำนวณขอบเขตของย่อหน้าที่สองใน TextFrame ของรูปร่าง ย่อหน้าแล้วจะถูกวาดใหม่ลงบนบิตแมพใหม่และบันทึกเป็นรูป PNG วิธีนี้มีประโยชน์เมื่อคุณต้องการบันทึกย่อหน้าเฉพาะเป็นรูปแยกโดยคงขนาดและการจัดรูปแบบเดิมไว้
+ตัวอย่างต่อไปนี้เรนเดอร์ย่อหน้าที่สองในรูปข้อความทั่วไปที่สเกลเริ่มต้นและบันทึกภาพที่ได้ในรูปแบบ PNG บล็อก `finally` จะทำให้แน่ใจว่าภาพถูกทำลายอย่างถูกต้อง
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // บันทึกรูปร่างในหน่วยความจำเป็นบิตแมพ.
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // สร้างบิตแมพของรูปร่างจากหน่วยความจำ.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // คำนวณขอบเขตของย่อหน้าที่สอง.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-
-    // คำนวณพิกัดและขนาดของภาพผลลัพธ์ (ขนาดขั้นต่ำ - 1x1 พิกเซล).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // ครอบบิตแมพของรูปร่างเพื่อให้ได้บิตแมพของย่อหน้าเท่านั้น.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 ผลลัพธ์:
 
-![รูปย่อหน้า](paragraph_to_image_output.png)
+![ภาพย่อหน้า](paragraph_to_image_output.png)
 
-**ตัวอย่างที่ 2**
+#### **เรนเดอร์ย่อหน้าในเซลล์ตารางพร้อมสเกล**
 
-ในตัวอย่างนี้ เราขยายแนวคิดเดิมโดยเพิ่มปัจจัยสเกลให้กับรูปย่อหน้า รูปร่างถูกดึงจากพรีเซนเทชันและบันทึกเป็นรูปภาพด้วยสเกล `2` ซึ่งทำให้ได้ผลลัพธ์ความละเอียดสูงกว่าเมื่อส่งออกย่อหน้า ขอบเขตของย่อหน้าจะคำนวณโดยคำนึงถึงสเกล การสเกลมีประโยชน์เมื่อต้องการรูปที่ละเอียดมากขึ้น เช่น ใช้ในสื่อพิมพ์คุณภาพสูง
+ใช้ overload ของ [IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage-float-float-) ที่รับพารามิเตอร์ `float scaleX` และ `float scaleY` เพื่อกำหนดค่าปัจจัยสเกลในแนวนอนและแนวตั้ง ตัวอย่างต่อไปนี้สร้างตาราง, เรนเดอร์ย่อหน้าในเซลล์แรกด้วยความกว้างและความสูงเป็นสองเท่าของค่าเริ่มต้น, แล้วบันทึกผลเป็นภาพ PNG
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // บันทึกรูปร่างในหน่วยความจำเป็นบิตแมพพร้อมการสเกล.
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // สร้างบิตแมพของรูปร่างจากหน่วยความจำ.
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // คำนวณขอบเขตของย่อหน้าที่สอง.
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    RectF paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.set(
-            paragraphRectangle.left * imageScaleX,
-            paragraphRectangle.top * imageScaleY,
-            paragraphRectangle.right * imageScaleX,
-            paragraphRectangle.bottom * imageScaleY
-    );
-
-    // คำนวณพิกัดและขนาดของภาพผลลัพธ์ (ขนาดขั้นต่ำ - 1x1 พิกเซล).
-    int imageX = (int) Math.floor(paragraphRectangle.left);
-    int imageY = (int) Math.floor(paragraphRectangle.top);
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.width()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.height()));
-
-    // ครอบบิตแมพของรูปร่างเพื่อให้ได้บิตแมพของย่อหน้าเท่านั้น.
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+ค่าปัจจัยสเกล `1` จะรักษาขนาดพิกเซลเริ่มต้นของแกนนั้นไว้ ตัวอย่างเช่น `2` สำหรับทั้งสองค่า จะทำให้ภาพที่ได้มีความกว้างและความสูงประมาณสองเท่าของมิติเริ่มต้น, ทำให้จำนวนพิกเซลเพิ่มเป็นสี่เท่า ปัจจัยที่ใหญ่กว่าจะทำให้ข้อความคมชัดขึ้นสำหรับการซูมหรือเอาต์พุตความละเอียดสูง, แต่ก็เพิ่มการใช้หน่วยความจำและขนาดไฟล์ ปัจจัยที่ต่ำกว่า `1` จะทำให้ภาพเล็กลงและรายละเอียดน้อยลง ใช้ปัจจัยเท่ากันเพื่อรักษาอัตราส่วนของย่อหน้า; ปัจจัยแนวนอนและแนวตั้งที่ต่างกันจะทำให้เอาต์พุตยืดออกอย่างอิสระ
 
-**ฉันสามารถปิดการแยกบรรทัดภายใน TextFrame ได้อย่างสมบูรณ์หรือไม่?**
+การเรนเดอร์รูปร่างทั้งหมดด้วย [IShape.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishape/#getImage--) ยังคงมีประโยชน์เมื่อเอาต์พุตต้องรวมการเติม, เส้นขอบ, หรือบริบทภาพอื่น ๆ ของรูปร่าง สำหรับภาพที่มีเพียงย่อหน้าเดียว ให้ใช้ [IParagraph.getImage](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getImage--)
 
-ได้ ใช้การตั้งค่า wrap ของ TextFrame ([setWrapText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/textframeformat/#setWrapText-byte-)) เพื่อปิดการห่อหุ้มบรรทัด so บรรทัดจะไม่ตัดที่ขอบของเฟรม
+## **คำถามที่พบบ่อย**
 
-**ฉันจะรับขอบเขตบนสไลด์ของย่อหน้าที่ระบุได้อย่างไร?**
+**ฉันสามารถปิดการตัดบรรทัดภายในกรอบข้อความได้อย่างสมบูรณ์หรือไม่?**
 
-คุณสามารถดึงสี่เหลี่ยมขอบของย่อหน้า (หรือตำแหน่งของ Portion เดียว) เพื่อทราบตำแหน่งและขนาดที่แม่นยำบนสไลด์
+ได้. ตั้งค่า [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/itextframeformat/#setWrapText-byte-) เพื่อปิดการตัดบรรทัดเพื่อให้บรรทัดไม่ตัดที่ขอบของกรอบข้อความ
 
-**การจัดแนวของย่อหน้า (ซ้าย/ขวา/กลาง/เต็ม) ถูกควบคุมที่ไหน?**
+**ฉันจะรับขอบเขตบนสไลด์ที่แม่นยำของย่อหน้าที่เฉพาะเจาะจงได้อย่างไร?**
 
-[Alignment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphformat/#setAlignment-int-) เป็นการตั้งค่าระดับย่อหน้าใน [ParagraphFormat](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/paragraphformat/) ซึ่งส่งผลต่อทั้งย่อหน้าไม่ว่าต่างส่วนของ Portion จะมีการจัดรูปแบบอย่างไร
+ใช้ [IParagraph.getRect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraph/#getRect--) เพื่อดึงสี่เหลี่ยมขอบของย่อหน้า [IPortion.getRect](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iportion/#getRect--) ให้ขอบเขตของส่วนย่อยแต่ละส่วน
 
-**ฉันสามารถตั้งค่าภาษาเพศตรวจสอบสำหรับส่วนของย่อหน้าเดียว (เช่น คำเดียว) ได้หรือไม่?**
+**การจัดตำแหน่งย่อหน้า (ซ้าย, ขวา, ศูนย์กลาง, หรือจัดเต็ม) ถูกควบคุมที่ใด?**
 
-ได้ ภาษาได้รับการตั้งค่าที่ระดับ Portion ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-)) ดังนั้นหลายภาษาสามารถอยู่ร่วมกันในย่อหน้าเดียวได้.
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) เป็นการตั้งค่าระดับย่อหน้าและใช้กับย่อหน้าทั้งหมดโดยไม่คำนึงถึงการจัดรูปแบบของส่วนย่อยแต่ละส่วน
+
+**ฉันสามารถตั้งค่าภาษา proofing สำหรับส่วนของย่อหน้าได้หรือไม่?**
+
+ได้. ตั้งค่า [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-) สำหรับส่วนย่อยแต่ละส่วน เพื่อให้ย่อหน้าเดียวสามารถมีข้อความได้หลายภาษา

@@ -4,6 +4,9 @@ linktitle: 管理段落
 type: docs
 weight: 40
 url: /zh-hant/java/manage-paragraph/
+aliases:
+  - /java/paragraph/
+  - /java/portion/
 keywords:
 - 新增文字
 - 新增段落
@@ -14,7 +17,7 @@ keywords:
 - 懸掛縮排
 - 段落項目符號
 - 編號清單
-- 項目清單
+- 項目符號清單
 - 段落屬性
 - 匯入 HTML
 - 文字轉 HTML
@@ -23,88 +26,79 @@ keywords:
 - 文字轉影像
 - 匯出段落
 - PowerPoint
-- OpenDocument
 - 簡報
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Java 完成段落格式化—在 Java 中優化 PPT、PPTX 與 ODP 簡報的對齊、間距與樣式。"
+description: 瞭解如何使用 Aspose.Slides for Java 建立與格式化段落、文字片段、項目符號、編號清單、縮排、HTML 內容以及段落影像。
 ---
-## **簡介**
+## **概觀**
 
-Aspose.Slides 提供您在 Java 中處理 PowerPoint 文字、段落與 Portion 所需的所有介面與類別。
+Aspose.Slides for Java 將文字表示為文字框、段落和文字片段的層次結構：
 
-* Aspose.Slides 提供 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 介面，讓您可以新增代表段落的物件。`ITextFame` 物件可以包含一個或多個段落（每個段落透過換行字元建立）。
-* Aspose.Slides 提供 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 介面，讓您可以新增代表 Portion 的物件。`IParagraph` 物件可以包含一個或多個 Portion（iPortions 物件的集合）。
-* Aspose.Slides 提供 [IPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportion/) 介面，讓您可以新增代表文字及其格式屬性的物件。
+* [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 代表形狀中的文字容器，並提供對其段落集合的存取。
+* [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 代表文字框中的單一段落，並提供對其文字片段及段落層級格式的存取。
+* [IPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportion/) 代表段落內的文字執行。每個文字片段可以擁有自己的文字與字符層級格式。
 
-`IParagraph` 物件透過其底層的 `IPortion` 物件，能夠處理具有不同格式屬性的文字。
+因此，一個段落可以透過多個文字片段來包含不同字型、顏色、大小及其他格式的文字。
 
-## **新增多段落且每段包含多個 Portion**
+## **建立與格式化段落**
 
-以下步驟示範如何新增包含 3 個段落且每個段落包含 3 個 Portion 的文字框：
+### **建立含多個文字片段的段落**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得目標投影片的參考。
-3. 在投影片上加入矩形 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-4. 取得與該 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 相關聯的 ITextFrame。
-5. 建立兩個 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 物件，並將它們加入 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 的 `IParagraphs` 集合。
-6. 為每個新 `IParagraph` 建立三個 [IPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportion/) 物件（預設段落建立兩個 Portion），並將每個 `IPortion` 加入對應 `IParagraph` 的 IPortion 集合。
-7. 為每個 Portion 設定文字內容。
-8. 使用 `IPortion` 物件所提供的格式屬性，為每個 Portion 套用所需的格式設定。
+以下步驟會建立一個包含三個段落、每個段落各有三個文字片段的文字框：
+
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
+2. 透過索引存取相關投影片。
+3. 在投影片上新增一個矩形的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
+5. 使用預設段落，並再新增兩個 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 物件到文字框中。
+6. 為每個段落加入足夠的 [IPortion](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportion/) 物件，以容納三個文字片段。預設段落已包含一個空的文字片段。
+7. 設定每個文字片段的文字內容。
+8. 透過 [IPortion.getPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportion/#getPortionFormat--) 套用字符層級格式。
 9. 儲存已修改的簡報。
 
-以下 Java 程式碼示範上述步驟的實作：
+此 Java 範例實作上述步驟：
 
 ```java
-// 建立代表 PPTX 檔案的 Presentation 類別實例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
 try {
-    // 存取第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    ITextFrame textFrame = shape.getTextFrame();
 
-    // 新增矩形類型的 AutoShape
-    IAutoShape ashp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 300, 150);
+    IParagraph firstParagraph = textFrame.getParagraphs().get_Item(0);
+    firstParagraph.getPortions().add(new Portion());
+    firstParagraph.getPortions().add(new Portion());
 
-    // 取得 AutoShape 的 TextFrame
-    ITextFrame tf = ashp.getTextFrame();
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    secondParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(secondParagraph);
 
-    // 建立具有不同文字格式的段落與 Portion
-    IParagraph para0 = tf.getParagraphs().get_Item(0);
-    IPortion port01 = new Portion();
-    IPortion port02 = new Portion();
-    para0.getPortions().add(port01);
-    para0.getPortions().add(port02);
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    thirdParagraph.getPortions().add(new Portion());
+    textFrame.getParagraphs().add(thirdParagraph);
 
-    IParagraph para1 = new Paragraph();
-    tf.getParagraphs().add(para1);
-    IPortion port10 = new Portion();
-    IPortion port11 = new Portion();
-    IPortion port12 = new Portion();
-    para1.getPortions().add(port10);
-    para1.getPortions().add(port11);
-    para1.getPortions().add(port12);
+    int paragraphCount = textFrame.getParagraphs().getCount();
+    for (int paragraphIndex = 0; paragraphIndex < paragraphCount; paragraphIndex++) {
+        IParagraph paragraph = textFrame.getParagraphs().get_Item(paragraphIndex);
+        int portionCount = paragraph.getPortions().getCount();
+        for (int portionIndex = 0; portionIndex < portionCount; portionIndex++) {
+            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
+            portion.setText("Portion " + (paragraphIndex + 1) + "." + (portionIndex + 1));
 
-    IParagraph para2 = new Paragraph();
-    tf.getParagraphs().add(para2);
-    IPortion port20 = new Portion();
-    IPortion port21 = new Portion();
-    IPortion port22 = new Portion();
-    para2.getPortions().add(port20);
-    para2.getPortions().add(port21);
-    para2.getPortions().add(port22);
-
-    for (int i = 0; i < 3; i++) 
-    {
-        for (int j = 0; j < 3; j++) 
-        {
-            IPortion portion = tf.getParagraphs().get_Item(i).getPortions().get_Item(j); 
-            portion.setText("Portion0" + j);
-            if (j == 0) {
+            if (portionIndex == 0) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.RED);
                 portion.getPortionFormat().setFontBold(NullableBool.True);
                 portion.getPortionFormat().setFontHeight(15);
-            } else if (j == 1) {
+            } else if (portionIndex == 1) {
                 portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
                 portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
                 portion.getPortionFormat().setFontItalic(NullableBool.True);
@@ -113,369 +107,289 @@ try {
         }
     }
 
-    // 將 PPTX 寫入磁碟
-    pres.save("multiParaPort_out.pptx", SaveFormat.Pptx);
+    presentation.save("paragraphs_with_portions.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **管理段落項目符號**
+## **建立項目符號與編號清單**
 
-項目符號清單可協助您快速且有效率地組織與呈現資訊。使用項目符號的段落更易閱讀與理解。
+### **建立項目符號或編號清單**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得目標投影片的參考。
-3. 在選取的投影片上加入 [自動圖形](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-4. 取得該自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/) 類別建立第一個段落實例。
-7. 將段落的項目符號 `Type` 設為 `Symbol`，並設定項目符號字元。
-8. 設定段落的 `Text`。
-9. 設定段落的項目符號 `Indent`。
-10. 為項目符號設定顏色。
-11. 設定項目符號的高度。
-12. 將新段落加入 `TextFrame` 的段落集合。
-13. 加入第二個段落，並重複第 7 至第 13 步的流程。
-14. 儲存簡報。
+項目符號與編號能讓相關項目更易於瀏覽。於 Aspose.Slides 中，清單設定是透過 [IBulletFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/) 定義的。
 
-以下 Java 程式碼示範如何新增段落項目符號：
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
+2. 透過索引存取相關投影片。
+3. 在選取的投影片上新增一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
+5. 從文字框中移除預設段落。
+6. 為符號項目符號建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/)。
+7. 將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-int-) 設為 [BulletType.Symbol](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/) 並指定項目符號字元。
+8. 設定段落文字、縮排、項目符號顏色與項目符號高度。
+9. 將段落加入文字框。
+10. 建立第二個段落，並將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-int-) 設為 [BulletType.Numbered](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/)。
+11. 設定編號項目符號樣式，並將段落加入文字框。
+12. 儲存簡報。
 
-```java
-// 建立代表 PPTX 檔案的 Presentation 類別實例
-Presentation pres = new Presentation();
-try {
-    // 存取第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // 新增並存取自動圖形
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // 取得自動圖形的文字框
-    ITextFrame txtFrm = aShp.getTextFrame();
-
-    // 移除預設段落
-    txtFrm.getParagraphs().removeAt(0);
-
-    // 建立段落
-    Paragraph para = new Paragraph();
-
-    // 設定段落的項目符號樣式與符號
-    para.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para.getParagraphFormat().getBullet().setChar((char)8226);
-
-    // 設定段落文字
-    para.setText("Welcome to Aspose.Slides");
-
-    // 設定項目符號縮排
-    para.getParagraphFormat().setIndent(25);
-
-    // 設定項目符號顏色
-    para.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // 設定 IsBulletHardColor 為 true 以使用自訂項目符號顏色
-
-    // 設定項目符號高度
-    para.getParagraphFormat().getBullet().setHeight(100);
-
-    // 將段落加入文字框
-    txtFrm.getParagraphs().add(para);
-
-    // 建立第二個段落
-    Paragraph para2 = new Paragraph();
-
-    // 設定段落的項目符號類型與樣式
-    para2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    para2.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
-
-    // 加入段落文字
-    para2.setText("This is numbered bullet");
-
-    // 設定項目符號縮排
-    para2.getParagraphFormat().setIndent(25);
-
-    para2.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
-    para2.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
-    para2.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True); // 設定 IsBulletHardColor 為 true 以使用自訂項目符號顏色
-
-    // 設定項目符號高度
-    para2.getParagraphFormat().getBullet().setHeight(100);
-
-    // 將段落加入文字框
-    txtFrm.getParagraphs().add(para2);
-    
-    // 儲存已修改的簡報
-    pres.save("Bullet_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **管理圖片項目符號**
-
-圖片項目符號可協助您快速且有效率地組織與呈現資訊。使用圖片段落更易閱讀與理解。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得目標投影片的參考。
-3. 在投影片上加入 [自動圖形](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-4. 取得該自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/) 類別建立第一個段落實例。
-7. 透過 [IPPImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ippimage/) 載入圖片。
-8. 將項目符號類型設定為 [Picture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ippimage/)，並指定圖片。
-9. 設定段落的 `Text`。
-10. 設定段落的項目符號 `Indent`。
-11. 為項目符號設定顏色。
-12. 設定項目符號的高度。
-13. 將新段落加入 `TextFrame` 的段落集合。
-14. 加入第二個段落，並依前述步驟重複操作。
-15. 儲存已修改的簡報。
-
-以下 Java 程式碼示範如何新增與管理圖片項目符號：
+此 Java 範例建立符號項目符號與編號項目符號：
 
 ```java
-// 建立代表 PPTX 檔案的 Presentation 類別實例
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
-    // 存取第一張投影片
     ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // 建立項目符號用的影像
-    IPPImage picture;
-    IImage image = Images.fromFile("bullets.png");
-    try {
-        picture = presentation.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-    // 新增並存取自動圖形
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    Paragraph symbolParagraph = new Paragraph();
+    symbolParagraph.setText("Welcome to Aspose.Slides");
+    symbolParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    symbolParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    symbolParagraph.getParagraphFormat().setIndent(25);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    symbolParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    symbolParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    symbolParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(symbolParagraph);
 
-    // 存取自動圖形的文字框
-    ITextFrame textFrame = autoShape.getTextFrame();
+    Paragraph numberedParagraph = new Paragraph();
+    numberedParagraph.setText("This is a numbered item");
+    numberedParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    numberedParagraph.getParagraphFormat().getBullet().setNumberedBulletStyle(NumberedBulletStyle.BulletCircleNumWDBlackPlain);
+    numberedParagraph.getParagraphFormat().setIndent(25);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColorType(ColorType.RGB);
+    numberedParagraph.getParagraphFormat().getBullet().getColor().setColor(Color.BLACK);
+    numberedParagraph.getParagraphFormat().getBullet().setBulletHardColor(NullableBool.True);
+    numberedParagraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(numberedParagraph);
 
-    // 移除預設段落
-    textFrame.getParagraphs().removeAt(0);
-
-    // 建立新的段落
-    Paragraph paragraph = new Paragraph();
-    paragraph.setText("Welcome to Aspose.Slides");
-
-    // 設定段落的項目符號樣式與圖片
-    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
-    paragraph.getParagraphFormat().getBullet().getPicture().setImage(picture);
-
-    // 設定項目符號高度
-    paragraph.getParagraphFormat().getBullet().setHeight(100);
-
-    // 將段落加入文字框
-    textFrame.getParagraphs().add(paragraph);
-
-    // 將簡報寫入 PPTX 檔案
-    presentation.save("ParagraphPictureBulletsPPTX_out.pptx", SaveFormat.Pptx);
-
-    // 將簡報寫入 PPT 檔案
-    presentation.save("ParagraphPictureBulletsPPT_out.ppt", SaveFormat.Ppt);
-} catch (IOException e) {
+    presentation.save("bulleted_and_numbered_list.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **管理多層次項目符號**
+### **使用圖片項目符號**
 
-多層次項目符號可協助您快速且有效率地組織與呈現資訊。多層次項目符號易於閱讀與理解。
+圖片項目符號讓您可以使用自訂圖像取代符號或編號。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得目標投影片的參考。
-3. 在新投影片上加入 [自動圖形](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-4. 取得該自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/) 類別建立第一個段落實例，並將深度設定為 0。
-7. 使用 `Paragraph` 類別建立第二個段落實例，將深度設定為 1。
-8. 使用 `Paragraph` 類別建立第三個段落實例，將深度設定為 2。
-9. 使用 `Paragraph` 類別建立第四個段落實例，將深度設定為 3。
-10. 將新段落加入 `TextFrame` 的段落集合。
-11. 儲存已修改的簡報。
-
-以下 Java 程式碼示範如何新增與管理多層次項目符號：
-
-```java
-// 建立代表 PPTX 檔案的 Presentation 類別實例
-Presentation pres = new Presentation();
-try {
-    // 存取第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 新增並存取自動圖形
-    IAutoShape aShp = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
-
-    // 取得建立的自動圖形的文字框
-    ITextFrame text = aShp.addTextFrame("");
-
-    // 清除預設段落
-    text.getParagraphs().clear();
-
-    // 新增第一個段落
-    IParagraph para1 = new Paragraph();
-    para1.setText("Content");
-    para1.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para1.getParagraphFormat().getBullet().setChar((char)8226);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para1.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 設定項目符號層級
-    para1.getParagraphFormat().setDepth((short)0);
-
-    // 新增第二個段落
-    IParagraph para2 = new Paragraph();
-    para2.setText("Second Level");
-    para2.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para2.getParagraphFormat().getBullet().setChar('-');
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para2.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 設定項目符號層級
-    para2.getParagraphFormat().setDepth((short)1);
-
-    // 新增第三個段落
-    IParagraph para3 = new Paragraph();
-    para3.setText("Third Level");
-    para3.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para3.getParagraphFormat().getBullet().setChar((char)8226);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para3.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 設定項目符號層級
-    para3.getParagraphFormat().setDepth((short)2);
-
-    // 新增第四個段落
-    IParagraph para4 = new Paragraph();
-    para4.setText("Fourth Level");
-    para4.getParagraphFormat().getBullet().setType(BulletType.Symbol);
-    para4.getParagraphFormat().getBullet().setChar('-');
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
-    para4.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    // 設定項目符號層級
-    para4.getParagraphFormat().setDepth((short)3);
-
-    // 將段落加入集合
-    text.getParagraphs().add(para1);
-    text.getParagraphs().add(para2);
-    text.getParagraphs().add(para3);
-    text.getParagraphs().add(para4);
-
-    // 將簡報寫入 PPTX 檔案
-    pres.save("MultilevelBullet.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **管理自訂編號清單的段落**
-
-[IBulletFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/) 介面提供 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 屬性等，可讓您管理具有自訂編號或格式的段落。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 取得包含目標段落的投影片。
-3. 在投影片上加入 [自動圖形](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-4. 取得該自動圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
-5. 移除 `TextFrame` 中的預設段落。
-6. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/) 類別建立第一個段落實例，並將 [NumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 設為 2。
-7. 使用 `Paragraph` 類別建立第二個段落實例，將 `NumberedBulletStartWith` 設為 3。
-8. 使用 `Paragraph` 類別建立第三個段落實例，將 `NumberedBulletStartWith` 設為 7。
-9. 將新段落加入 `TextFrame` 的段落集合。
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
+2. 透過索引存取相關投影片。
+3. 新增一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 並取得其 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
+4. 從文字框中移除預設段落。
+5. 載入項目符號圖像，並以 [IPPImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ippimage/) 形式加入簡報的影像集合。
+6. 建立一個 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/) 並設定其文字。
+7. 將 [IBulletFormat.setType](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setType-int-) 設為 [BulletType.Picture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/bullettype/)。
+8. 透過 [IBulletFormat.getPicture](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#getPicture--) 指定圖像，並設定項目符號高度。
+9. 將段落加入文字框。
 10. 儲存已修改的簡報。
 
-以下 Java 程式碼示範如何新增與管理自訂編號或格式的段落：
+此 Java 範例建立圖片項目符號：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    IAutoShape shape = presentation.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 取得建立的自動圖形的文字框
+    IImage bulletImage = Images.fromFile("bullets.png");
+    IPPImage presentationImage;
+    try {
+        presentationImage = presentation.getImages().addImage(bulletImage);
+    } finally {
+        bulletImage.dispose();
+    }
+
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
     ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    // 移除預設的現有段落
-    textFrame.getParagraphs().removeAt(0);
+    Paragraph paragraph = new Paragraph();
+    paragraph.setText("Welcome to Aspose.Slides");
+    paragraph.getParagraphFormat().getBullet().setType(BulletType.Picture);
+    paragraph.getParagraphFormat().getBullet().getPicture().setImage(presentationImage);
+    paragraph.getParagraphFormat().getBullet().setHeight(100);
+    textFrame.getParagraphs().add(paragraph);
 
-    // 第一個清單
-    Paragraph paragraph1 = new Paragraph();
-    paragraph1.setText("bullet 2");
-    paragraph1.getParagraphFormat().setDepth((short)4);
-    paragraph1.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)2);
-    paragraph1.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph1);
-
-    Paragraph paragraph2 = new Paragraph();
-    paragraph2.setText("bullet 3");
-    paragraph2.getParagraphFormat().setDepth((short)4);
-    paragraph2.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)3);
-    paragraph2.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph2);
-
-
-    Paragraph paragraph5 = new Paragraph();
-    paragraph5.setText("bullet 7");
-    paragraph5.getParagraphFormat().setDepth((short)4);
-    paragraph5.getParagraphFormat().getBullet().setNumberedBulletStartWith((short)7);
-    paragraph5.getParagraphFormat().getBullet().setType(BulletType.Numbered);
-    textFrame.getParagraphs().add(paragraph5);
-
-    presentation.save("SetCustomBulletsNumber-slides.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.pptx", SaveFormat.Pptx);
+    presentation.save("picture_bullet.ppt", SaveFormat.Ppt);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **為段落設定首行縮排**
+### **建立多層次清單**
 
-使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法可控制段落的首行縮排。此方法僅移動段落左邊界相對的第一行。正值會將第一行向右移動，而其餘行仍保持與段落正文對齊。
+將 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 設為不同值，即可將段落放置於清單的不同層級。最高層的深度為 `0`。
 
-若需移動整個段落，請使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。若只需移動第一行，則使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-)。
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 並存取投影片。
+2. 新增一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/) 並從其文字框中清除預設段落。
+3. 建立四個段落並設定其項目符號符號。
+4. 將它們的 [IParagraphFormat.setDepth](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setDepth-short-) 設為 `0`、`1`、`2`、`3`。
+5. 將段落加入文字框並儲存簡報。
 
-以下範例建立多個段落，並套用不同的縮排值，以示範首行縮排對段落佈局的影響。
+此 Java 範例建立四層級的項目符號清單：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    IParagraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Content");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    firstParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    firstParagraph.getParagraphFormat().setDepth((short) 0);
+
+    IParagraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Second level");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    secondParagraph.getParagraphFormat().getBullet().setChar('-');
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    secondParagraph.getParagraphFormat().setDepth((short) 1);
+
+    IParagraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Third level");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    thirdParagraph.getParagraphFormat().getBullet().setChar((char) 0x2022);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    thirdParagraph.getParagraphFormat().setDepth((short) 2);
+
+    IParagraph fourthParagraph = new Paragraph();
+    fourthParagraph.setText("Fourth level");
+    fourthParagraph.getParagraphFormat().getBullet().setType(BulletType.Symbol);
+    fourthParagraph.getParagraphFormat().getBullet().setChar('-');
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
+    fourthParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    fourthParagraph.getParagraphFormat().setDepth((short) 3);
+
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
+    textFrame.getParagraphs().add(thirdParagraph);
+    textFrame.getParagraphs().add(fourthParagraph);
+
+    presentation.save("multilevel_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **自訂編號清單起始值**
+
+使用 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 可為編號段落設定初始顯示的數字。
+
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 並在投影片上新增一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+2. 清除形狀文字框中的預設段落。
+3. 建立三個編號段落。
+4. 將 [IBulletFormat.setNumberedBulletStartWith](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibulletformat/#setNumberedBulletStartWith-short-) 分別設定為 `2`、`3`、`7`。
+5. 將段落加入文字框並儲存簡報。
+
+此 Java 範例為每個段落指定自訂的起始編號：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 200, 200, 400, 200);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
+
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("Start at 2");
+    firstParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    firstParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 2);
+    textFrame.getParagraphs().add(firstParagraph);
+
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("Start at 3");
+    secondParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    secondParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 3);
+    textFrame.getParagraphs().add(secondParagraph);
+
+    Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("Start at 7");
+    thirdParagraph.getParagraphFormat().getBullet().setType(BulletType.Numbered);
+    thirdParagraph.getParagraphFormat().getBullet().setNumberedBulletStartWith((short) 7);
+    textFrame.getParagraphs().add(thirdParagraph);
+
+    presentation.save("custom_numbered_list.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **控制段落佈局與結尾屬性**
+
+### **設定首行縮排**
+
+使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 來控制段落的首行縮排。此方法僅移動首行相對於段落左邊界的距離，正值會將首行向右移動，其他行則保持與段落正文對齊。
+
+當需要整段移動時，請使用 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。僅需移動首行時，則使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-)。
+
+以下範例建立多個段落，並套用不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值，以示範首行縮排如何影響段落佈局。
+
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/autoshape/)。
-4. 為形狀新增空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/textframe/)，並移除預設段落。
-5. 建立多個段落，為它們設定不同的 [Indent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。
+3. 在投影片上新增一個矩形的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 並移除預設段落。
+5. 建立多個段落，為它們設定不同的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值。
 6. 將段落加入文字框。
 7. 儲存已修改的簡報。
 
-以下程式碼示範如何設定段落縮排：
+此程式碼示範如何設定段落縮排：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("No first-line indent. Wrapped lines start at the same position as the first line.");
     firstParagraph.getParagraphFormat().setMarginLeft(20f);
     firstParagraph.getParagraphFormat().setIndent(0f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body.");
     secondParagraph.getParagraphFormat().setMarginLeft(20f);
     secondParagraph.getParagraphFormat().setIndent(20f);
 
     Paragraph thirdParagraph = new Paragraph();
+    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     thirdParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    thirdParagraph.setText("First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see.");
     thirdParagraph.getParagraphFormat().setMarginLeft(20f);
     thirdParagraph.getParagraphFormat().setIndent(40f);
 
@@ -484,60 +398,62 @@ try {
     textFrame.getParagraphs().add(thirdParagraph);
 
     presentation.save("paragraph_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 結果：
 
-![The first-line indent of the paragraphs](first_line_indent.png)
+![段落的首行縮排](first_line_indent.png)
 
-## **為段落設定懸掛縮排**
+### **設定懸掛縮排**
 
-懸掛縮排是一種段落排版方式，第一行位於其餘行的左側。在 Aspose.Slides 中，可使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 方法達成此效果。將縮排設定為負值，即可使第一行相對於段落正文向左移動。
+懸掛縮排是指第一行向左縮進，而其餘行保持左對齊的段落佈局。在 Aspose.Slides 中，使用 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 並傳入負值即可將第一行向左移動。
 
-實務上，[IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 定義段落正文的左側位置，而 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 定義第一行相對於該左側的定位。要建立懸掛縮排，請將 `MarginLeft` 設為正值，`Indent` 設為負值。
+實務上，`setMarginLeft` 定義段落正文的左側位置，`setIndent` 定義第一行相對於該左邊界的位置。若要產生懸掛縮排，請對 `setMarginLeft` 給予正值，對 `setIndent` 給予負值。
 
-此格式常用於書目、引用、詞彙表等，需要使換行行對齊於段落正文而非第一行首字的情境。
+此格式在書目、參考文獻、詞彙表條目等需要換行行對齊於段落正文而非第一行第一字元的情況下十分有用。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
 2. 取得目標投影片。
-3. 在投影片上加入矩形 [AutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/autoshape/)。
-4. 為形狀新增空的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/textframe/)，並移除預設段落。
-5. 建立段落，為每個段落設定正的 [MarginLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-) 值。
-6. 設定負的 [Indent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 值以產生懸掛縮排效果。
+3. 在投影片上新增一個矩形的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+4. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 並移除預設段落。
+5. 為每個段落呼叫正值的 [IParagraphFormat.setMarginLeft](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setMarginLeft-float-)。
+6. 呼叫負值的 [IParagraphFormat.setIndent](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setIndent-float-) 以產生懸掛縮排效果。
 7. 將段落加入文字框。
 8. 儲存已修改的簡報。
 
-以下程式碼示範如何為段落設定懸掛縮排：
+此程式碼示範如何為段落設定懸掛縮排：
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    IAutoShape rectangleShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
-    rectangleShape.getFillFormat().setFillType(FillType.NoFill);
-    rectangleShape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    rectangleShape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 420, 220);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+    shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.GRAY);
 
-    ITextFrame textFrame = rectangleShape.addTextFrame("");
+    ITextFrame textFrame = shape.getTextFrame();
     textFrame.getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
-    textFrame.getParagraphs().removeAt(0);
+    textFrame.getParagraphs().clear();
 
     Paragraph firstParagraph = new Paragraph();
+    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     firstParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    firstParagraph.setText("A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body.");
     firstParagraph.getParagraphFormat().setMarginLeft(40f);
     firstParagraph.getParagraphFormat().setIndent(-20f);
 
     Paragraph secondParagraph = new Paragraph();
+    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     secondParagraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    secondParagraph.setText("This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare.");
     secondParagraph.getParagraphFormat().setMarginLeft(60f);
     secondParagraph.getParagraphFormat().setIndent(-30f);
 
@@ -545,254 +461,247 @@ try {
     textFrame.getParagraphs().add(secondParagraph);
 
     presentation.save("hanging_indent.pptx", SaveFormat.Pptx);
-}
-finally {
+} finally {
     presentation.dispose();
 }
 ```
 
 結果：
 
-![The hanging indent of the paragraphs](hanging_indent.png)
+![段落的懸掛縮排](hanging_indent.png)
 
-## **管理段落結束屬性**
+### **設定段落結尾執行屬性**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-1. 取得包含段落之投影片的參考（依位置）。
-1. 在投影片上加入矩形 [autoshape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-1. 為矩形加入含有兩個段落的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
-1. 為段落設定 `FontHeight` 與字型。
-1. 為段落設定結束屬性。
-1. 將修改後的簡報寫入 PPTX 檔案。
+[IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 控制段落結尾標記的格式。以下範例為第二段落的結尾標記指定字型大小與拉丁字型：
 
-以下 Java 程式碼示範如何為段落設定結束屬性：
+1. 載入一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 並取得投影片。
+2. 新增一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)，並清除其預設段落。
+3. 建立兩個段落，並為它們加入文字片段。
+4. 為第二段落的結尾標記建立一個 [PortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/portionformat/)。
+5. 設定 [IBasePortionFormat.setFontHeight](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setFontHeight-float-) 與 [IBasePortionFormat.setLatinFont](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setLatinFont-com.aspose.slides.IFontData-)。
+6. 使用 [IParagraph.setEndParagraphPortionFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#setEndParagraphPortionFormat-com.aspose.slides.IPortionFormat-) 套用格式，並儲存簡報。
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("Test.pptx");
 try {
-    IAutoShape shape = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, 200, 250);
+    ITextFrame textFrame = shape.getTextFrame();
+    textFrame.getParagraphs().clear();
 
-    Paragraph para1 = new Paragraph();
-    para1.getPortions().add(new Portion("Sample text"));
+    Paragraph firstParagraph = new Paragraph();
+    firstParagraph.getPortions().add(new Portion("Sample text"));
 
-    Paragraph para2 = new Paragraph();
-    para2.getPortions().add(new Portion("Sample text 2"));
+    Paragraph secondParagraph = new Paragraph();
+    secondParagraph.getPortions().add(new Portion("Sample text 2"));
 
-    PortionFormat portionFormat = new PortionFormat();
-    portionFormat.setFontHeight(48);
-    portionFormat.setLatinFont(new FontData("Times New Roman"));
-    para2.setEndParagraphPortionFormat(portionFormat);
+    PortionFormat endParagraphFormat = new PortionFormat();
+    endParagraphFormat.setFontHeight(48);
+    endParagraphFormat.setLatinFont(new FontData("Times New Roman"));
+    secondParagraph.setEndParagraphPortionFormat(endParagraphFormat);
 
-    shape.getTextFrame().getParagraphs().add(para1);
-    shape.getTextFrame().getParagraphs().add(para2);
+    textFrame.getParagraphs().add(firstParagraph);
+    textFrame.getParagraphs().add(secondParagraph);
 
-    pres.save(resourcesOutputPath+"pres.pptx", SaveFormat.Pptx);
+    presentation.save("end_paragraph_format.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **將 HTML 文字匯入段落**
+## **匯入與匯出段落內容**
 
-Aspose.Slides 加強了將 HTML 文字匯入段落的支援。
+### **將 HTML 文字匯入段落**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
-2. 依索引取得目標投影片的參考。
-3. 在投影片上加入 [autoshape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
-4. 為該自動圖形新增並取得 `ITextFrame`。
-5. 移除 `ITextFrame` 中的預設段落。
-6. 以 TextReader 讀取來源 HTML 檔案。
-7. 使用 [Paragraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraph/) 類別建立第一個段落實例。
-8. 將讀取的 HTML 內容加入 `TextFrame` 的 [ParagraphCollection](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphcollection/)。
-9. 儲存已修改的簡報。
+使用 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-) 可將 HTML 標記轉換為文字框中的段落與文字片段。
 
-以下 Java 程式碼示範匯入 HTML 文字至段落的步驟：
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例。
+2. 取得投影片並新增一個 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+3. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/) 並清除預設段落。
+4. 讀取來源 HTML 檔案。
+5. 將 HTML 字串傳遞給 [ParagraphCollection.addFromHtml](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphcollection/#addFromHtml-java.lang.String-)。
+6. 儲存已修改的簡報。
+
+此 Java 範例將 HTML 匯入文字框：
 
 ```java
-// 建立空白簡報實例
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation();
 try {
-    // 存取簡報的預設第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    float shapeWidth = (float) presentation.getSlideSize().getSize().getWidth() - 20;
+    float shapeHeight = (float) presentation.getSlideSize().getSize().getHeight() - 20;
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10, shapeWidth, shapeHeight);
+    shape.getFillFormat().setFillType(FillType.NoFill);
+    shape.getTextFrame().getParagraphs().clear();
 
-    // 新增自動圖形以容納 HTML 內容
-    IAutoShape ashape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 10, 10,
-            (float)pres.getSlideSize().getSize().getWidth() - 20, (float)pres.getSlideSize().getSize().getHeight() - 10);
-
-    ashape.getFillFormat().setFillType(FillType.NoFill);
-
-    // 為形狀新增文字框
-    ashape.addTextFrame("");
-
-    // 清除已新增文字框中的所有段落
-    ashape.getTextFrame().getParagraphs().clear();
-
-    // 使用 StreamReader 載入 HTML 檔案
-    TextReader tr = new StreamReader("file.html");
-
-    // 從 HTML StreamReader 中的文字新增至文字框
-    ashape.getTextFrame().getParagraphs().addFromHtml(tr.readToEnd());
-
-    // 儲存簡報
-    pres.save("output_out.pptx", SaveFormat.Pptx);
+    try {
+        byte[] htmlBytes = Files.readAllBytes(Paths.get("file.html"));
+        String html = new String(htmlBytes, StandardCharsets.UTF_8);
+        shape.getTextFrame().getParagraphs().addFromHtml(html);
+        presentation.save("html_text.pptx", SaveFormat.Pptx);
+    } catch (IOException exception) {
+        System.out.println("The HTML file could not be read: " + exception.getMessage());
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **將段落文字匯出為 HTML**
+### **將段落文字匯出為 HTML**
 
-Aspose.Slides 加強了將段落文字匯出為 HTML 的支援。
+使用 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-) 可將選取的段落範圍匯出為 HTML。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例並載入目標簡報。
-2. 依索引取得目標投影片的參考。
-3. 取得包含欲匯出文字的圖形。
-4. 取得該圖形的 [TextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/textframe/)。
-5. 建立 `StreamWriter` 實例並新增 HTML 檔案。
-6. 提供起始索引給 `StreamWriter`，並匯出您選取的段落。
+1. 建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/presentation/) 類別的實例並載入目標簡報。
+2. 取得投影片，並找出包含文字的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iautoshape/)。
+3. 取得形狀的 [ITextFrame](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframe/)。
+4. 呼叫 [ParagraphCollection.exportToHtml](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphcollection/#exportToHtml-int-int-com.aspose.slides.ITextToHtmlConversionOptions-)，傳入起始段落索引與欲匯出的段落數目。
+5. 將回傳的 HTML 字串寫入檔案。
 
-以下 Java 程式碼示範如何將 PowerPoint 段落文字匯出為 HTML：
+此 Java 範例匯出第一個文字形狀的所有段落：
 
 ```java
-// 載入簡報檔案
-Presentation pres = new Presentation("ExportingHTMLText.pptx");
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("ExportingHTMLText.pptx");
 try {
-    // 存取簡報的預設第一張投影片
-    ISlide slide = pres.getSlides().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 目標索引
-    int index = 0;
-
-    // 取得已新增的圖形
-    IAutoShape ashape = (IAutoShape) slide.getShapes().get_Item(index);
-
-    // 建立輸出 HTML 檔案
-    OutputStream os = new FileOutputStream("output.html");
-    Writer writer = new OutputStreamWriter(os, "UTF-8");
-
-    //擷取第一段落為 HTML
-    // 透過提供段落起始索引與要複製的總段落數，將段落資料寫入 HTML
-    writer.write(ashape.getTextFrame().getParagraphs().exportToHtml(0, ashape.getTextFrame().getParagraphs().getCount(), null));
-    writer.close();
-} catch (IOException e) {
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null) {
+            IParagraphCollection paragraphs = textFrame.getParagraphs();
+            String html = paragraphs.exportToHtml(0, paragraphs.getCount(), null);
+            try {
+                Files.write(Paths.get("paragraphs.html"), html.getBytes(StandardCharsets.UTF_8));
+            } catch (IOException exception) {
+                System.out.println("The HTML file could not be written: " + exception.getMessage());
+            }
+        } else {
+            System.out.println("The first shape does not contain a text frame.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **將段落另存為影像**
+### **將段落渲染為影像**
 
-本節將示範兩個範例，說明如何將代表 [IParagraph](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/) 介面的文字段落另存為影像。兩個範例皆包括使用 [IShape](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/) 介面的 `getImage` 方法取得包含段落之形狀的影像、計算段落在形狀內的範圍，並將其匯出為位圖影像。這些方法可讓您從 PowerPoint 簡報中擷取特定文字部分並另存為單獨影像，以供各種情境使用。
+[IParagraph.getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getImage--) 可直接渲染單一段落，並回傳 [IImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iimage/)。使用 [IImage.save](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iimage/#save-java.lang.String-int-) 將結果儲存為檔案或串流。您不需要渲染整個形狀或自行裁切位圖。
 
-假設我們有一個名為 sample.pptx 的簡報檔案，裡面有一張投影片，第一個形狀是一個包含三個段落的文字方塊。
+若段落無法於父集合中找到、沒有有效的渲染範圍，或無法渲染，[IParagraph.getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getImage--) 可能會傳回 `null`，使用前請先檢查，並在使用完畢後釋放回傳的影像。
 
-![The text box with three paragraphs](paragraph_to_image_input.png)
+#### **以預設比例渲染段落**
 
-**範例 1**
+假設我們有一個名為 `sample.pptx` 的簡報檔，內含一張投影片，第一個形狀是包含三個段落的文字方塊。
 
-此範例取得第二個段落的影像。我們先從簡報的第一張投影片取得形狀的影像，接著計算文字方塊中第二個段落的範圍，然後將段落重新繪製到新的位圖影像中，最後以 PNG 格式儲存。此方法在需要將特定段落另存為獨立影像且保留文字的精確尺寸與格式時非常實用。
+![包含三個段落的文字方塊](paragraph_to_image_input.png)
+
+以下範例於預設比例下，將第二段落渲染為 PNG 影像，並在 `finally` 區塊中正確釋放影像。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
 
-    // 將形狀儲存為位圖於記憶體中。
-    IImage shapeImage = firstShape.getImage();
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
+    if (shape instanceof IAutoShape) {
+        IAutoShape textShape = (IAutoShape) shape;
+        ITextFrame textFrame = textShape.getTextFrame();
+        if (textFrame != null && textFrame.getParagraphs().getCount() > 1) {
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(1);
+            IImage paragraphImage = paragraph.getImage();
 
-    // 從記憶體建立形狀位圖。
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // 計算第二段落的邊界。
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    Rectangle2D paragraphRectangle = secondParagraph.getRect();
-
-    // 計算輸出影像的座標與尺寸（最小尺寸 - 1x1 像素）。
-    int imageX = (int) Math.floor(paragraphRectangle.getX());
-    int imageY = (int) Math.floor(paragraphRectangle.getY());
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
-
-    // 裁切形狀位圖以僅取得段落位圖。
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+            if (paragraphImage != null) {
+                try {
+                    paragraphImage.save("paragraph.png", ImageFormat.Png);
+                } finally {
+                    paragraphImage.dispose();
+                }
+            } else {
+                System.out.println("The paragraph could not be rendered.");
+            }
+        } else {
+            System.out.println("The expected paragraph was not found.");
+        }
+    } else {
+        System.out.println("The first shape is not a text shape.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
 結果：
 
-![The paragraph image](paragraph_to_image_output.png)
+![段落圖像](paragraph_to_image_output.png)
 
-**範例 2**
+#### **在表格儲存格中渲染段落並設定縮放**
 
-此範例在前述方法基礎上加入縮放因子。先將形狀以縮放因子 `2` 取得影像，這可在匯出段落時產生更高解析度的輸出。接著計算考慮縮放後的段落範圍。當需要更高細節的影像（例如高品質列印材料）時，縮放尤為有用。
+使用接受 `float scaleX` 與 `float scaleY` 參數的 [IParagraph.getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getImage-float-float-) 版本，可設定水平與垂直縮放係數。以下範例建立表格，於第一個儲存格中將段落以兩倍寬高渲染，並以 PNG 影像方式儲存。
 
 ```java
-float imageScaleX = 2f;
-float imageScaleY = imageScaleX;
+import com.aspose.slides.*;
 
-Presentation presentation = new Presentation("sample.pptx");
+float scaleX = 2f;
+float scaleY = 2f;
+
+Presentation presentation = new Presentation();
 try {
-    IAutoShape firstShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ITable table = slide.getShapes().addTable(50, 50, new double[] { 300 }, new double[] { 80 });
+    IParagraph paragraph = table.get_Item(0, 0).getTextFrame().getParagraphs().get_Item(0);
+    paragraph.setText("Text in a table cell");
 
-    // 將形狀以縮放後儲存為位圖於記憶體中。
-    IImage shapeImage = firstShape.getImage(ShapeThumbnailBounds.Shape, imageScaleX, imageScaleY);
-    ByteArrayOutputStream shapeImageStream = new ByteArrayOutputStream();
-    shapeImage.save(shapeImageStream, ImageFormat.Png);
-    shapeImage.dispose();
-
-    // 從記憶體建立形狀位圖。
-    InputStream shapeImageInputStream = new ByteArrayInputStream(shapeImageStream.toByteArray());
-    BufferedImage shapeBitmap = ImageIO.read(shapeImageInputStream);
-
-    // 計算第二段落的邊界。
-    IParagraph secondParagraph = firstShape.getTextFrame().getParagraphs().get_Item(1);
-    Rectangle2D paragraphRectangle = secondParagraph.getRect();
-    paragraphRectangle.setRect(
-            paragraphRectangle.getX() * imageScaleX,
-            paragraphRectangle.getY() * imageScaleY,
-            paragraphRectangle.getWidth() * imageScaleX,
-            paragraphRectangle.getHeight() * imageScaleY
-    );
-
-    // 計算輸出影像的座標與尺寸（最小尺寸 - 1x1 像素）。
-    int imageX = (int) Math.floor(paragraphRectangle.getX());
-    int imageY = (int) Math.floor(paragraphRectangle.getY());
-    int imageWidth = Math.max(1, (int) Math.ceil(paragraphRectangle.getWidth()));
-    int imageHeight = Math.max(1, (int) Math.ceil(paragraphRectangle.getHeight()));
-
-    // 裁切形狀位圖以僅取得段落位圖。
-    BufferedImage paragraphBitmap = shapeBitmap.getSubimage(imageX, imageY, imageWidth, imageHeight);
-
-    ImageIO.write(paragraphBitmap, "png", new File("paragraph.png"));
-} catch (IOException e) {
+    IImage paragraphImage = paragraph.getImage(scaleX, scaleY);
+    if (paragraphImage != null) {
+        try {
+            paragraphImage.save("table_paragraph.png", ImageFormat.Png);
+        } finally {
+            paragraphImage.dispose();
+        }
+    } else {
+        System.out.println("The paragraph could not be rendered.");
+    }
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **常見問題**
+縮放係數 `1` 代表使用預設像素尺寸。舉例而言，水平與垂直皆設為 `2` 時，產生的影像寬高約為預設的兩倍，像素數量約為四倍。較大的係數通常能在放大或高解析度輸出時提供更銳利的文字，但也會增加記憶體使用量與檔案大小。係數小於 `1` 則會產生較小且細節較少的影像。若要維持段落的長寬比，請使用相等的水平與垂直係數；若使用不同的係數，則會分別拉伸輸出。
 
-**可以完全停用文字框內的自動換行嗎？**
+在需要包含形狀填色、邊框或其他視覺上下文時，仍可使用 [IShape.getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ishape/#getImage--) 來渲染整個形狀。若僅需段落圖像，請使用 [IParagraph.getImage](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getImage--)。
 
-可以。使用文字框的換行設定 ([setWrapText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/textframeformat/#setWrapText-byte-)) 將換行關閉，即可避免文字在框邊緣斷行。
+## **常見問題集**
 
-**如何取得特定段落在投影片上的精確邊界？**
+**我可以完全停用文字框內的換行嗎？**
 
-您可以取得段落（甚至單一 Portion）的邊界矩形，以得知其在投影片上的確切位置與大小。
+可以。將 [ITextFrameFormat.setWrapText](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/itextframeformat/#setWrapText-byte-) 設為停用，即可關閉換行，使文字不會在文字框邊緣斷行。
 
-**段落對齊方式（左/右/置中/分散）在哪裡設定？**
+**我如何取得特定段落在投影片上的精確邊界？**
 
-[Alignment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphformat/#setAlignment-int-) 是位於 [ParagraphFormat](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/paragraphformat/) 的段落層級設定，會套用於整個段落，不受單一 Portion 的格式影響。
+使用 [IParagraph.getRect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraph/#getRect--) 可取得段落的外框矩形。若要取得單一文字片段的邊界，則使用 [IPortion.getRect](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iportion/#getRect--)。
 
-**可以只為段落中的某個詞設定拼寫檢查語言嗎？**
+**段落對齊方式（左、右、置中或兩端對齊）在哪裡設定？**
 
-可以。語言設定位於 Portion 層級 ([PortionFormat.setLanguageId](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/baseportionformat/#setLanguageId-java.lang.String-))，因此同一段落中可以同時存在多種語言。
+[IParagraphFormat.setAlignment](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) 為段落層級的設定，會套用於整個段落，與個別文字片段的格式無關。
+
+**我能為段落的一部分設定校對語言嗎？**
+
+可以。對個別文字片段使用 [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/zh-hant/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-)，即可讓同一段落內的文字使用多種語言的校對設定。

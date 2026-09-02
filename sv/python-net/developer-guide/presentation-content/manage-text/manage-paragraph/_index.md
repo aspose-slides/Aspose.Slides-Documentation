@@ -15,7 +15,7 @@ keywords:
 - hantera punkt
 - styckeindrag
 - hängande indrag
-- stycke-punkt
+- styckepunkt
 - numrerad lista
 - punktlista
 - styckeegenskaper
@@ -29,449 +29,331 @@ keywords:
 - presentation
 - Python
 - Aspose.Slides
-description: "Behärska styckeformatering med Aspose.Slides för Python via .NET - optimera justering, avstånd & stil i PowerPoint- och OpenDocument-presentationer i Python för att engagera åskådare."
+description: "Lär dig hur du skapar och formaterar stycken, delar, punkter, numrerade listor, indrag, HTML-innehåll och stycke-bilder med Aspose.Slides för Python via .NET."
 ---
-## **Introduktion**
+## **Översikt**
 
-Aspose.Slides tillhandahåller de klasser du behöver för att arbeta med PowerPoint‑text i Python.
+Aspose.Slides för Python via .NET representerar text som en hierarki av textramar, stycken och delar:
 
-* Aspose.Slides tillhandahåller klassen [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) för att skapa textram‑objekt. Ett `TextFrame`‑objekt kan innehålla ett eller flera stycken (varje stycke är separerat med ett radbrytningstecken).
-* Aspose.Slides tillhandahåller klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) för att skapa stycke‑objekt. Ett `Paragraph`‑objekt kan innehålla ett eller flera textdelar.
-* Aspose.Slides tillhandahåller klassen [Portion](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/) för att skapa textdel‑objekt och ange deras formaterings­egenskaper.
+* [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) representerar textbehållaren i en form och ger åtkomst till dess styckesamling.
+* [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) representerar ett stycke i en textram och ger åtkomst till dess delar och formatering på styckesnivå.
+* [Portion](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/) representerar ett textstycke inom ett stycke. Varje del kan ha sin egen text och teckenformatering.
 
-Ett `Paragraph`‑objekt kan hantera text med olika formaterings­egenskaper via sina underliggande `Portion`‑objekt.
+Ett stycke kan därför innehålla text med olika teckensnitt, färger, storlekar och annan formatering genom att använda flera delar.
 
-## **Installation**
+## **Skapa och formatera stycken**
 
-```bash
-pip install aspose.slides
-```
+### **Skapa stycken med flera delar**
 
-## **Lägg till flera stycken som innehåller flera textdelar**
-
-Stegen visar hur du lägger till en textram som innehåller tre stycken, var och en med tre textdelar:
+Följande steg skapar en textram med tre stycken, var och en innehållande tre delar:
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta en referens till mål‑bilden via dess index.
-1. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Hämta `TextFrame`‑objektet som är kopplat till [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/).
-1. Skapa två [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/)‑objekt och lägg till dem i stycke‑samlingen för [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) (tillsammans med standardstycket blir det tre stycken).
-1. För varje stycke, skapa tre [Portion](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/)‑objekt och lägg till dem i styckets textdelssamling.
-1. Ange texten för varje textdel.
-1. Tillämpa önskad formatering på varje textdel med egenskaperna i [Portion](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/).
-1. Spara den modifierade presentationen.
-
-Följande Python‑kod implementerar dessa steg:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Skapa en instans av Presentation-klassen för att skapa en ny PPTX-fil.
-with slides.Presentation() as presentation:
-
-    # Hämta den första bilden.
-    slide = presentation.slides[0]
-
-    # Lägg till en rektangulär AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
-
-    # Hämta AutoShape:s TextFrame.
-    text_frame = shape.text_frame
-
-    # Skapa stycken och textdelar; formatering tillämpas nedan.
-    paragraph0 = text_frame.paragraphs[0]
-    portion01 = slides.Portion()
-    portion02 = slides.Portion()
-    paragraph0.portions.add(portion01)
-    paragraph0.portions.add(portion02)
-
-    paragraph1 = slides.Paragraph()
-    text_frame.paragraphs.add(paragraph1)
-    portion10 = slides.Portion()
-    portion11 = slides.Portion()
-    portion12 = slides.Portion()
-    paragraph1.portions.add(portion10)
-    paragraph1.portions.add(portion11)
-    paragraph1.portions.add(portion12)
-
-    paragraph2 = slides.Paragraph()
-    text_frame.paragraphs.add(paragraph2)
-    portion20 = slides.Portion()
-    portion21 = slides.Portion()
-    portion22 = slides.Portion()
-    paragraph2.portions.add(portion20)
-    paragraph2.portions.add(portion21)
-    paragraph2.portions.add(portion22)
-
-    for i in range(3):
-        for j in range(3):
-            text_frame.paragraphs[i].portions[j].text = "Portion0" + str(j)
-            if j == 0:
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
-                text_frame.paragraphs[i].portions[j].portion_format.font_bold = slides.NullableBool.TRUE
-                text_frame.paragraphs[i].portions[j].portion_format.font_height = 15
-            elif j == 1:
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-                text_frame.paragraphs[i].portions[j].portion_format.font_italic = slides.NullableBool.TRUE
-                text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
-
-    # Spara PPTX-filen till disk.
-    presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Hantera stycke‑punkter**
-
-Punktlistor hjälper dig att organisera och presentera information snabbt och effektivt. Punkterade stycken är ofta lättare att läsa och förstå.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta referensen till mål‑bilden via dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Ta bort standardstycket från [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Skapa det första stycket med klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/).
-1. Ställ in styckets punkttyp till `SYMBOL` och ange punkttecknet.
-1. Ange styckets text.
-1. Ställ in punktindrag för stycket.
-1. Ställ in punktfärgen.
-1. Ställ in punktstorleken (höjden).
-1. Lägg till stycket i [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/)’s styckesamling.
-1. Lägg till ett andra stycke och upprepa steg 7‑12.
-1. Spara presentationen.
-
-Denna Python‑kod visar hur du lägger till punkterade stycken:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Skapa en presentationsinstans.
-with slides.Presentation() as presentation:
-
-    # Hämta den första bilden.
-    slide = presentation.slides[0]
-
-    # Lägg till och hämta en AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Hämta textramen för den skapade AutoShape.
-    text_frame = shape.text_frame
-
-    # Ta bort standardstycket.
-    text_frame.paragraphs.remove_at(0)
-
-    # Skapa ett stycke.
-    paragraph = slides.Paragraph()
-
-    # Ställ in styckets punktstil och symbol.
-    paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph.paragraph_format.bullet.char = chr(8226)
-
-    # Ange styckets text.
-    paragraph.text = "Welcome to Aspose.Slides"
-
-    # Ställ in punktindraget.
-    paragraph.paragraph_format.indent = 25
-
-    # Ställ in punktfärgen.
-    paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    paragraph.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
-
-    # Ställ in punktens höjd.
-    paragraph.paragraph_format.bullet.height = 100
-
-    # Lägg till stycket i textramen.
-    text_frame.paragraphs.add(paragraph)
-
-    # Skapa det andra stycket.
-    paragraph2 = slides.Paragraph()
-
-    # Ställ in styckets punkttyp och stil.
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
-
-    # Ange styckets text.
-    paragraph2.text = "This is numbered bullet"
-
-    # Ställ in punktindraget.
-    paragraph2.paragraph_format.indent = 25
-
-    # Ställ in punktfärgen.
-    paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    paragraph2.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph2.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
-
-    # Ställ in punktens höjd.
-    paragraph2.paragraph_format.bullet.height = 100
-
-    # Lägg till stycket i textramen.
-    text_frame.paragraphs.add(paragraph2)
-
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Hantera bildpunkter**
-
-Bildpunkter hjälper dig att organisera och presentera information snabbt och effektivt. Bildpunkter är lätta att läsa och förstå.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta referensen till mål‑bilden via dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Ta bort standardstycket från [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Skapa ett stycke med klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och ange dess text.
-1. Ladda en bild och lägg till den i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/).
-1. Ställ in punkttypen till `PICTURE` och tilldela [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/) till punkten.
-1. Ställ in punktens höjd.
-1. Lägg till det nya stycket i [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/)’s styckesamling.
-1. Spara presentationen.
-
-Denna Python‑kod visar hur du lägger till och hanterar bildpunkter:
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-
-    # Hämta den första bilden.
-    slide = presentation.slides[0]
-
-    # Läs in punktbilden.
-    with slides.Images.from_file("bullets.png") as image:
-        pp_image = presentation.images.add_image(image)
-
-    # Lägg till och hämta en AutoShape.
-    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Hämta TextFrame för den skapade AutoShape.
-    text_frame = auto_shape.text_frame
-
-    # Ta bort standardstycket.
-    text_frame.paragraphs.remove_at(0)
-
-    # Skapa ett nytt stycke.
-    paragraph = slides.Paragraph()
-    paragraph.text = "Welcome to Aspose.Slides"
-
-    # Ställ in styckets punkttyp till Bild och tilldela bilden.
-    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
-    paragraph.paragraph_format.bullet.picture.image = pp_image
-
-    # Ställ in punktens höjd.
-    paragraph.paragraph_format.bullet.height = 100
-
-    # Lägg till stycket i textramen.
-    text_frame.paragraphs.add(paragraph)
-
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("picture_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-    # Spara presentationen som en PPT-fil.
-    presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Hantera flernivåpunkter**
-
-Flernivåpunkter hjälper dig att organisera och presentera information snabbt och effektivt. De är lätta att läsa och förstå.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta referensen till mål‑bilden via dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Hämta [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/)’s [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Ta bort standardstycket från [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Skapa det första stycket med klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt dess djup till 0.
-1. Skapa det andra stycket med klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt dess djup till 1.
-1. Skapa det tredje stycket med klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt dess djup till 2.
-1. Skapa det fjärde stycket med klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt dess djup till 3.
-1. Lägg till de nya styckena i [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/)’s styckesamling.
-1. Spara presentationen.
-
-Följande Python‑kod visar hur du lägger till och hanterar flernivåpunkter:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Skapa en presentationsinstans.
-with slides.Presentation() as presentation:
-
-    # Hämta den första bilden.
-    slide = presentation.slides[0]
-    
-    # Lägg till en AutoShape.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Hämta TextFrame för den skapade AutoShape.
-    text_frame = shape.text_frame
-    
-    # Rensa standardstycket.
-    text_frame.paragraphs.clear()
-
-    # Lägg till det första stycket.
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "Content"
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph1.paragraph_format.bullet.char = chr(8226)
-    paragraph1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ställ in punktnivån.
-    paragraph1.paragraph_format.depth = 0
-
-    # Lägg till det andra stycket.
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "Second Level"
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph2.paragraph_format.bullet.char = '-'
-    paragraph2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ställ in punktnivån.
-    paragraph2.paragraph_format.depth = 1
-
-    # Lägg till det tredje stycket.
-    paragraph3 = slides.Paragraph()
-    paragraph3.text = "Third Level"
-    paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph3.paragraph_format.bullet.char = chr(8226)
-    paragraph3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ställ in punktnivån.
-    paragraph3.paragraph_format.depth = 2
-
-    # Lägg till det fjärde stycket.
-    paragraph4 = slides.Paragraph()
-    paragraph4.text = "Fourth Level"
-    paragraph4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph4.paragraph_format.bullet.char = '-'
-    paragraph4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Ställ in punktnivån.
-    paragraph4.paragraph_format.depth = 3
-
-    # Lägg till styckena i samlingen.
-    text_frame.paragraphs.add(paragraph1)
-    text_frame.paragraphs.add(paragraph2)
-    text_frame.paragraphs.add(paragraph3)
-    text_frame.paragraphs.add(paragraph4)
-
-    # Spara presentationen som en PPTX-fil.
-    presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Hantera stycken med anpassade numrerade listor**
-
-Klassen [BulletFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/) erbjuder egenskapen `numbered_bullet_start_with` (och andra) för att styra anpassad numrering och formatering av stycken.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta bilden som ska innehålla styckena.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Ta bort standardstycket från [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Skapa det första [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt `numbered_bullet_start_with` till 2.
-1. Skapa det andra [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt `numbered_bullet_start_with` till 3.
-1. Skapa det tredje [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och sätt `numbered_bullet_start_with` till 7.
-1. Lägg till styckena i [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/)’s samling.
-1. Spara presentationen.
-
-Följande Python‑kod demonstrerar hur du lägger till och hanterar stycken med anpassad numrering och formatering.
-
-```python
-import aspose.slides as slides
-
-with slides.Presentation() as presentation:
-
-    # Lägg till och hämta en AutoShape.
-    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Hämta TextFrame för den skapade AutoShape.
-    text_frame = shape.text_frame
-
-    # Ta bort det befintliga standardstycket.
-    text_frame.paragraphs.remove_at(0)
-
-    # Skapa det första numrerade objektet (börjar med 2, djupnivå 4).
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "bullet 2"
-    paragraph1.paragraph_format.depth = 4 
-    paragraph1.paragraph_format.bullet.numbered_bullet_start_with = 2
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    text_frame.paragraphs.add(paragraph1)
-
-    # Skapa det andra numrerade objektet (börjar med 3, djupnivå 4).
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "bullet 3"
-    paragraph2.paragraph_format.depth = 4
-    paragraph2.paragraph_format.bullet.numbered_bullet_start_with = 3 
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
-    text_frame.paragraphs.add(paragraph2)
-
-    # Skapa det tredje numrerade objektet (börjar med 7, djupnivå 4).
-    paragraph5 = slides.Paragraph()
-    paragraph5.text = "bullet 7"
-    paragraph5.paragraph_format.depth = 4
-    paragraph5.paragraph_format.bullet.numbered_bullet_start_with = 7
-    paragraph5.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    text_frame.paragraphs.add(paragraph5)
-
-    presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Ställ in indrag för första raden i ett stycke**
-
-Använd egenskapen [ParagraphFormat.indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/) för att styra indraget för första raden i ett stycke. Denna egenskap flyttar endast den första raden i förhållande till styckets vänstra marginal. Ett positivt värde flyttar den första raden åt höger, medan resterande rader förblir justerade med styckets huvudtext.
-
-Använd [ParagraphFormat.margin_left](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/margin_left/) när du vill flytta hela stycket. Använd [ParagraphFormat.indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/) när du endast vill flytta den första raden.
-
-Exemplet nedan skapar flera stycken och applicerar olika `indent`‑värden för att demonstrera hur indrag för första raden påverkar layouten.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-2. Hämta mål‑bilden.
+2. Åtkomst till den relevanta bilden via dess index.
 3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-4. Lägg till ett tomt [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) på formen och ta bort standardstycket.
-5. Skapa flera stycken och sätt olika [indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/)‑värden för dem.
-6. Lägg till styckena i textramen.
-7. Spara den ändrade presentationen.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
+5. Använd standardstycket och lägg till två ytterligare [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/)‑objekt i textramen.
+6. Lägg till tillräckligt många [Portion](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/)‑objekt så att varje stycke innehåller tre delar. Standardstycket innehåller redan en tom del.
+7. Ställ in texten för varje del.
+8. Tillämpa teckenformatering via [Portion.portion_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/portion_format/).
+9. Spara den ändrade presentationen.
 
-Denna kod visar hur du ställer in indrag för ett stycke:
+Detta Python‑exempel implementerar stegen:
 
-```py
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
+    text_frame = shape.text_frame
 
-    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
-    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
-    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
-    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
-
-    text_frame = rectangle.add_text_frame("")
-    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-    text_frame.paragraphs.remove_at(0)
-
-    first_paragraph = slides.Paragraph()
-    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
-    first_paragraph.paragraph_format.margin_left = 20.0
-    first_paragraph.paragraph_format.indent = 0.0
+    first_paragraph = text_frame.paragraphs[0]
+    first_paragraph.portions.add(slides.Portion())
+    first_paragraph.portions.add(slides.Portion())
 
     second_paragraph = slides.Paragraph()
-    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
-    second_paragraph.paragraph_format.margin_left = 20.0
-    second_paragraph.paragraph_format.indent = 20.0
+    second_paragraph.portions.add(slides.Portion())
+    second_paragraph.portions.add(slides.Portion())
+    second_paragraph.portions.add(slides.Portion())
+    text_frame.paragraphs.add(second_paragraph)
 
     third_paragraph = slides.Paragraph()
+    third_paragraph.portions.add(slides.Portion())
+    third_paragraph.portions.add(slides.Portion())
+    third_paragraph.portions.add(slides.Portion())
+    text_frame.paragraphs.add(third_paragraph)
+
+    for paragraph_index in range(text_frame.paragraphs.count):
+        paragraph = text_frame.paragraphs[paragraph_index]
+        for portion_index in range(paragraph.portions.count):
+            portion = paragraph.portions[portion_index]
+            portion.text = f"Portion {paragraph_index + 1}.{portion_index + 1}"
+
+            if portion_index == 0:
+                portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                portion.portion_format.fill_format.solid_fill_color.color = draw.Color.red
+                portion.portion_format.font_bold = slides.NullableBool.TRUE
+                portion.portion_format.font_height = 15
+            elif portion_index == 1:
+                portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                portion.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+                portion.portion_format.font_italic = slides.NullableBool.TRUE
+                portion.portion_format.font_height = 18
+
+    presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Skapa punkt- och numrerade listor**
+
+### **Skapa en punkt- eller numrerad lista**
+
+Punkter och numrering gör relaterade objekt enklare att skanna. I Aspose.Slides definieras listinställningar via [BulletFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/).
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
+2. Åtkomst till den relevanta bilden via dess index.
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på den valda bilden.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
+5. Ta bort standardstycket från textramen.
+6. Skapa ett [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) för en symbolpunkt.
+7. Ställ in [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.SYMBOL](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/) och ange punkttecknet.
+8. Ställ in styckets text, indrag, punktfärg och punktens höjd.
+9. Lägg till stycket i textramen.
+10. Skapa ett andra stycke och ställ in [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.NUMBERED](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/).
+11. Konfigurera den numrerade punktstilen och lägg till stycket i textramen.
+12. Spara presentationen.
+
+Detta Python‑exempel skapar en symbolpunkt och en numrerad punkt:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    symbol_paragraph = slides.Paragraph()
+    symbol_paragraph.text = "Welcome to Aspose.Slides"
+    symbol_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    symbol_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    symbol_paragraph.paragraph_format.indent = 25
+    symbol_paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    symbol_paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    symbol_paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    symbol_paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(symbol_paragraph)
+
+    numbered_paragraph = slides.Paragraph()
+    numbered_paragraph.text = "This is a numbered item"
+    numbered_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    numbered_paragraph.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
+    numbered_paragraph.paragraph_format.indent = 25
+    numbered_paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    numbered_paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    numbered_paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    numbered_paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(numbered_paragraph)
+
+    presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Använd bildpunkter**
+
+Bildpunkter låter dig använda en anpassad bild i stället för en symbol eller siffra.
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
+2. Åtkomst till den relevanta bilden via dess index.
+3. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) och åtkomst till dess [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
+4. Ta bort standardstycket från textramen.
+5. Läs in punktbilden och lägg till den i presentationens bildsamling som en [PPImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/ppimage/).
+6. Skapa ett [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) och ange dess text.
+7. Ställ in [BulletFormat.type](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/type/) till [BulletType.PICTURE](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bullettype/).
+8. Tilldela bilden via [BulletFormat.picture](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/picture/) och ställ in punktens höjd.
+9. Lägg till stycket i textramen.
+10. Spara den ändrade presentationen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+
+    with slides.Images.from_file("bullets.png") as bullet_image:
+        presentation_image = presentation.images.add_image(bullet_image)
+
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    paragraph = slides.Paragraph()
+    paragraph.text = "Welcome to Aspose.Slides"
+    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
+    paragraph.paragraph_format.bullet.picture.image = presentation_image
+    paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(paragraph)
+
+    presentation.save("picture_bullet.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture_bullet.ppt", slides.export.SaveFormat.PPT)
+```
+
+### **Skapa en flernivålista**
+
+Ställ in [ParagraphFormat.depth](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/depth/) för att placera stycken på olika nivåer i en lista. Översta nivån har djup `0`.
+
+1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) och åtkomst till en bild.
+2. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) och rensa standardstycket från dess textram.
+3. Skapa fyra stycken och konfigurera deras punkttecken.
+4. Ställ in deras [ParagraphFormat.depth](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/depth/)‑värden till `0`, `1`, `2` och `3`.
+5. Lägg till stycken i textramen och spara presentationen.
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "Content"
+    first_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    first_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.paragraph_format.depth = 0
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Second level"
+    second_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    second_paragraph.paragraph_format.bullet.char = "-"
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.paragraph_format.depth = 1
+
+    third_paragraph = slides.Paragraph()
+    third_paragraph.text = "Third level"
+    third_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    third_paragraph.paragraph_format.bullet.char = chr(0x2022)
     third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    third_paragraph.paragraph_format.depth = 2
+
+    fourth_paragraph = slides.Paragraph()
+    fourth_paragraph.text = "Fourth level"
+    fourth_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    fourth_paragraph.paragraph_format.bullet.char = "-"
+    fourth_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    fourth_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    fourth_paragraph.paragraph_format.depth = 3
+
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
+    text_frame.paragraphs.add(third_paragraph)
+    text_frame.paragraphs.add(fourth_paragraph)
+
+    presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Starta numrerade listobjekt med egna värden**
+
+Använd [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) för att ange det initiala talet som visas för ett numrerat stycke.
+
+1. Skapa en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) och lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på en bild.
+2. Rensa standardstycket från formens textram.
+3. Skapa tre numrerade stycken.
+4. Ställ in [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/sv/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) till `2`, `3` och `7` för respektive stycke.
+5. Lägg till stycken i textramen och spara presentationen.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "Start at 2"
+    first_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    first_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 2
+    text_frame.paragraphs.add(first_paragraph)
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Start at 3"
+    second_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    second_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 3
+    text_frame.paragraphs.add(second_paragraph)
+
+    third_paragraph = slides.Paragraph()
+    third_paragraph.text = "Start at 7"
+    third_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    third_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 7
+    text_frame.paragraphs.add(third_paragraph)
+
+    presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Kontrollera styckeslayout och slutegenskaper**
+
+### **Ställ in indrag för första raden**
+
+Använd egenskapen [ParagraphFormat.indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/) för att styra indraget för första raden i ett stycke. Denna egenskap flyttar endast den första raden i förhållande till styckets vänstermarginal. Ett positivt värde förskjuter den första raden åt höger, medan de resterande raderna förblir justerade med styckeskroppen.
+
+Använd [ParagraphFormat.margin_left](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/margin_left/) när du behöver flytta hela stycket. Använd [ParagraphFormat.indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/) när du bara vill flytta den första raden.
+
+Exemplet nedan skapar flera stycken och tillämpar olika [ParagraphFormat.indent]-värden för att demonstrera hur indraget för första raden påverkar styckeslayouten.
+
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
+2. Åtkomst till målbilden.
+3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) och ta bort standardstycket.
+5. Skapa flera stycken och sätt olika [ParagraphFormat.indent]-värden för dem.
+6. Lägg till stycken i textramen.
+7. Spara den ändrade presentationen.
+
+Den här koden visar hur du ställer in ett styckeindrag:
+
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.gray
+
+    text_frame = shape.text_frame
+    text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.paragraph_format.margin_left = 20
+    first_paragraph.paragraph_format.indent = 0
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.paragraph_format.margin_left = 20
+    second_paragraph.paragraph_format.indent = 20
+
+    third_paragraph = slides.Paragraph()
     third_paragraph.text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see."
-    third_paragraph.paragraph_format.margin_left = 20.0
-    third_paragraph.paragraph_format.indent = 40.0
+    third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    third_paragraph.paragraph_format.margin_left = 20
+    third_paragraph.paragraph_format.indent = 40
 
     text_frame.paragraphs.add(first_paragraph)
     text_frame.paragraphs.add(second_paragraph)
@@ -484,54 +366,53 @@ Resultatet:
 
 ![The first-line indent of the paragraphs](first_line_indent.png)
 
-## **Ställ in hängande indrag för ett stycke**
+### **Ställ in hängande indrag**
 
-Ett hängande indrag är en stycke‑layout där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [ParagraphFormat.indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/). Sätt `indent` till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets huvudtext.
+Ett hängande indrag är en styckeslayout där den första raden börjar till vänster om de återstående raderna. I Aspose.Slides skapar du denna effekt med egenskapen [ParagraphFormat.indent]. Sätt `indent` till ett negativt värde för att flytta den första raden åt vänster i förhållande till styckets kropp.
 
-I praktiken definierar [ParagraphFormat.margin_left](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/margin_left/) den vänstra positionen för styckets huvudtext, och [ParagraphFormat.indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/) definierar positionen för den första raden relativt den marginalen. För att skapa ett hängande indrag, sätt ett positivt `margin_left`‑värde och ett negativt `indent`‑värde.
+I praktiken definierar [ParagraphFormat.margin_left] den vänstra positionen för styckets kropp, och [ParagraphFormat.indent] definierar positionen för den första raden i förhållande till den marginalen. För att skapa ett hängande indrag, sätt ett positivt `margin_left`‑värde och ett negativt `indent`‑värde.
 
-Denna formatering är användbar för bibliografier, referenser, förklaringar och andra stycken där radbrytningar måste justeras under styckets kropp snarare än under det första tecknet i den första raden.
+Denna formatering är användbar för bibliografier, referenser, uppslagsverksposter och andra stycken där radbrytningar måste justeras under styckets kropp snarare än under första tecknet i den första raden.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-2. Hämta mål‑bilden.
+2. Åtkomst till målbilden.
 3. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-4. Lägg till ett tomt [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) på formen och ta bort standardstycket.
-5. Skapa stycken och sätt ett positivt [margin_left](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/margin_left/)‑värde för varje stycke.
-6. Sätt ett negativt [indent](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/indent/)‑värde för att skapa hängande indrag.
-7. Lägg till styckena i textramen.
+4. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) och ta bort standardstycket.
+5. Skapa stycken och sätt ett positivt [ParagraphFormat.margin_left]-värde för varje stycke.
+6. Sätt ett negativt [ParagraphFormat.indent]-värde för att skapa hängande indrag.
+7. Lägg till stycken i textramen.
 8. Spara den ändrade presentationen.
 
-Denna kod visar hur du ställer in ett hängande indrag för ett stycke:
+Den här koden visar hur du sätter ett hängande indrag för ett stycke:
 
-```py
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.gray
 
-    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
-    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
-    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
-    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
-
-    text_frame = rectangle.add_text_frame("")
+    text_frame = shape.text_frame
     text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-    text_frame.paragraphs.remove_at(0)
+    text_frame.paragraphs.clear()
 
     first_paragraph = slides.Paragraph()
+    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
     first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
-    first_paragraph.paragraph_format.margin_left = 40.0
-    first_paragraph.paragraph_format.indent = -20.0
+    first_paragraph.paragraph_format.margin_left = 40
+    first_paragraph.paragraph_format.indent = -20
 
     second_paragraph = slides.Paragraph()
+    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
     second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
-    second_paragraph.paragraph_format.margin_left = 60.0
-    second_paragraph.paragraph_format.indent = -30.0
+    second_paragraph.paragraph_format.margin_left = 60
+    second_paragraph.paragraph_format.indent = -30
 
     text_frame.paragraphs.add(first_paragraph)
     text_frame.paragraphs.add(second_paragraph)
@@ -543,229 +424,178 @@ Resultatet:
 
 ![The hanging indent of the paragraphs](hanging_indent.png)
 
-## **Hantera slut‑av‑stycke‑textdelens format**
+### **Ställ in slutegenskaper för styckekörning**
 
-När du behöver kontrollera formateringen av \"slutet\" på ett stycke (formatet som tillämpas efter den sista textdelen), använd egenskapen `end_paragraph_portion_format`. Exemplet nedan tillämpar ett större Times New Roman‑teckensnitt på slutet av det andra stycket.
+Egenskapen [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) styr formateringen av styckets slutmarkering. Följande exempel tilldelar en teckenstorlek och ett latinskt teckensnitt till slutmarkeringen för det andra stycket:
 
-1. Skapa eller öppna en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑fil.
-1. Hämta mål‑bilden via index.
-1. Lägg till en rektangulär [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Använd formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) och skapa två stycken.
-1. Skapa ett [PortionFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/) på 48 pt Times New Roman och applicera det som styckets slut‑av‑stycke‑textdelformat.
-1. Tilldela det till styckets `end_paragraph_portion_format` (gäller för det andra styckets avslut).
-1. Skriv den ändrade presentationen som en PPTX‑fil.
-
-Denna Python‑kod visar hur du ställer in slut‑av‑stycke‑formatering för det andra stycket:
+1. Läs in en [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) och åtkomst till en bild.
+2. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) och rensa dess standardstycke.
+3. Skapa två stycken och lägg till textdelar i dem.
+4. Skapa ett [PortionFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/) för det andra styckets slutmarkering.
+5. Ställ in [PortionFormat.font_height](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/font_height/) och [PortionFormat.latin_font](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/latin_font/).
+6. Tilldela formatet till [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) och spara presentationen.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-	shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
 
-	# Ta bort standardstycket.
-	shape.text_frame.paragraphs.clear()
+    first_paragraph = slides.Paragraph()
+    first_paragraph.portions.add(slides.Portion("Sample text"))
 
-	paragraph1 = slides.Paragraph()
-	paragraph1.portions.add(slides.Portion("Sample text"))
+    second_paragraph = slides.Paragraph()
+    second_paragraph.portions.add(slides.Portion("Sample text 2"))
 
-	end_paragraph_portion_format = slides.PortionFormat()
-	end_paragraph_portion_format.font_height = 48
-	end_paragraph_portion_format.latin_font = slides.FontData("Times New Roman")
+    end_paragraph_format = slides.PortionFormat()
+    end_paragraph_format.font_height = 48
+    end_paragraph_format.latin_font = slides.FontData("Times New Roman")
+    second_paragraph.end_paragraph_portion_format = end_paragraph_format
 
-	paragraph2 = slides.Paragraph()
-	paragraph2.portions.add(slides.Portion("Sample text 2"))
-	paragraph2.end_paragraph_portion_format = end_paragraph_portion_format
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
 
-	shape.text_frame.paragraphs.add(paragraph1)
-	shape.text_frame.paragraphs.add(paragraph2)
-
-	presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Importera HTML‑text i stycken**
+## **Importera och exportera styckeinnehåll**
 
-Aspose.Slides erbjuder förbättrat stöd för att importera HTML‑text i stycken.
+### **Importera HTML‑text i stycken**
+
+Använd [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphcollection/add_from_html/) för att konvertera HTML‑markup till stycken och delar i en textram.
 
 1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta mål‑bilden via dess index.
-1. Lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) på bilden.
-1. Hämta [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) för [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/).
-1. Ta bort standardstycket från [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Läs in käll‑HTML‑filen.
-1. Lägg till HTML‑innehållet i [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/)’s styckesamling.
-1. Spara den ändrade presentationen.
-
-Följande Python‑kod implementerar dessa steg för att importera HTML‑text i stycken.
+2. Åtkomst till en bild och lägg till en [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/).
+3. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/) och rensa dess standardstycke.
+4. Läs in käll‑HTML‑filen.
+5. Skicka HTML‑strängen till [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphcollection/add_from_html/).
+6. Spara den ändrade presentationen.
 
 ```python
 import aspose.slides as slides
 
-# Skapa en tom presentationsinstans.
 with slides.Presentation() as presentation:
-
-    # Hämta den första bilden i presentationen.
     slide = presentation.slides[0]
-
-    slide_width = presentation.slide_size.size.width
-    slide_height = presentation.slide_size.size.height
-
-    # Lägg till en AutoShape för att rymma HTML-innehållet.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
-
-    # Rensa alla stycken i den tillagda textramen.
+    shape_width = presentation.slide_size.size.width - 20
+    shape_height = presentation.slide_size.size.height - 20
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, shape_width, shape_height)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.text_frame.paragraphs.clear()
 
-    # Läs in HTML-filen.
-    with open("file.html", "rt") as html_stream:
-        # Lägg till text från HTML-filen i textramen.
-        shape.text_frame.paragraphs.add_from_html(html_stream.read())
+    with open("file.html", "r", encoding="utf-8") as html_stream:
+        html = html_stream.read()
 
-    # Spara presentationen.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    shape.text_frame.paragraphs.add_from_html(html)
+    presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Exportera stycketext till HTML**
+### **Exportera stycketext till HTML**
 
-Aspose.Slides erbjuder förbättrat stöd för att exportera text till HTML.
+Använd [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphcollection/export_to_html/) för att exportera ett valt intervall av stycken som HTML.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) och ladda mål‑presentationen.
-1. Hämta önskad bild via dess index.
-1. Välj formen som innehåller texten som ska exporteras.
-1. Hämta formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
-1. Öppna ett fil‑strömningsobjekt för att skriva HTML‑utdata.
-1. Specificera start‑index och exportera de begärda styckena.
-
-Detta Python‑exempel visar hur du exporterar stycketext till HTML.
+1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) och läs in önskad presentation.
+2. Åtkomst till bilden och hitta den [AutoShape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/autoshape/) som innehåller texten.
+3. Åtkomst till formens [TextFrame](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframe/).
+4. Anropa [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphcollection/export_to_html/) med start‑styckeindexet och antalet stycken att exportera.
+5. Skriv den returnerade HTML‑strängen till en fil.
 
 ```python
 import aspose.slides as slides
 
-# Läs in presentationsfilen.
-with slides.Presentation("exporting_HTML_text.pptx") as presentation:
-    # Hämta den första bilden i presentationen.
-    slide = presentation.slides[0]
+with slides.Presentation("ExportingHTMLText.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    # Måls formindex.
-    index = 0
-
-    # Hämta formen via index.
-    shape = slide.shapes[index]
-
-    with open("output.html", "w") as html_stream:
-        # Skriv styckedata till HTML genom att ange startindex för stycke och totalt antal stycken som ska exporteras.
-        html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
+    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+        paragraphs = shape.text_frame.paragraphs
+        html = paragraphs.export_to_html(0, paragraphs.count, None)
+        with open("paragraphs.html", "w", encoding="utf-8") as html_stream:
+            html_stream.write(html)
+    else:
+        print("The first shape is not a text shape.")
 ```
 
-## **Spara ett stycke som en bild**
+### **Rendera ett stycke som en bild**
 
-I detta avsnitt utforskar vi två exempel som demonstrerar hur du sparar ett textstycke, representerat av klassen [Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/), som en bild. Båda exemplen inkluderar att hämta bilden av en form som innehåller stycket med metoderna `get_image` från klassen [Shape](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/), beräkna styckets gränser inom formen och exportera det som en bitmap‑bild. Dessa metoder gör det möjligt att extrahera specifika delar av texten från PowerPoint‑presentationer och spara dem som separata bilder, vilket kan vara användbart i olika scenarier.
+[Paragraph](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/) tillhandahåller metoden `get_image` för att rendera ett enskilt stycke direkt. Metoden returnerar ett [IImage](https://reference.aspose.com/slides/sv/python-net/aspose.slides/iimage/) som du kan spara till en fil eller ström med [IImage.save](https://reference.aspose.com/slides/sv/python-net/aspose.slides/iimage/save/). Du behöver inte rendera den omgivande formen eller beskära en bitmap manuellt.
 
-Låt oss anta att vi har en presentationsfil kallad sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
+`get_image`‑metoden kan returnera `None` om stycket inte kan hittas i sin föräldrakollektion, saknar giltiga renderingsgränser eller inte kan renderas. Kontrollera resultatet innan det sparas och använd den returnerade bilden som en context manager för att frigöra dess resurser.
+
+#### **Rendera ett stycke i standardskala**
+
+Anta att vi har en presentationsfil som heter sample.pptx med en bild, där den första formen är en textruta som innehåller tre stycken.
 
 ![The text box with three paragraphs](paragraph_to_image_input.png)
 
-**Exempel 1**
+Följande exempel renderar det andra stycket i en vanlig textruta i standardskala och sparar den returnerade bilden i PNG‑format:
 
-I detta exempel hämtar vi det andra stycket som en bild. För att göra detta extraherar vi bildens form från den första sliden i presentationen och beräknar sedan gränserna för det andra stycket i formens textram. Stycket ritas sedan om på en ny bitmap‑bild som sparas i PNG‑format. Denna metod är särskilt användbar när du behöver spara ett specifikt stycke som en separat bild samtidigt som du bevarar exakta dimensioner och formatering.
-
-```py
+```python
 import aspose.slides as slides
-import math
-import io
-from PIL import Image
 
 with slides.Presentation("sample.pptx") as presentation:
-    first_shape = presentation.slides[0].shapes[0]
+    shape = presentation.slides[0].shapes[0]
 
-    # Spara formen i minnet som en bitmap.
-    with first_shape.get_image() as shape_image:
-        shape_image_stream = io.BytesIO()
-        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
+    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None and shape.text_frame.paragraphs.count > 1:
+        paragraph = shape.text_frame.paragraphs[1]
+        paragraph_image = paragraph.get_image()
 
-    # Skapa en form-bitmap från minnet.
-    shape_image_stream.seek(0)
-    shape_bitmap = Image.open(shape_image_stream)
-
-    # Beräkna gränserna för det andra stycket.
-    second_paragraph = first_shape.text_frame.paragraphs[1]
-    paragraph_rectangle = second_paragraph.get_rect()
-
-    # Beräkna koordinaterna och storleken för utdata bilden (minsta storlek - 1x1 pixel).
-    image_left = math.floor(paragraph_rectangle.x)
-    image_top = math.floor(paragraph_rectangle.y)
-    image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
-    image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
-
-    # Beskär form-bitmapen för att få endast stycke-bitmapen.
-    paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
-
-    paragraph_bitmap.save("paragraph.png")
+        if paragraph_image is not None:
+            with paragraph_image:
+                paragraph_image.save("paragraph.png", slides.ImageFormat.PNG)
+        else:
+            print("The paragraph could not be rendered.")
+    else:
+        print("The expected text shape or paragraph was not found.")
 ```
 
 Resultatet:
 
 ![The paragraph image](paragraph_to_image_output.png)
 
-**Exempel 2**
+#### **Rendera ett stycke i en tabellcell med skalning**
 
-I detta exempel utökar vi föregående metod genom att lägga till skalningsfaktorer för styckebilden. Formen extraheras från presentationen och sparas som en bild med en skalfaktor på `2`. Detta möjliggör högre upplösning vid export av stycket. Styckets gränser beräknas sedan med hänsyn till skalan. Skalning kan vara särskilt användbart när en mer detaljerad bild behövs, exempelvis för högkvalitativa trycksaker.
+Skicka horisontella och vertikala skalningsfaktorer till `get_image` för att kontrollera storleken på det renderade stycket. Följande exempel skapar en tabell, renderar stycket i dess första cell med dubbelt så stor bredd och höjd som standard, och sparar resultatet som en PNG‑bild:
 
-```py
+```python
 import aspose.slides as slides
-import math
-import io
-from PIL import Image
 
-image_scale_x = 2
-image_scale_y = image_scale_x
+scale_x = 2
+scale_y = 2
 
-with slides.Presentation("sample.pptx") as presentation:
-    first_shape = presentation.slides[0].shapes[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(50, 50, [300], [80])
+    paragraph = table.rows[0][0].text_frame.paragraphs[0]
+    paragraph.text = "Text in a table cell"
 
-    # Spara formen i minnet som en bitmap.
-    with first_shape.get_image(slides.ShapeThumbnailBounds.SHAPE, image_scale_x, image_scale_y) as shape_image:
-        shape_image_stream = io.BytesIO()
-        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
-
-    # Skapa en form-bitmap från minnet.
-    shape_image_stream.seek(0)
-    shape_bitmap = Image.open(shape_image_stream)
-
-    # Beräkna gränserna för det andra stycket.
-    second_paragraph = first_shape.text_frame.paragraphs[1]
-    paragraph_rectangle = second_paragraph.get_rect()
-    paragraph_rectangle.x *= image_scale_x
-    paragraph_rectangle.y *= image_scale_y
-    paragraph_rectangle.width *= image_scale_x
-    paragraph_rectangle.height *= image_scale_y
-
-    # Beräkna koordinaterna och storleken för utdata bilden (minsta storlek - 1x1 pixel).
-    image_left = math.floor(paragraph_rectangle.x)
-    image_top = math.floor(paragraph_rectangle.y)
-    image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
-    image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
-
-    # Beskär form-bitmapen för att få endast stycke-bitmapen.
-    paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
-
-    paragraph_bitmap.save("paragraph.png")
+    paragraph_image = paragraph.get_image(scale_x, scale_y)
+    if paragraph_image is not None:
+        with paragraph_image:
+            paragraph_image.save("table_paragraph.png", slides.ImageFormat.PNG)
+    else:
+        print("The paragraph could not be rendered.")
 ```
 
-## **FAQ**
+En skalningsfaktor på `1` behåller den axeln på dess standardpixelstorlek. Till exempel ger `2` för båda faktorerna en bild vars bredd och höjd är ungefär dubbelt så stora som standardmåtten, vilket resulterar i fyra gånger så många pixlar. Större faktorer ger vanligtvis skarpare text för zoomning eller högupplöst utskrift, men de ökar även minnesanvändning och filstorlek. Faktorer under `1` ger mindre bilder med mindre detaljrikedom. Använd lika faktorer för att bevara styckets bildförhållande; olika horisontella och vertikala faktorer sträcker ut resultatet var för sig.
 
-### Kan jag helt inaktivera radbrytning i en textram?
+Att rendera en hel form med [Shape.get_image](https://reference.aspose.com/slides/sv/python-net/aspose.slides/shape/get_image/) är fortsatt användbart när utdata måste inkludera formens fyllning, kant eller annan visuell kontext. För en bild som bara innehåller ett stycke, använd `Paragraph.get_image`.
 
-Ja. Använd textramens inställning för radbrytning ([wrap_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframeformat/wrap_text/)) för att stänga av radbrytning så att rader inte bryts vid ramens kanter.
+## **Vanliga frågor**
 
-### Hur kan jag få den exakta positionen på bilden för ett specifikt stycke?
+**Kan jag helt inaktivera radbrytning i en textram?**
 
-Du kan hämta styckets (och även en enskild texts del) omgivande rektangel för att veta dess exakt position och storlek på bilden.
+Ja. Ställ in [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/sv/python-net/aspose.slides/textframeformat/wrap_text/) för att inaktivera radbrytning så att rader inte bryts vid textrammens kanter.
 
-### Var styrs styckets justering (vänster/höger/centrerat/justerat)?
+**Hur får jag de exakta gränserna på bilden för ett specifikt stycke?**
 
-[Alignment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/alignment/) är en inställning på styckennivå i [ParagraphFormat](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/); den gäller hela stycket oavsett individuell textdel‑formatering.
+Använd [Paragraph.get_rect](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraph/get_rect/) för att hämta styckets omslutande rektangel. [Portion.get_rect](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portion/get_rect/) ger gränserna för en enskild del.
 
-### Kan jag ange språk för stavningskontroll för bara en del av ett stycke (t.ex. ett ord)?
+**Var styrs styckejustering (vänster, höger, centrerad eller marginaljustering)?**
 
-Ja. Språket ställs in på textdelnivå ([PortionFormat.language_id](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/language_id/)), så flera språk kan samexistera i ett stycke.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/sv/python-net/aspose.slides/paragraphformat/alignment/) är en inställning på styckesnivå och tillämpas på hela stycket oavsett individuell delformatering.
+
+**Kan jag ange korrekturspråk för en del av ett stycke?**
+
+Ja. Ställ in [PortionFormat.language_id](https://reference.aspose.com/slides/sv/python-net/aspose.slides/portionformat/language_id/) för enskilda delar, så att ett stycke kan innehålla text på flera språk.

@@ -12,12 +12,12 @@ keywords:
 - alinea toevoegen
 - tekst beheren
 - alinea beheren
-- opsommingsteken beheren
+- opsomming beheren
 - alinea-inspringing
 - hangende inspringing
-- alinea-opsommingsteken
+- alinea-opsomming
 - genummerde lijst
-- opsomminglijst
+- opsommingslijst
 - alinea-eigenschappen
 - HTML importeren
 - tekst naar HTML
@@ -29,449 +29,337 @@ keywords:
 - presentatie
 - Python
 - Aspose.Slides
-description: "Beheers alinea-opmaak met Aspose.Slides voor Python via .NET—optimaliseer uitlijning, afstand en stijl in PowerPoint- en OpenDocument-presentaties in Python om kijkers te boeien."
+description: "Leer hoe u alinea's, delen, opsommingstekens, genummerde lijsten, inspringingen, HTML-inhoud en alinea-afbeeldingen maakt en opmaakt met Aspose.Slides voor Python via .NET."
 ---
-## **Introductie**
+## **Overzicht**
 
-Aspose.Slides biedt de klassen die u nodig heeft om met PowerPoint-tekst in Python te werken.
+Aspose.Slides voor Python via .NET stelt tekst voor als een hiërarchie van tekstkaders, alinea's en delen:
 
-* Aspose.Slides biedt de [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/)‑klasse voor het maken van tekstkaderobjecten. Een `TextFrame`‑object kan een of meer alinea's bevatten (elke alinea wordt gescheiden door een carriagereturn).
-* Aspose.Slides biedt de [Paragraph]‑klasse voor het maken van alinea‑objecten. Een `Paragraph`‑object kan een of meer tekstgedeelten bevatten.
-* Aspose.Slides biedt de [Portion]‑klasse voor het maken van tekstgedeelten en het specificeren van hun opmaak‑eigenschappen.
+* [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) vertegenwoordigt de tekstdeler in een vorm en biedt toegang tot de alinea‑verzameling.
+* [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) vertegenwoordigt één alinea in een tekstkader en biedt toegang tot de delen en de alinea‑niveau opmaak.
+* [Portion](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) vertegenwoordigt een tekstreeks binnen een alinea. Elk deel kan zijn eigen tekst en teken‑niveau opmaak hebben.
 
-Een `Paragraph`‑object kan tekst met verschillende opmaak‑eigenschappen verwerken via de onderliggende `Portion`‑objecten.
+Een alinea kan daardoor tekst met verschillende lettertypen, kleuren, groottes en andere opmaak bevatten door meerdere delen te gebruiken.
 
-## **Installatie**
+## **Alinea's maken en opmaken**
 
-```bash
-pip install aspose.slides
-```
+### **Alinea's maken met meerdere delen**
 
-## **Meerdere alinea's met meerdere gedeelten toevoegen**
+De volgende stappen maken een tekstkader met drie alinea's, elk met drie delen:
 
-Deze stappen laten zien hoe u een tekstkader kunt toevoegen dat drie alinea's bevat, elk met drie gedeelten:
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
+2. Benader de gewenste dia via de index.
+3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de dia.
+4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
+5. Gebruik de standaardalinea en voeg twee extra [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) objecten toe aan het tekstkader.
+6. Voeg voldoende [Portion](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/) objecten toe zodat elke alinea drie delen bevat. De standaardalinea bevat al één leeg deel.
+7. Stel de tekst van elk deel in.
+8. Pas teken‑niveau opmaak toe via [Portion.portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/portion_format/).
+9. Sla de gewijzigde presentatie op.
 
-1. Maak een instantie van de [Presentation]‑klasse.
-1. Verkrijg een referentie naar de doel‑dia op basis van de index.
-1. Voeg een rechthoekige [AutoShape] toe aan de dia.
-1. Haal het [TextFrame] op dat is gekoppeld aan de [AutoShape].
-1. Maak twee [Paragraph]‑objecten en voeg ze toe aan de alinea‑collectie van het [TextFrame] (samen met de standaardalinea, dit geeft drie alinea's).
-1. Voor elke alinea, maak drie [Portion]‑objecten en voeg ze toe aan de gedeelte‑collectie van die alinea.
-1. Stel de tekst in voor elk gedeelte.
-1. Pas de gewenste opmaak toe op elk tekstgedeelte met behulp van de eigenschappen die door [Portion] worden blootgesteld.
-1. Sla de gewijzigde presentatie op.
-
-De volgende Python‑code implementeert deze stappen:
+Dit Python‑voorbeeld implementeert de stappen:
 
 ```python
-import aspose.slides as slides
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
-# Instantieer de Presentation-klasse om een nieuw PPTX-bestand te maken.
 with slides.Presentation() as presentation:
-
-    # Open de eerste dia.
     slide = presentation.slides[0]
-
-    # Voeg een rechthoekige AutoShape toe.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 150, 300, 150)
-
-    # Open het TextFrame van de AutoShape.
     text_frame = shape.text_frame
 
-    # Maak alinea's en gedeelten aan; opmaak wordt hieronder toegepast.
-    paragraph0 = text_frame.paragraphs[0]
-    portion01 = slides.Portion()
-    portion02 = slides.Portion()
-    paragraph0.portions.add(portion01)
-    paragraph0.portions.add(portion02)
+    first_paragraph = text_frame.paragraphs[0]
+    first_paragraph.portions.add(slides.Portion())
+    first_paragraph.portions.add(slides.Portion())
 
-    paragraph1 = slides.Paragraph()
-    text_frame.paragraphs.add(paragraph1)
-    portion10 = slides.Portion()
-    portion11 = slides.Portion()
-    portion12 = slides.Portion()
-    paragraph1.portions.add(portion10)
-    paragraph1.portions.add(portion11)
-    paragraph1.portions.add(portion12)
+    second_paragraph = slides.Paragraph()
+    second_paragraph.portions.add(slides.Portion())
+    second_paragraph.portions.add(slides.Portion())
+    second_paragraph.portions.add(slides.Portion())
+    text_frame.paragraphs.add(second_paragraph)
 
-    paragraph2 = slides.Paragraph()
-    text_frame.paragraphs.add(paragraph2)
-    portion20 = slides.Portion()
-    portion21 = slides.Portion()
-    portion22 = slides.Portion()
-    paragraph2.portions.add(portion20)
-    paragraph2.portions.add(portion21)
-    paragraph2.portions.add(portion22)
+    third_paragraph = slides.Paragraph()
+    third_paragraph.portions.add(slides.Portion())
+    third_paragraph.portions.add(slides.Portion())
+    third_paragraph.portions.add(slides.Portion())
+    text_frame.paragraphs.add(third_paragraph)
 
-    for i in range(3):
-        for j in range(3):
-            text_frame.paragraphs[i].portions[j].text = "Portion0" + str(j)
-            if j == 0:
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.red
-                text_frame.paragraphs[i].portions[j].portion_format.font_bold = slides.NullableBool.TRUE
-                text_frame.paragraphs[i].portions[j].portion_format.font_height = 15
-            elif j == 1:
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.fill_type = slides.FillType.SOLID
-                text_frame.paragraphs[i].portions[j].portion_format.fill_format.solid_fill_color.color = draw.Color.blue
-                text_frame.paragraphs[i].portions[j].portion_format.font_italic = slides.NullableBool.TRUE
-                text_frame.paragraphs[i].portions[j].portion_format.font_height = 18
+    for paragraph_index in range(text_frame.paragraphs.count):
+        paragraph = text_frame.paragraphs[paragraph_index]
+        for portion_index in range(paragraph.portions.count):
+            portion = paragraph.portions[portion_index]
+            portion.text = f"Portion {paragraph_index + 1}.{portion_index + 1}"
 
-    # Sla het PPTX-bestand op schijf.
-    presentation.save("paragraphs_and_portions_out.pptx", slides.export.SaveFormat.PPTX)
+            if portion_index == 0:
+                portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                portion.portion_format.fill_format.solid_fill_color.color = draw.Color.red
+                portion.portion_format.font_bold = slides.NullableBool.TRUE
+                portion.portion_format.font_height = 15
+            elif portion_index == 1:
+                portion.portion_format.fill_format.fill_type = slides.FillType.SOLID
+                portion.portion_format.fill_format.solid_fill_color.color = draw.Color.blue
+                portion.portion_format.font_italic = slides.NullableBool.TRUE
+                portion.portion_format.font_height = 18
+
+    presentation.save("paragraphs_with_portions.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alinea‑opsommingstekens beheren**
+## **Opsommingstekens en genummerde lijsten maken**
 
-Opsommingstekens helpen u informatie snel en efficiënt te organiseren en te presenteren. Met opsommingsteken‑alinea's is de tekst vaak makkelijker te lezen en te begrijpen.
+### **Een opsomming of genummerde lijst maken**
 
-1. Maak een instantie van de [Presentation]‑klasse.
-1. Open de doel‑dia op basis van de index.
-1. Voeg een [AutoShape] toe aan de dia.
-1. Open het [TextFrame] van de vorm.
-1. Verwijder de standaardalinea uit het [TextFrame].
-1. Maak de eerste alinea met behulp van de [Paragraph]‑klasse.
-1. Stel het opsommingsteken‑type van de alinea in op `SYMBOL` en geef het opsommingsteken‑karakter op.
-1. Stel de tekst van de alinea in.
-1. Stel de inspringing van het opsommingsteken voor de alinea in.
-1. Stel de kleur van het opsommingsteken in.
-1. Stel de grootte (hoogte) van het opsommingsteken in.
-1. Voeg de alinea toe aan de alinea‑collectie van het [TextFrame].
-1. Voeg een tweede alinea toe en herhaal stappen 7–12.
-1. Sla de presentatie op.
+Opsommingstekens en nummering maken gerelateerde items makkelijker scanbaar. In Aspose.Slides worden lijstinstellingen gedefinieerd via [BulletFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/).
 
-Deze Python‑code laat zien hoe u alinea's met opsommingstekens kunt toevoegen:
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
+2. Benader de gewenste dia via de index.
+3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de geselecteerde dia.
+4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
+5. Verwijder de standaardalinea uit het tekstkader.
+6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) voor een symbool‑opsommingsteken.
+7. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.SYMBOL](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/) en geef het opsommingsteken op.
+8. Stel de alinea‑tekst, inspringing, kleur en hoogte van het opsommingsteken in.
+9. Voeg de alinea toe aan het tekstkader.
+10. Maak een tweede alinea en stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.NUMBERED](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/).
+11. Configureer de stijl van de genummerde opsomming en voeg de alinea toe aan het tekstkader.
+12. Sla de presentatie op.
+
+Dit Python‑voorbeeld maakt een symbool‑ en een genummerde opsomming:
 
 ```python
-import aspose.slides as slides
 import aspose.pydrawing as draw
-
-# Maak een presentatie‑instantie.
-with slides.Presentation() as presentation:
-
-    # Open de eerste dia.
-    slide = presentation.slides[0]
-
-    # Voeg een AutoShape toe en open deze.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Open het tekstkader van de gemaakte AutoShape.
-    text_frame = shape.text_frame
-
-    # Verwijder de standaardalinea.
-    text_frame.paragraphs.remove_at(0)
-
-    # Maak een alinea.
-    paragraph = slides.Paragraph()
-
-    # Stel de opsommingsteken‑stijl en het symbool van de alinea in.
-    paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph.paragraph_format.bullet.char = chr(8226)
-
-    # Stel de alinea‑tekst in.
-    paragraph.text = "Welcome to Aspose.Slides"
-
-    # Stel de inspringing van het opsommingsteken in.
-    paragraph.paragraph_format.indent = 25
-
-    # Stel de kleur van het opsommingsteken in.
-    paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    paragraph.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
-
-    # Stel de hoogte van het opsommingsteken in.
-    paragraph.paragraph_format.bullet.height = 100
-
-    # Voeg de alinea toe aan het tekstkader.
-    text_frame.paragraphs.add(paragraph)
-
-    # Maak de tweede alinea.
-    paragraph2 = slides.Paragraph()
-
-    # Stel het opsommingsteken‑type en de stijl van de alinea in.
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    paragraph2.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
-
-    # Stel de alinea‑tekst in.
-    paragraph2.text = "This is numbered bullet"
-
-    # Stel de inspringing van het opsommingsteken in.
-    paragraph2.paragraph_format.indent = 25
-
-    # Stel de kleur van het opsommingsteken in.
-    paragraph2.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
-    paragraph2.paragraph_format.bullet.color.color = draw.Color.black
-    paragraph2.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
-
-    # Stel de hoogte van het opsommingsteken in.
-    paragraph2.paragraph_format.bullet.height = 100
-
-    # Voeg de alinea toe aan het tekstkader.
-    text_frame.paragraphs.add(paragraph2)
-
-    # Sla de presentatie op als een PPTX‑bestand.
-    presentation.save("bullets_out.pptx", slides.export.SaveFormat.PPTX)
-```
-
-## **Afbeeldings‑opsommingstekens beheren**
-
-Opsommingsteeksen helpen u informatie snel en efficiënt te organiseren en te presenteren. Afbeeldings‑opsommingstekens zijn makkelijk te lezen en te begrijpen.
-
-1. Maak een instantie van de [Presentation]‑klasse.
-1. Open de doel‑dia op basis van de index.
-1. Voeg een [AutoShape] toe aan de dia.
-1. Open het [TextFrame] van de vorm.
-1. Verwijder de standaardalinea uit het [TextFrame].
-1. Maak een alinea met de [Paragraph]‑klasse en stel de tekst in.
-1. Laad een afbeelding en voeg deze toe aan de afbeeldingscollectie van de presentatie als een [PPImage].
-1. Stel het opsommingsteken‑type in op `PICTURE` en wijs de [PPImage] toe aan het opsommingsteken.
-1. Stel de hoogte van het opsommingsteken in.
-1. Voeg de nieuwe alinea toe aan de alinea‑collectie van het [TextFrame].
-1. Sla de presentatie op.
-
-Deze Python‑code laat zien hoe u afbeeldings‑opsommingstekens kunt toevoegen en beheren:
-
-```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-
-    # Open de eerste dia.
     slide = presentation.slides[0]
-
-    # Laad de opsommingsteken-afbeelding.
-    with slides.Images.from_file("bullets.png") as image:
-        pp_image = presentation.images.add_image(image)
-
-    # Voeg een AutoShape toe en open deze.
-    auto_shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Open het TextFrame van de gemaakte AutoShape.
-    text_frame = auto_shape.text_frame
-
-    # Verwijder de standaardalinea.
-    text_frame.paragraphs.remove_at(0)
-
-    # Maak een nieuwe alinea.
-    paragraph = slides.Paragraph()
-    paragraph.text = "Welcome to Aspose.Slides"
-
-    # Stel het opsommingsteken-type van de alinea in op Afbeelding en wijs de afbeelding toe.
-    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
-    paragraph.paragraph_format.bullet.picture.image = pp_image
-
-    # Stel de hoogte van het opsommingsteken in.
-    paragraph.paragraph_format.bullet.height = 100
-
-    # Voeg de alinea toe aan het tekstkader.
-    text_frame.paragraphs.add(paragraph)
-
-    # Sla de presentatie op als een PPTX-bestand.
-    presentation.save("picture_bullets_out.pptx", slides.export.SaveFormat.PPTX)
-    # Sla de presentatie op als een PPT-bestand.
-    presentation.save("picture_bullets_out.ppt", slides.export.SaveFormat.PPT)
-```
-
-## **Meerlagige opsommingstekens beheren**
-
-Opsommingsteeksen helpen u informatie snel en efficiënt te organiseren en te presenteren. Meerlagige opsommingstekens zijn makkelijk te lezen en te begrijpen.
-
-1. Maak een instantie van de [Presentation]‑klasse.
-1. Open de doel‑dia op basis van de index.
-1. Voeg een [AutoShape] toe aan de dia.
-1. Open het [AutoShape]‑[TextFrame].
-1. Verwijder de standaardalinea uit het [TextFrame].
-1. Maak de eerste alinea met de [Paragraph]‑klasse en stel de diepte in op 0.
-1. Maak de tweede alinea met de [Paragraph]‑klasse en stel de diepte in op 1.
-1. Maak de derde alinea met de [Paragraph]‑klasse en stel de diepte in op 2.
-1. Maak de vierde alinea met de [Paragraph]‑klasse en stel de diepte in op 3.
-1. Voeg de nieuwe alinea's toe aan de alinea‑collectie van het [TextFrame].
-1. Sla de presentatie op.
-
-De volgende Python‑code laat zien hoe u meerlagige opsommingstekens kunt toevoegen en beheren:
-
-```python
-import aspose.slides as slides
-import aspose.pydrawing as draw
-
-# Maak een presentatie‑instantie.
-with slides.Presentation() as presentation:
-
-    # Open de eerste dia.
-    slide = presentation.slides[0]
-    
-    # Voeg een AutoShape toe.
     shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
-
-    # Open het TextFrame van de gemaakte AutoShape.
     text_frame = shape.text_frame
-    
-    # Wis de standaardalinea.
     text_frame.paragraphs.clear()
 
-    # Voeg de eerste alinea toe.
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "Content"
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph1.paragraph_format.bullet.char = chr(8226)
-    paragraph1.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph1.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Stel het opsommingsteken‑niveau in.
-    paragraph1.paragraph_format.depth = 0
+    symbol_paragraph = slides.Paragraph()
+    symbol_paragraph.text = "Welcome to Aspose.Slides"
+    symbol_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    symbol_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    symbol_paragraph.paragraph_format.indent = 25
+    symbol_paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    symbol_paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    symbol_paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    symbol_paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(symbol_paragraph)
 
-    # Voeg de tweede alinea toe.
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "Second Level"
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph2.paragraph_format.bullet.char = '-'
-    paragraph2.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph2.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Stel het opsommingsteken‑niveau in.
-    paragraph2.paragraph_format.depth = 1
+    numbered_paragraph = slides.Paragraph()
+    numbered_paragraph.text = "This is a numbered item"
+    numbered_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    numbered_paragraph.paragraph_format.bullet.numbered_bullet_style = slides.NumberedBulletStyle.BULLET_CIRCLE_NUM_WD_BLACK_PLAIN
+    numbered_paragraph.paragraph_format.indent = 25
+    numbered_paragraph.paragraph_format.bullet.color.color_type = slides.ColorType.RGB
+    numbered_paragraph.paragraph_format.bullet.color.color = draw.Color.black
+    numbered_paragraph.paragraph_format.bullet.is_bullet_hard_color = slides.NullableBool.TRUE
+    numbered_paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(numbered_paragraph)
 
-    # Voeg de derde alinea toe.
-    paragraph3 = slides.Paragraph()
-    paragraph3.text = "Third Level"
-    paragraph3.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph3.paragraph_format.bullet.char = chr(8226)
-    paragraph3.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph3.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Stel het opsommingsteken‑niveau in.
-    paragraph3.paragraph_format.depth = 2
-
-    # Voeg de vierde alinea toe.
-    paragraph4 = slides.Paragraph()
-    paragraph4.text = "Fourth Level"
-    paragraph4.paragraph_format.bullet.type = slides.BulletType.SYMBOL
-    paragraph4.paragraph_format.bullet.char = '-'
-    paragraph4.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
-    paragraph4.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    # Stel het opsommingsteken‑niveau in.
-    paragraph4.paragraph_format.depth = 3
-
-    # Voeg de alinea's toe aan de collectie.
-    text_frame.paragraphs.add(paragraph1)
-    text_frame.paragraphs.add(paragraph2)
-    text_frame.paragraphs.add(paragraph3)
-    text_frame.paragraphs.add(paragraph4)
-
-    # Sla de presentatie op als een PPTX‑bestand.
-    presentation.save("multilevel_bullets_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("bulleted_and_numbered_list.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alinea's beheren met aangepaste genummerde lijsten**
+### **Afbeeldings‑opsommingstekens gebruiken**
 
-De [BulletFormat]‑klasse biedt de eigenschap `numbered_bullet_start_with` (en andere) om aangepaste nummering en opmaak voor alinea's te regelen.
+Afbeeldings‑opsommingstekens laten je een aangepast beeld gebruiken in plaats van een symbool of cijfer.
 
-1. Maak een instantie van de [Presentation]‑klasse.
-1. Open de dia die de alinea's zal bevatten.
-1. Voeg een [AutoShape] toe aan de dia.
-1. Open het [TextFrame] van de vorm.
-1. Verwijder de standaardalinea uit het [TextFrame].
-1. Maak de eerste [Paragraph] en stel `numbered_bullet_start_with` in op 2.
-1. Maak de tweede [Paragraph] en stel `numbered_bullet_start_with` in op 3.
-1. Maak de derde [Paragraph] en stel `numbered_bullet_start_with` in op 7.
-1. Voeg de alinea's toe aan de collectie van het [TextFrame].
-1. Sla de presentatie op.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
+2. Benader de gewenste dia via de index.
+3. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/).
+4. Verwijder de standaardalinea uit het tekstkader.
+5. Laad het opsommingsteken‑beeld en voeg het toe aan de afbeeldingscollectie van de presentatie als een [PPImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ppimage/).
+6. Maak een [Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) en stel de tekst in.
+7. Stel [BulletFormat.type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/type/) in op [BulletType.PICTURE](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bullettype/).
+8. Wijs de afbeelding toe via [BulletFormat.picture](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/picture/) en stel de hoogte van het opsommingsteken in.
+9. Voeg de alinea toe aan het tekstkader.
+10. Sla de gewijzigde presentatie op.
 
-De volgende Python‑code toont hoe u alinea's met aangepaste nummering en opmaak kunt toevoegen en beheren.
+Dit Python‑voorbeeld maakt een afbeelding‑opsommingsteken:
 
 ```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
 
-    # Voeg een AutoShape toe en open deze.
-    shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    with slides.Images.from_file("bullets.png") as bullet_image:
+        presentation_image = presentation.images.add_image(bullet_image)
 
-    # Open het TextFrame van de gemaakte AutoShape.
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
     text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
 
-    # Verwijder de bestaande standaardalinea.
-    text_frame.paragraphs.remove_at(0)
+    paragraph = slides.Paragraph()
+    paragraph.text = "Welcome to Aspose.Slides"
+    paragraph.paragraph_format.bullet.type = slides.BulletType.PICTURE
+    paragraph.paragraph_format.bullet.picture.image = presentation_image
+    paragraph.paragraph_format.bullet.height = 100
+    text_frame.paragraphs.add(paragraph)
 
-    # Maak het eerste genummerde item (start bij 2, diepte 4).
-    paragraph1 = slides.Paragraph()
-    paragraph1.text = "bullet 2"
-    paragraph1.paragraph_format.depth = 4 
-    paragraph1.paragraph_format.bullet.numbered_bullet_start_with = 2
-    paragraph1.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    text_frame.paragraphs.add(paragraph1)
-
-    # Maak het tweede genummerde item (start bij 3, diepte 4).
-    paragraph2 = slides.Paragraph()
-    paragraph2.text = "bullet 3"
-    paragraph2.paragraph_format.depth = 4
-    paragraph2.paragraph_format.bullet.numbered_bullet_start_with = 3 
-    paragraph2.paragraph_format.bullet.type = slides.BulletType.NUMBERED  
-    text_frame.paragraphs.add(paragraph2)
-
-    # Maak het derde genummerde item (start bij 7, diepte 4).
-    paragraph5 = slides.Paragraph()
-    paragraph5.text = "bullet 7"
-    paragraph5.paragraph_format.depth = 4
-    paragraph5.paragraph_format.bullet.numbered_bullet_start_with = 7
-    paragraph5.paragraph_format.bullet.type = slides.BulletType.NUMBERED
-    text_frame.paragraphs.add(paragraph5)
-
-    presentation.save("custom_bullets_out.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture_bullet.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("picture_bullet.ppt", slides.export.SaveFormat.PPT)
 ```
 
-## **Eerste‑regelinspringing instellen voor een alinea**
+### **Een meerlagige lijst maken**
 
-Gebruik de eigenschap [ParagraphFormat.indent] om de eerste‑regelinspringing van een alinea te regelen. Deze eigenschap verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
+Stel [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) in om alinea's op verschillende niveaus van een lijst te plaatsen. Het bovenste niveau heeft een diepte van `0`.
 
-Gebruik [ParagraphFormat.margin_left] wanneer u de hele alinea wilt verplaatsen. Gebruik [ParagraphFormat.indent] wanneer u alleen de eerste regel wilt verplaatsen.
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en benader een dia.
+2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en verwijder de standaardalinea uit het tekstkader.
+3. Maak vier alinea's en configureer hun opsommingsteken‑symbolen.
+4. Stel hun [ParagraphFormat.depth](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/depth/) waarden in op `0`, `1`, `2` en `3`.
+5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
 
-Het onderstaande voorbeeld maakt meerdere alinea's en past verschillende `indent`‑waarden toe om te demonstreren hoe de eerste‑regelinspringing de lay-out van de alinea beïnvloedt.
+Dit Python‑voorbeeld maakt een vier‑niveau opsomming:
 
-1. Maak een instantie van de [Presentation]‑klasse.
-2. Open de doel‑dia.
-3. Voeg een rechthoekige [AutoShape] toe aan de dia.
-4. Voeg een leeg [TextFrame] toe aan de vorm en verwijder de standaardalinea.
-5. Maak meerdere alinea's en stel verschillende [indent]‑waarden voor hen in.
+```python
+import aspose.pydrawing as draw
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "Content"
+    first_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    first_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    first_paragraph.paragraph_format.depth = 0
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Second level"
+    second_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    second_paragraph.paragraph_format.bullet.char = "-"
+    second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    second_paragraph.paragraph_format.depth = 1
+
+    third_paragraph = slides.Paragraph()
+    third_paragraph.text = "Third level"
+    third_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    third_paragraph.paragraph_format.bullet.char = chr(0x2022)
+    third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    third_paragraph.paragraph_format.depth = 2
+
+    fourth_paragraph = slides.Paragraph()
+    fourth_paragraph.text = "Fourth level"
+    fourth_paragraph.paragraph_format.bullet.type = slides.BulletType.SYMBOL
+    fourth_paragraph.paragraph_format.bullet.char = "-"
+    fourth_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
+    fourth_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
+    fourth_paragraph.paragraph_format.depth = 3
+
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
+    text_frame.paragraphs.add(third_paragraph)
+    text_frame.paragraphs.add(fourth_paragraph)
+
+    presentation.save("multilevel_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+### **Genummerde lijstitems starten met aangepaste waarden**
+
+Gebruik [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) om het beginnummer van een genummerde alinea in te stellen.
+
+1. Maak een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan een dia.
+2. Verwijder de standaardalinea uit het tekstkader van de vorm.
+3. Maak drie genummerde alinea's.
+4. Stel [BulletFormat.numbered_bullet_start_with](https://reference.aspose.com/slides/nl/python-net/aspose.slides/bulletformat/numbered_bullet_start_with/) in op `2`, `3` en `7` voor de respectieve alinea's.
+5. Voeg de alinea's toe aan het tekstkader en sla de presentatie op.
+
+Dit Python‑voorbeeld kent een aangepast startnummer toe aan elke alinea:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 200, 200, 400, 200)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
+
+    first_paragraph = slides.Paragraph()
+    first_paragraph.text = "Start at 2"
+    first_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    first_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 2
+    text_frame.paragraphs.add(first_paragraph)
+
+    second_paragraph = slides.Paragraph()
+    second_paragraph.text = "Start at 3"
+    second_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    second_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 3
+    text_frame.paragraphs.add(second_paragraph)
+
+    third_paragraph = slides.Paragraph()
+    third_paragraph.text = "Start at 7"
+    third_paragraph.paragraph_format.bullet.type = slides.BulletType.NUMBERED
+    third_paragraph.paragraph_format.bullet.numbered_bullet_start_with = 7
+    text_frame.paragraphs.add(third_paragraph)
+
+    presentation.save("custom_numbered_list.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Alinea‑lay-out en eind‑eigenschappen beheren**
+
+### **Een eerste‑rij‑inspringing instellen**
+
+Gebruik de eigenschap [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) om de eerste‑rij‑inspringing van een alinea te regelen. Deze eigenschap verplaatst alleen de eerste regel ten opzichte van de linkermarge van de alinea. Een positieve waarde verschuift de eerste regel naar rechts, terwijl de overige regels uitgelijnd blijven met de alinea‑inhoud.
+
+Gebruik [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) als je de hele alinea wilt verplaatsen. Gebruik [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) als je alleen de eerste regel wilt verplaatsen.
+
+Het onderstaande voorbeeld maakt verschillende alinea's en past verschillende [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarden toe om te laten zien hoe de eerste‑rij‑inspringing de lay‑out beïnvloedt.
+
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
+2. Benader de doeldia.
+3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de dia.
+4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+5. Maak meerdere alinea's en stel verschillende [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarden in.
 6. Voeg de alinea's toe aan het tekstkader.
 7. Sla de gewijzigde presentatie op.
 
-Deze code toont hoe u een alinea‑inspringing kunt instellen:
+Deze code laat zien hoe je een alinea‑inspringing instelt:
 
-```py
-import aspose.slides as slides
+```python
 import aspose.pydrawing as draw
+import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.gray
 
-    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
-    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
-    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
-    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
-
-    text_frame = rectangle.add_text_frame("")
+    text_frame = shape.text_frame
     text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-    text_frame.paragraphs.remove_at(0)
+    text_frame.paragraphs.clear()
 
     first_paragraph = slides.Paragraph()
+    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
     first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    first_paragraph.text = "No first-line indent. Wrapped lines start at the same position as the first line."
-    first_paragraph.paragraph_format.margin_left = 20.0
-    first_paragraph.paragraph_format.indent = 0.0
+    first_paragraph.paragraph_format.margin_left = 20
+    first_paragraph.paragraph_format.indent = 0
 
     second_paragraph = slides.Paragraph()
+    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
     second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    second_paragraph.text = "First-line indent of 20 points. The first line moves to the right, while wrapped lines remain aligned to the paragraph body."
-    second_paragraph.paragraph_format.margin_left = 20.0
-    second_paragraph.paragraph_format.indent = 20.0
+    second_paragraph.paragraph_format.margin_left = 20
+    second_paragraph.paragraph_format.indent = 20
 
     third_paragraph = slides.Paragraph()
+    third_paragraph.text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see."
     third_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     third_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    third_paragraph.text = "First-line indent of 40 points. This paragraph shows a larger first-line offset to make the effect easier to see."
-    third_paragraph.paragraph_format.margin_left = 20.0
-    third_paragraph.paragraph_format.indent = 40.0
+    third_paragraph.paragraph_format.margin_left = 20
+    third_paragraph.paragraph_format.indent = 40
 
     text_frame.paragraphs.add(first_paragraph)
     text_frame.paragraphs.add(second_paragraph)
@@ -482,56 +370,55 @@ with slides.Presentation() as presentation:
 
 Het resultaat:
 
-![De eerste‑regelinspringing van de alinea's](first_line_indent.png)
+![De eerste‑rij‑inspringing van de alinea's](first_line_indent.png)
 
-## **Hangende inspringing instellen voor een alinea**
+### **Een hangende inspringing instellen**
 
-Een hangende inspringing is een alinea‑lay-out waarbij de eerste regel links van de volgende regels begint. In Aspose.Slides creëert u dit effect met de eigenschap [ParagraphFormat.indent]. Stel `indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
+Een hangende inspringing is een alinea‑lay‑out waarbij de eerste regel links van de overige regels begint. In Aspose.Slides maak je dit effect met de eigenschap [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/). Stel `indent` in op een negatieve waarde om de eerste regel naar links te verplaatsen ten opzichte van de alinea‑inhoud.
 
-In de praktijk definieert [ParagraphFormat.margin_left] de linkse positie van de alinea‑inhoud, en [ParagraphFormat.indent] definieert de positie van de eerste regel ten opzichte van die marge. Om een hangende inspringing te maken, stelt u een positieve `margin_left`‑waarde en een negatieve `indent`‑waarde in.
+In de praktijk bepaalt [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) de linkermarge van de alinea‑inhoud, en bepaalt [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) de positie van de eerste regel relatief aan die marge. Voor een hangende inspringing stel je een positieve `margin_left` en een negatieve `indent` in.
 
-Deze opmaak is nuttig voor bibliografieën, referenties, glossarium‑vermeldingen en andere alinea's waarbij de regelafbrekingen onder de alinea‑inhoud moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
+Deze opmaak is nuttig voor bibliografieën, referenties, glossarium‑items en andere alinea's waarbij de regels onder de alinea‑inhoud moeten uitlijnen in plaats van onder het eerste teken van de eerste regel.
 
-1. Maak een instantie van de [Presentation]‑klasse.
-2. Open de doel‑dia.
-3. Voeg een rechthoekige [AutoShape] toe aan de dia.
-4. Voeg een leeg [TextFrame] toe aan de vorm en verwijder de standaardalinea.
-5. Maak alinea's en stel voor elke alinea een positieve [margin_left]‑waarde in.
-6. Stel een negatieve [indent]‑waarde in om het hangende inspringingseffect te creëren.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
+2. Benader de doeldia.
+3. Voeg een rechthoekige [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe aan de dia.
+4. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+5. Maak alinea's en stel voor elke alinea een positieve [ParagraphFormat.margin_left](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/margin_left/) waarde in.
+6. Stel een negatieve [ParagraphFormat.indent](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/indent/) waarde in om het hangende‑inspringingseffect te creëren.
 7. Voeg de alinea's toe aan het tekstkader.
 8. Sla de gewijzigde presentatie op.
 
-Deze code toont hoe u een hangende inspringing voor een alinea kunt instellen:
+Deze code laat zien hoe je een hangende inspringing voor een alinea instelt:
 
-```py
+```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
+    shape.line_format.fill_format.fill_type = slides.FillType.SOLID
+    shape.line_format.fill_format.solid_fill_color.color = draw.Color.gray
 
-    rectangle = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 50, 50, 420, 220)
-    rectangle.fill_format.fill_type = slides.FillType.NO_FILL
-    rectangle.line_format.fill_format.fill_type = slides.FillType.SOLID
-    rectangle.line_format.fill_format.solid_fill_color.color = draw.Color.gray
-
-    text_frame = rectangle.add_text_frame("")
+    text_frame = shape.text_frame
     text_frame.text_frame_format.autofit_type = slides.TextAutofitType.SHAPE
-    text_frame.paragraphs.remove_at(0)
+    text_frame.paragraphs.clear()
 
     first_paragraph = slides.Paragraph()
+    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
     first_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     first_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    first_paragraph.text = "A hanging indent is created by combining a positive left margin with a negative indent. The first line starts to the left, while wrapped lines align with the paragraph body."
-    first_paragraph.paragraph_format.margin_left = 40.0
-    first_paragraph.paragraph_format.indent = -20.0
+    first_paragraph.paragraph_format.margin_left = 40
+    first_paragraph.paragraph_format.indent = -20
 
     second_paragraph = slides.Paragraph()
+    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
     second_paragraph.paragraph_format.default_portion_format.fill_format.fill_type = slides.FillType.SOLID
     second_paragraph.paragraph_format.default_portion_format.fill_format.solid_fill_color.color = draw.Color.black
-    second_paragraph.text = "This second example uses a deeper hanging indent so the difference between the first line and the wrapped lines is easier to compare."
-    second_paragraph.paragraph_format.margin_left = 60.0
-    second_paragraph.paragraph_format.indent = -30.0
+    second_paragraph.paragraph_format.margin_left = 60
+    second_paragraph.paragraph_format.indent = -30
 
     text_frame.paragraphs.add(first_paragraph)
     text_frame.paragraphs.add(second_paragraph)
@@ -543,229 +430,182 @@ Het resultaat:
 
 ![De hangende inspringing van de alinea's](hanging_indent.png)
 
-## **Einde‑van‑alinea‑gedeelte‑opmaak beheren**
+### **Einde‑alinea‑run‑eigenschappen instellen**
 
-Wanneer u de opmaak van het "einde" van een alinea (de opmaak die wordt toegepast na het laatste tekstgedeelte) moet regelen, gebruikt u de eigenschap `end_paragraph_portion_format`. Het voorbeeld hieronder past een groter Times New Roman‑lettertype toe op het einde van de tweede alinea.
+De eigenschap [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) bepaalt de opmaak van het eind‑teken van een alinea. Het volgende voorbeeld kent een lettergrootte en een Latijns lettertype toe aan het eind‑teken van de tweede alinea:
 
-1. Maak een [Presentation]‑bestand aan of open er een.
-2. Haal de doel‑dia op op basis van de index.
-3. Voeg een rechthoekige [AutoShape] toe aan de dia.
-4. Gebruik het [TextFrame] van de vorm en maak twee alinea's.
-5. Maak een [PortionFormat] met 48‑pt Times New Roman en pas deze toe als de einde‑van‑alinea‑gedeelte‑opmaak van de alinea.
-6. Ken het toe aan de `end_paragraph_portion_format` van de alinea (geldt voor het einde van de tweede alinea).
-7. Schrijf de gewijzigde presentatie weg als een PPTX‑bestand.
-
-Deze Python‑code laat zien hoe u de einde‑van‑alinea‑opmaak voor de tweede alinea kunt instellen:
+1. Laad een [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en benader een dia.
+2. Voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe en verwijder de standaardalinea.
+3. Maak twee alinea's en voeg tekstreeksen toe.
+4. Maak een [PortionFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/) voor het eind‑teken van de tweede alinea.
+5. Stel [PortionFormat.font_height](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/font_height/) en [PortionFormat.latin_font](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/latin_font/) in.
+6. Wijs de opmaak toe aan [Paragraph.end_paragraph_portion_format](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/end_paragraph_portion_format/) en sla de presentatie op.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-	shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+with slides.Presentation("Test.pptx") as presentation:
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, 200, 250)
+    text_frame = shape.text_frame
+    text_frame.paragraphs.clear()
 
-	# Verwijder de standaardalinea.
-	shape.text_frame.paragraphs.clear()
+    first_paragraph = slides.Paragraph()
+    first_paragraph.portions.add(slides.Portion("Sample text"))
 
-	paragraph1 = slides.Paragraph()
-	paragraph1.portions.add(slides.Portion("Sample text"))
+    second_paragraph = slides.Paragraph()
+    second_paragraph.portions.add(slides.Portion("Sample text 2"))
 
-	end_paragraph_portion_format = slides.PortionFormat()
-	end_paragraph_portion_format.font_height = 48
-	end_paragraph_portion_format.latin_font = slides.FontData("Times New Roman")
+    end_paragraph_format = slides.PortionFormat()
+    end_paragraph_format.font_height = 48
+    end_paragraph_format.latin_font = slides.FontData("Times New Roman")
+    second_paragraph.end_paragraph_portion_format = end_paragraph_format
 
-	paragraph2 = slides.Paragraph()
-	paragraph2.portions.add(slides.Portion("Sample text 2"))
-	paragraph2.end_paragraph_portion_format = end_paragraph_portion_format
+    text_frame.paragraphs.add(first_paragraph)
+    text_frame.paragraphs.add(second_paragraph)
 
-	shape.text_frame.paragraphs.add(paragraph1)
-	shape.text_frame.paragraphs.add(paragraph2)
-
-	presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("end_paragraph_format.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **HTML‑tekst importeren in alinea's**
+## **Alinea‑inhoud importeren en exporteren**
 
-Aspose.Slides biedt verbeterde ondersteuning voor het importeren van HTML‑tekst in alinea's.
+### **HTML‑tekst importeren in alinea's**
 
-1. Maak een instantie van de [Presentation]‑klasse.
-1. Open de doel‑dia op basis van de index.
-1. Voeg een [AutoShape] toe aan de dia.
-1. Open het [TextFrame] van de [AutoShape].
-1. Verwijder de standaardalinea uit het [TextFrame].
-1. Lees het bron‑HTML‑bestand.
-1. Voeg de HTML‑inhoud toe aan de alinea‑collectie van het [TextFrame].
-1. Sla de gewijzigde presentatie op.
+Gebruik [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/add_from_html/) om HTML‑opmaak om te zetten in alinea's en delen in een tekstkader.
 
-De volgende Python‑code implementeert deze stappen voor het importeren van HTML‑tekst in alinea's.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/).
+2. Benader een dia en voeg een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) toe.
+3. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm en verwijder de standaardalinea.
+4. Lees het bron‑HTML‑bestand.
+5. Geef de HTML‑string door aan [ParagraphCollection.add_from_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/add_from_html/).
+6. Sla de gewijzigde presentatie op.
+
+Dit Python‑voorbeeld importeert HTML in een tekstkader:
 
 ```python
 import aspose.slides as slides
 
-# Maak een lege Presentatie‑instantie.
 with slides.Presentation() as presentation:
-
-    # Open de eerste dia van de presentatie.
     slide = presentation.slides[0]
-
-    slide_width = presentation.slide_size.size.width
-    slide_height = presentation.slide_size.size.height
-
-    # Voeg een AutoShape toe om de HTML‑inhoud te bevatten.
-    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, slide_width - 20, slide_height - 10)
-
-    # Wis alle alinea's in het toegevoegde tekstkader.
+    shape_width = presentation.slide_size.size.width - 20
+    shape_height = presentation.slide_size.size.height - 20
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 10, 10, shape_width, shape_height)
+    shape.fill_format.fill_type = slides.FillType.NO_FILL
     shape.text_frame.paragraphs.clear()
 
-    # Laad het HTML‑bestand.
-    with open("file.html", "rt") as html_stream:
-        # Voeg tekst uit het HTML‑bestand toe aan het tekstkader.
-        shape.text_frame.paragraphs.add_from_html(html_stream.read())
+    with open("file.html", "r", encoding="utf-8") as html_stream:
+        html = html_stream.read()
 
-    # Sla de presentatie op.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    shape.text_frame.paragraphs.add_from_html(html)
+    presentation.save("html_text.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Alinea‑tekst exporteren naar HTML**
+### **Alinea‑tekst exporteren naar HTML**
 
-Aspose.Slides biedt verbeterde ondersteuning voor het exporteren van tekst naar HTML.
+Gebruik [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/export_to_html/) om een geselecteerd bereik van alinea's als HTML te exporteren.
 
-1. Maak een instantie van de [Presentation]‑klasse en laad de doelpresentatie.
-1. Open de gewenste dia op basis van de index.
-1. Selecteer de vorm die de te exporteren tekst bevat.
-1. Open het [TextFrame] van de vorm.
-1. Open een bestandsstream om de HTML‑uitvoer te schrijven.
-1. Geef de start‑index op en exporteer de benodigde alinea's.
+1. Maak een instantie van de klasse [Presentation](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) en laad de gewenste presentatie.
+2. Benader de dia en zoek de [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) die de tekst bevat.
+3. Benader het [TextFrame](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframe/) van de vorm.
+4. Roep [ParagraphCollection.export_to_html](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphcollection/export_to_html/) aan met de start‑alinea‑index en het aantal alinea's dat moet worden geëxporteerd.
+5. Schrijf de geretourneerde HTML‑string naar een bestand.
 
-Dit Python‑voorbeeld laat zien hoe u alinea‑tekst naar HTML kunt exporteren.
+Dit Python‑voorbeeld exporteert alle alinea's uit de eerste tekst‑vorm:
 
 ```python
 import aspose.slides as slides
 
-# Laad het presentiebestand.
-with slides.Presentation("exporting_HTML_text.pptx") as presentation:
-    # Open de eerste dia van de presentatie.
-    slide = presentation.slides[0]
+with slides.Presentation("ExportingHTMLText.pptx") as presentation:
+    shape = presentation.slides[0].shapes[0]
 
-    # Doelvorm-index.
-    index = 0
-
-    # Open de vorm op basis van de index.
-    shape = slide.shapes[index]
-
-    with open("output.html", "w") as html_stream:
-        # Schrijf alinea-gegevens naar HTML door de start-alinea-index en het totale aantal te exporteren alinea's op te geven.
-        html_stream.write(shape.text_frame.paragraphs.export_to_html(0, shape.text_frame.paragraphs.count, None))
+    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None:
+        paragraphs = shape.text_frame.paragraphs
+        html = paragraphs.export_to_html(0, paragraphs.count, None)
+        with open("paragraphs.html", "w", encoding="utf-8") as html_stream:
+            html_stream.write(html)
+    else:
+        print("The first shape is not a text shape.")
 ```
 
-## **Een alinea opslaan als afbeelding**
+### **Een alinea renderen als afbeelding**
 
-In deze sectie verkennen we twee voorbeelden die laten zien hoe u een tekst‑alinea, vertegenwoordigd door de [Paragraph]‑klasse, als afbeelding kunt opslaan. Beide voorbeelden omvatten het verkrijgen van de afbeelding van een vorm die de alinea bevat met behulp van de `get_image`‑methoden van de [Shape]‑klasse, het berekenen van de grenzen van de alinea binnen de vorm, en het exporteren ervan als een bitmap‑afbeelding. Deze benaderingen stellen u in staat om specifieke delen van de tekst uit PowerPoint‑presentaties te extraheren en op te slaan als afzonderlijke afbeeldingen, wat nuttig kan zijn voor later gebruik in verschillende scenario's.
+[Paragraph](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/) biedt de methode `get_image` om een afzonderlijke alinea direct te renderen. De methode retourneert een [IImage](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/) die je kunt opslaan naar een bestand of stream met [IImage.save](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iimage/save/). Je hoeft niet de omvattende vorm te renderen of handmatig een bitmap bij te snijden.
 
-Laten we aannemen dat we een presentiebestand hebben genaamd sample.pptx met één dia, waarbij de eerste vorm een tekstvak is met drie alinea's.
+De `get_image`‑methode kan `None` teruggeven als de alinea niet gevonden wordt in de bovenliggende collectie, geen geldige render‑bounds heeft, of niet kan worden gerenderd. Controleer het resultaat voordat je het opslaat en gebruik de geretourneerde afbeelding als context‑manager om de resources vrij te geven.
+
+#### **Een alinea renderen op de standaardschaal**
+
+Stel je voor dat we een presentatiedocument hebben genaamd `sample.pptx` met één dia, waarbij de eerste vorm een tekstvak is met drie alinea's.
 
 ![Het tekstvak met drie alinea's](paragraph_to_image_input.png)
 
-**Voorbeeld 1**
+Het onderstaande voorbeeld rendert de tweede alinea in een gewone tekstvorm op de standaardschaal en slaat de geretourneerde afbeelding op in PNG‑formaat:
 
-In dit voorbeeld verkrijgen we de tweede alinea als afbeelding. Hiervoor extraheren we de afbeelding van de vorm van de eerste dia van de presentatie en berekenen vervolgens de grenzen van de tweede alinea in het tekstkader van de vorm. De alinea wordt daarna opnieuw getekend op een nieuwe bitmap‑afbeelding, die wordt opgeslagen in PNG‑formaat. Deze methode is vooral nuttig wanneer u een specifieke alinea als afzonderlijke afbeelding wilt opslaan terwijl de exacte afmetingen en opmaak van de tekst behouden blijven.
-
-```py
+```python
 import aspose.slides as slides
-import math
-import io
-from PIL import Image
 
 with slides.Presentation("sample.pptx") as presentation:
-    first_shape = presentation.slides[0].shapes[0]
+    shape = presentation.slides[0].shapes[0]
 
-    # Sla de vorm in het geheugen op als een bitmap.
-    with first_shape.get_image() as shape_image:
-        shape_image_stream = io.BytesIO()
-        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
+    if isinstance(shape, slides.AutoShape) and shape.text_frame is not None and shape.text_frame.paragraphs.count > 1:
+        paragraph = shape.text_frame.paragraphs[1]
+        paragraph_image = paragraph.get_image()
 
-    # Maak een bitmap van de vorm vanuit het geheugen.
-    shape_image_stream.seek(0)
-    shape_bitmap = Image.open(shape_image_stream)
-
-    # Bereken de grenzen van de tweede alinea.
-    second_paragraph = first_shape.text_frame.paragraphs[1]
-    paragraph_rectangle = second_paragraph.get_rect()
-
-    # Bereken de coördinaten en grootte voor de uitvoerafbeelding (minimumgrootte - 1x1 pixel).
-    image_left = math.floor(paragraph_rectangle.x)
-    image_top = math.floor(paragraph_rectangle.y)
-    image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
-    image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
-
-    # Snijd de vorm-bitmap bij om alleen de alinea-bitmap te krijgen.
-    paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
-
-    paragraph_bitmap.save("paragraph.png")
+        if paragraph_image is not None:
+            with paragraph_image:
+                paragraph_image.save("paragraph.png", slides.ImageFormat.PNG)
+        else:
+            print("The paragraph could not be rendered.")
+    else:
+        print("The expected text shape or paragraph was not found.")
 ```
 
 Het resultaat:
 
-![De alinea-afbeelding](paragraph_to_image_output.png)
+![De alinea‑afbeelding](paragraph_to_image_output.png)
 
-**Voorbeeld 2**
+#### **Een alinea renderen in een tabelcel met schaalvergroting**
 
-In dit voorbeeld breiden we de vorige aanpak uit door schaalfactoren aan de alinea‑afbeelding toe te voegen. De vorm wordt uit de presentatie gehaald en opgeslagen als afbeelding met een schaalfactor van `2`. Hierdoor ontstaat een afbeelding met hogere resolutie bij het exporteren van de alinea. De alinea‑grenzen worden vervolgens berekend rekening houdend met de schaal. Schalen kan bijzonder nuttig zijn wanneer een gedetailleerdere afbeelding nodig is, bijvoorbeeld voor gebruik in hoogwaardige gedrukte materialen.
+Geef horizontale en verticale schaalfactoren door aan `get_image` om de grootte van de gerenderde alinea te bepalen. Het onderstaande voorbeeld maakt een tabel, rendert de alinea in de eerste cel op het dubbele van de standaardbreedte en -hoogte, en slaat het resultaat op als PNG‑afbeelding:
 
-```py
+```python
 import aspose.slides as slides
-import math
-import io
-from PIL import Image
 
-image_scale_x = 2
-image_scale_y = image_scale_x
+scale_x = 2
+scale_y = 2
 
-with slides.Presentation("sample.pptx") as presentation:
-    first_shape = presentation.slides[0].shapes[0]
+with slides.Presentation() as presentation:
+    slide = presentation.slides[0]
+    table = slide.shapes.add_table(50, 50, [300], [80])
+    paragraph = table.rows[0][0].text_frame.paragraphs[0]
+    paragraph.text = "Text in a table cell"
 
-    # Sla de vorm in het geheugen op als een bitmap.
-    with first_shape.get_image(slides.ShapeThumbnailBounds.SHAPE, image_scale_x, image_scale_y) as shape_image:
-        shape_image_stream = io.BytesIO()
-        shape_image.save(shape_image_stream, slides.ImageFormat.PNG)
-
-    # Maak een bitmap van de vorm vanuit het geheugen.
-    shape_image_stream.seek(0)
-    shape_bitmap = Image.open(shape_image_stream)
-
-    # Bereken de grenzen van de tweede alinea.
-    second_paragraph = first_shape.text_frame.paragraphs[1]
-    paragraph_rectangle = second_paragraph.get_rect()
-    paragraph_rectangle.x *= image_scale_x
-    paragraph_rectangle.y *= image_scale_y
-    paragraph_rectangle.width *= image_scale_x
-    paragraph_rectangle.height *= image_scale_y
-
-    # Bereken de coördinaten en grootte voor de uitvoerafbeelding (minimumgrootte - 1x1 pixel).
-    image_left = math.floor(paragraph_rectangle.x)
-    image_top = math.floor(paragraph_rectangle.y)
-    image_right = image_left + max(1, math.ceil(paragraph_rectangle.width))
-    image_bottom = image_top + max(1, math.ceil(paragraph_rectangle.height))
-
-    # Snijd de vorm-bitmap bij om alleen de alinea-bitmap te krijgen.
-    paragraph_bitmap = shape_bitmap.crop((image_left, image_top, image_right, image_bottom))
-
-    paragraph_bitmap.save("paragraph.png")
+    paragraph_image = paragraph.get_image(scale_x, scale_y)
+    if paragraph_image is not None:
+        with paragraph_image:
+            paragraph_image.save("table_paragraph.png", slides.ImageFormat.PNG)
+    else:
+        print("The paragraph could not be rendered.")
 ```
+
+Een schaalfactor van `1` behoudt die as op de standaardpixelgrootte. Bijvoorbeeld, `2` voor beide factoren levert een afbeelding waarvan breedte en hoogte ongeveer het dubbele zijn, wat vier keer zoveel pixels betekent. Grotere factoren geven over het algemeen scherpere tekst voor inzoomen of high‑resolution uitvoer, maar vergroten ook het geheugenverbruik en de bestandsgrootte. Factoren onder `1` geven kleinere afbeeldingen met minder detail. Gebruik dezelfde factor voor beide assen om de beeldverhouding van de alinea te behouden; verschillende horizontale en verticale factoren rekken het resultaat onafhankelijk uit.
+
+Het renderen van een volledige vorm met [Shape.get_image](https://reference.aspose.com/slides/nl/python-net/aspose.slides/shape/get_image/) blijft nuttig wanneer de uitvoer de vulling, rand of andere visuele context van de vorm moet bevatten. Voor een alleen‑alinea‑afbeelding gebruik je `Paragraph.get_image`.
 
 ## **FAQ**
 
-### Kan ik de regelomslag volledig uitschakelen binnen een tekstkader?
+**Kan ik volledig voorkomen dat regels binnen een tekstkader afbreken?**
 
-Ja. Gebruik de omslaginstelling van het tekstkader ([wrap_text](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/wrap_text/)) om omslag uit te schakelen zodat regels niet breken aan de randen van het kader.
+Ja. Stel [TextFrameFormat.wrap_text](https://reference.aspose.com/slides/nl/python-net/aspose.slides/textframeformat/wrap_text/) in om afbreken uit te schakelen zodat regels niet bij de randen van het tekstkader worden gesplitst.
 
-### Hoe kan ik de exacte positie op de dia van een specifieke alinea verkrijgen?
+**Hoe krijg ik de exacte op‑dia‑afmetingen van een specifieke alinea?**
 
-U kunt de begrenzende rechthoek van de alinea (en zelfs van een enkel gedeelte) ophalen om de exacte positie en grootte op de dia te kennen.
+Gebruik [Paragraph.get_rect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraph/get_rect/) om het omvattende rechthoek van de alinea op te halen. [Portion.get_rect](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portion/get_rect/) geeft de afmetingen van een afzonderlijk deel.
 
-### Waar wordt de alinea‑uitlijning (links/rechts/centraal/uitvullen) geregeld?
+**Waar wordt de alinea‑uitlijning (links, rechts, gecentreerd of uitgevuld) geregeld?**
 
-[Alignment](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/alignment/) is een instelling op alinea‑niveau in [ParagraphFormat]; deze wordt toegepast op de gehele alinea, ongeacht de opmaak van individuele gedeelten.
+[ParagraphFormat.alignment](https://reference.aspose.com/slides/nl/python-net/aspose.slides/paragraphformat/alignment/) is een alinea‑niveau instelling en wordt toegepast op de volledige alinea, ongeacht de opmaak van individuele delen.
 
-### Kan ik een spellingscontrole‑taal instellen voor slechts een deel van een alinea (bijv. één woord)?
+**Kan ik de taalcontrole voor een deel van een alinea instellen?**
 
-Ja. De taal wordt ingesteld op gedeelte‑niveau ([PortionFormat.language_id](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/language_id/)), zodat meerdere talen binnen één alinea kunnen bestaan.
+Ja. Stel [PortionFormat.language_id](https://reference.aspose.com/slides/nl/python-net/aspose.slides/portionformat/language_id/) in voor afzonderlijke delen, zodat één alinea tekst in meerdere talen kan bevatten.
