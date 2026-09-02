@@ -1,45 +1,47 @@
 ---
-title: สร้างภาพขนาดย่อของรูปทรงการนำเสนอใน JavaScript
-linktitle: ภาพขนาดย่อของรูปทรง
+title: สร้างรูปขนาดย่อของรูปทรงในพรีเซนเทชันด้วย JavaScript
+linktitle: รูปขนาดย่อของรูปทรง
 type: docs
 weight: 70
 url: /th/nodejs-java/create-shape-thumbnails/
 keywords:
-- ภาพขนาดย่อของรูปทรง
-- ภาพรูปทรง
+- รูปขนาดย่อของรูปทรง
+- รูปภาพของรูปทรง
 - เรนเดอร์รูปทรง
 - การเรนเดอร์รูปทรง
+- ขอบเขตการแสดงผล
+- ขอบเขตของรูปทรง
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "สร้างภาพขนาดย่อของรูปทรงคุณภาพสูงจากสไลด์ PowerPoint ด้วย JavaScript และ Aspose.Slides สำหรับ Node.js – สร้างและส่งออกรูปขนาดย่อของงานนำเสนอได้อย่างง่ายดาย."
+description: "สร้างรูปขนาดย่อของรูปทรงคุณภาพสูงจากสไลด์ PowerPoint ด้วย JavaScript และ Aspose.Slides สำหรับ Node.js – สร้างและส่งออกรูปขนาดย่อของพรีเซนเทชันได้อย่างง่ายดาย."
 ---
 ## **บทนำ**
 
-Aspose.Slides ใช้ในการสร้างไฟล์งานนำเสนอที่แต่ละหน้าจะเป็นสไลด์ สไลด์เหล่านี้สามารถดูได้โดยการเปิดไฟล์งานนำเสนอด้วย Microsoft PowerPoint แต่บางครั้งนักพัฒนาอาจต้องการดูภาพของรูปร่างแยกต่างหากในโปรแกรมดูภาพ ในกรณีเช่นนี้ Aspose.Slides จะช่วยคุณสร้างภาพขนาดย่อของรูปร่างในสไลด์ วิธีการใช้ฟีเจอร์นี้จะอธิบายในบทความนี้  
-บทความนี้อธิบายวิธีสร้างภาพย่อของสไลด์ในหลายรูปแบบ:
+Aspose.Slides ใช้สำหรับสร้างไฟล์พรีเซนเทชันที่แต่ละหน้าคือสไลด์ สไลด์เหล่านี้สามารถดูได้โดยการเปิดไฟล์พรีเซนเทชันด้วย Microsoft PowerPoint แต่บางครั้งนักพัฒนาอาจต้องการดูรูปภาพของรูปทรงแยกต่างหากในโปรแกรมดูรูป ในกรณีนั้น Aspose.Slides ช่วยคุณสร้างรูปภาพขนาดย่อของรูปทรงในสไลด์ วิธีการใช้คุณสมบัตินี้อธิบายไว้ในบทความนี้
+บทความนี้อธิบายวิธีสร้างรูปขนาดย่อของสไลด์ในหลายวิธี:
 
-- สร้างภาพย่อของรูปร่างภายในสไลด์
-- สร้างภาพย่อของรูปร่างสำหรับรูปร่างสไลด์โดยกำหนดขนาดตามผู้ใช้
-- สร้างภาพย่อของรูปร่างในขอบเขตของการแสดงผลของรูปร่าง
+- สร้างรูปขนาดย่อของรูปทรงภายในสไลด์
+- สร้างรูปขนาดย่อของรูปทรงสไลด์โดยกำหนดขนาดเอง
+- สร้างรูปขนาดย่อของรูปทรงในขอบเขตของลักษณะการแสดงผลของรูป
 
-## **สร้างภาพย่อของรูปร่างจากสไลด์**
-เพื่อสร้างภาพย่อของรูปร่างจากสไลด์ใด ๆ โดยใช้ Aspose.Slides for Node.js ผ่าน Java ทำตามขั้นตอนต่อไปนี้:
+## **สร้างรูปขนาดย่อของรูปทรงจากสไลด์**
+เพื่อสร้างรูปขนาดย่อของรูปทรงจากสไลด์ใด ๆ โดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation).
-2. ดึงอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของมัน.
-3. [รับภาพย่อของรูปร่าง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getImage--) ของสไลด์ที่อ้างอิงโดยใช้สเกลเริ่มต้น.
-4. บันทึกภาพย่อในรูปแบบภาพที่คุณต้องการ.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)
+1. รับอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของมัน
+1. [รับรูปขนาดย่อของรูปทรง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getImage--) ของสไลด์ที่อ้างอิงโดยใช้สเกลเริ่มต้น
+1. บันทกรูปขนาดย่อในรูปแบบภาพที่คุณต้องการ
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
     // สร้างภาพขนาดเต็มสเกล
     var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage();
-    // บันทึกภาพลงดิสก์ในรูปแบบ PNG
+    // บันทึกภาพไปยังดิสก์ในรูปแบบ PNG
     try {
         slideImage.save("output.png", aspose.slides.ImageFormat.Png);
     } finally {
@@ -54,21 +56,21 @@ try {
 }
 ```
 
-## **สร้างภาพย่อของรูปร่างด้วยอัตราส่วนการปรับขนาดที่กำหนดโดยผู้ใช้**
-เพื่อสร้างภาพย่อของรูปร่างจากสไลด์โดยใช้ Aspose.Slides for Node.js ผ่าน Java ทำตามขั้นตอนต่อไปนี้:
+## **สร้างรูปขนาดย่อของรูปทรงด้วยปัจจัยสเกลที่กำหนดโดยผู้ใช้**
+เพื่อสร้างรูปขนาดย่อของรูปทรงสไลด์โดยใช้ Aspose.Slides สำหรับ Node.js ผ่าน Java ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation).
-2. ดึงอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของมัน.
-3. [รับภาพย่อของรูปร่าง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getImage-int-float-float-) ของสไลด์ที่อ้างอิงโดยใช้ขนาดที่กำหนดโดยผู้ใช้.
-4. บันทึกภาพย่อในรูปแบบภาพที่คุณต้องการ.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)
+1. รับอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของมัน
+1. [รับรูปขนาดย่อของรูปทรง](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/Shape#getImage-int-float-float-) ของสไลด์ที่อ้างอิงด้วยขนาดที่กำหนดโดยผู้ใช้
+1. บันทกรูปขนาดย่อในรูปแบบภาพที่คุณต้องการ
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
     // สร้างภาพขนาดเต็มสเกล
     var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Shape, 1, 1);
-    // บันทึกภาพลงดิสก์ในรูปแบบ PNG
+    // บันทึกภาพไปยังดิสก์ในรูปแบบ PNG
     try {
         slideImage.save("output.png", aspose.slides.ImageFormat.Png);
     } finally {
@@ -83,21 +85,21 @@ try {
 }
 ```
 
-## **สร้างภาพย่อของรูปร่างตามขอบเขต**
-วิธีการสร้างภาพย่อของรูปร่างนี้ช่วยให้นักพัฒนาสามารถสร้างภาพย่อภายในขอบเขตของการแสดงผลของรูปร่างได้ จะคำนึงถึงเอฟเฟกต์ทั้งหมดของรูปร่าง ภาพย่อของรูปร่างที่สร้างจะถูกจำกัดโดยขอบเขตของสไลด์ เพื่อสร้างภาพย่อของรูปร่างในสไลด์ตามขอบเขตการแสดงผล ทำตามขั้นตอนต่อไปนี้:
+## **สร้างรูปขนาดย่อของรูปทรงตามขอบเขต**
+วิธีนี้ช่วยให้นักพัฒนาสามารถสร้างรูปขนาดย่อที่อยู่ในขอบเขตของการแสดงผลของรูปทรงได้ โดยคำนึงถึงเอฟเฟกต์ทั้งหมดของรูปทรง รูปขนาดย่อที่สร้างจะถูกจำกัดโดยขอบเขตของสไลด์ เพื่อสร้างรูปขนาดย่อของรูปทรงสไลด์ในขอบเขตของการแสดงผล ให้ทำตามขั้นตอนต่อไปนี้:
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation).
-2. ดึงอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของมัน.
-3. รับภาพย่อของสไลด์ที่อ้างอิงโดยใช้ขอบเขตของรูปร่างเป็นการแสดงผล.
-4. บันทึกภาพย่อในรูปแบบภาพที่คุณต้องการ.
+1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/presentation)
+1. รับอ้างอิงของสไลด์ใด ๆ โดยใช้ ID หรือดัชนีของมัน
+1. รับภาพขนาดย่อของสไลด์ที่อ้างอิงโดยใช้ขอบเขตของรูปทรงเป็นลักษณะการแสดงผล
+1. บันทกรูปขนาดย่อในรูปแบบภาพที่คุณต้องการ
 
 ```javascript
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
+// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์พรีเซนเทชัน
 var pres = new aspose.slides.Presentation("Thumbnail.pptx");
 try {
     // สร้างภาพขนาดเต็มสเกล
     var slideImage = pres.getSlides().get_Item(0).getShapes().get_Item(0).getImage(aspose.slides.ShapeThumbnailBounds.Appearance, 1, 1);
-    // บันทึกภาพลงดิสก์ในรูปแบบ PNG
+    // บันทึกภาพไปยังดิสก์ในรูปแบบ PNG
     try {
         slideImage.save("output.png", aspose.slides.ImageFormat.Png);
     } finally {
@@ -112,19 +114,68 @@ try {
 }
 ```
 
+## **รับขอบเขตการแสดงผลที่แท้จริงของรูปทรง**
+
+คุณลักษณะของเฟรมของ [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/)—เมธอด `getX()`, `getY()`, `getWidth()`, และ `getHeight()`—อธิบายสี่เหลี่ยมที่จัดเก็บในโมเดลพรีเซนเทชัน เนื้อหาที่จริง ๆ แล้วถูกเรนเดอร์อาจขยายออกนอกเฟรมนั้นหรืออยู่ในสี่เหลี่ยมที่จัดแนวตามแกนอื่น การหมุน, โครงร่าง, ปลายลูกศร, การจัดเลย์เอาต์และการล้นของข้อความ, รูปทรง SmartArt ที่สร้างขึ้น, และเอฟเฟกต์การเรนเดอร์อื่น ๆ สามารถเปลี่ยนพื้นที่ที่ครอบคลุมได้
+
+ใช้ [Shape.getVisualBounds](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getVisualBounds--) เพื่อคำนวณพื้นที่ที่ครอบคลุมโดยไม่ต้องสร้างภาพ เมธอดจะคืนอ็อบเจกต์ [Rectangle2D.Float](https://docs.oracle.com/javase/8/docs/api/java/awt/geom/Rectangle2D.Float.html) ในพิกัดของสไลด์ สี่เหลี่ยมที่คืนค่าจะไม่ถูกคลิปกับสไลด์ ดังนั้นพิกัดอาจเป็นค่าลบเมื่อเนื้อหาขยายออกนอกจุดกำเนิดของสไลด์
+
+ตัวอย่างต่อไปนี้รับและเปรียบเทียบเฟรมกับขอบเขตการแสดงผล:
+
+```javascript
+const presentation = new aspose.slides.Presentation("example.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().get_Item(0);
+
+    const visualBounds = shape.getVisualBounds();
+
+    const frameBounds = {
+        x: shape.getX(),
+        y: shape.getY(),
+        width: shape.getWidth(),
+        height: shape.getHeight()
+    };
+    const visualBoundsValues = {
+        x: visualBounds.getX(),
+        y: visualBounds.getY(),
+        width: visualBounds.getWidth(),
+        height: visualBounds.getHeight()
+    };
+
+    console.log(
+        `Frame bounds (x, y, width, height): ${frameBounds.x}, ${frameBounds.y}, ${frameBounds.width}, ${frameBounds.height}`
+    );
+    console.log(
+        `Visual bounds (x, y, width, height): ${visualBoundsValues.x}, ${visualBoundsValues.y}, ${visualBoundsValues.width}, ${visualBoundsValues.height}`
+    );
+} finally {
+    presentation.dispose();
+}
+```
+
+สี่เหลี่ยมเดียวกันนี้สามารถใช้จัดตำแหน่งรูปทรงใกล้เคียงให้ชิดด้านซ้าย, ขวา, บนหรือล่าง; จัดสรรพื้นที่เพียงพอในเลย์เอาต์ที่สร้าง; หรือระบุเนื้อหานอกเขตที่อนุญาต ขอบเขตการแสดงผลมีประโยชน์เป็นพิเศษสำหรับ SmartArt, กล่องข้อความ, ลูกศร, รูปภาพ, รูปทรงที่หมุน, และรูปทรงกลุ่มที่เฟรมที่เก็บอาจไม่สอดคล้องกับผลลัพธ์ที่เรนเดอร์เต็มรูปแบบ
+
+ใช้ [Shape.getVisualBounds](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getVisualBounds--) เมื่อคุณต้องการพิกัดสำหรับการจัดเลย์เอาต์หรือการตรวจสอบและไม่ต้องการบิตแมป ใช้ [Shape.getImage](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getImage--) เมื่อคุณต้องการเรนเดอร์รูปทรง ด้วย [ShapeThumbnailBounds](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shapethumbnailbounds/) `ShapeThumbnailBounds.Shape` ปรับขนาดภาพจากขอบเขตของรูปทรงรวมถึงการตั้งค่าโครงร่างขณะที่ `ShapeThumbnailBounds.Appearance` ปรับขนาดจากการแสดงผลของรูปทรงและจำกัดผลลัพธ์ให้อยู่ในขอบเขตของสไลด์ ในทางตรงกันข้าม [Shape.getVisualBounds](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/#getVisualBounds--) จะคืนเฉพาะสี่เหลี่ยมที่คำนวณได้และไม่คลิปกับสไลด์
+
 ## **คำถามที่พบบ่อย**
 
-**รูปแบบภาพใดที่สามารถใช้เมื่อบันทึกภาพย่อของรูปร่าง?**  
-[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imageformat/), และอื่น ๆ รูปร่างยังสามารถ [ส่งออกเป็นเวกเตอร์ SVG](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/writeassvg/) โดยบันทึกเนื้อหารูปร่างเป็น SVG.
+**รูปแบบภาพใดบ้างที่สามารถใช้เมื่อบันทึกรูปขนาดย่อของรูปทรง?**
 
-**ความแตกต่างระหว่างขอบเขต Shape กับ Appearance เมื่อเรนเดอร์ภาพย่อคืออะไร?**  
-`Shape` ใช้เรขาคณิตของรูปร่าง; `Appearance` คำนึงถึง [เอฟเฟกต์ภาพ](/slides/th/nodejs-java/shape-effect/) (เงา, แสงเรืองรอบ, ฯลฯ).
+[PNG, JPEG, BMP, GIF, TIFF](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/imageformat/), and others. รูปทรงยังสามารถ [ส่งออกเป็นเวกเตอร์ SVG](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/writeassvg/) โดยบันทึกเนื้อหาของรูปทรงเป็น SVG.
 
-**จะเกิดอะไรขึ้นหากรูปร่างถูกทำเครื่องหมายว่าเป็น hidden? จะยังคงเรนเดอร์เป็นภาพย่อหรือไม่?**  
-รูปร่างที่ซ่อนอยู่ยังคงเป็นส่วนหนึ่งของโมเดลและสามารถเรนเดอร์ได้; ธง hidden มีผลต่อการแสดงสไลด์โชว์แต่ไม่ได้หลุดการสร้างภาพของรูปร่าง.
+**ความแตกต่างระหว่างขอบเขต Shape และ Appearance เมื่อเรนเดอร์รูปขนาดย่อคืออะไร?**
 
-**รองรับรูปแบบกลุ่มรูปร่าง, แผนภูมิ, SmartArt, และอ็อบเจกต์ซับซ้อนอื่น ๆ หรือไม่?**  
-ใช่. อ็อบเจกต์ใด ๆ ที่เป็นตัวแทนเป็น [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) (รวมถึง [GroupShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/), และ [SmartArt](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/smartart/)) สามารถบันทึกเป็นภาพย่อหรือเป็น SVG ได้.
+`Shape` ใช้รูปทรงทางเรขาคณิตของรูป; `Appearance` พิจารณา [visual effects](/slides/th/nodejs-java/shape-effect/) (เงา, แสงเรืองแสง ฯลฯ) ในการคำนวณ
 
-**ฟอนต์ที่ติดตั้งในระบบมีผลต่อคุณภาพของภาพย่อสำหรับรูปร่างข้อความหรือไม่?**  
-ใช่. คุณควร [จัดหาแบบอักษรที่ต้องการ](/slides/th/nodejs-java/custom-font/) (หรือ [ตั้งค่าการแทนที่ฟอนต์](/slides/th/nodejs-java/font-substitution/)) เพื่อหลีกเลี่ยงการใช้ฟอนต์สำรองที่ไม่ต้องการและการจัดเรียงข้อความใหม่.
+**จะเกิดอะไรขึ้นหากรูปทรงถูกทำเครื่องหมายว่าเป็นซ่อน? จะยังคงเรนเดอร์เป็นรูปขนาดย่อหรือไม่?**
+
+รูปทรงที่ซ่อนจะยังคงเป็นส่วนหนึ่งของโมเดลและสามารถเรนเดอร์ได้; ธงซ่อนมีผลต่อการแสดงผลสไลด์โชว์แต่ไม่ป้องกันการสร้างภาพของรูปทรง
+
+**รูปทรงกลุ่ม, แผนภูมิ, SmartArt และวัตถุซับซ้อนอื่น ๆ รองรับหรือไม่?**
+
+ใช่. วัตถุใด ๆ ที่แสดงเป็น [Shape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/shape/) (รวมถึง [GroupShape](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/groupshape/), [Chart](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chart/), และ [SmartArt](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/smartart/)) สามารถบันทึกเป็นรูปขนาดย่อหรือเป็น SVG
+
+**ฟอนท์ที่ติดตั้งในระบบมีผลต่อคุณภาพของรูปขนาดย่อสำหรับรูปทรงข้อความหรือไม่?**
+
+ใช่. คุณควร [provide the required fonts](/slides/th/nodejs-java/custom-font/) (หรือ [configure font substitutions](/slides/th/nodejs-java/font-substitution/)) เพื่อหลีกเลี่ยงการใช้ฟอนท์สำรองที่ไม่ต้องการและการจัดเรียงข้อความใหม่.
