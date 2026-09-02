@@ -1,5 +1,5 @@
 ---
-title: Cấu hình Thay thế Phông chữ trong Bản trình chiếu Sử dụng Java
+title: Cấu hình Thay thế Phông chữ trong Trình chiếu bằng Java
 linktitle: Thay thế Phông chữ
 type: docs
 weight: 70
@@ -11,107 +11,179 @@ keywords:
 - thay đổi phông chữ
 - thay thế phông chữ
 - quy tắc thay thế
-- quy tắc thay thế
+- quy tắc thay đổi
 - PowerPoint
 - OpenDocument
-- bản trình chiếu
+- trình chiếu
 - Java
 - Aspose.Slides
-description: "Kích hoạt việc thay thế phông chữ tối ưu trong Aspose.Slides cho Java khi chuyển đổi bản trình chiếu PowerPoint & OpenDocument sang các định dạng tệp khác."
+description: "Cấu hình các quy tắc thay thế phông chữ và kiểm tra các phông chữ đã được thay thế trong Aspose.Slides cho Java khi render hoặc chuyển đổi các trình chiếu PowerPoint và OpenDocument."
 ---
 ## **Tổng quan**
 
-Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ khác khi phông chữ gốc của bản trình chiếu không khả dụng trong quá trình render hoặc chuyển đổi. Bạn có thể kiểm tra các phông chữ đã được thay thế bằng cách sử dụng phương thức `getSubstitutions` của giao diện `IFontsManager`.
+Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ có sẵn thay cho phông chữ không thể truy cập được khi trình chiếu được render hoặc chuyển đổi. Việc thay thế chỉ ảnh hưởng tới đầu ra đã render; nó không thay đổi phông chữ được gán cho nội dung của trình chiếu.
 
-Aspose.Slides cũng cho phép bạn định nghĩa các quy tắc thay thế phông chữ. Ví dụ, bạn có thể chỉ định rằng một phông chữ không truy cập được nên được thay bằng một phông chữ khả dụng khác và sau đó áp dụng các quy tắc này thông qua trình quản lý phông chữ của bản trình chiếu.
+Bạn có thể xác định phông chữ sẽ được sử dụng khi một phông chữ cụ thể không có sẵn, và có thể kiểm tra các phép thay thế mà Aspose.Slides sẽ thực hiện trong quá trình render. Điều này giúp duy trì tính nhất quán của đầu ra trên các môi trường có các phông chữ được cài đặt khác nhau.
 
-## **Đặt quy tắc thay thế phông chữ**
+## **Lấy các phép thay thế phông chữ**
 
-Aspose.Slides cho phép bạn đặt các quy tắc cho phông chữ, xác định những việc cần thực hiện trong một số điều kiện nhất định (ví dụ, khi không thể truy cập một phông chữ) như sau:
+Sử dụng [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) để xác định các phông chữ sẽ được thay thế khi trình chiếu được render. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsubstitutioninfo/) mô tả tên phông chữ gốc và phông chữ thay thế.
 
-1. Tải bản trình chiếu liên quan.
-2. Tải phông chữ sẽ được thay thế.
-3. Tải phông chữ mới.
-4- Thêm một quy tắc cho việc thay thế.
-5. Thêm quy tắc vào bộ sưu tập quy tắc thay thế phông chữ của bản trình chiếu.
-6. Tạo hình ảnh slide để quan sát hiệu quả.
-
-Mã Java này minh họa quy trình thay thế phông chữ:
+Ví dụ Java sau liệt kê tất cả các phép thay thế phông chữ cho một trình chiếu:
 
 ```java
-// Tải một bản trình chiếu
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Tải phông chữ nguồn sẽ được thay thế
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Tải phông chữ mới
-    IFontData destFont = new FontData("Arial");
-    
-    // Thêm quy tắc phông chữ cho việc thay thế phông chữ
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Thêm quy tắc vào bộ sưu tập quy tắc thay thế phông chữ
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Thêm bộ sưu tập quy tắc phông chữ vào danh sách quy tắc
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Phông chữ Arial sẽ được sử dụng thay cho SomeRareFont khi phông chữ này không truy cập được
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Lưu hình ảnh vào đĩa ở định dạng JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Bạn có thể muốn xem [**Font Replacement**](/slides/vi/java/font-replacement/). 
+## **Lấy các phép thay thế phông chữ cho các slide được chọn**
+
+Sử dụng overload của [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) với đối số `int[] slides` để kiểm tra chỉ các phép thay thế cần thiết cho việc render các slide cụ thể. Điều này hữu ích khi bạn render hoặc xuất một phần của trình chiếu, kiểm tra trình chiếu lớn một cách tăng dần, xác định các slide phụ thuộc vào phông chữ không có sẵn, chuẩn bị gói phông chữ tối thiểu cho máy chủ hoặc container, hoặc chẩn đoán sự khác nhau trong render mà không xử lý các slide không liên quan.
+
+Mảng `slides` chứa các chỉ mục slide dựa trên số 1: `1` xác định slide đầu tiên. Ngược lại, bộ truy cập collection [Presentation.getSlides](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getSlides--) sử dụng đánh số bắt đầu từ 0, vì vậy cùng một slide được truy cập bằng `presentation.getSlides().get_Item(0)`. Hãy nhớ sự khác nhau này khi xây dựng mảng để tránh lỗi lệch một.
+
+Gọi overload thông qua phương thức [Presentation.getFontsManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/presentation/#getFontsManager--). Nó trả về chỉ các phép thay thế được xác định trong quá trình render các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ thay thế. Kết quả phản ánh môi trường phông chữ hiện tại, các quy tắc fallback đã cấu hình, các quy tắc thay thế được lưu trong một [IFontSubstRuleCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsubstrulecollection/), và [phông chữ được tải ngoại vi](/slides/vi/java/custom-font/).
+
+Một phép thay thế có thể được yêu cầu bởi nhiều slide đã chọn. Hãy loại bỏ trùng lặp khi bạn tạo danh mục phông chữ hoặc báo cáo preflight. Ví dụ sau báo cáo mọi phép thay thế được trả về và sau đó tạo danh sách đã sắp xếp các ánh xạ phông chữ duy nhất:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Giao diện [IFontsManager](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/) cung cấp cả hai overload. Chọn một trong số chúng tùy theo phạm vi của hoạt động render:
+
+| Overload | Khi nào nên sử dụng |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) không có đối số | Bạn cần các phép thay thế cho toàn bộ trình chiếu. |
+| [getSubstitutions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) với `int[] slides` | Bạn cần các phép thay thế cho một phạm vi đã chọn, kiểm tra tăng dần, hoặc xuất một phần. |
+
+## **Đặt quy tắc thay thế phông chữ**
+
+Để chỉ định phông chữ mà Aspose.Slides sẽ sử dụng khi phông chữ nguồn không có sẵn:
+
+1. Tải trình chiếu.
+2. Tạo định nghĩa phông chữ cho phông chữ nguồn và phông chữ thay thế.
+3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsubstcondition/).
+4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsubstrulecollection/).
+5. Gán collection bằng cách sử dụng phương thức [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/vi/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
+6. Render hoặc chuyển đổi trình chiếu.
+
+Ví dụ Java sau thay thế `Arial` cho `SomeRareFont` khi `SomeRareFont` không có sẵn, và sau đó render slide đầu tiên để xác minh kết quả. Phông chữ thay thế phải có sẵn cho Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Đối với việc thay đổi không điều kiện toàn bộ phông chữ được sử dụng trong một trình chiếu, xem mục [Thay thế phông chữ](/slides/vi/java/font-replacement/).
 {{% /alert %}}
 
-## **Hạn chế đối với phông chữ công thức toán học**
+## **Giới hạn đối với phông chữ công thức toán học**
 
-Các quy tắc thay thế phông chữ tham gia vào quy trình lựa chọn phông chữ tiêu chuẩn được sử dụng trong quá trình render và chuyển đổi. Chúng phù hợp cho các trường hợp văn bản thông thường, nơi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng một phông chữ khả dụng khác theo quy tắc đã cấu hình.
+Quy tắc thay thế phông chữ là một phần của quy trình chọn phông chữ tiêu chuẩn được sử dụng trong quá trình render và chuyển đổi. Chúng hoạt động cho văn bản thông thường khi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng phông chữ có sẵn được quy tắc chỉ định.
 
-Tuy nhiên, các công thức toán học của Office có một hạn chế quan trọng. Nếu một công thức được tạo bằng **Cambria Math**, Aspose.Slides có thể vẫn cần phông chữ **Cambria Math** gốc để tính toán và render bố cục công thức một cách chính xác. Do đó, việc thay thế **Cambria Math** bằng một phông chữ toán học khác, chẳng hạn **STIX Two Math**, không được hỗ trợ cho việc render công thức và có thể vẫn gây ra ngoại lệ cho biết **Cambria Math** là bắt buộc.
+Các công thức Office Math có yêu cầu bổ sung. Nếu một công thức sử dụng **Cambria Math**, Aspose.Slides có thể cần chính xác phông chữ đó để tính toán và render bố cục công thức. Quy tắc thay thế một phông chữ toán học khác, chẳng hạn **STIX Two Math**, không thể thay thế **Cambria Math** cho mục đích này, và quá trình render vẫn có thể báo rằng **Cambria Math** là bắt buộc.
 
-Để chuyển đổi các bản trình chiếu như vậy một cách thành công, hãy đảm bảo rằng **Cambria Math** có sẵn cho Aspose.Slides trong thời gian chạy. Bạn có thể cài đặt phông chữ này trên hệ điều hành hoặc cung cấp nó dưới dạng một [external font](/slides/vi/java/custom-font/) để nó có thể tham gia vào quy trình lựa chọn phông chữ bình thường trong quá trình render và chuyển đổi.
+Để render hoặc chuyển đổi trình chiếu như vậy, hãy đảm bảo **Cambria Math** có sẵn cho Aspose.Slides. Cài đặt nó trong hệ điều hành hoặc tải nó như một [phông chữ ngoại vi](/slides/vi/java/custom-font/).
 
-Hạn chế này chỉ áp dụng cho việc render công thức. Các quy tắc thay thế phông chữ tiêu chuẩn mô tả ở trên vẫn áp dụng cho văn bản thường trong bản trình chiếu khi phông chữ gốc không khả dụng.
+Giới hạn này chỉ áp dụng cho bố cục công thức. Các quy tắc thay thế mô tả ở trên vẫn áp dụng cho văn bản thường trong trình chiếu.
 
 ## **Câu hỏi thường gặp**
 
-**Sự khác nhau giữa việc thay thế phông chữ và thay thế phông chữ?**
+**Sự khác nhau giữa thay thế phông chữ và thay thế toàn bộ phông chữ là gì?**
 
-[Replacement](/slides/vi/java/font-replacement/) là một việc ghi đè bắt buộc một phông chữ bằng phông chữ khác trên toàn bộ bản trình chiếu. Thay thế (substitution) là một quy tắc được kích hoạt dưới một điều kiện cụ thể, ví dụ khi phông chữ gốc không khả dụng, và sau đó một phông chữ dự phòng được chỉ định sẽ được sử dụng.
+[Font replacement](/slides/vi/java/font-replacement/) thay đổi có chủ đích một phông chữ thành phông chữ khác trên toàn bộ trình chiếu. Thay thế phông chữ chọn một phông chữ cho đầu ra đã render khi điều kiện đã cấu hình được đáp ứng, chẳng hạn khi phông chữ gốc không có sẵn.
 
-**Khi nào các quy tắc thay thế (substitution) được áp dụng?**
+**Khi nào các quy tắc thay thế được áp dụng?**
 
-Các quy tắc tham gia vào chuỗi [font selection](/slides/vi/java/font-selection-sequence/) tiêu chuẩn được đánh giá trong quá trình tải, render và chuyển đổi; nếu phông chữ được chọn không khả dụng, việc thay thế hoặc thay thế (substitution) sẽ được áp dụng.
+Các quy tắc tham gia vào [chuỗi lựa chọn phông chữ](/slides/vi/java/font-selection-sequence/) trong quá trình render và chuyển đổi. Với `WhenInaccessible`, quy tắc chỉ được sử dụng khi Aspose.Slides không thể truy cập phông chữ nguồn.
 
-**Hành vi mặc định là gì nếu không có quy tắc thay thế hay substitution nào được cấu hình và phông chữ thiếu trên hệ thống?**
+**Điều gì xảy ra khi một phông chữ thiếu và không có quy tắc thay thế nào được cấu hình?**
 
-Thư viện sẽ cố gắng chọn phông chữ hệ thống khả dụng gần nhất, tương tự như cách PowerPoint hoạt động.
+Aspose.Slides sẽ chọn phông chữ khả dụng gần nhất theo quy trình lựa chọn phông chữ của mình. Kết quả phụ thuộc vào các phông chữ có trong môi trường runtime.
 
-**Tôi có thể đính kèm phông chữ tùy chỉnh bên ngoài tại thời gian chạy để tránh substitution không?**
+**Tôi có thể tải phông chữ ngoại vi để tránh việc thay thế không?**
 
-Có. Bạn có thể [add external fonts](/slides/vi/java/custom-font/) tại thời gian chạy để thư viện cân nhắc chúng cho việc lựa chọn và render, bao gồm cả các chuyển đổi tiếp theo.
+Có. Bạn có thể [tải phông chữ ngoại vi](/slides/vi/java/custom-font/) để Aspose.Slides sử dụng chúng trong quá trình render và chuyển đổi.
 
-**Aspose có phân phối bất kỳ phông chữ nào đi kèm với thư viện không?**
+**Aspose có cung cấp phông chữ kèm theo thư viện không?**
 
-Không. Aspose không phân phối phông chữ trả phí hay miễn phí; bạn tự thêm và sử dụng phông chữ theo quyết định và trách nhiệm của mình.
+Không. Bạn chịu trách nhiệm cung cấp phông chữ và tuân thủ các giấy phép của chúng.
 
-**Có sự khác biệt nào trong hành vi substitution trên Windows, Linux và macOS không?**
+**Kết quả thay thế có thể khác nhau giữa Windows, Linux và macOS không?**
 
-Có. Quá trình phát hiện phông chữ bắt đầu từ các thư mục phông chữ của hệ điều hành. Bộ phông chữ khả dụng mặc định và các đường dẫn tìm kiếm khác nhau giữa các nền tảng, điều này ảnh hưởng đến khả năng sẵn có và nhu cầu thay thế.
+Có. Các phông chữ đã cài đặt và vị trí tìm kiếm phông chữ khác nhau tùy hệ điều hành, vì vậy một phông chữ có sẵn trên máy này có thể cần được thay thế trên máy khác.
 
-**Làm thế nào để chuẩn bị môi trường nhằm giảm thiểu substitution không mong muốn trong các chuyển đổi hàng loạt?**
+**Làm sao để giữ cho việc lựa chọn phông chữ nhất quán trong các chuyển đổi hàng loạt?**
 
-Đồng bộ bộ phông chữ giữa các máy hoặc container, [add the external fonts](/slides/vi/java/custom-font/) cần thiết cho các tài liệu đầu ra, và [embed fonts](/slides/vi/java/embedded-font/) trong bản trình chiếu khi có thể để các phông chữ đã chọn có sẵn trong quá trình render.
+Sử dụng cùng các tệp và phiên bản phông chữ trên mọi máy hoặc container, [tải các phông chữ ngoại vi cần thiết](/slides/vi/java/custom-font/), và [nhúng phông chữ](/slides/vi/java/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) trước khi xuất để xác định các phép thay thế không mong muốn.

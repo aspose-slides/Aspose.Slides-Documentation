@@ -1,88 +1,185 @@
 ---
-title: استبدال الخط - PowerPoint JavaScript API
-linktitle: استبدال الخط
+title: تكوين استبدال الخطوط في العروض التقديمية باستخدام JavaScript
+linktitle: استبدال الخطوط
 type: docs
 weight: 70
 url: /ar/nodejs-java/font-substitution/
-keywords: "خط, استبدال الخط, عرض تقديمي PowerPoint, Java, Aspose.Slides لـ Node.js عبر Java"
-description: "استبدال الخط في PowerPoint باستخدام JavaScript"
+keywords:
+- الخط
+- استبدال الخط
+- استبدال الخطوط
+- استبدال الخط
+- استبدال الخطوط
+- قاعدة الاستبدال
+- قاعدة الاستبدال
+- PowerPoint
+- OpenDocument
+- عرض تقديمي
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "تكوين قواعد استبدال الخطوط وفحص الخطوط المستبدلة في Aspose.Slides لـ Node.js عبر Java عند عرض أو تحويل عروض PowerPoint وOpenDocument التقديمية."
 ---
+## **نظرة عامة**
 
-## **تحديد قواعد استبدال الخطوط**
+يسمح استبدال الخطوط في Aspose.Slides باستخدام خط متاح بدلاً من الخط الذي لا يمكن الوصول إليه عند عرض أو تحويل العرض التقديمي. يؤثر الاستبدال على الناتج المعروض؛ ولا يغيّر الخط المعين لمحتوى العرض التقديمي.
 
-يتيح لك Aspose.Slides تعيين قواعد للخطوط التي تحدد ما يجب القيام به في ظروف معينة (على سبيل المثال، عندما لا يمكن الوصول إلى خط) بهذه الطريقة:
+يمكنك تحديد الخط الذي سيُستخدم عندما يكون خط معين غير متاح، ويمكنك فحص الاستبدالات التي ستجريها Aspose.Slides أثناء العرض. يساعد ذلك في الحفاظ على تناسق الناتج عبر بيئات مختلفة تحتوي على خطوط مثبتة مختلفة.
 
-1. تحميل العرض التقديمي المناسب.
-2. تحميل الخط الذي سيُستبدل.
-3. تحميل الخط الجديد.
-4. إضافة قاعدة للاستبدال.
-5. إضافة القاعدة إلى مجموعة قواعد استبدال الخطوط في العرض التقديمي.
-6. إنشاء صورة الشريحة لملاحظة التأثير.
+## **الحصول على استبدالات الخطوط**
 
-هذا كود JavaScript يوضح عملية استبدال الخطوط:
+استخدم طريقة [FontsManager.getSubstitutions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) لتحديد الخطوط التي سيتم استبدالها عند عرض العرض التقديمي. تُعيد الطريقة كائنات [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsubstitutioninfo/) التي تحدد أسماء الخط الأصلي والمستبدل.
+
+المثال التالي بلغة JavaScript يسرد جميع استبدالات الخطوط لعرض تقديمي:
+
 ```javascript
-// يحمل عرضًا تقديميًا
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // يحمل الخط المصدر الذي سيُستبدل
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // يحمل الخط الجديد
-    var destFont = new aspose.slides.FontData("Arial");
-    // يضيف قاعدة خط لاستبدال الخط
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // يضيف القاعدة إلى مجموعة قواعد استبدال الخطوط
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // يضيف مجموعة قواعد الخط إلى قائمة القواعد
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // سيُستخدم خط Arial بدلاً من SomeRareFont عندما يكون الأخير غير متاح
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // يحفظ الصورة على القرص بتنسيق JPEG
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **الحصول على استبدالات الخطوط للشرائح المحددة**
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-قد ترغب في الاطلاع على [**استبدال الخط**](/slides/ar/nodejs-java/font-replacement/).
+استخدم النسخة المت overload من طريقة [FontsManager.getSubstitutions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) مع مصفوفة من فهارس الشرائح لفحص الاستبدالات المطلوبة فقط لعرض شرائح معينة. يكون ذلك مفيدًا عند عرض أو تصدير جزء من العرض التقديمي، أو فحص عرض تقديمي كبير بصورة تدريجية، أو تحديد الشرائح التي تعتمد على خطوط غير متاحة، أو إعداد حزمة خطوط قليلة الحجم لخادم أو حاوية، أو تشخيص اختلافات العرض دون معالجة الشرائح غير ذات الصلة.
+
+تتوقع النسخة المت overload مصفوفة بدائية Java من نوع `int[]`. أنشئها باستخدام `java.newArray("int", [...])`؛ فإن مصفوفة JavaScript عادية تُحوَّل إلى `Integer[]` ولا تتطابق مع هذه النسخة.
+
+تحتوي المصفوفة على فهارس شرائح تبدأ من واحد: `1` يحدد الشريحة الأولى. وعلى العكس، يستخدم موصل مجموعة [Presentation.getSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getslides/) فهارس بدءًا من الصفر، لذا يتم الوصول إلى نفس الشريحة كـ `presentation.getSlides().get_Item(0)`. احرص على مراعاة هذا الاختلاف عند بناء المصفوفة لتجنب أخطاء الإزاحة بمقدار واحد.
+
+استدعِ النسخة المت overload عبر [Presentation.getFontsManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getfontsmanager/). تُعيد فقط الاستبدالات التي تم تحديدها أثناء عرض الشرائح المحددة. كل نتيجة هي كائن [FontSubstitutionInfo](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsubstitutioninfo/) يحتوي على أسماء الخط الأصلي والمستبدل. تعكس النتيجة بيئة الخط الحالية، وقواعد fallback المكوَّنة، وقواعد الاستبدال المخزنة في [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsubstrulecollection/)، و[الخطوط التي تم تحميلها خارجيًا](/slides/ar/nodejs-java/custom-font/).
+
+قد يتطلب نفس الاستبدال أكثر من شريحة محددة. قم بإزالة التكرار من النتائج عند إنشاء جرد الخطوط أو تقرير الفحص المسبق. المثال التالي يُبلغ عن كل استبدال مُرجع ثم ينشئ قائمة مرتبة من تعيينات الخطوط الفريدة:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+توفر فئة [FontsManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/) كلا النسختين المت overload. اختر واحدة حسب نطاق عملية العرض.
+
+| Overload | متى تُستخدم |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | تحتاج استبدالات لكامل العرض التقديمي. |
+| [getSubstitutions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | تحتاج استبدالات لنطاق مختار، فحص تدريجي، أو تصدير جزئي. |
+
+## **تعيين قواعد استبدال الخطوط**
+
+لتحديد الخط الذي يجب أن يستخدمه Aspose.Slides عندما يكون الخط الأصلي غير متاح:
+
+1. حمّل العرض التقديمي.  
+2. أنشئ تعريفات الخط للخط الأصلي والبديل.  
+3. أنشئ كائن [FontSubstRule](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsubstrule/) مع الشرط [WhenInaccessible](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsubstcondition/).  
+4. أضف القاعدة إلى [FontSubstRuleCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsubstrulecollection/).  
+5. عيّن المجموعة باستخدام طريقة [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. اعرض أو حوّل العرض التقديمي.
+
+المثال التالي بلغة JavaScript يستبدل الخط `Arial` بـ `SomeRareFont` عندما يكون `SomeRareFont` غير متاح، ثم يعرض الشريحة الأولى للتحقق من النتيجة. يجب أن يكون الخط البديل متاحًا لـ Aspose.Slides.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+لإجراء تغيير غير مشروط على الخطوط المستخدمة عبر العرض التقديمي بأكمله، راجع [Font Replacement](/slides/ar/nodejs-java/font-replacement/).
 {{% /alert %}}
 
-## **الأسئلة الشائعة**
+## **القيود على خطوط معادلات الرياضيات**
 
-**ما الفرق بين استبدال الخط واستبدال الخط (البديل)؟**
+قواعد استبدال الخطوط هي جزء من عملية اختيار الخط القياسية المستخدمة أثناء العرض والتحويل. تعمل مع النص العادي عندما يتمكن Aspose.Slides من استبدال خط غير متاح بالخط المتاح المحدد بالقاعدة.
 
-[استبدال](/slides/ar/nodejs-java/font-replacement/) هو تجاوز قوي لخط بآخر عبر العرض التقديمي بأكمله. البديل هو قاعدة تُفعَّل تحت شرط محدد، على سبيل المثال عندما يكون الخط الأصلي غير متاح، ثم يُستخدم خط احتياطي محدد.
+معادلات Office Math لها متطلب إضافي. إذا استخدمت معادلة **Cambria Math**، قد يحتاج Aspose.Slides إلى هذا الخط بالضبط لحساب وعرض تخطيط المعادلة. لا يمكن لقاعدة تستبدل بخط رياضي آخر، مثل **STIX Two Math**، أن تحل محل **Cambria Math** لهذا الغرض، وقد لا يزال العرض يوضح أن **Cambria Math** مطلوب.
 
-**متى تُطبق قواعد الاستبدال بالضبط؟**
+للعرض أو التحويل لهذا العرض التقديمي، تأكد من إتاحة **Cambria Math** لـ Aspose.Slides. قم بتثبيته في نظام التشغيل أو حمّله كـ [external font](/slides/ar/nodejs-java/custom-font/).
 
-تشارك القواعد في تسلسل [اختيار الخط](/slides/ar/nodejs-java/font-selection-sequence/) القياسي الذي يتم تقييمه أثناء التحميل، العرض، والتحويل؛ إذا كان الخط المختار غير متاح، يُطبق الاستبدال أو البديل.
+هذا القيد ينطبق على تخطيط المعادلات. القواعد الاستبدالية الموصوفة أعلاه لا تزال تنطبق على نص العرض التقديمي العادي.
 
-**ما السلوك الافتراضي إذا لم يتم تكوين استبدال ولا بديل وكان الخط مفقودًا في النظام؟**
+## **الأسئلة المتكررة**
 
-المكتبة ستحاول اختيار أقرب خط متاح في النظام، مشابهًا لسلوك PowerPoint.
+**ما الفرق بين استبدال الخط واستبدال الخطوط؟**
 
-**هل يمكنني إرفاق خطوط خارجية مخصصة في وقت التشغيل لتجنب الاستبدال؟**
+[Font replacement](/slides/ar/nodejs-java/font-replacement/) يغيّر خطًا إلى آخر عمدًا عبر كامل العرض التقديمي. استبدال الخطوط يختار خطًا للناتج المعروض عندما يتحقق الشرط المُكوَّن، مثل عدم توفر الخط الأصلي.
 
-نعم. يمكنك [إضافة الخطوط الخارجية](/slides/ar/nodejs-java/custom-font/) أثناء وقت التشغيل حتى تأخذ المكتبة هذه الخطوط في الاعتبار للاختيار والعرض، بما في ذلك التحويلات اللاحقة.
+**متى تُطبق قواعد الاستبدال؟**
 
-**هل توزع Aspose أي خطوط مع المكتبة؟**
+تشارك القواعد في [سلسلة اختيار الخط](/slides/ar/nodejs-java/font-selection-sequence/) أثناء العرض والتحويل. مع `WhenInaccessible` تُستخدم القاعدة فقط عندما لا يتمكن Aspose.Slides من الوصول إلى الخط الأصلي.
 
-لا. لا توزع Aspose أي خطوط مدفوعة أو مجانية؛ أنت تضيف وتستخدم الخطوط وفقًا لتقديرك ومسؤوليتك.
+**ماذا يحدث عندما يكون الخط مفقودًا ولا توجد قاعدة استبدال مُكوَّنة؟**
 
-**هل هناك اختلافات في سلوك الاستبدال على Windows وLinux وmacOS؟**
+يقوم Aspose.Slides باختيار أقرب خط متاح وفقًا لعملية اختيار الخط الخاصة به. تعتمد النتيجة على الخطوط المتاحة في بيئة التشغيل.
 
-نعم. يبدأ اكتشاف الخطوط من دلائل نظام التشغيل. مجموعة الخطوط المتاحة افتراضيًا ومسارات البحث تختلف بين الأنظمة، مما يؤثر على التوفر والحاجة إلى الاستبدال.
+**هل يمكنني تحميل خطوط خارجية لتجنب الاستبدال؟**
 
-**كيف يجب أن أعد البيئة لتقليل الاستبدال غير المتوقع أثناء التحويلات الدفعة؟**
+نعم. يمكنك [load external fonts](/slides/ar/nodejs-java/custom-font/) حتى يتمكن Aspose.Slides من استخدامها أثناء العرض والتحويل.
 
-قم بمزامنة مجموعة الخطوط عبر الأجهزة أو الحاويات، [أضف الخطوط الخارجية](/slides/ar/nodejs-java/custom-font/) المطلوبة للمستندات الناتجة، و[دمج الخطوط](/slides/ar/nodejs-java/embedded-font/) في العروض التقديمية عندما يكون ذلك ممكنًا حتى تكون الخطوط المختارة متاحة أثناء العرض.
+**هل توزع Aspose الخطوط مع المكتبة؟**
+
+لا. أنت المسؤول عن توفير الخطوط والامتثال لتراخيصها.
+
+**هل قد تختلف نتائج الاستبدال بين Windows و Linux و macOS؟**
+
+نعم. تختلف الخطوط المثبتة ومواقع البحث عن الخطوط حسب نظام التشغيل، لذا قد يتطلب خط متاح على جهاز ما استبدالًا على جهاز آخر.
+
+**كيف يمكنني جعل اختيار الخط متسقًا في عمليات التحويل الجماعي؟**
+
+استخدم نفس ملفات الخطوط وإصداراتها على كل جهاز أو حاوية، [load required external fonts](/slides/ar/nodejs-java/custom-font/)، و[embed fonts](/slides/ar/nodejs-java/embedded-font/) عندما تسمح الترخيص. يمكنك أيضًا استدعاء [FontsManager.getSubstitutions](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) قبل التصدير لتحديد الاستبدالات غير المتوقعة.

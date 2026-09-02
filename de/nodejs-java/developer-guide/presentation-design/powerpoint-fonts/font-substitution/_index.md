@@ -1,88 +1,185 @@
 ---
-title: Schriftart-Substitution - PowerPoint JavaScript-API
+title: Schriftart-Substitution in Präsentationen mit JavaScript konfigurieren
 linktitle: Schriftart-Substitution
 type: docs
 weight: 70
 url: /de/nodejs-java/font-substitution/
-keywords: "Schriftart, ersetzende Schriftart, PowerPoint-Präsentation, Java, Aspose.Slides für Node.js via Java"
-description: "Schriftart in PowerPoint mit JavaScript ersetzen"
+keywords:
+- Schriftart
+- Schriftart ersetzen
+- Schriftart-Substitution
+- Schriftart ersetzen
+- Schriftart-Ersetzung
+- Substitutionsregel
+- Ersetzungsregel
+- PowerPoint
+- OpenDocument
+- Präsentation
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Konfigurieren Sie Schriftart-Substitutionsregeln und prüfen Sie substituierte Schriftarten in Aspose.Slides für Node.js über Java beim Rendern oder Konvertieren von PowerPoint- und OpenDocument-Präsentationen."
 ---
+## **Übersicht**
 
-## **Schriftart‑Ersetzungsregeln festlegen**
+Die Schriftart-Substitution ermöglicht es Aspose.Slides, eine verfügbare Schriftart anstelle einer nicht zugänglichen Schriftart zu verwenden, wenn eine Präsentation gerendert oder konvertiert wird. Die Substitution wirkt sich auf die gerenderte Ausgabe aus; sie ändert nicht die der Präsentation zugewiesene Schriftart.
 
-Aspose.Slides ermöglicht das Festlegen von Schriftartregeln, die bestimmen, was unter bestimmten Bedingungen (z. B. wenn auf eine Schriftart nicht zugegriffen werden kann) zu tun ist, auf folgende Weise:
+Sie können die zu verwendende Schriftart definieren, wenn eine bestimmte Schriftart nicht verfügbar ist, und Sie können die Substitutionen einsehen, die Aspose.Slides während des Renderns vornimmt. Dies hilft, die Ausgabe über Umgebungen mit unterschiedlichen installierten Schriftarten hinweg konsistent zu halten.
 
-1. Laden Sie die relevante Präsentation.
-2. Laden Sie die zu ersetzende Schriftart.
-3. Laden Sie die neue Schriftart.
-4. Fügen Sie eine Regel für den Ersatz hinzu.
-5. Fügen Sie die Regel der Sammlung von Schriftart‑Ersatzregeln der Präsentation hinzu.
-6. Generieren Sie das Folienbild, um die Wirkung zu beobachten.
+## **Schriftart-Substitutionen abrufen**
 
-Dieser JavaScript‑Code demonstriert den Schriftart‑Substitutionsprozess:
+Verwenden Sie die [FontsManager.getSubstitutions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/)‑Methode, um zu bestimmen, welche Schriftarten beim Rendern der Präsentation substituiert werden. Die Methode gibt [FontSubstitutionInfo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsubstitutioninfo/)‑Objekte zurück, die den ursprünglichen und den substituierten Schriftartnamen identifizieren.
+
+Das folgende JavaScript‑Beispiel listet alle Schriftart‑Substitutionen für eine Präsentation auf:
+
 ```javascript
-// Lädt eine Präsentation
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Lädt die Quellschriftart, die ersetzt werden soll
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Lädt die neue Schriftart
-    var destFont = new aspose.slides.FontData("Arial");
-    // Fügt eine Schriftartregel für den Schriftart-Ersatz hinzu
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Fügt die Regel zur Sammlung von Schriftart-Ersetzungsregeln hinzu
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Fügt eine Schriftartregel-Sammlung zur Regel-Liste hinzu
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Arial-Schriftart wird anstelle von SomeRareFont verwendet, wenn Letztere nicht zugänglich ist
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Speichert das Bild auf die Festplatte im JPEG-Format
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Schriftart-Substitutionen für ausgewählte Folien abrufen**
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Vielleicht möchten Sie sich [**Schriftart‑Ersatz**](/slides/de/nodejs-java/font-replacement/) ansehen.
+Verwenden Sie die [FontsManager.getSubstitutions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/)‑Überladung mit einem Array von Folienindizes, um nur die Substitutionen zu prüfen, die zum Rendern bestimmter Folien erforderlich sind. Dies ist nützlich, wenn Sie einen Teil einer Präsentation rendern oder exportieren, eine große Präsentation inkrementell prüfen, Folien lokalisieren möchten, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftartenpaket für einen Server oder Container vorbereiten oder Renderunterschiede diagnostizieren, ohne nicht relevante Folien zu verarbeiten.
+
+Die Überladung erwartet ein Java‑Primitive `int[]`. Erstellen Sie es mit `java.newArray("int", [...])`; ein einfaches JavaScript‑Array wird zu `Integer[]` konvertiert und passt nicht zu dieser Überladung.
+
+Das Array enthält einsbasierte Folienindizes: `1` bezeichnet die erste Folie. Im Gegensatz dazu verwendet der [Presentation.getSlides](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getslides/)‑Sammlungszugriff nullbasierte Indizierung, sodass dieselbe Folie über `presentation.getSlides().get_Item(0)` angesprochen wird. Berücksichtigen Sie diesen Unterschied beim Erstellen des Arrays, um Off‑by‑One‑Fehler zu vermeiden.
+
+Rufen Sie die Überladung über [Presentation.getFontsManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/presentation/getfontsmanager/) auf. Sie gibt nur die Substitutionen zurück, die beim Rendern der ausgewählten Folien ermittelt wurden. Jeder Treffer ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsubstitutioninfo/)‑Objekt, das die ursprünglichen und substituierten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung, konfigurierte Fallback‑Regeln, in einer [FontSubstRuleCollection](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsubstrulecollection/) gespeicherte Substitutionsregeln und [extern geladene Schriftarten](/slides/de/nodejs-java/custom-font/) wider.
+
+Die gleiche Substitution kann von mehr als einer ausgewählten Folie benötigt werden. Entfernen Sie Duplikate aus den Ergebnissen, wenn Sie ein Schriftarten‑Inventar oder einen Preflight‑Bericht erstellen. Das folgende Beispiel gibt jede zurückgegebene Substitution aus und erstellt anschließend eine sortierte Liste eindeutiger Schriftartzuordnungen:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+Die Klasse [FontsManager](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/) stellt beide Überladungen bereit. Wählen Sie eine entsprechend dem Umfang der Rendering‑Operation:
+
+| Überladung | Verwenden, wenn |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | Sie benötigen Substitutionen für die gesamte Präsentation. |
+| [getSubstitutions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | Sie benötigen Substitutionen für einen ausgewählten Bereich, inkrementelle Prüfung oder Teilexport. |
+
+## **Schriftart-Substitutionsregeln festlegen**
+
+Um die Schriftart anzugeben, die Aspose.Slides verwenden soll, wenn eine Quellschriftart nicht verfügbar ist:
+
+1. Laden Sie die Präsentation.
+2. Erstellen Sie Schriftartdefinitionen für die Quell‑ und Ersatzschriftarten.
+3. Erstellen Sie eine [FontSubstRule](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsubstrule/) mit der [WhenInaccessible](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsubstcondition/)‑Bedingung.
+4. Fügen Sie die Regel einer [FontSubstRuleCollection](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsubstrulecollection/) hinzu.
+5. Weisen Sie die Sammlung mithilfe der [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/)‑Methode zu.
+6. Rendern oder konvertieren Sie die Präsentation.
+
+Das folgende JavaScript‑Beispiel ersetzt `SomeRareFont` durch `Arial`, wenn `SomeRareFont` nicht verfügbar ist, und rendert anschließend die erste Folie, um das Ergebnis zu überprüfen. Die Ersatzschriftart muss für Aspose.Slides verfügbar sein.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Hinweis" %}}
+Für eine bedingungslose Änderung der in einer gesamten Präsentation verwendeten Schriftarten siehe [Font Replacement](/slides/de/nodejs-java/font-replacement/).
 {{% /alert %}}
+
+## **Einschränkungen für Schriftarten von mathematischen Gleichungen**
+
+Schriftart-Substitutionsregeln sind Teil des standardmäßigen Schriftartauswahlprozesses, der beim Rendern und Konvertieren verwendet wird. Sie funktionieren für normalen Text, wenn Aspose.Slides eine nicht zugängliche Schriftart durch die durch eine Regel angegebene verfügbare Schriftart ersetzen kann.
+
+Office‑Math‑Gleichungen haben eine zusätzliche Anforderung. Wenn eine Gleichung **Cambria Math** verwendet, kann Aspose.Slides diese genaue Schriftart benötigen, um das Layout der Gleichung zu berechnen und zu rendern. Eine Regel, die eine andere mathematische Schriftart wie **STIX Two Math** substituiert, kann **Cambria Math** hierfür nicht ersetzen, und das Rendering kann weiterhin melden, dass **Cambria Math** erforderlich ist.
+
+Um eine solche Präsentation zu rendern oder zu konvertieren, stellen Sie **Cambria Math** für Aspose.Slides bereit. Installieren Sie sie im Betriebssystem oder laden Sie sie als [externen Font](/slides/de/nodejs-java/custom-font/) hoch.
+
+Diese Einschränkung gilt für das Gleichungs‑Layout. Die oben beschriebenen Substitutionsregeln gelten weiterhin für normalen Präsentationstext.
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen Schriftart‑Ersatz und Schriftart‑Substitution?**
+**Was ist der Unterschied zwischen Schriftart-Ersetzung und Schriftart-Substitution?**
 
-[Replacement](/slides/de/nodejs-java/font-replacement/) ist ein erzwungenes Überschreiben einer Schriftart durch eine andere in der gesamten Präsentation. Substitution ist eine Regel, die unter einer bestimmten Bedingung ausgelöst wird, zum Beispiel wenn die Originalschriftart nicht verfügbar ist, und dann eine festgelegte Ersatzschriftart verwendet wird.
+[Font replacement](/slides/de/nodejs-java/font-replacement/) ändert bewusst eine Schriftart überall in der Präsentation in eine andere. Schriftart‑Substitution wählt eine Schriftart für die gerenderte Ausgabe, wenn die konfigurierte Bedingung erfüllt ist, zum Beispiel wenn die Originalschriftart nicht verfügbar ist.
 
-**Wann genau werden Substitutionsregeln angewendet?**
+**Wann werden Substitutionsregeln angewendet?**
 
-Die Regeln nehmen am standardmäßigen [Schriftartauswahl](/slides/de/nodejs-java/font-selection-sequence/) Ablauf teil, der beim Laden, Rendern und Konvertieren ausgewertet wird; ist die gewählte Schriftart nicht verfügbar, wird Ersatz oder Substitution angewendet.
+Die Regeln nehmen an der [font selection sequence](/slides/de/nodejs-java/font-selection-sequence/) während des Renderns und der Konvertierung teil. Bei `WhenInaccessible` wird eine Regel nur verwendet, wenn Aspose.Slides nicht auf die Quellschriftart zugreifen kann.
 
-**Wie ist das Standardverhalten, wenn weder Ersatz noch Substitution konfiguriert ist und die Schriftart im System fehlt?**
+**Was passiert, wenn eine Schriftart fehlt und keine Substitutionsregel konfiguriert ist?**
 
-Die Bibliothek versucht, die am nächsten liegende verfügbare Systemschriftart zu wählen, ähnlich wie PowerPoint es tun würde.
+Aspose.Slides wählt die am nächsten gelegene verfügbare Schriftart gemäß seinem Schriftartauswahlprozess aus. Das Ergebnis hängt von den im Laufzeitumfeld verfügbaren Schriftarten ab.
 
-**Kann ich benutzerdefinierte externe Schriftarten zur Laufzeit anhängen, um Substitution zu vermeiden?**
+**Kann ich externe Schriftarten laden, um Substitution zu vermeiden?**
 
-Ja. Sie können zur Laufzeit [externe Schriftarten hinzufügen](/slides/de/nodejs-java/custom-font/) so dass die Bibliothek sie für Auswahl und Rendering berücksichtigt, einschließlich späterer Konvertierungen.
+Ja. Sie können [externen Fonts laden](/slides/de/nodejs-java/custom-font/), damit Aspose.Slides sie beim Rendern und Konvertieren verwenden kann.
 
-**Verteilt Aspose Schriftarten mit der Bibliothek?**
+**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
 
-Nein. Aspose stellt keine kostenpflichtigen oder kostenlosen Schriftarten bereit; Sie fügen Schriftarten nach eigenem Ermessen und Verantwortung hinzu und verwenden sie.
+Nein. Sie sind dafür verantwortlich, Schriftarten bereitzustellen und deren Lizenzen einzuhalten.
 
-**Gibt es Unterschiede im Substitutionsverhalten unter Windows, Linux und macOS?**
+**Können sich die Substitutionsresultate zwischen Windows, Linux und macOS unterscheiden?**
 
-Ja. Die Schriftartenerkennung beginnt in den Schriftverzeichnissen des Betriebssystems. Die Menge der standardmäßig verfügbaren Schriftarten und die Suchpfade unterscheiden sich je nach Plattform, was die Verfügbarkeit und den Bedarf an Substitution beeinflusst.
+Ja. Installierte Schriftarten und Suchpfade für Schriftarten unterscheiden sich je nach Betriebssystem, sodass eine auf einem Rechner verfügbare Schriftart auf einem anderen möglicherweise substituiert werden muss.
 
-**Wie sollte ich die Umgebung vorbereiten, um unerwartete Substitutionen bei Batch‑Konvertierungen zu minimieren?**
+**Wie kann ich die Schriftartauswahl bei Stapelkonvertierungen konsistent halten?**
 
-Synchronisieren Sie den Schriftartenbestand über Maschinen oder Container hinweg, [externe Schriftarten hinzufügen](/slides/de/nodejs-java/custom-font/) die für die Ausgabedokumente erforderlich sind, und [Schriftarten einbetten](/slides/de/nodejs-java/embedded-font/) in Präsentationen, sofern möglich, damit die ausgewählten Schriftarten während des Renderings verfügbar sind.
+Verwenden Sie dieselben Schriftdateien und -versionen auf jeder Maschine oder jedem Container, [laden Sie erforderliche externe Schriftarten](/slides/de/nodejs-java/custom-font/) und [betten Sie Schriftarten ein](/slides/de/nodejs-java/embedded-font/), sofern die Lizenz dies erlaubt. Sie können außerdem vor dem Export [FontsManager.getSubstitutions](https://reference.aspose.com/slides/de/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) aufrufen, um unerwartete Substitutionen zu identifizieren.

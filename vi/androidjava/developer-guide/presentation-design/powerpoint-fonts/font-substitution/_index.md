@@ -1,118 +1,190 @@
 ---
-title: "Cấu hình Thay thế Phông chữ trong các Bản trình bày trên Android"
-linktitle: "Thay thế Phông chữ"
+title: Cấu hình Thay thế Phông chữ trong Bản trình chiếu trên Android
+linktitle: Thay thế Phông chữ
 type: docs
 weight: 70
 url: /vi/androidjava/font-substitution/
 keywords:
-- "phông chữ"
-- "thay thế phông chữ"
-- "thay thế phông chữ"
-- "thay thế phông chữ"
-- "thay thế phông chữ"
-- "quy tắc thay thế"
-- "quy tắc thay thế"
-- "PowerPoint"
-- "OpenDocument"
-- "bản trình bày"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "Kích hoạt việc thay thế phông chữ tối ưu trong Aspose.Slides cho Android qua Java khi chuyển đổi các bản trình bày PowerPoint & OpenDocument sang các định dạng tệp khác."
+- phông chữ
+- phông chữ thay thế
+- thay thế phông chữ
+- thay đổi phông chữ
+- thay thế phông chữ
+- quy tắc thay thế
+- quy tắc thay đổi
+- PowerPoint
+- OpenDocument
+- bản trình chiếu
+- Android
+- Java
+- Aspose.Slides
+description: "Cấu hình các quy tắc thay thế phông chữ và kiểm tra các phông chữ đã được thay thế trong Aspose.Slides cho Android bằng Java khi hiển thị hoặc chuyển đổi bản trình chiếu."
 ---
 ## **Tổng quan**
 
-Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ khác khi phông chữ gốc của bản trình bày không khả dụng trong quá trình hiển thị hoặc chuyển đổi. Bạn có thể kiểm tra những phông chữ nào đã được thay thế bằng cách sử dụng phương thức `getSubstitutions` từ giao diện `IFontsManager`.
+Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ có sẵn thay cho phông chữ không thể truy cập được khi một bản trình chiếu được hiển thị hoặc chuyển đổi. Việc thay thế ảnh hưởng đến kết quả hiển thị; nó không thay đổi phông chữ được gán cho nội dung bản trình chiếu.
 
-Aspose.Slides cũng cho phép bạn định nghĩa các quy tắc thay thế phông chữ. Ví dụ, bạn có thể chỉ định rằng một phông chữ không thể truy cập sẽ được thay thế bằng một phông chữ khả dụng khác và sau đó áp dụng các quy tắc đó thông qua bộ quản lý phông chữ của bản trình bày.
+Bạn có thể định nghĩa phông chữ sẽ dùng khi một phông chữ cụ thể không có, và có thể kiểm tra các phép thay thế mà Aspose.Slides sẽ thực hiện trong quá trình hiển thị. Điều này giúp duy trì kết quả nhất quán trên các thiết bị Android và môi trường có các phông chữ khả dụng khác nhau.
 
-## **Đặt quy tắc thay thế phông chữ**
+## **Lấy Thay Thế Phông Chữ**
 
-Aspose.Slides cho phép bạn đặt các quy tắc cho phông chữ xác định những gì cần thực hiện trong các điều kiện nhất định (ví dụ, khi một phông chữ không thể truy cập) theo cách sau:
+Sử dụng phương thức [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) để xác định các phông chữ nào sẽ được thay thế khi bản trình chiếu được hiển thị. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/fontsubstitutioninfo/) mô tả tên phông chữ gốc và phông chữ thay thế.
 
-1. Tải bản trình bày liên quan.
-2. Tải phông chữ sẽ được thay thế.
-3. Tải phông chữ mới.
-4. Thêm một quy tắc cho việc thay thế.
-5. Thêm quy tắc vào bộ sưu tập quy tắc thay thế phông chữ của bản trình bày.
-6. Tạo hình ảnh slide để quan sát hiệu quả.
-
-Đoạn mã Java này minh họa quá trình thay thế phông chữ:
+Ví dụ Java sau liệt kê tất cả các phép thay thế phông chữ cho một bản trình chiếu:
 
 ```java
-// Tải một bản trình bày
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Tải phông chữ nguồn sẽ được thay thế
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Tải phông chữ mới
-    IFontData destFont = new FontData("Arial");
-    
-    // Thêm một quy tắc phông chữ cho việc thay thế phông chữ
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Thêm quy tắc vào bộ sưu tập quy tắc thay thế phông chữ
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Thêm bộ sưu tập quy tắc phông chữ vào danh sách quy tắc
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Phông chữ Arial sẽ được sử dụng thay cho SomeRareFont khi phông chữ này không khả dụng
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Lưu hình ảnh vào đĩa ở định dạng JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Bạn có thể muốn xem [**Thay thế phông chữ**](/slides/vi/androidjava/font-replacement/).
+## **Lấy Thay Thế Phông Chữ cho Các Slide Được Chọn**
+
+Sử dụng phương thức [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) có tham số `int[] slides` để kiểm tra chỉ những phép thay thế cần thiết cho các slide cụ thể. Điều này hữu ích khi bạn đang hiển thị hoặc xuất một phần của bản trình chiếu, kiểm tra dần dần một bản trình chiếu lớn, xác định các slide phụ thuộc vào phông chữ không có, chuẩn bị một gói phông chữ tối thiểu cho ứng dụng Android, hoặc chẩn đoán sự khác biệt về hiển thị mà không xử lý các slide không liên quan.
+
+Mảng `slides` chứa các chỉ mục slide bắt đầu từ 1: `1` là slide đầu tiên. Ngược lại, bộ truy cập collection [Presentation.getSlides](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/#getSlides--) sử dụng chỉ mục bắt đầu từ 0, vì vậy slide tương tự được truy cập bằng `presentation.getSlides().get_Item(0)`. Hãy nhớ sự khác biệt này khi xây dựng mảng để tránh lỗi lệch chỉ mục.
+
+Gọi phương thức này thông qua [Presentation.getFontsManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/presentation/#getFontsManager--) . Nó trả về chỉ các phép thay thế được xác định khi hiển thị các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ thay thế. Kết quả phản ánh môi trường phông chữ hiện tại, các quy tắc dự phòng đã cấu hình, quy tắc thay thế được lưu trong một [IFontSubstRuleCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsubstrulecollection/), và [phông chữ tải ngoài](/slides/vi/androidjava/custom-font/).
+
+Một phép thay thế có thể cần cho hơn một slide đã chọn. Hãy loại bỏ trùng lặp kết quả khi bạn tạo danh mục phông chữ hoặc báo cáo kiểm tra. Ví dụ sau báo cáo mọi phép thay thế được trả về và sau đó tạo danh sách đã sắp xếp các ánh xạ phông chữ duy nhất:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Giao diện [IFontsManager](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsmanager/) cung cấp cả hai phương thức quá tải. Chọn một trong số chúng tùy theo phạm vi của thao tác hiển thị:
+
+| Phương thức | Khi nào sử dụng |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) không có tham số | Bạn cần các phép thay thế cho toàn bộ bản trình chiếu. |
+| [getSubstitutions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) với `int[] slides` | Bạn cần các phép thay thế cho một phạm vi được chọn, kiểm tra dần dần, hoặc xuất một phần. |
+
+## **Đặt Quy Tắc Thay Thế Phông Chữ**
+
+Để chỉ định phông chữ mà Aspose.Slides nên sử dụng khi một phông chữ nguồn không khả dụng:
+
+1. Tải bản trình chiếu.
+2. Tạo định nghĩa phông chữ cho phông nguồn và phông thay thế.
+3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/fontsubstcondition/).
+4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/fontsubstrulecollection/).
+5. Gán collection bằng cách sử dụng phương thức [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
+6. Hiển thị hoặc chuyển đổi bản trình chiếu.
+
+Ví dụ Java sau thay thế `Arial` cho `SomeRareFont` khi `SomeRareFont` không khả dụng, sau đó hiển thị slide đầu tiên để kiểm tra kết quả. Phông chữ thay thế phải có sẵn cho Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Đối với việc thay đổi không điều kiện toàn bộ phông chữ được dùng trong một bản trình chiếu, xem mục [Font Replacement](/slides/vi/androidjava/font-replacement/).
 {{% /alert %}}
 
-## **Giới hạn cho phông chữ công thức toán học**
+## **Giới Hạn Đối Với Phông Chữ Phương Trình Toán Học**
 
-Các quy tắc thay thế phông chữ tham gia vào quá trình chọn phông chữ tiêu chuẩn được sử dụng trong quá trình hiển thị và chuyển đổi. Chúng phù hợp cho các trường hợp văn bản thông thường, nơi Aspose.Slides có thể thay thế một phông chữ không khả dụng bằng một phông chữ khả dụng khác theo quy tắc đã cấu hình.
+Quy tắc thay thế phông chữ là một phần của quy trình lựa chọn phông chữ tiêu chuẩn được sử dụng trong quá trình hiển thị và chuyển đổi. Chúng hoạt động cho văn bản thường khi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng phông chữ khả dụng được quy tắc chỉ định.
 
-Tuy nhiên, các công thức toán học của Office có một hạn chế quan trọng. Nếu một công thức được tạo bằng **Cambria Math**, Aspose.Slides vẫn có thể yêu cầu phông chữ **Cambria Math** gốc để tính toán và hiển thị bố cục công thức một cách chính xác. Do đó, việc thay thế **Cambria Math** bằng một phông chữ toán học khác, chẳng hạn như **STIX Two Math**, không được hỗ trợ cho việc hiển thị công thức và vẫn có thể dẫn đến ngoại lệ báo rằng cần có **Cambria Math**.
+Các phương trình Office Math có một yêu cầu bổ sung. Nếu một phương trình sử dụng **Cambria Math**, Aspose.Slides có thể cần chính xác phông chữ này để tính toán và hiển thị bố cục phương trình. Một quy tắc thay thế bằng một phông chữ toán học khác, chẳng hạn **STIX Two Math**, không thể thay thế **Cambria Math** cho mục đích này, và việc hiển thị vẫn có thể báo cáo rằng **Cambria Math** là bắt buộc.
 
-Để chuyển đổi các bản trình bày như vậy một cách thành công, hãy chắc chắn rằng **Cambria Math** có sẵn cho Aspose.Slides khi chạy. Bạn có thể cài đặt phông chữ này trong hệ điều hành hoặc cung cấp nó như một [phông chữ bên ngoài](/slides/vi/androidjava/custom-font/) để nó có thể tham gia vào quá trình chọn phông chữ bình thường trong quá trình hiển thị và chuyển đổi.
+Để hiển thị hoặc chuyển đổi bản trình chiếu như vậy, hãy cung cấp **Cambria Math** cho Aspose.Slides. Tải nó như một [phông chữ tải ngoài](/slides/vi/androidjava/custom-font/) để ứng dụng có thể sử dụng trong quá trình hiển thị và chuyển đổi.
 
-Hạn chế này chỉ áp dụng cho việc hiển thị công thức. Các quy tắc thay thế phông chữ tiêu chuẩn được mô tả ở trên vẫn áp dụng cho văn bản bình thường của bản trình bày khi phông chữ gốc không khả dụng.
+Giới hạn này chỉ áp dụng cho bố cục phương trình. Các quy tắc thay thế mô tả ở trên vẫn áp dụng cho văn bản thường trong bản trình chiếu.
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Sự khác nhau giữa việc thay thế phông chữ và việc thay thế (substitution) phông chữ là gì?**
+**Sự khác nhau giữa thay thế phông chữ và thay đổi phông chữ là gì?**
 
-[Replacement](/slides/vi/androidjava/font-replacement/) là việc ép buộc ghi đè một phông chữ bằng một phông chữ khác trên toàn bộ bản trình bày. Thay thế (substitution) là một quy tắc được kích hoạt trong một điều kiện cụ thể, ví dụ khi phông chữ gốc không có sẵn, và sau đó một phông chữ dự phòng được chỉ định sẽ được sử dụng.
+[Font replacement](/slides/vi/androidjava/font-replacement/) thay đổi có chủ đích một phông chữ thành phông chữ khác trên toàn bộ bản trình chiếu. Thay thế phông chữ chọn một phông chữ cho kết quả hiển thị khi đáp ứng điều kiện cấu hình, chẳng hạn khi phông chữ gốc không khả dụng.
 
-**Khi nào các quy tắc thay thế (substitution) được áp dụng chính xác?**
+**Khi nào các quy tắc thay thế được áp dụng?**
 
-Các quy tắc tham gia vào chuỗi [font selection](/slides/vi/androidjava/font-selection-sequence/) tiêu chuẩn được đánh giá trong quá trình tải, hiển thị và chuyển đổi; nếu phông chữ đã chọn không khả dụng, việc thay thế hoặc thay thế (substitution) sẽ được áp dụng.
+Các quy tắc tham gia vào [font selection sequence](/slides/vi/androidjava/font-selection-sequence/) trong quá trình hiển thị và chuyển đổi. Với `WhenInaccessible`, quy tắc chỉ được dùng khi Aspose.Slides không thể truy cập phông chữ nguồn.
 
-**Hành vi mặc định là gì nếu không có cả thay thế (replacement) nor thay thế (substitution) nào được cấu hình và phông chữ thiếu trên hệ thống?**
+**Điều gì xảy ra khi một phông chữ thiếu và không có quy tắc thay thế nào được cấu hình?**
 
-Thư viện sẽ cố gắng chọn phông chữ hệ thống gần nhất có sẵn, tương tự như cách PowerPoint hoạt động.
+Aspose.Slides sẽ chọn phông chữ khả dụng gần nhất theo quy trình lựa chọn phông chữ của nó. Kết quả phụ thuộc vào các phông chữ có sẵn trong môi trường runtime.
 
-**Tôi có thể đính kèm phông chữ bên ngoài tùy chỉnh tại thời gian chạy để tránh việc thay thế không?**
+**Tôi có thể tải phông chữ ngoài để tránh việc thay thế không?**
 
-Có. Bạn có thể [thêm phông chữ bên ngoài](/slides/vi/androidjava/custom-font/) tại thời gian chạy để thư viện xem xét chúng cho việc lựa chọn và hiển thị, bao gồm cả cho các chuyển đổi tiếp theo.
+Có. Bạn có thể [load external fonts](/slides/vi/androidjava/custom-font/) để Aspose.Slides sử dụng chúng trong quá trình hiển thị và chuyển đổi.
 
-**Aspose có phân phối bất kỳ phông chữ nào cùng với thư viện không?**
+**Aspose có phân phối phông chữ cùng với thư viện không?**
 
-Không. Aspose không phân phối bất kỳ phông chữ trả phí hay miễn phí nào; bạn tự thêm và sử dụng phông chữ theo quyết định và trách nhiệm của mình.
+Không. Bạn chịu trách nhiệm cung cấp phông chữ và tuân thủ các giấy phép của chúng.
 
-**Có sự khác biệt nào trong hành vi thay thế (substitution) trên Windows, Linux và macOS không?**
+**Kết quả thay thế có thể khác nhau giữa các thiết bị Android không?**
 
-Có. Quá trình tìm kiếm phông chữ bắt đầu từ các thư mục phông chữ của hệ điều hành. Bộ phông chữ khả dụng mặc định và các đường dẫn tìm kiếm khác nhau giữa các nền tảng, điều này ảnh hưởng đến khả năng sẵn có và nhu cầu thay thế.
+Có. Các phông chữ hệ thống khả dụng có thể khác nhau giữa các phiên bản Android, thiết bị và nhà sản xuất, vì vậy một phông chữ có sẵn ở môi trường này có thể cần được thay thế ở môi trường khác.
 
-**Tôi nên chuẩn bị môi trường như thế nào để giảm thiểu việc thay thế không mong muốn trong quá trình chuyển đổi hàng loạt?**
+**Làm sao để làm cho việc lựa chọn phông chữ nhất quán trên các thiết bị Android?**
 
-Đồng bộ bộ phông chữ trên các máy hoặc container, [thêm phông chữ bên ngoài](/slides/vi/androidjava/custom-font/) cần thiết cho tài liệu đầu ra, và [nhúng phông chữ](/slides/vi/androidjava/embedded-font/) vào bản trình bày khi có thể để các phông chữ đã chọn có sẵn trong quá trình hiển thị.
+Đóng gói cùng một bộ phông chữ yêu cầu với ứng dụng, [load chúng như phông chữ tải ngoài](/slides/vi/androidjava/custom-font/), và [embed fonts](/slides/vi/androidjava/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/vi/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) trước khi xuất để xác định các phép thay thế không mong muốn.

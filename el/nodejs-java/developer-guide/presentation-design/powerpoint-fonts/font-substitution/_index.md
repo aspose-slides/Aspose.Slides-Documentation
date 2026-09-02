@@ -1,12 +1,12 @@
 ---
-title: Διαμόρφωση υποκατάστασης γραμματοσειράς σε παρουσιάσεις χρησιμοποιώντας JavaScript
-linktitle: Υποκατάσταση γραμματοσειράς
+title: Διαμόρφωση Υποκατάστασης Γραμματοσειρών σε Παρουσιάσεις με JavaScript
+linktitle: Υποκατάσταση Γραμματοσειρών
 type: docs
 weight: 70
 url: /el/nodejs-java/font-substitution/
 keywords:
 - γραμματοσειρά
-- υποκατάσταση γραμματοσειράς
+- αντικατάσταση γραμματοσειράς
 - υποκατάσταση γραμματοσειράς
 - αντικατάσταση γραμματοσειράς
 - αντικατάσταση γραμματοσειράς
@@ -18,101 +18,168 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ενεργοποιήστε βέλτιστη υποκατάσταση γραμματοσειράς στο Aspose.Slides για Node.js κατά τη μετατροπή παρουσιάσεων PowerPoint & OpenDocument σε άλλες μορφές αρχείων με JavaScript."
+description: "Διαμορφώστε τους κανόνες υποκατάστασης γραμματοσειρών και ελέγξτε τις αντικατασταθείσες γραμματοσειρές στο Aspose.Slides για Node.js μέσω Java κατά την απόδοση ή τη μετατροπή παρουσιάσεων PowerPoint και OpenDocument."
 ---
 ## **Επισκόπηση**
 
-Η αντικατάσταση γραμματοσειράς επιτρέπει στο Aspose.Slides να χρησιμοποιεί άλλη γραμματοσειρά όταν η αρχική γραμματοσειρά παρουσίασης δεν είναι διαθέσιμη κατά την απόδοση ή τη μετατροπή. Μπορείτε να ελέγξετε ποιες γραμματοσειρές αντικαταστάθηκαν χρησιμοποιώντας τη μέθοδο `getSubstitutions` της κλάσης `FontsManager`.
+Η αντικατάσταση γραμματοσειρών επιτρέπει στο Aspose.Slides να χρησιμοποιεί μια διαθέσιμη γραμματοσειρά στη θέση μιας γραμματοσειράς που δεν μπορεί να προσπελαστεί όταν μια παρουσίαση αποδίδεται ή μετατρέπεται. Η αντικατάσταση επηρεάζει το παραγόμενο αποτέλεσμα· δεν αλλάζει τη γραμματοσειρά που έχει ανατεθεί στο περιεχόμενο της παρουσίασης.
 
-Το Aspose.Slides επίσης επιτρέπει τον ορισμό κανόνων αντικατάστασης γραμματοσειρών. Για παράδειγμα, μπορείτε να καθορίσετε ότι μια μη προσβάσιμη γραμματοσειρά πρέπει να αντικατασταθεί με άλλη διαθέσιμη γραμματοσειρά και στη συνέχεια να εφαρμόσετε αυτούς τους κανόνες μέσω του διαχειριστή γραμματοσειρών της παρουσίασης.
+Μπορείτε να ορίσετε τη γραμματοσειρά που θα χρησιμοποιηθεί όταν μια συγκεκριμένη γραμματοσειρά δεν είναι διαθέσιμη και μπορείτε να επιθεωρήσετε τις αντικαταστάσεις που θα κάνει το Aspose.Slides κατά τη διάρκεια της απόδοσης. Αυτό βοηθά στη διατήρηση της συνέπειας του αποτελέσματος μεταξύ περιβαλλόντων με διαφορετικές εγκατεστημένες γραμματοσειρές.
 
-## **Ορισμός κανόνων αντικατάστασης γραμματοσειρών**
+## **Λήψη Αντικαταστάσεων Γραμματοσειρών**
 
-Το Aspose.Slides επιτρέπει τον ορισμό κανόνων για τις γραμματοσειρές που καθορίζουν τι πρέπει να γίνει σε ορισμένες συνθήκες (π.χ. όταν μια γραμματοσειρά δεν μπορεί να προσπελαστεί) ως εξής:
+Χρησιμοποιήστε τη μέθοδο [FontsManager.getSubstitutions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) για να προσδιορίσετε ποιες γραμματοσειρές θα αντικατασταθούν όταν η παρουσίαση αποδίδεται. Η μέθοδος επιστρέφει αντικείμενα [FontSubstitutionInfo](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsubstitutioninfo/) που αναγνωρίζουν τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών.
 
-1. Φορτώστε την αντίστοιχη παρουσίαση.
-2. Φορτώστε τη γραμματοσειρά που θα αντικατασταθεί.
-3. Φορτώστε τη νέα γραμματοσειρά.
-4. Προσθέστε έναν κανόνα για την αντικατάσταση.
-5. Προσθέστε τον κανόνα στη συλλογή κανόνων αντικατάστασης γραμματοσειρών της παρουσίασης.
-6. Δημιουργήστε την εικόνα διαφάνειας για να παρατηρήσετε το αποτέλεσμα.
-
-Αυτός ο κώδικας JavaScript δείχνει τη διαδικασία αντικατάστασης γραμματοσειρών:
+Το παρακάτω παράδειγμα JavaScript παραθέτει όλες τις αντικαταστάσεις γραμματοσειρών για μια παρουσίαση:
 
 ```javascript
-// Φορτώνει μια παρουσίαση
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Φορτώνει τη γραμματοσειρά προέλευσης που θα αντικατασταθεί
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Φορτώνει τη νέα γραμματοσειρά
-    var destFont = new aspose.slides.FontData("Arial");
-    // Προσθέτει έναν κανόνα γραμματοσειράς για αντικατάσταση γραμματοσειράς
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Προσθέτει τον κανόνα στη συλλογή κανόνων υποκατάστασης γραμματοσειρών
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Προσθέτει μια συλλογή κανόνων γραμματοσειράς στη λίστα κανόνων
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Η γραμματοσειρά Arial θα χρησιμοποιηθεί αντί της SomeRareFont όταν αυτή είναι μη προσβάσιμη
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Αποθηκεύει την εικόνα στο δίσκο σε μορφή JPEG
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Λήψη Αντικαταστάσεων Γραμματοσειρών για Επιλεγμένες Διαφάνειες**
 
-Ίσως θέλετε να δείτε [**Αντικατάσταση γραμματοσειράς**](/slides/el/nodejs-java/font-replacement/).
+Χρησιμοποιήστε την υπερφόρτωση της [FontsManager.getSubstitutions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) με έναν πίνακα δεικτών διαφανειών για να επιθεωρήσετε μόνο τις αντικαταστάσεις που απαιτούνται για την απόδοση συγκεκριμένων διαφανειών. Αυτό είναι χρήσιμο όταν αποδίδετε ή εξάγετε μέρος μιας παρουσίασης, ελέγχετε σταδιακά μια μεγάλη παρουσίαση, εντοπίζετε διαφάνειες που εξαρτώνται από μη διαθέσιμες γραμματοσειρές, ετοιμάζετε ένα ελάχιστο πακέτο γραμματοσειρών για έναν διακομιστή ή κοντέινερ, ή διαγνώσετε διαφορές απόδοσης χωρίς να επεξεργαστείτε μη σχετικές διαφάνειες.
 
+Η υπερφόρτωση αναμένει μια Java primitive `int[]`. Δημιουργήστε την με `java.newArray("int", [...])`; ένας απλός πίνακας JavaScript μετατρέπεται σε `Integer[]` και δεν ταιριάζει με αυτήν την υπερφόρτωση.
+
+Ο πίνακας περιέχει δείκτες διαφανειών με αρίθμηση από το 1: το `1` εντοπίζει την πρώτη διαφάνεια. Αντιθέτως, ο προσπελάστης συλλογής [Presentation.getSlides](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/getslides/) χρησιμοποιεί μηδενική αρίθμηση, έτσι η ίδια διαφάνεια προσπελαύνεται ως `presentation.getSlides().get_Item(0)`. Δώστε προσοχή σε αυτή τη διαφορά κατά τη δημιουργία του πίνακα για να αποφύγετε σφάλματα κατά ένα.
+
+Κλήστε την υπερφόρτωση μέσω του [Presentation.getFontsManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/getfontsmanager/). Επιστρέφει μόνο τις αντικαταστάσεις που καθορίστηκαν κατά την απόδοση των επιλεγμένων διαφανών. Κάθε αποτέλεσμα είναι ένα αντικείμενο [FontSubstitutionInfo](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsubstitutioninfo/) που περιέχει τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών. Το αποτέλεσμα αντανακλά το τρέχον περιβάλλον γραμματοσειρών, τους διαμορφωμένους κανόνες εφεδρείας, τους κανόνες αντικατάστασης αποθηκευμένους σε μια [FontSubstRuleCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsubstrulecollection/), και τις [externally loaded fonts](/slides/el/nodejs-java/custom-font/).
+
+Η ίδια αντικατάσταση μπορεί να απαιτείται από περισσότερες από μία επιλεγμένες διαφάνειες. Αφαιρέστε τα διπλότυπα στα αποτελέσματα όταν δημιουργείτε ένα αποθετήριο γραμματοσειρών ή αναφορά προελέγχου. Το παρακάτω παράδειγμα αναφέρει κάθε επιστρεφόμενη αντικατάσταση και στη συνέχεια δημιουργεί μια ταξινομημένη λίστα μοναδικών αντιστοιχίσεων γραμματοσειρών:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+Η κλάση [FontsManager](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/) παρέχει και τις δύο υπερφορτώσεις. Επιλέξτε μία ανάλογα με την εμβέλεια της λειτουργίας απόδοσης:
+
+| Υπερφόρτωση | Χρήση όταν |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | Χρειάζεστε αντικαταστάσεις για ολόκληρη την παρουσίαση. |
+| [getSubstitutions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | Χρειάζεστε αντικαταστάσεις για επιλεγμένο εύρος, σταδιακό έλεγχο ή μερική εξαγωγή. |
+
+## **Ορισμός Κανονισμών Αντικατάστασης Γραμματοσειρών**
+
+Για να καθορίσετε τη γραμματοσειρά που πρέπει να χρησιμοποιεί το Aspose.Slides όταν μια πηγή γραμματοσειράς δεν είναι διαθέσιμη:
+
+1. Φορτώστε την παρουσίαση.
+2. Δημιουργήστε ορισμούς γραμματοσειρών για τη γραμματοσειρά προέλευσης και την αντικαταστάτη.
+3. Δημιουργήστε έναν [FontSubstRule](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsubstrule/) με την κατάσταση [WhenInaccessible](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsubstcondition/).
+4. Προσθέστε τον κανόνα σε μια [FontSubstRuleCollection](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsubstrulecollection/).
+5. Ανάθεστε τη συλλογή χρησιμοποιώντας τη μέθοδο [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
+6. Αποδώστε ή μετατρέψτε την παρουσίαση.
+
+Το παρακάτω παράδειγμα JavaScript αντικαθιστά το `Arial` για το `SomeRareFont` όταν το `SomeRareFont` δεν είναι διαθέσιμο, και στη συνέχεια αποδίδει την πρώτη διαφάνεια για να επαληθεύσει το αποτέλεσμα. Η γραμματοσειρά αντικατάστασης πρέπει να είναι διαθέσιμη στο Aspose.Slides.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Για μια ανεξάρτητη αλλαγή των γραμματοσειρών που χρησιμοποιούνται σε όλη την παρουσίαση, δείτε την [Font Replacement](/slides/el/nodejs-java/font-replacement/).
 {{% /alert %}}
 
-## **Περιορισμοί για τις γραμματοσειρές μαθηματικών εξισώσεων**
+## **Περιορισμοί για Γραμματοσειρές Μαθηματικών Εξισώσεων**
 
-Οι κανόνες αντικατάστασης γραμματοσειρών συμμετέχουν στη στάνταρ διαδικασία επιλογής γραμματοσειράς που χρησιμοποιείται κατά την απόδοση και τη μετατροπή. Είναι κατάλληλοι για σενάρια κανονικού κειμένου όπου το Aspose.Slides μπορεί να αντικαταστήσει μια μη προσβάσιμη γραμματοσειρά με άλλη διαθέσιμη γραμματοσειρά σύμφωνα με τον ρυθμισμένο κανόνα.
+Οι κανόνες αντικατάστασης γραμματοσειρών αποτελούν μέρος της τυπικής διαδικασίας επιλογής γραμματοσειρών που χρησιμοποιείται κατά την απόδοση και τη μετατροπή. Λειτουργούν για κανονικό κείμενο όταν το Aspose.Slides μπορεί να αντικαταστήσει μια μη προσπελάσιμη γραμματοσειρά με τη διαθέσιμη γραμματοσειρά που ορίζεται από έναν κανόνα.
 
-Ωστόσο, οι μαθηματικές εξισώσεις του Office έχουν ένα σημαντικό περιορισμό. Εάν μια εξίσωση δημιουργήθηκε με **Cambria Math**, το Aspose.Slides ενδέχεται να απαιτεί ακόμη τη αρχική γραμματοσειρά **Cambria Math** για να υπολογίσει και να αποδώσει σωστά τη διάταξη της εξίσωσης. Εξαιτίας αυτού, η αντικατάσταση της **Cambria Math** με άλλη γραμματοσειρά μαθηματικών, όπως η **STIX Two Math**, δεν υποστηρίζεται για την απόδοση εξισώσεων και μπορεί να προκαλέσει εξαίρεση που υποδεικνύει ότι απαιτείται η **Cambria Math**.
+Οι εξισώσεις Office Math έχουν πρόσθετη απαίτηση. Εάν μια εξίσωση χρησιμοποιεί τη **Cambria Math**, το Aspose.Slides μπορεί να χρειάζεται ακριβώς αυτή τη γραμματοσειρά για να υπολογίσει και να αποδώσει τη διάταξη της εξίσωσης. Ένας κανόνας που αντικαθιστά άλλη γραμματοσειρά μαθηματικών, όπως η **STIX Two Math**, δεν μπορεί να αντικαταστήσει τη **Cambria Math** για αυτό το σκοπό, και η απόδοση μπορεί να εξακολουθήσει να αναφέρει ότι απαιτείται η **Cambria Math**.
 
-Για να μετατρέψετε επιτυχώς τέτοιες παρουσιάσεις, βεβαιωθείτε ότι η **Cambria Math** είναι διαθέσιμη στο Aspose.Slides κατά το χρόνο εκτέλεσης. Μπορείτε να εγκαταστήσετε τη γραμματοσειρά στο λειτουργικό σύστημα ή να την παρέχετε ως [εξωτερική γραμματοσειρά](/slides/el/nodejs-java/custom-font/) ώστε να συμμετέχει στη φυσιολογική διαδικασία επιλογής γραμματοσειράς κατά την απόδοση και τη μετατροπή.
+Για να αποδώσετε ή να μετατρέψετε μια τέτοια παρουσίαση, κάντε τη **Cambria Math** διαθέσιμη στο Aspose.Slides. Εγκαταστήστε την στο λειτουργικό σύστημα ή φορτώστε την ως [external font](/slides/el/nodejs-java/custom-font/).
 
-Αυτός ο περιορισμός είναι συγκεκριμένος για την απόδοση εξισώσεων. Οι στάνταρ κανόνες αντικατάστασης γραμματοσειρών που περιγράφηκαν παραπάνω εξακολουθούν να ισχύουν για το κανονικό κείμενο της παρουσίασης όταν η αρχική γραμματοσειρά δεν είναι προσβάσιμη.
+Αυτός ο περιορισμός ισχύει για τη διάταξη εξισώσεων. Οι παραπάνω κανόνες υποκατάστασης εξακολουθούν να ισχύουν για το κανονικό κείμενο της παρουσίασης.
 
-## **Συχνές ερωτήσεις**
+## **Συχνές Ερωτήσεις**
 
-**Τι διαφέρει μεταξύ αντικατάστασης γραμματοσειράς και υποκατάστασης γραμματοσειράς;**
+**Ποια είναι η διαφορά μεταξύ αντικατάστασης γραμματοσειράς και υποκατάστασης γραμματοσειράς;**
 
-[Replacement](/slides/el/nodejs-java/font-replacement/) είναι μια εξαναγκαστική αντικατάσταση μιας γραμματοσειράς με άλλη σε ολόκληρη την παρουσίαση. Η υποκατάσταση είναι ένας κανόνας που ενεργοποιείται υπό συγκεκριμένη κατάσταση, π.χ. όταν η αρχική γραμματοσειρά δεν είναι διαθέσιμη, και τότε χρησιμοποιείται μια καθορισμένη εναλλακτική γραμματοσειρά.
+Η [Font replacement](/slides/el/nodejs-java/font-replacement/) αλλάζει εσκεμμένα μια γραμματοσειρά με μια άλλη σε όλη την παρουσίαση. Η υποκατάσταση γραμματοσειράς επιλέγει μια γραμματοσειρά για το παραγόμενο αποτέλεσμα όταν πληρούται η ρυθμισμένη συνθήκη, όπως όταν η αρχική γραμματοσειρά δεν είναι διαθέσιμη.
 
-**Πότε ακριβώς εφαρμόζονται οι κανόνες υποκατάστασης;**
+**Πότε εφαρμόζονται οι κανόνες υποκατάστασης;**
 
-Οι κανόνες συμμετέχουν στην στάνταρ ακολουθία [επιλογής γραμματοσειράς](/slides/el/nodejs-java/font-selection-sequence/) που αξιολογείται κατά τη φόρτωση, την απόδοση και τη μετατροπή· εάν η επιλεγμένη γραμματοσειρά δεν είναι διαθέσιμη, εφαρμόζεται η αντικατάσταση ή η υποκατάσταση.
+Οι κανόνες συμμετέχουν στη [font selection sequence](/slides/el/nodejs-java/font-selection-sequence/) κατά την απόδοση και τη μετατροπή. Με το `WhenInaccessible`, ένας κανόνας χρησιμοποιείται μόνο όταν το Aspose.Slides δεν μπορεί να προσπελάσει τη γραμματοσειρά προέλευσης.
 
-**Ποια είναι η προεπιλεγμένη συμπεριφορά εάν δεν διαμορφώνονται ούτε αντικατάσταση ούτε υποκατάσταση και η γραμματοσειρά λείπει από το σύστημα;**
+**Τι συμβαίνει όταν λείπει μια γραμματοσειρά και δεν έχει ρυθμιστεί κανένας κανόνας υποκατάστασης;**
 
-Η βιβλιοθήκη θα προσπαθήσει να επιλέξει τη πιο κοντινή διαθέσιμη γραμματοσειρά του συστήματος, παρόμοια με τη συμπεριφορά του PowerPoint.
+Το Aspose.Slides επιλέγει τη πιο κοντινή διαθέσιμη γραμματοσειρά σύμφωνα με τη διαδικασία επιλογής γραμματοσειρών του. Το αποτέλεσμα εξαρτάται από τις γραμματοσειρές που είναι διαθέσιμες στο περιβάλλον εκτέλεσης.
 
-**Μπορώ να προσθέσω προσαρμοσμένες εξωτερικές γραμματοσειρές κατά το runtime για να αποφύγω την υποκατάσταση;**
+**Μπορώ να φορτώσω εξωτερικές γραμματοσειρές για να αποφύγω την υποκατάσταση;**
 
-Ναι. Μπορείτε να [προσθέσετε εξωτερικές γραμματοσειρές](/slides/el/nodejs-java/custom-font/) κατά το runtime, ώστε η βιβλιοθήκη να τις λαμβάνει υπόψη για επιλογή και απόδοση, συμπεριλαμβανομένων των επόμενων μετατροπών.
+Ναι. Μπορείτε να [load external fonts](/slides/el/nodejs-java/custom-font/) ώστε το Aspose.Slides να τις χρησιμοποιεί κατά την απόδοση και τη μετατροπή.
 
-**Διανέμει η Aspose κάποια γραμματοσειρά μαζί με τη βιβλιοθήκη;**
+**Διανέμει το Aspose γραμματοσειρές με τη βιβλιοθήκη;**
 
-Όχι. Η Aspose δεν διανέμει πληρωμένες ή δωρεάν γραμματοσειρές· εσείς προσθέτετε και χρησιμοποιείτε τις γραμματοσειρές με τη δική σας κρίση και ευθύνη.
+Όχι. Είστε υπεύθυνοι για την παροχή των γραμματοσειρών και τη συμμόρφωση με τις άδειες τους.
 
-**Υπάρχουν διαφορές στη συμπεριφορά υποκατάστασης σε Windows, Linux και macOS;**
+**Μπορούν τα αποτελέσματα υποκατάστασης να διαφέρουν μεταξύ Windows, Linux και macOS;**
 
-Ναι. Η ανεύρεση γραμματοσειρών ξεκινά από τους φακέλους γραμματοσειρών του λειτουργικού συστήματος. Το σύνολο των προεπιλεγμένων διαθέσιμων γραμματοσειρών και οι διαδρομές αναζήτησης διαφέρουν ανά πλατφόρμα, κάτι που επηρεάζει τη διαθεσιμότητα και την ανάγκη υποκατάστασης.
+Ναι. Οι εγκατεστημένες γραμματοσειρές και οι τοποθεσίες αναζήτησης γραμματοσειρών διαφέρουν ανά λειτουργικό σύστημα, έτσι μια γραμματοσειρά που είναι διαθέσιμη σε μια μηχανή μπορεί να απαιτεί υποκατάσταση σε άλλη.
 
-**Πώς πρέπει να προετοιμάσω το περιβάλλον για να ελαχιστοποιήσω την απρόσμενη υποκατάσταση κατά τις μαζικές μετατροπές;**
+**Πώς μπορώ να διασφαλίσω την συνέπεια της επιλογής γραμματοσειρών σε μαζικές μετατροπές;**
 
-Συγχρονίστε το σύνολο γραμματοσειρών μεταξύ μηχανών ή κοντέινερ, [προσθέστε τις εξωτερικές γραμματοσειρές](/slides/el/nodejs-java/custom-font/) που απαιτούνται για τα έγγραφα εξόδου, και [ενσωματώστε τις γραμματοσειρές](/slides/el/nodejs-java/embedded-font/) στις παρουσιάσεις όταν είναι δυνατόν, ώστε οι επιλεγμένες γραμματοσειρές να είναι διαθέσιμες κατά την απόδοση.
+Χρησιμοποιήστε τα ίδια αρχεία γραμματοσειρών και εκδόσεις σε κάθε μηχανή ή κοντέινερ, [load required external fonts](/slides/el/nodejs-java/custom-font/), και [embed fonts](/slides/el/nodejs-java/embedded-font/) όταν οι άδειες το επιτρέπουν. Μπορείτε επίσης να καλέσετε την [FontsManager.getSubstitutions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) πριν από την εξαγωγή για να εντοπίσετε απροσδόκητες υποκαταστάσεις.

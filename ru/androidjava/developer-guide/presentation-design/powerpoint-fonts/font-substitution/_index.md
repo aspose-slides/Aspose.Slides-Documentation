@@ -1,16 +1,16 @@
 ---
-title: Настройка подстановки шрифтов в презентациях на Android
-linktitle: Подстановка шрифтов
+title: Настройка замены шрифтов в презентациях на Android
+linktitle: Замена шрифтов
 type: docs
 weight: 70
 url: /ru/androidjava/font-substitution/
 keywords:
 - шрифт
+- заменяющий шрифт
 - замена шрифта
-- подстановка шрифта
-- заменить шрифт
 - замена шрифта
-- правило подстановки
+- замена шрифта
+- правило замены
 - правило замены
 - PowerPoint
 - OpenDocument
@@ -18,88 +18,173 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Обеспечьте оптимальную подстановку шрифтов в Aspose.Slides для Android через Java при конвертации презентаций PowerPoint и OpenDocument в другие форматы файлов."
+description: "Настройте правила замены шрифтов и проверьте заменённые шрифты в Aspose.Slides для Android через Java при рендеринге или конвертации презентаций."
 ---
-## **Установить правила подстановки шрифтов**
+## **Обзор**
 
-Aspose.Slides позволяет задать правила для шрифтов, которые определяют, что необходимо сделать в определённых условиях (например, когда шрифт недоступен) следующим образом:
+Замена шрифтов позволяет Aspose.Slides использовать доступный шрифт вместо шрифта, который невозможно получить при рендеринге или конвертации презентации. Замена влияет только на отрендеренный вывод; она не меняет шрифт, назначенный содержимому презентации.
 
-1. Загрузите соответствующую презентацию.
-2. Загрузите шрифт, который будет заменён.
-3. Загрузите новый шрифт.
-4. Добавьте правило для замены.
-5. Добавьте правило в коллекцию правил замены шрифтов презентации.
-6. Сгенерируйте изображение слайда, чтобы увидеть эффект.
+Вы можете задать шрифт, который будет использоваться, когда конкретный шрифт недоступен, и можете просмотреть замены, которые Aspose.Slides выполнит во время рендеринга. Это помогает поддерживать согласованный вывод на устройствах Android и в средах с различными доступными шрифтами.
 
-Этот код на Java демонстрирует процесс подстановки шрифтов:
+## **Получить замену шрифтов**
+
+Используйте метод [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) для определения, какие шрифты будут заменены при рендеринге презентации. Метод возвращает объекты [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fontsubstitutioninfo/), содержащие оригинальные и заменённые имена шрифтов.
+
+Ниже пример на Java, перечисляющий все замены шрифтов для презентации:
 
 ```java
-// Загружает презентацию
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Загружает исходный шрифт, который будет заменён
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Загружает новый шрифт
-    IFontData destFont = new FontData("Arial");
-    
-    // Добавляет правило шрифта для замены шрифта
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Добавляет правило в коллекцию правил подстановки шрифтов
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Добавляет коллекцию правил шрифта в список правил
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Шрифт Arial будет использован вместо SomeRareFont, когда последний недоступен
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Сохраняет изображение на диск в формате JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Возможно, вы захотите посмотреть [**Замену шрифтов**](/slides/ru/androidjava/font-replacement/).
+## **Получить замену шрифтов для выбранных слайдов**
+
+Используйте перегруженный вариант [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) с аргументом `int[] slides`, чтобы просмотреть только те замены, которые требуются для рендеринга конкретных слайдов. Это полезно, когда вы рендерите или экспортируете часть презентации, проверяете большую презентацию по частям, ищете слайды, зависящие от недоступных шрифтов, подготавливаете минимальный пакет шрифтов для Android‑приложения или диагностируете различия в рендеринге без обработки нерелевантных слайдов.
+
+Массив `slides` содержит индексы слайдов, начиная с единицы: `1` обозначает первый слайд. В отличие от этого, аксессор коллекции [Presentation.getSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getSlides--) использует нулевую индексацию, поэтому тот же слайд доступен как `presentation.getSlides().get_Item(0)`. Учтите это различие при построении массива, чтобы избежать ошибок «на один меньше/больше».
+
+Вызов перегруженного метода производится через [Presentation.getFontsManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/#getFontsManager--) . Он возвращает только те замены, которые были определены во время рендеринга выбранных слайдов. Каждый результат — объект [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fontsubstitutioninfo/), содержащий оригинальное и заменённое имя шрифта. Результат отражает текущую среду шрифтов, настроенные правила резервирования, правила замены, хранящиеся в [IFontSubstRuleCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsubstrulecollection/), и [внешне загруженные шрифты](/slides/ru/androidjava/custom-font/).
+
+Одна и та же замена может потребоваться более чем одному выбранному слайду. Удаляйте дубли при формировании инвентаризации шрифтов или отчёта о предварительной проверке. Ниже пример, который выводит каждую найденную замену, а затем создаёт отсортированный список уникальных сопоставлений шрифтов:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Интерфейс [IFontsManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsmanager/) предоставляет оба перегруженных метода. Выберите тот, который соответствует области применения операции рендеринга:
+
+| Перегрузка | Когда использовать |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) без аргументов | Вам нужны замены для всей презентации. |
+| [getSubstitutions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) с `int[] slides` | Вам нужны замены для выбранного диапазона, инкрементной проверки или частичного экспорта. |
+
+## **Задать правила замены шрифтов**
+
+Чтобы указать шрифт, который Aspose.Slides должен использовать, когда исходный шрифт недоступен:
+
+1. Загрузите презентацию.  
+2. Создайте определения шрифтов для исходного и заменяющего шрифта.  
+3. Создайте объект [FontSubstRule](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fontsubstrule/) с условием [WhenInaccessible](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fontsubstcondition/).  
+4. Добавьте правило в [FontSubstRuleCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fontsubstrulecollection/).  
+5. Назначьте коллекцию с помощью метода [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).  
+6. Выполните рендеринг или конвертацию презентации.
+
+Ниже пример на Java, заменяющий `Arial` на `SomeRareFont`, когда `SomeRareFont` недоступен, и затем рендерит первый слайд для проверки результата. Заменяющий шрифт должен быть доступен Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Примечание" %}}
+Для безусловного изменения шрифтов, используемых во всей презентации, смотрите раздел [Font Replacement](/slides/ru/androidjava/font-replacement/).
 {{% /alert %}}
 
 ## **Ограничения для шрифтов математических уравнений**
 
-Правила подстановки шрифтов участвуют в стандартном процессе выбора шрифта, используемом при рендеринге и конвертации. Они подходят для обычных текстовых сценариев, где Aspose.Slides может заменить недоступный шрифт другим доступным шрифтом согласно настроенному правилу.
+Правила замены шрифтов являются частью стандартного процесса выбора шрифта, используемого при рендеринге и конвертации. Они работают для обычного текста, когда Aspose.Slides может заменить недоступный шрифт на указанный в правиле доступный шрифт.
 
-Однако у уравнений Office Math есть важное ограничение. Если уравнение было создано с использованием **Cambria Math**, Aspose.Slides всё равно может требовать оригинальный шрифт **Cambria Math** для вычисления и рендеринга разметки уравнения правильно. Поэтому замена **Cambria Math** другим математическим шрифтом, например **STIX Two Math**, не поддерживается при рендеринге уравнений и может привести к исключению, указывающему, что требуется **Cambria Math**.
+Уравнения Office Math имеют дополнительное требование. Если уравнение использует **Cambria Math**, Aspose.Slides может потребовать именно этот шрифт для вычисления и рендеринга макета уравнения. Правило, заменяющее его на другой математический шрифт, например **STIX Two Math**, не может заменить **Cambria Math** для этой цели, и рендеринг всё равно может сообщать, что требуется **Cambria Math**.
 
-Чтобы успешно конвертировать такие презентации, убедитесь, что **Cambria Math** доступен Aspose.Slides во время выполнения. Вы можете установить шрифт в операционной системе или предоставить его как [внешний шрифт](/slides/ru/androidjava/custom-font/), чтобы он мог участвовать в обычном процессе выбора шрифтов при рендеринге и конвертации.
+Чтобы рендерить или конвертировать такую презентацию, сделайте **Cambria Math** доступным для Aspose.Slides. Загрузите его как [внешний шрифт](/slides/ru/androidjava/custom-font/), чтобы приложение могло использовать его во время рендеринга и конвертации.
 
-Это ограничение относится исключительно к рендерингу уравнений. Описанные выше стандартные правила подстановки шрифтов по‑прежнему применяются к обычному тексту презентации, когда оригинальный шрифт недоступен.
+Это ограничение относится к макету уравнений. Правила замены, описанные выше, по‑прежнему применяются к обычному тексту презентации.
 
 ## **FAQ**
 
-**В чём разница между заменой шрифта и подстановкой шрифта?**  
-[Замена](/slides/ru/androidjava/font-replacement/) — это принудительное переопределение одного шрифта другим во всей презентации. Подстановка — это правило, которое срабатывает при определённом условии, например когда оригинальный шрифт недоступен, и тогда используется заданный резервный шрифт.
+**В чём разница между заменой шрифтов и их заменой (replacement)?**
 
-**Когда именно применяются правила подстановки?**  
-Правила участвуют в стандартной последовательности [выбора шрифтов](/slides/ru/androidjava/font-selection-sequence/), которая оценивается во время загрузки, рендеринга и конвертации; если выбранный шрифт недоступен, применяется замена или подстановка.
+[Font replacement](/slides/ru/androidjava/font-replacement/) намеренно меняет один шрифт на другой во всей презентации. Замена шрифтов (substitution) выбирает шрифт для отрендеренного вывода, когда выполнено условие, например когда оригинальный шрифт недоступен.
 
-**Каково поведение по умолчанию, если не настроены ни замена, ни подстановка, и шрифт отсутствует в системе?**  
-Библиотека попытается выбрать ближайший доступный системный шрифтом, аналогично тому, как это делает PowerPoint.
+**Когда применяются правила замены?**
 
-**Могу ли я присоединять пользовательские внешние шрифты во время выполнения, чтобы избежать подстановки?**  
-Да. Вы можете [добавлять внешние шрифты](/slides/ru/androidjava/custom-font/) во время выполнения, чтобы библиотека учитывала их при выборе и рендеринге, включая последующие конвертации.
+Правила участвуют в [последовательности выбора шрифта](/slides/ru/androidjava/font-selection-sequence/) во время рендеринга и конвертации. При условии `WhenInaccessible` правило используется только когда Aspose.Slides не может получить доступ к исходному шрифту.
 
-**Поставляет ли Aspose какие‑либо шрифты вместе с библиотекой?**  
-Нет. Aspose не распространяет платные или бесплатные шрифты; вы добавляете и используете шрифты по своему усмотрению и ответственности.
+**Что происходит, если шрифт отсутствует и правило замены не задано?**
 
-**Есть ли различия в поведении подстановки на Windows, Linux и macOS?**  
-Да. Поиск шрифтов начинается с каталогов шрифтов операционной системы. Набор доступных по умолчанию шрифтов и пути поиска различаются в разных платформах, что влияет на их доступность и необходимость подстановки.
+Aspose.Slides выбирает наиболее подходящий доступный шрифт согласно своему процессу выбора шрифтов. Результат зависит от шрифтов, доступных в среде выполнения.
 
-**Как подготовить окружение, чтобы минимизировать неожиданную подстановку при пакетных конверсиях?**  
-Синхронизируйте набор шрифтов между машинами или контейнерами, [добавьте внешние шрифты](/slides/ru/androidjava/custom-font/), необходимые для выходных документов, и [встроьте шрифты](/slides/ru/androidjava/embedded-font/) в презентации, если это возможно, чтобы выбранные шрифты были доступны во время рендеринга.
+**Можно ли загрузить внешние шрифты, чтобы избежать замены?**
+
+Да. Вы можете [загрузить внешние шрифты](/slides/ru/androidjava/custom-font/), чтобы Aspose.Slides мог использовать их во время рендеринга и конвертации.
+
+**Распространяет ли Aspose шрифты вместе с библиотекой?**
+
+Нет. Вы отвечаете за предоставление шрифтов и соблюдение их лицензий.
+
+**Могут ли результаты замены различаться между устройствами Android?**
+
+Да. Доступные системные шрифты могут различаться между версиями Android, устройствами и производителями, поэтому шрифт, доступный в одной среде, может требовать замены в другой.
+
+**Как обеспечить согласованность выбора шрифтов на разных устройствах Android?**
+
+Пакуйте одинаковые необходимые файлы шрифтов вместе с приложением, [загружайте их как внешние шрифты](/slides/ru/androidjava/custom-font/), и [встраивайте шрифты](/slides/ru/androidjava/embedded-font/), если лицензия это позволяет. Вы также можете вызвать [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) перед экспортом, чтобы выявить неожиданные замены.

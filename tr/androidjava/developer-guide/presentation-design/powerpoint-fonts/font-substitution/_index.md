@@ -1,118 +1,190 @@
 ---
-title: Android'de Sunumlarda Font Değişimini Yapılandırma
-linktitle: Font Değişimi
+title: Android'de Sunumlarda Yazı Tipi İkamesini Yapılandırma
+linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
 url: /tr/androidjava/font-substitution/
 keywords:
 - yazı tipi
-- yedek yazı tipi
-- yazı tipi değişimi
-- yazı tipi değiştirme
+- ikame yazı tipi
 - yazı tipi ikamesi
-- değişim kuralı
+- yazı tipi değiştirme
+- yazı tipi değişimi
 - ikame kuralı
+- değiştirme kuralı
 - PowerPoint
 - OpenDocument
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını diğer dosya formatlarına dönüştürürken, Android için Aspose.Slides'ta Java aracılığıyla optimal font değişimini etkinleştirin."
+description: "Sunumları oluştururken veya dönüştürürken Java aracılığıyla Aspose.Slides for Android'de yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
 ## **Genel Bakış**
 
-Font değişimi, Aspose.Slides'in orijinal sunum yazı tipi işleme veya dönüştürme sırasında mevcut olmadığında başka bir yazı tipini kullanmasını sağlar. `IFontsManager` arayüzündeki `getSubstitutions` yöntemini kullanarak hangi yazı tiplerinin değiştirildiğini kontrol edebilirsiniz.
+Yazı tipi ikamesi, Aspose.Slides'in bir sunum oluşturulurken veya dönüştürülürken erişilemeyen bir yazı tipinin yerine mevcut bir yazı tipini kullanmasını sağlar. İkame, oluşturulan çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
 
-Aspose.Slides ayrıca font değişim kurallarını tanımlamanıza izin verir. Örneğin, erişilemeyen bir fontun başka bir mevcut fontla değiştirilmesini belirtebilir ve ardından bu kuralları sunumun font yöneticisi aracılığıyla uygulayabilirsiniz.
+Belirli bir yazı tipi kullanılamadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'in oluşturma sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı Android cihazları ve çeşitli mevcut yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
 
-## **Font Değişim Kurallarını Ayarlama**
+## **Yazı Tipi İkamelarını Al**
 
-Aspose.Slides, belirli koşullarda (örneğin bir fonta erişilemediğinde) ne yapılması gerektiğini belirleyen kuralları şu şekilde ayarlamanıza olanak tanır:
+Sunum oluşturulurken hangi yazı tiplerinin ikame edileceğini belirlemek için [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metodunu kullanın. Metod, orijinal ve ikame edilen yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
 
-1. İlgili sunumu yükleyin.  
-2. Değiştirilecek fontu yükleyin.  
-3. Yeni fontu yükleyin.  
-4. Değiştirme için bir kural ekleyin.  
-5. Kuralı sunumun font değiştirme kural koleksiyonuna ekleyin.  
-6. Etkisini gözlemlemek için slayt görüntüsü oluşturun.  
-
-Bu Java kodu, font değişim sürecini gösterir:
+Aşağıdaki Java örneği, bir sunum için tüm yazı tipi ikamelarını listeler:
 
 ```java
-// Bir sunumu yükler
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Değiştirilecek kaynak fontu yükler
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Yeni fontu yükler
-    IFontData destFont = new FontData("Arial");
-    
-    // Font değişimi için bir kural ekler
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Kuralı font değiştirme kuralları koleksiyonuna ekler
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Kural listesine bir font kural koleksiyonu ekler
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Arial fontu, SomeRareFont erişilemez olduğunda onun yerine kullanılacaktır
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Görüntüyü JPEG formatında diske kaydeder
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-İlgili sayfayı görmek isteyebilirsiniz [**Font Replacement**](/slides/tr/androidjava/font-replacement/).  
+## **Seçili Slaytlar İçin Yazı Tipi İkamelarını Al**
+
+Belirli slaytları oluşturmak için gerekli ikameleri yalnızca incelemek üzere `int[] slides` parametresiyle [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) aşırı yüklemesini kullanın. Bu, bir sunumun bir kısmını oluştururken veya dışa aktarırken, büyük bir sunumu artımlı olarak kontrol ederken, kullanılabilir olmayan yazı tiplerine bağımlı slaytları bulurken, bir Android uygulaması için minimal bir yazı tipi paketi hazırlarken veya ilgisiz slaytları işlemeden oluşturma farklarını teşhis ederken faydalıdır.
+
+`slides` dizisi bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı tanımlar. Buna karşılık, [Presentation.getSlides](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getSlides--) koleksiyon erişicisi sıfır‑tabanlı indeksleme kullanır, bu yüzden aynı slayt `presentation.getSlides().get_Item(0)` şeklinde erişilir. Dizi oluştururken bu farkı akılda tutarak bir‑bir hatasından kaçının.
+
+Bu aşırı yüklemeyi [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/presentation/#getFontsManager--) metodu aracılığıyla çağırın. Yalnızca seçili slaytların oluşturulması sırasında belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, geçerli yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını, bir [IFontSubstRuleCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsubstrulecollection/) içinde depolanan ikame kurallarını ve [externally loaded fonts](/slides/tr/androidjava/custom-font/) yansıtır.
+
+Aynı ikame, birden fazla seçili slayt tarafından istenebilir. Yazı tipi envanteri veya ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından benzersiz yazı tipi eşleştirmelerinin sıralı bir listesini oluşturur:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[IFontsManager](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsmanager/) arabirimi her iki aşırı yüklemeyi de sağlar. Oluşturma işleminin kapsamına göre birini seçin:
+
+| Overload | Use it when |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | Sunumun tamamı için ikameler gerektiğinde. |
+| [getSubstitutions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım gerektiğinde. |
+
+## **Yazı Tipi İkame Kurallarını Ayarla**
+
+Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'in kullanması gereken yazı tipini belirtmek için:
+
+1. Sunumu yükleyin.  
+2. Kaynak ve ikame yazı tipleri için yazı tipi tanımlamaları oluşturun.  
+3. [WhenInaccessible](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstcondition/) koşulu ile bir [FontSubstRule](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstrule/) oluşturun.  
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsubstrulecollection/)’a ekleyin.  
+5. Koleksiyonu, [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) metodunu kullanarak atayın.  
+6. Sunumu oluşturun veya dönüştürün.
+
+Aşağıdaki Java örneği, `SomeRareFont` kullanılamadığında `Arial` ile ikame eder ve ardından sonucu doğrulamak için ilk slaytı oluşturur. İkame yazı tipi Aspose.Slides tarafından kullanılabilir olmalıdır.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Not" %}}
+Bir sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için, [Font Replacement](/slides/tr/androidjava/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemi Yazı Tipleri için Sınırlamalar**
+## **Matematik Denklemi Yazı Tipleri İçin Sınırlamalar**
 
-Font değişim kuralları, işleme ve dönüştürme sırasında kullanılan standart font seçme sürecine katılır. Aspose.Slides'in, erişilemeyen bir fontu yapılandırılmış kurala göre başka bir mevcut fontla değiştirebildiği normal metin senaryoları için uygundur.
+Yazı tipi ikame kuralları, oluşturma ve dönüştürme sırasında kullanılan standart yazı tipi seçme sürecinin bir parçasıdır. Aspose.Slides, erişilemeyen bir yazı tipini kural tarafından belirtilen mevcut bir yazı tipi ile değiştirebildiğinde, bu kurallar normal metin için çalışır.
 
-Ancak, Office matematik denklemlerinde önemli bir sınırlama vardır. Bir denklem **Cambria Math** ile oluşturulmuşsa, Aspose.Slides denklemin düzenini doğru şekilde hesaplamak ve işlemek için hâlâ orijinal **Cambria Math** yazı tipine ihtiyaç duyabilir. Bu nedenle **Cambria Math**'ın **STIX Two Math** gibi başka bir matematik yazı tipiyle değiştirilmesi, denklem işleme için desteklenmez ve hâlâ **Cambria Math** gerektiğini belirten bir istisna ile sonuçlanabilir.
+Office Math denklemleri ek bir gereksinime sahiptir. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides bu denklemin düzenini hesaplamak ve oluşturmak için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipini ikame eden bir kural, bu amaçla **Cambria Math**'i değiştiremez ve oluşturma hâlâ **Cambria Math**'in gerekli olduğunu bildirebilir.
 
-Bu tür sunumları başarıyla dönüştürmek için, **Cambria Math**'ın çalışma zamanında Aspose.Slides tarafından erişilebilir olduğundan emin olun. Yazı tipini işletim sistemine kurabilir veya bir [external font](/slides/tr/androidjava/custom-font/) olarak sağlayarak işleme ve dönüştürme sırasında normal font seçme sürecine katılmasını sağlayabilirsiniz.
+Bu tür bir sunumu oluşturmak veya dönüştürmek için **Cambria Math**'i Aspose.Slides'e kullanılabilir hâle getirin. Uygulamanın oluşturma ve dönüştürme sırasında kullanabilmesi için onu bir [external font](/slides/tr/androidjava/custom-font/) olarak yükleyin.
 
-Bu sınırlama yalnızca denklem işleme için geçerlidir. Yukarıda açıklanan standart font değişim kuralları, orijinal font erişilemediğinde normal sunum metni için hâlâ uygulanır.
+Bu sınırlama denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları normal sunum metinlerine hâlâ uygulanır.
 
 ## **SSS**
 
-**Font değiştirme ile font değişimi arasındaki fark nedir?**
+**Yazı Tipi Değiştirme ile Yazı Tipi İkamesi arasındaki fark nedir?**
 
-[Replacement](/slides/tr/androidjava/font-replacement/) tüm sunum boyunca bir fontun zorla bir başka fontla üzerine yazılmasıdır. Değişim, belirli bir koşul altında (örneğin orijinal font mevcut olmadığında) tetiklenen ve tanımlı bir yedek fontun kullanıldığı bir kuraldır.
+[Font replacement](/slides/tr/androidjava/font-replacement/) sunum boyunca bir yazı tipini kasıtlı olarak başka birine değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul sağlandığında (örneğin, orijinal yazı tipi kullanılamadığında) oluşturulan çıktı için bir yazı tipi seçer.
 
-**Değişim kuralları tam olarak ne zaman uygulanır?**
+**İkame kuralları ne zaman uygulanır?**
 
-Kurallar, yükleme, işleme ve dönüştürme sırasında değerlendirilmekte olan standart [font selection](/slides/tr/androidjava/font-selection-sequence/) sırasına katılır; seçilen font mevcut değilse değiştirme veya değişim uygulanır.
+Kurallar, oluşturma ve dönüştürme sırasında [font selection sequence](/slides/tr/androidjava/font-selection-sequence/) sürecine katılır. `WhenInaccessible` ile bir kural, yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
 
-**Ne bir değiştirme ne de değişim yapılandırılmamış ve sistemde font eksikse varsayılan davranış nedir?**
+**Bir yazı tipi eksik olduğunda ve hiçbir ikame kuralı yapılandırılmadığında ne olur?**
 
-Kütüphane, PowerPoint'in davranışına benzer şekilde en yakın mevcut sistem fontunu seçmeye çalışır.
+Aspose.Slides, yazı tipi seçim sürecine göre en yakın kullanılabilir yazı tipini seçer. Sonuç, çalışma zaman ortamında mevcut olan yazı tiplerine bağlıdır.
 
-**Değişimi önlemek için çalışma zamanında özel dış fontları ekleyebilir miyim?**
+**İkame etmeyi önlemek için dış yazı tipleri yükleyebilir miyim?**
 
-Evet. Çalışma zamanında [external fonts](/slides/tr/androidjava/custom-font/) ekleyebilir, böylece kütüphane seçim ve işleme sırasında bunları göz önünde bulundurur, sonraki dönüşümler için de geçerli olur.
+Evet. Aspose.Slides'in oluşturma ve dönüştürme sırasında kullanabilmesi için [external fonts](/slides/tr/androidjava/custom-font/) yükleyebilirsiniz.
 
-**Aspose kütüphane ile birlikte herhangi bir font dağıtıyor mu?**
+**Aspose kütüphane ile birlikte yazı tipleri dağıtıyor mu?**
 
-Hayır. Aspose ücretli veya ücretsiz fontlar dağıtmaz; fontları kendi takdiriniz ve sorumluluğunuzla ekleyip kullanırsınız.
+Hayır. Yazı tiplerini temin etmek ve lisanslarına uymak sizin sorumluluğunuzdadır.
 
-**Windows, Linux ve macOS üzerinde değişim davranışında farklılıklar var mı?**
+**İkame sonuçları Android cihazlar arasında farklılık gösterebilir mi?**
 
-Evet. Font keşfi, işletim sisteminin font dizinlerinden başlar. Varsayılan mevcut fontların seti ve arama yolları platformlar arasında farklılık gösterir; bu da erişilebilirliği ve değişim ihtiyacını etkiler.
+Evet. Mevcut sistem yazı tipleri Android sürümleri, cihazlar ve üreticiler arasında değişebilir; bu yüzden bir ortamda mevcut olan bir yazı tipi başka bir ortamda ikame gerektirebilir.
 
-**Toplu dönüşümler sırasında beklenmeyen değişimleri en aza indirmek için ortamı nasıl hazırlamalıyım?**
+**Android cihazlar arasında yazı tipi seçimini tutarlı nasıl yapabilirim?**
 
-Makine veya konteynerler arasında font setini senkronize edin, çıktı belgeleri için gereken [external fonts](/slides/tr/androidjava/custom-font/) ekleyin ve mümkün olduğunda sunumlara [embed fonts](/slides/tr/androidjava/embedded-font/) yerleştirerek seçilen fontların işleme sırasında mevcut olmasını sağlayın.
+Gerekli aynı yazı tipi dosyalarını uygulama ile paketleyin, [external fonts](/slides/tr/androidjava/custom-font/) olarak yükleyin ve lisans izin veriyorsa [embed fonts](/slides/tr/androidjava/embedded-font/) kullanın. Ayrıca, beklenmeyen ikameleri belirlemek için dışa aktarmadan önce [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) metodunu çağırabilirsiniz.

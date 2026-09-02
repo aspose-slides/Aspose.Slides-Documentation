@@ -1,13 +1,13 @@
 ---
-title: Διαμόρφωση Αντικατάστασης Γραμματοσειρών σε Παρουσιάσεις σε Android
-linktitle: Αντικατάσταση Γραμματοσειρών
+title: "Διαμόρφωση αντικατάστασης γραμματοσειράς σε παρουσιάσεις σε Android"
+linktitle: "Αντικατάσταση γραμματοσειράς"
 type: docs
 weight: 70
 url: /el/androidjava/font-substitution/
 keywords:
 - γραμματοσειρά
 - αντικατάσταση γραμματοσειράς
-- αντικατάσταση γραμματοσειράς
+- υποκατάσταση γραμματοσειράς
 - αντικατάσταση γραμματοσειράς
 - αντικατάσταση γραμματοσειράς
 - κανόνας υποκατάστασης
@@ -18,101 +18,173 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ενεργοποιήστε βέλτιστη αντικατάσταση γραμματοσειρών στο Aspose.Slides για Android μέσω Java κατά τη μετατροπή παρουσιάσεων PowerPoint & OpenDocument σε άλλες μορφές αρχείων."
+description: "Διαμορφώστε κανόνες υποκατάστασης γραμματοσειρών και ελέγξτε τις αντικατεστημένες γραμματοσειρές στο Aspose.Slides για Android μέσω Java κατά την απόδοση ή τη μετατροπή παρουσιάσεων."
 ---
 ## **Επισκόπηση**
 
-Η αντικατάσταση γραμματοσειράς επιτρέπει στο Aspose.Slides να χρησιμοποιήσει μια άλλη γραμματοσειρά όταν η αρχική γραμματοσειρά της παρουσίασης δεν είναι διαθέσιμη κατά τη διάρκεια της απόδοσης ή της μετατροπής. Μπορείτε να ελέγξετε ποιες γραμματοσειρές αντικαταστάθηκαν χρησιμοποιώντας τη μέθοδο `getSubstitutions` από το interface `IFontsManager`.
+Η αντικατάσταση γραμματοσειράς επιτρέπει στο Aspose.Slides να χρησιμοποιεί μια διαθέσιμη γραμματοσειρά αντί μιας γραμματοσειράς που δεν είναι προσβάσιμη όταν μια παρουσίαση αποδίδεται ή μετατρέπεται. Η αντικατάσταση επηρεάζει το παραγόμενο αποτέλεσμα· δεν αλλάζει τη γραμματοσειρά που είναι ανατεθειμένη στο περιεχόμενο της παρουσίασης.
 
-Το Aspose.Slides επιτρέπει επίσης να ορίζετε κανόνες αντικατάστασης γραμματοσειράς. Για παράδειγμα, μπορείτε να υποδείξετε ότι μια μη προσβάσιμη γραμματοσειρά πρέπει να αντικατασταθεί με μια άλλη διαθέσιμη γραμματοσειρά και στη συνέχεια να εφαρμόσετε αυτούς τους κανόνες μέσω του διαχειριστή γραμματοσειρών της παρουσίασης.
+Μπορείτε να ορίσετε τη γραμματοσειρά που θα χρησιμοποιείται όταν μια συγκεκριμένη γραμματοσειρά δεν είναι διαθέσιμη και μπορείτε να εξετάσετε τις αντικαταστάσεις που θα κάνει το Aspose.Slides κατά την απόδοση. Αυτό βοηθά στη διατήρηση της συνέπειας του αποτελέσματος σε συσκευές Android και περιβάλλοντα με διαφορετικές διαθέσιμες γραμματοσειρές.
 
-## **Ορισμός κανόνων αντικατάστασης γραμματοσειράς**
+## **Λήψη αντικαταστάσεων γραμματοσειρών**
 
-Το Aspose.Slides σάς επιτρέπει να δημιουργήσετε κανόνες για τις γραμματοσειρές που καθορίζουν τι πρέπει να γίνει σε συγκεκριμένες συνθήκες (για παράδειγμα, όταν δεν είναι δυνατή η πρόσβαση σε μια γραμματοσειρά) ως εξής:
+Χρησιμοποιήστε τη μέθοδο [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) για να προσδιορίσετε ποιες γραμματοσειρές θα αντικατασταθούν όταν η παρουσίαση αποδίδεται. Η μέθοδος επιστρέφει αντικείμενα [FontSubstitutionInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsubstitutioninfo/) που προσδιορίζουν τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών.
 
-1. Φορτώστε την σχετική παρουσίαση.
-2. Φορτώστε τη γραμματοσειρά που θα αντικατασταθεί.
-3. Φορτώστε τη νέα γραμματοσειρά.
-4. Προσθέστε έναν κανόνα για την αντικατάσταση.
-5. Προσθέστε τον κανόνα στη συλλογή κανόνων αντικατάστασης γραμματοσειράς της παρουσίασης.
-6. Δημιουργήστε την εικόνα της διαφάνειας για να παρατηρήσετε το αποτέλεσμα.
-
-Αυτός ο κώδικας Java δείχνει τη διαδικασία αντικατάστασης γραμματοσειράς:
+Το παρακάτω παράδειγμα Java παραθέτει όλες τις αντικαταστάσεις γραμματοσειρών για μια παρουσίαση:
 
 ```java
-// Φορτώνει μια παρουσίαση
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Φορτώνει τη γραμματοσειρά πηγής που θα αντικατασταθεί
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Φορτώνει τη νέα γραμματοσειρά
-    IFontData destFont = new FontData("Arial");
-    
-    // Προσθέτει έναν κανόνα γραμματοσειράς για αντικατάσταση γραμματοσειράς
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Προσθέτει τον κανόνα στη συλλογή κανόνων αντικατάστασης γραμματοσειράς
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Προσθέτει μια συλλογή κανόνων γραμματοσειράς στη λίστα κανόνων
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Η γραμματοσειρά Arial θα χρησιμοποιηθεί αντί της SomeRareFont όταν αυτή δεν είναι προσβάσιμη
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Αποθηκεύει την εικόνα στο δίσκο σε μορφή JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Μπορεί να θέλετε να δείτε [**Font Replacement**](/slides/el/androidjava/font-replacement/).
+## **Λήψη αντικαταστάσεων γραμματοσειρών για επιλεγμένες διαφάνειες**
+
+Χρησιμοποιήστε τη μέθοδο [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) με ένα όρισμα `int[] slides` για να εξετάσετε μόνο τις αντικαταστάσεις που απαιτούνται για την απόδοση συγκεκριμένων διαφανειών. Αυτό είναι χρήσιμο όταν αποδίδετε ή εξάγετε μέρος μιας παρουσίασης, ελέγχετε μια μεγάλη παρουσίαση σταδιακά, εντοπίζετε διαφάνειες που εξαρτώνται από μη διαθέσιμες γραμματοσειρές, προετοιμάζετε ένα ελάχιστο πακέτο γραμματοσειρών για μια εφαρμογή Android ή διαγνώσατε διαφορές απόδοσης χωρίς την επεξεργασία άσχετων διαφανειών.
+
+Ο πίνακας `slides` περιέχει δείκτες διαφανειών με αρίθμηση από το 1: `1` προσδιορίζει την πρώτη διαφάνεια. Αντίθετα, ο συλλέκτης [Presentation.getSlides](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getSlides--) χρησιμοποιεί μηδενική αρίθμηση, έτσι η ίδια διαφάνεια προσπελαύνεται ως `presentation.getSlides().get_Item(0)`. Λάβετε υπόψη αυτή τη διαφορά κατά τη δημιουργία του πίνακα ώστε να αποφύγετε σφάλματα «ένα‑πέρα‑ένα».
+
+Καλέστε την υπερφόρτωση μέσω της μεθόδου [Presentation.getFontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/presentation/#getFontsManager--). Επιστρέφει μόνο τις αντικαταστάσεις που καθορίστηκαν κατά την απόδοση των επιλεγμένων διαφανειών. Κάθε αποτέλεσμα είναι ένα αντικείμενο [FontSubstitutionInfo](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsubstitutioninfo/) που περιέχει τα αρχικά και τα αντικατεστημένα ονόματα γραμματοσειρών. Το αποτέλεσμα αντανακλά το τρέχον περιβάλλον γραμματοσειρών, τους ρυθμισμένους κανόνες επιστροφής, τους κανόνες αντικατάστασης αποθηκευμένους σε μια [IFontSubstRuleCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsubstrulecollection/), και τις [externally loaded fonts](/slides/el/androidjava/custom-font/).
+
+Η ίδια αντικατάσταση μπορεί να απαιτείται από περισσότερες από μία επιλεγμένες διαφάνειες. Απομακρύνετε τα διπλότυπα όταν δημιουργείτε απογραφή γραμματοσειρών ή αναφορά προελέγχου. Το παρακάτω παράδειγμα αναφέρει κάθε επιστρεφόμενη αντικατάσταση και, στη συνέχεια, δημιουργεί μια ταξινομημένη λίστα μοναδικών αντιστοιχιών γραμματοσειρών:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Η διεπαφή [IFontsManager](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/) παρέχει και τις δύο υπερφορτώσεις. Επιλέξτε αυτήν που ταιριάζει στο πεδίο εφαρμογής της λειτουργίας απόδοσης:
+
+| Υπερφόρτωση | Χρησιμοποιήστε το όταν |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) χωρίς ορίσματα | Χρειάζεστε αντικαταστάσεις για ολόκληρη την παρουσίαση. |
+| [getSubstitutions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) με `int[] slides` | Χρειάζεστε αντικαταστάσεις για επιλεγμένο εύρος, σταδιακό έλεγχο ή μερική εξαγωγή. |
+
+## **Ορισμός κανόνων αντικατάστασης γραμματοσειράς**
+
+Για να καθορίσετε τη γραμματοσειρά που πρέπει να χρησιμοποιήσει το Aspose.Slides όταν μια πηγή γραμματοσειράς δεν είναι διαθέσιμη:
+
+1. Φορτώστε την παρουσίαση.  
+2. Δημιουργήστε ορισμούς γραμματοσειρών για τη γραμματοσειρά πηγής και τη γραμματοσειρά αντικατάστασης.  
+3. Δημιουργήστε ένα αντικείμενο [FontSubstRule](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsubstrule/) με την συνθήκη [WhenInaccessible](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsubstcondition/).  
+4. Προσθέστε τον κανόνα σε μια [FontSubstRuleCollection](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsubstrulecollection/).  
+5. Αναθέστε τη συλλογή χρησιμοποιώντας τη μέθοδο [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).  
+6. Αποδώστε ή μετατρέψτε την παρουσίαση.
+
+Το παρακάτω παράδειγμα Java αντικαθιστά τη γραμματοσειρά `Arial` με τη `SomeRareFont` όταν η `SomeRareFont` δεν είναι διαθέσιμη και, στη συνέχεια, αποδίδει την πρώτη διαφάνεια για να επαληθεύσει το αποτέλεσμα. Η γραμματοσειρά αντικατάστασης πρέπει να είναι διαθέσιμη στο Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Για μια ανεξάρτητη αλλαγή στις γραμματοσειρές που χρησιμοποιούνται σε ολόκληρη την παρουσίαση, δείτε την [Font Replacement](/slides/el/androidjava/font-replacement/).
 {{% /alert %}}
 
 ## **Περιορισμοί για γραμματοσειρές μαθηματικών εξισώσεων**
 
-Οι κανόνες αντικατάστασης γραμματοσειράς συμμετέχουν στη στάνταρ διαδικασία επιλογής γραμματοσειράς που χρησιμοποιείται κατά την απόδοση και τη μετατροπή. Είναι κατάλληλοι για σενάρια κανονικού κειμένου, όπου το Aspose.Slides μπορεί να αντικαταστήσει μια μη προσβάσιμη γραμματοσειρά με μια άλλη διαθέσιμη γραμματοσειρά σύμφωνα με τον ρυθμισμένο κανόνα.
+Οι κανόνες αντικατάστασης γραμματοσειράς αποτελούν μέρος της τυπικής διαδικασίας επιλογής γραμματοσειράς που χρησιμοποιείται κατά την απόδοση και τη μετατροπή. Λειτουργούν για κανονικό κείμενο όταν το Aspose.Slides μπορεί να αντικαταστήσει μια μη προσβάσιμη γραμματοσειρά με τη διαθέσιμη γραμματοσειρά που καθορίζεται από κανόνα.
 
-Ωστόσο, οι μαθηματικές εξισώσεις του Office έχουν έναν σημαντικό περιορισμό. Εάν μια εξίσωση δημιουργήθηκε με τη **Cambria Math**, το Aspose.Slides ενδέχεται να εξακολουθεί να απαιτεί την αρχική γραμματοσειρά **Cambria Math** για να υπολογίσει και να αποδώσει σωστά τη διάταξη της εξίσωσης. Για αυτόν τον λόγο, η αντικατάσταση της **Cambria Math** με άλλη μαθηματική γραμματοσειρά, όπως η **STIX Two Math**, δεν υποστηρίζεται για την απόδοση της εξίσωσης και μπορεί ακόμη να προκαλέσει εξαίρεση που υποδεικνύει ότι απαιτείται η **Cambria Math**.
+Οι εξισώσεις Office Math έχουν μια πρόσθετη απαίτηση. Εάν μια εξίσωση χρησιμοποιεί τη **Cambria Math**, το Aspose.Slides ενδέχεται να χρειάζεται ακριβώς αυτή τη γραμματοσειρά για να υπολογίσει και να αποδώσει τη διάταξη της εξίσωσης. Ένας κανόνας που αντικαθιστά άλλη μαθηματική γραμματοσειρά, όπως η **STIX Two Math**, δεν μπορεί να αντικαταστήσει τη **Cambria Math** για αυτόν τον σκοπό· η απόδοση μπορεί ακόμη να αναφέρει ότι απαιτείται η **Cambria Math**.
 
-Για να μετατρέψετε τέτοιες παρουσιάσεις επιτυχώς, βεβαιωθείτε ότι η **Cambria Math** είναι διαθέσιμη στο Aspose.Slides κατά την εκτέλεση. Μπορείτε να εγκαταστήσετε τη γραμματοσειρά στο λειτουργικό σύστημα ή να την παρέχετε ως [εξωτερική γραμματοσειρά](/slides/el/androidjava/custom-font/) ώστε να συμμετέχει στη συνήθη διαδικασία επιλογής γραμματοσειράς κατά την απόδοση και τη μετατροπή.
+Για να αποδώσετε ή να μετατρέψετε μια τέτοια παρουσίαση, κάντε τη **Cambria Math** διαθέσιμη στο Aspose.Slides. Φορτώστε τη ως [external font](/slides/el/androidjava/custom-font/) ώστε η εφαρμογή να μπορεί να τη χρησιμοποιήσει κατά την απόδοση και τη μετατροπή.
 
-Αυτός ο περιορισμός αφορά συγκεκριμένα την απόδοση εξισώσεων. Οι στάνταρ κανόνες αντικατάστασης γραμματοσειράς που περιγράφηκαν παραπάνω εξακολουθούν να ισχύουν για το κανονικό κείμενο της παρουσίασης όταν η αρχική γραμματοσειρά δεν είναι προσβάσιμη.
+Αυτός ο περιορισμός ισχύει για τη διάταξη των εξισώσεων. Οι κανόνες αντικατάστασης που περιγράφονται παραπάνω εξακολουθούν να ισχύουν για το κανονικό κείμενο της παρουσίασης.
 
-## **Συχνές Ερωτήσεις**
+## **Συχνές ερωτήσεις**
 
 **Ποια είναι η διαφορά μεταξύ αντικατάστασης γραμματοσειράς και υποκατάστασης γραμματοσειράς;**
 
-Η [Αντικατάσταση](/slides/el/androidjava/font-replacement/) είναι μια εξαναγκαστική αντικατάσταση μιας γραμματοσειράς με άλλη σε ολόκληρη την παρουσίαση. Η υποκατάσταση είναι ένας κανόνας που ενεργοποιείται υπό συγκεκριμένη συνθήκη, για παράδειγμα όταν η αρχική γραμματοσειρά δεν είναι διαθέσιμη, και τότε χρησιμοποιείται μια καθορισμένη εναλλακτική γραμματοσειρά.
+[Font replacement](/slides/el/androidjava/font-replacement/) αλλάζει προοδευτικά μία γραμματοσειρά με άλλη σε όλη την παρουσίαση. Η υποκατάσταση γραμματοσειράς επιλέγει μια γραμματοσειρά για το αποδομένο αποτέλεσμα όταν πληρούνται οι ρυθμισμένες συνθήκες, όπως η μη διαθεσιμότητα της αρχικής γραμματοσειράς.
 
-**Πότε εφαρμόζονται ακριβώς οι κανόνες υποκατάστασης;**
+**Πότε εφαρμόζονται οι κανόνες υποκατάστασης;**
 
-Οι κανόνες συμμετέχουν στη στάνταρ [επιλογή γραμματοσειράς](/slides/el/androidjava/font-selection-sequence/) ακολουθία που αξιολογείται κατά τη φόρτωση, την απόδοση και τη μετατροπή· εάν η επιλεγμένη γραμματοσειρά δεν είναι διαθέσιμη, εφαρμόζεται αντικατάσταση ή υποκατάσταση.
+Οι κανόνες συμμετέχουν στη **font selection sequence**[/slides/el/androidjava/font-selection-sequence/] κατά την απόδοση και τη μετατροπή. Με το `WhenInaccessible`, ένας κανόνας χρησιμοποιείται μόνο όταν το Aspose.Slides δεν μπορεί να προσπελάσει τη γραμματοσειρά πηγής.
 
-**Ποια είναι η προεπιλεγμένη συμπεριφορά εάν δεν έχει ρυθμιστεί ούτε αντικατάσταση ούτε υποκατάσταση και η γραμματοσειρά λείπει από το σύστημα;**
+**Τι συμβαίνει όταν λείπει μια γραμματοσειρά και δεν υπάρχει κανένας κανόνας υποκατάστασης;**
 
-Η βιβλιοθήκη θα προσπαθήσει να επιλέξει τη πλησιέστερη διαθέσιμη γραμματοσειρά του συστήματος, παρόμοια με τη συμπεριφορά του PowerPoint.
+Το Aspose.Slides επιλέγει τη πιο κοντινή διαθέσιμη γραμματοσειρά σύμφωνα με τη διαδικασία επιλογής γραμματοσειράς. Το αποτέλεσμα εξαρτάται από τις γραμματοσειρές που είναι διαθέσιμες στο περιβάλλον χρόνου εκτέλεσης.
 
-**Μπορώ να προσαρτήσω προσαρμοσμένες εξωτερικές γραμματοσειρές κατά την εκτέλεση ώστε να αποφεύγω την υποκατάσταση;**
+**Μπορώ να φορτώσω εξωτερικές γραμματοσειρές για να αποφύγω την υποκατάσταση;**
 
-Ναι. Μπορείτε να [προσθέσετε εξωτερικές γραμματοσειρές](/slides/el/androidjava/custom-font/) κατά την εκτέλεση ώστε η βιβλιοθήκη να τις λαμβάνει υπόψη για επιλογή και απόδοση, συμπεριλαμβανομένων των επόμενων μετατροπών.
+Ναι. Μπορείτε να [load external fonts](/slides/el/androidjava/custom-font/) ώστε το Aspose.Slides να τις χρησιμοποιεί κατά την απόδοση και τη μετατροπή.
 
-**Διανέμει το Aspose κάποια γραμματοσειρά με τη βιβλιοθήκη;**
+**Διανέμει το Aspose γραμματοσειρές με τη βιβλιοθήκη;**
 
-Όχι. Η Aspose δεν διανέμει πληρωμένες ή δωρεάν γραμματοσειρές· εσείς προσθέτετε και χρησιμοποιείτε γραμματοσειρές με τη δική σας κρίση και ευθύνη.
+Όχι. Είστε υπεύθυνοι για την παροχή των γραμματοσειρών και τη συμμόρφωση με τις άδειές τους.
 
-**Υπάρχουν διαφορές στη συμπεριφορά υποκατάστασης σε Windows, Linux και macOS;**
+**Μπορούν τα αποτελέσματα υποκατάστασης να διαφέρουν μεταξύ συσκευών Android;**
 
-Ναι. Η ανίχνευση γραμματοσειρών ξεκινά από τους καταλόγους γραμματοσειρών του λειτουργικού συστήματος. Το σύνολο των προεπιλεγμένων διαθέσιμων γραμματοσειρών και οι διαδρομές αναζήτησης διαφέρουν ανά πλατφόρμα, κάτι που επηρεάζει τη διαθεσιμότητα και την ανάγκη υποκατάστασης.
+Ναι. Οι διαθέσιμες γραμματοσειρές του συστήματος μπορεί να διαφέρουν μεταξύ εκδόσεων Android, συσκευών και κατασκευαστών, οπότε μια γραμματοσειρά που είναι διαθέσιμη σε ένα περιβάλλον μπορεί να απαιτεί υποκατάσταση σε άλλο.
 
-**Πώς πρέπει να προετοιμάσω το περιβάλλον για να ελαχιστοποιήσω τους απρόσμενους υποκαταστάτες κατά τις μαζικές μετατροπές;**
+**Πώς μπορώ να κάνω την επιλογή γραμματοσειράς συνεπή μεταξύ συσκευών Android;**
 
-Συγχρονίστε το σύνολο γραμματοσειρών μεταξύ μηχανών ή containers, [προσθέστε τις εξωτερικές γραμματοσειρές](/slides/el/androidjava/custom-font/) που απαιτούνται για τα έγγραφα εξόδου, και [ενσωματώστε τις γραμματοσειρές](/slides/el/androidjava/embedded-font/) στις παρουσιάσεις όταν είναι δυνατόν, ώστε οι επιλεγμένες γραμματοσειρές να είναι διαθέσιμες κατά την απόδοση.
+Συμπεριλάβετε τα ίδια απαραίτητα αρχεία γραμματοσειρών με την εφαρμογή, [load them as external fonts](/slides/el/androidjava/custom-font/), και [embed fonts](/slides/el/androidjava/embedded-font/) όταν οι άδειες το επιτρέπουν. Μπορείτε επίσης να καλέσετε το [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/el/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) πριν από την εξαγωγή για να εντοπίσετε απρόσμενες υποκαταστάσεις.

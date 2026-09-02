@@ -1,115 +1,197 @@
 ---
-title: Nastavení náhrady písma v prezentacích pomocí PHP
-linktitle: Náhrada písma
+title: Konfigurace substituce písem v prezentacích pomocí PHP
+linktitle: Substituce písem
 type: docs
 weight: 70
 url: /cs/php-java/font-substitution/
 keywords:
 - písmo
-- náhrada písma
+- nahrazení písma
 - substituce písma
 - nahrazení písma
-- nahrazení písma
+- náhrada písma
 - pravidlo substituce
-- pravidlo náhrady
+- pravidlo nahrazení
 - PowerPoint
 - OpenDocument
 - prezentace
 - PHP
 - Aspose.Slides
-description: "Umožněte optimální substituci písma v Aspose.Slides pro PHP přes Java při převodu prezentací PowerPoint a OpenDocument do jiných formátů souborů."
+description: "Konfigurujte pravidla substituce písem a prohlédněte substituovaná písma v Aspose.Slides pro PHP prostřednictvím Javy při vykreslování nebo konverzi prezentací PowerPoint a OpenDocument."
 ---
-## **Úvod**
+## **Přehled**
 
-Náhrada písma umožňuje Aspose.Slides použít jiné písmo, pokud původní písmo prezentace není během vykreslování nebo konverze k dispozici. Můžete zjistit, která písma byla nahrazena, pomocí metody `getSubstitutions` ze třídy `FontsManager`.
+Substituce písem umožňuje Aspose.Slides použít dostupné písmo místo písma, ke kterému nelze získat přístup při vykreslování nebo konverzi prezentace. Substituce se týká vykresleného výstupu; nemění písmo přiřazené k obsahu prezentace.
 
-Aspose.Slides také umožňuje definovat pravidla náhrady písma. Například můžete určit, že nedostupné písmo má být nahrazeno jiným dostupným písmem, a poté tato pravidla použít prostřednictvím správce písma prezentace.
+Můžete definovat písmo, které se má použít, když je konkrétní písmo nedostupné, a můžete si prohlédnout substituce, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní napříč prostředími s různě nainstalovanými písmy.
 
-## **Nastavení pravidel náhrady písma**
+## **Získání substitucí písem**
 
-Aspose.Slides vám umožňuje nastavit pravidla pro písma, která určují, co se má provést za určitých podmínek (například když není písmo přístupné), tímto způsobem:
+Pomocí metody [FontsManager::getSubstitutions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getsubstitutions/) určete, která písma budou substituována při vykreslování prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsubstitutioninfo/), které identifikují původní a substituované názvy písem.
 
-1. Načtěte příslušnou prezentaci.
-2. Načtěte písmo, které bude nahrazeno.
-3. Načtěte nové písmo.
-4. Přidejte pravidlo pro nahrazení.
-5. Přidejte pravidlo do kolekce pravidel nahrazení písma prezentace.
-6. Vygenerujte obrázek snímku a pozorujte výsledek.
-
-Tento PHP kód demonstruje proces náhrady písma:
+Následující PHP příklad vypíše všechny substituce písem pro prezentaci:
 
 ```php
-  # Načte prezentaci
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # Načte zdrojové písmo, které bude nahrazeno
-    $sourceFont = new FontData("SomeRareFont");
-    # Načte nové písmo
-    $destFont = new FontData("Arial");
-    # Přidá pravidlo pro nahrazení písma
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # Přidá pravidlo do kolekce pravidel náhrady písma
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # Přidá kolekci pravidel písma do seznamu pravidel
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # Písmo Arial bude použito místo SomeRareFont, pokud je to druhé nedostupné
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # Uloží obrázek na disk ve formátu JPEG
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $enumerator->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Možná budete chtít zobrazit [**Náhrada písma**](/slides/cs/php-java/font-replacement/).
+## **Získání substitucí písem pro vybrané snímky**
+
+Pomocí přetížení [FontsManager::getSubstitutions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getsubstitutions/) s argumentem `int[] slides` můžete prozkoumat pouze substituce potřebné k vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci inkrementálně, hledáte snímky závislé na nedostupných písmách, připravujete minimální balík písem pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
+
+Pole `slides` obsahuje jednorozměrné indexy snímků začínající od jedné: `1` označuje první snímek. Naopak přístupník kolekce [Presentation::getSlides](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getSlides) používá nulové indexování, takže stejný snímek je přístupný jako `$presentation->getSlides()->get_Item(0)`. Mějte tento rozdíl na paměti při tvorbě pole, aby nedošlo k chybě o jeden.
+
+Volání přetížení provádějte přes metodu [Presentation::getFontsManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/presentation/#getFontsManager). Vrací pouze substituce určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsubstitutioninfo/), který obsahuje původní a substituované názvy písem. Výsledek odráží aktuální prostředí písem, nakonfigurovaná pravidla záložních písem, pravidla substituce uložená v [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsubstrulecollection/) a [externě načtená písma](/slides/cs/php-java/custom-font/).
+
+Stejná substituce může být vyžadována více než jedním vybraným snímkem. Při tvorbě inventáře písem nebo preflight zprávy deduplikujte výsledky. Následující příklad vypíše každou vrácenou substituci a poté vytvoří seřazený seznam unikátních mapování písem:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Třída [FontsManager](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/) poskytuje obě přetížení. Vyberte si to podle rozsahu operace vykreslování:
+
+| Přetížení | Použít, když |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getsubstitutions/) bez argumentů | Potřebujete substituce pro celou prezentaci. |
+| [getSubstitutions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getsubstitutions/) s `int[] slides` | Potřebujete substituce pro vybraný rozsah, inkrementální kontrolu nebo částečný export. |
+
+## **Nastavení pravidel substituce písem**
+
+Pro specifikaci písma, které má Aspose.Slides použít, když je zdrojové písmo nedostupné:
+
+1. Načtěte prezentaci.  
+2. Vytvořte definice písem pro zdrojové a substituční písmo.  
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsubstcondition/).  
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsubstrulecollection/).  
+5. Přiřaďte kolekci pomocí metody [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. Vykreslete nebo konvertujte prezentaci.
+
+Následující PHP příklad substituuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupné, a poté vykreslí první snímek k ověření výsledku. Substituční písmo musí být dostupné pro Aspose.Slides.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $sourceFont = new FontData("SomeRareFont");
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
+    try {
+        $image->save("slide.jpg", ImageFormat::Jpeg);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Pro neomezenou změnu písem použité po celé prezentaci viz [Font Replacement](/slides/cs/php-java/font-replacement/).
 {{% /alert %}}
 
 ## **Omezení pro písma matematických rovnic**
 
-Pravidla náhrady písma se podílejí na standardním procesu výběru písma používaném během vykreslování a konverze. Jsou vhodná pro běžné scénáře textu, kde Aspose.Slides může nahradit nedostupné písmo jiným dostupným písmem podle nastaveného pravidla.
+Pravidla substituce písem jsou součástí standardního výběrového procesu písem používaného během vykreslování a konverze. Fungují pro běžný text, když Aspose.Slides dokáže nahradit nedostupné písmo dostupným písmem definovaným pravidlem.
 
-Nicméně rovnice Office Math mají důležité omezení. Pokud byla rovnice vytvořena pomocí **Cambria Math**, Aspose.Slides může stále vyžadovat originální písmo **Cambria Math** k výpočtu a vykreslení rozložení rovnice správně. Kvůli tomu není podporována náhrada **Cambria Math** jiným matematickým písmem, jako je **STIX Two Math**, při vykreslování rovnic a může stále dojít k výjimce, která uvádí, že je vyžadováno **Cambria Math**.
+Matematické rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě toto písmo k výpočtu a vykreslení rozvržení rovnice. Pravidlo, které substituuje jiné matematické písmo, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může nadále hlásit, že **Cambria Math** je vyžadováno.
 
-Pro úspěšnou konverzi takových prezentací se ujistěte, že **Cambria Math** je během běhu k dispozici pro Aspose.Slides. Můžete písmo nainstalovat v operačním systému nebo jej poskytnout jako [externí písmo](/slides/cs/php-java/custom-font/), aby se mohlo podílet na běžném procesu výběru písma během vykreslování a konverze.
+Pro vykreslení nebo konverzi takové prezentace zajistěte, aby byl **Cambria Math** dostupný pro Aspose.Slides. Nainstalujte jej v operačním systému nebo načtěte jako [externí písmo](/slides/cs/php-java/custom-font/).
 
-Toto omezení se vztahuje konkrétně na vykreslování rovnic. Standardní pravidla náhrady písma popsaná výše stále platí pro běžný text prezentace, pokud je originální písmo nedostupné.
+Toto omezení se vztahuje na rozvržení rovnic. Pravidla substituce popsaná výše stále platí pro běžný text prezentace.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi náhradou písma a jeho substitucí?**
+**Jaký je rozdíl mezi náhradou písma a substitucí písma?**
 
-[Náhrada](/slides/cs/php-java/font-replacement/) je vynucená přepsání jednoho písma jiným v celé prezentaci. Substituce je pravidlo, které se spustí za konkrétní podmínky, například když není originální písmo k dispozici, a poté se použije určené náhradní písmo.
+[Font replacement](/slides/cs/php-java/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Substituce písma vybere písmo pro vykreslený výstup, když je splněna konfigurovaná podmínka, například když je původní písmo nedostupné.
 
-**Kdy jsou pravidla substituce aplikována?**
+**Kdy se pravidla substituce aplikují?**
 
-Pravidla se podílejí na standardní sekvenci [výběru písma](/slides/cs/php-java/font-selection-sequence/), která je vyhodnocována během načítání, vykreslování a konverze; pokud je vybrané písmo nedostupné, použije se náhrada nebo substituce.
+Pravidla se podílejí na [font selection sequence](/slides/cs/php-java/font-selection-sequence/) během vykreslování a konverze. S `WhenInaccessible` se pravidlo použije jen tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému písmu.
 
-**Jaké je výchozí chování, pokud není nakonfigurována ani náhrada ani substituce a písmo chybí v systému?**
+**Co se stane, když písmo chybí a není nakonfigurováno žádné pravidlo substituce?**
 
-Knihovna se pokusí vybrat nejbližší dostupné systémové písmo, podobně jako by to udělal PowerPoint.
+Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písem. Výsledek závisí na pímech dostupných v runtime prostředí.
 
-**Mohu za běhu připojit vlastní externí písma, aby se zabránilo substituci?**
+**Mohu načíst externí písma, aby se zabránilo substituci?**
 
-Ano. Můžete během běhu [přidat externí písma](/slides/cs/php-java/custom-font/), aby je knihovna brala v úvahu při výběru a vykreslování, včetně následných konverzí.
+Ano. Můžete [load external fonts](/slides/cs/php-java/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a konverze.
 
-**Distribuuje Aspose nějaká písma spolu s knihovnou?**
+**Distribuuje Aspose písma s knihovnou?**
 
-Ne. Aspose nešíří placená ani volně dostupná písma; písma přidáváte a používáte na vlastní uvážení a odpovědnost.
+Ne. Za poskytování písem a dodržování jejich licencí jste odpovědní vy.
 
-**Existují rozdíly v chování substituce na Windows, Linuxu a macOS?**
+**Mohou se výsledky substituce lišit mezi Windows, Linux a macOS?**
 
-Ano. Vyhledávání písma začíná v adresářích písma operačního systému. Sada výchozích dostupných písem a vyhledávací cesty se liší mezi platformami, což ovlivňuje jejich dostupnost a potřebu substituce.
+Ano. Instalovaná písma a umístění prohledávání písem se liší podle operačního systému, takže písmo dostupné na jednom počítači může vyžadovat substituci na jiném.
 
-**Jak mám připravit prostředí, aby se minimalizovala neočekávaná substituce během hromadných konverzí?**
+**Jak zajistit konzistentní výběr písma při dávkových konverzích?**
 
-Synchronizujte sadu písem mezi stroji nebo kontejnery, [přidejte externí písma](/slides/cs/php-java/custom-font/) potřebná pro výstupní dokumenty a pokud je to možné, [vložte písma](/slides/cs/php-java/embedded-font/) do prezentací, aby byla vybraná písma během vykreslování k dispozici.
+Používejte stejné soubory písem a verze na každém stroji nebo kontejneru, [load required external fonts](/slides/cs/php-java/custom-font/), a [embed fonts](/slides/cs/php-java/embedded-font/), pokud licence dovolí. Můžete také před exportem zavolat [FontsManager::getSubstitutions](https://reference.aspose.com/slides/cs/php-java/aspose.slides/fontsmanager/getsubstitutions/) k identifikaci neočekávaných substitucí.

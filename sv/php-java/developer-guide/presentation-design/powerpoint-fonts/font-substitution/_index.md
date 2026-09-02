@@ -1,117 +1,197 @@
 ---
-title: Konfigurera teckensnittssubstitution i presentationer med PHP
-linktitle: Teckensnittssubstitution
+title: "Konfigurera teckensnittssubstitution i presentationer med PHP"
+linktitle: "Teckensnittssubstitution"
 type: docs
 weight: 70
 url: /sv/php-java/font-substitution/
 keywords:
 - teckensnitt
-- ersätt teckensnitt
+- substituera teckensnitt
 - teckensnittssubstitution
-- ersätta teckensnitt
+- byt teckensnitt
 - teckensnittsersättning
-- substitionsregel
+- substitutionsregel
 - ersättningsregel
 - PowerPoint
 - OpenDocument
 - presentation
 - PHP
 - Aspose.Slides
-description: "Aktivera optimal teckensnittssubstitution i Aspose.Slides för PHP via Java när du konverterar PowerPoint- och OpenDocument-presentationer till andra filformat."
+description: "Konfigurera teckensnittssubstitutionsregler och granska substituerade teckensnitt i Aspose.Slides för PHP via Java vid rendering eller konvertering av PowerPoint- och OpenDocument-presentationer."
 ---
-## **Introduktion**
+## **Översikt**
 
-Teckensnittssubstitution tillåter Aspose.Slides att använda ett annat teckensnitt när det ursprungliga presentationsteckensnittet inte är tillgängligt under rendering eller konvertering. Du kan kontrollera vilka teckensnitt som ersattes genom att använda metoden `getSubstitutions` från klassen `FontsManager`.
+Teckensnittssubstitution gör det möjligt för Aspose.Slides att använda ett tillgängligt teckensnitt i stället för ett teckensnitt som inte kan nås när en presentation renderas eller konverteras. Substitutionen påverkar det renderade resultatet; den ändrar inte det teckensnitt som är tilldelat presentationens innehåll.
 
-Aspose.Slides låter dig också definiera regler för teckensnittssubstitution. Till exempel kan du ange att ett otillgängligt teckensnitt ska ersättas med ett annat tillgängligt teckensnitt och sedan tillämpa dessa regler via presentationens teckensnittshanterare.
+Du kan definiera vilket teckensnitt som ska användas när ett specifikt teckensnitt är otillgängligt, och du kan granska de substitutioner som Aspose.Slides kommer att göra under rendering. Detta hjälper till att hålla utdata konsekvent mellan miljöer med olika installerade teckensnitt.
 
-## **Ange regler för teckensnittssubstitution**
+## **Hämta teckensnittssubstitutioner**
 
-Aspose.Slides låter dig ange regler för teckensnitt som bestämmer vad som ska göras i vissa situationer (till exempel när ett teckensnitt inte kan nås) på följande sätt:
+Använd metoden [FontsManager::getSubstitutions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getsubstitutions/) för att fastställa vilka teckensnitt som kommer att substitueras när presentationen renderas. Metoden returnerar objekt av typen [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsubstitutioninfo/) som identifierar de ursprungliga och substituerade teckensnittsnamnen.
 
-1. Läs in den relevanta presentationen.
-2. Läs in teckensnittet som ska ersättas.
-3. Läs in det nya teckensnittet.
-4. Lägg till en regel för ersättningen.
-5. Lägg till regeln i presentationens samling av teckensnittsersättningsregler.
-6. Generera bild av sliden för att observera effekten.
-
-Den här PHP-koden demonstrerar teckensnittssubstitutionsprocessen:
+Följande PHP‑exempel listar alla teckensnittssubstitutioner för en presentation:
 
 ```php
-  # Laddar en presentation
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # Laddar källteckensnittet som kommer att ersättas
-    $sourceFont = new FontData("SomeRareFont");
-    # Laddar det nya teckensnittet
-    $destFont = new FontData("Arial");
-    # Lägger till en teckensnittregel för teckensnittsersättning
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # Lägger till regeln i samlingen av teckensnittsersättningsregler
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # Lägger till en teckensnittregelsamling till regellistan
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # Arial-teckensnittet kommer att användas istället för SomeRareFont när det senare är otillgängligt
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # Sparar bilden till disk i JPEG-format
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $enumerator->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Hämta teckensnittssubstitutioner för valda bilder**
 
-Du kanske vill se [**Font Replacement**](/slides/sv/php-java/font-replacement/).
+Använd överlagringen av [FontsManager::getSubstitutions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getsubstitutions/) med argumentet `int[] slides` för att endast granska de substitutioner som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation stegvis, hittar bilder som är beroende av otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller container, eller diagnostiserar renderingsskillnader utan att bearbeta orelaterade bilder.
 
+`slides`‑arrayen innehåller bildindex med 1‑basering: `1` identifierar den första bilden. I kontrast använder åtkomsten [Presentation::getSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getSlides) nollbaserad indexering, så samma bild nås som `$presentation->getSlides()->get_Item(0)`. Ha denna skillnad i åtanke när du bygger arrayen för att undvika fel med ett steg.
+
+Anropa överlagringen via metoden [Presentation::getFontsManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getFontsManager). Den returnerar endast de substitutioner som bestämdes under rendering av de valda bilderna. Varje resultat är ett objekt av typen [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsubstitutioninfo/) som innehåller de ursprungliga och substituerade teckensnittsnamnen. Resultatet speglar den aktuella teckensnittsmiljön, konfigurerade reservregler, substitutionregler lagrade i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsubstrulecollection/) och [externt inlästa teckensnitt](/slides/sv/php-java/custom-font/).
+
+Samma substitution kan krävas av mer än en vald bild. Deduplikera resultaten när du skapar en teckensnitts‑inventering eller ett förhandsgransknings‑rapport. Följande exempel rapporterar varje returnerad substitution och skapar sedan en sorterad lista över unika teckensnittsmappningar:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+[FontsManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/)‑klassen erbjuder båda överlagringarna. Välj en enligt omfattningen av renderingsoperationen:
+
+| Överlagring | Använd den när |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | Du behöver substitutioner för hela presentationen. |
+| [getSubstitutions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getsubstitutions/) with `int[] slides` | Du behöver substitutioner för ett valt område, stegvis kontroll eller partiell export. |
+
+## **Ange teckensnittssubstitutionsregler**
+
+För att ange vilket teckensnitt Aspose.Slides ska använda när ett källteckensnitt är otillgängligt:
+
+1. Läs in presentationen.
+2. Skapa teckensnittsdefinitioner för käll- och substitutteckensnitten.
+3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsubstrule/) med villkoret [WhenInaccessible](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsubstcondition/).
+4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsubstrulecollection/).
+5. Tilldela samlingen med metoden [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
+6. Rendera eller konvertera presentationen.
+
+Följande PHP‑exempel substituerar `Arial` för `SomeRareFont` när `SomeRareFont` är otillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Det substituerade teckensnittet måste vara tillgängligt för Aspose.Slides.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $sourceFont = new FontData("SomeRareFont");
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
+    try {
+        $image->save("slide.jpg", ImageFormat::Jpeg);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+For an unconditional change to the fonts used throughout a presentation, see [Font Replacement](/slides/sv/php-java/font-replacement/).
 {{% /alert %}}
 
-## **Begränsningar för matematiska ekvationsteckensnitt**
+## **Begränsningar för matematiska ekvations­teckensnitt**
 
-Regler för teckensnittssubstitution deltar i den standardteckensnittsväljningsprocess som används under rendering och konvertering. De är lämpliga för vanliga textscenarier där Aspose.Slides kan ersätta ett otillgängligt teckensnitt med ett annat tillgängligt teckensnitt enligt den konfigurerade regeln.
+Teckensnittssubstitutionsregler är en del av den standardiserade teckensnittsurvalsprocessen som används under rendering och konvertering. De fungerar för vanlig text när Aspose.Slides kan ersätta ett otillgängligt teckensnitt med det tillgängliga teckensnitt som anges i en regel.
 
-Dock har Office-matematikekvationer en viktig begränsning. Om en ekvation skapades med **Cambria Math** kan Aspose.Slides fortfarande kräva det ursprungliga **Cambria Math**-teckensnittet för att korrekt beräkna och rendera ekvationslayouten. På grund av detta stöds inte ersättning av **Cambria Math** med ett annat matematiskt teckensnitt, såsom **STIX Two Math**, för ekvationsrendering och kan fortfarande leda till ett undantag som indikerar att **Cambria Math** krävs.
+Office Math‑ekvationer har ett extra krav. Om en ekvation använder **Cambria Math** kan Aspose.Slides behöva just det teckensnittet för att beräkna och rendera ekvationslayouten. En regel som substituerar ett annat matematiskt teckensnitt, såsom **STIX Two Math**, kan inte ersätta **Cambria Math** för detta ändamål, och renderingen kan fortfarande rapportera att **Cambria Math** krävs.
 
-För att konvertera sådana presentationer framgångsrikt, se till att **Cambria Math** är tillgängligt för Aspose.Slides vid körning. Du kan installera teckensnittet i operativsystemet eller tillhandahålla det som ett [external font](/slides/sv/php-java/custom-font/) så att det kan delta i den normala teckensnittsväljningsprocessen under rendering och konvertering.
+För att rendera eller konvertera en sådan presentation, gör **Cambria Math** tillgängligt för Aspose.Slides. Installera det i operativsystemet eller ladda det som ett [externt teckensnitt](/slides/sv/php-java/custom-font/).
 
-Denna begränsning är specifik för ekvationsrendering. De standardregler för teckensnittssubstitution som beskrivits ovan gäller fortfarande för vanlig presentationstext när det ursprungliga teckensnittet är otillgängligt.
+Denna begränsning gäller för ekvationslayout. Substitutionsreglerna som beskrivs ovan gäller fortfarande för vanlig presentationstext.
 
 ## **FAQ**
 
 **Vad är skillnaden mellan teckensnittsersättning och teckensnittssubstitution?**
 
-[Replacement](/slides/sv/php-java/font-replacement/) är en tvingad överskrivning av ett teckensnitt med ett annat i hela presentationen. Substitution är en regel som triggas under ett specifikt villkor, till exempel när det ursprungliga teckensnittet inte är tillgängligt, och då används ett utsedd reservteckensnitt.
+[Font replacement](/slides/sv/php-java/font-replacement/) ändrar avsiktligt ett teckensnitt till ett annat i hela presentationen. Teckensnittssubstitution väljer ett teckensnitt för det renderade resultatet när det konfigurerade villkoret är uppfyllt, till exempel när det ursprungliga teckensnittet är otillgängligt.
 
-**När tillämpas substitutionsregler exakt?**
+**När tillämpas substitutionsregler?**
 
-Reglerna deltar i den standard [font selection](/slides/sv/php-java/font-selection-sequence/) sekvens som utvärderas under inläsning, rendering och konvertering; om det valda teckensnittet är otillgängligt tillämpas ersättning eller substitution.
+Reglerna deltar i [teckensnittsurvalssekvensen](/slides/sv/php-java/font-selection-sequence/) under rendering och konvertering. Med `WhenInaccessible` används en regel endast när Aspose.Slides inte kan komma åt källteckensnittet.
 
-**Vad är standardbeteendet om varken ersättning eller substitution är konfigurerad och teckensnittet saknas i systemet?**
+**Vad händer när ett teckensnitt saknas och ingen substitutionsregel är konfigurerad?**
 
-Biblioteket kommer att försöka välja det närmaste tillgängliga systemteckensnittet, liknande hur PowerPoint skulle bete sig.
+Aspose.Slides väljer det närmaste tillgängliga teckensnittet enligt sin teckensnittsurvalsprocess. Resultatet beror på vilka teckensnitt som finns i runtime‑miljön.
 
-**Kan jag bifoga anpassade externa teckensnitt vid körning för att undvika substitution?**
+**Kan jag ladda externa teckensnitt för att undvika substitution?**
 
-Ja. Du kan [add external fonts](/slides/sv/php-java/custom-font/) vid körning så att biblioteket tar dem i beaktande för val och rendering, även för efterföljande konverteringar.
+Ja. Du kan [ladda externa teckensnitt](/slides/sv/php-java/custom-font/) så att Aspose.Slides kan använda dem under rendering och konvertering.
 
-**Distribuerar Aspose några teckensnitt med biblioteket?**
+**Distribuerar Aspose teckensnitt med biblioteket?**
 
-Nej. Aspose distribuerar inga betalda eller gratis teckensnitt; du lägger till och använder teckensnitt på eget ansvar och eget gottfinnande.
+Nej. Du ansvarar för att tillhandahålla teckensnitt och följa deras licenser.
 
-**Finns det skillnader i substitutionsbeteende på Windows, Linux och macOS?**
+**Kan substitutionsresultat skilja sig mellan Windows, Linux och macOS?**
 
-Ja. Upptäckt av teckensnitt börjar i operativsystemets teckensnittskataloger. Mängden standardtillgängliga teckensnitt och sökvägarna varierar mellan plattformar, vilket påverkar tillgänglighet och behovet av substitution.
+Ja. Installerade teckensnitt och teckensnittsökvägar skiljer sig åt mellan operativsystem, så ett teckensnitt som är tillgängligt på en maskin kan kräva substitution på en annan.
 
-**Hur bör jag förbereda miljön för att minimera oväntad substitution under batchkonverteringar?**
+**Hur kan jag göra teckensnittsurvalet konsekvent vid batchkonverteringar?**
 
-Synkronisera teckensnittssatsen över maskiner eller containrar, [add the external fonts](/slides/sv/php-java/custom-font/) som krävs för utgångsdokumenten, och [embed fonts](/slides/sv/php-java/embedded-font/) i presentationer när det är möjligt så att de valda teckensnitten är tillgängliga under rendering.
+Använd samma teckensnitts‑filer och versioner på varje maskin eller container, [ladda nödvändiga externa teckensnitt](/slides/sv/php-java/custom-font/) och [bädda in teckensnitt](/slides/sv/php-java/embedded-font/) när licensieringen tillåter. Du kan också anropa [FontsManager::getSubstitutions](https://reference.aspose.com/slides/sv/php-java/aspose.slides/fontsmanager/getsubstitutions/) före export för att identifiera oväntade substitutioner.

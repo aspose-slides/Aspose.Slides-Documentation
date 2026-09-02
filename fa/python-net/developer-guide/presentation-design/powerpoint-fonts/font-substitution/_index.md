@@ -1,15 +1,15 @@
 ---
-title: پیکربندی جایگزینی قلم در ارائه‌ها با Python
-linktitle: جایگزینی قلم
+title: پیکربندی جایگزینی فونت در ارائه‌ها با Python
+linktitle: جایگزینی فونت
 type: docs
 weight: 70
 url: /fa/python-net/font-substitution/
 keywords:
-- قلم
-- جایگزینی قلم
-- جایگزینی قلم
-- تعویض قلم
-- جایگزینی قلم
+- فونت
+- جایگزینی فونت
+- جایگزینی فونت
+- جایگزینی فونت
+- جایگزینی فونت
 - قانون جایگزینی
 - قانون تعویض
 - PowerPoint
@@ -17,87 +17,134 @@ keywords:
 - ارائه
 - Python
 - Aspose.Slides
-description: "جایگزینی قلم بهینه را در Aspose.Slides برای Python از طریق .NET فعال کنید تا هنگام تبدیل ارائه‌های PowerPoint و OpenDocument به فرمت‌های فایل دیگر."
+description: "قوانین جایگزینی فونت را پیکربندی کنید و فونت‌های جایگزین‌شده را در Aspose.Slides برای Python از طریق .NET هنگام رندر یا تبدیل ارائه‌های PowerPoint و OpenDocument بررسی کنید."
 ---
-## **نمای کلی**
+## **مرور کلی**
 
-جایگزینی قلم به Aspose.Slides امکان استفاده از یک قلم دیگر را می‌دهد زمانی که قلم اصلی ارائه در هنگام رندر یا تبدیل در دسترس نباشد. می‌توانید با استفاده از متد `get_substitutions` در کلاس `FontsManager` بررسی کنید کدام قلم‌ها جایگزین شده‌اند.
+جایگزینی فونت به Aspose.Slides این امکان را می‌دهد که هنگام رندر یا تبدیل یک ارائه، به جای فونتی که قابل دسترسی نیست، از فونت موجود استفاده کند. این جایگزینی بر خروجی رندر تأثیر می‌گذارد؛ اما فونت اختصاص داده شده به محتوای ارائه را تغییر نمی‌دهد.
 
-Aspose.Slides همچنین اجازه می‌دهد قوانین جایگزینی قلم را تعریف کنید. به عنوان مثال می‌توانید مشخص کنید که یک قلم غیرقابل دسترسی باید با قلم دیگری که در دسترس است جایگزین شود و سپس این قوانین را از طریق مدیر قلم ارائه اعمال کنید.
+می‌توانید فونتی را که هنگام عدم موجودی یک فونت خاص باید استفاده شود تعریف کنید و می‌توانید جایگزینی‌هایی را که Aspose.Slides در طول رندر انجام می‌دهد بررسی کنید. این کار به حفظ یکسانی خروجی در محیط‌های مختلف با فونت‌های نصب شده متفاوت کمک می‌کند.
 
-## **تنظیم قوانین جایگزینی**
+## **دریافت جایگزینی‌های فونت**
 
-Aspose.Slides به شما امکان می‌دهد قوانین برای قلم‌ها تعیین کنید که در شرایط خاص چه کاری باید انجام شود (به عنوان مثال، وقتی قلم قابل دسترسی نیست) به این شکل:
+از متد [FontsManager.get_substitutions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_substitutions/) برای تعیین این که هنگام رندر ارائه کدام فونت‌ها جایگزین می‌شوند، استفاده کنید. این متد اشیاء [FontSubstitutionInfo](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsubstitutioninfo/) را برمی‌گرداند که نام‌های فونت اصلی و جایگزین را شناسایی می‌کند.
 
-1. ارائه مربوطه را بارگذاری کنید.
-2. قلمی که باید جایگزین شود را بارگذاری کنید.
-3. قلم جدید را بارگذاری کنید.
-4. یک قانون برای جایگزینی اضافه کنید.
-5. قانون را به مجموعه‌ی قوانین جایگزینی قلم ارائه اضافه کنید.
-6. تصویر اسلاید را تولید کنید تا اثر را مشاهده کنید.
-
-این کد پایتون فرآیند جایگزینی قلم را نشان می‌دهد:
+مثال زیر به زبان Python تمام جایگزینی‌های فونت را برای یک ارائه فهرست می‌کند:
 
 ```python
 import aspose.slides as slides
 
-# ارائه‌ای را بارگذاری می‌کند
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # قلم منبعی که جایگزین خواهد شد را بارگذاری می‌کند
-    sourceFont = slides.FontData("SomeRareFont")
-
-    # قلم جدید را بارگذاری می‌کند
-    destFont = slides.FontData("Arial")
-
-    # قانونی برای جایگزینی قلم اضافه می‌کند
-    fontSubstRule = slides.FontSubstRule(sourceFont, destFont, slides.FontSubstCondition.WHEN_INACCESSIBLE)
-
-    # قانون را به مجموعه قوانین جایگزینی قلم اضافه می‌کند
-    fontSubstRuleCollection = slides.FontSubstRuleCollection()
-    fontSubstRuleCollection.add(fontSubstRule)
-
-    # مجموعه قوانین قلم را به لیست قوانین اضافه می‌کند
-    presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
-
-    #Arial فونت در جای SomeRareFont استفاده خواهد شد وقتی که این قلم قابل دسترسی نباشد
-    with presentation.slides[0].get_image(1, 1) as bmp:
-        # تصویر را در فرمت JPEG به دیسک ذخیره می‌کند
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("Presentation.pptx") as presentation:
+    for substitution in presentation.fonts_manager.get_substitutions():
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-ممکن است مایل باشید به [**جایگزینی قلم**](/slides/fa/python-net/font-replacement/) مراجعه کنید. 
+## **دریافت جایگزینی‌های فونت برای اسلایدهای انتخابی**
+
+از [FontsManager.get_substitutions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_substitutions/) همراه با فهرست ایندکس‌های اسلاید برای بررسی فقط جایگزینی‌های مورد نیاز برای رندر اسلایدهای خاص استفاده کنید. این کار زمانی مفید است که شما بخواهید بخشی از یک ارائه را رندر یا صادرات کنید، یک ارائه بزرگ را به‌صورت افزایشی بررسی کنید، اسلایدهایی که به فونت‌های غیرقابل دسترس وابسته‌اند را پیدا کنید، یک بسته فونت حداقل برای سرور یا کانتینر تهیه کنید، یا تفاوت‌های رندر را بدون پردازش اسلایدهای نامرتبط تشخیص دهید.
+
+فهرست شامل ایندکس‌های اسلاید به صورت یک‌پایه است: `1` اولین اسلاید را مشخص می‌کند. در مقابل، مجموعه [Presentation.slides](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/slides/fa/) به صورت صفرپایه است، بنابراین همان اسلاید با `presentation.slides[0]` دسترسی می‌یابد. هنگام ساخت فهرست این تفاوت را در نظر بگیرید تا از خطای یک‑ایندکس جلوگیری کنید.
+
+متد را از طریق ویژگی [Presentation.fonts_manager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/fonts_manager/) فراخوانی کنید. این متد فقط جایگزینی‌های تعیین شده حین رندر اسلایدهای انتخاب‌شده را برمی‌گرداند. هر نتیجه یک شیء [FontSubstitutionInfo](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsubstitutioninfo/) است که شامل نام‌های فونت اصلی و جایگزین می‌شود. نتیجه منعکس‌کنندهٔ محیط فونت جاری، قوانین fallback پیکربندی‌شده، قوانین جایگزینی ذخیره‌شده در یک [IFontSubstRuleCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ifontsubstrulecollection/)، و [فونت‌های بارگذاری‌شده به صورت خارجی](/slides/fa/python-net/custom-font/) است.
+
+یک جایگزینی می‌تواند توسط بیش از یک اسلاید انتخاب‌شده مورد نیاز باشد. هنگام ایجاد موجودی فونت یا گزارش پیش‌پرواز، نتایج را حذف تکرار کنید. مثال زیر هر جایگزینی بازگردانده‌شده را گزارش می‌کند و سپس فهرست مرتب‌شده‌ای از نگاشت‌های فونت یکتا می‌سازد:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as presentation:
+    selected_slides = [1, 3, 5]
+    substitutions = list(presentation.fonts_manager.get_substitutions(selected_slides))
+
+    print("Substitutions for the selected slides:")
+    for substitution in substitutions:
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
+
+    preflight_entries = [f"{substitution.original_font_name} -> {substitution.substituted_font_name}" for substitution in substitutions]
+    unique_preflight_entries = {entry.casefold(): entry for entry in preflight_entries}
+    sorted_preflight_entries = sorted(unique_preflight_entries.values(), key=str.casefold)
+
+    print("Deduplicated font preflight report:")
+    for entry in sorted_preflight_entries:
+        print(entry)
+```
+
+کلاس [FontsManager](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/) هر دو شکل متد را فراهم می‌کند. یکی را بر اساس دامنه عملیات رندر انتخاب کنید:
+
+| فراخوانی متد | کی استفاده شود |
+|---|---|
+| [get_substitutions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_substitutions/) بدون آرگومان | وقتی به جایگزینی برای کل ارائه نیاز دارید. |
+| [get_substitutions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_substitutions/) با فهرست ایندکس‌های اسلاید | وقتی به جایگزینی برای محدوده‌ای انتخابی، بررسی افزایشی یا صادرات جزئی نیاز دارید. |
+
+## **تنظیم قوانین جایگزینی فونت**
+
+برای مشخص کردن فونتی که Aspose.Slides باید هنگام عدم دسترسی به فونت منبع استفاده کند:
+
+1. ارائه را بارگذاری کنید.  
+2. تعاریف فونت برای فونت منبع و جایگزین ایجاد کنید.  
+3. یک [FontSubstRule](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsubstrule/) با شرط [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsubstcondition/) ایجاد کنید.  
+4. این قانون را به یک [FontSubstRuleCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsubstrulecollection/) اضافه کنید.  
+5. مجموعه را به ویژگی [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/font_subst_rule_list/) اختصاص دهید.  
+6. ارائه را رندر یا تبدیل کنید.
+
+مثال زیر به زبان Python، زمانی که `SomeRareFont` در دسترس نباشد، `Arial` را به‌جای آن جایگزین می‌کند و سپس اولین اسلاید را رندر می‌کند تا نتیجه را بررسی کند. فونت جایگزین باید برای Aspose.Slides در دسترس باشد.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Fonts.pptx") as presentation:
+    source_font = slides.FontData("SomeRareFont")
+    substitute_font = slides.FontData("Arial")
+    substitution_rule = slides.FontSubstRule(source_font, substitute_font, slides.FontSubstCondition.WHEN_INACCESSIBLE)
+
+    substitution_rules = slides.FontSubstRuleCollection()
+    substitution_rules.add(substitution_rule)
+    presentation.fonts_manager.font_subst_rule_list = substitution_rules
+
+    with presentation.slides[0].get_image(1, 1) as image:
+        image.save("slide.jpg", slides.ImageFormat.JPEG)
+```
+
+{{% alert color="info" title="Note" %}}
+برای تغییر بدون شرط فونت‌های استفاده‌شده در سراسر یک ارائه، به [Font Replacement](/slides/fa/python-net/font-replacement/) مراجعه کنید.
 {{% /alert %}}
 
-## **محدودیت‌ها برای قلم‌های معادلات ریاضی**
+## **محدودیت‌ها برای فونت‌های معادلات ریاضی**
 
-قوانین جایگزینی قلم در فرآیند استاندارد انتخاب قلم که در هنگام رندر و تبدیل استفاده می‌شود شرکت می‌کنند. این قوانین برای موارد متن عادی مناسب هستند که در آن Aspose.Slides می‌تواند یک قلم غیرقابل دسترسی را با قلم دیگری که در دسترس است مطابق با قانون تنظیم شده جایگزین کند.
+قواعد جایگزینی فونت بخشی از فرآیند استاندارد انتخاب فونت است که در هنگام رندر و تبدیل استفاده می‌شود. این قواعد برای متن معمولی کار می‌کنند وقتی Aspose.Slides می‌تواند یک فونت دسترسی‌ناپذیر را با فونت موجود تعیین‌شده توسط قانون جایگزین کند.
 
-با این حال، معادلات ریاضی Office محدودیت مهمی دارند. اگر یک معادله با **Cambria Math** ساخته شده باشد، Aspose.Slides ممکن است هنوز برای محاسبه و رندر صحیح چیدمان معادله به قلم اصلی **Cambria Math** نیاز داشته باشد. به همین دلیل، جایگزینی **Cambria Math** با قلم ریاضی دیگر، مانند **STIX Two Math**، برای رندر معادله پشتیبانی نمی‌شود و ممکن است همچنان استثنایی نشان دهد که **Cambria Math** ضروری است.
+معادلات Office Math یک نیاز اضافی دارند. اگر یک معادله از **Cambria Math** استفاده کند، ممکن است Aspose.Slides برای محاسبه و رندر چیدمان معادله به همان فونت دقیق نیاز داشته باشد. قانونی که یک فونت ریاضی دیگر مانند **STIX Two Math** را جایگزین **Cambria Math** می‌کند، نمی‌تواند این نیاز را برآورده کند و رندر ممکن است همچنان گزارش دهد که **Cambria Math** مورد نیاز است.
 
-برای تبدیل موفق این ارائه‌ها، اطمینان حاصل کنید که **Cambria Math** در زمان اجرا برای Aspose.Slides موجود باشد. می‌توانید این قلم را در سیستم‌عامل نصب کنید یا به عنوان یک [قلم خارجی](/slides/fa/python-net/custom-font/) فراهم کنید تا در فرآیند انتخاب قلم معمولی در هنگام رندر و تبدیل شرکت کند.
+برای رندر یا تبدیل چنین ارائه‌ای، **Cambria Math** را در دسترس Aspose.Slides قرار دهید. آن را در سیستم‌عامل نصب کنید یا به‌عنوان یک [فونت خارجی](/slides/fa/python-net/custom-font/) بارگذاری کنید.
 
-این محدودیت مختص رندر معادلات است. قوانین استاندارد جایگزینی قلم که در بالا شرح داده شد همچنان برای متن عادی ارائه هنگام عدم دسترسی به قلم اصلی اعمال می‌شوند.
+این محدودیت به چیدمان معادله اعمال می‌شود. قواعد جایگزینی که در بالا توصیف شد همچنان برای متن معمولی ارائه اعمال می‌شوند.
 
 ## **سوالات متداول**
 
-**What is the difference between font replacement and font substitution?**  
-[جایگزینی](/slides/fa/python-net/font-replacement/) یک نادیده‌گیری اجباری یک قلم با قلم دیگر در سرتاسر ارائه است. جایگزینی (substitution) قانونی است که در شرایط خاصی فعال می‌شود، برای مثال وقتی قلم اصلی در دسترس نیست، و سپس یک قلم جایگزین تعیین‌شده استفاده می‌شود.
+**تفاوت جایگزینی فونت با تعویض فونت چیست؟**
 
-**When exactly are substitution rules applied?**  
-قوانین در توالی استاندارد [انتخاب قلم](/slides/fa/python-net/font-selection-sequence/) که در زمان بارگذاری، رندر و تبدیل ارزیابی می‌شود، شرکت می‌کنند؛ اگر قلم انتخاب‌شده در دسترس نباشد، جایگزینی یا substitution اعمال می‌شود.
+جایگزینی فونت [Font replacement](/slides/fa/python-net/font-replacement/) به‌صورتی عمدی یک فونت را در سراسر ارائه به فونت دیگری تغییر می‌دهد. جایگزینی فونت (font substitution) فونتی را برای خروجی رندر انتخاب می‌کند وقتی شرط پیکربندی‌شده برقرار باشد، همان‌طور که فونت اصلی در دسترس نیست.
 
-**What is the default behavior if neither replacement nor substitution is configured and the font is missing on the system?**  
-کتابخانه سعی می‌کند نزدیک‌ترین قلم موجود در سیستم را انتخاب کند، مشابه رفتار PowerPoint.
+**قواعد جایگزینی چه زمانی اعمال می‌شوند؟**
 
-**Can I attach custom external fonts at runtime to avoid substitution?**  
-بله. می‌توانید [افزودن قلم‌های خارجی](/slides/fa/python-net/custom-font/) را در زمان اجرا انجام دهید تا کتابخانه آنها را برای انتخاب و رندر در نظر بگیرد، از جمله برای تبدیل‌های بعدی.
+قواعد در [دنباله انتخاب فونت](/slides/fa/python-net/font-selection-sequence/) هنگام رندر و تبدیل شرکت می‌کنند. با شرط `WHEN_INACCESSIBLE`، یک قانون فقط وقتی استفاده می‌شود که Aspose.Slides نتواند به فونت منبع دسترسی پیدا کند.
 
-**Does Aspose distribute any fonts with the library?**  
-خیر. Aspose قلم‌های پرداختی یا رایگانی را توزیع نمی‌کند؛ شما قلم‌ها را به اختیار و مسئولیت خود اضافه و استفاده می‌کنید.
+**اگر یک فونت موجود نباشد و قانونی برای جایگزینی پیکربندی نشده باشد چه می‌شود؟**
 
-**Are there differences in substitution behavior on Windows, Linux, and macOS?**  
-بله. کشف قلم از دایرکتوری‌های قلم سیستم عامل شروع می‌شود. مجموعه قلم‌های پیش‌فرض موجود و مسیرهای جستجو در هر پلتفرم متفاوت است که بر دسترس بودن و نیاز به جایگزینی تاثیر می‌گذارد.
+Aspose.Slides نزدیک‌ترین فونت موجود را بر اساس فرآیند انتخاب فونت خود انتخاب می‌کند. نتیجه به فونت‌های موجود در محیط زمان اجرا بستگی دارد.
 
-**How should I prepare the environment to minimize unexpected substitution during batch conversions?**  
-مجموعه قلم‌ها را بین ماشین‌ها یا کانتینرها همگام‌سازی کنید، [افزودن قلم‌های خارجی](/slides/fa/python-net/custom-font/) مورد نیاز برای اسناد خروجی کنید، و در صورت امکان [قرار دادن قلم‌ها در فایل](/slides/fa/python-net/embedded-font/) در ارائه‌ها انجام دهید تا قلم‌های انتخاب‌شده در زمان رندر موجود باشند.
+**آیا می‌توانم فونت‌های خارجی را بارگذاری کنم تا از جایگزینی جلوگیری شود؟**
+
+بله. می‌توانید [فونت‌های خارجی را بارگذاری](/slides/fa/python-net/custom-font/) کنید تا Aspose.Slides در زمان رندر و تبدیل از آن‌ها استفاده کند.
+
+**آیا Aspose فونت‌ها را همراه کتابخانه توزیع می‌کند؟**
+
+خیر. شما مسئول فراهم کردن فونت‌ها و رعایت مجوزهای آن‌ها هستید.
+
+**آیا نتایج جایگزینی بین Windows، Linux و macOS می‌تواند متفاوت باشد؟**
+
+بله. فونت‌های نصب شده و مسیرهای جستجوی فونت در هر سیستم عامل متفاوت است، بنابراین فونتی که در یک دستگاه موجود است ممکن است در دستگاه دیگر نیاز به جایگزینی داشته باشد.
+
+**چگونه می‌توانم انتخاب فونت را در تبدیل‌های دسته‌ای یکسان نگه دارم؟**
+
+از همان فایل‌ها و نسخه‌های فونت روی هر ماشین یا کانتینر استفاده کنید، [فونت‌های خارجی مورد نیاز را بارگذاری](/slides/fa/python-net/custom-font/) کنید، و وقتی مجوز اجازه می‌دهد [فونت‌ها را جاسازی](/slides/fa/python-net/embedded-font/) کنید. همچنین می‌توانید قبل از خروجی گرفتن، متد [FontsManager.get_substitutions](https://reference.aspose.com/slides/fa/python-net/aspose.slides/fontsmanager/get_substitutions/) را فراخوانی کنید تا جایگزینی‌های ناخواسته را شناسایی کنید.

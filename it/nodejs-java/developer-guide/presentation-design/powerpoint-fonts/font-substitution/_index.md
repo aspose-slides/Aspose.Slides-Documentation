@@ -1,14 +1,14 @@
 ---
-title: Configura la sostituzione dei font nelle presentazioni usando JavaScript
+title: Configurare la sostituzione dei font nelle presentazioni usando JavaScript
 linktitle: Sostituzione dei font
 type: docs
 weight: 70
 url: /it/nodejs-java/font-substitution/
 keywords:
 - font
-- sostituzione del font
-- sostituzione del font
-- sostituisci font
+- font sostituto
+- sostituzione dei font
+- sostituire il font
 - sostituzione del font
 - regola di sostituzione
 - regola di sostituzione
@@ -18,99 +18,161 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Abilita una sostituzione ottimale dei font in Aspose.Slides per Node.js durante la conversione di presentazioni PowerPoint e OpenDocument in altri formati di file con JavaScript."
+description: "Configura le regole di sostituzione dei font e ispeziona i font sostituiti in Aspose.Slides per Node.js tramite Java durante il rendering o la conversione di presentazioni PowerPoint e OpenDocument."
 ---
 ## **Panoramica**
 
-La sostituzione dei font consente ad Aspose.Slides di utilizzare un altro font quando il font originale della presentazione non è disponibile durante il rendering o la conversione. È possibile verificare quali font sono stati sostituiti utilizzando il metodo `getSubstitutions` della classe `FontsManager`.
+La sostituzione dei caratteri consente ad Aspose.Slides di utilizzare un carattere disponibile al posto di un carattere che non può essere accesso quando una presentazione viene renderizzata o convertita. La sostituzione influisce sull'output renderizzato; non modifica il carattere assegnato al contenuto della presentazione.
 
-Aspose.Slides consente inoltre di definire regole di sostituzione dei font. Ad esempio, è possibile specificare che un font inaccessibile debba essere sostituito con un altro font disponibile e poi applicare tali regole tramite il gestore dei font della presentazione.
+È possibile definire il carattere da utilizzare quando un determinato carattere non è disponibile e ispezionare le sostituzioni che Aspose.Slides effettuerà durante il rendering. Questo aiuta a mantenere l'output coerente tra ambienti con diversi caratteri installati.
 
-## **Impostare le regole di sostituzione dei font**
+## **Ottenere le sostituzioni dei caratteri**
 
-Aspose.Slides permette di impostare regole per i font che determinano cosa fare in determinate condizioni (ad esempio, quando un font non può essere accessibile) nel seguente modo:
+Utilizza il metodo [FontsManager.getSubstitutions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) per determinare quali caratteri saranno sostituiti quando la presentazione viene renderizzata. Il metodo restituisce oggetti [FontSubstitutionInfo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsubstitutioninfo/) che identificano i nomi del carattere originale e di quello sostituito.
 
-1. Caricare la presentazione pertinente.
-2. Caricare il font che verrà sostituito.
-3. Caricare il nuovo font.
-4. Aggiungere una regola per la sostituzione.
-5. Aggiungere la regola alla raccolta delle regole di sostituzione dei font della presentazione.
-6. Generare l'immagine della diapositiva per osservare l'effetto.
-
-Questo codice JavaScript dimostra il processo di sostituzione dei font:
+Il seguente esempio JavaScript elenca tutte le sostituzioni di carattere per una presentazione:
 
 ```javascript
-// Carica una presentazione
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Carica il font sorgente che sarà sostituito
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Carica il nuovo font
-    var destFont = new aspose.slides.FontData("Arial");
-    // Aggiunge una regola di font per la sostituzione del font
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Aggiunge la regola alla collezione delle regole di sostituzione dei font
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Aggiunge la collezione di regole di font all'elenco delle regole
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Il font Arial verrà usato al posto di SomeRareFont quando quest'ultimo è inaccessibile
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Salva l'immagine su disco nel formato JPEG
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Potresti voler vedere [**Font Replacement**](/slides/it/nodejs-java/font-replacement/).
+## **Ottenere le sostituzioni dei caratteri per le diapositive selezionate**
+
+Utilizza la overload di [FontsManager.getSubstitutions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) con un array di indici diapositive per ispezionare solo le sostituzioni necessarie a renderizzare diapositive specifiche. Questo è utile quando si renderizza o si esporta una parte di una presentazione, si controlla una presentazione di grandi dimensioni in modo incrementale, si individuano diapositive che dipendono da caratteri non disponibili, si prepara un pacchetto di caratteri minimale per un server o un container, o si diagnosticano differenze di rendering senza elaborare diapositive non correlate.
+
+La overload si aspetta un primitivo Java `int[]`. Crealo con `java.newArray("int", [...])`; un semplice array JavaScript viene convertito in `Integer[]` e non corrisponde a questa overload.
+
+L'array contiene indici diapositive basati su 1: `1` identifica la prima diapositiva. Al contrario, l'accessore della collezione [Presentation.getSlides](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getslides/) utilizza un indice a base zero, quindi la stessa diapositiva è accessibile come `presentation.getSlides().get_Item(0)`. Tieni presente questa differenza quando costruisci l'array per evitare errori di offset.
+
+Chiama la overload tramite [Presentation.getFontsManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/presentation/getfontsmanager/). Restituisce solo le sostituzioni determinate durante il rendering delle diapositive selezionate. Ogni risultato è un oggetto [FontSubstitutionInfo](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsubstitutioninfo/) che contiene i nomi del carattere originale e di quello sostituito. Il risultato riflette l'ambiente di caratteri corrente, le regole di fallback configurate, le regole di sostituzione memorizzate in una [FontSubstRuleCollection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsubstrulecollection/) e i [caratteri caricati esternamente](/slides/it/nodejs-java/custom-font/).
+
+La stessa sostituzione può essere richiesta da più di una diapositiva selezionata. De‑duplica i risultati quando crei un inventario dei caratteri o un rapporto di preflight. Il seguente esempio riporta ogni sostituzione restituita e poi crea un elenco ordinato di mappature di caratteri uniche:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+La classe [FontsManager](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/) fornisce entrambe le overload. Scegline una in base all'ambito dell'operazione di rendering:
+
+| Overload | Quando usarlo |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) con nessun argomento | Hai bisogno di sostituzioni per l'intera presentazione. |
+| [getSubstitutions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) con un Java `int[]` di indici diapositive | Hai bisogno di sostituzioni per un intervallo selezionato, un controllo incrementale o un'esportazione parziale. |
+
+## **Impostare le regole di sostituzione dei caratteri**
+
+Per specificare il carattere che Aspose.Slides deve utilizzare quando un carattere di origine non è disponibile:
+
+1. Carica la presentazione.
+2. Crea le definizioni dei caratteri per i caratteri di origine e di sostituzione.
+3. Crea una [FontSubstRule](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsubstrule/) con la condizione [WhenInaccessible](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsubstcondition/).
+4. Aggiungi la regola a una [FontSubstRuleCollection](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsubstrulecollection/).
+5. Assegna la collezione utilizzando il metodo [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
+6. Renderizza o converti la presentazione.
+
+Il seguente esempio JavaScript sostituisce `Arial` per `SomeRareFont` quando `SomeRareFont` non è disponibile, e poi renderizza la prima diapositiva per verificare il risultato. Il carattere sostitutivo deve essere disponibile per Aspose.Slides.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Per una modifica incondizionata dei caratteri utilizzati in tutta la presentazione, vedi [Font Replacement](/slides/it/nodejs-java/font-replacement/).
 {{% /alert %}}
 
-## **Limitazioni per i font delle equazioni matematiche**
+## **Limitazioni per i caratteri delle equazioni matematiche**
 
-Le regole di sostituzione dei font partecipano al processo standard di selezione dei font utilizzato durante il rendering e la conversione. Sono adatte per scenari di testo regolare in cui Aspose.Slides può sostituire un font inaccessibile con un altro font disponibile secondo la regola configurata.
+Le regole di sostituzione dei caratteri fanno parte del processo standard di selezione dei caratteri utilizzato durante il rendering e la conversione. Funzionano per il testo normale quando Aspose.Slides può sostituire un carattere non accessibile con il carattere disponibile specificato da una regola.
 
-Tuttavia, le equazioni matematiche di Office hanno una limitazione importante. Se un'equazione è stata creata con **Cambria Math**, Aspose.Slides potrebbe comunque richiedere il font originale **Cambria Math** per calcolare e renderizzare correttamente il layout dell'equazione. Per questo motivo, la sostituzione di **Cambria Math** con un altro font matematico, come **STIX Two Math**, non è supportata per il rendering delle equazioni e potrebbe comunque generare un'eccezione che indica che **Cambria Math** è necessario.
+Le equazioni Office Math hanno un requisito aggiuntivo. Se un'equazione utilizza **Cambria Math**, Aspose.Slides potrebbe aver bisogno esattamente di quel carattere per calcolare e renderizzare il layout dell'equazione. Una regola che sostituisce un altro carattere matematico, come **STIX Two Math**, non può sostituire **Cambria Math** a questo scopo, e il rendering potrebbe comunque segnalare che **Cambria Math** è necessario.
 
-Per convertire correttamente tali presentazioni, assicurati che **Cambria Math** sia disponibile per Aspose.Slides a runtime. Puoi installare il font nel sistema operativo o fornirlo come [font esterno](/slides/it/nodejs-java/custom-font/) in modo che partecipi al normale processo di selezione dei font durante il rendering e la conversione.
+Per renderizzare o convertire una tale presentazione, rendi **Cambria Math** disponibile per Aspose.Slides. Installalo nel sistema operativo o caricalo come [external font](/slides/it/nodejs-java/custom-font/).
 
-Questa limitazione è specifica al rendering delle equazioni. Le regole standard di sostituzione dei font descritte sopra si applicano ancora al testo normale della presentazione quando il font originale non è accessibile.
+Questa limitazione si applica al layout delle equazioni. Le regole di sostituzione descritte sopra continuano ad applicarsi al testo normale della presentazione.
 
 ## **FAQ**
 
-**Qual è la differenza tra sostituzione dei font e sostituzione (replacement) dei font?**
+**Qual è la differenza tra Font Replacement e Font Substitution?**  
+[Font replacement](/slides/it/nodejs-java/font-replacement/) modifica intenzionalmente un carattere con un altro in tutta la presentazione. La sostituzione dei caratteri seleziona un carattere per l'output renderizzato quando la condizione configurata è soddisfatta, ad esempio quando il carattere originale non è disponibile.
 
-[Replacement](/slides/it/nodejs-java/font-replacement/) è una sovrascrittura forzata di un font con un altro su tutta la presentazione. La sostituzione è una regola che si attiva in una condizione specifica, ad esempio quando il font originale non è disponibile, e in tal caso viene utilizzato un font di riserva designato.
+**Quando vengono applicate le regole di sostituzione?**  
+Le regole partecipano alla [sequenza di selezione dei caratteri](/slides/it/nodejs-java/font-selection-sequence/) durante il rendering e la conversione. Con `WhenInaccessible`, una regola viene utilizzata solo quando Aspose.Slides non può accedere al carattere di origine.
 
-**Quando vengono applicate esattamente le regole di sostituzione?**
+**Cosa accade quando un carattere è mancante e non è configurata alcuna regola di sostituzione?**  
+Aspose.Slides seleziona il carattere disponibile più vicino in base al suo processo di selezione dei caratteri. Il risultato dipende dai caratteri disponibili nell'ambiente di runtime.
 
-Le regole partecipano alla sequenza standard di [selezione del font](/slides/it/nodejs-java/font-selection-sequence/) valutata durante il caricamento, il rendering e la conversione; se il font scelto non è disponibile, viene applicata la sostituzione o la sostituzione forzata.
+**Posso caricare caratteri esterni per evitare la sostituzione?**  
+Sì. Puoi [caricare caratteri esterni](/slides/it/nodejs-java/custom-font/) in modo che Aspose.Slides possa utilizzarli durante il rendering e la conversione.
 
-**Qual è il comportamento predefinito se né la sostituzione né la sostituzione forzata sono configurate e il font manca sul sistema?**
+**Aspose distribuisce i caratteri con la libreria?**  
+No. Sei responsabile di fornire i caratteri e di rispettare le relative licenze.
 
-La libreria cercherà di scegliere il font di sistema più vicino disponibile, simile a quanto farebbe PowerPoint.
+**I risultati di sostituzione possono differire tra Windows, Linux e macOS?**  
+Sì. I caratteri installati e le posizioni di ricerca dei caratteri variano a seconda del sistema operativo, quindi un carattere disponibile su una macchina può richiedere una sostituzione su un'altra.
 
-**Posso allegare font esterni personalizzati a runtime per evitare la sostituzione?**
-
-Sì. È possibile [aggiungere font esterni](/slides/it/nodejs-java/custom-font/) a runtime così che la libreria li consideri per la selezione e il rendering, anche per le conversioni successive.
-
-**Aspose distribuisce dei font con la libreria?**
-
-No. Aspose non distribuisce font a pagamento o gratuiti; devi aggiungere e utilizzare i font a tua discrezione e responsabilità.
-
-**Ci sono differenze nel comportamento di sostituzione su Windows, Linux e macOS?**
-
-Sì. La ricerca dei font parte dalle directory dei font del sistema operativo. Il set di font disponibili per impostazione predefinita e i percorsi di ricerca differiscono tra le piattaforme, influenzando la disponibilità e la necessità di sostituzione.
-
-**Come devo preparare l'ambiente per ridurre al minimo le sostituzioni inaspettate durante le conversioni batch?**
-
-Sincronizza il set di font tra macchine o container, [aggiungi i font esterni](/slides/it/nodejs-java/custom-font/) richiesti per i documenti di output e [incorpora i font](/slides/it/nodejs-java/embedded-font/) nelle presentazioni quando possibile, così i font scelti saranno disponibili durante il rendering.
+**Come posso rendere la selezione dei caratteri coerente nelle conversioni batch?**  
+Utilizza gli stessi file di caratteri e le stesse versioni su ogni macchina o container, [carica i caratteri esterni richiesti](/slides/it/nodejs-java/custom-font/) e [incorpora i caratteri](/slides/it/nodejs-java/embedded-font/) quando le licenze lo consentono. Puoi anche chiamare [FontsManager.getSubstitutions](https://reference.aspose.com/slides/it/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) prima dell'esportazione per identificare sostituzioni inattese.

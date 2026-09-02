@@ -1,12 +1,12 @@
 ---
-title: Konfigurasikan Substitusi Font dalam Presentasi Menggunakan PHP
+title: Konfigurasi Substitusi Font dalam Presentasi Menggunakan PHP
 linktitle: Substitusi Font
 type: docs
 weight: 70
 url: /id/php-java/font-substitution/
 keywords:
 - font
-- ganti font
+- font pengganti
 - substitusi font
 - ganti font
 - penggantian font
@@ -17,101 +17,181 @@ keywords:
 - presentasi
 - PHP
 - Aspose.Slides
-description: "Aktifkan substitusi font yang optimal di Aspose.Slides untuk PHP melalui Java saat mengonversi presentasi PowerPoint & OpenDocument ke format file lain."
+description: "Konfigurasikan aturan substitusi font dan periksa font yang disubstitusi di Aspose.Slides untuk PHP via Java saat merender atau mengonversi presentasi PowerPoint dan OpenDocument."
 ---
-## **Pengantar**
+## **Ikhtisar**
 
-Penggantian font memungkinkan Aspose.Slides menggunakan font lain ketika font presentasi asli tidak tersedia selama proses rendering atau konversi. Anda dapat memeriksa font mana yang telah diganti dengan menggunakan metode `getSubstitutions` dari kelas `FontsManager`.
+Substitusi font memungkinkan Aspose.Slides menggunakan font yang tersedia sebagai pengganti font yang tidak dapat diakses saat presentasi dirender atau dikonversi. Substitusi memengaruhi output yang dirender; tidak mengubah font yang ditetapkan pada konten presentasi.
 
-Aspose.Slides juga memungkinkan Anda mendefinisikan aturan penggantian font. Misalnya, Anda dapat menentukan bahwa font yang tidak dapat diakses harus diganti dengan font lain yang tersedia dan kemudian menerapkan aturan tersebut melalui manajer font presentasi.
+Anda dapat menentukan font yang akan digunakan ketika font tertentu tidak tersedia, dan Anda dapat memeriksa substitusi yang akan dilakukan Aspose.Slides selama proses rendering. Ini membantu menjaga konsistensi output di lingkungan dengan font yang terpasang berbeda.
 
-## **Atur Aturan Penggantian Font**
+## **Dapatkan Substitusi Font**
 
-Aspose.Slides memungkinkan Anda mengatur aturan untuk font yang menentukan apa yang harus dilakukan dalam kondisi tertentu (misalnya, ketika sebuah font tidak dapat diakses) dengan cara berikut:
+Gunakan metode [FontsManager::getSubstitutions](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getsubstitutions/) untuk menentukan font mana yang akan disubstitusi ketika presentasi dirender. Metode ini mengembalikan objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsubstitutioninfo/) yang mengidentifikasi nama font asli dan font yang disubstitusi.
 
-1. Muat presentasi yang relevan.
-2. Muat font yang akan diganti.
-3. Muat font baru.
-4. Tambahkan aturan untuk penggantian.
-5. Tambahkan aturan ke koleksi aturan penggantian font presentasi.
-6. Hasilkan gambar slide untuk mengamati efeknya.
-
-Kode PHP berikut menunjukkan proses penggantian font:
+Contoh PHP berikut menampilkan semua substitusi font untuk sebuah presentasi:
 
 ```php
-  # Memuat presentasi
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # Memuat font sumber yang akan diganti
-    $sourceFont = new FontData("SomeRareFont");
-    # Memuat font baru
-    $destFont = new FontData("Arial");
-    # Menambahkan aturan font untuk penggantian font
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # Menambahkan aturan ke koleksi aturan substitusi font
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # Menambahkan koleksi aturan font ke daftar aturan
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # Font Arial akan digunakan menggantikan SomeRareFont ketika yang terakhir tidak dapat diakses
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # Menyimpan gambar ke disk dalam format JPEG
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $enumerator->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Dapatkan Substitusi Font untuk Slide yang Dipilih**
 
-Anda mungkin ingin melihat [**Penggantian Font**](/slides/id/php-java/font-replacement/).
+Gunakan overload [FontsManager::getSubstitutions](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getsubstitutions/) dengan argumen `int[] slides` untuk memeriksa hanya substitusi yang diperlukan untuk merender slide tertentu. Ini berguna ketika Anda merender atau mengekspor sebagian presentasi, memeriksa presentasi besar secara inkremental, menemukan slide yang bergantung pada font yang tidak tersedia, menyiapkan paket font minimal untuk server atau kontainer, atau mendiagnosis perbedaan rendering tanpa memproses slide yang tidak terkait.
 
+Array `slides` berisi indeks slide berbasis satu: `1` mengidentifikasi slide pertama. Sebaliknya, accessor koleksi [Presentation::getSlides](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getSlides) menggunakan pengindeksan berbasis nol, sehingga slide yang sama diakses sebagai `$presentation->getSlides()->get_Item(0)`. Ingat perbedaan ini saat membangun array untuk menghindari kesalahan off-by-one.
+
+Panggil overload melalui metode [Presentation::getFontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/presentation/#getFontsManager). Metode ini mengembalikan hanya substitusi yang ditentukan selama rendering slide yang dipilih. Setiap hasil adalah objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsubstitutioninfo/) yang berisi nama font asli dan font yang disubstitusi. Hasil mencerminkan lingkungan font saat ini, aturan fallback yang dikonfigurasi, aturan substitusi yang disimpan dalam [FontSubstRuleCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsubstrulecollection/), dan [font yang dimuat secara eksternal](/slides/id/php-java/custom-font/).
+
+Substitusi yang sama dapat diperlukan oleh lebih dari satu slide yang dipilih. Hilangkan duplikasi hasil ketika Anda membuat inventaris font atau laporan preflight. Contoh berikut melaporkan setiap substitusi yang dikembalikan dan kemudian membuat daftar terurut dari pemetaan font unik:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Kelas [FontsManager](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/) menyediakan kedua overload. Pilih salah satu sesuai lingkup operasi rendering:
+
+| Overload | Gunakan ketika |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getsubstitutions/) dengan tidak ada argumen | Anda memerlukan substitusi untuk seluruh presentasi. |
+| [getSubstitutions](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getsubstitutions/) dengan `int[] slides` | Anda memerlukan substitusi untuk rentang tertentu, pemeriksaan inkremental, atau ekspor parsial. |
+
+## **Tetapkan Aturan Substitusi Font**
+
+Untuk menentukan font yang harus digunakan Aspose.Slides ketika font sumber tidak tersedia:
+
+1. Muat presentasi.  
+2. Buat definisi font untuk font sumber dan font pengganti.  
+3. Buat sebuah [FontSubstRule](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsubstrule/) dengan kondisi [WhenInaccessible](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsubstcondition/).  
+4. Tambahkan aturan ke [FontSubstRuleCollection](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsubstrulecollection/).  
+5. Tetapkan koleksi dengan menggunakan metode [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. Render atau konversi presentasi.
+
+Contoh PHP berikut mensubstitusi `Arial` untuk `SomeRareFont` ketika `SomeRareFont` tidak tersedia, lalu merender slide pertama untuk memverifikasi hasilnya. Font pengganti harus tersedia untuk Aspose.Slides.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $sourceFont = new FontData("SomeRareFont");
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
+    try {
+        $image->save("slide.jpg", ImageFormat::Jpeg);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Untuk pengubahan font secara tidak bersyarat di seluruh presentasi, lihat [Font Replacement](/slides/id/php-java/font-replacement/).
 {{% /alert %}}
 
 ## **Batasan untuk Font Persamaan Matematika**
 
-Aturan penggantian font berpartisipasi dalam proses pemilihan font standar yang digunakan selama rendering dan konversi. Mereka cocok untuk skenario teks biasa di mana Aspose.Slides dapat mengganti font yang tidak dapat diakses dengan font lain yang tersedia sesuai aturan yang dikonfigurasi.
+Aturan substitusi font merupakan bagian dari proses pemilihan font standar yang digunakan selama rendering dan konversi. Mereka bekerja untuk teks biasa ketika Aspose.Slides dapat mengganti font yang tidak dapat diakses dengan font yang tersedia sesuai aturan.
 
-Namun, persamaan matematika Office memiliki batasan penting. Jika sebuah persamaan dibuat dengan **Cambria Math**, Aspose.Slides mungkin masih memerlukan font **Cambria Math** asli untuk menghitung dan merender tata letak persamaan dengan benar. Karena hal ini, menggantikan **Cambria Math** dengan font matematika lain, seperti **STIX Two Math**, tidak didukung untuk rendering persamaan dan masih dapat menghasilkan pengecualian yang menunjukkan bahwa **Cambria Math** diperlukan.
+Persamaan Office Math memiliki persyaratan tambahan. Jika sebuah persamaan menggunakan **Cambria Math**, Aspose.Slides mungkin memerlukan font tersebut secara tepat untuk menghitung dan merender tata letak persamaan. Aturan yang menggantikan dengan font matematika lain, seperti **STIX Two Math**, tidak dapat menggantikan **Cambria Math** untuk tujuan ini, dan rendering masih dapat melaporkan bahwa **Cambria Math** diperlukan.
 
-Untuk mengonversi presentasi seperti itu dengan sukses, pastikan **Cambria Math** tersedia untuk Aspose.Slides pada saat runtime. Anda dapat menginstal font tersebut di sistem operasi atau menyediakannya sebagai [font eksternal](/slides/id/php-java/custom-font/) sehingga dapat berpartisipasi dalam proses pemilihan font normal selama rendering dan konversi.
+Untuk merender atau mengonversi presentasi semacam itu, sediakan **Cambria Math** untuk Aspose.Slides. Instal font tersebut di sistem operasi atau muat sebagai [font eksternal](/slides/id/php-java/custom-font/).
 
-Batasan ini khusus untuk rendering persamaan. Aturan penggantian font standar yang dijelaskan di atas tetap berlaku untuk teks presentasi biasa ketika font asli tidak dapat diakses.
+Batasan ini berlaku untuk tata letak persamaan. Aturan substitusi yang dijelaskan di atas tetap berlaku untuk teks presentasi biasa.
 
 ## **FAQ**
 
 **Apa perbedaan antara penggantian font dan substitusi font?**
 
-[Penggantian](/slides/id/php-java/font-replacement/) adalah penimpaan paksa satu font dengan font lain di seluruh presentasi. Substitusi adalah aturan yang dipicu dalam kondisi tertentu, misalnya ketika font asli tidak tersedia, dan kemudian font cadangan yang ditentukan digunakan.
+[Font replacement](/slides/id/php-java/font-replacement/) secara sengaja mengubah satu font menjadi font lain di seluruh presentasi. Substitusi font memilih font untuk output yang dirender ketika kondisi yang dikonfigurasi terpenuhi, seperti ketika font asli tidak tersedia.
 
-**Kapan tepatnya aturan substitusi diterapkan?**
+**Kapan aturan substitusi diterapkan?**
 
-Aturan-aturan berpartisipasi dalam urutan [pemilihan font](/slides/id/php-java/font-selection-sequence/) standar yang dievaluasi selama pemuatan, rendering, dan konversi; jika font yang dipilih tidak tersedia, penggantian atau substitusi akan diterapkan.
+Aturan berpartisipasi dalam [urutan pemilihan font](/slides/id/php-java/font-selection-sequence/) selama rendering dan konversi. Dengan `WhenInaccessible`, aturan hanya digunakan ketika Aspose.Slides tidak dapat mengakses font sumber.
 
-**Apa perilaku default bila tidak ada penggantian atau substitusi yang dikonfigurasi dan font tidak ada di sistem?**
+**Apa yang terjadi ketika sebuah font hilang dan tidak ada aturan substitusi yang dikonfigurasi?**
 
-Perpustakaan akan mencoba memilih font sistem terdekat yang tersedia, serupa dengan cara PowerPoint berperilaku.
+Aspose.Slides memilih font yang paling mirip yang tersedia menurut proses pemilihan fontnya. Hasilnya bergantung pada font yang tersedia di lingkungan runtime.
 
-**Apakah saya dapat melampirkan font eksternal khusus pada runtime untuk menghindari substitusi?**
+**Bisakah saya memuat font eksternal untuk menghindari substitusi?**
 
-Ya. Anda dapat [menambahkan font eksternal](/slides/id/php-java/custom-font/) pada runtime sehingga perpustakaan mempertimbangkannya untuk pemilihan dan rendering, termasuk untuk konversi berikutnya.
+Ya. Anda dapat [memuat font eksternal](/slides/id/php-java/custom-font/) sehingga Aspose.Slides dapat menggunakannya selama rendering dan konversi.
 
-**Apakah Aspose mendistribusikan font apa pun bersama perpustakaan?**
+**Apakah Aspose mendistribusikan font bersama perpustakaan?**
 
-Tidak. Aspose tidak mendistribusikan font berbayar atau gratis; Anda menambahkan dan menggunakan font atas kebijaksanaan dan tanggung jawab Anda sendiri.
+Tidak. Anda bertanggung jawab menyediakan font dan mematuhi lisensi mereka.
 
-**Apakah ada perbedaan perilaku substitusi pada Windows, Linux, dan macOS?**
+**Apakah hasil substitusi dapat berbeda antara Windows, Linux, dan macOS?**
 
-Ya. Penemuan font dimulai dari direktori font sistem operasi. Set font default yang tersedia dan jalur pencarian berbeda di setiap platform, yang memengaruhi ketersediaan dan kebutuhan substitusi.
+Ya. Font yang terpasang dan lokasi pencarian font berbeda antar sistem operasi, sehingga font yang tersedia di satu mesin mungkin memerlukan substitusi di mesin lain.
 
-**Bagaimana saya harus menyiapkan lingkungan untuk meminimalkan substitusi tak terduga selama konversi batch?**
+**Bagaimana cara membuat pemilihan font konsisten dalam konversi batch?**
 
-Sinkronkan set font di seluruh mesin atau kontainer, [tambahkan font eksternal](/slides/id/php-java/custom-font/) yang diperlukan untuk dokumen keluaran, dan [sematkan font](/slides/id/php-java/embedded-font/) dalam presentasi bila memungkinkan sehingga font yang dipilih tersedia selama rendering.
+Gunakan file dan versi font yang sama pada setiap mesin atau kontainer, [muat font eksternal yang diperlukan](/slides/id/php-java/custom-font/), dan [sematkan font](/slides/id/php-java/embedded-font/) bila lisensi mengizinkan. Anda juga dapat memanggil [FontsManager::getSubstitutions](https://reference.aspose.com/slides/id/php-java/aspose.slides/fontsmanager/getsubstitutions/) sebelum ekspor untuk mengidentifikasi substitusi yang tidak diharapkan.

@@ -1,120 +1,190 @@
 ---
-title: Konfigurera teckensnittssubstitution i presentationer på Android
-linktitle: Teckensnittssubstitution
+title: Konfigurera teckensnittsersättning i presentationer på Android
+linktitle: Teckensnittsersättning
 type: docs
 weight: 70
 url: /sv/androidjava/font-substitution/
 keywords:
 - teckensnitt
-- ersätta teckensnitt
-- teckensnittssubstitution
-- ersätta teckensnitt
+- ersätt teckensnitt
 - teckensnittsersättning
-- substitutionsregel
+- byta teckensnitt
+- teckensnittbyte
 - ersättningsregel
+- bytregel
 - PowerPoint
 - OpenDocument
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Aktivera optimal teckensnittssubstitution i Aspose.Slides för Android via Java när du konverterar PowerPoint- och OpenDocument-presentationer till andra filformat."
+description: "Konfigurera teckensnittsersättningsregler och granska ersatta teckensnitt i Aspose.Slides för Android via Java när du renderar eller konverterar presentationer."
 ---
 ## **Översikt**
 
-Teckensnittssubstitution gör att Aspose.Slides kan använda ett annat teckensnitt när det ursprungliga teckensnittet i presentationen inte är tillgängligt under rendering eller konvertering. Du kan kontrollera vilka teckensnitt som ersattes genom att använda metoden `getSubstitutions` från gränssnittet `IFontsManager`.
+Font substitution gör att Aspose.Slides kan använda ett tillgängligt teckensnitt i stället för ett teckensnitt som inte går att komma åt när en presentation renderas eller konverteras. Ersättningen påverkar den renderade outputen; den ändrar inte teckensnittet som är tilldelat presentationens innehåll.
 
-Aspose.Slides låter dig också definiera regler för teckensnittssubstitution. Till exempel kan du ange att ett otillgängligt teckensnitt ska ersättas med ett annat tillgängligt teckensnitt och sedan tillämpa dessa regler via presentationens teckensnittshanterare.
+Du kan definiera vilket teckensnitt som ska användas när ett specifikt teckensnitt är otillgängligt, och du kan inspektera de ersättningar som Aspose.Slides kommer att göra under rendering. Detta hjälper till att hålla utdata konsekvent över Android‑enheter och miljöer med olika tillgängliga teckensnitt.
 
-## **Ange regler för teckensnittssubstitution**
+## **Hämta teckensnittsersättningar**
 
-Aspose.Slides låter dig ange regler för teckensnitt som bestämmer vad som ska göras under vissa förhållanden (till exempel när ett teckensnitt inte kan nås) på följande sätt:
+Använd metoden [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) för att avgöra vilka teckensnitt som kommer att ersättas när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsubstitutioninfo/)-objekt som identifierar de ursprungliga och ersatta teckensnittsnamnen.
 
-1. Läs in den relevanta presentationen.
-2. Läs in teckensnittet som ska ersättas.
-3. Läs in det nya teckensnittet.
-4. Lägg till en regel för ersättningen.
-5. Lägg till regeln i presentationens samling av teckensnittsersättningsregler.
-6. Generera bild för sliden för att observera effekten.
-
-Denna Java‑kod demonstrerar teckensnittssubstitutionsprocessen:
+Följande Java‑exempel listar alla teckensnittsersättningar för en presentation:
 
 ```java
-// Laddar en presentation
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Laddar källteckensnittet som kommer att ersättas
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Laddar det nya teckensnittet
-    IFontData destFont = new FontData("Arial");
-    
-    // Lägger till en teckensnittsregel för teckensnittsersättning
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Lägger till regeln i samlingen av teckensnittsersättningsregler
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Lägger till en teckensnittsregelssamling till regellistan
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Arial-teckensnittet kommer att användas i stället för SomeRareFont när det sistnämnda är otillgängligt
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Sparar bilden till disk i JPEG-format
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Hämta teckensnittsersättningar för markerade bilder**
 
-Du kanske vill se [**Teckensnittsersättning**](/slides/sv/androidjava/font-replacement/).
+Använd overload‑versionen av [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) med argumentet `int[] slides` för att bara inspektera ersättningar som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation inkrementellt, letar efter bilder som beror på otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en Android‑app eller diagnostiserar renderingsskillnader utan att bearbeta orelaterade bilder.
 
+`slides`‑arrayen innehåller 1‑baserade bildindex: `1` identifierar den första bilden. Till skillnad från samlingsåtkomsten [Presentation.getSlides](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getSlides--) som använder 0‑baserad indexering, nås samma bild som `presentation.getSlides().get_Item(0)`. Ha detta i åtanke när du bygger arrayen för att undvika fel med en förskjutning.
+
+Anropa overload‑versionen via metoden [Presentation.getFontsManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/presentation/#getFontsManager--). Den returnerar endast de ersättningar som fastställts under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsubstitutioninfo/)-objekt som innehåller de ursprungliga och ersatta teckensnittsnamnen. Resultatet speglar den aktuella teckensnittsmiljön, konfigurerade reservregler, ersättningsregler lagrade i en [IFontSubstRuleCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsubstrulecollection/), samt [externally loaded fonts](/slides/sv/androidjava/custom-font/).
+
+Samma ersättning kan krävas av fler än en vald bild. Deduplikera resultaten när du skapar ett teckensnittsinventarium eller en förhandsgranskningsrapport. Följande exempel rapporterar varje returnerad ersättning och skapar sedan en sorterad lista med unika teckensnittskartor:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+[IFontsManager](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsmanager/)-gränssnittet erbjuder båda overload‑versionerna. Välj den som passar omfattningen av renderingsoperationen:
+
+| Överlagring | Använd när |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) utan argument | Du behöver ersättningar för hela presentationen. |
+| [getSubstitutions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) med `int[] slides` | Du behöver ersättningar för ett valt intervall, inkrementell kontroll eller partiell export. |
+
+## **Ange teckensnittsersättningsregler**
+
+För att specificera vilket teckensnitt Aspose.Slides ska använda när ett källteckensnitt är otillgängligt:
+
+1. Läs in presentationen.  
+2. Skapa teckensnittsdefinitioner för käll‑ och ersättningsteckensnitt.  
+3. Skapa ett [FontSubstRule](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsubstrule/) med villkoret [WhenInaccessible](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsubstcondition/).  
+4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsubstrulecollection/).  
+5. Tilldela samlingen med metoden [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).  
+6. Rendera eller konvertera presentationen.
+
+Följande Java‑exempel ersätter `Arial` med `SomeRareFont` när `SomeRareFont` är otillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Ersättningsteckensnittet måste vara tillgängligt för Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Obs" %}}
+För en villkorslös förändring av de teckensnitt som används i hela presentationen, se [Font Replacement](/slides/sv/androidjava/font-replacement/).
 {{% /alert %}}
 
 ## **Begränsningar för matematiska ekvationsteckensnitt**
 
-Regler för teckensnittssubstitution deltar i den vanliga teckensnittsvalprocessen som används under rendering och konvertering. De är lämpliga för vanliga textscenarier där Aspose.Slides kan ersätta ett otillgängligt teckensnitt med ett annat tillgängligt teckensnitt enligt den konfigurerade regeln.
+Teckensnittsersättningsregler är en del av den standardiserade teckensnittsväljningsprocessen som används under rendering och konvertering. De fungerar för vanlig text när Aspose.Slides kan ersätta ett otillgängligt teckensnitt med det tillgängliga teckensnitt som anges i en regel.
 
-Dock har Office-matematikekvationer en viktig begränsning. Om en ekvation skapades med **Cambria Math** kan Aspose.Slides fortfarande kräva det ursprungliga **Cambria Math**‑teckensnittet för att beräkna och rendera ekvationslayouten korrekt. På grund av detta stöds inte ersättning av **Cambria Math** med ett annat matematiskt teckensnitt, såsom **STIX Two Math**, för ekvationsrendering och kan fortfarande leda till ett undantag som indikerar att **Cambria Math** krävs.
+Office‑Math‑ekvationer har ett extra krav. Om en ekvation använder **Cambria Math** kan Aspose.Slides behöva exakt detta teckensnitt för att beräkna och rendera ekvationslayouten. En regel som ersätter med ett annat matematiskt teckensnitt, t.ex. **STIX Two Math**, kan inte ersätta **Cambria Math** för detta ändamål, och renderingen kan fortfarande rapportera att **Cambria Math** krävs.
 
-För att konvertera sådana presentationer framgångsrikt, se till att **Cambria Math** är tillgängligt för Aspose.Slides vid körning. Du kan installera teckensnittet i operativsystemet eller tillhandahålla det som ett [externt teckensnitt](/slides/sv/androidjava/custom-font/) så att det kan delta i den normala teckensnittsvalprocessen under rendering och konvertering.
+För att rendera eller konvertera en sådan presentation, gör **Cambria Math** tillgängligt för Aspose.Slides. Ladda det som ett [external font](/slides/sv/androidjava/custom-font/) så att applikationen kan använda det under rendering och konvertering.
 
-Denna begränsning är specifik för ekvationsrendering. De standardregler för teckensnittssubstitution som beskrivs ovan gäller fortfarande för vanlig presentationstext när det ursprungliga teckensnittet är otillgängligt.
+Denna begränsning gäller endast ekvationslayouten. Ersättningsreglerna ovan gäller fortfarande för vanlig presentationstext.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vad är skillnaden mellan teckensnittsersättning och teckensnittssubstitution?**
+**Vad är skillnaden mellan font replacement och font substitution?**
 
-[Replacement](/slides/sv/androidjava/font-replacement/) är en tvingad överskrivning av ett teckensnitt med ett annat i hela presentationen. Substitution är en regel som aktiveras under ett specifikt villkor, till exempel när det ursprungliga teckensnittet är otillgängligt, och då används ett angivet reservteckensnitt.
+[Font replacement](/slides/sv/androidjava/font-replacement/) ändrar avsiktligt ett teckensnitt till ett annat i hela presentationen. Font substitution väljer ett teckensnitt för den renderade outputen när det konfigurerade villkoret är uppfyllt, exempelvis när det ursprungliga teckensnittet är otillgängligt.
 
-**När exakt tillämpas substitueringsreglerna?**
+**När tillämpas ersättningsregler?**
 
-Reglerna deltar i den standard [font selection](/slides/sv/androidjava/font-selection-sequence/) sekvensen som utvärderas under inläsning, rendering och konvertering; om det valda teckensnittet är otillgängligt tillämpas ersättning eller substitution.
+Reglerna deltar i [font selection sequence](/slides/sv/androidjava/font-selection-sequence/) under rendering och konvertering. Med `WhenInaccessible` används en regel endast när Aspose.Slides inte kan komma åt källteckensnittet.
 
-**Vad är standardbeteendet om varken ersättning eller substitution är konfigurerad och teckensnittet saknas på systemet?**
+**Vad händer om ett teckensnitt saknas och ingen ersättningsregel är konfigurerad?**
 
-Biblioteket kommer att försöka välja det närmaste tillgängliga systemteckensnittet, på liknande sätt som PowerPoint skulle göra.
+Aspose.Slides väljer det närmaste tillgängliga teckensnittet enligt sin teckensnittsväljningsprocess. Resultatet beror på vilka teckensnitt som finns i runtime‑miljön.
 
-**Kan jag bifoga anpassade externa teckensnitt vid körning för att undvika substitution?**
+**Kan jag ladda externa teckensnitt för att undvika ersättning?**
 
-Ja. Du kan [add external fonts](/slides/sv/androidjava/custom-font/) vid körning så att biblioteket beaktar dem för val och rendering, även för efterföljande konverteringar.
+Ja. Du kan [load external fonts](/slides/sv/androidjava/custom-font/) så att Aspose.Slides kan använda dem under rendering och konvertering.
 
-**Distribuerar Aspose några teckensnitt med biblioteket?**
+**Distribuerar Aspose teckensnitt med biblioteket?**
 
-Nej. Aspose distribuerar inga betalda eller gratis teckensnitt; du lägger till och använder teckensnitt efter eget gottfinnande och ansvar.
+Nej. Du ansvarar för att tillhandahålla teckensnitt och följa deras licensvillkor.
 
-**Finns det skillnader i substitueringsbeteende på Windows, Linux och macOS?**
+**Kan ersättningsresultat skilja sig mellan Android‑enheter?**
 
-Ja. Teckensnittsidentifiering startar i operativsystemets teckensnittskataloger. Uppsättningen av standardtillgängliga teckensnitt och sökvägarna skiljer sig åt mellan plattformarna, vilket påverkar tillgänglighet och behovet av substitution.
+Ja. Tillgängliga systemteckensnitt kan variera mellan Android‑versioner, enheter och leverantörer, så ett teckensnitt som finns i en miljö kan behöva ersättas i en annan.
 
-**Hur bör jag förbereda miljön för att minimera oväntad substitution under batch‑konverteringar?**
+**Hur kan jag göra teckensnittsväljning konsekvent över Android‑enheter?**
 
-Synkronisera teckensnittssamlingen över maskiner eller containrar, [add the external fonts](/slides/sv/androidjava/custom-font/) som krävs för utdatafilerna, och [embed fonts](/slides/sv/androidjava/embedded-font/) i presentationer när det är möjligt så att de valda teckensnitten är tillgängliga under rendering.
+Paketera samma erforderliga teckensnittsfiler med applikationen, [load them as external fonts](/slides/sv/androidjava/custom-font/), och [embed fonts](/slides/sv/androidjava/embedded-font/) när licenser tillåter det. Du kan också anropa [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) före export för att identifiera oväntade ersättningar.

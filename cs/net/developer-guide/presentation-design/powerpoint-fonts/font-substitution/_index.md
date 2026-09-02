@@ -1,16 +1,16 @@
 ---
-title: Konfigurace substituce písma v prezentacích v .NET
-linktitle: Substituce písma
+title: "Konfigurace náhrady písma v prezentacích v .NET"
+linktitle: "Náhrada písma"
 type: docs
 weight: 70
 url: /cs/net/font-substitution/
 keywords:
 - písmo
-- substituce písma
-- substituce písma
+- náhradní písmo
+- náhrada písma
 - nahrazení písma
 - nahrazení písma
-- pravidlo substituce
+- pravidlo náhrady
 - pravidlo nahrazení
 - PowerPoint
 - OpenDocument
@@ -18,108 +18,146 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Povolte optimální substituci písma v Aspose.Slides pro .NET při konverzi prezentací PowerPoint a OpenDocument do jiných formátů souborů."
+description: "Konfigurujte pravidla náhrady písma a kontrolujte nahrazená písma v Aspose.Slides pro .NET při vykreslování nebo konverzi prezentací PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-Substituce písma umožňuje Aspose.Slides použít jiné písmo, pokud původní písmo prezentace není během vykreslování nebo konverze k dispozici. Můžete zkontrolovat, která písma byla substituována pomocí metody `GetSubstitutions` z rozhraní `IFontsManager`.
+Náhrada písma umožňuje Aspose.Slides použít dostupné písmo místo písma, které nelze při vykreslování nebo konverzi prezentace získat. Náhrada ovlivňuje výstup vykreslení; nemění písmo přiřazené k obsahu prezentace.
 
-Aspose.Slides také umožňuje definovat pravidla substituce písma. Například můžete určit, že nedostupné písmo má být nahrazeno jiným dostupným písmem, a poté tato pravidla aplikovat pomocí správce písma prezentace.
+Můžete definovat písmo, které se má použít, když je konkrétní písmo nedostupné, a můžete zkontrolovat náhrady, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní v různých prostředích s různě nainstalovanými písmy.
 
-## **Získání substitucí písma**
+## **Získání náhrad písma**
 
-Pro zjištění, která písma prezentace jsou během procesu vykreslování substituována, poskytuje Aspose.Slides metodu [GetSubstitution](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/getsubstitutions/) z rozhraní [IFontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/).
+Použijte metodu [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste zjistili, která písma budou nahrazena při vykreslení prezentace. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstitutioninfo/), které identifikují originální a nahrazené názvy písem.
 
-Kód v C# ukazuje, jak získat všechny substituce písma, které jsou provedeny při vykreslení prezentace:
-```c#
-using (Presentation pres = new Presentation(@"Presentation.pptx"))
+Následující příklad v C# vypisuje všechny náhrady písem pro prezentaci:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 {
-    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
-    {
-        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
-    }
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
 }
 ```
 
-## **Nastavení pravidel substituce písma**
+## **Získání náhrad písma pro vybrané snímky**
 
-Aspose.Slides vám umožňuje nastavit pravidla pro písma, která určují, co je třeba udělat v určitých podmínkách (například když k písmu nelze přistupovat), následujícím způsobem:
+Použijte přetížení [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) s argumentem `int[] slides`, abyste zkontrolovali pouze náhrady potřebné k vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, kontrolujete velkou prezentaci postupně, hledáte snímky, které závisí na nedostupných písmách, připravujete minimální balíček písem pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
 
-1. Načtěte příslušnou prezentaci.
-2. Načtěte písmo, které bude nahrazeno.
-3. Načtěte nové písmo.
-4. Přidejte pravidlo pro nahrazení.
-5. Přidejte pravidlo do kolekce pravidel nahrazování písma v prezentaci.
-6. Vygenerujte obrázek snímku, abyste pozorovali efekt.
+Pole `slides` obsahuje jednosměrné (jedno‑základní) indexy snímků: `1` označuje první snímek. Naproti tomu indexer kolekce [Presentation.Slides](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/slides/cs/) je nulový, takže stejný snímek je přístupný jako `presentation.Slides[0]`. Při vytváření polete si tuto odlišnost zapamatujte, abyste se vyhnuli chybám o jeden.
 
-Tento kód v C# demonstruje proces substituce písma:
-```c#
- //Načte prezentaci
-Presentation presentation = new Presentation("Fonts.pptx");
+Zavolejte přetížení přes vlastnost [Presentation.FontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/presentation/fontsmanager/). Vrací pouze náhrady určené během vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstitutioninfo/) obsahující originální a nahrazené názvy písem. Výsledek odráží aktuální prostředí písem, nakonfigurovaná pravidla záložního řešení, pravidla náhrad uložená v [IFontSubstRuleCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsubstrulecollection/), a [externě načtená písma](/slides/cs/net/custom-font/).
 
-//Načte zdrojové písmo, které bude nahrazeno
-IFontData sourceFont = new FontData("SomeRareFont");
+Stejná náhrada může být vyžadována více než jedním vybraným snímkem. Při tvorbě inventáře písem nebo preflight reportu výsledky deduplikujte. Následující příklad uvádí každou vrácenou náhradu a následně vytváří seřazený seznam unikátních mapování písem:
 
-//Načte nové písmo
-IFontData destFont = new FontData("Arial");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-//Přidá pravidlo pro nahrazení písma
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+using var presentation = new Presentation("Presentation.pptx");
 
-//Přidá pravidlo do kolekce pravidel substituce písma
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
+int[] selectedSlides = { 1, 3, 5 };
+var substitutions = presentation.FontsManager.GetSubstitutions(selectedSlides).ToList();
 
-//Přidá kolekci pravidel písma do seznamu pravidel
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+Console.WriteLine("Substitutions for the selected slides:");
+foreach (var substitution in substitutions)
 {
-    //Uloží obrázek na disk ve formátu JPEG
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+var preflightEntries = substitutions.Select(substitution => $"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+var uniquePreflightEntries = preflightEntries.Distinct(StringComparer.OrdinalIgnoreCase);
+var sortedPreflightEntries = uniquePreflightEntries.OrderBy(entry => entry, StringComparer.OrdinalIgnoreCase).ToList();
+
+Console.WriteLine("Deduplicated font preflight report:");
+foreach (var entry in sortedPreflightEntries)
+{
+    Console.WriteLine(entry);
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Můžete se podívat na [**Nahrazení písma**](/slides/cs/net/font-replacement/). 
+Rozhraní [IFontsManager](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/) poskytuje obě přetížení. Vyberte si podle rozsahu vykreslovací operace:
+
+| Přetížení | Použijte, když |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) without arguments | Potřebujete náhrady pro celou prezentaci. |
+| [GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | Potřebujete náhrady pro vybraný rozsah, postupnou kontrolu nebo částečný export. |
+
+## **Nastavení pravidel náhrady písma**
+
+Chcete-li určit, jaké písmo má Aspose.Slides použít, když je zdrojové písmo nedostupné:
+
+1. Načtěte prezentaci.
+2. Vytvořte definice písem pro zdrojové a náhradní písmo.
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstcondition/).
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsubstrulecollection/).
+5. Přiřaďte kolekci k vlastnosti [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/cs/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+6. Vykreslete nebo konvertujte prezentaci.
+
+Následující příklad v C# nahrazuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupné, a poté vykreslí první snímek pro ověření výsledku. Náhradní písmo musí být pro Aspose.Slides dostupné.
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("Fonts.pptx");
+
+var sourceFont = new FontData("SomeRareFont");
+var substituteFont = new FontData("Arial");
+var substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+var substitutionRules = new FontSubstRuleCollection();
+substitutionRules.Add(substitutionRule);
+presentation.FontsManager.FontSubstRuleList = substitutionRules;
+
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("slide.jpg", ImageFormat.Jpeg);
+```
+
+{{% alert color="info" title="Note" %}}
+Pro bezpodmínečnou změnu písem použitých v celé prezentaci viz [Font Replacement](/slides/cs/net/font-replacement/).
 {{% /alert %}}
 
-## **Omezení pro písmo matematických rovnic**
+## **Omezení pro písma matematických rovnic**
 
-Pravidla substituce písma se podílejí na standardním procesu výběru písma, který se používá během vykreslování a konverze. Jsou vhodná pro běžné textové scénáře, kde Aspose.Slides může nahradit nedostupné písmo jiným dostupným písmem podle nakonfigurovaného pravidla.
+Pravidla náhrady písem jsou součástí standardního procesu výběru písem používaného během vykreslování a konverze. Fungují pro běžný text, když Aspose.Slides může nahradit nedostupné písmo dostupným písmem určeným pravidlem.
 
-Nicméně rovnice v Office mají důležité omezení. Pokud byla rovnice vytvořena pomocí **Cambria Math**, Aspose.Slides může i nadále vyžadovat původní písmo **Cambria Math** pro výpočet a vykreslení rozložení rovnice správně. Z tohoto důvodu není podporována substituce **Cambria Math** jiným matematickým písmem, například **STIX Two Math**, pro vykreslování rovnic a může stále dojít k výjimce, která uvádí, že je vyžadováno **Cambria Math**.
+Rovnice Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat přesně toto písmo pro výpočet a vykreslení rozvržení rovnice. Pravidlo, které nahrazuje jiné matematické písmo, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslení může stále hlásit, že **Cambria Math** je vyžadováno.
 
-Pro úspěšnou konverzi takových prezentací se ujistěte, že **Cambria Math** je v době běhu k dispozici pro Aspose.Slides. Písmo můžete nainstalovat do operačního systému nebo jej poskytnout jako [externí písmo](/slides/cs/net/custom-font/), aby se mohlo podílet na běžném procesu výběru písma během vykreslování a konverze.
+Aby bylo možné takovou prezentaci vykreslit nebo konvertovat, zajistěte, aby bylo **Cambria Math** dostupné pro Aspose.Slides. Nainstalujte jej v operačním systému nebo načtěte jako [externí písmo](/slides/cs/net/custom-font/).
 
-Toto omezení se týká výhradně vykreslování rovnic. Standardní pravidla substituce písma popsaná výše se stále vztahují na běžný text v prezentaci, pokud je původní písmo nedostupné.
+Toto omezení se vztahuje na rozvržení rovnic. Výše popsaná pravidla náhrady se i nadále vztahují na běžný text prezentace.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi nahrazením písma a substitucí písma?**
+**Jaký je rozdíl mezi nahrazením písma a náhradou písma?**
 
-[Replacement](/slides/cs/net/font-replacement/) je vynucený přepis jednoho písma jiným v celé prezentaci. Substituce je pravidlo, které se aktivuje za specifické podmínky, například když není původní písmo k dispozici, a poté se použije určené náhradní písmo.
+[Font replacement](/slides/cs/net/font-replacement/) úmyslně mění jedno písmo na jiné v celé prezentaci. Náhrada písma vybírá písmo pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je originální písmo nedostupné.
 
-**Kdy jsou pravidla substituce aplikována?**
+**Kdy se pravidla náhrady použijí?**
 
-Pravidla se podílejí na standardní sekvenci [výběru písma](/slides/cs/net/font-selection-sequence/), která se vyhodnocuje během načítání, vykreslování a konverze; pokud není vybrané písmo dostupné, použije se nahrazení nebo substituce.
+Pravidla se podílejí na [sekvenci výběru písma](/slides/cs/net/font-selection-sequence/) během vykreslování a konverze. S `WhenInaccessible` se pravidlo použije pouze tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému písmu.
 
-**Jaké je výchozí chování, pokud není nakonfigurováno ani nahrazení ani substituce a písmo chybí v systému?**
+**Co se stane, když písmo chybí a není nakonfigurováno žádné pravidlo náhrady?**
 
-Knihovna se pokusí vybrat nejbližší dostupné systémové písmo, podobně jako by to udělal PowerPoint.
+Aspose.Slides vybere nejbližší dostupné písmo podle svého procesu výběru písem. Výsledek závisí na písmenech dostupných v běhovém prostředí.
 
-**Mohu při běhu připojit vlastní externí písma, aby se zabránilo substituci?**
+**Mohu načíst externí písma, aby se zabránilo náhradám?**
 
-Ano. Můžete při běhu [přidat externí písma](/slides/cs/net/custom-font/), aby je knihovna zohledňovala při výběru a vykreslování, včetně následných konverzí.
+Ano. Můžete [načíst externí písma](/slides/cs/net/custom-font/), aby je Aspose.Slides mohlo použít během vykreslování a konverze.
 
-**Distribuuje Aspose nějaká písma s knihovnou?**
+**Rozděluje Aspose písma s knihovnou?**
 
-Ne. Aspose nešíří žádná placená ani volně dostupná písma; písma přidáváte a používáte na vlastní uvážení a odpovědnost.
+Ne. Vy jste zodpovědní za poskytování písem a dodržování jejich licencí.
 
-**Existují rozdíly v chování substituce na Windows, Linuxu a macOS?**
+**Mohou se výsledky náhrad lišit mezi Windows, Linux a macOS?**
 
-Ano. Vyhledávání písma začíná v adresářích písma operačního systému. Sada výchozích dostupných písem a vyhledávací cesty se liší mezi platformami, což ovlivňuje dostupnost a potřebu substituce.
+Ano. Instalovaná písma a umístění vyhledávání písem se liší podle operačního systému, takže písmo dostupné na jednom počítači může vyžadovat náhradu na jiném.
 
-**Jak připravit prostředí, aby se minimalizovala neočekávaná substituce během dávkových konverzí?**
+**Jak mohu zajistit konzistentní výběr písem při hromadných konverzích?**
 
-Synchronizujte sadu písem mezi stroji nebo kontejnery, [přidejte externí písma](/slides/cs/net/custom-font/) potřebná pro výstupní dokumenty a pokud je to možné, [vložte písma](/slides/cs/net/embedded-font/) do prezentací, aby byla vybraná písma během vykreslování k dispozici.
+Používejte stejné soubory a verze písem na každém počítači nebo kontejneru, [načtěte požadovaná externí písma](/slides/cs/net/custom-font/) a [vložte písma](/slides/cs/net/embedded-font/), pokud licence umožňuje. Můžete také před exportem zavolat [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/cs/net/aspose.slides/ifontsmanager/getsubstitutions/), abyste identifikovali nečekané náhrady.

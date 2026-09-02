@@ -1,119 +1,182 @@
 ---
-title: Konfiguracja substitucji czcionek w prezentacjach przy użyciu Javy
-linktitle: Substitucja czcionek
+title: "Konfiguracja podstawiania czcionek w prezentacjach przy użyciu Javy"
+linktitle: "Podstawianie czcionek"
 type: docs
 weight: 70
 url: /pl/java/font-substitution/
 keywords:
 - czcionka
-- zastąpienie czcionki
-- substitucja czcionki
+- czcionka zastępcza
+- podstawianie czcionek
 - zamiana czcionki
 - zastąpienie czcionki
-- reguła substitucji
+- reguła podstawiania
 - reguła zamiany
 - PowerPoint
 - OpenDocument
 - prezentacja
 - Java
 - Aspose.Slides
-description: "Włącz optymalną substitucję czcionek w Aspose.Slides dla Javy podczas konwersji prezentacji PowerPoint i OpenDocument do innych formatów plików."
+description: "Konfiguruj reguły podstawiania czcionek i sprawdzaj podstawione czcionki w Aspose.Slides dla Javy podczas renderowania lub konwersji prezentacji PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-Substitucja czcionek pozwala Aspose.Slides używać innej czcionki, gdy oryginalna czcionka prezentacji jest niedostępna podczas renderowania lub konwersji. Możesz sprawdzić, które czcionki zostały zastąpione, używając metody `getSubstitutions` z interfejsu `IFontsManager`.
+Podstawianie czcionek umożliwia Aspose.Slides użycie dostępnej czcionki zamiast czcionki, której nie można uzyskać podczas renderowania lub konwersji prezentacji. Substytucja wpływa na renderowany wynik; nie zmienia czcionki przypisanej do treści prezentacji.
 
-Aspose.Slides umożliwia również definiowanie reguł substitucji czcionek. Na przykład możesz określić, że niedostępna czcionka ma być zastąpiona inną dostępną czcionką i zastosować te reguły poprzez menedżera czcionek prezentacji.
+Możesz określić czcionkę, którą należy użyć, gdy dana czcionka jest niedostępna, oraz sprawdzić podstawienia, które Aspose.Slides wykona podczas renderowania. Pomaga to zachować spójność wyniku w środowiskach o różnych zainstalowanych czcionkach.
 
-## **Ustawianie reguł substitucji czcionek**
+## **Uzyskaj podstawienia czcionek**
 
-Aspose.Slides pozwala ustawić reguły dla czcionek określające, co należy zrobić w określonych warunkach (na przykład gdy czcionka nie jest dostępna) w następujący sposób:
+Użyj metody [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) aby określić, które czcionki zostaną podstawione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontsubstitutioninfo/), które identyfikują pierwotne i podstawione nazwy czcionek.
 
-1. Załaduj odpowiednią prezentację.  
-2. Załaduj czcionkę, która ma zostać zastąpiona.  
-3. Załaduj nową czcionkę.  
-4. Dodaj regułę zastąpienia.  
-5. Dodaj regułę do kolekcji reguł zastąpienia czcionek prezentacji.  
-6. Wygeneruj obraz slajdu, aby zaobserwować efekt.
-
-Ten kod Java demonstruje proces substitucji czcionek:
+Poniższy przykład w Javie wyświetla wszystkie podstawienia czcionek dla prezentacji:
 
 ```java
-// Ładuje prezentację
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Ładuje czcionkę źródłową, która zostanie zastąpiona
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Ładuje nową czcionkę
-    IFontData destFont = new FontData("Arial");
-    
-    // Dodaje regułę czcionki dla zastąpienia czcionki
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Dodaje regułę do kolekcji reguł zastąpienia czcionek
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Dodaje kolekcję reguł czcionek do listy reguł
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Czcionka Arial będzie użyta zamiast SomeRareFont, gdy ta będzie niedostępna
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Zapisuje obraz na dysku w formacie JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Uzyskaj podstawienia czcionek dla wybranych slajdów**
 
-Możesz chcieć zobaczyć [**Zastąpienie czcionki**](/slides/pl/java/font-replacement/). 
+Użyj przeciążenia [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) z argumentem `int[] slides`, aby sprawdzić tylko podstawienia wymagane do renderowania wybranych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację stopniowo, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla serwera lub kontenera albo diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
 
+Tablica `slides` zawiera indeksy slajdów liczone od 1: `1` identyfikuje pierwszy slajd. Natomiast dostęp do kolekcji [Presentation.getSlides](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#getSlides--) używa indeksowania od 0, więc ten sam slajd uzyskuje się jako `presentation.getSlides().get_Item(0)`. Pamiętaj o tej różnicy przy budowaniu tablicy, aby uniknąć błędów „off‑by‑one”.
+
+Wywołaj przeciążenie przez metodę [Presentation.getFontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/presentation/#getFontsManager--) . Zwraca ona tylko podstawienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontsubstitutioninfo/), zawierającym pierwotną i podstawioną nazwę czcionki. Wynik odzwierciedla bieżące środowisko czcionek, skonfigurowane reguły awaryjne, reguły podstawiania zapisane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsubstrulecollection/), oraz [zewnętrznie załadowane czcionki](/slides/pl/java/custom-font/).
+
+Ta sama podstawienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty, gdy tworzysz inwentaryzację czcionek lub raport wstępny. Poniższy przykład raportuje każde zwrócone podstawienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Interfejs [IFontsManager](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsmanager/) udostępnia oba przeciążenia. Wybierz jedno zgodnie z zakresem operacji renderowania:
+
+| Przeciążenie | Kiedy używać |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) bez argumentów | Potrzebujesz podstawień dla całej prezentacji. |
+| [getSubstitutions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) z `int[] slides` | Potrzebujesz podstawień dla wybranego zakresu, sprawdzenia przyrostowego lub częściowego eksportu. |
+
+## **Ustaw reguły podstawiania czcionek**
+
+Aby określić czcionkę, której Aspose.Slides powinien używać, gdy czcionka źródłowa jest niedostępna:
+
+1. Załaduj prezentację.  
+2. Utwórz definicje czcionek dla czcionki źródłowej i podstawiającej.  
+3. Utwórz obiekt [FontSubstRule](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontsubstrule/) z warunkiem [WhenInaccessible](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontsubstcondition/).  
+4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontsubstrulecollection/).  
+5. Przypisz kolekcję, używając metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/pl/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).  
+6. Renderuj lub konwertuj prezentację.
+
+Poniższy przykład w Javie podmienia `Arial` na `SomeRareFont`, gdy `SomeRareFont` jest niedostępna, a następnie renderuje pierwszy slajd w celu weryfikacji wyniku. Czcionka podstawiająca musi być dostępna dla Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Uwaga" %}}
+Aby bezwarunkowo zmienić czcionki używane w całej prezentacji, zobacz [Font Replacement](/slides/pl/java/font-replacement/).
 {{% /alert %}}
 
-## **Ograniczenia dla czcionek równań matematycznych**
+## **Ograniczenia dotyczące czcionek równań matematycznych**
 
-Reguły substitucji czcionek uczestniczą w standardowym procesie wyboru czcionki używanym podczas renderowania i konwersji. Są odpowiednie dla zwykłych scenariuszy tekstowych, w których Aspose.Slides może zastąpić niedostępną czcionkę inną dostępną czcionką zgodnie z skonfigurowaną regułą.
+Reguły podstawiania czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają dla zwykłego tekstu, gdy Aspose.Slides może zastąpić niedostępną czcionkę czcionką określoną w regule.
 
-Jednak równania matematyczne w Office mają istotne ograniczenie. Jeśli równanie zostało utworzone przy użyciu **Cambria Math**, Aspose.Slides może nadal wymagać oryginalnej czcionki **Cambria Math** do poprawnego obliczenia i wyrenderowania układu równania. Z tego powodu zastąpienie **Cambria Math** inną czcionką matematyczną, taką jak **STIX Two Math**, nie jest obsługiwane przy renderowaniu równania i może skutkować wyjątkiem wskazującym, że wymagana jest **Cambria Math**.
+Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować tej właśnie czcionki do obliczenia i renderowania układu równania. Reguła, która podmienia inną czcionkę matematyczną, np. **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać wymóg **Cambria Math**.
 
-Aby pomyślnie konwertować takie prezentacje, upewnij się, że **Cambria Math** jest dostępna dla Aspose.Slides w czasie wykonywania. Możesz zainstalować czcionkę w systemie operacyjnym lub udostępnić ją jako [czcionkę zewnętrzną](/slides/pl/java/custom-font/), aby mogła uczestniczyć w normalnym procesie wyboru czcionki podczas renderowania i konwersji.
+Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Zainstaluj ją w systemie operacyjnym lub załaduj jako [zewnętrzną czcionkę](/slides/pl/java/custom-font/).
 
-To ograniczenie dotyczy wyłącznie renderowania równań. Standardowe reguły substitucji czcionek opisane powyżej nadal mają zastosowanie do zwykłego tekstu prezentacji, gdy oryginalna czcionka jest niedostępna.
+Ograniczenie dotyczy układu równań. Opisane wyżej reguły podstawiania nadal obowiązują dla zwykłego tekstu w prezentacji.
 
 ## **FAQ**
 
-**Jaka jest różnica między zastąpieniem czcionki a substitucją czcionki?**
+**Jaka jest różnica między zamianą czcionki a podstawianiem czcionki?**  
+[Font replacement](/slides/pl/java/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Podstawianie czcionki wybiera czcionkę dla wyjścia renderowanego, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
 
-[Zastąpienie](/slides/pl/java/font-replacement/) to wymuszone nadpisanie jednej czcionki drugą w całej prezentacji. Substitucja to reguła, która uruchamia się w określonym warunku, na przykład gdy oryginalna czcionka jest niedostępna, i wtedy używana jest wyznaczona czcionka zapasowa.
+**Kiedy stosowane są reguły podstawiania?**  
+Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/java/font-selection-sequence/) podczas renderowania i konwersji. Z warunkiem `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
 
-**Kiedy dokładnie stosowane są reguły substitucji?**
+**Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły podstawiania?**  
+Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionki. Wynik zależy od czcionek dostępnych w środowisku uruchomieniowym.
 
-Reguły uczestniczą w standardowej kolejności [wyboru czcionki](/slides/pl/java/font-selection-sequence/), która jest oceniana podczas ładowania, renderowania i konwersji; jeśli wybrana czcionka jest niedostępna, stosowane jest zastąpienie lub substitucja.
+**Czy mogę załadować zewnętrzne czcionki, aby uniknąć podstawiania?**  
+Tak. możesz [załadować zewnętrzne czcionki](/slides/pl/java/custom-font/), aby Aspose.Slides mogło ich używać podczas renderowania i konwersji.
 
-**Jakie jest domyślne zachowanie, jeśli nie skonfigurowano ani zastąpienia, ani substitucji i czcionka jest nieobecna w systemie?**
+**Czy Aspose dystrybuuje czcionki wraz z biblioteką?**  
+Nie. Odpowiadasz za dostarczenie czcionek i przestrzeganie ich licencji.
 
-Biblioteka spróbuje wybrać najbliższą dostępną czcionkę systemową, podobnie jak zachowywałby się PowerPoint.
+**Czy wyniki podstawiania mogą się różnić między systemami Windows, Linux i macOS?**  
+Tak. Zainstalowane czcionki i miejsca ich wyszukiwania różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednym komputerze może wymagać podstawienia na innym.
 
-**Czy mogę dołączyć własne czcionki zewnętrzne w czasie wykonywania, aby uniknąć substitucji?**
-
-Tak. Możesz [dodać czcionki zewnętrzne](/slides/pl/java/custom-font/) w czasie wykonywania, aby biblioteka brała je pod uwagę przy wyborze i renderowaniu, także przy kolejnych konwersjach.
-
-**Czy Aspose dystrybuuje jakiekolwiek czcionki wraz z biblioteką?**
-
-Nie. Aspose nie dystrybuuje płatnych ani darmowych czcionek; dodajesz i używasz czcionki na własną odpowiedzialność.
-
-**Czy istnieją różnice w zachowaniu substitucji na Windows, Linux i macOS?**
-
-Tak. Wykrywanie czcionek rozpoczyna się od katalogów czcionek systemu operacyjnego. Zestaw domyślnie dostępnych czcionek oraz ścieżki wyszukiwania różnią się między platformami, co wpływa na dostępność i potrzebę substitucji.
-
-**Jak przygotować środowisko, aby zminimalizować nieoczekiwaną substitucję podczas konwersji wsadowych?**
-
-Zsynchronizuj zestaw czcionek między maszynami lub kontenerami, [dodaj wymagane czcionki zewnętrzne](/slides/pl/java/custom-font/) do dokumentów wyjściowych oraz [osadź czcionki](/slides/pl/java/embedded-font/) w prezentacjach, gdy to możliwe, aby wybrane czcionki były dostępne podczas renderowania.
+**Jak zapewnić spójny wybór czcionek przy konwersjach wsadowych?**  
+Używaj tych samych plików i wersji czcionek na każdym komputerze lub w kontenerze, [załaduj wymagane zewnętrzne czcionki](/slides/pl/java/custom-font/), oraz [osadz czcionki](/slides/pl/java/embedded-font/) gdy licencja na to pozwala. Możesz również wywołać [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) przed eksportem, aby zidentyfikować nieoczekiwane podstawienia.

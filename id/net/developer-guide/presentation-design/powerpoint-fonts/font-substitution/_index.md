@@ -6,7 +6,7 @@ weight: 70
 url: /id/net/font-substitution/
 keywords:
 - font
-- substitusi font
+- font substitusi
 - substitusi font
 - ganti font
 - penggantian font
@@ -18,108 +18,148 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aktifkan substitusi font yang optimal di Aspose.Slides untuk .NET saat mengonversi presentasi PowerPoint & OpenDocument ke format file lain."
+description: "Konfigurasi aturan substitusi font dan periksa font yang disubstitusi di Aspose.Slides untuk .NET saat merender atau mengonversi presentasi PowerPoint dan OpenDocument."
 ---
-## **Ikhtisar**
+## **Gambaran Umum**
 
-Penggantian font memungkinkan Aspose.Slides menggunakan font lain ketika font presentasi asli tidak tersedia selama rendering atau konversi. Anda dapat memeriksa font mana yang digantikan dengan menggunakan metode `GetSubstitutions` dari antarmuka `IFontsManager`.
+Substitusi font memungkinkan Aspose.Slides menggunakan font yang tersedia sebagai pengganti font yang tidak dapat diakses saat presentasi dirender atau dikonversi. Substitusi memengaruhi output yang dirender; tidak mengubah font yang ditetapkan pada konten presentasi.
 
-Aspose.Slides juga memungkinkan Anda mendefinisikan aturan penggantian font. Misalnya, Anda dapat menentukan bahwa font yang tidak dapat diakses harus diganti dengan font lain yang tersedia dan kemudian menerapkan aturan tersebut melalui manajer font presentasi.
+Anda dapat menentukan font yang akan digunakan ketika font tertentu tidak tersedia, dan Anda dapat memeriksa substitusi yang akan dilakukan Aspose.Slides selama proses rendering. Hal ini membantu menjaga konsistensi output di lingkungan dengan font yang terpasang berbeda.
 
 ## **Dapatkan Substitusi Font**
 
-Untuk memungkinkan Anda menemukan font presentasi yang digantikan selama proses rendering presentasi, Aspose.Slides menyediakan metode [GetSubstitution](https://reference.aspose.com/slides/id/net/aspose.slides/fontsmanager/getsubstitutions/) dari antarmuka [IFontsManager](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/).
+Gunakan metode [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) untuk menentukan font mana yang akan disubstitusi saat presentasi dirender. Metode ini mengembalikan objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstitutioninfo/) yang mengidentifikasi nama font asli dan font pengganti.
 
-Kode C# berikut menunjukkan cara mendapatkan semua substitusi font yang dilakukan saat sebuah presentasi dirender:
-```c#
-using (Presentation pres = new Presentation(@"Presentation.pptx"))
+Contoh C# berikut menampilkan semua substitusi font untuk sebuah presentasi:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 {
-    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
-    {
-        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
-    }
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
 }
 ```
+
+## **Dapatkan Substitusi Font untuk Slide yang Dipilih**
+
+Gunakan overload [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) dengan argumen `int[] slides` untuk memeriksa hanya substitusi yang diperlukan untuk merender slide tertentu. Ini berguna saat Anda merender atau mengekspor bagian dari presentasi, memeriksa presentasi besar secara bertahap, menemukan slide yang bergantung pada font yang tidak tersedia, menyiapkan paket font minimal untuk server atau kontainer, atau mendiagnosis perbedaan rendering tanpa memproses slide yang tidak terkait.
+
+Array `slides` berisi indeks slide berbasis satu: `1` mengidentifikasi slide pertama. Sebaliknya, indeks koleksi [Presentation.Slides](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/slides/id/) berbasis nol, sehingga slide yang sama diakses sebagai `presentation.Slides[0]`. Ingat perbedaan ini saat membuat array untuk menghindari kesalahan off-by-one.
+
+Panggil overload melalui properti [Presentation.FontsManager](https://reference.aspose.com/slides/id/net/aspose.slides/presentation/fontsmanager/). Metode ini hanya mengembalikan substitusi yang ditentukan selama merender slide yang dipilih. Setiap hasil adalah objek [FontSubstitutionInfo](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstitutioninfo/) yang berisi nama font asli dan penggantinya. Hasil mencerminkan lingkungan font saat ini, aturan fallback yang dikonfigurasi, aturan substitusi yang disimpan dalam [IFontSubstRuleCollection](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsubstrulecollection/), dan [font yang dimuat secara eksternal](/slides/id/net/custom-font/).
+
+Substitusi yang sama dapat diperlukan oleh lebih dari satu slide yang dipilih. Hilangkan duplikasi hasil saat Anda membuat inventaris font atau laporan pra‑penerbangan. Contoh berikut melaporkan setiap substitusi yang dikembalikan dan kemudian membuat daftar terurut pemetaan font unik:
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+int[] selectedSlides = { 1, 3, 5 };
+var substitutions = presentation.FontsManager.GetSubstitutions(selectedSlides).ToList();
+
+Console.WriteLine("Substitutions for the selected slides:");
+foreach (var substitution in substitutions)
+{
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+var preflightEntries = substitutions.Select(substitution => $"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+var uniquePreflightEntries = preflightEntries.Distinct(StringComparer.OrdinalIgnoreCase);
+var sortedPreflightEntries = uniquePreflightEntries.OrderBy(entry => entry, StringComparer.OrdinalIgnoreCase).ToList();
+
+Console.WriteLine("Deduplicated font preflight report:");
+foreach (var entry in sortedPreflightEntries)
+{
+    Console.WriteLine(entry);
+}
+```
+
+Antarmuka [IFontsManager](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/) menyediakan kedua overload. Pilih salah satu sesuai cakupan operasi rendering:
+
+| Overload | Gunakan ketika |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) tanpa argumen | Anda memerlukan substitusi untuk seluruh presentasi. |
+| [GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) dengan `int[] slides` | Anda memerlukan substitusi untuk rentang terpilih, pemeriksaan bertahap, atau ekspor parsial. |
 
 ## **Atur Aturan Substitusi Font**
 
-Aspose.Slides memungkinkan Anda mengatur aturan untuk font yang menentukan apa yang harus dilakukan dalam kondisi tertentu (misalnya, ketika font tidak dapat diakses) dengan cara berikut:
+Untuk menentukan font yang harus digunakan Aspose.Slides ketika font sumber tidak tersedia:
 
-1. Muat presentasi yang relevan.
-2. Muat font yang akan diganti.
-3. Muat font baru.
-4. Tambahkan aturan untuk penggantian.
-5. Tambahkan aturan ke koleksi aturan penggantian font presentasi.
-6. Hasilkan gambar slide untuk melihat efeknya.
+1. Muat presentasi.  
+2. Buat definisi font untuk font sumber dan font pengganti.  
+3. Buat sebuah [FontSubstRule](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstrule/) dengan kondisi [WhenInaccessible](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstcondition/).  
+4. Tambahkan aturan ke [FontSubstRuleCollection](https://reference.aspose.com/slides/id/net/aspose.slides/fontsubstrulecollection/).  
+5. Tetapkan koleksi ke properti [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/id/net/aspose.slides/fontsmanager/fontsubstrulelist/).  
+6. Render atau konversi presentasi.
 
-Kode C# berikut mendemonstrasikan proses substitusi font:
-```c#
-// Memuat sebuah presentasi
-Presentation presentation = new Presentation("Fonts.pptx");
+Contoh C# berikut men-substitusi `Arial` untuk `SomeRareFont` ketika `SomeRareFont` tidak tersedia, kemudian merender slide pertama untuk memverifikasi hasilnya. Font pengganti harus tersedia bagi Aspose.Slides.
 
-// Memuat font sumber yang akan diganti
-IFontData sourceFont = new FontData("SomeRareFont");
+```csharp
+using Aspose.Slides;
 
-// Memuat font baru
-IFontData destFont = new FontData("Arial");
+using var presentation = new Presentation("Fonts.pptx");
 
-// Menambahkan aturan font untuk penggantian font
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+var sourceFont = new FontData("SomeRareFont");
+var substituteFont = new FontData("Arial");
+var substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
 
-// Menambahkan aturan ke koleksi aturan substitusi font
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
+var substitutionRules = new FontSubstRuleCollection();
+substitutionRules.Add(substitutionRule);
+presentation.FontsManager.FontSubstRuleList = substitutionRules;
 
-// Menambahkan koleksi aturan font ke daftar aturan
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
-{
-    // Menyimpan gambar ke disk dalam format JPEG
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-}
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("slide.jpg", ImageFormat.Jpeg);
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Anda mungkin ingin melihat [**Penggantian Font**](/slides/id/net/font-replacement/). 
+{{% alert color="info" title="Catatan" %}}
+
+Untuk perubahan tanpa syarat pada semua font yang digunakan dalam sebuah presentasi, lihat [Penggantian Font](/slides/id/net/font-replacement/).
+
 {{% /alert %}}
 
-## **Keterbatasan untuk Font Persamaan Matematika**
+## **Batasan untuk Font Persamaan Matematika**
 
-Aturan substitusi font berpartisipasi dalam proses pemilihan font standar yang digunakan selama rendering dan konversi. Mereka cocok untuk skenario teks reguler di mana Aspose.Slides dapat mengganti font yang tidak dapat diakses dengan font lain yang tersedia sesuai aturan yang dikonfigurasi.
+Aturan substitusi font merupakan bagian dari proses pemilihan font standar yang digunakan selama rendering dan konversi. Aturan ini bekerja untuk teks biasa ketika Aspose.Slides dapat mengganti font yang tidak dapat diakses dengan font yang tersedia sesuai aturan.
 
-Namun, persamaan matematika Office memiliki keterbatasan penting. Jika sebuah persamaan dibuat dengan **Cambria Math**, Aspose.Slides masih mungkin memerlukan font **Cambria Math** asli untuk menghitung dan merender tata letak persamaan dengan benar. Karena itu, menggantikan **Cambria Math** dengan font matematika lain, seperti **STIX Two Math**, tidak didukung untuk rendering persamaan dan masih dapat menghasilkan pengecualian yang menunjukkan bahwa **Cambria Math** diperlukan.
+Persamaan Office Math memiliki persyaratan tambahan. Jika sebuah persamaan menggunakan **Cambria Math**, Aspose.Slides mungkin memerlukan font tersebut secara tepat untuk menghitung dan merender tata letak persamaan. Aturan yang men-substitusi font matematika lain, seperti **STIX Two Math**, tidak dapat menggantikan **Cambria Math** untuk tujuan ini, dan rendering tetap dapat melaporkan bahwa **Cambria Math** diperlukan.
 
-Untuk mengonversi presentasi seperti itu dengan sukses, pastikan **Cambria Math** tersedia untuk Aspose.Slides pada runtime. Anda dapat menginstal font tersebut di sistem operasi atau menyediakannya sebagai [font eksternal](/slides/id/net/custom-font/) sehingga dapat berpartisipasi dalam proses pemilihan font normal selama rendering dan konversi.
+Untuk merender atau mengonversi presentasi semacam itu, sediakan **Cambria Math** bagi Aspose.Slides. Instal font tersebut di sistem operasi atau muat sebagai [font eksternal](/slides/id/net/custom-font/).
 
-Keterbatasan ini khusus untuk rendering persamaan. Aturan substitusi font standar yang dijelaskan di atas masih berlaku untuk teks presentasi reguler ketika font asli tidak dapat diakses.
+Batasan ini berlaku pada tata letak persamaan. Aturan substitusi yang dijelaskan di atas tetap berlaku untuk teks presentasi biasa.
 
 ## **FAQ**
 
 **Apa perbedaan antara penggantian font dan substitusi font?**
 
-[Penggantian](/slides/id/net/font-replacement/) adalah penimpaan paksa satu font dengan font lain di seluruh presentasi. Substitusi adalah aturan yang dipicu pada kondisi tertentu, misalnya ketika font asli tidak tersedia, dan kemudian font cadangan yang ditentukan digunakan.
+[Penggantian font](/slides/id/net/font-replacement/) secara sengaja mengubah satu font menjadi font lain di seluruh presentasi. Substitusi font memilih font untuk output yang dirender ketika kondisi yang dikonfigurasi terpenuhi, seperti ketika font asli tidak tersedia.
 
-**Kapan tepatnya aturan substitusi diterapkan?**
+**Kapan aturan substitusi diterapkan?**
 
-Aturan berpartisipasi dalam urutan [pemilihan font](/slides/id/net/font-selection-sequence/) standar yang dievaluasi selama pemuatan, rendering, dan konversi; jika font yang dipilih tidak tersedia, penggantian atau substitusi diterapkan.
+Aturan berpartisipasi dalam [urutan pemilihan font](/slides/id/net/font-selection-sequence/) selama rendering dan konversi. Dengan `WhenInaccessible`, aturan hanya digunakan ketika Aspose.Slides tidak dapat mengakses font sumber.
 
-**Apa perilaku default jika tidak ada penggantian maupun substitusi yang dikonfigurasi dan font tidak ada di sistem?**
+**Apa yang terjadi ketika sebuah font hilang dan tidak ada aturan substitusi yang dikonfigurasi?**
 
-Pustaka akan mencoba memilih font sistem terdekat yang tersedia, mirip dengan cara PowerPoint berperilaku.
+Aspose.Slides memilih font yang paling mendekati yang tersedia menurut proses pemilihan fontnya. Hasilnya bergantung pada font yang tersedia di lingkungan runtime.
 
-**Bisakah saya melampirkan font eksternal khusus pada runtime untuk menghindari substitusi?**
+**Bisakah saya memuat font eksternal untuk menghindari substitusi?**
 
-Ya. Anda dapat [menambahkan font eksternal](/slides/id/net/custom-font/) pada runtime sehingga pustaka mempertimbangkannya untuk pemilihan dan rendering, termasuk untuk konversi selanjutnya.
+Ya. Anda dapat [memuat font eksternal](/slides/id/net/custom-font/) sehingga Aspose.Slides dapat menggunakannya selama rendering dan konversi.
 
-**Apakah Aspose mendistribusikan font apa pun dengan pustaka?**
+**Apakah Aspose mendistribusikan font bersama pustaka?**
 
-Tidak. Aspose tidak mendistribusikan font berbayar atau gratis; Anda menambahkan dan menggunakan font atas kebijaksanaan dan tanggung jawab Anda sendiri.
+Tidak. Anda bertanggung jawab menyediakan font dan mematuhi lisensinya.
 
-**Apakah ada perbedaan perilaku substitusi pada Windows, Linux, dan macOS?**
+**Apakah hasil substitusi dapat berbeda antara Windows, Linux, dan macOS?**
 
-Ya. Penemuan font dimulai dari direktori font sistem operasi. Set font default yang tersedia dan jalur pencarian berbeda antar platform, yang memengaruhi ketersediaan dan kebutuhan substitusi.
+Ya. Font yang terpasang dan lokasi pencarian font berbeda menurut sistem operasi, sehingga font yang tersedia di satu mesin mungkin memerlukan substitusi di mesin lain.
 
-**Bagaimana saya harus menyiapkan lingkungan untuk meminimalkan substitusi tak terduga selama konversi batch?**
+**Bagaimana cara membuat pemilihan font konsisten dalam konversi batch?**
 
-Sinkronkan set font antar mesin atau kontainer, [tambahkan font eksternal](/slides/id/net/custom-font/) yang diperlukan untuk dokumen keluaran, dan [sematkan font](/slides/id/net/embedded-font/) dalam presentasi bila memungkinkan sehingga font yang dipilih tersedia selama rendering.
+Gunakan file dan versi font yang sama di setiap mesin atau kontainer, [muat font eksternal yang diperlukan](/slides/id/net/custom-font/), dan [sematkan font](/slides/id/net/embedded-font/) bila lisensi memperbolehkan. Anda juga dapat memanggil [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/id/net/aspose.slides/ifontsmanager/getsubstitutions/) sebelum ekspor untuk mengidentifikasi substitusi yang tidak diharapkan.

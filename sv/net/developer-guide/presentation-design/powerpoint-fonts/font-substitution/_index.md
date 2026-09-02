@@ -1,16 +1,16 @@
 ---
-title: Konfigurera fontsubstitution i presentationer i .NET
-linktitle: Fontsubstitution
+title: Konfigurera teckensnittsbyte i presentationer i .NET
+linktitle: Teckensnittsbyte
 type: docs
 weight: 70
 url: /sv/net/font-substitution/
 keywords:
-- font
-- ersätt font
-- fontsubstitution
-- byt font
-- fontbyte
-- substitionsregel
+- teckensnitt
+- ersätt teckensnitt
+- teckensnittsbyte
+- ersätt teckensnitt
+- teckensnittsersättning
+- bytesregel
 - ersättningsregel
 - PowerPoint
 - OpenDocument
@@ -18,108 +18,146 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aktivera optimal fontsubstitution i Aspose.Slides för .NET när du konverterar PowerPoint- och OpenDocument-presentationer till andra filformat."
+description: "Konfigurera teckensnittsbytesregler och granska ersatta teckensnitt i Aspose.Slides för .NET när du renderar eller konverterar PowerPoint- och OpenDocument-presentationer."
 ---
 ## **Översikt**
 
-Fontsubstitution gör det möjligt för Aspose.Slides att använda ett annat typsnitt när det ursprungliga presentations‑typsnittet inte är tillgängligt under rendering eller konvertering. Du kan kontrollera vilka typsnitt som ersattes genom att använda `GetSubstitutions`‑metoden från `IFontsManager`‑gränssnittet.
+Teckensnittsbytesfunktion gör det möjligt för Aspose.Slides att använda ett tillgängligt teckensnitt i stället för ett teckensnitt som inte kan nås när en presentation renderas eller konverteras. Bytet påverkar det renderade resultatet; det ändrar inte teckensnittet som är tilldelat presentationens innehåll.
 
-Aspose.Slides låter dig också definiera regler för fontsubstitution. Till exempel kan du ange att ett otillgängligt typsnitt ska ersättas med ett annat tillgängligt typsnitt och sedan tillämpa dessa regler via presentationens typsnittshanterare.
+Du kan definiera vilket teckensnitt som ska användas när ett specifikt teckensnitt är otillgängligt, och du kan granska de byten som Aspose.Slides kommer att göra under rendering. Detta hjälper till att hålla resultatet konsekvent över miljöer med olika installerade teckensnitt.
 
-## **Hämta fontsubstitutioner**
+## **Hämta teckensnittsbyten**
 
-För att du ska kunna ta reda på vilka presentations‑typsnitt som ersätts under en renderingsprocess, erbjuder Aspose.Slides [GetSubstitution](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/getsubstitutions/)‑metoden från [IFontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/)‑gränssnittet.
+Använd metoden [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) för att avgöra vilka teckensnitt som kommer att bytas när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstitutioninfo/)‑objekt som identifierar det ursprungliga och det ersatta teckensnittets namn.
 
-C#‑koden visar hur du får alla fontsubstitutioner som utförs när en presentation renderas:
-```c#
-using (Presentation pres = new Presentation(@"Presentation.pptx"))
+Följande C#‑exempel listar alla teckensnittsbyten för en presentation:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 {
-    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
-    {
-        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
-    }
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
 }
 ```
 
-## **Ställ in regler för fontsubstitution**
+## **Hämta teckensnittsbyten för utvalda bilder**
 
-Aspose.Slides låter dig ange regler för typsnitt som bestämmer vad som ska göras under vissa förhållanden (till exempel när ett typsnitt inte kan nås) på följande sätt:
+Använd överlagringen av [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) med ett `int[] slides`‑argument för att endast granska de byten som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation inkrementellt, letar efter bilder som är beroende av otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller container, eller diagnostiserar renderingsskillnader utan att bearbeta orelaterade bilder.
 
-1. Läs in den relevanta presentationen.
-2. Läs in typsnittet som ska ersättas.
-3. Läs in det nya typsnittet.
-4. Lägg till en regel för ersättningen.
-5. Lägg till regeln i presentationens samling av font‑ersättningsregler.
-6. Generera bild på bilden för att observera effekten.
+`slides`‑arrayen innehåller ett‑baserade bildindex: `1` identifierar den första bilden. Till jämförelse är indexeringen i samlingen [Presentation.Slides](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/slides/sv/) noll‑baserad, så samma bild nås som `presentation.Slides[0]`. Ha denna skillnad i åtanke när du bygger arrayen för att undvika fel med ett steg.
 
-Denna C#‑kod demonstrerar fontsubstitutionsprocessen:
-```c#
-// Laddar en presentation
-Presentation presentation = new Presentation("Fonts.pptx");
+Anropa överlagringen via egenskapen [Presentation.FontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/fontsmanager/). Den returnerar endast de byten som bestäms under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstitutioninfo/)‑objekt som innehåller det ursprungliga och det ersatta teckensnittets namn. Resultatet speglar den aktuella teckensnittsmiljön, konfigurerade reservregler, bytesregler lagrade i en [IFontSubstRuleCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsubstrulecollection/) och [externt inlästa teckensnitt](/slides/sv/net/custom-font/).
 
-// Laddar källtypsnittet som ska ersättas
-IFontData sourceFont = new FontData("SomeRareFont");
+Samma byte kan krävas av mer än en utvald bild. Deduplikera resultaten när du skapar ett teckensnittsinventarium eller en förhandsgranskningsrapport. Följande exempel rapporterar varje returnerat byte och skapar sedan en sorterad lista över unika teckensnittsmappningar:
 
-// Laddar det nya typsnittet
-IFontData destFont = new FontData("Arial");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-// Lägger till en typsnittregel för typsnittsbyte
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+using var presentation = new Presentation("Presentation.pptx");
 
-// Lägger till regeln i samlingen av typsnittssubstitutionsregler
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
+int[] selectedSlides = { 1, 3, 5 };
+var substitutions = presentation.FontsManager.GetSubstitutions(selectedSlides).ToList();
 
-// Lägger till typsnittregelssamlingen till regellistan
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+Console.WriteLine("Substitutions for the selected slides:");
+foreach (var substitution in substitutions)
 {
-    // Sparar bilden till disk i JPEG-format
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+var preflightEntries = substitutions.Select(substitution => $"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+var uniquePreflightEntries = preflightEntries.Distinct(StringComparer.OrdinalIgnoreCase);
+var sortedPreflightEntries = uniquePreflightEntries.OrderBy(entry => entry, StringComparer.OrdinalIgnoreCase).ToList();
+
+Console.WriteLine("Deduplicated font preflight report:");
+foreach (var entry in sortedPreflightEntries)
+{
+    Console.WriteLine(entry);
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Du kanske vill se [**Typsnittsbyte**](/slides/sv/net/font-replacement/). 
+[IFontsManager](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/)‑gränssnittet erbjuder båda överlagringarna. Välj en enligt omfattningen av renderingsoperationen:
+
+| Överlagring | Använd den när |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) utan argument | Du behöver byten för hela presentationen. |
+| [GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) med `int[] slides` | Du behöver byten för ett urval av bilder, inkrementell kontroll eller partiell export. |
+
+## **Ange teckensnittsbytesregler**
+
+För att ange vilket teckensnitt Aspose.Slides ska använda när ett källteckensnitt är otillgängligt:
+
+1. Läs in presentationen.
+2. Skapa teckensnittdefinitioner för käll- och ersättningsteckensnitten.
+3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstrule/) med villkoret [WhenInaccessible](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstcondition/).
+4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsubstrulecollection/).
+5. Tilldela samlingen till egenskapen [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/sv/net/aspose.slides/fontsmanager/fontsubstrulelist/).
+6. Rendera eller konvertera presentationen.
+
+Följande C#‑exempel ersätter `SomeRareFont` med `Arial` när `SomeRareFont` är otillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Ersättnings‑teckensnittet måste vara tillgängligt för Aspose.Slides.
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("Fonts.pptx");
+
+var sourceFont = new FontData("SomeRareFont");
+var substituteFont = new FontData("Arial");
+var substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+var substitutionRules = new FontSubstRuleCollection();
+substitutionRules.Add(substitutionRule);
+presentation.FontsManager.FontSubstRuleList = substitutionRules;
+
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("slide.jpg", ImageFormat.Jpeg);
+```
+
+{{% alert color="info" title="Note" %}}
+För en ovillkorlig ändring av de teckensnitt som används i hela en presentation, se [Teckensnittsersättning](/slides/sv/net/font-replacement/).
 {{% /alert %}}
 
-## **Begränsningar för matematiska ekvationstypsnitt**
+## **Begränsningar för matematiska ekvationsteckensnitt**
 
-Fontsubstitutionsregler deltar i den standardprocess för typsnittsval som används under rendering och konvertering. De är lämpliga för vanliga textscenarier där Aspose.Slides kan ersätta ett otillgängligt typsnitt med ett annat tillgängligt typsnitt enligt den konfigurerade regeln.
+Teckensnittsbytesregler är en del av den standardiserade teckensnittsurvalsprocessen som används under rendering och konvertering. De fungerar för vanlig text när Aspose.Slides kan ersätta ett otillgängligt teckensnitt med det tillgängliga teckensnitt som anges i en regel.
 
-Dock har Office-mathematikekvationer en viktig begränsning. Om en ekvation skapades med **Cambria Math** kan Aspose.Slides fortfarande kräva det ursprungliga **Cambria Math**‑typsnittet för att beräkna och rendera ekvationslayouten korrekt. På grund av detta stöds inte ersättning av **Cambria Math** med ett annat matematiktypsnitt, såsom **STIX Two Math**, för ekvationsrendering och kan fortfarande resultera i ett undantag som indikerar att **Cambria Math** krävs.
+Office Math‑ekvationer har ett extra krav. Om en ekvation använder **Cambria Math** kan Aspose.Slides behöva exakt det teckensnittet för att beräkna och rendera ekvationslayouten. En regel som ersätter med ett annat matematiskt teckensnitt, såsom **STIX Two Math**, kan inte ersätta **Cambria Math** för detta ändamål, och rendering kan fortfarande rapportera att **Cambria Math** krävs.
 
-För att konvertera sådana presentationer framgångsrikt, se till att **Cambria Math** är tillgängligt för Aspose.Slides vid körning. Du kan installera typsnittet i operativsystemet eller tillhandahålla det som ett [externa typsnitt](/slides/sv/net/custom-font/) så att det kan delta i den normala typsnittsväljarprocessen under rendering och konvertering.
+För att rendera eller konvertera en sådan presentation, gör **Cambria Math** tillgängligt för Aspose.Slides. Installera det i operativsystemet eller läs in det som ett [externt teckensnitt](/slides/sv/net/custom-font/).
 
-Denna begränsning är specifik för ekvationsrendering. De standardfontsubstitutionsregler som beskrivits ovan gäller fortfarande för vanlig presentationstext när det ursprungliga typsnittet är otillgängligt.
+Denna begränsning gäller ekvationslayouten. Bytesreglerna som beskrivits ovan gäller fortfarande för vanlig presentationstext.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vad är skillnaden mellan typsnittsersättning och typsnittsubstitution?**
+**Vad är skillnaden mellan teckensnittsersättning och teckensnittsbyte?**
 
-[Replacement](/slides/sv/net/font-replacement/) är en tvångsöverskrivning av ett typsnitt med ett annat i hela presentationen. Substitution är en regel som aktiveras under ett specifikt villkor, till exempel när det ursprungliga typsnittet är otillgängligt, och då används ett angivet reservtypsnitt.
+[Teckensnittsersättning](/slides/sv/net/font-replacement/) ändrar avsiktligt ett teckensnitt till ett annat i hela presentationen. Teckensnittsbyte väljer ett teckensnitt för renderat resultat när det konfigurerade villkoret är uppfyllt, till exempel när det ursprungliga teckensnittet är otillgängligt.
 
-**När tillämpas substitutionsregler exakt?**
+**När tillämpas teckensnittsbytesregler?**
 
-Reglerna deltar i den standard [font selection](/slides/sv/net/font-selection-sequence/) sekvens som utvärderas under laddning, rendering och konvertering; om det valda typsnittet är otillgängligt tillämpas ersättning eller substitution.
+Reglerna deltar i [teckensnittsurvalsekvensen](/slides/sv/net/font-selection-sequence/) under rendering och konvertering. Med `WhenInaccessible` används en regel endast när Aspose.Slides inte kan komma åt källteckensnittet.
 
-**Vad är standardbeteendet om varken ersättning eller substitution är konfigurerad och typsnittet saknas på systemet?**
+**Vad händer när ett teckensnitt saknas och ingen teckensnittsbytesregel är konfigurerad?**
 
-Biblioteket kommer att försöka välja det närmaste tillgängliga systemtypsnittet, liknande hur PowerPoint skulle bete sig.
+Aspose.Slides väljer det närmaste tillgängliga teckensnittet enligt sin teckensnittsurvalsprocess. Resultatet beror på vilka teckensnitt som finns i körmiljön.
 
-**Kan jag bifoga anpassade externa typsnitt vid körning för att undvika substitution?**
+**Kan jag ladda in externa teckensnitt för att undvika byte?**
 
-Ja. Du kan [lägga till externa typsnitt](/slides/sv/net/custom-font/) vid körning så att biblioteket beaktar dem för val och rendering, även för efterföljande konverteringar.
+Ja. Du kan [ladda in externa teckensnitt](/slides/sv/net/custom-font/) så att Aspose.Slides kan använda dem under rendering och konvertering.
 
-**Distribuerar Aspose några typsnitt med biblioteket?**
+**Distribuerar Aspose teckensnitt med biblioteket?**
 
-Nej. Aspose distribuerar inga betalda eller fria typsnitt; du lägger till och använder typsnitt på eget ansvar och eget gottfinnande.
+Nej. Du ansvarar för att tillhandahålla teckensnitt och för att följa deras licensvillkor.
 
-**Finns det skillnader i substitionsbeteende på Windows, Linux och macOS?**
+**Kan teckensnittsbytesresultat skilja sig mellan Windows, Linux och macOS?**
 
-Ja. Typsnittsupptäckt startar från operativsystemets typsnittskataloger. Mängden standardtillgängliga typsnitt och sökvägarna skiljer sig åt mellan plattformar, vilket påverkar tillgänglighet och behovet av substitution.
+Ja. Installerade teckensnitt och sökvägar för teckensnitt varierar mellan operativsystem, så ett teckensnitt som är tillgängligt på en maskin kan kräva byte på en annan.
 
-**Hur bör jag förbereda miljön för att minimera oväntad substitution under batchkonverteringar?**
+**Hur kan jag göra teckensnittsurvalet konsekvent vid batchkonverteringar?**
 
-Synkronisera typsnittssamlingen över maskiner eller containrar, [lägg till de externa typsnitten](/slides/sv/net/custom-font/) som krävs för utdata‑dokumenten, och [bädda in typsnitt](/slides/sv/net/embedded-font/) i presentationer när det är möjligt så att de valda typsnitten är tillgängliga under rendering.
+Använd samma teckensnittsfiler och versioner på varje maskin eller container, [ladda in nödvändiga externa teckensnitt](/slides/sv/net/custom-font/) och [bädda in teckensnitt](/slides/sv/net/embedded-font/) när licensen tillåter. Du kan även anropa [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/sv/net/aspose.slides/ifontsmanager/getsubstitutions/) före export för att identifiera oväntade byten.

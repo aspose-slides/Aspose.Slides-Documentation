@@ -1,116 +1,185 @@
 ---
-title: Konfigurace náhrady písma v prezentacích pomocí JavaScriptu
-linktitle: Náhrada písma
+title: Konfigurace náhrady fontů v prezentacích pomocí JavaScriptu
+linktitle: Náhrada fontů
 type: docs
 weight: 70
 url: /cs/nodejs-java/font-substitution/
 keywords:
 - písmo
-- náhradní písmo
-- nahrazení písma
-- vyměnit písmo
-- náhrada písma
+- náhradní font
+- náhrada fontu
+- nahrazení fontu
+- nahrazení fontu
+- pravidlo náhrady
 - pravidlo nahrazení
-- pravidlo výměny
 - PowerPoint
 - OpenDocument
 - prezentace
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Umožněte optimální nahrazení písma v Aspose.Slides pro Node.js při převodu prezentací PowerPoint a OpenDocument do jiných formátů souborů v JavaScriptu."
+description: "Konfigurujte pravidla náhrady fontů a zkontrolujte nahrazené fonty v Aspose.Slides pro Node.js pomocí Javy při vykreslování nebo konverzi prezentací PowerPoint a OpenDocument."
 ---
 ## **Přehled**
 
-Náhrada písma umožňuje Aspose.Slides použít jiné písmo, když originální písmo prezentace není během vykreslování nebo konverze dostupné. Můžete zkontrolovat, která písma byla nahrazena, pomocí metody `getSubstitutions` ze třídy `FontsManager`.
+Náhrada fontů umožňuje Aspose.Slides použít dostupný font místo fontu, který není při vykreslování nebo konverzi prezentace přístupný. Náhrada ovlivňuje výstup vykreslení; nemění font přiřazený k obsahu prezentace.
 
-Aspose.Slides také umožňuje definovat pravidla náhrady písma. Například můžete určit, že nedostupné písmo má být nahrazeno jiným dostupným písmem, a pak tato pravidla použít prostřednictvím správce písma prezentace.
+Můžete definovat, který font se má použít, když je konkrétní font nedostupný, a můžete zkontrolovat náhrady, které Aspose.Slides během vykreslování provede. To pomáhá udržet výstup konzistentní napříč prostředími s různými nainstalovanými fonty.
 
-## **Nastavení pravidel náhrady písma**
+## **Získání náhrad fontů**
 
-Aspose.Slides vám umožňuje nastavit pravidla pro písma, která určují, co se má provést v určitých podmínkách (například když není možné písmo získat), tímto způsobem:
+Použijte metodu [FontsManager.getSubstitutions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) k určení, které fonty budou během vykreslení prezentace nahrazeny. Metoda vrací objekty [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsubstitutioninfo/), které uvádějí původní a nahrazené názvy fontů.
 
-1. Načtěte příslušnou prezentaci.
-2. Načtěte písmo, které bude nahrazeno.
-3. Načtěte nové písmo.
-4. Přidejte pravidlo pro náhradu.
-5. Přidejte pravidlo do kolekce pravidel náhrady písma prezentace.
-6. Vygenerujte obrázek snímku a sledujte výsledek.
-
-Tento JavaScript kód demonstruje proces náhrady písma:
+Následující příklad v JavaScriptu vypíše všechny náhrady fontů pro prezentaci:
 
 ```javascript
-// Načte prezentaci
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Načte zdrojové písmo, které bude nahrazeno
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Načte nové písmo
-    var destFont = new aspose.slides.FontData("Arial");
-    // Přidá pravidlo písma pro náhradu písma
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Přidá pravidlo do kolekce pravidel náhrady písma
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Přidá kolekci pravidel písma do seznamu pravidel
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Písmo Arial bude použito místo SomeRareFont, pokud je to poslední nedostupné
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Uloží obrázek na disk ve formátu JPEG
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Možná budete chtít zobrazit [**Náhrada písma**](/slides/cs/nodejs-java/font-replacement/).
+## **Získání náhrad fontů pro vybrané snímky**
+
+Použijte přetížení [FontsManager.getSubstitutions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) s polem indexů snímků, abyste zkontrolovali jen náhrady potřebné k vykreslení konkrétních snímků. To je užitečné, když vykreslujete nebo exportujete část prezentace, provádíte inkrementální kontrolu velké prezentace, vyhledáváte snímky závislé na nedostupných fontech, připravujete minimální balíček fontů pro server nebo kontejner, nebo diagnostikujete rozdíly ve vykreslování bez zpracování nesouvisejících snímků.
+
+Přetížení očekává primitivní Java `int[]`. Vytvořte jej pomocí `java.newArray("int", [...])`; obyčejné pole JavaScriptu se převede na `Integer[]` a neodpovídá tomuto přetížení.
+
+Pole obsahuje jednorozměrné indexy snímků počínaje jedničkou: `1` označuje první snímek. Naopak kolekční přístup [Presentation.getSlides](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getslides/) používá nulové indexování, takže stejný snímek je přístupný jako `presentation.getSlides().get_Item(0)`. Při tvorbě pole mějte tento rozdíl na paměti, aby nedošlo k chybám o jeden.
+
+Volání přetížení provádějte přes [Presentation.getFontsManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/presentation/getfontsmanager/). Vrací pouze náhrady určené při vykreslování vybraných snímků. Každý výsledek je objekt [FontSubstitutionInfo](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsubstitutioninfo/) obsahující původní a nahrazené názvy fontů. Výsledek odráží aktuální prostředí fontů, nastavená pravidla záložních fontů, pravidla náhrad uložená v [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsubstrulecollection/) a [externě načtené fonty](/slides/cs/nodejs-java/custom-font/).
+
+Stejnou náhradu může vyžadovat více než jeden vybraný snímek. Při tvorbě inventáře fontů nebo předletového reportu duplikáty odstraňte. Následující příklad vypíše každou vrácenou náhradu a poté vytvoří seřazený seznam unikátních mapování fontů:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+Třída [FontsManager](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/) poskytuje obě přetížení. Vyberte si podle rozsahu vykreslovací operace:
+
+| Přetížení | Použijte, když |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) bez argumentů | Potřebujete náhrady pro celou prezentaci. |
+| [getSubstitutions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) s Java `int[]` indexů snímků | Potřebujete náhrady pro vybraný rozsah, inkrementální kontrolu nebo částečný export. |
+
+## **Nastavení pravidel náhrady fontů**
+
+Pro určení fontu, který má Aspose.Slides použít, když je zdrojový font nedostupný:
+
+1. Načtěte prezentaci.  
+2. Vytvořte definice fontů pro zdrojový a náhradní font.  
+3. Vytvořte [FontSubstRule](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsubstrule/) s podmínkou [WhenInaccessible](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsubstcondition/).  
+4. Přidejte pravidlo do [FontSubstRuleCollection](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsubstrulecollection/).  
+5. Přiřaďte kolekci pomocí metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. Vykreslete nebo konvertujte prezentaci.
+
+Následující příklad v JavaScriptu nahrazuje `Arial` za `SomeRareFont`, když je `SomeRareFont` nedostupný, a poté vykresluje první snímek pro ověření výsledku. Náhradní font musí být pro Aspose.Slides dostupný.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Poznámka" %}}
+Pro ne podmíněnou změnu fontů používaných v celé prezentaci viz [Font Replacement](/slides/cs/nodejs-java/font-replacement/).
 {{% /alert %}}
 
-## **Omezení pro písma matematických rovnic**
+## **Omezení pro fonty matematických rovnic**
 
-Pravidla náhrady písma se podílejí na standardním procesu výběru písma, který se používá během vykreslování a konverze. Jsou vhodná pro běžné textové scénáře, kde Aspose.Slides může nahradit nedostupné písmo jiným dostupným písmem podle nastaveného pravidla.
+Pravidla náhrady fontů jsou součástí standardního procesu výběru fontu používaného během vykreslování a konverze. Fungují pro běžný text, když Aspose.Slides může nahradit nedostupný font dostupným fontem definovaným pravidlem.
 
-Nicméně rovnice Office Math mají důležité omezení. Pokud byla rovnice vytvořena s **Cambria Math**, Aspose.Slides může i nadále vyžadovat původní písmo **Cambria Math** pro výpočet a správné vykreslení rozvržení rovnice. Kvůli tomu není podporována náhrada **Cambria Math** jiným matematickým písmem, jako je **STIX Two Math**, pro vykreslování rovnic a může stále dojít k výjimce, která uvádí, že je vyžadováno **Cambria Math**.
+Matematické rovnice v Office Math mají další požadavek. Pokud rovnice používá **Cambria Math**, Aspose.Slides může potřebovat právě tento font k výpočtu a vykreslení rozvržení rovnice. Pravidlo, které nahrazuje jiný matematický font, například **STIX Two Math**, nemůže nahradit **Cambria Math** pro tento účel a vykreslování může stále uvádět, že **Cambria Math** je vyžadován.
 
-Pro úspěšnou konverzi takových prezentací se ujistěte, že **Cambria Math** je pro Aspose.Slides k dispozici v době běhu. Písmo můžete nainstalovat do operačního systému nebo ho poskytnout jako [externí písmo](/slides/cs/nodejs-java/custom-font/), aby se mohlo podílet na běžném procesu výběru písma během vykreslování a konverze.
+Pro vykreslení nebo konverzi takové prezentace zajistěte, aby byl **Cambria Math** dostupný pro Aspose.Slides. Nainstalujte jej v operačním systému nebo jej načtěte jako [externí font](/slides/cs/nodejs-java/custom-font/).
 
-Toto omezení se vztahuje konkrétně na vykreslování rovnic. Standardní pravidla náhrady písma popsaná výše se i nadále vztahují na běžný text prezentace, pokud je originální písmo nedostupné.
+Toto omezení se vztahuje na rozvržení rovnic. Popisovaná pravidla náhrady stále platí pro běžný text prezentace.
 
 ## **Často kladené otázky**
 
-**Jaký je rozdíl mezi nahrazením písma a substitucí písma?**
+**Jaký je rozdíl mezi nahrazením fontu a náhradou fontu?**
 
-[Nahrazení](/slides/cs/nodejs-java/font-replacement/) je vynucený přepis jednoho písma jiným v celé prezentaci. Substituce je pravidlo, které se spustí za konkrétní podmínky, například když není originální písmo dostupné, a potom se použije určené náhradní písmo.
+[Font replacement](/slides/cs/nodejs-java/font-replacement/) úmyslně mění jeden font na jiný v celé prezentaci. Náhrada fontu vybírá font pro vykreslený výstup, když je splněna nakonfigurovaná podmínka, například když je původní font nedostupný.
 
-**Kdy jsou pravidla substituce přesně aplikována?**
+**Kdy se pravidla náhrady uplatňují?**
 
-Pravidla se podílejí na standardní sekvenci [výběru písma](/slides/cs/nodejs-java/font-selection-sequence/), která je vyhodnocována během načítání, vykreslování a konverze; pokud je vybrané písmo nedostupné, použije se nahrazení nebo substituce.
+Pravidla se podílejí na [font selection sequence](/slides/cs/nodejs-java/font-selection-sequence/) během vykreslování a konverze. S `WhenInaccessible` se pravidlo použije jen tehdy, když Aspose.Slides nemůže získat přístup ke zdrojovému fontu.
 
-**Jaké je výchozí chování, pokud není nakonfigurováno ani nahrazení, ani substituce a písmo chybí v systému?**
+**Co se stane, když chybí font a není nakonfigurováno žádné pravidlo náhrady?**
 
-Knihovna se pokusí vybrat nejbližší dostupné systémové písmo, podobně jako by to udělal PowerPoint.
+Aspose.Slides vybere nejbližší dostupný font podle svého procesu výběru fontu. Výsledek závisí na fontech dostupných v běhovém prostředí.
 
-**Mohu během běhu připojit vlastní externí písma, aby se předešlo substituci?**
+**Mohu načíst externí fonty, aby se zabránilo náhradě?**
 
-Ano. Během běhu můžete [přidat externí písma](/slides/cs/nodejs-java/custom-font/), aby je knihovna zohlednila při výběru a vykreslování, včetně následných konverzí.
+Ano. Můžete [load external fonts](/slides/cs/nodejs-java/custom-font/), aby je Aspose.Slides mohl použít během vykreslování a konverze.
 
-**Distribuuje Aspose s knihovnou nějaká písma?**
+**Distribuuje Aspose fonty s knihovnou?**
 
-Ne. Aspose nešíří placená ani zdarma dostupná písma; písma přidáváte a používáte na vlastní uvážení a odpovědnost.
+Ne. Za poskytování fontů a dodržování jejich licencí jste zodpovědní vy.
 
-**Existují rozdíly v chování substituce na Windows, Linuxu a macOS?**
+**Mohou se výsledky náhrady lišit mezi Windows, Linux a macOS?**
 
-Ano. Vyhledávání písem začíná v adresářích písem operačního systému. Sada výchozích dostupných písem a vyhledávací cesty se liší mezi platformami, což ovlivňuje jejich dostupnost a potřebu substituce.
+Ano. Instalované fonty a umístění vyhledávání fontů se liší podle operačního systému, takže font dostupný na jednom stroji může vyžadovat náhradu na jiném.
 
-**Jak mám připravit prostředí, aby se minimalizovala nečekaná substituce během hromadných konverzí?**
+**Jak zajistit konzistentní výběr fontů při hromadných konverzích?**
 
-Synchronizujte sadu písem napříč počítači nebo kontejnery, [přidejte externí písma](/slides/cs/nodejs-java/custom-font/) potřebná pro výstupní dokumenty a pokud je to možné, [vložte písma](/slides/cs/nodejs-java/embedded-font/) do prezentací, aby byla vybraná písma během vykreslování dostupná.
+Používejte stejné soubory fontů a jejich verze na každém stroji nebo kontejneru, [načtěte požadované externí fonty](/slides/cs/nodejs-java/custom-font/) a [embed fonts](/slides/cs/nodejs-java/embedded-font/), pokud licence dovolí. Můžete také před exportem zavolat [FontsManager.getSubstitutions](https://reference.aspose.com/slides/cs/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) k identifikaci neočekávaných náhrad.

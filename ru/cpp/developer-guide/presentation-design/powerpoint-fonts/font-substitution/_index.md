@@ -1,13 +1,13 @@
 ---
-title: Настройка подстановки шрифтов в презентациях с использованием C++
-linktitle: Подстановка шрифтов
+title: Настройка замены шрифтов в презентациях на C++
+linktitle: Замена шрифтов
 type: docs
 weight: 70
 url: /ru/cpp/font-substitution/
 keywords:
 - шрифт
-- заменить шрифт
-- подстановка шрифтов
+- заменяющий шрифт
+- замена шрифтов
 - замена шрифта
 - замена шрифта
 - правило подстановки
@@ -17,91 +17,177 @@ keywords:
 - презентация
 - C++
 - Aspose.Slides
-description: "Обеспечьте оптимальную подстановку шрифтов в Aspose.Slides для C++ при конвертации презентаций PowerPoint и OpenDocument в другие форматы файлов."
+description: "Настройте правила замены шрифтов и просмотрите заменённые шрифты в Aspose.Slides для C++ при рендеринге или конвертации презентаций PowerPoint и OpenDocument."
 ---
-## **Установить правила замены шрифтов**
+## **Обзор**
 
-Aspose.Slides позволяет задать правила для шрифтов, определяющие, что необходимо сделать в определённых условиях (например, когда шрифт недоступен) следующим образом:
+Замена шрифтов позволяет Aspose.Slides использовать доступный шрифт вместо шрифта, к которому нельзя получить доступ при рендеринге или конвертации презентации. Замена влияет на выводимый результат; она не меняет шрифт, назначенный содержимому презентации.
 
-1. Загрузите соответствующую презентацию.  
-2. Загрузите шрифт, который будет заменён.  
-3. Загрузите новый шрифт.  
-4. Добавьте правило замены.  
-5. Добавьте правило в коллекцию правил замены шрифтов презентации.  
-6. Сгенерируйте изображение слайда, чтобы увидеть эффект.
+Вы можете задать шрифт, который будет использоваться, когда конкретный шрифт недоступен, а также просмотреть замены, которые Aspose.Slides выполнит во время рендеринга. Это помогает поддерживать согласованность вывода в средах с разными установленными шрифтами.
 
-Этот код C++ демонстрирует процесс подстановки шрифтов:
+## **Получить замену шрифтов**
 
-```c++
-// Путь к каталогу документов.
-const String outPath = u"../out/RuleBasedFontsReplacement_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
+Используйте метод [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/getsubstitutions/) для определения того, какие шрифты будут заменены при рендеринге презентации. Метод возвращает объекты [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsubstitutioninfo/), идентифицирующие оригинальные и заменённые имена шрифтов.
 
+Следующий пример на C++ выводит все замены шрифтов для презентации:
 
-// Загружает презентацию
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-// Определяет шрифт, который будет заменён, и новый шрифт
-SharedPtr<IFontData> sourceFont = MakeObject<FontData>(u"SomeRareFont");
-SharedPtr<IFontData> destFont = MakeObject<FontData>(u"Arial");
-	
-// Добавляет правило шрифта для замены шрифта
-SharedPtr<FontSubstRule> fontSubstRule = MakeObject<FontSubstRule>(sourceFont, destFont, FontSubstCondition::WhenInaccessible);
+using namespace Aspose::Slides;
+using namespace System;
 
-// Добавляет правило в коллекцию правил подстановки шрифтов
-SharedPtr<FontSubstRuleCollection> fontSubstRuleCollection = MakeObject<FontSubstRuleCollection>();
-fontSubstRuleCollection->Add(fontSubstRule);
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Добавляет коллекцию правил шрифтов в список правил
-pres->get_FontsManager()->set_FontSubstRuleList ( fontSubstRuleCollection);
+for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
+{
+    Console::WriteLine(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+}
 
-
-// Сохраняет PPTX на диск
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Получить замену шрифтов для выбранных слайдов**
 
-Возможно, вам будет интересно посмотреть [**Замена шрифтов**](/slides/ru/cpp/font-replacement/). 
+Используйте перегрузку [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/getsubstitutions/) с аргументом `System::ArrayPtr<int32_t> slides` для проверки только тех замен, которые требуются для рендеринга конкретных слайдов. Это полезно, когда вы рендерите или экспортируете часть презентации, проверяете большую презентацию поэтапно, ищете слайды, зависящие от недоступных шрифтов, подготавливаете минимальный пакет шрифтов для сервера или контейнера, либо диагностируете различия в рендеринге без обработки ненужных слайдов.
 
+Массив `slides` содержит индексы слайдов, начинающиеся с единицы: `1` указывает на первый слайд. В отличие от этого, метод [Presentation::get_Slide](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_slide/) использует нулевой индекс, поэтому тот же слайд доступен как `presentation->get_Slide(0)`. Учтите это различие при формировании массива, чтобы избежать ошибок «на один больше/меньше».
+
+Вызовите перегрузку через метод [Presentation::get_FontsManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/presentation/get_fontsmanager/). Он возвращает только те замены, которые определены во время рендеринга выбранных слайдов. Каждый результат — объект [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsubstitutioninfo/), содержащий оригинальное и заменённое имя шрифта. Результат отражает текущую среду шрифтов, настроенные правила резервирования, правила замены, хранящиеся в [IFontSubstRuleCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsubstrulecollection/), и [внешне загруженные шрифты](/slides/ru/cpp/custom-font/).
+
+Одна и та же замена может потребоваться более чем одному выбранному слайду. Удалите дубликаты результатов, когда создаёте инвентарь шрифтов или отчёт о проверке. Следующий пример выводит каждую полученную замену, а затем создаёт отсортированный список уникальных сопоставлений шрифтов:
+
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+
+auto selectedSlides = MakeArray<int32_t>({1, 3, 5});
+auto substitutions = presentation->get_FontsManager()->GetSubstitutions(selectedSlides);
+auto sortedPreflightEntries = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+Console::WriteLine(u"Substitutions for the selected slides:");
+for (auto&& substitution : substitutions)
+{
+    auto entry = String::Format(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+    Console::WriteLine(entry);
+    sortedPreflightEntries->Add(entry);
+}
+
+Console::WriteLine(u"Deduplicated font preflight report:");
+for (auto&& entry : sortedPreflightEntries)
+{
+    Console::WriteLine(entry);
+}
+
+presentation->Dispose();
+```
+
+Интерфейс [IFontsManager](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/) предоставляет обе перегрузки. Выберите одну в зависимости от объёма операции рендеринга:
+
+| Перегрузка | Когда использовать |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/getsubstitutions/) без аргументов | Нужно получить замены для всей презентации. |
+| [GetSubstitutions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/getsubstitutions/) с `System::ArrayPtr<int32_t> slides` | Нужно получить замены для выбранного диапазона, поэтапной проверки или частичного экспорта. |
+
+## **Задать правила замены шрифтов**
+
+Чтобы указать шрифт, который Aspose.Slides должен использовать, когда исходный шрифт недоступен:
+
+1. Загрузите презентацию.  
+2. Создайте определения шрифтов для исходного и заменяющего шрифтов.  
+3. Создайте [FontSubstRule](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsubstrule/) с условием [WhenInaccessible](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsubstcondition/).  
+4. Добавьте правило в [FontSubstRuleCollection](https://reference.aspose.com/slides/ru/cpp/aspose.slides/fontsubstrulecollection/).  
+5. Назначьте коллекцию, используя метод [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).  
+6. Выполните рендеринг или конвертацию презентации.
+
+Следующий пример на C++ заменяет `Arial` на `SomeRareFont`, когда `SomeRareFont` недоступен, а затем рендерит первый слайд для проверки результата. Заменяющий шрифт должен быть доступен Aspose.Slides.
+
+```cpp
+#include <DOM/FontSubstCondition.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Fonts/FontSubstRule.h>
+#include <DOM/Fonts/FontSubstRuleCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+
+auto sourceFont = MakeObject<FontData>(u"SomeRareFont");
+auto substituteFont = MakeObject<FontData>(u"Arial");
+auto substitutionRule = MakeObject<FontSubstRule>(sourceFont, substituteFont, FontSubstCondition::WhenInaccessible);
+
+auto substitutionRules = MakeObject<FontSubstRuleCollection>();
+substitutionRules->Add(substitutionRule);
+presentation->get_FontsManager()->set_FontSubstRuleList(substitutionRules);
+
+auto image = presentation->get_Slide(0)->GetImage(1.0f, 1.0f);
+image->Save(u"slide.jpg", ImageFormat::Jpeg);
+
+image->Dispose();
+presentation->Dispose();
+```
+
+{{% alert color="info" title="Note" %}}
+Для безусловного изменения шрифтов, используемых во всей презентации, см. [Font Replacement](/slides/ru/cpp/font-replacement/).
 {{% /alert %}}
 
 ## **Ограничения для шрифтов математических уравнений**
 
-Правила подстановки шрифтов участвуют в стандартном процессе выбора шрифтов, используемом при рендеринге и конвертации. Они подходят для обычных текстовых сценариев, когда Aspose.Slides может заменить недоступный шрифт другим доступным шрифтом согласно настроенному правилу.
+Правила замены шрифтов являются частью стандартного процесса выбора шрифтов, используемого при рендеринге и конвертации. Они работают для обычного текста, когда Aspose.Slides может заменить недоступный шрифт доступным шрифтом, указанным в правиле.
 
-Однако у уравнений Office Math есть важное ограничение. Если уравнение было создано с помощью **Cambria Math**, Aspose.Slides всё равно может потребовать оригинальный шрифт **Cambria Math** для правильно расчёта и отрисовки макета уравнения. Поэтому подстановка **Cambria Math** другим математическим шрифтом, например **STIX Two Math**, не поддерживается при рендеринге уравнений и может привести к исключению, указывающему, что требуется **Cambria Math**.
+Уравнения Office Math имеют дополнительное требование. Если уравнение использует **Cambria Math**, Aspose.Slides может потребоваться именно этот шрифт для вычисления и рендеринга макета уравнения. Правило, заменяющее другой математический шрифт, например **STIX Two Math**, не может заменить **Cambria Math** для этой цели, и рендеринг всё равно может сообщать, что требуется **Cambria Math**.
 
-Чтобы успешно конвертировать такие презентации, убедитесь, что **Cambria Math** доступен Aspose.Slides во время выполнения. Вы можете установить шрифт в операционной системе или предоставить его как [внешний шрифт](/slides/ru/cpp/custom-font/), чтобы он мог участвовать в обычном процессе выбора шрифтов при рендеринге и конвертации.
+Чтобы рендерить или конвертировать такую презентацию, сделайте **Cambria Math** доступным для Aspose.Slides. Установите его в операционной системе или загрузите как [внешний шрифт](/slides/ru/cpp/custom-font/).
 
-Это ограничение относится только к рендерингу уравнений. Описанные выше стандартные правила подстановки шрифтов по‑прежнему применяются к обычному тексту презентации, когда оригинальный шрифт недоступен.
+Это ограничение относится к макету уравнений. Описанные выше правила замены продолжают действовать для обычного текста презентации.
 
-## **Часто задаваемые вопросы**
+## **FAQ**
 
-**В чем разница между заменой шрифтов и их подстановкой?**
+**В чём разница между заменой шрифтов и их подстановкой?**
 
-[Замена](/slides/ru/cpp/font-replacement/) — принудительное переопределение одного шрифта другим во всей презентации. Подстановка — правило, которое срабатывает при определённом условии, например когда оригинальный шрифт недоступен, и тогда используется назначенный запасной шрифт.
+[Font replacement](/slides/ru/cpp/font-replacement/) намеренно меняет один шрифт на другой по всей презентации. Подстановка шрифтов выбирает шрифт для рендеринга, когда выполнено заданное условие, например когда оригинальный шрифт недоступен.
 
-**Когда именно применяются правила подстановки?**
+**Когда применяются правила подстановки?**
 
-Правила участвуют в стандартной последовательности [выбора шрифтов](/slides/ru/cpp/font-selection-sequence/), которая оценивается во время загрузки, рендеринга и конвертации; если выбранный шрифт недоступен, применяется замена или подстановка.
+Правила участвуют в [последовательности выбора шрифта](/slides/ru/cpp/font-selection-sequence/) во время рендеринга и конвертации. При условии `WhenInaccessible` правило используется только когда Aspose.Slides не может получить доступ к исходному шрифту.
 
-**Каким будет поведение по умолчанию, если ни замена, ни подстановка не настроены, а шрифт отсутствует в системе?**
+**Что происходит, если шрифт отсутствует и правило подстановки не настроено?**
 
-Библиотека попытается выбрать ближайший доступный системный шрифт, аналогично тому, как это делает PowerPoint.
+Aspose.Slides выбирает ближайший доступный шрифт согласно своему процессу выбора шрифтов. Результат зависит от шрифтов, доступных в среде выполнения.
 
-**Можно ли добавить пользовательские внешние шрифты во время выполнения, чтобы избежать подстановки?**
+**Могу ли я загрузить внешние шрифты, чтобы избежать подстановки?**
 
-Да. Вы можете [добавлять внешние шрифты](/slides/ru/cpp/custom-font/) во время выполнения, чтобы библиотека учитывала их при выборе и рендеринге, включая последующие конвертации.
+Да. Вы можете [загрузить внешние шрифты](/slides/ru/cpp/custom-font/), чтобы Aspose.Slides использовал их при рендеринге и конвертации.
 
-**Поставляет ли Aspose какие‑либо шрифты вместе с библиотекой?**
+**Поставляет ли Aspose шрифты вместе с библиотекой?**
 
-Нет. Aspose не поставляет платные или бесплатные шрифты; вы добавляете и используете шрифты по собственному усмотрению и ответственности.
+Нет. Вы отвечаете за предоставление шрифтов и соблюдение их лицензий.
 
-**Есть ли различия в поведении подстановки на Windows, Linux и macOS?**
+**Могут ли результаты подстановки отличаться между Windows, Linux и macOS?**
 
-Да. Поиск шрифтов начинается с каталогов шрифтов операционной системы. Набор доступных по умолчанию шрифтов и пути поиска различаются между платформами, что влияет на доступность и необходимость подстановки.
+Да. Установленные шрифты и места их поиска различаются в зависимости от операционной системы, поэтому шрифт, доступный на одной машине, может потребовать подстановки на другой.
 
-**Как подготовить окружение, чтобы минимизировать неожиданную подстановку при пакетных конверсиях?**
+**Как обеспечить согласованность выбора шрифтов при пакетных конверсиях?**
 
-Синхронизируйте набор шрифтов между машинами или контейнерами, [добавьте необходимые внешние шрифты](/slides/ru/cpp/custom-font/) для выводимых документов и, по возможности, [встраивайте шрифты](/slides/ru/cpp/embedded-font/) в презентации, чтобы выбранные шрифты были доступны во время рендеринга.
+Используйте одинаковые файлы шрифтов и их версии на каждой машине или в контейнере, [загружайте необходимые внешние шрифты](/slides/ru/cpp/custom-font/) и [встраивайте шрифты](/slides/ru/cpp/embedded-font/), если лицензия это позволяет. Также можно вызвать [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/ru/cpp/aspose.slides/ifontsmanager/getsubstitutions/) перед экспортом, чтобы выявить неожиданные подстановки.

@@ -1,12 +1,12 @@
 ---
-title: Configurar Substituição de Fonte em Apresentações no Android
+title: Configurar substituição de fontes em apresentações no Android
 linktitle: Substituição de Fonte
 type: docs
 weight: 70
 url: /pt/androidjava/font-substitution/
 keywords:
 - fonte
-- substituir fonte
+- fonte substituta
 - substituição de fonte
 - substituir fonte
 - substituição de fonte
@@ -18,101 +18,173 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Habilite a substituição de fonte ideal no Aspose.Slides para Android via Java ao converter apresentações PowerPoint e OpenDocument para outros formatos de arquivo."
+description: "Configure regras de substituição de fontes e inspeccione fontes substituídas no Aspose.Slides para Android via Java ao renderizar ou converter apresentações."
 ---
 ## **Visão geral**
 
-A substituição de fonte permite que o Aspose.Slides use outra fonte quando a fonte original da apresentação não está disponível durante a renderização ou conversão. Você pode verificar quais fontes foram substituídas usando o método `getSubstitutions` da interface `IFontsManager`.
+A substituição de fontes permite que o Aspose.Slides use uma fonte disponível no lugar de uma fonte que não pode ser acessada quando uma apresentação é renderizada ou convertida. A substituição afeta a saída renderizada; não altera a fonte atribuída ao conteúdo da apresentação.
 
-O Aspose.Slides também permite que você defina regras de substituição de fontes. Por exemplo, você pode especificar que uma fonte inacessível deve ser substituída por outra fonte disponível e, em seguida, aplicar essas regras por meio do gerenciador de fontes da apresentação.
+Você pode definir a fonte a ser usada quando uma fonte específica não está disponível e pode inspecionar as substituições que o Aspose.Slides fará durante a renderização. Isso ajuda a manter a saída consistente em dispositivos Android e ambientes com diferentes fontes disponíveis.
 
-## **Definir regras de substituição de fontes**
+## **Obter substituições de fontes**
 
-O Aspose.Slides permite que você defina regras para fontes que determinam o que deve ser feito em certas condições (por exemplo, quando uma fonte não pode ser acessada) da seguinte forma:
+Use o método [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) para determinar quais fontes serão substituídas quando a apresentação for renderizada. O método retorna objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/fontsubstitutioninfo/) que identificam os nomes das fontes originais e substituídas.
 
-1. Carregue a apresentação relevante.
-2. Carregue a fonte que será substituída.
-3. Carregue a nova fonte.
-4. Adicione uma regra para a substituição.
-5. Adicione a regra à coleção de regras de substituição de fonte da apresentação.
-6. Gere a imagem do slide para observar o efeito.
-
-Este código Java demonstra o processo de substituição de fonte:
+O exemplo Java a seguir lista todas as substituições de fontes para uma apresentação:
 
 ```java
-// Carrega uma apresentação
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Carrega a fonte de origem que será substituída
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Carrega a nova fonte
-    IFontData destFont = new FontData("Arial");
-    
-    // Adiciona uma regra de fonte para substituição de fonte
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Adiciona a regra à coleção de regras de substituição de fonte
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Adiciona uma coleção de regras de fonte à lista de regras
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // A fonte Arial será usada no lugar de SomeRareFont quando esta última estiver inacessível
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Salva a imagem no disco no formato JPEG
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Você pode querer ver [**Substituição de Fonte**](/slides/pt/androidjava/font-replacement/).
+## **Obter substituições de fontes para slides selecionados**
+
+Use a sobrecarga [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) com um argumento `int[] slides` para inspecionar apenas as substituições necessárias para renderizar slides específicos. Isso é útil quando você está renderizando ou exportando parte de uma apresentação, verificando uma grande apresentação de forma incremental, localizando slides que dependem de fontes indisponíveis, preparando um pacote mínimo de fontes para um aplicativo Android ou diagnosticando diferenças de renderização sem processar slides não relacionados.
+
+A matriz `slides` contém índices de slides baseados em 1: `1` identifica o primeiro slide. Em contraste, o acessador de coleção [Presentation.getSlides](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/#getSlides--) usa indexação baseada em zero, de modo que o mesmo slide é acessado como `presentation.getSlides().get_Item(0)`. Mantenha essa diferença em mente ao construir a matriz para evitar erros de deslocamento.
+
+Chame a sobrecarga através do método [Presentation.getFontsManager](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/presentation/#getFontsManager--). Ele retorna apenas as substituições determinadas ao renderizar os slides selecionados. Cada resultado é um objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/fontsubstitutioninfo/) contendo os nomes das fontes original e substituída. O resultado reflete o ambiente de fontes atual, regras de fallback configuradas, regras de substituição armazenadas em uma [IFontSubstRuleCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsubstrulecollection/) e [externally loaded fonts](/slides/pt/androidjava/custom-font/).
+
+A mesma substituição pode ser exigida por mais de um slide selecionado. Desduplicar os resultados ao criar um inventário de fontes ou relatório de pré‑checagem. O exemplo a seguir relata cada substituição retornada e então cria uma lista ordenada de mapeamentos de fontes únicos:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A interface [IFontsManager](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsmanager/) fornece ambas as sobrecargas. Escolha uma de acordo com o escopo da operação de renderização:
+
+| Sobrecarga | Use quando |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) with no arguments | Você precisa de substituições para toda a apresentação. |
+| [getSubstitutions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) with `int[] slides` | Você precisa de substituições para um intervalo selecionado, verificação incremental ou exportação parcial. |
+
+## **Definir regras de substituição de fontes**
+
+Para especificar a fonte que o Aspose.Slides deve usar quando uma fonte de origem não está disponível:
+
+1. Carregue a apresentação.
+2. Crie definições de fontes para as fontes de origem e substituta.
+3. Crie uma [FontSubstRule](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/fontsubstrule/) com a condição [WhenInaccessible](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/fontsubstcondition/).
+4. Adicione a regra a uma [FontSubstRuleCollection](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/fontsubstrulecollection/).
+5. Atribua a coleção usando o método [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-).
+6. Renderize ou converta a apresentação.
+
+O exemplo Java a seguir substitui `Arial` por `SomeRareFont` quando `SomeRareFont` não está disponível e, em seguida, renderiza o primeiro slide para verificar o resultado. A fonte substituta deve estar disponível para o Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Para uma alteração incondicional nas fontes usadas em toda a apresentação, veja [Font Replacement](/slides/pt/androidjava/font-replacement/).
 {{% /alert %}}
 
 ## **Limitações para fontes de equações matemáticas**
 
-As regras de substituição de fontes participam do processo padrão de seleção de fontes usado durante a renderização e conversão. Elas são adequadas para cenários de texto regular em que o Aspose.Slides pode substituir uma fonte inacessível por outra fonte disponível de acordo com a regra configurada.
+As regras de substituição de fontes são parte do processo padrão de seleção de fontes usado durante a renderização e conversão. Elas funcionam para texto comum quando o Aspose.Slides pode substituir uma fonte inacessível pela fonte disponível especificada por uma regra.
 
-No entanto, as equações matemáticas do Office têm uma limitação importante. Se uma equação foi criada com **Cambria Math**, o Aspose.Slides ainda pode exigir a fonte original **Cambria Math** para calcular e renderizar o layout da equação corretamente. Por causa disso, substituir **Cambria Math** por outra fonte matemática, como **STIX Two Math**, não é suportado para renderização de equações e ainda pode resultar em uma exceção indicando que **Cambria Math** é necessária.
+As equações Office Math têm um requisito adicional. Se uma equação usa **Cambria Math**, o Aspose.Slides pode precisar dessa fonte exata para calcular e renderizar o layout da equação. Uma regra que substitui outra fonte matemática, como **STIX Two Math**, não pode substituir **Cambria Math** para esse propósito, e a renderização ainda pode relatar que **Cambria Math** é necessária.
 
-Para converter essas apresentações com sucesso, certifique‑se de que **Cambria Math** esteja disponível para o Aspose.Slides em tempo de execução. Você pode instalar a fonte no sistema operacional ou fornecê‑la como uma [fonte externa](/slides/pt/androidjava/custom-font/) para que ela participe do processo normal de seleção de fontes durante a renderização e conversão.
+Para renderizar ou converter essa apresentação, torne **Cambria Math** disponível ao Aspose.Slides. Carregue-a como uma [external font](/slides/pt/androidjava/custom-font/) para que o aplicativo possa usá‑la durante a renderização e conversão.
 
-Essa limitação é específica para a renderização de equações. As regras padrão de substituição de fontes descritas acima ainda se aplicam ao texto regular da apresentação quando a fonte original está inacessível.
+Esta limitação se aplica ao layout de equações. As regras de substituição descritas acima ainda se aplicam ao texto regular da apresentação.
 
-## **Perguntas Frequentes**
+## **Perguntas frequentes**
 
-**Qual é a diferença entre substituição de fonte e substituição de fonte?**
+**Qual é a diferença entre substituição de fontes e troca de fontes?**
 
-[Substituição](/slides/pt/androidjava/font-replacement/) é uma substituição forçada de uma fonte por outra em toda a apresentação. Substituição é uma regra que é acionada sob uma condição específica, por exemplo quando a fonte original não está disponível, e então uma fonte alternativa designada é usada.
+[Font replacement](/slides/pt/androidjava/font-replacement/) intencionalmente altera uma fonte para outra em toda a apresentação. A substituição de fontes seleciona uma fonte para a saída renderizada quando a condição configurada é atendida, como quando a fonte original está indisponível.
 
-**Quando exatamente as regras de substituição são aplicadas?**
+**Quando as regras de substituição são aplicadas?**
 
-As regras participam da sequência padrão de [seleção de fonte](/slides/pt/androidjava/font-selection-sequence/) que é avaliada durante o carregamento, renderização e conversão; se a fonte escolhida não estiver disponível, a substituição ou substituição é aplicada.
+As regras participam da [font selection sequence](/slides/pt/androidjava/font-selection-sequence/) durante a renderização e conversão. Com `WhenInaccessible`, uma regra é usada apenas quando o Aspose.Slides não pode acessar a fonte de origem.
 
-**Qual é o comportamento padrão se nem substituição nem substituição estiverem configuradas e a fonte estiver ausente no sistema?**
+**O que acontece quando uma fonte está ausente e nenhuma regra de substituição está configurada?**
 
-A biblioteca tentará escolher a fonte de sistema mais próxima disponível, semelhante ao comportamento do PowerPoint.
+O Aspose.Slides seleciona a fonte disponível mais próxima de acordo com seu processo de seleção de fontes. O resultado depende das fontes disponíveis no ambiente de execução.
 
-**Posso anexar fontes externas personalizadas em tempo de execução para evitar a substituição?**
+**Posso carregar fontes externas para evitar substituição?**
 
-Sim. Você pode [adicionar fontes externas](/slides/pt/androidjava/custom-font/) em tempo de execução para que a biblioteca as considere na seleção e renderização, inclusive em conversões subsequentes.
+Sim. Você pode [load external fonts](/slides/pt/androidjava/custom-font/) para que o Aspose.Slides as use durante a renderização e conversão.
 
-**A Aspose distribui alguma fonte com a biblioteca?**
+**A Aspose distribui fontes com a biblioteca?**
 
-Não. A Aspose não distribui fontes pagas ou gratuitas; você adiciona e usa fontes por sua própria conta e responsabilidade.
+Não. Você é responsável por fornecer as fontes e cumprir suas licenças.
 
-**Existem diferenças no comportamento de substituição no Windows, Linux e macOS?**
+**Os resultados de substituição podem diferir entre dispositivos Android?**
 
-Sim. A descoberta de fontes começa a partir dos diretórios de fontes do sistema operacional. O conjunto de fontes padrão disponíveis e os caminhos de busca diferem entre as plataformas, o que afeta a disponibilidade e a necessidade de substituição.
+Sim. As fontes de sistema disponíveis podem variar entre versões Android, dispositivos e fabricantes, de modo que uma fonte disponível em um ambiente pode exigir substituição em outro.
 
-**Como devo preparar o ambiente para minimizar substituições inesperadas durante conversões em lote?**
+**Como posso tornar a seleção de fontes consistente em dispositivos Android?**
 
-Sincronize o conjunto de fontes entre máquinas ou contêineres, [adicione as fontes externas](/slides/pt/androidjava/custom-font/) necessárias para os documentos de saída e [incorpore fontes](/slides/pt/androidjava/embedded-font/) nas apresentações quando possível, para que as fontes selecionadas estejam disponíveis durante a renderização.
+Empacote os mesmos arquivos de fontes necessários com o aplicativo, [load them as external fonts](/slides/pt/androidjava/custom-font/) e [embed fonts](/slides/pt/androidjava/embedded-font/) quando as licenças permitirem. Você também pode chamar [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/pt/androidjava/com.aspose.slides/ifontsmanager/#getSubstitutions--) antes da exportação para identificar substituições inesperadas.
