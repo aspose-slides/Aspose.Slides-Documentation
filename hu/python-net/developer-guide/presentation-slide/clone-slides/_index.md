@@ -1,6 +1,6 @@
 ---
 title: PowerPoint diák klónozása Pythonban
-linktitle: Dia klónozása
+linktitle: Diák klónozása
 type: docs
 weight: 40
 url: /hu/python-net/clone-slides/
@@ -12,19 +12,19 @@ keywords:
 - bemutató
 - Python
 - Aspose.Slides
-description: "Klónozzon vagy duplikáljon gyorsan PowerPoint diákat az Aspose.Slides for Python via .NET segítségével. Kövesse világos kódpéldáinkat és tippjeinket, hogy néhány másodperc alatt automatizálja a PPT készítést, növelje a termelékenységet és megszüntesse a manuális munkát."
+description: "Az Aspose.Slides for Python via .NET segítségével gyorsan klónozhat vagy megkettőzhet PowerPoint diákat. Kövesse világos kódrészleteinket és tippjeinket a PPT létrehozásának másodpercek alatt történő automatizálásához, a termelékenység növeléséhez és a manuális munka megszüntetéséhez."
 ---
 ## **Bevezetés**
 
-A klónozás egy pontos másolat vagy replikáció létrehozásának folyamata. Az Aspose.Slides lehetővé teszi, hogy bármely diát másoljon (klónozzon), majd a klónozott diát beillessze az aktuális bemutatóba vagy bármely más nyitott bemutatóba. A diaklónozás egy új diát hoz létre, amelyet a fejlesztők módosíthatnak anélkül, hogy az eredeti diát befolyásolnák. Többféle módja van egy dia klónozásának:
+A klónozás egy olyan folyamat, amely során pontos másolat vagy replikát készítünk valamiről. Az Aspose.Slides lehetővé teszi, hogy bármely diát másoljon (klónozzon), majd a klónozott diát beillessze az aktuális prezentációba vagy bármely más nyitott prezentációba. A dia klónozása új diát hoz létre, amelyet a fejlesztők módosíthatnak anélkül, hogy az eredeti diát érintenék. A dia klónozásának több módja is létezik:
 
-- Klónozás a bemutató végén.
-- Klónozás a bemutatón belüli másik pozícióban.
-- Klónozás egy másik bemutató végén.
-- Klónozás egy másik bemutatóban egy másik pozícióban.
-- Klónozás egy másik bemutatóban egy meghatározott pozícióban.
+- Klónozás a prezentáció végén.
+- Klónozás a prezentáció más pozíciójában.
+- Klónozás egy másik prezentáció végén.
+- Klónozás egy másik prezentáció más pozíciójában.
+- Klónozás egy másik prezentáció meghatározott pozíciójában.
 
-Az Aspose.Slides for Python via .NET-ben a [slide collection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) amelyet a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektum exponál, biztosítja a `add_clone` és `insert_clone` metódusokat az ilyen típusú diaklónozáshoz.
+Az Aspose.Slides for Python via .NET-ben a [dia gyűjtemény](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektum által elérhető, amely biztosítja az `add_clone` és `insert_clone` metódusokat ezeknek a dia klónozási módoknak a végrehajtásához.
 
 ## **Telepítés**
 
@@ -32,164 +32,166 @@ Az Aspose.Slides for Python via .NET-ben a [slide collection](https://reference.
 pip install aspose.slides
 ```
 
-## **Klónozás a végén ugyanabban a bemutatóban**
+## **Telepítés**
 
-Ha egy diát ugyanabban a bemutatóban szeretne klónozni, és a meglévő diák végéhez szeretné hozzáadni, használja a `add_clone` metódust. Kövesse ezeket a lépéseket:
+Ha ugyanabban a prezentációban szeretne egy diát klónozni, és a meglévő diák végére szeretné hozzáadni, használja az `add_clone` metódust. Kövesse az alábbi lépéseket:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezze meg a slide gyűjteményt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumból.
-3. Hívja meg a `add_clone` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) objektumon, megadva a klónozandó diát.
-4. Mentse a módosított bemutatót.
+2. Szerezze be a dia gyűjteményt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumtól.
+3. Hívja meg az `add_clone` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/), átadva a klónozandó diát.
+4. Mentse el a módosított prezentációt.
 
-Az alábbi példában az első dia (index 0) kerül klónozásra, és a bemutató végéhez lesz hozzáadva.
+Az alábbi példában az első dia (index 0) klónozva van, és a prezentáció végére kerül.
 
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt a bemutató fájl reprezentálásához.
+# Az Presentation osztály példányosítása a prezentációfájl reprezentálásához.
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
-    # Klónozza a kívánt diát a diagyűjtemény végére ugyanabban a bemutatóban.
+    # A kívánt dia klónozása a dia gyűjtemény végére ugyanabban a prezentációban.
     presentation.slides.add_clone(presentation.slides[0])
-    # Mentse a módosított bemutatót a lemezre.
+    # A módosított prezentáció mentése lemezre.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klónozás egy meghatározott pozícióba ugyanabban a bemutatóban**
+## **Klónozás meghatározott pozícióba ugyanabban a prezentációban**
 
-Ha egy diát ugyanabban a bemutatóban szeretne klónozni, és másik pozícióba helyezni, használja a `insert_clone` metódust:
+Ha ugyanabban a prezentációban szeretne egy diát klónozni, és egy másik pozícióba helyezni, használja az `insert_clone` metódust:
 
 1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból.
-2. Szerezze meg a slide gyűjteményt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumból.
-3. Hívja meg a `insert_clone` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) objektumon, megadva a klónozandó diát és a célt indexet az új pozícióhoz.
-4. Mentse a módosított bemutatót.
+2. Szerezze be a dia gyűjteményt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) objektumtól.
+3. Hívja meg az `insert_clone` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/), átadva a klónozandó diát és a cél indexet az új pozícióhoz.
+4. Mentse el a módosított prezentációt.
 
-Az alábbi példában az 1-es indexű dia (2. pozíció) klónozva van a 2-es indexre (3. pozíció) ugyanabban a bemutatóban.
+Az alábbi példában az 1-es indexű dia (2. pozíció) klónozva van a 2-es indexre (3. pozíció) ugyanabban a prezentációban.
 
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt a bemutató fájl reprezentálásához.
+# Az Presentation osztály példányosítása a prezentációfájl reprezentálásához.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
-    # Klónozza a kívánt diát a megadott pozícióra (indexre) ugyanabban a bemutatóban.
+    # A kívánt dia klónozása a megadott pozícióba (index) ugyanabban a prezentációban.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Mentse a módosított bemutatót a lemezre.
+    # A módosított prezentáció mentése lemezre.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Klónozás egy másik bemutató végén**
 
-Ha egy diát egy bemutatóból kell klónozni, és egy másik bemutató végéhez hozzáadni:
+Ha egy prezentációból szeretne egy diát klónozni, és egy másik prezentáció végére hozzáadni:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a forrás bemutató számára (az, amely a klónozandó diát tartalmazza).
-2. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a cél bemutató számára (ahová a dia hozzá lesz adva).
-3. Szerezze meg a slide gyűjteményt a cél bemutatóból.
-4. Hívja meg a `add_clone` metódust a cél [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) objektumon, megadva a forrás bemutató diát.
-5. Mentse a módosított cél bemutatót.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a forrás prezentációhoz (amelyik a diát tartalmazza).
+2. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a cél prezentációhoz (ahová a diát hozzáadja).
+3. Szerezze be a dia gyűjteményt a cél prezentációból.
+4. Hívja meg az `add_clone` metódust a cél [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/), átadva a forrás prezentáció diáját.
+5. Mentse el a módosított cél prezentációt.
 
-Az alábbi példában a forrás bemutató 0-s indexű diáját a cél bemutató végére klónozzák.
+Az alábbi példában a forrás prezentáció 0‑ás indexű diája a cél prezentáció végére kerül klónozva.
 
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt a forrás bemutató fájl reprezentálásához.
+# Az Presentation osztály példányosítása a forrás prezentáció fájl reprezentálásához.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Példányosítsa a Presentation osztályt a cél PPTX-hez (ahová a dia klónozva lesz).
+    # Az Presentation osztály példányosítása a cél PPTX-hez (ahová a diát klónozzák).
     with slides.Presentation() as target_presentation:
-        # Klónozza a kívánt diát a forrás bemutatóból a cél bemutató slide gyűjteményének végére.
+        # A kívánt dia klónozása a forrás prezentációból a cél prezentáció dia gyűjteményének végére.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Mentse a cél bemutatót a lemezre.
+        # A cél prezentáció mentése lemezre.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klónozás egy meghatározott pozícióba egy másik bemutatóban**
+## **Klónozás egy meghatározott pozícióba egy másik prezentációban**
 
-Ha egy diát egy bemutatóból kell klónozni, és egy másik bemutatóban egy meghatározott pozícióba beilleszteni:
+Ha egy prezentációból szeretne egy diát klónozni, és egy másik prezentáció meghatározott pozíciójába beilleszteni:
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a forrás bemutató számára (amely a klónozandó diát tartalmazza).
-2. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a cél bemutató számára (ahová a dia hozzá lesz adva).
-3. Szerezze meg a slide gyűjteményt a cél bemutatóból.
-4. Hívja meg a `insert_clone` metódust a cél [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) objektumon, megadva a forrás diát és a kívánt cél indexet.
-5. Mentse a módosított cél bemutatót.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a forrás prezentációhoz (amelyik a diát tartalmazza).
+2. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a cél prezentációhoz (ahová a diát hozzáadja).
+3. Szerezze be a dia gyűjteményt a cél prezentációból.
+4. Hívja meg az `insert_clone` metódust a cél [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/), átadva a forrás prezentáció diáját és a kívánt cél indexet.
+5. Mentse el a módosított cél prezentációt.
 
-Az alábbi példában a forrás bemutató 0-s indexű diáját a cél bemutató 2-es indexére (3. pozíció) klónozzák.
+Az alábbi példában a forrás prezentáció 0‑ás indexű diája a cél prezentáció 2‑es indexére (3. pozíció) kerül klónozva.
 
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt a forrás bemutató fájl reprezentálásához.
+# A Presentation osztály példányosítása a forrás prezentáció fájl reprezentálásához.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Példányosítsa a Presentation osztályt a cél PPTX-hez (ahová a dia klónozandó).
+    # A Presentation osztály példányosítása a cél PPTX-hez (ahová a diát klónozni kell).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
-        # Illessze be a forrás első diája klónját a cél bemutató 2. indexére.
+        # A forrás első diájának klónjának beszúrása a cél prezentációban a 2-es indexre.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Mentse a cél bemutatót a lemezre.
+        # A cél prezentáció mentése lemezre.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Dia és annak masterslajd klónozása egy másik bemutatóba**
+## **Dia klónozása a mesterdiával egy másik prezentációba**
 
-Ha egy diát **a masterével** kell klónozni egy bemutatóból, és egy másikban használni, először klónozza a szükséges master diaslajt a forrás bemutatóból a cél bemutatóba. Ezután használja a cél mastert a dia klónozásakor. A `add_clone(Slide, MasterSlide)` metódus **a cél bemutató master diaslajdját** várja, nem a forrásét.
+Ha egy diát **a mesterdiával együtt** szeretne klónozni egy másik prezentációba, először klónozza a szükséges mesterdiát a forrás prezentációból a cél prezentációba. Ezután használja a cél mesterdiát a dia klónozásához. Az `add_clone(Slide, MasterSlide)` metódus **a cél prezentációból származó mesterdiát** várja, nem a forrásból.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a forrás bemutató számára (amely a klónozandó diát tartalmazza).
-2. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a cél bemutató számára.
-3. Hozzáférhet a forrás diához, amelyet klónozni kell, és annak master diaslajdjához.
-4. Szerezze meg a [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/) objektumot a cél bemutató master gyűjteményéből.
-5. Hívja meg a `add_clone` metódust a cél [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/) objektumon, megadva a forrás mastert a célba való klónozáshoz.
-6. Szerezze meg a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) objektumot a cél bemutató slide gyűjteményéből.
-7. Hívja meg a `add_clone` metódust a cél [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) objektumon, megadva a forrás diát és a klónozott cél mastert.
-8. Mentse a módosított cél bemutatót.
+A dia mesterdiával történő klónozásához kövesse az alábbi lépéseket:
 
-Az alábbi példában a forrás bemutató 0-s indexű diáját a cél bemutató végére klónozzák a forrásból klónozott masterrel.
+1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a forrás prezentációhoz (amelyik a diát tartalmazza).
+2. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/python-net/aspose.slides/presentation/) osztályból a cél prezentációhoz.
+3. Szerezze be a forrás diát, amelyet klónozni szeretne, és annak mesterdiáját.
+4. Szerezze be a [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/)‑t a cél prezentáció mestergyűjteményéből.
+5. Hívja meg az `add_clone` metódust a cél [MasterSlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/masterslidecollection/), átadva a forrás mastert, hogy azt a célba klónozza.
+6. Szerezze be a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/)‑t a cél prezentáció dia gyűjteményéből.
+7. Hívja meg az `add_clone` metódust a cél [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/), átadva a forrás diát és a klónozott cél mastert.
+8. Mentse el a módosított cél prezentációt.
+
+Az alábbi példában a forrás prezentáció 0‑ás indexű diája a cél prezentáció végére kerül klónozva, a forrásból klónozott master használatával.
 
 ```py
 import aspose.slides as slides
 
-# Példányosítsa a Presentation osztályt a forrás bemutató fájl reprezentálásához.
+# A Presentation osztály példányosítása a forrás prezentáció fájl reprezentálásához.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # Példányosítsa a Presentation osztályt a cél bemutatóhoz, ahová a dia klónozva lesz.
+    # A Presentation osztály példányosítása a cél prezentációhoz, ahol a diát klónozni fogják.
     with slides.Presentation() as target_presentation:
-        # Szerezze meg az első diát a forrás bemutatóból.
+        # A forrás prezentáció első diájának lekérése.
         source_slide = source_presentation.slides[0]
-        # Szerezze meg az első dia által használt master diát.
+        # Az első dia által használt mesterdia lekérése.
         source_master = source_slide.layout_slide.master_slide
-        # Klónozza a master diát a cél bemutató master gyűjteményébe.
+        # A mesterdia klónozása a cél prezentáció mestergyűjteményébe.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Klónozza a diát a forrás bemutatóból a cél bemutató végére a klónozott masterrel.
+        # A dia klónozása a forrás prezentációból a cél prezentáció végére a klónozott master használatával.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Mentse a cél bemutatót a lemezre.
+        # A cél prezentáció mentése lemezre.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Klónozás a végén egy meghatározott szekcióban**
 
-Az Aspose.Slides for Python via .NET segítségével egy diát egy bemutató szekciójából klónozhat, és egy másik szekcióba illesztheti ugyanabban a bemutatóban. Ehhez használja a `add_clone(Slide, Section)` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) osztályban.
+Az Aspose.Slides for Python via .NET segítségével egy prezentáció egy szekciójából klónozhat egy diát, és egy másik szekcióba illesztheti be ugyanabban a prezentációban. Ehhez használja a `add_clone(Slide, Section)` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) osztályból.
 
-Az alábbi Python példa bemutatja, hogyan lehet egy diát klónozni és a klónt egy meghatározott szekcióba beszúrni:
+Az alábbi Python példa bemutatja, hogyan klónozzon egy diát, és illessze be a klónt egy megadott szekcióba:
 
 ```py
 import aspose.slides as slides
 
 # Hozzon létre egy új üres bemutatót.
 with slides.Presentation() as presentation:
-    # Adjon hozzá egy üres diát az első dia elrendezése alapján.
+    # Üres diát ad hozzá az első dia elrendezésére alapozva.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Adjon hozzá egy ellipszis alakzatot az új diához; ez a dia később klónozva lesz.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Adjon hozzá egy újabb üres diát az első dia elrendezése alapján.
+    # Egy másik üres diát ad hozzá az első dia elrendezésére alapozva.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Hozzon létre egy "Section2" nevű szekciót, amely a slide2-nél kezdődik.
     section = presentation.sections.add_section("Section2", slide2)
-    # Klónozzuk az előzőleg létrehozott diát a "Section2" szekcióba.
+    # A korábban létrehozott diát a "Section2" szekcióba klónozza.
     presentation.slides.add_clone(slide, section)
-    # Mentse a bemutatót PPTX fájlként.
+    # A prezentáció mentése PPTX fájlként.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **A diaméret egyezésének biztosítása**
+## **Biztosítsa a megfelelő diaméretet**
 
-Diák másik bemutatóba történő klónozásakor győződjön meg arról, hogy a cél bemutató diamérete megegyezik a forrással. Ha a diaméretek eltérnek, az Aspose.Slides nem méretezi át automatikusan a klónozott alakzatokat – az eredeti koordinátáik és méreteik megmaradnak, ami a tartalom elcsúszásához vagy a dián kívülre nyúlásához vezethet.
+Dia klónozása során egy másik prezentációba fontos, hogy a cél prezentáció diamérete megegyezzen a forrásével. Ha a diaméretek eltérnek, az Aspose.Slides nem méretezi át automatikusan a klónozott alakzatokat – azok eredeti koordinátái és méretei megmaradnak, ami azt eredményezheti, hogy a tartalom eltolódik vagy a dia határain kívülre nyúlik.
 
-Beállíthatja a cél bemutató diaméretét, hogy megegyezzen a forrással a master és a dia klónozása előtt:
+A mester és a dia klónozása előtt állítsa be a cél prezentáció diaméretét a forráséval egyezőre:
 
 ```py
 source_size = source_presentation.slide_size.size
@@ -198,18 +200,18 @@ target_presentation.slide_size.set_size(
     source_size.width, source_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
 ```
 
-Ezt a master és a dia klónozása előtt tegye meg.
+Ezt a mester és a dia klónozása előtt végezze el.
 
 ## **GYIK**
 
-**A beszédjegyzetek és a felülvizsgálati megjegyzések klónozódnak?**
+### A hangjegyzetek és a lektorálási megjegyzések klónozódnak?
 
-Igen. A jegyzetoldal és a felülvizsgálati megjegyzések a klónba kerülnek. Ha nem kívánja őket, [távolítsa el őket](/slides/hu/python-net/presentation-notes/) a beillesztés után.
+Igen. A jegyzetoldal és a lektorálási megjegyzések benne vannak a klónban. Ha nem szeretné őket, akkor [távolítsa el őket](/slides/hu/python-net/presentation-notes/) a beszúrás után.
 
-### Hogyan kezelik a diagramok és azok adatforrásait?
+### Hogyan kezelik a diagramokat és adatforrásaikat?
 
-A diagram objektuma, formázása és a beágyazott adatok másolásra kerülnek. Ha a diagram külső forráshoz (például OLE-beágyazott munkafüzethez) volt csatolva, ez a kapcsolat egy [OLE objektum](/slides/hu/python-net/manage-ole/) formájában marad meg. Fájlok közti áthelyezés után ellenőrizze az adatok elérhetőségét és a frissítési viselkedést.
+A diagramobjektum, a formázás és a beágyazott adatok másolva vannak. Ha a diagram egy külső forráshoz volt kapcsolva (például OLE‑beágyazott munkafüzethez), ez a kapcsolat megmarad [OLE objektumként](/slides/hu/python-net/manage-ole/). Fájlok közti áthelyezés után ellenőrizze az adatok elérhetőségét és a frissítési viselkedést.
 
-**Szabályozhatom a klón beszúrási pozícióját és szekcióját?**
+### Beállíthatom a beszúrási pozíciót és a szekciókat a klón esetében?
 
-Igen. A klón beilleszthető egy adott diaindexre, és elhelyezhető egy kiválasztott [szekcióban](/slides/hu/python-net/slide-section/). Ha a cél szekció nem létezik, először hozza létre, majd helyezze át a diát.
+Igen. A klónt beszúrhatja egy adott dia indexre, és egy kiválasztott [szekcióba](/slides/hu/python-net/slide-section/). Ha a cél szekció nem létezik, először hozza létre, majd mozgassa a diát abba.

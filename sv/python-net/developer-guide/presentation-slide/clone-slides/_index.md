@@ -5,28 +5,34 @@ type: docs
 weight: 40
 url: /sv/python-net/clone-slides/
 keywords:
-- klona bild
-- kopiera bild
-- spara bild
-- PowerPoint
-- presentation
-- Python
-- Aspose.Slides
-description: "Klon snabbt eller duplicera PowerPoint-bilder med Aspose.Slides för Python via .NET. Följ våra tydliga kodexempel och tips för att automatisera PPT‑skapande på sekunder, öka produktiviteten och eliminera manuellt arbete."
+- "klona bild"
+- "kopiera bild"
+- "spara bild"
+- "PowerPoint"
+- "presentation"
+- "Python"
+- "Aspose.Slides"
+description: "Klona eller duplicera PowerPoint-bilder snabbt med Aspose.Slides för Python via .NET. Följ våra tydliga kodexempel och tips för att automatisera skapandet av PPT på några sekunder, öka produktiviteten och eliminera manuellt arbete."
 ---
 ## **Introduktion**
 
-Kloning är processen att skapa en exakt kopia eller replik av något. Aspose.Slides tillåter också att du kopierar (klonar) valfri bild och sedan infogar den klonade bilden i den aktuella presentationen eller någon annan öppen presentation. Slidekloning skapar en ny bild som utvecklare kan modifiera utan att påverka den ursprungliga bilden. Det finns flera sätt att klona en bild:
+Kloning är processen att göra en exakt kopia eller replik av något. Aspose.Slides låter dig även kopiera (klona) vilken bild som helst och sedan infoga den klonade bilden i den aktuella presentationen eller någon annan öppen presentation. Bildkloning skapar en ny bild som utvecklare kan modifiera utan att påverka den ursprungliga bilden. Det finns flera sätt att klona en bild:
 
 - Klona i slutet av en presentation.
-- Klona på en annan position inom en presentation.
+- Klona på en annan position i en presentation.
 - Klona i slutet av en annan presentation.
 - Klona på en annan position i en annan presentation.
 - Klona på en specifik position i en annan presentation.
 
-I Aspose.Slides för Python via .NET ger den [slide collection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/) som exponeras av [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)‑objektet metoderna `add_clone` och `insert_clone` för att utföra dessa typer av slide‑kloning.
+I Aspose.Slides för Python via .NET tillhandahåller [bildsamling](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/) som exponeras av objektet [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) metoderna `add_clone` och `insert_clone` för att utföra dessa typer av bildkloning.
 
 ## **Installation**
+
+```bash
+pip install aspose.slides
+```
+
+## **Klona i slutet i samma presentation**
 
 ```bash
 pip install aspose.slides
@@ -36,10 +42,10 @@ pip install aspose.slides
 
 Om du vill klona en bild i samma presentation och lägga till den i slutet av de befintliga bilderna, använd metoden `add_clone`. Följ dessa steg:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta bildsamlingen från [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)-objektet.
-1. Anropa `add_clone` på [SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/), och ange bilden som ska klonas.
-1. Spara den modifierade presentationen.
+1. Skapa en instans av klassen [Presentation].
+2. Hämta bildsamlingen från objektet [Presentation].
+3. Anropa metoden `add_clone` på [SlideCollection] och skicka med bilden som ska klonas.
+4. Spara den ändrade presentationen.
 
 I exemplet nedan klonas den första bilden (index 0) och läggs till i slutet av presentationen.
 
@@ -58,12 +64,12 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 
 Om du vill klona en bild i samma presentation och placera den på en annan position, använd metoden `insert_clone`:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/).
-1. Hämta bildsamlingen från [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/)-objektet.
-1. Anropa `insert_clone` på [SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/), ange den bild som ska klonas samt mål‑indexet för dess nya position.
-1. Spara den modifierade presentationen.
+1. Skapa en instans av klassen [Presentation].
+2. Hämta bildsamlingen från objektet [Presentation].
+3. Anropa metoden `insert_clone` på [SlideCollection] och skicka med bilden som ska klonas samt målindexet för dess nya position.
+4. Spara den ändrade presentationen.
 
-I exemplet nedan klonas bilden på index 1 (position 2) till index 2 (position 3) inom samma presentation.
+I exemplet nedan klonas bilden med index 1 (position 2) till index 2 (position 3) inom samma presentation.
 
 ```py
 import aspose.slides as slides
@@ -80,24 +86,24 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 
 Om du behöver klona en bild från en presentation och lägga till den i slutet av en annan presentation:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för källpresentationen (den som innehåller bilden som ska klonas).
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för mål‑presentationen (där bilden ska läggas till).
-1. Hämta bildsamlingen från mål‑presentationen.
-1. Anropa `add_clone` på mål‑[SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/), och ange bilden från källpresentationen.
-1. Spara den modifierade mål‑presentationen.
+1. Skapa en instans av klassen [Presentation] för källpresentationen (den som innehåller bilden som ska klonas).
+2. Skapa en instans av klassen [Presentation] för målpresentationen (där bilden kommer att läggas till).
+3. Hämta bildsamlingen från målpresentationen.
+4. Anropa `add_clone` på destinationens [SlideCollection] och skicka med bilden från källpresentationen.
+5. Spara den ändrade målpresentationen.
 
-I exemplet nedan klonas bilden på index 0 i källpresentationen till slutet av mål‑presentationen.
+I exemplet nedan klonas bilden med index 0 i källpresentationen till slutet av målpresentationen.
 
 ```py
 import aspose.slides as slides
 
-# Instansiera Presentation-klassen för att representera källpresentationens fil.
+# Instansiera Presentation-klassen för att representera källpresentationsfilen.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instansiera Presentation-klassen för destinations‑PPTX (där bilden kommer att klonas).
+    # Instansiera Presentation-klassen för mål PPTX (där bilden kommer att klonas).
     with slides.Presentation() as target_presentation:
-        # Klona den önskade bilden från källpresentationen till slutet av bildsamlingen i destinationspresentationen.
+        # Klona den önskade bilden från källpresentationen till slutet av bildsamlingen i målpresentationen.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Spara destinationspresentationen till disk.
+        # Spara målpresentationen till disk.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -105,68 +111,68 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 
 Om du behöver klona en bild från en presentation och infoga den i en annan presentation på en specifik position:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för källpresentationen (den som innehåller bilden som ska klonas).
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för mål‑presentationen (där bilden ska läggas till).
-1. Hämta bildsamlingen från mål‑presentationen.
-1. Anropa `insert_clone` på mål‑[SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/), och ange bilden från källpresentationen samt det önskade mål‑indexet.
-1. Spara den modifierade mål‑presentationen.
+1. Skapa en instans av klassen [Presentation] för källpresentationen (den som innehåller bilden som ska klonas).
+2. Skapa en instans av klassen [Presentation] för målpresentationen (där bilden kommer att läggas till).
+3. Hämta bildsamlingen från målpresentationen.
+4. Anropa metoden `insert_clone` på destinationens [SlideCollection] och skicka med bilden från källpresentationen samt det önskade målindexet.
+5. Spara den ändrade målpresentationen.
 
-I exemplet nedan klonas bilden på index 0 i källpresentationen till index 2 (position 3) i mål‑presentationen.
+I exemplet nedan klonas bilden med index 0 i källpresentationen till index 2 (position 3) i målpresentationen.
 
 ```py
 import aspose.slides as slides
 
-# Instansiera Presentation-klassen för att representera källpresentationens fil.
+# Instansiera Presentation-klassen för att representera källpresentationsfilen.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Instansiera Presentation-klassen för destinations-PPTX (där bilden ska klonas).
+    # Instansiera Presentation-klassen för mål-PPTX (där bilden ska klonas).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
-        # Infoga en klon av den första bilden från källan på index 2 i destinationspresentationen.
+        # Infoga en klon av den första bilden från källan på index 2 i målpresentationen.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Spara destinationspresentationen till disk.
+        # Spara målpresentationen till disk.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klona en bild med dess masterbild till en annan presentation**
+## **Klona en bild med dess mastersida till en annan presentation**
 
-Om du behöver klona en bild **med sin master** från en presentation och använda den i en annan, klona först den erforderliga masterbilden från källpresentationen till mål‑presentationen. Använd sedan den mål‑masteren när du klonar bilden. Metoden `add_clone(Slide, MasterSlide)` förväntar sig en **masterbild från mål‑presentationen**, inte från källan.
+Om du behöver klona en bild **med dess master** från en presentation och använda den i en annan, klona först den erforderliga mastersidan från källpresentationen till målpresentationen. Använd sedan den målmastern när du klonar bilden. Metoden `add_clone(Slide, MasterSlide)` förväntar sig en **mastersida från målpresentationen**, inte från källan.
 
 Följ dessa steg för att klona en bild med dess master:
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för källpresentationen (den som innehåller bilden som ska klonas).
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/python-net/aspose.slides/presentation/) för mål‑presentationen.
-1. Åtkomst den bild som ska klonas och dess masterbild.
-1. Hämta [MasterSlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/) från mål‑presentationens master‑samling.
-1. Anropa `add_clone` på mål‑[MasterSlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/masterslidecollection/), och ange käll‑masteren för att klona den till mål‑presentationen.
-1. Hämta [SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/) från mål‑presentationens bildsamling.
-1. Anropa `add_clone` på mål‑[SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/), och ange käll‑bilden samt den klonade mål‑masteren.
-1. Spara den modifierade mål‑presentationen.
+1. Skapa en instans av klassen [Presentation] för källpresentationen (den som innehåller bilden som ska klonas).
+2. Skapa en instans av klassen [Presentation] för målpresentationen.
+3. Åtkom källbilden som ska klonas och dess mastersida.
+4. Hämta [MasterSlideCollection] från destinationens presentations mastersamling.
+5. Anropa `add_clone` på destinationens [MasterSlideCollection] och skicka med källmasteren för att klona den till destinationen.
+6. Hämta [SlideCollection] från destinationens bildsamling.
+7. Anropa `add_clone` på destinationens [SlideCollection] och skicka med källbilden samt den klonade destinationens master.
+8. Spara den ändrade målpresentationen.
 
-I exemplet nedan klonas bilden på index 0 i källpresentationen till slutet av mål‑presentationen med den master som klonats från källan.
+I exemplet nedan klonas bilden med index 0 i källpresentationen till slutet av målpresentationen med den master som klonats från källan.
 
 ```py
 import aspose.slides as slides
 
-# Instansiera Presentation-klassen för att representera källpresentationens fil.
+# Instansiera Presentation-klassen för att representera källpresentationsfilen.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # Instansiera Presentation-klassen för destinationspresentationen där bilden kommer att klonas.
+    # Instansiera Presentation-klassen för målpresentationen där bilden ska klonas.
     with slides.Presentation() as target_presentation:
         # Hämta den första bilden från källpresentationen.
         source_slide = source_presentation.slides[0]
-        # Hämta masterbilden som används av den första bilden.
+        # Hämta mastersidan som används av den första bilden.
         source_master = source_slide.layout_slide.master_slide
-        # Klona masterbilden till destinationspresentationens master‑samling.
+        # Klona mastersidan till målpresentationens mastersamling.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Klona bilden från källpresentationen till slutet av destinationspresentationen med den klonade masteren.
+        # Klona bilden från källpresentationen till slutet av målpresentationen med den klonade mastern.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Spara destinationspresentationen till disk.
+        # Spara målpresentationen till disk.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klona i slutet i ett angivet avsnitt**
+## **Klona i slutet i en specificerad sektion**
 
 Med Aspose.Slides för Python via .NET kan du klona en bild från ett avsnitt i en presentation och infoga den i ett annat avsnitt i samma presentation. Använd metoden `add_clone(Slide, Section)` i klassen [SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/).
 
-Följande Python‑exempel visar hur du klonar en bild och infogar klonen i ett specificerat avsnitt:
+Följande Python‑exempel visar hur man klonar en bild och infogar klonen i en specificerad sektion:
 
 ```py
 import aspose.slides as slides
@@ -189,9 +195,9 @@ with slides.Presentation() as presentation:
 
 ## **Säkerställ matchande bildstorlek**
 
-När du klonar bilder till en annan presentation, se till att mål‑presentationen har samma bildstorlek som källan. Om bildstorlekarna skiljer sig, skalar inte Aspose.Slides automatiskt de klonade formerna – deras ursprungliga koordinater och dimensioner behålls, vilket kan leda till att innehållet blir feljusterat eller sträcker sig utanför bildens gränser.
+När du klonar bilder till en annan presentation, se till att målpresentationen har samma bildstorlek som källan. Om bildstorlekarna skiljer sig, skalar inte Aspose.Slides automatiskt de klonade formerna – deras ursprungliga koordinater och dimensioner bevaras, vilket kan leda till att innehållet blir felplacerat eller sträcker sig utanför bildens kanter.
 
-Du kan sätta mål‑presentationens bildstorlek så att den matchar källans innan du klonar master‑ och bildobjekten:
+Du kan sätta målpresentationens bildstorlek så att den matchar källan innan du klonar master och bild:
 
 ```py
 source_size = source_presentation.slide_size.size
@@ -200,18 +206,18 @@ target_presentation.slide_size.set_size(
     source_size.width, source_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
 ```
 
-Gör detta innan du klonar master‑ och bildobjekten.
+Gör detta innan du klonar mastern och bilden.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Kopieras anteckningssidor och granskningskommentarer?**
+### Klonas talarnoter och granskningskommentarer?
 
-Ja. Anteckningssidan och granskningskommentarerna ingår i klonen. Om du inte vill ha dem, [ta bort dem](/slides/sv/python-net/presentation-notes/) efter infogning.
+Ja. Notssidan och granskningskommentarerna inkluderas i klonen. Om du inte vill ha dem, [ta bort dem](/slides/sv/python-net/presentation-notes/) efter infogning.
 
 ### Hur hanteras diagram och deras datakällor?
 
-Diagramobjektet, formatering och inbäddade data kopieras. Om diagrammet var länkat till en extern källa (t.ex. en OLE‑inbäddad arbetsbok), bevaras den länken som ett [OLE‑objekt](/slides/sv/python-net/manage-ole/). Efter flytt mellan filer, verifiera datatillgänglighet och uppdateringsbeteende.
+Diagramobjektet, formateringen och inbäddade data kopieras. Om diagrammet var länkat till en extern källa (t.ex. en OLE‑inbäddad arbetsbok) bevaras den länken som ett [OLE-objekt](/slides/sv/python-net/manage-ole/). Efter flyttning mellan filer, verifiera datatillgänglighet och uppdateringsbeteende.
 
-**Kan jag styra infogningspositionen och avsnitten för klonen?**
+### Kan jag styra infogningspositionen och sektionerna för klonen?
 
-Ja. Du kan infoga klonen på ett specifikt bildindex och placera den i ett valt [avsnitt](/slides/sv/python-net/slide-section/). Om mål‑avsnittet inte finns, skapa det först och flytta sedan bilden dit.
+Ja. Du kan infoga klonen på ett specifikt bildindex och placera den i en vald [sektion](/slides/sv/python-net/slide-section/). Om målsektionen inte finns, skapa den först och flytta sedan bilden till den.

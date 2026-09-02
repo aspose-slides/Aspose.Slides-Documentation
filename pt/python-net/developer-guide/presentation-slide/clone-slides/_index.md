@@ -12,11 +12,11 @@ keywords:
 - apresentação
 - Python
 - Aspose.Slides
-description: "Clone ou duplique rapidamente slides do PowerPoint com Aspose.Slides para Python via .NET. Siga nossos exemplos de código claros e dicas para automatizar a criação de PPT em segundos, aumentar a produtividade e eliminar o trabalho manual."
+description: "Clone ou duplique rapidamente slides de PowerPoint com Aspose.Slides para Python via .NET. Siga nossos exemplos de código claros e dicas para automatizar a criação de PPT em segundos, aumentar a produtividade e eliminar o trabalho manual."
 ---
 ## **Introdução**
 
-Clonar é o processo de fazer uma cópia exata ou réplica de algo. Aspose.Slides também permite copiar (clonar) qualquer slide e então inserir o slide clonado na apresentação atual ou em qualquer outra apresentação aberta. A clonagem de slides cria um novo slide que os desenvolvedores podem modificar sem afetar o slide original. Existem várias maneiras de clonar um slide:
+Clonar é o processo de fazer uma cópia exata ou réplica de algo. Aspose.Slides também permite copiar (clonar) qualquer slide e então inserir o slide clonado na apresentação atual ou em qualquer outra apresentação aberta. A clonagem de slide cria um novo slide que os desenvolvedores podem modificar sem afetar o slide original. Existem várias maneiras de clonar um slide:
 
 - Clonar ao final de uma apresentação.
 - Clonar em outra posição dentro de uma apresentação.
@@ -24,7 +24,7 @@ Clonar é o processo de fazer uma cópia exata ou réplica de algo. Aspose.Slide
 - Clonar em outra posição em outra apresentação.
 - Clonar em uma posição específica em outra apresentação.
 
-No Aspose.Slides for Python via .NET, a [coleção de slides](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) exposta pelo objeto [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) fornece os métodos `add_clone` e `insert_clone` para realizar esses tipos de clonagem de slides.
+No Aspose.Slides for Python via .NET, a [slide collection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) exposta pelo objeto [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) fornece os métodos `add_clone` e `insert_clone` para executar esses tipos de clonagem de slide.
 
 ## **Instalação**
 
@@ -32,16 +32,16 @@ No Aspose.Slides for Python via .NET, a [coleção de slides](https://reference.
 pip install aspose.slides
 ```
 
-## **Clonar ao Final Dentro da Mesma Apresentação**
+## **Instalação**
 
-Se você quiser clonar um slide dentro da mesma apresentação e acrescentá‑lo ao final dos slides existentes, use o método `add_clone`. Siga estas etapas:
+Se você quiser clonar um slide dentro da mesma apresentação e anexá‑lo ao final dos slides existentes, use o método `add_clone`. Siga estas etapas:
 
 1. Crie uma instância da classe [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 1. Obtenha a coleção de slides do objeto [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 1. Chame o método `add_clone` na [SlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/), passando o slide a ser clonado.
 1. Salve a apresentação modificada.
 
-No exemplo abaixo, o primeiro slide (índice 0) é clonado e acrescentado ao final da apresentação.
+No exemplo abaixo, o primeiro slide (índice 0) é clonado e anexado ao final da apresentação.
 
 ```py
 import aspose.slides as slides
@@ -56,7 +56,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 
 ## **Clonar para uma Posição Específica Dentro da Mesma Apresentação**
 
-Se você quiser clonar um slide dentro da mesma apresentação e colocá‑lo em uma posição diferente, use o método `insert_clone`:
+Se você quiser clonar um slide dentro da mesma apresentação e colocá‑lo em outra posição, use o método `insert_clone`:
 
 1. Crie uma instância da classe [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
 1. Obtenha a coleção de slides do objeto [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/).
@@ -70,7 +70,7 @@ import aspose.slides as slides
 
 # Instanciar a classe Presentation para representar o arquivo de apresentação.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
-    # Clonar o slide desejado para a posição especificada (índice) dentro da mesma apresentação.
+    # Clone o slide desejado para a posição (índice) especificada dentro da mesma apresentação.
     presentation.slides.insert_clone(2, presentation.slides[1])
     # Salvar a apresentação modificada no disco.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
@@ -78,7 +78,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 
 ## **Clonar ao Final de Outra Apresentação**
 
-Se você precisar clonar um slide de uma apresentação e acrescentá‑lo ao final de outra apresentação:
+Se for necessário clonar um slide de uma apresentação e anexá‑lo ao final de outra apresentação:
 
 1. Crie uma instância da classe [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para a apresentação de origem (a que contém o slide a ser clonado).
 1. Crie uma instância da classe [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para a apresentação de destino (onde o slide será adicionado).
@@ -111,7 +111,7 @@ Se você precisar clonar um slide de uma apresentação e inseri‑lo em outra a
 1. Chame o método `insert_clone` na [SlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) de destino, passando o slide da apresentação de origem e o índice de destino desejado.
 1. Salve a apresentação de destino modificada.
 
-No exemplo abaixo, o slide no índice 0 na apresentação de origem é clonado para o índice 2 (posição 3) na apresentação de destino.
+No exemplo abaixo, o slide no índice 0 da apresentação de origem é clonado para o índice 2 (posição 3) na apresentação de destino.
 
 ```py
 import aspose.slides as slides
@@ -132,13 +132,13 @@ Se você precisar clonar um slide **com seu mestre** de uma apresentação e us�
 
 Para clonar um slide com seu mestre, siga estas etapas:
 
-1. Crie uma instância da classe [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para a apresentação de origem (a que contém o slide a ser clonado).
-1. Crie uma instância da classe [Apresentação](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para a apresentação de destino.
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para a apresentação de origem (a que contém o slide a ser clonado).
+1. Crie uma instância da classe [Presentation](https://reference.aspose.com/slides/pt/python-net/aspose.slides/presentation/) para a apresentação de destino.
 1. Acesse o slide de origem a ser clonado e seu slide mestre.
-1. Obtenha a [MasterSlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslidecollection/) da coleção de mestres da apresentação de destino.
-1. Chame `add_clone` na [MasterSlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslidecollection/) de destino, passando o mestre de origem para cloná‑lo na apresentação de destino.
-1. Obtenha a [SlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) da coleção de slides da apresentação de destino.
-1. Chame `add_clone` na [SlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) de destino, passando o slide de origem e o mestre de destino clonado.
+1. Obtenha a [MasterSlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslidecollection/) da coleção mestre da apresentação de destino.
+1. Chame `add_clone` na [MasterSlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/masterslidecollection/) de destino, passando o mestre de origem para cloná‑lo na coleção de destino.
+1. Obtenha a [SlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) da apresentação de destino.
+1. Chame `add_clone` na [SlideCollection](https://reference.aspose.com/slides/pt/python-net/aspose.slides/slidecollection/) de destino, passando o slide de origem e o mestre clonado de destino.
 1. Salve a apresentação de destino modificada.
 
 No exemplo abaixo, o slide no índice 0 na apresentação de origem é clonado ao final da apresentação de destino usando o mestre clonado da origem.
@@ -183,15 +183,15 @@ with slides.Presentation() as presentation:
     section = presentation.sections.add_section("Section2", slide2)
     # Clonar o slide criado anteriormente na seção "Section2".
     presentation.slides.add_clone(slide, section)
-    # Salvar a apresentação como um arquivo PPTX.
+    # Salve a apresentação como um arquivo PPTP.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Garantir Tamanho de Slide Correspondente**
+## **Garantir Tamanho de Slide Compatível**
 
-Ao clonar slides para outra apresentação, certifique‑se de que a apresentação de destino tenha o mesmo tamanho de slide da origem. Se os tamanhos de slide diferirem, o Aspose.Slides não redimensiona automaticamente os shapes clonados — suas coordenadas e dimensões originais são preservadas, o que pode fazer com que o conteúdo apareça desalinhado ou ultrapasse os limites do slide.
+Ao clonar slides para outra apresentação, certifique‑se de que a apresentação de destino tenha o mesmo tamanho de slide da origem. Se os tamanhos de slide diferirem, o Aspose.Slides não redimensiona automaticamente os objetos clonados – suas coordenadas e dimensões originais são preservadas, o que pode fazer com que o conteúdo apareça desalinhado ou extrapole os limites do slide.
 
-Você pode definir o tamanho de slide da apresentação de destino para corresponder ao da origem antes de clonar o mestre e o slide:
+Você pode definir o tamanho de slide da apresentação de destino para coincidir com o da origem antes de clonar o mestre e o slide:
 
 ```py
 source_size = source_presentation.slide_size.size
@@ -202,16 +202,16 @@ target_presentation.slide_size.set_size(
 
 Faça isso antes de clonar o mestre e o slide.
 
-## **Perguntas Frequentes**
+## **FAQ**
 
-**As notas do apresentador e comentários de revisão são clonados?**
+### As notas do apresentador e os comentários dos revisores são clonados?
 
-Sim. A página de notas e os comentários de revisão são incluídos no clone. Se você não quiser eles, [remova-os](/slides/pt/python-net/presentation-notes/) após a inserção.
+Sim. A página de notas e os comentários de revisão são incluídos no clone. Se você não quiser them, [remove them](/slides/pt/python-net/presentation-notes/) após a inserção.
 
-### Como os gráficos e suas fontes de dados são tratados?
+### Como gráficos e suas fontes de dados são tratados?
 
-O objeto do gráfico, sua formatação e os dados incorporados são copiados. Se o gráfico estava vinculado a uma fonte externa (por exemplo, uma pasta de trabalho OLE incorporada), esse vínculo é mantido como um [objeto OLE](/slides/pt/python-net/manage-ole/). Após mover entre arquivos, verifique a disponibilidade dos dados e o comportamento de atualização.
+O objeto de gráfico, a formatação e os dados incorporados são copiados. Se o gráfico estiver vinculado a uma fonte externa (por exemplo, uma pasta de trabalho incorporada OLE), esse vínculo é mantido como um [OLE object](/slides/pt/python-net/manage-ole/). Após mover entre arquivos, verifique a disponibilidade dos dados e o comportamento de atualização.
 
-**Posso controlar a posição de inserção e as seções para a cópia?**
+### Posso controlar a posição de inserção e as seções do clone?
 
-Sim. Você pode inserir o clone em um índice de slide específico e colocá‑lo em uma [seção](/slides/pt/python-net/slide-section/) escolhida. Se a seção de destino não existir, crie‑a primeiro e depois mova o slide para ela.
+Sim. Você pode inserir o clone em um índice de slide específico e colocá‑lo em uma [section](/slides/pt/python-net/slide-section/) escolhida. Se a seção de destino não existir, crie‑a primeiro e então mova o slide para ela.

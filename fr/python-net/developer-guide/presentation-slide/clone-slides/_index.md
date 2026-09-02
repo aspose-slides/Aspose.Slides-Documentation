@@ -16,15 +16,15 @@ description: "Clonez ou dupliquez rapidement des diapositives PowerPoint avec As
 ---
 ## **Introduction**
 
-Le clonage est le processus de creation d'une copie exacte ou d'une replica de quelque chose. Aspose.Slides permet egalement de copier (cloner) n'importe quelle diapositive puis d'insérer la diapositive clonee dans la presentation actuelle ou dans toute autre presentation ouverte. Le clonage de diapositives cree une nouvelle diapositive que les developpeurs peuvent modifier sans affecter la diapositive originale. Il existe plusieurs facons de cloner une diapositive :
+Le clonage est le processus consistant à créer une copie exacte ou une réplique de quelque chose. Aspose.Slides permet également de copier (cloner) n'importe quelle diapositive, puis d'insérer la diapositive clonée dans la présentation en cours ou dans toute autre présentation ouverte. Le clonage de diapositive crée une nouvelle diapositive que les développeurs peuvent modifier sans affecter la diapositive originale. Il existe plusieurs façons de cloner une diapositive :
 
-- Cloner a la fin d'une presentation.
-- Cloner a une autre position dans une presentation.
-- Cloner a la fin d'une autre presentation.
-- Cloner a une autre position dans une autre presentation.
-- Cloner a une position specifique dans une autre presentation.
+- Cloner à la fin d'une présentation.
+- Cloner à une autre position dans une présentation.
+- Cloner à la fin d'une autre présentation.
+- Cloner à une autre position dans une autre présentation.
+- Cloner à une position spécifique dans une autre présentation.
 
-Dans Aspose.Slides pour Python via .NET, la [collection de diapositives](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) exposee par l'objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) fournit les methodes `add_clone` et `insert_clone` pour effectuer ces types de clonage de diapositives.
+Dans Aspose.Slides for Python via .NET, la [slide collection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) exposée par l'objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) fournit les méthodes `add_clone` et `insert_clone` pour réaliser ces types de clonage de diapositive.
 
 ## **Installation**
 
@@ -32,16 +32,16 @@ Dans Aspose.Slides pour Python via .NET, la [collection de diapositives](https:/
 pip install aspose.slides
 ```
 
-## **Cloner a la fin dans la meme presentation**
-
 Si vous souhaitez cloner une diapositive au sein de la meme presentation et l'ajouter a la fin des diapositives existantes, utilisez la methode `add_clone`. Suivez ces etapes :
 
-1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
-1. Recuperer la collection de diapositives a partir de l'objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
-1. Appeler la methode `add_clone` sur la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/), en passant la diapositive a cloner.
-1. Enregistrer la presentation modifiee.
+Si vous voulez cloner une diapositive au sein de la même présentation et l'ajouter à la fin des diapositives existantes, utilisez la méthode `add_clone`. Suivez ces étapes :
 
-Dans l'exemple ci-dessous, la premiere diapositive (index 0) est clonee et ajoutee a la fin de la presentation.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
+1. Obtenez la collection de diapositives à partir de l'objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
+1. Appelez la méthode `add_clone` sur le [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/), en passant la diapositive à cloner.
+1. Enregistrez la présentation modifiée.
+
+Dans l'exemple ci‑dessous, la première diapositive (indice 0) est clonée et ajoutée à la fin de la présentation.
 
 ```py
 import aspose.slides as slides
@@ -54,16 +54,16 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Cloner a une position specifique dans la meme presentation**
+## **Cloner à une position spécifique dans la même présentation**
 
-Si vous souhaitez cloner une diapositive au sein de la meme presentation et la placer a une position differente, utilisez la methode `insert_clone` :
+Si vous voulez cloner une diapositive au sein de la même présentation et la placer à une position différente, utilisez la méthode `insert_clone` :
 
-1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
-1. Recuperer la collection de diapositives a partir de l'objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
-1. Appeler la methode `insert_clone` sur la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/), en passant la diapositive a cloner et l'index cible pour sa nouvelle position.
-1. Enregistrer la presentation modifiee.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
+1. Obtenez la collection de diapositives à partir de l'objet [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/).
+1. Appelez la méthode `insert_clone` sur le [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/), en passant la diapositive à cloner et l'indice cible pour sa nouvelle position.
+1. Enregistrez la présentation modifiée.
 
-Dans l'exemple ci-dessous, la diapositive d'index 1 (position 2) est clonee a l'index 2 (position 3) dans la meme presentation.
+Dans l'exemple ci‑dessous, la diapositive à l'indice 1 (position 2) est clonée à l'indice 2 (position 3) dans la même présentation.
 
 ```py
 import aspose.slides as slides
@@ -76,17 +76,17 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Cloner a la fin d'une autre presentation**
+## **Cloner à la fin d'une autre présentation**
 
-Si vous devez cloner une diapositive d'une presentation et l'ajouter a la fin d'une autre presentation :
+Si vous devez cloner une diapositive d'une présentation et l'ajouter à la fin d'une autre présentation :
 
-1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la presentation source (celle qui contient la diapositive a cloner).
-1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la presentation de destination (ou la diapositive sera ajoutee).
-1. Recuperer la collection de diapositives de la presentation de destination.
-1. Appeler `add_clone` sur la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) de destination, en passant la diapositive de la presentation source.
-1. Enregistrer la presentation de destination modifiee.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la présentation source (celle qui contient la diapositive à cloner).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la présentation de destination (celle où la diapositive sera ajoutée).
+1. Obtenez la collection de diapositives de la présentation de destination.
+1. Appelez `add_clone` sur le [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) de destination, en passant la diapositive de la présentation source.
+1. Enregistrez la présentation de destination modifiée.
 
-Dans l'exemple ci-dessous, la diapositive d'index 0 de la presentation source est clonee a la fin de la presentation de destination.
+Dans l'exemple ci‑dessous, la diapositive à l'indice 0 de la présentation source est clonée à la fin de la présentation de destination.
 
 ```py
 import aspose.slides as slides
@@ -101,17 +101,17 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Cloner a une position specifique dans une autre presentation**
+## **Cloner à une position spécifique dans une autre présentation**
 
-Si vous devez cloner une diapositive d'une presentation et l'insérer dans une autre presentation a une position specifique :
+Si vous devez cloner une diapositive d'une présentation et l'insérer dans une autre présentation à une position spécifique :
 
-1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la presentation source (celle contenant la diapositive a cloner).
-1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la presentation de destination (ou la diapositive sera ajoutee).
-1. Recuperer la collection de diapositives de la presentation de destination.
-1. Appeler la methode `insert_clone` sur la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) de destination, en passant la diapositive de la presentation source et l'index cible souhaite.
-1. Enregistrer la presentation de destination modifiee.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la présentation source (celle qui contient la diapositive à cloner).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la présentation de destination (celle où la diapositive sera ajoutée).
+1. Obtenez la collection de diapositives de la présentation de destination.
+1. Appelez la méthode `insert_clone` sur le [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) de destination, en passant la diapositive de la présentation source et l'indice cible souhaité.
+1. Enregistrez la présentation de destination modifiée.
 
-Dans l'exemple ci-dessous, la diapositive d'index 0 de la presentation source est clonee a l'index 2 (position 3) dans la presentation de destination.
+Dans l'exemple ci‑dessous, la diapositive à l'indice 0 de la présentation source est clonée à l'indice 2 (position 3) dans la présentation de destination.
 
 ```py
 import aspose.slides as slides
@@ -126,11 +126,9 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Cloner une diapositive avec sa diapositive maitre dans une autre presentation**
+## **Cloner une diapositive avec sa diapositive maître dans une autre présentation**
 
-Si vous devez cloner une diapositive **avec son maitre** d'une presentation et l'utiliser dans une autre, clonez d'abord la diapositive maitre requise de la presentation source vers la presentation de destination. Utilisez ensuite ce maitre de destination lors du clonage de la diapositive. La methode `add_clone(Slide, MasterSlide)` attend une **diapositive maitre de la presentation de destination**, et non de la source.
-
-Pour cloner une diapositive avec son maitre, suivez ces etapes :
+Si vous devez cloner une diapositive **avec son maître** d'une présentation et l'utiliser dans une autre, commencez par cloner la diapositive maître requise de la présentation source dans la présentation de destination. Puis utilisez ce maître de destination lors du clonage de la diapositive. La méthode `add_clone(Slide, MasterSlide)` attend un **maître de la présentation de destination**, pas de la source.
 
 1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la presentation source (celle contenant la diapositive a cloner).
 1. Creer une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la presentation de destination.
@@ -141,7 +139,16 @@ Pour cloner une diapositive avec son maitre, suivez ces etapes :
 1. Appeler `add_clone` sur la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/), en passant la diapositive source et le maitre destination clone.
 1. Enregistrer la presentation de destination modifiee.
 
-Dans l'exemple ci-dessous, la diapositive d'index 0 de la presentation source est clonee a la fin de la presentation de destination en utilisant le maitre clone depuis la source.
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la présentation source (celle qui contient la diapositive à cloner).
+1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/fr/python-net/aspose.slides/presentation/) pour la présentation de destination.
+1. Accédez à la diapositive source à cloner et à sa diapositive maître.
+1. Obtenez la [MasterSlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslidecollection/) de la collection maître de la présentation de destination.
+1. Appelez `add_clone` sur la [MasterSlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/masterslidecollection/) de destination, en passant le maître source pour le cloner dans la destination.
+1. Obtenez la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) de la collection de diapositives de la présentation de destination.
+1. Appelez `add_clone` sur la [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/) de destination, en passant la diapositive source et le maître de destination cloné.
+1. Enregistrez la présentation de destination modifiée.
+
+Dans l'exemple ci‑dessous, la diapositive à l'indice 0 de la présentation source est clonée à la fin de la présentation de destination en utilisant le maître cloné depuis la source.
 
 ```py
 import aspose.slides as slides
@@ -162,11 +169,11 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Cloner a la fin dans une section specifiee**
+## **Cloner à la fin dans une section spécifiée**
 
-Grace a Aspose.Slides pour Python via .NET, vous pouvez cloner une diapositive d'une section d'une presentation et l'insérer dans une autre section de la meme presentation. Pour ce faire, utilisez la methode `add_clone(Slide, Section)` de la classe [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/).
+Avec Aspose.Slides for Python via .NET, vous pouvez cloner une diapositive d'une section d'une présentation et l'insérer dans une autre section de la même présentation. Pour ce faire, utilisez la méthode `add_clone(Slide, Section)` de la classe [SlideCollection](https://reference.aspose.com/slides/fr/python-net/aspose.slides/slidecollection/).
 
-L'exemple Python suivant montre comment cloner une diapositive et inserer le clone dans une section specifiee :
+L'exemple Python suivant montre comment cloner une diapositive et insérer le clone dans une section spécifiée :
 
 ```py
 import aspose.slides as slides
@@ -183,15 +190,15 @@ with slides.Presentation() as presentation:
     section = presentation.sections.add_section("Section2", slide2)
     # Cloner la diapositive créée précédemment dans la section "Section2".
     presentation.slides.add_clone(slide, section)
-    # Enregistrer la présentation en tant que fichier PPTX.
+    # Enregistrer la présentation sous forme de fichier PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Assurer une correspondance de la taille des diapositives**
+## **Assurer la correspondance de la taille des diapositives**
 
-Lors du clonage de diapositives dans une autre presentation, assurez-vous que la presentation de destination a la meme taille de diapositive que la source. Si les tailles de diapositives diffèrent, Aspose.Slides ne redimensionne pas automatiquement les formes clones; leurs coordonnees et dimensions d'origine sont conservees, ce qui peut entraîner un mauvais alignement du contenu ou son depassement des limites de la diapositive.
+Lors du clonage de diapositives dans une autre présentation, assurez‑vous que la présentation de destination a la même taille de diapositive que la source. Si les tailles diffèrent, Aspose.Slides ne redimensionne pas automatiquement les formes clonées — leurs coordonnées et dimensions d'origine sont conservées, ce qui peut entraîner un affichage désaligné ou dépasser les limites de la diapositive.
 
-Vous pouvez definir la taille des diapositives de la presentation de destination pour qu'elle corresponde a celle de la source avant de cloner le maitre et la diapositive :
+Vous pouvez définir la taille des diapositives de la présentation de destination pour qu’elle corresponde à celle de la source avant de cloner le maître et la diapositive :
 
 ```py
 source_size = source_presentation.slide_size.size
@@ -200,18 +207,18 @@ target_presentation.slide_size.set_size(
     source_size.width, source_size.height, slides.SlideSizeScaleType.DO_NOT_SCALE)
 ```
 
-Faites-le avant de cloner le maitre et la diapositive.
+Faites cela avant de cloner le maître et la diapositive.
 
 ## **FAQ**
 
-**Les notes du presentateur et les commentaires des relecteurs sont-ils clones ?**
+### Les notes du présentateur et les commentaires des examinateurs sont-ils clonés ?
 
-Oui. La page de notes et les commentaires de revision sont inclus dans le clone. Si vous ne les voulez pas, [supprimez-les](/slides/fr/python-net/presentation-notes/) apres l'insertion.
+Oui. La page de notes et les commentaires de révision sont inclus dans le clone. Si vous ne les voulez pas, [remove them](/slides/fr/python-net/presentation-notes/) après l’insertion.
 
-**Comment les graphiques et leurs sources de donnees sont-ils gérés ?**
+### Comment les graphiques et leurs sources de données sont-ils gérés ?
 
-L'objet du graphique, son formatage et les donnees integrees sont copies. Si le graphique etait lie a une source externe (par ex., un classeur OLE integre), ce lien est conserve sous forme d'[objet OLE](/slides/fr/python-net/manage-ole/). Apres le deplacement entre fichiers, verifiez la disponibilite des donnees et le comportement de rafraichissement.
+L’objet graphique, son formatage et les données intégrées sont copiés. Si le graphique était lié à une source externe (par exemple un classeur OLE intégré), ce lien est conservé sous forme d’[OLE object](/slides/fr/python-net/manage-ole/). Après le déplacement entre fichiers, vérifiez la disponibilité des données et le comportement de rafraîchissement.
 
-**Puis-je controler la position d'insertion et les sections du clone ?**
+### Puis‑je contrôler la position d’insertion et les sections du clone ?
 
 Oui. Vous pouvez inserer le clone a un index de diapositive specifique et le placer dans une [section](/slides/fr/python-net/slide-section/) choisissez. Si la section cible n'existe pas, creez-la d'abord puis deplacez la diapositive dans celle-ci.
