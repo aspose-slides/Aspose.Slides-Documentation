@@ -18,303 +18,251 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET makes it easy to create, edit, and clone text boxes in PowerPoint and OpenDocument files, enhancing your presentation automation."
+description: "Create, identify, format, and update text boxes in PowerPoint and OpenDocument presentations using Aspose.Slides for .NET."
 ---
 
 ## **Introduction**
 
-Texts on slides typically exist in text boxes or shapes. Therefore, to add text to a slide, you have to add a textbox first and then put some text inside the textbox. 
+In Aspose.Slides for .NET, slide text is stored in text frames that belong to shapes. The [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) interface represents the most common text-bearing shape and exposes its text through the [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/textframe/) property.
 
-To allow you add a shape that can hold text, Aspose.Slides for .NET provides the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) interface. 
+{{% alert color="info" title="Note" %}}
 
-{{% alert title="Note" color="warning" %}} 
-
-Aspose.Slides also provides the [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape) interface to allow you to add shapes to slides. However, not all shapes added through the `IShape` interface can hold text. Shapes added through the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) interface typically contain text. 
-
-Therefore, when dealing with an existing shape to which you want to add text, you may want to check and confirm that it was cast through the `IAutoShape` interface. Only then will you be able to work with [TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe), which is a property under `IAutoShape`. See the [Update Text](https://docs.aspose.com/slides/net/manage-textbox/#update-text) section on this page. 
+Every auto shape implements [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/), but not every shape is an auto shape or supports a text frame. When processing an existing presentation, check that a shape implements `IAutoShape` before accessing its text.
 
 {{% /alert %}}
 
 ## **Create a Text Box on a Slide**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation) class. 
-2. Get the first slide's reference through its index. 
-3. Add an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) object with [ShapeType](https://reference.aspose.com/slides/net/aspose.slides/igeometryshape/properties/shapetype) set as `Rectangle` at a specified position on the slide and obtain the reference for the newly added `IAutoShape` object. 
-4. Add a `TextFrame` property to the `IAutoShape` object that will contain a text. In the example below, we added this text: *Aspose TextBox*
-5. Finally, write the PPTX file through the `Presentation` object. 
+To create a text box, add an auto shape to a slide, add text to its text frame, and save the presentation. The following example creates a rectangular text box:
 
-This C# code—an implementation of the steps above—shows you how to add text to a slide:
-
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instantiates PresentationEx
-using (Presentation pres = new Presentation())
-{
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 300, 50);
+textBox.AddTextFrame("Aspose TextBox");
 
-    // Gets the first slide in the presentation
-    ISlide sld = pres.Slides[0];
-
-    // Adds an AutoShape with type set as Rectangle
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 75, 150, 50);
-
-    // Adds TextFrame to the Rectangle
-    ashp.AddTextFrame(" ");
-
-    // Accesses the text frame
-    ITextFrame txtFrame = ashp.TextFrame;
-
-    // Creates the Paragraph object for text frame
-    IParagraph para = txtFrame.Paragraphs[0];
-
-    // Creates a Portion object for the paragraph
-    IPortion portion = para.Portions[0];
-
-    // Sets the text
-    portion.Text = "Aspose TextBox";
-
-    // Saves the presentation to disk
-    pres.Save("TextBox_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
-}
+presentation.Save("TextBox.pptx", SaveFormat.Pptx);
 ```
+
+The coordinates and dimensions passed to [IShapeCollection.AddAutoShape](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/addautoshape/) are measured in points. [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) initializes the text frame with the supplied text.
 
 ## **Check for a Text Box Shape**
 
-Aspose.Slides provides the [IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property from the [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) interface, allowing you to examine shapes and identify text boxes.
+Use the [AutoShape.IsTextBox](https://reference.aspose.com/slides/net/aspose.slides/autoshape/istextbox/) property to determine whether an auto shape is treated as a text box. This is useful when a presentation contains both text-bearing and purely graphical auto shapes.
 
-![Text box and shape](istextbox.png)
+![A text box and a shape](istextbox.png)
 
-This C# code shows you how to check whether a shape was created as a text box: 
+The following example inspects every auto shape in a presentation:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation("sample.pptx"))
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 120, 40);
+textBox.AddTextFrame("Text box");
+slide.Shapes.AddAutoShape(ShapeType.Ellipse, 150, 10, 40, 40);
+
+foreach (var currentSlide in presentation.Slides)
 {
-    Aspose.Slides.LowCode.ForEach.Shape(presentation, (shape, slide, index) =>
+    foreach (var shape in currentSlide.Shapes)
     {
         if (shape is IAutoShape autoShape)
         {
-            Console.WriteLine(autoShape.IsTextBox ? "shape is a text box" : "shape is not a text box");
+            Console.WriteLine(autoShape.IsTextBox ? "The shape is a text box." : "The shape is not a text box.");
         }
-    });
+    }
 }
 ```
 
-Note that if you simply add an autoshape using the `AddAutoShape` method from the [IShapeCollection](https://reference.aspose.com/slides/net/aspose.slides/ishapecollection/) interface, the `IsTextBox` property of the autoshape will return `false`. However, after you add text to the autoshape using the `AddTextFrame` method or the `Text` property, the `IsTextBox` property returns `true`.
+A newly added auto shape is not considered a text box until it contains non-empty text. You can supply that text through [IAutoShape.AddTextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/addtextframe/) or [ITextFrame.Text](https://reference.aspose.com/slides/net/aspose.slides/itextframe/text/). Adding or assigning an empty string leaves `IsTextBox` set to `false`:
 
-```cs
+```csharp
+using System;
 using Aspose.Slides;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-    IAutoShape shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
-    // shape1.IsTextBox is false
-    shape1.AddTextFrame("shape 1");
-    // shape1.IsTextBox is true
+var shape1 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 10, 100, 40);
+shape1.AddTextFrame("Shape 1");
+Console.WriteLine(shape1.IsTextBox);
 
-    IAutoShape shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 110, 100, 40);
-    // shape2.IsTextBox is false
-    shape2.TextFrame.Text = "shape 2";
-    // shape2.IsTextBox is true
+var shape2 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 70, 100, 40);
+shape2.TextFrame.Text = "Shape 2";
+Console.WriteLine(shape2.IsTextBox);
 
-    IAutoShape shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 210, 100, 40);
-    // shape3.IsTextBox is false
-    shape3.AddTextFrame("");
-    // shape3.IsTextBox is false
+var shape3 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 130, 100, 40);
+shape3.AddTextFrame("");
+Console.WriteLine(shape3.IsTextBox);
 
-    IAutoShape shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 310, 100, 40);
-    // shape4.IsTextBox is false
-    shape4.TextFrame.Text = "";
-    // shape4.IsTextBox is false
-}
+var shape4 = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 10, 190, 100, 40);
+shape4.TextFrame.Text = "";
+Console.WriteLine(shape4.IsTextBox);
 ```
+
+The first two calls print `True`; the last two print `False`.
 
 ## **Find the Shape That Owns a Text Frame**
 
-In generic text-processing code, you may receive an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) without already knowing which presentation object contains it. Use the [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) property to navigate back to the owning [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).
+Generic text-processing code may receive an [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/) without knowing which presentation object contains it. Use the read-only [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) property to navigate back to its owning [IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/).
 
-For a text frame that belongs to an [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/) or another text-containing shape, [ITextFrame.ParentShape](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentshape/) is set and [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is `null`. Both properties are read-only navigation properties, so reading them does not change ownership. Always check the returned value for `null` before accessing the shape.
-
-For a complete example that identifies shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/net/search-and-replace-text/).
+For a text frame owned by an auto shape or another text-bearing shape, `ParentShape` contains the owner and [ITextFrame.ParentCell](https://reference.aspose.com/slides/net/aspose.slides/itextframe/parentcell/) is `null`. Check the returned value before accessing it. To identify both shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/net/search-and-replace-text/).
 
 ## **Add Columns to a Text Box**
 
-Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) and [ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/textframeformat/properties/columnspacing) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface and [TextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/textframeformat) class) to allow you to add columns to textboxes. You get to specify the number of columns in a text box and then specify the spacing in points between columns. 
+The [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/) property divides the text frame into columns, while [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/) sets the gap between columns in points. Both settings belong to [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/) and can be changed through the text frame of an existing text box. Text reflows between columns inside the same shape; it does not continue into another shape.
 
-This code in C# demonstrates the described operation: 
+The following example creates a three-column text box with 10 points between columns, saves the presentation, and reads the stored settings back from the output file:
 
-```c#
+```csharp
+using System;
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-	// Gets the first slide in the presentation
-	ISlide slide = presentation.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 200);
+textBox.AddTextFrame("This text is distributed automatically across all columns in the text box.");
 
-	// Add an AutoShape with type set as Rectangle
-	IAutoShape aShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
+var textFrameFormat = textBox.TextFrame.TextFrameFormat;
+textFrameFormat.ColumnCount = 3;
+textFrameFormat.ColumnSpacing = 10;
 
-	// Add TextFrame to the Rectangle
-	aShape.AddTextFrame("All these columns are limited to be within a single text container -- " +
-	"you can add or delete text and the new or remaining text automatically adjusts " +
-	"itself to flow within the container. You cannot have text flow from one container " +
-	"to other though -- we told you PowerPoint's column options for text are limited!");
+presentation.Save("TextBoxColumns.pptx", SaveFormat.Pptx);
 
-	// Gets the text format of TextFrame
-	ITextFrameFormat format = aShape.TextFrame.TextFrameFormat;
-
-	// Specifies the number of columns in TextFrame
-	format.ColumnCount = 3;
-
-	// Specifies the spacing between columns
-	format.ColumnSpacing = 10;
-
-	// Saves the presentation
-	presentation.Save("ColumnCount.pptx", SaveFormat.Pptx);
-}
+using var savedPresentation = new Presentation("TextBoxColumns.pptx");
+var savedTextBox = (IAutoShape)savedPresentation.Slides[0].Shapes[0];
+var savedFormat = savedTextBox.TextFrame.TextFrameFormat;
+Console.WriteLine($"Columns: {savedFormat.ColumnCount}; spacing: {savedFormat.ColumnSpacing} points");
 ```
 
+## **Extract Text from Individual Columns**
 
-## **Add Columns to a Text Frame**
-Aspose.Slides for .NET provides the [ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/properties/columncount) property (from the [ITextFrameFormat](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat) interface) that allows you to add columns in text frames. Through this property, you can specify your preferred number of columns in a text frame. 
+Use [TextFrame.SplitTextByColumns](https://reference.aspose.com/slides/net/aspose.slides/textframe/splittextbycolumns/) to retrieve the text assigned to each visual column in an existing text frame. The method returns one string for each column, in column-based reading order. A single-column text frame produces an array with one element, and an empty column is represented by an empty string. The strings contain plain text only; portion-level formatting is not preserved.
 
- This C# code shows you how to add a column inside a text frame:
+This is useful when you need to:
 
-```c#
-using System.Diagnostics;
+- Extract text while preserving its column-based reading order.
+- Index or compare the content of multi-column slides.
+- Export each column to a separate file, database field, or other destination.
+- Inspect how text is redistributed after changing [ITextFrameFormat.ColumnCount](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columncount/), [ITextFrameFormat.ColumnSpacing](https://reference.aspose.com/slides/net/aspose.slides/itextframeformat/columnspacing/), the font, or the text-frame size.
+
+The method reports the text distributed within the current [ITextFrame](https://reference.aspose.com/slides/net/aspose.slides/itextframe/); it does not automatically flow text between separate shapes or text boxes. Column distribution can depend on available fonts and other text-layout settings, so make sure that the required fonts are available when consistent results are important.
+
+The following example loads a presentation, finds the first multi-column auto shape with a text frame, reads its configured column count, and writes the text from every column to a separate file. Shapes that do not provide a text frame are skipped.
+
+```csharp
+using System;
+using System.IO;
 using Aspose.Slides;
-using Aspose.Slides.Export;
 
-string outPptxFileName = "ColumnsTest.pptx";
-using (Presentation pres = new Presentation())
+using var presentation = new Presentation("MultiColumnText.pptx");
+
+IAutoShape? textBox = null;
+foreach (var shape in presentation.Slides[0].Shapes)
 {
-    IAutoShape shape1 = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 300, 300);
-    TextFrameFormat format = (TextFrameFormat)shape1.TextFrame.TextFrameFormat;
-
-    format.ColumnCount = 2;
-    shape1.TextFrame.Text = "All these columns are forced to stay within a single text container -- " +
-                                "you can add or delete text - and the new or remaining text automatically adjusts " +
-                                "itself to stay within the container. You cannot have text spill over from one container " +
-                                "to other, though -- because PowerPoint's column options for text are limited!";
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
+    if (shape is IAutoShape autoShape && autoShape.TextFrame is not null)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(double.IsNaN(((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing));
+        var columnCount = autoShape.TextFrame.TextFrameFormat.ColumnCount;
+        if (columnCount > 1)
+        {
+            textBox = autoShape;
+            break;
+        }
     }
+}
 
-    format.ColumnSpacing = 20;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
+if (textBox is null)
+{
+    Console.WriteLine("No multi-column text frame was found.");
+}
+else
+{
+    var textFrame = textBox.TextFrame;
+    var configuredColumnCount = textFrame.TextFrameFormat.ColumnCount;
+    var columnTexts = textFrame.SplitTextByColumns();
 
-    using (Presentation test = new Presentation(outPptxFileName))
+    Console.WriteLine($"Configured columns: {configuredColumnCount}");
+
+    for (var columnIndex = 0; columnIndex < columnTexts.Length; columnIndex++)
     {
-        Debug.Assert(2 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(20 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
-    }
-
-    format.ColumnCount = 3;
-    format.ColumnSpacing = 15;
-    pres.Save(outPptxFileName, SaveFormat.Pptx);
-
-    using (Presentation test = new Presentation(outPptxFileName))
-    {
-        Debug.Assert(3 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnCount);
-        Debug.Assert(15 == ((AutoShape)test.Slides[0].Shapes[0]).TextFrame.TextFrameFormat.ColumnSpacing);
+        var columnNumber = columnIndex + 1;
+        var columnText = columnTexts[columnIndex];
+        Console.WriteLine($"Column {columnNumber}: {columnText}");
+        File.WriteAllText($"Column-{columnNumber}.txt", columnText);
     }
 }
 ```
 
 ## **Update Text**
 
-Aspose.Slides allows you to change or update the text contained in a text box or all the texts contained in a presentation. 
+To update text throughout a presentation, iterate through the slides and shapes, select auto shapes, and then edit their text portions. Working at the portion level lets you change both text and character formatting.
 
-This C# code demonstrates an operation where all the texts in a presentation are updated or changed:
+The following example replaces every occurrence of `years` with `months` in auto-shape text and makes each affected portion bold:
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using(Presentation pres = new Presentation("text.pptx"))
+using var presentation = new Presentation("Text.pptx");
+
+foreach (var slide in presentation.Slides)
 {
-   foreach (ISlide slide in pres.Slides)
-   {
-       foreach (IShape shape in slide.Shapes)
-       {
-           if (shape is IAutoShape autoShape) //Checks if shape supports text frame (IAutoShape). 
-           {
-              foreach (IParagraph paragraph in autoShape.TextFrame.Paragraphs) //Iterates through paragraphs in text frame
-               {
-                   foreach (IPortion portion in paragraph.Portions) //Iterates through each portion in paragraph
-                   {
-                       portion.Text = portion.Text.Replace("years", "months"); //Changes text
-                       portion.PortionFormat.FontBold = NullableBool.True; //Changes formatting
-                   }
-               }
-           }
-       }
-   }
-  
-   //Saves the modified presentation
-   pres.Save("text-changed.pptx", SaveFormat.Pptx);
+    foreach (var shape in slide.Shapes)
+    {
+        if (shape is not IAutoShape autoShape)
+        {
+            continue;
+        }
+
+        foreach (var paragraph in autoShape.TextFrame.Paragraphs)
+        {
+            foreach (var portion in paragraph.Portions)
+            {
+                portion.Text = portion.Text.Replace("years", "months");
+                portion.PortionFormat.FontBold = NullableBool.True;
+            }
+        }
+    }
 }
+
+presentation.Save("TextChanged.pptx", SaveFormat.Pptx);
 ```
 
-## **Add a Text Box with a Hyperlink** 
+This traversal updates text only in auto shapes. Text stored in tables, charts, SmartArt, or grouped shapes requires traversal of those objects' own collections.
 
-You can insert a link inside a textbox. When the textbox is clicked, users are directed to open the link. 
+## **Add a Text Box with a Hyperlink**
 
-1. Create an instance of the `Presentation` class. 
-2. Get the first slide's reference through its index.  
-3. Add an `AutoShape` object with `ShapeType` set as `Rectangle` at a specified position on the slide and obtain a reference of the newly added AutoShape object.
-4. Add a `TextFrame` to the `AutoShape` object that contains *Aspose TextBox* as its default text. 
-5. Instantiate the `IHyperlinkManager` class. 
-6. Assign the `IHyperlinkManager` object to the [HyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/shape/properties/hyperlinkclick) property associated with your preferred portion of the `TextFrame`. 
-7. Finally, write the PPTX file through the `Presentation` object. 
+A hyperlink can be assigned to a specific text portion, so only that text acts as the clickable link. Use [IHyperlinkManager.SetExternalHyperlinkClick](https://reference.aspose.com/slides/net/aspose.slides/ihyperlinkmanager/setexternalhyperlinkclick/) to associate the portion with an external URL.
 
-This C# code—an implementation of the steps above—shows you how to add a text box with a hyperlink to a slide:
+The following example creates linked text and saves it to a presentation:
 
-```c#
+```csharp
 using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Instantiates a Presentation class that represents a PPTX
-Presentation pptxPresentation = new Presentation();
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 200, 50);
+textBox.AddTextFrame("Aspose.Slides");
 
-// Gets the first slide in the presentation
-ISlide slide = pptxPresentation.Slides[0];
+var textPortion = textBox.TextFrame.Paragraphs[0].Portions[0];
+textPortion.PortionFormat.HyperlinkManager.SetExternalHyperlinkClick("https://www.aspose.com/");
 
-// Adds an AutoShape object with type set as Rectangle
-IShape pptxShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 150, 50);
-
-// Casts the shape to AutoShape
-IAutoShape pptxAutoShape = (IAutoShape)pptxShape;
-
-// Accesses the ITextFrame property associated with the AutoShape
-pptxAutoShape.AddTextFrame("");
-
-ITextFrame ITextFrame = pptxAutoShape.TextFrame;
-
-// Adds some text to the frame
-ITextFrame.Paragraphs[0].Portions[0].Text = "Aspose.Slides";
-
-// Sets the Hyperlink for the portion text
-IHyperlinkManager HypMan = ITextFrame.Paragraphs[0].Portions[0].PortionFormat.HyperlinkManager;
-HypMan.SetExternalHyperlinkClick("http://www.aspose.com");
-
-// Saves the PPTX Presentation
-pptxPresentation.Save("hLinkPPTX_out.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+presentation.Save("Hyperlink.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**What’s the difference between a text box and a text placeholder when working with master slides?**
+**What is the difference between a text box and a text placeholder on a master or layout slide?**
 
-A [placeholder](/slides/net/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
+A [placeholder](/slides/net/manage-placeholder/) can inherit its position and formatting from a [master slide](https://reference.aspose.com/slides/net/aspose.slides/masterslide/) or [layout slide](https://reference.aspose.com/slides/net/aspose.slides/layoutslide/). A regular text box is an independent shape on the slide where it was created and does not acquire placeholder behavior when the layout changes.
 
-**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
+**How can I replace text without changing text in charts, tables, or SmartArt?**
 
-Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/net/aspose.slides.charts/chart/), [tables](https://reference.aspose.com/slides/net/aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/net/aspose.slides.smartart/smartart/)) by traversing their collections separately or skipping those object types.
+Limit the traversal to shapes that implement [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/), as shown in the Update Text example. Charts, tables, and SmartArt store text in their own object models, so they are not modified by that loop.
