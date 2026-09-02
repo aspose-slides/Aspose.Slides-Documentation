@@ -5,333 +5,295 @@ type: docs
 weight: 50
 url: /it/java/shape-effective-properties/
 keywords:
-  - proprietà della forma
-  - proprietà della fotocamera
-  - rig di illuminazione
-  - forma smussata
-  - riquadro di testo
-  - stile di testo
-  - altezza del carattere
-  - formato di riempimento
-  - PowerPoint
-  - presentazione
-  - Java
-  - Aspose.Slides
-description: "Scopri come Aspose.Slides per Java calcola e applica le proprietà effettive delle forme per una resa precisa di PowerPoint."
+- proprietà della forma
+- proprietà della fotocamera
+- illuminazione
+- forma smussata
+- frame di testo
+- stile di testo
+- altezza del carattere
+- formato di riempimento
+- PowerPoint
+- presentazione
+- Java
+- Aspose.Slides
+description: "Impara come usare Aspose.Slides per Java per distinguere la formattazione locale, ereditata ed effettiva delle forme nelle presentazioni PowerPoint."
 ---
-## **Panoramica**
+## **Comprendere le proprietà locali, ereditate ed effettive**
 
-Questo argomento spiega la differenza tra le proprietà **locali** e **effettive**. I valori locali sono valori che vengono impostati direttamente a un livello di formattazione specifico, come:
+La formattazione di PowerPoint può provenire da diversi luoghi. Il valore memorizzato direttamente su un oggetto è il suo **valore locale**. Se quel valore non è impostato, PowerPoint consulta le fonti di formattazione genitore, come il valore predefinito di un paragrafo, uno stile di testo, un layout o un master slide, un tema o i valori predefiniti a livello di presentazione. Quei valori sono **valori ereditati**. Il valore che rimane dopo che l’intera gerarchia è stata risolta è il **valore effettivo** — il valore usato per renderizzare l’oggetto.
 
-1. Proprietà della porzione in una diapositiva.
-1. Stili di testo della forma prototipo in un layout o diapositiva master, quando la forma del riquadro di testo della porzione ne ha uno.
-1. Impostazioni di testo globali in una presentazione.
+Ad esempio, una porzione di testo potrebbe non definire la propria altezza del carattere. Il suo valore locale [getFontHeight](https://reference.aspose.com/slides/it/java/com.aspose.slides/ibaseportionformat/#getFontHeight--) è quindi `Float.NaN`, che significa “non impostato qui”. La porzione può ereditare un’altezza dal paragrafo, dallo stile di testo predefinito della presentazione o da un’altra fonte applicabile. Chiamare [getEffective](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformat/#getEffective--) sul formato della porzione restituisce l’altezza finale risolta.
 
-I valori locali possono essere definiti o omessi a qualsiasi livello. Quando Aspose.Slides ha bisogno della formattazione finale "as rendered", risolve la catena di ereditarietà e restituisce i valori **effettivi**. È possibile ottenerli chiamando il metodo `getEffective` sull'oggetto di formattazione locale.
+Usa i due tipi di dati di formattazione per scopi diversi:
 
-L'esempio seguente mostra come ottenere i valori effettivi. Si assume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo e almeno una porzione.
+- Leggi o modifica un oggetto di formato locale, come [IPortionFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformat/), quando devi controllare dove è definito un valore.
+- Leggi un oggetto di dati effettivi, come [IPortionFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformateffectivedata/), quando ti serve il risultato finale renderizzato. I dati effettivi sono a sola lettura.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **Confrontare i valori locali, ereditati ed effettivi**
 
-    ITextFrameFormat localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = localTextFrameFormat.getEffective();
-
-    IParagraph paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    IPortion portion = paragraph.getPortions().get_Item(0);
-    IPortionFormat localPortionFormat = portion.getPortionFormat();
-    IPortionFormatEffectiveData effectivePortionFormat = localPortionFormat.getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-I dati di formattazione effettiva rappresentano la formattazione calcolata attuale dopo l'applicazione dell'ereditarietà. Nell'implementazione corrente, alcuni oggetti di dati effettivi, come [IPortionFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IPortionFormatEffectiveData), possono essere memorizzati nella cache internamente. Richiamare nuovamente `getEffective` dopo aver modificato la formattazione del genitore o ereditata può aggiornare i dati nella cache, e un oggetto precedentemente ottenuto potrebbe non rappresentare più lo stato precedente. Se è necessario conservare i valori effettivi per un utilizzo futuro, copiare le proprietà richieste, come altezza del carattere, colore di riempimento, stile del carattere o allineamento, nel proprio oggetto dati.
-{{% /alert %}}
-
-## **Ottenere le proprietà effettive di una fotocamera**
-
-Aspose.Slides consente di ottenere le proprietà effettive di una fotocamera. L'interfaccia [ICameraEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICameraEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive della fotocamera. Un'istanza di [ICameraEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICameraEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
-
-Il seguente esempio di codice mostra come ottenere le proprietà effettive per la fotocamera. Si assume che la prima forma nella prima diapositiva abbia una formattazione 3D.
+L’esempio completo seguente crea una forma e applica altezze dei caratteri a livello di presentazione, paragrafo e porzione. Ogni passaggio stampa i valori definiti a quei livelli e il valore effettivo risultante per la stessa porzione di testo. Dimostra anche perché i dati effettivi devono essere letti nuovamente dopo le modifiche di formattazione.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
-    int cameraType = cameraEffectiveData.getCameraType();
-    double fieldOfViewAngle = cameraEffectiveData.getFieldOfViewAngle();
-    double zoom = cameraEffectiveData.getZoom();
+import com.aspose.slides.*;
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraType);
-    System.out.println("Field of view: " + fieldOfViewAngle);
-    System.out.println("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
-}
-```
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-## **Ottenere le proprietà effettive di un rig di illuminazione**
+            // Definisci i valori ereditati a due livelli diversi.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-Aspose.Slides consente di ottenere le proprietà effettive di un rig di illuminazione. L'interfaccia [ILightRigEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ILightRigEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive del rig di illuminazione. Un'istanza di [ILightRigEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ILightRigEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Il seguente esempio di codice mostra come ottenere le proprietà effettive per il rig di illuminazione. Si assume che la prima forma nella prima diapositiva abbia una formattazione 3D.
+            // Un valore locale sulla porzione sovrascrive entrambi i valori ereditati.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
-    int lightType = lightRigEffectiveData.getLightType();
-    int direction = lightRigEffectiveData.getDirection();
+            // Modificare un valore ereditato non sovrascrive un valore locale esistente.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightType);
-    System.out.println("Direction: " + direction);
-} finally {
-    presentation.dispose();
-}
-```
+            // Cancella il valore locale. La porzione eredita nuovamente dal paragrafo.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-## **Ottenere le proprietà effettive di una forma a smusso**
+            // Cancella il valore del paragrafo. Il valore predefinito della presentazione fornisce ora il risultato.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Aspose.Slides consente di ottenere le proprietà effettive di uno smusso di forma. L'interfaccia [IShapeBevelEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeBevelEffectiveData) rappresenta un oggetto immutabile che contiene le proprietà effettive di rilievo della faccia per una forma. Un'istanza di [IShapeBevelEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IShapeBevelEffectiveData) è esposta tramite [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormatEffectiveData), che fornisce valori effettivi per [IThreeDFormat](https://reference.aspose.com/slides/it/java/com.aspose.slides/IThreeDFormat).
-
-Il seguente esempio di codice mostra come ottenere le proprietà effettive per lo smusso superiore di una forma. Si assume che la prima forma nella prima diapositiva abbia una formattazione 3D.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-    
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTop = threeDEffectiveData.getBevelTop();
-    int bevelType = bevelTop.getBevelType();
-    double bevelWidth = bevelTop.getWidth();
-    double bevelHeight = bevelTop.getHeight();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelType);
-    System.out.println("Width: " + bevelWidth);
-    System.out.println("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Ottenere le proprietà effettive di un riquadro di testo**
-
-Utilizzando Aspose.Slides, è possibile ottenere le proprietà effettive di un riquadro di testo. L'interfaccia [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextFrameFormatEffectiveData) contiene le proprietà di formattazione effettiva del riquadro di testo.
-
-Il seguente esempio di codice mostra come ottenere le proprietà di formattazione effettiva del riquadro di testo. Si assume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormat textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrameFormat.getEffective();
-    int anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    int autofitType = effectiveTextFrameFormat.getAutofitType();
-    int textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    double marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    double marginTop = effectiveTextFrameFormat.getMarginTop();
-    double marginRight = effectiveTextFrameFormat.getMarginRight();
-    double marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    System.out.println("Anchoring type: " + anchoringType);
-    System.out.println("Autofit type: " + autofitType);
-    System.out.println("Text vertical type: " + textVerticalType);
-    System.out.println("Margins");
-    System.out.println("   Left: " + marginLeft);
-    System.out.println("   Top: " + marginTop);
-    System.out.println("   Right: " + marginRight);
-    System.out.println("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Ottenere le proprietà effettive di uno stile di testo**
-
-Utilizzando Aspose.Slides, è possibile ottenere le proprietà effettive di uno stile di testo. L'interfaccia [ITextStyleEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITextStyleEffectiveData) contiene le proprietà effettive dello stile di testo.
-
-Il seguente esempio di codice mostra come ottenere le proprietà effettive dello stile di testo. Si assume che la prima forma nella prima diapositiva sia un [IAutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/IAutoShape) con un riquadro di testo.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-    
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
-    {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        int depth = effectiveStyleLevel.getDepth();
-        double indent = effectiveStyleLevel.getIndent();
-        int alignment = effectiveStyleLevel.getAlignment();
-        int fontAlignment = effectiveStyleLevel.getFontAlignment();
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + depth);
-        System.out.println("Indent: " + indent);
-        System.out.println("Alignment: " + alignment);
-        System.out.println("Font alignment: " + fontAlignment);
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Leggi i dati effettivi dopo le modifiche precedenti.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **Ottenere il valore di altezza del carattere effettivo**
+La priorità in questo esempio è la formattazione locale della porzione, poi quella del paragrafo, infine il valore predefinito della presentazione. Altri oggetti possono avere catene di ereditarietà diverse, ma il principio è lo stesso: un valore esplicito più specifico prevale, e [getEffective](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformat/#getEffective--) restituisce il risultato finale.
 
-Utilizzando Aspose.Slides, è possibile ottenere l'altezza del carattere effettiva. Il codice seguente dimostra come l'altezza del carattere effettiva di una porzione cambi dopo che i valori locali di altezza del carattere sono impostati a diversi livelli della struttura della presentazione.
+## **Ottenere le proprietà di testo effettive**
+
+La formattazione del testo è divisa tra diversi oggetti:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextframeformat/#getEffective--) risolve le proprietà del frame di testo, come margini, ancoraggio, autofit e direzione verticale del testo.
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/it/java/com.aspose.slides/itextstyle/#getEffective--) risolve la formattazione dei paragrafi per ogni livello di stile di testo.
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/it/java/com.aspose.slides/iparagraphformat/#getEffective--) risolve le proprietà del paragrafo, come allineamento, rientro e elenchi puntati.
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/it/java/com.aspose.slides/iportionformat/#getEffective--) risolve le proprietà dei caratteri, come altezza del carattere, tipo di carattere, colore, grassetto e corsivo.
+
+Per l’esempio successivo, `text-formatting.pptx` deve contenere almeno una diapositiva e un [AutoShape](https://reference.aspose.com/slides/it/java/com.aspose.slides/autoshape/) con un frame di testo non vuoto. L’AutoShape può trovarsi in qualsiasi posizione nella raccolta di forme; il codice ricerca un oggetto adatto e lo convalida prima dell’uso.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **Ottenere il formato di riempimento effettivo per una tabella**
+## **Ottenere le proprietà 3D effettive**
 
-Utilizzando Aspose.Slides, è possibile ottenere la formattazione di riempimento effettiva per diverse parti della tabella. L'interfaccia [IFillFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/IFillFormatEffectiveData) contiene le proprietà di formattazione di riempimento effettive. La formattazione della cella ha priorità più alta rispetto alla formattazione della riga, la formattazione della riga ha priorità più alta rispetto alla formattazione della colonna e la formattazione della colonna ha priorità più alta rispetto alla formattazione dell'intera tabella.
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/it/java/com.aspose.slides/ithreedformat/#getEffective--) restituisce un oggetto [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ithreedformateffectivedata/) che raggruppa tutte le impostazioni 3D risolte. I metodi [getCamera](https://reference.aspose.com/slides/it/java/com.aspose.slides/ithreedformateffectivedata/#getCamera--), [getLightRig](https://reference.aspose.com/slides/it/java/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), [getBevelTop](https://reference.aspose.com/slides/it/java/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--) e [getBevelBottom](https://reference.aspose.com/slides/it/java/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) espongono i corrispondenti dati effettivi. Leggere queste impostazioni correlate insieme facilita la comprensione dell’aspetto finale 3D di una forma.
 
-Di conseguenza, le proprietà di [ICellFormatEffectiveData](https://reference.aspose.com/slides/it/java/com.aspose.slides/ICellFormatEffectiveData) vengono utilizzate per disegnare la cella della tabella. Il seguente esempio di codice mostra come ottenere la formattazione di riempimento effettiva per diverse parti della tabella. Si assume che la prima forma nella prima diapositiva sia una [ITable](https://reference.aspose.com/slides/it/java/com.aspose.slides/ITable).
+Per questo esempio, `shape-3d.pptx` deve contenere almeno una forma nella sua prima diapositiva. Applica una fotocamera 3D, un’illuminazione o impostazioni di smussatura a quella forma se desideri che l’output contenga valori diversi da quelli predefiniti.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
-    
-    ITableFormatEffectiveData tableFormatEffective = table.getTableFormat().getEffective();
-    IRowFormatEffectiveData rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    IColumnFormatEffectiveData columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    ICellFormatEffectiveData cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+import com.aspose.slides.*;
 
-    IFillFormatEffectiveData tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cellFormatEffective.getFillFormat();
-} finally {
-    presentation.dispose();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
+
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+## **Ottenere la formattazione delle tabelle effettiva**
+
+La formattazione di una tabella può provenire dallo stile della tabella e dai formati applicati all’intera tabella, a una colonna, a una riga o a una singola cella. In caso di conflitto tra riempimenti definiti esplicitamente, la priorità è: cella, riga, colonna e infine l’intera tabella. Il formato effettivo di una cella è il formato finale usato per disegnarla.
+
+Per questo esempio, `table-formatting.pptx` deve contenere almeno una tabella nella sua prima diapositiva. La tabella deve avere almeno una riga e una colonna. Il codice ricerca un oggetto [ITable](https://reference.aspose.com/slides/it/java/com.aspose.slides/itable/) invece di assumere che `getShapes().get_Item(0)` sia una tabella.
+
+```java
+import com.aspose.slides.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
+
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
+
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
+
+Se ti serve il colore anziché solo il tipo di riempimento, controlla prima il [getFillType](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifillformateffectivedata/#getFillType--) effettivo, quindi leggi il metodo corrispondente a quel tipo — ad esempio, [getSolidFillColor](https://reference.aspose.com/slides/it/java/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) per un riempimento solido.
+
+## **Rileggere i dati effettivi dopo le modifiche**
+
+I dati effettivi descrivono la gerarchia di formattazione al momento in cui viene risolta. Richiama `getEffective` nuovamente dopo aver modificato qualsiasi elemento che può partecipare a quella gerarchia, inclusi:
+
+- la formattazione locale dell’oggetto;
+- i valori predefiniti del paragrafo o del frame di testo;
+- lo stile di una tabella, o il formato di tabella, colonna, riga o cella;
+- la formattazione di layout o master slide;
+- i dati del tema o i valori predefiniti a livello di presentazione;
+- il layout o il master assegnato a una diapositiva.
+
+Non conservare un oggetto di dati effettivi come istantanea permanente. Aspose.Slides può memorizzare nella cache alcuni dati effettivi internamente, e una successiva chiamata a `getEffective` può aggiornare tali dati. Se devi confrontare valori prima e dopo una modifica, copia i valori scalari di cui hai bisogno — ad esempio altezza del carattere, colore, allineamento o larghezza dello smusso — in tue variabili prima di effettuare la modifica.
+
+Per modificare un valore, aggiorna l’oggetto di formato locale appropriato e poi chiama `getEffective` per verificare il risultato. Gli oggetti di dati effettivi sono a sola lettura.
 
 ## **FAQ**
 
-**Restituisce `getEffective` un'istantanea?**
+**Come posso capire quale livello ha fornito un valore effettivo?**
 
-Non sempre. I dati effettivi rappresentano la formattazione calcolata dopo l'applicazione dell'ereditarietà, ma alcuni oggetti di dati effettivi possono essere memorizzati nella cache internamente. Una chiamata successiva a `getEffective` può ricalcolare la formattazione e aggiornare i dati nella cache, quindi un oggetto ottenuto in precedenza non dovrebbe essere considerato un'istantanea durevole.
+I dati effettivi contengono il valore finale, non la sua origine. Ispeziona gli oggetti locali applicabili dal livello più specifico verso l’esterno. Per il testo, questo può includere la porzione, il paragrafo, il frame di testo, il layout, il master, il tema e i valori predefiniti della presentazione. Valori non definiti come `Float.NaN` o `null` indicano che la ricerca continua a un livello superiore.
 
-**Quando dovrei rileggere nuovamente le proprietà effettive?**
+**Cosa succede quando nessun livello definisce una proprietà?**
 
-Richiamare `getEffective` nuovamente dopo aver modificato la formattazione locale, gli stili genitore, la formattazione del layout, la formattazione master o le impostazioni predefinite a livello di presentazione. La chiamata successiva rivaluta la gerarchia di formattazione e restituisce il risultato effettivo corrente.
+Aspose.Slides risolve il valore predefinito appropriato di PowerPoint o della libreria. Quel valore risolto appare nei dati effettivi anche se nessun oggetto locale lo ha definito esplicitamente.
 
-**Modificare o rimuovere una diapositiva di layout/master influisce sulle proprietà effettive già recuperate?**
+**Perché un valore effettivo a volte è uguale al valore locale?**
 
-Sì, ma la modifica si riflette alla successiva chiamata di `getEffective`. Se una sorgente di formattazione genitore viene modificata o rimossa, i dati effettivi precedentemente ottenuti potrebbero essere obsoleti. Una volta richiamato nuovamente `getEffective`, Aspose.Slides rivaluta l'albero di formattazione e i caratteri, i colori, le dimensioni o gli altri valori risultanti possono cambiare.
+Il valore locale ha vinto il calcolo di ereditarietà. Questo è previsto quando la proprietà è impostata esplicitamente sull’oggetto e nessuna regola più specifica lo sovrascrive.
 
-**Posso modificare i valori attraverso gli oggetti di dati effettivi?**
+**Quando dovrei usare i dati locali invece dei dati effettivi?**
 
-No. Gli oggetti di dati effettivi espongono i valori calcolati. Apporta le modifiche negli oggetti di formattazione locale, quindi ottieni nuovamente i valori effettivi.
-
-**Cosa succede se una proprietà non è impostata a livello di forma, né nel layout/master, né nelle impostazioni globali?**
-
-Il valore effettivo viene determinato dal meccanismo predefinito, che comprende i valori predefiniti di PowerPoint e Aspose.Slides. Tale valore risolto diventa parte dei dati effettivi correnti.
-
-**Dal valore di font effettivo, posso capire quale livello ha fornito la dimensione o il tipo di carattere?**
-
-Non direttamente. I dati effettivi restituiscono il valore finale. Per trovare la sorgente, controlla i valori locali nella porzione, nel paragrafo, nel riquadro di testo e negli stili di testo a livello di layout, master e presentazione per vedere dove appare la prima definizione esplicita.
-
-**Perché a volte i valori effettivi sembrano identici a quelli locali?**
-
-Perché il valore locale è risultato finale (non è stata necessaria alcuna eredità di livello superiore). In questi casi, il valore effettivo corrisponde a quello locale.
-
-**Quando dovrei usare le proprietà effettive e quando dovrei lavorare solo con quelle locali?**
-
-Utilizza i dati effettivi quando ti serve il risultato "as rendered" dopo l'applicazione di tutta l'ereditarietà, ad esempio per allineare colori, rientri o dimensioni. Se devi conservare tali valori indipendentemente da modifiche successive di formattazione, copia le proprietà necessarie nel tuo oggetto. Se devi modificare la formattazione a un livello specifico, modifica le proprietà locali e, se necessario, leggi nuovamente i dati effettivi per verificare il risultato.
+Usa i dati locali per ispezionare o modificare un livello di formattazione specifico. Usa i dati effettivi quando ti serve l’aspetto finale dopo l’eredità, le regole del tema e gli stili applicabili. L’[esempio completo di confronto](#compare-local-inherited-and-effective-values) dimostra entrambi nello stesso flusso di lavoro.

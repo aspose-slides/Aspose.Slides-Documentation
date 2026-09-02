@@ -7,346 +7,409 @@ keywords:
 - diagram sorozat
 - sorozat átfedés
 - sorozat szín
-- kategória szín
 - sorozat név
 - adatpont
+- munkafüzet cella
 - sorozat hézag
+- negatív érték
 - PowerPoint
 - prezentáció
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelje a diagram sorozatokat JavaScript-ben PowerPoint (PPT/PPTX) számára, gyakorlati kódpéldákkal és bevált módszerekkel, hogy javítsa adatprezentációit."
+description: "Ismerje meg, hogyan kezelhet diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézsávszélességet és negatív értékeket a prezentációkban JavaScript segítségével."
 ---
 ## **Áttekintés**
 
-Ez a cikk leírja a [ChartSeries](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/) szerepét az Aspose.Slides-ben, a hangsúly a adatstruktúrák és a prezentációkban történő megjelenítés módjára. Ezek az objektumok az alapvető elemeket biztosítják, amelyek egyedi adatpontkészleteket, kategóriákat és megjelenési paramétereket definiálnak egy diagramon. A [ChartSeries](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/) használatával a fejlesztők zökkenőmentesen integrálhatják az adatforrásokat, és teljes ellenőrzést gyakorolhatnak az információk megjelenítése felett, így dinamikus, adat‑vezérelt prezentációkat hozhatnak létre, amelyek egyértelműen közvetítik a betekintéseket és elemzéseket.
+A diagram az ábrázolt adatokat egy diagram adat munkafüzetben tárolja. A [ChartSeries](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/) egy kapcsolódó értékkészletet képvisel, és a sorozat minden [ChartDataPoint](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/) egy vagy több munkafüzetcellára hivatkozik. A [ChartCategory](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartcategory/) objektumok a sorozatok által közösen használt címkéket vagy csoportosítási értékeket biztosítják. A sorozat neve, a kategóriák és a pontértékek ezért [ChartDataCell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatacell/) objektumokhoz vannak kapcsolva, nem csupán megjelenő szövegként tárolva.
 
-Egy sorozat egy sor vagy oszlop szám, amely diagramon jelenik meg.
+Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0. sort használja a sorozatneveknél, a 0. oszlopot a kategória nevekhez, a többi cellát pedig a sorozatértékekhez. A [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdataworkbook/#getCell) metódusnak átadott munkalap-, sor- és oszlopszámok nullától indulnak. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre diagramot, de ne feltételezze, hogy minden meglévő diagram ezt használja. Betöltött prezentáció esetén vizsgálja meg a sorozat, a kategóriák és az adatpontok által hivatkozott cellákat, mielőtt módosítaná a munkafüzet értékeit.
+
+Diagram beállítások három különböző hatókörrel rendelkeznek:
+- Sorozat szintű beállítások, például a [ChartSeries.getFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getFormat) az egy sorozat összes pontjának alapértelmezett megjelenését biztosítja.
+- Adatpont beállítások, például a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#getFormat) felülírja a sorozat megjelenését egy adott pontra.
+- Csoport beállítások alkalmazhatók a kompatibilis sorozatokra, amelyek ugyanahhoz a [ChartSeriesGroup](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseriesgroup/) tartoznak. A csoportot a [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup) segítségével érheti el, ha például átfedés vagy részsávszélesség beállítására van szükség.
+
+Ha nincs kifejezetten megadva pont vagy sorozat kitöltés, a diagram stílusa és témája határozza meg a automatikus megjelenést. Ha mind a sorozat, mind a pont formázása jelen van, a pont formázása lesz előnyben a konkrét pontnál.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Diagram sorozat átfedés beállítása**
+## **Állítsa be a diagram sorozat átfedését**
 
-A [ChartSeries.getOverlap](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getOverlap) metódussal megadhatja, hogy a sávok és oszlopok mennyire fedjék át egymást egy 2D diagramon (tartomány: -100‑tól 100‑ig). Ez a tulajdonság a szülő sorozatcsoport összes sorozatára vonatkozik: ez a megfelelő csoporttulajdonság leképezése. Ennek következtében ez a tulajdonság csak olvasható.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getOverlap) azt jelzi, hogy a 2D diagramon a sávok vagy oszlopok mennyire fedik át egymást, -100 és 100 százalék között. Ez egy csak olvasható képezése a szülő sorozatcsoport beállításának. A [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap) segítségével frissítheti az adott csoport minden kompatibilis sorozatát. Ez az opció a csoportosított sávok vagy oszlopok megjelenítését támogató diagramtípusokra vonatkozik; nem érinti a kombinált diagramok nem kapcsolódó sorozatcsoportjait.
 
-Használja a `ParentSeriesGroup.getOverlap` olvasás‑írás tulajdonságot, hogy beállítsa a kívánt értéket az `Overlap` számára. 
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Adjon hozzá egy csoportosított oszlopdiagramot a diára.  
-3. Érje el az első diagram sorozatot.  
-4. Érje el a diagram sorozat `ParentSeriesGroup` tulajdonságát, és állítsa be a kívánt átfedés értéket a sorozat számára.  
-5. Írja a módosított prezentációt egy PPTX fájlba.  
-
-Ez a JavaScript kód megmutatja, hogyan állítható be a diagram sorozat átfedése:
+A következő példa beállítja az átfedést azon csoportban, amely az első sorozatot tartalmazza:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const overlapPercent = java.newByte(30);
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Diagram hozzáadása
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0) {
-        // Sorozat átfedés beállítása
-        series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
-    }
-    // Írja a prezentáció fájlt a lemezre
-    pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Az új diagram mintasorozatokat, kategóriákat és értékeket tartalmaz.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sorozat színének módosítása**
+Az eredmény:
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi a sorozat színének módosítását a következő módon:
+![A sorozat átfedése](series_overlap.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Adjon hozzá egy diagramot a diára.  
-3. Érje el azt a sorozatot, amelynek a színét módosítani kívánja.  
-4. Állítsa be a kívánt kitöltéstípust és kitöltőszínt.  
-5. Mentse a módosított prezentációt.  
+## **A sorozat kitöltőszínének módosítása**
 
-Ez a JavaScript kód megmutatja, hogyan módosítható egy sorozat színe:
+A teljes sorozat alapértelmezett kitöltésének beállításához használja a [ChartSeries.getFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getFormat) metódust. Ha egy pont már rendelkezik kifejezett kitöltéssel, annak a [ChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#getFormat) beállítása felülírja a sorozat kitöltését az adott pontnál.
+
+A következő példa szilárd kék kitöltést alkalmaz az első sorozatra:
 
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(blueColor);
+
+    presentation.save("series_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sorozat kategória színének módosítása**
+Az eredmény:
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi egy sorozat kategória színének módosítását a következő módon:
+![A sorozat színe](series_color.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Adjon hozzá egy diagramot a diára.  
-3. Érje el azt a sorozatkategóriát, amelynek a színét módosítani kívánja.  
-4. Állítsa be a kívánt kitöltéstípust és kitöltőszínt.  
-5. Mentse a módosított prezentációt.  
+## **A sorozat nevének módosítása**
 
-Ez a JavaScript kód megmutatja, hogyan módosítható egy sorozat kategória színe:
+A sorozat neve a diagram adat munkafüzetben tárolódik, és általában a jelmagyarázatban jelenik meg. Az alapértelmezett munkafüzetben, amely csoportos oszlopdiagramhoz jön létre, a B1 cella a 0. soron, 1. oszlopban van, és az első sorozat nevét tartalmazza. A következő példában szereplő névkonstansok egyértelművé teszik ezt a szerkezetet:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const seriesNameRowIndex = 0;
+const firstSeriesColumnIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sorozat nevének módosítása**
-
-Alapértelmezés szerint egy diagram jelmagyarázatának nevei a sorok vagy oszlopok felett lévő cellák tartalma. 
-
-A példánkban (minta kép):
-
-* az oszlopok nevei *Series 1, Series 2* és *Series 3*;  
-* a sorok nevei *Category 1, Category 2, Category 3* és *Category 4*.  
-
-Az Aspose.Slides for Node.js via Java lehetővé teszi egy sorozat nevének frissítését vagy módosítását a diagram adataiban és a jelmagyarázatban.
-
-Ez a JavaScript kód megmutatja, hogyan módosítható egy sorozat neve a diagram adatában `ChartDataWorkbook` használatával:
+Frissítheti azt a cellát is, amelyre már a [ChartSeries.getName](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getName) hivatkozik. Ez a megközelítés elkerüli, hogy meglévő diagram esetén konkrét sorra és oszlopra támaszkodjon:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const firstNameCellIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-Ez a JavaScript kód megmutatja, hogyan módosítható egy sorozat neve a jelmagyarázatban a `Series` használatával:
+Az eredmény:
+
+![A sorozat neve](series_name.png)
+
+## **Az automatikus sorozat kitöltőszín lekérése**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) visszaadja a sorozat indexéből és a diagram stílusából számított színt. Ez a szín akkor kerül felhasználásra, ha a sorozat kitöltése nincs kifejezetten meghatározva. A metódus meghívása csak a számolt színt olvassa, nem állít be új kitöltést.
+
+A következő példa kiírja az alapértelmezett sorozatok automatikus színét:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries().get_Item(0);
-    var name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const seriesCount = chart.getChartData().getSeries().size();
+    for (let seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const automaticColor = series.getAutomaticSeriesColor();
+        const automaticColorText = automaticColor.toString();
+        console.log("Series " + seriesIndex + ": " + automaticColorText);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Diagram sorozat kitöltőszínének beállítása**
+Példa kimenet az alapértelmezett diagram stílusra:
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi a diagram sorozat automatikus kitöltőszínének beállítását a diagram területén a következő módon:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg a dia hivatkozását index alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus szerint (a példában a `ChartType.ClusteredColumn` típust használtuk).  
-4. Érje el a diagram sorozatát, és állítsa a kitöltőszínt Automatikusra.  
-5. Mentse a prezentációt egy PPTX fájlba.  
-
-Ez a JavaScript kód megmutatja, hogyan állítható be a diagram sorozat automatikus kitöltőszíne:
-
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Létrehozza egy csoportosított oszlopdiagramot
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
-    // Beállítja a sorozat kitöltési formátumát automatikusra
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-    // A prezentáció fájlt a lemezre írja
-    pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
-## **Diagram sorozat invertált kitöltőszínének beállítása**
+A pontos színek a diagram stílusától és témájától függenek.
 
-Az Aspose.Slides lehetővé teszi a diagram sorozat invertált kitöltőszínének beállítását a diagram területén a következő módon:
+## **Inverz kitöltőszín beállítása diagram sorozathoz**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg a dia hivatkozását index alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus szerint (a példában a `ChartType.ClusteredColumn` típust használtuk).  
-4. Érje el a diagram sorozatát, és állítsa a kitöltőszínt invertáltra.  
-5. Mentse a prezentációt egy PPTX fájlba.  
+Sáv-, oszlop- és buborék sorozatok esetén a [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) lehetővé teszi, hogy a negatív értékek másik kitöltéssel jelenjenek meg. Állítsa be a normál sorozat kitöltését szilárdra, engedélyezze az invertálást, és adja meg a negatív érték színét a [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenő színük változik.
 
-Ez a JavaScript kód bemutatja a műveletet:
+A következő példa az alapértelmezett diagram adatot egy sorozatra cseréli. A munkalap 0. sora a sorozat nevét, a 0. oszlop a kategória neveket, az 1. oszlop pedig az értékeket tartalmazza:
 
 ```javascript
-var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const headerRowIndex = 0;
+const categoryColumnIndex = 0;
+const firstSeriesColumnIndex = 1;
+const firstDataRowIndex = 1;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const categoryNames = ["Category 1", "Category 2", "Category 3"];
+const seriesValues = [-20, 50, -30];
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    var workBook = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-    // Új sorozatokat és kategóriákat ad hozzá
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-    // Az első diagram sorozatot veszi és kitölti a sorozat adataival.
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    var seriesColor = series.getAutomaticSeriesColor();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    const chartType = chart.getType();
+    const series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (let categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        const dataRowIndex = firstDataRowIndex + categoryIndex;
+        const categoryName = categoryNames[categoryIndex];
+        const seriesValue = seriesValues[categoryIndex];
+
+        const categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    series.getInvertedSolidFillColor().setColor(redColor);
+
+    presentation.save("inverted_solid_fill_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sorozat inverz beállítása negatív érték esetén**
+Az eredmény:
 
-Az Aspose.Slides lehetővé teszi az inverz beállítását a `ChartDataPoint.setInvertIfNegative` metóduson keresztül. Amikor egy invertet állít be a tulajdonságokkal, az adatpont megfordítja a színeit negatív érték esetén. 
+![Az invertált szilárd kitöltőszín](inverted_solid_fill_color.png)
 
-Ez a JavaScript kód bemutatja a műveletet:
+A pont szintjén az invertálást a [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative) segítségével engedélyezheti. A következő példában az invertálás a sorozatra le van tiltva, és csak a kiválasztott pontnál van engedélyezve. A pontnak negatív értéket is adunk, hogy a hatás látható legyen:
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 2;
+const negativeValue = -30;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-    var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-    chartSeries.setInvertIfNegative(false);
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(redColor);
+    series.setInvertIfNegative(false);
+
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Specifikus adatpontok adatainak törlése**
+## **Egy adott adatpont értékének törlése**
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi a `DataPoints` adatainak törlését egy adott diagram sorozatra a következő módon:
+Egy pont üresen hagyásához a többi pont eltávolítása nélkül, állítsa a mögöttes munkafüzetcellát `null`-ra. Oszlopdiagram esetén a megjelenített érték a [ChartDataPoint.getValue](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapoint/#getValue) segítségével érhető el. Az adatpont a ugyanazon kategóriahelyen marad, de a diagram a beállított üresérték-kezelés szerint üresként kezeli az értékét.
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását index alapján.  
-3. Szerezze meg egy diagram hivatkozását index alapján.  
-4. Iteráljon végig az összes diagram `DataPoints` elemen, és állítsa az `XValue` és `YValue` értékeket nullára.  
-5. Törölje az összes `DataPoints` elemet a specifikus diagram sorozatra.  
-6. Írja a módosított prezentációt egy PPTX fájlba.  
-
-Ez a JavaScript kód bemutatja a műveletet:
+A következő példa csak a második pontot törli az első sorozatban:
 
 ```javascript
-var pres = new aspose.slides.Presentation("TestChart.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sl = pres.getSlides().get_Item(0);
-    var chart = sl.getShapes().get_Item(0);
-    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
-        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Sorozat hézag szélességének beállítása**
+Pontos diagramok külön X és Y cellákat használnak, a buborék diagramok továbbá egy méretcellát is. Csak azt a cellát törölje, amely az eltávolítandó értéket reprezentálja. Ne hívja a [ChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartdatapointcollection/#clear) metódust, ha a többi pontot meg akarja tartani, mert ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
 
-Az Aspose.Slides for Node.js via Java lehetővé teszi egy sorozat hézag szélességének beállítását a **`GapWidth`** tulajdonságon keresztül a következő módon:
+## **A sorozat hézagszélességének beállítása**
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/Presentation) osztályból.  
-2. Érje el az első diát.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal.  
-4. Érje el bármely diagram sorozatot.  
-5. Állítsa be a `GapWidth` tulajdonságot.  
-6. Írja a módosított prezentációt egy PPTX fájlba.  
+A hézagszélesség a szomszédos sáv- vagy oszlopcsoportok közötti távolság, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez is a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. A [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) metódust egyszer kell meghívni a csoporton. A nagyobb érték nagyobb távolságot hoz létre a csoportok között; a kisebb érték szorosabb elrendezést eredményez.
 
-Ez a JavaScript kód megmutatja, hogyan állítható be egy sorozat hézag szélessége:
+A következő példa módosítja a hézagszélességet, és csak a végleges prezentációt menti:
 
 ```javascript
-// Üres prezentáció létrehozása
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const gapWidthPercent = 30;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // A prezentáció első diájának elérése
-    var slide = pres.getSlides().get_Item(0);
-    // Diagram hozzáadása alapértelmezett adatokkal
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
-    // A diagram adatlap indexének beállítása
-    var defaultWorksheetIndex = 0;
-    // A diagram adatlapjának lekérése
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Sorozatok hozzáadása
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Kategóriák hozzáadása
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // A második diagram sorozat kiválasztása
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // A sorozat adatainak feltöltése
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // A GapWidth érték beállítása
-    series.getParentSeriesGroup().setGapWidth(50);
-    // Prezentáció mentése lemezre
-    pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
+
+Az eredmény:
+
+![A hézagszélesség](gap_width.png)
 
 ## **GYIK**
 
-**Van-e korlátozás arra, hogy egy diagram hány sorozatot tartalmazhat?**
+**Mely diagramtípusok támogatják az adat sorozatokat?**
 
-Az Aspose.Slides nem állít fel fix felső határt a sorozatok számát illetően. A gyakorlati limit a diagram olvashatóságától és az alkalmazás rendelkezésére álló memóriától függ.
+Az összes, a [ChartType] felsorolásban szereplő diagramtípus használ diagram adatot, de sorozataik nem rendelkeznek ugyanazzal az értékszerkezettel vagy beállításokkal. Például a kategória diagramok kategóriákat és értékeket használnak, a pontdiagramok X és Y értékeket, a buborék diagramok pedig buborékméreteket adnak hozzá. Használja az adatpont létrehozásához a sorozat típusának megfelelő metódust. Az olyan opciók, mint az átfedés és a hézagszélesség, csak a kompatibilis sáv vagy oszlop csoportokra vonatkoznak.
 
-**Mi a teendő, ha a csoporton belüli oszlopok túl közel vagy túl messze helyezkednek el?**
+**Mi az a diagram sorozatcsoport?**
 
-Állítsa be a sorozat (vagy annak szülő sorozatcsoportja) hézag szélességét. Az érték növelése növeli az oszlopok közti távolságot, míint csökkentése szorítja őket.
+A [ChartSeriesGroup] tartalmaz kompatibilis sorozatokat, amelyek közös csoportszintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több mint egy csoportot is tartalmazhat, ezért egy sorozaton keresztül elért csoport módosítása nem feltétlenül változtatja meg a diagram összes sorozatát.
+
+**Tartalmaz-e egy újonnan létrehozott diagram alapértelmezett adatot?**
+
+Igen. Alapértelmezés szerint a [ShapeCollection.addChart] mintasorozatokat, kategóriákat és értékeket hoz létre. Szerkesztheti ezeket a cellákat, vagy törölheti a sorozat- és kategória-gyűjteményeket, mielőtt teljesen egyedi adatkészletet adna hozzá. Túlterhelt verzió is létrehozható diagram alapértelmezett adat nélkül.
+
+**Hogyan kapcsolódnak a diagram objektumok a munkafüzet celláihoz?**
+
+A sorozatnevek, a kategóriacímkék és az adatpontértékek a [ChartDataWorkbook] celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagram elemet. Egyedi adatok építésekor tartsa a kategória sorokat és a sorozat-érték sorokat igazítva, hogy minden pont a megfelelő kategória alá kerüljön.
+
+**Hogyan töröljek egy pontot a teljes sorozat helyett?**
+
+Állítsa a releváns értékcellát `null`-ra, hogy a pont kategóriahelye üres pontként maradjon. A [ChartDataPointCollection.clear] csak akkor használja, ha az adott sorozat minden pontját el kívánja távolítani. Ha a kategóriákat is eltávolítja, frissítse minden sorozatot, hogy az értékek összehangoltak maradjanak a kategória-gyűjteménnyel.
+
+**Hogyan jelennek meg az üres pontok?**
+
+Az eredmény a diagram típusától és a [Chart.setDisplayBlanksAs] által beállított értéktől függ. A támogatott diagramok üres pontokat megjeleníthetnek hézagként, nullaként vagy a szomszédos pontok összekapcsolásával. Válassza ki a beállítást, amely a hiányzó adatok jelentését tükrözi a prezentációban.
+
+**Hogyan formázzák a negatív értékeket?**
+
+Támogatott sáv, oszlop és buborék sorozatok esetén hívja a [ChartSeries.setInvertIfNegative] metódust, és állítsa be a [ChartSeries.getInvertedSolidFillColor] által visszaadott színt. Egy egyedi pontnál a [ChartDataPoint.setInvertIfNegative] használatával felülbírálhatja a viselkedést. Ezek a metódusok a formázást befolyásolják, nem a tárolt numerikus értékeket.
+
+**Melyik formázás nyer, ha egy sorozat és egy pont is formázva van?**
+
+A kifejezett adatpont formázás lesz előnyben az adott pontnál. A többi pont továbbra a sorozat explicit formázását vagy, ha az nincs definiálva, az automatikus diagram stílusát és témáját használja. A csoport beállítások, mint az átfedés és a hézagszélesség, a elrendezést szabályozzák, és nem felülírják a pontszintű formázást.
+
+**Van korlátozva, hogy egy diagram hány sorozatot tartalmazhat?**
+
+Az Aspose.Slides nem von ki külön rögzített sorozatszámlimitet. Gyakorlatban a prezentáció fájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos limitet.
+
+**Mit kell módosítanom, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
+
+Hívja a [ChartSeriesGroup.setGapWidth] metódust a megfelelő szülő sorozatcsoporton. Növelje az értéket a csoportok közötti távolság növeléséhez, vagy csökkentse, hogy a csoportok közelebb kerüljenek egymáshoz.

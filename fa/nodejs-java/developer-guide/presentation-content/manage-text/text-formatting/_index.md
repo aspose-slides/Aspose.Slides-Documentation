@@ -1,25 +1,23 @@
 ---
-title: قالب‌بندی متن ارائه در JavaScript
+title: قالب‌بندی متن ارائه در جاوااسکریپت
 linktitle: قالب‌بندی متن
 type: docs
 weight: 50
 url: /fa/nodejs-java/text-formatting/
 keywords:
-- برجسته کردن متن
-- عبارات منظم
-- تراز پاراگراف
+- ترازبندی پاراگراف
 - سبک متن
 - پس‌زمینه متن
 - شفافیت متن
-- فاصله حروف
-- ویژگی‌های قلم
+- فاصله کاراکتر
+- خصوصیات قلم
 - خانواده قلم
 - چرخش متن
 - زاویه چرخش
-- فریم متن
-- فاصله خطوط
-- ویژگی Autofit
-- لنگر فریم متن
+- قاب متن
+- فاصله‌خط
+- خصوصیت Autofit
+- لنگر قاب متن
 - تب‌بندی متن
 - زبان پیش‌فرض
 - PowerPoint
@@ -28,86 +26,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java قالب‌بندی و سبک می‌دهید. قلم‌ها، رنگ‌ها، تراز و موارد دیگر را سفارشی کنید."
+description: "قالب‌بندی و استایل‌دهی به متن در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java. سفارشی‌سازی قلم‌ها، رنگ‌ها، ترازبندی و موارد دیگر."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-این مقاله نشان می‌دهد که چگونه می‌توانید متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java قالب‌بندی کنید. موضوعاتی مانند برجسته‌سازی، رنگ پس‌زمینه، شفافیت، فاصله‌گذاری حروف، ویژگی‌های قلم، چرخش، فاصله پاراگراف، رفتار Autofit، لنگر متن، ایست‌گاه‌های تب و تنظیمات زبان پوشش داده می‌شود.
+این مقاله نشان می‌دهد چگونه متن را در ارائه‌های PowerPoint و OpenDocument با استفاده از Aspose.Slides برای Node.js از طریق Java قالب‌بندی کنید. موضوعات شامل رنگ پس‌زمینه، شفافیت، فاصله کاراکترها، خصوصیات قلم، چرخش، فاصله‌بندی پاراگراف، رفتار Autofit، لنگر متن، ایستگاه‌های تب و تنظیمات زبان می‌شود.
 
-در مثال‌های زیر از فایلی به نام **"sample.pptx"** استفاده خواهیم کرد که یک جعبه متن در اسلاید اول دارد و شامل متن زیر است:
+در مثال‌های زیر، فایلی به نام «sample.pptx» استفاده می‌کنیم که یک جعبه متن در اسلاید اول شامل متن زیر دارد:
 
 ![متن نمونه](sample_text.png)
 
-## **برجسته‌سازی متن**
-
-از متد [TextFrame.highlightText](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-) هنگام نیاز به برجسته‌سازی متنی که با یک الگوی نمونه خاص در یک فریم متن مطابقت دارد، استفاده کنید. این متد یک رنگ برجسته به بخش‌های متن مطابقت یافته اعمال می‌کند و می‌تواند همراه با [TextSearchOptions](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textsearchoptions/) برای کنترل نحوه جستجو، برای مثال برای مطابقت فقط با کلمات کامل، به کار رود.
-
-مثال کد زیر تمام رخدادهای کاراکترهای **"try"** را برجسته می‌کند و سپس فقط کلمه کامل **"to"** را برجسته می‌سازد.
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const textFrame = shape.getTextFrame();
-
-    // کلمه "try" را در شکل برجسته کنید.
-    textFrame.highlightText("try", java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
-
-    const searchOptions = new aspose.slides.TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // کلمه "to" را در شکل برجسته کنید.
-    textFrame.highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-نتیجه:
-
-![متن برجسته شده](highlighted_text.png)
-
-## **برجسته‌سازی متن با استفاده از عبارات منظم**
-
-متد [TextFrame.highlightRegex](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-aspose.slides.IFindResultCallback-) متون مطابقت یافته توسط یک عبارت منظم را برجسته می‌کند. در Node.js از طریق Java، این API در [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) در دسترس است.
-
-کد زیر تمام کلماتی را که **هفت کاراکتر یا بیشتر** دارند برجسته می‌کند:
-
-```javascript
-const Pattern = java.import("java.util.regex.Pattern");
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const regex = Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // تمام کلماتی که دارای هفت یا بیشتر کاراکتر هستند را برجسته کنید.
-    shape.getTextFrame().highlightRegex(regex, java.getStaticFieldValue("java.awt.Color", "YELLOW"), null);
-
-    presentation.save("highlighted_text_using_regex.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-نتیجه:
-
-![متن برجسته شده با استفاده از عبارت منظم](highlighted_text_using_regex.png)
+برای یافتن و برجسته‌سازی متن دقیق یا مطابقت‌های عبارت منظم، به [جستجو و جایگزینی متن](/slides/fa/nodejs-java/search-and-replace-text/) مراجعه کنید.
 
 ## **تنظیم رنگ پس‌زمینه متن**
 
-از [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) برای تنظیم رنگ پیش‌فرض برجسته‌سازی یک پاراگراف، یا از [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getHighlightColor--) برای بخش‌های متنی جداگانه استفاده کنید.
+از [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) برای تنظیم رنگ برجسته پیش‌فرض یک پاراگراف استفاده کنید یا از [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) برای بخش‌های متن جداگانه.
 
-کد زیر رنگ پس‌زمینه **تمام پاراگراف** را تنظیم می‌کند:
+کد زیر نشان می‌دهد چگونه رنگ پس‌زمینه را برای **تمام پاراگراف** تنظیم کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // رنگ برجسته‌سازی را برای تمام پاراگراف تنظیم کنید.
+    // رنگ برجسته را برای تمام پاراگراف تنظیم کنید.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -120,12 +67,16 @@ try {
 
 ![پاراگراف خاکستری](gray_paragraph.png)
 
-کد زیر رنگ پس‌زمینه **بخش‌های متنی با قلم بولد** را تنظیم می‌کند:
+کد زیر نحوه تنظیم رنگ پس‌زمینه برای **بخش‌های متنی با قلم پررنگ** را نشان می‌دهد:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -133,7 +84,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // رنگ برجسته‌سازی را برای بخش متن تنظیم کنید.
+            // رنگ برجسته را برای بخش متن تنظیم کنید.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -148,19 +99,22 @@ try {
 
 ![بخش‌های متنی خاکستری](gray_text_portions.png)
 
-## **تراز کردن پاراگراف‌های متن**
+## **ترازبندی پاراگراف‌های متن**
 
-از [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setAlignment-byte-) برای تنظیم تراز پاراگراف داخل یک فریم متن استفاده کنید. مقدار می‌تواند وسط‌چین، چپ‌چین، راست‌چین، توجیه‌شده و غیره باشد.
+از [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) برای تنظیم ترازبندی پاراگراف درون یک قاب متن استفاده کنید. مقدار می‌تواند وسط‌چین، چپ‌چین، راست‌چین، توجیه‌شده و ... باشد.
 
-کد زیر پاراگراف را **به مرکز** تراز می‌کند:
+کد زیر نشان می‌دهد چگونه پاراگراف را **به مرکز** ترازبندی کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // تراز پاراگراف را به مرکز تنظیم کنید.
+    // تنظیم ترازبندی پاراگراف به وسط.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -171,24 +125,28 @@ try {
 
 نتیجه:
 
-![پاراگراف تراز شده](aligned_paragraph.png)
+![پاراگراف ترازبندی شده](aligned_paragraph.png)
 
 ## **تنظیم شفافیت برای متن**
 
-شفافیت متن از طریق مؤلفه آلفای رنگی که به [PortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getFillFormat--) اختصاص داده می‌شود، کنترل می‌گردد. در مثال‌های زیر، `alpha = 50` یک مقدار آلفا در مقیاس 0‑255 است، نه درصد شفافیت.
+شفافیت متن از طریق مؤلفه آلفای رنگی که به [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) اختصاص داده می‌شود کنترل می‌شود. در مثال‌های زیر، `alpha = 50` مقدار آلفای ARGB در مقیاس ۰‑۲۵۵ است، نه درصد شفافیت.
 
-کد زیر شفافیت **تمام پاراگراف** را اعمال می‌کند:
+کد زیر نشان می‌دهد چگونه شفافیت را برای **کل پاراگراف** اعمال کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const alpha = 50;
 const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // رنگ پر متن را به رنگ شفاف تنظیم کنید.
+    // رنگ پر کردن متن را به رنگ شفاف تنظیم کنید.
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -202,14 +160,18 @@ try {
 
 ![پاراگراف شفاف](transparent_paragraph.png)
 
-کد زیر شفافیت **بخش‌های متنی با قلم بولد** را اعمال می‌کند:
+کد زیر نحوه اعمال شفافیت برای **بخش‌های متنی با قلم پررنگ** را نشان می‌دهد:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const alpha = 50;
 const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -219,7 +181,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const fillFormat = portion.getPortionFormat().getFillFormat();
 
-            // شفافیت بخش متن را تنظیم کنید.
+            // شفافت بخش متن را تنظیم کنید.
             fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
             fillFormat.getSolidFillColor().setColor(transparentBlack);
         }
@@ -235,20 +197,23 @@ try {
 
 ![بخش‌های متنی شفاف](transparent_text_portions.png)
 
-## **تنظیم فاصله‌گذاری کاراکترها برای متن**
+## **تنظیم فاصله کاراکتر برای متن**
 
-از [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) برای افزایش یا کاهش فاصله بین کاراکترها در یک جعبه متن استفاده کنید.
+از [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) برای گسترش یا جمع کردن فاصله بین کاراکترهای یک جعبه متن استفاده کنید.
 
-کد JavaScript زیر فاصله‌گذاری کاراکترها را در **تمام پاراگراف** گسترش می‌دهد:
+کد زیر نشان می‌دهد چگونه فاصله کاراکترها را در **کل پاراگراف** افزایش دهید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // توجه: برای فشرده‌کردن فاصله کاراکتر از مقادیر منفی استفاده کنید.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // فاصله کاراکترها را گسترش دهید.
+    // نکته: برای فشرده‌کردن فاصله کاراکتر مقادیر منفی استفاده کنید.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // فاصله کاراکتر را گسترش دهید.
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -258,14 +223,17 @@ try {
 
 نتیجه:
 
-![فاصله‌گذاری کاراکترها در پاراگراف](character_spacing_in_paragraph.png)
+![فاصله کاراکترها در پاراگراف](character_spacing_in_paragraph.png)
 
-کد زیر فاصله‌گذاری کاراکترها را در **بخش‌های متنی با قلم بولد** گسترش می‌دهد:
+کد زیر نحوه افزایش فاصله کاراکترها در **بخش‌های متنی با قلم پررنگ** را نشان می‌دهد:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -273,8 +241,8 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // توجه: برای فشرده‌کردن فاصله کاراکتر از مقادیر منفی استفاده کنید.
-            portion.getPortionFormat().setSpacing(3); // فاصله کاراکترها را گسترش دهید.
+            // نکته: برای فشرده‌کردن فاصله کاراکتر از مقادیر منفی استفاده کنید.
+            portion.getPortionFormat().setSpacing(3); // فاصله کاراکتر را گسترش دهید.
         }
     }
 
@@ -286,18 +254,21 @@ try {
 
 نتیجه:
 
-![فاصله‌گذاری کاراکترها در بخش‌های متنی](character_spacing_in_text_portions.png)
+![فاصله کاراکترها در بخش‌های متن](character_spacing_in_text_portions.png)
 
-### **غیرفعال کردن کرنینگ برای فونت‌های خاص**
+### **غیرفعال‌سازی کرنینگ برای قلم‌های خاص**
 
-در برخی موارد، متنی که توسط Aspose.Slides رندر می‌شود، کمی فشرده‌تر از متن مشابه در PowerPoint به نظر می‌رسد. این می‌تواند به این دلیل باشد که PowerPoint داده‌های کرنینگ را برای برخی فونت‌ها نادیده می‌گیرد، حتی اگر فونت دارای اطلاعات کرنینگ معتبر باشد و کرنینگ در تنظیمات PowerPoint فعال باشد.
+در برخی موارد، متن رندر شده توسط Aspose.Slides ممکن است نسبت به همان متن در PowerPoint اندکی فشرده‌تر به نظر برسد. این می‌تواند به دلیل این باشد که PowerPoint داده‌های کرنینگ برخی قلم‌ها را نادیده می‌گیرد، حتی زمانی که قلم شامل اطلاعات کرنینگ معتبر باشد و این گزینه در تنظیمات PowerPoint فعال باشد.
 
-برای نزدیک‌تر کردن خروجی رندر به PowerPoint، می‌توانید کرنینگ را برای بخش‌های متنی که از فونت تحت تأثیر هستند غیرفعال کنید. مقدار [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) را به مقداری به‌طور قابل توجهی بزرگ‌تر از اندازه واقعی فونت تنظیم کنید:
+برای نزدیک‌تر کردن خروجی رندر به PowerPoint، می‌توانید کرنینگ را برای بخش‌های متنی که از قلم موردنظر استفاده می‌کنند، غیرفعال کنید. مقدار [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) را به مقدار خیلی بزرگتر از اندازه واقعی قلم تنظیم کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraphs = autoShape.getTextFrame().getParagraphs();
     const paragraphCount = paragraphs.getCount();
     const targetFont = "Roboto";
@@ -327,22 +298,26 @@ try {
 }
 ```
 
-این تنظیم از اعمال کرنینگ به بخش‌های متنی منطبق جلوگیری می‌کند و می‌تواند به هم‌راستا شدن رندر Aspose.Slides با خروجی بصری PowerPoint برای فونت‌های تحت تأثیر این رفتار خاص کمک کند.
+این تنظیم مانع اعمال کرنینگ بر روی بخش‌های متن مطابق می‌شود و می‌تواند رندر Aspose.Slides را با خروجی بصری PowerPoint برای قلم‌های تحت تأثیر این رفتار خاص هماهنگ کند.
 
-## **مدیریت ویژگی‌های قلم متن**
+## **مدیریت خصوصیات قلم متن**
 
-ویژگی‌های قلم می‌توانند در سطح پاراگراف از طریق [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) یا در بخش‌های جداگانه از طریق [PortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/) تنظیم شوند.
+خصوصیات قلم می‌توانند در سطح پاراگراف از طریق [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) یا در بخش‌های جداگانه از طریق [PortionFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/) تنظیم شوند.
 
-کد زیر قلم و سبک متن را برای **تمام پاراگراف** تنظیم می‌کند: اندازه قلم، بولد، ایتالیک، خط تحت نقطه‌ای و قلم Times New Roman را برای تمام بخش‌های پاراگراف اعمال می‌نماید.
+کد زیر قلم و سبک متن را برای **تمام پاراگراف** تنظیم می‌کند: اندازه قلم، پررنگ، ایتالیک، زیرخط نقطه‌دار و قلم Times New Roman به همه بخش‌ها اعمال می‌شود.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // تنظیم ویژگی‌های قلم برای پاراگراف.
+    // تنظیم خصوصیات قلم برای پاراگراف.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -357,14 +332,18 @@ try {
 
 نتیجه:
 
-![ویژگی‌های قلم برای پاراگراف](font_properties_for_paragraph.png)
+![خصوصیات قلم برای پاراگراف](font_properties_for_paragraph.png)
 
-کد زیر ویژگی‌های مشابه را برای **بخش‌های متنی با قلم بولد** اعمال می‌کند:
+کد زیر خصوصیات مشابه را برای **بخش‌های متنی با قلم پررنگ** اعمال می‌کند:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -374,7 +353,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // تنظیم ویژگی‌های قلم برای بخش متن.
+            // تنظیم خصوصیات قلم برای بخش متن.
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -390,18 +369,22 @@ try {
 
 نتیجه:
 
-![ویژگی‌های قلم برای بخش‌های متنی](font_properties_for_text_portions.png)
+![خصوصیات قلم برای بخش‌های متن](font_properties_for_text_portions.png)
 
 ## **تنظیم چرخش متن**
 
-از [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) برای تنظیم جهت از پیش تعریف‌شده متن در یک شکل استفاده کنید.
+از [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) برای تنظیم جهت‌گیری پیش‌تعریف‌شده متن درون یک شکل استفاده کنید.
 
-کد زیر جهت متن در شکل را به `Vertical270` تنظیم می‌کند که متن را **۹۰ درجه در جهت خلاف ساعت** می‌چرخاند:
+کد زیر جهت‌گیری متن در شکل را به `Vertical270` تنظیم می‌کند که متن را **۹۰ درجه خلاف‌ساعت** می‌چرخاند:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
 
@@ -417,14 +400,17 @@ try {
 
 ## **تنظیم چرخش سفارشی برای فریم‌های متنی**
 
-از [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) برای تنظیم زاویه چرخش سفارشی یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) استفاده کنید.
+از [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) برای تنظیم زاویه چرخش سفارشی برای یک [TextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframe/) استفاده کنید.
 
-کد زیر فریم متن را به میزان ۳ درجه در جهت ساعت درون شکل می‌چرخاند:
+کد زیر فریم متن را به میزان ۳ درجه ساعتگرد درون شکل می‌چرخاند:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -438,19 +424,22 @@ try {
 
 ![چرخش سفارشی متن](custom_text_rotation.png)
 
-## **تنظیم فاصله‌گذاری خطوط پاراگراف‌ها**
+## **تنظیم فاصله‌خط پاراگراف‌ها**
 
-Aspose.Slides متدهای [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) و [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) را برای کنترل فاصله‌گذاری پاراگراف فراهم می‌کند. این ویژگی‌ها به‌صورت زیر استفاده می‌شوند:
+Aspose.Slides توابع [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-)، [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) و [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) را برای کنترل فاصله‌گذاری پاراگراف ارائه می‌دهد. این خصوصیات به صورت زیر استفاده می‌شوند:
 
-* برای تعیین فاصله‌گذاری به‌عنوان درصدی از ارتفاع خط، مقدار مثبت استفاده کنید.
-* برای تعیین فاصله‌گذاری به‌عنوان نقطه، مقدار منفی استفاده کنید.
+* برای تعیین فاصله‌خط به‌صورت درصدی از ارتفاع خط، مقدار مثبت استفاده کنید.
+* برای تعیین فاصله‌خط به‌صورت نقاط، مقدار منفی استفاده کنید.
 
-کد زیر نشان می‌دهد چگونه فاصله‌گذاری خطوط را داخل پاراگراف مشخص کنید:
+کد زیر نشان می‌دهد چگونه فاصله‌خط را درون پاراگراف مشخص کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -463,16 +452,20 @@ try {
 
 نتیجه:
 
-![فاصله‌گذاری خطوط داخل پاراگراف](line_spacing.png)
+![فاصله‌خط درون پاراگراف](line_spacing.png)
 
 ## **تنظیم نوع Autofit برای فریم‌های متنی**
 
-متد [TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) تعیین می‌کند که متن وقتی از مرزهای محفظه‌اش فراتر می‌رود چگونه رفتار کند. از آن برای کنترل اینکه آیا متن کوچک می‌شود، سرریز می‌شود یا به‌صورت خودکار اندازه شکل را تغییر می‌دهد، استفاده کنید.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) تعیین می‌کند متن هنگام عبور از مرزهای ‌کانتینر چگونه رفتار کند. از آن برای کنترل اینکه متن کوچک شود، سرریز شود یا شکل به‌صورت خودکار تغییر اندازه دهد استفاده کنید.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
 
@@ -482,14 +475,18 @@ try {
 }
 ```
 
-## **تنظیم لنگر فریم‌های متنی**
+## **تنظیم نقطه لنگر فریم‌های متنی**
 
-متد [TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) تعیین می‌کند که متن به‌صورت عمودی داخل یک شکل چگونه موقعیت یابد، برای مثال در بالا، وسط یا پایین.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) نحوه قرارگیری عمودی متن داخل شکل را تعریف می‌کند؛ به عنوان مثال در سمت بالا، میانه یا پایین.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
 
@@ -499,14 +496,18 @@ try {
 }
 ```
 
-## **تنظیم تب‌بندی متن**
+## **تنظیم تب‌های متن**
 
-از [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) و [ParagraphFormat.getTabs](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getTabs--) برای پیکربندی ایست‌گاه‌های تب در یک پاراگراف استفاده کنید.
+از [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) و [ParagraphFormat.getTabs](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraphformat/#getTabs--) برای پیکربندی ایستگاه‌های تب در یک پاراگراف استفاده کنید.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -522,16 +523,19 @@ try {
 
 ![تب‌های پاراگراف](paragraph_tabs.png)
 
-## **تنظیم زبان تصحیح املایی**
+## **تنظیم زبان بازبینی**
 
-Aspose.Slides متد [PortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) را فراهم می‌کند که به شما اجازه می‌دهد زبان تصحیح املایی برای یک بخش متنی را تنظیم کنید. زبان تصحیح املایی تعیین می‌کند در PowerPoint برای املاء و گرامر چه زبانی استفاده شود.
+Aspose.Slides متد [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) را ارائه می‌دهد که به شما اجازه می‌دهد زبان بازبینی را برای یک بخش متنی تنظیم کنید. این زبان بازبینی تعیین می‌کند در PowerPoint برای بررسی املا و دستور زبان از چه زبانی استفاده شود.
 
-کد زیر نشان می‌دهد چگونه زبان تصحیح املایی برای یک بخش متنی تنظیم شود:
+کد زیر نشان می‌دهد چگونه زبان بازبینی را برای یک بخش متنی تنظیم کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
 
@@ -541,10 +545,10 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // شناسه زبان تصحیح املایی را تنظیم کنید.
+    // تنظیم شناسه زبان بازبینی.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", aspose.slides.SaveFormat.Pptx);
@@ -555,9 +559,11 @@ try {
 
 ## **تنظیم زبان پیش‌فرض**
 
-از [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) برای تعریف زبان پیش‌فرض متنی که در هنگام بارگذاری یا ایجاد یک ارائه تولید می‌شود، استفاده کنید.
+از [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) برای تعریف زبان پیش‌فرض متن‌های ایجاد‌شده هنگام بارگذاری یا ساخت یک ارائه استفاده کنید.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -565,11 +571,11 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // یک شکل مستطیل جدید با متن اضافه کنید.
+    // یک شکل مستطیلی جدید با متن اضافه کنید.
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // زبان اولین بخش را بررسی کنید.
+    // زبان بخش اول را بررسی کنید.
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -581,12 +587,15 @@ try {
 
 برای اعمال قالب‌بندی پیش‌فرض متن در سطح ارائه، از [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--) استفاده کنید.
 
-کد زیر نشان می‌دهد چگونه یک قلم بولد با اندازه ۱۴ پوینت به‌صورت پیش‌فرض برای تمام متن‌های اسلایدها در یک ارائه جدید تنظیم شود.
+کد زیر نشان می‌دهد چگونه یک قلم پررنگ پیش‌فرض با اندازه ۱۴ pt برای تمام متن‌های اسلایدها در یک ارائه جدید تنظیم کنید.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
-    // دریافت فرمت پاراگراف سطح بالا.
+    // دریافت قالب پاراگراف سطح بالا.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -602,18 +611,21 @@ try {
 
 ## **استخراج متن با اثر تمام حروف بزرگ (All‑Caps)**
 
-در PowerPoint، اعمال اثر **All Caps** بر قلم باعث می‌شود متن روی اسلاید به صورت حروف بزرگ نمایش داده شود حتی اگر به‌صورت حروف کوچک تایپ شده باشد. هنگام دریافت چنین بخشی از متن با Aspose.Slides، کتابخانه متن دقیقاً همان‌گونه که وارد شده است برمی‌گرداند. برای هم‌خوانی با متن نمایش داده‌شده، [TextCapType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textcaptype/) را بررسی کنید و هنگامی که مقدار `All` باشد، رشته برگردانده‌شده را به حروف بزرگ تبدیل کنید.
+در PowerPoint، اعمال اثر **All Caps** باعث می‌شود متن روی اسلاید به‌صورت حروف بزرگ نشان داده شود حتی اگر به‌صورت حروف کوچک وارد شده باشد. هنگام استخراج چنین بخشی از متن با Aspose.Slides، کتابخانه دقیقاً همان متن وارد شده را برمی‌گرداند. برای مطابقت با متن نمایش داده شده، [TextCapType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/textcaptype/) را بررسی کنید و وقتی مقدار `All` باشد، رشته بازگشتی را به حروف بزرگ تبدیل کنید.
 
-فرض کنید جعبه متنی زیر در اسلاید اول فایل **sample2.pptx** موجود است.
+فرض کنید جعبه متن زیر در اسلاید اول فایل sample2.pptx وجود دارد.
 
 ![اثر All Caps](all_caps_effect.png)
 
-کد زیر نشان می‌دهد چگونه متنی که اثر **All Caps** روی آن اعمال شده است را استخراج کنید:
+کد زیر نشان می‌دهد چگونه متن را با اثر **All Caps** استخراج کنید:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     console.log("Original text: " + textPortion.getText());
@@ -635,12 +647,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **سوالات متداول**
+## **سؤالات متداول**
 
-**چگونه متن داخل جدول در یک اسلاید را ویرایش کنیم؟**
+**چگونه متن را در جدول یک اسلاید اصلاح کنیم؟**
 
-برای ویرایش متن داخل جدول در یک اسلاید، از [Table](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/table/) استفاده کنید. سلول‌ها را پیمایش کنید و هر سلول را از طریق [Cell.getTextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/cell/#getTextFrame--) و قالب‌بندی پاراگراف‌ها از طریق [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) به‌روزرسانی کنید.
+برای اصلاح متن در جدول یک اسلاید، از [Table](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/table/) استفاده کنید. سلول‌ها را پیمایش کنید و هر سلول را از طریق [Cell.getTextFrame](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/cell/#getTextFrame--) و قالب‌بندی پاراگراف را از طریق [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) به‌روز کنید.
 
 **چگونه رنگ گرادیان را به متن در یک اسلاید PowerPoint اعمال کنیم؟**
 
-برای اعمال رنگ گرادیان به متن، از [PortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/portionformat/#getFillFormat--) استفاده کنید. مقدار [FillFormat.setFillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) را به [FillType.Gradient](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) تنظیم کنید و ایست‌گاه‌های گرادیان، جهت و شفافیت را پیکربندی کنید.
+برای اعمال رنگ گرادیان به متن، از [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) استفاده کنید. [FillFormat.setFillType](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) را به [FillType.Gradient](https://reference.aspose.com/slides/fa/nodejs-java/aspose.slides/filltype/) تنظیم کنید و نقاط توقف گرادیان، جهت و شفافیت را پیکربندی کنید.

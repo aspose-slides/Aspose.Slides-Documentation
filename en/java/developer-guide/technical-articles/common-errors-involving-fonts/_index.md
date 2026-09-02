@@ -97,6 +97,19 @@ This exception occurs when
      FontsLoader.loadExternalFonts(pathToFontsFolders);
      ```
 
+## **Exception: InternalError: InvocationTargetException**
+
+When converting a PPTX file to PDF on Linux, the conversion may fail with `java.lang.InternalError: java.lang.reflect.InvocationTargetException`. If the underlying error states `Cannot load from short array because "sun.awt.FontConfiguration.head" is null`, the Linux font configuration is unavailable or its cache has not been initialized.
+
+### **Solution**
+
+Install fontconfig and rebuild the font cache:
+
+```bash
+sudo yum install -y fontconfig
+sudo fc-cache --force
+```
+
 ## **Exception: NoClassDefFoundError: Could Not Initialize Class com.aspose.slides.internal.ey.this**
 
 This exception occurs on a Linux system that lacks fontconfig and fonts. 

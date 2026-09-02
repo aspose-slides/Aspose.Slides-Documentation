@@ -1,5 +1,5 @@
 ---
-title: Treemap ve Sunburst Grafiklerde Veri Noktalarını JavaScript ile Özelleştirme
+title: JavaScript Kullanarak Treemap ve Sunburst Grafiklerde Veri Noktalarını Özelleştirme
 linktitle: Treemap ve Sunburst Grafiklerde Veri Noktaları
 type: docs
 url: /tr/nodejs-java/data-points-of-treemap-and-sunburst-chart/
@@ -7,116 +7,254 @@ weight: 40
 keywords:
 - treemap grafik
 - sunburst grafik
+- hiyerarşik grafik
 - veri noktası
-- etiket rengi
-- dal rengi
+- veri etiketi
+- şube rengi
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Treemap ve sunburst grafiklerde veri noktalarını JavaScript ve Aspose.Slides for Node.js via Java ile nasıl yöneteceğinizi öğrenin, PowerPoint formatlarıyla uyumludur."
+description: "Aspose.Slides for Node.js via Java kullanarak Treemap ve Sunburst grafiklerde hiyerarşik veri oluşturmayı ve seviyeleri, etiketleri ve renkleri özelleştirmeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Diğer PowerPoint grafik türlerinin yanı sıra iki "hiyerarşik" tür vardır - **Treemap** ve **Sunburst** grafik (aynı zamanda Sunburst Grafiği, Sunburst Diyagramı, Radial Grafik, Radial Çizim ya da Çok Katmanlı Pasta Grafiği olarak da bilinir). Bu grafikler, yapraklardan dalın tepesine kadar bir ağaç şeklinde düzenlenmiş hiyerarşik verileri gösterir. Yapraklar, seri veri noktalarıyla tanımlanır ve her bir sonraki iç içe grup seviyesi ilgili kategoriyle tanımlanır. Aspose.Slides for Node.js via Java, Sunburst Chart ve Treemap'in veri noktalarını JavaScript'te biçimlendirmeye olanak tanır.
+Treemap ve Sunburst grafikler aynı türde hiyerarşik verileri gösterir, ancak farklı düzenler kullanır. Bir Treemap, hiyerarşiyi yaprak değerlerini temsil eden alanlara sahip iç içe dikdörtgenler olarak çizer. Bir Sunburst ise bunu konsantrik halkalar olarak gösterir: üst düzey gruplar merkeze yakın, yaprak kategoriler ise dış halkada yer alır.
 
-İşte bir Sunburst grafiği, Series1 sütunundaki veriler yaprak düğümleri tanımlarken, diğer sütunlar hiyerarşik veri noktalarını tanımlar:
+Aspose.Slides for Node.js via Java’da her sayısal değer bir [ChartDataPoint](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/)’dır. Bunun [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) yöntemi, yaprağa ve onun üst grup öğelerine erişim sağlar. Bu makale bu eşlemeyi açıklar ve aynı örnek veriden iki grafik türünün nasıl oluşturulup biçimlendirileceğini gösterir.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Tüketici ve İş şubeleriyle bir Treemap grafiği](treemap-hierarchy.png)
 
-Yeni bir Sunburst grafiği sunuma eklemeye başlayalım:
+![Aynı Tüketici ve İş hiyerarşisiyle bir Sunburst grafiği](sunburst-hierarchy.png)
+
+## **Kategorileri, Veri Noktalarını ve Seviyeleri Anlamak**
+
+Aşağıda kullanılan örnek üç kategori seviyesi ve bir sayısal seri içerir:
+
+| Şube | Dal | Yaprak | Gelir |
+| --- | --- | --- | ---: |
+| Tüketici | Bilgisayarlar | Dizüstü Bilgisayarlar | 12 |
+| Tüketici | Bilgisayarlar | Masaüstü Bilgisayarlar | 8 |
+| Tüketici | Mobil | Telefonlar | 15 |
+| Tüketici | Mobil | Tabletler | 6 |
+| İş | Hizmetler | Danışmanlık | 10 |
+| İş | Hizmetler | Destek | 7 |
+| İş | Yazılım | Lisanslar | 11 |
+| İş | Yazılım | Abonelikler | 14 |
+
+Her satır bir yaprak kategorisi ve bir veri noktası oluşturur. Kategori gruplama seviyeleri, o yapraktan üst öğelerine giden yolu tanımlar. İlk satır için yol `Consumer > Computers > Laptops` şeklindedir.
+
+[ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) tarafından döndürülen indeksler yapraktan yukarı doğru ilerler:
+
+| `getDataPointLevels()` indeksi | Mantıksal seviye | Treemap temsili | Sunburst temsili |
+| ---: | --- | --- | --- |
+| `0` | Yaprak | Değer dikdörtgeni | Dış halka segmenti |
+| `1` | Dal | Üst rectangle veya başlık | Orta halka segmenti |
+| `2` | Şube | Üst‑seviye rectangle veya başlık | İç halka segmenti |
+
+Bu sıra her iki grafik türü için de aynıdır, görsel düzenleri farklı olsa da. Bir üst segment birkaç yaprak tarafından paylaşılır. Biçimlendirmek için, o gruptaki ilk veri noktasının ilgili seviyesini kullanın. Örneğin, `Consumer` şubesi `Laptops` noktasıyla başlarken, `Software` dalı `Licenses` noktasıyla başlar. Bu noktalara referans tutmak, `dataPoints.get_Item(0)` veya `dataPoints.get_Item(6)` gibi açıklanmamış ifadeler kullanmaktan daha nettir ve daha güvenlidir.
+
+## **Treemap ve Sunburst Grafiklerini Oluşturma ve Özelleştirme**
+
+Aşağıdaki tam örnek, ilk slaytta bir Treemap ve ikinci slaytta bir Sunburst oluşturur. Hiyerarşiyi kurar, `Tablets` değeri gösterilir, seçili seviyelere sabit renkler uygulanır, bir şube etiketi biçimlendirilir ve sunum kaydedilir.
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const worksheetIndex = 0;
+    const leafLevelIndex = 0;
+    const stemLevelIndex = 1;
+    const branchLevelIndex = 2;
+
+    const branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    const stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    const leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    const revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    const dataPointCount = leafNames.length;
+
+    const chartTypes = [
+        aspose.slides.ChartType.Treemap,
+        aspose.slides.ChartType.Sunburst
+    ];
+    const chartCount = chartTypes.length;
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (let chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        const chartType = chartTypes[chartIndex];
+        let slide;
+
+        if (chartIndex === 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        const chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        const chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        const workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Add the leaf categories. A grouping item is set only when a new group begins;
+        // the following categories remain in that group until another item is set.
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            const category = chartData.getCategories().add(categoryCell);
+
+            const stemName = stemNames[dataIndex];
+            const startsNewStem = dataIndex === 0 || stemName !== stemNames[dataIndex - 1];
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            const branchName = branchNames[dataIndex];
+            const startsNewBranch = dataIndex === 0 || branchName !== branchNames[dataIndex - 1];
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        const seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        const series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        let laptopsDataPoint = null;
+        let tabletsDataPoint = null;
+        let licensesDataPoint = null;
+
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const revenue = revenues[dataIndex];
+            const valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            let dataPoint;
+
+            if (chartType === aspose.slides.ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if (leafName === "Laptops") {
+                laptopsDataPoint = dataPoint;
+            } else if (leafName === "Tablets") {
+                tabletsDataPoint = dataPoint;
+            } else if (leafName === "Licenses") {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Show the category and value on the Tablets leaf.
+        const tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        const tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Format the Consumer branch through the first leaf in that branch.
+        const consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        const consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        const consumerBranchColor = java.newInstanceSync("java.awt.Color", 31, 78, 121);
+        consumerBranchFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        const consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        const consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+        consumerLabelTextFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerLabelTextFill.getSolidFillColor().setColor(whiteColor);
+
+        // Format the Software stem through the first leaf in that stem.
+        const softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        const softwareStemFill = softwareStemLevel.getFormat().getFill();
+        const softwareStemColor = java.newInstanceSync("java.awt.Color", 112, 173, 71);
+        softwareStemFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout affects Treemap parent labels; Sunburst uses ring segments.
+        if (chartType === aspose.slides.ChartType.Treemap) {
+            series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        }
     }
+
+    presentation.save("hierarchical-charts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Ayrıca bakınız" %}} 
-- [**PowerPoint Sunum Grafiklerini JavaScript'te Oluşturma veya Güncelleme**](/slides/tr/nodejs-java/create-chart/)
-{{% /alert %}}
+Kategori hücreleri ve değer hücreleri aynı çalışma sayfası satırını kullanır, böylece koleksiyon konumları hizalanmış kalır. Varolan bir grafikle çalışıyorsanız, önce kategori satırlarını inceleyin ve biçimlendirmeyi planladığınız veri noktaları ve seviyeler için adlandırılmış referanslar tutun.
 
-Grafiğin veri noktalarını biçimlendirmeye ihtiyaç duyulursa, aşağıdakileri kullanmalıyız:
+## **Davranış ve Pratik Hususlar**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevel) sınıfları 
-ve [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) metodu 
-Treemap ve Sunburst grafiklerinin veri noktalarını biçimlendirmeye erişim sağlar. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevelsManager) 
-çok seviyeli kategorilere erişim için kullanılır - bu, 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevel) nesnelerinin 
-kapsayıcısını temsil eder. 
-Temelde bu, veri noktalarına özgü eklenmiş özelliklere sahip 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartCategoryLevelsManager) için bir sarmalayıcıdır. 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevel) sınıfının 
-iki yöntemi vardır: [**getFormat**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) ve 
-[**getDataLabel**](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) ve ilgili ayarlara erişim sağlar.
+### **Treemap ve Sunburst Farklılıkları**
 
-## **Veri Noktası Değerini Göster**
-"Leaf 4" veri noktasının değerini göster:
+- Bir Treemap, değeri alanla, hiyerarşiyi iç içe dikdörtgenlerle iletir. Bu grafik tipinde üst etiketlerin nasıl görüneceğini kontrol eden yöntem [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout)’dur.
+- Bir Sunburst, değeri açıyla, hiyerarşiyi halka derinliğiyle iletir. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) onun halka etiketlerini kontrol etmez.
+- Her iki grafik tipi de aynı kategori gruplama seviyelerini ve [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) tarafından döndürülen aynı yaprak‑üst sırasını kullanır, bu yüzden veri oluşturma ve seviye‑biçimlendirme kodu paylaşılabilir.
+- Üst değerler, alt yapraklardan hesaplanır. Şubeler veya dallar için ayrı sayısal noktalar eklemeyin.
 
-```javascript
-var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **Sıralama ve Segment Sırası**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+Grafik yerleşim motoru, dikdörtgenlerin ve halka segmentlerinin nihai konumunu belirler. İlgili kategori satırlarını eklemeden önce bir arada gruplayın, ancak belirli bir dikdörtgen konumuna ya da başlangıç açısına güvenmeyin. Sıralama anlam taşıyorsa, bunu etiketlerde belirtin ya da açık bir kategori ekseni sağlayan bir grafik türü kullanın.
 
-## **Veri Noktası Etiketini ve Rengini Ayarla**
-"Branch 1" veri etiketini kategori adı yerine seri adı ("Series1") gösterecek şekilde ayarlayın. Ardından metin rengini sarıya ayarlayın:
+### **Tema ve Sabit Renkler**
 
-```javascript
-var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-```
+Biçimlendirilmemiş grafik seviyeleri, sunum temasından renk miras alır. Örnekte öngörülebilir çıktı için açıkça belirlenmiş RGB doldurmalar kullanılmıştır. Grafik temaya göre değişecekse, sabit RGB değerleri yerine şema renkleri kullanın ve her seviyeyi geçersiz kılmaktan kaçının. Bir şube ya da dal doldurması değiştirildiğinde etiket kontrastını da kontrol edin.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Etiketler ve Kullanılabilir Alan**
 
-## **Veri Noktası Dal Rengini Ayarla**
-"Steam 4" dalının rengini değiştir:
+PowerPoint, bir segment çok küçük olduğunda etiketleri gizleyebilir ya da kırpabilir. Grafik boyutunu artırmak, kategori adlarını kısaltmak veya gösterilen etiket alanlarını azaltmak genellikle daha net bir sonuç verir. Bir etiket, [DataLabelFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/) aracılığıyla kategori adı, seri adı ve değeri birleştirebilir, ancak tüm alanları etkinleştirmek hiyerarşik grafikleri okunması zor hâle getirebilir.
 
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-    var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+### **Dışa Aktarma ve İşleme**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+PPTX olarak kaydetmek grafiği düzenlenebilir tutar. Aspose.Slides sunumu PDF ya da görüntü olarak işlerken, desteklenen doldurmalar ve etiket ayarları grafikle birlikte işlenir. Yazı tipi ikamesi ve mevcut yerleşim alanındaki küçük farklılıklar satır kaydırma ya da etiket görünürlüğünü etkileyebilir; bu yüzden gerekli yazı tiplerini kurun ve önemli dışa aktarma hedeflerini doğrulayın.
 
 ## **SSS**
 
-**Sunburst/Treemap'teki segmentlerin sırasını (sıralamasını) değiştirebilir miyim?**
+**Bir üst seviyenin değiştirilmesi neden birden çok yaprağı etkiler?**
 
-Hayır. PowerPoint segmentleri otomatik olarak sıralar (genellikle azalan değerlere göre, saat yönünde). Aspose.Slides bu davranışı yansıtır: sıralamayı doğrudan değiştiremezsiniz; bunu verileri ön işlemden geçirerek elde edersiniz.
+Bir şube ya da dal, paylaşılan bir görsel segmenttir. Onun [ChartDataPointLevel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chartdatapointlevel/) öğesine bir alt yapraktan ulaşılabilir, ancak biçimlendirme yalnızca o yaprağa değil, paylaşılan üst segmente uygulanır.
 
-**Sunum teması segmentlerin ve etiketlerin renklerini nasıl etkiler?**
+**Bir veri etiketi neden eksik görünüyor?**
 
-Grafik renkleri, doldurmaları/yazı tiplerini açıkça ayarlamadığınız sürece sunumun [tema/renk paleti](/slides/tr/nodejs-java/presentation-theme/) öğesinden devralınır. Tutarlı sonuçlar için, gerekli seviyelerde katı dolgu ve metin biçimlendirmesini sabitleyin.
+Önce etiketin [DataLabelFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabelformat/) nesnesinde gerekli alanları etkinleştirin. Ardından segmentin yeterli alana sahip olduğundan emin olun. Treemap üst‑etiket düzeni, grafik boyutları, etiket uzunluğu, yazı tipi boyutu ve etkin alan sayısı bir etiketin görüntülenip görüntülenmeyeceğini etkiler.
 
-**PDF/PNG'ye dışa aktarma, özel dal renklerini ve etiket ayarlarını korur mu?**
+**Segmentlerin tam sırasını ya da koordinatlarını ayarlayabilir miyim?**
 
-Evet. Sunumu dışa aktarırken, grafik ayarları (dolgu, etiketler) çıkış formatlarında korunur çünkü Aspose.Slides grafik biçimlendirmesi uygulanmış olarak render eder.
+Kaynak‑satır sırasını kontrol edip her grubu ardışık tutabilirsiniz, ancak tam Treemap dikdörtgenlerini ya da Sunburst açılarını atayamazsınız. Grafik yerleşim motoru bunları hiyerarşi, değerler ve mevcut alan üzerinden hesaplar.
 
-**Grafiğin üzerine özel kaplama yerleştirmek için bir etiketin/elemanın gerçek koordinatlarını hesaplayabilir miyim?**
+**Tema değiştiğinde renkler neden değişiyor?**
 
-Evet. Grafik düzeni doğrulandıktan sonra, öğeler için gerçek X ve gerçek Y değerleri (örneğin bir [DataLabel](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/datalabel/)) mevcuttur; bu, kaplamaların hassas konumlandırılmasına yardımcı olur.
+Tema‑tabanlı doldurmalar, sunum paletini takip edecek şekilde tasarlanmıştır. Sabit kalması gereken seviyelere açıkça RGB renkleri uygulayın veya yeni temaya uyum sağlamak istiyorsanız şema renklerini koruyun.
+
+**Özel biçimlendirme PDF ve görüntü dışa aktarmalarında korunur mu?**
+
+Evet, desteklenen grafik doldurmaları ve etiket ayarları işleme sırasında dahil edilir. Sistemler arası tutarlı sonuçlar elde etmek için gerekli yazı tiplerini sağlayın ve etiket oturumu yerleşime bağlı olduğundan nihai dışa aktarma boyutunu test edin.
+
+## **İlgili Bağlantılar**
+
+- [Treemap grafiklerini oluşturma](/slides/tr/nodejs-java/create-chart/#creating-tree-map-charts)
+- [Sunburst grafiklerini oluşturma](/slides/tr/nodejs-java/create-chart/#creating-sunburst-charts)
+- [Sunum grafiklerini dışa aktarma](/slides/tr/nodejs-java/export-chart/)
+- [Sunum temalarını yönetme](/slides/tr/nodejs-java/presentation-theme/)

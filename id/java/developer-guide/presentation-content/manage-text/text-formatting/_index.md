@@ -5,21 +5,19 @@ type: docs
 weight: 50
 url: /id/java/text-formatting/
 keywords:
-- menyorot teks
-- ekspresi reguler
-- menyelaraskan paragraf
+- perataan paragraf
 - gaya teks
 - latar belakang teks
 - transparansi teks
 - jarak karakter
 - properti font
-- famili font
+- keluarga font
 - rotasi teks
 - sudut rotasi
 - bingkai teks
 - jarak baris
 - properti autofit
-- penahan bingkai teks
+- penjangkauan bingkai teks
 - tabulasi teks
 - bahasa default
 - PowerPoint
@@ -27,86 +25,35 @@ keywords:
 - presentasi
 - Java
 - Aspose.Slides
-description: "Format dan gayakan teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java. Sesuaikan font, warna, perataan, dan lainnya."
+description: "Format dan gaya teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides untuk Java. Sesuaikan font, warna, perataan, dan lainnya."
 ---
-## **Gambaran Umum**
+## **Ikhtisar**
 
-Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides for Java. Topik yang dibahas meliputi penyorotan, warna latar belakang, transparansi, jarak antar karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penempatan teks, tabulasi, dan pengaturan bahasa.
+Artikel ini menunjukkan cara memformat teks dalam presentasi PowerPoint dan OpenDocument menggunakan Aspose.Slides for Java. Topik yang dibahas meliputi warna latar belakang, transparansi, jarak antar karakter, properti font, rotasi, jarak paragraf, perilaku autofit, penjangkauan teks, tabulasi, dan pengaturan bahasa.
 
-Dalam contoh di bawah, kami akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
+Dalam contoh di bawah, kita akan menggunakan file bernama "sample.pptx", yang berisi satu kotak teks pada slide pertama dengan teks berikut:
 
-![Teks Contoh](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Menyorot Teks**
-
-Gunakan [ITextFrame.highlightText](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#highlightText-java.lang.String-java.awt.Color-) ketika Anda perlu menyorot teks yang cocok dengan contoh tertentu dalam sebuah bingkai teks. Metode ini menerapkan warna sorot pada fragmen teks yang cocok dan dapat dipadukan dengan [TextSearchOptions](https://reference.aspose.com/slides/id/java/com.aspose.slides/textsearchoptions/) untuk mengontrol cara pencarian dilakukan, misalnya untuk mencocokkan hanya kata lengkap.
-
-Contoh kode di bawah menyorot semua kemunculan karakter **"try"** dan kemudian menyorot hanya kata lengkap **"to"**.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // Dapatkan shape pertama dari slide pertama.
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Sorot kata "try" pada shape.
-    shape.getTextFrame().highlightText("try", Color.LIGHT_GRAY);
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Sorot kata "to" pada shape.
-    shape.getTextFrame().highlightText("to", Color.MAGENTA, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Hasilnya:
-
-![Teks yang disorot](highlighted_text.png)
-
-## **Menyorot Teks Menggunakan Ekspresi Reguler**
-
-Metode [ITextFrame.highlightRegex](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-com.aspose.slides.IFindResultCallback-) menyorot teks yang cocok dengan pola ekspresi reguler. Di Java, API ini tersedia pada [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/).
-
-Contoh kode di bawah menyorot semua kata yang mengandung **tujuh karakter atau lebih**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape shape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Sorot semua kata dengan tujuh karakter atau lebih.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Hasilnya:
-
-![Teks yang disorot menggunakan ekspresi reguler](highlighted_text_using_regex.png)
+Untuk menemukan dan menyorot teks literal atau hasil pencocokan ekspresi reguler, lihat [Cari dan Ganti Teks](/slides/id/java/search-and-replace-text/).
 
 ## **Mengatur Warna Latar Belakang Teks**
 
-Gunakan [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) untuk mengatur warna sorot default bagi sebuah paragraf, atau gunakan [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseportionformat/#getHighlightColor--) untuk bagian teks individual.
+Gunakan [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#getDefaultPortionFormat--) untuk mengatur warna sorotan default sebuah paragraf, atau gunakan [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/id/java/com.aspose.slides.ibaseportionformat/#getHighlightColor--) untuk bagian teks individu.
 
-Contoh kode berikut memperlihatkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
+Contoh kode berikut menunjukkan cara mengatur warna latar belakang untuk **seluruh paragraf**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur warna sorotan untuk seluruh paragraf.
+    // Tetapkan warna sorotan untuk seluruh paragraf.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
 
     presentation.save("gray_paragraph.pptx", SaveFormat.Pptx);
@@ -117,19 +64,23 @@ try {
 
 Hasilnya:
 
-![Paragraf berwarna abu‑abu](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-Contoh kode di bawah menunjukkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
+Contoh kode di bawah ini memperlihatkan cara mengatur warna latar belakang untuk **bagian teks dengan font tebal**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Atur warna sorotan untuk bagian teks.
+            // Tetapkan warna sorotan untuk bagian teks.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LIGHT_GRAY);
         }
     }
@@ -142,21 +93,24 @@ try {
 
 Hasilnya:
 
-![Bagian teks berwarna abu‑abu](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **Menyelaraskan Paragraf Teks**
+## **Menjajarkan Paragraf Teks**
 
-Gunakan [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setAlignment-int-) untuk mengatur perataan paragraf dalam sebuah bingkai teks. Nilainya dapat berupa tengah, rata kiri, rata kanan, justify, dan sebagainya.
+Gunakan [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#setAlignment-int-) untuk mengatur perataan paragraf dalam sebuah bingkai teks. Nilainya dapat berupa tengah, rata kiri, rata kanan, rata kanan-kiri, dan sebagainya.
 
-Contoh kode berikut memperlihatkan cara menyejajarkan paragraf ke **tengah**:
+Contoh kode berikut menunjukkan cara menjajarkan paragraf ke **tengah**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur perataan paragraf ke tengah.
+    // Tetapkan perataan paragraf ke tengah.
     paragraph.getParagraphFormat().setAlignment(TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", SaveFormat.Pptx);
@@ -167,23 +121,27 @@ try {
 
 Hasilnya:
 
-![Paragraf yang diselaraskan](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
 ## **Mengatur Transparansi untuk Teks**
 
-Transparansi teks diatur melalui komponen alfa pada warna yang diberikan ke [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Dalam contoh di bawah, `alpha = 50` adalah nilai kanal alfa ARGB pada skala 0‑255, bukan persentase transparansi.
+Transparansi teks dikendalikan melalui komponen alfa dari warna yang ditetapkan pada [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides.ibaseportionformat/#getFillFormat--). Pada contoh di bawah, `alpha = 50` merupakan nilai kanal alfa ARGB pada skala 0–255, bukan persentase transparansi.
 
-Contoh kode berikut memperlihatkan cara menerapkan transparansi pada **seluruh paragraf**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **seluruh paragraf**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur warna isi teks menjadi warna transparan.
+    // Tetapkan warna isian teks menjadi warna transparan.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().setFillType(FillType.Solid);
     paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
 
@@ -195,21 +153,25 @@ try {
 
 Hasilnya:
 
-![Paragraf transparan](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-Contoh kode berikut memperlihatkan cara menerapkan transparansi pada **bagian teks dengan font tebal**:
+Contoh kode berikut menunjukkan cara menerapkan transparansi pada **bagian teks dengan font tebal**:
 
 ```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Atur transparansi bagian teks.
+            // Tetapkan transparansi bagian teks.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
             portion.getPortionFormat().getFillFormat().getSolidFillColor().setColor(new Color(0, 0, 0, alpha));
         }
@@ -223,21 +185,24 @@ try {
 
 Hasilnya:
 
-![Bagian teks transparan](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
-## **Mengatur Jarak Antar Karakter untuk Teks**
+## **Mengatur Jarak Karakter untuk Teks**
 
-Gunakan [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseportionformat/#setSpacing-float-) untuk memperlebar atau mempersempit jarak antar karakter dalam sebuah kotak teks.
+Gunakan [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/id/java/com.aspose.slides.ibaseportionformat/#setSpacing-float-) untuk memperlebar atau mempersempit jarak antar karakter dalam sebuah kotak teks.
 
-Kode Java berikut memperlihatkan cara memperlebar jarak karakter pada **seluruh paragraf**:
+Kode Java berikut memperlihatkan cara memperlebar jarak karakter dalam **seluruh paragraf**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
+    // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Perluas jarak karakter.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
@@ -248,19 +213,22 @@ try {
 
 Hasilnya:
 
-![Jarak karakter dalam paragraf](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-Contoh kode berikut memperlihatkan cara memperlebar jarak karakter pada **bagian teks dengan font tebal**:
+Contoh kode di bawah ini memperlihatkan cara memperlebar jarak karakter dalam **bagian teks dengan font tebal**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Catatan: Gunakan nilai negatif untuk memperkecil jarak karakter.
+            // Catatan: Gunakan nilai negatif untuk memampatkan jarak karakter.
             portion.getPortionFormat().setSpacing(3); // Perluas jarak karakter.
         }
     }
@@ -273,18 +241,21 @@ try {
 
 Hasilnya:
 
-![Jarak karakter dalam bagian teks](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
 ### **Menonaktifkan Kerning untuk Font Tertentu**
 
-Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat tampak sedikit lebih rapat dibandingkan dengan teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mengabaikan data kerning untuk font tertentu, meski font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan di pengaturan PowerPoint.
+Dalam beberapa kasus, teks yang dirender oleh Aspose.Slides dapat tampak sedikit lebih rapat dibandingkan dengan teks yang sama di PowerPoint. Hal ini dapat terjadi karena PowerPoint mungkin mengabaikan data kerning untuk font tertentu, meskipun font tersebut memiliki informasi kerning yang valid dan kerning diaktifkan dalam pengaturan PowerPoint.
 
-Untuk membuat hasil render lebih mendekati tampilan PowerPoint, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang terdampak. Atur [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) ke nilai yang jauh lebih besar daripada ukuran font sebenarnya:
+Untuk membuat hasil render lebih sesuai dengan PowerPoint dalam kasus tersebut, Anda dapat menonaktifkan kerning untuk bagian teks yang menggunakan font yang bersangkutan. Tetapkan [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/id/java/com.aspose.slides.ibaseportionformat/#setKerningMinimalSize-float-) ke nilai yang jauh lebih besar daripada ukuran font sebenarnya:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
     for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
@@ -308,21 +279,24 @@ try {
 }
 ```
 
-Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan rendering Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi perilaku khusus PowerPoint ini.
+Pengaturan ini mencegah kerning diterapkan pada bagian teks yang cocok dan dapat membantu menyelaraskan hasil render Aspose.Slides dengan output visual PowerPoint untuk font yang dipengaruhi oleh perilaku khusus PowerPoint ini.
 
 ## **Mengelola Properti Font Teks**
 
-Properti font dapat diatur pada tingkat paragraf melalui [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) atau pada bagian individual melalui [IPortionFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/iportionformat/).
+Properti font dapat diatur pada tingkat paragraf melalui [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#getDefaultPortionFormat--) atau pada bagian individual melalui [IPortionFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides.iportionformat/).
 
-Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: ia menerapkan ukuran font, tebal, miring, garis bawah titik, dan font Times New Roman ke semua bagian dalam paragraf.
+Kode berikut mengatur font dan gaya teks untuk seluruh paragraf: menerapkan ukuran font, tebal, miring, underline titik, serta font Times New Roman pada semua bagian dalam paragraf.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Atur properti font untuk paragraf.
+    // Tetapkan properti font untuk paragraf.
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(12);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontBold(NullableBool.True);
     paragraph.getParagraphFormat().getDefaultPortionFormat().setFontItalic(NullableBool.True);
@@ -337,19 +311,22 @@ try {
 
 Hasilnya:
 
-![Properti font untuk paragraf](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-Contoh kode berikut menerapkan properti serupa pada **bagian teks dengan font tebal**:
+Contoh kode di bawah ini menerapkan properti serupa pada **bagian teks dengan font tebal**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Atur properti font untuk bagian teks.
+            // Tetapkan properti font untuk bagian teks.
             portion.getPortionFormat().setFontHeight(13);
             portion.getPortionFormat().setFontItalic(NullableBool.True);
             portion.getPortionFormat().setFontUnderline(TextUnderlineType.Dotted);
@@ -365,18 +342,21 @@ try {
 
 Hasilnya:
 
-![Properti font untuk bagian teks](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
 ## **Mengatur Rotasi Teks**
 
-Gunakan [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) untuk menetapkan orientasi teks bawaan dalam sebuah bentuk.
+Gunakan [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/id/java/com.aspose.slides.itextframeformat/#setTextVerticalType-byte-) untuk menetapkan orientasi teks bawaan dalam sebuah bentuk.
 
-Contoh kode berikut mengatur orientasi teks dalam bentuk ke `Vertical270`, yang memutar teks **90 derajat berlawanan arah jarum jam**:
+Contoh kode berikut mengatur orientasi teks dalam bentuk menjadi `Vertical270`, yang memutar teks **90 derajat berlawanan arah jarum jam**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -388,18 +368,21 @@ try {
 
 Hasilnya:
 
-![Rotasi teks](text_rotation.png)
+![The text rotation](text_rotation.png)
 
 ## **Mengatur Rotasi Kustom untuk Bingkai Teks**
 
-Gunakan [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setRotationAngle-float-) untuk menetapkan sudut rotasi kustom bagi sebuah [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframe/).
+Gunakan [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/id/java/com.aspose.slides.itextframeformat/#setRotationAngle-float-) untuk menetapkan sudut rotasi kustom pada sebuah [ITextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides.itextframe/).
 
-Contoh kode berikut memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
+Contoh kode di bawah ini memutar bingkai teks sebesar 3 derajat searah jarum jam dalam bentuk:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -411,21 +394,24 @@ try {
 
 Hasilnya:
 
-![Rotasi kustom teks](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
 ## **Mengatur Jarak Baris Paragraf**
 
-Aspose.Slides menyediakan [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-), dan [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) untuk mengontrol jarak paragraf. Properti‑proporsi ini digunakan sebagai berikut:
+Aspose.Slides menyediakan [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#setSpaceBefore-float-), dan [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#setSpaceWithin-float-) untuk mengontrol jarak paragraf. Properti-properti ini digunakan sebagai berikut:
 
-* Gunakan nilai positif untuk menentukan jarak baris sebagai persentase tinggi baris.
-* Gunakan nilai negatif untuk menentukan jarak baris dalam poin.
+* Gunakan nilai positif untuk menentukan jarak baris sebagai persentase dari tinggi baris.
+* Gunakan nilai negatif untuk menentukan jarak baris dalam satuan poin.
 
-Contoh kode berikut memperlihatkan cara menentukan jarak baris di dalam paragraf:
+Contoh kode berikut menunjukkan cara menentukan jarak baris dalam paragraf:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -438,16 +424,19 @@ try {
 
 Hasilnya:
 
-![Jarak baris dalam paragraf](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
 ## **Mengatur Tipe Autofit untuk Bingkai Teks**
 
-[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setAutofitType-byte-) menentukan bagaimana teks berperilaku ketika melebihi batas kontainernya. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/id/java/com.aspose.slides.itextframeformat/#setAutofitType-byte-) menentukan bagaimana teks berperilaku ketika melebihi batas kontainer. Gunakan untuk mengontrol apakah teks menyusut, meluap, atau mengubah ukuran bentuk secara otomatis.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -457,14 +446,17 @@ try {
 }
 ```
 
-## **Mengatur Penahan (Anchor) Bingkai Teks**
+## **Mengatur Penjangkauan Bingkai Teks**
 
-[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/id/java/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) mendefinisikan bagaimana teks diposisikan secara vertikal di dalam sebuah bentuk, misalnya di bagian atas, tengah, atau bawah.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/id/java/com.aspose.slides.itextframeformat/#setAnchoringType-byte-) menentukan bagaimana teks diposisikan secara vertikal di dalam bentuk, misalnya di atas, tengah, atau bawah.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -476,12 +468,15 @@ try {
 
 ## **Mengatur Tabulasi Teks**
 
-Gunakan [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) dan [IParagraphFormat.getTabs](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraphformat/#getTabs--) untuk mengonfigurasi posisi tab dalam sebuah paragraf.
+Gunakan [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#setDefaultTabSize-float-) dan [IParagraphFormat.getTabs](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraphformat/#getTabs--) untuk mengonfigurasi posisi tab dalam sebuah paragraf.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -495,18 +490,21 @@ try {
 
 Hasilnya:
 
-![Tabulasi paragraf](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
 ## **Mengatur Bahasa Proofing**
 
-Aspose.Slides menyediakan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), yang memungkinkan Anda mengatur bahasa proofing untuk sebuah bagian teks. Bahasa proofing menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
+Aspose.Slides menyediakan [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/id/java/com.aspose.slides.ibaseportionformat/#setLanguageId-java.lang.String-), yang memungkinkan Anda mengatur bahasa proofing untuk sebuah bagian teks. Bahasa proofing menentukan bahasa yang digunakan untuk pemeriksaan ejaan dan tata bahasa di PowerPoint.
 
-Contoh kode berikut memperlihatkan cara mengatur bahasa proofing untuk sebuah bagian teks:
+Contoh kode berikut menunjukkan cara mengatur bahasa proofing untuk sebuah bagian teks:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -518,10 +516,10 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Atur Id bahasa proofing.
+    // Tetapkan Id bahasa proofing.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", SaveFormat.Pptx);
@@ -532,9 +530,11 @@ try {
 
 ## **Mengatur Bahasa Default**
 
-Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/id/java/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) untuk mendefinisikan bahasa default bagi teks yang dibuat saat memuat atau membuat presentasi.
+Gunakan [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/id/java/com.aspose.slides.loadoptions/#setDefaultTextLanguage-java.lang.String-) untuk menentukan bahasa default bagi teks yang dibuat saat memuat atau membuat presentasi.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -556,14 +556,16 @@ try {
 
 ## **Mengatur Gaya Teks Default**
 
-Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
+Untuk menerapkan pemformatan teks default pada tingkat presentasi, gunakan [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/id/java/com.aspose.slides.ipresentation/#getDefaultTextStyle--).
 
-Contoh kode berikut memperlihatkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam sebuah presentasi baru.
+Contoh kode berikut menunjukkan cara mengatur font tebal default dengan ukuran 14 pt untuk semua teks di seluruh slide dalam sebuah presentasi baru.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Ambil format paragraf tingkat teratas.
+    // Dapatkan format paragraf level atas.
     IParagraphFormat paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat != null) {
@@ -577,20 +579,23 @@ try {
 }
 ```
 
-## **Mengekstrak Teks dengan Efek Semua Huruf Kapital (All‑Caps)**
+## **Mengekstrak Teks dengan Efek Semua Huruf Kapital**
 
-Di PowerPoint, menerapkan efek font **All Caps** membuat teks muncul dalam huruf kapital pada slide meskipun awalnya diketik dengan huruf kecil. Saat Anda mengambil bagian teks tersebut dengan Aspose.Slides, perpustakaan mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/java/com.aspose.slides/textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital ketika nilainya `All`.
+Di PowerPoint, menerapkan efek **All Caps** membuat teks tampil dalam huruf kapital pada slide meskipun teks tersebut awalnya diketik dengan huruf kecil. Ketika Anda mengambil bagian teks tersebut dengan Aspose.Slides, pustaka mengembalikan teks persis seperti yang dimasukkan. Untuk mencocokkan teks yang ditampilkan, periksa [TextCapType](https://reference.aspose.com/slides/id/java/com.aspose.slides.textcaptype/) dan ubah string yang dikembalikan menjadi huruf kapital bila nilainya `All`.
 
 Misalkan kita memiliki kotak teks berikut pada slide pertama file sample2.pptx.
 
-![Efek All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-Contoh kode berikut memperlihatkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
+Contoh kode di bawah ini menunjukkan cara mengekstrak teks dengan efek **All Caps** yang diterapkan:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape)presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -616,8 +621,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Bagaimana cara memodifikasi teks dalam tabel pada slide?**
 
-Untuk memodifikasi teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides/itable/). Iterasi melalui sel‑sel dan perbarui setiap sel melalui [ICell.getTextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides/icell/#getTextFrame--) serta pemformatan paragraf melalui [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/iparagraph/#getParagraphFormat--).
+Untuk memodifikasi teks dalam tabel pada slide, gunakan [ITable](https://reference.aspose.com/slides/id/java/com.aspose.slides.itable/). Lakukan iterasi melalui sel-sel dan perbarui setiap sel melalui [ICell.getTextFrame](https://reference.aspose.com/slides/id/java/com.aspose.slides.icell/#getTextFrame--) serta format paragraf melalui [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides.iparagraph/#getParagraphFormat--).
 
-**Bagaimana cara menerapkan warna gradien ke teks dalam slide PowerPoint?**
+**Bagaimana cara menerapkan warna gradien pada teks di slide PowerPoint?**
 
-Untuk menerapkan warna gradien ke teks, gunakan [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides/ibaseportionformat/#getFillFormat--). Atur [IFillFormat.setFillType](https://reference.aspose.com/slides/id/java/com.aspose.slides/ifillformat/#setFillType-byte-) ke [FillType.Gradient](https://reference.aspose.com/slides/id/java/com.aspose.slides/filltype/) dan konfigurasikan titik‑titik gradien, arah, serta transparansi.
+Untuk menerapkan warna gradien pada teks, gunakan [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/id/java/com.aspose.slides.ibaseportionformat/#getFillFormat--). Tetapkan [IFillFormat.setFillType](https://reference.aspose.com/slides/id/java/com.aspose.slides.ifillformat/#setFillType-byte-) ke [FillType.Gradient](https://reference.aspose.com/slides/id/java/com.aspose.slides.filltype/) dan konfigurasikan titik gradient, arah, serta transparansi.

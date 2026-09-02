@@ -56,7 +56,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 
 ## **Klonen an einer bestimmten Position innerhalb derselben Präsentation**
 
-Wenn Sie eine Folie innerhalb derselben Präsentation klonen und an einer anderen Position platzieren möchten, verwenden Sie die Methode `insert_clone`:
+Wenn Sie eine Folie innerhalb derselben Präsentation klonen und an einer anderen Position einfügen möchten, verwenden Sie die Methode `insert_clone`:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse.
 1. Rufen Sie die Folien‑Collection vom [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Objekt ab.
@@ -78,7 +78,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 
 ## **Klonen am Ende einer anderen Präsentation**
 
-Wenn Sie eine Folie aus einer Präsentation klonen und an das Ende einer anderen Präsentation anhängen müssen:
+Wenn Sie eine Folie aus einer Präsentation klonen und an das Ende einer anderen Präsentation anhängen möchten:
 
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse für die Quell‑Präsentation (diejenige, die die zu klonende Folie enthält).
 1. Erstellen Sie eine Instanz der [Presentation](https://reference.aspose.com/slides/de/python-net/aspose.slides/presentation/)‑Klasse für die Ziel‑Präsentation (wo die Folie hinzugefügt werden soll).

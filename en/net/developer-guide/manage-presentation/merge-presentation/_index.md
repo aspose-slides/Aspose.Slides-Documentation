@@ -20,284 +20,318 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Effortlessly merge PowerPoint (PPT, PPTX) and OpenDocument (ODP) presentations with Aspose.Slides for .NET, streamlining your workflow."
+description: "Learn how to merge PowerPoint and OpenDocument presentations in .NET by cloning slides, controlling masters and layouts, resizing slide content, preserving sections, and handling protected or large files."
 ---
 
 ## **Overview**
 
-Aspose.Slides allows you to merge presentations by cloning slides from one presentation into another. This article explains how to merge entire presentations or selected slides, use a slide master or a specific layout during the merge, handle presentations with different slide sizes, and add merged slides to a presentation section. It also covers practical notes related to merged content, including speaker notes, comments, password-protected source files, and thread usage.
+Aspose.Slides for .NET merges presentations by cloning slides from one [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) into another. The main operation is [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/), which can preserve the source slide's formatting or attach the cloned slide to a master or layout in the destination presentation.
 
-## **Optimize Your Presentation Merging**
+This article covers the most common merging workflows:
 
-With [Aspose.Slides for .NET](https://products.aspose.com/slides/net/), seamlessly combine PowerPoint presentations while preserving styles, layouts, and all elements. Unlike other tools, Aspose.Slides blends presentations without compromising on quality or losing data. Merge entire presentations, specific slides, and even different file formats (PPT to PPTX, etc.).
+- merge all slides while preserving their source formatting;
+- merge selected slides;
+- apply a master from the destination presentation;
+- apply a specific layout from the destination presentation;
+- normalize different slide sizes before merging;
+- add cloned slides to a section;
+- merge several presentations in one end-to-end workflow;
+- handle masters, resources, notes, comments, media, fonts, passwords, large files, and multithreading concerns.
 
-### **Merging Features**
+## **How Slide Cloning Affects Masters and Layouts**
 
-- **Full Presentation Merge:** Assemble all slides into a single file.
-- **Specific Slide Merge:** Choose and combine selected slides.
-- **Cross-Format Merge:** Integrate presentations of varying formats, maintaining integrity.
+A slide inherits much of its appearance from its layout and master. For that reason, the cloning overload you choose determines how the merged slide is integrated into the destination presentation.
 
-{{% alert title="Tip" color="info" %}}  
+Use [ISlideCollection.AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) in one of these ways:
 
-Looking for a quick and **free online tool** to **merge PowerPoint presentations**? Try the [**Aspose PowerPoint Merger**](https://products.aspose.app/slides/merger).  
+- `AddClone(sourceSlide)` — preserve the source slide's layout and formatting. When required, the source master can be cloned into the destination presentation automatically. Aspose.Slides tracks automatically cloned masters so repeated slides that use the same source master do not cause that master to be cloned repeatedly.
+- `AddClone(sourceSlide, destinationMaster, allowCloneMissingLayout)` — attach the cloned slide to a specific destination [IMasterSlide](https://reference.aspose.com/slides/net/aspose.slides/imasterslide/). Aspose.Slides looks for a matching layout under that master by layout type or name.
+- `AddClone(sourceSlide, destinationLayout)` — attach the cloned slide directly to a specific destination [ILayoutSlide](https://reference.aspose.com/slides/net/aspose.slides/ilayoutslide/).
 
-- **Merge PowerPoint files easily**: Combine multiple **PPT, PPTX, ODP** presentations into a single file.  
-- **Supports different formats**: Merge **PPT to PPTX**, **PPTX to ODP**, and more.  
-- **No installation required**: Works directly in your browser, fast and secure.  
+The master or layout passed to an `AddClone` overload must belong to the **destination** presentation, not the source presentation.
 
-[![Merge PowerPoint Files Online](slides-merger.png)](https://products.aspose.app/slides/merger)  
+## **Merge Entire Presentations and Preserve Source Formatting**
 
-Start merging your PowerPoint files with **Aspose free online tool** today!  
+The simplest merge copies every slide from the source presentation to the destination presentation. This is the appropriate choice when the imported slides should keep their original theme, master, and layout relationships.
 
-{{% /alert %}}
-
-## **Presentation Merging**
-
-When you [merge one presentation to another](https://products.aspose.com/slides/net/merger/ppt/), you are effectively combining their slides in a single presentation to obtain one file. 
-
-{{% alert title="Info" color="info" %}}
-
-Most presentation programs (PowerPoint or OpenOffice) lack functions that allow users to combine presentations in such manner. 
-
-[**Aspose.Slides for .NET**](https://products.aspose.com/slides/net/) , however, allows you merge to presentations in different ways. You get to merge presentations with all their shapes, styles, texts, formatting, comments, animations, etc. without having to worry about loss of quality or data. 
-
-**See also**
-
-[Clone Slides](https://docs.aspose.com/slides/net/cloning-commenting-and-manipulating-slides/#cloning-commentingandmanipulatingslides-cloningslides)*.* 
-
-{{% /alert %}}
-
-### **What Can Be Merged**
-
-With Aspose.Slides, you can merge 
-
-* entire presentations. All the slides from the presentations end up in one presentation
-* specific slides. Selected slides end up in one presentation
-* presentations in one format (PPT to PPT, PPTX to PPTX, etc) and in different formats (PPT to PPTX, PPTX to ODP, etc) to one another. 
-
-{{% alert title="Note" color="warning" %}} 
-
-Besides presentations, Aspose.Slides allows you to merge other files:
-
-* [Images](https://products.aspose.com/slides/net/merger/image-to-image/), such as [JPG to JPG](https://products.aspose.com/slides/net/merger/jpg-to-jpg/) or [PNG to PNG](https://products.aspose.com/slides/net/merger/png-to-png/)
-* Documents, such as [PDF to PDF](https://products.aspose.com/slides/net/merger/pdf-to-pdf/) or [HTML to HTML](https://products.aspose.com/slides/net/merger/html-to-html/)
-* And two different files such as [image to PDF](https://products.aspose.com/slides/net/merger/image-to-pdf/) or [JPG to PDF](https://products.aspose.com/slides/net/merger/jpg-to-pdf/) or [TIFF to PDF](https://products.aspose.com/slides/net/merger/tiff-to-pdf/).
-
-{{% /alert %}}
-
-### **Merging Options**
-
-You can apply options that determine whether
-
-* each slide in the output presentation retains a unique style
-* a specific style is used for all the slides in the output presentation. 
-
-To merge presentations, Aspose.Slides provides [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) methods (from the [ISlideCollection](https://reference.aspose.com/slides/net/aspose.slides/islidecollection) interface). There are several implementations of the `AddClone` methods that define the presentation merging process parameters. Every Presentation object has a [Slides](https://reference.aspose.com/slides/net/aspose.slides/presentation/properties/slides) collection, so you can call a `AddClone` method from the presentation to which you want to merge slides. 
-
-The `AddClone` method returns an `ISlide` object, which is a clone of the source slide. The slides in an output presentation are simply a copy of the slides from the source. Therefore, you can make changes the resulting slides (for example, apply styles or formatting options or layouts) without worrying about the source presentations becoming affected. 
-
-## **Merge Presentations** 
-
-Aspose.Slides provides the [**AddClone (ISlide)**](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/methods/addclone) method that allows you to combine slides while the slides retain their layouts and styles (default parameters). 
-
-This C# code shows you how to merge presentations:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide);
-    }
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
 }
+
+destination.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-## **Merge Presentations with a Slide Master**
+The resulting presentation may contain multiple masters when the source and destination use different designs. This is expected when source formatting is intentionally preserved.
 
-Aspose.Slides provides the [**AddClone (ISlide, IMasterSlide, Boolean)**](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/2) method that allows you to combine slides while applying a slide master presentation template. This way, if necessary, you get to change the style for slides in the output presentation. 
+## **Merge Selected Slides**
 
-This code in C# demonstrates the described operation:
+You do not have to clone every slide. The following example imports only selected slide indexes from the source presentation.
 
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.Masters[0], allowCloneMissingLayout: true);
-    }
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+var slideIndexes = new[] { 0, 2, 4 };
+
+foreach (var index in slideIndexes)
+{
+    destination.Slides.AddClone(source.Slides[index]);
 }
+
+destination.Save("merged-selected-slides.pptx", SaveFormat.Pptx);
 ```
 
-{{% alert title="Note" color="warning" %}} 
+Validate slide indexes before cloning when they come from user input or external configuration.
 
-The slide layout for the slide master is determined automatically. When an appropriate layout can't be determined, if the `allowCloneMissingLayout` boolean parameter of the `AddClone` method is set to true, the layout for the source slide is used. Otherwise, [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception) will be thrown. 
+## **Merge Slides Using a Destination Master**
 
-{{% /alert %}}
+Use the [AddClone(ISlide, IMasterSlide, Boolean)](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) overload when imported slides should follow a master that already belongs to the destination presentation.
 
-If you want the slides in the output presentation to have a different slide layout, use the [AddClone (ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides.islidecollection/addclone/methods/1) method instead when merging. 
-
-## **Merge Specific Slides from Presentations**
-
-Merging specific slides from multiple presentations is useful for creating custom slide decks. Aspose.Slides for .NET allows you to select and import only the slides you need. The API preserves formatting, layout, and design of the original slides.
-
-The following C# code creates a new presentation, adds title slides from two other presentations, and saves the result to a file:
-
-```cs
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-using (Presentation presentation1 = new Presentation("presentation1.pptx"))
-using (Presentation presentation2 = new Presentation("presentation2.pptx"))
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var destinationMaster = destination.Masters[0];
+
+foreach (var slide in source.Slides)
 {
-    presentation.Slides.RemoveAt(0);
-
-    ISlide slide1 = GetTitleSlide(presentation1);
-
-    if (slide1 != null)
-        presentation.Slides.AddClone(slide1);
-
-    ISlide slide2 = GetTitleSlide(presentation2);
-
-    if (slide2 != null)
-        presentation.Slides.AddClone(slide2);
-
-    presentation.Save("combined.pptx", SaveFormat.Pptx);
+    destination.Slides.AddClone(slide, destinationMaster, allowCloneMissingLayout: true);
 }
 
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
-```
-```cs
-using Aspose.Slides;
-
-static ISlide GetTitleSlide(IPresentation presentation)
-{
-    foreach (ISlide slide in presentation.Slides)
-    {
-        if (slide.LayoutSlide.LayoutType == SlideLayoutType.Title)
-        {
-            return slide;
-        }
-    }
-    return null;
-}
+destination.Save("merged-with-destination-master.pptx", SaveFormat.Pptx);
 ```
 
-## **Merge Presentations with a Slide Layout**
+Aspose.Slides selects an appropriate layout under the specified master by matching the source layout's type or name. If no suitable layout exists and `allowCloneMissingLayout` is `true`, the source layout is cloned so the slide can be added. If it is `false`, a [PptxEditException](https://reference.aspose.com/slides/net/aspose.slides/pptxeditexception/) is thrown.
 
-This C# code shows you how to combine slides from presentations while applying your preferred slide layout to them to get one output presentation:
+Use `false` when you want the merge to fail instead of introducing an additional layout into the destination master.
 
-```c#
+## **Merge Slides Using a Specific Destination Layout**
+
+Use the [AddClone(ISlide, ILayoutSlide)](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) overload when you know exactly which destination layout the imported slides should use.
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
-{
-    foreach (ISlide slide in pres2.Slides)
-    {
-        pres1.Slides.AddClone(slide, pres2.LayoutSlides[0]);
-    }
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+var destinationLayout = destination.LayoutSlides[0];
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide, destinationLayout);
 }
+
+destination.Save("merged-with-destination-layout.pptx", SaveFormat.Pptx);
 ```
+
+Applying a destination layout changes the inherited layout relationship; it does not redesign the source slide content. If the source and destination layouts have different placeholder structures, inspect the result to confirm that the inherited formatting and placeholder behavior are appropriate.
 
 ## **Merge Presentations with Different Slide Sizes**
 
-{{% alert title="Note" color="warning" %}} 
+Presentations with different slide dimensions can be merged, but cloning a slide into a presentation with another slide size does not automatically redesign its content for the new canvas. Shapes may therefore appear shifted, scaled unexpectedly, or outside the visible slide area.
 
-Merging presentations with different slide sizes does not raise an error, but the merged slides take the slide size of the target presentation while their shapes keep their original positions and sizes, so content may end up misplaced or outside the slide boundaries. 
+A practical approach is to resize the source presentation before cloning. The [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) method can scale existing content while changing the slide dimensions. [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/) scales content to fit within the requested size.
 
-{{% /alert %}}
-
-To merge 2 presentations with different slide sizes and keep their content properly laid out, resize one of the presentations to make its size match that of the other presentation. 
-
-This sample code demonstrates the described operation:
-
-```c#
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-   pres2 = new Presentation("pres2.pptx"))
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+if (source.SlideSize.Size.Width != destination.SlideSize.Size.Width || 
+    source.SlideSize.Size.Height != destination.SlideSize.Size.Height)
 {
-   pres2.SlideSize.SetSize(pres1.SlideSize.Size.Width, pres1.SlideSize.Size.Height, SlideSizeScaleType.EnsureFit);
- 
-   foreach (ISlide slide in pres2.Slides)
-   {
-       pres1.Slides.AddClone(slide);
-   }
- 
-   pres1.Save("combined.pptx", SaveFormat.Pptx);
+    source.SlideSize.SetSize(
+        destination.SlideSize.Size.Width, 
+        destination.SlideSize.Size.Height, 
+        SlideSizeScaleType.EnsureFit);
 }
+
+foreach (var slide in source.Slides)
+{
+    destination.Slides.AddClone(slide);
+}
+
+destination.Save("merged-same-slide-size.pptx", SaveFormat.Pptx);
 ```
 
-## **Merge Slides to a Presentation Section**
+Resizing changes the source presentation object in memory. If you need the original source presentation unchanged for other operations, open a separate instance for the merge.
 
-This C# code shows you how to merge a specific slide to a section in a presentation:
+## **Merge Slides into a Presentation Section**
 
-```c#
+The basic slide-cloning loop does not recreate the source presentation's section hierarchy. If sections matter in the output, create or select sections in the destination presentation and clone slides into them explicitly with [AddClone(ISlide, ISection)](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/).
+
+```csharp
 using Aspose.Slides;
 using Aspose.Slides.Export;
 
-using (Presentation pres1 = new Presentation("pres1.pptx"),
-    pres2 = new Presentation("pres2.pptx"))
+using var destination = new Presentation("destination.pptx");
+using var source = new Presentation("source.pptx");
+
+var importedSection = destination.Sections.AppendEmptySection("Imported slides");
+
+foreach (var slide in source.Slides)
 {
-    for (var index = 0; index < pres2.Slides.Count; index++)
+    destination.Slides.AddClone(slide, importedSection);
+}
+
+destination.Save("merged-with-section.pptx", SaveFormat.Pptx);
+```
+
+The cloned slides are appended to the specified destination section. To preserve several source sections, enumerate [Presentation.Sections](https://reference.aspose.com/slides/net/aspose.slides/presentation/sections/), retrieve each source section's current slides with [ISection.GetSlidesListOfSection](https://reference.aspose.com/slides/net/aspose.slides/isection/getslideslistofsection/), recreate the sections in the destination, and clone each returned slide into its corresponding destination section. See [Manage Slide Sections](/slides/net/slide-section/) for a complete section-enumeration example, including empty sections and structural changes.
+
+## **Merge Multiple Presentations Safely**
+
+The following end-to-end example uses the first presentation as the destination, normalizes the slide size of each additional source, keeps each source open only while it is being copied, and saves the final file once.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var inputFiles = new[] { "part1.pptx", "part2.pptx", "part3.pptx" };
+
+using var merged = new Presentation(inputFiles[0]);
+
+for (var fileIndex = 1; fileIndex < inputFiles.Length; fileIndex++)
+{
+    using var source = new Presentation(inputFiles[fileIndex]);
+
+    if (source.SlideSize.Size.Width != merged.SlideSize.Size.Width || 
+        source.SlideSize.Size.Height != merged.SlideSize.Size.Height)
     {
-        ISlide slide = pres2.Slides[index];
-        pres1.Slides.AddClone(slide, pres1.Sections[0]);
+        source.SlideSize.SetSize(
+            merged.SlideSize.Size.Width, 
+            merged.SlideSize.Size.Height, 
+            SlideSizeScaleType.EnsureFit);
     }
 
-    pres1.Save("combined.pptx", SaveFormat.Pptx);
+    foreach (var slide in source.Slides)
+    {
+        merged.Slides.AddClone(slide);
+    }
 }
+
+merged.Save("merged.pptx", SaveFormat.Pptx);
 ```
 
-The slide is added at the end of the section. 
+This is a useful baseline for preserving the source formatting of imported slides. If your output must use a single destination theme, replace the simple `AddClone(slide)` call with the appropriate destination-master or destination-layout overload shown earlier.
 
-{{% alert title="Tip" color="info" %}}
+## **Practical Considerations**
 
-Aspose provides a [FREE Collage web app](https://products.aspose.app/slides/collage). Using this online service, you can merge [JPG to JPG](https://products.aspose.app/slides/collage/jpg) or PNG to PNG images, create [photo grids](https://products.aspose.app/slides/collage/photo-grid), and so on. 
+### **Masters, Layouts, and Formatting Fidelity**
 
-{{% /alert %}}
+Default slide cloning can automatically bring a required source master into the destination presentation. Aspose.Slides keeps an internal registry for automatically cloned masters to avoid cloning the same master repeatedly. Manually cloned masters are not tracked by that registry, so avoid pre-cloning masters unless you need explicit control over the master structure.
+
+Do not assume that two masters or layouts with the same name are visually equivalent. If a corporate template must control the final appearance, choose a destination master or layout explicitly and verify the result after merging.
+
+### **Notes and Comments**
+
+Speaker notes and slide comments are associated with slide content and are copied when a slide is cloned. Aspose.Slides also exposes dedicated APIs for [presentation notes](/slides/net/presentation-notes/) and [presentation comments](/slides/net/presentation-comments/).
+
+If notes-page formatting is important, verify the merged presentation because notes masters are presentation-level objects and may differ between source files. For review workflows, also verify comment authors and threaded comments after combining files from different authors or templates.
+
+### **Images, Audio, Video, OLE Objects, and External Links**
+
+Slides can reference presentation-level resources such as images, embedded audio, embedded video, and OLE data. Clone the slide itself rather than copying only its visible shapes so Aspose.Slides can maintain the slide's relationships to its resources.
+
+Embedded and linked resources should be treated differently. A linked audio, video, OLE object, or hyperlink remains dependent on its external target; cloning a slide does not turn an external link into embedded content. Test linked-resource paths and URLs in the environment where the merged presentation will be opened.
+
+Aspose.Slides explicitly tracks automatically cloned masters, but this should not be treated as a general guarantee that identical binary resources from unrelated source presentations will always be deduplicated. If output file size is important, inspect the merged package and measure the result instead of relying on implicit deduplication.
+
+### **Embedded Fonts and Font Availability**
+
+Fonts are managed at the presentation level. If typography must remain consistent across machines, do not assume that cloning slides alone guarantees that every required font is available in the destination environment. You can inspect embedded fonts with [FontsManager.GetEmbeddedFonts](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getembeddedfonts/) and manage embedding explicitly as described in [Embed Fonts in Presentations](/slides/net/embedded-font/).
+
+Also verify that you are permitted to embed the fonts used by the source files. Font licenses can restrict embedding.
+
+### **Password-Protected Presentations**
+
+A password-protected source must be opened successfully before its slides can be cloned. Supply the password through [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/).
+
+```csharp
+using Aspose.Slides;
+
+var loadOptions = new LoadOptions { Password = "YOUR_PASSWORD" };
+
+using var source = new Presentation("protected.pptx", loadOptions);
+```
+
+Opening an encrypted source does not automatically apply the same protection to the destination presentation. Configure output protection separately when required.
+
+### **Large Presentations and Memory Use**
+
+Large presentations containing high-resolution images, audio, video, or other large binary objects can consume significant memory. [LoadOptions.BlobManagementOptions](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/blobmanagementoptions/) provides controls for BLOB handling and temporary-file usage. See [Manage Presentation BLOBs](/slides/net/manage-blob/) for large-file strategies.
+
+For large files, prefer loading from file paths when possible, dispose each source presentation as soon as it has been merged, and avoid repeatedly saving intermediate results unless the workflow requires checkpoints.
+
+### **Thread Safety**
+
+Do not load, modify, save, or clone the same [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each presentation instance confined to one merge operation. If you parallelize independent jobs, use independent presentation instances and follow the [Aspose.Slides multithreading guidance](/slides/net/multithreading/).
 
 ## **FAQ**
 
-### Are speaker notes preserved during merge?
+**How do I keep each source presentation's original design?**
 
-Yes. When cloning slides, Aspose.Slides carries over all slide elements, including notes, formatting, and animations.
+Use [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) without supplying a destination master or layout. Aspose.Slides can automatically clone the source master when it is needed by the imported slide.
 
-### Are comments and their authors transferred?
+**How do I make imported slides use the destination theme?**
 
-Comments, as part of slide content, are copied with the slide. Comment author labels are preserved as comment objects in the resulting presentation.
+Use the overload that accepts a destination master. Pass a master from the destination presentation, not from the source. Aspose.Slides will try to map each source slide to an appropriate layout under that master.
 
-### What if the source presentation is password-protected?
+**When should I use a specific destination layout instead of a destination master?**
 
-It must be [opened with the password](/slides/net/password-protected-presentation/) via [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/); after loading, those slides can be safely cloned into an unprotected target file (or a protected one as well).
+Use a specific layout when every imported slide should use one known layout. Use a master when you want Aspose.Slides to select among that master's layouts based on the source layout type or name.
 
-### How thread-safe is the merge operation?
+**Can presentations with different slide sizes be merged?**
 
-Do not use the same [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance from [multiple threads](/slides/net/multithreading/). The recommended rule is "one document — one thread"; different files can be processed in parallel in separate threads.
+Yes, but slide content is not automatically redesigned for the destination dimensions. Resize the source presentation first when you need predictable placement, for example with [SlideSize.SetSize](https://reference.aspose.com/slides/net/aspose.slides/slidesize/setsize/) and [SlideSizeScaleType.EnsureFit](https://reference.aspose.com/slides/net/aspose.slides/slidesizescaletype/).
+
+
+**Can I merge PPT, PPTX, and ODP presentations into one file?**
+
+Yes. Load each source presentation, clone the required slides into one destination, and save the destination in a supported output format. Because presentation formats do not support exactly the same feature set, verify complex content after cross-format merges. See [Supported File Formats](/slides/net/supported-file-formats/).
+
+**Are source sections preserved automatically?**
+
+Not by a basic loop that only clones slides. Recreate the required sections in the destination and use the section overload of [AddClone](https://reference.aspose.com/slides/net/aspose.slides/islidecollection/addclone/) when section structure must be preserved.
+
+**Are speaker notes and comments preserved?**
+
+They are copied with the cloned slide. For workflows that depend on notes-master styling, comment authors, or threaded review data, verify the merged result because those scenarios involve presentation-level structures as well as slide-level content.
+
+**What happens to audio, video, OLE objects, and hyperlinks?**
+
+Embedded content is carried as part of the cloned slide's resource relationships. External links remain external, so their target files or URLs must still be available after the merge.
+
+**Are embedded fonts from every source guaranteed to be available in the merged presentation?**
+
+Do not rely on slide cloning alone for font deployment. Inspect the destination's embedded fonts and explicitly manage font embedding or external font availability when typography is important.
+
+**How do I merge a password-protected file?**
+
+Open it with the correct [LoadOptions.Password](https://reference.aspose.com/slides/net/aspose.slides/loadoptions/password/), then clone its slides normally. Output protection is configured separately.
+
+**How should I handle very large presentations?**
+
+Use BLOB management when large binary objects dominate memory usage, prefer file-path loading for very large files, dispose source presentations promptly, and save the final result only when needed.
+
+**Can I merge slides from multiple threads?**
+
+Do not use one [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) instance concurrently from multiple threads. Keep each merge operation isolated to its own presentation instances.

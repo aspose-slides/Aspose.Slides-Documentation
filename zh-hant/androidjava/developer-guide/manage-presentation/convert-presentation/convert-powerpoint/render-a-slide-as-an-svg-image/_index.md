@@ -1,5 +1,5 @@
 ---
-title: 以 Android 渲染簡報投影片為 SVG 圖像
+title: 在 Android 上將簡報投影片渲染為 SVG 圖像
 linktitle: 投影片轉 SVG
 type: docs
 weight: 50
@@ -10,84 +10,212 @@ keywords:
 - 投影片 轉 SVG
 - PPT 轉 SVG
 - PPTX 轉 SVG
-- 將 PPT 儲存為 SVG
-- 將 PPTX 儲存為 SVG
-- 匯出 PPT 為 SVG
-- 匯出 PPTX 為 SVG
-- 渲染投影片
-- 轉換投影片
-- 匯出投影片
-- 向量圖像
+- SVG 匯出選項
+- 互動式 SVG
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Android 將 PowerPoint 投影片渲染為 SVG 圖像。使用簡單的 Java 程式碼示例即可獲得高品質視覺效果。"
+description: "在 Android 上將 PowerPoint 投影片匯出為 SVG 圖像，並使用 Aspose.Slides 控制字型、文字、圖片、ID 與事件。"
 ---
 ## **概觀**
 
-本文說明如何使用 Aspose.Slides 將簡報投影片渲染為 SVG 圖像。它描述了 SVG 格式及其優點，包括可伸縮性、可存取性以及對 Web 開發的適用性。
+SVG 是一種可縮放的基於 XML 的圖像格式，適用於網路發佈、簡報檢視器、無障礙工作流程以及自動後處理。Aspose.Slides for Android via Java 會將每張投影片匯出為單獨的 SVG 檔案，並讓您控制文字、字型、圖片以及 SVG 元素的寫入方式。
 
-您將學習如何載入簡報檔案、遍歷其投影片，並將每張投影片另存為單獨的 SVG 檔案。本文涵蓋 PowerPoint 與 OpenDocument 簡報格式，包括 PPT、PPTX、ODP 與 PPS，並示範如何使用 `Presentation` 類別與 `writeAsSvg` 方法以程式方式執行轉換。
+當匯出的 SVG 必須緊湊、在各瀏覽器上具可預測性，或準備用於互動使用時，請使用 [SVGOptions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/)。
 
-## **SVG 格式**
+## **將投影片匯出為 SVG**
 
-SVG（Scalable Vector Graphics 的縮寫）是一種用於渲染二維圖像的標準圖形類型或格式。  
-SVG 將圖像以向量形式儲存在 XML 中，並包含定義其行為或外觀的細節。
+建立一個 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/)，選取投影片，並使用 [ISlide.writeAsSvg](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islide/#writeAsSvg-java.io.OutputStream-) 將其寫入串流。以下範例會將簡報中的每張投影片匯出為單獨的 SVG 檔案。
 
-SVG 是少數在以下方面符合極高標準的圖像格式：可伸縮性、互動性、效能、可存取性、可程式化等。因此，它在 Web 開發中被廣泛使用。
-
-您可能會在需要以下情況時使用 SVG 檔案：
-
-- **以 *非常大型* 的格式列印簡報。** SVG 圖像可伸縮至任意解析度或尺寸。您可以多次調整 SVG 圖像大小而不會影響品質。
-- **在 *不同媒介或平台* 中使用投影片中的圖表與圖形**。大多數閱讀器都能解析 SVG 檔案。
-- **使用 *最小尺寸* 的圖像**。SVG 檔案通常比其他格式的高解析度等效檔案更小，尤其是基於點陣圖的格式（JPEG 或 PNG）。
-
-## **將投影片渲染為 SVG 圖像**
-
-Aspose.Slides for Android via Java 允許您將簡報中的投影片匯出為 SVG 圖像。請依照以下步驟產生 SVG 圖像：
-
-1. 建立 `Presentation` 類別的實例。  
-2. 遍歷簡報中的所有投影片。  
-3. 透過 `FileOutputStream` 將每張投影片寫入其各自的 SVG 檔案。
-
-{{% alert color="primary" %}} 
-您可以嘗試我們的[免費網路應用程式](https://products.aspose.app/slides/zh-hant/conversion/ppt-to-svg)，我們在其中實作了來自 Aspose.Slides for Android via Java 的 PPT 轉 SVG 功能。
-{{% /alert %}} 
-
-以下為 Java 範例程式碼，說明如何使用 Aspose.Slides 將 PPT 轉換為 SVG：
-
-``` java
-Presentation pres = new Presentation("pres.pptx");
+```java
+Presentation presentation = new Presentation("presentation.pptx");
 try {
-    for (int index = 0; index < pres.getSlides().size(); index++)
-    {
-        ISlide slide = pres.getSlides().get_Item(index);
+    for (ISlide slide : presentation.getSlides()) {
+        String outputFileName = String.format("slide-%d.svg", slide.getSlideNumber());
 
-        FileOutputStream fileStream = new FileOutputStream("slide-" + index + ".svg");
-        try {
-            slide.writeAsSvg(fileStream);
-        } finally {
-            fileStream.close();
+        try (FileOutputStream svgStream = new FileOutputStream(outputFileName)) {
+            slide.writeAsSvg(svgStream);
         }
     }
-} catch(IOException e) {
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **常見問題**
+檔名使用 [ISlide.getSlideNumber](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islide/#getSlideNumber--) 而非迴圈索引。當投影片檢視器或網頁只需要特定圖形時，亦可使用 [IShape.writeAsSvg](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#writeAsSvg-java.io.OutputStream-) 匯出單一圖形。
 
-**為什麼產生的 SVG 在不同瀏覽器上可能會顯示不同？**
+## **設定 SVG 輸出**
 
-不同瀏覽器引擎對特定 SVG 功能的支援實作方式不同。[SVGOptions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/) 參數可協助平衡相容性問題。
+使用 [SVGOptions](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/) 來控制 SVG 呈現。對於文字框，[SVGOptions.setUseFrameSize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setUseFrameSize-boolean-) 會將文字框包括在繪製區域內，而 [SVGOptions.setUseFrameRotation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setUseFrameRotation-boolean-) 決定是否套用框的旋轉。當文字必須在不使用連字的情況下渲染時，將 [SVGOptions.setDisableFontLigatures](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setDisableFontLigatures-boolean-) 設為 `true`。
 
-**是否能夠將不僅是投影片，也包括單一圖形匯出為 SVG？**
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setDisableFontLigatures(true);
+    svgOptions.setUseFrameSize(true);
+    svgOptions.setUseFrameRotation(false);
 
-是的。任何[圖形都可以另存為單獨的 SVG](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/shape/#writeAsSvg-java.io.OutputStream-com.aspose.slides.ISVGOptions-)，這對圖示、圖解以及重複使用圖形非常方便。
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("slide-with-custom-options.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
 
-**能否將多張投影片合併為單一 SVG（條狀圖/文件）？**
+## **控制文字和字型**
 
-標準情況是一張投影片對應一個 SVG。將多張投影片合併為單一 SVG 畫布是於應用層面執行的後處理步驟。
+### **向量化全部文字**
+
+將 [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) 設為 `true`，即可將所有投影片文字寫入為向量圖形。這會消除字型相依性，使視覺結果在各瀏覽器上更一致，但文字將不再可作為 SVG 文字被選取或搜尋。
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setVectorizeText(true);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("slide-with-vectorized-text.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **選擇外部字型的處理方式**
+
+[SVGOptions.setExternalFontsHandling](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setExternalFontsHandling-int-) 會使用一個 [SvgExternalFontsHandling](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgexternalfontshandling/) 值來處理外部載入的字型。選擇 [SvgExternalFontsHandling.AddLinksToFontFiles](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgexternalfontshandling/) 以參照獨立的字型檔案、[SvgExternalFontsHandling.Embed](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgexternalfontshandling/) 以在 SVG 中嵌入字型資料，或 [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgexternalfontshandling/) 只將使用外部字型的文字渲染為圖形。嵌入字型前請確認字型授權。
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    SVGOptions linkedFontsOptions = new SVGOptions();
+    linkedFontsOptions.setExternalFontsHandling(SvgExternalFontsHandling.AddLinksToFontFiles);
+    try (FileOutputStream linkedFontsStream = new FileOutputStream("slide-with-font-links.svg")) {
+        slide.writeAsSvg(linkedFontsStream, linkedFontsOptions);
+    }
+
+    SVGOptions embeddedFontsOptions = new SVGOptions();
+    embeddedFontsOptions.setExternalFontsHandling(SvgExternalFontsHandling.Embed);
+    try (FileOutputStream embeddedFontsStream = new FileOutputStream("slide-with-embedded-fonts.svg")) {
+        slide.writeAsSvg(embeddedFontsStream, embeddedFontsOptions);
+    }
+
+    SVGOptions vectorizedExternalFontsOptions = new SVGOptions();
+    vectorizedExternalFontsOptions.setExternalFontsHandling(SvgExternalFontsHandling.Vectorize);
+    try (FileOutputStream vectorizedExternalFontsStream = new FileOutputStream("slide-with-vectorized-external-fonts.svg")) {
+        slide.writeAsSvg(vectorizedExternalFontsStream, vectorizedExternalFontsOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **縮減嵌入圖片尺寸**
+
+使用 [SVGOptions.setPicturesCompression](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setPicturesCompression-int-) 可降低嵌入圖片的解析度，使用 [SVGOptions.setDeletePicturesCroppedAreas](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setDeletePicturesCroppedAreas-boolean-) 可省略被裁切的來源區域，使用 [SVGOptions.setJpegQuality](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setJpegQuality-int-) 可控制 JPEG 編碼品質。這些設定會以影像保真度或保留的影像資料為代價，減少檔案大小。
+
+```java
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setPicturesCompression(PicturesCompression.Dpi150);
+    svgOptions.setDeletePicturesCroppedAreas(true);
+    svgOptions.setJpegQuality(80);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("compressed-slide.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **為圖形與文字指派穩定的 ID**
+
+使用 [ISvgShapeFormattingController](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) 為每個 SVG 圖形設定 [ISvgShape.setId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgshape/#setId-java.lang.String-)。若同時要為文字 `tspan` 元素設定 [ISvgTSpan.setId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgtspan/#setId-java.lang.String-) 值，請實作 [ISvgShapeAndTextFormattingController](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgshapeandtextformattingcontroller/)。可使用 [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) 指派任一控制器。
+
+以下控制器使用 [IShape.getOfficeInteropShapeId](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/#getOfficeInteropShapeId--) ，該 ID 在圖形生命週期內保持穩定，並使用可重複的計數器為其文字跨度產生 ID。這使得產生的 ID 適合於對未變更的簡報進行後處理。
+
+```java
+class StableSvgIdController implements ISvgShapeAndTextFormattingController {
+    private String currentShapeId = "";
+    private int textSpanIndex;
+
+    public void formatShape(ISvgShape svgShape, IShape shape) {
+        currentShapeId = String.format("shape-%d", shape.getOfficeInteropShapeId());
+        textSpanIndex = 0;
+        svgShape.setId(currentShapeId);
+    }
+
+    public void formatText(ISvgTSpan svgTSpan, IPortion portion, ITextFrame textFrame) {
+        svgTSpan.setId(String.format("%s-text-%d", currentShapeId, textSpanIndex++));
+    }
+}
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setShapeFormattingController(new StableSvgIdController());
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("slide-with-stable-ids.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **新增 SVG 事件處理程式**
+
+在 [ISvgShapeFormattingController](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgshapeformattingcontroller/) 中，呼叫 [ISvgShape.setEventHandler](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgshape/#setEventHandler-int-java.lang.String-)，傳入 [SvgEvent](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgevent/) 值，即可為匯出的圖形新增 JavaScript 事件處理程式。使用 [SVGOptions.setShapeFormattingController](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setShapeFormattingController-com.aspose.slides.ISvgShapeFormattingController-) 指派控制器，並在承載結果的頁面或 SVG 文件中定義 JavaScript 函式。
+
+```java
+class SvgEventController implements ISvgShapeFormattingController {
+    public void formatShape(ISvgShape svgShape, IShape shape) {
+        if ("ActionButton".equals(shape.getName())) {
+            svgShape.setId("action-button");
+            svgShape.setEventHandler(SvgEvent.OnClick, "handleShapeClick(event)");
+        }
+    }
+}
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.setShapeFormattingController(new SvgEventController());
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    try (FileOutputStream svgStream = new FileOutputStream("interactive-slide.svg")) {
+        slide.writeAsSvg(svgStream, svgOptions);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+承載頁面可以定義由處理程式引用的 JavaScript 函式。指派 ID 與事件處理程式可支援投影片檢視器、無障礙增強功能以及其他互動式 SVG 工作流程。
+
+## **常見問答**
+
+**何時應使用 [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-) 而非 [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgexternalfontshandling/)?**
+
+當所有文字必須脫離字型依賴時，請使用 [SVGOptions.setVectorizeText](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgoptions/#setVectorizeText-boolean-)。當僅需將使用外部字型的文字轉換為圖形時，請使用 [SvgExternalFontsHandling.Vectorize](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgexternalfontshandling/)。
+
+**如何將 SVG 壓縮至更小？**
+
+首先壓縮嵌入的圖片、刪除裁切的圖像區域，並在目標環境能提供時選擇連結字型檔案。請測試結果，因為較低的影像解析度、較低的 JPEG 品質以及向量化文字皆會在品質與檔案大小之間產生不同的取捨。
+
+**匯出後能修改 SVG 元素嗎？**
+
+可以。透過格式化控制器指派 ID，之後在後處理工具或瀏覽器腳本中選取相對應的 SVG 元素即可。

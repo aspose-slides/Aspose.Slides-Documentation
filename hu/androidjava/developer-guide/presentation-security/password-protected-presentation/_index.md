@@ -1,5 +1,5 @@
 ---
-title: Jelszóval védett előadások biztonságban Androidon
+title: Jelszóval védett prezentációk biztosítása Androidon
 linktitle: Jelszóvédelem
 type: docs
 weight: 20
@@ -15,8 +15,8 @@ keywords:
 - jelszó hozzáadása
 - PowerPoint titkosítása
 - prezentáció titkosítása
-- PowerPoint visszafejtése
-- prezentáció visszafejtése
+- PowerPoint dekódolása
+- prezentáció dekódolása
 - írásvédelem
 - PowerPoint biztonság
 - prezentáció biztonság
@@ -32,62 +32,62 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Könnyedén zárolhatja és feloldhatja a jelszóval védett PowerPoint és OpenDocument előadásokat az Androidra készült Aspose.Slides Java segítségével. Biztonságban tartja előadásait."
+description: "Jelszóval védett PowerPoint és OpenDocument prezentációkat egyszerűen zárolhat és feloldhat az Androidra készülő Aspose.Slides Java használatával. Biztonságban tarthatja prezentációit."
 ---
 ## **Bevezetés**
 
-Amikor jelszóval véd egy előadást, egy jelszót állít be, amely bizonyos korlátozásokat kényszerít ki az előadáson. A korlátozások eltávolításához a jelszót be kell írni. A jelszóval védett előadást zárolt előadásnak tekintik.
+Amikor egy prezentációt jelszóval véd, azt jelenti, hogy egy jelszót állít be, amely bizonyos korlátozásokat kényszerít ki a prezentáción. A korlátozások eltávolításához a jelszót meg kell adni. A jelszóval védett prezentáció egy zárolt prezentációnak tekinthető.
 
-Általában beállíthat egy jelszót, hogy ezeket a korlátozásokat érvényesítse egy előadáson:
+Általában a következő módon állíthat be jelszót a prezentáció korlátozásainak érvényesítésére:
 
 - **Módosítás**
 
-  Ha csak bizonyos felhasználókat szeretne engedélyezni az előadás módosítására, beállíthat egy módosítási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek módosítsák, változtassák vagy másolják az előadás tartalmát (kivéve ha megadják a jelszót).
+  Ha csak bizonyos felhasználóknak szeretné megengedni a prezentáció módosítását, beállíthat egy módosítási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek módosítsák, változtassák vagy másolják a prezentációt (kivéve, ha megadják a jelszót).
 
-  Azonban ebben az esetben a jelszó nélkül is a felhasználó hozzáférhet a dokumentumhoz és megnyithatja azt. Ebben az írásvédett módban a felhasználó megtekintheti a tartalmat vagy elemeket – hiperhivatkozásokat, animációkat, effektusokat és egyebeket – az előadásban, de nem másolhat elemeket, illetve nem mentheti az előadást.
+  Azonban ebben az esetben, még jelszó nélkül is a felhasználó hozzáfér a dokumentumhoz és megnyithatja azt. Olvasási módban a felhasználó megtekintheti a tartalmat – hyperhivatkozásokat, animációkat, hatásokat és egyebeket – a prezentációban, de nem másolhat elemeket, és nem mentheti a prezentációt.
 
 - **Megnyitás**
 
-  Ha csak bizonyos felhasználókat szeretne engedélyezni az előadás megnyitására, beállíthat egy megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy az emberek még csak a tartalmat sem láthassák (kivéve ha megadják a jelszót).
+  Ha csak bizonyos felhasználóknak szeretné engedélyezni a prezentáció megnyitását, beállíthat egy megnyitási korlátozást. Ez a korlátozás megakadályozza, hogy bárki megtekintse a prezentáció tartalmát (kivéve, ha megadja a jelszót).
 
-  Technikailag a megnyitási korlátozás megakadályozza a felhasználók módosítását is: ha valaki nem tudja megnyitni az előadást, nem tud módosítani vagy változtatni rajta.  
+  Technikai szempontból a megnyitási korlátozás megakadályozza a felhasználókat a prezentáció módosításában is: ha valaki nem tudja megnyitni a prezentációt, nem tud változtatni vagy módosítani azt.
 
-  **Megjegyzés**: ha jelszóval védi az előadást a megnyitás megakadályozására, az előadást tartalmazó fájl titkosítottá válik.
+  **Megjegyzés** hogy amikor jelszóval védi a prezentációt a megnyitás megakadályozása céljából, a prezentációfájl titkosítva lesz.
 
-## **Jelszóvédelem az előadásokhoz az Aspose.Slides‑ben**
+## **Jelszóvédelem a prezentációk számára az Aspose.Slides-ban**
 **Támogatott formátumok**
 
-Az Aspose.Slides támogatja a jelszóvédelmet, titkosítást és hasonló műveleteket a következő formátumú előadások esetén: 
+Az Aspose.Slides jelszóvédelmet, titkosítást és hasonló műveleteket támogat a következő formátumú prezentációk esetén:
 
-- PPTX és PPT – Microsoft PowerPoint előadás 
-- ODP – OpenDocument előadás 
-- OTP – OpenDocument előadás sablon 
+- PPTX és PPT – Microsoft PowerPoint prezentáció
+- ODP – OpenDocument prezentáció
+- OTP – OpenDocument prezentáció sablon
 
 **Támogatott műveletek**
 
-Az Aspose.Slides lehetővé teszi a jelszóvédelem használatát az előadásokon a módosítások megakadályozására a következő módon:
+Az Aspose.Slides lehetővé teszi, hogy jelszóvédelmet alkalmazzon a prezentációkra a módosítások megakadályozása érdekében a következő módokon:
 
-- Egy előadás titkosítása
-- Írásvédettség beállítása egy előadáshoz
+- Prezentáció titkosítása
+- Írásvédettség beállítása a prezentáción
 
 **Egyéb műveletek**
 
-Az Aspose.Slides lehetővé teszi más feladatok végrehajtását a jelszóvédelem és titkosítás kapcsán a következő módon:
+Az Aspose.Slides egyéb, jelszóvédelemmel és titkosítással kapcsolatos feladatokat is támogat a következő módokon:
 
-- Egy előadás visszafejtése; titkosított előadás megnyitása
+- Prezentáció dekódolása; titkosított prezentáció megnyitása
 - Titkosítás eltávolítása; jelszóvédelem letiltása
-- Írásvédelem eltávolítása egy előadásról
-- Egy titkosított előadás tulajdonságainak lekérdezése
-- Annak ellenőrzése, hogy egy előadás titkosított-e
-- Annak ellenőrzése, hogy egy előadás jelszóval védett-e.
+- Írásvédelem eltávolítása a prezentációról
+- Titkosított prezentáció tulajdonságainak lekérése
+- Annak ellenőrzése, hogy a prezentáció titkosított-e
+- Annak ellenőrzése, hogy a prezentáció jelszóval védett-e.
 
-## **Előadás titkosítása**
+## **Prezentáció titkosítása**
 
-Az előadást titkosíthatja jelszó beállításával. Ezután a zárolt előadás módosításához a felhasználónak meg kell adnia a jelszót. 
+Titkosíthat egy prezentációt jelszó beállításával. Ezután a zárolt prezentáció módosításához a felhasználónak meg kell adnia a jelszót.
 
-Az előadás titkosításához vagy jelszóval való védelméhez az encrypt metódust kell használnia (az [IProtectionManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager]) segítségével) a jelszó beállításához. A jelszót átadja az encrypt metódusnak, majd a save metódussal menti a most már titkosított előadást.
+A prezentáció titkosításához vagy jelszóvédelemhez használja az encrypt metódust (az [IProtectionManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager) felületén) a jelszó beállításához. A jelszót átadja az encrypt metódusnak, majd a save metódussal menti a most már titkosított prezentációt.
 
-Ez a minta kód megmutatja, hogyan titkosíthat egy előadást:
+Ez a minta kód bemutatja, hogyan lehet titkosítani egy prezentációt:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -99,13 +99,13 @@ try {
 }
 ```
 
-## **Írásvédelem beállítása egy előadáshoz**
+## **Írásvédelem beállítása a prezentáción**
 
-Az előadáshoz hozzáadhat egy „Ne módosítsa” feliratot. Ezzel jelezheti a felhasználóknak, hogy nem kívánják, hogy módosítsák az előadást.  
+Hozzáadhat egy „Ne módosítsa” feliratot a prezentációhoz. Így jelezheti a felhasználóknak, hogy nem szeretné, ha módosítanák a prezentációt.
 
-**Megjegyzés**: az írásvédelmi folyamat nem titkosítja az előadást. Ezért a felhasználók – ha akarják – módosíthatják az előadást, de a változtatások mentéséhez másik néven kell elmenteniük.
+**Megjegyzés** hogy az írásvédelmi folyamat nem titkosítja a prezentációt. Ennek következtében a felhasználók – ha akarják – módosíthatják a prezentációt, de a változások mentéséhez egy másik névvel kell menteniük a fájlt.
 
-Az írásvédelem beállításához a [setWriteProtection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) metódust kell használni. Ez a minta kód megmutatja, hogyan állítható be írásvédelem egy előadáshoz:
+Az írásvédelem beállításához használja a [setWriteProtection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#setWriteProtection-java.lang.String-) metódust. Ez a minta kód bemutatja, hogyan kell írásvédelmet beállítani egy prezentáción:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -117,27 +117,28 @@ try {
 }
 ```
 
-## **Titkosított előadás betöltése**
+## **Titkosított prezentáció betöltése**
 
-Az Aspose.Slides lehetővé teszi titkosított fájl betöltését a jelszó megadásával. Egy előadás visszafejtéséhez a [removeEncryption](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) metódust kell hívni paraméterek nélkül. Ezután meg kell adnia a helyes jelszót az előadás betöltéséhez.
+Az Aspose.Slides lehetővé teszi, hogy egy titkosított fájlt a jelszava átadásával töltsön be. Egy prezentáció dekódolásához hívja meg a [removeEncryption](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) metódust paraméterek nélkül. Ezután meg kell adnia a helyes jelszót a prezentáció betöltéséhez.
+
+Ez a minta kód bemutatja, hogyan lehet dekódolni egy prezentációt:
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setPassword("123123");
 Presentation presentation = new Presentation("pres.pptx", loadOptions);
 try {
-    // munka a visszafejtett prezentációval
+    // dolgozz a dekódolt prezentációval
 } finally {
     if (presentation != null) presentation.dispose();
 }
-}
 ```
 
-## **Titkosítás eltávolítása egy előadásból**
+## **Titkosítás eltávolítása a prezentációról**
 
-Eltávolíthatja a titkosítást vagy a jelszóvédelmet egy előadásról. Így a felhasználók korlátozás nélkül férhetnek hozzá vagy módosíthatják az előadást.
+Eltávolíthatja a titkosítást vagy a jelszóvédelmet egy prezentációból. Így a felhasználók korlátozás nélkül férhetnek hozzá vagy módosíthatják a prezentációt.
 
-A titkosítás vagy jelszóvédelem eltávolításához a [removeEncryption](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) metódust kell meghívni. Ez a minta kód megmutatja, hogyan távolítható el a titkosítás egy előadásról:
+A titkosítás vagy jelszóvédelem eltávolításához hívja meg a [removeEncryption](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#removeEncryption--) metódust. Ez a minta kód bemutatja, hogyan kell eltávolítani a titkosítást egy prezentációról:
 
 ```java
 LoadOptions loadOptions = new LoadOptions();
@@ -151,11 +152,11 @@ try {
 }
 ```
 
-## **Írásvédelem eltávolítása egy előadásból**
+## **Írásvédelem eltávolítása a prezentációról**
 
-Az Aspose.Slides segítségével eltávolíthatja egy előadáson alkalmazott írásvédelmet. Így a felhasználók szabadon módosíthatnak, és nem kapnak figyelmeztetést ilyen műveletek végrehajtásakor.
+Az Aspose.Slides segítségével eltávolíthatja a prezentáció fájlon alkalmazott írásvédelmet. Így a felhasználók szabadon módosíthatnak – és nem kapnak figyelmeztetést, amikor ilyen feladatokat végeznek.
 
-Az írásvédelmet a [removeWriteProtection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) metódus használatával távolíthatja el egy előadásról. Ez a minta kód megmutatja, hogyan távolítható el az írásvédelem egy előadásról:
+Az írásvédelmet a [removeWriteProtection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#removeWriteProtection--) metódussal távolíthatja el. Ez a minta kód bemutatja, hogyan kell eltávolítani az írásvédelmet egy prezentációról:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -167,40 +168,75 @@ try {
 }
 ```
 
-## **Titkosított előadás tulajdonságainak lekérdezése**
+## **Titkosított prezentáció tulajdonságainak lekérése**
 
-Általában a felhasználók nehezen tudják lekérdezni egy titkosított vagy jelszóval védett előadás dokumentumtulajdonságait. Az Aspose.Slides azonban egy olyan mechanizmust kínál, amely lehetővé teszi az előadás jelszóvédelemét, miközben a felhasználók hozzáférhetnek az előadás tulajdonságaihoz.
+Általában a felhasználók nehezen férnek hozzá egy titkosított vagy jelszóval védett prezentáció dokumentumtulajdonságaihoz. Azonban az Aspose.Slides olyan mechanizmust kínál, amely lehetővé teszi a prezentáció jelszóval való védelmét, miközben a felhasználók továbbra is elérhetik a tulajdonságokat.
 
-**Megjegyzés**: amikor az Aspose.Slides titkosít egy előadást, a dokumentumtulajdonságok is alapértelmezés szerint jelszóval védettek lesznek. Ha azonban el akarja érni, hogy a prezentáció tulajdonságai hozzáférhetők legyenek (még a titkosítás után is), az Aspose.Slides lehetővé teszi ezt.
+**Megjegyzés:** Alapértelmezés szerint, amikor az Aspose.Slides titkosít egy prezentációt, a prezentáció dokumentumtulajdonságai is jelszóval védettek. Ha azt szeretné, hogy a dokumentumtulajdonságok a titkosítás után is elérhetők legyenek, az Aspose.Slides ezt lehetővé teszi.
 
-Ha azt szeretné, hogy a felhasználók továbbra is hozzáférhessenek egy általad titkosított előadás tulajdonságaihoz, állítsa a [encryptDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#getEncryptDocumentProperties--) tulajdonságot `true`-ra. Ez a minta kód megmutatja, hogyan titkosíthat egy előadást, miközben lehetővé teszi a felhasználók számára a dokumentumtulajdonságok elérését:
+Ha azt szeretné, hogy a felhasználók a titkosított prezentáció tulajdonságait is elérhessék, adja át a `false` értéket az [IProtectionManager.setEncryptDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iprotectionmanager/#setEncryptDocumentProperties-boolean-) metódusnak. Ez a minta kód bemutatja, hogyan titkosíthat egy prezentációt úgy, hogy a felhasználók továbbra is hozzáférhetnek a dokumentumtulajdonságokhoz:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
 try {
-    presentation.getProtectionManager().setEncryptDocumentProperties(true);
+    presentation.getProtectionManager().setEncryptDocumentProperties(false);
     presentation.getProtectionManager().encrypt("123123");
+    presentation.save("encrypted-pres.pptx", SaveFormat.Pptx);
 } finally {
     if (presentation != null) presentation.dispose();
 }
 ```
 
-## **Ellenőrzés, hogy egy előadás jelszóval védett-e**
+## **Csak a dokumentumtulajdonságok betöltése titkosított prezentációból**
 
-Mielőtt betöltene egy előadást, érdemes ellenőrizni és megerősíteni, hogy az előadás nincs jelszóval védve. Így elkerülhetők a hibák és hasonló problémák, amelyek akkor jelentkeznek, amikor jelszóval védett előadást jelszó nélkül próbálnak betölteni.
+A titkosított prezentáció metaadatainak megtekintéséhez anélkül, hogy a diák vagy egyéb tartalom betöltődne, hozzon létre egy [LoadOptions](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/loadoptions/) objektumot, és adja át a `true` értéket a [setOnlyLoadDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iloadoptions/#setOnlyLoadDocumentProperties-boolean-) metódusnak. Ebben a módban az Aspose.Slides figyelmen kívül hagyja a jelszót, és csak a nyilvánosan elérhető dokumentumtulajdonságokat tölti be.
 
-Ez a Java kód megmutatja, hogyan vizsgálhatja meg egy előadást annak megállapítására, hogy jelszóval védett-e (az előadás tényleges betöltése nélkül):
+Az alábbi kódrészlet a beépített és egyéni dokumentumtulajdonságok olvasását mutatja a [IPresentation.getDocumentProperties](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ipresentation/#getDocumentProperties--) segítségével:
+
+```java
+LoadOptions loadOptions = new LoadOptions();
+loadOptions.setOnlyLoadDocumentProperties(true);
+
+Presentation presentation = new Presentation("encrypted-pres.pptx", loadOptions);
+try {
+    IDocumentProperties documentProperties = presentation.getDocumentProperties();
+
+    // Olvassa be a beépített dokumentum tulajdonságokat.
+    System.out.println("Title: " + documentProperties.getTitle());
+    System.out.println("Author: " + documentProperties.getAuthor());
+
+    // Olvassa be az egyéni dokumentum tulajdonságokat.
+    int customPropertyCount = documentProperties.getCountOfCustomProperties();
+
+    for (int propertyIndex = 0; propertyIndex < customPropertyCount; propertyIndex++) {
+        String propertyName = documentProperties.getCustomPropertyName(propertyIndex);
+        Object propertyValue = documentProperties.get_Item(propertyName);
+
+        System.out.println(propertyName + ": " + propertyValue);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Ez a munkafolyamat csak akkor működik, ha a dokumentumtulajdonságok titkosítás nélkül (nyilvánosan) maradtak a prezentáció titkosításakor. Ha a dokumentumtulajdonságok titkosítva vannak, a `true` érték átadása a `loadOptions.setOnlyLoadDocumentProperties` metódusnak kivételt eredményez, mivel ebben a módban a jelszó figyelmen kívül marad. Titkosított dokumentumtulajdonságok eléréséhez vagy a teljes prezentáció betöltéséhez, beleértve a diákat és egyéb tartalmakat, adja meg a helyes jelszót a [ILoadOptions.setPassword](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iloadoptions/#setPassword-java.lang.String-) metódussal.
+
+## **Annak ellenőrzése, hogy egy prezentáció jelszóval védett-e**
+
+Mielőtt betöltene egy prezentációt, érdemes ellenőrizni, hogy a prezentáció nincs-e jelszóval védve. Így elkerülheti a hibákat és hasonló problémákat, amelyek akkor merülnek fel, amikor jelszóval védett prezentációt jelszó nélkül próbálnak betölteni.
+
+Ez a Java kód bemutatja, hogyan vizsgálhat meg egy prezentációt annak megállapítására, hogy jelszóval védett-e (a prezentáció tényleges betöltése nélkül):
 
 ```java
 IPresentationInfo presentationInfo = PresentationFactory.getInstance().getPresentationInfo("example.pptx");
 System.out.println("The presentation is password protected: " + presentationInfo.isPasswordProtected());
 ```
 
-## **Ellenőrzés, hogy egy előadás titkosított-e**
+## **Annak ellenőrzése, hogy egy prezentáció titkosított-e**
 
-Az Aspose.Slides lehetővé teszi annak ellenőrzését, hogy egy előadás titkosított-e. Ehhez használhatja a [isEncrypted](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) tulajdonságot, amely `true` értékkel tér vissza, ha az előadás titkosított, vagy `false`-zal, ha nincs titkosítva.
+Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, egy prezentáció titkosított-e. Ehhez használja az [isEncrypted](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#isEncrypted--) tulajdonságot, amely `true` értéket ad vissza, ha a prezentáció titkosított, vagy `false` értéket, ha nem titkosított.
 
-Ez a minta kód megmutatja, hogyan ellenőrizhető, hogy egy előadás titkosított-e:
+Ez a minta kód bemutatja, hogyan ellenőrizheti, hogy egy prezentáció titkosított-e:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -211,11 +247,11 @@ try {
 }
 ```
 
-## **Ellenőrzés, hogy egy előadás írásvédett-e**
+## **Annak ellenőrzése, hogy egy prezentáció írásvédett-e**
 
-Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, egy előadás írásvédett-e. Ehhez a [isWriteProtected](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) tulajdonságot használhatja, amely `true`-t ad vissza, ha az előadás írásvédett, vagy `false`-t, ha nincs írásvédett.
+Az Aspose.Slides lehetővé teszi, hogy ellenőrizze, egy prezentáció írásvédett-e. Ehhez használja az [isWriteProtected](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/IProtectionManager#isWriteProtected--) tulajdonságot, amely `true` értéket ad vissza, ha a prezentáció írásvédett, vagy `false` értéket, ha nem írásvédett.
 
-Ez a minta kód megmutatja, hogyan ellenőrizhető, hogy egy előadás írásvédett-e:
+Ez a minta kód bemutatja, hogyan ellenőrizheti, hogy egy prezentáció írásvédett-e:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -226,11 +262,11 @@ try {
 }
 ```
 
-## **Ellenőrzés, hogy egy adott jelszó lett-e használva**
+## **Egy adott jelszó használatának ellenőrzése vagy megerősítése**
 
-Lehet, hogy ellenőrizni és megerősíteni szeretné, hogy egy adott jelszó lett-e használva egy előadási dokumentum védelmére. Az Aspose.Slides lehetőséget biztosít a jelszó validálására. 
+Lehet, hogy ellenőrizni és megerősíteni szeretné, hogy egy konkrét jelszót használtak a prezentáció dokumentumának védelmére. Az Aspose.Slides lehetőséget biztosít a jelszó validálására.
 
-Ez a minta kód megmutatja, hogyan lehet validálni egy jelszót:
+Ez a minta kód bemutatja, hogyan validálhat egy jelszót:
 
 ```java
 Presentation presentation = new Presentation("pres.pptx");
@@ -242,22 +278,22 @@ try {
 }
 ```
 
-`true` értéket ad vissza, ha az előadást a megadott jelszóval titkosították. Ellenkező esetben `false` értéket ad vissza. 
+A metódus `true` értéket ad vissza, ha a prezentáció a megadott jelszóval lett titkosítva. Ellenkező esetben `false` értéket ad vissza.
 
 {{% alert color="primary" title="Lásd még" %}} 
-- [Digitális aláírás a PowerPointban](/slides/hu/androidjava/digital-signature-in-powerpoint/)
+- [Digital Signature in PowerPoint](/slides/hu/androidjava/digital-signature-in-powerpoint/)
 {{% /alert %}}
 
 ## **GYIK**
 
 **Milyen titkosítási módszereket támogat az Aspose.Slides?**
 
-Az Aspose.Slides modern titkosítási módszereket támogat, többek között AES-alapú algoritmusokat, biztosítva ezzel a magas szintű adatbiztonságot a prezentációk számára.
+Az Aspose.Slides modern titkosítási módszereket támogat, beleértve az AES-alapú algoritmusokat, amelyek magas szintű adatbiztonságot biztosítanak a prezentációk számára.
 
-**Mi történik, ha helytelen jelszót adnak meg egy előadás megnyitásakor?**
+**Mi történik, ha helytelen jelszót adnak meg egy prezentáció megnyitásakor?**
 
-Kivétel keletkezik, ha helytelen jelszót adnak meg, és értesíti, hogy a hozzáférés az előadáshoz megtagadva. Ez segít megakadályozni az illetéktelen hozzáférést és védi az előadás tartalmát.
+Kivétel keletkezik, ha hibás jelszót használnak, jelezve, hogy a hozzáférés a prezentációhoz megtagadva. Ez segít megakadályozni a jogosulatlan hozzáférést és védi a prezentáció tartalmát.
 
-**Vannak-e teljesítménybeli következményei a jelszóval védett előadások használatának?**
+**Vannak-e teljesítménybeli hatások a jelszóval védett prezentációk kezelésekor?**
 
-A titkosítási és visszafejtési folyamat apró teljesítménybeli terhelést okozhat a megnyitási és mentési műveletek során. A legtöbb esetben ez a hatás minimális, és nem befolyásolja jelentősen a prezentációs feladatok általános feldolgozási idejét.
+A titkosítási és dekódolási folyamat egy kis többletterhet jelenthet a megnyitási és mentési műveletek során. A legtöbb esetben ez a teljesítménybeli hatás minimális, és nem befolyásolja jelentősen a prezentációs feladatok általános feldolgozási idejét.

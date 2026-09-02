@@ -22,484 +22,465 @@ keywords:
 - 演示文稿
 - Java
 - Aspose.Slides
-description: "了解如何使用 Aspose.Slides for Java 在 PowerPoint 演示文稿中创建和自定义形状动画。脱颖而出！"
+description: "了解如何使用 Aspose.Slides for Java 添加、检查和自定义形状动画、时间设置、声音、动画后行为以及动画文本。"
 ---
+## **概述**
 
-动画是可以应用于文本、图像、形状或[图表](https://docs.aspose.com/slides/java/animated-charts/)的视觉效果。它们为演示文稿或其组成部分注入活力。 
+Aspose.Slides for Java 将幻灯片动画表示为幻灯片时间轴上的效果。每个效果都有目标形状、动画类型和子类型、触发器、时间设置以及可选属性（例如声音或动画结束后的行为）。
 
-## **为什么在演示文稿中使用动画？**
+时间轴包含两种序列：
 
-使用动画，您可以  
+- **主序列** 在幻灯片前进时播放。
+- **交互序列** 在其触发形状被单击时启动。
 
-* 控制信息流  
-* 强调重要要点  
-* 提高观众的兴趣或参与度  
-* 使内容更易阅读、理解或处理  
-* 吸引读者或观众注意演示文稿中的重要部分  
+由于文本框、图片、图表、表格和其他幻灯片对象实现了[IShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/)，因此对大多数幻灯片内容使用相同的[ISequence.addEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)方法。可用的效果列在[EffectType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/effecttype/)类中。
 
-PowerPoint 提供了许多选项和工具，用于在**入口**、**退出**、**强调**和**运动路径**类别中进行动画和动画效果。 
+## **添加形状动画**
 
-## **Aspose.Slides 中的动画**
+要添加动画，获取幻灯片的主序列并调用[ISequence.addEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)并传入目标形状、效果类型、子类型和触发器。若要创建在单击另一个形状时启动的效果，请创建触发器为该形状的交互序列。
 
-* Aspose.Slides 在 `Aspose.Slides.Animation` 命名空间下提供了处理动画所需的类和类型，  
-* Aspose.Slides 在[EffectType](https://reference.aspose.com/slides/java/com.aspose.slides/effecttype) 枚举下提供了超过 **150** 种动画效果。这些效果本质上与 PowerPoint 中使用的效果相同（或等价）。  
-
-## **将动画应用于文本框**
-
-Aspose.Slides for Java 允许您对形状中的文本应用动画。 
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 添加一个 `rectangle` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape)。  
-4. 向 [IAutoShape.TextFrame](https://reference.aspose.com/slides/java/com.aspose.slides/IAutoShape#addTextFrame-java.lang.String-) 添加文本。  
-5. 获取主效果序列。  
-6. 向 [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape) 添加动画效果。  
-7. 将 `TextAnimation.BuildType` 属性设置为 `BuildType` 枚举中的值。  
-8. 将演示文稿写入磁盘，保存为 PPTX 文件。  
-
-以下 Java 代码演示了如何将 `Fade` 效果应用于 AutoShape 并将文本动画设置为 *按一级段落* 的值：
-```java
-// 实例化表示演示文稿文件的 Presentation 类。
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 添加带有文本的新 AutoShape
-    IAutoShape autoShape = sld.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
-
-    ITextFrame textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-
-    // 获取幻灯片的主序列。
-    ISequence sequence = sld.getTimeline().getMainSequence();
-
-    // 为形状添加淡入动画效果
-    IEffect effect = sequence.addEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // 按一级段落对形状文本进行动画
-    effect.getTextAnimation().setBuildType(BuildType.ByLevelParagraphs1);
-
-    // 将 PPTX 文件保存到磁盘
-    pres.save(path + "AnimText_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-{{%  alert color="primary"  %}} 
-
-除了对文本应用动画外，还可以对单个 [Paragraph](https://reference.aspose.com/slides/java/com.aspose.slides/iparagraph) 应用动画。参见[**动画文本**](/slides/zh/java/animated-text/)。 
-
-{{% /alert %}} 
-
-## **将动画应用于图片框**
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 在幻灯片上添加或获取一个 [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe)。  
-4. 获取主效果序列。  
-5. 向 [PictureFrame](https://reference.aspose.com/slides/java/com.aspose.slides/pictureframe) 添加动画效果。  
-6. 将演示文稿写入磁盘，保存为 PPTX 文件。  
-
-以下 Java 代码演示了如何将 `Fly` 效果应用于图片框：
-```java
-// 实例化表示演示文稿文件的 Presentation 类。
-Presentation pres = new Presentation();
-try {
-    // 加载要添加到演示文稿图像集合中的图片
-    IPPImage picture;
-    IImage image = Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) image.dispose();
-    }
-
-    // 向幻灯片添加图片框
-    IPictureFrame picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, picture);
-
-    // 获取幻灯片的主序列。
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-
-    // 向图片框添加从左侧飞入的动画效果
-    IEffect effect = sequence.addEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // 将 PPTX 文件保存到磁盘
-    pres.save(path + "AnimImage_out.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **将动画应用于形状**
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 添加一个 `rectangle` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape)。  
-4. 添加一个 `Bevel` [IAutoShape](https://reference.aspose.com/slides/java/com.aspose.slides/iautoshape)（当单击此对象时，动画将播放）。  
-5. 在 bevel 形状上创建效果序列。  
-6. 创建自定义 `UserPath`。  
-7. 为 `UserPath` 添加移动命令。  
-8. 将演示文稿写入磁盘，保存为 PPTX 文件。  
-
-以下 Java 代码演示了如何将 `PathFootball`（路径足球）效果应用于形状：
-```java
-// 实例化一个表示 PPTX 文件的 Presentation 类。
-Presentation pres = new Presentation();
-try {
-    ISlide sld = pres.getSlides().get_Item(0);
-
-    // 为现有形状从头创建 PathFootball 效果。
-    IAutoShape ashp = sld.getShapes().addAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-
-    // 添加 PathFootBall 动画效果
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, EffectType.PathFootball,
-            EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // 创建某种 "按钮".
-    IShape shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // 为此按钮创建一系列效果。
-    ISequence seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-
-     // 创建自定义用户路径。我们的对象仅在按钮点击后移动。
-    IEffect fxUserPath = seqInter.addEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-     // 添加移动命令，因为创建的路径为空。
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.getBehaviors().get_Item(0));
-
-    Point2D.Float[] pts = new Point2D.Float[1];
-    pts[0] = new Point2D.Float(0.076f, 0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new Point2D.Float(-0.076f, -0.59f);
-    motionBhv.getPath().add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-     // 将 PPTX 文件写入磁盘
-    pres.save("AnimExample_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **获取应用于形状的动画效果**
-
-以下示例演示了如何使用 [ISequence](https://reference.aspose.com/slides/java/com.aspose.slides/isequence/) 接口中的 `getEffectsByShape` 方法获取应用于形状的所有动画效果。  
-
-**示例 1：获取普通幻灯片上形状的动画效果**  
-
-之前，您已经了解了如何在 PowerPoint 演示文稿中向形状添加动画效果。下面的示例代码展示了如何获取演示文稿 `AnimExample_out.pptx` 中第一张普通幻灯片上第一个形状所应用的效果。  
-```java
-Presentation presentation = new Presentation("AnimExample_out.pptx");
-try {
-    ISlide firstSlide = presentation.getSlides().get_Item(0);
-
-    // 获取幻灯片的主动画序列。
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // 获取第一张幻灯片上的第一个形状。
-    IShape shape = firstSlide.getShapes().get_Item(0);
-
-    // 获取应用于该形状的动画效果。
-    IEffect[] shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0)
-        System.out.println("The shape " + shape.getName() + " has " + shapeEffects.length + " animation effects.");
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-**示例 2：获取所有动画效果，包括从占位符继承的效果**  
-
-如果普通幻灯片上的形状在布局幻灯片和/或母版幻灯片上具有占位符，并且这些占位符已添加动画效果，则在幻灯片放映期间，将播放该形状的所有效果，包括从占位符继承的效果。  
-
-假设我们有一个 PowerPoint 演示文稿文件 `sample.pptx`，其中仅有一个页脚形状，文本为 “Made with Aspose.Slides”，并对该形状应用了 **Random Bars** 效果。  
-
-![幻灯片形状动画效果](slide-shape-animation.png)
-
-让我们再假设在 **布局** 幻灯片的页脚占位符上应用了 **Split** 效果。  
-
-![布局形状动画效果](layout-shape-animation.png)
-
-最后，在 **母版** 幻灯片的页脚占位符上应用了 **Fly In** 效果。  
-
-![母版形状动画效果](master-shape-animation.png)
-
-以下示例代码演示了如何使用 [IShape](https://reference.aspose.com/slides/java/com.aspose.slides/ishape/) 接口中的 `getBasePlaceholder` 方法访问形状占位符，并获取应用于页脚形状的动画效果，包括从布局和母版幻灯片上的占位符继承的效果。  
-```java
-Presentation presentation = new Presentation("sample.pptx");
-
-ISlide slide = presentation.getSlides().get_Item(0);
-
-// 获取普通幻灯片上形状的动画效果。
-IShape shape = slide.getShapes().get_Item(0);
-IEffect[] shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// 获取布局幻灯片上占位符的动画效果。
-IShape layoutShape = shape.getBasePlaceholder();
-IEffect[] layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// 获取母版幻灯片上占位符的动画效果。
-IShape masterShape = layoutShape.getBasePlaceholder();
-IEffect[] masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-System.out.println("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
+下面的示例创建了两种类型的动画并将结果保存为`shape-animations.pptx`。
 
 ```java
-static void printEffects(IEffect[] effects)
-{
-    for (IEffect effect : effects)
-    {
-        String typeName = EffectType.getName(EffectType.class, effect.getType());
-        String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+import com.aspose.slides.*;
 
-        System.out.println(typeName + " " + subtypeName);
+public class AddShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Click to animate this shape");
+
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            IEffect entranceEffect = mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            entranceEffect.getTiming().setDuration(1.5f);
+
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
+
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            presentation.save("shape-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
 }
 ```
 
+触发器决定效果何时开始：
 
-输出：  
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/effecttriggertype/#OnClick) 在主序列中等待点击，或在交互序列中等待对触发形状的点击。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/zh/java/com.aspose.slides/effecttriggertype/#WithPrevious) 与前一个效果同时开始。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/zh/java/com.aspose.slides/effecttriggertype/#AfterPrevious) 在前一个效果完成后开始。
 
+要为图片、图表或其他形状类型设置动画，请将相应对象传递给[ISequence.addEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)，而不是`targetShape`。有关特定于图表的分组选项，请参阅[Animated Charts](/slides/zh/java/animated-charts/)。
 
-## **更改动画效果的时间属性**
+## **读取形状动画**
 
-Aspose.Slides for Java 允许您更改动画效果的 Timing 属性。  
+当已知目标形状时，使用[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。若要检查每个效果，请遍历主序列和所有交互序列。遍历可以避免假设序列在索引`0`处一定有效果。
 
-这是 Microsoft PowerPoint 中的 Animation Timing 窗格：
+下面的示例创建了带有主序列和交互序列效果的形状，获取针对该形状的效果，然后遍历幻灯片上的每个序列。
 
-![example1_image](shape-animation.png)
-
-以下是 PowerPoint Timing 与 [Effect.Timing](https://reference.aspose.com/slides/java/com.aspose.slides/IEffect#getTiming--) 属性之间的对应关系：
-
-- PowerPoint Timing **Start** 下拉列表对应 [Effect.Timing.TriggerType](https://reference.aspose.com/slides/java/com.aspose.slides/ITiming#getTriggerType--) 属性。  
-- PowerPoint Timing **Duration** 对应 [Effect.Timing.Duration](https://reference.aspose.com/slides/java/com.aspose.slides/ITiming#getDuration--) 属性。动画的持续时间（秒）是动画完成一个周期所需的总时间。  
-- PowerPoint Timing **Delay** 对应 [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/java/com.aspose.slides/ITiming#getTriggerDelayTime--) 属性。  
-
-更改 Effect Timing 属性的方法如下：
-
-1. [Apply](#apply-animation-to-shape) 或获取动画效果。  
-2. 为需要的 [Effect.Timing](https://reference.aspose.com/slides/java/com.aspose.slides/IEffect#getTiming--) 属性设置新值。  
-3. 保存修改后的 PPTX 文件。  
-
-以下 Java 代码演示了该操作：
 ```java
-// 实例化表示演示文稿文件的 Presentation 类。
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // 获取幻灯片的主序列。
-    ISequence sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
+import com.aspose.slides.*;
 
-    // 获取主序列的第一个效果。
-    IEffect effect = sequence.get_Item(0);
+public class ReadShapeAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape targetShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            targetShape.addTextFrame("Animated shape");
 
-    // 将效果的 TriggerType 更改为单击启动
-    effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            ISequence mainSequence = slide.getTimeline().getMainSequence();
+            mainSequence.addEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // 更改效果的持续时间
-    effect.getTiming().setDuration(3f);
+            IAutoShape triggerShape = slide.getShapes().addAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+            triggerShape.addTextFrame("Move");
 
-    // 更改效果的触发延迟时间
-    effect.getTiming().setTriggerDelayTime(0.5f);
+            ISequence interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+            interactiveSequence.addEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // 将 PPTX 文件保存到磁盘
-    pres.save("AnimExample_changed.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+            IEffect[] targetEffects = mainSequence.getEffectsByShape(targetShape);
+            System.out.println("The main sequence contains " + targetEffects.length + " effect(s) for " + targetShape.getName() + ".");
 
+            printSequence("Main sequence", mainSequence);
 
-## **动画效果声音**
-
-Aspose.Slides 提供以下属性，以便您在动画效果中使用声音：  
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/java/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/java/com.aspose.slides/effect/#setStopPreviousSound-boolean-)  
-
-### **添加动画效果声音**
-
-以下 Java 代码演示了如何添加动画效果声音并在下一个效果开始时停止它：
-```java
-Presentation pres = new Presentation("AnimExample_out.pptx");
-try {
-    // 将音频添加到演示文稿的音频集合
-    IAudio effectSound = pres.getAudios().addAudio(Files.readAllBytes(Paths.get("sampleaudio.wav")));
-
-    ISlide firstSlide = pres.getSlides().get_Item(0);
-
-    // 获取幻灯片的主序列。
-    ISequence sequence = firstSlide.getTimeline().getMainSequence();
-
-    // 获取主序列的第一个效果
-    IEffect firstEffect = sequence.get_Item(0);
-
-    // 检查效果是否为“无声音”
-    if (!firstEffect.getStopPreviousSound() && firstEffect.getSound() == null)
-    {
-        // 为第一个效果添加声音
-        firstEffect.setSound(effectSound);
+            int interactiveIndex = 1;
+            for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                String triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+                String sequenceLabel = "Interactive sequence " + interactiveIndex + ", trigger: " + triggerName;
+                printSequence(sequenceLabel, sequence);
+                interactiveIndex++;
+            }
+        } finally {
+            presentation.dispose();
+        }
     }
 
-    // 获取幻灯片的第一个交互序列。
-    ISequence interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
+    private static void printSequence(String label, ISequence sequence) {
+        System.out.println("  " + label + ": " + sequence.getCount() + " effect(s)");
 
-    // 设置效果的“停止先前声音”标志
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-### **提取动画效果声音**
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/presentation/) 类的实例。  
-2. 通过索引获取幻灯片的引用。  
-3. 获取主效果序列。  
-4. 提取每个动画效果中嵌入的 [setSound(IAudio value)](https://reference.aspose.com/slides/java/com.aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)。  
-
-以下 Java 代码演示了如何提取动画效果中嵌入的声音：
-```java
-// 实例化表示演示文稿文件的 Presentation 类。
-Presentation presentation = new Presentation("EffectSound.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-
-    // 获取幻灯片的主序列。
-    ISequence sequence = slide.getTimeline().getMainSequence();
-
-    for (IEffect effect : sequence)
-    {
-        if (effect.getSound() == null)
-            continue;
-
-        // 提取效果的声音为字节数组
-        byte[] audio = effect.getSound().getBinaryData();
+        for (IEffect effect : sequence) {
+            String targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            String triggerName = EffectTriggerType.getName(EffectTriggerType.class, effect.getTiming().getTriggerType());
+            String effectDescription = typeName + " " + subtypeName + "; target: " + targetName + "; trigger: " + triggerName;
+            System.out.println("    " + effectDescription);
+        }
     }
-} finally {
-    if (presentation != null) presentation.dispose();
 }
 ```
 
+如果只需获取单个形状的效果，先通过名称、占位符类型或其他稳定属性识别该形状；然后调用[ISequence.getEffectsByShape](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#getEffectsByShape-com.aspose.slides.IShape-)。不要假设[IShapeCollection.get_Item](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishapecollection/#get_Item-int-)在索引`0`处始终是目标对象。
 
-## **动画结束后**
+## **使用继承的占位符效果**
 
-Aspose.Slides for Java 允许您更改动画结束后的属性。  
+普通幻灯片上的占位符可以继承其版式幻灯片和母版幻灯片上对应占位符的动画行为。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getBasePlaceholder--)返回该父占位符，若不存在父占位符则返回`null`。
 
-这是 Microsoft PowerPoint 中的 Animation Effect 窗格和扩展菜单：
+在以下示例演示文稿中，页脚在普通幻灯片上使用 **Random Bars**，在版式幻灯片上使用 **Split**，在母版幻灯片上使用 **Fly In**。
 
-![example1_image](shape-after-animation.png)
+![普通幻灯片上的页脚动画效果](slide-shape-animation.png)
 
-PowerPoint Effect **After animation** 下拉列表对应以下属性：  
+![版式幻灯片上的页脚占位符动画效果](layout-shape-animation.png)
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setAfterAnimationType-int-) 属性描述动画结束后类型：  
-  * PowerPoint **More Colors** 对应 [AfterAnimationType.Color](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#Color) 类型；  
-  * PowerPoint **Don't Dim** 对应 [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#DoNotDim) 类型（默认的动画结束后类型）；  
-  * PowerPoint **Hide After Animation** 对应 [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#HideAfterAnimation) 类型；  
-  * PowerPoint **Hide on Next Mouse Click** 对应 [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#HideOnNextMouseClick) 类型；  
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setAfterAnimationColor-com.aspose.slides.IColorFormat-) 属性定义动画结束后的颜色格式。此属性与 [AfterAnimationType.Color](https://reference.aspose.com/slides/java/com.aspose.slides/afteranimationtype/#Color) 类型配合使用。如果将类型更改为其他类型，动画结束后的颜色将被清除。  
+![母版幻灯片上的页脚占位符动画效果](master-shape-animation.png)
 
-以下 Java 代码演示了如何更改动画结束后效果：
+下面的示例使用新演示文稿中的占位符层次结构。它向母版占位符、版式占位符以及普通幻灯片上的相应占位符添加效果。每次调用[IShape.getBasePlaceholder](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ishape/#getBasePlaceholder--)前都进行检查，以确保返回的形状可安全使用。
+
 ```java
-// 实例化表示演示文稿文件的 Presentation 类
-Presentation pres = new Presentation("AnimImage_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // 获取主序列的第一个效果
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class InheritedPlaceholderAnimations {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+            IShape layoutPlaceholder = findPlaceholderWithBase(layoutSlide);
 
-    // 将动画结束后的类型更改为颜色
-    firstEffect.setAfterAnimationType(AfterAnimationType.Color);
+            if (layoutPlaceholder == null) {
+                throw new IllegalStateException("The layout slide does not contain a placeholder linked to its master slide.");
+            }
 
-    // 设置动画结束后的颜色
-    firstEffect.getAfterAnimationColor().setColor(Color.BLUE);
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+            layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            ISlide slide = presentation.getSlides().addEmptySlide(layoutSlide);
+            IShape slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+            if (slidePlaceholder == null) {
+                throw new IllegalStateException("The slide does not contain a placeholder linked to its layout slide.");
+            }
+
+            slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+            printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+            IShape baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+            if (baseLayoutPlaceholder != null) {
+                printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+                IShape baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+                if (baseMasterPlaceholder != null) {
+                    printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+                }
+            }
+
+            presentation.save("placeholder-animations.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static IShape findPlaceholderWithBase(ILayoutSlide layoutSlide) {
+        for (IShape shape : layoutSlide.getShapes()) {
+            if (shape.getBasePlaceholder() != null) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static IShape findPlaceholderWithBase(ISlide slide, IShape expectedBase) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape.getBasePlaceholder() == expectedBase) {
+                return shape;
+            }
+        }
+
+        return null;
+    }
+
+    private static void printEffects(String source, IEffect[] effects) {
+        System.out.println(source + ": " + effects.length + " effect(s)");
+
+        for (IEffect effect : effects) {
+            String typeName = EffectType.getName(EffectType.class, effect.getType());
+            String subtypeName = EffectSubtype.getName(EffectSubtype.class, effect.getSubtype());
+            System.out.println("  " + typeName + " " + subtypeName);
+        }
+    }
 }
 ```
 
+## **更改动画计时**
+
+PowerPoint **Timing** 对话框映射到[ITiming](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/)的属性。
+
+![动画效果的 PowerPoint 计时对话框](shape-animation.png)
+
+- **开始** 映射到[ITiming.getTriggerType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getTriggerType--)。
+- **持续时间** 映射到[ITiming.getDuration](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getDuration--)（秒）。
+- **延迟** 映射到[ITiming.getTriggerDelayTime](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getTriggerDelayTime--)（秒）。
+- **重复** 映射到[ITiming.getRepeatCount](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getRepeatCount--)、[ITiming.getRepeatUntilNextClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getRepeatUntilNextClick--)或[ITiming.getRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getRepeatUntilEndSlide--)。
+- **播放完成后倒退** 映射到[ITiming.getRewind](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#getRewind--)。
+
+此独立示例添加一个效果，通过[ISequence.addEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)返回的对象更改其计时，并保存结果。保留返回的[IEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ieffect/)引用可避免不必要的集合索引。
+
+```java
+import com.aspose.slides.*;
+
+public class ChangeAnimationTiming {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Timed animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTiming().setTriggerType(EffectTriggerType.OnClick);
+            effect.getTiming().setDuration(2.0f);
+            effect.getTiming().setTriggerDelayTime(0.5f);
+            effect.getTiming().setRepeatUntilNextClick(false);
+            effect.getTiming().setRepeatUntilEndSlide(false);
+            effect.getTiming().setRepeatCount(2.0f);
+            effect.getTiming().setRewind(true);
+
+            presentation.save("shape-animation-timing.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+请仅有意使用一种重复模式。将重复计数与“直到”标志组合可能在不同的查看器中产生混乱的结果。更改重复模式时，请先调用[ITiming.setRepeatUntilNextClick](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#setRepeatUntilNextClick-boolean-)和[ITiming.setRepeatUntilEndSlide](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#setRepeatUntilEndSlide-boolean-)，再调用[ITiming.setRepeatCount](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itiming/#setRepeatCount-float-)，因为设置任一标志都会同时更改活动的重复模式。
+
+## **添加和提取动画声音**
+
+动画效果可以通过[IEffect.getSound](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ieffect/#getSound--)引用嵌入的音频。[IEffect.setStopPreviousSound](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ieffect/#setStopPreviousSound-boolean-)可指示效果停止先前效果启动的音频。
+
+### **向效果添加声音**
+
+下面的示例需要本地音频文件`animation-sound.wav`。它创建两个效果，将该文件嵌入为第一个效果的声音，并配置第二个效果停止该声音。示例使用[ISequence.addEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IShape-int-int-int-)返回的对象，因此不需要序列索引。
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class AddAnimationSound {
+    public static void main(String[] args) throws IOException {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape firstShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+            IAutoShape secondShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+            firstShape.addTextFrame("Starts sound");
+            secondShape.addTextFrame("Stops sound");
+
+            ISequence sequence = slide.getTimeline().getMainSequence();
+            IEffect firstEffect = sequence.addEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            IEffect secondEffect = sequence.addEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+            byte[] audioData = Files.readAllBytes(Paths.get("animation-sound.wav"));
+            IAudio effectSound = presentation.getAudios().addAudio(audioData);
+            firstEffect.setSound(effectSound);
+            secondEffect.setStopPreviousSound(true);
+
+            presentation.save("shape-animation-sound.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+### **提取嵌入的效果声音**
+
+下面的示例需要本地演示文稿`presentation-with-animation-sounds.pptx`。它扫描主序列和交互序列，并将每个嵌入的效果声音写入`extracted-animation-sounds`目录。文件扩展名根据[IAudio.getContentType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudio/#getContentType--)返回的音频 MIME 类型自动选择。
+
+```java
+import com.aspose.slides.*;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+public class ExtractAnimationSounds {
+    public static void main(String[] args) throws IOException {
+        Path inputPath = Paths.get("presentation-with-animation-sounds.pptx");
+        Path outputDirectory = Paths.get("extracted-animation-sounds");
+
+        Files.createDirectories(outputDirectory);
+
+        Presentation presentation = new Presentation(inputPath.toString());
+        try {
+            int soundIndex = 1;
+
+            for (ISlide slide : presentation.getSlides()) {
+                soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+                for (ISequence sequence : slide.getTimeline().getInteractiveSequences()) {
+                    soundIndex = saveSounds(sequence, outputDirectory, soundIndex);
+                }
+            }
+
+            System.out.println("Extracted " + (soundIndex - 1) + " sound file(s) to " + outputDirectory.toAbsolutePath() + ".");
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static int saveSounds(ISequence sequence, Path outputDirectory, int soundIndex) throws IOException {
+        for (IEffect effect : sequence) {
+            if (effect.getSound() == null) {
+                continue;
+            }
+
+            String extension = getAudioExtension(effect.getSound().getContentType());
+            Path outputPath = outputDirectory.resolve("effect-sound-" + soundIndex + extension);
+            Files.write(outputPath, effect.getSound().getBinaryData());
+            soundIndex++;
+        }
+
+        return soundIndex;
+    }
+
+    private static String getAudioExtension(String contentType) {
+        String normalizedType = contentType == null ? "" : contentType.toLowerCase(Locale.ROOT);
+
+        if (normalizedType.equals("audio/mpeg")) {
+            return ".mp3";
+        }
+
+        if (normalizedType.equals("audio/mp4")) {
+            return ".m4a";
+        }
+
+        if (normalizedType.equals("audio/ogg")) {
+            return ".ogg";
+        }
+
+        if (normalizedType.equals("audio/wav") || normalizedType.equals("audio/x-wav")) {
+            return ".wav";
+        }
+
+        return ".bin";
+    }
+}
+```
+
+对于大型音频对象，请使用[IAudio.getStream](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iaudio/#getStream--)并将流复制到文件，而不是将整个对象加载到字节数组中。
+
+## **设置动画后行为**
+
+**After animation** 选项控制形状在其效果完成后会发生什么。
+
+![PowerPoint 效果选项对话框显示 “After animation” 设置](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/afteranimationtype/) 类支持保持形状不变、改变其颜色、在动画后隐藏或在下次点击时隐藏。当类型为[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/java/com.aspose.slides/afteranimationtype/#Color)时，还需设置[IEffect.getAfterAnimationColor](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ieffect/#getAfterAnimationColor--)。
+
+此独立示例创建一个效果，通过返回的效果对象设置其动画后行为，并保存结果。
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+public class SetAfterAnimationBehavior {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+            shape.addTextFrame("Dim after animation");
+
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.setAfterAnimationType(AfterAnimationType.Color);
+            effect.getAfterAnimationColor().setColor(Color.LIGHT_GRAY);
+
+            presentation.save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
+}
+```
+
+将类型从[AfterAnimationType.Color](https://reference.aspose.com/slides/zh/java/com.aspose.slides/afteranimationtype/#Color)改为其他值时，会清除动画后颜色设置。
 
 ## **动画文本**
 
-Aspose.Slides 提供以下属性，以便您在动画效果的 *Animate text* 块中工作：  
+文本动画有两个相关控制：
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setAnimateTextType-int-) 描述效果的动画文本类型。形状文本可以按以下方式动画化：  
-  - 全部一次 ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/java/com.aspose.slides/animatetexttype/#AllAtOnce) 类型)  
-  - 按词 ([AnimateTextType.ByWord](https://reference.aspose.com/slides/java/com.aspose.slides/animatetexttype/#ByWord) 类型)  
-  - 按字母 ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/java/com.aspose.slides/animatetexttype/#ByLetter) 类型)  
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) 设置动画文本部分（词或字母）之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。  
+- [ITextAnimation.getBuildType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/itextanimation/#getBuildType--) 控制段落是整体出现还是逐段出现。
+- [IEffect.getAnimateTextType](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ieffect/#getAnimateTextType--) 控制文本是一次性出现、逐词出现还是逐字出现。[IEffect.getDelayBetweenTextParts](https://reference.aspose.com/slides/zh/java/com.aspose.slides/ieffect/#getDelayBetweenTextParts--) 设置词或字之间的延迟。正值表示效果持续时间的百分比，负值表示以秒为单位的延迟。
 
-更改 Effect Animate text 属性的方法如下：
+下面的独立示例为文本框中的单词添加动画。[BuildType.AsOneObject](https://reference.aspose.com/slides/zh/java/com.aspose.slides/buildtype/#AsOneObject) 会关闭逐段构建，使词级设置应用于整个文本框。
 
-1. [Apply](#apply-animation-to-shape) 或获取动画效果。  
-2. 将 [setBuildType(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/itextanimation/#setBuildType-int-) 属性设置为 [BuildType.AsOneObject](https://reference.aspose.com/slides/java/com.aspose.slides/buildtype/#AsOneObject) 值，以关闭 *按段落* 动画模式。  
-3. 为 [setAnimateTextType(int value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setAnimateTextType-int-) 和 [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/java/com.aspose.slides/ieffect/#setDelayBetweenTextParts-float-) 属性设置新值。  
-4. 保存修改后的 PPTX 文件。  
-
-以下 Java 代码演示了该操作：
 ```java
-// 实例化表示演示文稿文件的 Presentation 类。
-Presentation pres = new Presentation("AnimTextBox_out.pptx");
-try {
-    ISlide firstSlide = pres.getSlides().get_Item(0);
+import com.aspose.slides.*;
 
-    // 获取主序列的第一个效果
-    IEffect firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
+public class AnimateTextByWord {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape textBox = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+            textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
 
-    // 将效果的文本动画类型更改为 "As One Object"
-    firstEffect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            IEffect effect = slide.getTimeline().getMainSequence().addEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+            effect.getTextAnimation().setBuildType(BuildType.AsOneObject);
+            effect.setAnimateTextType(AnimateTextType.ByWord);
+            effect.setDelayBetweenTextParts(20.0f);
 
-    // 将效果的动画文本类型更改为 "By word"
-    firstEffect.setAnimateTextType(AnimateTextType.ByWord);
-
-    // 将单词之间的延迟设置为效果持续时间的 20%
-    firstEffect.setDelayBetweenTextParts(20f);
-
-    // 将 PPTX 文件写入磁盘
-    pres.save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
+            presentation.save("animated-text.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
+若要按段落构建文本框，请设置[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/zh/java/com.aspose.slides/buildtype/#ByLevelParagraphs1)（或其他段落级别）。若要为单个段落单独指定效果，请使用接受[IParagraph](https://reference.aspose.com/slides/zh/java/com.aspose.slides/iparagraph/)的[ISequence.addEffect](https://reference.aspose.com/slides/zh/java/com.aspose.slides/isequence/#addEffect-com.aspose.slides.IParagraph-int-int-int-)重载。有关段落级示例，请参阅[Animated Text](/slides/zh/java/animated-text/)。
+
+## **导出和兼容性说明**
+
+- 保存为 PPT 或 PPTX 会保留动画模型，但最终的播放由演示文稿查看器决定。
+- PDF 和静态图像不播放动画。需要显示运动时请使用[HTML5 导出](/slides/zh/java/export-to-html5/)、动画 GIF 或[视频转换](/slides/zh/java/convert-powerpoint-to-video/)。
+- 对于 HTML5，启用[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/zh/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-)；在需要时，还可启用[Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/zh/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-)。
+- 视频渲染支持多数常见的进入、强调、退出和运动路径效果，但并非所有 PowerPoint 效果都受支持。请查看当前[受支持的动画和效果](/slides/zh/java/convert-powerpoint-to-video/#supported-animations-and-effects)并在目标 Aspose.Slides 版本下对关键演示文稿进行测试。
+- 高级自定义效果以及从其他演示文稿格式导入的效果可能会保存在文件中，但在 PowerPoint、HTML5 或视频中渲染方式不同。请验证导出结果，而不仅仅依赖效果名称。
 
 ## **常见问题**
 
-**如何确保在将演示文稿发布到 Web 时动画得以保留？**  
+**为什么动画在 PowerPoint 中可见，但在 PDF 中不可见？**
 
-[导出为 HTML5](/slides/zh/java/export-to-html5/) 并启用负责 [shape](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateShapes-boolean-) 和 [transition](https://reference.aspose.com/slides/java/com.aspose.slides/html5options/#setAnimateTransitions-boolean-) 动画的选项。纯 HTML 不会播放幻灯片动画，而 HTML5 会播放。  
+PDF 是静态格式，动画和幻灯片切换不会播放。需要保留运动时请导出为 HTML5、动画 GIF 或视频。
 
-**更改形状的 Z 顺序（层次顺序）会如何影响动画？**  
+**为什么同一效果在视频中播放效果不同？**
 
-动画和绘制顺序是独立的：效果控制出现/消失的时机和类型，而 [z-order](https://reference.aspose.com/slides/java/com.aspose.slides/shape/#getZOrderPosition--) 决定哪个覆盖哪个。最终可见结果由两者组合决定。（这是一种通用的 PowerPoint 行为，Aspose.Slides 的效果与形状模型遵循相同逻辑。）  
+视频导出会渲染动画，而不是存储原始 PowerPoint 行为。某些高级效果不受支持或会被近似。请查阅受支持的效果表并在投产前对实际演示文稿进行测试。
 
-**将某些动画转换为视频时是否存在限制？**  
+**移动形状的前置或后置会改变其动画顺序吗？**
 
-一般来说，[动画受支持](/slides/zh/java/convert-powerpoint-to-video/)，但在极少数情况下或特定效果可能渲染不同。建议使用您实际使用的效果和相应的库版本进行测试。
+不会。形状的 Z 顺序控制叠放，序列顺序和触发器控制动画播放。如果需要不同的播放顺序，请修改时间轴。

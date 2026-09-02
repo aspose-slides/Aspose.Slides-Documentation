@@ -1,5 +1,5 @@
 ---
-title: .NET のプレゼンテーションでシェイプ アニメーションを適用する
+title: .NET でプレゼンテーションにシェイプ アニメーションを適用する
 linktitle: シェイプ アニメーション
 type: docs
 weight: 60
@@ -23,472 +23,406 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET を使用して PowerPoint プレゼンテーションのシェイプ アニメーションを作成およびカスタマイズする方法を紹介します。目立ちましょう！"
+description: "Aspose.Slides for .NET を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーションの動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
 ---
+## **概要**
 
-アニメーションは、テキスト、画像、図形、または[チャート](/slides/ja/net/animated-charts/)に適用できる視覚効果です。プレゼンテーションやその構成要素に命を吹き込みます。
+Aspose.Slides for .NET はスライド アニメーションをスライド タイムライン上のエフェクトとして表現します。エフェクトには対象シェイプ、アニメーション タイプとサブタイプ、トリガー、タイミング設定、そしてサウンドやアフター アニメーション動作などのオプション プロパティがあります。
 
-## **プレゼンテーションでアニメーションを使用する理由**
+タイムラインには次の 2 種類のシーケンスがあります。
 
-* 情報の流れを制御する
-* 重要なポイントを強調する
-* 聴衆の関心や参加を高める
-* コンテンツを読みやすく、理解しやすく、または処理しやすくする
-* 読者や視聴者の注意をプレゼンテーションの重要な部分に引きつける
+- **メイン シーケンス** はスライドが進むと再生されます。  
+- **インタラクティブ シーケンス** はトリガー シェイプがクリックされたときに開始します。
 
-PowerPoint は、**entrance**、**exit**、**emphasis**、および**motion paths** カテゴリにわたるアニメーションとアニメーション効果の多くのオプションとツールを提供します。
+テキスト ボックス、画像、チャート、表などのスライド オブジェクトはすべて [IShape](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/) を実装しているため、ほとんどのスライド コンテンツに対して同じ [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttype/) 列挙体に一覧化されています。
 
-## **Aspose.Slides のアニメーション**
+## **シェイプ アニメーションの追加**
 
-* Aspose.Slides は、アニメーションを操作するために必要なクラスと型を [Aspose.Slides.Animation](https://reference.aspose.com/slides/net/aspose.slides.animation/) 名前空間で提供します、  
-* Aspose.Slides は、[EffectType](https://reference.aspose.com/slides/net/aspose.slides.animation/effecttype) 列挙体で **150** 以上のアニメーション効果を提供します。これらの効果は、本質的に PowerPoint で使用されているものと同じ（または同等）です。
+アニメーションを追加するには、スライドのメイン シーケンスを取得し、対象シェイプ、エフェクト タイプ、サブタイプ、トリガーを指定して [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) を呼び出します。他のシェイプをクリックしたときに開始するエフェクトを作成する場合は、対象シェイプをトリガーとするインタラクティブ シーケンスを作成します。
 
-## **テキストボックスへのアニメーション適用**
+以下の例は 2 種類のアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
 
-Aspose.Slides for .NET を使用すると、図形内のテキストにアニメーションを適用できます。
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-1. [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) クラスのインスタンスを作成します。
-2. スライドのインデックスを使用して参照を取得します。
-3. `rectangle` [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) を追加します。
-4. [IAutoShape.TextFrame](https://reference.aspose.com/slides/net/aspose.slides/iautoshape/properties/textframe) にテキストを追加します。
-5. 主なエフェクト シーケンスを取得します。
-6. [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) にアニメーション効果を追加します。
-7. [TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/textanimation/properties/buildtype) プロパティを [BuildType Enumeration](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype) の値に設定します。
-8. プレゼンテーションを PPTX ファイルとしてディスクに書き込みます。
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-この C# コードは、`Fade` 効果を AutoShape に適用し、テキスト アニメーションを *By 1st Level Paragraphs* の値に設定する方法を示します：
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します。
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    
-    // テキスト付きの新しいAutoShapeを追加します
-    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Click to animate this shape";
 
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+var mainSequence = slide.Timeline.MainSequence;
+var entranceEffect = mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+entranceEffect.Timing.Duration = 1.5f;
 
-    // スライドのメインシーケンスを取得します
-    ISequence sequence = sld.Timeline.MainSequence;
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
 
-    // シェイプにFadeアニメーション効果を追加します
-    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // シェイプテキストを第1レベル段落単位でアニメートします
-    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
-
-    // PPTXファイルをディスクに保存します
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
+トリガーはエフェクトの開始タイミングを制御します。
 
-{{%  alert color="primary"  %}} 
-テキストへのアニメーション適用に加えて、単一の[Paragraph](https://reference.aspose.com/slides/net/aspose.slides/iparagraph)にアニメーションを適用することもできます。[**Animated Text**](/slides/ja/net/animated-text/) を参照してください。
-{{% /alert %}} 
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) はメイン シーケンスではクリック待ち、インタラクティブ シーケンスではトリガー シェイプのクリック待ちです。  
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) は直前のエフェクトと同時に開始します。  
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/effecttriggertype/) は直前のエフェクトが終了したときに開始します。
 
-## **PictureFrame へのアニメーション適用**
+画像、チャート、その他のシェイプをアニメーション化する場合は、`targetShape` の代わりに対象オブジェクトを [ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) に渡します。チャート固有のグルーピング オプションについては、[Animated Charts](/slides/ja/net/animated-charts/) を参照してください。
 
-1. [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) クラスのインスタンスを作成します。
-2. スライドのインデックスを使用して参照を取得します。
-3. スライド上に[PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe) を追加または取得します。
-5. 主なエフェクト シーケンスを取得します。
-6. [PictureFrame](https://reference.aspose.com/slides/net/aspose.slides/ipictureframe) にアニメーション効果を追加します。
-8. プレゼンテーションを PPTX ファイルとしてディスクに書き込みます。
+## **シェイプ アニメーションの取得**
 
-この C# コードは、`Fly` 効果を picture frame に適用する方法を示します：
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します。
-using (Presentation pres = new Presentation())
+対象シェイプが分かっている場合は、[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/geteffectsbyshape/) を使用します。すべてのエフェクトを調べるには、メイン シーケンスとすべてのインタラクティブ シーケンスを列挙します。列挙時にインデックス `0` にエフェクトが必ず存在するという前提は避けてください。
+
+以下の例はメインシーケンスとインタラクティブ シーケンスを持つシェイプを作成し、そのシェイプを対象とするエフェクトを取得したうえで、スライド上のすべてのシーケンスを列挙します。
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Animated shape";
+
+var mainSequence = slide.Timeline.MainSequence;
+mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
+
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var targetEffects = mainSequence.GetEffectsByShape(targetShape);
+Console.WriteLine($"The main sequence contains {targetEffects.Length} effect(s) for {targetShape.Name}.");
+
+PrintSequence("Main sequence", mainSequence);
+
+var interactiveIndex = 1;
+foreach (var sequence in slide.Timeline.InteractiveSequences)
 {
-    // プレゼンテーションの画像コレクションに追加する画像を読み込みます
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // スライドに画像フレームを追加します
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // スライドのメインシーケンスを取得します
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-    // 画像フレームに左からのフライアニメーション効果を追加します
-    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // PPTXファイルをディスクに保存します
-    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
+    var triggerName = sequence.TriggerShape == null ? "unknown" : sequence.TriggerShape.Name;
+    var sequenceLabel = $"Interactive sequence {interactiveIndex}, trigger: {triggerName}";
+    PrintSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
 
-
-## **Shape へのアニメーション適用**
-
-1. [Presentation](http://www.aspose.com/api/net/slides/aspose.slides/) クラスのインスタンスを作成します。
-2. スライドのインデックスを使用して参照を取得します。
-3. `rectangle` [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) を追加します。
-4. `Bevel` [IAutoShape](https://reference.aspose.com/slides/net/aspose.slides/iautoshape) を追加します（このオブジェクトがクリックされるとアニメーションが再生されます）。
-5. ベベル形状上でエフェクト シーケンスを作成します。
-6. カスタム `UserPath` を作成します。
-7. `UserPath` への移動コマンドを追加します。
-8. プレゼンテーションを PPTX ファイルとしてディスクに書き込みます。
-
-この C# コードは、`PathFootball`（パスフットボール）効果を shape に適用する方法を示します：
-```c#
-// プレゼンテーションファイルを表すPresentationクラスのインスタンスを作成します。
-using (Presentation pres = new Presentation())
+static void PrintSequence(string label, ISequence sequence)
 {
-    ISlide sld = pres.Slides[0];
+    Console.WriteLine($"  {label}: {sequence.Count} effect(s)");
 
-    // 既存のシェイプに対してPathFootball効果を一から作成します。
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-
-    ashp.AddTextFrame("Animated TextBox");
-
-    // PathFootBallアニメーション効果を追加します。
-    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // いわゆる「ボタン」を作成します。
-    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // ボタン用の効果シーケンスを作成します。
-    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
-
-    // カスタムユーザーパスを作成します。オブジェクトはボタンがクリックされた後にのみ移動します。
-    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // 作成したパスが空なので、移動コマンドを追加します。
-    IMotionEffect motionBvh = ((IMotionEffect)fxUserPath.Behaviors[0]);
-
-    PointF[] pts = new PointF[1];
-    pts[0] = new PointF(0.076f, 0.59f);
-    motionBvh.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new PointF(-0.076f, -0.59f);
-    motionBvh.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBvh.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-    // PPTXファイルをディスクに書き込みます
-    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-}
-```
-
-
-## **Shape に適用されたアニメーション効果の取得**
-
-以下の例は、[ISequence](https://reference.aspose.com/slides/net/aspose.slides.animation/isequence/) インターフェイスの `GetEffectsByShape` メソッドを使用して shape に適用されたすべてのアニメーション効果を取得する方法を示します。
-
-**例 1: 通常スライド上の Shape に適用されたアニメーション効果の取得**
-
-以前、PowerPoint プレゼンテーションの shape にアニメーション効果を追加する方法を学びました。次のサンプルコードは、プレゼンテーション `AnimExample_out.pptx` の最初の通常スライド上の最初の shape に適用された効果を取得する方法を示します。
-```c#
-using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
-{
-    ISlide firstSlide = presentation.Slides[0];
-
-    // スライドのメインアニメーションシーケンスを取得します。
-    ISequence sequence = firstSlide.Timeline.MainSequence;
-
-    // スライド上の最初のシェイプを取得します。
-    IShape shape = firstSlide.Shapes[0];
-
-    // シェイプに適用されたアニメーション効果を取得します。
-    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
-
-    if (shapeEffects.Length > 0)
-        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
-}
-```
-
-
-**例 2: プレースホルダーから継承されたものを含むすべてのアニメーション効果の取得**
-
-通常スライド上の shape にレイアウトスライドやマスタースライド上のプレースホルダーがあり、これらのプレースホルダーにアニメーション効果が追加されている場合、スライドショー中に shape のすべての効果が再生され、プレースホルダーから継承されたものも含まれます。
-
-たとえば、`sample.pptx` という PowerPoint ファイルにフッター shape（テキスト「Made with Aspose.Slides」）が1つだけあり、**Random Bars** 効果がその shape に適用されているとします。
-
-![スライド シェイプ アニメーション効果](slide-shape-animation.png)
-
-さらに、レイアウトスライドのフッタープレースホルダーに **Split** 効果が適用されているとします。
-
-![レイアウト シェイプ アニメーション効果](layout-shape-animation.png)
-
-最後に、マスタースライドのフッタープレースホルダーに **Fly In** 効果が適用されているとします。
-
-![マスター シェイプ アニメーション効果](master-shape-animation.png)
-
-次のサンプルコードは、[IShape](https://reference.aspose.com/slides/net/aspose.slides/ishape/) インターフェイスの `GetBasePlaceholder` メソッドを使用して shape のプレースホルダーにアクセスし、レイアウトおよびマスタースライド上のプレースホルダーから継承されたものを含むフッター shape に適用されたアニメーション効果を取得する方法を示します。
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // 通常スライド上のシェイプのアニメーション効果を取得します。
-    IShape shape = slide.Shapes[0];
-    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
-
-    // レイアウトスライド上のプレースホルダーのアニメーション効果を取得します。
-    IShape layoutShape = shape.GetBasePlaceholder();
-    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
-
-    // マスタースライド上のプレースホルダーのアニメーション効果を取得します。
-    IShape masterShape = layoutShape.GetBasePlaceholder();
-    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
-
-    Console.WriteLine("Main sequence of shape effects:");
-    PrintEffects(masterShapeEffects);
-    PrintEffects(layoutShapeEffects);
-    PrintEffects(shapeEffects);
-}
-```
-
-```cs
-static void PrintEffects(IEnumerable<IEffect> effects)
-{
-    foreach (IEffect effect in effects)
+    foreach (var effect in sequence)
     {
-        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+        var targetName = effect.TargetShape == null ? "unknown" : effect.TargetShape.Name;
+        var effectDescription = $"{effect.Type} {effect.Subtype}; target: {targetName}; trigger: {effect.Timing.TriggerType}";
+        Console.WriteLine($"    {effectDescription}");
     }
 }
 ```
 
+1 つのシェイプだけのエフェクトが必要な場合は、名前、プレースホルダー タイプ、またはその他の安定したプロパティでシェイプを特定してから、[ISequence.GetEffectsByShape](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/geteffectsbyshape/) を呼び出します。インデックス `0` の [IShapeCollection.Item](https://reference.aspose.com/slides/ja/net/aspose.slides/ishapecollection/item/) が常に目的のオブジェクトであるとは限らないことに注意してください。
 
-出力：
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+## **継承プレースホルダー エフェクトの操作**
 
+通常スライド上のプレースホルダーは、レイアウト スライドやマスタースライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getbaseplaceholder/) は親プレースホルダーを返します。親が存在しない場合は `null` が返ります。
 
-## **アニメーション効果のタイミング プロパティの変更**
+以下の例のプレゼンテーションでは、フッターが通常スライドで **Random Bars**、レイアウト スライドで **Split**、マスタースライドで **Fly In** というアニメーションを持っています。
 
-Aspose.Slides for .NET は、アニメーション効果のタイミング プロパティを変更できます。
+![通常スライド上のフッター アニメーション効果](slide-shape-animation.png)
 
-これは Microsoft PowerPoint のアニメーション タイミング パネルと拡張メニューです：
+![レイアウト スライド上のフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
 
-![example1_image](shape-animation.png)
+![マスタースライド上のフッター プレースホルダー アニメーション効果](master-shape-animation.png)
 
-以下は PowerPoint のタイミングと [Effect.Timing](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing) プロパティの対応関係です：
-- PowerPoint のタイミング **Start** ドロップダウンは [Effect.Timing.TriggerType](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggertype) プロパティに対応します。  
-- PowerPoint のタイミング **Duration** は [Effect.Timing.Duration](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/duration) プロパティに対応します。アニメーションの期間（秒）は、アニメーションが 1 サイクルを完了するのにかかる総時間です。  
-- PowerPoint のタイミング **Delay** は [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/properties/triggerdelaytime) プロパティに対応します。  
-- PowerPoint のタイミング **Repeat** ドロップダウンは次のプロパティに対応します：  
-  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatcount) プロパティ（効果が繰り返される回数）  
-  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilendslide) フラグ（スライドの最後まで繰り返すか）  
-  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/repeatuntilnextclick) フラグ（次のクリックまで繰り返すか）  
-- PowerPoint のタイミング **Rewind when done playing** チェックボックスは [Effect.Timing.Rewind](https://reference.aspose.com/slides/net/aspose.slides.animation/itiming/rewind/) プロパティに対応します。  
+次の例はプレースホルダー階層自体を構築します。マスタープレースホルダー、レイアウトプレースホルダー、および対応する通常スライド上のプレースホルダーにエフェクトを追加します。[IShape.GetBasePlaceholder](https://reference.aspose.com/slides/ja/net/aspose.slides/ishape/getbaseplaceholder/) の呼び出し結果が `null` でないことを確認してからシェイプを使用します。
 
-Effect のタイミング プロパティを変更する手順：
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-1. [Apply](#apply-animation-to-shape) するか、アニメーション効果を取得します。
-2. 必要な [Effect.Timing](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/properties/timing) プロパティに新しい値を設定します。  
-3. 修正した PPTX ファイルを保存します。
+using var presentation = new Presentation();
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
+layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-この C# コードは操作を示します：
-```c#
-// プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+var masterPlaceholder = layoutPlaceholder.GetBasePlaceholder();
+if (masterPlaceholder != null)
 {
-    // スライドのメインシーケンスを取得します。
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+    var masterSequence = layoutSlide.MasterSlide.Timeline.MainSequence;
+    masterSequence.AddEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+}
 
-    // メインシーケンスの最初の効果を取得します。
-    IEffect effect = sequence[0];
+var slide = presentation.Slides.AddEmptySlide(layoutSlide);
+var slidePlaceholder = FindPlaceholderWithBase(slide);
 
-    // 効果の TriggerType をクリックで開始するように変更します。
-    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+if (slidePlaceholder == null)
+{
+    throw new InvalidOperationException("The slide does not contain a placeholder linked to its layout slide.");
+}
 
-    // 効果の Duration を変更します。
-    effect.Timing.Duration = 3f;
+slide.Timeline.MainSequence.AddEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+PrintEffects("Normal slide", slide.Timeline.MainSequence.GetEffectsByShape(slidePlaceholder));
 
-    // 効果の TriggerDelayTime を変更します。
-    effect.Timing.TriggerDelayTime = 0.5f;
+var baseLayoutPlaceholder = slidePlaceholder.GetBasePlaceholder();
+if (baseLayoutPlaceholder != null)
+{
+    PrintEffects("Layout slide", layoutSlide.Timeline.MainSequence.GetEffectsByShape(baseLayoutPlaceholder));
 
-    // 効果の Repeat 値が "none" の場合
-    if (effect.Timing.RepeatCount == 1f)
+    var baseMasterPlaceholder = baseLayoutPlaceholder.GetBasePlaceholder();
+    if (baseMasterPlaceholder != null)
     {
-        // 効果の Repeat を "Until Next Click" に変更します。
-        effect.Timing.RepeatUntilNextClick = true;
+        PrintEffects("Master slide", layoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(baseMasterPlaceholder));
     }
-    else
+}
+
+presentation.Save("placeholder-animations.pptx", SaveFormat.Pptx);
+
+static IShape FindPlaceholderWithBase(ISlide slide)
+{
+    foreach (var shape in slide.Shapes)
     {
-        // 効果の Repeat を "Until End of Slide" に変更します。
-        effect.Timing.RepeatUntilEndSlide = true;
+        if (shape.GetBasePlaceholder() != null)
+        {
+            return shape;
+        }
     }
 
-    // 効果の Rewind を有効にします。
-        effect.Timing.Rewind = true;
-    
-    // PPTX ファイルをディスクに保存します。
-    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+    return null;
+}
+
+static void PrintEffects(string source, IEffect[] effects)
+{
+    Console.WriteLine($"{source}: {effects.Length} effect(s)");
+
+    foreach (var effect in effects)
+    {
+        Console.WriteLine($"  {effect.Type} {effect.Subtype}");
+    }
 }
 ```
 
+## **アニメーション タイミングの変更**
 
-## **アニメーション効果のサウンド**
+PowerPoint の **タイミング** ダイアログは [ITiming](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/) のプロパティに対応しています。
 
-Aspose.Slides は、アニメーション効果のサウンドを操作するために次のプロパティを提供します：  
-- [IEffect.Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/)  
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/stopprevioussound/)  
+![アニメーション エフェクトの PowerPoint タイミング ダイアログ](shape-animation.png)
 
-### **アニメーション効果サウンドの追加**
+- **開始** は [ITiming.TriggerType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/triggertype/) にマップされます。  
+- **期間** は秒単位で [ITiming.Duration](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/duration/) にマップされます。  
+- **遅延** は秒単位で [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/triggerdelaytime/) にマップされます。  
+- **繰り返し** は [ITiming.RepeatCount](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatcount/)、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilnextclick/) または [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilendslide/) のいずれかにマップされます。  
+- **再生が完了したら巻き戻す** は [ITiming.Rewind](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/rewind/) にマップされます。
 
-この C# コードは、アニメーション効果サウンドを追加し、次の効果が開始されたときにそれを停止する方法を示します：
-```c#
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
-{
-	// プレゼンテーションのオーディオコレクションに音声を追加します
-	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+この独立した例はエフェクトを追加し、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) が返すオブジェクトでタイミングを変更してから結果を保存します。返された [IEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/) 参照を保持することで不要なコレクション インデックス取得を回避できます。
 
-	ISlide firstSlide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-	// スライドのメインシーケンスを取得します。
-	ISequence sequence = firstSlide.Timeline.MainSequence;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Timed animation";
 
-	// メインシーケンスの最初の効果を取得します。
-	IEffect firstEffect = sequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.Timing.TriggerType = EffectTriggerType.OnClick;
+effect.Timing.Duration = 2.0f;
+effect.Timing.TriggerDelayTime = 0.5f;
+effect.Timing.RepeatUntilNextClick = false;
+effect.Timing.RepeatUntilEndSlide = false;
+effect.Timing.RepeatCount = 2.0f;
+effect.Timing.Rewind = true;
 
-	// 効果に「サウンドなし」があるかチェックします
-	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
-	{
-		// 最初の効果にサウンドを追加します
-		firstEffect.Sound = effectSound;
-	}
-
-	// スライドの最初のインタラクティブシーケンスを取得します。
-	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
-
-	// 効果の「前のサウンドを停止」フラグを設定します
-	interactiveSequence[0].StopPreviousSound = true;
-
-	// PPTXファイルをディスクに書き込みます
-	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
+1 つの繰り返しモードだけを意図的に使用してください。繰り返し回数と「until」フラグを組み合わせると、ビューアーによっては混乱を招く結果になることがあります。繰り返しモードを変更する際は、[ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilnextclick/) および [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatuntilendslide/) を先に設定し、最後に [ITiming.RepeatCount](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itiming/repeatcount/) を設定してください。フラグを設定するとアクティブな繰り返しモードも変更されます。
 
-### **アニメーション効果サウンドの抽出**
+## **アニメーション サウンドの追加と抽出**
 
-1. [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. スライドのインデックスを使用して参照を取得します。 
-3. 主なエフェクト シーケンスを取得します。 
-4. 各アニメーション効果に埋め込まれた [Sound](https://reference.aspose.com/slides/net/aspose.slides.animation/effect/sound/) を抽出します。 
+エフェクトは [IEffect.Sound](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/sound/) を介して埋め込みオーディオを参照できます。[IEffect.StopPreviousSound](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/stopprevioussound/) は、以前のエフェクトで開始されたサウンドを停止するよう指示します。
 
-この C# コードは、アニメーション効果に埋め込まれたサウンドを抽出する方法を示します：
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します。
-using (Presentation presentation = new Presentation("EffectSound.pptx"))
+### **エフェクトにサウンドを追加する**
+
+以下の例はローカルの audio ファイル `animation-sound.wav` を想定しています。2 つのエフェクトを作成し、最初のエフェクトにサウンドとして埋め込み、2 番目のエフェクトでサウンドを停止するよう構成します。シーケンス インデックスは不要で、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) が返すオブジェクトを使用します。
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+firstShape.TextFrame.Text = "Starts sound";
+secondShape.TextFrame.Text = "Stops sound";
+
+var sequence = slide.Timeline.MainSequence;
+var firstEffect = sequence.AddEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var secondEffect = sequence.AddEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var audioData = File.ReadAllBytes("animation-sound.wav");
+var effectSound = presentation.Audios.AddAudio(audioData);
+firstEffect.Sound = effectSound;
+secondEffect.StopPreviousSound = true;
+
+presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
+```
+
+### **埋め込みエフェクト サウンドの抽出**
+
+以下の例はローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` を想定しています。メイン シーケンスとインタラクティブ シーケンスの両方を走査し、埋め込まれたすべてのエフェクトサウンドを `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [IAudio.ContentType](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudio/contenttype/) が示すオーディオ MIME タイプから選択されます。
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+var inputPath = "presentation-with-animation-sounds.pptx";
+var outputDirectory = "extracted-animation-sounds";
+
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation(inputPath);
+var soundIndex = 1;
+
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
+    SaveSounds(slide.Timeline.MainSequence, outputDirectory, ref soundIndex);
 
-    // スライドのメインシーケンスを取得します。
-    ISequence sequence = slide.Timeline.MainSequence;
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        SaveSounds(sequence, outputDirectory, ref soundIndex);
+    }
+}
 
-    foreach (IEffect effect in sequence)
+Console.WriteLine($"Extracted {soundIndex - 1} sound file(s) to {Path.GetFullPath(outputDirectory)}.");
+
+static void SaveSounds(ISequence sequence, string outputDirectory, ref int soundIndex)
+{
+    foreach (var effect in sequence)
     {
         if (effect.Sound == null)
             continue;
 
-        // エフェクトのサウンドをバイト配列として抽出します
-        byte[] audio = effect.Sound.BinaryData;
+        var extension = GetAudioExtension(effect.Sound.ContentType);
+        var outputPath = Path.Combine(outputDirectory, $"effect-sound-{soundIndex}{extension}");
+        File.WriteAllBytes(outputPath, effect.Sound.BinaryData);
+        soundIndex++;
     }
 }
-```
 
-
-## **アフター アニメーション**
-
-Aspose.Slides for .NET は、アニメーション効果の「After animation」プロパティを変更できます。
-
-これは Microsoft PowerPoint のアニメーション効果パネルと拡張メニューです：
-
-![example1_image](shape-after-animation.png)
-
-PowerPoint の **After animation** ドロップダウンは次のプロパティに対応します：  
-
-- [IEffect.AfterAnimationType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationtype/) プロパティ（After animation のタイプ）  
-  * PowerPoint の **More Colors** は [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) タイプに対応します。  
-  * PowerPoint の **Don't Dim** は [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) タイプ（デフォルト）に対応します。  
-  * PowerPoint の **Hide After Animation** は [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) タイプに対応します。  
-  * PowerPoint の **Hide on Next Mouse Click** は [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) タイプに対応します。  
-- [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/afteranimationcolor/) プロパティは After animation のカラー形式を定義します。このプロパティは [AfterAnimationType.Color](https://reference.aspose.com/slides/net/aspose.slides.animation/afteranimationtype/) タイプと連動して動作します。タイプを別のものに変更すると、After animation のカラーはクリアされます。  
-
-この C# コードは、After animation 効果を変更する方法を示します：
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します
-using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+static string GetAudioExtension(string contentType)
 {
-    ISlide firstSlide = pres.Slides[0];
+    var normalizedType = contentType == null ? string.Empty : contentType.ToLowerInvariant();
 
-    // メインシーケンスの最初の効果を取得します
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    if (normalizedType == "audio/mpeg")
+        return ".mp3";
 
-    // アフターアニメーションのタイプを Color に変更します
-    firstEffect.AfterAnimationType = AfterAnimationType.Color;
+    if (normalizedType == "audio/mp4")
+        return ".m4a";
 
-    // アフターアニメーションの暗くする色を設定します
-    firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+    if (normalizedType == "audio/ogg")
+        return ".ogg";
 
-    // PPTX ファイルをディスクに書き込みます
-    pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+    if (normalizedType == "audio/wav" || normalizedType == "audio/x-wav")
+        return ".wav";
+
+    return ".bin";
 }
 ```
 
+大容量のオーディオ オブジェクトの場合は、[IAudio.GetStream](https://reference.aspose.com/slides/ja/net/aspose.slides/iaudio/getstream/) を使用してストリームをファイルにコピーし、全体をバイト配列としてロードしないようにしてください。
+
+## **アフター アニメーション 動作の設定**
+
+**After animation** オプションはエフェクトが終了した後にシェイプがどうなるかを制御します。
+
+![PowerPoint エフェクト オプション ダイアログ (After animation 設定)](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) 列挙体は、シェイプをそのまま残す、色を変える、アニメーション後に非表示にする、次のクリックで非表示にする、のいずれかをサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) の場合は、[IEffect.AfterAnimationColor](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/afteranimationcolor/) も設定してください。
+
+この独立した例はエフェクトを作成し、返されたエフェクトオブジェクトでアフター アニメーション 動作を設定したうえで結果を保存します。
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Dim after animation";
+
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.AfterAnimationType = AfterAnimationType.Color;
+effect.AfterAnimationColor.Color = Color.LightGray;
+
+presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+```
+
+[AfterAnimationType.Color](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/afteranimationtype/) 以外のタイプに変更すると、アフター アニメーションの色設定はクリアされます。
 
 ## **テキストのアニメーション**
 
-Aspose.Slides は、アニメーション効果の *Animate text* ブロックを操作するために次のプロパティを提供します：  
+テキスト アニメーションには次の 2 つの関連設定があります。
 
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/)（効果の Animate text タイプ）形状のテキストは次のいずれかでアニメーション化できます：  
-  - All at once（[AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/)）  
-  - By word（[AnimateTextType.ByWord](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/)）  
-  - By letter（[AnimateTextType.ByLetter](https://reference.aspose.com/slides/net/aspose.slides.animation/animatetexttype/)）  
-- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) は、アニメーション化されたテキスト部分（単語または文字）間の遅延を設定します。正の値は効果継続時間のパーセンテージを示し、負の値は秒単位の遅延を示します。  
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/itextanimation/buildtype/) は段落単位で表示するか、全体として表示するかを制御します。  
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/animatetexttype/) はテキストを一度にすべて、単語単位、または文字単位で表示するかを制御します。 [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/ieffect/delaybetweentextparts/) は単語または文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
 
-Effect の Animate text プロパティを変更する手順：
+以下の独立した例はテキスト ボックス内の単語を順にアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/buildtype/) を指定すると段落単位のビルドが無効になり、単語設定がテキスト フレーム全体に適用されます。
 
-1. [Apply](#apply-animation-to-shape) するか、アニメーション効果を取得します。  
-2. [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/net/aspose.slides.animation/itextanimation/buildtype/) プロパティを [BuildType.AsOneObject](https://reference.aspose.com/slides/net/aspose.slides.animation/buildtype/) の値に設定し、*By Paragraphs* アニメーション モードをオフにします。  
-3. 新しい値を [IEffect.AnimateTextType](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/animatetexttype/) および [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/net/aspose.slides.animation/ieffect/delaybetweentextparts/) に設定します。  
-4. 修正した PPTX ファイルを保存します。  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-この C# コードは操作を示します：
-```c#
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します。
-using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-{
-	ISlide firstSlide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
 
-	// メインシーケンスの最初の効果を取得します
-	IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.TextAnimation.BuildType = BuildType.AsOneObject;
+effect.AnimateTextType = AnimateTextType.ByWord;
+effect.DelayBetweenTextParts = 20.0f;
 
-	// エフェクトのテキストアニメーションタイプを「As One Object」に変更します
-	firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
-
-	// エフェクトのアニメートテキストタイプを「By word」に変更します
-	firstEffect.AnimateTextType = AnimateTextType.ByWord;
-
-	// 単語間の遅延をエフェクト期間の20%に設定します
-	firstEffect.DelayBetweenTextParts = 20f;
-
-	// PPTX ファイルをディスクに保存します
-	pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-}
+presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
 
+段落単位でテキスト ボックスをビルドしたい場合は、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/buildtype/)（または他の段落レベル）を指定してください。単一の段落に個別のエフェクトを適用するには、[ISequence.AddEffect](https://reference.aspose.com/slides/ja/net/aspose.slides.animation/isequence/addeffect/) のオーバーロードで [IParagraph](https://reference.aspose.com/slides/ja/net/aspose.slides/iparagraph/) を受け取るものを使用します。段落レベルの例は [Animated Text](/slides/ja/net/animated-text/) を参照してください。
+
+## **エクスポートと互換性に関する注意事項**
+
+- PPT または PPTX への保存はアニメーション モデルを保持しますが、最終的な再生はプレゼンテーション ビューアーが制御します。  
+- PDF や静止画像はアニメーションを再生しません。モーションを保持する必要がある場合は、[HTML5 エクスポート](/slides/ja/net/export-to-html5/)、アニメーション GIF、または [ビデオ変換](/slides/ja/net/convert-powerpoint-to-video/) を使用してください。  
+- HTML5 でアニメーション化されたシェイプを有効にするには、[Html5Options.AnimateShapes](https://reference.aspose.com/slides/ja/net/aspose.slides.export/html5options/animateshapes/) を設定し、必要に応じて [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/ja/net/aspose.slides.export/html5options/animatetransitions/) も有効にします。  
+- ビデオレンダリングは多くの標準的な「入り」「強調」「抜け」「モーション パス」エフェクトをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の [サポートされているアニメーションとエフェクト](/slides/ja/net/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。  
+- カスタム エフェクトや他のプレゼンテーション形式からインポートされたエフェクトは、ファイル内に保持されるものの、PowerPoint、HTML5、またはビデオでの描画が異なる場合があります。効果名だけに頼らず、エクスポート結果を必ず検証してください。
 
 ## **FAQ**
 
-**プレゼンテーションを Web に公開する際にアニメーションを保持するにはどうすればよいですか？**
+**PowerPoint では表示されるアニメーションが PDF では表示されないのはなぜですか？**
 
-[HTML5 へのエクスポート](/slides/ja/net/export-to-html5/) を使用し、[shape](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animateshapes/) および [transition](https://reference.aspose.com/slides/net/aspose.slides.export/html5options/animatetransitions/) アニメーションを有効にするオプションを設定します。プレーン HTML ではスライド アニメーションは再生されませんが、HTML5 では再生されます。
+PDF は静的形式のため、アニメーションやスライド遷移は再生されません。モーションを保持したい場合は HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
 
-**shape の Z オーダー（レイヤー順）を変更するとアニメーションにどのような影響がありますか？**
+**ビデオでエフェクトの再生が異なるのはなぜですか？**
 
-アニメーションと描画順序は独立しています。効果は表示/非表示のタイミングとタイプを制御し、[z-order](https://reference.aspose.com/slides/net/aspose.slides/shape/zorderposition/) は何が何を覆うかを決めます。最終的な見た目は両者の組み合わせで決まります。（これは PowerPoint の一般的な動作であり、Aspose.Slides の効果と shape のモデルも同様です。）
+ビデオエクスポートは元の PowerPoint 動作を保存するのではなく、アニメーションをレンダリングします。高度なエフェクトの一部は未サポートまたは近似されます。サポート対象エフェクト表を確認し、実運用前に実際のプレゼンテーションでテストしてください。
 
-**特定の効果をビデオに変換する際に制限はありますか？**
+**シェイプを前面または背面に移動するとアニメーション順序が変わりますか？**
 
-一般に、[アニメーションはサポートされています](/slides/ja/net/convert-powerpoint-to-video/)、ただしまれに例外や特定の効果が異なる方法でレンダリングされることがあります。使用する効果とライブラリのバージョンでテストすることを推奨します。
+変わりません。シェイプの Z オーダーは重なり順を制御し、シーケンス順序とトリガーがアニメーション再生順序を制御します。再生順序を変えたい場合はタイムラインを調整してください。

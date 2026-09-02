@@ -1,5 +1,5 @@
 ---
-title: Λήψη αποτελεσματικών ιδιοτήτων σχήματος από παρουσιάσεις σε JavaScript
+title: Λήψη Αποτελεσματικών Ιδιοτήτων Σχήματος από Παρουσιάσεις σε JavaScript
 linktitle: Αποτελεσματικές Ιδιότητες
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - ιδιότητες σχήματος
 - ιδιότητες κάμερας
 - σύστημα φωτισμού
-- σχήμα bevel
+- σχήμα κλίσης
 - πλαίσιο κειμένου
 - στυλ κειμένου
 - ύψος γραμματοσειράς
@@ -18,323 +18,278 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ανακαλύψτε πώς το Aspose.Slides για Node.js μέσω Java υπολογίζει και εφαρμόζει τις αποτελεσματικές ιδιότητες σχήματος για ακριβή απόδοση PowerPoint."
+description: "Μάθετε πώς να χρησιμοποιείτε το Aspose.Slides for Node.js μέσω Java για να διακρίνετε την τοπική, κληρονομισμένη και αποτελεσματική μορφοποίηση σχήματος σε παρουσιάσεις PowerPoint."
 ---
-## **Επισκόπηση**
+## **Κατανόηση Τοπικών, Κληρονομισμένων και Αποτελεσματικών Ιδιοτήτων**
 
-Αυτό το θέμα εξηγεί τη διαφορά μεταξύ **τοπικές** και **αποτελεσματικές** ιδιότητες. Οι τοπικές τιμές είναι τιμές που ορίζονται απευθείας σε ένα συγκεκριμένο επίπεδο μορφοποίησης, όπως:
+Η μορφοποίηση του PowerPoint μπορεί να προέρχεται από διάφορες πηγές. Η τιμή που αποθηκεύεται άμεσα σε ένα αντικείμενο είναι η **τοπική τιμή** του. Εάν αυτή η τιμή δεν έχει οριστεί, το PowerPoint εξετάζει τις πηγές μορφοποίησης γονέα, όπως το προεπιλεγμένο παράγραφο, ένα στυλ κειμένου, μια διάταξη ή μια κύρια διαφάνεια, ένα θέμα ή τις προεπιλογές επιπέδου παρουσίασης. Αυτές οι τιμές είναι **κληρονομισμένες τιμές**. Η τιμή που παραμένει μετά την επίλυση ολόκληρης της ιεραρχίας είναι η **αποτελεσματική τιμή** — η τιμή που χρησιμοποιείται για την απόδοση του αντικειμένου.
 
-1. Ιδιότητες τμήματος σε μια διαφάνεια.
-1. Στυλ κειμένου πρωτότυπου σχήματος σε διάταξη ή κύρια διαφάνεια, όταν το σχήμα πλαισίου κειμένου του τμήματος έχει ένα.
-1. Καθολικές ρυθμίσεις κειμένου σε μια παρουσίαση.
+Για παράδειγμα, ένα τμήμα κειμένου μπορεί να μην ορίζει το δικό του ύψος γραμματοσειράς. Η τοπική του τιμή [getFontHeight](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/#getFontHeight) είναι τότε `NaN`, που σημαίνει «δεν ορίσθηκε εδώ». Το τμήμα μπορεί να κληρονομήσει το ύψος από την παράγραφο, το προεπιλεγμένο στυλ κειμένου της παρουσίασης ή άλλη εφαρμόσιμη πηγή. Η κλήση του [getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/#getEffective) στη μορφή του τμήματος επιστρέφει το τελικό επιλυμένο ύψος.
 
-Οι τοπικές τιμές μπορούν να οριστούν ή να παραλειφθούν σε οποιοδήποτε επίπεδο. Όταν το Aspose.Slides χρειάζεται την τελική μορφοποίηση «όπως εμφανίζεται», λύνει την αλυσίδα κληρονομικότητας και επιστρέφει τις **αποτελεσματικές** τιμές. Μπορείτε να τις λάβετε καλώντας τη μέθοδο `getEffective` στο τοπικό αντικείμενο μορφής.
+Χρησιμοποιήστε τα δύο είδη δεδομένων μορφοποίησης για διαφορετικούς σκοπούς:
 
-Το παρακάτω παράδειγμα δείχνει πώς να λάβετε τις αποτελεσματικές τιμές. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) με πλαίσιο κειμένου και τουλάχιστον ένα τμήμα.
+- Διαβάστε ή τροποποιήστε ένα τοπικό αντικείμενο μορφοποίησης, όπως το [PortionFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/), όταν χρειάζεται να ελέγξετε πού ορίζεται μια τιμή.
+- Διαβάστε τα [effective data returned by PortionFormat.getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/#getEffective) όταν χρειάζεστε το τελικό, αποδιδόμενο αποτέλεσμα. Τα αποτελεσματικά δεδομένα είναι μόνο για ανάγνωση.
+
+Προτού εκτελέσετε τα παραδείγματα, [install Aspose.Slides for Node.js via Java](/slides/el/nodejs-java/installation/).
+
+## **Σύγκριση Τοπικών, Κληρονομισμένων και Αποτελεσματικών Τιμών**
+
+Το παρακάτω πλήρες παράδειγμα δημιουργεί ένα σχήμα και εφαρμόζει ύψη γραμματοσειράς σε επίπεδα παρουσίασης, παραγράφου και τμήματος. Κάθε βήμα εκτυπώνει τις τιμές που ορίζονται σε αυτά τα επίπεδα και την προκύπτουσα αποτελεσματική τιμή για το ίδιο τμήμα κειμένου. Επίσης δείχνει γιατί τα αποτελεσματικά δεδομένα πρέπει να αναγιγνώσκονται ξανά μετά από αλλαγές μορφοποίησης.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // Διαβάστε τα αποτελεσματικά δεδομένα μετά τις προηγούμενες αλλαγές.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // Ορίστε κληρονομισμένες τιμές σε δύο διαφορετικά επίπεδα.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // Μια τοπική τιμή στο τμήμα υπερισχύει και των κληρονομισμένων τιμών.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // Η αλλαγή μιας κληρονομισμένης τιμής δεν παρακάμπτει μια υπάρχουσα τοπική τιμή.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // Καθαρίστε την τοπική τιμή. Το τμήμα κληρονομεί πάλι από την παράγραφο.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // Καθαρίστε την τιμή της παραγράφου. Η προεπιλογή παρουσίασης παρέχει şimdi το αποτέλεσμα.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Τα δεδομένα αποτελεσματικής μορφοποίησης αντιπροσωπεύουν τη τρέχουσα υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας. Στην τρέχουσα υλοποίηση, ορισμένα αντικείμενα αποτελεσματικών δεδομένων μπορεί να αποθηκεύονται προσωρινά εσωτερικά. Η επανάκληση του `getEffective` μετά την αλλαγή της γονικής ή κληρονομικής μορφοποίησης μπορεί να ανανεώσει τα προσωρινά δεδομένα, και ένα αντικείμενο που είχε ληφθεί προηγουμένως ενδέχεται να μην αντιπροσωπεύει πλέον την προηγούμενη κατάσταση. Εάν χρειάζεται να διατηρήσετε τις αποτελεσματικές τιμές για μελλοντική χρήση, αντιγράψτε τις απαιτούμενες ιδιότητες, όπως το ύψος γραμματοσειράς, το χρώμα γεμίσματος, το στυλ γραμματοσειράς ή την ευθυγράμμιση, στο δικό σας αντικείμενο δεδομένων.
-{{% /alert %}}
+Η προτεραιότητα σε αυτό το παράδειγμα είναι η τοπική μορφοποίηση του τμήματος, έπειτα η μορφοποίηση της παραγράφου, και τέλος η προεπιλογή της παρουσίασης. Άλλα αντικείμενα μπορούν να έχουν διαφορετικούς αλυσίδες κληρονομικότητας, αλλά η αρχή παραμένει η ίδια: μια πιο συγκεκριμένη ρητή τιμή κερδίζει, και το [getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/#getEffective) επιστρέφει το τελικό αποτέλεσμα.
 
-## **Λήψη αποτελεσματικών ιδιοτήτων κάμερας**
+## **Λήψη Αποτελεσματικών Ιδιοτήτων Κειμένου**
 
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες μιας κάμερας. Το αντικείμενο δεδομένων αποτελεσματικής κάμερας περιέχει αμετάβλητες ιδιότητες κάμερας και εκτίθεται μέσω των αποτελεσματικών τιμών που επιστρέφονται για το [ThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/).
+Η μορφοποίηση κειμένου διαχωρίζεται σε πολλά αντικείμενα:
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για την κάμερα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει μορφοποίηση 3D.
+- Το [TextFrameFormat.getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textframeformat/#getEffective) επιλύει τις ιδιότητες πλαισίου κειμένου όπως περιθώρια, αγκύρωση, αυτόματο προσαρμοστικό μέγεθος και κάθετη κατεύθυνση κειμένου.
+- Το [TextStyle.getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textstyle/#getEffective) επιλύει τη μορφοποίηση παραγράφου για κάθε επίπεδο στυλ κειμένου.
+- Το [ParagraphFormat.getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraphformat/#getEffective) επιλύει ιδιότητες παραγράφου όπως στοίχιση, εσοχές και κουκίδες.
+- Το [PortionFormat.getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/portionformat/#getEffective) επιλύει ιδιότητες χαρακτήρων όπως ύψος γραμματοσειράς, τύπο γραμματοσειράς, χρώμα, έντονη και πλάγια γραφή.
+
+Για το επόμενο παράδειγμα, το `text-formatting.pptx` πρέπει να περιέχει τουλάχιστον μία διαφάνεια και ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) με μη κενό πλαίσιο κειμένου. Το AutoShape μπορεί να εμφανίζεται σε οποιαδήποτε θέση στη συλλογή σχημάτων· ο κώδικας αναζητά ένα κατάλληλο αντικείμενο και το επικυρώνει πριν το χρησιμοποιήσει.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **Λήψη αποτελεσματικών ιδιοτήτων συστήματος φωτισμού**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες ενός συστήματος φωτισμού. Το αντικείμενο δεδομένων αποτελεσματικού φωτισμού περιέχει αμετάβλητες ιδιότητες του φωτιστικού συστήματος και εκτίθεται μέσω των αποτελεσματικών τιμών που επιστρέφονται για το [ThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το σύστημα φωτισμού. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει μορφοποίηση 3D.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Λήψη αποτελεσματικών ιδιοτήτων σχήματος Bevel**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε τις αποτελεσματικές ιδιότητες ενός σχήματος Bevel. Το αντικείμενο δεδομένων αποτελεσματικού σχήματος Bevel περιέχει αμετάβλητες ιδιότητες ανάπλασης του σχήματος και εκτίθεται μέσω των αποτελεσματικών τιμών που επιστρέφονται για το [ThreeDFormat](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες για το άνω bevel ενός σχήματος. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει μορφοποίηση 3D.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **Λήψη αποτελεσματικών ιδιοτήτων πλαισίου κειμένου**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός πλαισίου κειμένου. Το επιστρεφόμενο αντικείμενο αποτελεσματικών δεδομένων περιέχει ιδιότητες μορφοποίησης πλαισίου κειμένου.
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις ιδιότητες μορφοποίησης αποτελεσματικού πλαισίου κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) με πλαίσιο κειμένου.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Λήψη αποτελεσματικών ιδιοτήτων στυλ κειμένου**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε τις αποτελεσματικές ιδιότητες ενός στυλ κειμένου. Το επιστρεφόμενο αντικείμενο αποτελεσματικών δεδομένων περιέχει ιδιότητες στυλ κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις ιδιότητες αποτελεσματικού στυλ κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape/) με πλαίσιο κειμένου.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Λήψη της αποτελεσματικής τιμής ύψους γραμματοσειράς**
+## **Λήψη Αποτελεσματικών 3Δ Ιδιοτήτων**
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε το αποτελεσματικό ύψος γραμματοσειράς. Ο παρακάτω κώδικας δείχνει πώς το αποτελεσματικό ύψος γραμματοσειράς ενός τμήματος αλλάζει μετά το τοπικό ορισμό του ύψους γραμματοσειράς σε διαφορετικά επίπεδα δομής παρουσίασης.
+Το [ThreeDFormat.getEffective](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getEffective) επιστρέφει ένα αντικείμενο αποτελεσματικών δεδομένων που ομαδοποιεί όλες τις επιλυμένες ρυθμίσεις 3Δ. Οι μέθοδοι του [getCamera](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getCamera), [getLightRig](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getLightRig), [getBevelTop](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getBevelTop) και [getBevelBottom](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/threedformat/#getBevelBottom) αποκαλύπτουν τα αντίστοιχα αποτελεσματικά δεδομένα. Η ανάγνωση αυτών των σχετικών ρυθμίσεων μαζί καθιστά πιο εύκολο να κατανοήσετε την τελική εμφάνιση 3Δ ενός σχήματος.
+
+Για αυτό το παράδειγμα, το `shape-3d.pptx` πρέπει να περιέχει τουλάχιστον ένα σχήμα στην πρώτη του διαφάνεια. Εφαρμόστε 3Δ κάμερα, φωτισμό ή ρυθμίσεις ασκήματος σε αυτό το σχήμα εάν θέλετε το αποτέλεσμα να περιέχει τιμές διαφορετικές από τις προεπιλογές.
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Λήψη της αποτελεσματικής μορφής γεμίσματος για Πίνακα**
+## **Λήψη Αποτελεσματικής Μορφοποίησης Πίνακα**
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε αποτελεσματικό γεμίζον μορφότυπο για διαφορετικά μέρη πίνακα. Το επιστρεφόμενο αντικείμενο αποτελεσματικών δεδομένων περιέχει ιδιότητες μορφοποίησης γεμίσματος. Η μορφοποίηση κελιού έχει προτεραιότητα έναντι της μορφοποίησης σειράς, η μορφοποίηση σειράς έχει προτεραιότητα έναντι της μορφοποίησης στήλης, και η μορφοποίηση στήλης έχει προτεραιότητα έναντι της μορφοποίησης ολόκληρου του πίνακα.
+Η μορφοποίηση πίνακα μπορεί να προέλθει από το στυλ του πίνακα και από μορφώσεις που εφαρμόζονται σε ολόκληρο τον πίνακα, μια στήλη, μια γραμμή ή ένα μεμονωμένο κελί. Σε συγκρούσεις μεταξύ ρητά ορισμένων γεμισμάτων, η προτεραιότητα είναι κελί, γραμμή, στήλη και στη συνέχεια ολόκληρος ο πίνακας. Η αποτελεσματική μορφή ενός κελιού είναι η τελική μορφή που χρησιμοποιείται για τη σχεδίαση εκείνου του κελιού.
 
-Ως αποτέλεσμα, οι αποτελεσματικές ιδιότητες μορφοποίησης κελιού χρησιμοποιούνται για τη σχεδίαση του κελιού του πίνακα. Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε αποτελεσματική μορφοποίηση γεμίσματος για διαφορετικά μέρη του πίνακα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [Table](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/table/).
+Για αυτό το παράδειγμα, το `table-formatting.pptx` πρέπει να περιέχει τουλάχιστον έναν πίνακα στην πρώτη του διαφάνεια. Ο πίνακας πρέπει να έχει τουλάχιστον μία γραμμή και μία στήλη. Ο κώδικας αναζητά ένα [Table](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/table/) αντί να υποθέτει ότι το `getShapes().get_Item(0)` είναι πίνακας.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+Εάν χρειάζεστε το χρώμα αντί μόνο του τύπου γεμίσματος, πρώτα ελέγξτε το αποτελεσματικό [getFillType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fillformat/#getFillType) και, στη συνέχεια, διαβάστε τη μέθοδο που εφαρμόζεται σε αυτόν τον τύπο — για παράδειγμα, το [getSolidFillColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) για γεμιστό στερεό.
+
+## **Ανανέωση Αποτελεσματικών Δεδομένων Μετά Από Αλλαγές**
+
+Τα αποτελεσματικά δεδομένα περιγράφουν την ιεραρχία μορφοποίησης τη στιγμή που επιλύονται. Καλέστε ξανά το `getEffective` μετά από οποιαδήποτε αλλαγή μπορεί να συμμετέχει σε αυτήν την ιεραρχία, συμπεριλαμβανομένων:
+
+- της τοπικής μορφοποίησης του αντικειμένου·
+- των προεπιλογών παραγράφου ή πλαισίου κειμένου·
+- ενός στυλ πίνακα, πίνακα, στήλης, γραμμής ή μορφοποίησης κελιού·
+- της μορφοποίησης διάταξης ή κύριας διαφάνειας·
+- των δεδομένων θέματος ή προεπιλογών επιπέδου παρουσίασης·
+- της διάταξης ή κύριας που έχει εκχωρηθεί σε μια διαφάνεια.
+
+Μην κρατάτε ένα αντικείμενο αποτελεσματικών δεδομένων ως μόνιμο στιγμιότυπο. Το Aspose.Slides μπορεί να κάνει εσωτερική προσωρινή αποθήκευση (caching) ορισμένων αποτελεσματικών δεδομένων, και μια μεταγενέστερη κλήση `getEffective` μπορεί να ανανεώσει αυτά τα δεδομένα. Εάν χρειάζεται να συγκρίνετε τιμές πριν και μετά από μια αλλαγή, αντιγράψτε τις βαθμικές τιμές που χρειάζεστε — όπως ύψος γραμματοσειράς, χρώμα, στοίχιση ή πλάτος ασκήματος — σε δικές σας μεταβλητές πριν κάνετε την αλλαγή.
+
+Για να αλλάξετε μια τιμή, ενημερώστε το κατάλληλο τοπικό αντικείμενο μορφοποίησης και, στη συνέχεια, καλέστε το `getEffective` για να επαληθεύσετε το αποτέλεσμα. Τα αντικείμενα αποτελεσματικών δεδομένων είναι μόνο για ανάγνωση.
 
 ## **Συχνές Ερωτήσεις**
 
-**Επιστρέφει η `getEffective` ένα στιγμιότυπο;**
+**Πώς μπορώ να διακρίνω ποιο επίπεδο παρείχε μια αποτελεσματική τιμή;**
 
-Όχι πάντα. Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τη μορφοποίηση που υπολογίζεται μετά την εφαρμογή της κληρονομικότητας, αλλά ορισμένα αντικείμενα αποτελεσματικών δεδομένων μπορεί να αποθηκεύονται προσωρινά εσωτερικά. Μια επόμενη κλήση του `getEffective` μπορεί να επαναϋπολογίσει τη μορφοποίηση και να ανανεώσει τα προσωρινά δεδομένα, έτσι ένα αντικείμενο που είχε ληφθεί προηγουμένως δεν πρέπει να θεωρείται μόνιμο στιγμιότυπο.
+Τα αποτελεσματικά δεδομένα περιέχουν τη τελική τιμή, όχι την πηγή της. Εξετάστε τα εφαρμόσιμα τοπικά αντικείμενα ξεκινώντας από το πιο συγκεκριμένο επίπεδο προς τα έξω. Για κείμενο, αυτό μπορεί να περιλαμβάνει το τμήμα, την παράγραφο, το πλαίσιο κειμένου, τη διάταξη, την κύρια διαφάνεια, το θέμα και τις προεπιλογές της παρουσίασης. Απροσδιόριστες τιμές όπως `NaN` ή `null` υποδηλώνουν ότι η αναζήτηση συνεχίζεται σε άλλο επίπεδο.
 
-**Πότε πρέπει να διαβάσω ξανά τις αποτελεσματικές ιδιότητες;**
+**Τι συμβαίνει όταν κανένα επίπεδο δεν ορίζει μια ιδιότητα;**
 
-Κλήστε το `getEffective` ξανά μετά από αλλαγή της τοπικής μορφοποίησης, των στυλ γονέα, της μορφοποίησης διάταξης, της μορφοποίησης κύριου αρχείου ή των προεπιλογών σε επίπεδο παρουσίασης. Η επόμενη κλήση επανεξετάζει την ιεραρχία μορφοποίησης και επιστρέφει το τρέχον αποτελεσματικό αποτέλεσμα.
+Το Aspose.Slides επιλύει την κατάλληλη προεπιλογή του PowerPoint ή της βιβλιοθήκης. Η επιλυμένη τιμή εμφανίζεται στα αποτελεσματικά δεδομένα παρόλο που κανένα τοπικό αντικείμενο δεν την ορίζει ρητά.
 
-**Επηρεάζει η αλλαγή ή η αφαίρεση μιας διαφάνειας διάταξης/κύριας τις ήδη ανακτημένες αποτελεσματικές ιδιότητες;**
+**Γιατί μια αποτελεσματική τιμή μερικές φορές είναι ίση με την τοπική τιμή;**
 
-Ναι, αλλά η αλλαγή αντανακλάται στην επόμενη κλήση του `getEffective`. Εάν αλλάξει ή αφαιρεθεί η πηγή μορφοποίησης γονέα, τα προηγουμένως αποκτηθέντα αποτελεσματικά δεδομένα μπορεί να είναι παλιά. Μόλις κληθεί ξανά το `getEffective`, το Aspose.Slides επανεξετάζει το δένδρο μορφοποίησης και οι προκύπτοντες γραμματοσειρές, χρώματα, μεγέθη ή άλλες τιμές μπορεί να αλλάξουν.
+Η τοπική τιμή κέρδισε τον υπολογισμό κληρονομικότητας. Αυτό είναι αναμενόμενο όταν η ιδιότητα έχει οριστεί ρητά στο αντικείμενο και κανένας πιο συγκεκριμένος κανόνας δεν την υπερισχύει.
 
-**Μπορώ να τροποποιήσω τιμές μέσω των αντικειμένων αποτελεσματικών δεδομένων;**
+**Πότε πρέπει να χρησιμοποιήσω τοπικά δεδομένα αντί για αποτελεσματικά δεδομένα;**
 
-Όχι. Τα αντικείμενα αποτελεσματικών δεδομένων εκθέτουν τις υπολογισμένες τιμές. Κάντε τις αλλαγές στα τοπικά αντικείμενα μορφοποίησης και, στη συνέχεια, λάβετε ξανά τις αποτελεσματικές τιμές.
-
-**Τι συμβαίνει αν μια ιδιότητα δεν έχει οριστεί στο επίπεδο του σχήματος, ούτε στη διάταξη/κύρια, ούτε στις καθολικές ρυθμίσεις;**
-
-Η αποτελεσματική τιμή καθορίζεται από τον προεπιλεγμένο μηχανισμό, ο οποίος περιλαμβάνει τις προεπιλογές του PowerPoint και του Aspose.Slides. Η επιλυμένη τιμή γίνεται μέρος των τρεχουσών αποτελεσματικών δεδομένων.
-
-**Από μια αποτελεσματική τιμή γραμματοσειράς, μπορώ να προσδιορίσω ποιο επίπεδο παρείχε το μέγεθος ή το τυπογραφικό;**
-
-Όχι άμεσα. Τα αποτελεσματικά δεδομένα επιστρέφουν την τελική τιμή. Για να βρείτε την πηγή, ελέγξτε τις τοπικές τιμές στο τμήμα, την παράγραφο, το πλαίσιο κειμένου και τα στυλ κειμένου στη διάταξη, το κύριο και το επίπεδο παρουσίασης για να δείτε πού εμφανίζεται ο πρώτος ρητός ορισμός.
-
-**Γιατί οι αποτελεσματικές τιμές μερικές φορές μοιάζουν με τις τοπικές;**
-
-Επειδή η τοπική τιμή καταλήγει να είναι η τελική (δεν απαιτήθηκε κληρονόμηση από ανώτερο επίπεδο). Σε τέτοιες περιπτώσεις, η αποτελεσματική τιμή ταιριάζει με την τοπική.
-
-**Πότε πρέπει να χρησιμοποιώ αποτελεσματικές ιδιότητες και πότε να εργάζομαι μόνο με τις τοπικές;**
-
-Χρησιμοποιήστε τα αποτελεσματικά δεδομένα όταν χρειάζεστε το αποτέλεσμα «όπως εμφανίζεται» μετά την πλήρη κληρονομικότητα, όπως για την ευθυγράμμιση χρωμάτων, εσοχών ή μεγεθών. Εάν χρειάζεται να διατηρήσετε αυτές τις τιμές ανεξάρτητα από μελλοντικές αλλαγές μορφοποίησης, αντιγράψτε τις απαιτούμενες ιδιότητες στο δικό σας αντικείμενο. Εάν χρειάζεται να αλλάξετε τη μορφοποίηση σε συγκεκριμένο επίπεδο, τροποποιήστε τις τοπικές ιδιότητες και, αν χρειάζεται, διαβάστε ξανά τα αποτελεσματικά δεδομένα για να επαληθεύσετε το αποτέλεσμα.
+Χρησιμοποιήστε τοπικά δεδομένα για να ελέγξετε ή να επεξεργαστείτε ένα συγκεκριμένο επίπεδο μορφοποίησης. Χρησιμοποιήστε αποτελεσματικά δεδομένα όταν χρειάζεστε την τελική εμφάνιση μετά την κληρονομικότητα, τους κανόνες θέματος και τα εφαρμόσιμα στυλ. Το [complete comparison example](#compare-local-inherited-and-effective-values) παρουσιάζει και τα δύο στην ίδια ροή εργασίας.

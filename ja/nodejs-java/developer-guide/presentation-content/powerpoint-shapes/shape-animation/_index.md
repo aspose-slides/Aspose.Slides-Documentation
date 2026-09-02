@@ -1,469 +1,475 @@
 ---
-title: 形状アニメーション
+title: JavaScript を使用したプレゼンテーションへのシェイプ アニメーションの適用
+linktitle: シェイプ アニメーション
 type: docs
 weight: 60
 url: /ja/nodejs-java/shape-animation/
 keywords:
-- 形状
+- シェイプ
 - アニメーション
-- 効果
-- 効果の追加
-- 効果の取得
-- 効果の抽出
-- アニメーションの適用
+- エフェクト
+- アニメーション シェイプ
+- アニメーション テキスト
+- アニメーションを追加
+- アニメーションを取得
+- アニメーションを抽出
+- エフェクトを追加
+- エフェクトを取得
+- エフェクトを抽出
+- エフェクト サウンド
+- アニメーションを適用
 - PowerPoint
 - プレゼンテーション
 - Node.js
-- Java
-- Aspose.Slides for Node.js via Java
-description: JavaScriptでPowerPointアニメーションを適用する
+- JavaScript
+- Aspose.Slides
+description: "Aspose.Slides for Node.js via Java を使用して、シェイプ アニメーション、タイミング、サウンド、アフター アニメーション動作、アニメーション テキストの追加、検査、カスタマイズ方法を学びます。"
 ---
+## **概要**
 
-アニメーションはテキスト、画像、図形、または[チャート](/slides/ja/nodejs-java/animated-charts/)に適用できる視覚効果です。プレゼンテーションやその構成要素に命を吹き込みます。
+Aspose.Slides for Node.js via Java は、スライド アニメーションをスライド タイムライン内のエフェクトとして表します。エフェクトは対象シェイプ、アニメーションの種類とサブタイプ、トリガー、タイミング設定、そしてサウンドやアフター アニメーション動作などのオプション プロパティを持ちます。
 
-## **プレゼンテーションでアニメーションを使用する理由**
+タイムラインには 2 種類のシーケンスがあります：
 
-* 情報の流れを制御する
-* 重要なポイントを強調する
-* 聴衆の関心や参加意欲を高める
-* コンテンツを読みやすく、吸収しやすく、処理しやすくする
-* プレゼンテーションの重要な部分に読者や視聴者の注意を引く
+- **メイン シーケンス** はスライドが進むと再生されます。
+- **インタラクティブ シーケンス** は、そのトリガー シェイプがクリックされたときに開始されます。
 
-PowerPoint には、**entrance**、**exit**、**emphasis**、**motion paths** カテゴリにわたるアニメーションとアニメーション効果のための多くのオプションとツールが用意されています。 
+テキスト ボックス、画像、チャート、表、その他のスライド オブジェクトはすべて [Shape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/) オブジェクトであるため、ほとんどのスライド コンテンツに対して同じ [Sequence.addEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#addEffect) メソッドを使用します。利用可能なエフェクトは [EffectType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effecttype/) 列挙体に一覧されています。
 
-## **Aspose.Slides のアニメーション**
+## **シェイプ アニメーションの追加**
 
-* Aspose.Slides は、`Aspose.Slides.Animation` 名前空間にある、アニメーションを操作するために必要なクラスと型を提供します。
-* Aspose.Slides は、[EffectType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effecttype) 列挙体に **150 以上のアニメーション効果** を提供します。これらの効果は、基本的に PowerPoint で使用されるものと同じ（または同等）です。
+アニメーションを追加するには、スライドのメイン シーケンスを取得し、対象シェイプ、エフェクトの種類、サブタイプ、トリガーを指定して [Sequence.addEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#addEffect) を呼び出します。他のシェイプがクリックされたときに開始するエフェクトの場合、そのシェイプをトリガーとしたインタラクティブ シーケンスを作成します。
 
-## **テキストボックスへのアニメーション適用**
+以下の例は、両方のタイプのアニメーションを作成し、結果を `shape-animations.pptx` に保存します。
 
-Node.js 用 Aspose.Slides for Java を使用すると、図形内のテキストにアニメーションを適用できます。
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. `rectangle` の [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape) を追加します。
-4. [AutoShape.addTextFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) を使用してテキストを追加します。
-5. メインのエフェクトシーケンスを取得します。
-6. [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape) にアニメーション効果を追加します。
-7. `BuildType` 列挙体の値を使用して `TextAnimation.setBuildType` メソッドを呼び出します。
-8. プレゼンテーションを PPTX ファイルとしてディスクに保存します。
-
-この Javascript コードは、`Fade` 効果を AutoShape に適用し、テキストアニメーションを *By 1st Level Paragraphs* に設定する方法を示しています:
 ```javascript
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを生成します。
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // テキスト付きの新しいAutoShapeを追加します
-    var autoShape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 100);
-    var textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // スライドのメインシーケンスを取得します。
-    var sequence = sld.getTimeline().getMainSequence();
-    // シェイプにFadeアニメーション効果を追加します
-    var effect = sequence.addEffect(autoShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // シェイプのテキストを第1レベル段落単位でアニメーション化します
-    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
-    // PPTXファイルをディスクに保存します
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Click to animate this shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    const entranceEffect = mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    entranceEffect.getTiming().setDuration(java.newFloat(1.5));
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    presentation.save("shape-animations.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+トリガーはエフェクトの開始タイミングを制御します：
 
-{{%  alert color="primary"  %}} 
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effecttriggertype/#OnClick) は、メイン シーケンスでのクリック、またはインタラクティブ シーケンスでトリガー シェイプのクリックを待機します。
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) は、直前のエフェクトと同時に開始します。
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) は、直前のエフェクトが終了したときに開始します。
 
-テキストへのアニメーション適用に加えて、単一の[Paragraph](https://reference.aspose.com/slides/nodejs-java/aspose.slides/paragraph)にもアニメーションを適用できます。**Animated Text**をご覧ください。
+画像、チャート、またはその他のシェイプ タイプをアニメーション化するには、`targetShape` の代わりにそのオブジェクトを [Sequence.addEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#addEffect) に渡します。チャート固有のグルーピング オプションについては、[Animated Charts](/slides/ja/nodejs-java/animated-charts/) を参照してください。
 
-{{% /alert %}} 
+## **シェイプ アニメーションの取得**
 
-## **PictureFrame へのアニメーション適用**
+対象シェイプが分かっている場合は [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#getEffectsByShape) を使用します。すべてのエフェクトを確認するには、メイン シーケンスとすべてのインタラクティブ シーケンスを列挙します。列挙することで、シーケンスにインデックス `0` のエフェクトが必ず存在すると仮定することを防げます。
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. スライド上に [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe) を追加または取得します。
-4. メインのエフェクトシーケンスを取得します。
-5. [PictureFrame](https://reference.aspose.com/slides/nodejs-java/aspose.slides/pictureframe) にアニメーション効果を追加します。
-6. プレゼンテーションを PPTX ファイルとしてディスクに保存します。
+以下の例は、メイン シーケンスとインタラクティブ エフェクトを持つシェイプを作成し、そのシェイプを対象とするエフェクトを取得し、さらにスライド上のすべてのシーケンスを列挙します。
 
-この Javascript コードは、picture frame に `Fly` 効果を適用する方法を示しています:
 ```javascript
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを生成します。
-var pres = new aspose.slides.Presentation();
-try {
-    // プレゼンテーションの画像コレクションに追加する画像をロードします
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
         }
     }
-    // スライドに画像フレームを追加します
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, picture);
-    // スライドのメインシーケンスを取得します。
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // 画像フレームに左からフライアニメーション効果を追加します
-    var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
-    // PPTXファイルをディスクに保存します
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    return String(value);
+}
+
+function printSequence(label, sequence) {
+    console.log(`  ${label}: ${sequence.getCount()} effect(s)`);
+
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+        const targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        const triggerName = getEnumName(aspose.slides.EffectTriggerType, effect.getTiming().getTriggerType());
+        console.log(`    ${typeName} ${subtypeName}; target: ${targetName}; trigger: ${triggerName}`);
     }
 }
-```
 
-
-## **Shape へのアニメーション適用**
-
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。
-3. `rectangle` の [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape) を追加します。
-4. `Bevel` の [AutoShape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/autoshape) を追加します（このオブジェクトがクリックされるとアニメーションが再生されます）。
-5. ベベル形状上にエフェクトシーケンスを作成します。
-6. カスタムの `UserPath` を作成します。
-7. `UserPath` への移動コマンドを追加します。
-8. プレゼンテーションを PPTX ファイルとしてディスクに保存します。
-
-この Javascript コードは、shape に `PathFootball`（パスフットボール）効果を適用する方法を示しています:
-```javascript
-// PPTX ファイルを表す Presentation クラスのインスタンスを作成します。
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // 既存の図形に対して最初から PathFootball 効果を作成します。
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-    // PathFootBall アニメーション効果を追加します
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
-    // ボタンのようなものを作成します。
-    var shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 10, 10, 20, 20);
-    // このボタン用の効果シーケンスを作成します。
-    var seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-    // カスタムユーザーパスを作成します。オブジェクトはボタンがクリックされた後にのみ移動します。
-    var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // 作成されたパスが空なので、移動コマンドを追加します。
-    var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
-    // PPTX ファイルをディスクに保存します
-    pres.save("AnimExample_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(0);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Animated shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const targetEffects = mainSequence.getEffectsByShape(targetShape);
+    console.log(`The main sequence contains ${targetEffects.length} effect(s) for ${targetShape.getName()}.`);
+
+    printSequence("Main sequence", mainSequence);
+
+    const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+    for (let i = 0; i < interactiveSequences.getCount(); i++) {
+        const sequence = interactiveSequences.get_Item(i);
+        const triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+        printSequence(`Interactive sequence ${i + 1}, trigger: ${triggerName}`, sequence);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+1 つのシェイプのエフェクトだけが必要な場合は、まず名前、プレースホルダー タイプ、または他の安定したプロパティでシェイプを特定し、次に [Sequence.getEffectsByShape](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#getEffectsByShape) を呼び出します。[ShapeCollection.get_Item](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shapecollection/#get_Item) のインデックス `0` が常に目的のオブジェクトであると仮定しないでください。
 
-## **Shape に適用されたアニメーション効果の取得**
+## **継承されたプレースホルダー エフェクトの操作**
 
-以下の例は、[Sequence](https://reference.aspose.com/slides/nodejs-java/aspose.slides/sequence/) クラスの `getEffectsByShape` メソッドを使用して、図形に適用されたすべてのアニメーション効果を取得する方法を示しています。
+通常のスライド上のプレースホルダーは、レイアウト スライドやマスタースライド上の対応するプレースホルダーからアニメーション 動作を継承できます。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/#getBasePlaceholder) はその親プレースホルダーを返し、親が存在しない場合は `null` を返します。
 
-**例 1: 通常のスライド上の図形に適用されたアニメーション効果の取得**
+以下のサンプル プレゼンテーションでは、フッターは通常のスライドで **Random Bars**、レイアウト スライドで **Split**、マスタースライドで **Fly In** のアニメーションが設定されています。
 
-以前、PowerPoint プレゼンテーションの図形にアニメーション効果を追加する方法を学びました。以下のサンプルコードは、プレゼンテーション `AnimExample_out.pptx` の最初の通常スライド上の最初の図形に適用された効果を取得する方法を示しています。
+![通常のスライド上のフッター アニメーション効果](slide-shape-animation.png)
+
+![レイアウト スライド上のフッター プレースホルダー アニメーション効果](layout-shape-animation.png)
+
+![マスタースライド上のフッター プレースホルダー アニメーション効果](master-shape-animation.png)
+
+次の例では、新しいプレゼンテーションのプレースホルダー階層を使用します。マスタープレースホルダー、レイアウトプレースホルダー、および通常のスライド上の対応するプレースホルダーにエフェクトを追加します。[Shape.getBasePlaceholder](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/shape/#getBasePlaceholder) への呼び出しは、返されたシェイプを使用する前に必ずチェックされます。
+
 ```javascript
-var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
 
-    // スライドのメインアニメーションシーケンスを取得します。
-    var sequence = firstSlide.getTimeline().getMainSequence();
+function findPlaceholderWithBase(baseSlide, expectedBase) {
+    const shapes = baseSlide.getShapes();
 
-    // 最初のスライド上の最初の図形を取得します。
-    var shape = firstSlide.getShapes().get_Item(0);
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const basePlaceholder = shape.getBasePlaceholder();
 
-    // 図形に適用されたアニメーション効果を取得します。
-    var shapeEffects = sequence.getEffectsByShape(shape);
+        if (basePlaceholder == null) {
+            continue;
+        }
 
-    if (shapeEffects.length > 0) {
-        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
+        if (expectedBase == null || basePlaceholder.getPlaceholder().getType() === expectedBase.getPlaceholder().getType()) {
+            return shape;
+        }
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return null;
 }
-```
 
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
+        }
+    }
 
-**例 2: プレースホルダーから継承されたものを含むすべてのアニメーション効果の取得**
+    return String(value);
+}
 
-通常スライド上の図形に、レイアウトスライドやマスタースライド上のプレースホルダーがあり、これらのプレースホルダーにアニメーション効果が追加されている場合、スライドショー中に図形のすべての効果が再生されます。これにはプレースホルダーから継承された効果も含まれます。
+function printEffects(source, effects) {
+    console.log(`${source}: ${effects.length} effect(s)`);
 
-たとえば、`sample.pptx` という PowerPoint プレゼンテーションに、フッター形状のみが含まれ、テキスト「Made with Aspose.Slides」に **Random Bars** 効果が適用されているとします。
-
-![スライド形状アニメーション効果](slide-shape-animation.png)
-
-さらに、レイアウトスライドのフッター プレースホルダーに **Split** 効果が適用されているとします。
-
-![レイアウト形状アニメーション効果](layout-shape-animation.png)
-
-最後に、マスタースライドのフッター プレースホルダーに **Fly In** 効果が適用されているとします。
-
-![マスタ形状アニメーション効果](master-shape-animation.png)
-
-以下のサンプルコードは、[Shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/) クラスの `getBasePlaceholder` メソッドを使用して形状プレースホルダーにアクセスし、レイアウトおよびマスタースライド上のプレースホルダーから継承されたものを含むフッター形状に適用されたアニメーション効果を取得する方法を示しています。
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-var slide = presentation.getSlides().get_Item(0);
-
-// 通常スライド上の図形のアニメーション効果を取得します。
-var shape = slide.getShapes().get_Item(0);
-var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// レイアウトスライド上のプレースホルダーのアニメーション効果を取得します。
-var layoutShape = shape.getBasePlaceholder();
-var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// マスタースライド上のプレースホルダーのアニメーション効果を取得します。
-var masterShape = layoutShape.getBasePlaceholder();
-var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-console.log("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-
-```js
-function printEffects(effects) {
     for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        console.log(`  ${typeName} ${subtypeName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
+    const layoutPlaceholder = findPlaceholderWithBase(layoutSlide, null);
+
+    if (layoutPlaceholder == null) {
+        throw new Error("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+    layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+    layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, aspose.slides.EffectType.Split, aspose.slides.EffectSubtype.VerticalIn, aspose.slides.EffectTriggerType.OnClick);
+
+    const slide = presentation.getSlides().addEmptySlide(layoutSlide);
+    const slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+    if (slidePlaceholder == null) {
+        throw new Error("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, aspose.slides.EffectType.RandomBars, aspose.slides.EffectSubtype.Horizontal, aspose.slides.EffectTriggerType.OnClick);
+    printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+    const baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+    if (baseLayoutPlaceholder != null) {
+        printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+        const baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+        if (baseMasterPlaceholder != null) {
+            printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+        }
+    }
+
+    presentation.save("placeholder-animations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
+## **アニメーション タイミングの変更**
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // フライ, ボトム
-Type: 134, subtype: 45            // スプリット, 垂直イン
-Type: 126, subtype: 22            // ランダムバー, 水平
-```
+PowerPoint の **Timing** ダイアログは、[Timing](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/) のプロパティに対応しています。
 
+![アニメーション効果の PowerPoint Timing ダイアログ](shape-animation.png)
 
-## **アニメーション効果のタイミングプロパティの変更**
+- **開始** は [Timing.getTriggerType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getTriggerType) に対応します。
+- **期間** は [Timing.getDuration](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getDuration) に対応し、単位は秒です。
+- **遅延** は [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) に対応し、単位は秒です。
+- **繰り返し** は [Timing.getRepeatCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getRepeatCount)、[Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick)、または [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) に対応します。
+- **再生完了後に巻き戻す** は [Timing.getRewind](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#getRewind) に対応します。
 
-Aspose.Slides for Node.js via Java を使用すると、アニメーション効果のタイミングプロパティを変更できます。
+この独立した例はエフェクトを追加し、[Sequence.addEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#addEffect) が返すオブジェクトを介してタイミングを変更し、結果を保存します。返された [Effect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effect/) 参照を保持することで、不要なコレクション インデックスの使用を回避できます。
 
-この画像は Microsoft PowerPoint のアニメーションタイミング ペインです:
-
-![Microsoft PowerPoint のアニメーションタイミング ペイン](shape-animation.png)
-
-以下は PowerPoint のタイミングと [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Effect#getTiming--) プロパティの対応です:
-
-- PowerPoint のタイミング **Start** ドロップダウンは [Effect.Timing.TriggerType](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getTriggerType--) プロパティに対応します。
-- PowerPoint のタイミング **Duration** は [Effect.Timing.Duration](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getDuration--) プロパティに対応します。アニメーションの継続時間（秒）は、アニメーションが 1 サイクルを完了するのに要する総時間です。
-- PowerPoint のタイミング **Delay** は [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--) プロパティに対応します。
-
-タイミングプロパティを変更する手順:
-
-1. [Apply](#apply-animation-to-shape) するか、アニメーション効果を取得します。
-2. 必要な [Effect.Timing](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Effect#getTiming--) プロパティに新しい値を設定します。
-3. 変更した PPTX ファイルを保存します。
-
-この Javascript コードは操作を示しています:
 ```javascript
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを生成します。
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // スライドのメインシーケンスを取得します。
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // メインシーケンスの最初のエフェクトを取得します。
-    var effect = sequence.get_Item(0);
-    // エフェクトの TriggerType をクリック時開始に変更します。
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Timed animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
-    // エフェクトの Duration を変更します。
-    effect.getTiming().setDuration(3.0);
-    // エフェクトの TriggerDelayTime を変更します。
-    effect.getTiming().setTriggerDelayTime(0.5);
-    // PPTX ファイルをディスクに保存します。
-    pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
+    effect.getTiming().setDuration(java.newFloat(2.0));
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
+    effect.getTiming().setRepeatUntilNextClick(false);
+    effect.getTiming().setRepeatUntilEndSlide(false);
+    effect.getTiming().setRepeatCount(java.newFloat(2.0));
+    effect.getTiming().setRewind(true);
+
+    presentation.save("shape-animation-timing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+意図的に 1 つの繰り返しモードのみを使用してください。繰り返し回数と "until" フラグを組み合わせると、ビューアーによって混乱を招く結果になることがあります。繰り返しモードを変更する場合は、[Timing.setRepeatCount](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#setRepeatCount) を呼び出す前に、[Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) と [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) を設定してください。いずれかのフラグを設定すると、アクティブな繰り返しモードも変更されます。
 
-## **アニメーション効果のサウンド**
+## **アニメーション サウンドの追加と抽出**
 
-Aspose.Slides は、アニメーション効果のサウンドを操作するための次のプロパティを提供します:
+アニメーション エフェクトは、[Effect.getSound](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effect/#getSound) を介して埋め込みオーディオを参照できます。[Effect.setStopPreviousSound](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effect/#setStopPreviousSound) は、エフェクトに以前のエフェクトが開始したオーディオを停止させます。
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
+### **エフェクトにサウンドを追加**
 
-### **アニメーション効果のサウンド追加**
+以下の例は、ローカルのオーディオ ファイル `animation-sound.wav` が存在することを前提としています。2 つのエフェクトを作成し、最初のエフェクトのサウンドとしてそのファイルを埋め込み、2 番目のエフェクトでサウンドを停止するよう設定します。[Sequence.addEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#addEffect) が返すオブジェクトを使用するため、シーケンス インデックスは不要です。
 
-この Javascript コードは、アニメーション効果のサウンドを追加し、次の効果が開始するときにサウンドを停止する方法を示しています:
 ```javascript
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const fs = require("fs");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // プレゼンテーションのオーディオコレクションに音声を追加します
-    var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
-    var firstSlide = pres.getSlides().get_Item(0);
-    // スライドのメインシーケンスを取得します。
-    var sequence = firstSlide.getTimeline().getMainSequence();
-    // メインシーケンスの最初のエフェクトを取得します
-    var firstEffect = sequence.get_Item(0);
-    // エフェクトが「サウンドなし」かチェックします
-    if ((!firstEffect.getStopPreviousSound()) && (firstEffect.getSound() == null)) {
-        // 最初のエフェクトにサウンドを追加します
-        firstEffect.setSound(effectSound);
-    }
-    // スライドの最初のインタラクティブシーケンスを取得します。
-    var interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
-    // エフェクトの「前のサウンドを停止」フラグを設定します
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-    // PPTX ファイルをディスクに保存します
-    pres.save("AnimExample_Sound_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
+    const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+    firstShape.addTextFrame("Starts sound");
+    secondShape.addTextFrame("Stops sound");
+
+    const sequence = slide.getTimeline().getMainSequence();
+    const firstEffect = sequence.addEffect(firstShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    const secondEffect = sequence.addEffect(secondShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("animation-sound.wav")));
+    const effectSound = presentation.getAudios().addAudio(audioData);
+    firstEffect.setSound(effectSound);
+    secondEffect.setStopPreviousSound(true);
+
+    presentation.save("shape-animation-sound.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+### **埋め込みエフェクトサウンドの抽出**
 
-### **アニメーション効果のサウンド抽出**
+以下の例は、ローカルのプレゼンテーション `presentation-with-animation-sounds.pptx` が存在することを前提としています。メインとインタラクティブの両シーケンスを走査し、埋め込まれたすべてのエフェクトサウンドを `extracted-animation-sounds` ディレクトリに書き出します。拡張子は [Audio.getContentType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audio/#getContentType) が示すオーディオ MIME タイプから選択されます。
 
-1. [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/) クラスのインスタンスを作成します。
-2. インデックスを使用してスライドへの参照を取得します。 
-3. メインのエフェクトシーケンスを取得します。 
-4. 各アニメーション効果に埋め込まれた [setSound(IAudio value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) を抽出します。
-
-この Javascript コードは、アニメーション効果に埋め込まれたサウンドを抽出する方法を示しています:
 ```javascript
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します。
-var presentation = new aspose.slides.Presentation("EffectSound.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // スライドのメインシーケンスを取得します。
-    var sequence = slide.getTimeline().getMainSequence();
-    for (var i = 0; i < sequence.getCount(); i++) {
-        var effect = sequence.get_Item(i);
+const fs = require("fs");
+const path = require("path");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getAudioExtension(contentType) {
+    const normalizedType = contentType == null ? "" : contentType.toLowerCase();
+
+    if (normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if (normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if (normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if (normalizedType === "audio/wav" || normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds(sequence, outputDirectory, soundIndex) {
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+
         if (effect.getSound() == null) {
             continue;
         }
-        // エフェクトのサウンドをバイト配列で抽出します
-        var audio = effect.getSound().getBinaryData();
+
+        const extension = getAudioExtension(effect.getSound().getContentType());
+        const outputPath = path.join(outputDirectory, `effect-sound-${soundIndex}${extension}`);
+        fs.writeFileSync(outputPath, Buffer.from(effect.getSound().getBinaryData()));
+        soundIndex++;
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return soundIndex;
 }
-```
 
+const outputDirectory = "extracted-animation-sounds";
+fs.mkdirSync(outputDirectory, { recursive: true });
 
-## **アフター アニメーション**
-
-Aspose.Slides for Node.js via Java を使用すると、アニメーション効果の After animation プロパティを変更できます。
-
-この画像は Microsoft PowerPoint のアニメーション効果ペインと拡張メニューです:
-
-![Microsoft PowerPoint のアニメーション効果ペインと拡張メニュー](shape-after-animation.png)
-
-PowerPoint の **After animation** ドロップダウンは次のプロパティに対応します:
-
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) メソッドは After animation タイプを指定します。
-  * PowerPoint の **More Colors** は [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) タイプに対応します。
-  * PowerPoint の **Don't Dim** は [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) タイプ（デフォルト）に対応します。
-  * PowerPoint の **Hide After Animation** は [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation) タイプに対応します。
-  * PowerPoint の **Hide on Next Mouse Click** は [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) タイプに対応します。
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) メソッドは After animation のカラー形式を定義します。このメソッドは [AfterAnimationType.Color](https://reference.aspose.com/slides/nodejs-java/aspose.slides/afteranimationtype/#Color) タイプと組み合わせて使用します。別のタイプに変更するとカラーはクリアされます。
-
-この Javascript コードは After animation 効果を変更する方法を示しています:
-```javascript
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します
-var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
+const presentation = new aspose.slides.Presentation("presentation-with-animation-sounds.pptx");
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // メインシーケンスの最初のエフェクトを取得します
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // 後のアニメーションのタイプを Color に変更します
-    firstEffect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
-    // 後のアニメーションのカラーを設定します
-    firstEffect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // PPTX ファイルをディスクに保存します
-    pres.save("AnimImage_AfterAnimation.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    let soundIndex = 1;
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let sequenceIndex = 0; sequenceIndex < interactiveSequences.getCount(); sequenceIndex++) {
+            soundIndex = saveSounds(interactiveSequences.get_Item(sequenceIndex), outputDirectory, soundIndex);
+        }
     }
+
+    console.log(`Extracted ${soundIndex - 1} sound file(s) to ${path.resolve(outputDirectory)}.`);
+} finally {
+    presentation.dispose();
 }
 ```
 
+大きなオーディオ オブジェクトの場合は、[Audio.getStream](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/audio/#getStream) を使用し、オブジェクト全体をバイト配列に読み込む代わりにストリームをファイルにコピーしてください。
+
+## **アフター アニメーション動作の設定**
+
+**After animation** オプションは、エフェクトが終了した後にシェイプに何が起こるかを制御します。
+
+![After animation 設定を示す PowerPoint エフェクト オプション ダイアログ](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/afteranimationtype/) 列挙体は、シェイプを変更せずに残す、色を変更する、アニメーション後に非表示にする、次のクリックで非表示にする、という動作をサポートします。タイプが [AfterAnimationType.Color](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/afteranimationtype/#Color) の場合は、[Effect.getAfterAnimationColor](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) も設定してください。
+
+この独立した例はエフェクトを作成し、返されたエフェクト オブジェクトを通じてアフター アニメーション動作を設定し、結果を保存します。
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Dim after animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
+    effect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("shape-animation-after-effect.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+[AfterAnimationType.Color](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/afteranimationtype/#Color) 以外のタイプに変更すると、アフター アニメーションの色設定はクリアされます。
 
 ## **テキストのアニメーション**
 
-Aspose.Slides は、アニメーション効果の *Animate text* ブロックを操作するために次のプロパティを提供します:
+テキスト アニメーションには関連する 2 つの制御があります：
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) はテキストのアニメーションタイプを指定します。テキストは次のいずれかでアニメーション化できます:
-  - All at once ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animatetexttype/#AllAtOnce) タイプ)
-  - By word ([AnimateTextType.ByWord](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animatetexttype/#ByWord) タイプ)
-  - By letter ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/nodejs-java/aspose.slides/animatetexttype/#ByLetter) タイプ)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) はアニメーション化されたテキスト部分（単語または文字）間の遅延を設定します。正の値は効果の継続時間の割合、負の値は秒単位の遅延を表します。
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/textanimation/#getBuildType) は、段落をまとめて表示するか段落レベルで表示するかを制御します。
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effect/#getAnimateTextType) は、テキストを一度に表示するか、単語単位か、文字単位かを制御します。[Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) は単語または文字間の遅延を設定します。正の値はエフェクト期間のパーセンテージ、負の値は秒単位の遅延です。
 
-テキストアニメーションプロパティを変更する手順:
+以下の独立した例はテキスト ボックス内の単語をアニメーション化します。[BuildType.AsOneObject](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/buildtype/#AsOneObject) は段落ごとのビルドを無効にし、単語設定がテキスト フレーム全体に適用されるようにします。
 
-1. [Apply](#apply-animation-to-shape) するか、アニメーション効果を取得します。
-2. `BuildType.AsOneObject` 値を使用して `setBuildType(int value)` メソッドを呼び出し、*By Paragraphs* アニメーションモードをオフにします。
-3. 新しい [setAnimateTextType(int value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) と [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) の値を設定します。
-4. 変更した PPTX ファイルを保存します。
-
-この Javascript コードは操作を示しています:
 ```javascript
-// プレゼンテーションファイルを表すプレゼンテーションクラスのインスタンスを作成します。
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // メインシーケンスの最初のエフェクトを取得します
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // エフェクトのテキストアニメーションタイプを「As One Object」に変更します
-    firstEffect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
-    // エフェクトのアニメートテキストタイプを「By word」に変更します
-    firstEffect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
-    // 単語間の遅延を効果時間の20%に設定します
-    firstEffect.setDelayBetweenTextParts(20.0);
-    // PPTX ファイルをディスクに保存します
-    pres.save("AnimTextBox_AnimateText.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
+    textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(textBox, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
+    effect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
+    effect.setDelayBetweenTextParts(java.newFloat(20.0));
+
+    presentation.save("animated-text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+段落単位でテキスト ボックスを構築するには、[BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1)（または他の段落レベル）を設定します。単一の段落に個別のエフェクトを適用するには、[Paragraph](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/paragraph/) を受け取るオーバーロードの [Sequence.addEffect](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/sequence/#addEffect) を使用します。段落レベルの例については、[Animated Text](/slides/ja/nodejs-java/animated-text/) を参照してください。
+
+## **エクスポートと互換性に関する注意事項**
+
+- PPT または PPTX への保存はアニメーション モデルを保持しますが、最終的な再生はプレゼンテーション ビューアーが制御します。
+- PDF や静止画像はアニメーションを再生しません。出力に動きを示す必要がある場合は、[HTML5 export](/slides/ja/nodejs-java/export-to-html5/)、アニメーション GIF、または [video conversion](/slides/ja/nodejs-java/convert-powerpoint-to-video/) を使用してください。
+- HTML5 では、[Html5Options.setAnimateShapes](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/html5options/#setAnimateShapes) を有効にし、必要に応じて [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/ja/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) も有効にしてください。
+- ビデオレンダリングは、一般的な入口、強調、終了、およびモーション パス エフェクトの多くをサポートしますが、すべての PowerPoint エフェクトがサポートされているわけではありません。現在の [supported animations and effects](/slides/ja/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) を確認し、対象の Aspose.Slides バージョンで重要なプレゼンテーションをテストしてください。
+- 高度なカスタム エフェクトや他のプレゼンテーション形式からインポートされたエフェクトはファイル内で保持されることがありますが、PowerPoint、HTML5、またはビデオでの描画が異なる場合があります。エフェクト名だけに依存せず、エクスポート結果を検証してください。
 
 ## **FAQ**
 
-**プレゼンテーションを Web に公開する際に、アニメーションを保持するにはどうすればよいですか？**
+**なぜアニメーションは PowerPoint では表示されるのに PDF では表示されないのですか？**
 
-[HTML5 にエクスポート](/slides/ja/nodejs-java/export-to-html5/)し、[shape](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimateshapes/) と [transition](https://reference.aspose.com/slides/nodejs-java/aspose.slides/html5options/setanimatetransitions/) アニメーションを有効にするオプションを設定します。普通の HTML ではスライド アニメーションは再生されませんが、HTML5 では再生されます。
+PDF は静的なフォーマットであるため、アニメーションやスライド遷移は再生されません。動きを保持する必要がある場合は、HTML5、アニメーション GIF、またはビデオにエクスポートしてください。
 
-**図形の Z オーダー（レイヤー順）を変更すると、アニメーションにどのような影響がありますか？**
+**なぜビデオでエフェクトの再生が異なるのですか？**
 
-アニメーションと描画順序は独立しています。効果は表示・非表示のタイミングと種類を制御し、[z-order](https://reference.aspose.com/slides/nodejs-java/aspose.slides/shape/getzorderposition/) は何が何を覆うかを決定します。最終的な見た目は両者の組み合わせで決まります。（これは一般的な PowerPoint の動作であり、Aspose.Slides の効果と形状のモデルも同様です。）
+ビデオエクスポートは、元の PowerPoint の動作を保持せずにアニメーションをレンダリングします。高度なエフェクトの一部はサポートされていないか、近似されます。サポート対象エフェクトの表を確認し、実際のプレゼンテーションを本番使用前にテストしてください。
 
-**特定の効果をビデオに変換する際に、制限はありますか？**
+**シェイプを前面または背面に移動すると、アニメーション順序が変わりますか？**
 
-一般に[アニメーションはサポート](/slides/ja/nodejs-java/convert-powerpoint-to-video/)されていますが、稀なケースや特定の効果は異なる形でレンダリングされることがあります。使用する効果とライブラリのバージョンでテストすることを推奨します。
+いいえ。シェイプの Z オーダーは重なり順を制御し、シーケンスの順序とトリガーがアニメーションの再生順序を制御します。再生順序を変更したい場合は、タイムラインを調整してください。

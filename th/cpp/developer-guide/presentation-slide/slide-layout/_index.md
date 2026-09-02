@@ -1,5 +1,5 @@
 ---
-title: ใช้หรือเปลี่ยนเค้าโครงสไลด์ใน C++
+title: นำไปใช้หรือเปลี่ยนแปลงเค้าโครงสไลด์ใน C++
 linktitle: เค้าโครงสไลด์
 type: docs
 weight: 60
@@ -7,20 +7,20 @@ url: /th/cpp/slide-layout/
 keywords:
 - เค้าโครงสไลด์
 - เค้าโครงเนื้อหา
-- ตำแหน่งที่คั่น
+- ตัวแทนตำแหน่ง
 - การออกแบบงานนำเสนอ
 - การออกแบบสไลด์
 - เค้าโครงที่ไม่ได้ใช้
 - การมองเห็นส่วนท้าย
 - สไลด์หัวเรื่อง
 - หัวเรื่องและเนื้อหา
-- หัวข้อส่วน
+- หัวเรื่องส่วน
 - สองเนื้อหา
 - การเปรียบเทียบ
 - หัวเรื่องเท่านั้น
 - เค้าโครงเปล่า
-- เนื้อหาพร้อมคำบรรยาย
-- รูปภาพพร้อมคำบรรยาย
+- เนื้อหาพร้อมคำอธิบาย
+- รูปภาพพร้อมคำอธิบาย
 - หัวเรื่องและข้อความแนวตั้ง
 - หัวเรื่องแนวตั้งและข้อความ
 - PowerPoint
@@ -28,248 +28,283 @@ keywords:
 - งานนำเสนอ
 - C++
 - Aspose.Slides
-description: "จัดการและปรับแต่งเค้าโครงสไลด์ใน Aspose.Slides สำหรับ C++. สำรวจประเภทของเค้าโครง การควบคุมตำแหน่งที่คั่น และการมองเห็นส่วนท้ายผ่านตัวอย่างโค้ด C++."
+description: "นำไปใช้, สร้าง และแก้ไขเค้าโครงสไลด์ใน Aspose.Slides สำหรับ C++, เพิ่มตัวแทนตำแหน่ง, ลบเค้าโครงที่ไม่ได้ใช้, และควบคุมการมองเห็นส่วนท้าย."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-เค้าโครงสไลด์กำหนดการจัดวางกล่องตำแหน่งที่คั่นและรูปแบบการจัดรูปแบบสำหรับเนื้อหาบนสไลด์ มันควบคุมว่าตำแหน่งที่คั่นใดบ้างที่พร้อมใช้งานและปรากฏที่ไหน เค้าโครงสไลด์ช่วยให้คุณออกแบบงานนำเสนอได้อย่างรวดเร็วและสม่ำเสมอ — ไม่ว่าคุณกำลังสร้างสิ่งที่เรียบง่ายหรือซับซ้อนมากก็ตาม เค้าโครงสไลด์ที่พบได้บ่อยที่สุดใน PowerPoint ได้แก่:
+เค้าโครงสไลด์กำหนดตำแหน่งและรูปแบบของตัวแทนตำแหน่ง (placeholder) เช่น ชื่อเรื่อง, ข้อความ, รูปภาพ, แผนภูมิ และตาราง การใช้เค้าโครงทำให้สไลด์มีโครงสร้างที่สอดคล้องกันในขณะที่แต่ละสไลด์ยังคงมีเนื้อหาเป็นของตนเอง
 
-**Title Slide layout** – มีตำแหน่งที่คั่นข้อความสองตำแหน่ง: หนึ่งสำหรับหัวเรื่องและอีกหนึ่งสำหรับหัวเรื่องย่อย.
+เค้าโครงที่พบมากที่สุด ได้แก่:
 
-**Title and Content layout** – มีตำแหน่งที่คั่นหัวเรื่องขนาดเล็กที่ด้านบนและตำแหน่งที่ใหญ่กว่าอยู่ด้านล่างสำหรับเนื้อหาหลัก (เช่น ข้อความ, รายการหัวข้อย่อย, แผนภูมิ, รูปภาพ และอื่น ๆ).
+- **Title Slide**: มีตัวแทนตำแหน่งของหัวเรื่องและหัวเรื่องย่อย
+- **Title and Content**: มีตัวแทนตำแหน่งของหัวเรื่องและตัวแทนตำแหน่งเนื้อหาทั่วไป
+- **Blank**: ไม่มีตัวแทนตำแหน่งเนื้อหาและมีประโยชน์เมื่อรูปทรงทุกอย่างจะถูกจัดตำแหน่งด้วยตนเอง
 
-**Blank layout** – ไม่มีตำแหน่งที่คั่นใด ๆ ให้คุณควบคุมทั้งหมดในการออกแบบสไลด์ตั้งแต่ต้น.
+## **ทำความเข้าใจการสืบทอดเค้าโครง**
 
-เค้าโครงสไลด์เป็นส่วนหนึ่งของ master slide ซึ่งเป็นสไลด์ระดับบนสุดที่กำหนดสไตล์เค้าโครงสำหรับงานนำเสนอ คุณสามารถเข้าถึงและแก้ไขเค้าโครงสไลด์ผ่าน master slide — ไม่ว่าจะตามประเภท, ชื่อ หรือรหัสประจำตัวที่ไม่ซ้ำกัน หรือคุณสามารถแก้ไขเค้าโครงสไลด์เฉพาะโดยตรงภายในงานนำเสนอได้
+งานนำเสนอมีระดับที่เกี่ยวข้องสามระดับ:
 
-เพื่อทำงานกับเค้าโครงสไลด์ใน Aspose.Slides for Android คุณสามารถใช้:
+1. A [สไลด์แม่](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/) กำหนดธีม การจัดรูปแบบที่ใช้ร่วมกัน พื้นหลัง และอ็อบเจ็กต์ทั่วไป
+1. A [สไลด์เค้าโครง](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/) เป็นส่วนหนึ่งของสไลด์แม่และกำหนดการจัดวางตัวแทนตำแหน่งเฉพาะ
+1. A [สไลด์ปกติ](https://reference.aspose.com/slides/th/cpp/aspose.slides/islide/) ใช้เค้าโครงหนึ่งและเก็บเนื้อหาที่ป้อนสำหรับสไลด์นั้น
 
-- วิธีการเช่น [get_LayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_layoutslides/) และ [get_Masters](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_masters/) ใต้คลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/)
-- ชนิดเช่น [ILayoutSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/), และ [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+สไลด์ปกติสืบทอดธีมและการจัดรูปแบบจากเค้าโครงของมัน และเค้าโครงสืบทอดจากสไลด์แม่ ค่าใดค่าหนึ่งที่ตั้งโดยตรงบนสไลด์ปกติจะแทนที่ค่าที่สืบทอดในระดับนั้น เมื่อสร้างสไลด์ปกติ รูปร่างตัวแทนตำแหน่งจะถูกสร้างจากเค้าโครงที่เลือก ในขณะที่เนื้อหาที่ป้อนลงในตัวแทนตำแหน่งเหล่านั้นเป็นของสไลด์ปกติ
 
-{{% alert title="Info" color="info" %}}
-เพื่อเรียนรู้เพิ่มเติมเกี่ยวกับการทำงานกับ master slide ให้ตรวจสอบบทความ [Slide Master](/slides/th/cpp/slide-master/) 
-{{% /alert %}}
+เพิ่มตัวแทนตำแหน่งที่จำเป็นลงในเค้าโครงก่อนสร้างสไลด์จากเค้าโครงนั้น การเพิ่มตัวแทนตำแหน่งอื่นในเค้าโครงภายหลังจะไม่ทำให้รูปร่างตัวแทนตำแหน่งที่สอดคล้องกันถูกเพิ่มอัตโนมัติในสไลด์ปกติที่มีอยู่แล้ว
 
-## **เพิ่มเค้าโครงสไลด์ลงในงานนำเสนอ**
+ความสัมพันธ์นี้มีผลสำคัญสองประการ:
 
-เพื่อปรับแต่งลักษณะและโครงสร้างของสไลด์ของคุณ คุณอาจต้องเพิ่มเค้าโครงสไลด์ใหม่ลงในงานนำเสนอ Aspose.Slides for Android อนุญาตให้คุณตรวจสอบว่าเค้าโครงที่ต้องการมีอยู่แล้วหรือไม่ เพิ่มใหม่หากจำเป็น และใช้เพื่อแทรกสไลด์ตามเค้าโครงนั้น
+- การเปลี่ยนแปลงการจัดรูปแบบที่สืบทอดหรือรูปทรงของตัวแทนตำแหน่งที่มีอยู่ในเค้าโครงสามารถอัปเดตทุกสไลด์ที่พึ่งพาเค้าโครงนั้นได้ ก่อนแก้ไขเค้าโครงที่กำลังใช้อยู่ให้ตรวจสอบสไลด์ที่พึ่งพาและทบทวนการนำเสนอที่ได้
+- เค้าโครงที่ยังถูกสไลด์ใช้งานอยู่ไม่สามารถลบได้ ให้เปลี่ยนสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน หรือเพียงลบเค้าโครงที่ไม่ได้ใช้
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) 
-1. เข้าถึง [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterlayoutslidecollection/) 
-1. ตรวจสอบว่าเค้าโครงสไลด์ที่ต้องการมีอยู่แล้วในคอลเลกชันหรือไม่ หากไม่มีให้เพิ่มเค้าโครงสไลด์ที่ต้องการ 
-1. เพิ่มสไลด์เปล่าตามเค้าโครงสไลด์ใหม่ 
-1. บันทึกงานนำเสนอ 
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับระดับบนสุดของลำดับชั้นนี้ ดูที่ [สไลด์แม่](/slides/th/cpp/slide-master/)
 
-โค้ด C++ ต่อไปนี้แสดงวิธีเพิ่มเค้าโครงสไลด์ลงในงานนำเสนอ PowerPoint:
+## **เลือกและใช้เค้าโครงสไลด์**
+
+ใช้ประเภทเค้าโครงเมื่อการนำเสนอปฏิบัติตามคำนิยามเค้าโครงมาตรฐานของ PowerPoint ชื่อเค้าโครงสามารถแก้ไขโดยผู้ใช้และสามารถแปลเป็นภาษาต่าง ๆ ได้ ดังนั้นการเลือกตามชื่อจึงน้อยความน่าเชื่อถือเว้นแต่คุณควบคุมเทมเพลตต้นฉบับ
+
+ตัวอย่างต่อไปนี้ค้นหา **Title and Content** ในสไลด์แม่แรก หากเค้าโครงนั้นไม่มีอยู่จะย้อนกลับไปใช้ **Blank** อย่างตั้งใจ การตรวจสอบค่า null ครั้งที่สองจำเป็นเพราะงานนำเสนออาจมีเฉพาะเค้าโครงที่กำหนดเองเท่านั้น เค้าโครงที่เลือกจะถูกนำไปใช้กับสไลด์ปกติแรกผ่านเมธอด [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/th/cpp/aspose.slides/islide/set_layoutslide/)
 
 ```cpp
-// สร้างอินสแตนซ์ของคลาส Presentation ที่เป็นตัวแทนไฟล์ PowerPoint.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Go through the layout slide types to select a layout slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // สถานการณ์ที่งานนำเสนอไม่มีเค้าโครงทุกประเภท.
-    // ไฟล์งานนำเสนอมีเพียงเค้าโครงประเภท Blank และ Custom เท่านั้น.
-    // อย่างไรก็ตาม เค้าโครงสไลด์ที่เป็นประเภท Custom อาจมีชื่อที่จดจำได้,
-    // เช่น "Title", "Title and Content" เป็นต้น ซึ่งสามารถใช้ในการเลือกเค้าโครงสไลด์ได้.
-    // คุณสามารถพึ่งพาชุดประเภทรูปทรงตำแหน่งที่คั่นได้เช่นกัน.
-    // ตัวอย่างเช่น สไลด์ Title ควรมีเพียงตำแหน่งที่คั่นประเภท Title เท่านั้น เป็นต้น.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// เพิ่มสไลด์เปล่าโดยใช้เค้าโครงสไลด์ที่เพิ่มไว้.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// บันทึกงานนำเสนอไปยังดิสก์.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **ลบเค้าโครงสไลด์ที่ไม่ได้ใช้**
+การเปลี่ยนเค้าโครงของสไลด์จะไม่ลบรูปร่างปกติที่เพิ่มโดยตรงลงในสไลด์ อย่างไรก็ตาม ตำแหน่งของตัวแทนตำแหน่ง การจัดรูปแบบที่สืบทอด และความสัมพันธ์ระหว่างตัวแทนตำแหน่งที่มีอยู่กับเค้าโครงใหม่อาจเปลี่ยนแปลงได้ ดังนั้นให้ตรวจสอบผลลัพธ์เมื่อสลับระหว่างเค้าโครงที่แตกต่างอย่างมาก
 
-Aspose.Slides มีเมธอด [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) จากคลาส [Compress](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/) เพื่อให้คุณลบเค้าโครงสไลด์ที่ไม่ต้องการและไม่ได้ใช้
+## **เพิ่มสไลด์เค้าโครง**
 
-โค้ด C++ ต่อไปนี้แสดงวิธีลบเค้าโครงสไลด์จากงานนำเสนอ PowerPoint:
+การเลือกและการสร้างเป็นการดำเนินการที่แยกจากกัน ตัวอย่างก่อนหน้านี้เลือกเค้าโครงที่มีอยู่; ไม่ได้สร้างเค้าโครงใหม่ หากต้องการสร้างเค้าโครง ให้เรียกเมธอด [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterlayoutslidecollection/add/) บนคอลเลกชันเค้าโครงของสไลด์แม่เป้าหมาย
+
+ตัวอย่างต่อไปนี้จะเพิ่มเค้าโครง **Title and Content** ใหม่เสมอโดยใช้ชื่อ `Report Title and Content` จากนั้นเพิ่มสไลด์ปกติโดยอิงจากเค้าโครงนั้น ชื่อเค้าโครงต้องไม่ซ้ำกันภายในคอลเลกชัน
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **เพิ่มตำแหน่งที่คั่นลงในเค้าโครงสไลด์**
+เพิ่มเค้าโครงเฉพาะเมื่อเทมเพลตต้องการโครงสร้างที่ใช้ซ้ำได้อีกหนึ่งชุด หากมีเค้าโครงที่เหมาะสมอยู่แล้ว ให้เลือกและใช้ซ้ำแทนการสร้างสำเนาใหม่
 
-Aspose.Slides มีเมธอด [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) ซึ่งอนุญาตให้คุณเพิ่มตำแหน่งที่คั่นใหม่ลงในเค้าโครงสไลด์
+## **เพิ่มตัวแทนตำแหน่งในสไลด์เค้าโครง**
 
-ผู้จัดการนี้มีเมธอดสำหรับประเภทตำแหน่งที่คั่นต่อไปนี้:
+เมธอด [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) ให้ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/) สำหรับเพิ่มรูปร่างตัวแทนตำแหน่งลงในเค้าโครง
 
-| PowerPoint Placeholder | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/) เมธอด |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![เนื้อหา](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![เนื้อหา (แนวตั้ง)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![ข้อความ](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![ข้อความ (แนวตั้ง)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![รูปภาพ](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![แผนภูมิ](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![ตาราง](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![สื่อ](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![รูปภาพออนไลน์](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Placeholder | `ILayoutPlaceholderManager` Method |
+| ---------------------- | ---------------------------------- |
+| ![เนื้อหา](content.png) | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![เนื้อหา (แนวตั้ง)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![ข้อความ](text.png) | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![ข้อความ (แนวตั้ง)](textV.png) | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![รูปภาพ](picture.png) | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![แผนภูมิ](chart.png) | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![ตาราง](table.png) | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png) | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![สื่อ](media.png) | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![รูปภาพออนไลน์](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-โค้ด C++ ต่อไปนี้แสดงวิธีเพิ่มรูปทรงตำแหน่งที่คั่นใหม่ลงในเค้าโครง Blank:
+ตัวอย่างต่อไปนี้ตรวจสอบว่าเค้าโครง **Blank** มีอยู่แล้ว เพิ่มตัวแทนตำแหน่งสี่รายการลงในเค้าโครงนั้น แล้วสร้างสไลด์ปกติที่ใช้เค้าโครงที่แก้ไขแล้ว การเรียงลำดับนี้เป็นตามเจตนา: ตัวแทนตำแหน่งถูกเพิ่มก่อนสร้างสไลด์ปกติ เพื่อให้ Aspose.Slides สามารถสร้างรูปร่างตัวแทนตำแหน่งที่สอดคล้องกันบนสไลด์นั้น
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// รับเค้าโครงสไลด์แบบ Blank.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// รับผู้จัดการตำแหน่งที่คั่นของสไลด์เค้าโครง.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// เพิ่มตำแหน่งที่คั่นต่างๆ ไปยังสไลด์เค้าโครงแบบ Blank.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Add a new slide with the Blank layout.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ผลลัพธ์:
 
-![ตำแหน่งที่คั่นบนเค้าโครงสไลด์](add_placeholders.png)
+![ตัวแทนตำแหน่งบนสไลด์เค้าโครง](add_placeholders.png)
 
-## **กำหนดการมองเห็น Footer สำหรับเค้าโครงสไลด์**
+{{% alert color="warning" title="Warning" %}}
+Changing inherited formatting or the geometry of existing layout placeholders can affect dependent slides. A newly added layout placeholder is not backfilled into existing normal slides. Test layout changes on a copy of the presentation and inspect every dependent slide.
+{{% /alert %}}
 
-ในงานนำเสนอ PowerPoint องค์ประกอบ Footer เช่น วันที่, เลขสไลด์, และข้อความกำหนดเองสามารถแสดงหรือซ่อนได้ตามเค้าโครงสไลด์ Aspose.Slides for Android อนุญาตให้คุณควบคุมการมองเห็นของตำแหน่งที่คั่น Footer เหล่านี้ ซึ่งมีประโยชน์เมื่อคุณต้องการให้เค้าโครงบางอย่างแสดงข้อมูล Footer ในขณะที่เค้าโครงอื่น ๆ คงความเรียบง่าย
+## **ลบสไลด์เค้าโครงที่ไม่ได้ใช้**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) 
-1. รับอ้างอิงเค้าโครงสไลด์ตามดัชนี 
-1. ตั้งค่าตำแหน่งที่คั่น Footer ของสไลด์ให้มองเห็น 
-1. ตั้งค่าตำแหน่งที่คั่นเลขสไลด์ให้มองเห็น 
-1. ตั้งค่าตำแหน่งที่คั่นวัน‑เวลาให้มองเห็น 
-1. บันทึกงานนำเสนอ 
-
-โค้ด C++ ต่อไปนี้แสดงวิธีตั้งค่าการมองเห็นของ Footer สไลด์และทำงานที่เกี่ยวข้อง:
+ใช้เมธอด [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบเค้าโครงที่ไม่มีสไลด์ปกติอ้างอิง เมธอดนี้จะคงเค้าโครงที่ยังถูกใช้อยู่ไว้
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
-{
-    headerFooterManager->SetFooterVisibility(true);
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
-{
-    headerFooterManager->SetSlideNumberVisibility(true);
-}
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
-headerFooterManager->SetFooterText(u"Footer text");
-headerFooterManager->SetDateTimeText(u"Date and time text");
-
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **กำหนดการมองเห็น Footer ของสไลด์ลูก**
+เพื่อเลือกลบเค้าโครงหนึ่งเฉพาะ ให้ใช้เมธอด [get_HasDependingSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) หรือ [GetDependingSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/getdependingslides/) ของเค้าโครงนั้นก่อน ย้ายสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อนเรียก [ILayoutSlide::Remove](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/remove/) การพยายามลบเค้าโครงที่ยังถูกใช้จะทำให้เกิด [PptxEditException](https://reference.aspose.com/slides/th/cpp/aspose.slides/pptxeditexception/)
 
-​ในงานนำเสนอ PowerPoint องค์ประกอบ Footer เช่น วันที่, เลขสไลด์, และข้อความกำหนดเองสามารถควบคุมระดับ master slide เพื่อให้สอดคล้องกันทั่วเค้าโครงสไลด์ทั้งหมด Aspose.Slides for Android ทำให้คุณตั้งค่าการมองเห็นและเนื้อหาของตำแหน่งที่คั่น Footer เหล่านี้บน master slide แล้วกระจายการตั้งค่าเหล่านั้นไปยังสไลด์ลูกทั้งหมด วิธีนี้ทำให้ข้อมูล Footer มีความสม่ำเสมอทั่วทั้งงานนำเสนอ​ 
+## **ควบคุมการมองเห็นส่วนท้ายบนสไลด์เค้าโครง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/) 
-1. รับอ้างอิง master slide ตามดัชนี 
-1. ตั้งค่าตำแหน่งที่คั่น Footer ของ master และสไลด์ลูกทั้งหมดให้มองเห็น 
-1. ตั้งค่าตำแหน่งที่คั่นเลขสไลด์ของ master และสไลด์ลูกทั้งหมดให้มองเห็น 
-1. ตั้งค่าตำแหน่งที่คั่นวัน‑เวลา ของ master และสไลด์ลูกทั้งหมดให้มองเห็น 
-1. บันทึกงานนำเสนอ 
-
-โค้ด C++ ต่อไปนี้แสดงการดำเนินการนี้:
+เค้าโครงมีส่วนท้าย, ตัวเลขสไลด์, และตัวแทนตำแหน่งวัน-เวลาของตนเอง ใช้เมธอด [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) เพื่อควบคุมตัวแทนตำแหน่งเหล่านั้นสำหรับเค้าโครงหนึ่ง ตัวอย่างเช่น เนื้อหาเค้าโครงควรแสดงส่วนท้ายแต่เค้าโครงหัวเรื่องไม่ควรแสดง
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
+{
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+}
+
+if (layoutSlide == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
+}
+
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **ควบคุมการมองเห็นส่วนท้ายบนสไลด์แม่และเค้าโครงลูก**
+
+เพื่อให้ตั้งค่าส่วนท้ายอย่างสม่ำเสมอทั่วระดับสไลด์แม่ ใช้เมธอด [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslide/get_headerfootermanager/) วิธีการกระจายของ [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/th/cpp/aspose.slides/imasterslideheaderfootermanager/) ทำงานบนสไลด์แม่และสไลด์เค้าโครงและสไลด์ปกติที่พึ่งพา; ไม่ได้มุ่งเป้าเพียงสไลด์ปกติเดียว
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ความแตกต่างระหว่าง master slide กับ layout slide คืออะไร?**
+**ความแตกต่างระหว่างสไลด์แม่และสไลด์เค้าโครงคืออะไร?**
 
-master slide กำหนดธีมโดยรวมและการจัดรูปแบบเริ่มต้นในขณะที่ layout slide กำหนดการจัดวางตำแหน่งที่คั่นเฉพาะสำหรับประเภทเนื้อหาต่าง ๆ
+สไลด์แม่กำหนดธีมและการจัดรูปแบบที่ใช้ร่วมกันของการนำเสนอ สไลด์เค้าโครงเป็นส่วนหนึ่งของสไลด์แม่และกำหนดการจัดวางตัวแทนตำแหน่งที่สามารถใช้ซ้ำได้หนึ่งแบบ สไลด์ปกติใช้เค้าโครงเหล่านั้นและเก็บเนื้อหาเฉพาะของสไลด์
 
-**ฉันสามารถคัดลอก layout slide จากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งได้หรือไม่?**
+**ฉันสามารถคัดลอกสไลด์เค้าโครงจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งได้หรือไม่?**
 
-ได้ คุณสามารถโคลน layout slide จากคอลเลกชัน layout slide ของงานนำเสนอหนึ่ง (เข้าถึงได้ผ่านเมธอด [get_LayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides/presentation/get_layoutslides/)) แล้วแทรกลงในงานนำเสนออื่นโดยใช้เมธอด `AddClone`
+ได้. เพิ่มสำเนาไปยังคอลเลกชันปลายทางด้วยเมธอด [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/th/cpp/aspose.slides/igloballayoutslidecollection/addclone/) เมื่อคัดลอกระหว่างงานนำเสนอควรตรวจสอบแบบอักษร, ธีม, รูปภาพ และทรัพยากรอื่น ๆ ที่ใช้โดยเค้าโครงต้นฉบับด้วย
 
-**จะเกิดอะไรขึ้นถ้าฉันลบ layout slide ที่ยังถูกสไลด์อื่นใช้งานอยู่?**
+**จะเกิดอะไรขึ้นเมื่อฉันแก้ไขเค้าโครงที่กำลังใช้งานอยู่?**
 
-หากคุณพยายามลบ layout slide ที่ยังถูกอ้างอิงโดยสไลด์อย่างน้อยหนึ่งสไลด์ในงานนำเสนอ Aspose.Slides จะโยนข้อผิดพลาด [PptxEditException](https://reference.aspose.com/slides/th/cpp/aspose.slides/pptxeditexception/) เพื่อหลีกเลี่ยงปัญหานี้ให้ใช้เมธอด [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) ซึ่งจะลบเฉพาะเค้าโครงสไลด์ที่ไม่ได้ใช้งานอย่างปลอดภัย
+สไลด์ที่พึ่งพาจะสืบทอดการเปลี่ยนแปลงของเค้าโครง เว้นแต่พวกมันจะโอเวอร์ไรด์การจัดรูปแบบหรืออ็อบเจ็กต์ที่เกี่ยวข้องในระดับท้องถิ่น รูปร่างของตัวแทนตำแหน่งและสไตล์ที่สืบทอดจึงอาจเปลี่ยนแปลงในหลายสไลด์พร้อมกัน ใช้เมธอด [GetDependingSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides/ilayoutslide/getdependingslides/) เพื่อระบุสไลด์ที่ได้รับผลกระทบก่อนแก้ไขเค้าโครง
+
+**จะเกิดอะไรขึ้นหากฉันลบเค้าโหมดที่ยังถูกใช้อยู่?**
+
+Aspose.Slides จะโยน [PptxEditException](https://reference.aspose.com/slides/th/cpp/aspose.slides/pptxeditexception/) ให้เปลี่ยนสไลด์ที่พึ่งพาก่อน หรือใช้เมธอด [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/th/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) เพื่อลบเค้าโครงที่ไม่ได้อ้างอิงเท่านั้น

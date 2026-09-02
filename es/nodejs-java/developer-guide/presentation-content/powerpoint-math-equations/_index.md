@@ -18,13 +18,13 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Insertar y editar ecuaciones matemáticas en archivos PowerPoint PPT y PPTX con Aspose.Slides para Node.js a través de Java, con soporte de OMML, controles de formato y ejemplos de código JavaScript claros."
+description: "Insertar y editar ecuaciones matemáticas en PowerPoint PPT y PPTX con Aspose.Slides para Node.js a través de Java, con soporte OMML, controles de formato y claros ejemplos de código JavaScript."
 ---
 ## **Visión general**
 
-PowerPoint almacena ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides para Node.js a través de Java, puedes crear el mismo tipo de contenido matemático de forma programada: fracciones, radicales, funciones, límites, operadores N-arios, matrices, arreglos y bloques matemáticos formateados.
+PowerPoint almacena ecuaciones como Office Math Markup Language (OMML). Con Aspose.Slides para Node.js a través de Java, puedes crear el mismo tipo de contenido matemático de forma programática: fracciones, radicales, funciones, límites, operadores N-arios, matrices, arreglos y bloques matemáticos con formato.
 
-En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insertar > Ecuación**:
+En PowerPoint, los usuarios normalmente añaden ecuaciones desde **Insert > Equation**:
 
 ![Pestaña Insertar de PowerPoint con el comando Ecuación seleccionado](powerpoint-math-equations_1.png)
 
@@ -38,9 +38,9 @@ Aspose.Slides construye ese texto matemático mediante tres objetos principales:
 - [MathPortion](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathportion/) almacena contenido matemático dentro del marco de texto de la forma.
 - [MathParagraph](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathparagraph/) contiene uno o más objetos [MathBlock](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathblock/).
 
-La mayoría de los ejemplos a continuación utilizan [MathematicalText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathematicaltext/) y los métodos fluidos de [MathElementBase](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para mantener el código corto y legible.
+La mayoría de los ejemplos a continuación usan [MathematicalText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathematicaltext/) y los métodos fluidos de [MathElementBase](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para mantener el código corto y legible.
 
-Para escenarios de exportación a MathML, consulta [Exportar ecuaciones matemáticas desde presentaciones en Node.js a través de Java](/slides/es/nodejs-java/exporting-math-equations/).
+Para escenarios de exportación a MathML, consulta [Export Math Equations from Presentations in Node.js via Java](/slides/es/nodejs-java/exporting-math-equations/).
 
 ## **Crear una ecuación**
 
@@ -73,12 +73,12 @@ try {
 ```
 
 {{% alert color="primary" %}}
-`addMathShape` crea una forma que ya contiene un párrafo matemático. Accede al primer `MathPortion`, obtén su `MathParagraph` y añade bloques matemáticos o elementos matemáticos.
+`addMathShape` crea una forma que ya contiene un párrafo matemático. Accede al primer `MathPortion`, obtén su `MathParagraph` y añade bloques matemáticos o elementos matemáticos a él.
 {{% /alert %}}
 
 ## **Añadir fracciones**
 
-Utiliza [`divide`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para crear una fracción. Puedes elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathfractiontypes/).
+Usa [`divide`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para crear una fracción. Puedes elegir un estilo de fracción con [MathFractionTypes](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathfractiontypes/).
 
 ![Una fracción matemática sesgada que muestra uno dividido por x](powerpoint-math-equations_4.png)
 
@@ -110,9 +110,9 @@ let stackedFraction = new aspose.slides.MathematicalText("x + 1").divide("y - 1"
 
 ## **Añadir radicales**
 
-Utiliza [`radical`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para crear una raíz cuadrada, cúbica u otra raíz. El elemento actual se convierte en la base y el argumento en el grado.
+Usa [`radical`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para crear una raíz cuadrada, cúbica u otra raíz. El elemento actual pasa a ser la base y el argumento se convierte en el grado.
 
-![Una expresión radical de n-ésima raíz con x bajo el signo radical](powerpoint-math-equations_5.png)
+![Una expresión radical de n‑ésima raíz con x bajo el signo radical](powerpoint-math-equations_5.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -136,9 +136,9 @@ try {
 
 ## **Añadir funciones y límites**
 
-Utiliza [`asArgumentOfFunction`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) o [`function`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para funciones como `sin(x)`, `log(x)` o nombres de funciones personalizados. Para límites, coloca `lim` en un [MathLimit](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathlimit/) o usa [`setLowerLimit`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/).
+Usa [`asArgumentOfFunction`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) o [`function`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para funciones como `sin(x)`, `log(x)` o nombres de funciones personalizados. Para límites, coloca `lim` en un [MathLimit](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathlimit/) o usa [`setLowerLimit`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/).
 
-![El límite de x conforme x tiende a infinito](powerpoint-math-equations_8.png)
+![El límite de x cuando x tiende a infinito](powerpoint-math-equations_8.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -167,9 +167,9 @@ Para un nombre de función personalizado, haz que el nombre de la función sea e
 let customFunction = new aspose.slides.MathematicalText("f").function("x + 1");
 ```
 
-## **Añadir operadores N-arios e integrales**
+## **Añadir operadores N‑arios e integrales**
 
-Utiliza [`nary`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para sumatorias, uniones, intersecciones y otros operadores grandes. Utiliza [`integral`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para integrales. Ambos métodos te permiten establecer límites inferior y superior.
+Usa [`nary`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para sumas, uniones, intersecciones y otros operadores grandes. Usa [`integral`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para integrales. Ambos métodos permiten establecer límites inferior y superior.
 
 ![Una sumatoria con límites inferior y superior](powerpoint-math-equations_7.png)
 
@@ -196,7 +196,7 @@ try {
 }
 ```
 
-Los operadores N-arios son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` se añaden normalmente como `MathematicalText` y se unen a la expresión.
+Los operadores N‑arios son para operadores grandes con límites opcionales. Los operadores simples como `+`, `-` y `=` suelen añadirse como `MathematicalText` y unirse a la expresión.
 
 Para una integral, usa `integral`:
 
@@ -207,7 +207,7 @@ let integral = integralBase.integral(aspose.slides.MathIntegralTypes.Simple, "0"
 
 ## **Añadir matrices**
 
-Utiliza [MathMatrix](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes por defecto, por lo que debes encerrarlas cuando necesites paréntesis, corchetes o llaves.
+Usa [MathMatrix](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathmatrix/) para filas y columnas. Las matrices no incluyen corchetes por defecto, así que encierra la matriz cuando necesites paréntesis, corchetes o llaves.
 
 ![Una matriz matemática de dos filas con una celda vacía](powerpoint-math-equations_10.png)
 
@@ -237,9 +237,9 @@ try {
 
 ## **Añadir arreglos de ecuaciones**
 
-Utiliza [`toMathArray`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) cuando necesites ecuaciones alineadas o una pila vertical de expresiones.
+Usa [`toMathArray`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) cuando necesites ecuaciones alineadas o una pila vertical de expresiones.
 
-![Un arreglo matemático vertical con x sobre y](powerpoint-math-equations_11.png)
+![Una matriz matemática vertical con x encima de y](powerpoint-math-equations_11.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -264,7 +264,7 @@ try {
 
 ## **Añadir funciones trigonométricas**
 
-Utiliza [`asArgumentOfFunction`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) cuando el argumento sea el elemento actual y el nombre de la función sea conocido.
+Usa [`asArgumentOfFunction`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) cuando el argumento es el elemento actual y el nombre de la función es conocido.
 
 ![La función trigonométrica cos aplicada a 2x](powerpoint-math-equations_6.png)
 
@@ -290,9 +290,9 @@ try {
 
 ## **Añadir subíndices y superíndices**
 
-Utiliza los asistentes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer al lado izquierdo de la base, usa [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/).
+Usa los asistentes de subíndice y superíndice para índices y potencias. Cuando los índices deben aparecer al lado izquierdo de la base, usa [`setSubSuperscriptOnTheLeft`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/).
 
-![Una Y mayúscula con subíndice 1 a la izquierda y superíndice n](powerpoint-math-equations_9.png)
+![Una Y mayúscula con subíndice 1 y superíndice n a la izquierda](powerpoint-math-equations_9.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -316,9 +316,9 @@ try {
 
 ## **Añadir delimitadores**
 
-Utiliza [`enclose`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para colocar una expresión dentro de delimitadores. También puedes establecer un carácter separador para expresiones delimitadoras que contengan varios elementos.
+Usa [`enclose`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para colocar una expresión dentro de delimitadores. También puedes establecer un carácter separador para expresiones delimitadas que contengan varios elementos.
 
-![Una expresión delimitadora que contiene x, y, y z separados por barras verticales](powerpoint-math-equations_13.png)
+![Una expresión delimitada que contiene x, y y z separados por barras verticales](powerpoint-math-equations_13.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -343,9 +343,9 @@ try {
 }
 ```
 
-## **Añadir un cuadro con borde**
+## **Añadir un recuadro con borde**
 
-Utiliza [`toBorderBox`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) cuando la ecuación misma deba estar enmarcada.
+Usa [`toBorderBox`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) cuando la ecuación misma debe estar enmarcada.
 
 ![Una ecuación enmarcada que muestra a al cuadrado es igual a b al cuadrado más c al cuadrado](powerpoint-math-equations_12.png)
 
@@ -376,9 +376,9 @@ try {
 
 ## **Agrupar términos**
 
-Utiliza [`group`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para colocar un carácter de agrupación encima o debajo de una expresión. Añade un límite para etiquetar los términos agrupados.
+Usa [`group`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) para colocar un carácter de agrupación encima o debajo de una expresión. Añade un límite para etiquetar los términos agrupados.
 
-![La expresión x más y agrupada con la etiqueta cualquier texto debajo](powerpoint-math-equations_15.png)
+![La expresión x + y agrupada con la etiqueta cualquier texto debajo de ella](powerpoint-math-equations_15.png)
 
 ```javascript
 let presentation = new aspose.slides.Presentation();
@@ -403,7 +403,7 @@ try {
 
 ## **Dar formato a los elementos matemáticos**
 
-Utiliza los asistentes de formato solo donde clarifiquen la fórmula. Por ejemplo, [`overbar`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) coloca una barra sobre un elemento matemático.
+Usa los asistentes de formato solo donde clarifiquen la fórmula. Por ejemplo, [`overbar`](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) coloca una barra sobre un elemento matemático.
 
 ![Una expresión matemática ABC con una barra superior](powerpoint-math-equations_14.png)
 
@@ -428,7 +428,7 @@ try {
 
 ## **Referencia rápida**
 
-| Tarea | Main API |
+| Tarea | API principal |
 | --- | --- |
 | Crear texto matemático | [MathematicalText](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathematicaltext/) |
 | Combinar elementos | [join](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathelementbase/) |
@@ -453,8 +453,8 @@ Sí. Abre la presentación, localiza la forma que contiene un `MathPortion`, obt
 
 **¿Se guardan las ecuaciones como matemáticas editables de PowerPoint?**
 
-Sí. Al guardar en PPTX, Aspose.Slides escribe la ecuación como contenido matemático de Office editable.
+Sí. Cuando guardas en PPTX, Aspose.Slides escribe la ecuación como contenido matemático de Office editable.
 
 **¿Puedo exportar ecuaciones a LaTeX?**
 
-Aspose.Slides exporta ecuaciones matemáticas a MathML. Si necesitas LaTeX, primero exporta a MathML y luego convierte MathML con una herramienta que admita el dialecto LaTeX que requieras.
+Sí. Obtén el [MathParagraph](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathparagraph/) de su [MathPortion](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathportion/), y llama a [MathParagraph.toLatex](https://reference.aspose.com/slides/es/nodejs-java/aspose.slides/mathparagraph/#toLatex--) para exportarla directamente. Para un ejemplo completo, consulta [Export Math Equations from Presentations in Node.js via Java](/slides/es/nodejs-java/exporting-math-equations/#export-math-equations-to-latex).

@@ -1,364 +1,399 @@
 ---
-title: مدیریت سری‌های داده نمودار در ارائه‌ها با استفاده از جاوا
-linktitle: سری‌های داده
+title: مدیریت مجموعه داده‌های نمودار در ارائه‌ها با جاوا
+linktitle: مجموعه داده‌ها
 type: docs
 url: /fa/java/chart-series/
 keywords:
-- سری‌های نمودار
-- همپوشانی سری
-- رنگ سری
-- رنگ دسته‌بندی
-- نام سری
+- مجموعه نمودار
+- پوشش مجموعه
+- رنگ مجموعه
+- نام مجموعه
 - نقطه داده
-- فاصله سری
+- سلول کاربرگ
+- فاصله مجموعه
+- مقدار منفی
 - پاورپوینت
 - ارائه
 - جاوا
 - Aspose.Slides
-description: "یاد بگیرید چگونه سری‌های نمودار را در جاوا برای پاورپوینت (PPT/PPTX) مدیریت کنید، با مثال‌های کد عملی و بهترین روش‌ها برای ارتقاء ارائه‌های داده‌ای خود."
+description: "یاد بگیرید چگونه مجموعه‌های نمودار، نقاط داده، سلول‌های کاربرگ، قالب‌بندی، پوشش، عرض فاصله و مقادیر منفی را در ارائه‌ها با جاوا مدیریت کنید."
 ---
-## **بررسی کلی**
+## **نمای کلی**
 
-این مقاله نقش [ChartSeries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartseries/) را در Aspose.Slides توصیف می‌کند و بر نحوه ساختاردهی و بصری‌سازی داده‌ها در ارائه‌ها متمرکز است. این اشیاء عناصر بنیادی را فراهم می‌کنند که مجموعه‌های فردی نقاط داده، دسته‌ها و پارامترهای ظاهر را در یک نمودار تعریف می‌کنند. با کار با [ChartSeries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/chartseries/)، توسعه‌دهندگان می‌توانند به‌صورت یکپارچه منابع داده زیرین را ادغام کرده و کنترل کامل بر نحوه نمایش اطلاعات داشته باشند و در نتیجه ارائه‌های پویا و مبتنی بر داده ایجاد کنند که به وضوح بینش‌ها و تحلیل‌ها را منتقل می‌کنند.
+یک نمودار داده‌های ترسیم‌شده خود را در یک کاربرگ داده‌های نمودار ذخیره می‌کند. یک [IChartSeries](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/) نمایانگر یک مجموعه مقادیر مرتبط است و هر [IChartDataPoint](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapoint/) در این مجموعه به یک یا چند سلول کاربرگ اشاره می‌کند. اشیاء [IChartCategory](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartcategory/) برچسب‌ها یا مقادیر گروه‌بندی را که بین مجموعه‌ها به‌اشتراک گذاشته می‌شوند، فراهم می‌آورند. بنابراین نام مجموعه، دسته‌ها و مقادیر نقاط به اشیاء [IChartDataCell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatacell/) متصل هستند نه این‌که فقط به‌عنوان متن نمایش ذخیره شوند.
 
-یک سری ردیف یا ستونی از اعداد است که در یک نمودار ترسیم می‌شود.
+برای یک نمودار دسته‌ای معمولی، کاربرگ پیش‌فرض از ردیف 0 برای نام مجموعه‌ها، ستون 0 برای نام دسته‌ها و سلول‌های باقی‌مانده برای مقادیر مجموعه استفاده می‌کند. اندیس‌های برگه کاری، ردیف و ستون که به [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) پاس می‌شوند، صفر‑مبنائی هستند. این طرح برای زمانی که نمودار را با داده‌های پیش‌فرض ایجاد می‌کنید مفید است، اما فرض نکنید که هر نمودار موجود از آن استفاده می‌کند. برای یک ارائه بارگذاری‌شده، قبل از تغییر مقادیر کاربرگ، سلول‌های مرجع‌دار توسط مجموعه‌ها، دسته‌ها و نقاط داده را بررسی کنید.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+تنظیمات نمودار دارای سه حوزه متفاوت هستند:
 
-## **تنظیم همپوشانی سری نمودار**
+- تنظیمات سطح مجموعه، مانند [IChartSeries.getFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getFormat--)، ظاهر پیش‌فرض تمام نقاط در یک مجموعه را فراهم می‌کند.
+- تنظیمات نقطه داده، مانند [IChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapoint/#getFormat--)، ظاهر مجموعه را برای یک نقطه بازنویسی می‌کند.
+- تنظیمات گروهی به مجموعه‌های سازگاری که به همان [IChartSeriesGroup](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseriesgroup/) تعلق دارند، اعمال می‌شود. برای تنظیم گزینه‌هایی مانند پوشش یا عرض فاصله، از [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) عبور کنید.
 
-با ویژگی [IChartSeriesOverlap](https://reference.aspose.com/slides/fa/net/aspose.slides.charts/ichartseries/properties/overlap) می‌توانید مقدار همپوشانی نوارها و ستون‌ها در یک نمودار دو‑بعدی را تعیین کنید (محدوده: -100 تا 100). این ویژگی برای تمام سری‌های گروه سری والد اعمال می‌شود: این یک پروجکشن از ویژگی مناسب گروه است. بنابراین، این ویژگی فقط‑خواندنی است.
+وقتی پر شدن صریح برای نقطه یا مجموعه تعیین نشود، سبک و تم نمودار ظاهر خودکار را مشخص می‌کند. وقتی هم تنظیمات مجموعه و هم نقطه موجود باشد، تنظیمات نقطه برای آن نقطه برتری دارد.
 
-از ویژگی `ParentSeriesGroup.Overlap` با قابلیت خواندن/نوشتن برای تنظیم مقدار دلخواه خود برای `Overlap` استفاده کنید.
+![نمودار-سلسله-پاورپوینت](chart-series-powerpoint.png)
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-1. یک نمودار ستونی کلاستری را به یک اسلاید اضافه کنید.  
-1. به اولین سری نمودار دسترسی پیدا کنید.  
-1. به ویژگی `ParentSeriesGroup` سری نمودار دسترسی پیدا کنید و مقدار همپوشانی دلخواه خود را برای سری تنظیم کنید.  
-1. ارائه اصلاح‌شده را به یک فایل PPTX ذخیره کنید.
+## **تنظیم پوشش مجموعهٔ نمودار**
 
-این کد جاوا نشان می‌دهد چگونه همپوشانی یک سری نمودار را تنظیم کنید:
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getOverlap--) مقدار پوشش نوارها یا ستون‌ها در یک نمودار دو‌بعدی را از ‑100 تا 100 درصد گزارش می‌دهد. این یک تصویر فقط‑خواندنی از تنظیمات در گروه مجموعهٔ والد است. برای به‌روزرسانی تمام مجموعه‌های سازگار در آن گروه از [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) استفاده کنید. این گزینه فقط به انواع نمودارهایی که نوارها یا ستون‌های گروه‌بندی‌شده را نمایش می‌دهند اعمال می‌شود؛ بر گروه‌های مجموعهٔ نامرتبط در یک نمودار ترکیبی تأثیری ندارد.
+
+مثال زیر پوشش گروه حاوی اولین مجموعه را تنظیم می‌کند:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // نمودار را اضافه می‌کند
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // همپوشانی سری را تنظیم می‌کند
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // فایل ارائه را روی دیسک می‌نویسد
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // نمودار جدید شامل مجموعه‌های نمونه، دسته‌ها و مقادیر است.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تغییر رنگ سری**
+نتیجه:
 
-Aspose.Slides برای جاوا به شما امکان می‌دهد رنگ یک سری را به این شکل تغییر دهید:
+![پوشش‑سلسله](series_overlap.png)
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-1. یک نمودار را به اسلاید اضافه کنید.  
-1. سری‌ای که می‌خواهید رنگ آن را تغییر دهید، دسترسی پیدا کنید.  
-1. نوع پرکننده و رنگ دلخواه خود را تنظیم کنید.  
-1. ارائه اصلاح‌شده را ذخیره کنید.
+## **تغییر رنگ پر کردن مجموعه**
 
-این کد جاوا نشان می‌دهد چگونه رنگ یک سری را تغییر دهید:
+از [IChartSeries.getFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getFormat--) برای تعیین پر شدن پیش‌فرض یک مجموعه کامل استفاده کنید. اگر یک نقطه قبلاً پر شدن صریح داشته باشد، تنظیمات [IChartDataPoint.getFormat](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapoint/#getFormat--) آن، پر شدن مجموعه را برای همان نقطه بازنویسی می‌کند.
+
+مثال زیر پر شدن آبی یکدست را برای اولین مجموعه اعمال می‌کند:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تغییر رنگ دسته‌بندی سری**
-
-Aspose.Slides برای جاوا به شما امکان می‌دهد رنگ دسته‌بندی یک سری را به این شکل تغییر دهید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-1. یک نمودار را به اسلاید اضافه کنید.  
-1. دسته‌بندی سری‌ای که می‌خواهید رنگ آن را تغییر دهید، دسترسی پیدا کنید.  
-1. نوع پرکننده و رنگ دلخواه خود را تنظیم کنید.  
-1. ارائه اصلاح‌شده را ذخیره کنید.
-
-این کد جاوا نشان می‌دهد چگونه رنگ یک دسته‌بندی سری را تغییر دهید:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تغییر نام سری**
-
-به‌طور پیش‌فرض، نام‌های راهنما برای یک نمودار محتوای سلول‌های بالای هر ستون یا ردیف داده هستند.
-
-در مثال ما (تصویر نمونه)،  
-
-* ستون‌ها *Series 1, Series 2,* و *Series 3*؛  
-* ردیف‌ها *Category 1, Category 2, Category 3,* و *Category 4* هستند.
-
-Aspose.Slides برای جاوا به شما امکان می‌دهد نام یک سری را در داده‌های نمودار و راهنما به‌روزرسانی یا تغییر دهید.
-
-این کد جاوا نشان می‌دهد چگونه نام یک سری را در `ChartDataWorkbook` داده‌های نمودار تغییر دهید:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-این کد جاوا نشان می‌دهد چگونه نام یک سری را از طریق `Series` در راهنما تغییر دهید:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تنظیم رنگ پرکننده خودکار برای سری نمودار**
-
-Aspose.Slides برای جاوا به شما امکان می‌دهد رنگ پرکننده خودکار برای سری‌های نمودار داخل ناحیه رسم را به این شکل تنظیم کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-1. مرجع یک اسلاید را با استفاده از شاخص آن به دست آورید.  
-1. یک نمودار با داده‌های پیش‌فرض بر اساس نوع دلخواه خود اضافه کنید (در مثال زیر از `ChartType.ClusteredColumn` استفاده کردیم).  
-1. به سری نمودار دسترسی پیدا کنید و رنگ پرکننده را به Automatic تنظیم کنید.  
-1. ارائه را به یک فایل PPTX ذخیره کنید.
-
-این کد جاوا نشان می‌دهد چگونه رنگ پرکننده خودکار برای یک سری نمودار تنظیم شود:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // یک نمودار ستونی کلاستر شده ایجاد می‌کند
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // قالب پر کردن سری را به حالت خودکار تنظیم می‌کند
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // فایل ارائه را روی دیسک می‌نویسد
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **تنظیم رنگ پرکننده معکوس برای یک سری نمودار**
-
-Aspose.Slides به شما امکان می‌دهد رنگ پرکننده معکوس برای سری‌های نمودار داخل ناحیه رسم را به این شکل تنظیم کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-1. مرجع یک اسلاید را با استفاده از شاخص آن به دست آورید.  
-1. یک نمودار با داده‌های پیش‌فرض بر اساس نوع دلخواه خود اضافه کنید (در مثال زیر از `ChartType.ClusteredColumn` استفاده کردیم).  
-1. به سری نمودار دسترسی پیدا کنید و رنگ پرکننده را به Invert تنظیم کنید.  
-1. ارائه را به یک فایل PPTX ذخیره کنید.
-
-این کد جاوا عملیات را نشان می‌دهد:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // سری‌ها و دسته‌های جدید را اضافه می‌کند
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // اولین سری نمودار را می‌گیرد و داده‌های سری آن را پر می‌کند.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم معکوس شدن سری هنگام مقدار منفی**
+نتیجه:
 
-Aspose.Slides به شما امکان می‌دهد معکوس شدن را از طریق ویژگی‌های `IChartDataPoint.InvertIfNegative` و `ChartDataPoint.InvertIfNegative` تنظیم کنید. وقتی معکوس شدن با این ویژگی‌ها تنظیم شود، نقطه داده رنگ‌های خود را هنگام دریافت مقدار منفی معکوس می‌کند.
+![رنگ‑سلسله](series_color.png)
 
-این کد جاوا عملیات را نشان می‌دهد:
+## **تغییر نام مجموعه**
+
+یک نام مجموعه در کاربرگ داده‌های نمودار ذخیره می‌شود و معمولاً در فهرست legend نمایش داده می‌شود. در کاربرگ پیش‌فرض ایجادشده برای یک نمودار ستونی خوشه‌ای، سلول B1 در ردیف 0، ستون 1 قرار دارد و نام اولین مجموعه را در خود دارد. ثابت‌های نام‌دار در مثال زیر این ساختار را به‌وضوح نشان می‌دهند:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **پاک کردن داده‌های نقطه خاص**
-
-Aspose.Slides برای جاوا به شما امکان می‌دهد داده‌های `DataPoints` یک سری نمودار خاص را به این شکل پاک کنید:
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-2. مرجع یک اسلاید را از طریق شاخص آن به دست آورید.  
-3. مرجع یک نمودار را از طریق شاخص آن به دست آورید.  
-4. بر تمام `DataPoints` نمودار مرور کنید و `XValue` و `YValue` را به null تنظیم کنید.  
-5. تمام `DataPoints` برای سری نمودار خاص را پاک کنید.  
-6. ارائه اصلاح‌شده را به یک فایل PPTX ذخیره کنید.
-
-این کد جاوا عملیات را نشان می‌دهد:
+همچنین می‌توانید سلول مرجع‌شده توسط [IChartSeries.getName](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getName--) را به‌روزرسانی کنید. این روش از فرض یک ردیف یا ستون خاص در یک نمودار موجود جلوگیری می‌کند:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+نتیجه:
+
+![نام‑سلسله](series_name.png)
+
+## **دریافت رنگ پر خودکار مجموعه**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) رنگ محاسبه‌شده بر‑اساس شاخص مجموعه و سبک نمودار را برمی‌گرداند. این همان رنگی است که زمانی که پر کردن مجموعه صراحتاً تعریف نشده باشد، استفاده می‌شود. فراخوانی این متد فقط رنگ محاسبه‌شده را می‌خواند؛ پر شدن جدیدی تخصیص نمی‌دهد.
+
+مثال زیر رنگ خودکار هر مجموعه پیش‌فرض را چاپ می‌کند:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+خروجی نمونه برای سبک پیش‌فرض نمودار:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+رنگ‌های دقیق بسته به سبک و تم نمودار متفاوت هستند.
+
+## **تنظیم رنگ پر معکوس برای یک مجموعهٔ نمودار**
+
+برای مجموعه‌های نوار، ستون و حباب، می‌توان با [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) مقادیر منفی را با پر شدن متفاوت نشان داد. پر شدن معمولی مجموعه را به صورت یکدست تنظیم کنید، معکوس‌سازی را فعال کنید و رنگ مقدار منفی را از طریق [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) اختصاص دهید. اعداد منفی در کاربرگ دست‌نخورده می‌مانند؛ فقط رنگ نمایش آن‌ها تغییر می‌کند.
+
+مثال زیر داده‌های پیش‌فرض نمودار را با یک مجموعه جایگزین می‌کند. ردیف 0 برگه کاری نام مجموعه را دارد، ستون 0 نام دسته‌ها و ستون 1 مقادیر را در خود دارد:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **تنظیم عرض فاصله بین سری‌ها**
+نتیجه:
 
-Aspose.Slides برای جاوا به شما امکان می‌دهد عرض فاصله (`GapWidth`) یک سری را از طریق ویژگی **`GapWidth`** به این شکل تنظیم کنید:
+![رنگ‑پر‑متقاطع‑معکوس](inverted_solid_fill_color.png)
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/java/com.aspose.slides/Presentation) ایجاد کنید.  
-1. به اولین اسلاید دسترسی پیدا کنید.  
-1. یک نمودار با داده‌های پیش‌فرض اضافه کنید.  
-1. به هر سری نمودار دسترسی پیدا کنید.  
-1. ویژگی `GapWidth` را تنظیم کنید.  
-1. ارائه اصلاح‌شده را به یک فایل PPTX ذخیره کنید.
-
-این کد جاوا نشان می‌دهد چگونه عرض فاصله یک سری تنظیم شود:
+می‌توانید معکوس‌سازی را برای یک نقطه از طریق [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) فعال کنید. در مثال زیر معکوس‌سازی برای مجموعه غیرفعال و فقط برای نقطهٔ انتخاب‌شده فعال می‌شود. همچنین به نقطه مقدار منفی اختصاص داده می‌شود تا اثر قابل مشاهده باشد:
 
 ```java
-// یک ارائه خالی ایجاد می‌کند 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // به اسلاید اول ارائه دسترسی می‌یابد
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // یک نمودار با داده‌های پیش‌فرض اضافه می‌کند
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // اندیس شیت داده‌های نمودار را تنظیم می‌کند
-    int defaultWorksheetIndex = 0;
-    
-    // برگه کاری داده‌های نمودار را دریافت می‌کند
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // سری‌ها را اضافه می‌کند
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // دسته‌ها را اضافه می‌کند
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // سری دوم نمودار را می‌گیرد
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // داده‌های سری را پر می‌کند
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // مقدار GapWidth را تنظیم می‌کند
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // ارائه را روی دیسک ذخیره می‌کند
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **سؤالات متداول**
+## **پاک‌سازی مقدار یک نقطه دادهٔ خاص**
 
-**آیا محدودیتی برای تعداد سری‌هایی که یک نمودار می‌تواند داشته باشد وجود دارد؟**
+برای خالی کردن یک نقطه بدون حذف سایر نقاط، سلول پشتیبان کاربرگ آن را به `null` تنظیم کنید. برای یک نمودار ستونی، مقدار ترسیم‌شده از طریق [IChartDataPoint.getValue](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapoint/#getValue--) در دسترس است. نقطه داده در همان موقعیت دسته باقی می‌ماند، اما نمودار مقدار آن را به‌عنوان خالی بر اساس تنظیمات مقدار خالی نمودار در نظر می‌گیرد.
 
-Aspose.Slides محدودیتی ثابت برای تعداد سری‌هایی که اضافه می‌کنید اعمال نمی‌کند. سقف عملی توسط قابلیت خوانایی نمودار و حافظه موجود برای برنامه شما تعیین می‌شود.
+مثال زیر فقط نقطه دوم در اولین مجموعه را پاک می‌کند:
 
-**اگر ستون‌های داخل یک خوشه بیش از حد نزدیک یا بیش از حد دور باشند چه کار باید کرد؟**
+```java
+import com.aspose.slides.*;
 
-تنظیم ویژگی `GapWidth` برای آن سری (یا گروه سری والد) را انجام دهید. افزایش مقدار، فضای بین ستون‌ها را عریض‌تر می‌کند، در حالی که کاهش مقدار، آن‌ها را نزدیک‌تر می‌سازد.
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+نمودارهای پراکندگی از سلول‌های جداگانه X و Y استفاده می‌کنند و نمودارهای حباب نیز یک سلول اندازه دارند. فقط سلولی را که نشان‌دهندۀ مقدار مورد نظر برای حذف است پاک کنید. هنگام نیاز به نگه‌داشتن دیگر نقاط، از فراخوانی [IChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapointcollection/#clear--) خودداری کنید، زیرا این متد تمام نقاط داده را از مجموعه حذف می‌کند.
+
+## **تنظیم عرض فاصلهٔ مجموعه**
+
+عرض فاصله فضا بین خوشه‌های نوار یا ستون مجاور است و به‌صورت درصدی از عرض نوار یا ستون بیان می‌شود. مشابه پوشش، این تنظیم به گروه مجموعهٔ والد تعلق دارد نه به یک مجموعهٔ منفرد. یک بار برای گروه، [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) را صدا بزنید. مقدار بزرگ‌تر فضای بیشتری بین خوشه‌ها ایجاد می‌کند؛ مقدار کوچک‌تر آن‌ها را فشرده‌تر می‌کند.
+
+مثال زیر عرض فاصله را تغییر می‌دهد و فقط ارائهٔ نهایی را ذخیره می‌کند:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+نتیجه:
+
+![عرض‑فاصله](gap_width.png)
+
+## **پرسش‌های متداول**
+
+**کدام انواع نمودار از مجموعه‌های داده پشتیبانی می‌کنند؟**
+
+تمام انواع نمودارهای نمایش داده شده توسط شمارندهٔ [ChartType](https://reference.aspose.com/slides/fa/java/com.aspose.slides/charttype/) از داده‌های نمودار استفاده می‌کنند، اما ساختار مقدار یا تنظیمات مجموعه‌ها برای همه یکسان نیست. برای مثال، نمودارهای دسته‌ای از دسته‌ها و مقادیر استفاده می‌کنند، نمودارهای پراکندگی مقادیر X و Y، و نمودارهای حباب اندازهٔ حباب‌ها را اضافه می‌کنند. از روش ایجاد نقطه داده‌ای که با نوع مجموعه مطابقت دارد استفاده کنید. گزینه‌هایی مانند پوشش و عرض فاصله فقط برای گروه‌های نوار یا ستون سازگار اعمال می‌شوند.
+
+**یک گروه مجموعهٔ نمودار چیست؟**
+
+یک [IChartSeriesGroup](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseriesgroup/) شامل مجموعه‌های سازگاری است که تنظیمات سطح گروه را به‌اشتراک می‌گذارند. یک نمودار ترکیبی می‌تواند بیش از یک گروه داشته باشد، بنابراین تغییر گروهی که از طریق یک مجموعه دسترسی پیدا می‌کنید لزوماً تمام مجموعه‌های نمودار را تغییر نمی‌دهد.
+
+**آیا یک نمودار تازه‌ساخته داده‌های پیش‌فرض دارد؟**
+
+بله. به‌صورت پیش‌فرض، متد [IShapeCollection.addChart](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) مجموعه‌ها، دسته‌ها و مقادیر نمونه ای ایجاد می‌کند. می‌توانید این سلول‌ها را ویرایش کنید یا قبل از افزودن مجموعهٔ دادهٔ کاملاً سفارشی، هر دو مجموعه و دسته‌ها را پاک کنید. یک بارگذاری دیگر نیز امکان ایجاد نمودار بدون دادهٔ پیش‌فرض را فراهم می‌کند.
+
+**چگونه اشیای نمودار به سلول‌های کاربرگ متصل می‌شوند؟**
+
+نام‌های مجموعه، برچسب‌های دسته و مقادیر نقطه داده به سلول‌های یک [IChartDataWorkbook](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdataworkbook/) ارجاع می‌دهند. تغییر یک سلول مرجع، عنصر متناظر در نمودار را به‌روز می‌کند. هنگام ساخت داده‌های سفارشی، ردیف‌های دسته و ردیف‌های مقادیر مجموعه را هم‌راستا نگه دارید تا هر نقطه زیر دستهٔ هدف ترسیم شود.
+
+**چگونه یک نقطه را به‌جای کل مجموعه پاک کنم؟**
+
+سلول مقدار مربوطه را به `null` تنظیم کنید تا موقعیت دسته نقطه به‌عنوان نقطهٔ خالی حفظ شود. فقط زمانی که قصد حذف تمام نقاط یک مجموعه را دارید، از [IChartDataPointCollection.clear](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapointcollection/#clear--) استفاده کنید، زیرا این متد تمام نقاط را از مجموعه حذف می‌کند.
+
+**نقاط خالی چگونه نمایش داده می‌شوند؟**
+
+نتیجه به نوع نمودار و مقداری که از طریق [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) پیکربندی شده است، بستگی دارد. نمودارهای پشتیبانی‌شده می‌توانند خالی‌ها را به‌صورت فاصله، مقدار صفر یا با اتصال نقاط همسایه نمایش دهند. تنظیمی را انتخاب کنید که با معنی داده‌های گمشده در ارائهٔ شما منطبق باشد.
+
+**مقدارهای منفی چگونه قالب‌بندی می‌شوند؟**
+
+برای مجموعه‌های نوار، ستون و حباب پشتیبانی‌شده، متد [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) را صدا بزنید و رنگی که توسط [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) بازگردانده می‌شود، تنظیم کنید. می‌توانید رفتار را برای یک نقطهٔ تک با [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) بازنویسی کنید. این متدها فقط قالب‌بندی را تحت تأثیر قرار می‌دهند، نه مقادیر عددی ذخیره‌شده.
+
+**کدام قالب‌بندی در اولویت است وقتی هم مجموعه و هم نقطه قالب‌بندی شده باشند؟**
+
+قالب‌بندی صریح نقطه داده برای همان نقطه برتری دارد. نقاط دیگر همچنان از قالب‌بندی صریح مجموعه یا، وقتی قالب‌بندی مجموعه تعریف نشده باشد، از سبک و تم خودکار نمودار استفاده می‌کنند. تنظیمات گروهی مانند پوشش و عرض فاصله کنترل چیدمان را انجام می‌دهند و بازنویسی‌های قالب‌بندی سطح نقطه نیستند.
+
+**آیا محدودیتی برای تعداد مجموعه‌های یک نمودار وجود دارد؟**
+
+Aspose.Slides محدودیت ثابت جداگانه‌ای برای تعداد مجموعه‌ها اعمال نمی‌کند. در عمل، محدودیت‌های فایل ارائه، حافظه موجود، زمان رندرینگ و خوانایی نمودار تعیین‌کنندهٔ حد قابل استفاده هستند.
+
+**چه کاری باید انجام دهم وقتی ستون‌ها خیلی نزدیک یا خیلی دور یکدیگر هستند؟**
+
+متد [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) را بر روی گروه مجموعهٔ والد مناسب صدا بزنید. مقدار را افزایش دهید تا فاصله بین خوشه‌ها عریض‌تر شود یا کاهش دهید تا خوشه‌ها به‌یکدیگر نزدیک‌تر شوند.

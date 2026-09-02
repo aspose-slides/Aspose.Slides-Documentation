@@ -1,336 +1,416 @@
 ---
-title: Серии диаграмм
+title: Управление данными серий диаграмм в презентациях с помощью JavaScript
+linktitle: Серии данных
 type: docs
 url: /ru/nodejs-java/chart-series/
-keywords: "Серии диаграмм, цвет серии, презентация PowerPoint, Java, Aspose.Slides for Node.js via Java"
-description: "Серии диаграмм в презентациях PowerPoint на JavaScript"
+keywords:
+- серии диаграмм
+- перекрытие серий
+- цвет серии
+- имя серии
+- точка данных
+- ячейка рабочей книги
+- промежуток серии
+- отрицательное значение
+- PowerPoint
+- презентация
+- Node.js
+- JavaScript
+- Aspose.Slides
+description: "Узнайте, как управлять сериями диаграмм, точками данных, ячейками рабочей книги, форматированием, перекрытием, шириной промежутка и отрицательными значениями в презентациях с помощью JavaScript."
 ---
+## **Обзор**
 
-Серия — это строка или столбец чисел, отображенных на диаграмме.
+Диаграмма хранит свои построенные данные в рабочей книге данных диаграммы. [ChartSeries](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/) представляет один набор связанных значений, а каждый [ChartDataPoint](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/) в серии ссылается на одну или несколько ячеек рабочей книги. Объекты [ChartCategory](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartcategory/) предоставляют метки или значения группировки, общие для всех серий. Поэтому имя серии, категории и значения точек связываются с объектами [ChartDataCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatacell/), а не хранятся только как отображаемый текст.
+
+Для типичной диаграммы категорий рабочая книга по умолчанию использует строку 0 для имён серий, столбец 0 для имён категорий и оставшиеся ячейки — для значений серий. Индексы листа, строки и столбца, передаваемые в [ChartDataWorkbook.getCell](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/#getCell), начинаются с 0. Такая планировка полезна, когда вы создаёте диаграмму с данными по умолчанию, но не следует полагаться, что каждая существующая диаграмма использует её. Для загруженной презентации проверьте ячейки, на которые ссылаются серии, категории и точки данных, прежде чем изменять значения в рабочей книге.
+
+Настройки диаграммы имеют три разных уровня:
+
+- Настройки уровня серии, такие как [ChartSeries.getFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getFormat), задают внешний вид по умолчанию для всех точек в одной серии.
+- Настройки отдельной точки, такие как [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#getFormat), переопределяют внешний вид серии для одной точки.
+- Групповые настройки применяются к совместимым сериям, принадлежащим одному [ChartSeriesGroup](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseriesgroup/). Получить группу можно через [ChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getParentSeriesGroup), когда требуется задать такие параметры, как перекрытие или ширина промежутка.
+
+Если явное заполнение точки или серии не задано, стиль и тема диаграммы определяют автоматический внешний вид. Когда присутствуют как настройки серии, так и точки, приоритет имеет форматирование точки.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **Установить перекрытие серии диаграммы**
+## **Установка перекрытия серий диаграммы**
 
-С помощью метода [ChartSeries.getOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) вы можете задать степень перекрытия столбцов и колонок на 2D‑диаграмме (диапазон: -100 — 100). Это свойство применяется ко всем сериям родительской группы серий: это проекция соответствующего свойства группы. Поэтому свойство доступно только для чтения.
+[ChartSeries.getOverlap](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getOverlap) сообщает, насколько столбцы или полосы перекрываются в 2D‑диаграмме, от ‑100 до 100 процентов. Это только чтение проекции настройки родительской группы серий. Чтобы изменить перекрытие для всех совместимых серий в группе, используйте [ChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseriesgroup/#setOverlap). Эта опция применяется к типам диаграмм, показывающим сгруппированные полосы или столбцы; она не влияет на несвязанные группы серий в комбинированной диаграмме.
 
-Используйте свойство чтения/записи `ParentSeriesGroup.getOverlap`, чтобы задать желаемое значение для `Overlap`.
+Следующий пример задаёт перекрытие для группы, содержащей первую серию:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Добавьте сгруппированную колонную диаграмму на слайд.
-3. Получите первую серию диаграммы.
-4. Получите `ParentSeriesGroup` серии и задайте желаемое значение перекрытия.
-5. Запишите изменённую презентацию в файл PPTX.
-
-Этот код JavaScript показывает, как задать перекрытие для серии диаграммы:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const overlapPercent = java.newByte(30);
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Добавляет диаграмму
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0) {
-        // Устанавливает перекрытие серии
-        series.get_Item(0).getParentSeriesGroup().setOverlap(-30);
-    }
-    // Записывает файл презентации на диск
-    pres.save("SetChartSeriesOverlap_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Новая диаграмма содержит примерные серии, категории и значения.
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Результат:
 
-## **Изменить цвет серии**
+![Перекрытие серий](series_overlap.png)
 
-Aspose.Slides for Node.js via Java позволяет изменить цвет серии следующим образом:
+## **Изменение цвета заливки серии**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Добавьте диаграмму на слайд.
-3. Получите серию, цвет которой нужно изменить.
-4. Задайте нужный тип заливки и цвет заливки.
-5. Сохраните изменённую презентацию.
+Используйте [ChartSeries.getFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getFormat), чтобы задать заливку по умолчанию для всей серии. Если у точки уже задана явная заливка, её настройка [ChartDataPoint.getFormat](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#getFormat) переопределит заливку серии для этой точки.
 
-Этот JavaScript‑код показывает, как изменить цвет серии:
+Следующий пример применяет сплошную синюю заливку к первой серии:
+
 ```javascript
-var pres = new aspose.slides.Presentation("test.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const blueColor = java.getStaticFieldValue("java.awt.Color", "BLUE");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Pie, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(blueColor);
+
+    presentation.save("series_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Результат:
 
-## **Изменить цвет категории серии**
+![Цвет серии](series_color.png)
 
-Aspose.Slides for Node.js via Java позволяет изменить цвет категории серии следующим образом:
+## **Изменение имени серии**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Добавьте диаграмму на слайд.
-3. Получите категорию серии, цвет которой нужно изменить.
-4. Задайте нужный тип заливки и цвет заливки.
-5. Сохраните изменённую презентацию.
+Имя серии хранится в рабочей книге данных диаграммы и обычно отображается в легенде. В рабочей книге по умолчанию, созданной для сгруппированной столбчатой диаграммы, ячейка B1 находится в строке 0, столбце 1 и содержит имя первой серии. Именованные константы в следующем примере делают эту структуру явной:
 
-Этот код JavaScript показывает, как изменить цвет категории серии:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const seriesNameRowIndex = 0;
+const firstSeriesColumnIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400);
-    var point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-    point.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    point.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const workbook = chart.getChartData().getChartDataWorkbook();
+    const seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Вы также можете обновить уже используемую ячейку через [ChartSeries.getName](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getName). Такой подход избавляет от предположений о конкретных строках и столбцах в существующей диаграмме:
 
-## **Изменить имя серии** 
-
-По умолчанию имена в легенде диаграммы берутся из ячеек, расположенных над каждым столбцом или строкой данных.
-
-В нашем примере (см. изображение):
-
-* столбцы имеют имена *Series 1, Series 2* и *Series 3*;
-* строки – *Category 1, Category 2, Category 3* и *Category 4*.
-
-Aspose.Slides for Node.js via Java позволяет обновить или изменить имя серии в данных диаграммы и в легенде.
-
-Этот JavaScript‑код показывает, как изменить имя серии в данных диаграммы `ChartDataWorkbook`:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const firstNameCellIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Результат:
 
-Этот JavaScript‑код показывает, как изменить имя серии в легенде через `Series`:
+![Имя серии](series_name.png)
+
+## **Получение автоматически рассчитываемого цвета заливки серии**
+
+[ChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getAutomaticSeriesColor) возвращает цвет, вычисленный из индекса серии и стиля диаграммы. Это цвет, используемый, когда заливка серии не определена явно. Вызов метода лишь читает рассчитанный цвет; он не задаёт новую заливку.
+
+Следующий пример выводит автоматический цвет каждой серии по умолчанию:
+
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Column3D, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries().get_Item(0);
-    var name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const seriesCount = chart.getChartData().getSeries().size();
+    for (let seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        const series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        const automaticColor = series.getAutomaticSeriesColor();
+        const automaticColorText = automaticColor.toString();
+        console.log("Series " + seriesIndex + ": " + automaticColorText);
     }
+} finally {
+    presentation.dispose();
 }
 ```
 
+Пример вывода для стиля диаграммы по умолчанию:
 
-## **Установить цвет заливки серии диаграммы**
-
-Aspose.Slides for Node.js via Java позволяет установить автоматический цвет заливки для серии диаграммы в области построения следующим образом:
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию, выбрав нужный тип (в примере ниже использован `ChartType.ClusteredColumn`).
-4. Получите серию диаграммы и задайте цвет заливки **Automatic**.
-5. Сохраните презентацию в файл PPTX.
-
-Этот JavaScript‑код показывает, как установить автоматический цвет заливки для серии диаграммы:
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    // Создает диаграмму с группированными столбцами
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 50, 600, 400);
-    // Устанавливает автоматический формат заливки серии
-    for (var i = 0; i < chart.getChartData().getSeries().size(); i++) {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-    // Записывает файл презентации на диск
-    pres.save("AutoFillSeries_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
 ```
 
+Точные цвета зависят от стиля и темы диаграммы.
 
-## **Установить инвертированный цвет заливки серии диаграммы**
+## **Установка инвертированного цвета заливки для серии**
 
-Aspose.Slides позволяет установить инвертированный цвет заливки для серии диаграммы в области построения следующим образом:
+Для столбцов, полос и «пузырьковых» серий [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) может отображать отрицательные значения другой заливкой. Задайте обычную заливку серии как сплошную, включите инверсию и укажите цвет отрицательного значения через [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Отрицательные числа в рабочей книге остаются без изменений; меняется только их отображаемый цвет.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Добавьте диаграмму с данными по умолчанию, выбрав нужный тип (в примере ниже использован `ChartType.ClusteredColumn`).
-4. Получите серию диаграммы и задайте инвертированный цвет заливки.
-5. Сохраните презентацию в файл PPTX.
+Следующий пример заменяет данные по умолчанию одной серией. Строка 0 листа содержит имя серии, столбец 0 — имена категорий, столбец 1 — значения:
 
-Этот JavaScript‑код демонстрирует операцию:
 ```javascript
-var inverColor = java.getStaticFieldValue("java.awt.Color", "RED");
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const worksheetIndex = 0;
+const headerRowIndex = 0;
+const categoryColumnIndex = 0;
+const firstSeriesColumnIndex = 1;
+const firstDataRowIndex = 1;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const categoryNames = ["Category 1", "Category 2", "Category 3"];
+const seriesValues = [-20, 50, -30];
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 100, 100, 400, 300);
-    var workBook = chart.getChartData().getChartDataWorkbook();
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-    // Добавляет новые серии и категории
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-    // Берёт первую серию диаграммы и заполняет её данные
-    var series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    var seriesColor = series.getAutomaticSeriesColor();
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+    const chartData = chart.getChartData();
+    const workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    const seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    const chartType = chart.getType();
+    const series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (let categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        const dataRowIndex = firstDataRowIndex + categoryIndex;
+        const categoryName = categoryNames[categoryIndex];
+        const seriesValue = seriesValues[categoryIndex];
+
+        const categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        const valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
+    }
+
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
     series.setInvertIfNegative(true);
-    series.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    pres.save("SetInvertFillColorChart_out.pptx", aspose.slides.SaveFormat.Pptx);
+    series.getInvertedSolidFillColor().setColor(redColor);
+
+    presentation.save("inverted_solid_fill_color.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Результат:
 
-## **Установить инверсию серии при отрицательном значении**
+![Инвертированный сплошной цвет заливки](inverted_solid_fill_color.png)
 
-Aspose.Slides позволяет установить инверсию через метод `ChartDataPoint.setInvertIfNegative`. При установке инверсии через свойства точка данных меняет цвета, когда её значение становится отрицательным.
+Инверсию для отдельной точки можно включить через [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). В следующем примере инверсия отключена для серии и включена только для выбранной точки. Точке также присвоено отрицательное значение, чтобы эффект был виден:
 
-Этот JavaScript‑код демонстрирует операцию:
 ```javascript
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 2;
+const negativeValue = -30;
+const solidFillType = java.newByte(aspose.slides.FillType.Solid);
+const redColor = java.getStaticFieldValue("java.awt.Color", "RED");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    var series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
-    var chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
-    chartSeries.setInvertIfNegative(false);
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-    pres.save("out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(solidFillType);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(redColor);
+    series.setInvertIfNegative(false);
+
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+## **Очистка значения конкретной точки данных**
 
-## **Очистить данные конкретных точек данных**
+Чтобы сделать одну точку пустой, не удаляя остальные, задайте её ячейке в рабочей книге значение `null`. Для столбчатой диаграммы построенное значение доступно через [ChartDataPoint.getValue](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#getValue). Точка остаётся на той же позиции категории, но диаграмма рассматривает её значение как пустое в соответствии с настройками отображения пустых значений.
 
-Aspose.Slides for Node.js via Java позволяет очистить данные `DataPoints` для конкретной серии диаграммы следующим образом:
+Следующий пример очищает только вторую точку в первой серии:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Получите ссылку на слайд по его индексу.
-3. Получите ссылку на диаграмму по её индексу.
-4. Пройдитесь по всем `DataPoints` диаграммы и задайте `XValue` и `YValue` равными `null`.
-5. Очистить все`DataPoints` для конкретной серии диаграммы.
-6. Запишите изменённую презентацию в файл PPTX.
-
-Этот JavaScript‑код демонстрирует операцию:
 ```javascript
-var pres = new aspose.slides.Presentation("TestChart.pptx");
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const targetDataPointIndex = 1;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sl = pres.getSlides().get_Item(0);
-    var chart = sl.getShapes().get_Item(0);
-    for (let i = 0; i < chart.getChartData().getSeries().get_Item(0).getDataPoints().size(); i++) {
-        let dataPoint = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(i);
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
-    }
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    const dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Диаграммы разброса используют отдельные ячейки X и Y, а «пузырьковые» диаграммы также используют ячейку размера. Очищайте только ту ячейку, которая представляет значение, которое вы хотите убрать. Не вызывайте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapointcollection/#clear), когда нужно сохранить остальные точки, поскольку этот метод удаляет все точки из коллекции.
 
-## **Установить ширину промежутка серии**
+## **Установка ширины промежутка между сериями**
 
-Aspose.Slides for Node.js via Java позволяет задать ширину промежутка серии через свойство **`GapWidth`** следующим образом:
+Ширина промежутка — это пространство между соседними кластерами столбцов или полос, выраженное в процентах от их ширины. Как и перекрытие, она принадлежит родительской группе серий, а не отдельной серии. Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) один раз для группы. Большее значение увеличивает расстояние между кластерами; меньшее — делает их плотнее.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/Presentation).
-2. Откройте первый слайд.
-3. Добавьте диаграмму с данными по умолчанию.
-4. Получите любую серию диаграммы.
-5. Задайте свойство `GapWidth`.
-6. Запишите изменённую презентацию в файл PPTX.
+Следующий пример меняет ширину промежутка и сохраняет только итоговую презентацию:
 
-Этот код JavaScript показывает, как задать ширину промежутка серии:
 ```javascript
-// Создает пустую презентацию
-var pres = new aspose.slides.Presentation();
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const firstSlideIndex = 0;
+const firstSeriesIndex = 0;
+const gapWidthPercent = 30;
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Получает первый слайд презентации
-    var slide = pres.getSlides().get_Item(0);
-    // Добавляет диаграмму с данными по умолчанию
-    var chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 0, 0, 500, 500);
-    // Устанавливает индекс листа данных диаграммы
-    var defaultWorksheetIndex = 0;
-    // Получает лист данных диаграммы
-    var fact = chart.getChartData().getChartDataWorkbook();
-    // Добавляет серии
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    // Добавляет категории
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    // Берет вторую серию диаграммы
-    var series = chart.getChartData().getSeries().get_Item(1);
-    // Заполняет данные серии
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    // Устанавливает значение GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    // Сохраняет презентацию на диск
-    pres.save("GapWidth_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    const chart = slide.getShapes().addChart(aspose.slides.ChartType.StackedColumn, 20, 20, 500, 200);
+
+    const series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
+Результат:
+
+![Ширина промежутка](gap_width.png)
 
 ## **FAQ**
 
-**Существует ли ограничение на количество серий, которое может содержать одна диаграмма?**
+**Какие типы диаграмм поддерживают серии данных?**
 
-Aspose.Slides не накладывает фиксированного ограничения на количество добавляемых серий. Практический максимум определяется читаемостью диаграммы и доступной памяти вашего приложения.
+Все типы диаграмм, перечисленные в [ChartType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/charttype/), используют данные диаграммы, но их серии не всегда имеют одинаковую структуру значений или настройки. Например, категориальные диаграммы используют категории и значения, диаграммы разброса — X и Y, а «пузырьковые» добавляют размеры пузырей. Используйте метод создания точек данных, соответствующий типу серии. Параметры, такие как перекрытие и ширина промежутка, применимы только к совместимым группам столбцов или полос.
 
-**Что делать, если столбцы в кластере слишком близко расположены или слишком далеко друг от друга?**
+**Что такое группа серий диаграммы?**
 
-Отрегулируйте параметр **Gap Width** для этой серии (или её родительской группы серий). Увеличение значения расширяет промежуток между столбцами, а уменьшение делает их ближе друг к другу.
+[ChartSeriesGroup](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseriesgroup/) содержит совместимые серии, делящие групповые настройки построения. Комбинированная диаграмма может иметь более одной группы, поэтому изменение группы, полученной через одну серию, не обязательно изменит все серии в диаграмме.
+
+**Создаётся ли в новой диаграмме набор данных по умолчанию?**
+
+Да. По умолчанию [ShapeCollection.addChart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/#addChart) создаёт образцы серий, категорий и значений. Их ячейки можно редактировать или очистить коллекции серий и категорий перед добавлением полностью пользовательского набора данных. Существует перегрузка, позволяющая создать диаграмму без данных по умолчанию.
+
+**Как объекты диаграммы связаны с ячейками рабочей книги?**
+
+Имена серий, метки категорий и значения точек данных ссылаются на ячейки в [ChartDataWorkbook](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdataworkbook/). Изменение связанной ячейки обновляет соответствующий элемент диаграммы. При построении пользовательских данных поддерживайте согласованность строк категорий и строк значений серий, чтобы каждая точка отображалась под нужной категорией.
+
+**Как очистить одну точку, а не всю серию?**
+
+Задайте соответствующей ячейке значение `null`, чтобы точка осталась на своей позиции как пустая. Используйте [ChartDataPointCollection.clear](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapointcollection/#clear) только когда требуется удалить все точки из серии.
+
+**Как отображаются пустые точки?**
+
+Результат зависит от типа диаграммы и настройки, заданной через [Chart.setDisplayBlanksAs](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chart/#setDisplayBlanksAs). Поддерживаемые варианты: отображать пустоты как разрывы, как нули или соединять соседние точки. Выберите параметр, соответствующий смыслу отсутствующих данных в вашей презентации.
+
+**Как форматируются отрицательные значения?**
+
+Для поддерживаемых столбцов, полос и «пузырьковых» серий вызовите [ChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#setInvertIfNegative) и задайте цвет, возвращаемый [ChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseries/#getInvertedSolidFillColor). Поведение для отдельной точки можно переопределить с помощью [ChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartdatapoint/#setInvertIfNegative). Эти методы влияют только на визуальное форматирование, а не на хранимые числовые значения.
+
+**Какой формат имеет приоритет, когда форматированы и серия, и точка?**
+
+Явное форматирование отдельной точки имеет приоритет для этой точки. Другие точки продолжают использовать явный формат серии или, если формат серии не задан, автоматический стиль и тему диаграммы. Групповые настройки, такие как перекрытие и ширина промежутка, управляют расположением и не переопределяют точечное форматирование.
+
+**Есть ли ограничение на количество серий в диаграмме?**
+
+Aspose.Slides не накладывает отдельного фиксированного ограничения на количество серий. На практике ограничения задаются ограничениями файлов презентации, доступной памятью, временем рендеринга и читаемостью диаграммы.
+
+**Что менять, если столбцы находятся слишком близко или слишком далеко друг от друга?**
+
+Вызовите [ChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/chartseriesgroup/#setGapWidth) у соответствующей родительской группы серий. Увеличьте значение, чтобы расширить пространство между кластерами, или уменьшите его, чтобы сблизить их.

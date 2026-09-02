@@ -1,12 +1,12 @@
 ---
-title: Konwertowanie slajdów PowerPoint na obrazy w Pythonie
-linktitle: Slajd na obraz
+title: Konwersja slajdów PowerPoint na obrazy w Pythonie
+linktitle: Slajd na Obraz
 type: docs
 weight: 41
 url: /pl/python-net/convert-slide/
 keywords:
-- konwertuj slajd
-- konwertuj slajd na obraz
+- konwersja slajdu
+- konwersja slajdu na obraz
 - eksportuj slajd jako obraz
 - zapisz slajd jako obraz
 - slajd na obraz
@@ -15,28 +15,28 @@ keywords:
 - slajd na bitmapę
 - Python
 - Aspose.Slides
-description: "Dowiedz się, jak konwertować slajdy PowerPoint i OpenDocument do różnych formatów przy użyciu Aspose.Slides for Python via .NET. Łatwo eksportuj slajdy PPTX i ODP do BMP, PNG, JPEG, TIFF i innych, uzyskując wysoką jakość."
+description: "Dowiedz się, jak konwertować slajdy PowerPoint i OpenDocument do różnych formatów przy użyciu Aspose.Slides dla Pythona via .NET. Łatwo eksportuj slajdy PPTX i ODP do BMP, PNG, JPEG, TIFF i innych, uzyskując wysoką jakość."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Aspose.Slides for Python via .NET umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument na różne formaty obrazów, w tym BMP, PNG, JPG (JPEG), GIF i inne.
+Aspose.Slides for Python via .NET umożliwia łatwe konwertowanie slajdów prezentacji PowerPoint i OpenDocument do różnych formatów obrazu, w tym BMP, PNG, JPG (JPEG), GIF i innych.
 
 Aby przekonwertować slajd na obraz, wykonaj następujące kroki:
 
 1. Zdefiniuj żądane ustawienia konwersji i wybierz slajdy, które chcesz wyeksportować, używając:
-    - klasy [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/),
+    - klasy [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/), lub
     - klasy [RenderingOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/renderingoptions/).
-2. Utwórz obraz slajdu, wywołując metodę `get_image` klasy [Slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/).
+2. Wygeneruj obraz slajdu, wywołując metodę `get_image` z klasy [Slide](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/).
 
-W Aspose.Slides for Python via .NET, [IImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iimage/) jest klasą pozwalającą pracować z obrazami definiowanymi przez dane pikseli. Możesz użyć jej instancji do zapisywania obrazów w szerokim zakresie formatów (BMP, JPG, PNG itp.).
+W Aspose.Slides for Python via .NET, [IImage](https://reference.aspose.com/slides/pl/python-net/aspose.slides/iimage/) jest klasą, która umożliwia pracę z obrazami definiowanymi przez dane pikseli. Możesz użyć instancji tej klasy do zapisywania obrazów w szerokim zakresie formatów (BMP, JPG, PNG itp.).
 
-## **Konwertuj slajdy do bitmapy i zapisz obrazy w PNG**
+## **Konwertuj slajdy na bitmapę i zapisz obrazy w formacie PNG**
 
-Możesz przekonwertować slajd do obiektu bitmapy i używać go bezpośrednio w aplikacji. Alternatywnie możesz przekonwertować slajd do bitmapy, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
+Możesz przekonwertować slajd na obiekt bitmapy i używać go bezpośrednio w aplikacji. Alternatywnie możesz przekonwertować slajd na bitmapę, a następnie zapisać obraz w formacie JPEG lub innym wybranym formacie.
 
-Ten kod w Pythonie demonstruje, jak przekonwertować pierwszy slajd prezentacji na obiekt bitmapy, a następnie zapisać obraz w formacie PNG:
+Poniższy kod Pythona pokazuje, jak przekonwertować pierwszy slajd prezentacji na obiekt bitmapy, a następnie zapisać obraz w formacie PNG:
 
-```py
+```py 
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as presentation:
@@ -48,7 +48,7 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 ## **Konwertuj slajdy na obrazy o niestandardowych rozmiarach**
 
-Możesz potrzebować obrazu o określonym rozmiarze. Korzystając z przeciążenia metody [get_image](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/get_image/#asposepydrawingsize), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość). 
+Możesz potrzebować obrazu o określonym rozmiarze. Korzystając z przeciążenia metody [get_image](https://reference.aspose.com/slides/pl/python-net/aspose.slides/slide/get_image/#asposepydrawingsize), możesz przekonwertować slajd na obraz o konkretnych wymiarach (szerokość i wysokość).
 
 Poniższy przykładowy kod pokazuje, jak to zrobić:
 
@@ -69,11 +69,11 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 Niektóre slajdy mogą zawierać notatki i komentarze.
 
-Aspose.Slides udostępnia dwie klasy — [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/) i [RenderingOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/renderingoptions/) — które pozwalają kontrolować renderowanie slajdów prezentacji na obrazy. Obie klasy zawierają właściwość `slides_layout_options`, umożliwiającą skonfigurowanie renderowania notatek i komentarzy na slajdzie podczas konwersji na obraz.
+Aspose.Slides udostępnia dwie klasy — [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/) i [RenderingOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/renderingoptions/) — które pozwalają kontrolować renderowanie slajdów prezentacji do obrazów. Obie klasy zawierają właściwość `slides_layout_options`, która umożliwia skonfigurowanie renderowania notatek i komentarzy na slajdzie podczas jego konwersji na obraz.
 
-Za pomocą klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/notescommentslayoutingoptions/) możesz określić preferowaną pozycję notatek i komentarzy w wynikowym obrazie.
+Za pomocą klasy [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/notescommentslayoutingoptions/) możesz określić preferowaną pozycję notatek i komentarzy w wygenerowanym obrazie.
 
-Ten kod w Pythonie demonstruje, jak przekonwertować slajd z notatkami i komentarzami:
+Poniższy kod Pythona pokazuje, jak przekonwertować slajd zawierający notatki i komentarze:
 
 ```py 
 import aspose.pydrawing as draw
@@ -100,14 +100,14 @@ with slides.Presentation("Presentation_with_notes_and_comments.pptx") as present
 ```
 
 {{% alert title="Note" color="warning" %}} 
-W każdym procesie konwersji slajdu na obraz, właściwość [notes_position](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) nie może być ustawiona na `BOTTOM_FULL` (aby określić pozycję notatek), ponieważ tekst notatki może być zbyt długi, co uniemożliwia zmieszczenie go w określonym rozmiarze obrazu.
+W każdym procesie konwersji slajdów na obrazy właściwość [notes_position](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) nie może być ustawiona na `BOTTOM_FULL` (określającą pozycję notatek), ponieważ tekst notatki może być zbyt duży, co uniemożliwia zmieszczenie się w określonym rozmiarze obrazu.
 {{% /alert %}} 
 
 ## **Konwertuj slajdy na obrazy przy użyciu opcji TIFF**
 
 Klasa [TiffOptions](https://reference.aspose.com/slides/pl/python-net/aspose.slides.export/tiffoptions/) zapewnia większą kontrolę nad wynikowym obrazem TIFF, umożliwiając określenie parametrów takich jak rozmiar, rozdzielczość, paleta kolorów i inne.
 
-Ten kod w Pythonie demonstruje proces konwersji, w którym opcje TIFF są używane do wygenerowania obrazu czarno-białego o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
+Poniższy kod Pythona demonstruje proces konwersji, w którym użyto opcji TIFF do uzyskania czarno-białego obrazu o rozdzielczości 300 DPI i rozmiarze 2160 × 2800:
 
 ```py 
 import aspose.pydrawing as draw
@@ -125,7 +125,7 @@ with slides.Presentation("sample.pptx") as presentation:
     options.dpi_x = 300                                                        # Ustaw rozdzielczość poziomą.
     options.dpi_y = 300                                                        # Ustaw rozdzielczość pionową.
 
-    # Przekonwertuj slajd na obraz z podanymi opcjami.
+    # Konwertuj slajd na obraz przy użyciu określonych opcji.
     with slide.get_image(options) as image:
         # Zapisz obraz w formacie TIFF.
         image.save("output.tiff", slides.ImageFormat.TIFF)
@@ -133,9 +133,9 @@ with slides.Presentation("sample.pptx") as presentation:
 
 ## **Konwertuj wszystkie slajdy na obrazy**
 
-Aspose.Slides umożliwia konwersję wszystkich slajdów w prezentacji na obrazy, skutecznie przekształcając całą prezentację w serię obrazów.
+Aspose.Slides umożliwia konwersję wszystkich slajdów w prezentacji na obrazy, efektywnie przekształcając całą prezentację w serię obrazów.
 
-Ten przykładowy kod pokazuje, jak w Pythonie przekonwertować wszystkie slajdy prezentacji na obrazy:
+Poniższy przykładowy kod pokazuje, jak w Pythonie przekonwertować wszystkie slajdy w prezentacji na obrazy:
 
 ```py
 import aspose.slides as slides
@@ -150,22 +150,28 @@ with slides.Presentation("Presentation.pptx") as presentation:
         if slide.hidden:
             continue
 
-        # Przekonwertuj slajd na obraz.
+        # Konwertuj slajd na obraz.
         with slide.get_image(scale_x, scale_y) as image:
             # Zapisz obraz w formacie JPEG.
             image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
 ```
 
+## **Renderowanie kolorowych emoji**
+
+{{% alert title="Note" color="warning" %}} 
+Aby prawidłowo renderować kolorowe emoji podczas konwersji slajdów prezentacji na obrazy, czcionki emoji użyte w prezentacji muszą być zainstalowane i dostępne w systemie wykonującym konwersję. Na przykład, jeśli prezentacja używa **Segoe UI Emoji** i ta czcionka jest nieobecna, emoji mogą pojawiać się w odcieniach szarości w wygenerowanych obrazach.
+{{% /alert %}}
+
 ## **FAQ**
 
 **Czy Aspose.Slides obsługuje renderowanie slajdów z animacjami?**
 
-Nie, metoda `get_image` zapisuje jedynie statyczny obraz slajdu, bez animacji.
+Nie, metoda `get_image` zapisuje tylko statyczny obraz slajdu, bez animacji.
 
 **Czy ukryte slajdy mogą być eksportowane jako obrazy?**
 
-Tak, ukryte slajdy mogą być przetwarzane tak samo jak normalne. Należy tylko upewnić się, że są uwzględnione w pętli przetwarzania.
+Tak, ukryte slajdy mogą być przetwarzane tak samo jak zwykłe. Upewnij się tylko, że są uwzględnione w pętli przetwarzania.
 
 **Czy obrazy mogą być zapisywane z cieniami i efektami?**
 
-Tak, Aspose.Slides obsługuje renderowanie cieni, przezroczystości i innych efektów graficznych przy zapisywaniu slajdów jako obrazy.
+Tak, Aspose.Slides obsługuje renderowanie cieni, przezroczystości i innych efektów graficznych podczas zapisywania slajdów jako obrazy.

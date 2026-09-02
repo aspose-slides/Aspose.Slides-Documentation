@@ -18,27 +18,27 @@ keywords:
 - presentación
 - PHP
 - Aspose.Slides
-description: "Convierte diapositivas de PPT, PPTX y ODP a imágenes usando Aspose.Slides para PHP a través de Java — renderizado rápido y de alta calidad con ejemplos de código claros."
+description: "Convertir diapositivas de PPT, PPTX y ODP a imágenes usando Aspose.Slides for PHP via Java — renderizado rápido y de alta calidad con ejemplos de código claros."
 ---
+## **Introducción**
 
-## **Descripción general**
-
-Aspose.Slides para PHP a través de Java le permite convertir fácilmente diapositivas de presentaciones PowerPoint y OpenDocument a varios formatos de imagen, incluidos BMP, PNG, JPG (JPEG), GIF y otros.
+Aspose.Slides for PHP via Java le permite convertir fácilmente diapositivas de presentaciones PowerPoint y OpenDocument a varios formatos de imagen, incluidos BMP, PNG, JPG (JPEG), GIF y otros.
 
 Para convertir una diapositiva en una imagen, siga estos pasos:
 
-1. Defina la configuración de conversión deseada y seleccione las diapositivas que desea exportar usando:
-    - La clase [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/), o
-    - La clase [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/).
-2. Genere la imagen de la diapositiva llamando al método [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage).
+1. Defina la configuración de conversión deseada y seleccione las diapositivas que desea exportar mediante:
+    - La clase [TiffOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/tiffoptions/) o
+    - La clase [RenderingOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/renderingoptions/) .
+2. Genere la imagen de la diapositiva llamando al método [getImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getImage).
 
-En Aspose.Slides para PHP a través de Java, un [IImage](https://reference.aspose.com/slides/php-java/aspose.slides/iimage/) es una clase que le permite trabajar con imágenes definidas por datos de píxeles. Puede usar esta clase para guardar imágenes en una amplia gama de formatos (BMP, JPG, PNG, etc.).
+En Aspose.Slides for PHP via Java, un [IImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/iimage/) es una clase que le permite trabajar con imágenes definidas por datos de píxeles. Puede usar esta clase para guardar imágenes en una amplia variedad de formatos (BMP, JPG, PNG, etc.).
 
 ## **Convertir diapositivas a mapas de bits y guardar las imágenes en PNG**
 
-Puede convertir una diapositiva a un objeto bitmap y usarlo directamente en su aplicación. Alternativamente, puede convertir una diapositiva a un bitmap y luego guardar la imagen en JPEG o cualquier otro formato preferido.
+Puede convertir una diapositiva en un objeto bitmap y usarlo directamente en su aplicación. Alternativamente, puede convertir una diapositiva en un bitmap y luego guardar la imagen en JPEG o cualquier otro formato preferido.
 
-Este código muestra cómo convertir la primera diapositiva de una presentación a un objeto bitmap y luego guardar la imagen en formato PNG:
+Este código muestra cómo convertir la primera diapositiva de una presentación en un objeto bitmap y luego guardar la imagen en formato PNG:
+
 ```php
 $presentation = new Presentation("Presentation.pptx");
 try {
@@ -55,12 +55,12 @@ try {
 }
 ```
 
-
 ## **Convertir diapositivas a imágenes con tamaños personalizados**
 
-Puede que necesite obtener una imagen de un tamaño determinado. Usando una sobrecarga del método [getImage](https://reference.aspose.com/slides/php-java/aspose.slides/slide/#getImage), puede convertir una diapositiva a una imagen con dimensiones específicas (anchura y altura).
+Puede que necesite obtener una imagen de un tamaño determinado. Usando una sobrecarga del método [getImage](https://reference.aspose.com/slides/es/php-java/aspose.slides/slide/#getImage), puede convertir una diapositiva en una imagen con dimensiones específicas (ancho y alto).
 
-Este fragmento de código muestra cómo hacerlo:
+Este código de ejemplo muestra cómo hacerlo:
+
 ```php
 $imageSize = new Java("java.awt.Dimension", 1820, 1040);
 
@@ -79,16 +79,16 @@ try {
 }
 ```
 
-
 ## **Convertir diapositivas con notas y comentarios a imágenes**
 
 Algunas diapositivas pueden contener notas y comentarios.
 
-Aspose.Slides proporciona dos clases[TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) y [RenderingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/renderingoptions/)—que le permiten controlar la renderización de diapositivas de presentación a imágenes. Ambas clases incluyen el método `setSlidesLayoutOptions`, que le permite configurar la renderización de notas y comentarios en una diapositiva al convertirla a una imagen.
+Aspose.Slides proporciona dos clases [TiffOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/tiffoptions/) y [RenderingOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/renderingoptions/) - que le permiten controlar la representación de las diapositivas de la presentación a imágenes. Ambas clases incluyen el método `setSlidesLayoutOptions`, que le permite configurar la representación de notas y comentarios en una diapositiva al convertirla en una imagen.
 
-Con la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/) puede especificar la posición preferida de notas y comentarios en la imagen resultante.
+Con la clase [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/notescommentslayoutingoptions/) puede especificar la posición que prefiera para las notas y los comentarios en la imagen resultante.
 
 Este código muestra cómo convertir una diapositiva con notas y comentarios:
+
 ```php
 $scaleX = 2;
 $scaleY = $scaleX;
@@ -118,16 +118,16 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-En cualquier proceso de conversión de diapositivas a imágenes, el método [setNotesPosition](https://reference.aspose.com/slides/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) no puede aplicar `BottomFull` (para especificar la posición de las notas) porque el texto de una nota puede ser demasiado grande, lo que impide que quepa dentro del tamaño de imagen especificado.
+En cualquier proceso de conversión de diapositiva a imagen, el método [setNotesPosition](https://reference.aspose.com/slides/es/php-java/aspose.slides/notescommentslayoutingoptions/#setNotesPosition) no puede aplicar `BottomFull` (para especificar la posición de las notas) porque el texto de una nota puede ser demasiado grande, impidiendo que quepa dentro del tamaño de imagen especificado.
 {{% /alert %}} 
 
 ## **Convertir diapositivas a imágenes usando opciones TIFF**
 
-La clase [TiffOptions](https://reference.aspose.com/slides/php-java/aspose.slides/tiffoptions/) ofrece un mayor control sobre la imagen TIFF resultante al permitirle especificar parámetros como tamaño, resolución, paleta de colores y más.
+La clase [TiffOptions](https://reference.aspose.com/slides/es/php-java/aspose.slides/tiffoptions/) ofrece mayor control sobre la imagen TIFF resultante, permitiéndole especificar parámetros como tamaño, resolución, paleta de colores y más.
 
-Este código muestra un proceso de conversión donde se utilizan opciones TIFF para generar una imagen en blanco y negro con una resolución de 300 dpi y un tamaño de 2160 × 2800:
+Este código muestra un proceso de conversión donde se utilizan opciones TIFF para generar una imagen en blanco y negro con una resolución de 300 DPI y un tamaño de 2160 × 2800:
+
 ```php
 // Cargar un archivo de presentación.
 $presentation = new Presentation("sample.pptx");
@@ -155,16 +155,16 @@ try {
 }
 ```
 
-
 {{% alert title="Note" color="warning" %}} 
-El soporte de TIFF no está garantizado en versiones anteriores a JDK 9.
+La compatibilidad con Tiff no está garantizada en versiones anteriores a JDK 9.
 {{% /alert %}} 
 
 ## **Convertir todas las diapositivas a imágenes**
 
-Aspose.Slides le permite convertir todas las diapositivas de una presentación a imágenes, convirtiendo efectivamente toda la presentación en una serie de imágenes.
+Aspose.Slides le permite convertir todas las diapositivas de una presentación en imágenes, convirtiendo efectivamente toda la presentación en una serie de imágenes.
 
-Este fragmento de código muestra cómo convertir todas las diapositivas de una presentación a imágenes en PHP:
+Este código de ejemplo muestra cómo convertir todas las diapositivas de una presentación en imágenes en PHP:
+
 ```php
 $scaleX = 2;
 $scaleY = $scaleX;
@@ -192,17 +192,22 @@ try {
 }
 ```
 
+## **Renderizado de emojis en color**
+
+{{% alert title="Note" color="warning" %}} 
+Para renderizar correctamente los emojis en color al convertir diapositivas de presentación a imágenes, las fuentes de emojis utilizadas en la presentación deben estar instaladas y disponibles en el sistema que realiza la conversión. Por ejemplo, si la presentación usa **Segoe UI Emoji** y esa fuente falta, los emojis pueden aparecer en monocromo en las imágenes de salida.
+{{% /alert %}}
 
 ## **Preguntas frecuentes**
 
-**¿Aspose.Slides admite la renderización de diapositivas con animaciones?**
+**¿Aspose.Slides admite la representación de diapositivas con animaciones?**
 
 No, el método `getImage` guarda solo una imagen estática de la diapositiva, sin animaciones.
 
 **¿Se pueden exportar diapositivas ocultas como imágenes?**
 
-Sí, las diapositivas ocultas pueden procesarse igual que las normales. Sólo asegúrese de que estén incluidas en el bucle de procesamiento.
+Sí, las diapositivas ocultas pueden procesarse como las normales. Solo asegúrese de que estén incluidas en el bucle de procesamiento.
 
-**¿Se pueden guardar imágenes con sombras y efectos?**
+**¿Se pueden guardar las imágenes con sombras y efectos?**
 
-Sí, Aspose.Slides admite la renderización de sombras, transparencias y otros efectos gráficos al guardar diapositivas como imágenes.
+Sí, Aspose.Slides admite la representación de sombras, transparencias y otros efectos gráficos al guardar diapositivas como imágenes.

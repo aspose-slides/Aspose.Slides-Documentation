@@ -1,14 +1,14 @@
 ---
-title: Mengonversi Slide Presentasi Menjadi Gambar di Android
+title: Mengonversi Slide Presentasi menjadi Gambar di Android
 linktitle: Slide ke Gambar
 type: docs
 weight: 35
 url: /id/androidjava/convert-slide/
 keywords:
-- konversi slide
-- ekspor slide
+- mengonversi slide
+- mengekspor slide
 - slide ke gambar
-- simpan slide sebagai gambar
+- menyimpan slide sebagai gambar
 - slide ke PNG
 - slide ke JPEG
 - slide ke bitmap
@@ -19,7 +19,7 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Mengonversi slide dari PPT, PPTX, dan ODP menjadi gambar menggunakan Aspose.Slides untuk Android—rendering cepat dan berkualitas tinggi dengan contoh kode Java yang jelas."
+description: "Mengonversi slide dari PPT, PPTX, dan ODP menjadi gambar menggunakan Aspose.Slides untuk Android—cepat, rendering berkualitas tinggi dengan contoh kode Java yang jelas."
 ---
 ## **Pendahuluan**
 
@@ -28,17 +28,17 @@ Aspose.Slides untuk Android melalui Java memungkinkan Anda dengan mudah mengonve
 Untuk mengonversi slide menjadi gambar, ikuti langkah-langkah berikut:
 
 1. Tentukan pengaturan konversi yang diinginkan dan pilih slide yang ingin Anda ekspor dengan menggunakan:
-    - Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/), atau
-    - Antarmuka [IRenderingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/irenderingoptions/).
-2. Hasilkan gambar slide dengan memanggil metode [getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/#getImage--).
+    - Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) atau
+    - Antarmuka [IRenderingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/irenderingoptions/) .
+2. Hasilkan gambar slide dengan memanggil metode [getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/#getImage--) .
 
-Di Aspose.Slides untuk Android melalui Java, sebuah [IImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/) adalah antarmuka yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan antarmuka ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
+Pada Aspose.Slides untuk Android melalui Java, sebuah [IImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/iimage/) adalah antarmuka yang memungkinkan Anda bekerja dengan gambar yang didefinisikan oleh data piksel. Anda dapat menggunakan antarmuka ini untuk menyimpan gambar dalam berbagai format (BMP, JPG, PNG, dll.).
 
-## **Mengonversi Slide menjadi Bitmap dan Menyimpan Gambar dalam PNG**
+## **Mengonversi Slide ke Bitmap dan Menyimpan Gambar dalam PNG**
 
-Anda dapat mengonversi slide menjadi objek bitmap dan menggunakannya langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide menjadi bitmap dan kemudian menyimpan gambar dalam format JPEG atau format lain yang Anda inginkan.
+Anda dapat mengonversi slide menjadi objek bitmap dan menggunakannya langsung dalam aplikasi Anda. Atau, Anda dapat mengonversi slide menjadi bitmap dan kemudian menyimpan gambar dalam format JPEG atau format lain yang Anda pilih.
 
-Kode ini menunjukkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
+Kode berikut menunjukkan cara mengonversi slide pertama dari presentasi menjadi objek bitmap dan kemudian menyimpan gambar dalam format PNG:
 
 ```java 
 Presentation presentation = new Presentation("Presentation.pptx");
@@ -56,11 +56,11 @@ try {
 }
 ```
 
-## **Mengonversi Slide menjadi Gambar dengan Ukuran Kustom**
+## **Mengonversi Slide ke Gambar dengan Ukuran Kustom**
 
-Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi).
+Anda mungkin perlu mendapatkan gambar dengan ukuran tertentu. Dengan menggunakan overload dari [getImage](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.android.Size-), Anda dapat mengonversi slide menjadi gambar dengan dimensi spesifik (lebar dan tinggi). 
 
-Contoh kode ini menunjukkan cara melakukannya:
+Contoh kode berikut menunjukkan cara melakukannya:
 
 ```java 
 Size imageSize = new Size(1820, 1040);
@@ -85,11 +85,11 @@ try {
 
 Beberapa slide mungkin berisi catatan dan komentar.
 
-Aspose.Slides menyediakan dua antarmuka—[ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) dan [IRenderingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/irenderingoptions/)—yang memungkinkan Anda mengendalikan proses rendering slide presentasi menjadi gambar. Kedua antarmuka mencakup metode `setSlidesLayoutOptions`, yang memungkinkan Anda mengonfigurasi rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
+Aspose.Slides menyediakan dua antarmuka—[ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) dan [IRenderingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/irenderingoptions/)—yang memungkinkan Anda mengontrol rendering slide presentasi menjadi gambar. Kedua antarmuka menyertakan metode `setSlidesLayoutOptions`, yang memungkinkan Anda mengatur rendering catatan dan komentar pada slide saat mengonversinya menjadi gambar.
 
-Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/notescommentslayoutingoptions/), Anda dapat menentukan posisi yang diinginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
+Dengan kelas [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/notescommentslayoutingoptions/) , Anda dapat menentukan posisi yang Anda inginkan untuk catatan dan komentar dalam gambar yang dihasilkan.
 
-Kode ini menunjukkan cara mengonversi slide dengan catatan dan komentar:
+Kode berikut menunjukkan cara mengonversi slide dengan catatan dan komentar:
 
 ```java 
 float scaleX = 2;
@@ -123,20 +123,20 @@ try {
 ```
 
 {{% alert title="Note" color="warning" %}} 
-Dalam proses konversi slide ke gambar apa pun, metode [setNotesPosition](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) tidak dapat menerapkan `BottomFull` (untuk menentukan posisi catatan) karena teks catatan mungkin terlalu besar, sehingga tidak dapat muat dalam ukuran gambar yang ditentukan.
+Dalam proses konversi slide ke gambar apa pun, metode [setNotesPosition](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) tidak dapat menerapkan `BottomFull` (untuk menentukan posisi catatan) karena teks catatan mungkin terlalu panjang, sehingga tidak dapat muat dalam ukuran gambar yang ditentukan.
 {{% /alert %}} 
 
-## **Mengonversi Slide menjadi Gambar Menggunakan Opsi TIFF**
+## **Mengonversi Slide ke Gambar Menggunakan Opsi TIFF**
 
-Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) memberikan kontrol yang lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lainnya.
+Antarmuka [ITiffOptions](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/itiffoptions/) memberikan kontrol lebih besar atas gambar TIFF yang dihasilkan dengan memungkinkan Anda menentukan parameter seperti ukuran, resolusi, palet warna, dan lainnya.
 
-Kode ini menunjukkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
+Kode berikut menunjukkan proses konversi di mana opsi TIFF digunakan untuk menghasilkan gambar hitam-putih dengan resolusi 300 DPI dan ukuran 2160 × 2800:
 
 ```java 
 // Memuat file presentasi.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Mengambil slide pertama dari presentasi.
+    // Mendapatkan slide pertama dari presentasi.
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Mengonfigurasi pengaturan gambar TIFF output.
@@ -164,7 +164,7 @@ try {
 
 Aspose.Slides memungkinkan Anda mengonversi semua slide dalam sebuah presentasi menjadi gambar, secara efektif mengubah seluruh presentasi menjadi serangkaian gambar.
 
-Contoh kode ini menunjukkan cara mengonversi semua slide dalam presentasi menjadi gambar di Java:
+Contoh kode berikut menunjukkan cara mengonversi semua slide dalam sebuah presentasi menjadi gambar menggunakan Java:
 
 ```java 
 float scaleX = 2;
@@ -172,7 +172,7 @@ float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Render presentasi ke gambar slide per slide.
+    // Render presentasi menjadi gambar slide demi slide.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
         // Mengontrol slide tersembunyi (jangan render slide tersembunyi).
@@ -194,16 +194,22 @@ try {
 }
 ```
 
+## **Rendering Emoji Berwarna**
+
+{{% alert title="Note" color="warning" %}} 
+Untuk merender emoji berwarna dengan benar saat mengonversi slide presentasi menjadi gambar, font emoji yang digunakan dalam presentasi harus diinstal dan tersedia pada sistem yang melakukan konversi. Misalnya, jika presentasi menggunakan **Segoe UI Emoji** dan font ini tidak ada, emoji dapat muncul dalam monokrom pada gambar output.
+{{% /alert %}}
+
 ## **FAQ**
 
 **Apakah Aspose.Slides mendukung rendering slide dengan animasi?**
 
-Tidak, metode `getImage` hanya menyimpan gambar statis dari slide, tanpa animasi.
+Tidak, metode `getImage` hanya menyimpan gambar statis slide, tanpa animasi.
 
 **Apakah slide tersembunyi dapat diekspor sebagai gambar?**
 
-Ya, slide tersembunyi dapat diproses sama seperti slide biasa. Pastikan saja mereka termasuk dalam loop pemrosesan.
+Ya, slide tersembunyi dapat diproses seperti slide biasa. Pastikan saja mereka termasuk dalam loop pemrosesan.
 
 **Apakah gambar dapat disimpan dengan bayangan dan efek?**
 
-Ya, Aspose.Slides mendukung rendering bayangan, transparansi, dan efek grafik lainnya saat menyimpan slide sebagai gambar.
+Ya, Aspose.Slides mendukung rendering bayangan, transparansi, dan efek grafis lainnya saat menyimpan slide sebagai gambar.

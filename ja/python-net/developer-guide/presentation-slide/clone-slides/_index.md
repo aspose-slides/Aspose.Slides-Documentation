@@ -46,7 +46,7 @@ pip install aspose.slides
 ```py
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
+# プレゼンテーション ファイルを表すために Presentation クラスのインスタンスを作成します。
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # 同じプレゼンテーション内のスライド コレクションの末尾に目的のスライドをクローンします。
     presentation.slides.add_clone(presentation.slides[0])
@@ -68,7 +68,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 ```py
 import aspose.slides as slides
 
-# プレゼンテーションファイルを表す Presentation クラスのインスタンスを作成します。
+# プレゼンテーション ファイルを表すために Presentation クラスのインスタンスを作成します。
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # 同じプレゼンテーション内で目的のスライドを指定した位置（インデックス）にクローンします。
     presentation.slides.insert_clone(2, presentation.slides[1])
@@ -91,7 +91,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 ```py
 import aspose.slides as slides
 
-# ソース プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+# ソース プレゼンテーション ファイルを表すために Presentation クラスのインスタンスを作成します。
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # スライドをクローンする先の PPTX（宛先プレゼンテーション）用に Presentation クラスのインスタンスを作成します。
     with slides.Presentation() as target_presentation:
@@ -116,13 +116,13 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# ソース プレゼンテーション ファイルを表す Presentation クラスのインスタンスを作成します。
+# ソース プレゼンテーション ファイルを表すために Presentation クラスのインスタンスを作成します。
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # スライドをクローンする先の PPTX（宛先プレゼンテーション）用に Presentation クラスのインスタンスを作成します。
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # ソースの最初のスライドを宛先プレゼンテーションのインデックス 2 にクローンとして挿入します。
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # 宛先プレゼンテーションをディスクに保存します。
+        # デスティネーション プレゼンテーションをディスクに保存します。
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -150,15 +150,15 @@ import aspose.slides as slides
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
     # スライドをクローンする先のプレゼンテーション（宛先）用に Presentation クラスのインスタンスを作成します。
     with slides.Presentation() as target_presentation:
-        # ソースプレゼンテーションから最初のスライドを取得します。
+        # ソース プレゼンテーションから最初のスライドを取得します。
         source_slide = source_presentation.slides[0]
         # 最初のスライドで使用されているマスタースライドを取得します。
         source_master = source_slide.layout_slide.master_slide
-        # マスタースライドを宛先プレゼンテーションのマスターコレクションにクローンします。
+        # デスティネーション プレゼンテーションのマスタコレクションにマスタースライドをクローンします。
         cloned_master = target_presentation.masters.add_clone(source_master)
         # クローンしたマスターを使用して、ソースプレゼンテーションのスライドを宛先プレゼンテーションの末尾にクローンします。
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # 宛先プレゼンテーションをディスクに保存します。
+        # デスティネーション プレゼンテーションをディスクに保存します。
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -181,7 +181,7 @@ with slides.Presentation() as presentation:
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # "Section2" という名前のセクションを作成し、slide2 から開始します。
     section = presentation.sections.add_section("Section2", slide2)
-    # 先に作成したスライドを "Section2" セクションにクローンします。
+    # 以前に作成したスライドを "Section2" セクションにクローンします。
     presentation.slides.add_clone(slide, section)
     # プレゼンテーションを PPTX ファイルとして保存します。
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)

@@ -1,122 +1,257 @@
 ---
-title: سفارشی‌سازی نقاط داده در نمودارهای Treemap و Sunburst با استفاده از PHP
+title: سفارشی‌سازی نقاط داده در نمودارهای Treemap و Sunburst در PHP
 linktitle: نقاط داده در نمودارهای Treemap و Sunburst
 type: docs
 url: /fa/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- نمودار treemap
-- نمودار sunburst
+- نمودار Treemap
+- نمودار Sunburst
+- نمودار سلسله‌مراتبی
 - نقطه داده
-- رنگ برچسب
+- برچسب داده
 - رنگ شاخه
 - PowerPoint
 - ارائه
 - PHP
 - Aspose.Slides
-description: "یاد بگیرید چگونه نقاط داده را در نمودارهای treemap و sunburst با Aspose.Slides برای PHP via Java مدیریت کنید، سازگار با فرمت‌های PowerPoint."
+description: "یاد بگیرید چگونه داده‌های سلسله‌مراتبی ایجاد کنید و سطوح، برچسب‌ها و رنگ‌ها را در نمودارهای Treemap و Sunburst با Aspose.Slides برای PHP از طریق Java سفارشی کنید."
 ---
-## **مقدمه**
+## **نمای کلی**
 
-در میان انواع دیگر نمودارهای PowerPoint، دو نوع «سلسله‌مراتبی» وجود دارد - **Treemap** و **Sunburst** (که به عنوان Sunburst Graph، Sunburst Diagram، Radial Chart، Radial Graph یا Multi Level Pie Chart نیز شناخته می‌شوند). این نمودارها داده‌های سلسله‌مراتبی را به صورت یک درخت - از برگ‌ها تا بالای شاخه - نمایش می‌دهند. برگ‌ها توسط نقاط داده سری تعریف می‌شوند و هر سطح گروه‌بندی تو در تو بعدی توسط دسته مرتبط تعریف می‌شود. Aspose.Slides for PHP via Java امکان قالب‌بندی نقاط داده نمودار Sunburst و Treemap را فراهم می‌کند.
+نمودارهای Treemap و Sunburst داده‌های سلسله‌مراتبی یک نوع را نمایش می‌دهند، اما از چیدمان‌های متفاوتی استفاده می‌کنند. یک Treemap سلسله‌مراتب را به صورت مستطیل‌های تو در تو رسم می‌کند که مساحت آن‌ها مقدار برگ‌ها را نشان می‌دهد. یک Sunburst آن را به صورت حلقه‌های متحدالمرکز نمایش می‌دهد: گروه‌های سطح بالا نزدیک به مرکز هستند و دسته‌های برگ در حلقهٔ خارجی قرار می‌گیرند.
 
-در زیر یک نمودار Sunburst نشان داده شده است که داده‌های ستون Series1 گره‌های برگ را تعریف می‌کند، در حالی که ستون‌های دیگر نقاط داده سلسله‌مراتبی را تعیین می‌کنند:
+در Aspose.Slides for PHP via Java، هر مقدار عددی یک [نقطه‌داده‌نمودار]({{guid}}) است. متد [ChartDataPoint.getDataPointLevels]({{guid}}) دسترسی به برگ و گروه‌های والد آن را فراهم می‌کند. این مقاله آن نگاشت را توضیح می‌دهد و نشان می‌دهد چگونه هر دو نوع نمودار را از داده‌های نمونهٔ یکسان ایجاد و قالب‌بندی کنیم.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![نمودار Treemap با شاخه‌های مصرف‌کننده و تجاری](treemap-hierarchy.png)
 
-بیایید با افزودن یک نمودار Sunburst جدید به ارائه شروع کنیم:
+![نمودار Sunburst با همان سلسله‌مراتب مصرف‌کننده و تجاری](sunburst-hierarchy.png)
+
+## **درک دسته‌ها، نقاط داده و سطوح**
+
+دیتاست نمونهٔ زیر دارای سه سطح دسته‌بندی و یک سری عددی است:
+
+| شاخه | سرشاخه | برگ | درآمد |
+| --- | --- | --- | ---: |
+| مصرف‌کننده | کامپیوترها | لپ‌تاپ‌ها | 12 |
+| مصرف‌کننده | کامپیوترها | دسکتاپ‌ها | 8 |
+| مصرف‌کننده | موبایل | تلفن‌ها | 15 |
+| مصرف‌کننده | موبایل | تبلت‌ها | 6 |
+| تجاری | خدمات | مشاوره | 10 |
+| تجاری | خدمات | پشتیبانی | 7 |
+| تجاری | نرم‌افزار | لایسنس‌ها | 11 |
+| تجاری | نرم‌افزار | اشتراک‌ها | 14 |
+
+هر ردیف یک دستهٔ برگ و یک نقطه داده ایجاد می‌کند. سطوح گروه‌بندی دسته مسیر از آن برگ به والدینش را توصیف می‌کند. برای ردیف اول مسیر `مصرف‌کننده > کامپیوترها > لپ‌تاپ‌ها` است.
+
+ایندکس‌های برگردانده‌شده توسط [ChartDataPoint.getDataPointLevels]({{guid}}) از برگ به سمت بالا شمارش می‌شوند:
+
+| ایندکس `getDataPointLevels()` | سطح منطقی | نمایش Treemap | نمایش Sunburst |
+| ---: | --- | --- | --- |
+| `0` | برگ | مستطیل مقدار | بخش حلقهٔ خارجی |
+| `1` | سرشاخه | مستطیل یا سرآیند والد | بخش حلقهٔ میانی |
+| `2` | شاخه | مستطیل یا سرآیند سطح بالا | بخش حلقهٔ داخلی |
+
+این ترتیب برای هر دو نوع نمودار یکسان است، اگرچه چیدمان بصری آن‌ها متفاوت است. یک بخش والد توسط چندین برگ به اشتراک گذاشته می‌شود. برای قالب‌بندی آن، از سطح متناظر اولین نقطه دادهٔ آن گروه استفاده کنید. به‌عنوان مثال، شاخهٔ `مصرف‌کننده` با نقطهٔ `لپ‌تاپ‌ها` شروع می‌شود، در حالی که سرشاخهٔ `نرم‌افزار` با نقطهٔ `لایسنس‌ها` آغاز می‌شود. نگهداری ارجاع به این نقاط واضح‌تر و ایمن‌تر از استفاده از عبارات نامشخصی مثل `$dataPoints->get_Item(0)` یا `$dataPoints->get_Item(6)` است.
+
+## **ایجاد و سفارشی‌سازی هر دو نوع نمودار**
+
+مثال کامل زیر یک Treemap را در اسلاید اول و یک Sunburst را در اسلاید دوم می‌سازد. این مثال سلسله‌مراتب را می‌سازد، مقدار `تبلت‌ها` را نمایش می‌دهد، رنگ‌های ثابت را به سطوح انتخاب‌شده اختصاص می‌دهد، برچسب یک شاخه را قالب‌بندی می‌کند و ارائه را ذخیره می‌کند.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // افزودن دسته‌های برگ. یک مورد گروه‌بندی فقط زمانی تنظیم می‌شود که یک گروه جدید شروع شود;
+        // دسته‌های بعدی تا زمانی که مورد دیگری تنظیم شود، در همان گروه باقی می‌مانند.
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // نمایش دسته و مقدار در برگ Tablets.
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // قالب‌بندی شاخه Consumer از طریق اولین برگ در آن شاخه.
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // قالب‌بندی سرشاخه Software از طریق اولین برگ در آن سرشاخه.
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout بر برچسب‌های والد Treemap تأثیر می‌گذارد؛ Sunburst از بخش‌های حلقه‌ای استفاده می‌کند.
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="See also" %}} 
-- [**ایجاد یا به‌روزرسانی نمودارهای ارائه پاورپوینت در PHP**](/slides/fa/php-java/create-chart/)
-{{% /alert %}}
+سلول‌های دسته و سلول‌های مقدار از یک ردیف همان کاربرگ استفاده می‌کنند، بنابراین موقعیت‌های مجموعهٔ آن‌ها هم‌راستا می‌ماند. وقتی با یک نمودار موجود کار می‌کنید نه اینکه یک نمودار جدید بسازید، ابتدا ردیف‌های دسته را بررسی کنید و ارجاع‌های نام‌گذاری‌شده به نقاط داده و سطوحی که قصد قالب‌بندی آن‌ها را دارید ذخیره کنید.
 
-اگر نیازی به قالب‌بندی نقاط دادهٔ نمودار باشد، باید از موارد زیر استفاده کنیم:
+## **رفتار و ملاحظات عملی**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevelsmanager/)، 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevel/) کلاس‌ها 
-و روش [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) 
-دسترسی به قالب‌بندی نقاط دادهٔ نمودارهای Treemap و Sunburst را فراهم می‌کنند. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevelsmanager/) 
-برای دسترسی به دسته‌بندی‌های چندسطحی استفاده می‌شود - این شیء container 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevel/) را نشان می‌دهد. 
-در اصل این یک wrapper برای 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartcategorylevelsmanager/) است که 
-ویژگی‌های خاص برای نقاط داده به آن اضافه شده است. 
-کلاس [**ChartDataPointLevel**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevel/) دو متد دارد: 
-[**getFormat**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevel/#getFormat) و 
-[**getDataLabel**](https://reference.aspose.com/slides/fa/php-java/aspose.slides/chartdatapointlevel/#getLabel) که دسترسی به تنظیمات مربوطه را فراهم می‌کنند.
+### **تفاوت‌های Treemap و Sunburst**
 
-## **نمایش مقدار یک نقطه داده**
-نمایش مقدار نقطه داده «Leaf 4»:
+- یک Treemap از مساحت برای انتقال مقدار و مستطیل‌های تو در تو برای انتقال سلسله‌مراتبی استفاده می‌کند. متد [ChartSeries.setParentLabelLayout]({{guid}}) کنترل می‌کند برچسب‌های والد در این نوع نمودار چگونه ظاهر شوند.
+- یک Sunburst از زاویه برای انتقال مقدار و عمق حلقه برای انتقال سلسله‌مراتبی استفاده می‌کند. [ChartSeries.setParentLabelLayout]({{guid}}) برچسب‌های حلقهٔ آن را کنترل نمی‌کند.
+- هر دو نوع نمودار از سطوح گروه‌بندی دسته یکسان و از همان ترتیب برگ‑به‑والد برگردانده‌شده توسط [ChartDataPoint.getDataPointLevels]({{guid}}) استفاده می‌کنند، بنابراین می‌توان کد ساخت داده‌ها و قالب‌بندی سطوح را به اشتراک گذاشت.
+- مقادیر والد از برگ‌های فرزندشان محاسبه می‌شود. برای شاخه‌ها یا سرشاخه‌ها نقطهٔ عددی جداگانه اضافه نکنید.
 
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
+### **مرتب‌سازی و ترتیب بخش‌ها**
 
-```
+موتور چیدمان نمودار مکان نهایی مستطیل‌ها و بخش‌های حلقه را تعیین می‌کند. ردیف‌های دستهٔ مرتبط را قبل از افزودن کنار هم قرار دهید، اما به موقعیت خاص یک مستطیل یا زاویهٔ شروع تکیه نکنید. اگر ترتیب معنی دارد، آن را در برچسب‌ها بگنجانید یا از نوع نموداری استفاده کنید که محور دستهٔ صریح داشته باشد.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **تم و رنگ‌های ثابت**
 
-## **تنظیم برچسب و رنگ نقطه داده**
-برچسب داده «Branch 1» را طوری تنظیم کنید که نام سری («Series1») را به جای نام دسته نمایش دهد. سپس رنگ متن را به زرد تغییر دهید:
+سطوح قالب‌بندی‌نشدهٔ نمودار رنگ‌های خود را از تم ارائه می‌گیرند. مثال از پر کردن‌های RGB صریح برای خروجی پیش‌بینی‌پذیر استفاده می‌کند. اگر می‌خواهید نمودار با تغییرات تم سازگار باشد، به جای مقادیر ثابت RGB از رنگ‌های طرح‌بندی (scheme colors) استفاده کنید و از اورراید کردن هر سطح خودداری کنید. همچنین پس از تغییر پر کردن یک شاخه یا سرشاخه، کنتراست برچسب را بررسی کنید.
 
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
-```
+### **برچسب‌ها و فضای موجود**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+PowerPoint ممکن است برچسب‌ها را مخفی یا کوتاه کند وقتی یک بخش خیلی کوچک باشد. افزایش اندازهٔ نمودار، کوتاه کردن نام‌های دسته یا نمایش کمتر فیلدهای برچسب معمولاً نتیجهٔ واضح‌تری می‌دهد. یک برچسب می‌تواند ترکیبی از نام دسته، نام سری و مقدار باشد از طریق [DataLabelFormat]({{guid}})، اما فعال‌سازی همه فیلدها اغلب نمودارهای سلسله‌مراتبی را خواندن دشوار می‌کند.
 
-## **تنظیم رنگ شاخهٔ نقطه داده**
-رنگ شاخه «Steam 4» را تغییر دهید:
+### **صادر کردن و رندرینگ**
 
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+ذخیره به‌صورت PPTX نمودار را قابل ویرایش نگه می‌دارد. زمانی که Aspose.Slides ارائه را به PDF یا تصویر رندر می‌کند، پر کردن‌ها و تنظیمات برچسب پشتیبانی‌شده همراه با نمودار رندر می‌شوند. جایگزینی قلم و اختلافات کوچک در فضای چیدمان موجود می‌تواند شکست خط یا قابلیت مشاهده برچسب را تغییر دهد، بنابراین قلم‌های مورد نیاز را نصب کنید و هدف‌های مهم خروجی را بررسی کنید.
 
 ## **سؤالات متداول**
 
-**آیا می‌توانم ترتیب (مرتب‌سازی) بخش‌ها در Sunburst/Treemap را تغییر دهم؟**
+**چرا تغییر سطح پدر (والد) بر چندین برگ تأثیر می‌گذارد؟**  
+یک شاخه یا سرشاخه بخشی بصری مشترک است. می‌توان به [ChartDataPointLevel]({{guid}}) آن از طریق یک برگ فرزند دست یافت، اما قالب‌بندی به بخش والد مشترک تعلق دارد نه فقط به آن برگ.
 
-خیر. PowerPoint بخش‌ها را به‌طور خودکار (معمولاً بر اساس مقادیر نزولی و به صورت ساعت‌گرد) مرتب می‌کند. Aspose.Slides این رفتار را بازتاب می‌دهد: نمی‌توانید ترتیب را به‌صورت مستقیم تغییر دهید؛ بلکه باید با پیش‌پردازش داده‌ها این کار را انجام دهید.
+**چرا یک برچسب داده‌ای گم شده است؟**  
+اولین‌بار فیلدهای مورد نیاز را روی شیء [DataLabelFormat]({{guid}}) فعال کنید. سپس بررسی کنید که آیا بخش فضای کافی دارد یا نه. چیدمان برچسب والد در Treemap، ابعاد نمودار، طول برچسب، اندازه قلم و تعداد فیلدهای فعال همگی تأثیرگذارند.
 
-**قالب ارائه چگونه بر رنگ‌های بخش‌ها و برچسب‌ها تأثیر می‌گذارد؟**
+**آیا می‌توانم ترتیب دقیق یا مختصات بخش‌ها را تعیین کنم؟**  
+می‌توانید ترتیب ردیف‌های منبع را کنترل کنید و هر گروه را به‌صورت پیوسته نگه دارید، اما نمی‌توانید مستطیل‌های دقیق Treemap یا زاویه‌های دقیق Sunburst را اختصاص دهید. موتور چیدمان نمودار این مقادیر را از سلسله‌مراتب، مقادیر و فضای موجود محاسبه می‌کند.
 
-رنگ‌های نمودار، به همان‌صورت رنگ‌های قالب/پالت ارائه [/slides/fa/php-java/presentation-theme/](/slides/fa/php-java/presentation-theme/) به ارث می‌برند، مگر این‌که شما پرکردن‌ها/قلم‌ها را به‌طور صریح تنظیم کنید. برای نتایج ثابت، پرکردن‌های ثابت و قالب‌بندی متن را در سطوح مورد نیاز قفل کنید.
+**چرا پس از تغییر تم ارائه رنگ‌ها تغییر می‌کند؟**  
+پر کردن‌های مبتنی بر تم برای پیروی از پالت ارائه طراحی شده‌اند. برای سطوحی که باید ثابت بمانند، رنگ‌های RGB صریح اعمال کنید یا هنگام سازگاری با تم جدید، از رنگ‌های طرح‌بندی استفاده کنید.
 
-**آیا خروجی به PDF/PNG رنگ‌های سفارشی شاخه و تنظیمات برچسب را حفظ می‌کند؟**
+**آیا قالب‌بندی سفارشی در خروجی‌های PDF و تصویر حفظ می‌شود؟**  
+بله، پر کردن‌ها و تنظیمات برچسب پشتیبانی‌شده هنگام رندر درج می‌شوند. برای نتایج ثابت در سیستم‌های مختلف، قلم‌های مورد نیاز را در دسترس قرار دهید و اندازهٔ خروجی نهایی را آزمایش کنید، زیرا جای‌گیری برچسب‌ها بستگی به چیدمان دارد.
 
-بله. هنگام خروجی گرفتن از ارائه، تنظیمات نمودار (پرکردن‌ها، برچسب‌ها) در فرمت‌های خروجی حفظ می‌شوند زیرا Aspose.Slides با قالب‌بندی نمودار رندر می‌شود.
+## **مراجعه کنید**
 
-**آیا می‌توانم مختصات واقعی یک برچسب/عنصر را برای قرارگیری سفارشی روی نمودار محاسبه کنم؟**
-
-بله. پس از اعتبارسنجی طرح‌بندی نمودار، مقدار واقعی *x* و *y* برای عناصر (برای مثال یک [DataLabel](https://reference.aspose.com/slides/fa/php-java/aspose.slides/datalabel/)) در دسترس است که برای موقعیت‌یابی دقیق پوشش‌ها کمک می‌کند.
+- [ایجاد نمودارهای Treemap](/slides/fa/php-java/create-chart/#create-tree-map-charts)
+- [ایجاد نمودارهای Sunburst](/slides/fa/php-java/create-chart/#create-sunburst-charts)
+- [صادر کردن نمودارهای ارائه](/slides/fa/php-java/export-chart/)
+- [مدیریت تم‌های ارائه](/slides/fa/php-java/presentation-theme/)

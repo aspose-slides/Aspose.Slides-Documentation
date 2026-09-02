@@ -1,5 +1,5 @@
 ---
-title: Android’de Treemap ve Sunburst Grafiklerde Veri Noktalarını Özelleştirme
+title: Android'de Treemap ve Sunburst Grafiklerde Veri Noktalarını Özelleştirme
 linktitle: Treemap ve Sunburst Grafiklerde Veri Noktaları
 type: docs
 url: /tr/androidjava/data-points-of-treemap-and-sunburst-chart/
@@ -7,112 +7,258 @@ weight: 40
 keywords:
 - treemap grafiği
 - sunburst grafiği
+- hiyerarşik grafik
 - veri noktası
-- etiket rengi
-- dal rengi
+- veri etiketi
+- şube rengi
 - PowerPoint
 - sunum
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java kullanarak treemap ve sunburst grafiklerde veri noktalarını nasıl yöneteceğinizi öğrenin, PowerPoint formatlarıyla uyumludur."
+description: "Aspose.Slides for Android via Java ile Treemap ve Sunburst grafiklerde hiyerarşik veri oluşturmayı ve seviyeleri, etiketleri ve renkleri özelleştirmeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-PowerPoint grafiklerinin diğer türleri arasında iki adet “hiyerarşik” tür vardır – **Treemap** ve **Sunburst** grafiği (Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph veya Multi Level Pie Chart olarak da bilinir). Bu grafikler, ağaç yapısı şeklinde düzenlenmiş hiyerarşik verileri – yapraklardan dalın en üstüne kadar – gösterir. Yapraklar, seri veri noktalarıyla tanımlanır ve sonraki her iç içe gruplama seviyesi ilgili kategoriyle tanımlanır. Aspose.Slides for Android via Java, Sunburst ve Treemap grafiklerinin veri noktalarını Java’da biçimlendirmeyi sağlar.
+Treemap ve Sunburst grafikler aynı türde hiyerarşik verileri gösterir, ancak farklı düzenler kullanır. Bir Treemap, hiyerarşiyi yaprak değerlerini temsil eden alanlara sahip iç içe dikdörtgenler olarak çizer. Bir Sunburst ise bunu eş merkezli halkalar olarak çizer: üst düzey gruplar merkeze yakındır ve yaprak kategoriler dış halkada bulunur.
 
-Aşağıda, Series1 sütunundaki verilerin yaprak düğümlerini, diğer sütunların ise hiyerarşik veri noktalarını tanımladığı bir Sunburst grafiği bulunmaktadır:
+Aspose.Slides for Android via Java'da her sayısal değer bir [IChartDataPoint](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatapoint/). Bunun [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) yöntemi yaprağa ve onun üst grup(lar)ına erişim sağlar. Bu makale bu eşlemeyi açıklar ve aynı örnek veriden her iki grafik tipinin nasıl oluşturulup biçimlendirileceğini gösterir.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Tüketici ve İş dallarıyla bir Treemap grafiği](treemap-hierarchy.png)
 
-Sunburst grafiğini sunuma ekleyerek başlayalım:
+![Aynı Tüketici ve İş hiyerarşisiyle bir Sunburst grafiği](sunburst-hierarchy.png)
+
+## **Kategorileri, Veri Noktalarını ve Seviyeleri Anlamak**
+
+Aşağıda kullanılan örnek üç kategori seviyesine ve bir sayısal seriye sahiptir:
+
+| Şube | Kök | Yaprak | Gelir |
+| --- | --- | --- | ---: |
+| Tüketici | Bilgisayarlar | Dizüstü Bilgisayarlar | 12 |
+| Tüketici | Bilgisayarlar | Masaüstü Bilgisayarlar | 8 |
+| Tüketici | Mobil | Telefonlar | 15 |
+| Tüketici | Mobil | Tabletler | 6 |
+| İş | Hizmetler | Danışmanlık | 10 |
+| İş | Hizmetler | Destek | 7 |
+| İş | Yazılım | Lisanslar | 11 |
+| İş | Yazılım | Abonelikler | 14 |
+
+Her satır bir yaprak kategorisi ve bir veri noktası oluşturur. Kategori gruplama seviyeleri, o yapraktan üst gruplara olan yolu tanımlar. İlk satır için yol `Consumer > Computers > Laptops` şeklindedir.
+
+The indexes returned by [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) run from the leaf upward:
+
+| `getDataPointLevels()` indeksi | Mantıksal seviye | Treemap temsil | Sunburst temsil |
+| ---: | --- | --- | --- |
+| `0` | Yaprak | Değer dikdörtgeni | Dış halka segmenti |
+| `1` | Kök | Üst dikdörtgen veya başlık | Orta halka segmenti |
+| `2` | Şube | Üst düzey dikdörtgen veya başlık | İç halka segmenti |
+
+Bu sıralama, görsel düzenleri farklı olsa da her iki grafik tipi için de aynıdır. Bir üst segment birden fazla yaprak tarafından paylaşılır. Biçimlendirmek için, o gruptaki ilk veri noktasının ilgili seviyesini kullanın. Örneğin, `Consumer` şubesi `Laptops` noktasından başlarken, `Software` kökü `Licenses` noktasından başlar. Bu noktalara referans tutmak, `dataPoints.get_Item(0)` veya `dataPoints.get_Item(6)` gibi açıklanmamış ifadelerden daha anlaşılır ve güvenlidir.
+
+## **Her iki Grafik Tipini Oluşturma ve Özelleştirme**
+
+Aşağıdaki tam örnek ilk slaytta bir Treemap ve ikinci slaytta bir Sunburst oluşturur. Hiyerarşiyi kurar, `Tablets` değerini gösterir, seçili seviyelere sabit renkler uygular, bir şube etiketini biçimlendirir ve sunumu kaydeder.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Yaprak kategorilerini ekle. Bir grup öğesi yalnızca yeni bir grup başladığında ayarlanır;
+        // Aşağıdaki kategoriler başka bir öğe ayarlanana kadar aynı grup içinde kalır.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Tablets yaprağında kategori ve değeri göster.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Tüketici şubesini, o şubedeki ilk yaprak aracılığıyla biçimlendir.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        int consumerBranchColor = Color.rgb(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Yazılım kökünü, o kökteki ilk yaprak aracılığıyla biçimlendir.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        int softwareStemColor = Color.rgb(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout Treemap üst etiketlerini etkiler; Sunburst halka segmentlerini kullanır.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Ayrıca bakınız" %}} 
-- [**Android’de PowerPoint Sunum Grafiklerini Oluşturma veya Güncelleme**](/slides/tr/androidjava/create-chart/)
-{{% /alert %}}
+Kategori hücreleri ve değer hücreleri aynı çalışma sayfası satırını kullanır, bu yüzden koleksiyon konumları hizalı kalır. Varolan bir grafik üzerinde çalışıyorsanız, önce kategori satırlarını inceleyin ve biçimlendirmeyi planladığınız veri noktalarına ve seviyelere isimli referanslar depolayın.
 
-Grafiğin veri noktalarını biçimlendirmek gerektiğinde aşağıdaki öğeler kullanılmalıdır:
+## **Davranış ve Pratik Hususlar**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevel) sınıfları 
-ve [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) yöntemi 
-Treemap ve Sunburst grafiklerinin veri noktalarını biçimlendirme erişimi sağlar. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevelsManager)
-çok seviyeli kategorilere erişmek için kullanılır – [**IChartDataPointLevel**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevel) nesnelerinin kapsayıcısını temsil eder.
-Temelde, veri noktalarına özgü ek özellikleri içeren bir sarmalayıcıdır ve [**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartCategoryLevelsManager) ile aynı işlevi görür.
-[**IChartDataPointLevel**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevel) sınıfının iki yöntemi vardır: [**getFormat**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) ve [**getDataLabel**](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--) ve bu yöntemler ilgili ayarlara erişim sağlar.
-## **Bir Veri Noktası Değerini Göster**
-“Leaf 4” veri noktasının değerini göster:
+### **Treemap ve Sunburst Farklılıkları**
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+- Bir Treemap, değeri iletmek için alanı ve hiyerarşiyi iletmek için iç içe dikdörtgenleri kullanır. [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) yöntemi, bu grafik tipinde üst etiketlerin nasıl görüneceğini kontrol eder.
+- Bir Sunburst, değeri iletmek için açıyı ve hiyerarşiyi iletmek için halka derinliğini kullanır. [IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartseries/#setParentLabelLayout-int-) halkalarının etiketlerini kontrol etmez.
+- Her iki grafik tipi aynı kategori gruplama seviyelerini ve [IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--) tarafından döndürülen aynı yaprak‑üst sırasını kullanır, bu yüzden veri oluşturma ve seviye‑biçimlendirme kodu paylaşılabilir.
+- Üst değerler alt yapraklardan hesaplanır. Şubeler veya kökler için ayrı sayısal noktalar eklemeyin.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Sıralama ve Segment Sırası**
 
-## **Bir Veri Noktası Etiketini ve Rengini Ayarla**
-“Branch 1” veri etiketini kategori adı yerine seri adı (“Series1”) gösterecek şekilde ayarlayın. Ardından metin rengini sarı yapın:
+Grafik yerleşim motoru dikdörtgenlerin ve halka segmentlerinin nihai konumlarını belirler. Satırları eklemeden önce ilgili kategori satırlarını bir arada tutun, ancak belirli bir dikdörtgen konumuna veya başlangıç açısına güvenmeyin. Eğer sıralama anlam taşıyorsa, bunu etiketlerde belirtin veya açık bir kategori ekseni olan bir grafik tipi kullanın.
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+### **Tema ve Sabit Renkler**
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+Biçimlendirilmemiş grafik seviyeleri sunum temasından renkleri devralır. Örnek, öngörülebilir çıktı için açık RGB doldurmaları kullanır. Grafik temaya göre renk değiştirmeli ise, sabit RGB değerleri yerine şema renkleri kullanın ve tüm seviyeleri geçersiz kılmaktan kaçının. Ayrıca bir şube veya kök doldurmasını değiştirdikten sonra etiket kontrastını da kontrol edin.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Etiketler ve Kullanılabilir Alan**
 
-## **Bir Veri Noktası Dal Rengini Ayarla**
-“Steam 4” dalının rengini değiştirin:
+PowerPoint, bir segment çok küçük olduğunda etiketleri gizleyebilir veya kırpabilir. Grafik boyutunu artırmak, kategori adlarını kısaltmak veya daha az etiket alanı göstermek genellikle daha net sonuç verir. Bir etiket, kategori adı, seri adı ve değeri [IDataLabelFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/) aracılığıyla birleştirebilir, ancak her alanı etkinleştirmek hiyerarşik grafiklerin okunmasını zorlaştırabilir.
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+### **Dışa Aktarma ve Oluşturma**
 
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+PPTX olarak kaydetmek grafik üzerinde düzenlemeyi korur. Aspose.Slides sunumu PDF ya da görüntüye dönüştürdüğünde, desteklenen doldurmalar ve etiket ayarları grafikle birlikte işlenir. Yazı tipi ikamesi ve mevcut yerleşim alanındaki küçük farklar satır kırılmasını veya etiket görünürlüğünü etkileyebilir; bu yüzden gereken yazı tiplerini kurun ve önemli dışa aktarma hedeflerini doğrulayın.
 
 ## **SSS**
 
-**Sunburst/Treemap grafiklerinde segmentlerin sırasını (sıralamayı) değiştirebilir miyim?**
+**Bir üst seviyenin değiştirilmesi neden birkaç yaprağı etkiler?**
 
-Hayır. PowerPoint segmentleri otomatik olarak sıralar (genellikle azalan değerlerle, saat yönünde). Aspose.Slides bu davranışı yansıtır: sıralamayı doğrudan değiştiremezsiniz; veriyi ön işlemden geçirerek istediğiniz sıralamayı elde edersiniz.
+Bir şube ya da kök ortak bir görsel segmenttir. Onun [IChartDataPointLevel](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/ichartdatapointlevel/) bir alt yapraktan erişilebilir, ancak biçimlendirme yalnızca o yaprağa değil, paylaşılan üst segmente uygulanır.
 
-**Sunum teması segment ve etiket renklerini nasıl etkiler?**
+**Bir veri etiketi neden eksik?**
 
-Grafik renkleri, dolgu/ yazı tipleri açıkça ayarlanmadıkça sunumun [tema/renk paleti](/slides/tr/androidjava/presentation-theme/) üzerinden devralınır. Tutarlı sonuçlar için gerekli seviyelerde katı dolgu ve metin biçimlendirmesini sabitleyin.
+Önce etiketin [IDataLabelFormat](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/idatalabelformat/) nesnesinde gerekli alanları etkinleştirin. Ardından segmentin yeterli alanı olup olmadığını kontrol edin. Treemap üst‑etiket yerleşimi, grafik boyutları, etiket uzunluğu, yazı tipi boyutu ve etkin alan sayısı etiketin gösterilip gösterilmeyeceğini etkiler.
 
-**PDF/PNG’ye dışa aktarırken özel dal renkleri ve etiket ayarları korunur mu?**
+**Segmentlerin kesin sırasını ya da koordinatlarını ayarlayabilir miyim?**
 
-Evet. Sunumu dışa aktarırken grafik ayarları (dolgu, etiketler) çıktı formatında korunur; Aspose.Slides, grafik biçimlendirmesi uygulanmış şekilde render eder.
+Satır‑kaynak sırasını kontrol edebilir ve her grubu bitişik tutabilirsiniz, ancak kesin Treemap dikdörtgenlerini ya da Sunburst açılarını atayamazsınız. Grafik yerleşim motoru bunları hiyerarşi, değerler ve mevcut alan üzerinden hesaplar.
 
-**Grafiğin üzerine özel bindirme yerleştirmek için bir etiketin/elemanın gerçek koordinatlarını hesaplayabilir miyim?**
+**Sunum teması değiştiğinde renkler neden değişir?**
 
-Evet. Grafik yerleşimi doğrulandıktan sonra öğeler için gerçek *x* ve *y* değerleri mevcut olur (örneğin bir [DataLabel](https://reference.aspose.com/slides/tr/androidjava/com.aspose.slides/datalabel/) için), bu da bindirmelerin hassas konumlandırılmasını sağlar.
+Tema‑tabanlı doldurmalar sunum paletine uymak için tasarlanmıştır. Sabit kalması gereken seviyelere açık RGB renkleri uygulayın veya yeni temaya uyum sağlamak istiyorsanız şema renklerini koruyun.
+
+**Özel biçimlendirme PDF ve görüntü dışa aktarmalarında korunur mu?**
+
+Evet, desteklenen grafik doldurmaları ve etiket ayarları oluşturma sırasında dahil edilir. Tutarlı sonuçlar için gerekli yazı tiplerini sağlayın ve etiket sığdırmanın yerleşime bağlı olduğunu unutmayın; bu nedenle son dışa aktarma boyutunu test edin.
+
+## **İlgili Bağlantılar**
+
+- [Treemap grafiklerini oluştur](/slides/tr/androidjava/create-chart/#create-tree-map-charts)
+- [Sunburst grafiklerini oluştur](/slides/tr/androidjava/create-chart/#create-sunburst-charts)
+- [Sunum grafiklerini dışa aktar](/slides/tr/androidjava/export-chart/)
+- [Sunum temalarını yönet](/slides/tr/androidjava/presentation-theme/)

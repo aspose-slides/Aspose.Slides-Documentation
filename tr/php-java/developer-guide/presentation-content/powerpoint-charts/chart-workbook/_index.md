@@ -1,5 +1,5 @@
 ---
-title: Sunumlarda Grafik Çalışma Kitaplarını PHP Kullanarak Yönetme
+title: PHP Kullanarak Sunumlarda Grafik Çalışma Kitaplarını Yönetme
 linktitle: Grafik Çalışma Kitabı
 type: docs
 weight: 70
@@ -11,23 +11,24 @@ keywords:
 - veri etiketi
 - çalışma sayfası
 - veri kaynağı
-- dış çalışma kitabı
-- dış veri
+- harici çalışma kitabı
+- harici veri
+- grafik önbelleği
+- çalışma kitabı kurtarma
 - PowerPoint
 - sunum
 - PHP
 - Aspose.Slides
-description: "Aspose.Slides for PHP via Java'ı keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi kolaylaştırın."
+description: "Aspose.Slides for PHP via Java'i keşfedin: PowerPoint ve OpenDocument formatlarında grafik çalışma kitaplarını zahmetsizce yönetin ve sunum verilerinizi kolaylaştırın."
 ---
 ## **Genel Bakış**
 
-Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Çalışma kitabı akışları aracılığıyla grafik verilerini nasıl okuyup yazacağınızı, çalışma kitabı hücrelerini grafik veri etiketleri olarak nasıl kullanacağınızı, çalışma sayfası koleksiyonlarına nasıl erişeceğinizi ve grafik değerleri için veri kaynağı türünü nasıl belirteceğinizi gösterir.
+Bu makale, Aspose.Slides içinde grafik çalışma kitaplarıyla nasıl çalışılacağını açıklar. Grafik verilerini çalışma kitabı akışları aracılığıyla okuyup yazmayı, çalışma kitabı hücrelerini grafik veri etiketi olarak kullanmayı, çalışma sayfası koleksiyonlarına erişmeyi ve grafik değerleri için veri kaynağı türünü belirtmeyi gösterir.
 
-Ayrıca dış çalışma kitaplarını grafik veri kaynağı olarak kullanmayı da kapsar. Örnekler, dış bir çalışma kitabının nasıl oluşturulup atandığını, bir grafikle ilişkili dış çalışma kitabının yolunun nasıl alınacağını ve çalışma kitabı mevcut olduğunda grafik verilerinin nasıl düzenleneceğini gösterir.
+Ayrıca, dış çalışma kitaplarının grafik veri kaynakları olarak kullanılması da ele alınır. Örnekler, dış bir çalışma kitabının nasıl oluşturulup atandığını, bir grafikle ilişkilendirilmiş dış çalışma kitabının yolunun nasıl alındığını ve çalışma kitabı mevcut olduğunda grafik verilerinin nasıl düzenleneceğini gösterir.
 
-## **Bir Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
-
-Aspose.Slides, grafik veri çalışma kitaplarını (Aspose.Cells ile düzenlenen grafik verilerini içeren) okumanıza ve yazmanıza olanak tanıyan [readWorkbookStream](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#readWorkbookStream) ve [writeWorkbookStream](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#writeWorkbookStream) yöntemlerini sunar. **Not** grafik verilerinin aynı şekilde organize edilmesi veya kaynağa benzer bir yapıya sahip olması gerekir.
+## **Çalışma Kitabından Grafik Verilerini Okuma ve Yazma**
+Aspose.Slides, grafik veri çalışma kitaplarını (Aspose.Cells ile düzenlenmiş grafik verilerini) okumanıza ve yazmanıza olanak tanıyan [readWorkbookStream](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#readWorkbookStream) ve [writeWorkbookStream](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#writeWorkbookStream) yöntemlerini sağlar. **Not** grafik verileri aynı şekilde düzenlenmiş olmalı veya kaynağa benzer bir yapıya sahip olmalıdır.
 
 Bu PHP kodu örnek bir işlemi gösterir:
 
@@ -47,14 +48,14 @@ Bu PHP kodu örnek bir işlemi gösterir:
   }
 ```
 
-## **Bir Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
+## **Çalışma Kitabı Hücresini Grafik Veri Etiketi Olarak Ayarlama**
 
-1. [Presentation](https://apireference.aspose.com/slides/tr/php-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. İndeks üzerinden bir slayt referansı alın.  
-1. Bazı verilerle bir Bubble (Balon) grafik ekleyin.  
-1. Grafik serisine erişin.  
-1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.  
-1. Sunumu kaydedin.  
+1. [Presentation](https://apireference.aspose.com/slides/tr/php-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. Kaydıranın indeksine göre bir slayt referansı alın.
+1. Birkaç veri ile Balon chart ekleyin.
+1. Grafik serilerine erişin.
+1. Çalışma kitabı hücresini veri etiketi olarak ayarlayın.
+1. Sunumu kaydedin.
 
 Bu PHP kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak nasıl ayarlayacağınızı gösterir:
 
@@ -62,7 +63,7 @@ Bu PHP kodu, bir çalışma kitabı hücresini grafik veri etiketi olarak nasıl
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # Bir sunum dosyasını temsil eden bir sunum sınıfının örneğini oluşturur
+  # Sunum dosyasını temsil eden bir sunum sınıfı örneklenir
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -101,9 +102,9 @@ Bu PHP kodu, [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/sli
   }
 ```
 
-## **Veri Kaynağı Türünü Belirleme**
+## **Veri Kaynağı Türünü Belirtme**
 
-Bu PHP kodu, bir veri kaynağı için türün nasıl belirleneceğini gösterir:
+Bu PHP kodu, bir veri kaynağı için tür nasıl belirtileceğini gösterir:
 
 ```php
   $pres = new Presentation();
@@ -124,7 +125,7 @@ Bu PHP kodu, bir veri kaynağı için türün nasıl belirleneceğini gösterir:
 
 ## **Desteklenmeyen Gömülü Çalışma Kitabı Biçimlerini Algılama**
 
-Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) formatını desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafikleri atlamak için [ChartData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/) üzerindeki `getEmbeddedWorkbookType` metodunu [WorkbookType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/workbooktype/) enum'ı ile birlikte kullanabilirsiniz.
+Aspose.Slides, bazı grafiklerde gömülebilen Excel ikili çalışma kitabı (.xlsb) biçimini desteklemez. Desteklenmeyen biçimleri algılamak ve bu grafiklerden kaçınmak için [ChartData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/) üzerindeki `getEmbeddedWorkbookType` yöntemini [WorkbookType](https://reference.aspose.com/slides/tr/php-java/aspose.slides/workbooktype/) enum'ı ile birlikte kullanabilirsiniz.
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -148,22 +149,22 @@ try {
       continue;
     }
 
-    # Burada grafik çalışma kitabı verilerini okuyun veya değiştirin.
+    # Burada grafik çalışma kitabı verilerini okuyabilir veya değiştirebilirsiniz.
   }
 } finally {
   $presentation->dispose();
 }
 ```
 
-## **Dış Çalışma Kitabı**
+## **Harici Çalışma Kitabı**
 
-Aspose.Slides, grafikler için dış çalışma kitaplarını veri kaynağı olarak destekler.
+Aspose.Slides, grafikler için veri kaynağı olarak harici çalışma kitaplarını destekler.
 
-### **Dış Çalışma Kitabı Oluşturma**
+### **Harici Çalışma Kitabı Oluşturma**
 
-**`readWorkbookStream`** ve **`setExternalWorkbook`** yöntemlerini kullanarak ya sıfırdan bir dış çalışma kitabı oluşturabilir ya da bir iç çalışma kitabını dış hale getirebilirsiniz.
+**`readWorkbookStream`** ve **`setExternalWorkbook`** yöntemlerini kullanarak sıfırdan bir harici çalışma kitabı oluşturabilir veya iç bir çalışma kitabını harici hâle getirebilirsiniz.
 
-Bu PHP kodu, dış çalışma kitabı oluşturma sürecini gösterir:
+Bu PHP kodu, harici çalışma kitabı oluşturma sürecini gösterir:
 
 ```php
   $pres = new Presentation();
@@ -191,13 +192,13 @@ Bu PHP kodu, dış çalışma kitabı oluşturma sürecini gösterir:
   }
 ```
 
-### **Dış Çalışma Kitabı Ayarlama**
+### **Harici Çalışma Kitabını Ayarlama**
 
-**`setExternalWorkbook`** yöntemini kullanarak bir dış çalışma kitabını bir grafiğin veri kaynağı olarak atayabilirsiniz. Bu yöntem, dış çalışma kitabının yolunu (eğer taşınmışsa) güncellemek için de kullanılabilir.
+**`setExternalWorkbook`** yöntemini kullanarak, bir grafiğe veri kaynağı olarak harici bir çalışma kitabı atayabilirsiniz. Bu yöntem ayrıca harici çalışma kitabının yolunu (eğer taşınmışsa) güncellemek için de kullanılabilir.
 
-Uzak konumlarda veya kaynaklarda depolanan çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu çalışma kitaplarını hâlâ dış veri kaynağı olarak kullanabilirsiniz. Dış çalışma kitabı için bir göreli yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
+Uzak konumlardaki veya kaynaklardaki çalışma kitaplarındaki verileri düzenleyemezsiniz, ancak bu kitapları hâlâ harici bir veri kaynağı olarak kullanabilirsiniz. Harici bir çalışma kitabı için göreceli bir yol sağlanırsa, otomatik olarak tam yola dönüştürülür.
 
-Bu PHP kodu, dış bir çalışma kitabının nasıl ayarlanacağını gösterir:
+Bu PHP kodu, harici bir çalışma kitabının nasıl ayarlanacağını gösterir:
 
 ```php
   # Presentation sınıfının bir örneğini oluşturur
@@ -221,9 +222,9 @@ Bu PHP kodu, dış bir çalışma kitabının nasıl ayarlanacağını gösterir
   }
 ```
 
-`ChartData` parametresi (`setExternalWorkbook` yöntemi altında), bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirtmek için kullanılır.
+`setExternalWorkbook` yöntemindeki `ChartData` parametresi, bir Excel çalışma kitabının yüklenip yüklenmeyeceğini belirtmek için kullanılır.
 
-* `ChartData` değeri `false` olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir—grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez. Bu ayarı, hedef çalışma kitabı mevcut değilse veya erişilemezse kullanmak isteyebilirsiniz.  
+* `ChartData` değeri `false` olarak ayarlandığında, yalnızca çalışma kitabı yolu güncellenir—grafik verileri hedef çalışma kitabından yüklenmez veya güncellenmez. Hedef çalışma kitabı mevcut değilse veya erişilemezse bu ayarı kullanmak isteyebilirsiniz. 
 * `ChartData` değeri `true` olarak ayarlandığında, grafik verileri hedef çalışma kitabından güncellenir.
 
 ```php
@@ -241,15 +242,15 @@ Bu PHP kodu, dış bir çalışma kitabının nasıl ayarlanacağını gösterir
   }
 ```
 
-### **Bir Grafiğin Dış Veri Kaynağı Çalışma Kitabı Yolunu Alma**
+### **Bir Grafiğin Harici Veri Kaynağı Çalışma Kitabı Yolunu Almak**
 
-1. [Presentation](https://apireference.aspose.com/slides/tr/php-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.  
-1. İndeks üzerinden bir slayt referansı alın.  
-1. Grafik şekli için bir nesne oluşturun.  
-1. Grafiğin veri kaynağını temsil eden kaynak (`ChartDataSourceType`) türü için bir nesne oluşturun.  
-1. Kaynak türünün dış çalışma kitabı veri kaynağı türüyle aynı olması koşuluna göre ilgili durumu belirtin.  
+1. [Presentation](https://apireference.aspose.com/slides/tr/php-java/aspose.slides/presentation) sınıfının bir örneğini oluşturun.
+1. Kaydıranın indeksine göre bir slayt referansı alın.
+1. Grafik şekli için bir nesne oluşturun.
+1. Grafiğin veri kaynağını temsil eden kaynak (`ChartDataSourceType`) türü için bir nesne oluşturun.
+1. Kaynak türünün harici çalışma kitabı veri kaynağı türü ile aynı olmasına bağlı olarak ilgili koşulu belirtin.
 
-Bu PHP kodu, bu işlemi gösterir:
+Bu PHP kodu işlemi gösterir:
 
 ```php
   # Presentation sınıfının bir örneğini oluşturur
@@ -272,7 +273,7 @@ Bu PHP kodu, bu işlemi gösterir:
 
 ### **Grafik Verilerini Düzenleme**
 
-Dış çalışma kitaplarındaki verileri, iç çalışma kitaplarının içeriğini değiştirmeniz gibi düzenleyebilirsiniz. Bir dış çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
+Harici çalışma kitaplarındaki verileri, iç çalışma kitaplarının içeriklerinde değişiklik yapıyormuş gibi düzenleyebilirsiniz. Harici bir çalışma kitabı yüklenemediğinde bir istisna fırlatılır.
 
 Bu PHP kodu, açıklanan sürecin bir uygulamasıdır:
 
@@ -291,22 +292,54 @@ Bu PHP kodu, açıklanan sürecin bir uygulamasıdır:
   }
 ```
 
+### **Grafik Önbelleğinden Bir Çalışma Kitabını Kurtarma**
+
+Bir grafik, eksik veya erişilemeyen bir harici çalışma kitabı kullanıyorsa, Aspose.Slides sunumda önbelleğe alınmış verilerden grafik çalışma kitabını yeniden oluşturabilir. Sunumu açmadan önce [LoadOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/loadoptions/) oluşturun, onu [SpreadsheetOptions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/spreadsheetoptions/) ile yapılandırın ve `true` ile [SpreadsheetOptions::setRecoverWorkbookFromChartCache](https://reference.aspose.com/slides/tr/php-java/aspose.slides/spreadsheetoptions/#setRecoverWorkbookFromChartCache) çağırın.
+
+Aşağıdaki PHP örneği, grafiği mevcut olmayan bir harici çalışma kitabına referans veren bir sunumu açar ve kurtarılan verilere [Chart::getChartData](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chart/#getChartData) ve [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/#getChartDataWorkbook) aracılığıyla erişir:
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # Burada kurtarılan çalışma kitabı verilerini okuyabilir veya değiştirebilirsiniz.
+} finally {
+    $presentation->dispose();
+}
+```
+
+Harici çalışma kitabı erişilemez ve kurtarma devre dışı bırakıldıysa, Aspose.Slides bir istisna fırlatır. Önbelleğe alınmış grafik verilerini kullanmak kabul edilebilir bir geri dönüş ise kurtarmayı etkinleştirin; çünkü önbellek, sunumun en son güncellenmesinden sonra harici çalışma kitabına yapılan değişiklikleri içermeyebilir.
+
 ## **SSS**
 
-**Belirli bir grafiğin dış bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlı olduğunu belirleyebilir miyim?**  
-Evet. Bir grafiğin bir [veri kaynağı türü](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getdatasourcetype/) ve bir [dış çalışma kitabı yolu](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) vardır; kaynak dış bir çalışma kitabıysa, dış dosyanın kullanıldığından emin olmak için tam yolu okuyabilirsiniz.
+**Belirli bir grafiğin harici bir çalışma kitabına mı yoksa gömülü bir çalışma kitabına mı bağlandığını belirleyebilir miyim?**
 
-**Dış çalışma kitapları için göreli yollar destekleniyor mu ve nasıl depolanıyor?**  
-Evet. Göreli bir yol belirtirseniz, otomatik olarak mutlak bir yola dönüştürülür. Bu, projenin taşınabilirliği için kullanışlıdır; ancak, sunumun PPTX dosyasında mutlak yolu depolayacağını unutmayın.
+Evet. Bir grafik, bir [data source type](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getdatasourcetype/) ve bir [path to an external workbook](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) özelliğine sahiptir; kaynak harici bir çalışma kitabı ise, harici bir dosyanın kullanıldığından emin olmak için tam yolu okuyabilirsiniz.
 
-**Ağ kaynakları/paylaşımlarındaki çalışma kitaplarını kullanabilir miyim?**  
-Evet, bu tür çalışma kitapları dış veri kaynağı olarak kullanılabilir. Ancak, uzak çalışma kitaplarını doğrudan Aspose.Slides üzerinden düzenlemek desteklenmez—yalnızca kaynak olarak kullanılabilirler.
+**Harici çalışma kitapları için göreceli yollar destekleniyor mu ve nasıl depolanıyor?**
 
-**Aspose.Slides sunumu kaydederken dış XLSX dosyasını üzerine yazar mı?**  
-Hayır. Sunum, bir [dış dosyaya bağlantı](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) depolar ve verileri okumak için bunu kullanır. Sunum kaydedildiğinde dış dosya kendisi değişmez.
+Evet. Göreceli bir yol belirtirseniz, otomatik olarak mutlak bir yola dönüştürülür. Bu, projenin taşınabilirliği için uygundur; ancak sunumun PPTX dosyasında mutlak yolu saklayacağını unutmayın.
 
-**Dış dosya şifre korumalıysa ne yapmalıyım?**  
-Aspose.Slides bağlantı sırasında bir şifre kabul etmez. Yaygın bir yöntem, korumayı önceden kaldırmak veya şifresi çözülmüş bir kopya hazırlamaktır (örneğin, [Aspose.Cells](/cells/php-java/) kullanarak) ve bu kopyaya bağlanmaktır.
+**Ağ kaynakları/paylaşımlarındaki çalışma kitaplarını kullanabilir miyim?**
 
-**Birden fazla grafik aynı dış çalışma kitabına referans verebilir mi?**  
-Evet. Her grafik kendi bağlantısını depolar. Hepsi aynı dosyaya işaret ediyorsa, dosyada yapılan güncellemeler veri bir sonraki yüklendiğinde her grafiğe yansır.
+Evet, bu tür çalışma kitapları harici veri kaynağı olarak kullanılabilir. Ancak, uzaktaki çalışma kitaplarını doğrudan Aspose.Slides üzerinden düzenlemek desteklenmez; yalnızca kaynak olarak kullanılabilirler.
+
+**Aspose.Slides sunumu kaydederken harici XLSX dosyasını üzerine yazar mı?**
+
+Hayır. Sunum, dış dosyaya bir [link to the external file](https://reference.aspose.com/slides/tr/php-java/aspose.slides/chartdata/getexternalworkbookpath/) saklar ve veri okumak için bunu kullanır. Sunum kaydedildiğinde dış dosya kendisi değiştirilmez.
+
+**Harici dosya şifre korumalıysa ne yapmalıyım?**
+
+Aspose.Slides, bağlama sırasında bir şifre kabul etmez. Yaygın bir yaklaşım, şifre korumasını önceden kaldırmak veya şifresi çözülmüş bir kopya (örneğin [Aspose.Cells](/cells/php-java/)) hazırlayıp bu kopyaya bağlamaktır.
+
+**Birden fazla grafik aynı harici çalışma kitabına referans verebilir mi?**
+
+Evet. Her grafik kendi bağlantısını saklar. Hepsi aynı dosyaya işaret ediyorsa, dosyada yapılan güncellemeler veri bir sonraki yüklendiğinde her grafiğe yansır.

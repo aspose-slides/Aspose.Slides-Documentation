@@ -1,275 +1,312 @@
 ---
-title: اعمال یا تغییر طرح اسلاید در C++
-linktitle: طرح اسلاید
+title: "اعمال یا تغییر طرح‌بندی اسلایدها در C++"
+linktitle: "طرح‌بندی اسلاید"
 type: docs
 weight: 60
 url: /fa/cpp/slide-layout/
 keywords:
-- طرح اسلاید
-- طرح محتوا
-- محفظه
-- طراحی ارائه
-- طراحی اسلاید
-- طرح استفاده‌نشده
-- قابلیت نمایش پاورقی
-- اسلاید عنوان
-- عنوان و محتوا
-- سرصفحه بخش
-- دو محتوا
-- مقایسه
-- فقط عنوان
-- طرح خالی
-- محتوا با کپشن
-- عکس با کپشن
-- عنوان و متن عمودی
-- عنوان عمودی و متن
-- PowerPoint
-- OpenDocument
-- ارائه
-- C++
-- Aspose.Slides
-description: "مدیریت و سفارشی‌سازی طرح‌های اسلاید در Aspose.Slides برای C++. انواع طرح‌ها، کنترل محفظه‌ها و قابلیت نمایش پاورقی را از طریق مثال‌های کد C++ بررسی کنید."
+- "طرح‌بندی اسلاید"
+- "طرح‌بندی محتوا"
+- "محل‌دار"
+- "طراحی ارائه"
+- "طراحی اسلاید"
+- "طرح‌بندی استفاده‌نشده"
+- "قابلیت مشاهده پاورقی"
+- "اسلاید عنوان"
+- "عنوان و محتوا"
+- "سرآیند بخش"
+- "دو محتوا"
+- "مقایسه"
+- "فقط عنوان"
+- "طرح‌بندی خالی"
+- "محتوا با عنوان فرعی"
+- "تصویر با عنوان فرعی"
+- "عنوان و متن عمودی"
+- "عنوان عمودی و متن"
+- "PowerPoint"
+- "OpenDocument"
+- "ارائه"
+- "C++"
+- "Aspose.Slides"
+description: "اعمال، ایجاد و تغییر طرح‌بندی‌های اسلاید در Aspose.Slides برای C++, افزودن محل‌دارها، حذف طرح‌بندی‌های استفاده‌نشده و کنترل قابلیت مشاهده پاورقی."
 ---
-## **معرفی**
+## **بررسی کلی**
 
-یک طرح اسلاید چیدمان جعبه‌های محفظه و قالب‌بندی محتوا را در یک اسلاید تعریف می‌کند. این طرح تعیین می‌کند که چه محفظه‌هایی در دسترس هستند و کجا ظاهر می‌شوند. طرح‌های اسلاید به شما کمک می‌کنند تا ارائه‌ها را به‌سرعت و به‌صورت یکنواخت طراحی کنید—چه در حال ساخت یک ارائه ساده باشید و چه پیچیده. برخی از رایج‌ترین طرح‌های اسلاید در PowerPoint عبارتند از:
+یک طرح‌بندی اسلاید موقعیت‌ها و قالب‌بندی‌های جای‌دارهای مختلف مانند عنوان‌ها، متن، تصویرها، نمودارها و جدول‌ها را تعریف می‌کند. اعمال یک طرح‌بندی به اسلایدها ساختاری یکدست می‌بخشد در حالی که به هر اسلاید اجازه می‌دهد محتوای خود را داشته باشد.
 
-**Title Slide layout** – شامل دو محفظه متنی است: یکی برای عنوان و دیگری برای زیرعنوان.
+متداول‌ترین طرح‌بندی‌ها عبارتند از:
 
-**Title and Content layout** – یک محفظه عنوان کوچک‌تر در بالا دارد و یک محفظه بزرگ‌تر در زیر برای محتوای اصلی (مانند متن، نکات گلوله‌ای، نمودارها، تصاویر و غیره).
+- **Title Slide**: شامل جای‌دارهای عنوان و زیرعنوان است.
+- **Title and Content**: شامل یک جای‌دار عنوان و یک جای‌دار محتوای عمومی است.
+- **Blank**: هیچ جای‌دار محتوایی ندارد و زمانی مفید است که تمام اشکال به‌صورت دستی موقعیت‌یابی شوند.
 
-**Blank layout** – هیچ محفظه‌ای ندارد و به شما کنترل کامل برای طراحی اسلاید از ابتدا می‌دهد.
+## **درک ارث‌بری طرح‌بندی**
 
-طرح‌های اسلاید بخشی از یک اسلاید مستر هستند که اسلاید سطح بالایی است و سبک‌های طرح را برای ارائه تعریف می‌کند. می‌توانید اسلایدهای طرح را از طریق اسلاید مستر دسترسی داشته و اصلاح کنید—چه با نوع، نام یا شناسهٔ یکتا. به‌علاوه می‌توانید یک اسلاید طرح خاص را مستقیماً داخل ارائه ویرایش کنید.
+یک ارائه سه سطح مرتبط دارد:
 
-برای کار با طرح‌های اسلاید در Aspose.Slides for Android می‌توانید از:
+1. یک [master slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
+1. یک [layout slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/) به یک master تعلق دارد و یک چیدمان خاص از جای‌دارها را تعریف می‌کند.
+1. یک [normal slide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/) از یک layout استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌نماید.
 
-- متدهایی مانند [get_LayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_layoutslides/) و [get_Masters](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_masters/) زیر کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/)
-- انواعی مانند [ILayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/)، [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterlayoutslidecollection/)، [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/)، و [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+یک اسلاید معمولی قالب و تم را از layout خود به ارث می‌برد و layout نیز از master خود. مقدار تنظیم‌شده مستقیم بر روی اسلاید معمولی، مقدار ارث‌گیری شده را در همان سطح بازنویسی می‌کند. وقتی یک اسلاید معمولی ایجاد می‌شود، اشکال جای‌دارهای آن از layout انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده در آن جای‌دارها متعلق به اسلاید معمولی است.
 
-{{% alert title="Info" color="info" %}}
-برای یادگیری بیشتر دربارهٔ کار با اسلایدهای مستر، مقالهٔ [Slide Master](/slides/fa/cpp/slide-master/) را بررسی کنید.
-{{% /alert %}}
+قبل از ایجاد اسلایدها، جای‌دارهای موردنیاز را به layout اضافه کنید. افزودن جای‌دار دیگر به layout بعداً، به‌صورت خودکار یک شکل جای‌دار متناظر را به اسلایدهای معمولی موجود اضافه نمی‌کند.
 
-## **افزودن طرح اسلایدها به ارائه‌ها**
+این رابطه دو پیامد مهم دارد:
 
-برای سفارشی‌سازی ظاهر و ساختار اسلایدهای خود ممکن است نیاز داشته باشید طرح اسلاید جدیدی به ارائه اضافه کنید. Aspose.Slides for Android به شما اجازه می‌دهد بررسی کنید آیا یک طرح خاص از پیش وجود دارد یا نه، در صورت نیاز اضافه کنید و از آن برای درج اسلاید بر پایهٔ همان طرح استفاده کنید.
+- تغییر قالب‌بندی ارث‌برده یا هندسهٔ جای‌دارهای موجود در یک layout می‌تواند تمام اسلایدهایی را که به آن وابسته‌اند به‌روز کند. پیش از ویرایش یک layout که در حال استفاده است، اسلایدهای وابستهٔ آن را بررسی و ارائهٔ حاصل را مرور کنید.
+- یک layout که هنوز توسط اسلایدی استفاده می‌شود قابل حذف نیست. ابتدا اسلایدهای وابستهٔ آن را به layout دیگری اختصاص دهید یا فقط layoutهای بدون استفاده را حذف کنید.
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-1. به [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterlayoutslidecollection/) دسترسی پیدا کنید.
-1. بررسی کنید آیا اسلاید طرح موردنظر در مجموعه وجود دارد یا خیر. در صورت عدم وجود، اسلاید طرح مورد نیاز را اضافه کنید.
-1. یک اسلاید خالی بر پایهٔ اسلاید طرح جدید اضافه کنید.
-1. ارائه را ذخیره کنید.
+برای اطلاعات بیشتر دربارهٔ سطح بالایی این سلسله‌مراتب، به [Slide Master](/slides/fa/cpp/slide-master/) مراجعه کنید.
 
-کد C++ زیر نحوه افزودن یک طرح اسلاید به یک ارائه PowerPoint را نشان می‌دهد:
+## **انتخاب و اعمال یک طرح‌بندی اسلاید**
+
+زمانی که ارائه مطابق با تعاریف استاندارد PowerPoint است، از نوع layout استفاده کنید. نام‌های layout قابل ویرایش توسط کاربر هستند و می‌توانند بومی‌سازی شوند، بنابراین انتخاب بر مبنای نام تا زمانی که قالب منبع را کنترل کنید، کمتر قابل اطمینان است.
+
+مثال زیر به دنبال **Title and Content** در اولین master می‌گردد. اگر آن layout در دسترس نباشد، به‌صراحت به **Blank** باز می‌گردد. بررسی null دوم ضروری است چون یک ارائه می‌توانند تنها layoutهای سفارشی داشته باشند. سپس layout انتخاب‌شده از طریق متد [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/fa/cpp/aspose.slides/islide/set_layoutslide/) بر روی اولین اسلاید معمولی اعمال می‌شود.
 
 ```cpp
-// نمونه‌سازی کلاس Presentation که نمایانگر یک فایل PowerPoint است.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Go through the layout slide types to select a layout slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // وضعیتی که در آن ارائه تمام انواع طرح‌ها را شامل نمی‌شود.
-    // فایل ارائه فقط شامل انواع طرح Blank و Custom است.
-    // اما اسلایدهای طرح با انواع سفارشی ممکن است نام‌های قابل تشخیص داشته باشند،
-    // مانند "Title"، "Title and Content" و غیره که می‌توانند برای انتخاب اسلاید طرح استفاده شوند.
-    // همچنین می‌توانید به مجموعه‌ای از انواع شکل‌های محفظه تکیه کنید.
-    // برای مثال، یک اسلاید Title باید فقط نوع محفظه Title را داشته باشد و به همین ترتیب.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// افزودن اسلاید خالی با استفاده از اسلاید طرح اضافه‌شده.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// ذخیرهٔ ارائه در دیسک.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **حذف طرح‌های اسلاید استفاده‌نشده**
+تغییر layout یک اسلاید، اشکال عادی اضافه‌شده مستقیم به اسلاید را حذف نمی‌کند. با این حال، موقعیت‌های جای‌دار، قالب‌بندی ارث‌برده و تطبیق بین جای‌دارهای موجود و layout جدید می‌توانند تغییر کنند، بنابراین هنگام جابجایی بین layoutهای کاملاً متفاوت، خروجی را بررسی کنید.
 
-Aspose.Slides متد [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) را از کلاس [Compress](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/) ارائه می‌دهد تا بتوانید طرح‌های اسلاید ناخواسته و استفاده‌نشده را حذف کنید.
+## **افزودن یک Layout Slide**
 
-کد C++ زیر نشان می‌دهد چگونه یک طرح اسلاید را از یک ارائه PowerPoint حذف کنید:
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک layout موجود را انتخاب می‌کرد؛ آن را نمی‌ساخت. برای ایجاد یک layout، متد [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterlayoutslidecollection/add/) را بر روی مجموعهٔ layoutهای master هدف صدا بزنید.
+
+مثال زیر همیشه یک layout جدید **Title and Content** به نام `Report Title and Content` اضافه می‌کند، سپس یک اسلاید معمولی بر پایهٔ آن می‌سازد. نام‌های layout باید درون مجموعه یکتا باشند.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **افزودن محفظه‌ها به طرح اسلایدها**
+فقط وقتی قالب واقعاً نیاز به یک ساختار قابل استفاده مجدد دیگر دارد، یک layout اضافه کنید. اگر یک layout مناسب موجود باشد، آن را انتخاب و مجدداً استفاده کنید نه این‌که یک کپی بسازید.
 
-Aspose.Slides متد [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) را فراهم می‌کند که امکان افزودن محفظه‌های جدید به یک اسلاید طرح را می‌دهد.
+## **افزودن جای‌دارها به یک Layout Slide**
 
-این مدیر شامل متدهایی برای انواع محفظه‌های زیر است:
+متد [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) یک شئ [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/) برای افزودن اشکال جای‌دار به یک layout فراهم می‌کند.
 
-| محفظه PowerPoint | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/) متد |
-| ---------------- | ------------------------------------------------------------ |
-| ![محتوا](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![محتوا (عمودی)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![متن](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![متن (عمودی)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![عکس](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![نمودار](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![جدول](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![رسانه](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![تصویر آنلاین](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Placeholder پاورپوینت               | متد `ILayoutPlaceholderManager` |
+| ----------------------------------- | -------------------------------- |
+| ![متن](content.png)                 | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![متن (عمودی)](contentV.png)        | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![متن](text.png)                    | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![متن (عمودی)](textV.png)           | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![تصویر](picture.png)               | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![نمودار](chart.png)                | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![جدول](table.png)                  | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![رسانه](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![تصویر آنلاین](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-کد C++ زیر نحوه افزودن اشکال محفظهٔ جدید به اسلاید طرح Blank را نشان می‌دهد:
+مثال زیر بررسی می‌کند که layout **Blank** وجود دارد، چهار جای‌دار به آن اضافه می‌کند و سپس یک اسلاید معمولی که از layout اصلاح‌شده استفاده می‌کند، می‌سازد. ترتیب این کار عمدی است: جای‌دارها قبل از ایجاد اسلاید معمولی اضافه می‌شوند تا Aspose.Slides بتواند اشکال جای‌دار مربوطه را روی آن اسلاید تولید کند.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// دریافت اسلاید طرح Blank.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// دریافت مدیر محفظهٔ اسلاید طرح.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// افزودن محفظه‌های مختلف به اسلاید طرح Blank.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// افزودن اسلاید جدید با طرح Blank.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 نتیجه:
 
-![محفظه‌های موجود بر روی اسلاید طرح](add_placeholders.png)
+![جای‌دارهای موجود بر روی layout slide](add_placeholders.png)
 
-## **تنظیم نمایش پاورقی برای یک اسلاید طرح**
+{{% alert color="warning" title="Warning" %}}
+تغییر قالب‌بندی ارث‌برده یا هندسهٔ جای‌دارهای موجود در layout می‌تواند بر اسلایدهای وابسته تأثیر بگذارد. یک جای‌دار جدید به‌صورت خودکار در اسلایدهای معمولی موجود پر نمی‌شود. تغییرات layout را روی یک کپی از ارائه امتحان کنید و هر اسلاید وابسته را بررسی نمایید.
+{{% /alert %}}
 
-در ارائه‌های PowerPoint، عناصر پاورقی مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند بسته به طرح اسلاید نمایش داده یا مخفی شوند. Aspose.Slides for Android به شما اجازه می‌دهد نمایش این محفظه‌های پاورقی را کنترل کنید. این ویژگی زمانی مفید است که بخواهید برخی طرح‌ها اطلاعات پاورقی را نشان دهند در حالی که دیگران تمیز و ساده بمانند.
+## **حذف Layout Slideهای بدون استفاده**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع یک اسلاید طرح را بر اساس اندیس آن دریافت کنید.
-1. محفظهٔ پاورقی اسلاید را به حالت قابل مشاهده تنظیم کنید.
-1. محفظهٔ شماره اسلاید را به حالت قابل مشاهده تنظیم کنید.
-1. محفظهٔ تاریخ‑زمان را به حالت قابل مشاهده تنظیم کنید.
-1. ارائه را ذخیره کنید.
-
-کد C++ زیر نشان می‌دهد چگونه نمایش پاورقی اسلاید را تنظیم کنید و کارهای مرتبط را انجام دهید:
+از متد [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف layoutهایی که هیچ اسلاید معمولی به آن‌ها ارجاع نمی‌دهد، استفاده کنید. این متد layoutهای هنوز در حال استفاده را دست نخورده می‌گذارد.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+برای حذف یک layout خاص، ابتدا با استفاده از متد [get_HasDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) یا [GetDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/getdependingslides/) بررسی کنید. قبل از فراخوانی [ILayoutSlide::Remove](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/remove/) اسلایدهای وابسته را به layout دیگری اختصاص دهید. تلاش برای حذف یک layout استفاده‌شده منجر به پرتاب [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) می‌شود.
+
+## **کنترل نمایش پاورقی در یک Layout Slide**
+
+یک layout دارای پاورقی، شماره اسلاید و جای‌دارهای تاریخ‑زمان مخصوص به خود است. از متد [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) برای کنترل این جای‌دارها برای یک layout استفاده کنید. این کار زمانی مفید است که به عنوان مثال layoutهای محتوا باید پاورقی نشان دهند ولی layoutهای عنوان نه.
+
+مثال زیر یک layout را به‌صورت ایمن انتخاب می‌کند و عناصر پاورقی آن را قابل مشاهده می‌سازد:
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
 {
-    headerFooterManager->SetFooterVisibility(true);
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 }
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
+if (layoutSlide == nullptr)
 {
-    headerFooterManager->SetSlideNumberVisibility(true);
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
 }
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
 headerFooterManager->SetFooterText(u"Footer text");
 headerFooterManager->SetDateTimeText(u"Date and time text");
 
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **تنظیم نمایش پاورقی فرزند برای یک اسلاید**
+## **کنترل نمایش پاورقی در یک Master و Layoutهای فرزند آن**
 
-در ارائه‌های PowerPoint، عناصر پاورقی مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند در سطح اسلاید مستر کنترل شوند تا اطمینان حاصل شود تمام اسلایدهای طرح به‌صورت یکسان این اطلاعات را دارند. Aspose.Slides for Android این امکان را می‌دهد که نمایش و محتوی این محفظه‌های پاورقی را در اسلاید مستر تنظیم کنید و این تنظیمات به همهٔ اسلایدهای طرح فرزند منتقل شود. این رویکرد اطلاعات پاورقی یکنواختی در سراسر ارائه شما فراهم می‌کند.
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/) ایجاد کنید.
-1. مرجع اسلاید مستر را بر اساس اندیس آن دریافت کنید.
-1. تمام محفظه‌های پاورقی مستر و فرزندان را به حالت قابل مشاهده تنظیم کنید.
-1. تمام محفظه‌های شماره اسلاید مستر و فرزندان را به حالت قابل مشاهده تنظیم کنید.
-1. تمام محفظه‌های تاریخ‑زمان مستر و فرزندان را به حالت قابل مشاهده تنظیم کنید.
-1. ارائه را ذخیره کنید.
-
-کد C++ زیر این عملیات را نشان می‌دهد:
+برای اعمال تنظیمات پاورقی یکسان در سراسر سلسله‌مراتب master، از متد [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslide/get_headerfootermanager/) استفاده کنید. متدهای انتشار [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/cpp/aspose.slides/imasterslideheaderfootermanager/) بر روی master و layoutهای وابسته و اسلایدهای معمولی آن عمل می‌کنند؛ نه فقط یک اسلاید معمولی خاص.
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **پرسش‌های متداول**
+## **سؤالات متداول**
 
-**تفاوت بین اسلاید مستر و اسلاید طرح چیست؟**
+**تفاوت بین Master Slide و Layout Slide چیست؟**
 
-اسلاید مستر تم کلی و قالب‌بندی پیش‌فرض را تعریف می‌کند، در حالی که اسلایدهای طرح چیدمان‌های خاصی از محفظه‌ها را برای انواع مختلف محتوا تعیین می‌کنند.
+یک master slide تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. یک layout slide به یک master تعلق دارد و یک چیدمان قابل استفاده مجدد از جای‌دارها را توصیف می‌کند. اسلایدهای معمولی از این layoutها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
-**آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
+**آیا می‌توانم یک Layout Slide را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
 
-بله، می‌توانید یک اسلاید طرح را از مجموعهٔ اسلایدهای طرح یک ارائه با استفاده از متد [get_LayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/presentation/get_layoutslides/) کلون کنید و با استفاده از متد `AddClone` آن را در ارائهٔ دیگر وارد کنید.
+بله. با استفاده از متد [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/fa/cpp/aspose.slides/igloballayoutslidecollection/addclone/) یک کپی به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع مورد استفادهٔ layout منبع را نیز بررسی کنید.
 
-**اگر یک اسلاید طرح که هنوز توسط اسلایدی استفاده می‌شود را حذف کنم چه اتفاقی می‌افتد؟**
+**وقتی یک Layout که در حال استفاده است را تغییر می‌دهم چه اتفاقی می‌افتد؟**
 
-اگر سعی کنید یک اسلاید طرح را حذف کنید که توسط حداقل یک اسلاید در ارائه هنوز ارجاع داده شده است، Aspose.Slides استثنای [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) را پرتاب می‌کند. برای جلوگیری از این مشکل، از متد [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) استفاده کنید که به‌صورت ایمن فقط طرح‌های اسلایدی که استفاده نمی‌شوند را حذف می‌کند.
+اسلایدهای وابسته تغییرات layout را به ارث می‌برند مگر اینکه قالب‌بندی یا اشیای تحت تأثیر را به‌صورت محلی بازنویسی کرده باشند. بنابراین هندسهٔ جای‌دارها و سبک‌های ارث‌برده می‌تواند به‌صورت همزمان در بسیاری از اسلایدها تغییر کند. قبل از ویرایش layout، با استفاده از [GetDependingSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides/ilayoutslide/getdependingslides/) اسلایدهای تحت تأثیر را شناسایی کنید.
+
+**اگر یک Layout که هنوز استفاده می‌شود را حذف کنم چه می‌شود؟**
+
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/cpp/aspose.slides/pptxeditexception/) پرتاب می‌کند. ابتدا اسلایدهای وابسته را به layout دیگری اختصاص دهید یا از [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/fa/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) برای حذف فقط layoutهای بدون ارجاع استفاده کنید.

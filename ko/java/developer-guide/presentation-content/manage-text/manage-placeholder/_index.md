@@ -9,125 +9,363 @@ keywords:
 - 텍스트 플레이스홀더
 - 이미지 플레이스홀더
 - 차트 플레이스홀더
+- 콘텐츠 플레이스홀더
 - 프롬프트 텍스트
 - PowerPoint
-- OpenDocument
 - 프레젠테이션
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Java에서 플레이스홀더를 손쉽게 관리하세요: 텍스트 교체, 프롬프트 맞춤 설정 및 PowerPoint와 OpenDocument에서 이미지 투명도 설정."
+description: "Aspose.Slides for Java를 사용하여 텍스트, 그림, 차트 및 콘텐츠 플레이스홀더를 검사하고 편집하는 방법과 플레이스홀더 상속 구조를 이해하는 방법을 배웁니다."
 ---
 ## **개요**
 
-Aspose.Slides를 사용하면 프레젠테이션 플레이스홀더를 프로그래밍 방식으로 관리할 수 있습니다. 이 문서에서는 슬라이드에서 플레이스홀더를 찾고 텍스트를 변경하는 방법, 플레이스홀더 레이아웃에 사용자 지정 프롬프트 텍스트를 설정하는 방법, 그리고 플레이스홀더 배경으로 사용되는 이미지의 투명도를 조정하는 방법을 설명합니다. 또한 기본 플레이스홀더와 로컬 도형의 차이점을 명확히 하고, 레이아웃 또는 마스터를 통해 플레이스홀더 변경을 적용하는 방법을 설명하며, 헤더 및 푸터 플레이스홀더 관리에 대한 정보를 제공하는 간단한 FAQ도 포함되어 있습니다.
+플레이스홀더는 프레젠테이션 템플릿에서 특정 종류의 콘텐츠 위치를 예약하는 도형입니다. 일반적인 예로는 제목, 본문, 그림, 차트 및 일반 용도 콘텐츠 플레이스홀더가 있습니다. 일반 도형과 달리 플레이스홀더는 레이아웃 슬라이드 또는 마스터 슬라이드로부터 위치, 크기, 서식 및 기타 설정을 상속받을 수 있습니다.
+
+Aspose.Slides는 플레이스홀더 정보를 [IShape.getPlaceholder](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/) 메서드를 통해 제공합니다. 이 메서드는 일반 도형에 대해 `null`을 반환하거나 [IPlaceholder](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholder/) 객체를 반환합니다. 플레이스홀더가 어떤 콘텐츠를 포함하도록 의도되었는지 확인하려면 [IPlaceholder.getType](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholder/)을 사용하십시오.
+
+플레이스홀더 유형을 알게 된 후에도 도형 인터페이스는 여전히 중요합니다:
+
+- 비어 있는 텍스트, 그림, 차트 또는 콘텐츠 플레이스홀더는 일반적으로 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)로 표현됩니다.
+- 채워진 그림 플레이스홀더는 [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)으로 표현될 수 있습니다.
+- 채워진 차트 플레이스홀더는 [IChart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichart/)으로 표현될 수 있습니다.
+- 콘텐츠 플레이스홀더는 여러 종류의 콘텐츠를 포함할 수 있습니다. 모든 플레이스홀더가 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)이라고 가정하는 대신 [IPlaceholder.getType](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholder/) 및 런타임 도형 인터페이스를 모두 확인하십시오.
+
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholder/)은 플레이스홀더의 역할을 설명하지만 도형의 런타임 유형을 보장하지 않습니다. 텍스트, 그림, 차트, 표 또는 미디어 관련 멤버에 접근하기 전에 항상 유형 검사를 수행하십시오.
+{{% /alert %}}
+
+## **플레이스홀더 상속 이해**
+
+플레이스홀더는 계층 구조를 형성합니다:
+
+1. 마스터 슬라이드는 재사용 가능한 스타일을 정의하며, 경우에 따라 마스터 수준의 플레이스홀더를 정의합니다.
+2. 레이아웃 슬라이드는 하나 이상의 일반 슬라이드에서 사용되는 배치를 정의하고 마스터로부터 상속받을 수 있습니다.
+3. 일반 슬라이드는 해당 슬라이드의 플레이스홀더를 포함하며 레이아웃으로부터 상속받을 수 있습니다.
+
+이 계층 구조에서 한 단계 위로 이동하려면 [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)를 호출하십시오. 슬라이드 플레이스홀더는 일반적으로 해당 레이아웃 플레이스홀더를 반환하며, 레이아웃 플레이스홀더는 마스터 플레이스홀더를 반환할 수 있습니다. 도형에 기반 플레이스홀더가 없을 경우 메서드는 `null`을 반환합니다.
+
+다음 예제는 첫 번째 슬라이드의 플레이스홀더를 나열하고 해당 기반 플레이스홀더를 보고합니다:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+일반 슬라이드에서 플레이스홀더를 편집하면 해당 슬라이드에 대한 로컬 오버라이드가 생성되거나 변경됩니다. 관련 레이아웃이나 마스터를 편집하면 해당 설정을 여전히 상속하는 모든 슬라이드에 영향을 줄 수 있습니다. 로컬 일반 도형은 기반 플레이스홀더가 없으며 동일한 좌표에 있다고 해서 상속을 시작하지도 않습니다.
 
 ## **플레이스홀더의 텍스트 변경**
-[Aspose.Slides for Java](/slides/ko/java/)를 사용하면 프레젠테이션의 슬라이드에서 플레이스홀더를 찾고 수정할 수 있습니다. Aspose.Slides를 사용하면 플레이스홀더의 텍스트를 변경할 수 있습니다.
 
-**Prerequisite**: 플레이스홀더가 포함된 프레젠테이션이 필요합니다. 이러한 프레젠테이션은 일반 Microsoft PowerPoint 앱에서 만들 수 있습니다.
+제목, 중앙 제목, 부제목, 본문 및 텍스트 플레이스홀더는 일반적으로 텍스트를 지원합니다. 해당 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)인지 확인한 후 [getTextFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/) 메서드를 사용하십시오.
 
-다음은 Aspose.Slides를 사용하여 해당 프레젠테이션의 플레이스홀더 텍스트를 교체하는 방법입니다:
-
-1. [`Presentation`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/Presentation) 클래스를 인스턴스화하고 프레젠테이션을 인수로 전달합니다.
-2. 인덱스를 사용하여 슬라이드 참조를 가져옵니다.
-3. 도형들을 반복해서 플레이스홀더를 찾습니다.
-4. 플레이스홀더 도형을 [`AutoShape`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/AutoShape)으로 타입캐스트하고, 해당 [`AutoShape`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/AutoShape)와 연결된 [`TextFrame`](https://reference.aspose.com/slides/ko/java/com.aspose.slides/TextFrame)을 사용하여 텍스트를 변경합니다.
-5. 수정된 프레젠테이션을 저장합니다.
-
-다음 Java 코드는 플레이스홀더의 텍스트를 변경하는 방법을 보여줍니다:
-
+다음 예제는 첫 번째 슬라이드의 첫 번째 제목 플레이스홀더를 업데이트하고 결과를 저장합니다:
 ```java
-// 프레젠테이션 클래스를 인스턴스화합니다
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
 
-    // 첫 번째 슬라이드에 접근합니다
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
 
-    // 플레이스홀더를 찾기 위해 도형들을 반복합니다
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // 각 플레이스홀더의 텍스트를 변경합니다
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    // 프레젠테이션을 디스크에 저장합니다
-    pres.save("output.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **플레이스홀더에 프롬프트 텍스트 설정**
-표준 및 사전 구축된 레이아웃에는 ***Click to add a title*** 또는 ***Click to add a subtitle***와 같은 플레이스홀더 프롬프트 텍스트가 포함되어 있습니다. Aspose.Slides를 사용하면 원하는 프롬프트 텍스트를 플레이스홀더 레이아웃에 삽입할 수 있습니다.
+이 패턴은 그림, 차트, 표 또는 미디어 플레이스홀더를 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/)으로 캐스팅하는 것을 피합니다. 또한 취약한 도형 인덱스에 의존하는 대신 목적에 따라 플레이스홀더를 식별합니다.
 
-다음 Java 코드는 플레이스홀더에 프롬프트 텍스트를 설정하는 방법을 보여줍니다:
+## **레이아웃에 프롬프트 텍스트 설정**
 
+프롬프트 텍스트는 빈 플레이스홀더에 표시되는 디자인‑타임 지시문으로, 예를 들어 *Click to add title*와 같습니다. 일반 슬라이드의 도형 컬렉션을 통해 접근하려고 시도하기보다 레이아웃 플레이스홀더에 사용자 정의 프롬프트 텍스트를 설정하십시오. 레이아웃은 [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ko/java/com.aspose.slides/islide/)를 통해 접근하고, [ILayoutSlide.getShapes](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ibaseslide/)이 반환하는 컬렉션을 순회하십시오.
+
+다음 예제는 첫 번째 슬라이드에 사용된 레이아웃의 제목 및 부제목 프롬프트를 변경합니다:
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // 슬라이드를 반복합니다
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint는 "Click to add title"을 표시합니다
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // 자막을 추가합니다
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
+
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **플레이스홀더 이미지 투명도 설정**
-Aspose.Slides를 사용하면 텍스트 플레이스홀더의 배경 이미지 투명도를 설정할 수 있습니다. 해당 프레임의 이미지 투명도를 조정하면 텍스트나 이미지가 돋보이게 만들 수 있습니다(텍스트와 이미지 색상에 따라 다름).
+프롬프트 텍스트는 일반 슬라이드 콘텐츠가 아닙니다. PowerPoint와 같은 편집 애플리케이션에서 빈 플레이스홀더에 표시되는 용도이며, 사용자가 실제 콘텐츠를 제공하면 더 이상 표시되지 않습니다. 프롬프트를 변경해도 해당 레이아웃을 사용하는 슬라이드의 기존 텍스트가 교체되지는 않습니다.
 
-다음 Java 코드는 도형 내부에 있는 그림 배경의 투명도를 설정하는 방법을 보여줍니다:
+## **그림 플레이스홀더 업데이트**
 
+처리해야 할 경우가 두 가지 있습니다:
+
+- 그림 플레이스홀더가 이미 채워져 있고 [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)로 표현되는 경우, [IPictureFillFormat.getPicture](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipicturefillformat/)와 [ISlidesPicture.setImage](https://reference.aspose.com/slides/ko/java/com.aspose.slides/islidespicture/)를 사용해 이미지를 교체하십시오.
+- 아직 빈 플레이스홀더인 경우, [IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishapecollection/)를 이용해 플레이스홀더 좌표에 그림 프레임을 추가하고 빈 플레이스홀더를 제거하십시오.
+
+다음 예제는 두 경우를 모두 지원하고 프레젠테이션을 저장합니다:
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
-
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    Path imagePath = Paths.get("replacement.png");
+    byte[] imageBytes = Files.readAllBytes(imagePath);
+    IPPImage image = presentation.getImages().addImage(imageBytes);
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+빈 플레이스홀더에 대해 생성된 교체물은 새로운 플레이스홀더가 아니라 로컬 그림 프레임입니다. 이는 [IShape.getPlaceholder](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)에 설정자가 없기 때문이며, 예약된 위치는 유지하지만 더 이상 플레이스홀더‑특정 동작을 상속하지 않습니다. 플레이스홀더 관계를 유지해야 하는 경우, 먼저 PowerPoint에서 플레이스홀더를 준비·채우고 이후 Aspose.Slides를 사용해 결과 [IPictureFrame](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ipictureframe/)를 업데이트하십시오.
+
+이미지 투명도, 자르기 및 기타 그림 전용 효과에 대해서는 [Manage Picture Frames](/slides/ko/java/picture-frame/)를 참조하십시오. 이러한 작업은 그림 프레임 또는 그림 채우기에 해당하며 플레이스홀더 메타데이터와는 무관합니다.
+
+## **차트 및 콘텐츠 플레이스홀더 작업**
+
+채워진 차트 플레이스홀더는 [IChart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichart/)로 표현될 수 있습니다. 다음 예제는 플레이스홀더 유형과 런타임 인터페이스 모두를 사용해 차트를 찾아 제목을 변경하고 파일을 저장합니다:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+일반 콘텐츠 플레이스홀더는 보통 [PlaceholderType.Object](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholdertype/)를 가집니다. PowerPoint에서는 차트, 표, 다이어그램, 그림 및 미디어 등 여러 콘텐츠 유형을 시작할 수 있는 런처 역할을 합니다. 채워진 뒤에는 실제 도형 인터페이스를 검사하여 포함된 내용을 파악하십시오. 특수 레이아웃은 또한 [PlaceholderType.Chart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Table](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Picture](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholdertype/), [PlaceholderType.Media](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholdertype/), 또는 [PlaceholderType.Diagram](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholdertype/)을 노출할 수 있습니다.
+
+Aspose.Slides는 [IPlaceholder.getType](https://reference.aspose.com/slides/ko/java/com.aspose.slides/placeholder/)을 변경한다고 해서 빈 [IAutoShape](https://reference.aspose.com/slides/ko/java/com.aspose.slides/iautoshape/) 플레이스홀더를 [IChart](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ichart/)으로 변환하지 않습니다. 인터페이스를 통해 유형을 변경할 수 없습니다. 빈 차트 또는 콘텐츠 영역을 프로그래밍 방식으로 채우려면 해당 좌표에 필요한 객체를 추가한 뒤 빈 플레이스홀더를 제거하십시오. 다음 예제는 차트에 대해 이를 수행합니다:
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+추가된 차트는 일반 로컬 차트이며, 플레이스홀더 영역을 차지하지만 레이아웃 플레이스홀더를 상속하지 않습니다. 범주, 시리즈 또는 워크북 데이터를 교체해야 할 때는 전용 [chart management articles](/slides/ko/java/powerpoint-charts/)를 참고하십시오.
+
+## **전체 예제: 텍스트 또는 이미지 콘텐츠 업데이트**
+
+다음 엔드‑투‑엔드 예제는 템플릿을 열고, 첫 번째 슬라이드에서 제목 또는 그림 플레이스홀더를 검색한 뒤, 플레이스홀더와 도형 유형을 확인하고, 적절한 콘텐츠를 업데이트한 다음 결과를 저장합니다. 예제는 도형 인덱스를 가정하거나 모든 플레이스홀더를 동일한 인터페이스로 캐스팅하는 것을 의도적으로 피합니다.
+```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            Path imagePath = Paths.get("replacement.png");
+            byte[] imageBytes = Files.readAllBytes(imagePath);
+            IPPImage image = presentation.getImages().addImage(imageBytes);
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **FAQ**
 
-**기본 플레이스홀더가 무엇이며 슬라이드의 로컬 도형과 어떻게 다른가요?**  
-기본 플레이스홀더는 레이아웃 또는 마스터에 존재하는 원본 도형으로, 슬라이드의 도형이 유형, 위치 및 일부 서식을 상속받습니다. 로컬 도형은 독립적이며, 기본 플레이스홀더가 없을 경우 상속이 적용되지 않습니다.
+**기본 플레이스홀더란 무엇인가요?**
 
-**전체 프레젠테이션의 모든 제목이나 캡션을 각 슬라이드를 순회하지 않고 업데이트하려면 어떻게 해야 하나요?**  
-레이아웃이나 마스터에 있는 해당 플레이스홀더를 수정합니다. 해당 레이아웃/마스터를 기반으로 하는 슬라이드는 자동으로 변경 사항을 상속합니다.
+기본 플레이스홀더는 레이아웃 또는 마스터에 존재하는 해당 도형으로, 다른 플레이스홀더가 이를 상속받습니다. 해당 플레이스홀더를 가져오려면 [IShape.getBasePlaceholder](https://reference.aspose.com/slides/ko/java/com.aspose.slides/ishape/)를 사용하십시오. 일반 로컬 도형은 플에이스홀더 계층에 포함되지 않으므로 `null`을 반환합니다.
 
-**표준 헤더/푸터 플레이스홀더(날짜 및 시간, 슬라이드 번호, 푸터 텍스트)를 어떻게 제어하나요?**  
-적절한 범위(일반 슬라이드, 레이아웃, 마스터, 노트/핸드아웃)에서 HeaderFooter 관리자를 사용하여 해당 플레이스홀더를 켜거나 끄고 내용을 설정합니다.
+**레이아웃 플레이스홀더를 편집하여 모든 슬라이드 제목을 변경할 수 있나요?**
+
+레이아웃을 통해 상속된 서식이나 프롬프트 텍스트는 변경할 수 있지만, 실제 제목 내용은 일반 슬라이드에 저장됩니다. 프레젠테이션 전체의 제목 텍스트를 교체하려면 슬라이드를 순회하여 각 제목 플레이스홀더를 업데이트해야 합니다.
+
+**날짜, 슬라이드 번호, 헤더 및 풋터 플레이스홀더를 어떻게 관리하나요?**
+
+해당 슬라이드, 레이아웃, 마스터, 노트 또는 핸드아웃 범위에서 헤더 및 풋터 관리자를 사용하십시오. 자세한 예제는 [Manage Presentation Header and Footer](/slides/ko/java/presentation-header-and-footer/)를 참조하십시오.

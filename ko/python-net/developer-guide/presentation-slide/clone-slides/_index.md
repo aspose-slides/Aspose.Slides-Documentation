@@ -1,5 +1,5 @@
 ---
-title: Python에서 PowerPoint 슬라이드 복제
+title: Python에서 PowerPoint 슬라이드 복제하기
 linktitle: 슬라이드 복제
 type: docs
 weight: 40
@@ -36,6 +36,7 @@ pip install aspose.slides
 
 같은 프레젠테이션 내에서 슬라이드를 복제하고 기존 슬라이드 끝에 추가하려면 `add_clone` 메서드를 사용합니다. 다음 단계를 따르세요:
 
+동일 프레젠테이션 내에서 슬라이드를 클론하고 기존 슬라이드 끝에 추가하려면 `add_clone` 메서드를 사용합니다. 다음 단계에 따라 진행하세요:
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 객체에서 슬라이드 컬렉션을 가져옵니다.
 1. [SlideCollection](https://reference.aspose.com/slides/ko/python-net/aspose.slides/slidecollection/) 에서 `add_clone` 메서드를 호출하고 복제할 슬라이드를 전달합니다.
@@ -58,6 +59,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
 
 같은 프레젠테이션 내에서 슬라이드를 복제하고 다른 위치에 배치하려면 `insert_clone` 메서드를 사용합니다:
 
+동일 프레젠테이션 내에서 슬라이드를 클론하고 다른 위치에 배치하려면 `insert_clone` 메서드를 사용합니다:
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 클래스의 인스턴스를 생성합니다.
 1. [Presentation](https://reference.aspose.com/slides/ko/python-net/aspose.slides/presentation/) 객체에서 슬라이드 컬렉션을 가져옵니다.
 1. [SlideCollection](https://reference.aspose.com/slides/ko/python-net/aspose.slides/slidecollection/) 에서 `insert_clone` 메서드를 호출하고 복제할 슬라이드와 새로운 위치의 인덱스를 전달합니다.
@@ -91,7 +93,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
 ```py
 import aspose.slides as slides
 
-# 소스 프레젠테이션 파일을 나타내기 위해 Presentation 클래스를 인스턴스화합니다.
+# 소스 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # 슬라이드가 복제될 대상 PPTX(대상 프레젠테이션)를 위해 Presentation 클래스를 인스턴스화합니다.
     with slides.Presentation() as target_presentation:
@@ -116,7 +118,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# 소스 프레젠테이션 파일을 나타내기 위해 Presentation 클래스를 인스턴스화합니다.
+# 소스 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # 슬라이드가 복제될 대상 PPTX(대상 프레젠테이션)를 위해 Presentation 클래스를 인스턴스화합니다.
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
@@ -146,9 +148,9 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 ```py
 import aspose.slides as slides
 
-# 소스 프레젠테이션 파일을 나타내기 위해 Presentation 클래스를 인스턴스화합니다.
+# 소스 프레젠테이션 파일을 나타내는 Presentation 클래스를 인스턴스화합니다.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # 슬라이드가 복제될 대상 프레젠테이션을 위해 Presentation 클래스를 인스턴스화합니다.
+    # 슬라이드가 복제될 대상 프레젠테이션을 위한 Presentation 클래스를 인스턴스화합니다.
     with slides.Presentation() as target_presentation:
         # 소스 프레젠테이션에서 첫 번째 슬라이드를 가져옵니다.
         source_slide = source_presentation.slides[0]
@@ -166,18 +168,18 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 
 Aspose.Slides for Python via .NET에서는 프레젠테이션의 한 섹션에서 슬라이드를 복제하여 같은 프레젠테이션 내 다른 섹션에 삽입할 수 있습니다. 이를 위해 [SlideCollection](https://reference.aspose.com/slides/ko/python-net/aspose.slides/slidecollection/) 클래스의 `add_clone(Slide, Section)` 메서드를 사용합니다.
 
-다음 Python 예제는 슬라이드를 복제하고 복제본을 지정된 섹션에 삽입하는 방법을 보여줍니다:
+다음 Python 예제는 슬라이드를 클론하고 클론을 지정된 섹션에 삽입하는 방법을 보여줍니다:
 
 ```py
 import aspose.slides as slides
 
 # 새 빈 프레젠테이션을 생성합니다.
 with slides.Presentation() as presentation:
-    # 첫 번째 슬라이드의 레이아웃을 기반으로 빈 슬라이드를 추가합니다.
+    # 첫 번째 슬라이드 레이아웃을 기반으로 빈 슬라이드를 추가합니다.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # 새 슬라이드에 타원 형태를 추가합니다; 이 슬라이드는 나중에 복제됩니다.
+    # 새 슬라이드에 타원 모양을 추가합니다; 이 슬라이드는 나중에 복제됩니다.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # 첫 번째 슬라이드의 레이아웃을 기반으로 또 다른 빈 슬라이드를 추가합니다.
+    # 첫 번째 슬라이드 레이아웃을 기반으로 또 다른 빈 슬라이드를 추가합니다.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # slide2에서 시작하는 "Section2"라는 섹션을 생성합니다.
     section = presentation.sections.add_section("Section2", slide2)

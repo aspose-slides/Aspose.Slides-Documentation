@@ -7,9 +7,9 @@ url: /pl/php-java/slide-layout/
 keywords:
 - układ slajdu
 - układ treści
-- pole zastępcze
+- element zastępczy
 - projektowanie prezentacji
-- projektowanie slajdów
+- projektowanie slajdu
 - nieużywany układ
 - widoczność stopki
 - slajd tytułowy
@@ -28,151 +28,135 @@ keywords:
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Zarządzaj i dostosowuj układy slajdów w Aspose.Slides dla PHP przy użyciu Javy. Poznaj typy układów, kontrolę pól zastępczych oraz widoczność stopki na przykładach kodu."
+description: "Zastosuj, twórz i modyfikuj układy slajdów w Aspose.Slides dla PHP poprzez Java, dodawaj elementy zastępcze, usuwaj nieużywane układy i kontroluj widoczność stopki."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-Układ slajdu definiuje rozmieszczenie pól zastępczych i formatowanie treści na slajdzie. Kontroluje, które pola zastępcze są dostępne i gdzie się pojawiają. Układy slajdów pomagają szybko i konsekwentnie projektować prezentacje — niezależnie od tego, czy tworzysz coś prostego, czy bardziej złożonego. Do najczęściej używanych układów slajdów w programie PowerPoint należą:
+Układ slajdu definiuje pozycje i formatowanie elementów zastępczych, takich jak tytuły, tekst, obrazy, wykresy i tabele. Zastosowanie układu nadaje slajdom spójną strukturę, jednocześnie pozwalając każdemu slajdowi zawierać własną treść.
 
-**Układ slajdu tytułowego** – Zawiera dwa pola tekstowe: jedno dla tytułu i jedno dla podtytułu.
+Najczęściej używane układy to:
 
-**Układ tytuł i treść** – Zawiera mniejsze pole tytułu u góry oraz większe poniżej, przeznaczone na główną treść (taką jak tekst, wypunktowania, wykresy, obrazy i inne).
+- **Slajd tytułowy**: Zawiera elementy zastępcze tytułu i podtytułu.
+- **Tytuł i zawartość**: Zawiera element zastępczy tytułu oraz ogólnego przeznaczenia element zastępczy zawartości.
+- **Pusty**: Nie zawiera elementów zastępczych treści i jest przydatny, gdy każdy kształt będzie pozycjonowany ręcznie.
 
-**Układ pusty** – Nie zawiera pól zastępczych, dając pełną kontrolę nad projektowaniem slajdu od podstaw.
+## **Zrozum dziedziczenie układów**
 
-Układy slajdów są częścią mastera slajdów, który jest slajdem najwyższego poziomu definiującym style układów dla prezentacji. Możesz uzyskać dostęp i modyfikować układy slajdów za pośrednictwem mastera slajdów — zarówno według typu, nazwy, jak i unikalnego identyfikatora. Alternatywnie możesz edytować konkretny układ slajdu bezpośrednio w prezentacji.
+Prezentacja ma trzy powiązane poziomy:
 
-Aby pracować z układami slajdów w Aspose.Slides for PHP, możesz używać:
+1. A [slajd-mistrz](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/) definiuje motyw, współdzielone formatowanie, tła i wspólne obiekty.
+1. A [układ slajdu](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/) należy do mistrza i definiuje konkretny układ elementów zastępczych.
+1. A [normalny slajd](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/) używa jednego układu i przechowuje wprowadzone dla niego treści.
 
-- Metody takie jak [getLayoutSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#getLayoutSlides) i [getMasters](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#getMasters) w klasie [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/)
-- Typy takie jak [LayoutSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/), oraz [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslideheaderfootermanager/)
+Normalny slajd dziedziczy motyw i formatowanie ze swojego układu, a układ dziedziczy od swojego mistrza. Wartość ustawiona bezpośrednio na normalnym slajdzie zastępuje dziedziczoną wartość na tym poziomie. Gdy tworzony jest normalny slajd, jego kształty zastępcze są generowane na podstawie wybranego układu, natomiast treść wprowadzona do tych elementów należy do normalnego slajdu.
 
-{{% alert title="Info" color="info" %}}
-Aby dowiedzieć się więcej o pracy z masterami slajdów, zapoznaj się z artykułem [Slide Master](/slides/pl/php-java/slide-master/).
-{{% /alert %}}
+Dodaj wymagane elementy zastępcze do układu przed utworzeniem z niego slajdów. Dodanie kolejnego elementu zastępczego do układu później nie spowoduje automatycznego dodania odpowiadającego kształtu zastępczego do istniejących normalnych slajdów.
 
-## **Dodawanie układów slajdów do prezentacji**
+Ta zależność ma dwa ważne konsekwencje:
 
-Aby dostosować wygląd i strukturę swoich slajdów, możesz potrzebować dodać nowe układy slajdów do prezentacji. Aspose.Slides for PHP umożliwia sprawdzenie, czy dany układ już istnieje, dodanie nowego w razie potrzeby oraz użycie go do wstawiania slajdów opartych na tym układzie.
+- Zmiana dziedziczonego formatowania lub istniejącej geometrii elementu zastępczego w układzie może zaktualizować każdy slajd, który od niego zależy. Przed edycją układu już używanego, sprawdź jego zależne slajdy i przejrzyj wynikową prezentację.
+- Układ, który jest nadal używany przez slajd, nie może zostać usunięty. Przypisz najpierw jego zależne slajdy do innego układu lub usuń tylko nieużywane układy.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Uzyskaj dostęp do [MasterLayoutSlideCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterlayoutslidecollection/).
-1. Sprawdź, czy żądany układ slajdu już istnieje w kolekcji. Jeśli nie, dodaj potrzebny układ slajdu.
-1. Dodaj pusty slajd oparty na nowym układzie slajdu.
-1. Zapisz prezentację.
+Po więcej informacji o najwyższym poziomie tej hierarchii zobacz [Slide Master](/slides/pl/php-java/slide-master/).
 
-Poniższy kod PHP pokazuje, jak dodać układ slajdu do prezentacji PowerPoint:
+## **Wybierz i zastosuj układ slajdu**
+
+Używaj typu układu, gdy prezentacja korzysta ze standardowych definicji układów PowerPoint. Nazwy układów można edytować i lokalizować, więc wybór oparty na nazwie jest mniej niezawodny, chyba że kontrolujesz szablon źródłowy.
+
+Poniższy przykład szuka **Tytuł i zawartość** w pierwszym mistrzu. Jeśli ten układ jest niedostępny, celowo przechodzi do **Pusty**. Drugi warunek null jest potrzebny, ponieważ prezentacja może zawierać wyłącznie własne układy. Wybrany układ jest następnie stosowany do pierwszego normalnego slajdu za pomocą metody [Slide.setLayoutSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
-// Utwórz instancję klasy Presentation reprezentującej plik PowerPoint.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Przejdź przez typy układów slajdów, aby wybrać układ slajdu.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // Sytuacja, w której prezentacja nie zawiera wszystkich typów układów.
-        // Plik prezentacji zawiera tylko typy układów Blank i Custom.
-        // Jednak układy slajdów z typami niestandardowymi mogą mieć rozpoznawalne nazwy,
-        // takie jak "Title", "Title and Content", itp., które można wykorzystać do wyboru układu slajdu.
-        // Można również opierać się na zestawie typów kształtów pól zastępczych.
-        // Na przykład slajd tytułowy powinien mieć tylko typ pola zastępczego Title, i tak dalej.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Dodaj pusty slajd używając dodanego układu slajdu.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Zapisz prezentację na dysku.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Usuwanie nieużywanych układów slajdów**
+Zmiana układu slajdu nie usuwa zwykłych kształtów dodanych bezpośrednio do slajdu. Jednak pozycje elementów zastępczych, dziedziczone formatowanie oraz powiązania między istniejącymi elementami a nowym układem mogą się zmienić, więc sprawdź wynik przy przełączaniu między znacznie różnymi układami.
 
-Aspose.Slides udostępnia metodę [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) z klasy [Compress](https://reference.aspose.com/slides/pl/php-java/aspose.slides/compress/), pozwalającą usunąć niechciane i nieużywane układy slajdów.
+## **Dodaj układ slajdu**
 
-Poniższy kod PHP pokazuje, jak usunąć układ slajdu z prezentacji PowerPoint:
+Wybór i tworzenie to odrębne operacje. Poprzedni przykład wybiera istniejący układ; nie tworzy go. Aby utworzyć układ, wywołaj metodę [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterlayoutslidecollection/#add) na kolekcji układów docelowego mistrza.
+
+Poniższy przykład zawsze dodaje nowy układ **Tytuł i zawartość** o nazwie `Report Title and Content`, a potem dodaje normalny slajd oparty na nim. Nazwy układów muszą być unikalne w obrębie kolekcji.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Dodawanie pól zastępczych do układów slajdów**
+Dodawaj układ tylko wtedy, gdy szablon naprawdę potrzebuje kolejnej wielokrotnego użycia struktury. Jeśli odpowiedni układ już istnieje, wybierz i użyj go ponownie zamiast tworzyć duplikat.
 
-Aspose.Slides udostępnia metodę [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#getPlaceholderManager), która umożliwia dodawanie nowych pól zastępczych do układu slajdu.
+## **Dodaj elementy zastępcze do układu slajdu**
 
-Menedżer ten zawiera metody dla następujących typów pól zastępczych:
+Metoda [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#getPlaceholderManager) udostępnia [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/) do dodawania kształtów zastępczych do układu.
 
-| Pole zastępcze PowerPoint | [LayoutPlaceholderManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/) Method |
-| -------------------------- | ------------------------------------------------------------ |
-| ![Treść](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Treść (pionowa)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Tekst](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Tekst (pionowy)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Obraz](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Wykres](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabela](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Obraz online](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Element zastępczy PowerPoint | Metoda `LayoutPlaceholderManager` |
+| ---------------------------- | --------------------------------- |
+| ![Zawartość](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Zawartość (pionowa)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Tekst](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Tekst (pionowy)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Obraz](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Wykres](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Tabela](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Obraz online](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Poniższy kod PHP demonstruje, jak dodać nowe kształty pól zastępczych do układu pustego slajdu:
+Poniższy przykład weryfikuje, czy układ **Pusty** istnieje, dodaje do niego cztery elementy zastępcze, a następnie tworzy normalny slajd korzystający z zmodyfikowanego układu. Kolejność jest zamierzona: elementy zastępcze są dodawane przed utworzeniem normalnego slajdu, aby Aspose.Slides mógł wygenerować odpowiadające kształty zastępcze na tym slajdzie.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Pobierz układ slajdu Blank.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Pobierz menedżera pól zastępczych układu slajdu.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Dodaj różne pola zastępcze do układu slajdu Blank.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Dodaj nowy slajd z układem Blank.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -180,73 +164,86 @@ try {
 
 Wynik:
 
-![Pola zastępcze na układzie slajdu](add_placeholders.png)
+![Elementy zastępcze na slajdzie układu](add_placeholders.png)
 
-## **Ustawianie widoczności stopki dla układu slajdu**
+{{% alert color="warning" title="Ostrzeżenie" %}}
+Zmiana dziedziczonego formatowania lub geometrii istniejących elementów zastępczych w układzie może wpływać na zależne slajdy. Nowo dodany element zastępczy nie jest automatycznie wstawiany do istniejących normalnych slajdów. Testuj zmiany układu na kopii prezentacji i sprawdzaj każdy zależny slajd.
+{{% /alert %}}
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i własny tekst, mogą być wyświetlane lub ukrywane w zależności od układu slajdu. Aspose.Slides for PHP umożliwia kontrolowanie widoczności tych pól zastępczych stopki. Jest to przydatne, gdy chcesz, aby niektóre układy wyświetlały informacje stopki, a inne pozostawały czyste i minimalistyczne.
+## **Usuń nieużywane układy slajdów**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do układu slajdu za pomocą jego indeksu.
-1. Ustaw pole zastępcze stopki slajdu jako widoczne.
-1. Ustaw pole zastępcze numeru slajdu jako widoczne.
-1. Ustaw pole zastępcze daty i czasu jako widoczne.
-1. Zapisz prezentację.
-
-Poniższy kod PHP pokazuje, jak ustawić widoczność stopki slajdu i wykonać powiązane zadania:
+Użyj metody [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć układy, do których nie odnosi się żaden normalny slajd. Metoda pozostawia nienaruszone układy nadal używane.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
-
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
-    }
-
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
-    }
-
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
-    $headerFooterManager->setFooterText("Footer text");
-    $headerFooterManager->setDateTimeText("Date and time text");
-
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Ustawianie widoczności stopki potomka dla slajdu**
+Aby usunąć konkretny układ, najpierw użyj jego metody [hasDependingSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#hasDependingSlides) lub [getDependingSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#getDependingSlides). Przypisz wszystkie zależne slajdy przed wywołaniem [LayoutSlide.remove](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#remove). Próba usunięcia używanego układu powoduje zgłoszenie [PptxEditException](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pptxeditexception/).
 
-W prezentacjach PowerPoint elementy stopki, takie jak data, numer slajdu i własny tekst, mogą być kontrolowane na poziomie mastera slajdów, aby zapewnić spójność we wszystkich układach slajdów. Aspose.Slides for PHP umożliwia ustawienie widoczności i zawartości tych pól zastępczych stopki na masterze oraz propagowanie tych ustawień do wszystkich potomnych układów slajdów. Takie podejście zapewnia jednolitą informację stopki w całej prezentacji.
+## **Kontroluj widoczność stopki w układzie slajdu**
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do mastera slajdu za pomocą jego indeksu.
-1. Ustaw pola zastępcze stopki mastera i wszystkich potomnych jako widoczne.
-1. Ustaw pola zastępcze numeru slajdu mastera i wszystkich potomnych jako widoczne.
-1. Ustaw pola zastępcze daty i czasu mastera i wszystkich potomnych jako widoczne.
-1. Zapisz prezentację.
+Układ ma własne elementy zastępcze stopki, numeru slajdu i daty/czasu. Użyj metody [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#getHeaderFooterManager), aby sterować tymi elementami w jednym układzie. Jest to przydatne, gdy na przykład układy zawartości mają wyświetlać stopki, a układy tytułów nie.
 
-Poniższy kod PHP demonstruje tę operację:
+Poniższy przykład wybiera układ w bezpieczny sposób i ustawia jego elementy stopki jako widoczne:
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    }
+
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
+    }
+
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
+    $headerFooterManager->setFooterText("Footer text");
+    $headerFooterManager->setDateTimeText("Date and time text");
+
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Kontroluj widoczność stopki w slajdzie-mistrzu i jego układach podrzędnych**
+
+Aby zastosować spójne ustawienia stopki w całej hierarchii mistrza, użyj metody [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Metody propagacji [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslideheaderfootermanager/) działają na mistrzu oraz jego zależnych układach i normalnych slajdach; nie są skierowane wyłącznie do jednego normalnego slajdu.
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -254,14 +251,18 @@ try {
 
 ## **FAQ**
 
-**Jaka jest różnica między masterem slajdu a układem slajdu?**
+**Jaka jest różnica między slajdem‑mistrzem a układem slajdu?**
 
-Master slajdu definiuje ogólny motyw i domyślne formatowanie, natomiast układy slajdów określają konkretne rozmieszczenie pól zastępczych dla różnych typów treści.
+Slajd‑mistrz definiuje motyw prezentacji i współdzielone formatowanie. Układ slajdu należy do mistrza i definiuje jedną wielokrotnego użycia konfigurację elementów zastępczych. Normalne slajdy używają tych układów i przechowują treści specyficzne dla slajdu.
 
 **Czy mogę skopiować układ slajdu z jednej prezentacji do drugiej?**
 
-Tak, możesz sklonować układ slajdu z kolekcji układów slajdów jednej prezentacji, dostępnej przez metodę [getLayoutSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/#getLayoutSlides), i wstawić go do innej prezentacji za pomocą metody `addClone`.
+Tak. Dodaj kopię do docelowej kolekcji za pomocą metody [addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/globallayoutslidecollection/#addClone). Przy kopiowaniu między prezentacjami sprawdź również czcionki, motywy, obrazy i inne zasoby używane przez źródłowy układ.
 
-**Co się stanie, jeśli usunę układ slajdu, który jest nadal używany przez slajd?**
+**Co się stanie, gdy zmodyfikuję układ już używany?**
 
-Jeśli spróbujesz usunąć układ slajdu, który jest nadal odwoływany przynajmniej przez jeden slajd w prezentacji, Aspose.Slides zgłosi wyjątek [PptxEditException](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pptxeditexception/). Aby tego uniknąć, użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), który bezpiecznie usuwa tylko nieużywane układy slajdów.
+Zależne slajdy dziedziczą zmiany układu, chyba że nadpiszą dotknięte formatowanie lub obiekty lokalnie. Geometria elementów zastępczych i dziedziczone style mogą więc zmienić się jednocześnie na wielu slajdach. Użyj [getDependingSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/#getDependingSlides), aby zidentyfikować dotknięte slajdy przed edycją układu.
+
+**Co się stanie, jeśli usunę układ, który jest nadal używany?**
+
+Aspose.Slides zgłosi [PptxEditException](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pptxeditexception/). Najpierw przypisz zależne slajdy do innego układu lub użyj [removeUnusedLayoutSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/compress/#removeUnusedLayoutSlides), aby usunąć tylko niepowiązane układy.

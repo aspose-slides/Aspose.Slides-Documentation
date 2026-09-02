@@ -1,365 +1,391 @@
 ---
-title: "एंड्रॉइड पर प्रस्तुतियों में चार्ट डेटा श्रृंखला प्रबंधित करें"
-linktitle: "डेटा श्रृंखला"
+title: एंड्रॉइड पर प्रस्तुतियों में चार्ट डेटा श्रृंखलाओं का प्रबंधन
+linktitle: डेटा श्रृंखला
 type: docs
 url: /hi/androidjava/chart-series/
 keywords:
-- "चार्ट श्रृंखला"
-- "श्रृंखला ओवरलैप"
-- "श्रृंखला रंग"
-- "श्रेणी रंग"
-- "श्रृंखला नाम"
-- "डेटा पॉइंट"
-- "श्रृंखला गैप"
-- "PowerPoint"
-- "प्रस्तुति"
-- "Android"
-- "Java"
-- "Aspose.Slides"
-description: "व्यावहारिक जावा कोड उदाहरणों और सर्वोत्तम प्रथाओं के साथ एंड्रॉइड पर PowerPoint (PPT/PPTX) के लिए चार्ट सीरीज़ को कैसे प्रबंधित करें, यह सीखें, ताकि आपकी डेटा प्रस्तुतियों को बेहतर बनाया जा सके।"
+- चार्ट श्रृंखला
+- श्रृंखला ओवरलैप
+- श्रृंखला रंग
+- श्रृंखला नाम
+- डेटा बिंदु
+- वर्कबुक सेल
+- श्रृंखला गैप
+- नकारात्मक मान
+- PowerPoint
+- प्रस्तुति
+- Android
+- Java
+- Aspose.Slides
+description: "एंड्रॉइड पर प्रस्तुतियों में चार्ट श्रृंखला, डेटा बिंदु, वर्कबुक सेल, स्वरूपण, ओवरलैप, गैप चौड़ाई, और नकारात्मक मानों को कैसे प्रबंधित करें, सीखें।"
 ---
 ## **अवलोकन**
 
-यह लेख Aspose.Slides में [ChartSeries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chartseries/) की भूमिका का वर्णन करता है, जो प्रस्तुतियों में डेटा कैसे संरचित और दृश्यित होता है, इस पर केंद्रित है। ये ऑब्जेक्ट उन आधारभूत तत्वों को प्रदान करते हैं जो चार्ट में डेटा पॉइंट, श्रेणियों और रूप‑रंग पैरामीटर के व्यक्तिगत सेट को परिभाषित करते हैं। [ChartSeries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/chartseries/) के साथ काम करके, डेवलपर्स बुनियादी डेटा स्रोतों को सहजता से एकीकृत कर सकते हैं और जानकारी कैसे प्रदर्शित होती है, इस पर पूर्ण नियंत्रण रख सकते हैं, जिससे गतिशील, डेटा‑चालित प्रस्तुतियां बनती हैं जो स्पष्ट रूप से अंतर्दृष्टि और विश्लेषण को प्रस्तुत करती हैं।
+एक चार्ट अपने प्लॉट किए गए डेटा को एक चार्ट डेटा वर्कबुक में संग्रहीत करता है। एक [IChartSeries](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/) एक संबंधित मानों के सेट का प्रतिनिधित्व करता है, और श्रृंखला में प्रत्येक [IChartDataPoint](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapoint/) एक या अधिक वर्कबुक सेल्स को संदर्भित करता है। [IChartCategory](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartcategory/) ऑब्जेक्ट्स उन लेबल या ग्रुपिंग मानों को प्रदान करते हैं जो श्रृंखलाओं द्वारा साझा किए जाते हैं। श्रृंखला का नाम, श्रेणियां, और बिंदु मान इसलिए [IChartDataCell](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatacell/) ऑब्जेक्ट्स से जुड़े होते हैं, न कि केवल डिस्प्ले टेक्स्ट के रूप में संग्रहीत होते हैं।
 
-एक श्रृंखला चार्ट में प्लॉट की गई संख्याओं की पंक्ति या स्तंभ होती है।
+एक सामान्य श्रेणी चार्ट के लिए, डिफ़ॉल्ट वर्कबुक श्रृंखला नामों के लिए पंक्ति 0, श्रेणी नामों के लिए कॉलम 0, और शेष सेल्स श्रृंखला मानों के लिए उपयोग करती है। [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) को पास किए गए वर्कशीट, पंक्ति, और कॉलम इंडेक्स शून्य‑आधारित होते हैं। यह लेआउट तब उपयोगी होता है जब आप डिफ़ॉल्ट डेटा के साथ चार्ट बनाते हैं, लेकिन यह न मानें कि हर मौजूदा चार्ट इसका उपयोग करता है। एक लोडेड प्रस्तुति के लिए, वर्कबुक मान बदलने से पहले श्रृंखलाओं, श्रेणियों, और डेटा पॉइंट्स द्वारा संदर्भित सेल्स की जांच करें।
+
+चार्ट सेटिंग्स के तीन अलग‑ अलग स्कोप होते हैं:
+
+- श्रृंखला‑स्तर की सेटिंग्स, जैसे [IChartSeries.getFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getFormat--), एक श्रृंखला के सभी बिंदुओं के लिए डिफ़ॉल्ट रूप प्रदान करती हैं।
+- डेटा‑पॉइंट सेटिंग्स, जैसे [IChartDataPoint.getFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), एक बिंदु के लिए श्रृंखला रूप को ओवरराइड करती हैं।
+- समूह सेटिंग्स संगत श्रृंखलाओं पर लागू होती हैं जो एक ही [IChartSeriesGroup](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseriesgroup/) से संबंधित होते हैं। जब आपको ओवरलैप या गैप विथ जैसे विकल्प सेट करने की आवश्यकता हो, तो [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) के माध्यम से समूह तक पहुँचें।
+
+जब कोई स्पष्ट बिंदु या श्रृंखला भराव सेट नहीं किया गया हो, तो चार्ट शैली और थीम स्वचालित रूप से उपस्थिति निर्धारित करती हैं। जब श्रृंखला और बिंदु दोनों फ़ॉर्मेट मौजूद हों, तो बिंदु फ़ॉर्मेट उस बिंदु के लिए प्राथमिकता लेता है।
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **चार्ट सीरीज़ ओवरलैप सेट करें**
+## **चार्ट श्रृंखला ओवरलैप सेट करें**
 
-[IChartSeries.getOverlap](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getOverlap--) मेथड के साथ आप निर्धारित कर सकते हैं कि 2D चार्ट में बार और कॉलम कितना ओवरलैप करेंगे (सीमा: -100 से 100)। यह प्रॉपर्टी पैरेंट सीरीज़ समूह की सभी श्रृंखलाओं पर लागू होती है: यह उपयुक्त समूह प्रॉपर्टी का प्रोजेक्शन है। इसलिए, यह प्रॉपर्टी केवल‑पढ़ने योग्य है।
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getOverlap--) 2D चार्ट में बार या कॉलम कितनी ओवरलैप करते हैं, -100 से 100 % तक रिपोर्ट करता है। यह पैरेंट श्रृंखला समूह की सेटिंग का केवल‑पढ़ा प्रोजेक्शन है। समूह में सभी संगत श्रृंखलाओं को अपडेट करने के लिए [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) का उपयोग करें। यह विकल्प उन चार्ट प्रकारों पर लागू होता है जो समूहित बार या कॉलम दिखाते हैं; यह संयोजन चार्ट में असंबंधित श्रृंखला समूहों को प्रभावित नहीं करता।
 
-अपनी पसंदीदा ओवरलैप मान सेट करने के लिए `getParentSeriesGroup().setOverlap()` लिखने वाला मेथड उपयोग करें।
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-1. स्लाइड पर एक क्लस्टर्ड कॉलम चार्ट जोड़ें।
-1. पहले चार्ट सीरीज़ तक पहुँचें।
-1. चार्ट सीरीज़ के `ParentSeriesGroup` तक पहुँचें और श्रृंखला के लिए अपनी पसंदीदा ओवरलैप मान सेट करें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
-
-यह Java कोड दिखाता है कि चार्ट सीरीज़ के ओवरलैप को कैसे सेट करें:
+निम्नलिखित उदाहरण पहले श्रृंखला को शामिल करने वाले समूह के लिए ओवरलैप सेट करता है:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // चार्ट जोड़ता है
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // श्रृंखला ओवरलैप सेट करता है
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // प्रस्तुति फ़ाइल को डिस्क पर लिखता है
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // नया चार्ट नमूना श्रृंखलाएं, श्रेणियां, और मान शामिल करता है।
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **सीरीज़ का रंग बदलें**
+परिणाम:
 
-Aspose.Slides for Android via Java आपको सीरीज़ का रंग इस प्रकार बदलने की अनुमति देता है:
+![The series overlap](series_overlap.png)
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-1. स्लाइड पर चार्ट जोड़ें।
-1. उस सीरीज़ तक पहुँचें जिसका रंग आप बदलना चाहते हैं।
-1. अपनी पसंदीदा भराव प्रकार और भराव रंग सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
+## **श्रृंखला भराव रंग बदलें**
 
-यह Java कोड दिखाता है कि सीरीज़ का रंग कैसे बदलें:
+पूरी श्रृंखला के लिए डिफ़ॉल्ट भराव सेट करने हेतु [IChartSeries.getFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getFormat--) का उपयोग करें। यदि किसी बिंदु का पहले से स्पष्ट भराव है, तो उसका [IChartDataPoint.getFormat](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) सेटिंग उस बिंदु के लिए श्रृंखला भराव को ओवरराइड करती है।
+
+निम्नलिखित उदाहरण पहली श्रृंखला पर ठोस नीला भराव लागू करता है:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **सीरीज़ श्रेणी का रंग बदलें**
-
-Aspose.Slides for Android via Java आपको सीरीज़ श्रेणी का रंग इस प्रकार बदलने की अनुमति देता है:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-1. स्लाइड पर चार्ट जोड़ें।
-1. उस सीरीज़ श्रेणी तक पहुँचें जिसका रंग आप बदलना चाहते हैं।
-1. अपनी पसंदीदा भराव प्रकार और भराव रंग सेट करें।
-1. संशोधित प्रस्तुति को सहेजें।
-
-यह Java कोड दिखाता है कि सीरीज़ श्रेणी का रंग कैसे बदलें:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **सीरीज़ का नाम बदलें**
-
-डिफ़ॉल्ट रूप से, चार्ट की लेजेंड नाम प्रत्येक कॉलम या पंक्ति के ऊपर की सेल की सामग्री होते हैं।
-
-हमारे उदाहरण (नमूना छवि) में,
-
-* कॉलम हैं *Series 1, Series 2,* और *Series 3*;
-* पंक्तियों में *Category 1, Category 2, Category 3,* और *Category 4* हैं।
-
-Aspose.Slides for Android via Java आपको चार्ट डेटा और लेजेंड में सीरीज़ का नाम अपडेट या बदलने की अनुमति देता है।
-
-यह Java कोड दिखाता है कि `ChartDataWorkbook` में चार्ट डेटा के भीतर सीरीज़ का नाम कैसे बदलें:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-यह Java कोड दिखाता है कि लेजेंड के माध्यम से `Series` के द्वारा सीरीज़ नाम कैसे बदलें:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **चार्ट सीरीज़ भराव रंग सेट करें**
-
-Aspose.Slides for Android via Java आपको प्लॉट एरिया के भीतर चार्ट सीरीज़ के लिए स्वचालित भराव रंग इस प्रकार सेट करने की अनुमति देता है:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-1. उसकी इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-1. अपनी पसंदीदा प्रकार (निचले उदाहरण में हमने `ChartType.ClusteredColumn` इस्तेमाल किया) के आधार पर डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें।
-1. चार्ट सीरीज़ तक पहुँचें और भराव रंग को Automatic सेट करें।
-1. प्रस्तुति को PPTX फ़ाइल में सहेजें।
-
-यह Java कोड दिखाता है कि चार्ट सीरीज़ के लिए स्वचालित भराव रंग कैसे सेट करें:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // क्लस्टर्ड कॉलम चार्ट बनाता है
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // श्रृंखला भराव फ़ॉर्मेट को ऑटोमैटिक सेट करता है
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // प्रस्तुति फ़ाइल को डिस्क पर लिखता है
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **चार्ट सीरीज़ के लिए उल्टा भराव रंग सेट करें**
-
-Aspose.Slides आपको प्लॉट एरिया के भीतर चार्ट सीरीज़ के लिए उल्टा भराव रंग इस प्रकार सेट करने की अनुमति देता है:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-1. उसकी इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-1. अपनी पसंदीदा प्रकार (निचले उदाहरण में हमने `ChartType.ClusteredColumn` इस्तेमाल किया) के आधार पर डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें।
-1. चार्ट सीरीज़ तक पहुँचें और भराव रंग को invert सेट करें।
-1. प्रस्तुति को PPTX फ़ाइल में सहेजें।
-
-यह Java कोड इस ऑपरेशन को प्रदर्शित करता है:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // नई श्रृंखलाएँ और श्रेणियाँ जोड़ता है
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // पहली चार्ट श्रृंखला लेता है और उसकी श्रृंखला डेटा को भरता है।
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **नकारात्मक मान होने पर सीरीज़ को उल्टा सेट करें**
+परिणाम:
 
-Aspose.Slides आपको `IChartDataPoint.InvertIfNegative` और `ChartDataPoint.InvertIfNegative` प्रॉपर्टी के माध्यम से उल्टा सेट करने की अनुमति देता है। जब इन प्रॉपर्टी के द्वारा उल्टा सेट किया जाता है, तो डेटा पॉइंट नकारात्मक मान मिलने पर अपना रंग बदल देता है।
+![The color of the series](series_color.png)
 
-यह Java कोड इस ऑपरेशन को प्रदर्शित करता है:
+## **श्रृंखला नाम बदलें**
+
+श्रृंखला नाम चार्ट डेटा वर्कबुक में संग्रहीत रहता है और आमतौर पर लीज़ेंड में दिखाया जाता है। क्लस्टर्ड कॉलम चार्ट के डिफ़ॉल्ट वर्कबुक में, सेल B1 (पंक्ति 0, कॉलम 1) पहली श्रृंखला का नाम रखता है। नीचे दिए गए उदाहरण में नामित स्थिरांक इस संरचना को स्पष्ट करते हैं:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **विशिष्ट पॉइंट डेटा हटाएँ**
-
-Aspose.Slides for Android via Java आपको किसी विशिष्ट चार्ट सीरीज़ के `DataPoints` डेटा को इस प्रकार साफ़ करने की अनुमति देता है:
-
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-2. उसकी इंडेक्स से स्लाइड का संदर्भ प्राप्त करें।
-3. उसकी इंडेक्स से चार्ट का संदर्भ प्राप्त करें.
-4. सभी चार्ट `DataPoints` को इटररेट करें और `XValue` व `YValue` को null सेट करें।
-5. विशिष्ट चार्ट सीरीज़ के सभी `DataPoints` को साफ़ करें।
-6. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
-
-यह Java कोड इस ऑपरेशन को प्रदर्शित करता है:
+आप [IChartSeries.getName](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getName--) द्वारा पहले से संदर्भित सेल को भी अपडेट कर सकते हैं। यह तरीका मौजूदा चार्ट में किसी विशिष्ट पंक्ति और कॉलम को मानने से बचता है:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+परिणाम:
+
+![The series name](series_name.png)
+
+## **स्वचालित श्रृंखला भराव रंग प्राप्त करें**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) श्रृंखला सूचकांक और चार्ट शैली के आधार पर गणना किया गया Android ARGB रंग पूर्णांक लौटाता है। यह वह रंग है जो तब उपयोग होता है जब श्रृंखला भराव स्पष्ट रूप से परिभाषित नहीं होता। इस मेथड को कॉल करने से केवल गणना किया गया रंग पढ़ा जाता है; यह नया भराव नहीं निर्धारित करता।
+
+निम्नलिखित उदाहरण प्रत्येक डिफ़ॉल्ट श्रृंखला का स्वचालित रंग पूर्णांक प्रिंट करता है:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+सटीक पूर्णांक मान चार्ट शैली और थीम पर निर्भर करते हैं।
+
+## **एक चार्ट श्रृंखला के लिए उल्टा भराव रंग सेट करें**
+
+बार, कॉलम, और बबल श्रृंखलाओं के लिए, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) नकारात्मक मानों को अलग भराव के साथ दिखा सकता है। नियमित श्रृंखला भराव को ठोस सेट करें, उलटाव को सक्षम करें, और नकारात्मक‑मान रंग [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) के माध्यम से असाइन करें। वर्कबुक में नकारात्मक संख्याएँ अपरिवर्तित रहती हैं; केवल उनका प्रदर्शित रंग बदलता है।
+
+निम्नलिखित उदाहरण डिफ़ॉल्ट चार्ट डेटा को एक श्रृंखला से बदलता है। कार्यपत्रक पंक्ति 0 में श्रृंखला नाम, कॉलम 0 में श्रेणी नाम, और कॉलम 1 में मान होते हैं:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **सीरीज़ का गैप चौड़ाई सेट करें**
+परिणाम:
 
-Aspose.Slides for Android via Java आपको **`GapWidth`** प्रॉपर्टी के माध्यम से सीरीज़ की गैप चौड़ाई इस प्रकार सेट करने की अनुमति देता है:
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-1. [Presentation](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/Presentation) क्लास का एक इंस्टेंस बनाएँ।
-1. पहली स्लाइड तक पहुँचें।
-1. डिफ़ॉल्ट डेटा के साथ चार्ट जोड़ें।
-1. किसी भी चार्ट सीरीज़ तक पहुँचें।
-1. `GapWidth` प्रॉपर्टी सेट करें।
-1. संशोधित प्रस्तुति को PPTX फ़ाइल में लिखें।
-
-यह Java कोड दिखाता है कि सीरीज़ की गैप चौड़ाई कैसे सेट करें:
+आप एक बिंदु के लिए उलटाव को [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) से सक्षम कर सकते हैं। नीचे दिए गए उदाहरण में श्रृंखला के लिए उलटाव निष्क्रिय है और केवल चयनित बिंदु के लिये सक्रिय किया गया है। बिंदु को नकारात्मक मान भी असाइन किया गया है ताकि प्रभाव दिख सके:
 
 ```java
-// खाली प्रस्तुति बनाता है 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // प्रस्तुति की पहली स्लाइड तक पहुँचता है
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // डिफ़ॉल्ट डेटा के साथ एक चार्ट जोड़ता है
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // चार्ट डेटा शीट का इंडेक्स सेट करता है
-    int defaultWorksheetIndex = 0;
-    
-    // चार्ट डेटा वर्कशीट प्राप्त करता है
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // श्रंखला जोड़ता है
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // श्रेणियाँ जोड़ता है
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // दूसरी चार्ट श्रृंखला लेता है
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // श्रृंखला डेटा को भरता है
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // GapWidth मान सेट करता है
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // प्रस्तुति को डिस्क पर सहेजता है
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **विशिष्ट डेटा पॉइंट मान साफ़ करें**
+
+एक बिंदु को अन्य बिंदुओं को हटाए बिना खाली करने के लिए, उसकी बैकिंग वर्कबुक सेल को `null` सेट करें। कॉलम चार्ट के लिए, प्लॉट किया गया मान [IChartDataPoint.getValue](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) के माध्यम से उपलब्ध होता है। डेटा पॉइंट समान श्रेणी स्थिति पर बना रहता है, लेकिन चार्ट उसकी मान को ब्लैंक मान सेटिंग्स के अनुसार खाली मान लेता है।
+
+निम्नलिखित उदाहरण पहली श्रृंखला में केवल दूसरे बिंदु को साफ़ करता है:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+स्कैटर चार्ट अलग‑अलग X और Y सेल्स उपयोग करते हैं, और बबल चार्ट एक आकार सेल भी उपयोग करता है। केवल उस सेल को साफ़ करें जो आप हटाना चाहते हैं। जब आप अन्य बिंदु रखना चाहते हैं, तो [IChartDataPointCollection.clear](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) को न कॉल करें, क्योंकि यह मेथड संग्रह से सभी डेटा पॉइंट्स को हटा देता है।
+
+## **श्रृंखला गैप चौड़ाई सेट करें**
+
+गैप चौड़ाई पड़ोसियों के बीच बार या कॉलम क्लस्टर के बीच का अंतराल है, जिसे बार या कॉलम चौड़ाई के प्रतिशत में व्यक्त किया जाता है। ओवरलैप की तरह, यह पैरेंट श्रृंखला समूह से संबंधित है, न कि किसी एक श्रृंखला से। समूह के लिए एक बार [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) कॉल करें। बड़ा मान क्लस्टर के बीच अधिक स्थान बनाता है; छोटा मान उन्हें अधिक घना बनाता है।
+
+निम्नलिखित उदाहरण गैप चौड़ाई बदलता है और केवल अंतिम प्रस्तुति को सहेजता है:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+परिणाम:
+
+![The gap width](gap_width.png)
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**क्या एक चार्ट में शामिल की जा सकने वाली श्रृंखलाओं की संख्या पर कोई सीमा है?**
+**कौन से चार्ट प्रकार डेटा श्रृंखलाओं का समर्थन करते हैं?**
 
-Aspose.Slides द्वारा जोड़ने योग्य श्रृंखलाओं की संख्या पर कोई निश्चित सीमा निर्धारित नहीं की गई है। व्यावहारिक सीमा चार्ट की पठनीयता और आपके एप्लिकेशन में उपलब्ध मेमोरी द्वारा तय होती है।
+[ChartType](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/charttype/) एनेमरेशन द्वारा दर्शाए गए सभी चार्ट प्रकार डेटा का उपयोग करते हैं, लेकिन उनकी श्रृंखलाओं की संरचना या सेटिंग्स समान नहीं होती। उदाहरण के लिए, श्रेणी चार्ट में श्रेणियां और मान होते हैं, स्कैटर चार्ट में X और Y मान होते हैं, और बबल चार्ट में बबल आकार जोड़ता है। डेटा‑पॉइंट निर्माण मेथड को श्रृंखला प्रकार के अनुसार चुनें। ओवरलैप और गैप चौड़ाई जैसे विकल्प केवल संगत बार या कॉलम समूहों पर लागू होते हैं।
 
-**यदि क्लस्टर के भीतर कॉलम बहुत पास या बहुत दूर हों तो क्या करें?**
+**चार्ट श्रृंखला समूह क्या है?**
 
-उस श्रृंखला (या उसके पैरेंट सीरीज़ समूह) के लिए `GapWidth` सेटिंग को समायोजित करें। मान बढ़ाने से कॉलम के बीच का अंतर बढ़ जाता है, जबकि मान घटाने से वे एक‑दूसरे के करीब आ जाते हैं।
+[IChartSeriesGroup](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseriesgroup/) संगत श्रृंखलाओं को समाहित करता है जो समूह‑स्तरीय प्लॉटिंग सेटिंग्स साझा करती हैं। एक संयोजन चार्ट में एक से अधिक समूह हो सकते हैं, इसलिए एक श्रृंखला के माध्यम से पहुँचा गया समूह सभी श्रृंखलाओं को अनिवार्य रूप से नहीं बदलता।
+
+**क्या नई बनाई गई चार्ट में डिफ़ॉल्ट डेटा शामिल होता है?**
+
+हां। डिफ़ॉल्ट रूप से, [IShapeCollection.addChart](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) नमूना श्रृंखलाएं, श्रेणियां, और मान बनाता है। आप इन सेल्स को संपादित कर सकते हैं या पूरी तरह कस्टम डेटा सेट जोड़ने से पहले दोनों श्रृंखला और श्रेणी संग्रह साफ़ कर सकते हैं। एक ओवरलोड का उपयोग करके डिफ़ॉल्ट डेटा के बिना भी चार्ट बनाया जा सकता है।
+
+**चार्ट ऑब्जेक्ट वर्कबुक सेल्स से कैसे जुड़े होते हैं?**
+
+श्रृंखला नाम, श्रेणी लेबल, और डेटा‑पॉइंट मान [IChartDataWorkbook](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdataworkbook/) में सेल्स को संदर्भित करते हैं। एक संदर्भित सेल को बदलने से संबंधित चार्ट तत्व अपडेट होता है। जब आप कस्टम डेटा बनाते हैं, तो श्रेणी पंक्तियों और श्रृंखला‑मान पंक्तियों को संरेखित रखें ताकि प्रत्येक बिंदु इच्छित श्रेणी के नीचे प्लॉट हो सके।
+
+**मैं पूरी श्रृंखला नहीं बल्कि केवल एक बिंदु कैसे साफ़ करूँ?**
+
+संबंधित मान सेल को `null` सेट करें ताकि बिंदु की श्रेणी स्थिति बनी रहे और वह एक खाली बिंदु बन जाए। केवल तब [IChartDataPointCollection.clear](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) का उपयोग करें जब आप उस श्रृंखला के सभी बिंदु हटाना चाहते हों। यदि आप श्रेणियां भी हटाते हैं, तो सभी श्रृंखलाओं को अपडेट करें ताकि उनके मान श्रेणी संग्रह के साथ संरेखित रहें।
+
+**खाली बिंदुओं को कैसे प्रदर्शित किया जाता है?**
+
+परिणाम चार्ट प्रकार और [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) द्वारा कॉन्फ़िगर किए गए मान पर निर्भर करता है। समर्थित चार्ट खाली स्थानों को गैप, शून्य मान, या पड़ोसी बिंदुओं को जोड़कर दिखा सकते हैं। वह सेटिंग चुनें जो आपकी प्रस्तुति में अनुपस्थित डेटा के अर्थ से मेल खाती हो।
+
+**नकारात्मक मानों को कैसे फ़ॉर्मेट किया जाता है?**
+
+समर्थित बार, कॉलम, और बबल श्रृंखलाओं के लिए, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) कॉल करें और [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) द्वारा लौटाए गए रंग को सेट करें। आप [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) से व्यक्तिगत बिंदु के लिए व्यवहार ओवरराइड कर सकते हैं। ये मेथड फ़ॉर्मेटिंग को प्रभावित करते हैं, न कि संग्रहीत संख्यात्मक मानों को।
+
+**जब श्रृंखला और बिंदु दोनों फ़ॉर्मेट किए गए हों तो कौन जीतेगा?**
+
+स्पष्ट डेटा‑पॉइंट फ़ॉर्मेटिंग उस बिंदु के लिए प्राथमिकता लेती है। अन्य बिंदु स्पष्ट श्रृंखला फ़ॉर्मेट या, जब श्रृंखला फ़ॉर्मेट परिभाषित न हो, स्वचालित चार्ट शैली और थीम का उपयोग जारी रखते हैं। समूह सेटिंग्स जैसे ओवरलैप और गैप विथ लेआउट को नियंत्रित करती हैं और बिंदु‑स्तर के फ़ॉर्मेट ओवरराइड नहीं हैं।
+
+**एक चार्ट में कितनी अधिकतम श्रृंखलाएँ हो सकती हैं?**
+
+Aspose.Slides कोई अलग से निश्चित श्रृंखला‑गणना सीमा नहीं लगाता। व्यवहार में, प्रस्तुति फ़ाइल सीमाएँ, उपलब्ध मेमोरी, रेंडरिंग समय, और चार्ट पठनीयता एक उपयोगी सीमा निर्धारित करती हैं।
+
+**जब कॉलम बहुत करीब या बहुत दूर हों तो क्या बदलना चाहिए?**
+
+संबंधित पैरेंट श्रृंखला समूह पर [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hi/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) कॉल करें। मान बढ़ाने से क्लस्टर के बीच का अंतराल चौड़ा होगा, और घटाने से क्लस्टर एक‑दूसरे के करीब आएँगे।

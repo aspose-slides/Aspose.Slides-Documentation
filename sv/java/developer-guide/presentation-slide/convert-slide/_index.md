@@ -1,50 +1,50 @@
 ---
 title: Konvertera presentationsbilder till bilder i Java
-linktitle: Bildspel till bild
+linktitle: Bildruta till bild
 type: docs
 weight: 35
 url: /sv/java/convert-slide/
 keywords:
-- konvertera bild
-- exportera bild
-- bild till bild
-- spara bild som bild
-- bild till PNG
-- bild till JPEG
-- bild till bitmap
-- bild till TIFF
+- konvertera bildruta
+- exportera bildruta
+- bildruta till bild
+- spara bildruta som bild
+- bildruta till PNG
+- bildruta till JPEG
+- bildruta till bitmap
+- bildruta till TIFF
 - PowerPoint
 - OpenDocument
 - presentation
 - Java
 - Aspose.Slides
-description: "Konvertera bildspel från PPT, PPTX och ODP till bilder i Java med Aspose.Slides—snabb, högkvalitativ rendering med tydliga kodexempel."
+description: "Konvertera bildrutor från PPT, PPTX och ODP till bilder i Java med Aspose.Slides—snabb, högkvalitativ rendering med tydliga kodexempel."
 ---
 ## **Introduktion**
 
-Aspose.Slides för Java gör det enkelt att konvertera PowerPoint- och OpenDocument-presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
+Aspose.Slides for Java gör det enkelt att konvertera PowerPoint- och OpenDocument-presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
 
-För att konvertera ett bildspel till en bild, följ dessa steg:
+För att konvertera en bildruta till en bild, följ dessa steg:
 
-1. Definiera önskade konverteringsinställningar och välj de bildspel du vill exportera genom att använda:
-    - gränssnittet [ITiffOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiffoptions/) eller
-    - gränssnittet [IRenderingOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/irenderingoptions/).
-2. Generera bildspelet som bild genom att anropa metoden [getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-).
+1. Definiera önskade konverteringsinställningar och välj de bildrutor du vill exportera genom att använda:
+    - [ITiffOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiffoptions/)‑gränssnittet, eller
+    - [IRenderingOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/irenderingoptions/)‑gränssnittet.
+2. Generera bildrutan genom att anropa metoden [getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) .
 
-I Aspose.Slides för Java är ett [IImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimage/) ett gränssnitt som låter dig arbeta med bilder definierade av pixeldata. Du kan använda detta gränssnitt för att spara bilder i ett brett sortiment av format (BMP, JPG, PNG osv.).
+I Aspose.Slides for Java är ett [IImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/iimage/) ett gränssnitt som låter dig arbeta med bilder definierade av pixeldata. Du kan använda detta gränssnitt för att spara bilder i ett brett spektrum av format (BMP, JPG, PNG osv.).
 
-## **Konvertera bildspel till bitmapp och spara bilderna i PNG**
+## **Konvertera bildrutor till bitmapar och spara bilderna i PNG**
 
-Du kan konvertera ett bildspel till ett bitmap‑objekt och använda det direkt i din applikation. Alternativt kan du konvertera ett bildspel till en bitmap och sedan spara bilden i JPEG eller något annat föredraget format.
+Du kan konvertera en bildruta till ett bitmap‑objekt och använda det direkt i din applikation. Alternativt kan du konvertera en bildruta till en bitmap och sedan spara bilden i JPEG eller något annat önskat format.
 
-Denna kod visar hur du konverterar den första bilden i en presentation till ett bitmap‑objekt och sedan sparar bilden i PNG‑format:
+Denna kod demonstrerar hur du konverterar den första bildrutan i en presentation till ett bitmap‑objekt och sedan sparar bilden i PNG‑format:
 
 ```java 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertera den första bilden i presentationen till en bitmap.
+    // Konvertera den första bildrutan i presentationen till en bitmap.
     IImage image = presentation.getSlides().get_Item(0).getImage();
-    try {
+	try {
         // Spara bilden i PNG-format.
         image.save("Slide_0.png", ImageFormat.Png);
     } finally {
@@ -55,18 +55,18 @@ try {
 }
 ```
 
-## **Konvertera bildspel till bilder med anpassade storlekar**
+## **Konvertera bildrutor till bilder med anpassade storlekar**
 
-Du kan behöva en bild av en viss storlek. Genom att använda en överlagring av [getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-) kan du konvertera ett bildspel till en bild med specifika dimensioner (bredd och höjd).
+Du kan behöva få en bild i en viss storlek. Genom att använda en överlagring av [getImage](https://reference.aspose.com/slides/sv/java/com.aspose.slides/islide/#getImage-java.awt.Dimension-), kan du konvertera en bildruta till en bild med specifika dimensioner (bredd och höjd). 
 
-Denna exempelkod visar hur du gör detta:
+Denna exempel kod visar hur du gör detta:
 
 ```java 
 Dimension imageSize = new Dimension(1820, 1040);
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Konvertera den första bilden i presentationen till en bitmap med angiven storlek.
+    // Konvertera den första bildrutan i presentationen till en bitmap med den angivna storleken.
     IImage image = presentation.getSlides().get_Item(0).getImage(imageSize);
 
     try {
@@ -80,15 +80,15 @@ try {
 }
 ```
 
-## **Konvertera bildspel med anteckningar och kommentarer till bilder**
+## **Konvertera bildrutor med anteckningar och kommentarer till bilder**
 
-Vissa bildspel kan innehålla anteckningar och kommentarer.
+Vissa bildrutor kan innehålla anteckningar och kommentarer.
 
-Aspose.Slides tillhandahåller två gränssnitt—[ITiffOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiffoptions/) och [IRenderingOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/irenderingoptions/)—som låter dig styra renderingen av presentationsbilder till bilder. Båda gränssnitten innehåller metoden `setSlidesLayoutOptions`, som gör det möjligt att konfigurera renderingen av anteckningar och kommentarer på en bild när den konverteras till en bild.
+Aspose.Slides tillhandahåller två gränssnitt—[ITiffOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiffoptions/) och [IRenderingOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/irenderingoptions/)—som låter dig styra rendering av presentationsbildrutor till bilder. Båda gränssnitten innehåller metoden `setSlidesLayoutOptions`, som gör det möjligt att konfigurera rendering av anteckningar och kommentarer på en bildruta när den konverteras till en bild.
 
-Med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/notescommentslayoutingoptions/) kan du ange din föredragna position för anteckningar och kommentarer i den resulterande bilden.
+Med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/notescommentslayoutingoptions/) kan du ange den föredragna positionen för anteckningar och kommentarer i den resulterande bilden.
 
-Denna kod visar hur du konverterar ett bildspel med anteckningar och kommentarer:
+Denna kod demonstrerar hur du konverterar en bildruta med anteckningar och kommentarer:
 
 ```java 
 float scaleX = 2;
@@ -107,7 +107,7 @@ try {
     RenderingOptions options = new RenderingOptions();
     options.setSlidesLayoutOptions(notesCommentsOptions);
 
-    // Konvertera den första bilden i presentationen till en bild.
+    // Konvertera den första bildrutan i presentationen till en bild.
     IImage image = presentation.getSlides().get_Item(0).getImage(options, scaleX, scaleY);
 
     try {
@@ -121,31 +121,33 @@ try {
 }
 ```
 
-{{% alert title="Obs" color="warning" %}} 
-I någon bild‑till‑bild‑konverteringsprocess kan metoden [setNotesPosition](https://reference.aspose.com/slides/sv/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) inte tillämpa `BottomFull` (för att ange position för anteckningar) eftersom en antecknings text kan vara för stor för att få plats inom den angivna bildstorleken.
+{{% alert title="Note" color="warning" %}} 
+
+I någon slide‑till‑bild‑konverteringsprocess kan inte metoden [setNotesPosition](https://reference.aspose.com/slides/sv/java/com.aspose.slides/inotescommentslayoutingoptions/#setNotesPosition-int-) tillämpa `BottomFull` (för att ange positionen för anteckningar) eftersom en antecknings text kan vara för stor för att få plats inom den angivna bildstorleken.
+
 {{% /alert %}} 
 
-## **Konvertera bildspel till bilder med TIFF‑alternativ**
+## **Konvertera bildrutor till bilder med TIFF‑alternativ**
 
-Gränssnittet [ITiffOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiffoptions/) ger större kontroll över den resulterande TIFF‑bilden genom att låta dig specificera parametrar såsom storlek, upplösning, färgpalett och mer.
+[ITiffOptions](https://reference.aspose.com/slides/sv/java/com.aspose.slides/itiffoptions/)‑gränssnittet ger större kontroll över den resulterande TIFF‑bilden genom att låta dig ange parametrar som storlek, upplösning, färgpalett och mer.
 
-Denna kod demonstrerar en konverteringsprocess där TIFF‑alternativ används för att skapa en svart‑vit bild med 300 DPI upplösning och en storlek på 2160 × 2800:
+Denna kod demonstrerar en konverteringsprocess där TIFF‑alternativ används för att producera en svart‑vit bild med 300 DPI‑upplösning och en storlek på 2160 × 2800:
 
 ```java 
 // Läs in en presentationsfil.
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    // Hämta den första bilden från presentationen.
+    // Hämta den första bildrutan från presentationen.
     ISlide slide = presentation.getSlides().get_Item(0);
 
     // Konfigurera inställningarna för den utgående TIFF-bilden.
     TiffOptions tiffOptions = new TiffOptions();
-    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Ange bildstorleken.
-    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Ange pixelformatet (svartvitt).
-    tiffOptions.setDpiX(300);                                        // Ange den horisontella upplösningen.
-    tiffOptions.setDpiY(300);                                        // Ange den vertikala upplösningen.
+    tiffOptions.setImageSize(new Dimension(2160, 2880));             // Sätt bildstorleken.
+    tiffOptions.setPixelFormat(ImagePixelFormat.Format1bppIndexed);  // Sätt pixelformatet (svartvitt).
+    tiffOptions.setDpiX(300);                                        // Sätt den horisontella upplösningen.
+    tiffOptions.setDpiY(300);                                        // Sätt den vertikala upplösningen.
 
-    // Konvertera bilden till en bild med angivna alternativ.
+    // Konvertera bildrutan till en bild med angivna alternativ.
     IImage image = slide.getImage(tiffOptions);
 
     try {
@@ -159,15 +161,17 @@ try {
 }
 ```
 
-{{% alert title="Obs" color="warning" %}} 
-Tiff‑stöd garanteras inte i versioner äldre än JDK 9.
+{{% alert title="Note" color="warning" %}} 
+
+Tiff‑stöd garanteras inte i versioner tidigare än JDK 9.
+
 {{% /alert %}} 
 
-## **Konvertera alla bildspel till bilder**
+## **Konvertera alla bildrutor till bilder**
 
-Aspose.Slides låter dig konvertera alla bilder i en presentation till bilder, vilket effektivt omvandlar hela presentationen till en serie bilder.
+Aspose.Slides låter dig konvertera alla bildrutor i en presentation till bilder, vilket effektivt omvandlar hela presentationen till en serie bilder.
 
-Denna exempelkod visar hur du konverterar alla bilder i en presentation till bilder i Java:
+Denna exempel kod visar hur du konverterar alla bildrutor i en presentation till bilder i Java:
 
 ```java 
 float scaleX = 2;
@@ -175,14 +179,14 @@ float scaleY = scaleX;
 
 Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Rendera presentationen till bilder bild för bild.
+    // Rendera presentationen till bilder, bild för bild.
     for (int i = 0 ; i < presentation.getSlides().size(); i++)
     {
-        // Hantera dolda bilder (rendera inte dolda bilder).
+        // Hantera dolda bildrutor (rendera inte dolda bildrutor).
         if (presentation.getSlides().get_Item(i).getHidden())
             continue;
 
-        // Konvertera sliden till en bild.
+        // Konvertera bildrutan till en bild.
         IImage image = presentation.getSlides().get_Item(i).getImage(scaleX, scaleY);
 
         try {
@@ -199,20 +203,20 @@ try {
 
 ## **Färgrik Emoji‑rendering**
 
-{{% alert title="Obs" color="warning" %}} 
-För att rendera färgade emojis korrekt när du konverterar presentationsbilder till bilder måste de emoji‑typsnitt som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta typsnitt saknas, kan emojis visas i monokrom i de resulterande bilderna.
-{{% /alert %}} 
+{{% alert title="Note" color="warning" %}} 
+För att rendera färg‑emoji korrekt när presentationsbildrutor konverteras till bilder måste emoji‑typsnitten som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta typsnitt saknas, kan emoji visas i monokrom i de genererade bilderna.
+{{% /alert %}}
 
-## **Vanliga frågor**
+## **FAQ**
 
-**Stöder Aspose.Slides renderering av bildspel med animationer?**
+**Stöder Aspose.Slides rendering av bildrutor med animationer?**
 
-Nej, metoden `getImage` sparar endast en statisk bild av bildspelet, utan animationer.
+Nej, metoden `getImage` sparar endast en statisk bild av bildrutan, utan animationer.
 
-**Kan dolda bildspel exporteras som bilder?**
+**Kan dolda bildrutor exporteras som bilder?**
 
-Ja, dolda bildspel kan behandlas på samma sätt som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
+Ja, dolda bildrutor kan behandlas på samma sätt som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
 
 **Kan bilder sparas med skuggor och effekter?**
 
-Ja, Aspose.Slides stöder renderning av skuggor, transparens och andra grafiska effekter när bildspel sparas som bilder.
+Ja, Aspose.Slides stöder rendering av skuggor, transparens och andra grafiska effekter när bildrutor sparas som bilder.

@@ -19,32 +19,33 @@ keywords:
 - افزودن WMF
 - افزودن TIFF
 - PowerPoint
+- OpenDocument
 - ارائه
 - Python
 - Aspose.Slides
-description: "مدیریت تصویر در PowerPoint و OpenDocument را با Aspose.Slides برای Python از طریق .NET به‌صورت بهینه انجام دهید، عملکرد را بهبود ببخشید و گردش کار خود را خودکار کنید."
+description: "مدیریت تصویر در PowerPoint و OpenDocument را با Aspose.Slides برای Python از طریق .NET به‌صورت بهینه‌سازی‌شده، عملکرد را بهبود داده و جریان کار شما را خودکار می‌کند."
 ---
 ## **مقدمه**
 
-تصاویر ارائه‌ها را جذاب‌تر و جالب‌تر می‌کنند. در Microsoft PowerPoint می‌توانید تصاویر را از یک فایل، اینترنت یا منابع دیگر به اسلایدها اضافه کنید. به‌طور مشابه، Aspose.Slides به شما امکان می‌دهد تصاویر را به اسلایدها به چند روش اضافه کنید.
+تصاویر ارائه‌ها را جذاب‌تر و جالب‌تر می‌کنند. در مایکروسافت پاورپوینت می‌توانید تصاویر را از یک فایل، اینترنت یا منابع دیگر روی اسلایدها وارد کنید. به‌طور مشابه، Aspose.Slides به شما امکان می‌دهد تا تصاویر را به اسلایدها به چندین روش اضافه کنید.
 
-{{% alert  title="Tip" color="primary" %}}
-Aspose مبدل‌های رایگان—[JPEG to PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG to PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—را ارائه می‌دهد که به شما امکان می‌دهد به‌سرعت ارائه‌ها را از تصاویر ایجاد کنید.
+{{% alert  title="نکته" color="primary" %}}
+Aspose مبدل‌های رایگان—[JPEG به PowerPoint](https://products.aspose.app/slides/fa/import/jpg-to-ppt) و [PNG به PowerPoint](https://products.aspose.app/slides/fa/import/png-to-ppt)—را فراهم می‌کند که به شما امکان می‌دهد به سرعت ارائه‌ها را از تصاویر ایجاد کنید.
 {{% /alert %}}
 
-{{% alert title="Info" color="info" %}}
-اگر می‌خواهید یک تصویر را به‌عنوان شیء فریم اضافه کنید—به‌ویژه اگر قصد دارید از گزینه‌های قالب‌بندی استاندارد مانند تغییر اندازه یا اعمال افکت‌ها استفاده کنید—به [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/fa/python-net/picture-frame/) مراجعه کنید.
+{{% alert title="اطلاعات" color="info" %}}
+اگر می‌خواهید تصویری را به‌عنوان یک شیء فریم اضافه کنید—به‌ویژه اگر قصد دارید از گزینه‌های قالب‌بندی استاندارد مانند تغییر اندازه یا اعمال افکت‌ها استفاده کنید—به [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/fa/python-net/picture-frame/) مراجعه کنید.
 {{% /alert %}}
 
-{{% alert title="Note" color="warning" %}}
-می‌توانید از عملیات ورودی/خروجی تصویر و ارائه برای تبدیل تصاویر بین فرمت‌ها استفاده کنید. این صفحات را ببینید: تبدیل [image to JPG](https://products.aspose.com/slides/fa/python-net/conversion/image-to-jpg/); تبدیل [JPG to image](https://products.aspose.com/slides/fa/python-net/conversion/jpg-to-image/); تبدیل [JPG to PNG](https://products.aspose.com/slides/fa/python-net/conversion/jpg-to-png/); تبدیل [PNG to JPG](https://products.aspose.com/slides/fa/python-net/conversion/png-to-jpg/); تبدیل [PNG to SVG](https://products.aspose.com/slides/fa/python-net/conversion/png-to-svg/); و تبدیل [SVG to PNG](https://products.aspose.com/slides/fa/python-net/conversion/svg-to-png/).
+{{% alert title="توجه" color="warning" %}}
+شما می‌توانید از عملیات ورودی/خروجی تصویر و ارائه برای تبدیل تصاویر بین قالب‌ها استفاده کنید. این صفحات را ببینید: تبدیل [image to JPG](https://products.aspose.com/slides/fa/python-net/conversion/image-to-jpg/); تبدیل [JPG to image](https://products.aspose.com/slides/fa/python-net/conversion/jpg-to-image/); تبدیل [JPG to PNG](https://products.aspose.com/slides/fa/python-net/conversion/jpg-to-png/); تبدیل [PNG to JPG](https://products.aspose.com/slides/fa/python-net/conversion/png-to-jpg/); تبدیل [PNG to SVG](https://products.aspose.com/slides/fa/python-net/conversion/png-to-svg/); و تبدیل [SVG to PNG](https://products.aspose.com/slides/fa/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
-Aspose.Slides از کار با تصاویر در فرمت‌های رایج مانند JPEG، PNG، BMP، GIF و سایرین پشتیبانی می‌کند.
+Aspose.Slides از کار با تصاویر در قالب‌های محبوبی مثل JPEG، PNG، BMP، GIF و سایرین پشتیبانی می‌کند.
 
-## **اضافه کردن تصاویر ذخیره‌شده به صورت محلی به اسلایدها**
+## **افزودن تصاویر ذخیره‌شده به‌صورت محلی به اسلایدها**
 
-می‌توانید یک یا چند تصویر از رایانه خود را به یک اسلاید در ارائه اضافه کنید. مثال زیر به زبان Python نشان می‌دهد چگونه یک تصویر را به اسلاید اضافه کنید:
+شما می‌توانید یک یا چند تصویر را از کامپیوتر خود به یک اسلاید در یک ارائه اضافه کنید. مثال زیر به زبان Python نشان می‌دهد چگونه یک تصویر به اسلاید اضافه شود:
 
 ```py
 import aspose.slides as slides
@@ -58,32 +59,34 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **اضافه کردن تصاویر از وب به اسلایدها**
+## **افزودن تصاویر از وب به اسلایدها**
 
-اگر تصویری که می‌خواهید به اسلاید اضافه کنید در رایانه شما موجود نیست، می‌توانید آن را مستقیماً از وب وارد کنید.
+اگر تصویری که می‌خواهید به اسلاید اضافه کنید در کامپیوتر شما موجود نیست، می‌توانید آن را به‌صورت مستقیم از وب وارد کنید.
 
 مثال زیر به زبان Python نشان می‌دهد چگونه یک تصویر را از یک URL به اسلاید اضافه کنید:
 
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # دریافت بایت‌های خام تصویر.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **اضافه کردن تصاویر به اسلاید مسترها**
+## **افزودن تصاویر به اسلاید مسترها**
 
-اسلاید مستر بالاترین سطح اسلاید است که اطلاعات—تم، چیدمان و غیره—را برای تمام اسلایدهای زیر مجموعه‌اش ذخیره و کنترل می‌کند. وقتی یک تصویر را به اسلاید مستر اضافه کنید، آن تصویر در تمام اسلایدهایی که از آن مستر استفاده می‌کنند ظاهر می‌شود.
+اسلاید مستر، اسلاید سطح بالاست که اطلاعات—تم، طرح‌بندی و غیره—را برای تمام اسلایدهای زیرمجموعه خود ذخیره و کنترل می‌کند. وقتی یک تصویر به اسلاید مستر اضافه می‌کنید، آن تصویر بر روی هر اسلایدی که از آن مستر استفاده می‌کند ظاهر می‌شود.
 
-مثال زیر به زبان Python نشان می‌دهد چگونه یک تصویر را به اسلاید مستر اضافه کنید:
+مثال زیر به زبان Python نشان می‌دهد چگونه یک تصویر به اسلاید مستر اضافه شود:
 
 ```py
 import aspose.slides as slides
@@ -100,53 +103,46 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تنظیم یک تصویر به‌عنوان پس‌زمینه اسلاید**
+## **افزودن تصاویر به‌عنوان پس‌زمینه اسلایدها**
 
-ممکن است بخواهید از یک تصویر به‌عنوان پس‌زمینه برای یک اسلاید خاص یا چندین اسلاید استفاده کنید. برای جزئیات، به [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/fa/python-net/presentation-background/#set-image-as-background-for-slide) مراجعه کنید.
+شما می‌توانید از یک تصویر به‌عنوان پس‌زمینه برای یک یا چند اسلاید استفاده کنید. برای جزئیات، به *[Setting Images as Backgrounds for Slides](/slides/fa/python-net/presentation-background/#setting-images-as-background-for-slides)* مراجعه کنید.
 
-## **اضافه کردن SVG به ارائه‌ها**
+## **افزودن SVG به ارائه‌ها**
 
-می‌توانید هر تصویری را با استفاده از متد [add_picture_frame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_picture_frame/) کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/) به یک ارائه اضافه کنید.
+محتوای SVG می‌تواند با استفاده از کلاس [SvgImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/svgimage/) به یک ارائه اضافه شود. تصویر SVG حاصل سپس می‌تواند به مجموعه تصاویر ارائه اضافه شود و برای ایجاد یک فریم تصویر استفاده گردد.
 
-برای ایجاد یک شیء تصویر از یک SVG، مراحل زیر را دنبال کنید:
+مثال زیر به زبان Python یک رشته SVG خودکفا را وارد می‌کند. تمام تصاویر، سبک‌ها و سایر منابع استفاده‌شده توسط این SVG به‌صورت مستقیم در محتوای SVG تعبیه شده‌اند.
 
-1. یک [SvgImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/svgimage/) ایجاد کنید و آن را به مجموعه تصویر ارائه اضافه کنید.  
-2. یک شیء [PPImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ppimage/) از [SvgImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/svgimage/) ایجاد کنید.  
-3. یک شیء [PictureFrame](https://reference.aspose.com/slides/fa/python-net/aspose.slides/pictureframe/) با استفاده از [PPImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/ppimage/) ایجاد کنید.
-
-مثال زیر به زبان Python نشان می‌دهد چگونه یک تصویر SVG را به یک ارائه اضافه کنید:
-
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # محتواي یک فایل SVG را بخوانید.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # یک شیء SvgImage ایجاد کنید.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # یک شیء PPImage ایجاد کنید.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # یک PictureFrame جدید ایجاد کنید.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # ارائه را در فرمت PPTX ذخیره کنید.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **تبدیل SVG به مجموعه‌ای از شکل‌ها**
+## **تبدیل SVG به مجموعه‌ای از اشکال**
 
-Aspose.Slides SVG‌ها را به مجموعه‌ای از شکل‌ها به‌گونه‌ای که مشابه پردازش SVG در PowerPoint است، تبدیل می‌کند.
+Aspose.Slides SVGها را به مجموعه‌ای از اشکال تبدیل می‌کند به‌گونه‌ای مشابه با نحوه پردازش SVG در پاورپوینت.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-این قابلیت توسط یک overload از متد [add_group_shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_group_shape/) در کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/) فراهم می‌شود که یک [SvgImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/svgimage/) را به عنوان اولین آرگومان می‌گیرد.
+این قابلیت توسط یک overload از متد [add_group_shape](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/add_group_shape/) در کلاس [ShapeCollection](https://reference.aspose.com/slides/fa/python-net/aspose.slides/shapecollection/) که یک [SvgImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/svgimage/) را به‌عنوان اولین آرگومان می‌گیرد، فراهم می‌شود.
 
-کد نمونه زیر نشان می‌دهد چگونه یک فایل SVG را به مجموعه‌ای از شکل‌ها تبدیل کنید:
+کد نمونه زیر نشان می‌دهد چگونه یک فایل SVG را به مجموعه‌ای از اشکال تبدیل کنیم.
 
 ```py 
 import aspose.slides as slides
@@ -161,20 +157,22 @@ with slides.Presentation() as presentation:
         # اندازه اسلاید را دریافت کنید.
         slide_size = presentation.slide_size.size
 
-        # تصویر SVG را به یک گروه از شکل‌ها تبدیل کنید و به اندازه اسلاید مقیاس‌دهی کنید.
+        # تصویر SVG را به یک گروه از اشکال تبدیل کنید و به اندازه اسلاید مقیاس دهید.
         presentation.slides[0].shapes.add_group_shape(svg_image, 0, 0, slide_size.width, slide_size.height)
 
-        # ارائه را به فرمت PPTX ذخیره کنید.
+        # ارائه را در قالب PPTX ذخیره کنید.
         presentation.save("shapes_from_SVG.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **اضافه کردن تصاویر به‌صورت EMF در اسلایدها**
+## **افزودن تصاویر به‌صورت EMF به اسلایدها**
 
-Aspose.Slides برای Python به شما امکان می‌دهد تصاویر Enhanced Metafile (EMF) را به ارائه‌ها وارد کنید.
+Aspose.Slides برای Python به شما امکان می‌دهد تا تصاویر Enhanced Metafile (EMF) را به ارائه‌ها وارد کنید.
 
-مثال زیر به زبان Python این قابلیت را نشان می‌دهد:
+مثال زیر به زبان Python این را نشان می‌دهد:
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -185,26 +183,28 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_EMF.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **جایگزینی تصاویر در مجموعه تصویر**
+## **جایگزینی تصاویر در مجموعهٔ تصویر‌ها**
 
-Aspose.Slides به شما اجازه می‌دهد تصاویر ذخیره‌شده در مجموعه تصویر یک ارائه، از جمله آن‌هایی که توسط شکل‌های اسلاید استفاده می‌شوند، را جایگزین کنید. این بخش چند روش برای به‌روزرسانی تصاویر در مجموعه را تشریح می‌کند. API روش‌های ساده‌ای برای جایگزینی یک تصویر با داده‌های بایتی خام، یک نمونه [IImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/iimage/) یا تصویر دیگری که قبلاً در مجموعه وجود دارد، فراهم می‌کند.
+Aspose.Slides به شما امکان می‌دهد تا تصاویر ذخیره‌شده در مجموعهٔ تصاویر یک ارائه، از جمله تصاویر استفاده‌شده توسط اشکال اسلاید، را جایگزین کنید. این بخش چندین رویکرد برای به‌روزرسانی تصاویر در مجموعه را توضیح می‌دهد. API روش‌های ساده‌ای برای جایگزینی یک تصویر با داده‌های بایت خام، یک نمونهٔ [IImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/iimage/)، یا تصویر دیگری که قبلاً در مجموعه وجود دارد، فراهم می‌کند.
 
-این مراحل را دنبال کنید:
+مراحل زیر را دنبال کنید:
 
 1. ارائه‌ای که شامل تصاویر است را با استفاده از کلاس [Presentation](https://reference.aspose.com/slides/fa/python-net/aspose.slides/presentation/) بارگذاری کنید.  
-2. یک تصویر جدید را از یک فایل به یک آرایه بایت بارگذاری کنید.  
+2. تصویر جدیدی را از یک فایل به یک آرایه بایت بارگذاری کنید.  
 3. تصویر هدف را با تصویر جدید با استفاده از آرایه بایت جایگزین کنید.  
-4. به‌جای آن، تصویر را به یک شیء [IImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/iimage/) بارگذاری کنید و تصویر هدف را با آن شیء جایگزین کنید.  
-5. یا تصویر هدف را با تصویری که از پیش در مجموعه تصویر ارائه وجود دارد، جایگزین کنید.  
-6. ارائه اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
+4. به‌صورت جایگزین، تصویر را به یک شیء [IImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/iimage/) بارگذاری کنید و تصویر هدف را با آن شیء جایگزین کنید.  
+5. یا تصویر هدف را با تصویری که پیشاپیش در مجموعهٔ تصویرهای ارائه وجود دارد، جایگزین کنید.  
+6. ارائهٔ اصلاح‌شده را به‌عنوان فایل PPTX ذخیره کنید.
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
 
 
-# نمونه‌سازی کلاس Presentation که نمایانگر یک فایل ارائه است.
+# نمونه‌سازی کلاس Presentation که یک فایل ارائه را نمایندگی می‌کند.
 with slides.Presentation("sample.pptx") as presentation:
 
     # روش اول.
@@ -221,27 +221,27 @@ with slides.Presentation("sample.pptx") as presentation:
     old_image = presentation.images[2]
     old_image.replace_image(presentation.images[3])
 
-    # ارائه را در یک فایل ذخیره کنید.
+    # ذخیرهٔ ارائه در یک فایل.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-{{% alert title="Info" color="info" %}}
-با مبدل رایگان [Text to GIF](https://products.aspose.app/slides/fa/text-to-gif) از Aspose می‌توانید به‌راحتی متن را متحرک کنید و GIFهایی از متن بسازید.
+{{% alert title="اطلاعات" color="info" %}}
+با مبدل رایگان [Text to GIF](https://products.aspose.app/slides/fa/text-to-gif) از Aspose می‌توانید به‌سادگی متن را انیمیشن کنید و GIFهایی از متن ایجاد کنید.
 {{% /alert %}}
 
 ## **سوالات متداول**
 
-**آیا وضوح تصویر اصلی پس از درج دست نخورده می‌ماند؟**  
-بله. پیکسل‌های منبع حفظ می‌شوند، اما ظاهر نهایی بستگی به این دارد که تصویر ([picture](/slides/fa/python-net/picture-frame/)) چگونه در اسلاید مقیاس‌بندی شود و چه فشرده‌سازی در زمان ذخیره اعمال شود.
+**آیا وضوح تصویر اصلی پس از درج حفظ می‌شود؟**  
+بله. پیکسل‌های منبع حفظ می‌شوند، اما ظاهر نهایی بستگی به این دارد که چگونه [picture](/slides/fa/python-net/picture-frame/) بر روی اسلاید مقیاس‌بندی شده و هر فشرده‌سازی‌ای که هنگام ذخیره اعمال می‌شود.
 
-**بهترین راه برای جایگزینی همان لوگو در ده‌ها اسلاید به‌صورت همزمان چیست؟**  
-لوگو را بر روی اسلاید مستر یا یک چیدمان قرار دهید و آن را در مجموعه تصویر ارائه جایگزین کنید—به‌روزرسانی‌ها به تمام عناصری که از این منبع استفاده می‌کنند، منتشر می‌شود.
+**بهترین راه برای جایگزینی یک لوگوی یکسان در ده‌ها اسلاید به‌طور همزمان چیست؟**  
+لوگو را بر روی اسلاید مستر یا یک طرح‌بندی قرار دهید و آن را در مجموعهٔ تصویرهای ارائه جایگزین کنید—به‌روزرسانی‌ها به تمام عناصری که از آن منبع استفاده می‌کنند، انتشار می‌یابد.
 
-**آیا می‌توان SVG وارد‌شده را به شکل‌های قابل ویرایش تبدیل کرد؟**  
-بله. می‌توانید یک SVG را به یک گروه از شکل‌ها تبدیل کنید؛ پس از آن بخش‌های فردی قابل ویرایش با خصوصیات استاندارد شکل می‌شوند.
+**آیا می‌توان یک SVG وارد‌شده را به اشکال قابل ویرایش تبدیل کرد؟**  
+بله. می‌توانید یک SVG را به یک گروه از اشکال تبدیل کنید، پس از آن بخش‌های منفرد قابل ویرایش با ویژگی‌های استاندارد شکل می‌شوند.
 
-**چگونه می‌توانم یک تصویر را به‌عنوان پس‌زمینه برای چندین اسلاید به‌صورت همزمان تنظیم کنم؟**  
-[Assign the image as the background](/slides/fa/python-net/presentation-background/) را بر روی اسلاید مستر یا چیدمان مربوطه اعمال کنید—هر اسلایدی که از آن مستر/چیدمان استفاده می‌کند، پس‌زمینه را به ارث می‌برد.
+**چگونه می‌توانم یک تصویر را به‌عنوان پس‌زمینه برای چندین اسلاید به‌طور همزمان تنظیم کنم؟**  
+از گزینه [Assign the image as the background](/slides/fa/python-net/presentation-background/) بر روی اسلاید مستر یا طرح‌بندی مربوطه استفاده کنید؛ هر اسلایدی که از آن مستر/طرح‌بندی استفاده می‌کند، پس‌زمینه را به ارث می‌برد.
 
-**چگونه می‌توانم از بزرگ شدن بیش از حد حجم ارائه به‌دلیل تعداد زیاد تصاویر جلوگیری کنم؟**  
-به‌جای تکرار تصویر، از یک منبع تصویر واحد استفاده کنید، رزولوشن‌های معقول انتخاب کنید، هنگام ذخیره فشرده‌سازی اعمال کنید و گرافیک‌های تکراری را در مستر نگهداری کنید.
+**چگونه می‌توانم از بزرگ شدن بیش از حد یک ارائه به‌دلیل تعداد زیاد تصاویر جلوگیری کنم؟**  
+از یک منبع تصویر واحد به‌جای تکرار استفاده کنید، رزولوشن‌های معقول انتخاب کنید، هنگام ذخیره فشرده‌سازی اعمال کنید و گرافیک‌های تکراری را در مستر نگه دارید تا در صورت لزوم.

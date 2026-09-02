@@ -1,134 +1,377 @@
 ---
-title: Android でプレゼンテーションプレースホルダーを管理
-linktitle: プレースホルダーを管理
+title: Android でのプレゼンテーション プレースホルダー管理
+linktitle: プレースホルダーの管理
 type: docs
 weight: 10
 url: /ja/androidjava/manage-placeholder/
 keywords:
 - プレースホルダー
-- テキストプレースホルダー
-- 画像プレースホルダー
-- チャートプレースホルダー
-- プロンプトテキスト
+- テキスト プレースホルダー
+- 画像 プレースホルダー
+- チャート プレースホルダー
+- コンテンツ プレースホルダー
+- プロンプト テキスト
 - PowerPoint
-- OpenDocument
 - プレゼンテーション
 - Android
 - Java
 - Aspose.Slides
-description: "Aspose.Slides for Android via Java でプレースホルダーを簡単に管理：テキストの置換、プロンプトのカスタマイズ、PowerPoint および OpenDocument における画像の透過性設定"
+description: "Aspose.Slides for Android (Java) を使用して、テキスト、画像、チャート、コンテンツ プレースホルダーの検査と編集方法や、プレースホルダーの継承について学びます。"
 ---
+## **概要**
 
-## **プレースホルダーのテキストを変更する**
-[Aspose.Slides for Android via Java](/slides/ja/androidjava/) を使用すると、プレゼンテーションのスライド上のプレースホルダーを検索して変更できます。Aspose.Slides を使用すると、プレースホルダーのテキストを変更できます。
+プレースホルダーは、プレゼンテーションテンプレート内で特定の種類のコンテンツの位置を確保するシェイプです。一般的な例として、タイトル、本文、画像、チャート、汎用コンテンツのプレースホルダーがあります。通常のシェイプとは異なり、プレースホルダーはレイアウト スライドまたはマスタースライドから位置、サイズ、書式設定、その他の設定を継承できます。
 
-**前提条件**: プレースホルダーを含むプレゼンテーションが必要です。このようなプレゼンテーションは、標準の Microsoft PowerPoint アプリで作成できます。
+Aspose.Slides は、[IShape.getPlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) メソッドを通じてプレースホルダー情報を提供します。このメソッドは、通常のシェイプの場合は `null`、それ以外の場合は [IPlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholder/) オブジェクトを返します。[IPlaceholder.getType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholder/) を使用して、プレースホルダーが何を保持することを意図しているかを判断します。
 
-This is how you use Aspose.Slides to replace the text in the placeholder in that presentation:
+プレースホルダーのタイプが分かった後でも、シェイプ インターフェイスは重要です。
 
-1. [`Presentation`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) クラスのインスタンスを作成し、プレゼンテーションを引数として渡します。
-2. インデックスを使用してスライドの参照を取得します。
-3. 形状を反復処理してプレースホルダーを探します。
-4. プレースホルダー形状を [`AutoShape`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) に型変換し、[`AutoShape`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/AutoShape) に関連付けられた [`TextFrame`](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrame) を使用してテキストを変更します。
-5. 変更されたプレゼンテーションを保存します。
+- 空のテキスト、画像、チャート、またはコンテンツ プレースホルダーは、通常 [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) で表されます。
+- 内容が設定された画像プレースホルダーは、[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) で表されます。
+- 内容が設定されたチャートプレースホルダーは、[IChart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/) で表されます。
+- コンテンツ プレースホルダーは複数の種類のコンテンツを保持できます。すべてのプレースホルダーが [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であると仮定せず、[IPlaceholder.getType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholder/) と実行時のシェイプ インターフェイスの両方を確認してください。
 
-この Java コードは、プレースホルダーのテキストを変更する方法を示しています:
+{{% alert color="warning" title="Warning" %}}
+[IPlaceholder.getType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholder/) はプレースホルダーの役割を示しますが、シェイプの実行時タイプを保証するものではありません。テキスト、画像、チャート、テーブル、またはメディア固有のメンバーにアクセスする前に、常にタイプチェックを行ってください。
+{{% /alert %}}
+
+## **プレースホルダーの継承を理解する**
+
+プレースホルダーは階層構造を形成します：
+
+1. マスタースライドは再利用可能なスタイルを定義し、場合によってはマスター レベルのプレースホルダーも定義します。
+2. レイアウト スライドは、1 つまたは複数の通常スライドで使用される配置を定義し、マスターから継承できます。
+3. 通常スライドはそのスライドのプレースホルダーを含み、レイアウトから継承できます。
+
+[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) を呼び出すと、この階層で一つ上のレベルに移動します。スライド プレースホルダーは通常、そのレイアウト プレースホルダーを返し、レイアウト プレースホルダーはマスター プレースホルダーを返すことができます。シェイプにベース プレースホルダーがない場合、メソッドは `null` を返します。
+
+次の例は、最初のスライド上のプレースホルダーを列挙し、それらのベース プレースホルダーを報告します：
+
 ```java
-// Presentation クラスのインスタンスを生成します
-Presentation pres = new Presentation("ReplacingText.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
 try {
+    ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 最初のスライドにアクセスします
-    ISlide sld = pres.getSlides().get_Item(0);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
 
-    // プレースホルダーを探すためにシェイプを反復処理します
-    for (IShape shp : sld.getShapes()) 
-    {
-        if (shp.getPlaceholder() != null) {
-            // 各プレースホルダーのテキストを変更します
-            ((IAutoShape) shp).getTextFrame().setText("This is Placeholder");
+        byte placeholderType = placeholder.getType();
+        String typeName = shape.getClass().getSimpleName();
+        String slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape interface: " + typeName;
+        System.out.println(slidePlaceholderMessage);
+
+        IShape layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            IPlaceholder layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            Byte layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            String layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            System.out.println(layoutPlaceholderMessage);
+
+            IShape masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                IPlaceholder masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                Byte masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                String masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                System.out.println(masterPlaceholderMessage);
+            }
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+通常スライド上のプレースホルダーを編集すると、そのスライド用のローカルオーバーライドが作成または変更されます。関連するレイアウトやマスターを編集すると、その設定を継承しているすべてのスライドに影響を及ぼす可能性があります。ローカルの通常シェイプにはベース プレースホルダーがなく、単に同じ座標にあるだけで継承が開始されるわけではありません。
+
+## **プレースホルダー内のテキストを変更する**
+
+タイトル、センタリングタイトル、サブタイトル、本文、テキストのプレースホルダーは通常テキストをサポートします。使用する前に、シェイプが [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) であるか確認し、[getTextFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) メソッドを呼び出します。
+
+この例は、最初のスライド上の最初のタイトル プレースホルダーを更新し、結果を保存します：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape titleShape = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            titleShape = autoShape;
+            break;
         }
     }
 
-    // プレゼンテーションをディスクに保存します
-    pres.save("output.pptx", SaveFormat.Pptx);
+    if (titleShape == null) {
+        throw new IllegalStateException("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+このパターンは、画像、チャート、テーブル、メディアのプレースホルダーを [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) にキャストすることを回避します。また、壊れやすいシェイプ インデックスに依存するのではなく、目的によってプレースホルダーを識別します。
 
-## **プレースホルダーにプロンプトテキストを設定する**
-標準および事前構築されたレイアウトには、***Click to add a title*** や ***Click to add a subtitle*** といったプレースホルダーのプロンプトテキストが含まれています。Aspose.Slides を使用すると、好きなプロンプトテキストをプレースホルダーのレイアウトに挿入できます。
+## **レイアウト上でプロンプト テキストを設定する**
 
-この Java コードは、プレースホルダーにプロンプトテキストを設定する方法を示しています:
+プロンプト テキストは、空のプレースホルダーに表示されるデザイン時の指示で、たとえば *Click to add title*（タイトルを追加してください）などがあります。通常スライドのシェイプ コレクションを介して取得しようとせず、レイアウト プレースホルダーにカスタム プロンプト テキストを設定してください。レイアウトは [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islide/) で取得し、[ILayoutSlide.getShapes](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ibaseslide/) が返すコレクションを反復処理します。
+
+次の例は、最初のスライドで使用されているレイアウトのタイトルとサブタイトルのプロンプトを変更します：
+
 ```java
-Presentation pres = new Presentation("Presentation.pptx");
-try {
-    ISlide slide = pres.getSlides().get_Item(0);
-    for (IShape shape : slide.getSlide().getShapes()) // スライドを反復処理します
-    {
-        if (shape.getPlaceholder() != null && shape instanceof AutoShape)
-        {
-            String text = "";
-            if (shape.getPlaceholder().getType() == PlaceholderType.CenteredTitle) // PowerPoint は「Click to add title」を表示します
-            {
-                text = "Add Title";
-            }
-            else if (shape.getPlaceholder().getType() == PlaceholderType.Subtitle) // サブタイトルを追加します
-            {
-                text = "Add Subtitle";
-            }
+import com.aspose.slides.*;
 
-            ((IAutoShape)shape).getTextFrame().setText(text);
-            System.out.println("Placeholder with text: " + text);
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getSlides().get_Item(0).getLayoutSlide();
+
+    for (IShape shape : layoutSlide.getShapes()) {
+        if (!(shape instanceof IAutoShape)) {
+            continue;
+        }
+
+        IAutoShape autoShape = (IAutoShape) shape;
+        IPlaceholder placeholder = autoShape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if (placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) {
+            autoShape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType == PlaceholderType.Subtitle) {
+            autoShape.getTextFrame().setText("Enter a subtitle or reporting period");
         }
     }
 
-    pres.save("Placeholders_PromptText.pptx", SaveFormat.Pptx);
+    presentation.save("custom-placeholder-prompts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+プロンプト テキストは通常のスライドコンテンツではありません。PowerPoint などの編集アプリケーションで空のプレースホルダーに表示されることを意図しています。ユーザーやプログラムが実際のコンテンツを提供すると、プロンプトは表示されなくなります。プロンプトを変更しても、レイアウトを使用しているスライド上の既存のテキストが置き換えられることはありません。
 
-## **プレースホルダー画像の透過性を設定する**
-Aspose.Slides を使用すると、テキストプレースホルダー内の背景画像の透過性を設定できます。そのフレーム内の画像の透過性を調整することで、テキストや画像を際立たせることができます（テキストと画像の色に応じて）。
+## **画像プレースホルダーを更新する**
 
-この Java コードは、形状内の画像背景の透過性を設定する方法を示しています:
+処理すべきケースは 2 つあります：
+
+- 画像プレースホルダーがすでに内容を持ち、[IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) で表されている場合は、[IPictureFillFormat.getPicture](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipicturefillformat/) と [ISlidesPicture.setImage](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/islidespicture/) を使用して画像を置き換えます。
+- まだ空のプレースホルダーである場合は、[IShapeCollection.addPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishapecollection/) を使用してプレースホルダーの座標に画像フレームを追加し、空のプレースホルダーを削除します。
+
+次の例は両方のケースに対応し、プレゼンテーションを保存します：
+
 ```java
-Presentation presentation = new Presentation("example.pptx");
+import com.aspose.slides.*;
+import java.io.FileInputStream;
 
-IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+Presentation presentation = new Presentation("picture-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape picturePlaceholder = null;
 
-IImageTransformOperationCollection operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (int i = 0; i < operationCollection.size(); i++)
-{
-    if(operationCollection.get_Item(i) instanceof AlphaModulateFixed)
-    {
-        AlphaModulateFixed alphaModulate = (AlphaModulateFixed)operationCollection.get_Item(i);
-        float currentValue = 100 - alphaModulate.getAmount();
-        System.out.println("Current transparency value: " + currentValue);
-
-        int alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
     }
-}
 
-presentation.save("example_out.pptx", SaveFormat.Pptx);
+    if (picturePlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a picture placeholder.");
+    }
+
+    IPPImage image;
+    try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+        image = presentation.getImages().addImage(imageStream);
+    }
+
+    if (picturePlaceholder instanceof IPictureFrame) {
+        IPictureFrame pictureFrame = (IPictureFrame) picturePlaceholder;
+        pictureFrame.getPictureFormat().getPicture().setImage(image);
+    } else {
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, picturePlaceholder.getX(), picturePlaceholder.getY(), picturePlaceholder.getWidth(), picturePlaceholder.getHeight(), image);
+        slide.getShapes().remove(picturePlaceholder);
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
+空のプレースホルダーに対して作成された置き換えは、新しいプレースホルダーではなくローカルの画像フレームです。これは、[IShape.getPlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) に setter がないためです。予約された位置は保持されますが、プレースホルダー固有の動作は継承されなくなります。プレースホルダーとの関係を保持することが重要な場合は、まず PowerPoint でプレースホルダーを作成・内容を設定し、その後 Aspose.Slides で生成された [IPictureFrame](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ipictureframe/) を更新してください。
+
+画像の透過、クロップ、その他の画像固有の効果については、[Manage Picture Frames](/slides/ja/androidjava/picture-frame/) を参照してください。これらの操作はプレースホルダーのメタデータではなく、画像フレームまたは画像塗りつぶしに属します。
+
+## **チャートおよびコンテンツ プレースホルダーの操作**
+
+内容が設定されたチャート プレースホルダーは、[IChart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/) で表されます。この例は、プレースホルダーのタイプと実行時インターフェイスの両方でチャートを検索し、タイトルを変更してファイルを保存します：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("chart-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IChart placeholderChart = null;
+
+    for (IShape shape : slide.getShapes()) {
+        if (!(shape instanceof IChart)) {
+            continue;
+        }
+
+        IChart chart = (IChart) shape;
+        IPlaceholder placeholder = chart.getPlaceholder();
+        if (placeholder != null && placeholder.getType() == PlaceholderType.Chart) {
+            placeholderChart = chart;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new IllegalStateException("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+一般的なコンテンツ プレースホルダーは通常、[PlaceholderType.Object](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholdertype/) を持ちます。PowerPoint では、チャート、テーブル、ダイアグラム、画像、メディアなど複数のコンテンツタイプの起動装置として機能します。内容が設定された後は、実際のシェイプ インターフェイスを調べて何が含まれているかを確認してください。特殊なレイアウトでは、[PlaceholderType.Chart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholdertype/)、[PlaceholderType.Table](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholdertype/)、[PlaceholderType.Picture](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholdertype/)、[PlaceholderType.Media](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholdertype/)、または [PlaceholderType.Diagram](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholdertype/) を公開することもあります。
+
+Aspose.Slides は、[IPlaceholder.getType](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/placeholder/) を変更しただけで空の [IAutoShape](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/iautoshape/) プレースホルダーを [IChart](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ichart/) に変換することはできません。インターフェイスを通じてタイプを変更することはできません。空のチャートまたはコンテンツ領域にプログラムでデータを入れるには、プレースホルダーの座標に必要なオブジェクトを追加し、空のプレースホルダーを削除します。次の例はチャートに対してそれを行います：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("content-template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IShape targetPlaceholder = null;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+        if (placeholderType == PlaceholderType.Chart || placeholderType == PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new IllegalStateException("The first slide does not contain a chart or content placeholder.");
+    }
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, targetPlaceholder.getX(), targetPlaceholder.getY(), targetPlaceholder.getWidth(), targetPlaceholder.getHeight());
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    slide.getShapes().remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+追加されたチャートは通常のローカルチャートです。プレースホルダーの領域を占有しますが、レイアウト プレースホルダーから継承はしません。カテゴリ、系列、またはブックデータを置き換える必要がある場合は、専用の [chart management articles](/slides/ja/androidjava/powerpoint-charts/) を使用してください。
+
+## **完全な例：テキストまたは画像コンテンツの更新**
+
+次のエンドツーエンドの例は、テンプレートを開き、最初のスライドでタイトルまたは画像プレースホルダーを検索し、プレースホルダーとシェイプのタイプを確認し、適切なコンテンツを更新して出力を保存します。この例は、シェイプ インデックスを仮定したり、すべてのプレースホルダーを同じインターフェイスにキャストしたりすることを意図的に回避しています。
+
+```java
+import com.aspose.slides.*;
+import java.io.FileInputStream;
+
+Presentation presentation = new Presentation("template.pptx");
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    boolean updated = false;
+
+    for (IShape shape : slide.getShapes()) {
+        IPlaceholder placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        byte placeholderType = placeholder.getType();
+
+        if ((placeholderType == PlaceholderType.Title || placeholderType == PlaceholderType.CenteredTitle) && shape instanceof IAutoShape) {
+            IAutoShape titleShape = (IAutoShape) shape;
+            titleShape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType == PlaceholderType.Picture) {
+            IPPImage image;
+            try (FileInputStream imageStream = new FileInputStream("replacement.png")) {
+                image = presentation.getImages().addImage(imageStream);
+            }
+
+            if (shape instanceof IPictureFrame) {
+                IPictureFrame pictureFrame = (IPictureFrame) shape;
+                pictureFrame.getPictureFormat().getPicture().setImage(image);
+            } else {
+                slide.getShapes().addPictureFrame(ShapeType.Rectangle, shape.getX(), shape.getY(), shape.getWidth(), shape.getHeight(), image);
+                slide.getShapes().remove(shape);
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new IllegalStateException("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
 ## **FAQ**
 
-**ベースプレースホルダーとは何か、スライド上のローカルシェイプとどう違うのか？**
+**ベース プレースホルダーとは何ですか？**
 
-ベースプレースホルダーは、レイアウトまたはマスター上の元の形状で、スライドの形状がそれから継承します。タイプ、位置、いくつかの書式設定がそこから引き継がれます。一方、ローカルシェイプは独立しており、ベースプレースホルダーが存在しない場合は継承が適用されません。
+ベース プレースホルダーは、別のプレースホルダーが継承するレイアウトまたはマスター上の対応するシェイプです。[IShape.getBasePlaceholder](https://reference.aspose.com/slides/ja/androidjava/com.aspose.slides/ishape/) を使用して取得します。通常のローカルシェイプはプレースホルダー階層の一部ではないため、`null` を返します。
 
-**プレゼンテーション全体のタイトルやキャプションを、すべてのスライドを反復せずに更新するにはどうすればよいですか？**
+**レイアウト プレースホルダーを編集してすべてのスライドのタイトルを変更できますか？**
 
-レイアウトまたはマスター上の該当するプレースホルダーを編集します。そのレイアウトやマスターに基づくスライドは、自動的に変更を継承します。
+レイアウトを介して継承された書式設定やプロンプト テキストは変更できますが、既存のタイトル コンテンツは通常のスライドに保存されています。プレゼンテーション全体の実際のタイトル テキストを置き換えるには、スライドを走査して各タイトル プレースホルダーを更新してください。
 
-**標準のヘッダー/フッタープレースホルダー（日付と時刻、スライド番号、フッターテキスト）をどのように制御できますか？**
+**日付、スライド番号、ヘッダー、フッターのプレースホルダーはどのように管理しますか？**
 
-適切なスコープ（通常のスライド、レイアウト、マスター、ノート/配布資料）で HeaderFooter マネージャーを使用して、これらのプレースホルダーをオン/オフにし、内容を設定します。
+適切なスライド、レイアウト、マスター、ノート、または配布資料のスコープでヘッダーおよびフッター管理機能を使用します。完全な例については、[Manage Presentation Header and Footer](/slides/ja/androidjava/presentation-header-and-footer/) を参照してください。

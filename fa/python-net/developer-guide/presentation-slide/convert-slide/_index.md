@@ -1,5 +1,5 @@
 ---
-title: تبدیل اسلایدهای PowerPoint به تصویر در Python
+title: تبدیل اسلایدهای PowerPoint به تصاویر در پایتون
 linktitle: اسلاید به تصویر
 type: docs
 weight: 41
@@ -7,50 +7,50 @@ url: /fa/python-net/convert-slide/
 keywords:
 - تبدیل اسلاید
 - تبدیل اسلاید به تصویر
-- صادر کردن اسلاید به عنوان تصویر
+- صدور اسلاید به عنوان تصویر
 - ذخیره اسلاید به عنوان تصویر
 - اسلاید به تصویر
 - اسلاید به PNG
 - اسلاید به JPEG
 - اسلاید به بیت‌مپ
-- Python
+- پایتون
 - Aspose.Slides
-description: "یاد بگیرید چگونه اسلایدهای PowerPoint و OpenDocument را با استفاده از Aspose.Slides برای Python از طریق .NET به فرمت‌های مختلف تبدیل کنید. به راحتی اسلایدهای PPTX و ODP را به BMP، PNG، JPEG، TIFF و سایر فرمت‌ها با نتایج با کیفیت بالا صادر کنید."
+description: "یاد بگیرید چگونه اسلایدهای PowerPoint و OpenDocument را با استفاده از Aspose.Slides برای Python از طریق .NET به فرمت‌های مختلف تبدیل کنید. اسلایدهای PPTX و ODP را به‌راحتی به BMP، PNG، JPEG، TIFF و دیگر فرمت‌ها با نتایج با کیفیت بالا صادر کنید."
 ---
 ## **مقدمه**
 
-Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد به آسانی اسلایدهای ارائه PowerPoint و OpenDocument را به فرمت‌های مختلف تصویری تبدیل کنید، از جمله BMP، PNG، JPG (JPEG)، GIF و دیگران.
+Aspose.Slides برای Python از طریق .NET به شما امکان می‌دهد به‌راحتی اسلایدهای ارائه PowerPoint و OpenDocument را به فرمت‌های مختلف تصویری تبدیل کنید، از جمله BMP، PNG، JPG (JPEG)، GIF و موارد دیگر.
 
 برای تبدیل یک اسلاید به تصویر، مراحل زیر را دنبال کنید:
 
-1. تنظیمات تبدیل موردنظر را تعریف کنید و اسلایدهایی که می‌خواهید صادر کنید را با استفاده از موارد زیر انتخاب کنید:
-    - کلاس [TiffOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/tiffoptions/)، یا
-    - کلاس [RenderingOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/renderingoptions/) .
-2. تصویر اسلاید را با فراخوانی متد `get_image` از کلاس [Slide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/) تولید کنید.
+1. تنظیمات تبدیل مورد نظر را تعریف کنید و اسلایدهایی که می‌خواهید صادر کنید را با استفاده از انتخاب کنید:
+    - کلاس [TiffOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/tiffoptions/) یا
+    - کلاس [RenderingOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/renderingoptions/)
+2. تصویر اسلاید را با صدا زدن متد `get_image` از کلاس [Slide](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/) تولید کنید.
 
-در Aspose.Slides برای Python از طریق .NET، کلاس [IImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/iimage/) یک کلاس است که به شما امکان کار با تصاویری را می‌دهد که بر پایه داده‌های پیکسلی تعریف شده‌اند. می‌توانید از یک نمونه از این کلاس برای ذخیره‌سازی تصاویر در طیف وسیعی از فرمت‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
+در Aspose.Slides برای Python از طریق .NET، کلاس [IImage](https://reference.aspose.com/slides/fa/python-net/aspose.slides/iimage/) یک کلاس است که به شما امکان کار با تصاویری را می‌دهد که توسط داده‌های پیکسل تعریف شده‌اند. می‌توانید از یک نمونه از این کلاس برای ذخیره تصاویر در طیف گسترده‌ای از فرمت‌ها (BMP، JPG، PNG و غیره) استفاده کنید.
 
-## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر در قالب PNG**
+## **تبدیل اسلایدها به بیت‌مپ و ذخیره تصاویر در PNG**
 
-می‌توانید یک اسلاید را به یک شی بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده کنید. به‌طور جایگزین، می‌توانید اسلاید را به بیت‌مپ تبدیل کرده و سپس تصویر را در قالب JPEG یا هر قالب دلخواه دیگری ذخیره کنید.
+می‌توانید یک اسلاید را به شی بیت‌مپ تبدیل کنید و مستقیماً در برنامه خود استفاده کنید. به‌علاوه، می‌توانید اسلاید را به بیت‌مپ تبدیل کرده و سپس تصویر را در فرمت JPEG یا هر فرمت دلخواه دیگری ذخیره کنید.
 
-این کد پایتون نشان می‌دهد چگونه اولین اسلاید یک ارائه را به شی بیت‌مپ تبدیل کرده و سپس تصویر را در قالب PNG ذخیره کنید:
+این کد پایتون نشان می‌دهد چگونه اسلاید اول یک ارائه را به شی بیت‌مپ تبدیل کرده و سپس تصویر را در فرمت PNG ذخیره کنید:
 
 ```py 
 import aspose.slides as slides
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # اسلاید اول ارائه را به بیت‌مپ تبدیل کنید.
+    # تبدیل اولین اسلاید در ارائه به بیت‌مپ.
     with presentation.slides[0].get_image() as image:
-        # تصویر را در قالب PNG ذخیره کنید.
+        # ذخیره تصویر در فرمت PNG.
         image.save("Slide_0.png", slides.ImageFormat.PNG)
 ```
 
 ## **تبدیل اسلایدها به تصاویر با اندازه‌های سفارشی**
 
-شاید نیاز به دریافت تصویری با اندازه‌ای خاص داشته باشید. با استفاده از یک overload از متد [get_image](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/get_image/#asposepydrawingsize)، می‌توانید یک اسلاید را به تصویری با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
+ممکن است نیاز داشته باشید تصویر با اندازه خاصی به‌دست آورید. با استفاده از یک overload از متد [get_image](https://reference.aspose.com/slides/fa/python-net/aspose.slides/slide/get_image/#asposepydrawingsize) می‌توانید یک اسلاید را به تصویری با ابعاد مشخص (عرض و ارتفاع) تبدیل کنید.
 
-این کد نمونه نشان می‌دهد چگونه این کار را انجام دهید:
+این نمونه کد نشان می‌دهد چگونه این کار را انجام دهید:
 
 ```py
 import aspose.pydrawing as draw
@@ -59,9 +59,9 @@ import aspose.slides as slides
 image_size = draw.Size(1820, 1040)
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # اسلاید اول ارائه را به بیت‌مپ با اندازهٔ مشخص تبدیل کنید.
+    # تبدیل اولین اسلاید در ارائه به بیت‌مپ با اندازه مشخص.
     with presentation.slides[0].get_image(image_size) as image:
-        # تصویر را در قالب JPEG ذخیره کنید.
+        # ذخیره تصویر در فرمت JPEG.
         image.save("Slide_0.jpg", slides.ImageFormat.JPEG)
 ```
 
@@ -69,11 +69,11 @@ with slides.Presentation("Presentation.pptx") as presentation:
 
 برخی اسلایدها ممکن است شامل یادداشت‌ها و نظرات باشند.
 
-Aspose.Slides دو کلاس—[TiffOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/tiffoptions/) و [RenderingOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/renderingoptions/)—را فراهم می‌کند که به شما امکان کنترل رندرینگ اسلایدهای ارائه به تصاویر را می‌دهد. هر دو کلاس شامل ویژگی `slides_layout_options` هستند که به شما اجازه می‌دهد رندرینگ یادداشت‌ها و نظرات روی یک اسلاید را هنگام تبدیل به تصویر پیکربندی کنید.
+Aspose.Slides دو کلاس — [TiffOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/tiffoptions/) و [RenderingOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/renderingoptions/) — ارائه می‌دهد که به شما امکان کنترل رندر اسلایدهای ارائه به تصاویر را می‌دهد. هر دو کلاس شامل ویژگی `slides_layout_options` هستند که به شما امکان پیکربندی رندر یادداشت‌ها و نظرات روی اسلاید هنگام تبدیل به تصویر را می‌دهد.
 
-با استفاده از کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات در تصویر خروجی مشخص کنید.
+با کلاس [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/notescommentslayoutingoptions/) می‌توانید موقعیت دلخواه خود برای یادداشت‌ها و نظرات در تصویر خروجی تعیین کنید.
 
-این کد پایتون نشان می‌دهد چگونه یک اسلاید حاوی یادداشت‌ها و نظرات را تبدیل کنید:
+این کد پایتون نشان می‌دهد چگونه اسلایدی با یادداشت‌ها و نظرات را تبدیل کنید:
 
 ```py 
 import aspose.pydrawing as draw
@@ -84,58 +84,58 @@ scale_y = scale_x
 
 with slides.Presentation("Presentation_with_notes_and_comments.pptx") as presentation:
     notes_comments_options = slides.export.NotesCommentsLayoutingOptions()
-    notes_comments_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED  # موقعیت یادداشت‌ها را تنظیم کنید.
-    notes_comments_options.comments_position = slides.export.CommentsPositions.RIGHT       # موقعیت نظرات را تنظیم کنید.
-    notes_comments_options.comments_area_width = 500                                       # عرض ناحیه نظرات را تنظیم کنید.
-    notes_comments_options.comments_area_color = draw.Color.antique_white                  # رنگ ناحیه نظرات را تنظیم کنید.
+    notes_comments_options.notes_position = slides.export.NotesPositions.BOTTOM_TRUNCATED  # تعیین موقعیت یادداشت‌ها.
+    notes_comments_options.comments_position = slides.export.CommentsPositions.RIGHT       # تعیین موقعیت نظرات.
+    notes_comments_options.comments_area_width = 500                                       # تعیین عرض ناحیه نظرات.
+    notes_comments_options.comments_area_color = draw.Color.antique_white                  # تعیین رنگ ناحیه نظرات.
 
-    # گزینه‌های رندرینگ را ایجاد کنید.
+    # ایجاد گزینه‌های رندر.
     options = slides.export.RenderingOptions()
     options.slides_layout_options = notes_comments_options
 
-    # اسلاید اول ارائه را به تصویر تبدیل کنید.
+    # تبدیل اولین اسلاید ارائه به تصویر.
     with presentation.slides[0].get_image(options, scale_x, scale_y) as image:
-        # تصویر را در قالب GIF ذخیره کنید.
+        # ذخیره تصویر در فرمت GIF.
         image.save("Image_with_notes_and_comments_0.gif", slides.ImageFormat.GIF)
 ```
 
 {{% alert title="Note" color="warning" %}} 
-در هر فرآیند تبدیل اسلاید به تصویر، ویژگی [notes_position](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) نمی‌تواند روی `BOTTOM_FULL` تنظیم شود (برای مشخص کردن موقعیت یادداشت‌ها) زیرا متن یک یادداشت ممکن است بیش از حد بزرگ باشد و نتواند در اندازه تصویر مشخص شده جا بگیرد. 
+در هر فرآیند تبدیل اسلاید به تصویر، ویژگی [notes_position](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/notescommentslayoutingoptions/notes_position/) نمی‌تواند به مقدار `BOTTOM_FULL` تنظیم شود (برای تعیین موقعیت یادداشت‌ها) زیرا متن یک یادداشت ممکن است بیش از اندازه بزرگ باشد و نتواند در اندازه تصویر مشخص شده جا بگیرد.
 {{% /alert %}} 
 
 ## **تبدیل اسلایدها به تصاویر با استفاده از گزینه‌های TIFF**
 
-کلاس [TiffOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/tiffoptions/) کنترل بیشتری بر روی تصویر TIFF خروجی فراهم می‌کند، به‌طوری که می‌توانید پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
+کلاس [TiffOptions](https://reference.aspose.com/slides/fa/python-net/aspose.slides.export/tiffoptions/) کنترل بیشتری بر تصویر TIFF خروجی فراهم می‌کند؛ به‌طوری که می‌توانید پارامترهایی مانند اندازه، وضوح، پالت رنگ و موارد دیگر را مشخص کنید.
 
-این کد پایتون یک فرآیند تبدیل را نشان می‌دهد که در آن از گزینه‌های TIFF برای خروجی یک تصویر سیاه‑سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شود:
+این کد پایتون نشان می‌دهد یک فرآیند تبدیل که در آن گزینه‌های TIFF برای خروجی تصویر سیاه‌سفید با وضوح 300 DPI و اندازه 2160 × 2800 استفاده می‌شوند:
 
 ```py 
 import aspose.pydrawing as draw
 import aspose.slides as slides
 
-# یک فایل ارائه را بارگذاری کنید.
+# بارگذاری یک فایل ارائه.
 with slides.Presentation("sample.pptx") as presentation:
-    # اولین اسلاید را از ارائه دریافت کنید.
+    # دریافت اولین اسلاید از ارائه.
     slide = presentation.slides[0]
 
-    # تنظیمات تصویر خروجی TIFF را پیکربندی کنید.
+    # پیکربندی تنظیمات تصویر خروجی TIFF.
     options = slides.export.TiffOptions()
-    options.image_size = draw.Size(2160, 2880)                                 # اندازه تصویر را تنظیم کنید.
-    options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED  # فرمت پیکسلی را تنظیم کنید (سیاه و سفید).
-    options.dpi_x = 300                                                        # وضوح افقی را تنظیم کنید.
-    options.dpi_y = 300                                                        # وضوح عمودی را تنظیم کنید.
+    options.image_size = draw.Size(2160, 2880)                                 # تعیین اندازه تصویر.
+    options.pixel_format = slides.export.ImagePixelFormat.FORMAT_1BPP_INDEXED  # تعیین فرمت پیکسل (سیاه و سفید).
+    options.dpi_x = 300                                                        # تعیین وضوح افقی.
+    options.dpi_y = 300                                                        # تعیین وضوح عمودی.
 
-    # اسلاید را با گزینه‌های مشخص به تصویر تبدیل کنید.
+    # تبدیل اسلاید به تصویر با گزینه‌های مشخص شده.
     with slide.get_image(options) as image:
-        # تصویر را در قالب TIFF ذخیره کنید.
+        # ذخیره تصویر در فرمت TIFF.
         image.save("output.tiff", slides.ImageFormat.TIFF)
 ```
 
 ## **تبدیل تمام اسلایدها به تصاویر**
 
-Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید و به‌طور مؤثری کل ارائه را به یک سری تصاویر تبدیل نمایید.
+Aspose.Slides به شما امکان می‌دهد تمام اسلایدهای یک ارائه را به تصاویر تبدیل کنید، به‌طوری که کل ارائه به مجموعه‌ای از تصاویر تبدیل می‌شود.
 
-این کد نمونه نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را در پایتون به تصاویر تبدیل کنید:
+این نمونه کد نشان می‌دهد چگونه تمام اسلایدهای یک ارائه را به تصاویر در پایتون تبدیل کنید:
 
 ```py
 import aspose.slides as slides
@@ -144,28 +144,34 @@ scale_x = 2
 scale_y = scale_x
 
 with slides.Presentation("Presentation.pptx") as presentation:
-    # ارائه را به صورت اسلاید به اسلاید به تصاویر رندر کنید.
+    # رندر ارائه به تصاویر به صورت اسلاید به اسلاید.
     for i, slide in enumerate(presentation.slides):
         # کنترل اسلایدهای مخفی (اسلایدهای مخفی رندر نشوند).
         if slide.hidden:
             continue
 
-        # اسلاید را به تصویر تبدیل کنید.
+        # تبدیل اسلاید به تصویر.
         with slide.get_image(scale_x, scale_y) as image:
-            # تصویر را در قالب JPEG ذخیره کنید.
+            # ذخیره تصویر در فرمت JPEG.
             image.save("Slide_{0}.jpg".format(i), slides.ImageFormat.JPEG)
 ```
 
-## **پرسش‌های متداول**
+## **رندر ایموجی‌های رنگی**
 
-**آیا Aspose.Slides از رندرینگ اسلایدها با انیمیشن‌ها پشتیبانی می‌کند؟**
+{{% alert title="Note" color="warning" %}} 
+برای رندر صحیح ایموجی‌های رنگی هنگام تبدیل اسلایدهای ارائه به تصاویر، فونت‌های ایموجی مورد استفاده در ارائه باید بر روی سیستمی که تبدیل را انجام می‌دهد نصب شده و در دسترس باشند. به عنوان مثال، اگر ارائه از **Segoe UI Emoji** استفاده کند و این فونت موجود نباشد، ایموجی‌ها ممکن است به‌صورت تک‌رنگ در تصاویر خروجی نمایش داده شوند.
+{{% /alert %}}
 
-خیر، متد `get_image` فقط تصویر ایستایی از اسلاید را ذخیره می‌کند و انیمیشن‌ها را شامل نمی‌شود.
+## **سوالات متداول**
 
-**آیا اسلایدهای مخفی می‌توانند به‌عنوان تصویر صادر شوند؟**
+**آیا Aspose.Slides از رندر اسلایدها با انیمیشن‌ها پشتیبانی می‌کند؟**
 
-بله، اسلایدهای مخفی می‌توانند همانند اسلایدهای معمولی پردازش شوند. فقط مطمئن شوید که در حلقه پردازش گنجانده شده‌اند.
+خیر، متد `get_image` تنها یک تصویر ثابت از اسلاید را ذخیره می‌کند و انیمیشن‌ها را شامل نمی‌شود.
+
+**آیا می‌توان اسلایدهای مخفی را به‌عنوان تصویر صادر کرد؟**
+
+بله، اسلایدهای مخفی می‌توانند همانند اسلایدهای عادی پردازش شوند. تنها کافی است مطمئن شوید که در حلقه پردازش گنجانده شده‌اند.
 
 **آیا می‌توان تصاویر را با سایه‌ها و افکت‌ها ذخیره کرد؟**
 
-بله، Aspose.Slides هنگام ذخیره اسلایدها به عنوان تصویر، رندرینگ سایه‌ها، شفافیت و سایر افکت‌های گرافیکی را پشتیبانی می‌کند.
+بله، Aspose.Slides هنگام ذخیره اسلایدها به‌صورت تصویر، از رندر سایه‌ها، شفافی‌ها و سایر اثرات گرافیکی پشتیبانی می‌کند.

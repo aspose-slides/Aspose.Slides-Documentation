@@ -1,24 +1,24 @@
 ---
-title: Pas dia-indelingen toe of wijzig ze in .NET
-linktitle: Dia-indeling
+title: Lay-outs voor dia's toepassen of wijzigen in .NET
+linktitle: Dia-layout
 type: docs
 weight: 60
 url: /nl/net/slide-layout/
 keywords:
-- dia-indeling
-- inhoudsindeling
-- plaatshouder
+- dia-layout
+- inhoud-layout
+- placeholder
 - presentatie-ontwerp
 - dia-ontwerp
-- ongebruikte indeling
+- ongebruikte layout
 - zichtbaarheid van voettekst
-- titeldia
+- titel-dia
 - titel en inhoud
 - sectiekop
-- twee inhoud
+- twee-inhoud
 - vergelijking
 - alleen titel
-- lege indeling
+- lege layout
 - inhoud met bijschrift
 - afbeelding met bijschrift
 - titel en verticale tekst
@@ -29,237 +29,217 @@ keywords:
 - C#
 - .NET
 - Aspose.Slides
-description: "Beheer en pas dia-indelingen aan in Aspose.Slides voor .NET. Ontdek indelingstypen, controle over plaatshouders en zichtbaarheid van de voettekst via C#-codevoorbeelden."
+description: "Dia-layouts toepassen, maken en wijzigen in Aspose.Slides voor .NET, placeholders toevoegen, ongebruikte layout verwijderen en de zichtbaarheid van de voettekst beheren."
 ---
-## **Introductie**
+## **Overzicht**
 
-Een dia‑indeling bepaalt de rangschikking van plaatshoudervakken en de opmaak van de inhoud op een dia. Ze regelt welke plaatshouders beschikbaar zijn en waar ze verschijnen. Dia‑indelingen helpen je presentaties snel en consistent te ontwerpen — of je nu iets eenvoudigs of complexers maakt. Enkele van de meest voorkomende dia‑indelingen in PowerPoint zijn:
+Een slide‑lay‑out definieert de posities en opmaak van tijdelijke aanduidingen zoals titels, tekst, afbeeldingen, grafieken en tabellen. Het toepassen van een lay‑out geeft dia’s een consistente structuur terwijl elke dia zijn eigen inhoud kan bevatten.
 
-**Title Slide layout** – Bevat twee tekst‑plaatshouders: één voor de titel en één voor de ondertitel.
+De meest voorkomende lay‑outs zijn:
 
-**Title and Content layout** – Beschikt over een kleinere titel‑plaatshouder bovenin en een grotere eronder voor de hoofdinhoud (zoals tekst, opsommingstekens, grafieken, afbeeldingen, enz.).
+- **Titel‑dia**: Bevat tijdelijke aanduidingen voor titel en ondertitel.  
+- **Titel en inhoud**: Bevat een titel‑placeholder en een algemene inhouds‑placeholder.  
+- **Leeg**: Bevat geen inhouds‑placeholders en is handig wanneer elke vorm handmatig wordt gepositioneerd.
 
-**Blank layout** – Heeft geen plaatshouders, zodat je de dia volledig zelf kunt ontwerpen.
+## **Begrijp layout‑erfelijkheid**
 
-Dia‑indelingen maken deel uit van een dia‑master, de bovenliggende dia die de indelingsstijlen voor de presentatie definieert. Je kunt indelingsdia’s benaderen en aanpassen via de dia‑master — op basis van type, naam of unieke ID. Als alternatief kun je een specifieke indelingsdia rechtstreeks in de presentatie bewerken.
+Een presentatie heeft drie gerelateerde niveaus:
 
-Om met dia‑indelingen te werken in Aspose.Slides for .NET, kun je gebruiken:
+1. Een [master‑slide](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/) definieert het thema, gedeelde opmaak, achtergronden en gemeenschappelijke objecten.  
+1. Een [layout‑slide](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/) behoort tot een master en definieert een specifieke rangschikking van placeholders.  
+1. Een [normale slide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/) gebruikt één lay‑out en slaat de ingevoerde inhoud voor die dia op.
 
-- Eigenschappen zoals [LayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/layoutslides/) en [Masters](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/masters/) onder de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse
-- Types zoals [ILayoutSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutplaceholdermanager/) en [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslideheaderfootermanager/)
+Een normale dia erft thema en opmaak van zijn lay‑out, en de lay‑out erft van zijn master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt aangemaakt, worden de placeholder‑vormen gegenereerd vanuit de geselecteerde lay‑out, terwijl de ingevoerde inhoud in die placeholders behoort tot de normale dia.
 
-{{% alert title="Info" color="info" %}}
-Om meer te leren over het werken met master‑dia’s, bekijk het artikel [Slide Master](/slides/nl/net/slide-master/).
+Voeg verplichte placeholders toe aan een lay‑out voordat je dia’s ervan maakt. Een later toegevoegde placeholder aan een lay‑out voegt niet automatisch een overeenkomstige placeholder‑vorm toe aan bestaande normale dia’s.
+
+Deze relatie heeft twee belangrijke consequenties:
+
+- Het wijzigen van geërfde opmaak of bestaande placeholder‑geometrie in een lay‑out kan elke dia die ervan afhankelijk is bijwerken. Controleer vóór het bewerken van een lay‑out die al in gebruik is de afhankelijke dia’s en evalueer de resulterende presentatie.  
+- Een lay‑out die nog door een dia wordt gebruikt, kan niet worden verwijderd. Ken eerst de afhankelijke dia’s opnieuw toe aan een andere lay‑out, of verwijder alleen ongebruikte lay‑outs.
+
+Voor meer informatie over het hoogste niveau van deze hiërarchie, zie [Slide Master](/slides/nl/net/slide-master/).
+
+## **Selecteer en pas een slide‑lay‑out toe**
+
+Gebruik een lay‑outtype wanneer de presentatie standaard PowerPoint‑lay‑outdefinities volgt. Lay‑outnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, dus naam‑gebaseerde selectie is minder betrouwbaar tenzij je de bron‑template beheert.
+
+Het volgende voorbeeld zoekt naar **Title and Content** op de eerste master. Als die lay‑out niet beschikbaar is, valt het bewust terug op **Blank**. De tweede null‑check is nodig omdat een presentatie uitsluitend aangepaste lay‑outs kan bevatten. De geselecteerde lay‑out wordt vervolgens toegepast op de eerste normale dia via de [ISlide.LayoutSlide](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/layoutslide/)‑eigenschap.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlides = presentation.Masters[0].LayoutSlides;
+var targetLayout = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (targetLayout == null)
+{
+    throw new InvalidOperationException("The first master does not contain a suitable layout slide.");
+}
+
+presentation.Slides[0].LayoutSlide = targetLayout;
+presentation.Save("output-with-new-layout.pptx", SaveFormat.Pptx);
+```
+
+Het wijzigen van de lay‑out van een dia verwijdert niet de gewone vormen die direct aan de dia zijn toegevoegd. Placeholder‑posities, geërfde opmaak en de correspondentie tussen bestaande placeholders en de nieuwe lay‑out kunnen echter wijzigen, dus inspecteer de output bij het wisselen tussen wezenlijk verschillende lay‑outs.
+
+## **Voeg een layout‑slide toe**
+
+Selectie en creatie zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande lay‑out; het maakt er geen aan. Om een lay‑out te maken, roep je de [IMasterLayoutSlideCollection.Add](https://reference.aspose.com/slides/nl/net/aspose.slides/masterlayoutslidecollection/add/)‑methode aan op de lay‑outcollectie van de doel‑master.
+
+Het volgende voorbeeld voegt steeds een nieuwe **Title and Content**‑lay‑out toe met de naam `Report Title and Content`, en voegt daarna een normale dia toe die ervan afgeleid is. Lay‑outnamen moeten binnen de collectie uniek zijn.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var masterSlide = presentation.Masters[0];
+var reportLayout = masterSlide.LayoutSlides.Add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+presentation.Slides.AddEmptySlide(reportLayout);
+
+presentation.Save("output-with-report-layout.pptx", SaveFormat.Pptx);
+```
+
+Voeg alleen een lay‑out toe wanneer de template werkelijk een extra herbruikbare structuur nodig heeft. Als er al een passende lay‑out bestaat, selecteer en hergebruik die dan in plaats van een duplicaat aan te maken.
+
+## **Voeg placeholders toe aan een layout‑slide**
+
+De [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/placeholdermanager/)‑eigenschap biedt een [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutplaceholdermanager/) voor het toevoegen van placeholder‑vormen aan een lay‑out.
+
+| PowerPoint‑placeholder          | `ILayoutPlaceholderManager` Method |
+| -------------------------------- | ---------------------------------- |
+| ![Content](content.png)          | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)    | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)          | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)              | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)              | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)        | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)              | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png) | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/net/aspose.slides/layoutplaceholdermanager/addonlineimageplaceholder/) |
+
+Het volgende voorbeeld controleert of de **Blank**‑lay‑out bestaat, voegt er vier placeholders aan toe en maakt vervolgens een normale dia die de gewijzigde lay‑out gebruikt. De volgorde is opzettelijk: de placeholders worden toegevoegd vóór het aanmaken van de normale dia, zodat Aspose.Slides de overeenkomstige placeholder‑vormen op die dia kan genereren.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+
+var blankLayout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (blankLayout == null)
+{
+    throw new InvalidOperationException("The presentation does not contain a Blank layout slide.");
+}
+
+var placeholderManager = blankLayout.PlaceholderManager;
+placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
+placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
+placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
+placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
+
+presentation.Slides.AddEmptySlide(blankLayout);
+presentation.Save("output-with-placeholders.pptx", SaveFormat.Pptx);
+```
+
+Het resultaat:
+
+![The placeholders on the layout slide](add_placeholders.png)
+
+{{% alert color="warning" title="Waarschuwing" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande lay‑out‑placeholders kan afhankelijke dia’s beïnvloeden. Een nieuw toegevoegde layout‑placeholder wordt niet automatisch teruggevoerd naar bestaande normale dia’s. Test lay‑out‑wijzigingen op een kopie van de presentatie en controleer elke afhankelijke dia.
 {{% /alert %}}
 
-## **Dia‑indelingen toevoegen aan presentaties**
+## **Verwijder ongebruikte layout‑slides**
 
-Om het uiterlijk en de structuur van je dia’s aan te passen, moet je mogelijk nieuwe indelingsdia’s aan een presentatie toevoegen. Aspose.Slides for .NET stelt je in staat te controleren of een specifieke indeling al bestaat, een nieuwe toe te voegen indien nodig, en deze te gebruiken om dia’s in te voegen op basis van die indeling.
+Gebruik de [Compress.RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/)‑methode om lay‑outs te verwijderen die door geen enkele normale dia worden gerefereerd. De methode laat lay‑outs die nog in gebruik zijn ongewijzigd.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse.
-1. Benader de [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterlayoutslidecollection/).
-1. Controleer of de gewenste indelingsdia al bestaat in de collectie. Zo niet, voeg dan de benodigde indelingsdia toe.
-1. Voeg een lege dia toe op basis van de nieuwe indelingsdia.
-1. Sla de presentatie op.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.LowCode;
 
-De volgende C#‑code toont hoe je een dia‑indeling toevoegt aan een PowerPoint‑presentatie:
+using var presentation = new Presentation("input.pptx");
 
-```cs
-// Instantieer de Presentation-klasse die een PowerPoint-bestand vertegenwoordigt.
-using (Presentation presentation = new Presentation("Sample.pptx"))
-{
-    // Doorloop de verschillende indelingsdia-typen om een indelingsdia te selecteren.
-    IMasterLayoutSlideCollection layoutSlides = presentation.Masters[0].LayoutSlides;
-    ILayoutSlide layoutSlide = layoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? layoutSlides.GetByType(SlideLayoutType.Title);
-
-    if (layoutSlide == null)
-    {
-        // Een situatie waarin de presentatie niet alle indelingstypen bevat.
-        // Het presentiebestand bevat alleen de typen Blank en Custom.
-        // Echter, indelingsdia’s met aangepaste typen kunnen herkenbare namen hebben,
-        // zoals "Title", "Title and Content", enz., die gebruikt kunnen worden voor het selecteren van een indelingsdia.
-        // Je kunt ook vertrouwen op een set van plaatshouder-vormtypen.
-        // Bijvoorbeeld, een titeldia zou alleen de Title plaatshouder moeten hebben, enzovoort.
-        foreach (ILayoutSlide titleAndObjectLayoutSlide in layoutSlides)
-        {
-            if (titleAndObjectLayoutSlide.Name == "Title and Object")
-            {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null)
-        {
-            foreach (ILayoutSlide titleLayoutSlide in layoutSlides)
-            {
-                if (titleLayoutSlide.Name == "Title")
-                {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null)
-            {
-                layoutSlide = layoutSlides.GetByType(SlideLayoutType.Blank);
-                if (layoutSlide == null)
-                {
-                    layoutSlide = layoutSlides.Add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
-    }
-
-    // Voeg een lege dia toe met de toegevoegde indelingsdia.
-    presentation.Slides.InsertEmptySlide(0, layoutSlide);
-
-    // Sla de presentatie op naar schijf.  
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+Compress.RemoveUnusedLayoutSlides(presentation);
+presentation.Save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
 ```
 
-## **Ongebruikte dia‑indelingen verwijderen**
+Om één specifieke lay‑out te verwijderen, controleer eerst de [HasDependingSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/hasdependingslides/)‑eigenschap of de [GetDependingSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/getdependingslides/)‑methode. Ken eventuele afhankelijke dia’s opnieuw toe voordat je [ILayoutSlide.Remove](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/remove/) aanroept. Het proberen te verwijderen van een gebruikte lay‑out veroorzaakt een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception/).
 
-Aspose.Slides biedt de methode [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) van de [Compress](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/)‑klasse om ongewenste en ongebruikte indelingsdia’s te verwijderen.
+## **Regel de zichtbaarheid van voetteksten op een layout‑slide**
 
-De volgende C#‑code laat zien hoe je een indelingsdia verwijdert uit een PowerPoint‑presentatie:
+Een lay‑out heeft zijn eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑placeholders. Gebruik de [ILayoutSlide.HeaderFooterManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/headerfootermanager/)‑eigenschap om die placeholders voor één lay‑out te regelen. Dit is handig wanneer bijvoorbeeld inhoud‑lay‑outs voetteksten tonen maar titel‑lay‑outs niet.
 
-```cs
-using (Presentation presentation = new Presentation("Presentation.pptx"))
+Het volgende voorbeeld selecteert veilig een lay‑out en maakt de voettekstelementen zichtbaar:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("input.pptx");
+
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.TitleAndObject) ?? presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+
+if (layoutSlide == null)
 {
-    Aspose.Slides.LowCode.Compress.RemoveUnusedLayoutSlides(presentation);
-    
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
+    throw new InvalidOperationException("The presentation does not contain a suitable layout slide.");
 }
+
+var headerFooterManager = layoutSlide.HeaderFooterManager;
+headerFooterManager.SetFooterVisibility(true);
+headerFooterManager.SetSlideNumberVisibility(true);
+headerFooterManager.SetDateTimeVisibility(true);
+headerFooterManager.SetFooterText("Footer text");
+headerFooterManager.SetDateTimeText("Date and time text");
+
+presentation.Save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 ```
 
-## **Plaatshouders toevoegen aan dia‑indelingen**
+## **Regel de zichtbaarheid van voetteksten op een master en zijn onderliggende lay‑outs**
 
-Aspose.Slides biedt de eigenschap [ILayoutSlide.PlaceholderManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/placeholdermanager/) waarmee je nieuwe plaatshouders aan een indelingsdia kunt toevoegen.
+Om consistente voettekstinstellingen toe te passen over een meester‑hiërarchie, gebruik je de [IMasterSlide.HeaderFooterManager](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslide/headerfootermanager/)‑eigenschap. De propagatiemethoden van [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/net/aspose.slides/imasterslideheaderfootermanager/) werken op de master en zijn afhankelijke lay‑out‑slides en normale slides; ze richten zich niet alleen op één normale slide.
 
-Deze manager bevat methoden voor de volgende plaatshoudertypen:
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-| PowerPoint‑plaatshouder            | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutplaceholdermanager/)‑methode |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | AddContentPlaceholder(float x,float y,float width,float height) |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x,float y,float width,float height) |
-| ![Text](text.png)                   | AddTextPlaceholder(float x,float y,float width,float height) |
-| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x,float y,float width,float height) |
-| ![Picture](picture.png)             | AddPicturePlaceholder(float x,float y,float width,float height) |
-| ![Chart](chart.png)                 | AddChartPlaceholder(float x,float y,float width,float height) |
-| ![Table](table.png)                 | AddTablePlaceholder(float x,float y,float width,float height) |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x,float y,float width,float height) |
-| ![Media](media.png)                 | AddMediaPlaceholder(float x,float y,float width,float height) |
-| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x,float y,float width,float height) |
+using var presentation = new Presentation("input.pptx");
 
-De volgende C#‑code demonstreert hoe je nieuwe plaatshoudervormen toevoegt aan de **Blank**‑indelingsdia:
+var headerFooterManager = presentation.Masters[0].HeaderFooterManager;
+headerFooterManager.SetFooterAndChildFootersVisibility(true);
+headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
+headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
+headerFooterManager.SetFooterAndChildFootersText("Footer text");
+headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
 
-```cs
-using (var presentation = new Presentation())
-{
-    // Haal de lege indelingsdia op.
-    ILayoutSlide layout = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
-
-    // Haal de plaatshoudermanager van de indelingsdia op.
-    ILayoutPlaceholderManager placeholderManager = layout.PlaceholderManager;
-
-    // Voeg verschillende plaatshouders toe aan de lege indelingsdia.
-    placeholderManager.AddContentPlaceholder(20, 20, 310, 270);
-    placeholderManager.AddVerticalTextPlaceholder(350, 20, 350, 270);
-    placeholderManager.AddChartPlaceholder(20, 310, 310, 180);
-    placeholderManager.AddTablePlaceholder(350, 310, 350, 180);
-
-    // Voeg een nieuwe dia toe met de lege indeling.
-    ISlide newSlide = presentation.Slides.AddEmptySlide(layout);
-
-    presentation.Save("Placeholders.pptx", SaveFormat.Pptx);
-}
-```
-
-Resultaat:
-
-![De plaatshouders op de indelingsdia](add_placeholders.png)
-
-## **Voettekstekens zichtbaar maken voor een indelingsdia**
-
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, dia‑nummer en aangepaste tekst worden getoond of verborgen afhankelijk van de dia‑indeling. Aspose.Slides for .NET stelt je in staat de zichtbaarheid van deze voettekst‑plaatshouders te regelen. Handig wanneer je voor bepaalde indelingen voettekst wilt weergeven en voor andere een strakke, minimale weergave wilt behouden.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar een indelingsdia op via de index.
-1. Zet de voettekst‑plaatshouder van de dia op zichtbaar.
-1. Zet de dia‑nummer‑plaatshouder op zichtbaar.
-1. Zet de datum‑tijd‑plaatshouder op zichtbaar.
-1. Sla de presentatie op.
-
-De volgende C#‑code toont hoe je de zichtbaarheid van een dia‑voettekst instelt en gerelateerde acties uitvoert:
-
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.LayoutSlides[0].HeaderFooterManager;
-
-    if (!headerFooterManager.IsFooterVisible)
-    {
-        headerFooterManager.SetFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.IsSlideNumberVisible)
-    {
-        headerFooterManager.SetSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.IsDateTimeVisible)
-    {
-        headerFooterManager.SetDateTimeVisibility(true);
-    }
-
-    headerFooterManager.SetFooterText("Footer text");
-    headerFooterManager.SetDateTimeText("Date and time text");
-
-    presentation.Save("Presentation.ppt", SaveFormat.Ppt);
-}
-```
-
-## **Voettekst van onderliggende dia’s zichtbaar maken**
-
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, dia‑nummer en aangepaste tekst op het niveau van de master‑dia worden beheerd om consistentie over alle indelingsdia’s te waarborgen. Aspose.Slides for .NET maakt het mogelijk de zichtbaarheid en inhoud van deze voettekst‑plaatshouders op de master‑dia in te stellen en deze instellingen door te geven aan alle onderliggende indelingsdia’s. Zo behoud je uniforme voettekstinformatie gedurende de hele presentatie.
-
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar de master‑dia op via de index.
-1. Zet de voettekst‑plaatshouders van de master en alle onderliggende dia’s op zichtbaar.
-1. Zet de dia‑nummer‑plaatshouders van de master en alle onderliggende dia’s op zichtbaar.
-1. Zet de datum‑tijd‑plaatshouders van de master en alle onderliggende dia’s op zichtbaar.
-1. Sla de presentatie op.
-
-De volgende C#‑code demonstreert deze bewerking:
-
-```cs
-using (Presentation presentation = new Presentation("Presentation.ppt"))
-{
-    IMasterSlideHeaderFooterManager headerFooterManager = presentation.Masters[0].HeaderFooterManager;
-
-    headerFooterManager.SetFooterAndChildFootersVisibility(true);
-    headerFooterManager.SetSlideNumberAndChildSlideNumbersVisibility(true);
-    headerFooterManager.SetDateTimeAndChildDateTimesVisibility(true);
-
-    headerFooterManager.SetFooterAndChildFootersText("Footer text");
-    headerFooterManager.SetDateTimeAndChildDateTimesText("Date and time text");
-
-    presentation.Save("Output.pptx", SaveFormat.Pptx);
-}
+presentation.Save("output-with-master-footers.pptx", SaveFormat.Pptx);
 ```
 
 ## **FAQ**
 
-**Wat is het verschil tussen een master‑dia en een indelingsdia?**
+**Wat is het verschil tussen een master‑slide en een layout‑slide?**
 
-Een master‑dia bepaalt het algemene thema en de standaardopmaak, terwijl indelingsdia’s specifieke rangschikkingen van plaatshouders voor verschillende soorten inhoud definiëren.
+Een master‑slide definieert het thema en de gedeelde opmaak van de presentatie. Een layout‑slide behoort tot een master en definieert een herbruikbare rangschikking van placeholders. Normale dia’s gebruiken die lay‑outs en slaan dia‑specifieke inhoud op.
 
-**Kan ik een indelingsdia van de ene presentatie naar de andere kopiëren?**
+**Kan ik een layout‑slide van de ene presentatie naar de andere kopiëren?**
 
-Ja, je kunt een indelingsdia klonen vanuit de [LayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/presentation/layoutslides/)‑collectie van een presentatie en deze invoegen in een andere met de `AddClone`‑methode.
+Ja. Voeg een kopie toe aan de doel‑collectie met de [AddClone](https://reference.aspose.com/slides/nl/net/aspose.slides/globallayoutslidecollection/addclone/)‑methode. Bij het kopiëren tussen presentaties moet je bovendien fonts, thema’s, afbeeldingen en andere bronnen die door de bron‑lay‑out worden gebruikt verifiëren.
 
-**Wat gebeurt er als ik een indelingsdia verwijder die nog door een dia wordt gebruikt?**
+**Wat gebeurt er als ik een lay‑out wijzig die al in gebruik is?**
 
-Als je probeert een indelingsdia te verwijderen die nog door ten minste één dia in de presentatie wordt gerefereerd, zal Aspose.Slides een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception/) werpen. Gebruik in plaats daarvan [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) om veilig alleen de ongebruikte indelingsdia’s te verwijderen.
+Afhankelijke dia’s erven de lay‑out‑wijzigingen tenzij ze de betrokken opmaak of objecten lokaal overschrijven. Placeholder‑geometrie en geërfde styling kunnen daardoor op veel dia’s tegelijk veranderen. Gebruik [GetDependingSlides](https://reference.aspose.com/slides/nl/net/aspose.slides/ilayoutslide/getdependingslides/) om de getroffen dia’s te identificeren vóór je de lay‑out bewerkt.
+
+**Wat gebeurt er als ik een lay‑out verwijder die nog in gebruik is?**
+
+Aspose.Slides gooit een [PptxEditException](https://reference.aspose.com/slides/nl/net/aspose.slides/pptxeditexception/). Ken de afhankelijke dia’s eerst opnieuw toe, of gebruik [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/net/aspose.slides.lowcode/compress/removeunusedlayoutslides/) om alleen niet‑gerefereerde lay‑outs te verwijderen.

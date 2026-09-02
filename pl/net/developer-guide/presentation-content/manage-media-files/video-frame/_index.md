@@ -6,10 +6,10 @@ weight: 10
 url: /pl/net/video-frame/
 keywords:
 - dodaj wideo
-- utwórz wideo
-- osadź wideo
-- wyodrębnij wideo
-- pobierz wideo
+- tworzenie wideo
+- osadzanie wideo
+- wyodrębnianie wideo
+- pobieranie wideo
 - klatka wideo
 - źródło internetowe
 - PowerPoint
@@ -20,31 +20,31 @@ keywords:
 - Aspose.Slides
 description: "Naucz się programowo dodawać i wyodrębniać klatki wideo w slajdach PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Szybki przewodnik krok po kroku."
 ---
-## **Wstęp**
+## **Wprowadzenie**
 
-Dobrze umieszczone wideo w prezentacji może sprawić, że Twoje przesłanie będzie bardziej przekonujące i zwiększyć poziom zaangażowania odbiorców.
+Dobrze dobrane wideo w prezentacji może uczynić Twoje przesłanie bardziej przekonujące i zwiększyć poziom zaangażowania odbiorców. 
 
-PowerPoint umożliwia dodawanie wideo do slajdu w prezentacji na dwa sposoby:
+PowerPoint pozwala dodawać wideo do slajdu w prezentacji na dwa sposoby:
 
-* Dodanie lub osadzenie lokalnego wideo (przechowywanego na Twoim komputerze)
-* Dodanie wideo online (z źródła internetowego, takiego jak YouTube).
+* Dodaj lub osadź lokalne wideo (przechowywane na twoim komputerze)
+* Dodaj wideo online (z źródła internetowego, takiego jak YouTube).
 
-Aby umożliwić dodawanie wideo (obiektów wideo) do prezentacji, Aspose.Slides udostępnia interfejs [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/), interfejs [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) oraz inne powiązane typy.
+Aby umożliwić dodawanie wideo (obiektów wideo) do prezentacji, Aspose.Slides udostępnia interfejs [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/) , interfejs [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) oraz inne powiązane typy. 
 
-## **Utworzenie osadzonej klatki wideo**
+## **Utwórz osadzoną klatkę wideo**
 
-Jeśli plik wideo, który chcesz dodać do slajdu, jest przechowywany lokalnie, możesz utworzyć klatkę wideo, aby osadzić wideo w prezentacji.
+Jeśli plik wideo, który chcesz dodać do swojego slajdu, jest przechowywany lokalnie, możesz utworzyć klatkę wideo, aby osadzić wideo w swojej prezentacji. 
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Pobierz odniesienie do slajdu za jego indeksem.
-3. Dodaj obiekt [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/) i przekaż ścieżkę do pliku wideo, aby osadzić wideo w prezentacji.
+2. Uzyskaj referencję do slajdu poprzez jego indeks. 
+3. Dodaj obiekt [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/), przekazując ścieżkę do pliku wideo, aby osadzić wideo w prezentacji. 
 4. Dodaj obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/), aby utworzyć klatkę dla wideo.  
-5. Zapisz zmodyfikowaną prezentację.
+5. Zapisz zmodyfikowaną prezentację. 
 
 Ten kod C# pokazuje, jak dodać wideo przechowywane lokalnie do prezentacji:
 
 ```c#
-// Tworzy instancję klasy Presentation
+ // Tworzy instancję klasy Presentation
 using (Presentation pres = new Presentation("pres.pptx"))
 {
     // Ładuje wideo
@@ -55,12 +55,12 @@ using (Presentation pres = new Presentation("pres.pptx"))
         // Pobiera pierwszy slajd i dodaje klatkę wideo
         pres.Slides[0].Shapes.AddVideoFrame(10, 10, 150, 250, video);
         
-        // Zapisuje prezentację na dysku
+        // Zapisuje prezentację na dysk
         pres.Save("pres-with-video.pptx", SaveFormat.Pptx);
     }
 }
 ```
-Alternatywnie możesz dodać wideo, przekazując bezpośrednio jego ścieżkę do metody [AddVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addvideoframe/):
+Alternatywnie możesz dodać wideo, przekazując jego ścieżkę bezpośrednio do metody [AddVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/addvideoframe/):
 
 ``` csharp
 using (Presentation pres = new Presentation())
@@ -70,21 +70,22 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Utworzenie klatki wideo z wideo z źródła internetowego**
-Microsoft [PowerPoint 2013 i nowsze](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) obsługuje wideo z YouTube w prezentacjach. Jeśli wideo, którego chcesz użyć, jest dostępne online (np. na YouTube), możesz dodać je do prezentacji za pomocą linku internetowego.
+
+## **Utwórz klatkę wideo z wideo pochodzącym ze źródła internetowego**
+Nowe wersje Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) obsługują wideo online w prezentacjach. Jeśli wideo, którego chcesz użyć, jest dostępne online (np. na YouTube), możesz dodać je do swojej prezentacji za pomocą jego linku internetowego.
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation).
-2. Pobierz odniesienie do slajdu za jego indeksem.
-3. Dodaj obiekt [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/) i przekaż link do wideo.
-4. Ustaw miniaturę dla klatki wideo.
-5. Zapisz prezentację.
+2. Uzyskaj referencję do slajdu poprzez jego indeks. 
+3. Dodaj obiekt [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/), przekazując link do wideo.
+4. Ustaw miniaturkę dla klatki wideo. 
+5. Zapisz prezentację. 
 
-Ten kod C# pokazuje, jak dodać wideo z internetu do slajdu w prezentacji PowerPoint:
+Ten kod C# pokazuje, jak dodać wideo z sieci do slajdu w prezentacji PowerPoint:
 
 ```c#
 public static void Run()
 {
-    // Tworzy obiekt Presentation reprezentujący plik prezentacji 
+    // Tworzy obiekt Presentation, który reprezentuje plik prezentacji 
     using (Presentation pres = new Presentation())
     {
         AddVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -98,7 +99,7 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
     IVideoFrame videoFrame = pres.Slides[0].Shapes.AddVideoFrame(10, 10, 427, 240, "https://www.youtube.com/embed/" + videoId);
     videoFrame.PlayMode = VideoPlayModePreset.Auto;
 
-    // Ładuje miniaturę
+    // Ładuje miniaturkę
     using (WebClient client = new WebClient())
     {
         string thumbnailUri = "http://img.youtube.com/vi/" + videoId + "/hqdefault.jpg";
@@ -107,15 +108,71 @@ private static void AddVideoFromYouTube(Presentation pres, string videoId)
 }
 ```
 
-## **Zarządzanie napisami wideo**
+## **Przytnij klatkę wideo**
 
-Aspose.Slides umożliwia zarządzanie napisami zamkniętymi dla klatek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i udostępniane za pośrednictwem właściwości [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/captiontracks/).
+Aspose.Slides pozwala kontrolować, którą część wideo odtwarzać, ustawiając wartości trim-from-start i trim-from-end poprzez [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/trimfromstart/) i [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/trimfromend/). Obie wartości podawane są w milisekundach i określają, ile czasu jest pomijane od początku i końca wideo. Te ustawienia zmieniają sposób odtwarzania wideo w prezentacji; nie przycinają ani nie modyfikują w żaden sposób danych binarnych osadzonego wideo.
 
-**Dodawanie napisów do klatki wideo**
+**Ustawienia przycięcia**
+
+Aby utworzyć klatkę wideo i ustawić jej ustawienia przycięcia:
+
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/).
+2. Dodaj obiekt [IVideo](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideo/) do prezentacji.
+3. Dodaj obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) do slajdu.
+4. Ustaw wartości trim-from-start i trim-from-end poprzez [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/trimfromstart/) i [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/trimfromend/).
+5. Zapisz zmodyfikowaną prezentację.
+
+Poniższy przykład kodu pomija pierwsze 2,5 sekundy oraz ostatnią sekundę osadzonego wideo podczas odtwarzania:
+
+```cs
+using var presentation = new Presentation();
+
+var videoData = File.ReadAllBytes("video.mp4");
+var video = presentation.Videos.AddVideo(videoData);
+
+var slide = presentation.Slides[0];
+var videoFrame = slide.Shapes.AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame.TrimFromStart = 2500f;
+videoFrame.TrimFromEnd = 1000f;
+
+presentation.Save("video_with_trim.pptx", SaveFormat.Pptx);
+```
+
+**Odczytaj ustawienia przycięcia**
+
+Aby sprawdzić istniejące ustawienia przycięcia, wczytaj prezentację, znajdź obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) wśród kształtów na pierwszym slajdzie i odczytaj wartości poprzez [IVideoFrame.TrimFromStart](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/trimfromstart/) i [IVideoFrame.TrimFromEnd](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/trimfromend/).
+
+Poniższy przykład kodu znajduje pierwszą klatkę wideo na pierwszym slajdzie i zgłasza jej ustawienia przycięcia w milisekundach:
+
+```cs
+using var presentation = new Presentation("video_with_trim.pptx");
+
+var slide = presentation.Slides[0];
+foreach (var shape in slide.Shapes)
+{
+    if (shape is IVideoFrame videoFrame)
+    {
+        var trimFromStart = videoFrame.TrimFromStart;
+        var trimFromEnd = videoFrame.TrimFromEnd;
+
+        Console.WriteLine($"Trim from start: {trimFromStart} ms");
+        Console.WriteLine($"Trim from end: {trimFromEnd} ms");
+
+        break;
+    }
+}
+```
+
+## **Zarządzaj napisami wideo**
+
+Aspose.Slides pozwala zarządzać zamkniętymi napisami dla klatek wideo w prezentacjach PowerPoint. Napisy są przechowywane w formacie WebVTT i dostępne za pośrednictwem właściwości [IVideoFrame.CaptionTracks](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/captiontracks/).
+
+**Dodaj napisy do klatki wideo**
 
 Aby dodać napisy do klatki wideo:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/) .
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/).
 2. Dodaj wideo do prezentacji.
 3. Dodaj obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/) do slajdu.
 4. Użyj kolekcji [CaptionTracks](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/captiontracks/), aby dodać ścieżkę napisu WebVTT.
@@ -139,15 +196,15 @@ using (Presentation presentation = new Presentation())
 }
 ```
 
-Interfejs [ICaptionsCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/icaptionscollection/) udostępnia również przeciążenie, które pozwala dodać napisy z strumienia.
+Interfejs [ICaptionsCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/icaptionscollection/) zapewnia również przeciążenie, które pozwala dodawać napisy z strumienia.
 
-**Wyodrębnianie napisów z klatki wideo**
+**Wyodrębnij napisy z klatki wideo**
 
 Aby wyodrębnić napisy z klatki wideo:
 
-1. Załaduj prezentację zawierającą wideo.
+1. Wczytaj prezentację zawierającą wideo.
 2. Znajdź docelowy obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/).
-3. Przejdź przez kolekcję [CaptionTracks](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/captiontracks/).
+3. Iteruj po kolekcji [CaptionTracks](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/captiontracks/).
 4. Zapisz każdą ścieżkę napisu do pliku `.vtt`.
 
 Poniższy kod pokazuje, jak wyodrębnić napisy z klatki wideo:
@@ -171,14 +228,14 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-Każdy obiekt [ICaptions](https://reference.aspose.com/slides/pl/net/aspose.slides/icaptions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF‑8.
+Każdy obiekt [ICaptions](https://reference.aspose.com/slides/pl/net/aspose.slides/icaptions/) udostępnia identyfikator napisu, etykietę, dane binarne oraz tekst napisu jako ciąg UTF-8.
 
-**Usuwanie napisów z klatki wideo**
+**Usuń napisy z klatki wideo**
 
 Aby usunąć napisy z klatki wideo:
 
-1. Załaduj prezentację zawierającą wideo.
-2. Pobierz docelowy obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/).
+1. Wczytaj prezentację zawierającą wideo.
+2. Uzyskaj docelowy obiekt [IVideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/).
 3. Usuń ścieżki napisów z kolekcji [CaptionTracks](https://reference.aspose.com/slides/pl/net/aspose.slides/ivideoframe/captiontracks/).
 4. Zapisz zmodyfikowaną prezentację.
 
@@ -197,29 +254,29 @@ using (Presentation presentation = new Presentation("video_with_captions.pptx"))
 }
 ```
 
-Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisu, użyj metod [Remove](https://reference.aspose.com/slides/pl/net/aspose.slides/captionscollection/remove/) lub [RemoveAt](https://reference.aspose.com/slides/pl/net/aspose.slides/captionscollection/removeat/) zamiast [Clear](https://reference.aspose.com/slides/pl/net/aspose.slides/captionscollection/clear/).
+Jeśli potrzebujesz usunąć tylko jedną ścieżkę napisu, użyj metod [Remove](https://reference.aspose.com/slides/pl/net/aspose.slides/captionscollection/remove/) lub [RemoveAt](https://reference.aspose.com/slides/pl/net/aspose.slides/captionscollection/removeat/), zamiast [Clear](https://reference.aspose.com/slides/pl/net/aspose.slides/captionscollection/clear/).
 
-## **Wyodrębnianie wideo ze slajdu**
-Oprócz dodawania wideo do slajdów, Aspose.Slides umożliwia wyodrębnianie wideo osadzonego w prezentacjach.
+## **Wyodrębnij wideo ze slajdu**
+Oprócz dodawania wideo do slajdów, Aspose.Slides pozwala wyodrębniać wideo osadzone w prezentacjach.
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation), aby załadować prezentację zawierającą wideo. 
-2. Przejdź przez wszystkie obiekty [ISlide](https://reference.aspose.com/slides/pl/net/aspose.slides/islide). 
-3. Przejdź przez wszystkie obiekty [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape), aby znaleźć [VideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe). 
-4. Zapisz wideo na dysku.
+1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation), aby wczytać prezentację zawierającą wideo. 
+2. Iteruj przez wszystkie obiekty [ISlide](https://reference.aspose.com/slides/pl/net/aspose.slides/islide).
+3. Iteruj przez wszystkie obiekty [IShape](https://reference.aspose.com/slides/pl/net/aspose.slides/ishape), aby znaleźć [VideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe). 
+4. Zapisz wideo na dysk.
 
-Ten kod C# pokazuje, jak wyodrębnić wideo z slajdu prezentacji:
+Ten kod C# pokazuje, jak wyodrębnić wideo ze slajdu prezentacji:
 
 ```c#
- // Tworzy obiekt Presentation, który reprezentuje plik prezentacji 
+// Tworzy obiekt Presentation, który reprezentuje plik prezentacji 
 Presentation presentation = new Presentation("Video.pptx");
 
-// Przechodzi przez slajdy
+// Iteruje po slajdach
 foreach (ISlide slide in presentation.Slides)
 {
-    // Przechodzi przez kształty
+    // Iteruje po kształtach
     foreach (IShape shape in presentation.Slides[0].Shapes)
     {
-        // Zapisuje wideo na dysku, gdy zostanie znaleziony VideoFrame zawierający wideo
+        // Zapisuje wideo na dysk po znalezieniu VideoFrame zawierającego wideo
         if (shape is VideoFrame)
         {
             IVideoFrame vf = shape as IVideoFrame;
@@ -238,18 +295,18 @@ foreach (ISlide slide in presentation.Slides)
 
 ## **FAQ**
 
-**Jakie parametry odtwarzania wideo można zmienić dla VideoFrame?**
+**Które parametry odtwarzania wideo można zmienić dla VideoFrame?**
 
-Możesz kontrolować [tryb odtwarzania](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/playmode/) (automatyczny lub po kliknięciu) oraz [pętlę](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/playloopmode/). Opcje te są dostępne poprzez właściwości obiektu [VideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/).
+Możesz kontrolować [tryb odtwarzania](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/playmode/) (automatyczny lub na kliknięcie) oraz [pętlę](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/playloopmode/). Opcje te są dostępne poprzez właściwości obiektu [VideoFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/).
 
 **Czy dodanie wideo wpływa na rozmiar pliku PPTX?**
 
-Tak. Kiedy osadzasz lokalne wideo, dane binarne są włączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Dodając wideo online, osadzany jest jedynie link i miniatura, więc przyrost rozmiaru jest mniejszy.
+Tak. Gdy osadzasz lokalne wideo, dane binarne są włączane do dokumentu, więc rozmiar prezentacji rośnie proporcjonalnie do rozmiaru pliku. Gdy dodasz wideo online, osadzany jest link i miniaturka, więc przyrost rozmiaru jest mniejszy.
 
-**Czy mogę zastąpić wideo w istniejącym VideoFrame bez zmiany jego pozycji i rozmiaru?**
+**Czy mogę zastąpić wideo w istniejącej VideoFrame bez zmiany jej położenia i rozmiaru?**
 
-Tak. Możesz podmienić [zawartość wideo](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/embeddedvideo/) w ramce, zachowując geometrykę kształtu; jest to typowy scenariusz aktualizacji mediów w istniejącym układzie.
+Tak. Możesz zamienić [zawartość wideo](https://reference.aspose.com/slides/pl/net/aspose.slides/videoframe/embeddedvideo/) w ramach klatki, zachowując geometrię kształtu; jest to typowy scenariusz aktualizacji mediów w istniejącym układzie.
 
-**Czy można określić typ treści (MIME) osadzonego wideo?**
+**Czy można określić typ zawartości (MIME) osadzonego wideo?**
 
-Tak. Osadzone wideo ma [typ treści](https://reference.aspose.com/slides/pl/net/aspose.slides/video/contenttype/), który możesz odczytać i wykorzystać, na przykład przy zapisywaniu go na dysk.
+Tak. Osadzone wideo ma [typ zawartości](https://reference.aspose.com/slides/pl/net/aspose.slides/video/contenttype/), który możesz odczytać i wykorzystać, na przykład przy zapisywaniu go na dysk.

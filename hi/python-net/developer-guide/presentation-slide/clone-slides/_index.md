@@ -130,7 +130,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 
 यदि आपको एक स्लाइड **उसके मास्टर के साथ** किसी एक प्रस्तुति से क्लोन करके दूसरी में उपयोग करनी है, तो पहले आवश्यक मास्टर स्लाइड को स्रोत प्रस्तुति से गंतव्य प्रस्तुति में क्लोन करें। फिर उस गंतव्य मास्टर को स्लाइड क्लोन करते समय प्रयोग करें। `add_clone(Slide, MasterSlide)` मेथड **गंतव्य प्रस्तुति के मास्टर स्लाइड** की अपेक्षा करता है, स्रोत के नहीं।
 
-स्लाइड को उसके मास्टर के साथ क्लोन करने के लिए इन चरणों का पालन करें:
+एक स्लाइड को उसके मास्टर सहित क्लोन करने के लिए, इन चरणों का पालन करें:
 
 1. स्रोत प्रस्तुति (जिसमें क्लोन करने वाली स्लाइड है) के लिए एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
 1. गंतव्य प्रस्तुति के लिए एक [Presentation](https://reference.aspose.com/slides/hi/python-net/aspose.slides/presentation/) क्लास का उदाहरण बनाएं।
@@ -181,7 +181,7 @@ with slides.Presentation() as presentation:
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # "Section2" नामक सेक्शन बनाएं जो slide2 पर शुरू होता है।
     section = presentation.sections.add_section("Section2", slide2)
-    # पहले बनाई गई स्लाइड को "Section2" सेक्शन में क्लोन करें।
+    # पहले बनाई गई स्लाइड को "Section2" अनुभाग में क्लोन करें।
     presentation.slides.add_clone(slide, section)
     # प्रस्तुति को PPTX फ़ाइल के रूप में सहेजें।
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)

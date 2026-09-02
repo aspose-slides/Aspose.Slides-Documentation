@@ -1,281 +1,258 @@
 ---
-title: 在 .NET 中从演示文稿获取形状有效属性
+title: 从 .NET 演示文稿获取形状的有效属性
 linktitle: 有效属性
 type: docs
 weight: 50
 url: /zh/net/shape-effective-properties/
 keywords:
 - 形状属性
-- 相机属性
+- 摄像机属性
 - 灯光装置
-- 倒角形状
+- 斜角形状
 - 文本框
 - 文本样式
 - 字体高度
 - 填充格式
 - PowerPoint
-- presentation
+- 演示文稿
 - .NET
 - C#
 - Aspose.Slides
-description: "了解 Aspose.Slides for .NET 如何计算和应用形状有效属性，以实现精确的 PowerPoint 渲染。"
+description: "了解如何使用 Aspose.Slides for .NET 在 PowerPoint 演示文稿中区分本地、继承和有效的形状格式。"
 ---
-## **概述**
+## **理解本地、继承和有效属性**
 
-本主题解释了 **本地** 与 **有效** 属性之间的差异。 本地值是直接在特定格式级别上设置的值，例如：
+PowerPoint 格式可以来自多个来源。直接存储在对象上的值称为 **本地值**。如果未设置该值，PowerPoint 会查找父级格式来源，例如段落默认值、文本样式、版面或母版幻灯片、主题或演示文稿级别的默认值。这些值是 **继承值**。在整个层次结构解析完毕后剩余的值就是 **有效值**—用于渲染对象的值。
 
-1. 幻灯片上的文本段属性。  
-1. 当该文本段的文本框形状具有原型形状文本样式时，布局或母版幻灯片上的原型形状文本样式。  
-1. 演示文稿中的全局文本设置。
+例如，文本片段可能未定义自身的字体高度。它的本地 [FontHeight](https://reference.aspose.com/slides/zh/net/aspose.slides/ibaseportionformat/fontheight/) 为 `float.NaN`，表示“此处未设置”。该片段可以从其段落、演示文稿的默认文本样式或其他适用来源继承高度。对片段格式调用 [GetEffective](https://reference.aspose.com/slides/zh/net/aspose.slides/iportionformat/geteffective/) 将返回最终解析后的高度。
 
-本地值可以在任何级别定义或省略。 当 Aspose.Slides 需要最终的“实际渲染”格式时，它会解析继承链并返回 **有效** 值。 您可以通过在本地格式对象上调用 `GetEffective` 方法来获取它们。
+针对不同需求使用这两种格式数据：
 
-以下示例展示了如何获取有效值。 假设第一张幻灯片上的第一个形状是一个带有文本框且至少包含一个文本段的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
+- 读取或更改本地格式对象，例如 [IPortionFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/iportionformat/)，当您需要控制值的定义位置时。
+- 读取有效数据对象，例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/iportionformateffectivedata/)，当您需要最终渲染结果时。有效数据是只读的。
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
+## **比较本地、继承和有效值**
 
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-有效格式化数据表示在应用继承后计算得到的当前格式。 在当前实现中，某些有效数据对象（例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/iportionformateffectivedata/)）可能会在内部被缓存。 在更改父级或继承格式后再次调用 `GetEffective` 可以刷新缓存的数据，先前获取的对象可能不再表示之前的状态。 如果您需要保留有效值以供后续使用，请将所需属性（如字体高度、填充颜色、字体样式或对齐方式）复制到您自己的数据对象中。
-{{% /alert %}}
-
-## **获取相机的有效属性**
-
-Aspose.Slides 允许您获取相机的有效属性。 [ICameraEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/icameraeffectivedata/) 接口表示一个不可变对象，包含有效的相机属性。 一个 [ICameraEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/icameraeffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/) 暴露，该接口为 [IThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/) 提供有效值。
-
-以下代码示例展示了如何获取相机的有效属性。 假设第一张幻灯片上的第一个形状具有 3D 格式。
+以下完整示例创建一个形状，并在演示文稿、段落和片段级别应用字体高度。每一步都会打印这些级别定义的值以及同一文本片段的最终有效值。它还演示了为什么在格式更改后必须再次读取有效数据。
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **获取灯光装置的有效属性**
-
-Aspose.Slides 允许您获取灯光装置的有效属性。 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ilightrigeffectivedata/) 接口表示一个不可变对象，包含有效的灯光装置属性。 一个 [ILightRigEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ilightrigeffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/) 暴露，该接口为 [IThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/) 提供有效值。
-
-以下代码示例展示了如何获取灯光装置的有效属性。 假设第一张幻灯片上的第一个形状具有 3D 格式。
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **获取形状倒角的有效属性**
-
-Aspose.Slides 允许您获取形状倒角的有效属性。 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ishapebeveleffectivedata/) 接口表示一个不可变对象，包含形状的有效面部凹凸属性。 一个 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ishapebeveleffectivedata/) 实例通过 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/) 暴露，该接口为 [IThreeDFormat](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/) 提供有效值。
-
-以下代码示例展示了如何获取形状顶部倒角的有效属性。 假设第一张幻灯片上的第一个形状具有 3D 格式。
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **获取文本框的有效属性**
-
-使用 Aspose.Slides，您可以获取文本框的有效属性。 [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframeformateffectivedata/) 接口包含有效的文本框格式属性。
-
-以下代码示例展示了如何获取有效的文本框格式属性。 假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **获取文本样式的有效属性**
-
-使用 Aspose.Slides，您可以获取文本样式的有效属性。 [ITextStyleEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/itextstyleeffectivedata/) 接口包含有效的文本样式属性。
-
-以下代码示例展示了如何获取有效的文本样式属性。 假设第一张幻灯片上的第一个形状是一个带有文本框的 [IAutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/iautoshape/)。
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **获取有效的字体高度值**
-
-使用 Aspose.Slides，您可以获取有效的字体高度。 以下代码演示了在演示文稿结构的不同层级上设置本地字体高度后，文本段的有效字体高度如何变化。
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// 定义两个不同层级的继承值。
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// 片段上的本地值会覆盖两个继承值。
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// 更改继承值不会覆盖已有的本地值。
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// 清除本地值。片段现在再次从段落继承。
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// 清除段落值。演示文稿默认值现在提供结果。
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // 在前面的更改后读取有效数据。
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **获取表格的有效填充格式**
+此示例中的优先级是片段本地格式，其次是段落格式，最后是演示文稿默认值。其他对象可能具有不同的继承链，但原理相同：更具体的显式值会优先，并且 [GetEffective](https://reference.aspose.com/slides/zh/net/aspose.slides/iportionformat/geteffective/) 返回最终结果。
 
-使用 Aspose.Slides，您可以获取不同表格部件的有效填充格式。 [IFillFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ifillformateffectivedata/) 接口包含有效的填充格式属性。 单元格格式的优先级高于行格式，行格式高于列格式，列格式高于整表格式。
+## **获取有效文本属性**
 
-因此，在绘制表格单元格时使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/icellformateffectivedata/) 属性。 以下代码示例展示了如何获取不同表格部件的有效填充格式。 假设第一张幻灯片上的第一个形状是一个 [ITable](https://reference.aspose.com/slides/zh/net/aspose.slides/itable/)。
+文本格式分布在多个对象中：
+
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/zh/net/aspose.slides/itextframeformat/geteffective/) 解析文本框属性，例如边距、锚定、自动适应和垂直文本方向。
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/zh/net/aspose.slides/itextstyle/geteffective/) 解析每个文本样式级别的段落格式。
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/zh/net/aspose.slides/iparagraphformat/geteffective/) 解析段落属性，例如对齐、缩进和项目符号。
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/zh/net/aspose.slides/iportionformat/geteffective/) 解析字符属性，例如字体高度、字形、颜色、粗体和斜体。
+
+对于下一个示例，`text-formatting.pptx` 必须至少包含一张幻灯片和一个带有非空文本框的 [AutoShape](https://reference.aspose.com/slides/zh/net/aspose.slides/autoshape/)。AutoShape 可以位于形状集合的任何位置；代码会搜索合适的对象并在使用前进行验证。
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
+
+## **获取有效的 3D 属性**
+
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformat/geteffective/) 返回一个 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/) 对象，汇总所有解析后的 3D 设置。其 [Camera](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/camera/)、[LightRig](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/lightrig/)、[BevelTop](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/beveltop/) 和 [BevelBottom](https://reference.aspose.com/slides/zh/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) 属性公开相应的有效数据。一起读取这些相关设置可更容易理解形状的最终 3D 外观。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("shape-3d.pptx");
+
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
+
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
+
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
+
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
+
+## **获取有效表格格式**
+
+表格格式可以来自表格样式，也可以来自应用于整张表、列、行或单元格的格式。对于显式定义的填充冲突，优先级为单元格、行、列，然后是整张表。单元格的有效格式即用于绘制该单元格的最终格式。
+
+对于此示例，`table-formatting.pptx` 必须在首张幻灯片上至少包含一张表。该表必须至少有一行和一列。代码会搜索一个 [ITable](https://reference.aspose.com/slides/zh/net/aspose.slides/itable/)，而不是假设 `Shapes[0]` 是表。
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("table-formatting.pptx");
+
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
+
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+如果您需要颜色而不仅仅是填充类型，首先检查有效的 [FillType](https://reference.aspose.com/slides/zh/net/aspose.slides/ifillformateffectivedata/filltype/)，然后读取对应类型的属性——例如，对于实心填充读取 [SolidFillColor](https://reference.aspose.com/slides/zh/net/aspose.slides/ifillformateffectivedata/solidfillcolor/)。
+
+## **在更改后重新读取有效数据**
+
+有效数据描述了解析时的格式层次结构。在更改任何可能参与该层次结构的内容后，请再次调用 `GetEffective`，包括：
+
+- 对象的本地格式；
+- 段落或文本框默认值；
+- 表格样式、表格、列、行或单元格格式；
+- 版面或母版幻灯片格式；
+- 主题数据或演示文稿级别默认值；
+- 分配给幻灯片的版面或母版。
+
+不要将有效数据对象作为永久快照保存。Aspose.Slides 可能在内部缓存某些有效数据，后续的 `GetEffective` 调用可以刷新这些数据。如果需要比较更改前后的值，请在更改之前将所需的标量值（如字体高度、颜色、对齐方式或斜角宽度）复制到自己的变量中。
+
+要更改值，请更新相应的本地格式对象，然后调用 `GetEffective` 验证结果。有效数据对象本身是只读的。
 
 ## **常见问题**
 
-**`GetEffective` 会返回快照吗？**
+**我如何判断是哪个层级提供了有效值？**  
+有效数据仅包含最终值，而不说明来源。请从最具体的层级向外检查相应的本地对象。对于文本，这可能包括片段、段落、文本框、版面、母版、主题和演示文稿默认值。`float.NaN` 或 `null` 等未定义值表示搜索会继续到更高层级。
 
-并非总是如此。 有效数据表示在应用继承后计算得到的格式，但某些有效数据对象可能在内部被缓存。 随后调用 `GetEffective` 可能会重新计算格式并刷新缓存数据，因此先前获取的对象不应视为持久快照。
+**当没有任何层级定义属性时会发生什么？**  
+Aspose.Slides 会解析出相应的 PowerPoint 或库默认值。该解析后的值会出现在有效数据中，即使没有本地对象显式定义它。
 
-**何时需要重新读取有效属性？**
+**为什么有效值有时等于本地值？**  
+本地值在继承计算中获胜。当属性在对象上显式设置且没有更具体的规则覆盖时，会出现这种情况，属于预期行为。
 
-在更改本地格式、父级样式、布局格式、母版格式或演示文稿级默认值后，请再次调用 `GetEffective`。 下一次调用会重新评估格式层次并返回当前的有效结果。
-
-**更改或删除布局/母版幻灯片会影响已检索的有效属性吗？**
-
-会，但更改会在下一次 `GetEffective` 调用时体现。 如果父级格式源被更改或删除，先前获取的有效数据可能已过时。 再次调用 `GetEffective` 后，Aspose.Slides 将重新评估格式树， resulting fonts, colors, sizes, or other values may change.
-
-**我可以通过有效数据对象修改值吗？**
-
-不能。 有效数据对象只暴露计算后的值。 请在本地格式对象中进行更改，然后再次获取有效值。
-
-**如果在形状级别、布局/母版以及全局设置中都未设置属性，会怎样？**
-
-有效值由默认机制决定，包括 PowerPoint 和 Aspose.Slides 的默认值。 解析得到的值会成为当前有效数据的一部分。
-
-**从有效的字体值能否判断是哪个层级提供的大小或字体？**
-
-不能直接判断。 有效数据只返回最终值。 若要找出来源，请检查文本段、段落、文本框以及布局、母版和演示文稿级别的本地值，查看首次出现显式定义的位置。
-
-**为什么有效值有时看起来与本地值相同？**
-
-因为本地值恰好是最终值（没有更高级别的继承需要）。 在这种情况下，有效值与本地值相匹配。
-
-**何时使用有效属性，何时仅使用本地属性？**
-
-在需要“实际渲染”结果（即所有继承已应用后的最终值）时使用有效数据，例如对齐颜色、缩进或尺寸。 如果需要在后续格式更改后保持这些值，请将所需属性复制到自己的对象中。 若要在特定层级修改格式，请更改本地属性，然后在需要时再次读取有效数据以验证结果。
+**何时应该使用本地数据而不是有效数据？**  
+当您需要检查或编辑特定的格式层级时使用本地数据。需要在继承、主题规则和适用样式全部解析后得到的最终外观时，使用有效数据。**完整比较示例**（#compare-local-inherited-and-effective-values）在同一工作流中展示了两者的使用方式。

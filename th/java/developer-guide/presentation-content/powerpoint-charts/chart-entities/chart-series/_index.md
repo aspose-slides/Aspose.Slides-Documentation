@@ -1,348 +1,399 @@
 ---
-title: จัดการซีรีส์ข้อมูลแผนภูมิในงานนำเสนอด้วย Java
-linktitle: ซีรีส์ข้อมูล
+title: จัดการชุดข้อมูลแผนภูมิในงานนำเสนอด้วย Java
+linktitle: ชุดข้อมูล
 type: docs
 url: /th/java/chart-series/
 keywords:
-- ซีรีส์แผนภูมิ
-- การทับซ้อนของซีรีส์
-- สีของซีรีส์
-- สีของหมวดหมู่
-- ชื่อซีรีส์
+- ชุดข้อมูลแผนภูมิ
+- การทับซ้อนของชุด
+- สีของชุด
+- ชื่อชุด
 - จุดข้อมูล
-- ช่องว่างของซีรีส์
+- เซลล์สมุดงาน
+- ช่องว่างของชุด
+- ค่าลบ
 - PowerPoint
 - งานนำเสนอ
 - Java
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการซีรีส์แผนภูมิใน Java สำหรับ PowerPoint (PPT/PPTX) พร้อมตัวอย่างโค้ดที่ใช้งานได้จริงและแนวปฏิบัติที่ดีที่สุดเพื่อเสริมสร้างการนำเสนอข้อมูลของคุณ."
+description: "เรียนรู้วิธีจัดการชุดข้อมูลแผนภูมิ, จุดข้อมูล, เซลล์สมุดงาน, การจัดรูปแบบ, การทับซ้อน, ความกว้างช่องว่าง, และค่าลบในงานนำเสนอด้วย Java."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายบทบาทของ [ChartSeries](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartseries/) ใน Aspose.Slides โดยมุ่งเน้นที่วิธีการจัดโครงสร้างและแสดงผลข้อมูลภายในงานนำเสนอ วัตถุเหล่านี้เป็นองค์ประกอบพื้นฐานที่กำหนดชุดจุดข้อมูล, หมวดหมู่, และค่าพารามิเตอร์การแสดงผลในแผนภูมิ เมื่อทำงานกับ [ChartSeries](https://reference.aspose.com/slides/th/java/com.aspose.slides/chartseries/) นักพัฒนาสามารถผสานแหล่งข้อมูลพื้นฐานได้อย่างราบรื่นและควบคุมการแสดงข้อมูลได้อย่างเต็มที่ ทำให้ได้งานนำเสนอแบบไดนามิกที่ขับเคลื่อนด้วยข้อมูลและสื่อความเข้าใจรวมถึงการวิเคราะห์อย่างชัดเจน
+แผนภูมิจะเก็บข้อมูลที่แสดงผลในสมุดงานข้อมูลแผนภูมิ หนึ่ง [IChartSeries](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/) แสดงชุดค่าที่เกี่ยวข้องหนึ่งชุด และแต่ละ [IChartDataPoint](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/) ในชุดนั้นอ้างอิงถึงหนึ่งหรือหลายเซลล์ในสมุดงาน วัตถุ [IChartCategory](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartcategory/) ให้ป้ายชื่อหรือค่ากลุ่มที่ใช้ร่วมกันโดยชุดข้อมูล ชื่อชุด, หมวดหมู่, และค่าจุดจึงเชื่อมต่อกับวัตถุ [IChartDataCell](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatacell/) แทนที่จะเก็บเป็นเพียงข้อความที่แสดงเท่านั้น.
 
-Series คือแถวหรือคอลัมน์ของตัวเลขที่ถูกพล็อตในแผนภูมิ
+สำหรับแผนภูมิประเภทที่ใช้บ่อย สมุดงานเริ่มต้นจะใช้แถว 0 สำหรับชื่อชุด, คอลัมน์ 0 สำหรับชื่อหมวดหมู่, และเซลล์ที่เหลือสำหรับค่าชุด ข้อมูลแถว, คอลัมน์, และดัชนีที่ส่งผ่านไปยัง [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) จะเริ่มจากศูนย์ การจัดวางนี้มีประโยชน์เมื่อคุณสร้างแผนภูมิด้วยข้อมูลเริ่มต้น, แต่ไม่ควรสันนิษฐานว่าแผนภูมิที่มีอยู่ทั้งหมดใช้แบบนี้ สำหรับงานนำเสนอที่โหลดแล้ว ให้ตรวจสอบเซลล์ที่ชุด, หมวดหมู่, และจุดข้อมูลอ้างอิงก่อนที่จะเปลี่ยนค่าของสมุดงาน.
+
+การตั้งค่าแผนภูมิมีสามระดับที่แตกต่างกัน:
+
+- การตั้งค่าระดับชุดข้อมูล เช่น [IChartSeries.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getFormat--) ให้ลักษณะเดิมสำหรับทุกจุดในชุดเดียว.
+- การตั้งค่าระดับจุดข้อมูล เช่น [IChartDataPoint.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getFormat--) จะทับลักษณะของชุดสำหรับจุดหนึ่ง.
+- การตั้งค่ากลุ่มใช้กับชุดที่เข้ากันได้และอยู่ใน [IChartSeriesGroup](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/) เดียวกัน. เข้าถึงกลุ่มผ่าน [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) เมื่อคุณต้องการตั้งค่าตัวเลือกเช่นการทับซ้อนหรือความกว้างช่องว่าง.
+
+เมื่อไม่มีการกำหนดการเติมสีจุดหรือชุดอย่างชัดเจน รูปแบบและธีมของแผนภูมิจะกำหนดลักษณะอัตโนมัติ เมื่อมีการจัดรูปแบบทั้งชุดและจุดพร้อมกัน การจัดรูปแบบจุดจะมีลำดับความสำคัญสำหรับจุดนั้น.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
-## **ตั้งค่าการทับซ้อนของซีรีส์แผนภูมิ**
+## **ตั้งค่าการทับซ้อนของชุดข้อมูลแผนภูมิ**
 
-ด้วยคุณสมบัติ [IChartSeriesOverlap](https://reference.aspose.com/slides/th/net/aspose.slides.charts/ichartseries/properties/overlap) คุณสามารถระบุว่าบาร์และคอลัมน์ควรทับซ้อนกันเท่าใดในแผนภูมิ 2D (ช่วง: -100 ถึง 100) คุณสมบัตินี้ใช้กับซีรีส์ทั้งหมดในกลุ่มซีรีส์พาเรนต์: เป็นการฉายของคุณสมบัติของกลุ่มที่เหมาะสม ดังนั้นคุณสมบัตินี้เป็นแบบอ่านอย่างเดียว
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getOverlap--) รายงานว่าบาร์หรือคอลัมน์ทับซ้อนกันเท่าไรในแผนภูมิ 2D ตั้งแต่ -100 ถึง 100 เปอร์เซ็นต์ เป็นการแสดงผลแบบอ่านอย่างเดียวของการตั้งค่าในกลุ่มชุดแม่ ใช้ [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) เพื่ออัปเดตทุกชุดที่เข้ากันได้ในกลุ่มนั้น ตัวเลือกนี้ใช้กับประเภทแผนภูมิที่แสดงบาร์หรือคอลัมน์ที่จัดกลุ่ม; ไม่ส่งผลต่อกลุ่มชุดที่ไม่เกี่ยวข้องในแผนภูมิแบบผสม.
 
-ใช้คุณสมบัติ `ParentSeriesGroup.Overlap` ที่อ่าน/เขียนได้เพื่อกำหนดค่าที่คุณต้องการสำหรับ `Overlap`
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-1. เพิ่มแผนภูมิคอลัมน์แบบกลุ่มบนสไลด์
-1. เข้าถึงซีรีส์แผนภูม้อันดับแรก
-1. เข้าถึง `ParentSeriesGroup` ของซีรีส์แผนภูมิและตั้งค่าการทับซ้อนที่ต้องการสำหรับซีรีส์
-1. เขียนงานนำเสนอที่แก้ไขแล้วลงไฟล์ PPTX
+ตัวอย่างต่อไปนี้ตั้งค่าการทับซ้อนสำหรับกลุ่มที่มีชุดแรกอยู่:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // เพิ่มแผนภูมิ
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // ตั้งค่าการทับซ้อนของซีรีส์
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // เขียนไฟล์งานนำเสนอลงดิสก์
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // แผนภูมิใหม่ประกอบด้วยชุดข้อมูลตัวอย่าง, หมวดหมู่, และค่า.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **เปลี่ยนสีของซีรีส์**
+ผลลัพธ์:
 
-Aspose.Slides for Java ให้คุณเปลี่ยนสีของซีรีส์ได้ดังนี้:
+![The series overlap](series_overlap.png)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-1. เพิ่มแผนภูมิบนสไลด์
-1. เข้าถึงซีรีส์ที่ต้องการเปลี่ยนสี
-1. ตั้งค่าประเภทการเติมและสีที่ต้องการ
-1. บันทึกงานนำเสนอที่แก้ไขแล้ว
+## **เปลี่ยนสีเติมของชุดข้อมูล**
 
-```java
-Presentation pres = new Presentation("test.pptx");
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+ใช้ [IChartSeries.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getFormat--) เพื่อตั้งค่าสีเติมเริ่มต้นสำหรับทั้งชุด หากจุดมีการกำหนดสีเติมไว้แล้ว การตั้งค่า [IChartDataPoint.getFormat](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getFormat--) ของจุดนั้นจะทับสีเติมของชุดสำหรับจุดนั้น.
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **เปลี่ยนสีของหมวดหมู่ซีรีส์**
-
-Aspose.Slides for Java ให้คุณเปลี่ยนสีของหมวดหมู่ซีรีส์ได้ดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-1. เพิ่มแผนภูมิบนสไลด์
-1. เข้าถึงหมวดหมู่ของซีรีส์ที่ต้องการเปลี่ยนสี
-1. ตั้งค่าประเภทการเติมและสีที่ต้องการ
-1. บันทึกงานนำเสนอที่แก้ไขแล้ว
+ตัวอย่างต่อไปนี้ใช้สีเติมแบบสีฟ้าเข้มต่อชุดแรก:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **เปลี่ยนชื่อซีรีส์**
-
-โดยค่าเริ่มต้น ชื่อในตำนานของแผนภูมิจะมาจากเนื้อหาของเซลล์ที่อยู่เหนือแต่ละคอลัมน์หรือแถวของข้อมูล
-
-ในตัวอย่างของเรา (ภาพตัวอย่าง),
-
-* คอลัมน์คือ *Series 1, Series 2,* และ *Series 3*;
-* แถวคือ *Category 1, Category 2, Category 3,* และ *Category 4*.
-
-Aspose.Slides for Java ให้คุณอัปเดตหรือเปลี่ยนชื่อซีรีส์ในข้อมูลแผนภูมิและตำนานได้
-
-โค้ด Java นี้แสดงวิธีการเปลี่ยนชื่อซีรีส์ในข้อมูลแผนภูมิ `ChartDataWorkbook`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-โค้ด Java นี้แสดงวิธีการเปลี่ยนชื่อซีรีส์ในตำนานผ่าน`Series`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ตั้งค่าสีเติมอัตโนมัติสำหรับซีรีส์แผนภูมิ**
-
-Aspose.Slides for Java ให้คุณตั้งค่าสีเติมอัตโนมัติสำหรับซีรีส์แผนภูมิภายในพื้นที่พล็อตได้ดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-1. รับการอ้างอิงของสไลด์โดยใช้ดัชนี
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นตามประเภทที่คุณต้องการ (ในตัวอย่างนี้เราใช้ `ChartType.ClusteredColumn`)
-1. เข้าถึงซีรีส์แผนภูมิและตั้งค่าสีเติมเป็น Automatic
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX
-
-```java
-Presentation pres = new Presentation();
-try {
-    // สร้างแผนภูมิคอลัมน์แบบกลุ่ม
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // ตั้งค่ารูปแบบการเติมสีของซีรีส์เป็นอัตโนมัติ
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // เขียนไฟล์งานนำเสนอลงดิสก์
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **ตั้งค่าสีเติมกลับด้านสำหรับซีรีส์แผนภูมิ**
-
-Aspose.Slides ให้คุณตั้งค่าสีเติมกลับด้านสำหรับซีรีส์แผนภูมิภายในพื้นที่พล็อตได้ดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-1. รับการอ้างอิงของสไลด์โดยใช้ดัชนี
-1. เพิ่มแผนภูมิกับข้อมูลเริ่มต้นตามประเภทที่คุณต้องการ (ในตัวอย่างนี้เราใช้ `ChartType.ClusteredColumn`)
-1. เข้าถึงซีรีส์แผนภูมิและตั้งค่าสีเติมเป็น invert
-1. บันทึกงานนำเสนอเป็นไฟล์ PPTX
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // เพิ่มซีรีส์และหมวดหมู่ใหม่
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // นำซีรีส์แผนภูม้อันดับแรกและเติมข้อมูลซีรีส์ของมัน.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าให้ซีรีส์กลับด้านเมื่อค่าติดลบ**
+ผลลัพธ์:
 
-Aspose.Slides ให้คุณตั้งค่าการกลับด้านผ่านคุณสมบัติ `IChartDataPoint.InvertIfNegative` และ `ChartDataPoint.InvertIfNegative` เมื่อการกลับด้านถูกตั้งค่าผ่านคุณสมบัติเหล่านี้ จุดข้อมูลจะสลับสีเมื่อได้รับค่าติดลบ
+![The color of the series](series_color.png)
+
+## **เปลี่ยนชื่อชุดข้อมูล**
+
+ชื่อชุดถูกเก็บไว้ในสมุดงานข้อมูลแผนภูมิและมักจะแสดงในคำอธิบาย ในสมุดงานเริ่มต้นที่สร้างสำหรับแผนภูมิคอลัมน์แบบกลุ่ม เซลล์ B1 อยู่ที่แถว 0 คอลัมน์ 1 และมีชื่อของชุดแรก ค่าคงที่ที่ตั้งชื่อในตัวอย่างต่อไปนี้ทำให้โครงสร้างนั้นชัดเจน:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ลบข้อมูลจุดเฉพาะ**
-
-Aspose.Slides for Java ให้คุณลบข้อมูล `DataPoints` ของซีรีส์แผนภูมิเฉพาะได้ดังนี้:
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-2. รับการอ้างอิงของสไลด์ผ่านดัชนี
-3. รับการอ้างอิงของแผนภูมิผ่านดัชนี
-4. วนซ้ำผ่าน `DataPoints` ทั้งหมดของแผนภูมิและตั้งค่า `XValue` และ `YValue` เป็น null
-5. ลบ `DataPoints` ทั้งหมดสำหรับซีรีส์แผนภูมิที่ระบุ
-6. เขียนงานนำเสนอที่แก้ไขแล้วลงไฟล์ PPTX
+คุณยังสามารถอัปเดตเซลล์ที่ [IChartSeries.getName](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getName--) อ้างอิงอยู่แล้ว วิธีนี้หลีกเลี่ยงการสันนิษฐานแถวหรือคอลัมน์เฉพาะในแผนภูมิที่มีอยู่:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์:
+
+![The series name](series_name.png)
+
+## **รับสีเติมอัตโนมัติของชุดข้อมูล**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) คืนค่ากลับสีที่คำนวณจากดัชนีชุดและสไตล์แผนภูมิ นี่คือสีที่ใช้เมื่อสีเติมของชุดไม่ได้ถูกกำหนดอย่างชัดเจน การเรียกเมธอดจะอ่านสีที่คำนวณได้; ไม่ได้กำหนดสีเติมใหม่.
+
+ตัวอย่างต่อไปนี้พิมพ์สีอัตโนมัติของแต่ละชุดเริ่มต้น:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์ตัวอย่างสำหรับสไตล์แผนภูมิเริ่มต้น:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+สีที่แน่นอนจะขึ้นอยู่กับสไตล์และธีมของแผนภูมิ
+
+## **ตั้งค่าสีเติมกลับสำหรับชุดแผนภูมิ**
+
+สำหรับชุดบาร์, คอลัมน์, และบับเบิล, [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) สามารถแสดงค่าลบด้วยสีเติมที่ต่างออกไป ตั้งค่าสีเติมปกติของชุดเป็นสีทึบ, เปิดการกลับสี, และกำหนดสีค่าลบผ่าน [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). ตัวเลขลบจะไม่เปลี่ยนในสมุดงาน; มีเพียงสีการแสดงผลที่เปลี่ยน.
+
+ตัวอย่างต่อไปนี้แทนที่ข้อมูลแผนภูมิเริ่มต้นด้วยชุดเดียว แถว 0 ของแผ่นงานมีชื่อชุด, คอลัมน์ 0 มีชื่อหมวดหมู่, และคอลัมน์ 1 มีค่าต่าง ๆ:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **ตั้งค่าความกว้างช่องว่างของซีรีส์**
+ผลลัพธ์:
 
-Aspose.Slides for Java ให้คุณตั้งค่าความกว้างช่องว่างของซีรีส์ผ่านคุณสมบัติ **`GapWidth`** ได้ดังนี้:
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/java/com.aspose.slides/Presentation)
-1. เข้าถึงสไลด์แรก
-1. เพิ่มแผนภูมิพร้อมข้อมูลเริ่มต้น
-1. เข้าถึงซีรีส์แผนภูมิใดก็ได้
-1. ตั้งค่าคุณสมบัติ `GapWidth`
-1. เขียนงานนำเสนอที่แก้ไขแล้วลงไฟล์ PPTX
+คุณสามารถเปิดการกลับสีสำหรับจุดเดียวผ่าน [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). ในตัวอย่างต่อไปนี้ การกลับสีถูกปิดสำหรับชุดและเปิดเฉพาะสำหรับจุดที่เลือก จุดนั้นยังถูกกำหนดค่าเป็นค่าลบเพื่อให้เห็นผล
 
 ```java
-// สร้างงานนำเสนอเปล่า 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // เข้าถึงสไลด์แรกของงานนำเสนอ
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // เพิ่มแผนภูมิกับข้อมูลเริ่มต้น
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // กำหนดดัชนีของชีตข้อมูลแผนภูมิ
-    int defaultWorksheetIndex = 0;
-    
-    // ดึงเวิร์กชีตข้อมูลแผนภูมิ
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // เพิ่มซีรีส์
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // เพิ่มหมวดหมู่
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // ดึงซีรีส์แผนภูมิที่สอง
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // เติมข้อมูลให้ซีรีส์
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // ตั้งค่าความกว้างช่องว่าง
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // บันทึกงานนำเสนอลงดิสก์
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **ลบค่าจุดข้อมูลเฉพาะ**
 
-**มีขีดจำกัดจำนวนซีรีส์ที่แผนภูมิเดียวสามารถมีได้หรือไม่?**
+เพื่อทำให้จุดหนึ่งเป็นค่าว่างโดยไม่ลบจุดอื่น ๆ ให้ตั้งค่าเซลล์ในสมุดงานที่สนับสนุนจุดนั้นเป็น `null`. สำหรับแผนภูมิคอลัมน์ ค่าที่ plotted สามารถเข้าถึงได้ผ่าน [IChartDataPoint.getValue](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#getValue--). จุดข้อมูลจะอยู่ตำแหน่งหมวดหมู่เดิม แต่แผนภูมิจะถือค่าของมันเป็นค่าว่างตามการตั้งค่าค่าว่างของแผนภูมิ.
 
-Aspose.Slides ไม่กำหนดขีดจำกัดคงที่สำหรับจำนวนซีรีส์ที่คุณเพิ่ม เพดานที่เป็นจริงจะถูกกำหนดโดยความสามารถในการอ่านของแผนภูมิและโดยหน่วยความจำที่มีให้กับแอปพลิเคชันของคุณ
+ตัวอย่างต่อไปนี้ลบเฉพาะจุดที่สองในชุดแรก:
 
-**ถ้าคอลัมน์ภายในกลุ่มใกล้กันเกินไปหรือห่างกันมากเกินไปควรทำอย่างไร?**
+```java
+import com.aspose.slides.*;
 
-ปรับค่าการตั้งค่า `GapWidth` สำหรับซีรีส์นั้น (หรือกลุ่มซีรีส์พาเรนต์) การเพิ่มค่าจะทำให้คอลัมน์ห่างกันมากขึ้น ในขณะที่การลดค่าจะทำให้คอลัมน์เข้าหากันมากขึ้น
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+แผนภูกิกระจายใช้เซลล์ X และ Y แยกกัน, และแผนภูมิบับเบิลยังใช้เซลล์ขนาดด้วย. ลบเฉพาะเซลล์ที่แทนค่าที่คุณต้องการลบ อย่าเรียก [IChartDataPointCollection.clear](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapointcollection/#clear--) เมื่อคุณต้องการเก็บจุดอื่น ๆ เพราะเมธอดนั้นจะลบทุกจุดข้อมูลจากคอลเลกชัน
+
+## **ตั้งค่าความกว้างช่องว่างของชุดข้อมูล**
+
+ความกว้างช่องว่างคือระยะห่างระหว่างกลุ่มบาร์หรือคอลัมน์ที่อยู่ติดกัน, แสดงเป็นเปอร์เซ็นต์ของความกว้างบาร์หรือคอลัมน์. เช่นเดียวกับการทับซ้อน, มันเป็นของกลุ่มชุดแม่ไม่ใช่ของชุดเดียว. เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) ครั้งเดียวสำหรับกลุ่ม. ค่าใหญ่จะเพิ่มระยะห่างระหว่างกลุ่ม, ค่าเล็กจะทำให้กลุ่มแน่นขึ้น.
+
+ตัวอย่างต่อไปนี้เปลี่ยนความกว้างของช่องว่างและบันทึกเฉพาะงานนำเสนอสุดท้าย:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ผลลัพธ์:
+
+![The gap width](gap_width.png)
+
+## **คำถามที่พบบ่อย**
+
+**ประเภทแผนภูมิใดที่รองรับชุดข้อมูล?**
+
+ทุกประเภทแผนภูมิที่แสดงใน enumeration [ChartType](https://reference.aspose.com/slides/th/java/com.aspose.slides/charttype/) ใช้ข้อมูลแผนภูมิ, แต่ชุดข้อมูลของพวกมันไม่ได้มีโครงสร้างค่าหรือการตั้งค่าเดียวกัน. ตัวอย่างเช่น แผนภูมิประเภทใช้หมวดหมู่และค่า, แผนภูมิกระจายใช้ค่าจาก X และ Y, และแผนภูมิบับเบิลเพิ่มขนาดบับเบิล. ใช้วิธีการสร้างจุดข้อมูลที่ตรงกับประเภทของชุด. ตัวเลือกเช่นการทับซ้อนและความกว้างช่องว่างใช้ได้เฉพาะกับกลุ่มบาร์หรือคอลัมน์ที่เข้ากันได้.
+
+**กลุ่มชุดข้อมูลแผนภูมิคืออะไร?**
+
+[IChartSeriesGroup](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/) ประกอบด้วยชุดข้อมูลที่เข้ากันได้ซึ่งแชร์การตั้งค่าการพล็อตระดับกลุ่ม. แผนภูมิแบบผสมสามารถมีมากกว่าหนึ่งกลุ่ม, ดังนั้นการเปลี่ยนกลุ่มผ่านชุดใดชุดหนึ่งอาจไม่ได้เปลี่ยนทุกชุดในแผนภูมิ.
+
+**แผนภูมิที่สร้างใหม่มีข้อมูลเริ่มต้นหรือไม่?**
+
+ใช่. โดยค่าเริ่มต้น, [IShapeCollection.addChart](https://reference.aspose.com/slides/th/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) สร้างชุดตัวอย่าง, หมวดหมู่, และค่า. คุณสามารถแก้ไขเซลล์เหล่านั้นหรือทำความสะอาดคอลเลกชันชุดและหมวดหมู่ก่อนเพิ่มชุดข้อมูลที่กำหนดเองอย่างเต็มที่. การ overload ยังสามารถสร้างแผนภูมิโดยไม่มีข้อมูลเริ่มต้น.
+
+**วัตถุแผนภูมิเชื่อมต่อกับเซลล์ในสมุดงานอย่างไร?**
+
+ชื่อชุด, ป้ายชื่อหมวดหมู่, และค่าจุดข้อมูลอ้างอิงถึงเซลล์ใน [IChartDataWorkbook](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdataworkbook/). การเปลี่ยนแปลงเซลล์ที่อ้างอิงจะอัปเดตองค์ประกอบแผนภูมิเกี่ยวข้อง. เมื่อนำเข้าข้อมูลที่กำหนดเอง, ควรรักษาแถวหมวดหมู่และแถวค่าชุดให้สอดคล้องกันเพื่อให้แต่ละจุด plotted ภายใต้หมวดหมู่ที่ต้องการ.
+
+**ฉันจะลบจุดเดียวแทนการลบทั้งชุดอย่างไร?**
+
+ตั้งค่าเซลล์ค่าที่เกี่ยวข้องเป็น `null` เพื่อรักษาตำแหน่งหมวดหมู่ของจุดเป็นจุดว่าง. ใช้ [IChartDataPointCollection.clear](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapointcollection/#clear--) เฉพาะเมื่อคุณต้องการลบทุกจุดจากชุดนั้น. หากคุณลบหมวดหมู่อีกด้วย, ให้ปรับปรุงทุกชุดเพื่อให้ค่าของพวกเขายังคงสอดคล้องกับคอลเลกชันหมวดหมู่.
+
+**จุดว่างแสดงผลอย่างไร?**
+
+ผลลัพธ์ขึ้นอยู่กับประเภทแผนภูมิและค่าที่กำหนดผ่าน [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). แผนภูมิที่สนับสนุนสามารถแสดงค่าว่างเป็นช่องว่าง, ค่าศูนย์, หรือโดยเชื่อมต่อกับจุดข้างเคียง. เลือกการตั้งค่าที่ตรงกับความหมายของข้อมูลหายในงานนำเสนอของคุณ.
+
+**ค่าลบจะถูกจัดรูปแบบอย่างไร?**
+
+สำหรับบาร์, คอลัมน์, และบับเบิลที่รองรับ, เรียก [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) และตั้งค่าสีที่ได้จาก [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). คุณสามารถลบล้างพฤติกรรมสำหรับจุดเดียวด้วย [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). วิธีเหล่านี้ส่งผลต่อการจัดรูปแบบ, ไม่ได้เปลี่ยนค่าตัวเลขที่เก็บไว้.
+
+**การจัดรูปแบบใดได้เปรียบเมื่อทั้งชุดและจุดถูกจัดรูปแบบ?**
+
+การจัดรูปแบบจุดข้อมูลอย่างชัดเจนจะมีลำดับความสำคัญสำหรับจุดนั้น. จุดอื่น ๆ ยังคงใช้รูปแบบชุดที่กำหนดไว้หรือ, ถ้าชุดไม่มีการกำหนดรูปแบบ, จะใช้สไตล์และธีมแผนภูมิอัตโนมัติ. การตั้งค่ากลุ่มเช่นการทับซ้อนและความกว้างช่องว่างควบคุมการจัดวางและไม่ได้เป็นการแทนที่การจัดรูปแบบระดับจุด.
+
+**มีขีดจำกัดจำนวนชุดที่แผนภูมิสามารถมีได้หรือไม่?**
+
+Aspose.Slides ไม่กำหนดขีดจำกัดจำนวนชุดแยกเป็นคงที่. ในการปฏิบัติ, ข้อจำกัดของไฟล์งานนำเสนอ, หน่วยความจำที่มี, เวลาเรนเดอร์, และความอ่านง่ายของแผนภูมิจึงกำหนดขีดจำกัดที่ใช้ได้จริง.
+
+**ควรปรับอะไรเมื่อคอลัมน์ใกล้กันเกินไปหรือห่างกันเกินไป?**
+
+เรียก [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/th/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) บนกลุ่มชุดแม่ที่เหมาะสม. เพิ่มค่าที่ทำให้ช่องว่างระหว่างกลุ่มกว้างขึ้น หรือ ลดค่าเพื่อทำให้กลุ่มใกล้กันมากขึ้น.

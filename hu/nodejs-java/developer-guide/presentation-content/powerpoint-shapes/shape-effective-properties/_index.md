@@ -1,340 +1,295 @@
 ---
-title: Alakzatok hatékony tulajdonságainak lekérése prezentációkból JavaScript-ben
-linktitle: Hatékony tulajdonságok
+title: Alakzat ható tulajdonságainak lekérdezése bemutatókból JavaScript-ben
+linktitle: Ható tulajdonságok
 type: docs
 weight: 50
 url: /hu/nodejs-java/shape-effective-properties/
 keywords:
-- alakzati tulajdonságok
+- alakzat tulajdonságai
 - kamera tulajdonságok
-- fényrig
-- élezett alakzat
-- szövegdoboz
+- világítási rig
+- ferde alakzat
+- szövegkeret
 - szövegstílus
 - betűmagasság
-- kitöltési formátum
+- kitöltés formátuma
 - PowerPoint
-- prezentáció
+- bemutató
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ismerje meg, hogyan számolja ki és alkalmazza az Aspose.Slides for Node.js Java segítségével a hatékony alakzati tulajdonságokat a pontos PowerPoint rendereléshez."
+description: "Ismerje meg, hogyan használja az Aspose.Slides for Node.js via Java könyvtárat a helyi, örökölt és ható alakzat formázás megkülönböztetéséhez a PowerPoint bemutatókban."
 ---
-## **Áttekintés**
+## **Helyi, örökölt és tényleges tulajdonságok megértése**
 
-Ez a téma elmagyarázza a **helyi** és **hatékony** tulajdonságok közötti különbséget. A helyi értékek olyan értékek, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
+A PowerPoint formázás több helyről származhat. Az objektumra közvetlenül tárolt érték a **helyi érték**. Ha ez az érték nincs beállítva, a PowerPoint a szülő formázási forrásokban keresi, például egy bekezdés alapértelmezésében, egy szövegstílusban, egy elrendezésben vagy mesterdiánban, egy témában vagy a bemutató szintű alapértelmezésekben. Ezek az értékek **örökölt értékek**. Az az érték, amely a teljes hierarchia feloldása után megmarad, a **ható érték**—az az érték, amelyet az objektum megjelenítéséhez használnak.
 
-1. Részlet tulajdonságai egy dián.  
-1. Sablon alakzat szövegstílusai egy elrendezésen vagy mesterdián, ha a részlet szövegtáblájának alakzata rendelkezik ilyen stílussal.  
-1. Általános szövegbeállítások egy prezentációban.  
+Például egy szövegrészlet nem adhatja meg saját betűmagasságát. Ennek a helyi [getFontHeight](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portionformat/#getFontHeight) értéke ilyenkor `NaN`, ami azt jelenti, hogy „itt nincs beállítva”. A részlet örökölhet magasságot a bekezdéséből, a bemutató alapértelmezett szövegstílusából vagy egy másik alkalmazható forrásból. A [getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portionformat/#getEffective) meghívása a PortionFormat objektumon a végleges feloldott magasságot adja vissza.
 
-A helyi értékek meghatározhatók vagy elhagyhatók bármely szinten. Amikor az Aspose.Slides-nek szüksége van a végleges, "rendereltként" megjelenő formázásra, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a helyi formátum objektum `getEffective` metódusának meghívásával kaphatja meg.
+Használja a kétféle formázási adatot különböző célokra:
 
-Az alábbi példa bemutatja, hogyan lehet hatékony értékeket lekérni. Feltételezi, hogy az első dián az első alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) szövegtáblával és legalább egy résszel rendelkezik.
+- Olvassa vagy módosítsa a helyi formátumobjektumot, például a [PortionFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portionformat/), ha azt szeretné szabályozni, hogy hol van definiálva az érték.
+- Olvassa a [PortionFormat.getEffective által visszaadott ható adatot](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portionformat/#getEffective), ha a végső, megjelenített eredményre van szüksége. A ható adatok csak olvashatóak.
+
+A példák futtatása előtt [telepítse az Aspose.Slides for Node.js via Java](/slides/hu/nodejs-java/installation/)-t.
+
+## **Helyi, örökölt és ható értékek összehasonlítása**
+
+Az alábbi teljes példa létrehoz egy alakzatot, és a betűmagasságot a bemutató, a bekezdés és a részlet szintjén alkalmazza. Minden lépés kiírja az adott szinteken definiált értékeket és a ugyanazon szövegrészlet eredményül kapott ható értékét. Emellett azt is bemutatja, miért kell a ható adatot újra olvasni a formázási módosítások után.
 
 ```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-let presentation = new aspose.slides.Presentation("sample.pptx");
+function formatLocalValue(value) {
+    return Number.isNaN(value) ? "<not set>" : value.toString();
+}
+
+function printFontHeights(caption, presentation, paragraph, portion) {
+    const presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+    const paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+    const localValue = portion.getPortionFormat().getFontHeight();
+
+    // Olvassa a ható adatokat a korábbi módosítások után.
+    const effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+    console.log(caption);
+    console.log("  Presentation default: " + formatLocalValue(presentationValue));
+    console.log("  Paragraph default:    " + formatLocalValue(paragraphValue));
+    console.log("  Portion local:        " + formatLocalValue(localValue));
+    console.log("  Portion effective:    " + effectiveValue);
+}
+
+const presentation = new aspose.slides.Presentation();
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 100, 100, 500, 80, false);
+    const textFrame = shape.addTextFrame("Effective formatting");
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-    let localTextFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = localTextFrameFormat.getEffective();
+    // Határozza meg az örökölt értékeket két különböző szinten.
+    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-    let paragraph = shape.getTextFrame().getParagraphs().get_Item(0);
-    let localPortionFormat = paragraph.getPortions().get_Item(0).getPortionFormat();
-    let effectivePortionFormat = localPortionFormat.getEffective();
+    printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
+
+    // A részlet helyi értéke felülírja mindkét örökölt értéket.
+    portion.getPortionFormat().setFontHeight(36);
+    printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
+
+    // Az örökölt érték módosítása nem írja felül a már létező helyi értéket.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+    printFontHeights("The local value still has priority", presentation, paragraph, portion);
+
+    // Törölje a helyi értéket. A részlet most újra a bekezdéstől örököl.
+    portion.getPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The local value is cleared", presentation, paragraph, portion);
+
+    // Törölje a bekezdés értékét. A bemutató alapértelmezése adja most az eredményt.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(java.newFloat(Number.NaN));
+    printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
+
+    presentation.save("effective-properties.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-{{% alert color="primary" %}}
-Az effektív formázási adatok a jelenlegi kiszámított formázást képviselik az öröklődés alkalmazása után. A jelenlegi megvalósításban egyes effektív adatobjektumok belsőleg gyorsítótárazva lehetnek. A `getEffective` újbóli meghívása a szülő vagy az örökölt formázás módosítása után frissítheti a gyorsítótárat, és egy korábban lekért objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha meg kell őriznie az effektív értékeket későbbi újrahasználatra, másolja a szükséges tulajdonságokat, például a betűmagasságot, a kitöltő színt, a betűstílust vagy az igazítást, egy saját adatobjektumba.
-{{% /alert %}}
+Ebben a példában a prioritás a részlet helyi formázása, majd a bekezdés formázása, végül a bemutató alapértelmezése. Más objektumoknak eltérő öröklődési láncaik lehetnek, de az elv ugyanaz: egy konkrétabb, explicit érték nyer, és a [getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portionformat/#getEffective) a végső eredményt adja vissza.
 
-## **Kamera hatékony tulajdonságainak lekérése**
+## **Ható szövegtulajdonságok lekérdezése**
 
-Az Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérését. A hatékony kamera adatobjektum változtathatatlan kamera tulajdonságokat tartalmaz, és a [ThreeDFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/) által visszaadott hatékony értékeken keresztül érhető el.
+A szövegformázás több objektumra van szétosztva:
 
-Az alábbi kódrészlet bemutatja, hogyan lehet a kamera hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
+- A [TextFrameFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textframeformat/#getEffective) feloldja a szövegkeret tulajdonságait, például a margókat, a rögzítést, az automatikus méretezést és a függőleges szövegirányt.
+- A [TextStyle.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/textstyle/#getEffective) feloldja a bekezdés formázását minden szövegstílus szinten.
+- A [ParagraphFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/paragraphformat/#getEffective) feloldja a bekezdés tulajdonságait, például az igazítást, a behúzást és a felsorolást.
+- A [PortionFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/portionformat/#getEffective) feloldja a karakter tulajdonságokat, például a betűmagasságot, a betűkészletet, a színt, a félkövér és a dőlt stílust.
+
+A következő példához a `text-formatting.pptx`-nek legalább egy diát és egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) kell tartalmaznia, amelynek nem üres a szövegkerete. Az AutoShape megjelenhet a shape gyűjtemény bármelyik pozíciójában; a kód keres egy megfelelő objektumot, és használat előtt ellenőrzi.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let camera = threeDEffectiveData.getCamera();
-    let cameraType = camera.getCameraType();
-    let fieldOfViewAngle = camera.getFieldOfViewAngle();
-    let zoom = camera.getZoom();
-
-    console.log("= Effective camera properties =");
-    console.log("Type: " + cameraType);
-    console.log("Field of view: " + fieldOfViewAngle);
-    console.log("Zoom: " + zoom);
-} finally {
-    presentation.dispose();
+function hasNonEmptyText(shape) {
+    if (shape.getTextFrame() == null) {
+        return false;
+    }
+    if (shape.getTextFrame().getParagraphs().getCount() === 0) {
+        return false;
+    }
+    return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
 }
-```
 
-## **Fényrig hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides lehetővé teszi a fényrig hatékony tulajdonságainak lekérését. A hatékony fényrig adatobjektum változtathatatlan fényrig tulajdonságokat tartalmaz, és a [ThreeDFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/) által visszaadott hatékony értékeken keresztül érhető el.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet a fényrig hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let lightRig = threeDEffectiveData.getLightRig();
-    let lightType = lightRig.getLightType();
-    let direction = lightRig.getDirection();
-
-    console.log("= Effective light rig properties =");
-    console.log("Type: " + lightType);
-    console.log("Direction: " + direction);
-} finally {
-    presentation.dispose();
+function findAutoShapeWithText(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const candidate = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(candidate, "com.aspose.slides.AutoShape") && hasNonEmptyText(candidate)) {
+            return candidate;
+        }
+    }
+    return null;
 }
-```
 
-## **Élezett alakzat hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides lehetővé teszi egy alakzat élezett tulajdonságainak hatékony lekérését. A hatékony alakzat élezett adatobjektum változtathatatlan felületrelief tulajdonságokat tartalmaz egy alakzatra, és a [ThreeDFormat](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/) által visszaadott hatékony értékeken keresztül érhető el.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet egy alakzat felső élezésének hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat 3D formázással rendelkezik.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+const presentation = new aspose.slides.Presentation("text-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    let bevelTop = threeDEffectiveData.getBevelTop();
-    let bevelType = bevelTop.getBevelType();
-    let bevelWidth = bevelTop.getWidth();
-    let bevelHeight = bevelTop.getHeight();
+    const shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+    if (shape == null) {
+        throw new Error("The first slide must contain an AutoShape with non-empty text.");
+    }
 
-    console.log("= Effective shape's top face relief properties =");
-    console.log("Type: " + bevelType);
-    console.log("Width: " + bevelWidth);
-    console.log("Height: " + bevelHeight);
-} finally {
-    presentation.dispose();
-}
-```
+    const textFrame = shape.getTextFrame();
+    const paragraph = textFrame.getParagraphs().get_Item(0);
+    const portion = paragraph.getPortions().get_Item(0);
 
-## **Szövegdoboz hatékony tulajdonságainak lekérése**
+    const textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+    const paragraphEffective = paragraph.getParagraphFormat().getEffective();
+    const portionEffective = portion.getPortionFormat().getEffective();
 
-Az Aspose.Slides használatával lekérhető egy szövegdoboz hatékony tulajdonságai. A visszaadott hatékony adatobjektum a szövegdoboz formázási tulajdonságait tartalmazza.
+    console.log("Text frame margins:");
+    console.log("  Left: " + textFrameEffective.getMarginLeft());
+    console.log("  Top: " + textFrameEffective.getMarginTop());
+    console.log("  Right: " + textFrameEffective.getMarginRight());
+    console.log("  Bottom: " + textFrameEffective.getMarginBottom());
+    console.log("Paragraph alignment: " + paragraphEffective.getAlignment());
+    console.log("Font height: " + portionEffective.getFontHeight());
+    console.log("Bold: " + portionEffective.getFontBold());
 
-Az alábbi kódrészlet bemutatja, hogyan lehet a szövegdoboz formázási tulajdonságait hatékonyan lekérni. Feltételezi, hogy az első dián az első alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) szövegtáblával rendelkezik.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-
-    let textFrameFormat = shape.getTextFrame().getTextFrameFormat();
-    let effectiveTextFrameFormat = textFrameFormat.getEffective();
-    let anchoringType = effectiveTextFrameFormat.getAnchoringType();
-    let autofitType = effectiveTextFrameFormat.getAutofitType();
-    let textVerticalType = effectiveTextFrameFormat.getTextVerticalType();
-    let marginLeft = effectiveTextFrameFormat.getMarginLeft();
-    let marginTop = effectiveTextFrameFormat.getMarginTop();
-    let marginRight = effectiveTextFrameFormat.getMarginRight();
-    let marginBottom = effectiveTextFrameFormat.getMarginBottom();
-
-    console.log("Anchoring type: " + anchoringType);
-    console.log("Autofit type: " + autofitType);
-    console.log("Text vertical type: " + textVerticalType);
-    console.log("Margins");
-    console.log("   Left: " + marginLeft);
-    console.log("   Top: " + marginTop);
-    console.log("   Right: " + marginRight);
-    console.log("   Bottom: " + marginBottom);
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Szövegstílus hatékony tulajdonságainak lekérése**
-
-Az Aspose.Slides használatával lekérhető egy szövegstílus hatékony tulajdonságai. A visszaadott hatékony adatobjektum a szövegstílus tulajdonságait tartalmazza.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet a szövegstílus hatékony tulajdonságait lekérni. Feltételezi, hogy az első dián az első alakzat egy [AutoShape](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/autoshape/) szövegtáblával rendelkezik.
-
-```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    let slide = presentation.getSlides().get_Item(0);
-    let shape = slide.getShapes().get_Item(0);
-    let effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    let levelCount = 9;
-
-    for (let levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        let effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-        let depth = effectiveStyleLevel.getDepth();
-        let indent = effectiveStyleLevel.getIndent();
-        let alignment = effectiveStyleLevel.getAlignment();
-        let fontAlignment = effectiveStyleLevel.getFontAlignment();
-
-        console.log("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        console.log("Depth: " + depth);
-        console.log("Indent: " + indent);
-        console.log("Alignment: " + alignment);
-        console.log("Font alignment: " + fontAlignment);
+    const effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+    for (let level = 0; level < 9; level++) {
+        const levelEffective = effectiveTextStyle.getLevel(level);
+        console.log("Level " + level + " indent: " + levelEffective.getIndent());
     }
 } finally {
     presentation.dispose();
 }
 ```
 
-## **A betűmagasság hatékony értékének lekérése**
+## **Ható 3D tulajdonságok lekérdezése**
 
-Az Aspose.Slides használatával lekérhető a betűmagasság hatékony értéke. Az alábbi kód bemutatja, hogyan változik egy részlet hatékony betűmagassága, amikor a helyi betűmagasság értékeket különböző prezentációs struktúraszinteken állítják be.
+A [ThreeDFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/#getEffective) egy ható adatobjektust ad vissza, amely összegyűjti az összes feloldott 3D beállítást. A [getCamera](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/#getCamera), a [getLightRig](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/#getLightRig), a [getBevelTop](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/#getBevelTop), és a [getBevelBottom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/threedformat/#getBevelBottom) metódusok a megfelelő ható adatot exponálnak. Ezeknek a kapcsolódó beállításoknak együttes olvasása egyszerűbbé teszi a forma végső 3D megjelenésének megértését.
+
+Ehhez a példához a `shape-3d.pptx` első diáján legalább egy alakzatnak kell lennie. Alkalmazzon 3D kamerát, megvilágítást vagy levágási (bevel) beállításokat az alakzatra, ha azt szeretné, hogy a kimenet az alapértelmezett értékeken kívül is tartalmazzon értékeket.
 
 ```javascript
-let presentation = new aspose.slides.Presentation();
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("shape-3d.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
+    if (presentation.getSlides().size() === 0 || presentation.getSlides().get_Item(0).getShapes().size() === 0) {
+        throw new Error("The first slide must contain a shape.");
+    }
 
-    let shapeType = aspose.slides.ShapeType.Rectangle;
-    let autoShape = slide.getShapes().addAutoShape(shapeType, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const threeDEffective = shape.getThreeDFormat().getEffective();
 
-    let paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+    console.log("Camera:");
+    console.log("  Type: " + threeDEffective.getCamera().getCameraType());
+    console.log("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+    console.log("  Zoom: " + threeDEffective.getCamera().getZoom());
 
-    let firstPortion = new aspose.slides.Portion("Sample text with first portion");
-    let secondPortion = new aspose.slides.Portion(" and second portion.");
+    console.log("Light rig:");
+    console.log("  Type: " + threeDEffective.getLightRig().getLightType());
+    console.log("  Direction: " + threeDEffective.getLightRig().getDirection());
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
-
-    let firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    let secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    let firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    let secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height just after creation:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting the presentation default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting paragraph default font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #0 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    console.log("Effective font height after setting portion #1 font height:");
-    console.log("Portion #0: " + firstPortionFontHeight);
-    console.log("Portion #1: " + secondPortionFontHeight);
-
-    let saveFormat = aspose.slides.SaveFormat.Pptx;
-    presentation.save("SetLocalFontHeightValues.pptx", saveFormat);
+    console.log("Top bevel:");
+    console.log("  Type: " + threeDEffective.getBevelTop().getBevelType());
+    console.log("  Width: " + threeDEffective.getBevelTop().getWidth());
+    console.log("  Height: " + threeDEffective.getBevelTop().getHeight());
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Táblázat hatékony kitöltési formátumának lekérése**
+## **Ható táblázatformázás lekérdezése**
 
-Az Aspose.Slides használatával lekérhető a táblázat különböző részeinek hatékony kitöltési formázása. A visszaadott hatékony adatobjektum a kitöltési formázási tulajdonságokat tartalmazza. A cella formázása magasabb prioritással bír, mint a sor formázása, a sor formázása magasabb prioritással bír, mint az oszlop formázása, és az oszlop formázása magasabb prioritással bír, mint a táblázat egészére vonatkozó formázás.
+A táblázat formázása a táblastílusból, valamint a teljes táblára, egy oszlopra, egy sorra vagy egy egyedi cellára alkalmazott formátumokból származhat. Az explicit módon meghatározott kitöltések közötti ütközések esetén a prioritás: cella, sor, oszlop, majd a teljes táblázat. A cella ható formátuma az a végső formátum, amely a cella megjelenítéséhez használatos.
 
-Ennek eredményeként a hatékony cellaformázási tulajdonságok kerülnek felhasználásra a táblázat cellájának kirajzolásához. Az alábbi kódrészlet bemutatja, hogyan lehet a táblázat különböző részeinek hatékony kitöltési formázását lekérni. Feltételezi, hogy az első dián az első alakzat egy [Table](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/table/) .
+Ehhez a példához a `table-formatting.pptx` első diáján legalább egy táblázatnak kell lennie. A táblázatnak legalább egy sorral és egy oszloppal kell rendelkeznie. A kód egy [Table](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/table/) objektumot keres, ahelyett, hogy feltételezné, hogy a `getShapes().get_Item(0)` egy táblázat.
 
 ```javascript
-let presentation = new aspose.slides.Presentation("sample.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+function findTable(slide) {
+    for (let shapeIndex = 0; shapeIndex < slide.getShapes().size(); shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.Table")) {
+            return shape;
+        }
+    }
+    return null;
+}
+
+const presentation = new aspose.slides.Presentation("table-formatting.pptx");
 try {
-    let slide = presentation.getSlides().get_Item(0);
-    let table = slide.getShapes().get_Item(0);
+    if (presentation.getSlides().size() === 0) {
+        throw new Error("The presentation contains no slides.");
+    }
 
-    let tableFormatEffective = table.getTableFormat().getEffective();
-    let rowFormatEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
-    let columnFormatEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
-    let cellFormatEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+    const table = findTable(presentation.getSlides().get_Item(0));
+    if (table == null) {
+        throw new Error("The first slide must contain a table.");
+    }
+    if (table.getRows().size() === 0 || table.getColumns().size() === 0) {
+        throw new Error("The table must contain at least one cell.");
+    }
 
-    let tableFillFormatEffective = tableFormatEffective.getFillFormat();
-    let rowFillFormatEffective = rowFormatEffective.getFillFormat();
-    let columnFillFormatEffective = columnFormatEffective.getFillFormat();
-    let cellFillFormatEffective = cellFormatEffective.getFillFormat();
+    const tableEffective = table.getTableFormat().getEffective();
+    const rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+    const columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+    const cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+    console.log("Table fill: " + tableEffective.getFillFormat().getFillType());
+    console.log("Row fill: " + rowEffective.getFillFormat().getFillType());
+    console.log("Column fill: " + columnEffective.getFillFormat().getFillType());
+    console.log("Final cell fill: " + cellEffective.getFillFormat().getFillType());
 } finally {
     presentation.dispose();
 }
 ```
+
+Ha a színre van szükség, nem csak a kitöltés típusára, először ellenőrizze a ható [getFillType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fillformat/#getFillType), majd olvassa el a típusra alkalmazott metódust—például a [getSolidFillColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fillformat/#getSolidFillColor) egy egyenletes kitöltésnél.
+
+## **Ható adatok újbóli beolvasása módosítások után**
+
+A ható adatok leírják a formázási hierarchiát a feloldás időpontjában. Hívja meg újra a `getEffective`-et, miután bármit módosított, ami részt vehet ebben a hierarchiában, többek között:
+
+- az objektum helyi formázása;
+- bekezdés vagy szövegkeret alapértelmezései;
+- egy táblastílus, táblázat, oszlop, sor vagy cella formátuma;
+- elrendezés vagy mesterdia formázása;
+- témaadatok vagy prezentáció szintű alapértelmezések;
+- a diához rendelt elrendezés vagy mester.
+
+Ne tartson meg egy ható adatobjektumot állandó pillanatképként. Az Aspose.Slides a ható adat egyes részeit belsőleg gyorsítótárba helyezheti, és egy későbbi `getEffective` hívás frissítheti az adatot. Ha össze kell hasonlítania az értékeket módosítás előtt és után, másolja a szükséges skaláris értékeket – például betűmagasság, szín, igazítás vagy a levágás szélessége – saját változóiba a módosítás előtt.
+
+Egy érték módosításához frissítse a megfelelő helyi formátumobjektumot, majd hívja meg a `getEffective`-et az eredmény ellenőrzéséhez. A ható adatobjektumok maguk csak olvashatóak.
 
 ## **GYIK**
 
-**Visszaadja a `getEffective` egy pillanatképet?**
+**Hogyan tudom megállapítani, melyik szint biztosította a ható értéket?**
 
-Nem mindig. A hatékony adatok a kiszámított formázást képviselik az öröklődés alkalmazása után, de egyes hatékony adatobjektumok belsőleg gyorsítótárazva lehetnek. Egy későbbi `getEffective` hívás újraszámolhatja a formázást és frissítheti a gyorsítótárat, ezért egy korábban lekért objektumot nem szabad tartós pillanatképnek tekinteni.
+A ható adatok a végső értéket tartalmazzák, nem annak forrását. Vizsgálja meg a vonatkozó helyi objektumokat a legspecifikusabb szintről kifelé. Szöveg esetén ez magában foglalhatja a részletet, a bekezdést, a szövegkeretet, az elrendezést, a mestert, a témát és a bemutató alapértelmezéseit. A `NaN` vagy `null` értékek azt jelzik, hogy a keresés egy másik szintre folytatódik.
 
-**Mikor kell újra beolvasni a hatékony tulajdonságokat?**
+**Mi történik, ha egy szint sem definiál egy tulajdonságot?**
 
-Hívja újra a `getEffective`‑et a helyi formázás, a szülő stílusok, az elrendezés formázása, a mester formázása vagy a prezentáció szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát és visszaadja a jelenlegi hatékony eredményt.
+Az Aspose.Slides a megfelelő PowerPoint vagy könyvtári alapértelmezést oldja fel. Ez a feloldott érték megjelenik a ható adatokban, még akkor is, ha egy helyi objektum sem definiálja explicit módon.
 
-**Az elrendezés/mester dia módosítása vagy eltávolítása befolyásolja a már lekért hatékony tulajdonságokat?**
+**Miért egyezik egy ható érték néha a helyi értékkel?**
 
-Igen, de a változás a következő `getEffective` híváskor jelenik meg. Ha egy szülő formázási forrás megváltozik vagy eltávolításra kerül, a korábban lekért hatékony adatok elavultak lehetnek. Amint a `getEffective` újra meghívásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a betűtípusok, színek, méretek vagy egyéb értékek módosulhatnak.
+A helyi érték nyerte meg az öröklődési számítást. Ez akkor várható, amikor a tulajdonság kifejezetten be van állítva az objektumon, és nincs konkrétabb szabály, amely felülírná.
 
-**Módosíthatok értékeket a hatékony adatobjektumokon keresztül?**
+**Mikor használjak helyi adatot a ható adat helyett?**
 
-Nem. A hatékony adatobjektumok csak a számított értékeket mutatják. A módosításokat a helyi formázási objektumokban kell végrehajtani, majd újra lekérni a hatékony értékeket.
-
-**Mi történik, ha egy tulajdonság nincs beállítva az alakzat szintjén, sem az elrendezésen/mesteren, sem a globális beállításokban?**
-
-A hatékony értéket az alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. Ez a feloldott érték része lesz a jelenlegi hatékony adatoknak.
-
-**Egy hatékony betűértékből meg tudom állapítani, melyik szint biztosította a méretet vagy a betűtípust?**
-
-Nem közvetlenül. A hatékony adat a végleges értéket adja vissza. A forrás meghatározásához ellenőrizze a helyi értékeket a részleten, bekezdésen, szövegdobozon és a szövegstílusokon az elrendezésen, a mesteren és a prezentáción belül, hogy hol jelenik meg először a kifejezett meghatározás.
-
-**Miért tűnik néha a hatékony érték megegyezni a helyi értékkel?**
-
-Mert a helyi érték végsővé vált (nem volt szükség magasabb szintű öröklődésre). Ilyen esetekben a hatékony érték megegyezik a helyivel.
-
-**Mikor kell hatékony tulajdonságokat használni, és mikor csak a helyi tulajdonságokkal dolgozni?**
-
-Használja a hatékony adatokat, ha a "rendereltként" megjelenő eredményre van szüksége az összes öröklődés alkalmazása után, például színek, behúzások vagy méretek igazításához. Ha ezeket az értékeket későbbi formázási változásoktól függetlenül meg kell őrizni, másolja a szükséges tulajdonságokat egy saját objektumba. Ha egy adott szinten szeretne formázást módosítani, változtassa meg a helyi tulajdonságokat, majd – ha szükséges – olvassa újra a hatékony adatokat a végeredmény ellenőrzéséhez.
+Használja a helyi adatokat egy adott formázási szint megtekintéséhez vagy szerkesztéséhez. Használja a ható adatokat, ha az öröklődés, a téma szabályai és a vonatkozó stílusok feloldása után a végső megjelenésre van szüksége. A [teljes összehasonlító példa](#compare-local-inherited-and-effective-values) mindkettőt bemutatja ugyanabban a munkafolyamatban.

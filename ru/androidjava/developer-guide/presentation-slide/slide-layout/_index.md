@@ -13,9 +13,9 @@ keywords:
 - неиспользуемый макет
 - видимость нижнего колонтитула
 - титульный слайд
-- заголовок и содержимое
+- заголовок и содержание
 - заголовок раздела
-- два содержимого
+- два блока содержимого
 - сравнение
 - только заголовок
 - пустой макет
@@ -29,240 +29,230 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Управляйте и настраивайте макеты слайдов в Aspose.Slides for Android. Изучайте типы макетов, управление заполнителями и видимость нижнего колонтитула с помощью примеров кода на Java."
+description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для Android через Java, добавляйте заполнители, удаляйте неиспользуемые макеты и управляйте видимостью нижнего колонтитула."
 ---
-
 ## **Обзор**
 
-Макет слайда определяет расположение блоков заполнителей и форматирование содержимого на слайде. Он контролирует, какие заполнители доступны и где они располагаются. Макеты слайдов помогают быстро и последовательно создавать презентации — независимо от того, создаёте ли вы что‑то простое или более сложное. Некоторые из самых распространённых макетов слайдов в PowerPoint включают:
+Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета дает слайдам единообразную структуру, позволяя каждому слайду содержать свой собственный контент.
 
-**Макет титульного слайда** – Включает два текстовых заполнителя: один для заголовка и один для подзаголовка.
+Самыми распространёнными макетами являются:
 
-**Макет «Заголовок и содержание»** – Содержит меньший заполнитель заголовка вверху и более крупный ниже для основного содержимого (например, текста, маркеров, диаграмм, изображений и т.д.).
+- **Титульный слайд**: Содержит заполнители заголовка и подзаголовка.
+- **Заголовок и содержание**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
+- **Пустой**: Не содержит заполнителей содержимого и полезен, когда все объекты будут позиционироваться вручную.
 
-**Пустой макет** – Не содержит заполнителей, предоставляя вам полный контроль для создания слайда с нуля.
+## **Понимание наследования макетов**
 
-Макеты слайдов являются частью шаблона слайда (slide master), который является слайдом верхнего уровня и определяет стили макетов для презентации. Вы можете получать доступ к макетам слайдов и изменять их через шаблон слайда — по типу, имени или уникальному идентификатору. Кроме того, можно отредактировать конкретный макет слайда непосредственно в презентации.
+Презентация имеет три связанных уровня:
 
-Для работы с макетами слайдов в Aspose.Slides for Android вы можете использовать:
-- Методы, такие как [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) и [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) в классе [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 
-- Типы, такие как [ILayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), и [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+1. [главный слайд](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/) определяет тему, общие форматы, фон и общие объекты.
+1. [макет слайда](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/) принадлежит главному слайду и определяет конкретное расположение заполнителей.
+1. [обычный слайд](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/) использует один макет и сохраняет введённое для него содержание.
 
-{{% alert title="Info" color="info" %}}
-Чтобы узнать больше о работе с шаблонами слайдов, ознакомьтесь со статьёй [Slide Master](/slides/ru/androidjava/slide-master/) .
-{{% /alert %}}
+Обычный слайд наследует тему и форматирование от своего макета, а макет наследует от главного слайда. Значение, установленное напрямую на обычном слайде, переопределяет унаследованное значение на этом уровне. Когда обычный слайд создаётся, его формы‑заполнители генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
 
-## **Добавление макетов слайдов в презентации**
+Добавьте необходимые заполнители в макет перед созданием из него слайдов. Добавление другого заполнителя в макет позже не добавляет автоматически соответствующую форму‑заполнитель в существующие обычные слайды.
 
-Чтобы настроить внешний вид и структуру ваших слайдов, возможно, потребуется добавить новые макеты слайдов в презентацию. Aspose.Slides for Android позволяет проверить, существует ли уже конкретный макет, добавить новый при необходимости и использовать его для вставки слайдов на основе этого макета.
+Эти взаимоотношения имеют два важных следствия:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. Получите доступ к [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/) .
-3. Проверьте, существует ли желаемый макет слайда в коллекции. Если нет, добавьте необходимый макет слайда.
-4. Добавьте пустой слайд на основе нового макета слайда.
-5. Сохраните презентацию.
+- Изменение унаследованного форматирования или существующей геометрии заполнителя в макете может обновить каждый слайд, который от него зависит. Перед редактированием уже используемого макета проверьте его зависимые слайды и просмотрите получившуюся презентацию.
+- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
 
-Следующий код Java демонстрирует, как добавить макет слайда в презентацию PowerPoint:
+Для получения дополнительной информации о верхнем уровне этой иерархии см. [Главный слайд](/slides/ru/androidjava/slide-master/).
+
+## **Выбор и применение макета слайда**
+
+Используйте тип макета, когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируемы пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+
+Следующий пример ищет **Title and Content** на первом главном слайде. Если этот макет недоступен, он преднамеренно переходит к **Blank**. Вторая проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [ISlide.setLayoutSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-).
+
 ```java
-// Создайте экземпляр класса Presentation, представляющего файл PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Пройдите по типам макетных слайдов, чтобы выбрать макетный слайд.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Ситуация, когда презентация не содержит всех типов макетов.
-        // Файл презентации содержит только типы макетов Blank и Custom.
-        // Однако макетные слайды с пользовательскими типами могут иметь узнаваемые имена,
-        // такие как "Title", "Title and Content" и т.д., которые могут быть использованы для выбора макетного слайда.
-        // Вы также можете опираться на набор типов заполнителей формы.
-        // Например, слайд Title должен иметь только заполнитель Title и т.д.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Добавьте пустой слайд, используя добавленный макетный слайд.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Сохраните презентацию на диск.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Изменение макета слайда не удаляет обычные фигуры, добавленные непосредственно на слайд. Однако позиции заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно различными макетами.
 
-## **Удаление неиспользуемых макетов слайдов**
+## **Добавление макета слайда**
 
-Aspose.Slides предоставляет метод [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) из класса [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) для удаления нежелательных и неиспользуемых макетов слайдов.
+Выбор и создание — отдельные операции. Предыдущий пример выбирает существующий макет; он не создаёт его. Чтобы создать макет, вызовите метод [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) в коллекции макетов целевого главного слайда.
 
-Следующий код Java показывает, как удалить макет слайда из презентации PowerPoint:
+Следующий пример всегда добавляет новый макет **Title and Content** с именем `Report Title and Content`, а затем добавляет обычный слайд, основанный на нём. Имена макетов должны быть уникальными в коллекции.
+
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Добавляйте макет только тогда, когда шаблон действительно нуждается в ещё одной переиспользуемой структуре. Если подходящий макет уже существует, выберите и повторно используйте его вместо создания дубликата.
 
-## **Добавление заполнителей в макеты слайдов**
+## **Добавление заполнителей в макет слайда**
 
-Aspose.Slides предоставляет метод [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) , который позволяет добавлять новые заполнители в макет слайда.
+Метод [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) предоставляет [ILayoutPlaceholderManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) для добавления фигур‑заполнителей в макет.
 
-Этот менеджер содержит методы для следующих типов заполнителей:
+| Заполнитель PowerPoint | Метод `ILayoutPlaceholderManager` |
+| ---------------------- | --------------------------------- |
+| ![Содержание](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Содержание (вертикальное)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Текст](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Текст (вертикальный)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Изображение](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Диаграмма](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Таблица](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Медиа](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Онлайн‑изображение](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-| Заполнитель PowerPoint              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) Метод |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+Следующий пример проверяет, что макет **Blank** существует, добавляет к нему четыре заполнителя и затем создаёт обычный слайд, использующий модифицированный макет. Порядок намеренно такой: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог сгенерировать соответствующие фигуры‑заполнители на этом слайде.
 
-Следующий код Java демонстрирует, как добавить новые формы заполнителей к пустому макету слайда:
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Получить пустой макет слайда.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Получить менеджер заполнителей для макетного слайда.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Добавить различные заполнители в пустой макет слайда.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Добавить новый слайд с пустым макетом.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 Результат:
 
 ![Заполнители на макете слайда](add_placeholders.png)
 
-## **Установка видимости нижнего колонтитула для макета слайда**
+{{% alert color="warning" title="Предупреждение" %}}
+Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Ново‑добавленный заполнитель макета не подтягивается в существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+{{% /alert %}}
 
-В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут отображаться или скрываться в зависимости от макета слайда. Aspose.Slides for Android позволяет управлять видимостью этих заполнителей нижнего колонтитула. Это полезно, когда вы хотите, чтобы определённые макеты отображали информацию нижнего колонтитула, а другие оставались чистыми и минимальными.
+## **Удаление неиспользуемых макетов слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на макет слайда по его индексу.
-3. Установите видимость заполнителя нижнего колонтитула слайда.
-4. Установите видимость заполнителя номера слайда.
-5. Установите видимость заполнителя даты и времени.
-6. Сохраните презентацию.
+Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) для удаления макетов, которые не используются ни одним обычным слайдом. Метод оставляет нетронутыми макеты, которые всё ещё используются.
 
-Следующий код Java показывает, как установить видимость нижнего колонтитула слайда и выполнить связанные задачи:
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Чтобы удалить конкретный макет, сначала воспользуйтесь его методом [hasDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) или [getDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Переназначьте любые зависимые слайды перед вызовом [ILayoutSlide.remove](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#remove--). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/).
+
+## **Управление видимостью нижнего колонтитула на макете слайда**
+
+У макета есть собственные заполнители нижнего колонтитула, номера слайда и даты‑времени. Используйте метод [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) для управления этими заполнителями одного макета. Это полезно, когда, например, макеты с содержимым должны отображать нижний колонтитул, а макеты заголовков — нет.
+
+Следующий пример безопасно выбирает макет и делает его элементы нижнего колонтитула видимыми:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Управление видимостью нижнего колонтитула в главном слайде и его дочерних макетах**
 
-## **Установка видимости нижнего колонтитула у дочерних слайдов**
+Чтобы применить согласованные настройки нижнего колонтитула во всей иерархии главного слайда, используйте метод [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Методы распространения [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) работают на главном слайде и его зависимых макетных и обычных слайдах; они не ориентированы только на один обычный слайд.
 
-В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут контролироваться на уровне шаблона слайда, чтобы обеспечить согласованность во всех макетах слайдов. Aspose.Slides for Android позволяет установить видимость и содержимое этих заполнителей нижнего колонтитула на шаблоне слайда и распространить эти настройки на все дочерние макеты слайдов. Этот подход обеспечивает одинаковую информацию нижнего колонтитула во всей презентации.
-
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) .
-2. Получите ссылку на шаблон слайда (master slide) по его индексу.
-3. Установите видимость заполнителей нижнего колонтитула шаблона и всех дочерних макетов.
-4. Установите видимость заполнителей номеров слайдов шаблона и всех дочерних макетов.
-5. Установите видимость заполнителей даты и времени шаблона и всех дочерних макетов.
-6. Сохраните презентацию.
-
-Следующий код Java демонстрирует эту операцию:
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**В чём разница между шаблоном слайда и макетом слайда?**
+**Какова разница между главным слайдом и макетом слайда?**
 
-Шаблон слайда определяет общую тему и форматирование по умолчанию, тогда как макеты слайдов определяют конкретные расположения заполнителей для разных типов содержимого.
+Главный слайд определяет тему презентации и общие форматирования. Макет слайда принадлежит главному слайду и определяет одну переиспользуемую расстановку заполнителей. Обычные слайды используют эти макеты и хранят контент, специфичный для конкретного слайда.
 
-**Можно ли скопировать макет слайда из одной презентации в другую?**
+**Могу ли я скопировать макет слайда из одной презентации в другую?**
 
-Да, вы можете клонировать макет слайда из коллекции макетов слайдов одной презентации, доступной через метод [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--), и вставить его в другую презентацию, используя метод `addClone`.
+Да. Добавьте копию в целевую коллекцию с помощью метода [addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
-**Что произойдёт, если удалить макет слайда, который всё ещё используется другим слайдом?**
+**Что происходит, если я изменяю макет, который уже используется?**
 
-Если попытаться удалить макет слайда, который всё ещё используется хотя бы одним слайдом в презентации, Aspose.Slides выбросит исключение [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/). Чтобы избежать этого, используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-), который безопасно удаляет только неиспользуемые макеты слайдов.
+Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованные стили могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) для определения затронутых слайдов перед редактированием макета.
+
+**Что происходит, если я удаляю макет, который всё ещё используется?**
+
+Aspose.Slides генерирует [PptxEditException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) для удаления только несовпадающих макетов.

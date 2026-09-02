@@ -1,111 +1,262 @@
 ---
-title: Tùy chỉnh các Điểm Dữ liệu trong Biểu đồ Treemap và Sunburst bằng PHP
-linktitle: Các Điểm Dữ liệu trong Biểu đồ Treemap và Sunburst
+title: Tùy chỉnh các Điểm dữ liệu trong biểu đồ Treemap và Sunburst bằng PHP
+linktitle: Các Điểm dữ liệu trong biểu đồ Treemap và Sunburst
 type: docs
 url: /vi/php-java/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
 - biểu đồ treemap
 - biểu đồ sunburst
+- biểu đồ phân cấp
 - điểm dữ liệu
-- màu nhãn
+- nhãn dữ liệu
 - màu nhánh
 - PowerPoint
-- bản trình bày
+- bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Tìm hiểu cách quản lý các điểm dữ liệu trong biểu đồ treemap và sunburst với Aspose.Slides cho PHP qua Java, tương thích với các định dạng PowerPoint."
+description: "Tìm hiểu cách tạo dữ liệu phân cấp và tùy chỉnh các cấp độ, nhãn và màu sắc trong biểu đồ Treemap và Sunburst với Aspose.Slides cho PHP qua Java."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Trong các loại biểu đồ PowerPoint khác, có hai loại “hierarchical” - **Treemap** và **Sunburst** ( còn được gọi là Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph hoặc Multi Level Pie Chart). Các biểu đồ này hiển thị dữ liệu phân cấp được tổ chức dưới dạng cây - từ lá tới đỉnh nhánh. Các lá được xác định bởi các điểm dữ liệu trong series, và mỗi mức nhóm lồng nhau tiếp theo được xác định bởi danh mục tương ứng. Aspose.Slides for PHP via Java cho phép định dạng các điểm dữ liệu của biểu đồ Sunburst và Treemap .
+Biểu đồ Treemap và Sunburst hiển thị cùng một loại dữ liệu phân cấp, nhưng chúng sử dụng bố cục khác nhau. Treemap vẽ phân cấp dưới dạng các hình chữ nhật lồng nhau, trong đó diện tích đại diện cho giá trị của nút lá. Sunburst vẽ nó dưới dạng các vòng đồng tâm: các nhóm cấp cao nằm gần trung tâm, và các danh mục lá nằm trên vòng ngoài.
 
-Đây là một biểu đồ Sunburst, trong đó dữ liệu trong cột Series1 xác định các nút lá, trong khi các cột khác xác định các điểm dữ liệu phân cấp:
+Trong Aspose.Slides for PHP via Java, mỗi giá trị số là một [ChartDataPoint](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapoint/). Phương thức [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) cung cấp quyền truy cập tới lá và các nhóm cha của nó. Bài viết này giải thích cách ánh xạ đó và chỉ ra cách tạo và định dạng cả hai loại biểu đồ từ cùng một bộ dữ liệu mẫu.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Biểu đồ Treemap với các nhánh Consumer và Business](treemap-hierarchy.png)
 
-Hãy bắt đầu bằng cách thêm biểu đồ Sunburst mới vào bản trình bày:
+![Biểu đồ Sunburst với cùng cấu trúc phân cấp Consumer và Business](sunburst-hierarchy.png)
+
+## **Hiểu các Danh mục, Điểm dữ liệu và Cấp độ**
+
+Mẫu được sử dụng dưới đây có ba cấp độ danh mục và một chuỗi số:
+
+| Nhánh | Cành | Lá | Doanh thu |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Mỗi hàng tạo một danh mục lá và một điểm dữ liệu. Các cấp độ nhóm danh mục mô tả đường dẫn từ lá tới các cha của nó. Đối với hàng đầu tiên, đường dẫn là `Consumer > Computers > Laptops`.
+
+Các chỉ mục được trả về bởi [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) chạy từ lá lên phía trên:
+
+| Chỉ mục `getDataPointLevels()` | Cấp độ logic | Biểu diễn Treemap | Biểu diễn Sunburst |
+| ---: | --- | --- | --- |
+| `0` | Lá | Hình chữ nhật giá trị | Đoạn vòng ngoài |
+| `1` | Cành | Hình chữ nhật hoặc tiêu đề cha | Đoạn vòng giữa |
+| `2` | Nhánh | Hình chữ nhật hoặc tiêu đề cấp cao | Đoạn vòng trong |
+
+Thứ tự này giống nhau cho cả hai loại biểu đồ mặc dù bố cục trực quan khác nhau. Một đoạn cha được chia sẻ bởi nhiều lá. Để định dạng nó, hãy dùng cấp độ tương ứng của điểm dữ liệu đầu tiên trong nhóm đó. Ví dụ, nhánh `Consumer` bắt đầu với điểm `Laptops`, trong khi cành `Software` bắt đầu với điểm `Licenses`. Giữ tham chiếu tới các điểm đó rõ ràng và an toàn hơn so với việc dùng các biểu thức không giải thích như `$dataPoints->get_Item(0)` hoặc `$dataPoints->get_Item(6)`.
+
+## **Tạo và Tùy chỉnh Cả Hai Loại Biểu đồ**
+
+Ví dụ đầy đủ sau tạo một Treemap trên slide đầu tiên và một Sunburst trên slide thứ hai. Nó xây dựng cấu trúc phân cấp, hiển thị giá trị cho `Tablets`, áp dụng màu cố định cho các cấp độ đã chọn, định dạng nhãn nhánh và lưu bản trình chiếu.
 
 ```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    # ...
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+$presentation = new Presentation();
+try {
+    $worksheetIndex = 0;
+    $leafLevelIndex = 0;
+    $stemLevelIndex = 1;
+    $branchLevelIndex = 2;
+
+    $branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    $stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    $leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    $revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    $dataPointCount = count($leafNames);
+
+    $chartTypes = [ChartType::Treemap, ChartType::Sunburst];
+    $chartCount = count($chartTypes);
+    $layoutSlide = $presentation->getLayoutSlides()->get_Item(0);
+
+    for ($chartIndex = 0; $chartIndex < $chartCount; $chartIndex++) {
+        $chartType = $chartTypes[$chartIndex];
+
+        if ($chartIndex === 0) {
+            $slide = $presentation->getSlides()->get_Item(0);
+        } else {
+            $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+        }
+
+        $chart = $slide->getShapes()->addChart($chartType, 40, 40, 640, 440);
+        $chart->setTitle(false);
+        $chart->setLegend(false);
+
+        $chartData = $chart->getChartData();
+        $chartData->getCategories()->clear();
+        $chartData->getSeries()->clear();
+
+        $workbook = $chartData->getChartDataWorkbook();
+        $workbook->clear($worksheetIndex);
+
+        // Thêm các danh mục lá. Một mục nhóm chỉ được đặt khi một nhóm mới bắt đầu;
+        // các danh mục tiếp theo sẽ ở trong nhóm đó cho đến khi một mục khác được đặt.
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $categoryCell = $workbook->getCell($worksheetIndex, $rowIndex, 2, $leafName);
+            $category = $chartData->getCategories()->add($categoryCell);
+
+            $stemName = $stemNames[$dataIndex];
+            $startsNewStem = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousStemName = $stemNames[$dataIndex - 1];
+                $startsNewStem = $stemName !== $previousStemName;
+            }
+            if ($startsNewStem) {
+                $category->getGroupingLevels()->setGroupingItem($stemLevelIndex, $stemName);
+            }
+
+            $branchName = $branchNames[$dataIndex];
+            $startsNewBranch = $dataIndex === 0;
+            if ($dataIndex > 0) {
+                $previousBranchName = $branchNames[$dataIndex - 1];
+                $startsNewBranch = $branchName !== $previousBranchName;
+            }
+            if ($startsNewBranch) {
+                $category->getGroupingLevels()->setGroupingItem($branchLevelIndex, $branchName);
+            }
+        }
+
+        $seriesNameCell = $workbook->getCell($worksheetIndex, 0, 3, "Revenue");
+        $series = $chartData->getSeries()->add($seriesNameCell, $chartType);
+        $series->getLabels()->getDefaultDataLabelFormat()->setShowCategoryName(true);
+
+        $laptopsDataPoint = null;
+        $tabletsDataPoint = null;
+        $licensesDataPoint = null;
+
+        for ($dataIndex = 0; $dataIndex < $dataPointCount; $dataIndex++) {
+            $rowIndex = $dataIndex + 1;
+            $leafName = $leafNames[$dataIndex];
+            $revenue = $revenues[$dataIndex];
+            $valueCell = $workbook->getCell($worksheetIndex, $rowIndex, 3, $revenue);
+
+            if ($chartType === ChartType::Treemap) {
+                $dataPoint = $series->getDataPoints()->addDataPointForTreemapSeries($valueCell);
+            } else {
+                $dataPoint = $series->getDataPoints()->addDataPointForSunburstSeries($valueCell);
+            }
+
+            if ($leafName === "Laptops") {
+                $laptopsDataPoint = $dataPoint;
+            } elseif ($leafName === "Tablets") {
+                $tabletsDataPoint = $dataPoint;
+            } elseif ($leafName === "Licenses") {
+                $licensesDataPoint = $dataPoint;
+            }
+        }
+
+        // Hiển thị danh mục và giá trị trên lá Tablets.
+        $tabletsLeafLevel = $tabletsDataPoint->getDataPointLevels()->get_Item($leafLevelIndex);
+        $tabletsLabelFormat = $tabletsLeafLevel->getLabel()->getDataLabelFormat();
+        $tabletsLabelFormat->setShowCategoryName(true);
+        $tabletsLabelFormat->setShowValue(true);
+        $tabletsLabelFormat->setSeparator("\n");
+        $tabletsLabelFormat->setNumberFormat('$0');
+
+        // Định dạng nhánh Consumer thông qua lá đầu tiên trong nhánh đó.
+        $consumerBranchLevel = $laptopsDataPoint->getDataPointLevels()->get_Item($branchLevelIndex);
+        $consumerBranchFill = $consumerBranchLevel->getFormat()->getFill();
+        $consumerBranchColor = new java("java.awt.Color", 31, 78, 121);
+        $consumerBranchFill->setFillType(FillType::Solid);
+        $consumerBranchFill->getSolidFillColor()->setColor($consumerBranchColor);
+
+        $consumerLabelFormat = $consumerBranchLevel->getLabel()->getDataLabelFormat();
+        $consumerLabelFormat->setShowCategoryName(true);
+        $consumerLabelFormat->setShowSeriesName(false);
+        $consumerLabelTextFill = $consumerLabelFormat->getTextFormat()->getPortionFormat()->getFillFormat();
+        $white = java("java.awt.Color")->WHITE;
+        $consumerLabelTextFill->setFillType(FillType::Solid);
+        $consumerLabelTextFill->getSolidFillColor()->setColor($white);
+
+        // Định dạng cành Software thông qua lá đầu tiên trong cành đó.
+        $softwareStemLevel = $licensesDataPoint->getDataPointLevels()->get_Item($stemLevelIndex);
+        $softwareStemFill = $softwareStemLevel->getFormat()->getFill();
+        $softwareStemColor = new java("java.awt.Color", 112, 173, 71);
+        $softwareStemFill->setFillType(FillType::Solid);
+        $softwareStemFill->getSolidFillColor()->setColor($softwareStemColor);
+
+        // ParentLabelLayout ảnh hưởng đến nhãn cha của Treemap; Sunburst sử dụng các đoạn vòng.
+        if ($chartType === ChartType::Treemap) {
+            $series->setParentLabelLayout(ParentLabelLayoutType::Overlapping);
+        }
     }
-  }
+
+    $presentation->save("hierarchical-charts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{% alert color="primary" title="Xem thêm" %}} 
-- [**Tạo hoặc Cập nhật Biểu đồ Bản trình bày PowerPoint trong PHP**](/slides/vi/php-java/create-chart/)
-{{% /alert %}}
+Các ô danh mục và ô giá trị sử dụng cùng một hàng trong bảng tính, vì vậy vị trí trong bộ sưu tập của chúng vẫn được căn chỉnh. Khi bạn làm việc với một biểu đồ đã tồn tại thay vì tạo mới, hãy kiểm tra các hàng danh mục trước và lưu các tham chiếu có tên tới các điểm dữ liệu và cấp độ mà bạn dự định định dạng.
 
-Nếu cần định dạng các điểm dữ liệu của biểu đồ, chúng ta nên sử dụng những thứ sau:
+## **Hành vi và Các lưu ý Thực tiễn**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevelsmanager/), [**ChartDataPointLevel**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevel/) **classes** và phương thức [**ChartDataPoint::getDataPointLevels**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapoint/#getDataPointLevels) cung cấp quyền truy cập để định dạng các điểm dữ liệu của biểu đồ Treemap và Sunburst. [**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevelsmanager/) được dùng để truy cập các danh mục đa mức - nó đại diện cho container của các đối tượng [**ChartDataPointLevel**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevel/). Về cơ bản, nó là một wrapper cho [**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartcategorylevelsmanager/) với các thuộc tính được thêm riêng cho các điểm dữ liệu. Lớp [**ChartDataPointLevel**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevel/) có hai phương thức: [**getFormat**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevel/#getFormat) và [**getDataLabel**](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevel/#getLabel) cung cấp quyền truy cập vào các cài đặt tương ứng.
+### **Khác biệt giữa Treemap và Sunburst**
 
-## **Hiển thị Giá trị Điểm Dữ liệu**
-Hiển thị giá trị của điểm dữ liệu “Leaf 4”:
+- Treemap sử dụng diện tích để truyền tải giá trị và các hình chữ nhật lồng nhau để truyền tải phân cấp. Phương thức [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartseries/#setParentLabelLayout) điều khiển cách nhãn cha hiển thị trong loại biểu đồ này.
+- Sunburst sử dụng góc để truyền tải giá trị và độ sâu vòng để truyền tải phân cấp. [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartseries/#setParentLabelLayout) không kiểm soát nhãn vòng của nó.
+- Cả hai loại biểu đồ đều dùng cùng các cấp độ nhóm danh mục và cùng thứ tự lá‑đến‑cha được trả về bởi [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapoint/#getDataPointLevels), vì vậy mã xây dựng dữ liệu và định dạng cấp độ có thể chia sẻ.
+- Giá trị cha được tính từ các lá con. Đừng thêm các điểm số riêng cho các nhánh hoặc cành.
 
-```php
-  $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-  $dataPoints->get_Item(3)->getDataPointLevels()->get_Item(0)->getLabel()->getDataLabelFormat()->setShowValue(true);
+### **Sắp xếp và Thứ tự Đoạn**
 
-```
+Công cụ bố cục biểu đồ quyết định vị trí cuối cùng của các hình chữ nhật và các đoạn vòng. Sắp xếp các hàng danh mục liên quan với nhau trước khi thêm chúng, nhưng không dựa vào một vị trí hình chữ nhật hay góc bắt đầu cụ thể. Nếu thứ tự mang ý nghĩa, hãy đưa nó vào nhãn hoặc dùng loại biểu đồ có trục danh mục rõ ràng.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Giao diện và Màu Cố Định**
 
-## **Đặt Nhãn và Màu cho Điểm Dữ liệu**
-Đặt nhãn dữ liệu “Branch 1” để hiển thị tên series (“Series1”) thay vì tên danh mục. Sau đó đặt màu văn bản thành màu vàng:
+Các cấp độ biểu đồ chưa định dạng kế thừa màu từ giao diện (theme) của bản trình chiếu. Ví dụ sử dụng màu RGB cố định để cho đầu ra dự đoán được. Nếu biểu đồ cần tuân theo thay đổi giao diện, hãy dùng màu theo scheme thay vì giá trị RGB cố định và tránh ghi đè mọi cấp độ. Đồng thời kiểm tra độ tương phản của nhãn sau khi thay đổi màu nền của nhánh hoặc cành.
 
-```php
-  $branch1Label = $dataPoints->get_Item(0)->getDataPointLevels()->get_Item(0)->getLabel();
-  $branch1Label->getDataLabelFormat()->setShowCategoryName(false);
-  $branch1Label->getDataLabelFormat()->setShowSeriesName(true);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->setFillType(FillType::Solid);
-  $branch1Label->getDataLabelFormat()->getTextFormat()->getPortionFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->YELLOW);
+### **Nhãn và Không Gian khả dụng**
 
-```
+PowerPoint có thể ẩn hoặc cắt ngắn nhãn khi một đoạn quá nhỏ. Tăng kích thước biểu đồ, rút ngắn tên danh mục, hoặc hiển thị ít trường nhãn hơn thường cho kết quả rõ ràng hơn. Một nhãn có thể kết hợp tên danh mục, tên chuỗi và giá trị thông qua [DataLabelFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/datalabelformat/), nhưng bật mọi trường thường làm biểu đồ phân cấp khó đọc.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **Xuất và Kết xuất**
 
-## **Đặt Màu Nhánh cho Điểm Dữ liệu**
-Thay đổi màu của nhánh “Steam 4”:
-
-```php
-  $pres = new Presentation();
-  try {
-    $chart = $pres->getSlides()->get_Item(0)->getShapes()->addChart(ChartType::Sunburst, 100, 100, 450, 400);
-    $dataPoints = $chart->getChartData()->getSeries()->get_Item(0)->getDataPoints();
-    $stem4branch = $dataPoints->get_Item(9)->getDataPointLevels()->get_Item(1);
-    $stem4branch->getFormat()->getFill()->setFillType(FillType::Solid);
-    $stem4branch->getFormat()->getFill()->getSolidFillColor()->setColor(java("java.awt.Color")->RED);
-    $pres->save("pres.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+Lưu dưới dạng PPTX giữ cho biểu đồ có thể chỉnh sửa. Khi Aspose.Slides kết xuất bản trình chiếu ra PDF hoặc hình ảnh, các màu và cài đặt nhãn được hỗ trợ sẽ được vẽ cùng biểu đồ. Thay thế phông chữ và những khác biệt nhỏ trong không gian bố trí có thể thay đổi cách gói dòng hoặc tính khả dụng của nhãn, vì vậy hãy cài đặt các phông chữ cần thiết và xác minh các mục tiêu xuất quan trọng.
 
 ## **Câu hỏi thường gặp**
 
-**Tôi có thể thay đổi thứ tự (sắp xếp) của các phân đoạn trong Sunburst/Treemap không?**
+**Tại sao việc thay đổi một cấp độ cha lại ảnh hưởng tới nhiều lá?**
 
-Không. PowerPoint tự động sắp xếp các phân đoạn (thường theo giá trị giảm dần, theo chiều kim đồng hồ). Aspose.Slides phản chiếu hành vi này: bạn không thể thay đổi thứ tự trực tiếp; bạn phải thực hiện bằng cách tiền xử lý dữ liệu.
+Một nhánh hoặc cành là một đoạn hình ảnh chung. [ChartDataPointLevel](https://reference.aspose.com/slides/vi/php-java/aspose.slides/chartdatapointlevel/) của nó có thể được truy cập qua một lá con, nhưng việc định dạng thuộc về đoạn cha chung chứ không chỉ riêng lá đó.
 
-**Chủ đề của bản trình bày ảnh hưởng như thế nào đến màu sắc của các phân đoạn và nhãn?**
+**Tại sao một nhãn dữ liệu lại thiếu?**
 
-Màu biểu đồ kế thừa [chủ đề/bảng màu](/slides/vi/php-java/presentation-theme/) của bản trình bày trừ khi bạn tự đặt màu nền/phông chữ. Để có kết quả nhất quán, hãy cố định các màu nền đặc và định dạng văn bản ở các mức cần thiết.
+Đầu tiên bật các trường cần thiết trên đối tượng [DataLabelFormat](https://reference.aspose.com/slides/vi/php-java/aspose.slides/datalabelformat/) của nhãn. Sau đó kiểm tra xem đoạn có đủ không gian hay không. Bố cục nhãn cha của Treemap, kích thước biểu đồ, độ dài nhãn, kích thước phông chữ và số trường được bật đều ảnh hưởng đến khả năng hiển thị nhãn.
 
-**Xuất ra PDF/PNG có giữ nguyên màu nhánh tùy chỉnh và cài đặt nhãn không?**
+**Tôi có thể đặt thứ tự hoặc tọa độ chính xác cho các đoạn không?**
 
-Có. Khi xuất bản trình bày, các cài đặt biểu đồ (màu nền, nhãn) được giữ nguyên trong các định dạng đầu ra vì Aspose.Slides render với định dạng của biểu đồ đã áp dụng.
+Bạn có thể kiểm soát thứ tự các hàng nguồn và giữ mỗi nhóm liên tục, nhưng không thể chỉ định chính xác các hình chữ nhật Treemap hay góc Sunburst. Công cụ bố cục biểu đồ tính toán chúng dựa trên phân cấp, giá trị và không gian khả dụng.
 
-**Tôi có thể tính toán tọa độ thực tế của một nhãn/đối tượng để đặt lớp phủ tùy chỉnh lên trên biểu đồ không?**
+**Tại sao màu sắc thay đổi sau khi giao diện bản trình chiếu thay đổi?**
 
-Có. Sau khi bố cục biểu đồ được xác nhận, giá trị *x* thực tế và *y* thực tế có sẵn cho các phần tử (ví dụ, một [DataLabel](https://reference.aspose.com/slides/vi/php-java/aspose.slides/datalabel/)), giúp định vị lớp phủ một cách chính xác.
+Màu dựa trên giao diện được thiết kế để theo bảng màu của bản trình chiếu. Áp dụng màu RGB rõ ràng cho các cấp độ cần giữ cố định, hoặc giữ màu scheme khi muốn thích nghi với giao diện mới.
+
+**Định dạng tùy chỉnh có được giữ lại khi xuất ra PDF và hình ảnh không?**
+
+Có, các màu và cài đặt nhãn được hỗ trợ sẽ được bao gồm trong quá trình kết xuất. Để có kết quả nhất quán trên các hệ thống, hãy cung cấp các phông chữ yêu cầu và kiểm tra kích thước xuất cuối cùng vì việc vừa khít nhãn phụ thuộc vào bố cục.
+
+## **Xem thêm**
+
+- [Create Treemap charts](/slides/vi/php-java/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/vi/php-java/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/vi/php-java/export-chart/)
+- [Manage presentation themes](/slides/vi/php-java/presentation-theme/)

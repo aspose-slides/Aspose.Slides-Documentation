@@ -1,365 +1,391 @@
 ---
-title: Hantera diagramdataserier i presentationer på Android
+title: Hantera diagramseriedata i presentationer på Android
 linktitle: Dataserier
 type: docs
 url: /sv/androidjava/chart-series/
 keywords:
-- diagramserier
+- diagramserie
 - serieöverlappning
 - seriefärg
-- kategorifärg
 - serienamn
 - datapunkt
+- arbetsbokscell
 - seriegap
+- negativt värde
 - PowerPoint
 - presentation
 - Android
 - Java
 - Aspose.Slides
-description: "Lär dig hur du hanterar diagramserier på Android för PowerPoint (PPT/PPTX) med praktiska Java-kodexempel och bästa praxis för att förbättra dina datapresentationer."
+description: "Lär dig hur du hanterar diagramserier, datapunkter, arbetsboksceller, formatering, överlappning, glappbredd och negativa värden i presentationer på Android."
 ---
 ## **Översikt**
 
-Denna artikel beskriver rollen för [ChartSeries](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartseries/) i Aspose.Slides, med fokus på hur data struktureras och visualiseras i presentationer. Dessa objekt utgör de grundläggande elementen som definierar enskilda uppsättningar av datapunkter, kategorier och utseendeparametrar i ett diagram. Genom att arbeta med [ChartSeries](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/chartseries/) kan utvecklare sömlöst integrera underliggande datakällor och behålla full kontroll över hur informationen visas, vilket resulterar i dynamiska, datadrivna presentationer som tydligt förmedlar insikter och analyser.
+Ett diagram lagrar sina ritade data i en diagramdatabok. En [IChartSeries](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/) representerar en uppsättning relaterade värden, och varje [IChartDataPoint](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapoint/) i serien hänvisar till en eller flera celler i databoken. [IChartCategory](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartcategory/)‑objekt tillhandahåller etiketter eller grupperingvärden som delas av serierna. Serienamnet, kategorierna och punktvärdena är därför kopplade till [IChartDataCell](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatacell/)‑objekt snarare än att bara lagras som visningstext.
 
-En serie är en rad eller kolumn med siffror som plottas i ett diagram.
+För ett typiskt kategoridiagram använder standard‑databoken rad 0 för serienamn, kolumn 0 för kategorinamn och de återstående cellerna för serievärden. Arbetsblad‑, rad‑ och kolumnindex som skickas till [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) är nollbaserade. Denna layout är användbar när du skapar ett diagram med standarddata, men du får inte anta att varje befintligt diagram använder den. För en laddad presentation, inspektera cellerna som refereras av serierna, kategorierna och datapunkterna innan du ändrar databoksvärden.
+
+Diagraminställningar har tre olika omfattningar:
+
+- Inställningar på serienivå, såsom [IChartSeries.getFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getFormat--), anger standardutseendet för alla punkter i en serie.
+- Inställningar för datapunkter, såsom [IChartDataPoint.getFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), åsidosätter serieutseendet för en punkt.
+- Gruppinställningar gäller kompatibla serier som tillhör samma [IChartSeriesGroup](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseriesgroup/). Få åtkomst till gruppen via [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) när du behöver ange alternativ som överlappning eller glappbredd.
+
+När ingen explicit punkt‑ eller serie‑fyllning är angiven bestämmer diagramstilen och temat det automatiska utseendet. När både serie‑ och punktformatering finns tar punktformateringen företräde för den punkten.
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **Ange överlappning för diagramserier**
 
-Med metoden [IChartSeries.getOverlap](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getOverlap--) kan du bestämma hur mycket staplar och kolumner ska överlappa i ett 2D‑diagram (intervall: -100 till 100). Denna egenskap gäller för alla serier i den överordnade serieggruppen: den är en projektion av den lämpliga gruppegenskapen. Därför är egenskapen skrivskyddad.
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getOverlap--) rapporterar hur mycket staplar eller kolumner överlappar i ett 2D‑diagram, från -100 till 100 procent. Det är en skrivskyddad projektion av inställningen på den överordnade seriegruppen. Använd [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) för att uppdatera alla kompatibla serier i den gruppen. Detta alternativ gäller diagramtyper som visar grupperade staplar eller kolumner; det påverkar inte orelaterade seriegupper i ett kombinationsdiagram.
 
-Använd skrivmetoden `getParentSeriesGroup().setOverlap()` för att ange ditt önskade överlappningsvärde.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-1. Lägg till ett grupperat stapeldiagram på en bild.
-1. Hämta den första diagramserien.
-1. Hämta diagramseriens `ParentSeriesGroup` och ange ditt önskade överlappningsvärde för serien.
-1. Skriv den modifierade presentationen till en PPTX‑fil.
-
-Detta Java‑kodexempel visar hur du anger överlappning för en diagramserie:
+Följande exempel sätter överlappning för gruppen som innehåller den första serien:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Lägger till diagram
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Ställer in seriers överlappning
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // Skriver presentationsfilen till disk
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Det nya diagrammet innehåller exempelserier, kategorier och värden.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ändra seriefärg**
+Resultatet:
 
-Aspose.Slides for Android via Java låter dig ändra en seriefärg på följande sätt:
+![The series overlap](series_overlap.png)
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-1. Lägg till ett diagram på bilden.
-1. Hämta den serie vars färg du vill ändra.
-1. Ange din föredragna fyllningstyp och fyllningsfärg.
-1. Spara den modifierade presentationen.
+## **Ändra fyllningsfärg för serien**
 
-Detta Java‑kodexempel visar hur du ändrar en seriefärg:
+Använd [IChartSeries.getFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getFormat--) för att ange standardfyllning för en hel serie. Om en punkt redan har en explicit fyllning åsidosätter dess [IChartDataPoint.getFormat](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--)‑inställning serie‑fyllningen för den punkten.
+
+Följande exempel tilldelar en enhetlig blå fyllning till den första serien:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ändra färg för seriekategori**
-
-Aspose.Slides for Android via Java låter dig ändra färg för en seriekategori på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-1. Lägg till ett diagram på bilden.
-1. Hämta den seriekategori vars färg du vill ändra.
-1. Ange din föredragna fyllningstyp och fyllningsfärg.
-1. Spara den modifierade presentationen.
-
-Detta Java‑kodexempel visar hur du ändrar färg för en seriekategori:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ändra serienamn**
-
-Som standard är legendarna i ett diagram innehållet i cellerna ovanför varje kolumn eller rad med data.
-
-I vårt exempel (exempelbild) är
-
-* kolumnerna *Series 1*, *Series 2* och *Series 3*;
-* raderna *Category 1*, *Category 2*, *Category 3* och *Category 4*.
-
-Aspose.Slides for Android via Java låter dig uppdatera eller ändra ett serienamn i dess diagramdata och i legend.
-
-Detta Java‑kodexempel visar hur du ändrar ett serienamn i diagramdata `ChartDataWorkbook`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-Detta Java‑kodexempel visar hur du ändrar ett serienamn i legend via `Series`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ange fyllningsfärg för diagramserie**
-
-Aspose.Slides for Android via Java låter dig ange automatisk fyllningsfärg för diagramserier inom ett plot‑område på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-1. Hämta en bilds referens genom dess index.
-1. Lägg till ett diagram med standarddata baserat på din föredragna typ (i exemplet nedan använde vi `ChartType.ClusteredColumn`).
-1. Hämta diagramserien och ange fyllningsfärgen till Automatic.
-1. Spara presentationen till en PPTX‑fil.
-
-Detta Java‑kodexempel visar hur du anger automatisk fyllningsfärg för en diagramserie:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // Skapar ett grupperat stapeldiagram
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // Ställer in seriernas fyllningsformat till automatiskt
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // Skriver presentationsfilen till disk
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Ställ in inverterad fyllningsfärg för en diagramserie**
-
-Aspose.Slides låter dig ställa in inverterad fyllningsfärg för diagramserier inom ett plot‑område på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-1. Hämta en bilds referens genom dess index.
-1. Lägg till ett diagram med standarddata baserat på din föredragna typ (i exemplet nedan använde vi `ChartType.ClusteredColumn`).
-1. Hämta diagramserien och ange fyllningsfärgen till invert.
-1. Spara presentationen till en PPTX‑fil.
-
-Detta Java‑kodexempel demonstrerar åtgärden:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Lägger till nya serier och kategorier
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Hämtar den första diagramserien och fyller i dess seriedata.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ställ in att en serie inverteras när värdet är negativt**
+Resultatet:
 
-Aspose.Slides låter dig ställa in invertering via egenskaperna `IChartDataPoint.InvertIfNegative` och `ChartDataPoint.InvertIfNegative`. När en invertering anges med dessa egenskaper byter datapunkten färg när den får ett negativt värde.
+![The color of the series](series_color.png)
 
-Detta Java‑kodexempel demonstrerar åtgärden:
+## **Ändra seriens namn**
+
+Ett serienamn lagras i diagramdataboken och visas normalt i förklaringen. I standard‑databoken som skapas för ett grupperat stapeldiagram ligger cell B1 i rad 0, kolumn 1 och innehåller namnet på den första serien. De namngivna konstanterna i följande exempel gör den strukturen tydlig:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Rensa specifik punktdata**
-
-Aspose.Slides for Android via Java låter dig rensa `DataPoints`‑data för en specifik diagramserie på följande sätt:
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-2. Hämta en bilds referens genom dess index.
-3. Hämta en diagramreferens genom dess index.
-4. Iterera igenom alla diagram‑`DataPoints` och sätt `XValue` och `YValue` till null.
-5. Rensa alla `DataPoints` för den specifika diagramserien.
-6. Skriv den modifierade presentationen till en PPTX‑fil.
-
-Detta Java‑kodexempel demonstrerar åtgärden:
+Du kan också uppdatera den cell som redan refereras av [IChartSeries.getName](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getName--). Detta tillvägagångssätt undviker att anta en viss rad och kolumn i ett befintligt diagram:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Resultatet:
+
+![The series name](series_name.png)
+
+## **Hämta den automatiska fyllningsfärgen för serien**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) returnerar färgen som beräknas från serie‑indexet och diagramstilen som ett Android‑ARGB‑färg‑heltal. Detta är den färg som används när serie‑fyllningen inte har definierats explicit. Att anropa metoden läser den beräknade färgen; den tilldelar ingen ny fyllning.
+
+Följande exempel skriver ut den automatiska färge‑heltalet för varje standardserie:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De exakta heltalsvärdena beror på diagramstil och tema.
+
+## **Ange inverterad fyllningsfärg för en diagramserie**
+
+För stapel‑, kolumn‑ och bubbeldiagram kan [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) visa negativa värden med en annan fyllning. Sätt den vanliga serie‑fyllningen till solid, aktivera inversion och tilldela den negativa färgen via [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Negativa tal förblir oförändrade i databoken; endast deras displayfärg ändras.
+
+Följande exempel ersätter standard‑diagramdata med en serie. Arbetsbladsrad 0 innehåller serienamnet, kolumn 0 innehåller kategorinamnen och kolumn 1 innehåller värdena:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Ange seriegapbredd**
+Resultatet:
 
-Aspose.Slides for Android via Java låter dig ange en seriegapbredd via egenskapen **`GapWidth`** på följande sätt:
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/Presentation).
-1. Hämta den första bilden.
-1. Lägg till ett diagram med standarddata.
-1. Hämta vilken diagramserie som helst.
-1. Sätt egenskapen `GapWidth`.
-1. Skriv den modifierade presentationen till en PPTX‑fil.
-
-Detta Java‑kodexempel visar hur du anger seriegapbredd:
+Du kan aktivera inversion för en punkt via [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). I följande exempel är inversion inaktiverad för serien och endast aktiverad för den valda punkten. Punkten får också ett negativt värde så att effekten blir synlig:
 
 ```java
-// Skapar tom presentation 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // Hämtar presentationens första bild
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Lägger till ett diagram med standarddata
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Ställer in index för diagramdatabladet
-    int defaultWorksheetIndex = 0;
-    
-    // Hämtar diagramdatabladet
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Lägger till serier
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Lägger till kategorier
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // Hämtar den andra diagramserien
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Fyller i seriedatan
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Ställer in GapWidth‑värdet
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // Sparar presentationen till disk
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
+
+## **Rensa ett specifikt datapunktvärde**
+
+För att göra en punkt tom utan att ta bort de andra punkterna, sätt dess underliggande databokscell till `null`. För ett stapeldiagram är det ritade värdet tillgängligt via [IChartDataPoint.getValue](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapoint/#getValue--). Datapunkten förblir på samma kategori‑position, men diagrammet behandlar dess värde som tomt enligt diagrammets inställningar för tomma värden.
+
+Följande exempel rensar endast den andra punkten i den första serien:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Scatter‑diagram använder separata X‑ och Y‑celler, och bubbeldiagram använder dessutom en storlekscell. Rensa bara den cell som representerar det värde du vill ta bort. Anropa inte [IChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) när du vill behålla de andra punkterna, eftersom den metoden tar bort alla datapunkter i samlingen.
+
+## **Ange glappbredd för serien**
+
+Glappbredd är avståndet mellan intilliggande stapel‑ eller kolumnkluster, uttryckt som en procentandel av stapel‑ eller kolumnbredden. Liksom överlappning tillhör den den överordnade seriegruppen snarare än en enskild serie. Anropa [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) en gång för gruppen. Ett högre värde skapar mer utrymme mellan kluster; ett lägre värde gör dem tätare.
+
+Följande exempel ändrar glappbredden och sparar bara den slutliga presentationen:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Resultatet:
+
+![The gap width](gap_width.png)
 
 ## **FAQ**
 
-**Finns det någon gräns för hur många serier ett enda diagram kan innehålla?**
+**Vilka diagramtyper stödjer dataserier?**
 
-Aspose.Slides har ingen fast gräns för antalet serier du kan lägga till. Den praktiska begränsningen bestäms av diagrammets läsbarhet och av det minne som finns tillgängligt för din applikation.
+Alla diagramtyper som representeras av uppräkningen [ChartType](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/charttype/) använder diagramdata, men deras serier har inte alltid samma värdestruktur eller inställningar. Till exempel använder kategoridiagram kategorier och värden, scatter‑diagram X‑ och Y‑värden, och bubbeldiagram lägger till bubbelformat. Använd den datapunkt‑skapande metod som matchar serietypen. Alternativ som överlappning och glappbredd gäller endast kompatibla stapel‑ eller kolumngrupper.
 
-**Vad händer om staplarna i en grupp är för nära varandra eller för långt ifrån varandra?**
+**Vad är en diagramserie‑grupp?**
 
-Justera `GapWidth`‑inställningen för den serien (eller dess överordnade serieg grupp). Ett högre värde ökar avståndet mellan staplarna, medan ett lägre värde minskar avståndet.
+En [IChartSeriesGroup](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseriesgroup/) innehåller kompatibla serier som delar gruppnivå‑plotting‑inställningar. Ett kombinationsdiagram kan innehålla mer än en grupp, så att ändring av gruppen som nås via en serie inte nödvändigtvis ändrar alla serier i diagrammet.
+
+**Innehåller ett nyss skapat diagram standarddata?**
+
+Ja. Som standard skapar [IShapeCollection.addChart](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) provserier, kategorier och värden. Du kan redigera dessa celler eller rensa både serie‑ och kategori‑samlingarna innan du lägger till ett helt eget dataset. En överlagring kan också skapa ett diagram utan standarddata.
+
+**Hur är diagramobjekt kopplade till databoksceller?**
+
+Serienamn, kategorielappar och datapunktvärden refererar celler i en [IChartDataWorkbook](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdataworkbook/). Att ändra en refererad cell uppdaterar motsvarande diagramdel. När du bygger egna data, håll kategori‑rader och serie‑värderader i linje så att varje punkt plottas under rätt kategori.
+
+**Hur rensar jag en punkt utan att ta bort hela serien?**
+
+Sätt den relevanta värdecellen till `null` för att behålla punktens kategori‑position som en tom punkt. Använd [IChartDataPointCollection.clear](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) endast när du avser att ta bort alla punkter från den serien. Om du även tar bort kategorier, uppdatera varje serie så att deras värden förblir i linje med kategori‑samlingen.
+
+**Hur visas tomma punkter?**
+
+Resultatet beror på diagramtyp och värdet som konfigurerats via [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). Stödda diagram kan visa tomrum som glapp, som nollvärden eller genom att ansluta närliggande punkter. Välj den inställning som motsvarar betydelsen av saknad data i din presentation.
+
+**Hur formateras negativa värden?**
+
+För stödda stapel‑, kolumn‑ och bubbeldiagram, anropa [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) och ange färgen som returneras av [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). Du kan åsidosätta beteendet för en enskild punkt med [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). Dessa metoder påverkar formatering, inte de lagrade numeriska värdena.
+
+**Vilken formatering har företräde när både en serie och en punkt är formaterade?**
+
+Explicit datapunkt‑formatering har företräde för den punkten. Övriga punkter fortsätter att använda den explicita serie‑formatet eller, när serie‑formatet inte är definierat, diagramstilens och temats automatiska inställning. Gruppinställningar såsom överlappning och glappbredd styr layout och är inte punkt‑nivå formaterings‑åsidosättningar.
+
+**Finns det någon gräns för hur många serier ett diagram kan innehålla?**
+
+Aspose.Slides har ingen separat fast gräns för antalet serier. I praktiken bestäms en rimlig gräns av presentationsfilens begränsningar, tillgängligt minne, renderingtid och diagrammets läsbarhet.
+
+**Vad bör jag justera när kolumner är för tätt eller för glest placerade?**
+
+Anropa [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/sv/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) på rätt föräldra‑seriegrupp. Öka värdet för att bredda avståndet mellan kluster, eller minska det för att föra klustren närmare varandra.

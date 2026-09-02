@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上管理演示文稿批注
+title: 管理 Android 上的演示文稿批注
 linktitle: 演示文稿批注
 type: docs
 weight: 100
@@ -17,249 +17,471 @@ keywords:
 - 移除批注
 - 删除批注
 - PowerPoint
-- OpenDocument
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android via Java 完成演示文稿批注的管理：快速轻松地在 PowerPoint 文件中添加、读取、编辑和删除批注。"
+description: "使用 Aspose.Slides for Android via Java 管理演示文稿批注：在 PowerPoint 演示文稿中快速轻松地添加、读取、编辑、回复和移除批注。"
 ---
+## **概述**
 
-在 PowerPoint 中，批注显示为幻灯片上的备注或注释。单击批注后，会显示其内容或信息。 
+本文介绍了如何使用 Aspose.Slides for Android via Java 管理演示文稿中的批注。它介绍了主要的批注相关类型，并演示了如何向幻灯片添加批注、访问已有批注、处理回复和现代批注，以及如何从演示文稿中删除批注。
 
-### **为什么向演示文稿添加批注？**
+示例涵盖了 PowerPoint 中常见的审阅与协作场景，例如为批注分配作者、读取批注文本和元数据、构建回复链，以及删除选定的批注或全部批注。
 
-在审阅演示文稿时，您可能希望使用批注来提供反馈或与同事进行沟通。
+在 PowerPoint 中，批注显示为幻灯片上的注释。选中批注后会显示其文本和相关讨论。
 
-为使您能够在 PowerPoint 演示文稿中使用批注，Aspose.Slides for Android via Java 提供
+## **为什么要在演示文稿中添加批注？**
 
-* The [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/Presentation) 类，包含作者集合（来自 [ICommentAuthorCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentAuthorCollection) 接口）。作者向幻灯片添加批注。
-* The [ICommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ICommentCollection) 接口，包含针对各个作者的批注集合。
-* The [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) 类，包含关于作者及其批注的信息：谁添加了批注、批注添加的时间、批注的位置等。
-* The [CommentAuthor](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentAuthor) 类，包含关于单个作者的信息：作者姓名、缩写、与作者姓名关联的批注等。
+在审阅演示文稿时，可以使用批注提供反馈并与同事协作。
+
+Aspose.Slides for Android via Java 提供以下 API 用于操作批注：
+
+* The [Presentation](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/presentation/) 类，提供对演示文稿批注作者的访问。
+* The [ICommentCollection](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icommentcollection/) 接口，表示与单个作者关联的批注。
+* The [IComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/) 接口，提供有关批注的信息，包括作者、创建时间、位置和文本。
+* The [CommentAuthor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/commentauthor/) 类，提供有关作者的信息，包括姓名、缩写和关联的批注。
 
 ## **添加幻灯片批注**
-以下 Java 代码演示如何在 PowerPoint 演示文稿的幻灯片中添加批注：
+
+以下示例演示了如何在 PowerPoint 演示文稿的幻灯片中添加批注：
+
 ```java
-// 实例化 Presentation 类
-Presentation pres = new Presentation();
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ICommentCollection;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
 try {
-    // 添加空幻灯片
-    pres.getSlides().addEmptySlide(pres.getLayoutSlides().get_Item(0));
+    ISlide firstSlide = presentation.getSlides().get_Item(0);
+    ISlide secondSlide = presentation.getSlides().addEmptySlide(presentation.getLayoutSlides().get_Item(0));
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Jawad", "MF");
+    PointF position = new PointF(0.2f, 0.2f);
+    Date createdTime = new Date();
 
-    // 添加作者
-    ICommentAuthor author = pres.getCommentAuthors().addAuthor("Jawad", "MF");
+    author.getComments().addComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+    author.getComments().addComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
 
-    // 设置批注的位置
-    Point2D.Float point = new Point2D.Float(0.2f, 0.2f);
+    IComment[] comments = firstSlide.getSlideComments(author);
+    if (comments.length > 0) {
+        IComment firstComment = comments[0];
+        System.out.println(firstComment.getText());
 
-    // 为作者在幻灯片 1 上添加幻灯片批注
-    author.getComments().addComment("Hello Jawad, this is slide comment", pres.getSlides().get_Item(0), point, new Date());
-
-    // 为作者在幻灯片 2 上添加幻灯片批注
-    author.getComments().addComment("Hello Jawad, this is second slide comment", pres.getSlides().get_Item(1), point, new Date());
-
-    // 访问 ISlide 1
-    ISlide slide = pres.getSlides().get_Item(0);
-
-    // 当参数为 null 时，将所有作者的批注带到所选幻灯片
-    IComment[] Comments = slide.getSlideComments(author);
-
-    // 访问幻灯片 1 上索引为 0 的批注
-    String str = Comments[0].getText();
-
-    pres.save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.length > 0)
-    {
-        // 选择索引为 0 的作者批注集合
-        ICommentCollection commentCollection = Comments[0].getAuthor().getComments();
-        String Comment = commentCollection.get_Item(0).getText();
+        ICommentCollection authorComments = firstComment.getAuthor().getComments();
+        String commentText = authorComments.get_Item(0).getText();
+        System.out.println(commentText);
     }
+
+    presentation.save("Comments_out.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **访问幻灯片批注**
-以下 Java 代码演示如何访问 PowerPoint 演示文稿中幻灯片的现有批注：
+
+以下示例演示了如何访问 PowerPoint 演示文稿中已有的批注：
+
 ```java
-// 实例化 Presentation 类
-Presentation pres = new Presentation("Comments1.pptx");
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Comments1.pptx");
 try {
-    for (ICommentAuthor commentAuthor : pres.getCommentAuthors())
-    {
-        CommentAuthor author = (CommentAuthor) commentAuthor;
-        for (IComment comment1 : author.getComments())
-        {
-            Comment comment = (Comment) comment1;
-            System.out.println("ISlide :" + comment.getSlide().getSlideNumber() + " has comment: " + comment.getText() +
-                    " with Author: " + comment.getAuthor().getName() + " posted on time :" + comment.getCreatedTime() + "\n");
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        for (IComment comment : author.getComments()) {
+            System.out.println("Slide: " + comment.getSlide().getSlideNumber());
+            System.out.println("Comment: " + comment.getText());
+            System.out.println("Author: " + comment.getAuthor().getName());
+            System.out.println("Posted at: " + comment.getCreatedTime());
+            System.out.println();
         }
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **回复批注**
-父批注是批注或回复层次结构中的顶级或原始批注。使用 [getParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#getParentComment--) 或 [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) 方法（来自 [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) 接口），您可以设置或获取父批注。
 
-以下 Java 代码演示如何添加批注并获取其回复：
+父批注是回复层级顶部的原始批注。 [IComment.getParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#getParentComment--) 和 [IComment.setParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 方法可获取或设置批注的父批注。
+
+以下示例演示了如何添加回复并检查生成的批注层级结构：
+
 ```java
-Presentation pres = new Presentation();
-try {
-    // 添加批注
-    ICommentAuthor author1 = pres.getCommentAuthors().addAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.getComments().addComment("comment1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.Date;
 
-    // 为 comment1 添加回复
-    ICommentAuthor author2 = pres.getCommentAuthors().addAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    PointF position = new PointF(10, 10);
+    Date createdTime = new Date();
+
+    ICommentAuthor author1 = presentation.getCommentAuthors().addAuthor("Author_1", "A.A.");
+    IComment comment1 = author1.getComments().addComment("comment 1", slide, position, createdTime);
+
+    ICommentAuthor author2 = presentation.getCommentAuthors().addAuthor("Author_2", "B.B.");
+    IComment reply1 = author2.getComments().addComment("reply 1 for comment 1", slide, position, createdTime);
     reply1.setParentComment(comment1);
 
-    // 为 comment1 添加另一个回复
-    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment reply2 = author2.getComments().addComment("reply 2 for comment 1", slide, position, createdTime);
     reply2.setParentComment(comment1);
 
-    // 为已有回复添加回复
-    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", pres.getSlides().get_Item(0),  new Point2D.Float(10, 10), new Date());
+    IComment subReply = author1.getComments().addComment("subreply 3 for reply 2", slide, position, createdTime);
     subReply.setParentComment(reply2);
 
-    IComment comment2 = author2.getComments().addComment("comment 2", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
-    IComment comment3 = author2.getComments().addComment("comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    author2.getComments().addComment("comment 2", slide, position, createdTime);
+    IComment comment3 = author2.getComments().addComment("comment 3", slide, position, createdTime);
 
-    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", pres.getSlides().get_Item(0), new Point2D.Float(10, 10), new Date());
+    IComment reply3 = author1.getComments().addComment("reply 4 for comment 3", slide, position, createdTime);
     reply3.setParentComment(comment3);
 
-    // 在控制台显示批注层次结构
-    ISlide slide = pres.getSlides().get_Item(0);
     IComment[] comments = slide.getSlideComments(null);
-    for (int i = 0; i < comments.length; i++)
-    {
+    for (int i = 0; i < comments.length; i++) {
         IComment comment = comments[i];
-        while (comment.getParentComment() != null)
-        {
+        while (comment.getParentComment() != null) {
             System.out.print("\t");
             comment = comment.getParentComment();
         }
 
-        System.out.println(comments[i].getAuthor().getName() +  " : " + comments[i].getText());
-        System.out.println();
+        System.out.println(comments[i].getAuthor().getName() + ": " + comments[i].getText());
     }
-    pres.save("parent_comment.pptx",SaveFormat.Pptx);
 
-    // 删除 comment1 及其所有回复
+    presentation.save("parent_comment.pptx", SaveFormat.Pptx);
+
     comment1.remove();
-
-    pres.save("remove_comment.pptx",SaveFormat.Pptx);
+    presentation.save("remove_comment.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-{{% alert color="warning" title="注意" %}} 
-
-* 当使用来自 [IComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment) 接口的 [Remove](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#remove--) 方法删除批注时，批注的回复也会被删除。
-* 如果 [setParentComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/IComment#setParentComment-com.aspose.slides.IComment-) 设置导致循环引用，将抛出 [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/PptxEditException)。
-
+{{% alert color="warning" title="Warning" %}}
+* 当使用 [IComment.remove](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#remove--) 方法删除批注时，该批注的所有回复也会被删除。
+* 如果 [IComment.setParentComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#setParentComment-com.aspose.slides.IComment-) 创建了循环引用，则会抛出 [PptxEditException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/pptxeditexception/)。
 {{% /alert %}}
 
 ## **添加现代批注**
 
-2021 年，Microsoft 在 PowerPoint 中引入了 *现代批注*。现代批注功能显著提升了 PowerPoint 的协作能力。通过现代批注，PowerPoint 用户可以解决批注、将批注锚定到对象和文本，并且能够更轻松地进行交互。 
+现代批注可以关联到幻灯片本身、特定形状或 AutoShape 中的文本范围。 [ICommentCollection.addModernComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icommentcollection/#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-android.graphics.PointF-java.util.Date-) 方法除了幻灯片和批注标记坐标外，还接受一个 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 参数。
 
-Aspose.Slides 通过 [ModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ModernComment) 类支持现代批注。已在 [CommentCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection) 类中添加了 [addModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#addModernComment-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 和 [insertModernComment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/CommentCollection#insertModernComment-int-java.lang.String-com.aspose.slides.ISlide-com.aspose.slides.IShape-java.awt.geom.Point2D.Float-java.util.Date-) 方法。
+当形状参数为 `null` 时，批注为幻灯片级批注。其标记由提供的坐标定位，但不关联特定形状，因此 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--) 返回 `null`。当提供了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 时，批注锚定到该形状。坐标仍定义批注标记在幻灯片上的位置，而形状关联可通过 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--) 获取。
 
-以下 Java 代码演示如何在 PowerPoint 演示文稿的幻灯片中添加现代批注： 
+### **将现代批注锚定到形状**
+
+以下示例创建了一个幻灯片级现代批注和一个锚定到特定 AutoShape 的现代批注，然后读取每个批注关联的形状。
+
 ```java
-Presentation pres = new Presentation();
-try {
-    ICommentAuthor newAuthor = pres.getCommentAuthors().addAuthor("Some Author", "SA");
-    IModernComment modernComment = newAuthor.getComments().addModernComment("This is a modern comment", pres.getSlides().get_Item(0), null, new Point2D.Float(100, 100), new Date());
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Date;
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **删除批注**
-
-### **删除所有批注和作者**
-
-以下 Java 代码演示如何在演示文稿中删除所有批注和作者：
-```java
-Presentation presentation = new Presentation("example.pptx");
-try {
-    // 删除演示文稿中的所有批注
-    for (ICommentAuthor author : presentation.getCommentAuthors())
-    {
-        author.getComments().clear();
-    }
-
-    // 删除所有作者
-    presentation.getCommentAuthors().clear();
-
-    presentation.save("example_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (presentation != null) presentation.dispose();
-}
-```
-
-
-### **删除特定批注**
-
-以下 Java 代码演示如何删除幻灯片上的特定批注：
-```java
 Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+    shape.setName("Revenue title");
+    shape.getTextFrame().setText("Quarterly revenue");
 
-    // 添加批注...
+    Date createdTime = new Date();
+    PointF slideCommentPosition = new PointF(20, 20);
+    PointF shapeCommentPosition = new PointF(60, 60);
+    IModernComment slideComment = author.getComments().addModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+    IModernComment shapeComment = author.getComments().addModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+    System.out.println(slideComment.getShape() == null);
+    System.out.println(shapeComment.getShape().getName());
+
+    presentation.save("modern_comments.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **将批注锚定到不同的形状类型**
+
+任何实现了 [IShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/) 的幻灯片对象都可以用作形状锚定。常见示例包括 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iconnector/) 和 [IGraphicalObject](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igraphicalobject/)（如图表）实例。
+
+以下示例创建了几种常见形状类型，并为每种形状关联了一个现代批注。
+
+```java
+import com.aspose.slides.ChartType;
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IChart;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IConnector;
+import com.aspose.slides.IGroupShape;
+import com.aspose.slides.IPPImage;
+import com.aspose.slides.IPictureFrame;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Base64;
+import java.util.Date;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    Date createdTime = new Date();
+
+    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+    autoShape.getTextFrame().setText("AutoShape");
+    PointF autoShapeCommentPosition = new PointF(30, 30);
+    author.getComments().addModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+    String imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+    byte[] imageData = Base64.getDecoder().decode(imageBase64);
+    IPPImage image = presentation.getImages().addImage(imageData);
+    IPictureFrame pictureFrame = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+    PointF pictureCommentPosition = new PointF(230, 30);
+    author.getComments().addModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+    IGroupShape groupShape = slide.getShapes().addGroupShape();
+    groupShape.getShapes().addAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+    groupShape.getShapes().addAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+    PointF groupCommentPosition = new PointF(40, 150);
+    author.getComments().addModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+    IConnector connector = slide.getShapes().addConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+    PointF connectorCommentPosition = new PointF(240, 150);
+    author.getComments().addModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+    PointF chartCommentPosition = new PointF(420, 40);
+    author.getComments().addModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+    presentation.save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **将批注锚定到文本并设置其状态**
+
+对于关联到 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 的现代批注， [IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--) 和 [IModernComment.setTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionStart-int-) 可访问形状文本框中所选文本的起始位置。 [IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.setTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setTextSelectionLength-int-) 可访问选择的长度。这些值共同将批注关联到 AutoShape 中文本的特定范围。
+
+[IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 方法访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/moderncommentstatus/) 常量中的值：
+
+- `NotDefined` — 未定义特定的现代批注状态。
+- `Active` — 批注处于活动状态。
+- `Resolved` — 批注已解决。
+- `Closed` — 批注已关闭。
+
+以下示例创建了一个锚定到形状的现代批注，将其与文本选择关联，标记为已解决，保存演示文稿，并在重新打开文件后验证这些值。
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.ModernCommentStatus;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import com.aspose.slides.ShapeType;
+import android.graphics.PointF;
+import java.util.Date;
+
+String outputFile = "modern_comment_text_anchor.pptx";
+String shapeText = "Review the quarterly revenue forecast.";
+String selectedText = "quarterly revenue";
+int expectedSelectionStart = shapeText.indexOf(selectedText);
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+    shape.setName("Forecast text");
+    shape.getTextFrame().setText(shapeText);
+
+    ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Reviewer", "RV");
+    PointF commentPosition = new PointF(60, 60);
+    IModernComment comment = author.getComments().addModernComment("Verify this forecast wording.", slide, shape, commentPosition, new Date());
+    comment.setTextSelectionStart(expectedSelectionStart);
+    comment.setTextSelectionLength(selectedText.length());
+    comment.setStatus(ModernCommentStatus.Resolved);
+
+    presentation.save(outputFile, SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+
+Presentation reopenedPresentation = new Presentation(outputFile);
+try {
+    ISlide reopenedSlide = reopenedPresentation.getSlides().get_Item(0);
+    IComment[] reopenedComments = reopenedSlide.getSlideComments(null);
+
+    for (IComment reopenedComment : reopenedComments) {
+        if (!(reopenedComment instanceof IModernComment)) {
+            continue;
+        }
+
+        IModernComment modernComment = (IModernComment) reopenedComment;
+        boolean shapeMatches = modernComment.getShape() != null && "Forecast text".equals(modernComment.getShape().getName());
+        boolean selectionStartMatches = modernComment.getTextSelectionStart() == expectedSelectionStart;
+        boolean selectionLengthMatches = modernComment.getTextSelectionLength() == selectedText.length();
+        boolean statusMatches = modernComment.getStatus() == ModernCommentStatus.Resolved;
+
+        System.out.println("Shape anchor preserved: " + shapeMatches);
+        System.out.println("Text selection start preserved: " + selectionStartMatches);
+        System.out.println("Text selection length preserved: " + selectionLengthMatches);
+        System.out.println("Resolved status preserved: " + statusMatches);
+    }
+} finally {
+    reopenedPresentation.dispose();
+}
+```
+
+### **检查现有的现代批注**
+
+要检查现有演示文稿，请查看哪些批注实现了 [IModernComment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/)，然后检查 [IModernComment.getShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getShape--)、[IModernComment.getTextSelectionStart](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionStart--)、[IModernComment.getTextSelectionLength](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getTextSelectionLength--) 和 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--)。`null` 形状表示幻灯片级批注。对于锚定到 [IAutoShape](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iautoshape/) 的批注，文本选择方法可确定该形状文本框中的关联范围。
+
+```java
+import com.aspose.slides.IAutoShape;
+import com.aspose.slides.IComment;
+import com.aspose.slides.IModernComment;
+import com.aspose.slides.IShape;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("comments.pptx");
+try {
+    for (ISlide slide : presentation.getSlides()) {
+        IComment[] comments = slide.getSlideComments(null);
+        for (IComment comment : comments) {
+            if (!(comment instanceof IModernComment)) {
+                continue;
+            }
+
+            IModernComment modernComment = (IModernComment) comment;
+            System.out.println("Slide: " + slide.getSlideNumber());
+            System.out.println("Text: " + modernComment.getText());
+            System.out.println("Status: " + modernComment.getStatus());
+
+            IShape shape = modernComment.getShape();
+            if (shape == null) {
+                System.out.println("Anchor: slide level");
+            } else {
+                System.out.println("Anchor shape: " + shape.getName());
+                System.out.println("Anchor type: " + shape.getClass().getSimpleName());
+
+                if (shape instanceof IAutoShape) {
+                    System.out.println("Text selection start: " + modernComment.getTextSelectionStart());
+                    System.out.println("Text selection length: " + modernComment.getTextSelectionLength());
+                }
+            }
+
+            System.out.println();
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+## **删除批注**
+
+### **删除所有批注及批注作者**
+
+以下示例展示了如何删除演示文稿中的所有批注和批注作者：
+
+```java
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+
+Presentation presentation = new Presentation("example.pptx");
+try {
+    for (ICommentAuthor author : presentation.getCommentAuthors()) {
+        author.getComments().clear();
+    }
+
+    presentation.getCommentAuthors().clear();
+    presentation.save("example_out.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **删除特定批注**
+
+以下示例展示了如何从幻灯片中删除特定批注：
+
+```java
+import com.aspose.slides.IComment;
+import com.aspose.slides.ICommentAuthor;
+import com.aspose.slides.ISlide;
+import com.aspose.slides.Presentation;
+import com.aspose.slides.SaveFormat;
+import android.graphics.PointF;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(0);
     ICommentAuthor author = presentation.getCommentAuthors().addAuthor("Author", "A");
-    author.getComments().addComment("comment 1", slide, new Point2D.Float(0.2f, 0.2f), new Date());
-    author.getComments().addComment("comment 2", slide, new Point2D.Float(0.3f, 0.2f), new Date());
+    Date createdTime = new Date();
 
-    // 删除所有包含 "comment 1" 文本的批注
-    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors())
-    {
-        ArrayList<IComment> toRemove = new ArrayList<IComment>();
-        for (IComment comment : slide.getSlideComments(commentAuthor))
-        {
-            if (comment.getText().equals("comment 1"))
-            {
-                toRemove.add(comment);
+    PointF firstCommentPosition = new PointF(0.2f, 0.2f);
+    PointF secondCommentPosition = new PointF(0.3f, 0.2f);
+    author.getComments().addComment("comment 1", slide, firstCommentPosition, createdTime);
+    author.getComments().addComment("comment 2", slide, secondCommentPosition, createdTime);
+
+    for (ICommentAuthor commentAuthor : presentation.getCommentAuthors()) {
+        List<IComment> commentsToRemove = new ArrayList<IComment>();
+        IComment[] comments = slide.getSlideComments(commentAuthor);
+
+        for (IComment comment : comments) {
+            if ("comment 1".equals(comment.getText())) {
+                commentsToRemove.add(comment);
             }
         }
 
-        for (IComment comment : toRemove)
-        {
+        for (IComment comment : commentsToRemove) {
             commentAuthor.getComments().remove(comment);
         }
     }
 
     presentation.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-
 ## **常见问题**
 
-**Aspose.Slides 是否支持类似 ‘已解决’ 的现代批注状态？**
+**Aspose.Slides 是否支持现代批注的已解决状态？**
 
-是的。[Modern comments](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/) 提供了 [setStatus](https://reference.aspose.com/slides/androidjava/com.aspose.slides/moderncomment/#setStatus-byte-) 方法；您可以设置批注的状态（例如，将其标记为已解决），该状态会保存在文件中并被 PowerPoint 识别。
+是的。 [IModernComment.getStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#getStatus--) 和 [IModernComment.setStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imoderncomment/#setStatus-byte-) 可访问 [ModernCommentStatus](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/moderncommentstatus/) 值，包括 `Resolved`。该状态会保存在演示文稿中，重新打开文件后仍可读取。
 
-**支持线程式讨论（回复链）吗？是否有限制嵌套深度？**
+**是否支持线程式讨论（回复链），以及是否有嵌套层级限制？**
 
-是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/androidjava/com.aspose.slides/comment/#getParentComment--)，从而实现任意的回复链。API 未声明具体的嵌套深度限制。
+是的。每个批注都可以引用其 [parent comment](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/icomment/#getParentComment--)，从而实现回复链。API 并未定义具体的嵌套深度限制。
 
-**批注标记在幻灯片上的位置使用什么坐标系定义？**
+**批注标记在幻灯片上的位置使用哪种坐标系定义？**
 
-位置以浮点坐标点存储在幻灯片的坐标系中。这样您可以精确地将批注标记放置在需要的位置。
+标记位置使用幻灯片坐标系中的浮点坐标定义，您可以精确地将其放置在幻灯片的任意位置。

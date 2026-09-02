@@ -1,60 +1,67 @@
 ---
-title: Optymalizacja zarządzania obrazami w prezentacjach w .NET
-linktitle: Zarządzanie obrazami
+title: Optymalizuj zarządzanie obrazami w prezentacjach w .NET
+linktitle: Zarządzaj obrazami
 type: docs
 weight: 10
 url: /pl/net/image/
 keywords:
-  - dodaj obraz
-  - dodaj zdjęcie
-  - dodaj bitmapę
-  - zastąp obraz
-  - zastąp zdjęcie
-  - z internetu
-  - tło
-  - dodaj PNG
-  - dodaj JPG
-  - dodaj SVG
-  - dodaj EMF
-  - dodaj WMF
-  - dodaj TIFF
-  - PowerPoint
-  - OpenDocument
-  - prezentacja
-  - .NET
-  - C#
-  - Aspose.Slides
+- dodaj obraz
+- dodaj grafikę
+- dodaj bitmapę
+- zamień obraz
+- zamień grafikę
+- z sieci
+- tło
+- dodaj PNG
+- dodaj JPG
+- dodaj SVG
+- zewnętrzne zasoby SVG
+- rozwiązywacz SVG
+- powiązane obrazy SVG
+- czcionki SVG
+- dodaj EMF
+- dodaj WMF
+- dodaj TIFF
+- PowerPoint
+- OpenDocument
+- prezentacja
+- .NET
+- C#
+- Aspose.Slides
 description: "Usprawnij zarządzanie obrazami w PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET, optymalizując wydajność i automatyzując przepływ pracy."
 ---
 ## **Wprowadzenie**
 
-Obrazy sprawiają, że prezentacje są bardziej atrakcyjne i interesujące. W programie Microsoft PowerPoint można wstawiać obrazy z pliku, Internetu lub innych lokalizacji na slajdy. Podobnie Aspose.Slides umożliwia dodawanie obrazów do slajdów w prezentacjach przy użyciu różnych metod.
+Obrazy sprawiają, że prezentacje są bardziej angażujące i atrakcyjne wizualnie. W Microsoft PowerPoint możesz wstawiać zdjęcia na slajdy z plików, Internetu lub innych źródeł. Podobnie Aspose.Slides umożliwia dodawanie obrazów do slajdów prezentacji na kilka sposobów.
 
-{{% alert  title="Wskazówka" color="primary" %}} 
+{{% alert  title="Porada" color="primary" %}} 
 
-Aspose udostępnia darmowe konwertery—[JPEG to PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG to PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt)—pozwalające szybko tworzyć prezentacje z obrazów. 
+Aspose udostępnia bezpłatne konwertery — [JPEG do PowerPoint](https://products.aspose.app/slides/pl/import/jpg-to-ppt) i [PNG do PowerPoint](https://products.aspose.app/slides/pl/import/png-to-ppt) — które pozwalają szybko tworzyć prezentacje ze zdjęć. 
 
 {{% /alert %}} 
 
 {{% alert title="Informacja" color="info" %}}
 
-Jeśli chcesz dodać obraz jako obiekt ramki — szczególnie jeśli zamierzasz używać standardowych opcji formatowania, aby zmienić jego rozmiar, dodać efekty itp. — zobacz [Picture Frame](https://docs.aspose.com/slides/pl/net/picture-frame/). 
+Jeśli chcesz dodać obraz jako ramkę obrazu — szczególnie gdy planujesz zmieniać jego rozmiar, stosować efekty lub używać innych standardowych opcji formatowania — zobacz [Picture Frame](/slides/pl/net/picture-frame/). 
 
 {{% /alert %}} 
 
 {{% alert title="Uwaga" color="warning" %}}
 
-Możesz manipulować operacjami wejścia/wyjścia związanymi z obrazami i prezentacjami PowerPoint, aby konwertować obraz z jednego formatu na inny. Zobacz te strony: konwertuj [obraz do JPG](https://products.aspose.com/slides/pl/net/conversion/image-to-jpg/); konwertuj [JPG do obrazu](https://products.aspose.com/slides/pl/net/conversion/jpg-to-image/); konwertuj [JPG do PNG](https://products.aspose.com/slides/pl/net/conversion/jpg-to-png/), konwertuj [PNG do JPG](https://products.aspose.com/slides/pl/net/conversion/png-to-jpg/); konwertuj [PNG do SVG](https://products.aspose.com/slides/pl/net/conversion/png-to-svg/), konwertuj [SVG do PNG](https://products.aspose.com/slides/pl/net/conversion/svg-to-png/).
+Możesz konwertować obrazy z jednego formatu na inny. Zobacz następujące strony: konwersja [image to JPG](https://products.aspose.com/slides/pl/net/conversion/image-to-jpg/), [JPG to image](https://products.aspose.com/slides/pl/net/conversion/jpg-to-image/), [JPG to PNG](https://products.aspose.com/slides/pl/net/conversion/jpg-to-png/), [PNG to JPG](https://products.aspose.com/slides/pl/net/conversion/png-to-jpg/), [PNG to SVG](https://products.aspose.com/slides/pl/net/conversion/png-to-svg/), oraz [SVG to PNG](https://products.aspose.com/slides/pl/net/conversion/svg-to-png/).
 
 {{% /alert %}}
 
-Aspose.Slides obsługuje operacje na obrazach w tych popularnych formatach: JPEG, PNG, BMP, GIF i innych. 
+Aspose.Slides obsługuje obrazy w popularnych formatach, takich jak JPEG, PNG, BMP, GIF i inne. 
 
 ## **Dodawanie obrazów przechowywanych lokalnie do slajdów**
 
-Możesz dodać jeden lub kilka obrazów z komputera na slajd w prezentacji. Ten przykładowy kod w C# pokazuje, jak dodać obraz do slajdu:
+Możesz dodać jeden lub więcej obrazów przechowywanych na komputerze do slajdu prezentacji. Poniższy przykładowy kod C# pokazuje, jak dodać obraz do slajdu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -67,11 +74,15 @@ using (Presentation pres = new Presentation())
 
 ## **Dodawanie obrazów z sieci do slajdów**
 
-Jeśli obraz, który chcesz dodać do slajdu, nie jest dostępny na komputerze, możesz dodać go bezpośrednio z sieci. 
+Jeśli obraz, który chcesz dodać do slajdu, nie jest przechowywany na komputerze, możesz dodać go bezpośrednio z Internetu. 
 
-Ten przykładowy kod pokazuje, jak dodać obraz z sieci do slajdu w C#:
+Poniższy przykładowy kod C# pokazuje, jak dodać obraz z sieci do slajdu:
 
 ```c#
+using System.Net;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -89,13 +100,16 @@ using (Presentation pres = new Presentation())
 }
 ```
 
-## **Dodawanie obrazów do masterów slajdów**
+## **Dodawanie obrazów do głównych slajdów (Slide Masters)**
 
-Master slajdu to górny slajd, który przechowuje i kontroluje informacje (motyw, układ itp.) dotyczące wszystkich znajdujących się pod nim slajdów. Dlatego dodając obraz do mastera slajdu, obraz ten pojawia się na każdym slajdzie pod tym masterem. 
+Główny slajd (slide master) przechowuje i kontroluje informacje, takie jak motyw i układ slajdów, które go używają. Gdy dodasz obraz do głównego slajdu, obraz pojawi się na każdym slajdzie opartym na tym masterze. 
 
-Ten przykładowy kod w C# pokazuje, jak dodać obraz do mastera slajdu:
+Poniższy przykładowy kod C# pokazuje, jak dodać obraz do głównego slajdu:
 
 ```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (Presentation pres = new Presentation())
 {
     ISlide slide = pres.Slides[0];
@@ -110,66 +124,262 @@ using (Presentation pres = new Presentation())
 
 ## **Dodawanie obrazów jako tła slajdów**
 
-Możesz zdecydować się na użycie obrazu jako tła dla konkretnego slajdu lub kilku slajdów. W takim przypadku należy zapoznać się z *[Setting Images as Backgrounds for Slides](https://docs.aspose.com/slides/pl/net/presentation-background/#setting-images-as-background-for-slides)*.
+Możesz użyć obrazu jako tła jednego lub wielu slajdów. Szczegóły znajdziesz w *[Setting Images as Backgrounds for Slides](/slides/pl/net/presentation-background/#setting-images-as-background-for-slides)*.
 
 ## **Dodawanie SVG do prezentacji**
-Możesz dodać lub wstawić dowolny obraz do prezentacji, korzystając z metody [AddPictureFrame](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection/methods/addpictureframe) należącej do interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection).
 
-Aby utworzyć obiekt obrazu na podstawie obrazu SVG, możesz zrobić to w następujący sposób:
+Zawartość SVG można dodać do prezentacji za pomocą klasy [SvgImage](https://reference.aspose.com/slides/pl/net/aspose.slides/svgimage/). Uzyskany obiekt [ISvgImage](https://reference.aspose.com/slides/pl/net/aspose.slides/isvgimage/) może zostać dodany do kolekcji obrazów prezentacji i użyty do utworzenia ramki obrazu.
 
-1. Utwórz obiekt SvgImage, aby wstawić go do ImageShapeCollection
-2. Utwórz obiekt PPImage z ISvgImage
-3. Utwórz obiekt PictureFrame przy użyciu interfejsu IPPImage
+Poniższy przykład C# importuje samodzielny ciąg SVG. Wszystkie obrazy, style i inne zasoby użyte przez ten SVG są osadzone bezpośrednio w treści SVG.
 
-Ten przykładowy kod pokazuje, jak wdrożyć powyższe kroki, aby dodać obraz SVG do prezentacji:
-``` csharp 
-// Ścieżka do katalogu dokumentów
-string dataDir = @"D:\Documents\";
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-// Nazwa pliku źródłowego SVG
-string svgFileName = dataDir + "sample.svg";
+string svgContent = @"
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>";
 
-// Nazwa pliku wyjściowej prezentacji
-string outPptxPath = dataDir + "presentation.pptx";
-
-// Utwórz nową prezentację
-using (var p = new Presentation())
+using (Presentation presentation = new Presentation())
 {
-    // Odczytaj zawartość pliku SVG
-    string svgContent = File.ReadAllText(svgFileName);
-
-    // Utwórz obiekt SvgImage
     ISvgImage svgImage = new SvgImage(svgContent);
+    IPPImage image = presentation.Images.AddImage(svgImage);
 
-    // Utwórz obiekt PPImage
-    IPPImage ppImage = p.Images.AddImage(svgImage);
+    presentation.Slides[0].Shapes.AddPictureFrame(
+        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
 
-    // Tworzy nową ramkę obrazu 
-    p.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 200, 100, ppImage.Width, ppImage.Height, ppImage);
-
-    // Zapisz prezentację w formacie PPTX
-    p.Save(outPptxPath, SaveFormat.Pptx);
+    presentation.Save("self-contained-svg.pptx", SaveFormat.Pptx);
 }
 ```
 
-## **Konwersja SVG na zestaw kształtów**
-Konwersja SVG do zestawu kształtów w Aspose.Slides jest podobna do funkcjonalności PowerPoint używanej do pracy z obrazami SVG:
+## **Importowanie zawartości SVG z zasobami zewnętrznymi**
 
-![Menu podręczne PowerPoint](img_01_01.png)
+Pliki SVG eksportowane z narzędzi projektowych, edytorów diagramów, systemów ikon i potoków internetowych mogą odwoływać się do zasobów przechowywanych poza dokumentem SVG. Na przykład SVG może zawierać odnośnik do obrazu typu `images/photo.png`, wartość CSS `url(...)` lub adres URL czcionki.
 
-Funkcjonalność jest udostępniana przez jedną z przeciążeń metody [AddGroupShape](https://reference.aspose.com/slides/pl/net/aspose.slides.ishapecollection/addgroupshape/methods/1) interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection), które przyjmuje obiekt [ISvgImage](https://reference.aspose.com/slides/pl/net/aspose.slides/isvgimage) jako pierwszy argument.
+Aby zaimportować taką zawartość SVG, utwórz implementację [IExternalResourceResolver](https://reference.aspose.com/slides/pl/net/aspose.slides.import/iexternalresourceresolver/) i przekaż ją wraz z bazowym URI odpowiedniemu konstruktorowi `SvgImage`. Bazowy URI określa lokalizację dokumentu SVG i jest używany do rozwiązywania względnych odnośników.
 
-Ten przykładowy kod pokazuje, jak użyć opisanej metody, aby przekonwertować plik SVG na zestaw kształtów:
+Interfejs [ISvgImage](https://reference.aspose.com/slides/pl/net/aspose.slides/isvgimage/) udostępnia dostęp do informacji o zaimportowanym SVG:
+
+- `SvgContent` zwraca znacznik SVG jako ciąg znaków.
+- `SvgData` zwraca zawartość SVG jako tablicę bajtów.
+- `BaseUri` zwraca bazowy URI używany dla odnośników względnych.
+- `ExternalResourceResolver` zwraca rozwiązywacz przypisany do obrazu SVG.
+
+### **Implementacja rozwiązywania zasobów zewnętrznych**
+
+Rozwiązywacz posiada dwie metody:
+
+- [ResolveUri](https://reference.aspose.com/slides/pl/net/aspose.slides.import/iexternalresourceresolver/resolveuri/) łączy bazowy URI i względny odnośnik zasobu i zwraca absolutny URI. Zwróć `null`, gdy odnośnik nie może zostać rozwiązany lub nie jest dozwolony.
+- [GetEntity](https://reference.aspose.com/slides/pl/net/aspose.slides.import/iexternalresourceresolver/getentity/) zwraca strumień do odczytu dla absolutnego URI zasobu. Zwróć `null`, gdy zasób jest nieobecny, zablokowany lub niedostępny. W odpowiednich przypadkach można zwrócić strumień awaryjny.
+
+Poniższy rozwiązywacz ładuje powiązane zasoby wyłącznie z dozwolonego lokalnego katalogu. Zasoby sieciowe i ścieżki poza dozwolonym katalogiem są blokowane. Opcjonalny obraz zastępczy jest zwracany dla nie rozwiązanych odnośników do obrazów.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides.Import;
+
+internal sealed class LocalSvgResourceResolver : IExternalResourceResolver
+{
+    private readonly string _allowedRoot;
+    private readonly byte[] _fallbackImageData;
+
+    public LocalSvgResourceResolver(string allowedRoot, byte[] fallbackImageData = null)
+    {
+        _allowedRoot = Path.GetFullPath(allowedRoot);
+        _fallbackImageData = fallbackImageData;
+    }
+
+    public string ResolveUri(string baseUri, string relativeUri)
+    {
+        if (string.IsNullOrWhiteSpace(baseUri) ||
+            string.IsNullOrWhiteSpace(relativeUri))
+        {
+            return null;
+        }
+
+        if (!Uri.TryCreate(baseUri, UriKind.Absolute, out Uri baseAddress) ||
+            !Uri.TryCreate(baseAddress, relativeUri, out Uri absoluteAddress))
+        {
+            return null;
+        }
+
+        // Ten rozwiązywacz celowo zezwala wyłącznie na pliki lokalne.
+        if (!absoluteAddress.IsFile)
+        {
+            return null;
+        }
+
+        string resourcePath = Path.GetFullPath(absoluteAddress.LocalPath);
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return null;
+        }
+
+        return absoluteAddress.AbsoluteUri;
+    }
+
+    public Stream GetEntity(string absoluteUri)
+    {
+        if (!Uri.TryCreate(absoluteUri, UriKind.Absolute, out Uri resourceUri) ||
+            !resourceUri.IsFile)
+        {
+            return null;
+        }
+
+        string resourcePath = Path.GetFullPath(resourceUri.LocalPath);
+        if (!IsInsideAllowedRoot(resourcePath))
+        {
+            return null;
+        }
+
+        if (File.Exists(resourcePath))
+        {
+            return File.OpenRead(resourcePath);
+        }
+
+        // Użyj zastępczego obrazu tylko dla zasobów graficznych. Zwrócenie strumienia obrazu
+        // dla brakującej czcionki lub arkusza stylów nie byłoby prawidłowe.
+        if (_fallbackImageData != null && IsImageFile(resourcePath))
+        {
+            return new MemoryStream(_fallbackImageData, writable: false);
+        }
+
+        return null;
+    }
+
+    private bool IsInsideAllowedRoot(string resourcePath)
+    {
+        string normalizedRoot = _allowedRoot.TrimEnd(
+            Path.DirectorySeparatorChar,
+            Path.AltDirectorySeparatorChar) + Path.DirectorySeparatorChar;
+
+        string normalizedPath = Path.GetFullPath(resourcePath);
+        StringComparison comparison = Path.DirectorySeparatorChar == '\\'
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+
+        return normalizedPath.StartsWith(normalizedRoot, comparison) ||
+               string.Equals(normalizedPath, _allowedRoot, comparison);
+    }
+
+    private static bool IsImageFile(string path)
+    {
+        string extension = Path.GetExtension(path);
+
+        return extension.Equals(".png", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".jpg", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".jpeg", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".gif", StringComparison.OrdinalIgnoreCase) ||
+               extension.Equals(".bmp", StringComparison.OrdinalIgnoreCase);
+    }
+}
+```
+
+### **Rozwiązywanie powiązanych zasobów podczas importu SVG**
+
+Załóżmy, że `assets/diagram.svg` zawiera względne odniesienie takie jak:
+
+```xml
+<image href="images/photo.png" x="20" y="20" width="320" height="180" />
+```
+
+Poniższy przykład C# przekazuje URI pliku SVG jako bazowy URI i dostarcza własny rozwiązywacz. Rozwiązywacz konwertuje względny odnośnik do obrazu na absolutny URI i zwraca strumień zawierający powiązany zasób, gdy Aspose.Slides przetwarza SVG.
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+using Aspose.Slides.Import;
+
+string svgFilePath = Path.GetFullPath(Path.Combine("assets", "diagram.svg"));
+string assetDirectory = Path.GetDirectoryName(svgFilePath) ?? Directory.GetCurrentDirectory();
+string svgContent = File.ReadAllText(svgFilePath);
+
+// Bazowy URI reprezentuje lokalizację dokumentu SVG.
+string baseUri = new Uri(svgFilePath).AbsoluteUri;
+
+byte[] fallbackImageData = null;
+string fallbackImagePath = Path.Combine(assetDirectory, "fallback.png");
+if (File.Exists(fallbackImagePath))
+{
+    fallbackImageData = File.ReadAllBytes(fallbackImagePath);
+}
+
+IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory, fallbackImageData);
+ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
+
+// ISvgImage exposes the source content, binary data, base URI, and resolver.
+string importedContent = svgImage.SvgContent;
+byte[] importedData = svgImage.SvgData;
+string importedBaseUri = svgImage.BaseUri;
+IExternalResourceResolver importedResolver = svgImage.ExternalResourceResolver;
+
+using (Presentation presentation = new Presentation())
+{
+    IPPImage image = presentation.Images.AddImage(svgImage);
+
+    presentation.Slides[0].Shapes.AddPictureFrame(
+        ShapeType.Rectangle, 20, 20, image.Width, image.Height, image);
+
+    presentation.Save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+}
+```
+
+Klasa `SvgImage` oferuje również przeciążenia, które przyjmują dane SVG jako tablicę bajtów lub strumień, wraz z rozwiązywaczem zasobów zewnętrznych i bazowym URI.
+
+{{% alert title="Ważne" color="warning" %}}
+
+Rozwiązywacz zasobów udostępnia zewnętrzne zasoby podczas przetwarzania i renderowania SVG w Aspose.Slides. Nie modyfikuje on oryginalnego znacznika SVG ani automatycznie nie osadza rozwiązywanych zasobów w nim.
+
+Gdy `ISvgImage` zostaje dodany do kolekcji obrazów prezentacji, plik PPTX może zawierać zarówno pierwotną reprezentację SVG, jak i rastrowy obraz zastępczy. Powiązany zasób może pojawić się w wygenerowanym obrazie zastępczym, podczas gdy względny odnośnik taki jak `images/photo.png` pozostaje niezmieniony w zapisanym SVG. Aplikacja renderująca natywną reprezentację SVG może więc pominąć powiązaną treść, gdy oryginalny zasób zewnętrzny jest niedostępny.
+
+{{% /alert %}}
+
+### **Utworzenie przenośnego obrazu SVG**
+
+Aby utworzyć obraz SVG, który nie zależy od plików zewnętrznych, przygotuj SVG jako samodzielny przed utworzeniem `SvgImage`. Na przykład zamień powiązane URL‑e obrazów na URI typu `data:`, które zawierają dane obrazu:
+
+```xml
+<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```
+
+Po osadzeniu wszystkich wymaganych zasobów w treści SVG, utwórz `SvgImage`, dodaj go do kolekcji obrazów prezentacji i wstaw do ramki obrazu, jak pokazano w poprzednim przykładzie.
+
+### **Obsługa brakujących lub zablokowanych zasobów**
+
+Zwróć `null` z `ResolveUri`, gdy URI zasobu jest nieprawidłowy, zabroniony lub nie może zostać rozwiązany. Zwróć `null` z `GetEntity`, gdy zasób nie może być odczytany. Aspose.Slides kontynuuje przetwarzanie SVG bez tego zasobu, jeśli to możliwe.
+
+Strumień zastępczy może być zwrócony dla brakującego zasobu, ale jego zawartość musi być zgodna z żądanym typem zasobu. Na przykład zwróć strumień obrazu wyłącznie dla brakującego obrazu, nie dla czcionki czy arkusza stylów.
+
+{{% alert title="Bezpieczeństwo" color="warning" %}}
+
+Nie rozwiązuj dowolnych ścieżek plików ani nieograniczonych adresów URL sieciowych z niezweryfikowanych plików SVG. Ogranicz dozwolone schematy, katalogi i hosty. Dla zasobów sieciowych stosuj również limity czasu połączenia, ograniczenia wielkości odpowiedzi i weryfikację treści.
+
+{{% /alert %}}
+
+## **Konwersja SVG do zestawu kształtów**
+Aspose.Slides może konwertować SVG na zestaw kształtów, podobnie jak odpowiadająca funkcjonalność w PowerPoint:
+
+![PowerPoint Popup Menu](img_01_01.png)
+
+Funkcjonalność ta jest realizowana przez przeciążenie metody [AddGroupShape](https://reference.aspose.com/slides/pl/net/aspose.slides.ishapecollection/addgroupshape/methods/1) interfejsu [IShapeCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/ishapecollection), które przyjmuje obiekt [ISvgImage](https://reference.aspose.com/slides/pl/net/aspose.slides/isvgimage) jako pierwszy argument.
+
+Poniższy przykładowy kod C# pokazuje, jak użyć tej metody do konwersji pliku SVG na zestaw kształtów:
 
 ``` csharp 
-// Ścieżka do katalogu dokumentów
-string dataDir = @"D:\Documents\";
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
 // Nazwa pliku źródłowego SVG
-string svgFileName = dataDir + "sample.svg";
+string svgFileName = "sample.svg";
 
 // Nazwa pliku wyjściowej prezentacji
-string outPptxPath = dataDir + "presentation.pptx";
+string outPptxPath = "presentation.pptx";
 
 // Utwórz nową prezentację
 using (IPresentation presentation = new Presentation())
@@ -183,7 +393,7 @@ using (IPresentation presentation = new Presentation())
     // Pobierz rozmiar slajdu
     SizeF slideSize = presentation.SlideSize.Size;
 
-    // Konwertuj obraz SVG na grupę kształtów skalując go do rozmiaru slajdu
+    // Konwertuj obraz SVG na grupę kształtów i skaluj go do rozmiaru slajdu
     presentation.Slides[0].Shapes.AddGroupShape(svgImage, 0f, 0f, slideSize.Width, slideSize.Height);
 
     // Zapisz prezentację w formacie PPTX
@@ -191,19 +401,24 @@ using (IPresentation presentation = new Presentation())
 }
 ```
 
-## **Dodawanie obrazów jako EMF do slajdów**
-Aspose.Slides for .NET umożliwia generowanie obrazów EMF z arkuszy Excel i dodawanie tych obrazów jako EMF na slajdach przy pomocy Aspose.Cells. 
+## **Dodawanie obrazów SVG jako EMF do slajdów**
+Aspose.Slides for .NET pozwala generować obrazy EMF z arkuszy Excel przy użyciu Aspose.Cells i dodawać je do slajdów prezentacji.
 
-Ten przykładowy kod pokazuje, jak wykonać opisane zadanie:
+Poniższy przykładowy kod C# pokazuje, jak to zrobić:
 
 ``` csharp 
-using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
+using Aspose.Slides;
+using Aspose.Cells;
+using Aspose.Cells.Rendering;
+
+
+using (Workbook book = new Workbook("chart.xlsx"))
 {
     Worksheet sheet = book.Worksheets[0];
     ImageOrPrintOptions options = new ImageOrPrintOptions();
     options.HorizontalResolution = 200;
     options.VerticalResolution = 200;
-    options.ImageFormat = System.Drawing.Imaging.ImageFormat.Emf;
+    options.ImageType = Aspose.Cells.Drawing.ImageType.Emf;
 
     // Zapisz skoroszyt do strumienia
     SheetRender sr = new SheetRender(sheet, options);
@@ -214,7 +429,7 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
         String EmfSheetName = "";
         for (int j = 0; j < sr.PageCount; j++)
         {
-            EmfSheetName = dataDir + "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
+            EmfSheetName = "test" + sheet.Name + " Page" + (j + 1) + ".out.emf";
             sr.ToImage(j, EmfSheetName);
 
             var bytes = File.ReadAllBytes(EmfSheetName);
@@ -223,25 +438,28 @@ using (Workbook book = new Workbook(dataDir + "chart.xlsx"))
             slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 0, 0, pres.SlideSize.Size.Width, pres.SlideSize.Size.Height, emfImage);
         }
 
-        pres.Save(dataDir + "Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
+        pres.Save("Saved.pptx", Aspose.Slides.Export.SaveFormat.Pptx);
     }
 }
 ```
 
 ## **Zastępowanie obrazów w kolekcji obrazów**
 
-Aspose.Slides pozwala na zastępowanie obrazów przechowywanych w kolekcji obrazów prezentacji (w tym tych używanych przez kształty slajdów). W tej sekcji przedstawiono kilka podejść do aktualizacji obrazów w kolekcji. API udostępnia proste metody zastępowania obrazu przy użyciu surowych danych bajtowych, instancji [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) lub innego obrazu, który już istnieje w kolekcji.
+Aspose.Slides umożliwia zastępowanie obrazów przechowywanych w kolekcji obrazów prezentacji, w tym obrazów używanych w kształtach slajdów. Ten rozdział opisuje kilka sposobów aktualizacji obrazów w kolekcji. Możesz zastąpić obraz przy użyciu surowych danych bajtowych, instancji [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) lub innego obrazu już istniejącego w kolekcji.
 
-Wykonaj poniższe kroki:
+Postępuj zgodnie z poniższymi krokami:
 
-1. Załaduj plik prezentacji zawierający obrazy przy użyciu klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/).
-2. Załaduj nowy obraz z pliku do tablicy bajtów.
-3. Zastąp docelowy obraz nowym obrazem przy użyciu tablicy bajtów.
-4. W drugim podejściu załaduj obraz do obiektu [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) i zastąp docelowy obraz tym obiektem.
-5. W trzecim podejściu zastąp docelowy obraz obrazem, który już istnieje w kolekcji obrazów prezentacji.
-6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+1. Załaduj plik prezentacji zawierający obrazy przy pomocy klasy [Presentation](https://reference.aspose.com/slides/pl/net/aspose.slides/presentation/).
+1. Załaduj nowy obraz z pliku do tablicy bajtów.
+1. Zastąp docelowy obraz nowym obrazem przy użyciu tablicy bajtów.
+1. W drugim podejściu załaduj obraz do obiektu [IImage](https://reference.aspose.com/slides/pl/net/aspose.slides/iimage/) i zastąp docelowy obraz tym obiektem.
+1. W trzecim podejściu zastąp docelowy obraz obrazem, który już istnieje w kolekcji obrazów prezentacji.
+1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 using Presentation presentation = new Presentation("sample.pptx");
 
@@ -265,7 +483,7 @@ presentation.Save("output.pptx", SaveFormat.Pptx);
 
 {{% alert title="Informacja" color="info" %}}
 
-Korzystając z darmowego konwertera Aspose FREE [Text to GIF](https://products.aspose.app/slides/pl/text-to-gif), możesz łatwo animować teksty, tworzyć GIF‑y z tekstów itp. 
+Korzystając z bezpłatnego konwertera Aspose [Text to GIF](https://products.aspose.app/slides/pl/text-to-gif), możesz łatwo animować tekst i tworzyć pliki GIF z tekstu. 
 
 {{% /alert %}}
 
@@ -273,21 +491,20 @@ Korzystając z darmowego konwertera Aspose FREE [Text to GIF](https://products.a
 
 **Czy oryginalna rozdzielczość obrazu pozostaje niezmieniona po wstawieniu?**
 
-Tak. Piksele źródłowe są zachowane, ale ostateczny wygląd zależy od tego, jak [picture](/slides/pl/net/picture-frame/) jest skalowany na slajdzie i od ewentualnej kompresji przy zapisie.
+Tak. Piksele źródłowe są zachowane, ale ostateczny wygląd zależy od tego, jak [picture](/slides/pl/net/picture-frame/) jest skalowane na slajdzie i od ewentualnej kompresji przy zapisie.
 
-**Jaki jest najlepszy sposób, aby jednocześnie zastąpić to samo logo na dziesiątkach slajdów?**
+**Jaki jest najlepszy sposób na jednoczesne zastąpienie tego samego logo na dziesiątkach slajdów?**
 
-Umieść logo w masterze slajdu lub układzie i wymień je w kolekcji obrazów prezentacji — zmiany rozpropagują się do wszystkich elementów korzystających z tego zasobu.
+Umieść logo na slajdzie master lub układzie i zastąp je w kolekcji obrazów prezentacji — zmiany zostaną rozpropagowane do wszystkich elementów korzystających z tego zasobu.
 
 **Czy wstawiony SVG można przekonwertować na edytowalne kształty?**
 
-Tak. SVG można skonwertować do grupy kształtów, po czym poszczególne części stają się edytowalne przy użyciu standardowych właściwości kształtów.
+Tak. Możesz przekonwertować SVG na grupę kształtów, po czym poszczególne elementy staną się edytowalne przy użyciu standardowych właściwości kształtu.
 
-**Jak ustawić obraz jako tło dla wielu slajdów jednocześnie?**
+**Jak ustawić obraz jako tło wielu slajdów jednocześnie?**
 
-[Przypisz obraz jako tło](/slides/pl/net/presentation-background/) na masterze slajdu lub odpowiednim układzie — wszystkie slajdy korzystające z tego mastera/układu odziedziczą tło.
+[Przypisz obraz jako tło](/slides/pl/net/presentation-background/) na slajdzie master lub odpowiednim układzie — wszystkie slajdy wykorzystujące ten master/układ odziedziczą tło.
 
-**Jak zapobiec „puchnięciu” rozmiaru prezentacji z powodu licznych obrazów?**
+**Jak zapobiec nadmiernemu rozmiarowi prezentacji spowodowanemu dużą liczbą obrazów?**
 
-Używaj jednego zasobu obrazu zamiast duplikatów, wybieraj umiarkowane rozdzielczości, stosuj kompresję przy zapisie i, w miarę możliwości, umieszczaj powtarzające się grafiki w masterze.
-
+Używaj jednego zasobu obrazu zamiast duplikatów, wybieraj rozsądne rozdzielczości, stosuj kompresję przy zapisie i przechowuj powtarzające się grafiki w masterze, gdy to ma sens.

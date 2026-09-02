@@ -1,6 +1,6 @@
 ---
-title: Math egyenletek hozzáadása PowerPoint prezentációkhoz Androidon
-linktitle: PowerPoint Matematikai Egyenletek
+title: Matematikai egyenletek hozzáadása PowerPoint prezentációkhoz Androidon
+linktitle: PowerPoint matematikai egyenletek
 type: docs
 weight: 80
 url: /hu/androidjava/powerpoint-math-equations/
@@ -18,35 +18,35 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Matematikai egyenletek beszúrása és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Android segítségével, OMML támogatással, formázási vezérlőkkel és tiszta Java kódrészletekkel."
+description: "Matematikai egyenletek beillesztése és szerkesztése PowerPoint PPT és PPTX fájlokban az Aspose.Slides for Android segítségével, OMML támogatással, formázási vezérlőkkel és érthető Java kódrészletekkel."
 ---
 ## **Áttekintés**
 
-A PowerPoint egyenleteket az Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Android via Java segítségével programozottan hozhat létre hasonló matematika tartalmakat: törtöket, gyököket, függvényeket, határokat, N-értelmű operátorokat, mátrixokat, tömböket és formázott matematikai blokkokat.
+A PowerPoint egyenleteket az Office Math Markup Language (OMML) formátumban tárolja. Az Aspose.Slides for Android via Java segítségével programozottan hozhat létre hasonló matematikai tartalmakat: törtök, gyökök, függvények, határok, N-árnyú operátorok, mátrixok, tömbök és formázott matematikai blokkok.
 
-A PowerPointban a felhasználók általában a **Beszúrás > Egyenlet** menüből adnak hozzá egyenleteket:
+A PowerPointban a felhasználók általában a **Insert > Equation** menüpontból adnak hozzá egyenleteket:
 
-![PowerPoint Beszúrás lap az Egyenlet parancs kiválasztásával](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
-Az eredmény szerkeszthető matematikai szöveg a dián:
+Az eredmény egy szerkeszthető matematikai szöveg a dián:
 
-![PowerPoint dia szerkeszthető matematikai egyenlettel](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
 Az Aspose.Slides három fő objektumon keresztül építi fel ezt a matematikai szöveget:
 
-- A matematikai alakzat, amelyet a [addMathShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) hívással hozunk létre, az az alakzat, amely az egyenletet tartalmazza.
+- A matematikai alakzat, amelyet az [addMathShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/) hoz létre, az az alakzat, amely az egyenletet tartalmazza.
 - [MathPortion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathportion/) tárolja a matematikai tartalmat az alakzat szövegkeretében.
 - [MathParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathparagraph/) egy vagy több [MathBlock](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathblock/) objektumot tartalmaz.
 
-Az alábbi legtöbb példa a [MathematicalText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathematicaltext/) és az [IMathElement](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) folyékony metódusait használja, hogy a kód rövid és olvasható maradjon.
+Az alábbi legtöbb példa a [MathematicalText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathematicaltext/) és az [IMathElement](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) folyékony metódusait használja, hogy a kód rövid és olvasható legyen.
 
-MathML export esetén lásd a [Matematikai egyenletek exportálása prezentációkból Androidra](/slides/hu/androidjava/exporting-math-equations/).
+MathML export esetén lásd: [Export Math Equations from Presentations on Android](/slides/hu/androidjava/exporting-math-equations/).
 
 ## **Egyenlet létrehozása**
 
 Ez a példa egy matematikai alakzatot hoz létre, és hozzáadja a Pitagorasz-tételt:
 
-![Az egyenlet: c² = a² + b²](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -73,16 +73,14 @@ try {
 ```
 
 {{% alert color="primary" %}}
-
-`addMathShape` egy olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Hozzáfér az első `MathPortion`-hez, lekéri annak `MathParagraph`-ját, és matematikai blokkokat vagy elemeket ad hozzá.
-
+`addMathShape` olyan alakzatot hoz létre, amely már tartalmaz egy matematikai bekezdést. Az első `MathPortion`-t érje el, szerezze meg a `MathParagraph`-ját, és adjon hozzá matematikai blokkokat vagy elemeket.
 {{% /alert %}}
 
 ## **Törtek hozzáadása**
 
 `divide` használatával hozhat létre törtet. A tört stílusát a [MathFractionTypes](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathfractiontypes/) segítségével választhatja ki.
 
-![Egy ferde tört, amely az 1-et osztja x-szel](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -104,7 +102,7 @@ try {
 }
 ```
 
-Halmozott törthez használja a `MathFractionTypes.Bar`-t:
+Egy egymásra helyezett törthez használja a `MathFractionTypes.Bar`-t:
 
 ```java
 IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", MathFractionTypes.Bar);
@@ -112,9 +110,9 @@ IMathFraction stackedFraction = new MathematicalText("x + 1").divide("y - 1", Ma
 
 ## **Gyökök hozzáadása**
 
-`radical` használatával hozhat létre négyzetgyököt, köbgyököt vagy egyéb gyököt. A jelenlegi elem lesz az alap, az argumentum pedig a kitevő.
+`radical` használatával hozhat létre négyzetgyököt, köbgyököt vagy más gyököt. A jelenlegi elem lesz az alap, és az argumentum lesz a fok.
 
-![n-dik gyök kifejezés, x a gyökjel alatt](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -138,9 +136,9 @@ try {
 
 ## **Függvények és határok hozzáadása**
 
-`asArgumentOfFunction` vagy `function` használatával hozhat létre függvényeket, például `sin(x)`, `log(x)`, vagy egyedi függvényneveket. Határokhoz helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathlimit/) elembe, vagy használja a `setLowerLimit`-et.
+`asArgumentOfFunction` vagy `function` használható olyan függvényekhez, mint a `sin(x)`, `log(x)` vagy egyedi függvénynevek. Határok esetén helyezze a `lim`-et egy [MathLimit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathlimit/) objektumba, vagy használja a `setLowerLimit`-et.
 
-![x határa, amikor x a végtelen felé tart](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -169,11 +167,11 @@ Egyedi függvénynév esetén tegye a függvénynevet a jelenlegi elemmé:
 IMathFunction customFunction = new MathematicalText("f").function("x + 1");
 ```
 
-## **N-értékű operátorok és integrálok hozzáadása**
+## **N-árnyú operátorok és integrálok hozzáadása**
 
-`nary` használatával hozhat létre összegeket, uniókat, metszeteket és más nagy operátorokat. `integral` segítségével integrálokat hozhat létre. Mindkét metódus lehetővé teszi az alsó és felső határok beállítását.
+`nary` használható összegekre, uniókra, metszetekre és más nagy operátorokra. Az `integral` integrálokhoz. Mindkét metódus lehetővé teszi a alsó és felső határ beállítását.
 
-![Összegzés alsó és felső határokkal](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -198,9 +196,9 @@ try {
 }
 ```
 
-N-értelmű operátorok nagy operátorok opcionális határokkal. Egyszerű operátorok, mint a `+`, `-` és `=` általában `MathematicalText`‑ként kerülnek hozzáadásra, majd a kifejezésbe illesztésre.
+Az N-árnyú operátorok nagy operátorok opcionális határokkal. Az egyszerű operátorok, mint a `+`, `-`, és `=` általában `MathematicalText`‑ként kerülnek hozzáadásra és összekapcsolásra a kifejezésben.
 
-Integrálhoz használja a `integral`‑t:
+Integrálhoz használja az `integral`-t:
 
 ```java
 IMathBlock integralBase = new MathematicalText("x").join(new MathematicalText("dx").toBox());
@@ -209,9 +207,9 @@ IMathNaryOperator integral = integralBase.integral(MathIntegralTypes.Simple, "0"
 
 ## **Mátrixok hozzáadása**
 
-Használja a [MathMatrix](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathmatrix/)‑t sorok és oszlopok létrehozásához. Alapértelmezés szerint a mátrixok nem tartalmaznak zárójeleket, ezért körül kell őket tenni, ha zárójelekre, szögletes vagy kapcsos zárókra van szükség.
+Használja a [MathMatrix](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathmatrix/)‑t sorok és oszlopok létrehozásához. A mátrixok alapértelmezés szerint nem tartalmaznak zárójeleket, ezért zárja be a mátrixot, ha zárójelekre, szögletes vagy kapcsos zárójelekre van szükség.
 
-![Két soros matematikai mátrix egy üres cellával](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -237,11 +235,11 @@ try {
 }
 ```
 
-## **Egyenlet tömbök hozzáadása**
+## **Egyenlet-tömbök hozzáadása**
 
-Használja a `toMathArray`‑t, ha igazított egyenletekre vagy függőleges kifejezésstackre van szükség.
+Használja a `toMathArray`‑t, ha igazított egyenletekre vagy függőleges kifejezéscsoportokra van szükség.
 
-![Függőleges matematikai tömb, x felett y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -266,9 +264,9 @@ try {
 
 ## **Trigonometrikus függvények hozzáadása**
 
-Használja a `asArgumentOfFunction`‑t, ha az argumentum a jelenlegi elem, és a függvény neve ismert.
+Használja az `asArgumentOfFunction`‑t, ha az argumentum a jelenlegi elem, és a függvény neve ismert.
 
-![A cos trigonometrikus függvény 2x-re alkalmazva](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -290,11 +288,11 @@ try {
 }
 ```
 
-## **Alsó- és felső indexek hozzáadása**
+## **Alsó- és felsőindexek hozzáadása**
 
-Használja az alsó- és felső index segédfüggvényeket indexek és hatványok létrehozásához. Ha az indexeknek a bázis bal oldalán kell megjelenniük, alkalmazza a `setSubSuperscriptOnTheLeft`‑t.
+Használja az alsó- és felsőindex segédfüggvényeit indexek és hatványok esetén. Ha az indexeknek a bázis bal oldalán kell megjelenniük, használja a `setSubSuperscriptOnTheLeft`‑et.
 
-![Nagy Y baloldali alsó index 1-gyel és felső index n-vel](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -318,9 +316,9 @@ try {
 
 ## **Határolók hozzáadása**
 
-`enclose` használatával helyezhet kifejezést határolók közé. Több elemet tartalmazó határolókhoz beállíthat elválasztó karaktert is.
+`enclose` segítségével helyezhet kifejezést a határolók közé. Több elemet tartalmazó határolók esetén beállíthat elválasztó karaktert is.
 
-![Határoló kifejezés, amely x, y és z elemeket tartalmaz függőleges vonalakkal elválasztva](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -347,9 +345,9 @@ try {
 
 ## **Keretdoboz hozzáadása**
 
-`toBorderBox` használatával keretezhet egy egyenletet.
+`toBorderBox` használata akkor szükséges, ha magát az egyenletet keretbe kell tenni.
 
-![Keretbe tett egyenlet: a² = b² + c²](powerpoint-math-equations_12.png)
+![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -378,9 +376,9 @@ try {
 
 ## **Tagok csoportosítása**
 
-`group` használatával egy csoportosító karaktert helyezhet egy kifejezés fölé vagy alá. A csoportosított tagok felcímkézéséhez adjon hozzá egy határt.
+`group` használatával helyezhet csoportosító karaktert a kifejezés fölé vagy alá. Limitet adhat a csoportosított tagok címkézéséhez.
 
-![Az x + y kifejezés csoportosítva az alatta lévő “bármilyen szöveg” felirattal](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -405,9 +403,9 @@ try {
 
 ## **Matematikai elemek formázása**
 
-Formázó segédfüggvényeket csak akkor használjon, ha azok tisztábbá teszik a képletet. Például az `overbar` egy vonalat helyez egy matematikai elem fölé.
+A formázó segédfüggvényeket csak akkor használja, ha tisztábbá teszik a képletet. Például az `overbar` egy vonalat helyez a matematikai elem felett.
 
-![ABC matematikai kifejezés felülvonallal](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```java
 Presentation presentation = new Presentation();
@@ -428,23 +426,23 @@ try {
 }
 ```
 
-## **Gyorsreferencia**
+## **Gyors referencia**
 
-| Feladat | Fő API |
+| Task | Main API |
 | --- | --- |
 | Matematikai szöveg létrehozása | [MathematicalText](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathematicaltext/) |
-| Elemek összevonása | [IMathElement.join](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
+| Elemek összekapcsolása | [IMathElement.join](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Törtek létrehozása | [IMathElement.divide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
-| Felső- vagy alsó index hozzáadása | [setSuperscript](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
+| Felső- vagy alsóindex hozzáadása | [setSuperscript](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [setSubscript](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Függvények hozzáadása | [function](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [asArgumentOfFunction](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Gyökök hozzáadása | [IMathElement.radical](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Határok hozzáadása | [setLowerLimit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [setUpperLimit](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Baloldali indexek hozzáadása | [setSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
-| Összegekkel és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
+| Összegek és integrálok hozzáadása | [nary](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [integral](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Mátrixok hozzáadása | [MathMatrix](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mathmatrix/) |
-| Egyenlettömbök hozzáadása | [toMathArray](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
+| Egyenlet-tömbök hozzáadása | [toMathArray](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Határolók hozzáadása | [enclose](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
-| Vonalk és keret hozzáadása | [overbar](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
+| Áthúzások és keretek hozzáadása | [overbar](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/), [toBorderBox](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 | Tagok csoportosítása | [group](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathelement/) |
 
 ## **GYIK**
@@ -457,6 +455,6 @@ Igen. Nyissa meg a prezentációt, keresse meg azt az alakzatot, amely `MathPort
 
 Igen. PPTX formátumba mentéskor az Aspose.Slides az egyenletet szerkeszthető Office matematikai tartalomként írja.
 
-**Exportálhatok egyenleteket LaTeX formátumba?**
+**Exportálhatok egyenleteket LaTeX‑be?**
 
-Az Aspose.Slides a matematikai egyenleteket MathML formátumba exportálja. Ha LaTeX‑re van szüksége, először exportáljon MathML‑be, majd egy olyan eszközzel konvertálja, amely támogatja a kívánt LaTeX dialektust.
+Igen. Szerezze meg az egyenlet [IMathParagraph](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathparagraph/)‑t a [IMathPortion](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathportion/) objektumból, és hívja meg az [IMathParagraph.toLatex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imathparagraph/#toLatex--) metódust a közvetlen exportáláshoz. Teljes példáért lásd: [Export Math Equations from Presentations in Android via Java](/slides/hu/androidjava/exporting-math-equations/#export-math-equations-to-latex).

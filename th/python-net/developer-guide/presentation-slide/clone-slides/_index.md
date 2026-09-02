@@ -14,15 +14,15 @@ keywords:
 - Aspose.Slides
 description: "คัดลอกหรือทำสำเนาสไลด์ PowerPoint อย่างรวดเร็วด้วย Aspose.Slides สำหรับ Python ผ่าน .NET. ปฏิบัติตามตัวอย่างโค้ดและเคล็ดลับที่ชัดเจนของเราเพื่ออัตโนมัติการสร้าง PPT ในไม่กี่วินาที, เพิ่มประสิทธิภาพการทำงาน, และขจัดงานที่ต้องทำด้วยมือ."
 ---
-## **บทนำ**
+## **คำนำ**
 
 การโคลนคือกระบวนการทำสำเนาที่เหมือนกันอย่างสมบูรณ์หรือจำลองของบางสิ่ง Aspose.Slides ยังอนุญาตให้คุณคัดลอก (โคลน) สไลด์ใด ๆ แล้วแทรกสไลด์ที่ถูกโคลนเข้าไปในงานนำเสนอปัจจุบันหรือในงานนำเสนอที่เปิดอยู่อื่น ๆ การโคลนสไลด์จะสร้างสไลด์ใหม่ที่นักพัฒนาสามารถแก้ไขได้โดยไม่กระทบสไลด์ต้นฉบับ มีหลายวิธีในการโคลนสไลด์:
 
-- โคลนที่ส่วนท้ายของงานนำเสนอ
-- โคลนที่ตำแหน่งอื่นภายในงานนำเสนอ
-- โคลนที่ส่วนท้ายของงานนำเสนออื่น
-- โคลนที่ตำแหน่งอื่นในงานนำเสนออื่น
-- โคลนที่ตำแหน่งเฉพาะในงานนำเสนออื่น
+- คัดลอกที่ส่วนท้ายของงานนำเสนอ
+- คัดลอกที่ตำแหน่งอื่นภายในงานนำเสนอ
+- คัดลอกที่ส่วนท้ายของงานนำเสนออื่น
+- คัดลอกที่ตำแหน่งอื่นในงานนำเสนออื่น
+- คัดลอกที่ตำแหน่งที่กำหนดในงานนำเสนออื่น
 
 ใน Aspose.Slides for Python via .NET, [slide collection](https://reference.aspose.com/slides/th/python-net/aspose.slides/slidecollection/) ที่เปิดให้โดยวัตถุ [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/) มีเมธอด `add_clone` และ `insert_clone` เพื่อทำการโคลนสไลด์ประเภทต่าง ๆ เหล่านี้.
 
@@ -32,7 +32,7 @@ description: "คัดลอกหรือทำสำเนาสไลด์
 pip install aspose.slides
 ```
 
-## **โคลนที่ส่วนท้ายภายในงานนำเสนอเดียวกัน**
+## **การติดตั้ง**
 
 หากคุณต้องการโคลนสไลด์ภายในงานนำเสนอเดียวกันและเพิ่มต่อท้ายสไลด์ที่มีอยู่, ให้ใช้เมธอด `add_clone`. ทำตามขั้นตอนต่อไปนี้:
 
@@ -54,7 +54,7 @@ with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentatio
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **โคลนไปยังตำแหน่งเฉพาะภายในงานนำเสนอเดียวกัน**
+## **คัดลอกไปยังตำแหน่งที่ระบุในงานนำเสนอเดียวกัน**
 
 หากคุณต้องการโคลนสไลด์ภายในงานนำเสนอเดียวกันและวางไว้ที่ตำแหน่งอื่น, ให้ใช้เมธอด `insert_clone`:
 
@@ -76,7 +76,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **โคลนที่ส่วนท้ายของงานนำเสนออื่น**
+## **คัดลอกที่ส่วนท้ายของงานนำเสนออื่น**
 
 หากคุณต้องการโคลนสไลด์จากงานนำเสนอหนึ่งและเพิ่มต่อท้ายของงานนำเสนออื่น:
 
@@ -97,11 +97,11 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     with slides.Presentation() as target_presentation:
         # โคลนสไลด์ที่ต้องการจากงานนำเสนอแหล่งที่มาที่ส่วนท้ายของคอลเลกชันสไลด์ในงานนำเสนอปลายทาง.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # บันทึกงานนำเสนอปลายทางลงดิสก์.
+        # บันทึกการนำเสนอปลายทางลงดิสก์
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **โคลนไปยังตำแหน่งเฉพาะในงานนำเสนออื่น**
+## **คัดลอกไปยังตำแหน่งที่ระบุในงานนำเสนออื่น**
 
 หากคุณต้องการโคลนสไลด์จากงานนำเสนอหนึ่งและแทรกเข้าไปในงานนำเสนออื่นที่ตำแหน่งเฉพาะ:
 
@@ -122,11 +122,11 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # แทรกสำเนาของสไลด์แรกจากแหล่งที่มาที่ตำแหน่งดัชนี 2 ในงานนำเสนอปลายทาง.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # บันทึกงานนำเสนอปลายทางลงดิสก์.
+        # บันทึกการนำเสนอปลายทางลงดิสก์
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **โคลนสไลด์พร้อมมาสเตอร์สไลด์เข้าไปในงานนำเสนออื่น**
+## **คัดลอกสไลด์พร้อมมาสเตอร์สไลด์ไปยังงานนำเสนออื่น**
 
 หากคุณต้องการโคลนสไลด์ **พร้อมมาสเตอร์** จากงานนำเสนอหนึ่งและใช้ในงานนำเสนออื่น, ก่อนอื่นให้โคลนมาสเตอร์สไลด์ที่ต้องการจากงานนำเสนอแหล่งที่มามาใส่ในงานนำเสนอปลายทาง. จากนั้นใช้มาสเตอร์ปลายทางนั้นเมื่อโคลนสไลด์. เมธอด `add_clone(Slide, MasterSlide)` คาดหวัง **มาสเตอร์สไลด์จากงานนำเสนอปลายทาง**, ไม่ใช่จากแหล่งที่มา.
 
@@ -146,17 +146,17 @@ import aspose.slides as slides
 
 # สร้างอินสแตนซ์ของคลาส Presentation เพื่อแทนไฟล์การนำเสนอแหล่งที่มา.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
-    # สร้างอินสแตนซ์ของคลาส Presentation สำหรับงานนำเสนอปลายทางที่สไลด์จะถูกโคลน.
+    # สร้างอินสแตนซ์ของคลาส Presentation สำหรับงานนำเสนอปลายทางที่สไลด์จะถูกคัดลอก.
     with slides.Presentation() as target_presentation:
-        # ดึงสไลด์แรกจากงานนำเสนอแหล่งที่มา.
+        # ดึงสไลด์แรกจากการนำเสนอแหล่งที่มา
         source_slide = source_presentation.slides[0]
         # ดึงมาสเตอร์สไลด์ที่สไลด์แรกใช้.
         source_master = source_slide.layout_slide.master_slide
         # โคลนมาสเตอร์สไลด์ไปยังคอลเลกชันมาสเตอร์ของงานนำเสนอปลายทาง.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # โคลนสไลด์จากงานนำเสนอแหล่งที่มาไปยังส่วนท้ายของงานนำเสนอปลายทางโดยใช้มาสเตอร์ที่โคลน.
+        # คัดลอกสไลด์จากงานนำเสนอแหล่งที่มาลงส่วนท้ายของงานนำเสนอปลายทางโดยใช้มาสเตอร์ที่คัดลอก.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # บันทึกงานนำเสนอปลายทางลงดิสก์.
+        # บันทึกการนำเสนอปลายทางลงดิสก์
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -169,7 +169,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 ```py
 import aspose.slides as slides
 
-# สร้างงานนำเสนอเปล่าใหม่.
+# สร้างการนำเสนอใหม่เปล่า.
 with slides.Presentation() as presentation:
     # เพิ่มสไลด์เปล่าที่อิงจากเค้าโครงของสไลด์แรก.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
@@ -181,7 +181,7 @@ with slides.Presentation() as presentation:
     section = presentation.sections.add_section("Section2", slide2)
     # โคลนสไลด์ที่สร้างไว้ก่อนหน้านี้เข้าไปในส่วน "Section2".
     presentation.slides.add_clone(slide, section)
-    # บันทึกงานนำเสนอเป็นไฟล์ PPTX.
+    # บันทึกการนำเสนอเป็นไฟล์ PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 

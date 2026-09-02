@@ -7,117 +7,254 @@ weight: 40
 keywords:
 - แผนภูมิ treemap
 - แผนภูมิ sunburst
+- แผนภูมิเชิงลำดับชั้น
 - จุดข้อมูล
-- สีป้าย
+- ป้ายข้อมูล
 - สีสาขา
 - PowerPoint
-- งานนำเสนอ
+- การนำเสนอ
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "เรียนรู้วิธีจัดการจุดข้อมูลในแผนภูมิ treemap และ sunburst ด้วย JavaScript และ Aspose.Slides สำหรับ Node.js ผ่าน Java ซึ่งรองรับรูปแบบไฟล์ PowerPoint"
+description: "เรียนรู้วิธีสร้างข้อมูลเชิงลำดับชั้นและปรับแต่งระดับ ป้าย และสีในแผนภูมิ Treemap และ Sunburst ด้วย Aspose.Slides สำหรับ Node.js ผ่าน Java."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-ในหมวดอื่นของแผนภูมิ PowerPoint มีประเภท “เชิงลำดับชั้น” สองประเภท คือแผนภูมิ **Treemap** และ **Sunburst** (ที่เรียกอีกอย่างว่า Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph หรือ Multi Level Pie Chart) แผนภูมิเหล่านี้แสดงข้อมูลเชิงลำดับชั้นที่จัดเรียงเป็นต้นไม้ ตั้งแต่ใบไม้จนถึงยอดกิ่ง ใบไม้ถูกกำหนดโดยจุดข้อมูลของซีรีส์ และแต่ละระดับการจัดกลุ่มซ้อนกันต่อไปถูกกำหนดโดยประเภทที่สอดคล้อง Aspose.Slides for Node.js ผ่าน Java ช่วยให้สามารถจัดรูปแบบจุดข้อมูลของแผนภูมิ Sunburst และ Treemap ด้วย JavaScript ได้
+Treemap และ Sunburst chart แสดงข้อมูลเชิงลำดับชั้นในรูปแบบเดียวกัน แต่ใช้รูปแบบการจัดวางที่แตกต่างกัน Treemap วาดลำดับชั้นเป็นสี่เหลี่ยมซ้อนกัน ซึ่งพื้นที่ของสี่เหลี่ยมแทนค่าที่เป็นใบไม้ Sunburst วาดเป็นวงจรศูนย์กลาง: กลุ่มระดับบนอยู่ใกล้ศูนย์กลาง และหมวดหมู่ใบอยู่บนวงแหวนด้านนอก
 
-นี่คือแผนภูมิ Sunburst ซึ่งข้อมูลในคอลัมน์ Series1 กำหนดโนด leaf ส่วนคอลัมน์อื่นกำหนดจุดข้อมูลเชิงลำดับชั้น:
+ใน Aspose.Slides for Node.js via Java ค่าตัวเลขแต่ละค่าจะเป็น [ChartDataPoint](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/) วิธี [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) ให้เข้าถึงใบไม้และกลุ่มพาเรนท์ของมัน บทความนี้อธิบายการแมปนี้และแสดงวิธีสร้างและจัดรูปแบบทั้งสองประเภทของแผนภูมิจากชุดข้อมูลตัวอย่างเดียวกัน
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![A Treemap chart with Consumer and Business branches](treemap-hierarchy.png)
 
-เริ่มต้นด้วยการเพิ่มแผนภูมิ Sunburst ใหม่ลงในงานนำเสนอ:
+![A Sunburst chart with the same Consumer and Business hierarchy](sunburst-hierarchy.png)
+
+## **ทำความเข้าใจประเภท, จุดข้อมูล, และระดับ**
+
+ตัวอย่างที่ใช้ด้านล่างมีระดับหมวดหมู่สามระดับและชุดตัวเลขหนึ่งชุด:
+
+| สาขา | ส่วน | ใบไม้ | รายได้ |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+แต่ละแถวสร้างหมวดหมู่ใบไม้หนึ่งรายการและจุดข้อมูลหนึ่งรายการ ระดับการจัดกลุ่มหมวดหมู่บรรยายเส้นทางจากใบไม้นั้นไปยังพาเรนท์ของมัน สำหรับแถวแรก เส้นทางคือ `Consumer > Computers > Laptops`
+
+ดัชนีที่คืนค่าจาก [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) เริ่มจากใบไม้ขึ้นไปบนพาเรนท์:
+
+| `getDataPointLevels()` index | ระดับตรรกะ | การแสดงผล Treemap | การแสดงผล Sunburst |
+| ---: | --- | --- | --- |
+| `0` | ใบไม้ | สี่เหลี่ยมค่าตัว | ส่วนของวงแหวนนอก |
+| `1` | ส่วน | สี่เหลี่ยมพาเรนท์หรือหัวข้อ | ส่วนของวงแหวนกลาง |
+| `2` | สาขา | สี่เหลี่ยมระดับบนหรือหัวข้อ | ส่วนของวงแหวนใน |
+
+ลำดับนี้เหมือนกันสำหรับทั้งสองประเภทของแผนภูมิ แม้ว่าการจัดวางภาพจะแตกต่างกัน กรากพาเรนท์ถูกใช้ร่วมโดยหลายใบไม้ เพื่อจัดรูปแบบให้ใช้ระดับของจุดข้อมูลแรกในกลุ่มนั้น ตัวอย่างเช่น สาขา `Consumer` เริ่มต้นด้วยจุด `Laptops` ในขณะที่ส่วน `Software` เริ่มต้นด้วยจุด `Licenses` การเก็บอ้างอิงไปยังจุดเหล่านั้นทำให้โค้ดชัดเจนและปลอดภัยกว่าการใช้การอ้างอิงที่ไม่อธิบายเช่น `dataPoints.get_Item(0)` หรือ `dataPoints.get_Item(6)`
+
+## **สร้างและปรับแต่งแผนภูมิทั้งสองประเภท**
+
+ตัวอย่างเต็มต่อไปนี้สร้าง Treemap บนสไลด์แรกและ Sunburst บนสไลด์ที่สอง สร้างลำดับชั้น แสดงค่าของ `Tablets` ใช้สีคงที่กับระดับที่เลือก จัดรูปแบบป้ายสาขา และบันทึกการนำเสนอ
 
 ```javascript
-var pres = new aspose.slides.Presentation();
+const presentation = new aspose.slides.Presentation();
 try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    // ...
-} finally {
-    if (pres != null) {
-        pres.dispose();
+    const worksheetIndex = 0;
+    const leafLevelIndex = 0;
+    const stemLevelIndex = 1;
+    const branchLevelIndex = 2;
+
+    const branchNames = [
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    ];
+    const stemNames = [
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    ];
+    const leafNames = [
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    ];
+    const revenues = [12, 8, 15, 6, 10, 7, 11, 14];
+    const dataPointCount = leafNames.length;
+
+    const chartTypes = [
+        aspose.slides.ChartType.Treemap,
+        aspose.slides.ChartType.Sunburst
+    ];
+    const chartCount = chartTypes.length;
+    const layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (let chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        const chartType = chartTypes[chartIndex];
+        let slide;
+
+        if (chartIndex === 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        const chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        const chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        const workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // เพิ่มหมวดหมู่ใบไม้ การตั้งค่ารายการจัดกลุ่มจะทำเฉพาะเมื่อเริ่มกลุ่มใหม่;
+        // หมวดหมู่ต่อไปนี้จะคงอยู่ในกลุ่มนั้นจนกว่าจะตั้งค่ารายการอื่น.
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            const category = chartData.getCategories().add(categoryCell);
+
+            const stemName = stemNames[dataIndex];
+            const startsNewStem = dataIndex === 0 || stemName !== stemNames[dataIndex - 1];
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            const branchName = branchNames[dataIndex];
+            const startsNewBranch = dataIndex === 0 || branchName !== branchNames[dataIndex - 1];
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        const seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        const series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        let laptopsDataPoint = null;
+        let tabletsDataPoint = null;
+        let licensesDataPoint = null;
+
+        for (let dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            const rowIndex = dataIndex + 1;
+            const leafName = leafNames[dataIndex];
+            const revenue = revenues[dataIndex];
+            const valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            let dataPoint;
+
+            if (chartType === aspose.slides.ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if (leafName === "Laptops") {
+                laptopsDataPoint = dataPoint;
+            } else if (leafName === "Tablets") {
+                tabletsDataPoint = dataPoint;
+            } else if (leafName === "Licenses") {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // แสดงหมวดหมู่และค่าในใบไม้ Tablets.
+        const tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        const tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // จัดรูปแบบสาขา Consumer ผ่านใบไม้แรกในสาขานั้น.
+        const consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        const consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        const consumerBranchColor = java.newInstanceSync("java.awt.Color", 31, 78, 121);
+        consumerBranchFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        const consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        const consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        const whiteColor = java.getStaticFieldValue("java.awt.Color", "WHITE");
+        consumerLabelTextFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        consumerLabelTextFill.getSolidFillColor().setColor(whiteColor);
+
+        // จัดรูปแบบสเต็ม Software ผ่านใบไม้แรกในสเต็มนั้น.
+        const softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        const softwareStemFill = softwareStemLevel.getFormat().getFill();
+        const softwareStemColor = java.newInstanceSync("java.awt.Color", 112, 173, 71);
+        softwareStemFill.setFillType(java.newByte(aspose.slides.FillType.Solid));
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout มีผลต่อป้ายพาเรนท์ของ Treemap; Sunburst ใช้ส่วนของวงแหวน.
+        if (chartType === aspose.slides.ChartType.Treemap) {
+            series.setParentLabelLayout(aspose.slides.ParentLabelLayoutType.Overlapping);
+        }
     }
+
+    presentation.save("hierarchical-charts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="ดูเพิ่มเติม" %}} 
-- [**Create or Update PowerPoint Presentation Charts in JavaScript**](/slides/th/nodejs-java/create-chart/)
-{{% /alert %}}
+เซลล์หมวดหมู่และเซลล์ค่าผลใช้แถว worksheet เดียวกัน ดังนั้นตำแหน่งในคอลเลกชันจะยังคงสอดคล้องกัน เมื่อทำงานกับแผนภูมิที่มีอยู่แล้วแทนการสร้างใหม่ ให้ตรวจสอบแถวหมวดหมู่ก่อนและจัดเก็บการอ้างอิงที่ตั้งชื่อไปยังจุดข้อมูลและระดับที่ตั้งใจจะจัดรูปแบบ
 
-หากต้องการจัดรูปแบบจุดข้อมูลของแผนภูมิ เราควรใช้สิ่งต่อไปนี้:
+## **พฤติกรรมและข้อพิจารณาเชิงปฏิบัติ**
 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevelsManager), 
-[ChartDataPointLevel](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevel) classes 
-and [**ChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPoint#getDataPointLevels--) method 
-provide access to format data points of Treemap and Sunburst charts. 
-[**ChartDataPointLevelsManager**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevelsManager)
-is used for accessing multi-level categories - it represents the container of 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevel) objects.
-Basically it is a wrapper for 
-[**ChartCategoryLevelsManager**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartCategoryLevelsManager) with
-the properties added specific for data points. 
-[**ChartDataPointLevel**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevel) class has
-two methods: [**getFormat**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevel#getFormat--) and 
-[**getDataLabel**](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/ChartDataPointLevel#getLabel--) which
-provide access to corresponding settings.
+### **ความแตกต่างระหว่าง Treemap และ Sunburst**
 
-## **แสดงค่าจุดข้อมูล**
-แสดงค่าของจุดข้อมูล “Leaf 4”:
+- Treemap ใช้พื้นที่เพื่อสื่อค่าตัวเลขและสี่เหลี่ยมซ้อนกันเพื่อสื่อลำดับชั้น วิธี [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) ควบคุมการแสดงป้ายพาเรนท์ในประเภทแผนภูมินี้
+- Sunburst ใช้มุมเพื่อสื่อค่าตัวเลขและความลึกของวงแหวนเพื่อสื่อลำดับชั้น วิธี [ChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartseries/#setParentLabelLayout) ไม่ควบคุมป้ายวงแหวนของมัน
+- ทั้งสองประเภทใช้ระดับการจัดกลุ่มหมวดหมู่และลำดับใบไม้‑ไป‑พาเรนท์เดียวกันที่คืนค่าจาก [ChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapoint/#getDataPointLevels) ดังนั้นโค้ดการสร้างข้อมูลและการจัดรูปแบบระดับจึงสามารถใช้ร่วมกันได้
+- ค่าพาเรนท์คำนวณจากใบไม้ที่สืบทอด ไม่ต้องเพิ่มจุดตัวเลขแยกสำหรับสาขาหรือส่วน
 
-```javascript
-var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+### **การจัดเรียงและลำดับส่วน**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+กลไกการจัดวางแผนภูมิจะกำหนดตำแหน่งสุดท้ายของสี่เหลี่ยมและส่วนของวงแหวน จัดกลุ่มแถวหมวดหมู่ที่เกี่ยวข้องไว้ด้วยกันก่อนเพิ่มเข้าไป แต่ไม่ควรพึ่งพาตำแหน่งสี่เหลี่ยมหรือมุมเริ่มต้นเฉพาะ หากลำดับมีความหมาย ควรรวมไว้ในป้ายหรือต้องใช้ประเภทแผนภูมิที่มีแกนหมวดหมู่ชัดเจน
 
-## **ตั้งค่าป้ายและสีจุดข้อมูล**
-ตั้งค่าป้ายข้อมูล “Branch 1” ให้แสดงชื่อซีรีส์ (“Series1”) แทนชื่อประเภท จากนั้นตั้งค่าสีข้อความเป็นสีเหลือง:
+### **ธีมและสีคงที่**
 
-```javascript
-var branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(java.newByte(aspose.slides.FillType.Solid));
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "YELLOW"));
-```
+ระดับแผนภูมิที่ไม่ได้จัดรูปแบบจะสืบทอดสีจากธีมของการนำเสนอ ตัวอย่างใช้การเติมสี RGB อย่างชัดเจนเพื่อผลลัพธ์ที่คาดเดาได้ หากต้องการให้แผนภูมิตามการเปลี่ยนแปลงธีม ควรใช้สีจากสคีมแทนค่ารหัส RGB คงที่ และหลีกเลี่ยงการเขียนทับทุกระดับ ตรวจสอบความแตกต่างของป้ายหลังจากเปลี่ยนการเติมสีของสาขาหรือส่วน
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+### **ป้ายและพื้นที่ที่ใช้ได้**
 
-## **ตั้งค่าสีสาขาจุดข้อมูล**
-เปลี่ยนสีของสาขา “Steam 4”:
+PowerPoint อาจซ่อนหรือย่อป้ายเมื่อส่วนมีขนาดเล็กเกินไป การเพิ่มขนาดแผนภูมิ ย่อชื่อหมวดหมู่ หรือแสดงฟิลด์ป้ายน้อยลงมักให้ผลลัพธ์ที่ชัดเจน ป้ายสามารถรวมชื่อหมวดหมู่ ชื่อชุดข้อมูล และค่าได้ผ่าน [DataLabelFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/) แต่การเปิดใช้งานทุกฟิลด์อาจทำให้แผนภูมิเชิงลำดับชั้นอ่านยาก
 
-```javascript
-var pres = new aspose.slides.Presentation();
-try {
-    var chart = pres.getSlides().get_Item(0).getShapes().addChart(aspose.slides.ChartType.Sunburst, 100, 100, 450, 400);
-    var dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-    var stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
-    stem4branch.getFormat().getFill().setFillType(java.newByte(aspose.slides.FillType.Solid));
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(java.getStaticFieldValue("java.awt.Color", "RED"));
-    pres.save("pres.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
-    }
-}
-```
+### **การส่งออกและการแสดงผล**
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+การบันทึกเป็น PPTX ทำให้แผนภูมิสามารถแก้ไขได้ เมื่อ Aspose.Slides เรนเดอร์การนำเสนอเป็น PDF หรือรูปภาพ การเติมสีและการตั้งค่าป้ายที่สนับสนุนจะถูกเรนเดอร์พร้อมแผนภูมิ การเปลี่ยนฟอนต์และความแตกต่างเล็กน้อยของพื้นที่จัดวางอาจทำให้การตัดบรรทัดหรือการมองเห็นป้ายเปลี่ยนแปลง ดังนั้นควรติดตั้งฟอนต์ที่จำเป็นและตรวจสอบเป้าหมายการส่งออกที่สำคัญ
 
 ## **คำถามที่พบบ่อย**
 
-**Can I change the order (sorting) of segments in Sunburst/Treemap?**
+**ทำไมการเปลี่ยนระดับพาเรนท์ถึงส่งผลต่อหลายใบไม้?**
 
-No. PowerPoint sorts segments automatically (typically by descending values, clockwise). Aspose.Slides mirrors this behavior: you can’t change the order directly; you achieve it by preprocessing the data.
+สาขาหรือส่วนเป็นส่วนภาพที่ใช้ร่วมกัน พาเรนท์ของมัน ([ChartDataPointLevel](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/chartdatapointlevel/)) สามารถเข้าถึงได้ผ่านใบไม้ที่สืบทอด แต่การจัดรูปแบบเป็นของส่วนพาเรนท์ที่ใช้ร่วม ไม่ได้เป็นของใบไม้เท่านั้น
 
-**How does the presentation theme affect the colors of segments and labels?**
+**ทำไมป้ายข้อมูลจึงหายไป?**
 
-Chart colors inherit the presentation’s [theme/palette](/slides/th/nodejs-java/presentation-theme/) unless you explicitly set fills/fonts. For consistent results, lock in solid fills and text formatting at the required levels.
+อันดับแรกให้เปิดฟิลด์ที่ต้องการบนออบเจ็กต์ [DataLabelFormat](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabelformat/) ของป้าย แล้วตรวจสอบว่ามีพื้นที่เพียงพอหรือไม่ การจัดวางป้ายพาเรนท์ของ Treemap, มิติของแผนภูมิ, ความยาวป้าย, ขนาดฟอนต์, และจำนวนฟิลด์ที่เปิดใช้งานทั้งหมดมีผลต่อการแสดงป้าย
 
-**Will export to PDF/PNG preserve custom branch colors and label settings?**
+**ฉันสามารถกำหนดลำดับหรือพิกัดของส่วนได้อย่างแม่นยำหรือไม่?**
 
-Yes. When exporting the presentation, chart settings (fills, labels) are preserved in the output formats because Aspose.Slides renders with the chart’s formatting applied.
+คุณสามารถควบคุมลำดับแถวแหล่งและให้แต่ละกลุ่มต่อเนื่องกันได้ แต่ไม่สามารถกำหนดสี่เหลี่ยม Treemap หรือมุม Sunburst อย่างแม่นยำได้ กลไกการจัดวางแผนภูมิคำนวณจากลำดับชั้น ค่าและพื้นที่ที่ใช้ได้
 
-**Can I compute the actual coordinates of a label/element for custom overlay placement on top of the chart?**
+**ทำไมสีถึงเปลี่ยนหลังจากธีมของการนำเสนอเปลี่ยน?**
 
-Yes. After the chart layout is validated, actual X and actual Y are available for elements (for example, a [DataLabel](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/datalabel/)), which helps with precise positioning of overlays.
+การเติมสีที่อิงธีมออกแบบมาให้ตามพาเลตของการนำเสนอ ให้ใช้สี RGB ชัดเจนกับระดับที่ต้องคงที่ หรือเก็บสีสคีมไว้เมื่อการปรับให้เข้ากับธีมใหม่เป็นที่ต้องการ
+
+**การจัดรูปแบบแบบกำหนดเองจะคงอยู่ในการส่งออกเป็น PDF และรูปภาพหรือไม่?**
+
+ใช่ การเติมสีแผนภูมิและการตั้งค่าป้ายที่สนับสนุนจะถูกรวมไว้ระหว่างการเรนเดอร์ เพื่อผลลัพธ์ที่สม่ำเสมอระหว่างระบบต่างๆ ให้ทำให้ฟอนต์ที่จำเป็นพร้อมใช้งานและทดสอบขนาดการส่งออกสุดท้าย เนื่องจากการจัดวางป้ายขึ้นกับพื้นที่
+
+## **ดูเพิ่มเติม**
+
+- [Create Treemap charts](/slides/th/nodejs-java/create-chart/#creating-tree-map-charts)
+- [Create Sunburst charts](/slides/th/nodejs-java/create-chart/#creating-sunburst-charts)
+- [Export presentation charts](/slides/th/nodejs-java/export-chart/)
+- [Manage presentation themes](/slides/th/nodejs-java/presentation-theme/)

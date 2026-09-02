@@ -34,7 +34,13 @@ pip install aspose.slides
 
 ## **Klona i slutet i samma presentation**
 
-Om du vill klona en bild inom samma presentation och lägga till den i slutet av de befintliga bilderna, använd metoden `add_clone`. Följ dessa steg:
+```bash
+pip install aspose.slides
+```
+
+## **Klona i slutet av samma presentation**
+
+Om du vill klona en bild i samma presentation och lägga till den i slutet av de befintliga bilderna, använd metoden `add_clone`. Följ dessa steg:
 
 1. Skapa en instans av klassen [Presentation].
 2. Hämta bildsamlingen från objektet [Presentation].
@@ -50,13 +56,13 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # Klona den önskade bilden till slutet av bildsamlingen i samma presentation.
     presentation.slides.add_clone(presentation.slides[0])
-    # Spara den ändrade presentationen till disk.
+    # Spara den modifierade presentationen till disk.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Klona till en specifik position i samma presentation**
 
-Om du vill klona en bild inom samma presentation och placera den på en annan position, använd metoden `insert_clone`:
+Om du vill klona en bild i samma presentation och placera den på en annan position, använd metoden `insert_clone`:
 
 1. Skapa en instans av klassen [Presentation].
 2. Hämta bildsamlingen från objektet [Presentation].
@@ -72,7 +78,7 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # Klona den önskade bilden till den specificerade positionen (index) inom samma presentation.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Spara den ändrade presentationen till disk.
+    # Spara den modifierade presentationen till disk.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -130,7 +136,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 
 Om du behöver klona en bild **med dess master** från en presentation och använda den i en annan, klona först den erforderliga mastersidan från källpresentationen till målpresentationen. Använd sedan den målmastern när du klonar bilden. Metoden `add_clone(Slide, MasterSlide)` förväntar sig en **mastersida från målpresentationen**, inte från källan.
 
-För att klona en bild med dess master, följ dessa steg:
+Följ dessa steg för att klona en bild med dess master:
 
 1. Skapa en instans av klassen [Presentation] för källpresentationen (den som innehåller bilden som ska klonas).
 2. Skapa en instans av klassen [Presentation] för målpresentationen.
@@ -164,7 +170,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 
 ## **Klona i slutet i en specificerad sektion**
 
-Med Aspose.Slides för Python via .NET kan du klona en bild från ett avsnitt i en presentation och infoga den i ett annat avsnitt i samma presentation. För att göra detta, använd metoden `add_clone(Slide, Section)` i klassen [SlideCollection].
+Med Aspose.Slides för Python via .NET kan du klona en bild från ett avsnitt i en presentation och infoga den i ett annat avsnitt i samma presentation. Använd metoden `add_clone(Slide, Section)` i klassen [SlideCollection](https://reference.aspose.com/slides/sv/python-net/aspose.slides/slidecollection/).
 
 Följande Python‑exempel visar hur man klonar en bild och infogar klonen i en specificerad sektion:
 
@@ -173,15 +179,15 @@ import aspose.slides as slides
 
 # Skapa en ny tom presentation.
 with slides.Presentation() as presentation:
-    # Lägg till en tom bild baserad på layouten för den första bilden.
+    # Lägg till en tom bild baserat på layouten för den första bilden.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Lägg till en ellipsform på den nya bilden; den här bilden kommer att klonas senare.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Lägg till ytterligare en tom bild baserad på layouten för den första bilden.
+    # Lägg till ytterligare en tom bild baserat på layouten för den första bilden.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Skapa ett avsnitt med namnet "Section2" som börjar vid slide2.
     section = presentation.sections.add_section("Section2", slide2)
-    # Klona den tidigare skapade bilden till avsnittet "Section2".
+    # Klona den tidigare skapade bilden in i avsnittet "Section2".
     presentation.slides.add_clone(slide, section)
     # Spara presentationen som en PPTX-fil.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)

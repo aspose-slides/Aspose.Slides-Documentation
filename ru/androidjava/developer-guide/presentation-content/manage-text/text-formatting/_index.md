@@ -1,111 +1,57 @@
 ---
-title: Формат текста презентации на Android
-linktitle: Форматирование текста
+title: "Форматирование текста презентации на Android"
+linktitle: "Форматирование текста"
 type: docs
 weight: 50
 url: /ru/androidjava/text-formatting/
 keywords:
-- подсветка текста
-- регулярное выражение
 - выравнивание абзаца
 - стиль текста
 - фон текста
 - прозрачность текста
-- интервал между символами
+- межсимвольный интервал
 - свойства шрифта
 - семейство шрифтов
 - вращение текста
 - угол вращения
-- текстовый кадр
+- текстовая рамка
 - межстрочный интервал
 - свойство автоподгонки
-- привязка текстового кадра
+- привязка текстовой рамки
 - табуляция текста
 - язык по умолчанию
 - PowerPoint
 - OpenDocument
-- presentation
+- презентация
 - Android
 - Java
 - Aspose.Slides
-description: "Форматировать и стилизовать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Android через Java. Настраивайте шрифты, цвета, выравнивание и многое другое."
+description: "Форматирование и стилизация текста в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Android на Java. Настраивайте шрифты, цвета, выравнивание и многое другое."
 ---
 ## **Обзор**
 
-В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides для Android через Java. Рассматриваются подсветка, фоновые цвета, прозрачность, интервал между символами, свойства шрифта, вращение, интервал между абзацами, поведение автоподгонки, привязка текста, табуляторы и настройки языка.
+В этой статье показано, как форматировать текст в презентациях PowerPoint и OpenDocument с помощью Aspose.Slides for Android через Java. Рассматриваются цвета фона, прозрачность, межсимвольный интервал, свойства шрифта, вращение, межабзацный интервал, поведение автоподгонки, привязка текста, табуляции и настройки языка.
 
-В примерах ниже используется файл **sample.pptx**, содержащий один текстовый блок на первом слайде со следующим текстом:
+В приведённых ниже примерах мы будем использовать файл с именем «sample.pptx», который содержит один текстовый блок на первом слайде со следующим текстом:
 
 ![Пример текста](sample_text.png)
 
-## **Подсветка текста**
+Чтобы найти и выделить буквальный текст или совпадения регулярных выражений, см. [Поиск и замена текста](/slides/ru/androidjava/search-and-replace-text/).
 
-Используйте метод [ITextFrame.highlightText](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrame#highlightText-java.lang.String-java.lang.Integer-) для подсветки текста, совпадающего с заданным образцом внутри текстового фрейма. Метод применяет цвет подсветки к подходящим фрагментам текста и может использоваться вместе с [ITextSearchOptions](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextSearchOptions) для управления способом поиска, например, для сопоставления только целых слов.
+## **Установить цвет фона текста**
 
-Пример кода ниже подсвечивает все вхождения символов **"try"**, а затем подсвечивает только полное слово **"to"**.
+Используйте [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) для установки цвета подсветки по умолчанию для абзаца или [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseportionformat/#getHighlightColor--) для отдельных текстовых фрагментов.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    // Получить первую фигуру с первого слайда.
-    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    // Подсветить слово "try" в фигуре.
-    shape.getTextFrame().highlightText("try", Color.rgb(173, 216, 230));
-
-    TextSearchOptions searchOptions = new TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Подсветить слово "to" в фигуре.
-    int violetColor = Color.rgb(238, 130, 238);
-    shape.getTextFrame().highlightText("to", violetColor, searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Результат:
-
-![Подсвеченный текст](highlighted_text.png)
-
-## **Подсветка текста с использованием регулярных выражений**
-
-Метод [ITextFrame.highlightRegex](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrame#highlightRegex-java.util.regex.Pattern-java.lang.Integer-com.aspose.slides.IFindResultCallback-) подсвечивает найденные регулярным выражением совпадения текста.
-
-Пример кода ниже подсвечивает все слова, содержащие **семь или более символов**:
+Следующий пример кода показывает, как задать цвет фона для **всего абзаца**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape shape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-
-    java.util.regex.Pattern regex = java.util.regex.Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Подсветить все слова, содержащие семь или более символов.
-    shape.getTextFrame().highlightRegex(regex, Color.YELLOW, null);
-
-    presentation.save("highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Результат:
-
-![Подсвеченный текст с помощью регулярного выражения](highlighted_text_using_regex.png)
-
-## **Установка фонового цвета текста**
-
-Используйте [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) для установки цвета подсветки по умолчанию для абзаца или [IBasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBasePortionFormat#getHighlightColor--) для отдельных текстовых фрагментов.
-
-Следующий пример кода показывает, как установить фон **для всего абзаца**:
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Установить цвет подсветки для всего абзаца.
@@ -121,17 +67,19 @@ try {
 
 ![Серый абзац](gray_paragraph.png)
 
-Пример кода ниже демонстрирует, как установить фон **для текстовых фрагментов с полужирным шрифтом**:
+Ниже приведён пример кода, демонстрирующий, как задать цвет фона для **текстовых фрагментов с полужирным шрифтом**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Установить цвет подсветки для текстового фрагмента.
             portion.getPortionFormat().getHighlightColor().setColor(Color.LTGRAY);
@@ -148,16 +96,19 @@ try {
 
 ![Серые текстовые фрагменты](gray_text_portions.png)
 
-## **Выравнивание текстовых абзацев**
+## **Выровнять абзацы текста**
 
-Используйте [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#setAlignment-byte-) для задания выравнивания абзаца внутри текстового фрейма. Значение может быть центрированным, выровненным по левому, правому краю, по ширине и т.д.
+Используйте [IParagraphFormat.setAlignment](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#setAlignment-int-) для задания выравнивания абзаца внутри текстовой рамки. Значение может быть центрировано, выровнено по левому, правому краю, выровнено по ширине и т.д.
 
 Следующий пример кода показывает, как выровнять абзац **по центру**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Установить выравнивание абзаца по центру.
@@ -173,18 +124,22 @@ try {
 
 ![Выровненный абзац](aligned_paragraph.png)
 
-## **Установка прозрачности текста**
+## **Установить прозрачность текста**
 
-Прозрачность текста контролируется альфа‑компонентой цвета, задаваемой для [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--). В примерах ниже `alpha = 50` — это значение канала ARGB в диапазоне 0‑255, а не процент прозрачности.
+Прозрачность текста управляется через альфа‑компонент цвета, назначенного [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). В примерах ниже `alpha = 50` — значение альфа‑канала ARGB в диапазоне 0–255, а не процент прозрачности.
 
-Пример кода ниже показывает, как применить прозрачность **к целому абзацу**:
+Следующий пример кода показывает, как применить прозрачность к **всему абзацу**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Установить цвет заливки текста в прозрачный цвет.
@@ -201,19 +156,21 @@ try {
 
 ![Прозрачный абзац](transparent_paragraph.png)
 
-Следующий пример кода показывает, как применить прозрачность **к текстовым фрагментам с полужирным шрифтом**:
+Следующий пример кода показывает, как применить прозрачность к **текстовым фрагментам с полужирным шрифтом**:
 
 ```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
 int alpha = 50;
 
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Установить прозрачность текстового фрагмента.
             portion.getPortionFormat().getFillFormat().setFillType(FillType.Solid);
@@ -231,20 +188,23 @@ try {
 
 ![Прозрачные текстовые фрагменты](transparent_text_portions.png)
 
-## **Установка интервала между символами**
+## **Установить межсимвольный интервал текста**
 
-Используйте [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBasePortionFormat#setSpacing-float-) для расширения или сжатия интервала между символами в текстовом боксе.
+Используйте [IBasePortionFormat.setSpacing](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseportionformat/#setSpacing-float-) для расширения или сжатия интервала между символами в текстовом блоке.
 
-Следующий Java‑код показывает, как расширить интервал между символами **весь абзац**:
+Следующий пример Java‑кода показывает, как расширить межсимвольный интервал в **всём абзаце**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Примечание: используйте отрицательные значения для сжатия интервала между символами.
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Расширить интервал между символами.
+    // Примечание: Используйте отрицательные значения, чтобы сжать межсимвольный интервал.
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // Расширить межсимвольный интервал.
 
     presentation.save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 } finally {
@@ -254,22 +214,23 @@ try {
 
 Результат:
 
-![Интервал между символами в абзаце](character_spacing_in_paragraph.png)
+![Межсимвольный интервал в абзаце](character_spacing_in_paragraph.png)
 
-Пример кода ниже показывает, как расширить интервал **в текстовых фрагментах с полужирным шрифтом**:
+Ниже пример кода, показывающий, как расширить межсимвольный интервал в **текстовых фрагментах с полужирным шрифтом**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Примечание: используйте отрицательные значения для сжатия интервала между символами.
-            portion.getPortionFormat().setSpacing(3); // Расширить интервал между символами.
+            // Примечание: Используйте отрицательные значения, чтобы сжать межсимвольный интервал.
+            portion.getPortionFormat().setSpacing(3); // Расширить межсимвольный интервал.
         }
     }
 
@@ -281,36 +242,34 @@ try {
 
 Результат:
 
-![Интервал между символами в текстовых фрагментах](character_spacing_in_text_portions.png)
+![Межсимвольный интервал в текстовых фрагментах](character_spacing_in_text_portions.png)
 
-### **Отключение кернинга для отдельных шрифтов**
+### **Отключить кернинг для определённых шрифтов**
 
-В некоторых случаях текст, отрисованный Aspose.Slides, выглядит чуть плотнее, чем тот же текст в PowerPoint. Это происходит потому, что PowerPoint может игнорировать данные кернинга для определённых шрифтов, даже если шрифт содержит корректную информацию о кернинге и кернинг включён в настройках PowerPoint.
+В некоторых случаях текст, отображаемый Aspose.Slides, может выглядеть немного плотнее, чем тот же текст в PowerPoint. Это может происходить потому, что PowerPoint может игнорировать данные кернинга для определённых шрифтов, даже если шрифт содержит корректные данные кернинга и кернинг включён в настройках PowerPoint.
 
-Чтобы привести вывод к виду PowerPoint, можно отключить кернинг для текстовых фрагментов, использующих затронутый шрифт. Установите [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBasePortionFormat#setKerningMinimalSize-float-) в значение, заметно превышающее фактический размер шрифта:
+Чтобы вывести результат, более похожий на PowerPoint, вы можете отключить кернинг для текстовых фрагментов, использующих затронутый шрифт. Установите [IBasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseportionformat/#setKerningMinimalSize-float-) в значение, значительно превышающее фактический размер шрифта:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     String targetFont = "Roboto";
 
-    for (int paragraphIndex = 0; paragraphIndex < autoShape.getTextFrame().getParagraphs().getCount(); paragraphIndex++) {
-        IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(paragraphIndex);
+    for (IParagraph paragraph : autoShape.getTextFrame().getParagraphs()) {
+        for (IPortion portion : paragraph.getPortions()) {
+            IPortionFormat portionFormat = portion.getPortionFormat();
 
-        for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-            IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-            IFontData latinFont = portion.getPortionFormat().getLatinFont();
-            IFontData eastAsianFont = portion.getPortionFormat().getEastAsianFont();
-            IFontData complexScriptFont = portion.getPortionFormat().getComplexScriptFont();
-
-            boolean usesTargetFont =
-                    latinFont != null && targetFont.equals(latinFont.getFontName()) ||
-                    eastAsianFont != null && targetFont.equals(eastAsianFont.getFontName()) ||
-                    complexScriptFont != null && targetFont.equals(complexScriptFont.getFontName());
-
-            if (usesTargetFont) {
-                portion.getPortionFormat().setKerningMinimalSize(100);
+            if ((portionFormat.getLatinFont() != null &&
+                 portionFormat.getLatinFont().getFontName().equals(targetFont)) ||
+                (portionFormat.getEastAsianFont() != null &&
+                 portionFormat.getEastAsianFont().getFontName().equals(targetFont)) ||
+                (portionFormat.getComplexScriptFont() != null &&
+                 portionFormat.getComplexScriptFont().getFontName().equals(targetFont))) {
+                portionFormat.setKerningMinimalSize(100);
             }
         }
     }
@@ -321,18 +280,21 @@ try {
 }
 ```
 
-Эта настройка предотвращает применение кернинга к соответствующим фрагментам текста и помогает согласовать визуальный вывод Aspose.Slides с PowerPoint для шрифтов, на которые влияет это специфическое поведение PowerPoint.
+Эта настройка предотвращает применение кернинга к соответствующим фрагментам текста и может помочь согласовать рендеринг Aspose.Slides с визуальным отображением PowerPoint для шрифтов, подпадающих под это специфическое поведение PowerPoint.
 
 ## **Управление свойствами шрифта текста**
 
-Свойства шрифта можно задать на уровне абзаца через [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#getDefaultPortionFormat--) или для отдельных фрагментов через [IPortionFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPortionFormat).
+Свойства шрифта можно задавать на уровне абзаца через [IParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#getDefaultPortionFormat--) или для отдельных фрагментов через [IPortionFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iportionformat/).
 
-Следующий код задаёт шрифт и стиль текста для **всего абзаца**: устанавливает размер шрифта, полужирный, курсив, пунктирное подчеркивание и шрифт Times New Roman для всех фрагментов абзаца.
+Следующий код устанавливает шрифт и стиль текста для всего абзаца: задаётся размер шрифта, полужирный, курсив, пунктирное подчёркивание и шрифт Times New Roman для всех фрагментов абзаца.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Установить свойства шрифта для абзаца.
@@ -350,19 +312,20 @@ try {
 
 Результат:
 
-![Свойства шрифта для абзаца](font_properties_for_paragraph.png)
+![Свойства шрифта абзаца](font_properties_for_paragraph.png)
 
-Пример кода ниже применяет аналогичные свойства **к текстовым фрагментам с полужирным шрифтом**:
+Ниже пример кода, применяющий аналогичные свойства к **текстовым фрагментам с полужирным шрифтом**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    for (int portionIndex = 0; portionIndex < paragraph.getPortions().getCount(); portionIndex++) {
-        IPortion portion = paragraph.getPortions().get_Item(portionIndex);
-
+    for (IPortion portion : paragraph.getPortions()) {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             // Установить свойства шрифта для текстового фрагмента.
             portion.getPortionFormat().setFontHeight(13);
@@ -380,18 +343,21 @@ try {
 
 Результат:
 
-![Свойства шрифта для текстовых фрагментов](font_properties_for_text_portions.png)
+![Свойства шрифта текстовых фрагментов](font_properties_for_text_portions.png)
 
-## **Установка вращения текста**
+## **Установить вращение текста**
 
-Используйте [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrameFormat#setTextVerticalType-byte-) для задания предопределённой ориентации текста внутри фигуры.
+Используйте [ITextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframeformat/#setTextVerticalType-byte-) для задания предопределённой ориентации текста внутри фигуры.
 
-Следующий пример кода задаёт ориентацию текста в фигуре как `Vertical270`, что вращает текст **на 90 градусов против часовой стрелки**:
+Следующий пример кода задаёт ориентацию текста в фигуре как [TextVerticalType.Vertical270](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/textverticaltype/), что вращает текст **на 90 градусов против часовой стрелки**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(TextVerticalType.Vertical270);
 
@@ -405,16 +371,19 @@ try {
 
 ![Вращение текста](text_rotation.png)
 
-## **Установка пользовательского вращения для текстовых фреймов**
+## **Установить пользовательское вращение для текстовых рамок**
 
-Используйте [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrameFormat#setRotationAngle-float-) для задания произвольного угла вращения для [ITextFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrame).
+Используйте [ITextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframeformat/#setRotationAngle-float-) для задания пользовательского угла поворота для [ITextFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframe/).
 
-Пример кода ниже вращает текстовый фрейм на 3 градуса по часовой стрелке внутри фигуры:
+Ниже пример кода, поворачивающий текстовую рамку на 3 градуса по часовой стрелке внутри фигуры:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -428,19 +397,22 @@ try {
 
 ![Пользовательское вращение текста](custom_text_rotation.png)
 
-## **Установка межстрочного интервала абзацев**
+## **Установить межстрочный интервал абзацев**
 
-Aspose.Slides предоставляет [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#setSpaceBefore-float-) и [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#setSpaceWithin-float-) для управления интервалом между абзацами. Эти свойства используются следующим образом:
+Aspose.Slides предоставляет [IParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#setSpaceAfter-float-), [IParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#setSpaceBefore-float-) и [IParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#setSpaceWithin-float-) для управления интервалом абзацев. Эти свойства используются следующим образом:
 
 * Положительное значение задаёт межстрочный интервал в процентах от высоты строки.
-* Отрицательное значение задаёт интервал в пунктах.
+* Отрицательное значение задаёт межстрочный интервал в пунктах.
 
 Следующий пример кода показывает, как задать межстрочный интервал внутри абзаца:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -455,14 +427,17 @@ try {
 
 ![Межстрочный интервал внутри абзаца](line_spacing.png)
 
-## **Установка типа автоподгонки для текстовых фреймов**
+## **Установить тип автоподгонки для текстовых рамок**
 
-Метод [ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrameFormat#setAutofitType-byte-) определяет, как текст будет вести себя, когда выходит за границы контейнера. Используйте его для управления тем, будет ли текст сжиматься, обрезаться или автоматически изменять размер фигуры.
+[ITextFrameFormat.setAutofitType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframeformat/#setAutofitType-byte-) определяет, как текст будет вести себя, когда превышает границы своего контейнера. Используйте его для управления тем, будет ли текст сжиматься, вылезать за пределы или автоматически изменять размер фигуры.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(TextAutofitType.Shape);
 
@@ -472,14 +447,17 @@ try {
 }
 ```
 
-## **Установка привязки текста в фреймах**
+## **Установить привязку текстовых рамок**
 
-Метод [ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITextFrameFormat#setAnchoringType-byte-) определяет вертикальное расположение текста внутри фигуры, например сверху, посередине или снизу.
+[ITextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itextframeformat/#setAnchoringType-byte-) определяет, как текст позиционируется вертикально внутри фигуры, например вверху, по центру или внизу.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(TextAnchorType.Bottom);
 
@@ -489,14 +467,17 @@ try {
 }
 ```
 
-## **Настройка табуляции текста**
+## **Установить табуляцию текста**
 
-Используйте [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#setDefaultTabSize-float-) и [IParagraphFormat.getTabs](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraphFormat#getTabs--) для конфигурации табуляций в абзаце.
+Используйте [IParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#setDefaultTabSize-float-) и [IParagraphFormat.getTabs](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraphformat/#getTabs--) для настройки табуляций в абзаце.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -512,16 +493,19 @@ try {
 
 ![Табуляции абзаца](paragraph_tabs.png)
 
-## **Установка языка проверки правописания**
+## **Установить язык проверки орфографии**
 
-Aspose.Slides предоставляет [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBasePortionFormat#setLanguageId-java.lang.String-), позволяющий задать язык проверки правописания для текстового фрагмента. Язык проверки определяет язык, используемый для орфографических и грамматических проверок в PowerPoint.
+Aspose.Slides предоставляет [IBasePortionFormat.setLanguageId](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseportionformat/#setLanguageId-java.lang.String-), который позволяет задать язык проверки орфографии для текстового фрагмента. Язык проверки определяет, какой язык будет использоваться для проверок орфографии и грамматики в PowerPoint.
 
-Следующий пример кода показывает, как задать язык проверки правописания для текстового фрагмента:
+Следующий пример кода показывает, как задать язык проверки орфографии для текстового фрагмента:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("presentation.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
 
     IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
@@ -533,7 +517,7 @@ try {
     textPortion.getPortionFormat().setEastAsianFont(font);
     textPortion.getPortionFormat().setLatinFont(font);
 
-    // Установить идентификатор языка проверки правописания.
+    // Установить идентификатор языка проверки.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
     textPortion.setText("1。");
@@ -545,11 +529,13 @@ try {
 }
 ```
 
-## **Установка языка по умолчанию**
+## **Установить язык по умолчанию**
 
-Используйте [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/LoadOptions#setDefaultTextLanguage-java.lang.String-) для определения языка по умолчанию для текста, создаваемого при загрузке или создании презентации.
+Используйте [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) для определения языка текста по умолчанию при загрузке или создании презентации.
 
 ```java
+import com.aspose.slides.*;
+
 LoadOptions loadOptions = new LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -569,13 +555,15 @@ try {
 }
 ```
 
-## **Установка стиля текста по умолчанию**
+## **Установить стиль текста по умолчанию**
 
-Для применения форматирования текста по умолчанию на уровне презентации используйте [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IPresentation#getDefaultTextStyle--).
+Чтобы применить форматирование текста по умолчанию на уровне презентации, используйте [IPresentation.getDefaultTextStyle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ipresentation/#getDefaultTextStyle--).
 
-Следующий пример кода показывает, как задать шрифт по умолчанию полужирным размером 14 pt для всего текста на слайдах новой презентации.
+Следующий пример кода показывает, как задать шрифт полужирный размером 14 pt для всего текста во всех слайдах новой презентации.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
     // Получить формат абзаца верхнего уровня.
@@ -592,20 +580,23 @@ try {
 }
 ```
 
-## **Извлечение текста с эффектом “Все заглавные”**
+## **Извлечь текст с эффектом «Все заглавные»**
 
-В PowerPoint применение эффекта **All Caps** делает текст заглавным на слайде, даже если он был введён в нижнем регистре. При получении такого текстового фрагмента через Aspose.Slides библиотека возвращает исходный ввод. Чтобы отобразить текст так, как он выглядит, проверьте [TextCapType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/TextCapType) и при значении `All` преобразуйте возвращённую строку в верхний регистр.
+В PowerPoint применение эффекта шрифта **All Caps** заставляет текст отображаться заглавными буквами на слайде, даже если он был введён строчными. При извлечении такого текста с помощью Aspose.Slides библиотека возвращает строку точно в том виде, в каком она была введена. Чтобы получить отображаемый текст, преобразуйте возвращённую строку в верхний регистр, когда значение равно [TextCapType.All](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/textcaptype/).
 
-Предположим, что на первом слайде файла **sample2.pptx** находится следующий текстовый блок.
+Предположим, у нас есть следующий текстовый блок на первом слайде файла sample2.pptx.
 
 ![Эффект All Caps](all_caps_effect.png)
 
-Пример кода ниже показывает, как извлечь текст с применённым эффектом **All Caps**:
+Ниже пример кода, показывающий, как извлечь текст с применённым эффектом **All Caps**:
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation("sample2.pptx");
 try {
-    IAutoShape autoShape = (IAutoShape) presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape autoShape = (IAutoShape)slide.getShapes().get_Item(0);
     IPortion textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     System.out.println("Original text: " + textPortion.getText());
@@ -631,8 +622,8 @@ All-Caps effect: HELLO, ASPOSE!
 
 **Как изменить текст в таблице на слайде?**
 
-Для изменения текста в таблице используйте [ITable](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ITable). Пройдитесь по ячейкам и обновите каждую через [ICell.getTextFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ICell#getTextFrame--) и форматирование абзаца через [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IParagraph#getParagraphFormat--).
+Чтобы изменить текст в таблице на слайде, используйте [ITable](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/itable/). Проходите по ячейкам и обновляйте каждую ячейку через [ICell.getTextFrame](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icell/#getTextFrame--) и форматирование абзацев через [IParagraph.getParagraphFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iparagraph/#getParagraphFormat--).
 
 **Как применить градиентный цвет к тексту в слайде PowerPoint?**
 
-Для применения градиентного цвета используйте [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IBasePortionFormat#getFillFormat--). Установите [IFillFormat.setFillType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/IFillFormat#setFillType-int-) в значение [FillType.Gradient](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/FillType) и настройте точки градиента, направление и прозрачность.
+Для применения градиентного цвета к тексту используйте [IBasePortionFormat.getFillFormat](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ibaseportionformat/#getFillFormat--). Установите [IFillFormat.setFillType](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifillformat/#setFillType-byte-) в [FillType.Gradient](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/filltype/) и настройте градиентные стопы, направление и прозрачность.

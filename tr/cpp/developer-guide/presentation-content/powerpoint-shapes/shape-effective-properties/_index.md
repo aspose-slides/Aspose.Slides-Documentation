@@ -1,5 +1,5 @@
 ---
-title: C++ Sunumlarından Şekil Etkin Özelliklerini Al
+title: C++'ta Sunumlardan Şekil Etkin Özelliklerini Al
 linktitle: Etkin Özellikler
 type: docs
 weight: 50
@@ -7,8 +7,8 @@ url: /tr/cpp/shape-effective-properties/
 keywords:
 - şekil özellikleri
 - kamera özellikleri
-- ışık seti
-- köşe şekli
+- ışık düzeni
+- kavisli şekil
 - metin çerçevesi
 - metin stili
 - yazı tipi yüksekliği
@@ -17,299 +17,330 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++'nin, kesin PowerPoint renderlaması için şekil etkin özelliklerini nasıl hesapladığını ve uyguladığını keşfedin."
+description: "PowerPoint sunumlarında yerel, kalıtılmış ve etkin şekil biçimlendirmesini ayırt etmek için Aspose.Slides for C++'ı nasıl kullanacağınızı öğrenin."
 ---
-## **Genel Bakış**
+## **Yerel, Kalıtılmış ve Etkin Özellikleri Anlamak**
 
-Bu konu **yerel** ve **etkin** özellikler arasındaki farkı açıklar. Yerel değerler, belirli bir biçimlendirme düzeyinde doğrudan ayarlanan değerlerdir, örneğin:
+PowerPoint biçimlendirmesi birkaç kaynaktan gelebilir. Bir nesneye doğrudan kaydedilen değer **yerel değerdir**. Bu değer ayarlanmamışsa, PowerPoint bir paragraf varsayılanı, metin stili, düzen veya ana slayt, tema veya sunum düzeyindeki varsayılanlar gibi üst format kaynaklarına bakar. Bu değerler **kalıtılmış değerler**dir. Tüm hiyerarşi çözüldükten sonra kalan değer **etkin değerdir**—nesneyi renderlamak için kullanılan değer.
 
-1. Bir slayttaki bölüm özellikleri.
-1. Layout veya ana slaytta prototip şekil metin stilleri, bölümün metin çerçevesi şekli bir stil içeriyorsa.
-1. Sunumdaki global metin ayarları.
+Örneğin, bir metin bölümü kendi yazı tipi yüksekliğini tanımlamıyor olabilir. Yerel [yazı tipi yüksekliği](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ibaseportionformat/) değeri `std::numeric_limits<float>::quiet_NaN()` olur, bu da "burada ayarlanmamış" anlamına gelir. Bölüm, yüksekliği paragrafından, sunumun varsayılan metin stilinden veya başka bir uygulanabilir kaynaktan kalıtabilir. Bölüm formatında [GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportionformat/) çağrısı, son çözülen yüksekliği döndürür.
 
-Yerel değerler herhangi bir düzeyde tanımlanabilir veya atlanabilir. Aspose.Slides nihai “render edilmiş” biçimlendirmeye ihtiyaç duyduğunda, kalıtım zincirini çözer ve **etkin** değerleri döndürür. Bunları, yerel format nesnesi üzerinde `GetEffective` metodunu çağırarak alabilirsiniz.
+Farklı amaçlar için iki tür formatlama verisini kullanın:
 
-Aşağıdaki örnek etkin değerlerin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) olduğunu ve bir metin çerçevesi ile en az bir bölüm içerdiğini varsayar.
+- Bir değerin nerede tanımlandığını kontrol etmeniz gerektiğinde, [IPortionFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportionformat/) gibi yerel bir format nesnesini okuyun veya değiştirin.
+- Son, renderlanmış sonucu gerektiğinde, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportionformateffectivedata/) gibi bir etkin veri nesnesini okuyun. Etkin veri yalnızca okuma içindir.
+
+## **Yerel, Kalıtılmış ve Etkin Değerleri Karşılaştırma**
+
+Aşağıdaki tam örnek bir şekil oluşturur ve sunum, paragraf ve bölüm seviyelerinde yazı tipi yüksekliklerini uygular. Her adım, bu seviyelerde tanımlanan değerleri ve aynı metin bölümü için ortaya çıkan etkin değeri yazdırır. Ayrıca formatlama değişikliklerinden sonra etkin verinin yeniden okunması gerektiğini gösterir.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IPortionFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <DOM/ShapeType.h>
+#include <Export/SaveFormat.h>
+#include <system/console.h>
+#include <system/object_ext.h>
+#include <system/string.h>
+#include <cmath>
+#include <limits>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>();
 
 auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
+auto shape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 500.0f, 80.0f, false);
+auto textFrame = shape->AddTextFrame(u"Effective formatting");
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
+
+// İki farklı seviyede kalıtılmış değerleri tanımla.
+presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(20.0f);
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(28.0f);
+
+auto formatLocalValue = [](float value) -> System::String
+{
+    return std::isnan(value) ? System::String(u"<not set>") : System::ObjectExt::ToString(value);
+};
+
+auto printFontHeights = [&](System::String caption)
+{
+    auto presentationValue = presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->get_FontHeight();
+    auto paragraphValue = paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->get_FontHeight();
+    auto localValue = portion->get_PortionFormat()->get_FontHeight();
+
+    // Önceki değişikliklerden sonra etkin verileri oku.
+    auto effectiveValue = portion->get_PortionFormat()->GetEffective()->get_FontHeight();
+
+    System::Console::WriteLine(caption);
+    System::Console::WriteLine(System::String(u"  Presentation default: ") + formatLocalValue(presentationValue));
+    System::Console::WriteLine(System::String(u"  Paragraph default:    ") + formatLocalValue(paragraphValue));
+    System::Console::WriteLine(System::String(u"  Portion local:        ") + formatLocalValue(localValue));
+    System::Console::WriteLine(System::String(u"  Portion effective:    ") + effectiveValue);
+};
+
+printFontHeights(u"The portion inherits from the paragraph");
+
+// Bölümdeki yerel değer, iki kalıtılmış değerin üzerine yazar.
+portion->get_PortionFormat()->set_FontHeight(36.0f);
+printFontHeights(u"A local value overrides inherited values");
+
+// Kalıtılmış bir değeri değiştirmek, mevcut bir yerel değerin üzerine yazmaz.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(30.0f);
+printFontHeights(u"The local value still has priority");
+
+// Yerel değeri temizle. Bölüm şimdi tekrar paragraftan kalıtım alır.
+portion->get_PortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The local value is cleared");
+
+// Paragraf değerini temizle. Sunum varsayılanı artık sonucu sağlar.
+paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(std::numeric_limits<float>::quiet_NaN());
+printFontHeights(u"The paragraph value is cleared");
+
+presentation->Save(u"effective-properties.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+Bu örnekte öncelik bölüm yerel formatlaması, ardından paragraf formatlaması ve son olarak sunum varsayılanıdır. Diğer nesneler farklı kalıtım zincirlerine sahip olabilir, ancak prensip aynıdır: daha belirgin açık bir değer kazanır ve [GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportionformat/) son sonucu döndürür.
+
+## **Etkin Metin Özelliklerini Al**
+
+Metin biçimlendirmesi birkaç nesne arasında bölünür:
+
+- [ITextFrameFormat::GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframeformat/) kenar boşlukları, yerleşim, otomatik sığdırma ve dikey metin yönü gibi metin çerçevesi özelliklerini çözer.
+- [ITextStyle::GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextstyle/) her metin stili seviyesindeki paragraf biçimlendirmesini çözer.
+- [IParagraphFormat::GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iparagraphformat/) hizalama, girinti ve madde işaretleri gibi paragraf özelliklerini çözer.
+- [IPortionFormat::GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportionformat/) yazı tipi yüksekliği, tipografi, renk, kalın ve italik gibi karakter özelliklerini çözer.
+
+Sonraki örnek için `text-formatting.pptx` en az bir slayt ve boş olmayan bir metin çerçevesi içeren bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) içermelidir. IAutoShape, şekil koleksiyonunda herhangi bir konumda görünebilir; kod uygun bir nesne arar ve kullanmadan önce doğrular.
+
+```cpp
+#include <DOM/IAutoShape.h>
+#include <DOM/IParagraph.h>
+#include <DOM/IParagraphCollection.h>
+#include <DOM/IParagraphFormat.h>
+#include <DOM/IPortion.h>
+#include <DOM/IPortionCollection.h>
+#include <DOM/IPortionFormat.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/ITextFrame.h>
+#include <DOM/ITextFrameFormat.h>
+#include <DOM/ITextStyle.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"text-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
+
+auto slide = presentation->get_Slide(0);
+System::SharedPtr<IAutoShape> shape;
+
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
+{
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
+
+    if (!System::ObjectExt::Is<IAutoShape>(candidate))
+        continue;
+
+    auto autoShape = System::ExplicitCast<IAutoShape>(candidate);
+    auto candidateTextFrame = autoShape->get_TextFrame();
+
+    if (candidateTextFrame == nullptr || candidateTextFrame->get_Paragraphs()->get_Count() == 0)
+        continue;
+
+    if (candidateTextFrame->get_Paragraph(0)->get_Portions()->get_Count() == 0)
+        continue;
+
+    shape = autoShape;
+    break;
+}
+
+if (shape == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain an IAutoShape with non-empty text.");
 
 auto textFrame = shape->get_TextFrame();
-auto effectiveTextFrameFormat = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraph = textFrame->get_Paragraph(0);
+auto portion = paragraph->get_Portion(0);
 
-auto portion = textFrame->get_Paragraph(0)->get_Portion(0);
-auto effectivePortionFormat = portion->get_PortionFormat()->GetEffective();
+auto textFrameEffective = textFrame->get_TextFrameFormat()->GetEffective();
+auto paragraphEffective = paragraph->get_ParagraphFormat()->GetEffective();
+auto portionEffective = portion->get_PortionFormat()->GetEffective();
 
-presentation->Dispose();
-```
+System::Console::WriteLine(u"Text frame margins:");
+System::Console::WriteLine(System::String(u"  Left: ") + textFrameEffective->get_MarginLeft());
+System::Console::WriteLine(System::String(u"  Top: ") + textFrameEffective->get_MarginTop());
+System::Console::WriteLine(System::String(u"  Right: ") + textFrameEffective->get_MarginRight());
+System::Console::WriteLine(System::String(u"  Bottom: ") + textFrameEffective->get_MarginBottom());
+System::Console::WriteLine(System::String(u"Paragraph alignment: ") + System::ObjectExt::ToString(paragraphEffective->get_Alignment()));
+System::Console::WriteLine(System::String(u"Font height: ") + portionEffective->get_FontHeight());
+System::Console::WriteLine(System::String(u"Bold: ") + System::ObjectExt::ToString(portionEffective->get_FontBold()));
 
-{{% alert color="primary" %}}
-Etkin biçimlendirme verileri, kalıtım uygulandıktan sonra hesaplanan mevcut biçimlendirmeyi temsil eder. Mevcut uygulamada, [IPortionFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iportionformateffectivedata/) gibi bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Ebeveyn veya kalıtılan biçimlendirme değiştirildikten sonra `GetEffective` tekrar çağrılması önbellek verisini yenileyebilir ve daha önce elde edilen nesne artık önceki durumu temsil etmeyebilir. Daha sonraki kullanım için etkin değerleri korumanız gerekiyorsa, yazı tipi yüksekliği, dolgu rengi, yazı tipi stili veya hizalama gibi gerekli özellikleri kendi veri nesnenize kopyalayın.
-{{% /alert %}}
-
-## **Kamera'nın Etkin Özelliklerini Al**
-
-Aspose.Slides bir kameranın etkin özelliklerini almanıza izin verir. [ICameraEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icameraeffectivedata/) arayüzü, etkin kamera özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ICameraEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icameraeffectivedata/) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformateffectivedata/), [IThreeDFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformat/) için etkin değerler sağlar.
-
-Aşağıdaki kod örneği, kameranın etkin özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = slide->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto camera = threeDEffectiveData->get_Camera();
-
-System::Console::WriteLine(u"= Effective camera properties =");
-auto cameraType = System::ObjectExt::ToString(camera->get_CameraType());
-System::Console::WriteLine(System::String(u"Type: ") + cameraType);
-
-auto fieldOfViewAngle = camera->get_FieldOfViewAngle();
-System::Console::WriteLine(System::String(u"Field of view: ") + fieldOfViewAngle);
-
-auto cameraZoom = camera->get_Zoom();
-System::Console::WriteLine(System::String(u"Zoom: ") + cameraZoom);
-
-presentation->Dispose();
-```
-
-## **Light Rig'in Etkin Özelliklerini Al**
-
-Aspose.Slides bir ışık setinin (light rig) etkin özelliklerini almanıza izin verir. [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilightrigeffectivedata/) arayüzü, etkin ışık seti özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [ILightRigEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilightrigeffectivedata/) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformateffectivedata/), [IThreeDFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformat/) için etkin değerler sağlar.
-
-Aşağıdaki kod örneği, ışık setinin etkin özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto lightRig = threeDEffectiveData->get_LightRig();
-
-System::Console::WriteLine(u"= Effective light rig properties =");
-auto lightType = System::ObjectExt::ToString(lightRig->get_LightType());
-System::Console::WriteLine(System::String(u"Type: ") + lightType);
-
-auto lightDirection = System::ObjectExt::ToString(lightRig->get_Direction());
-System::Console::WriteLine(System::String(u"Direction: ") + lightDirection);
-
-presentation->Dispose();
-```
-
-## **Şekil Eğriliğinin (Bevel) Etkin Özelliklerini Al**
-
-Aspose.Slides bir şekil eğriliğinin (bevel) etkin özelliklerini almanıza izin verir. [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapebeveleffectivedata/) arayüzü, bir şekil için etkin yüz çıkıntısı özelliklerini içeren değiştirilemez bir nesneyi temsil eder. Bir [IShapeBevelEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapebeveleffectivedata/) örneği, [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformateffectivedata/), [IThreeDFormat](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformat/) için etkin değerler sağlar.
-
-Aşağıdaki kod örneği, bir şeklin üst eğriliğinin (top bevel) etkin özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin 3D biçimlendirmeye sahip olduğunu varsayar.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-auto shape = presentation->get_Slide(0)->get_Shape(0);
-
-auto threeDEffectiveData = shape->get_ThreeDFormat()->GetEffective();
-auto bevelTop = threeDEffectiveData->get_BevelTop();
-
-System::Console::WriteLine(u"= Effective shape's top face relief properties =");
-auto bevelType = System::ObjectExt::ToString(bevelTop->get_BevelType());
-System::Console::WriteLine(System::String(u"Type: ") + bevelType);
-
-auto bevelWidth = bevelTop->get_Width();
-System::Console::WriteLine(System::String(u"Width: ") + bevelWidth);
-
-auto bevelHeight = bevelTop->get_Height();
-System::Console::WriteLine(System::String(u"Height: ") + bevelHeight);
-
-presentation->Dispose();
-```
-
-## **Metin Çerçevesinin Etkin Özelliklerini Al**
-
-Aspose.Slides ile bir metin çerçevesinin etkin özelliklerini alabilirsiniz. [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextframeformateffectivedata/) arayüzü, etkin metin çerçevesi biçimlendirme özelliklerini içerir.
-
-Aşağıdaki kod örneği, etkin metin çerçevesi biçimlendirme özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-
-auto effectiveTextFrameFormat = shape->get_TextFrame()->get_TextFrameFormat()->GetEffective();
-
-auto anchoringType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AnchoringType());
-System::Console::WriteLine(System::String(u"Anchoring type: ") + anchoringType);
-
-auto autofitType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_AutofitType());
-System::Console::WriteLine(System::String(u"Autofit type: ") + autofitType);
-
-auto textVerticalType = System::ObjectExt::ToString(effectiveTextFrameFormat->get_TextVerticalType());
-System::Console::WriteLine(System::String(u"Text vertical type: ") + textVerticalType);
-
-System::Console::WriteLine(u"Margins");
-auto marginLeft = effectiveTextFrameFormat->get_MarginLeft();
-System::Console::WriteLine(System::String(u"   Left: ") + marginLeft);
-
-auto marginTop = effectiveTextFrameFormat->get_MarginTop();
-System::Console::WriteLine(System::String(u"   Top: ") + marginTop);
-
-auto marginRight = effectiveTextFrameFormat->get_MarginRight();
-System::Console::WriteLine(System::String(u"   Right: ") + marginRight);
-
-auto marginBottom = effectiveTextFrameFormat->get_MarginBottom();
-System::Console::WriteLine(System::String(u"   Bottom: ") + marginBottom);
-
-presentation->Dispose();
-```
-
-## **Metin Stili (Text Style) Etkin Özelliklerini Al**
-
-Aspose.Slides ile bir metin stilinin etkin özelliklerini alabilirsiniz. [ITextStyleEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itextstyleeffectivedata/) arayüzü, etkin metin stili özelliklerini içerir.
-
-Aşağıdaki kod örneği, etkin metin stili özelliklerinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [IAutoShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/iautoshape/) olduğunu ve bir metin çerçevesi içerdiğini varsayar.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto shape = System::ExplicitCast<IAutoShape>(slide->get_Shape(0));
-auto effectiveTextStyle = shape->get_TextFrame()->get_TextFrameFormat()->get_TextStyle()->GetEffective();
-int levelCount = 9;
-
-for (int levelIndex = 0; levelIndex < levelCount; levelIndex++)
+auto effectiveTextStyle = textFrame->get_TextFrameFormat()->get_TextStyle()->GetEffective();
+for (int level = 0; level < 9; ++level)
 {
-    auto effectiveStyleLevel = effectiveTextStyle->GetLevel(levelIndex);
-
-    auto depth = effectiveStyleLevel->get_Depth();
-    auto indent = effectiveStyleLevel->get_Indent();
-    auto alignment = System::ObjectExt::ToString(effectiveStyleLevel->get_Alignment());
-    auto fontAlignment = System::ObjectExt::ToString(effectiveStyleLevel->get_FontAlignment());
-
-    System::Console::WriteLine(System::String(u"= Effective paragraph formatting for style level #") + levelIndex + u" =");
-    System::Console::WriteLine(System::String(u"Depth: ") + depth);
-    System::Console::WriteLine(System::String(u"Indent: ") + indent);
-    System::Console::WriteLine(System::String(u"Alignment: ") + alignment);
-    System::Console::WriteLine(System::String(u"Font alignment: ") + fontAlignment);
+    auto levelEffective = effectiveTextStyle->GetLevel(level);
+    System::Console::WriteLine(System::String(u"Level ") + level + u" indent: " + levelEffective->get_Indent());
 }
 
 presentation->Dispose();
 ```
 
-## **Etkin Yazı Tipi Yüksekliği Değerini Al**
+## **Etkin 3B Özellikleri Al**
 
-Aspose.Slides ile etkin yazı tipi yüksekliğini alabilirsiniz. Aşağıdaki kod, bir bölümün yerel yazı tipi yüksekliği değerleri farklı sunum yapısı seviyelerinde ayarlandığında etkin yazı tipi yüksekliğinin nasıl değiştiğini gösterir.
+[IThreeDFormat::GetEffective](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformat/) tüm çözülen 3B ayarları gruplayan bir [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ithreedformateffectivedata/) nesnesi döndürür. Bunun [camera](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icameraeffectivedata/), [light rig](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ilightrigeffectivedata/), [top bevel](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapebeveleffectivedata/) ve [bottom bevel](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapebeveleffectivedata/) verileri ilgili etkin ayarları gösterir. Bu ilişkili ayarları birlikte okumak, bir şeklin son 3B görünümünü anlamayı kolaylaştırır.
+
+Bu örnek için `shape-3d.pptx` ilk slaytında en az bir şekil içermelidir. Çıktının varsayılanların dışında değerler içermesini istiyorsanız, o şekle 3B kamera, aydınlatma veya köşe ayarları uygulayın.
 
 ```cpp
-auto presentation = System::MakeObject<Presentation>();
+#include <DOM/ICameraEffectiveData.h>
+#include <DOM/ILightRigEffectiveData.h>
+#include <DOM/IShape.h>
+#include <DOM/IShapeBevelEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/IThreeDFormat.h>
+#include <DOM/IThreeDFormatEffectiveData.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"shape-3d.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0 || presentation->get_Slide(0)->get_Shapes()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The first slide must contain a shape.");
+
+auto shape = presentation->get_Slide(0)->get_Shape(0);
+auto threeDEffective = shape->get_ThreeDFormat()->GetEffective();
+
+System::Console::WriteLine(u"Camera:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_Camera()->get_CameraType()));
+System::Console::WriteLine(System::String(u"  Field of view: ") + threeDEffective->get_Camera()->get_FieldOfViewAngle());
+System::Console::WriteLine(System::String(u"  Zoom: ") + threeDEffective->get_Camera()->get_Zoom());
+
+System::Console::WriteLine(u"Light rig:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_LightType()));
+System::Console::WriteLine(System::String(u"  Direction: ") + System::ObjectExt::ToString(threeDEffective->get_LightRig()->get_Direction()));
+
+System::Console::WriteLine(u"Top bevel:");
+System::Console::WriteLine(System::String(u"  Type: ") + System::ObjectExt::ToString(threeDEffective->get_BevelTop()->get_BevelType()));
+System::Console::WriteLine(System::String(u"  Width: ") + threeDEffective->get_BevelTop()->get_Width());
+System::Console::WriteLine(System::String(u"  Height: ") + threeDEffective->get_BevelTop()->get_Height());
+
+presentation->Dispose();
+```
+
+## **Etkin Tablo Biçimlendirmesini Al**
+
+Tablo biçimlendirmesi tablo stilinden ve tüm tablo, bir sütun, bir satır veya bireysel bir hücreye uygulanan formatlardan gelebilir. Açıkça tanımlanmış doldurmalar arasında çakışma varsa öncelik hücre, satır, sütun ve ardından tüm tablo şeklindedir. Bir hücrenin etkin formatı, o hücreyi çizerken kullanılan son formattır.
+
+Bu örnek için `table-formatting.pptx` ilk slaytında en az bir tablo içermelidir. Tablo en az bir satır ve bir sütun içermelidir. Kod, ilk şeklin bir tablo olduğu varsayımı yerine bir [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) arar.
+
+```cpp
+#include <DOM/IFillFormatEffectiveData.h>
+#include <DOM/IShapeCollection.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/Table/ICell.h>
+#include <DOM/Table/ICellFormat.h>
+#include <DOM/Table/IColumn.h>
+#include <DOM/Table/IColumnCollection.h>
+#include <DOM/Table/IColumnFormat.h>
+#include <DOM/Table/IRow.h>
+#include <DOM/Table/IRowCollection.h>
+#include <DOM/Table/IRowFormat.h>
+#include <DOM/Table/ITable.h>
+#include <DOM/Table/ITableFormat.h>
+#include <system/console.h>
+#include <system/exceptions.h>
+#include <system/object_ext.h>
+#include <system/shared_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = System::MakeObject<Presentation>(u"table-formatting.pptx");
+
+if (presentation->get_Slides()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The presentation contains no slides.");
 
 auto slide = presentation->get_Slide(0);
-auto autoShape = slide->get_Shapes()->AddAutoShape(ShapeType::Rectangle, 100.0f, 100.0f, 400.0f, 75.0f, false);
-autoShape->AddTextFrame(u"");
+System::SharedPtr<ITable> table;
 
-auto textFrame = autoShape->get_TextFrame();
-auto paragraph = textFrame->get_Paragraph(0);
-auto portions = paragraph->get_Portions();
-portions->Clear();
-
-auto firstPortion = System::MakeObject<Portion>(u"Sample text with first portion");
-auto secondPortion = System::MakeObject<Portion>(u" and second portion.");
-
-portions->Add(firstPortion);
-portions->Add(secondPortion);
-
-System::Console::WriteLine(u"Effective font height just after creation:");
-auto firstPortionFormat = firstPortion->get_PortionFormat();
-auto secondPortionFormat = secondPortion->get_PortionFormat();
-
-auto printEffectiveFontHeights = [&]()
+for (int shapeIndex = 0; shapeIndex < slide->get_Shapes()->get_Count(); ++shapeIndex)
 {
-    auto firstPortionFontHeight = firstPortionFormat->GetEffective()->get_FontHeight();
-    auto secondPortionFontHeight = secondPortionFormat->GetEffective()->get_FontHeight();
+    auto candidate = slide->get_Shapes()->idx_get(shapeIndex);
 
-    System::Console::WriteLine(System::String(u"Portion #0: ") + firstPortionFontHeight);
-    System::Console::WriteLine(System::String(u"Portion #1: ") + secondPortionFontHeight);
-};
+    if (System::ObjectExt::Is<ITable>(candidate))
+    {
+        table = System::ExplicitCast<ITable>(candidate);
+        break;
+    }
+}
 
-printEffectiveFontHeights();
+if (table == nullptr)
+    throw System::InvalidOperationException(u"The first slide must contain a table.");
 
-presentation->get_DefaultTextStyle()->GetLevel(0)->get_DefaultPortionFormat()->set_FontHeight(24.0f);
+if (table->get_Rows()->get_Count() == 0 || table->get_Columns()->get_Count() == 0)
+    throw System::InvalidOperationException(u"The table must contain at least one cell.");
 
-System::Console::WriteLine(u"Effective font height after setting the presentation default font height:");
-printEffectiveFontHeights();
+auto tableEffective = table->get_TableFormat()->GetEffective();
+auto rowEffective = table->get_Row(0)->get_RowFormat()->GetEffective();
+auto columnEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective();
+auto cellEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective();
 
-paragraph->get_ParagraphFormat()->get_DefaultPortionFormat()->set_FontHeight(40.0f);
-
-System::Console::WriteLine(u"Effective font height after setting paragraph default font height:");
-printEffectiveFontHeights();
-
-firstPortionFormat->set_FontHeight(55.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #0 font height:");
-printEffectiveFontHeights();
-
-secondPortionFormat->set_FontHeight(18.0f);
-
-System::Console::WriteLine(u"Effective font height after setting portion #1 font height:");
-printEffectiveFontHeights();
-
-presentation->Save(u"SetLocalFontHeightValues.pptx", SaveFormat::Pptx);
-presentation->Dispose();
-```
-
-## **Tablo İçin Etkin Dolgu Biçimini Al**
-
-Aspose.Slides ile farklı tablo parçaları için etkin dolgu biçimlendirmesini alabilirsiniz. [IFillFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifillformateffectivedata/) arayüzü, etkin dolgu biçimlendirme özelliklerini içerir. Hücre biçimlendirmesi, satır biçimlendirmesinden, satır biçimlendirmesi ise sütun biçimlendirmesinden, sütun biçimlendirmesi ise tüm tablo biçimlendirmesinden daha yüksek önceliğe sahiptir.
-
-Sonuç olarak, tablo hücresini çizerken [ICellFormatEffectiveData](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icellformateffectivedata/) özellikleri kullanılır. Aşağıdaki kod örneği, farklı tablo parçaları için etkin dolgu biçimlendirmesinin nasıl alınacağını gösterir. İlk slayttaki ilk şeklin bir [ITable](https://reference.aspose.com/slides/tr/cpp/aspose.slides/itable/) olduğunu varsayar.
-
-```cpp
-auto presentation = System::MakeObject<Presentation>(u"sample.pptx");
-
-auto slide = presentation->get_Slide(0);
-auto table = System::ExplicitCast<ITable>(slide->get_Shape(0));
-
-auto tableFillFormatEffective = table->get_TableFormat()->GetEffective()->get_FillFormat();
-auto rowFillFormatEffective = table->get_Row(0)->get_RowFormat()->GetEffective()->get_FillFormat();
-auto columnFillFormatEffective = table->get_Column(0)->get_ColumnFormat()->GetEffective()->get_FillFormat();
-auto cellFillFormatEffective = table->idx_get(0, 0)->get_CellFormat()->GetEffective()->get_FillFormat();
+System::Console::WriteLine(System::String(u"Table fill: ") + System::ObjectExt::ToString(tableEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Row fill: ") + System::ObjectExt::ToString(rowEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Column fill: ") + System::ObjectExt::ToString(columnEffective->get_FillFormat()->get_FillType()));
+System::Console::WriteLine(System::String(u"Final cell fill: ") + System::ObjectExt::ToString(cellEffective->get_FillFormat()->get_FillType()));
 
 presentation->Dispose();
 ```
 
-## **SSS**
+Renk yalnızca doldurma türünden daha fazlaysa, önce etkin [FillType](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifillformateffectivedata/) kontrol edin ve ardından o türe ait özelliği okuyun—örneğin katı bir doldurma için [SolidFillColor](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ifillformateffectivedata/).
 
-**`GetEffective` bir anlık görüntü (snapshot) döndürür mü?**
+## **Değişikliklerden Sonra Etkin Veriyi Yeniden Okuma**
 
-Her zaman değildir. Etkin veri, kalıtım uygulandıktan sonra hesaplanan biçimlendirmeyi temsil eder, ancak bazı etkin veri nesneleri dahili olarak önbelleğe alınabilir. Ardından yapılan bir `GetEffective` çağrısı biçimlendirmeyi yeniden hesaplayabilir ve önbellek verisini yenileyebilir; bu nedenle daha önce elde edilen nesne kalıcı bir anlık görüntü olarak ele alınmamalıdır.
+Etkin veri, çözüldüğü zamandaki formatlama hiyerarşisini açıklar. Hiyerarşiye katılabilecek herhangi bir şeyi (nesnenin yerel formatlaması, paragraf veya metin‑çerçeve varsayılanları, bir tablo stili, tablo, sütun, satır veya hücre formatı, düzen veya ana slayt formatlaması, tema verileri veya sunum‑düzeyi varsayılanları, bir slayta atanan düzen veya ana) değiştirdikten sonra `GetEffective` çağrısını tekrar yapın.
 
-**Etkin özellikleri ne zaman tekrar okumalıyım?**
+Etkin veri nesnesini kalıcı bir anlık görüntü olarak tutmayın. Aspose.Slides bazı etkin verileri içsel olarak önbellekleyebilir ve daha sonraki bir `GetEffective` çağrısı bu verileri yenileyebilir. Bir değişiklik öncesi ve sonrası değerleri karşılaştırmanız gerekiyorsa, değişikliği yapmadan önce ihtiyaç duyduğunuz ölçekli değerleri—örneğin yazı tipi yüksekliği, renk, hizalama veya köşe genişliği—kendi değişkenlerinize kopyalayın.
 
-Yerel biçimlendirme, ebeveyn stiller, layout biçimlendirmesi, master biçimlendirmesi veya sunum seviyesindeki varsayılanlar değiştirildikten sonra `GetEffective` tekrar çağrılmalıdır. Bir sonraki çağrı biçimlendirme hiyerarşisini yeniden değerlendirir ve geçerli etkin sonucu döndürür.
+Bir değeri değiştirmek için ilgili yerel format nesnesini güncelleyin ve ardından sonucu doğrulamak için `GetEffective` çağırın. Etkin veri nesneleri kendileri yalnızca okuma içindir.
 
-**Bir layout/master slaytı değiştirmek/kaldırmak, zaten alınmış etkin özellikleri etkiler mi?**
+## **FAQ**
 
-Evet, değişiklik bir sonraki `GetEffective` çağrısında yansıtılır. Bir ebeveyn biçimlendirme kaynağı değiştirildiğinde veya kaldırıldığında, daha önce elde edilen etkin veriler eski olabilir. `GetEffective` tekrar çağrıldığında Aspose.Slides biçimlendirme ağacını yeniden değerlendirir ve sonuçta fontlar, renkler, boyutlar veya diğer değerler değişebilir.
+**Bir etkin değeri hangi seviyenin sağladığını nasıl anlayabilirim?**  
+Etkin veri, kaynağını değil son değeri içerir. En spesifik seviyeden dışa doğru uygulanabilir yerel nesneleri inceleyin. Metin için bu, bölüm, paragraf, metin çerçevesi, düzen, ana, tema ve sunum varsayılanlarını içerebilir. `std::numeric_limits<float>::quiet_NaN()` veya `nullptr` gibi tanımsız değerler, aramanın başka bir seviyeye devam ettiğini gösterir.
 
-**Etkin veri nesneleri üzerinden değerleri değiştirebilir miyim?**
+**Hiçbir seviye bir özelliği tanımlamadığında ne olur?**  
+Aspose.Slides uygun PowerPoint veya kütüphane varsayılanını çözer. Bu çözülen değer, yerel bir nesne açıkça tanımlamasa bile etkin veride görünür.
 
-Hayır. Etkin veri nesneleri yalnızca hesaplanan değerleri gösterir. Değişiklikleri yerel biçimlendirme nesnelerinde yapın ve ardından etkin değerleri tekrar alın.
+**Neden bir etkin değer bazen yerel değerle aynı olur?**  
+Yerel değer, kalıtım hesaplamasını kazanmıştır. Bu, özelliğin nesne üzerinde açıkça ayarlandığı ve daha spesifik bir kuralın onu geçersiz kılmadığı durumlarda beklenir.
 
-**Bir özellik şekil seviyesinde, layout/master’da ya da global ayarlarda hiç tanımlı değilse ne olur?**
-
-Etkin değer, PowerPoint ve Aspose.Slides varsayılanlarını içeren varsayılan mekanizma tarafından belirlenir. Çözülen bu değer, geçerli etkin verinin bir parçası haline gelir.
-
-**Etkin bir yazı tipi değerinden, hangi seviyenin boyutu ya da yazı tipini sağladığını anlayabilir miyim?**
-
-Doğrudan değil. Etkin veri yalnızca son değeri döndürür. Kaynağı bulmak için bölüm, paragraf, metin çerçevesi ve layout, master ve sunum seviyelerindeki metin stillerindeki yerel değerleri kontrol edip ilk açık tanımlamanın nerede olduğunu inceleyin.
-
-**Neden etkin değerler bazen yerel değerlerle aynı görünüyor?**
-
-Çünkü yerel değer nihai değer olmuş (daha yüksek seviyeden bir kalıtım gerekmemiş) ve bu durumda etkin değer yerel değerle aynı olur.
-
-**Etkin özellikleri ne zaman, yerel özelliklerle ne zaman kullanmalıyım?**
-
-Tüm kalıtım uygulandıktan sonra “render edilmiş” sonucu elde etmeniz gerektiğinde (renkleri hizalamak, girintileri veya boyutları belirlemek gibi) etkin veriyi kullanın. Bu değerleri daha sonraki biçimlendirme değişikliklerinden bağımsız olarak saklamanız gerekiyorsa, gerekli özellikleri kendi nesnenize kopyalayın. Belirli bir seviyede biçimlendirme değişikliği yapacaksanız, yerel özellikleri değiştirin ve ardından gerektiğinde etkin veriyi tekrar okuyarak sonucu doğrulayın.
+**Yerel veriyi ne zaman etkin veri yerine kullanmalıyım?**  
+Belirli bir formatlama seviyesini incelemek veya düzenlemek için yerel veriyi kullanın. Kalıtım, tema kuralları ve uygulanabilir stiller çözüldükten sonra son görünümü gerektiğinde etkin veriyi kullanın. [Tam karşılaştırma örneği](#compare-local-inherited-and-effective-values) her iki durumu da aynı iş akışında gösterir.

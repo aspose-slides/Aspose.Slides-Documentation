@@ -1,26 +1,24 @@
 ---
-title: .NET में प्रस्तुति पाठ को फ़ॉर्मेट करें
+title: .NET में प्रस्तुति पाठ को स्वरूपित करें
 linktitle: पाठ स्वरूपण
 type: docs
 weight: 50
 url: /hi/net/text-formatting/
 keywords:
-- हाइलाइट टेक्स्ट
-- नियमित अभिव्यक्ति
 - पैराग्राफ संरेखित करें
 - पाठ शैली
 - पाठ पृष्ठभूमि
 - पाठ पारदर्शिता
-- अक्षर अंतराल
+- अक्षर अंतर
 - फ़ॉन्ट गुण
 - फ़ॉन्ट परिवार
-- पाठ घुमाव
-- घुमाव कोण
+- पाठ घूर्णन
+- घूर्णन कोण
 - पाठ फ्रेम
-- पंक्ति अंतराल
-- ऑटोफिट गुण
+- पंक्ति अंतर
+- ऑटोफ़िट गुण
 - पाठ फ्रेम एंकर
-- पाठ टैब्युलेशन
+- पाठ टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
 - OpenDocument
@@ -28,78 +26,29 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फ़ॉर्मेट और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।"
+description: "Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।"
 ---
-## **समीक्षा**
+## **अवलोकन**
 
-यह लेख Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित करने का तरीका दिखाता है। इसमें हाइलाइटिंग, पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घुमाव, अनुच्छेद अंतराल, ऑटोफिट व्यवहार, पाठ एंकरिंग, टैब स्टॉप और भाषा सेटिंग शामिल हैं।
+यह लेख Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित करने का तरीका दर्शाता है। इसमें पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतर, फ़ॉन्ट गुण, घूर्णन, पैराग्राफ अंतर, ऑटोफ़िट व्यवहार, पाठ एंकरिंग, टैब स्टॉप, और भाषा सेटिंग्स शामिल हैं।
 
-नीचे दिए गए उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एकल पाठ बॉक्स है जिसमें निम्नलिखित पाठ है:
+नीचे के उदाहरणों में हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स है, जिसमें निम्नलिखित पाठ है:
 
 ![नमूना पाठ](sample_text.png)
 
-## **पाठ को हाइलाइट करें**
+शाब्दिक पाठ या नियमित अभिव्यक्ति मिलानों को खोजने और हाइलाइट करने के लिए देखें [पाठ खोजें और बदलें](/slides/hi/net/search-and-replace-text/)।
 
-जब आपको टेक्स्ट फ्रेम में किसी विशिष्ट नमूने से मेल खाने वाले पाठ को हाइलाइट करने की आवश्यकता हो तो आप [ITextFrame.HighlightText](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlighttext/) मेथड का उपयोग करें। यह मेथड मिलते हुए पाठ अंशों पर हाइलाइट रंग लागू करता है और इसे [TextSearchOptions](https://reference.aspose.com/slides/hi/net/aspose.slides/textsearchoptions/) के साथ उपयोग करके खोज के तरीके को नियंत्रित किया जा सकता है, उदाहरण के लिए केवल पूर्ण शब्दों से मेल करने के लिए।
+## **पाठ पृष्ठभूमि रंग सेट करें**
 
-नीचे दिया गया कोड उदाहरण अक्षरों **"try"** की सभी उपस्थितियों को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है।
+एक पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने हेतु [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/defaultportionformat/) का उपयोग करें, या व्यक्तिगत पाठ अंशों के लिए [IBasePortionFormat.HighlightColor](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/highlightcolor/) का उपयोग करें।
 
-```cs
-using (var presentation = new Presentation("sample.pptx"))
-{
-    // पहली स्लाइड से पहला आकार प्राप्त करें।
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
-
-    // आकार में शब्द "try" को हाइलाइट करें।
-    shape.TextFrame.HighlightText("try", Color.LightBlue);
-
-    var searchOptions = new TextSearchOptions()
-    {
-        WholeWordsOnly = true
-    };
-
-    // आकार में शब्द "to" को हाइलाइट करें।
-    shape.TextFrame.HighlightText("to", Color.Violet, searchOptions, null);
-
-    presentation.Save("highlighted_text.pptx", SaveFormat.Pptx);
-}
-```
-
-परिणाम:
-
-![हाइलाइट किया गया पाठ](highlighted_text.png)
-
-## **नियमित अभिव्यक्तियों का उपयोग करके पाठ को हाइलाइट करें**
-
-[ITextFrame.HighlightRegex](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/highlightregex/) मेथड नियमित अभिव्यक्ति द्वारा पाए गए पाठ मिलानों को हाइलाइट करता है। .NET में यह API [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) पर उपलब्ध है।
-
-नीचे दिया गया कोड उदाहरण उन सभी शब्दों को हाइलाइट करता है जिनमें **सात या अधिक अक्षर** हैं:
+निम्नलिखित कोड उदाहरण **पूरे पैराग्राफ** के पृष्ठभूमि रंग को सेट करने का तरीका दिखाता है:
 
 ```cs
-using (var presentation = new Presentation(folderPath + "sample.pptx"))
-{
-    var shape = (IAutoShape)presentation.Slides[0].Shapes[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-    var regex = new Regex(@"\b[^\s]{7,}\b");
-
-    // सात या अधिक अक्षरों वाले सभी शब्दों को हाइलाइट करें।
-    shape.TextFrame.HighlightRegex(regex, Color.Yellow, null);
-
-    presentation.Save(folderPath + "highlighted_text_using_regex.pptx", SaveFormat.Pptx);
-}
-```
-
-परिणाम:
-
-![नियमित अभिव्यक्ति का उपयोग करके हाइलाइट किया गया पाठ](highlighted_text_using_regex.png)
-
-## **पाठ की पृष्ठभूमि रंग सेट करें**
-
-पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने हेतु [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/defaultportionformat/) का उपयोग करें, या व्यक्तिगत पाठ भागों के लिए [IPortionFormat.HighlightColor](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/highlightcolor/) का उपयोग करें।
-
-निम्नलिखित कोड उदाहरण **संपूर्ण पैराग्राफ** के पृष्ठभूमि रंग को सेट करने का तरीका दर्शाता है:
-
-```cs
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -116,9 +65,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![ग्रे पैराग्राफ](gray_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** के पृष्ठभूमि रंग को सेट करने का प्रदर्शन करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ अंशों** के पृष्ठभूमि रंग को सेट करने का तरीका दर्शाता है:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -128,7 +81,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // पाठ भाग के लिए हाइलाइट रंग सेट करें।
+            // पाठ अंश के लिए हाइलाइट रंग सेट करें।
             portion.PortionFormat.HighlightColor.Color = Color.LightGray;
         }
     }
@@ -139,15 +92,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![ग्रे पाठ भाग](gray_text_portions.png)
+![ग्रे टेक्स्ट पोर्शन](gray_text_portions.png)
 
-## **पाठ अनुच्छेदों को संरेखित करें**
+## **पाठ पैराग्राफ संरेखित करें**
 
-टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [IParagraphFormat.Alignment](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/alignment/) का उपयोग करें। मान केंद्रित, बाएँ संरेखित, दाएँ संरेखित, दोनों ओर समान आदि हो सकता है।
+टेक्स्ट फ्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [IParagraphFormat.Alignment](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/alignment/) का उपयोग करें। मान केंद्रित, बाएँ-संरेखित, दाएँ-संरेखित, न्यायसंगत आदि हो सकते हैं।
 
-निम्नलिखित कोड उदाहरण पैराग्राफ को **केंद्र** में संरेखित करने का तरीका दिखाता है:
+निम्नलिखित कोड उदाहरण **केंद्र** में पैराग्राफ को संरेखित करने का तरीका दिखाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -162,15 +118,19 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![सजाया गया पैराग्राफ](aligned_paragraph.png)
+![संरेखित पैराग्राफ](aligned_paragraph.png)
 
 ## **पाठ के लिए पारदर्शिता सेट करें**
 
-पाठ की पारदर्शिता को [IPortionFormat.FillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/fillformat/) को सौंपे गए रंग के अल्फा घटक द्वारा नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0–255 स्केल पर ARGB अल्फा-चैनल मान है, न कि पारदर्शिता प्रतिशत।
+पाठ की पारदर्शिता को [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/fillformat/) को सौंपे गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में `alpha = 50` 0–255 स्केल पर एक ARGB अल्फा-चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-नीचे दिया गया कोड उदाहरण **संपूर्ण पैराग्राफ** पर पारदर्शिता लागू करने का तरीका दर्शाता है:
+नीचे का कोड उदाहरण **पूरे पैराग्राफ** पर पारदर्शिता लागू करने का तरीका दिखाता है:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -178,7 +138,7 @@ using (var presentation = new Presentation("sample.pptx"))
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // पाठ का भरने वाला रंग पारदर्शी रंग पर सेट करें।
+    // पाठ का भराव रंग पारदर्शी रंग में सेट करें।
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.FillType = FillType.Solid;
     paragraph.ParagraphFormat.DefaultPortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
 
@@ -190,9 +150,13 @@ using (var presentation = new Presentation("sample.pptx"))
 
 ![पारदर्शी पैराग्राफ](transparent_paragraph.png)
 
-निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** पर पारदर्शिता लागू करने का तरीका दर्शाता है:
+निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ अंशों** पर पारदर्शिता लागू करने का तरीका दर्शाता है:
 
 ```cs
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 int alpha = 50;
 
 using (var presentation = new Presentation("sample.pptx"))
@@ -204,7 +168,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // पाठ भाग की पारदर्शिता सेट करें।
+            // पाठ अंश की पारदर्शिता सेट करें।
             portion.PortionFormat.FillFormat.FillType = FillType.Solid;
             portion.PortionFormat.FillFormat.SolidFillColor.Color = Color.FromArgb(alpha, Color.Black);
         }
@@ -216,22 +180,25 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पारदर्शी पाठ भाग](transparent_text_portions.png)
+![पारदर्शी टेक्स्ट पोर्शन](transparent_text_portions.png)
 
-## **पाठ के लिए अक्षर अंतराल सेट करें**
+## **पाठ के लिए अक्षर अंतर सेट करें**
 
-टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को विस्तारित या संकुचित करने के लिए [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/spacing/) का उपयोग करें।
+टेक्स्ट बॉक्स में अक्षरों के बीच अंतर को बढ़ाने या घटाने के लिए [IBasePortionFormat.Spacing](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/spacing/) का उपयोग करें।
 
-निम्नलिखित C# कोड **संपूर्ण पैराग्राफ** में अक्षर अंतराल को विस्तारित करने का तरीका दर्शाता है:
+निम्नलिखित C# कोड **पूरे पैराग्राफ** में अक्षर अंतर को बढ़ाने का तरीका दिखाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
     var paragraph = autoShape.TextFrame.Paragraphs[0];
 
-    // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // अक्षर अंतराल बढ़ाएँ.
+    // ध्यान दें: अक्षर अंतर को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+    paragraph.ParagraphFormat.DefaultPortionFormat.Spacing = 3;  // अक्षर अंतर को विस्तारित करें।
 
     presentation.Save("character_spacing_in_paragraph.pptx", SaveFormat.Pptx);
 }
@@ -239,11 +206,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पैराग्राफ में अक्षर अंतराल](character_spacing_in_paragraph.png)
+![पैराग्राफ में अक्षर अंतर](character_spacing_in_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** में अक्षर अंतराल को विस्तारित करने का तरीका दिखाता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ अंशों** में अक्षर अंतर को बढ़ाने का तरीका दर्शाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -253,8 +223,8 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-            portion.PortionFormat.Spacing = 3;  // अक्षर अंतराल बढ़ाएँ।
+            // नोट: अक्षर अंतर को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+            portion.PortionFormat.Spacing = 3;  // अक्षर अंतर को विस्तारित करें।
         }
     }
 
@@ -264,15 +234,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पाठ भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
+![टेक्स्ट पोर्शन में अक्षर अंतर](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट्स के लिए केरनिंग को अक्षम करें**
+### **विशिष्ट फ़ॉन्ट्स के लिए केरनिंग अक्षम करें**
 
-कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखने वाले समान पाठ से थोड़ा अधिक कसकर दिख सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए केरनिंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी हो और PowerPoint सेटिंग्स में केरनिंग सक्षम हो।
+कुछ मामलों में Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखाए गए समान पाठ से थोड़ा अधिक कसकर लग सकता है। यह इसलिए होता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए केरनिंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में वैध केरनिंग जानकारी हो और PowerPoint सेटिंग में केरनिंग सक्रिय हो।
 
-ऐसे मामलों में रेंडर आउटपुट को PowerPoint के करीब लाने के लिए, आप प्रभावित फ़ॉन्ट का उपयोग करने वाले पाठ भागों के लिए केरनिंग को अक्षम कर सकते हैं। [IPortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/kerningminimalsize/) को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
+ऐसे मामलों में PowerPoint के निकटतम रेंडरिंग प्राप्त करने के लिए आप उस फ़ॉन्ट का उपयोग करने वाले पाठ अंशों के लिए केरनिंग अक्षम कर सकते हैं। [IBasePortionFormat.KerningMinimalSize](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/kerningminimalsize/) को वास्तविक फ़ॉन्ट आकार से काफी बड़े मान पर सेट करें:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -298,15 +271,18 @@ using (var presentation = new Presentation("presentation.pptx"))
 }
 ```
 
-यह सेटिंग मेल खाने वाले पाठ भागों पर केरनिंग को लागू होने से रोकती है और फ़ॉन्ट्स के लिए PowerPoint‑विशिष्ट व्यवहार को संतुलित करने में मदद कर सकती है।
+यह सेटिंग मेल खाने वाले पाठ अंशों पर केरनिंग को लागू होने से रोकती है और PowerPoint‑विशिष्ट व्यवहार से प्रभावित फ़ॉन्ट्स के लिए Aspose.Slides रेंडरिंग को PowerPoint के दृश्य परिणाम के साथ संरेखित करने में मदद कर सकती है।
 
 ## **पाठ फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण को पैराग्राफ स्तर पर [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/defaultportionformat/) के माध्यम से या व्यक्तिगत भागों पर [IPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/) द्वारा सेट किया जा सकता है।
+फ़ॉन्ट गुण को पैराग्राफ स्तर पर [IParagraphFormat.DefaultPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/defaultportionformat/) के माध्यम से या व्यक्तिगत अंशों पर [IPortionFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/) के माध्यम से सेट किया जा सकता है।
 
-निम्नलिखित कोड पैराग्राफ के पूरे हिस्से के लिए फ़ॉन्ट और पाठ शैली सेट करता है: यह फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट को सभी भागों पर लागू करता है।
+निम्नलिखित कोड पूरे पैराग्राफ के लिए फ़ॉन्ट और पाठ शैली सेट करता है: यह फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट को सभी अंशों पर लागू करता है।
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -325,11 +301,14 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पैराग्राफ के लिए फ़ॉन्ट गुण](font_properties_for_paragraph.png)
+![पैराग्राफ के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-नीचे दिया गया कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ भागों** पर समान गुण लागू करता है:
+नीचे का कोड उदाहरण **बोल्ड फ़ॉन्ट वाले पाठ अंशों** पर समान गुण लागू करता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -339,7 +318,7 @@ using (var presentation = new Presentation("sample.pptx"))
     {
         if (portion.PortionFormat.GetEffective().FontBold)
         {
-            // पाठ भाग के लिए फ़ॉन्ट गुण सेट करें।
+            // पाठ अंश के लिए फ़ॉन्ट गुण सेट करें।
             portion.PortionFormat.FontHeight = 13;
             portion.PortionFormat.FontItalic = NullableBool.True;
             portion.PortionFormat.FontUnderline = TextUnderlineType.Dotted;
@@ -353,15 +332,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पाठ भागों के लिए फ़ॉन्ट गुण](font_properties_for_text_portions.png)
+![टेक्स्ट पोर्शन के फ़ॉन्ट गुण](font_properties_for_text_portions.png)
 
-## **पाठ के घुमाव को सेट करें**
+## **पाठ घूर्णन सेट करें**
 
-आकार के भीतर पूर्वपरिभाषित पाठ अभिविन्यास सेट करने के लिए [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/textverticaltype/) का उपयोग करें।
+एक आकार के भीतर पूर्वनिर्धारित पाठ अभिविन्यास सेट करने के लिए [ITextFrameFormat.TextVerticalType](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/textverticaltype/) का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण आकार में पाठ अभिविन्यास को `Vertical270` पर सेट करता है, जिससे पाठ **90 डिग्री घड़ी की विपरीत दिशा में** घुमता है:
+निम्नलिखित कोड उदाहरण आकार में पाठ अभिविन्यास को `Vertical270` पर सेट करता है, जो पाठ को **90 डिग्री प्रतिक्लॉकवाइज़** घुमाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -374,15 +356,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पाठ घुमाव](text_rotation.png)
+![टेक्स्ट घूर्णन](text_rotation.png)
 
-## **पाठ फ्रेम के लिए कस्टम घुमाव सेट करें**
+## **टेक्स्ट फ्रेम के लिए कस्टम घूर्णन सेट करें**
 
-[ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/rotationangle/) का उपयोग करके किसी [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) के लिए कस्टम घुमाव कोण सेट किया जा सकता है।
+[ITextFrameFormat.RotationAngle](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/rotationangle/) का उपयोग करके किसी [ITextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframe/) के लिए कस्टम घूर्णन कोण सेट करें।
 
-नीचे दिया गया कोड उदाहरण आकार के भीतर पाठ फ्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
+नीचे का कोड उदाहरण आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री क्लॉकवाइज़ घुमाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -395,18 +380,21 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![कस्टम पाठ घुमाव](custom_text_rotation.png)
+![कस्टम टेक्स्ट घूर्णन](custom_text_rotation.png)
 
-## **पैराग्राफ की पंक्ति अंतराल सेट करें**
+## **पैराग्राफ की लाइन स्पेसिंग सेट करें**
 
-Aspose.Slides [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/spacebefore/), और [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/spacewithin/) प्रदान करता है ताकि पैराग्राफ अंतराल को नियंत्रित किया जा सके। ये गुण निम्न प्रकार उपयोग किए जाते हैं:
+Aspose.Slides [IParagraphFormat.SpaceAfter](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/spaceafter/), [IParagraphFormat.SpaceBefore](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/spacebefore/), और [IParagraphFormat.SpaceWithin](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/spacewithin/) प्रदान करता है ताकि पैराग्राफ स्पेसिंग को नियंत्रित किया जा सके। इन गुणों का उपयोग इस प्रकार किया जाता है:
 
-* सकारात्मक मान का उपयोग करके पंक्ति अंतराल को पंक्ति की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करें।
-* नकारात्मक मान का उपयोग करके पंक्ति अंतराल को पॉइंट में निर्दिष्ट करें।
+* लाइन स्पेसिंग को लाइन ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान का उपयोग करें।
+* लाइन स्पेसिंग को पॉइंट में निर्दिष्ट करने के लिए नकारात्मक मान का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण पैराग्राफ के भीतर पंक्ति अंतराल निर्दिष्ट करने का तरीका दिखाता है:
+निम्नलिखित कोड उदाहरण पैराग्राफ के भीतर लाइन स्पेसिंग को निर्दिष्ट करने का तरीका दिखाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -420,13 +408,16 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पैराग्राफ में पंक्ति अंतराल](line_spacing.png)
+![पैराग्राफ के भीतर लाइन स्पेसिंग](line_spacing.png)
 
-## **पाठ फ्रेम के लिए ऑटोफिट प्रकार सेट करें**
+## **टेक्स्ट फ्रेम के लिए ऑटोफ़िट प्रकार सेट करें**
 
-[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/autofittype/) यह निर्धारित करता है कि जब पाठ कंटेनर की सीमाओं से बाहर निकलता है तो उसकी कैसी व्यवहार होगी। इसका उपयोग यह नियंत्रित करने के लिए करें कि पाठ छोटा हो, ओवरफ़्लो हो, या आकार स्वतः बदल दिया जाए।
+[ITextFrameFormat.AutofitType](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/autofittype/) निर्धारित करता है कि जब पाठ अपने कंटेनर की सीमाओं से अधिक हो जाए तो वह कैसे व्यवहार करता है। इसका उपयोग करके आप नियंत्रित कर सकते हैं कि पाठ छोटा हो, ओवरफ़्लो हो, या आकार को स्वचालित रूप से पुन: आकार दिया जाए।
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -437,11 +428,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **पाठ फ्रेम के एंकर को सेट करें**
+## **टेक्स्ट फ्रेम का एंकर सेट करें**
 
-[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/anchoringtype/) यह निर्धारित करता है कि पाठ आकार के भीतर उर्ध्वाधर रूप से कहाँ स्थित होगा, जैसे शीर्ष, मध्य या नीचे।
+[ITextFrameFormat.AnchoringType](https://reference.aspose.com/slides/hi/net/aspose.slides/itextframeformat/anchoringtype/) परिभाषित करता है कि आकार के भीतर पाठ ऊर्ध्वाधर रूप से कैसे स्थित है, जैसे शीर्ष, मध्य, या निचला।
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -452,11 +446,14 @@ using (var presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **पाठ टैब्युलेशन सेट करें**
+## **टेक्स्ट टैबुलेशन सेट करें**
 
-पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करने के लिए [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/defaulttabsize/) और [IParagraphFormat.Tabs](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/tabs/) का उपयोग करें।
+एक पैराग्राफ में टैब स्टॉप कॉन्फ़िगर करने के लिए [IParagraphFormat.DefaultTabSize](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/defaulttabsize/) और [IParagraphFormat.Tabs](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraphformat/tabs/) का उपयोग करें।
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("sample.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -471,15 +468,18 @@ using (var presentation = new Presentation("sample.pptx"))
 
 परिणाम:
 
-![पैराग्राफ टैब](paragraph_tabs.png)
+![पैराग्राफ टैब्स](paragraph_tabs.png)
 
-## **प्रूफिंग भाषा सेट करें**
+## **प्रूफ़िंग भाषा सेट करें**
 
-Aspose.Slides [IPortionFormat.LanguageId](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/languageid/) प्रदान करता है, जिससे आप किसी पाठ भाग के लिए प्रूफिंग भाषा सेट कर सकते हैं। प्रूफिंग भाषा PowerPoint में वर्तनी और व्याकरण जाँच के लिए उपयोग की जाती है।
+Aspose.Slides [IBasePortionFormat.LanguageId](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/languageid/) प्रदान करता है, जिससे आप किसी पाठ अंश के लिए प्रूफ़िंग भाषा सेट कर सकते हैं। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
 
-निम्नलिखित कोड उदाहरण पाठ भाग के लिए प्रूफिंग भाषा सेट करने का तरीका दिखाता है:
+निम्नलिखित कोड उदाहरण किसी पाठ अंश के लिए प्रूफ़िंग भाषा सेट करने का तरीका दिखाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation("presentation.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -494,7 +494,7 @@ using (var presentation = new Presentation("presentation.pptx"))
     textPortion.PortionFormat.EastAsianFont = font;
     textPortion.PortionFormat.LatinFont = font;
 
-    // प्रूफिंग भाषा का Id सेट करें.
+    // प्रूफ़िंग भाषा का Id सेट करें।
     textPortion.PortionFormat.LanguageId = "zh-CN";
 
     textPortion.Text = "1。";
@@ -506,9 +506,11 @@ using (var presentation = new Presentation("presentation.pptx"))
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-लोड विकल्पों के दौरान या प्रस्तुति बनाते समय निर्मित पाठ के लिए डिफ़ॉल्ट भाषा परिभाषित करने हेतु [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/defaulttextlanguage/) का उपयोग करें।
+प्रस्तुति लोड या बनाते समय बनाए गए पाठ के लिए डिफ़ॉल्ट भाषा निर्धारित करने हेतु [LoadOptions.DefaultTextLanguage](https://reference.aspose.com/slides/hi/net/aspose.slides/loadoptions/defaulttextlanguage/) का उपयोग करें।
 
 ```cs
+using Aspose.Slides;
+
 var loadOptions = new LoadOptions();
 loadOptions.DefaultTextLanguage = "en-US";
 
@@ -516,26 +518,29 @@ using (var presentation = new Presentation(loadOptions))
 {
     var slide = presentation.Slides[0];
 
-    // पाठ के साथ नया आयताकार आकार जोड़ें।
+    // टेक्स्ट के साथ नया आयताकार आकार जोड़ें।
     var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 50);
     shape.TextFrame.Text = "Sample text";
 
-    // पहले भाग की भाषा जाँचें।
+    // पहले अंश की भाषा जाँचें।
     var portion = shape.TextFrame.Paragraphs[0].Portions[0];
     Console.WriteLine(portion.PortionFormat.LanguageId);
 }
 ```
 
-## **डिफ़ॉल्ट पाठ शैली सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रस्तुति स्तर पर डिफ़ॉल्ट पाठ स्वरूपण लागू करने के लिए [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/defaulttextstyle/) का उपयोग करें।
+प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फॉर्मेटिंग लागू करने के लिए [IPresentation.DefaultTextStyle](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/defaulttextstyle/) का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण एक नई प्रस्तुति में सभी स्लाइड्स के लिए 14 pt आकार के साथ डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करने का तरीका दिखाता है।
+निम्नलिखित कोड उदाहरण एक नई प्रस्तुति में सभी स्लाइड्स के लिए 14 pt आकार के साथ डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करने का तरीका दर्शाता है:
 
 ```cs
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
 using (var presentation = new Presentation())
 {
-    // शीर्ष स्तर पैराग्राफ फ़ॉर्मेट प्राप्त करें.
+    // शीर्ष स्तर पैराग्राफ फ़ॉर्मेट प्राप्त करें।
     var paragraphFormat = presentation.DefaultTextStyle.GetLevel(0);
 
     if (paragraphFormat != null)
@@ -548,17 +553,19 @@ using (var presentation = new Presentation())
 }
 ```
 
-## **ऑल-कैप्स प्रभाव के साथ पाठ निकालें**
+## **ऑल‑कैप्स इफ़ेक्ट के साथ पाठ निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से स्लाइड पर पाठ बड़े अक्षरों में दिखता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा पाठ भाग प्राप्त करते हैं, तो लाइब्रेरी पाठ को बिल्कुल उसी रूप में लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित पाठ से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/net/aspose.slides/textcaptype/) को जांचें और जब मान `All` हो तो लौटाए गए स्ट्रिंग को अपरकेस में परिवर्तित करें।
+PowerPoint में **All Caps** फ़ॉन्ट इफ़ेक्ट लागू करने से स्लाइड पर पाठ बड़े अक्षरों में दिखाई देता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा पाठ अंश प्राप्त करते हैं, तो लाइब्रेरी वही पाठ लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित पाठ से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/net/aspose.slides/textcaptype/) जाँचें और मान `All` होने पर लौटाए गए स्ट्रिंग को बड़े अक्षरों में परिवर्तित करें।
 
-मान लीजिए हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्नलिखित टेक्स्ट बॉक्स है।
+मान लें कि हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्नलिखित टेक्स्ट बॉक्स है।
 
-![ऑल-कैप्स प्रभाव](all_caps_effect.png)
+![ऑल कैप्स इफ़ेक्ट](all_caps_effect.png)
 
-नीचे दिया गया कोड उदाहरण **All Caps** प्रभाव लागू किए हुए पाठ को निकालने का तरीका दर्शाता है:
+नीचे का कोड उदाहरण **All Caps** इफ़ेक्ट लागू किए हुए पाठ को निकालने का तरीका दर्शाता है:
 
 ```cs
+using Aspose.Slides;
+
 using (var presentation = new Presentation("sample2.pptx"))
 {
     var autoShape = (IAutoShape)presentation.Slides[0].Shapes[0];
@@ -582,12 +589,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+## **FAQ**
 
-**स्लाइड पर तालिका में पाठ कैसे संशोधित करें?**
+**स्लाइड पर तालिका में पाठ को कैसे संशोधित करें?**
 
-स्लाइड पर तालिका में पाठ को संशोधित करने के लिए, [ITable](https://reference.aspose.com/slides/hi/net/aspose.slides/itable/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करें और प्रत्येक कोशिका को [ICell.TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/icell/textframe/) तथा पैराग्राफ फ़ॉर्मेट को [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/paragraphformat/) के माध्यम से अपडेट करें।
+स्लाइड पर तालिका में पाठ को संशोधित करने के लिए [ITable](https://reference.aspose.com/slides/hi/net/aspose.slides/itable/) का उपयोग करें। कोशिकाओं के माध्यम से इटररेट करें और प्रत्येक कोशिका को [ICell.TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/icell/textframe/) तथा पैराग्राफ फॉर्मेटिंग को [IParagraph.ParagraphFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/paragraphformat/) के माध्यम से अपडेट करें।
 
 **PowerPoint स्लाइड में पाठ पर ग्रेडिएंट रंग कैसे लागू करें?**
 
-ग्रेडिएंट रंग लागू करने के लिए [IPortionFormat.FillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/iportionformat/fillformat/) का उपयोग करें। [IFillFormat.FillType](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformat/filltype/) को [FillType.Gradient](https://reference.aspose.com/slides/hi/net/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा, तथा पारदर्शिता को कॉन्फ़िगर करें।
+ग्रेडिएंट रंग लागू करने के लिए [IBasePortionFormat.FillFormat](https://reference.aspose.com/slides/hi/net/aspose.slides/ibaseportionformat/fillformat/) का उपयोग करें। [IFillFormat.FillType](https://reference.aspose.com/slides/hi/net/aspose.slides/ifillformat/filltype/) को [FillType.Gradient](https://reference.aspose.com/slides/hi/net/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा, और पारदर्शिता को कॉन्फ़िगर करें।

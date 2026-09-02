@@ -226,16 +226,31 @@ try {
 }
 ```
 
+## **Ensure Matching Slide Size**
+
+When cloning slides into another presentation, make sure the destination presentation has the same slide size as the source. If the slide sizes differ, Aspose.Slides does not automatically rescale the cloned shapes—their original coordinates and dimensions are preserved, which may cause the content to appear misaligned or extend beyond the slide boundaries.
+
+You can set the destination presentation's slide size to match the source before cloning the master and slide:
+
+```java
+Dimension2D sourceSize = sourcePresentation.getSlideSize().getSize();
+
+targetPresentation.getSlideSize().setSize(
+        sourceSize.getWidth(), sourceSize.getHeight(), SlideSizeScaleType.DoNotScale);
+```
+
+Do this before cloning the master and the slide.
+
 ## **FAQ**
 
-### Do speaker notes and reviewer comments get cloned?
+**Do speaker notes and reviewer comments get cloned?**
 
 Yes. The notes page and review comments are included in the clone. If you don’t want them, [remove them](/slides/java/presentation-notes/) after insertion.
 
-### How are charts and their data sources handled?
+**How are charts and their data sources handled?**
 
 The chart object, formatting, and embedded data are copied. If the chart was linked to an external source (e.g., an OLE-embedded workbook), that linkage is preserved as an [OLE object](/slides/java/manage-ole/). After moving between files, verify data availability and refresh behavior.
 
-### Can I control the insertion position and sections for the clone?
+**Can I control the insertion position and sections for the clone?**
 
 Yes. You can insert the clone at a specific slide index and place it into a chosen [section](/slides/java/slide-section/). If the target section doesn’t exist, create it first and then move the slide into it.

@@ -1,17 +1,17 @@
 ---
-title: Βελτιστοποίηση διαχείρισης εικόνων στο PowerPoint με Python
+title: Βελτιστοποίηση Διαχείρισης Εικόνων στο PowerPoint με Python
 linktitle: Διαχείριση Εικόνων
 type: docs
 weight: 10
 url: /el/python-net/image/
 keywords:
 - προσθήκη εικόνας
-- προσθήκη φωτογραφίας
+- προσθήκη εικόνας
 - προσθήκη bitmap
 - αντικατάσταση εικόνας
-- αντικατάσταση φωτογραφίας
+- αντικατάσταση εικόνας
 - από το διαδίκτυο
-- φόντο
+- υπόβαθρο
 - προσθήκη PNG
 - προσθήκη JPG
 - προσθήκη SVG
@@ -19,6 +19,7 @@ keywords:
 - προσθήκη WMF
 - προσθήκη TIFF
 - PowerPoint
+- OpenDocument
 - παρουσίαση
 - Python
 - Aspose.Slides
@@ -26,25 +27,25 @@ description: "Απλοποιήστε τη διαχείριση εικόνων σ
 ---
 ## **Εισαγωγή**
 
-Οι εικόνες κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες. Στο Microsoft PowerPoint, μπορείτε να εισάγετε εικόνες από αρχείο, το διαδίκτυο ή άλλες πηγές στις διαφάνειες. Ανάλογα, το Aspose.Slides σάς επιτρέπει να προσθέτετε εικόνες σε διαφάνειες με διάφορους τρόπους.
+Οι εικόνες κάνουν τις παρουσιάσεις πιο ελκυστικές και ενδιαφέρουσες. Στο Microsoft PowerPoint, μπορείτε να εισαγάγετε εικόνες από αρχείο, το Διαδίκτυο ή άλλες πηγές σε διαφάνειες. Παρομοίως, το Aspose.Slides σάς επιτρέπει να προσθέτετε εικόνες σε διαφάνειες με διάφορους τρόπους.
 
 {{% alert  title="Συμβουλή" color="primary" %}}
-Το Aspose παρέχει δωρεάν μετατροπείς — [JPEG to PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG to PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt) — που σας επιτρέπουν να δημιουργείτε γρήγορα παρουσιάσεις από εικόνες.
+Το Aspose παρέχει δωρεάν μετατροπείς—[JPEG to PowerPoint](https://products.aspose.app/slides/el/import/jpg-to-ppt) και [PNG to PowerPoint](https://products.aspose.app/slides/el/import/png-to-ppt)—που σας επιτρέπουν να δημιουργήσετε γρήγορα παρουσιάσεις από εικόνες.
 {{% /alert %}}
 
 {{% alert title="Πληροφορία" color="info" %}}
-Αν θέλετε να προσθέσετε μια εικόνα ως αντικείμενο πλαισίου — ιδιαίτερα αν σκοπεύετε να χρησιμοποιήσετε τυπικές επιλογές μορφοποίησης όπως αλλαγή μεγέθους ή εφαρμογή εφέ — δείτε το [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/el/python-net/picture-frame/).
+Εάν θέλετε να προσθέσετε μια εικόνα ως αντικείμενο πλαισίου—ιδιαίτερα αν σκοπεύετε να χρησιμοποιήσετε τυπικές επιλογές μορφοποίησης όπως η αλλαγή μεγέθους ή η εφαρμογή εφέ—δείτε το [Add Picture Frames to Presentations with Python](https://docs.aspose.com/slides/el/python-net/picture-frame/).
 {{% /alert %}}
 
 {{% alert title="Σημείωση" color="warning" %}}
-Μπορείτε να χρησιμοποιήσετε λειτουργίες I/O εικόνας και παρουσίασης για μετατροπή εικόνων μεταξύ μορφών. Δείτε αυτές τις σελίδες: μετατροπή [image to JPG](https://products.aspose.com/slides/el/python-net/conversion/image-to-jpg/); μετατροπή [JPG to image](https://products.aspose.com/slides/el/python-net/conversion/jpg-to-image/); μετατροπή [JPG to PNG](https://products.aspose.com/slides/el/python-net/conversion/jpg-to-png/); μετατροπή [PNG to JPG](https://products.aspose.com/slides/el/python-net/conversion/png-to-jpg/); μετατροπή [PNG to SVG](https://products.aspose.com/slides/el/python-net/conversion/png-to-svg/); και μετατροπή [SVG to PNG](https://products.aspose.com/slides/el/python-net/conversion/svg-to-png/).
+Μπορείτε να χρησιμοποιήσετε λειτουργίες I/O εικόνας και παρουσίασης για να μετατρέψετε εικόνες μεταξύ μορφών. Δείτε αυτές τις σελίδες: μετατρέψτε [image to JPG](https://products.aspose.com/slides/el/python-net/conversion/image-to-jpg/); μετατρέψτε [JPG to image](https://products.aspose.com/slides/el/python-net/conversion/jpg-to-image/); μετατρέψτε [JPG to PNG](https://products.aspose.com/slides/el/python-net/conversion/jpg-to-png/); μετατρέψτε [PNG to JPG](https://products.aspose.com/slides/el/python-net/conversion/png-to-jpg/); μετατρέψτε [PNG to SVG](https://products.aspose.com/slides/el/python-net/conversion/png-to-svg/); και μετατρέψτε [SVG to PNG](https://products.aspose.com/slides/el/python-net/conversion/svg-to-png/).
 {{% /alert %}}
 
 Το Aspose.Slides υποστηρίζει εργασία με εικόνες σε δημοφιλείς μορφές όπως JPEG, PNG, BMP, GIF και άλλες.
 
-## **Προσθήκη Εικόνων που Αποθηκεύονται Τοπικά στις Διαφάνειες**
+## **Προσθήκη Εικόνων που Αποθηκεύονται Τοπικά σε Διαφάνειες**
 
-Μπορείτε να προσθέσετε μία ή περισσότερες εικόνες από τον υπολογιστή σας σε μια διαφάνεια παρουσίασης. Το παρακάτω παράδειγμα Python δείχνει πώς να προσθέσετε μια εικόνα σε διαφάνεια:
+Μπορείτε να προσθέσετε μία ή περισσότερες εικόνες από τον υπολογιστή σας σε μια διαφάνεια μιας παρουσίασης. Το παρακάτω παράδειγμα Python δείχνει πώς να προσθέσετε μια εικόνα σε μια διαφάνεια:
 
 ```py
 import aspose.slides as slides
@@ -58,32 +59,34 @@ with slides.Presentation() as presentation:
     presentation.save("presentation_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Προσθήκη Εικόνων από το Διαδίκτυο στις Διαφάνειες**
+## **Προσθήκη Εικόνων από το Διαδίκτυο σε Διαφάνειες**
 
-Αν η εικόνα που θέλετε να προσθέσετε σε μια διαφάνεια δεν υπάρχει στον υπολογιστή σας, μπορείτε να την εισάγετε απευθείας από το διαδίκτυο.
+Εάν η εικόνα που θέλετε να προσθέσετε σε μια διαφάνεια δεν είναι διαθέσιμη στον υπολογιστή σας, μπορείτε να την εισαγάγετε απευθείας από το διαδίκτυο.
 
-Το παρακάτω παράδειγμα Python δείχνει πώς να προσθέσετε μια εικόνα από URL σε διαφάνεια:
+Το παρακάτω παράδειγμα Python δείχνει πώς να προσθέσετε μια εικόνα από URL σε μια διαφάνεια:
 
 ```py
 import aspose.slides as slides
-import urllib2
-import base64
+from urllib.request import urlopen
 
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
-    image_data = base64.b64encode(urllib2.urlopen("[REPLACE WITH URL]").read())
+
+    # Κατεβάστε τα ακατέργαστα δεδομένα εικόνας.
+    with urlopen("[REPLACE WITH URL]") as response:
+        image_data = response.read()
 
     image = presentation.images.add_image(image_data)
     slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 10, 10, 100, 100, image)
-    
+
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Προσθήκη Εικόνων σε Master Διαφάνειας**
+## **Προσθήκη Εικόνων σε Κύριες Διαφάνειες**
 
-Ένα master διαφάνειας είναι η κορυφαία διαφάνεια που αποθηκεύει και ελέγχει πληροφορίες — θέμα, διάταξη κ.λπ. — για όλες τις διαφάνειες κάτω από αυτήν. Όταν προσθέτετε μια εικόνα στο master, η εικόνα εμφανίζεται σε κάθε διαφάνεια που χρησιμοποιεί αυτό το master.
+Ένα slide master είναι η κορυφαία διαφάνεια που αποθηκεύει και ελέγχει πληροφορίες—θέμα, διάταξη κ.λπ.—για όλες τις διαφάνειες που την ακολουθούν. Όταν προσθέτετε μια εικόνα σε ένα slide master, αυτή η εικόνα εμφανίζεται σε κάθε διαφάνεια που χρησιμοποιεί αυτό το master.
 
-Το παρακάτω παράδειγμα Python δείχνει πώς να προσθέσετε μια εικόνα σε master διαφάνειας:
+Το παρακάτω παράδειγμα Python δείχνει πώς να προσθέσετε μια εικόνα σε ένα slide master:
 
 ```py
 import aspose.slides as slides
@@ -100,53 +103,46 @@ with slides.Presentation() as presentation:
     presentation.save("master_with_image.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Ορισμός Εικόνας ως Φόντο Διαφάνειας**
+## **Προσθήκη Εικόνων ως Υπόβαθρα Διαφάνειας**
 
-Μπορεί να θελήσετε να χρησιμοποιήσετε μια εικόνα ως φόντο για συγκεκριμένη διαφάνεια ή για πολλαπλές διαφάνειες. Για λεπτομέρειες, δείτε το [Set an Image as the Background for a Slide](https://docs.aspose.com/slides/el/python-net/presentation-background/#set-image-as-background-for-slide).
+Μπορείτε να χρησιμοποιήσετε μια εικόνα ως υπόβαθρο για μία ή περισσότερες διαφάνειες. Για λεπτομέρειες, δείτε *[Setting Images as Backgrounds for Slides](/slides/el/python-net/presentation-background/#setting-images-as-background-for-slides)*.
 
-## **Προσθήκη SVG σε Παρουσιάσεις**
+## **Προσθήκη SVG σε Παραστάσεις**
 
-Μπορείτε να εισάγετε οποιαδήποτε εικόνα σε μια παρουσίαση χρησιμοποιώντας τη μέθοδο [add_picture_frame](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_picture_frame/) της κλάσης [ShapeCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/).
+Το περιεχόμενο SVG μπορεί να προστεθεί σε μια παρουσίαση χρησιμοποιώντας την κλάση [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/). Η προκύπτουσα εικόνα SVG μπορεί στη συνέχεια να προστεθεί στη συλλογή εικόνων της παρουσίασης και να χρησιμοποιηθεί για τη δημιουργία πλαισίου εικόνας.
 
-Για να δημιουργήσετε αντικείμενο εικόνας από SVG, ακολουθήστε τα παρακάτω βήματα:
+Το παρακάτω παράδειγμα Python εισάγει μια αυτόνομη συμβολοσειρά SVG. Όλες οι εικόνες, τα στυλ και άλλοι πόροι που χρησιμοποιεί αυτό το SVG είναι ενσωματωμένοι απευθείας στο περιεχόμενο του SVG.
 
-1. Δημιουργήστε ένα [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/) και προσθέστε το στη συλλογή εικόνων της παρουσίασης.
-2. Δημιουργήστε αντικείμενο [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/) από το [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/).
-3. Δημιουργήστε αντικείμενο [PictureFrame](https://reference.aspose.com/slides/el/python-net/aspose.slides/pictureframe/) χρησιμοποιώντας το [PPImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/ppimage/).
-
-Το παρακάτω δείγμα Python δείχνει πώς να προσθέσετε εικόνα SVG σε παρουσίαση ακολουθώντας αυτά τα βήματα:
-
-```py 
+```py
 import aspose.slides as slides
 
+svg_content = """
+<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>
+    <rect width='320' height='180' fill='#4F81BD'/>
+    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>
+</svg>
+"""
+
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    svg_image = slides.SvgImage(svg_content)
+    image = presentation.images.add_image(svg_image)
 
-    # Διαβάστε το περιεχόμενο ενός αρχείου SVG.
-    with open("sample.svg", "rt") as image_stream:
-        svg_content = image_stream.read()
-        # Δημιουργήστε ένα αντικείμενο SvgImage.
-        svg_image = slides.SvgImage(svg_content)
+    presentation.slides[0].shapes.add_picture_frame(
+        slides.ShapeType.RECTANGLE, 20, 20, image.width, image.height, image
+    )
 
-        # Δημιουργήστε ένα αντικείμενο PPImage.
-        pp_image = presentation.images.add_image(svg_image)
-
-        # Δημιουργήστε ένα νέο PictureFrame.
-        slide.shapes.add_picture_frame(slides.ShapeType.RECTANGLE, 200, 100, pp_image.width, pp_image.height, pp_image)
-
-        # Αποθηκεύστε την παρουσίαση σε μορφή PPTX.
-        presentation.save("presentation_with_SVG.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("self-contained-svg.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Μετατροπή SVG σε Σύνολο Σχημάτων**
 
-Το Aspose.Slides μετατρέπει SVG σε σύνολο σχημάτων με τρόπο παρόμοιο με τη διαχείριση SVG του PowerPoint.
+Το Aspose.Slides μετατρέπει τα SVG σε σύνολο σχημάτων με τρόπο παρόμοιο με τη διαχείριση SVG του PowerPoint.
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-Αυτή η λειτουργία παρέχεται από μια υπερφόρτωση της μεθόδου [add_group_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_group_shape/) στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/) που δέχεται ένα [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/) ως πρώτο όρισμα.
+Αυτή η λειτουργία παρέχεται από μία υπερφόρτωση της μεθόδου [add_group_shape](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/add_group_shape/) στην κλάση [ShapeCollection](https://reference.aspose.com/slides/el/python-net/aspose.slides/shapecollection/), η οποία παίρνει ένα [SvgImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/svgimage/) ως πρώτο όρισμα.
 
-Ο κώδικας δείγματος παρακάτω δείχνει πώς να μετατρέψετε ένα αρχείο SVG σε σύνολο σχημάτων.
+Ο παρακάτω κώδικας παραδείγματος δείχνει πώς να μετατρέψετε ένα αρχείο SVG σε σύνολο σχημάτων.
 
 ```py 
 import aspose.slides as slides
@@ -170,11 +166,13 @@ with slides.Presentation() as presentation:
 
 ## **Προσθήκη Εικόνων ως EMF σε Διαφάνειες**
 
-Το Aspose.Slides for Python σας επιτρέπει να εισάγετε εικόνες Enhanced Metafile (EMF) σε παρουσιάσεις.
+Το Aspose.Slides για Python σας επιτρέπει να εισάγετε εικόνες Enhanced Metafile (EMF) σε παρουσιάσεις.
 
 Το παρακάτω παράδειγμα Python το επιδεικνύει:
 
 ```py 
+import aspose.slides as slides
+
 with slides.Presentation() as presentation:
     slide = presentation.slides[0]
     with open("image.emf", "rb") as image_stream:
@@ -187,18 +185,18 @@ with slides.Presentation() as presentation:
 
 ## **Αντικατάσταση Εικόνων στη Συλλογή Εικόνων**
 
-Το Aspose.Slides σας επιτρέπει να αντικαθιστάτε εικόνες που αποθηκεύονται στη συλλογή εικόνων μιας παρουσίασης, συμπεριλαμβανομένων αυτών που χρησιμοποιούνται από σχήματα διαφάνειας. Η ενότητα αυτή περιγράφει διάφορες προσεγγίσεις για ενημέρωση των εικόνων στη συλλογή. Το API παρέχει απλές μεθόδους για αντικατάσταση μιας εικόνας με ακατέργαστα δεδομένα byte, με μια παρουσία [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/) ή με άλλη εικόνα που υπάρχει ήδη στη συλλογή.
-
-Ακολουθήστε τα βήματα:
+Το Aspose.Slides επιτρέπει την αντικατάσταση εικόνων που αποθηκεύονται στη συλλογή εικόνων μιας παρουσίασης, συμπεριλαμβανομένων αυτών που χρησιμοποιούνται από σχήματα διαφάνειας. Αυτή η ενότητα περιγράφει διάφορες προσεγγίσεις για την ενημέρωση των εικόνων στη συλλογή. Το API παρέχει απλές μεθόδους για την αντικατάσταση μιας εικόνας με ακατέργαστα δεδομένα byte, με ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/) ή με μια άλλη εικόνα που υπάρχει ήδη στη συλλογή.
 
 1. Φορτώστε την παρουσίαση που περιέχει τις εικόνες χρησιμοποιώντας την κλάση [Presentation](https://reference.aspose.com/slides/el/python-net/aspose.slides/presentation/).
-1. Φορτώστε μια νέα εικόνα από αρχείο σε πίνακα byte.
+1. Φορτώστε μια νέα εικόνα από αρχείο σε έναν πίνακα byte.
 1. Αντικαταστήστε την εικόνα-στόχο με τη νέα εικόνα χρησιμοποιώντας τον πίνακα byte.
-1. Εναλλακτικά, φορτώστε την εικόνα σε αντικείμενο [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/) και αντικαταστήστε την εικόνα-στόχο με αυτό το αντικείμενο.
-1. Ή αντικαταστήστε την εικόνα-στόχο με εικόνα που υπάρχει ήδη στη συλλογή εικόνων της παρουσίασης.
+1. Εναλλακτικά, φορτώστε την εικόνα σε ένα αντικείμενο [IImage](https://reference.aspose.com/slides/el/python-net/aspose.slides/iimage/) και αντικαταστήστε την εικόνα-στόχο με αυτό το αντικείμενο.
+1. Ή αντικαταστήστε την εικόνα-στόχο με μια εικόνα που υπάρχει ήδη στη συλλογή εικόνων της παρουσίασης.
 1. Αποθηκεύστε την τροποποιημένη παρουσίαση ως αρχείο PPTX.
 
 ```py
+import aspose.slides as slides
+
 def read_all_bytes(file_name):
     with open(file_name, "rb") as stream:
         return stream.read()
@@ -226,27 +224,27 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="Πληροφορία" color="info" %}}
-Με το δωρεάν μετατροπέα [Text to GIF](https://products.aspose.app/slides/el/text-to-gif) του Aspose, μπορείτε εύκολα να δημιουργείτε κινούμενα κείμενα και GIF από κείμενο.
+Με τον δωρεάν μετατροπέα [Text to GIF](https://products.aspose.app/slides/el/text-to-gif) του Aspose, μπορείτε εύκολα να δημιουργήσετε κινούμενα κείμενα και να παράγετε GIF από κείμενο.
 {{% /alert %}}
 
-## **ΣΥΧΝΑ ΕΡΩΤΗΜΑΤΑ**
+## **Συχνές Ερωτήσεις**
 
-**Παραμένει η αρχική ανάλυση της εικόνας αμετάβλητη μετά την εισαγωγή;**
+**Παραμένει αμετάβλητη η αρχική ανάλυση της εικόνας μετά την εισαγωγή;**
 
-Ναι. Τα αρχικά pixel διατηρούνται, αλλά η τελική εμφάνιση εξαρτάται από το πώς το [picture](/slides/el/python-net/picture-frame/) κλιμακώνεται στη διαφάνεια και τυχόν συμπίεση κατά την αποθήκευση.
+Ναι. Τα αρχικά pixel διατηρούνται, αλλά η τελική εμφάνιση εξαρτάται από το πώς η [picture](/slides/el/python-net/picture-frame/) κλιμακώνεται στη διαφάνεια και οποιαδήποτε συμπίεση εφαρμόζεται κατά την αποθήκευση.
 
-**Ποιος είναι ο καλύτερος τρόπος να αντικαταστήσω το ίδιο λογότυπο σε δεκάδες διαφάνειες ταυτόχρονα;**
+**Ποιος είναι ο καλύτερος τρόπος για να αντικαταστήσετε το ίδιο λογότυπο σε δεκάδες διαφάνειες ταυτόχρονα;**
 
-Τοποθετήστε το λογότυπο στο master ή σε μια διάταξη και αντικαταστήστε το στη συλλογή εικόνων της παρουσίασης — οι αλλαγές θα διαδοθούν σε όλα τα στοιχεία που χρησιμοποιούν αυτόν τον πόρο.
+Τοποθετήστε το λογότυπο στη master διαφάνεια ή σε μια διάταξη και αντικαταστήστε το στη συλλογή εικόνων της παρουσίασης—οι ενημερώσεις θα διαδοθούν σε όλα τα στοιχεία που χρησιμοποιούν αυτόν τον πόρο.
 
 **Μπορεί ένα εισαχθέν SVG να μετατραπεί σε επεξεργάσιμα σχήματα;**
 
-Ναι. Μπορείτε να μετατρέψετε ένα SVG σε ομάδα σχημάτων, μετά από αυτό τα μεμονωμένα τμήματα γίνονται επεξεργάσιμα με τις τυπικές ιδιότητες σχήματος.
+Ναι. Μπορείτε να μετατρέψετε ένα SVG σε ομάδα σχημάτων, μετά από αυτό τα επιμέρους τμήματα γίνονται επεξεργάσιμα με τις τυπικές ιδιότητες σχήματος.
 
-**Πώς μπορώ να ορίσω μια εικόνα ως φόντο για πολλαπλές διαφάνειες ταυτόχρονα;**
+**Πώς μπορώ να ορίσω μια εικόνα ως υπόβαθρο για πολλές διαφάνειες ταυτόχρονα;**
 
-[Αναθέστε την εικόνα ως φόντο](/slides/el/python-net/presentation-background/) στο master ή στη σχετική διάταξη — οποιαδήποτε διαφάνεια χρησιμοποιεί αυτό το master/διάταξη θα κληρονομήσει το φόντο.
+Εφαρμόστε την εικόνα ως υπόβαθρο [/slides/el/python-net/presentation-background/] στη master διαφάνεια ή στην αντίστοιχη διάταξη—όλες οι διαφάνειες που χρησιμοποιούν αυτό το master/διάταξη θα κληρονομήσουν το υπόβαθρο.
 
-**Πώς αποτρέπω την παρουσίαση από το «φούσκωμα» σε μέγεθος λόγω πολλών εικόνων;**
+**Πώς μπορώ να αποτρέψω μια παρουσίαση από το να γίνει υπερβολικά μεγάλη λόγω πολλών εικόνων;**
 
-Επαναχρησιμοποιήστε έναν μοναδικό πόρο εικόνας αντί για διπλότυπα, επιλέξτε λογικές αναλύσεις, εφαρμόστε συμπίεση κατά την αποθήκευση και κρατήστε τα επαναλαμβανόμενα γραφικά στο master όπου είναι κατάλληλο.
+Επαναχρησιμοποιήστε έναν ενιαίο πόρο εικόνας αντί για διπλότυπα, επιλέξτε λογικές αναλύσεις, εφαρμόστε συμπίεση κατά την αποθήκευση και κρατήστε τα επαναλαμβανόμενα γραφικά στη master όπου είναι κατάλληλο.

@@ -1,116 +1,229 @@
 ---
-title: Python'da Treemap ve Sunburst Grafiklerinde Veri Noktalarını Özelleştirme
-linktitle: Treemap ve Sunburst Grafiklerde Veri Noktaları
+title: Python'da Treemap ve Sunburst Grafiklerinde Veri Noktalarını Özelleştir
+linktitle: Treemap ve Sunburst Grafiklerindeki Veri Noktaları
 type: docs
 url: /tr/python-net/data-points-of-treemap-and-sunburst-chart/
 keywords:
 - treemap grafiği
 - sunburst grafiği
+- hiyerarşik grafik
 - veri noktası
-- etiket rengi
-- dal rengi
+- veri etiketi
+- şube rengi
 - PowerPoint
-- OpenDocument
 - sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile treemap ve sunburst grafiklerindeki veri noktalarını nasıl yöneteceğinizi öğrenin; PowerPoint ve OpenDocument formatlarıyla uyumludur."
+description: "Aspose.Slides for Python via .NET ile Treemap ve Sunburst grafiklerinde hiyerarşik veri oluşturmayı ve seviyeleri, etiketleri ve renkleri özelleştirmeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Diğer PowerPoint grafik türleri arasında, iki hiyerarşik grafik vardır—**Treemap** ve **Sunburst** (Sunburst Grafiği, Sunburst Diyagramı, Radial Grafik, Radial Çizim veya Çok Katmanlı Pasta Grafiği olarak da bilinir). Bu grafikler, yapraklardan dalın tepesine kadar bir ağaç şeklinde düzenlenmiş hiyerarşik verileri gösterir. Yapraklar, seri veri noktalarıyla tanımlanır ve sonraki her iç içe grup seviyesi ilgili kategoriyle tanımlanır. Aspose.Slides for Python via .NET, Python’da Sunburst grafikleri ve Treemap’lerin veri noktalarını biçimlendirmenize olanak tanır.
+Treemap ve Sunburst grafikler aynı türde hiyerarşik verileri gösterir, ancak farklı düzenler kullanır. Treemap, hiyerarşiyi yaprak değerlerini temsil eden alanlara sahip iç içe dikdörtgenler olarak çizer. Sunburst, bunu konsantrik halkalar olarak çizer: üst düzey gruplar merkeze yakın, yaprak kategoriler ise dış halkada yer alır.
 
-Aşağıda, Series1 sütunundaki verilerin yaprak düğümleri, diğer sütunların ise hiyerarşik veri noktalarını tanımladığı bir Sunburst grafiği gösterilmektedir:
+Aspose.Slides for Python via .NET'de, her sayısal değer bir [ChartDataPoint](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/). Bu [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) koleksiyonu yaprağa ve onun üst grup'larına erişim sağlar. Bu makale bu eşlemeyi açıklar ve aynı örnek veriden her iki grafik tipinin nasıl oluşturulup biçimlendirileceğini gösterir.
 
-![Sunburst grafik örneği](sunburst_example.png)
+![Consumer ve Business dallarını içeren bir Treemap grafiği](treemap-hierarchy.png)
 
-Yeni bir Sunburst grafiği ekleyerek başlayalım:
+![Aynı Consumer ve Business hiyerarşisini içeren bir Sunburst grafiği](sunburst-hierarchy.png)
 
-```py
-with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
-    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
-```
+## **Kategorileri, Veri Noktalarını ve Seviyeleri Anlamak**
 
-{{% alert color="primary" title="Ayrıca bakınız" %}}
-- [**Sunburst Grafikler Oluştur**](/slides/tr/python-net/create-chart/#create-sunburst-charts)
-{{% /alert %}}
+Aşağıda kullanılan örnek üç kategori seviyesi ve bir sayısal seriye sahiptir:
 
-Grafik veri noktalarını biçimlendirmeniz gerekiyorsa, aşağıdaki API'leri kullanın:
+| Şube | Gövde | Yaprak | Gelir |
+| --- | --- | --- | ---: |
+| Tüketici | Bilgisayarlar | Dizüstü Bilgisayarlar | 12 |
+| Tüketici | Bilgisayarlar | Masaüstü Bilgisayarlar | 8 |
+| Tüketici | Mobil | Telefonlar | 15 |
+| Tüketici | Mobil | Tabletler | 6 |
+| İş | Hizmetler | Danışmanlık | 10 |
+| İş | Hizmetler | Destek | 7 |
+| İş | Yazılım | Lisanslar | 11 |
+| İş | Yazılım | Abonelikler | 14 |
 
-[ChartDataPointLevelsManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointlevelsmanager/), [ChartDataPointLevel](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointlevel/), ve [ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) özelliği. Bu API'ler Treemap ve Sunburst grafiklerinde veri noktalarını biçimlendirmeye erişim sağlar. [ChartDataPointLevelsManager], çok seviyeli kategorilere erişmek için kullanılır; [ChartDataPointLevel] nesnelerinin bir kapsayıcısını temsil eder. Temelde, veri noktalarına özgü ek özelliklere sahip bir [ChartCategoryLevelsManager] sarmalayıcısıdır. [ChartDataPointLevel] türü iki özelliği ortaya koyar—[format](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointlevel/format/) ve [label](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointlevel/label/)—ve bu özellikler ilgili ayarlara erişim sağlar.
+Her satır bir yaprak kategorisi ve bir veri noktası oluşturur. Kategori grup seviyeleri bu yapraktan üst gruplarına olan yolu tanımlar. İlk satır için yol `Consumer > Computers > Laptops` şeklindedir.
 
-## **Veri Noktası Değerlerini Görüntüleme**
+[ChartDataPoint.data_point_levels](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapoint/data_point_levels/) içindeki indeksler yapraktan yukarı doğru çalışır:
 
-Bu bölüm, Treemap ve Sunburst grafiklerinde tek tek veri noktalarının değerlerini nasıl görüntüleyeceğinizi gösterir. Seçili noktalar için değer etiketlerini nasıl etkinleştireceğinizi göreceksiniz.
+| `data_point_levels` indeksi | Mantıksal seviye | Treemap temsili | Sunburst temsili |
+| ---: | --- | --- | --- |
+| `0` | Yaprak | Değer dikdörtgeni | Dış-halka segmenti |
+| `1` | Gövde | Üst dikdörtgen ya da başlık | Orta-halka segmenti |
+| `2` | Şube | Üst düzey dikdörtgen ya da başlık | İç-halka segmenti |
 
-"Leaf 4" veri noktasının değerini görüntüleyin:
+Bu sıralama her iki grafik tipi için de aynı olup görsel düzenleri farklıdır. Bir üst segment birkaç yaprak tarafından paylaşılır. Bunu biçimlendirmek için, o grubun ilk veri noktasının ilgili seviyesini kullanın. Örneğin, `Consumer` şubesi `Laptops` noktasından, `Software` gövdesi ise `Licenses` noktasından başlar. Bu noktalara referans tutmak, `data_points[0]` ya da `data_points[6]` gibi açıklanmamış ifadeler kullanmaktan daha net ve güvenlidir.
 
-```py
-data_points = chart.chart_data.series[0].data_points
-data_points[3].data_point_levels[0].label.data_label_format.show_value = True
-```
+## **Her İki Grafik Tipini Oluşturma ve Özelleştirme**
 
-![Veri noktası değeri](data_point_value.png)
-
-## **Veri Noktaları için Etiket ve Renkleri Ayarlama**
-
-Bu bölüm, Treemap ve Sunburst grafiklerinde tek tek veri noktaları için özel etiketler ve renkler nasıl ayarlanır gösterir. Belirli bir veri noktasına nasıl erişileceğini, bir etiket atamayı ve önemli düğümleri vurgulamak için katı bir dolgu uygulamayı öğreneceksiniz.
-
-"Branch 1" veri etiketini kategori adı yerine seri adı ("Series1") gösterecek şekilde ayarlayın ve ardından metin rengini sarı olarak belirleyin:
+İşte aşağıdaki tam örnek, ilk slaytta bir Treemap ve ikinci slaytta bir Sunburst oluşturur. Hiyerarşiyi oluşturur, `Tablets` değeri görüntüler, seçilen seviyelere sabit renkler uygular, bir şube etiketini biçimler ve sunumu kaydeder.
 
 ```py
-branch1_label = data_points[0].data_point_levels[2].label
-branch1_label.data_label_format.show_category_name = False
-branch1_label.data_label_format.show_series_name = True
-
-branch1_label.data_label_format.text_format.portion_format.fill_format.fill_type = slides.FillType.SOLID
-branch1_label.data_label_format.text_format.portion_format.fill_format.solid_fill_color.color = draw.Color.yellow
-```
-
-![Veri noktasının etiketi ve rengi](data_point_color.png)
-
-## **Veri Noktaları için Dal Renklerini Ayarlama**
-
-Dal renklerini kullanarak, Treemap ve Sunburst grafiklerinde üst ve alt düğümlerin görsel olarak nasıl gruplandığını kontrol edin. Bu bölüm, belirli bir veri noktası için özel bir dal rengi ayarlamayı gösterir; böylece önemli alt ağaçları vurgulayabilir ve grafiğin okunabilirliğini artırabilirsiniz.
-
-"Stem 4" dalının rengini değiştirin:
-
-```py
+import aspose.pydrawing as drawing
 import aspose.slides as slides
 import aspose.slides.charts as charts
-import aspose.pydrawing as draw
+
+
+def set_solid_fill(fill_format, color):
+    fill_format.fill_type = slides.FillType.SOLID
+    fill_format.solid_fill_color.color = color
+
+
+def add_hierarchy_chart(slide, chart_type):
+    worksheet_index = 0
+    leaf_level_index = 0
+    stem_level_index = 1
+    branch_level_index = 2
+
+    chart = slide.shapes.add_chart(chart_type, 40, 40, 640, 440)
+    chart.has_title = False
+    chart.has_legend = False
+    chart.chart_data.categories.clear()
+    chart.chart_data.series.clear()
+
+    workbook = chart.chart_data.chart_data_workbook
+    workbook.clear(worksheet_index)
+
+    def add_category(row_index, leaf_name):
+        category_cell = workbook.get_cell(worksheet_index, row_index, 2, leaf_name)
+        return chart.chart_data.categories.add(category_cell)
+
+    #    Yaprak kategorileri ekleyin. Bir gruplama öğesi yalnızca yeni bir grup başladığında ayarlanır; sonraki kategoriler başka bir öğe ayarlanana kadar aynı grup içinde kalır.
+    laptops_category = add_category(1, "Laptops")
+    laptops_category.grouping_levels.set_grouping_item(stem_level_index, "Computers")
+    laptops_category.grouping_levels.set_grouping_item(branch_level_index, "Consumer")
+
+    add_category(2, "Desktops")
+
+    phones_category = add_category(3, "Phones")
+    phones_category.grouping_levels.set_grouping_item(stem_level_index, "Mobile")
+
+    add_category(4, "Tablets")
+
+    consulting_category = add_category(5, "Consulting")
+    consulting_category.grouping_levels.set_grouping_item(stem_level_index, "Services")
+    consulting_category.grouping_levels.set_grouping_item(branch_level_index, "Business")
+
+    add_category(6, "Support")
+
+    licenses_category = add_category(7, "Licenses")
+    licenses_category.grouping_levels.set_grouping_item(stem_level_index, "Software")
+
+    add_category(8, "Subscriptions")
+
+    series_name_cell = workbook.get_cell(worksheet_index, 0, 3, "Revenue")
+    series = chart.chart_data.series.add(series_name_cell, chart_type)
+    series.labels.default_data_label_format.show_category_name = True
+
+    def add_data_point(row_index, value):
+        value_cell = workbook.get_cell(worksheet_index, row_index, 3, value)
+
+        if chart_type == charts.ChartType.TREEMAP:
+            return series.data_points.add_data_point_for_treemap_series(value_cell)
+
+        return series.data_points.add_data_point_for_sunburst_series(value_cell)
+
+    laptops_data_point = add_data_point(1, 12)
+    add_data_point(2, 8)
+    add_data_point(3, 15)
+    tablets_data_point = add_data_point(4, 6)
+    add_data_point(5, 10)
+    add_data_point(6, 7)
+    licenses_data_point = add_data_point(7, 11)
+    add_data_point(8, 14)
+
+    #    Tablets yaprağında kategori ve değeri göster.
+    tablets_label_format = tablets_data_point.data_point_levels[leaf_level_index].label.data_label_format
+    tablets_label_format.show_category_name = True
+    tablets_label_format.show_value = True
+    tablets_label_format.separator = "\n"
+    tablets_label_format.number_format = "$0"
+
+    #    Consumer şubesini, o şubedeki ilk yaprak üzerinden biçimlendirin.
+    consumer_branch_level = laptops_data_point.data_point_levels[branch_level_index]
+    consumer_branch_fill = consumer_branch_level.format.fill
+    consumer_branch_color = drawing.Color.from_argb(31, 78, 121)
+    set_solid_fill(consumer_branch_fill, consumer_branch_color)
+
+    consumer_label_format = consumer_branch_level.label.data_label_format
+    consumer_label_format.show_category_name = True
+    consumer_label_format.show_series_name = False
+    consumer_label_text_fill = consumer_label_format.text_format.portion_format.fill_format
+    set_solid_fill(consumer_label_text_fill, drawing.Color.white)
+
+    #    Software gövdesini, o gövdedeki ilk yaprak üzerinden biçimlendirin.
+    software_stem_level = licenses_data_point.data_point_levels[stem_level_index]
+    software_stem_fill = software_stem_level.format.fill
+    software_stem_color = drawing.Color.from_argb(112, 173, 71)
+    set_solid_fill(software_stem_fill, software_stem_color)
+
+    #    parent_label_layout Treemap üst etiketlerini etkiler; Sunburst halka segmentlerini kullanır.
+    if chart_type == charts.ChartType.TREEMAP:
+        series.parent_label_layout = charts.ParentLabelLayoutType.OVERLAPPING
+
 
 with slides.Presentation() as presentation:
-    slide = presentation.slides[0]
+    treemap_slide = presentation.slides[0]
+    add_hierarchy_chart(treemap_slide, charts.ChartType.TREEMAP)
 
-    chart = slide.shapes.add_chart(charts.ChartType.SUNBURST, 30, 30, 450, 400)
-    data_points = chart.chart_data.series[0].data_points
+    layout_slide = presentation.layout_slides[0]
+    sunburst_slide = presentation.slides.add_empty_slide(layout_slide)
+    add_hierarchy_chart(sunburst_slide, charts.ChartType.SUNBURST)
 
-    stem4_branch = data_points[9].data_point_levels[1]
-    
-    stem4_branch.format.fill.fill_type = slides.FillType.SOLID
-    stem4_branch.format.fill.solid_fill_color.color = draw.Color.red
-      
-    presentation.save("branch_color.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("hierarchical-charts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-![Dal rengi](branch_color.png)
+Kategori hücreleri ve değer hücreleri aynı çalışma sayfası satırını kullanır, böylece koleksiyon konumları hizalı kalır. Varolan bir grafik ile çalışırken, bir grafik oluşturmaktan ziyade, önce kategori satırlarını inceleyin ve biçimlendirmeyi planladığınız veri noktaları ve seviyeler için adlandırılmış referansları depolayın.
+
+## **Davranış ve Pratik Hususlar**
+
+### **Treemap ve Sunburst Farkları**
+
+- Treemap, değeri iletişimde alanı ve hiyerarşiyi iletişimde iç içe dikdörtgenleri kullanır. [ChartSeries.parent_label_layout](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/parent_label_layout/) özelliği bu grafik tipinde üst etiketlerin nasıl görüneceğini denetler.
+- Sunburst, değeri iletişimde açıyı ve hiyerarşiyi iletişimde halka derinliğini kullanır. [ChartSeries.parent_label_layout](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartseries/parent_label_layout/) halka etiketlerini kontrol etmez.
+- Her iki grafik tipi de aynı kategori gruplama seviyelerini ve `data_point_levels` içinde aynı yapraktan üst seviyeye doğru sıralamayı kullanır, bu nedenle veri oluşturma ve seviye biçimlendirme kodu paylaşılabilir.
+- Üst değerler, alt yapraklardan hesaplanır. Şubeler veya gövdeler için ayrı sayısal noktalar eklemeyin.
+
+### **Sıralama ve Segment Sırası**
+
+Grafik yerleşim motoru, dikdörtgenlerin ve halka segmentlerinin nihai konumlarını belirler. İlgili kategori satırlarını eklemeden önce bir arada düzenleyin, ancak belirli bir dikdörtgen konumu ya da başlangıç açısına güvenmeyin. Eğer sıra bir anlam taşıyorsa, bunu etiketlerde belirtin ya da açık bir kategori ekseni olan bir grafik tipi kullanın.
+
+### **Tema ve Sabit Renkler**
+
+Biçimlendirilmemiş grafik seviyeleri, sunum temasından renkleri devralır. Örnek, öngörülebilir çıktı için açık RGB doldurmaları kullanır. Grafik temaya göre değişecekse, sabit RGB değerleri yerine şema renklerini kullanın ve her seviyeyi geçersiz kılmaktan kaçının. Ayrıca bir şube veya gövde doldurması değiştirildikten sonra etiket kontrastını kontrol edin.
+
+### **Etiketler ve Kullanılabilir Alan**
+
+PowerPoint, bir segment çok küçük olduğunda etiketleri gizleyebilir veya kesebilir. Grafik boyutunu artırmak, kategori adlarını kısaltmak veya daha az etiket alanı göstermek genellikle daha net bir sonuç verir. Bir etiket, kategori adı, seri adı ve değeri [DataLabelFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/) aracılığıyla birleştirebilir, ancak tüm alanları etkinleştirmek genellikle hiyerarşik grafiklerin okunmasını zorlaştırır.
+
+### **Dışa Aktarma ve Oluşturma**
+
+PPTX olarak kaydetmek, grafiği düzenlenebilir tutar. Aspose.Slides sunumu PDF veya görüntü olarak oluşturduğunda, desteklenen doldurmalar ve etiket ayarları grafik ile birlikte işlenir. Yazı tipi ikamesi ve kullanılabilir yerleşim alanındaki küçük farklılıklar satır kaydırmayı veya etiket görünürlüğünü değiştirebilir; bu yüzden gerekli yazı tiplerini kurun ve önemli dışa aktarma hedeflerini doğrulayın.
 
 ## **SSS**
 
-**Sunburst/Treemap'teki segmentlerin sırasını (sıralamasını) değiştirebilir miyim?**
+**Neden bir üst seviyesi değiştirmek birden fazla yaprağı etkiler?**
 
-Hayır. PowerPoint segmentleri otomatik olarak (genellikle azalan değerler ve saat yönünde) sıralar. Aspose.Slides bu davranışı yansıtır: sırayı doğrudan değiştiremezsiniz; bunu verileri ön işlemden geçirerek elde edersiniz.
+Bir şube veya gövde, paylaşılan bir görsel segmenttir. Onun [ChartDataPointLevel](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/chartdatapointlevel/) bir alt yapraktan erişilebilir, ancak biçimlendirme sadece o yaprağa değil, paylaşılan üst segmente aittir.
 
-**Sunum teması segment ve etiket renklerini nasıl etkiler?**
+**Neden bir veri etiketi eksik?**
 
-Grafik renkleri, dolgu/çevreleri (fill/font) açıkça ayarlamazsanız, sunumun [theme/palette](/slides/tr/python-net/presentation-theme/) öğesinden devralınır. Tutarlı sonuçlar için, gerekli seviyelerde katı dolgu ve metin biçimlendirmesini sabitleyin.
+İlk olarak, etiketin [DataLabelFormat](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabelformat/) nesnesinde gerekli alanları etkinleştirin. Ardından segmentin yeterli alana sahip olup olmadığını kontrol edin. Treemap üst-etiket düzeni, grafik boyutları, etiket uzunluğu, yazı tipi boyutu ve etkin alan sayısı, bir etiketin görüntülenip görüntülenemeyeceğini etkiler.
 
-**PDF/PNG'ye dışa aktarma özel dal renklerini ve etiket ayarlarını korur mu?**
+**Segmentlerin kesin sırasını veya koordinatlarını ayarlayabilir miyim?**
 
-Evet. Sunumu dışa aktarırken, grafik ayarları (dolgu, etiketler) çıktı formatlarında korunur çünkü Aspose.Slides, grafiğin biçimlendirilmiş haliyle oluşturur.
+Kaynak satır sırasını kontrol edebilir ve her grubu ardışık tutabilirsiniz, ancak kesin Treemap dikdörtgenlerini veya Sunburst açılarını atayamazsınız. Grafik yerleşim motoru bunları hiyerarşi, değerler ve kullanılabilir alandan hesaplar.
 
-**Grafiğin üzerine özel bindirme yerleştirmek için bir etiket/elemanın gerçek koordinatlarını hesaplayabilir miyim?**
+**Sunum teması değiştiğinde renkler neden değişir?**
 
-Evet. Grafik yerleşimi doğrulandıktan sonra, öğeler için `actual_x`/`actual_y` değerleri (örneğin bir [DataLabel](https://reference.aspose.com/slides/tr/python-net/aspose.slides.charts/datalabel/)) kullanılabilir; bu, bindirmelerin hassas konumlandırılmasına yardımcı olur.
+Tema temelli doldurmalar, sunum paletini takip edecek şekilde tasarlanır. Sabit kalması gereken seviyelere açık RGB renkleri uygulayın veya yeni bir temaya uyum sağlanırken şema renklerini koruyun.
+
+**Özel biçimlendirme PDF ve görüntü dışa aktarmalarında korunur mu?**
+
+Evet, desteklenen grafik doldurmaları ve etiket ayarları oluşturma sırasında dahil edilir. Sistemler arasında tutarlı sonuçlar için gerekli yazı tiplerini temin edin ve etiket yerleşiminin bağımlı olduğu son dışa aktarma boyutunu test edin.
+
+## **İlgili Bağlantılar**
+
+- [Treemap grafikleri oluşturma](/slides/tr/python-net/create-chart/#create-tree-map-charts)
+- [Sunburst grafikleri oluşturma](/slides/tr/python-net/create-chart/#create-sunburst-charts)
+- [Sunum grafiklerini dışa aktar](/slides/tr/python-net/export-chart/)
+- [Sunum temalarını yönet](/slides/tr/python-net/presentation-theme/)

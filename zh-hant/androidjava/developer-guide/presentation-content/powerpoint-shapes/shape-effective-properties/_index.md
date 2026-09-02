@@ -1,5 +1,5 @@
 ---
-title: 在 Android 上從簡報取得形狀有效屬性
+title: 從 Android 簡報中取得形狀的有效屬性
 linktitle: 有效屬性
 type: docs
 weight: 50
@@ -7,309 +7,294 @@ url: /zh-hant/androidjava/shape-effective-properties/
 keywords:
 - 形狀屬性
 - 相機屬性
-- 光源組
+- 光線裝置
 - 斜角形狀
 - 文字框
 - 文字樣式
-- 字型高度
+- 字體高度
 - 填充格式
 - PowerPoint
 - 簡報
 - Android
 - Java
 - Aspose.Slides
-description: 探索 Aspose.Slides for Android（透過 Java）如何計算並套用形狀的有效屬性，以實現精確的 PowerPoint 呈現。
+description: "了解如何透過 Java 使用 Aspose.Slides for Android，在 PowerPoint 簡報中區分本機、繼承和有效的形狀格式設定。"
 ---
-## **概述**
+## **了解本機、繼承和有效屬性**
 
-此主題說明 **本地** 與 **有效** 屬性的差異。本地值是直接在特定格式層級設定的值，例如：
+PowerPoint 格式化可能來自多個來源。直接儲存在物件上的值稱為 **本機值**。如果未設定該值，PowerPoint 會查看父層格式來源，例如段落預設、文字樣式、版面或母片投影片、佈景主題或簡報層級的預設。這些值稱為 **繼承值**。在整個階層解析完畢後剩餘的值即為 **有效值**——用於呈現物件的值。
 
-1. 投影片上的文字片段屬性。
-1. 版面或母片投影片上的原型形狀文字樣式，當文字片段的文字框形狀具有此樣式時。
-1. 投影片中全域文字設定。
+例如，文字片段可能未定義自己的字體高度。其本機[getFontHeight](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--)值為 `Float.NaN`，表示「此處未設定」。此片段可以從其段落、簡報的預設文字樣式或其他適用來源繼承高度。對該片段格式呼叫[getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iportionformat/#getEffective--)會回傳最終解析的高度。
 
-本地值可以在任何層級定義或省略。當 Aspose.Slides 需要最終「呈現」的格式時，它會解析繼承鏈並返回 **有效** 值。您可以透過在本地格式物件上呼叫 `getEffective()` 方法來取得它們。
+使用兩種格式化資料的目的不同：
 
-以下範例說明如何取得有效值。假設第一張投影片上的第一個形狀是帶有文字框且至少有一個文字片段的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
+- 讀取或變更本機格式物件，例如[IPortionFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iportionformat/)，當您需要控制值的定義位置時。
+- 讀取有效資料物件，例如[IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iportionformateffectivedata/)，當您需要最終、已呈現的結果時。有效資料是唯讀的。
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **比較本機、繼承和有效值**
 
-    ITextFrame textFrame = shape.getTextFrame();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrame.getTextFrameFormat().getEffective();
-
-    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormatEffectiveData effectivePortionFormat = portion.getPortionFormat().getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-有效的格式資料代表套用繼承後目前計算出的格式。在目前的實作中，某些有效資料物件，例如 [IPortionFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iportionformateffectivedata/)，可能會在內部快取。於變更父層或繼承的格式後再次呼叫 `getEffective()` 可以重新整理快取的資料，先前取得的物件可能不再代表之前的狀態。若需要保留有效值以便之後重複使用，請將需要的屬性（如字型高度、填色、字型樣式或對齊方式）複製到您自己的資料物件中。
-{{% /alert %}}
-
-## **取得相機的有效屬性**
-
-Aspose.Slides 允許您取得相機的有效屬性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icameraeffectivedata/) 介面代表一個不可變的物件，內含相機的有效屬性。[ICameraEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icameraeffectivedata/) 實例透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/) 取得，該介面提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformat/) 的有效值。
-
-以下程式碼範例示範如何取得相機的有效屬性。假設第一張投影片上的第一個形狀具備 3D 格式設定。
+以下完整範例建立一個形狀，並在簡報、段落和片段層級套用字體高度。每個步驟會列印在這些層級定義的值以及相同文字片段的最終有效值。它同時說明為何在格式變更後必須再次讀取有效資料。
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraEffectiveData.getCameraType());
-    System.out.println("Field of view: " + cameraEffectiveData.getFieldOfViewAngle());
-    System.out.println("Zoom: " + cameraEffectiveData.getZoom());
-} finally {
-    presentation.dispose();
-}
-```
+            // 定義在兩個不同層級的繼承值。
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-## **取得光源組的有效屬性**
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Aspose.Slides 允許您取得光源組的有效屬性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilightrigeffectivedata/) 介面代表一個不可變的物件，內含光源組的有效屬性。[ILightRigEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilightrigeffectivedata/) 實例透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/) 取得，該介面提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformat/) 的有效值。
+            // 片段上的本機值會覆蓋兩個繼承值。
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-以下程式碼範例示範如何取得光源組的有效屬性。假設第一張投影片上的第一個形狀具備 3D 格式設定。
+            // 變更繼承值不會覆蓋已存在的本機值。
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+            // 清除本機值。片段現在再次從段落繼承。
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
+            // 清除段落值。簡報預設現在提供結果。
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightRigEffectiveData.getLightType());
-    System.out.println("Direction: " + lightRigEffectiveData.getDirection());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **取得形狀斜角的有效屬性**
-
-Aspose.Slides 允許您取得形狀斜角的有效屬性。[IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapebeveleffectivedata/) 介面代表一個不可變的物件，內含形狀的面部浮雕屬性。 [IShapeBevelEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishapebeveleffectivedata/) 實例透過 [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/) 取得，該介面提供 [IThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformat/) 的有效值。
-
-以下程式碼範例示範如何取得形狀上斜角的有效屬性。假設第一張投影片上的第一個形狀具備 3D 格式設定。
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTopEffectiveData = threeDEffectiveData.getBevelTop();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelTopEffectiveData.getBevelType());
-    System.out.println("Width: " + bevelTopEffectiveData.getWidth());
-    System.out.println("Height: " + bevelTopEffectiveData.getHeight());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **取得文字框的有效屬性**
-
-使用 Aspose.Slides，您可以取得文字框的有效屬性。[ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframeformateffectivedata/) 介面包含文字框的有效格式屬性。
-
-以下程式碼範例示範如何取得文字框的有效格式屬性。假設第一張投影片上的第一個形狀是帶有文字框的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-
-    System.out.println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    System.out.println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    System.out.println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
-    System.out.println("Margins");
-    System.out.println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    System.out.println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    System.out.println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    System.out.println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **取得文字樣式的有效屬性**
-
-使用 Aspose.Slides，您可以取得文字樣式的有效屬性。[ITextStyleEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextstyleeffectivedata/) 介面包含文字樣式的有效屬性。
-
-以下程式碼範例示範如何取得文字樣式的有效屬性。假設第一張投影片上的第一個形狀是帶有文字框的 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + effectiveStyleLevel.getDepth());
-        System.out.println("Indent: " + effectiveStyleLevel.getIndent());
-        System.out.println("Alignment: " + effectiveStyleLevel.getAlignment());
-        System.out.println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // 在前面的變更之後讀取有效資料。
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **取得有效字型高度值**
+此範例的優先順序為片段本機格式，然後是段落格式，最後是簡報預設。其他物件的繼承鏈可能不同，但原則相同：更具體的明確值會勝出，而[getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iportionformat/#getEffective--)會回傳最終結果。
 
-使用 Aspose.Slides，您可以取得有效的字型高度。以下程式碼示範在投影片結構的不同層級設定本地字型高度後，文字片段的有效字型高度如何變化。
+## **取得有效文字屬性**
+
+文字格式分散於多個物件：
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextframeformat/#getEffective--) 解析文字框屬性，如邊距、錨點、自動調整和垂直文字方向。
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itextstyle/#getEffective--) 解析每個文字樣式層級的段落格式。
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iparagraphformat/#getEffective--) 解析段落屬性，如對齊、縮排和項目符號。
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iportionformat/#getEffective--) 解析字元屬性，如字體高度、字型、顏色、粗體與斜體。
+
+對於下一個範例，`text-formatting.pptx` 必須至少包含一張投影片以及一個包含非空文字框的[AutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/autoshape/)。AutoShape 可以出現在形狀集合的任何位置；程式碼會搜尋合適的物件並在使用前進行驗證。
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **取得表格的有效填充格式**
+## **取得有效 3D 屬性**
 
-使用 Aspose.Slides，您可以取得表格各部分的有效填充格式。[IFillFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifillformateffectivedata/) 介面包含有效的填充格式屬性。儲存格格式的優先權高於列格式，列格式高於欄格式，欄格式高於整表格式。
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformat/#getEffective--) 回傳一個[IThreeDFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/) 物件，將所有已解析的 3D 設定彙總。其[getCamera](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/#getCamera--)、[getLightRig](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/#getLightRig--)、[getBevelTop](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--) 與 [getBevelBottom](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) 方法會曝光對應的有效資料。將這些相關設定一起讀取，可更容易了解形狀最終的 3D 外觀。
 
-因此，會使用 [ICellFormatEffectiveData](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icellformateffectivedata/) 的屬性來繪製表格儲存格。以下程式碼範例示範如何取得表格各部分的有效填充格式。假設第一張投影片上的第一個形狀是 [ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itable/)。
+對於此範例，`shape-3d.pptx` 必須在第一張投影片上至少包含一個形狀。若要產出非預設值，請對該形狀套用 3D 相機、照明或斜角設定。
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IRow row = table.getRows().get_Item(0);
-    IColumn column = table.getColumns().get_Item(0);
-    ICell cell = table.get_Item(0, 0);
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
 
-    IFillFormatEffectiveData tableFillFormatEffective = table.getTableFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = row.getRowFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = column.getColumnFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cell.getCellFormat().getEffective().getFillFormat();
-} finally {
-    presentation.dispose();
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
 
-## **常見問題**
+## **取得有效表格格式**
 
-**`getEffective()` 會回傳快照嗎？**
+表格格式可能來自表格樣式，也可能來自套用於整個表格、欄、列或單一儲存格的格式。對於明確定義的填色衝突，優先順序為儲存格、列、欄、最後是整個表格。儲存格的有效格式即為繪製該儲存格時使用的最終格式。
 
-不一定。有效資料代表套用繼承後計算出的格式，但某些有效資料物件可能在內部被快取。之後再次呼叫 `getEffective()` 可能會重新計算格式並刷新快取的資料，因此先前取得的物件不應被視為永久的快照。
+對於此範例，`table-formatting.pptx` 必須在第一張投影片上至少包含一個表格，且該表格必須至少有一列和一欄。程式碼會搜尋[ITable](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/itable/)，而不是假設 `getShapes().get_Item(0)` 為表格。
 
-**何時需要再次讀取有效屬性？**
+```java
+import com.aspose.slides.*;
 
-在變更本地格式、父樣式、版面格式、母片格式或投影片層級的預設值後，再次呼叫 `getEffective()`。下一次呼叫會重新評估格式階層並回傳目前的有效結果。
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-**變更或移除版面/母片投影片會影響已取得的有效屬性嗎？**
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
 
-會，但變更會在下一次呼叫 `getEffective()` 時顯示。若父層格式來源被變更或移除，先前取得的有效資料可能已過時。再次呼叫 `getEffective()` 後，Aspose.Slides 會重新評估格式樹，導致字型、顏色、大小或其他值發生變化。
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
 
-**我可以透過有效資料物件修改值嗎？**
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-不能。有效資料物件僅提供計算出的值。請在本地格式物件中進行變更，然後再次取得有效值。
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
 
-**如果屬性在形狀層級、版面/母片或全域設定皆未設定，會發生什麼？**
+如果您需要取得顏色而不僅僅是填充類型，請先檢查有效的[getFillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifillformateffectivedata/#getFillType--)，然後讀取對應類型的方法──例如，對於實心填充，使用[getSolidFillColor](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--)。
 
-有效值會由預設機制決定，包含 PowerPoint 與 Aspose.Slides 的預設值。解析後的值會成為目前有效資料的一部份。
+## **變更後重新讀取有效資料**
 
-**從有效的字型值，我能判斷是哪個層級提供的尺寸或字型嗎？**
+有效資料描述解析當時的格式階層。變更任何可能參與該階層的項目後，請再次呼叫 `getEffective`，包括：
 
-無法直接判斷。有效資料僅回傳最終值。若要找出來源，請檢查文字片段、段落、文字框，以及版面、母片與投影片層級的文字樣式的本地值，找出第一個明確定義的地方。
+- 物件的本機格式；
+- 段落或文字框的預設；
+- 表格樣式、表格、欄、列或儲存格格式；
+- 版面或母片投影片的格式；
+- 佈景主題或簡報層級的預設；
+- 指派給投影片的版面或母片。
 
-**為何有效值有時看起來與本地值相同？**
+不要將有效資料物件當作永久快照保存。Aspose.Slides 可能在內部快取部分有效資料，稍後的 `getEffective` 呼叫會重新整理該資料。如果需要在變更前後比較值，請在變更前將需要的純量值（例如字體高度、顏色、對齊或斜角寬度）複製到自己的變數中。
 
-因為本地值已是最終值（不需要更高層級的繼承）。在此情況下，有效值與本地值相同。
+若要變更值，請更新相應的本機格式物件，然後呼叫 `getEffective` 以驗證結果。有效資料物件本身是唯讀的。
 
-**何時該使用有效屬性，何時只使用本地屬性？**
+## **FAQ**
 
-當您需要在套用所有繼承後的「實際呈現」結果時（例如對齊顏色、縮排或尺寸），應使用有效資料。若需保留這些值以免後續格式變更影響，請將必要的屬性複製到自己的物件中。若要在特定層級變更格式，請修改本地屬性，必要時再讀取有效資料以驗證結果。
+**如何判斷是哪個層級提供了有效值？**
+
+有效資料僅包含最終值，未指明其來源。請從最具體的層級向外檢查相應的本機物件。對於文字，可能包括片段、段落、文字框、版面、母片、佈景主題以及簡報預設。`Float.NaN` 或 `null` 等未定義值表示搜尋會繼續往更高層級進行。
+
+**當沒有任何層級定義屬性時會發生什麼？**
+
+Aspose.Slides 會解析出相應的 PowerPoint 或函式庫預設值。即使沒有本機物件明確定義，解析後的預設值仍會出現在有效資料中。
+
+**為什麼有效值有時會等於本機值？**
+
+本機值在繼承計算中獲勝。這在屬性已在物件上明確設定且沒有更具體的規則覆寫時是正常的。
+
+**何時應使用本機資料而非有效資料？**
+
+當您需要檢查或編輯特定層級的格式時，使用本機資料。當您需要在繼承、主題規則和相關樣式全部解析後的最終外觀時，使用有效資料。完整的[比較範例](#compare-local-inherited-and-effective-values)在同一工作流程中演示了兩者的使用方式。

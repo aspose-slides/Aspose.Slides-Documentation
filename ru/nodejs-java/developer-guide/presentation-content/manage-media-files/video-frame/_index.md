@@ -1,5 +1,5 @@
 ---
-title: Управление видеокадрами в презентациях с помощью JavaScript
+title: Управление видеокадрами в презентациях с использованием JavaScript
 linktitle: Видеокадр
 type: docs
 weight: 10
@@ -18,31 +18,33 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument, используя Aspose.Slides для Node.js через Java. Быстрое руководство."
+description: "Узнайте, как программно добавлять и извлекать видеокадры в слайдах PowerPoint и OpenDocument, используя Aspose.Slides для Node.js через Java. Быстрое руководство‑по‑шагам."
 ---
-Хорошо размещённое видео в презентации может сделать ваше сообщение более убедительным и увеличить уровень вовлечённости аудитории. 
+## **Введение**
+
+Правильно размещённое видео в презентации делает ваше сообщение более убедительным и повышает уровень вовлечённости аудитории.
 
 PowerPoint позволяет добавить видео на слайд презентации двумя способами:
 
 * Добавить или встроить локальное видео (хранящееся на вашем компьютере)
 * Добавить онлайн‑видео (из веб‑источника, например YouTube).
 
-Чтобы добавить видео (видеофайлы) в презентацию, Aspose.Slides предоставляет класс [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/), класс [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) и другие соответствующие типы.
+Для возможности добавления видео (видеоматериалов) в презентацию Aspose.Slides предоставляет класс [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/), класс [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) и другие соответствующие типы.
 
-## **Создание вложенного видеокадра**
+## **Создание встроенного видеокадра**
 
-Если виде файл, который вы хотите добавить на слайд, хранится локально, вы можете создать видеокадр для встраивания видео в презентацию. 
+Если видеофайл, который вы хотите добавить на свой слайд, хранится локально, вы можете создать видеокадр, чтобы встроить видео в презентацию.
 
 1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу. 
-1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/) и передайте путь к видеофайлу, чтобы встроить видео в презентацию.
+1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/) и укажите путь к видеофайлу, чтобы встроить видео в презентацию.
 1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) для создания кадра видео.
 1. Сохраните изменённую презентацию. 
 
-Этот JavaScript‑код показывает, как добавить локальное видео в презентацию:
+Этот JavaScript‑код показывает, как добавить локально хранящееся видео в презентацию:
 
 ```javascript
-// Создаёт экземпляр класса Presentation
+// Создает экземпляр класса Presentation
 var pres = new aspose.slides.Presentation("pres.pptx");
 try {
     // Загружает видео
@@ -60,7 +62,7 @@ try {
 }
 ```
 
-Альтернативно, вы можете добавить видео, передав его путь непосредственно в метод [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-):
+В качестве альтернативы можно добавить видео, передав его путь непосредственно в метод [addVideoFrame(float x, float y, float width, float height, IVideo video)](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shapecollection/#addVideoFrame-float-float-float-float-aspose.slides.IVideo-):
 
 ```javascript
 var pres = new aspose.slides.Presentation();
@@ -74,21 +76,20 @@ try {
 }
 ```
 
-
 ## **Создание видеокадра с видео из веб‑источника**
 
-Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), вы можете добавить его в презентацию по веб‑ссылке. 
+Microsoft [PowerPoint 2013 и новее](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) поддерживает видео YouTube в презентациях. Если нужное вам видео доступно онлайн (например, на YouTube), его можно добавить в презентацию по веб‑ссылке.
 
 1. Создайте экземпляр класса [Presentation ](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation).
 1. Получите ссылку на слайд по его индексу. 
-1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/) и передайте ссылку на видео.
+1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/) и укажите ссылку на видео.
 1. Установите миниатюру для видеокадра. 
 1. Сохраните презентацию. 
 
 Этот JavaScript‑код показывает, как добавить видео из интернета на слайд PowerPoint‑презентации:
 
 ```javascript
-// Создаёт объект Presentation, представляющий файл презентации
+// Создает объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation();
 try {
     addVideoFromYouTube(pres, "Tj75Arhq5ho");
@@ -134,6 +135,72 @@ async function getImageStream(url) {
 }
 ```
 
+## **Обрезка видеокадра**
+
+Aspose.Slides позволяет управлять тем, какая часть видео будет воспроизводиться, задавая значения trim‑from‑start и trim‑from‑end через методы [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/settrimfromstart/) и [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/settrimfromend/). Оба значения указываются в миллисекундах и определяют, сколько времени пропускается с начала и с конца видео соответственно. Эти настройки изменяют параметры воспроизведения видео в презентации; они не обрезают и не изменяют двоичные данные встроенного видео.
+
+**Установка параметров обрезки**
+
+Чтобы создать видеокадр и задать параметры обрезки:
+
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
+1. Добавьте объект [Video](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/) в презентацию.
+1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) на слайд.
+1. Задайте значения trim‑from‑start и trim‑from‑end через методы [VideoFrame.setTrimFromStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/settrimfromstart/) и [VideoFrame.setTrimFromEnd](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/settrimfromend/).
+1. Сохраните изменённую презентацию.
+
+Следующий пример кода пропускает первые 2,5 секунды и последнюю секунду встроенного видео во время воспроизведения:
+
+```javascript
+const presentation = new aspose.slides.Presentation();
+try {
+    const videoStream = java.newInstanceSync("java.io.FileInputStream", "video.mp4");
+    try {
+        const video = presentation.getVideos().addVideo(
+            videoStream, aspose.slides.LoadingStreamBehavior.ReadStreamAndRelease);
+        const slide = presentation.getSlides().get_Item(0);
+        const videoFrame = slide.getShapes().addVideoFrame(50, 50, 640, 360, video);
+
+        videoFrame.setTrimFromStart(2500);
+        videoFrame.setTrimFromEnd(1000);
+
+        presentation.save("video_with_trim.pptx", aspose.slides.SaveFormat.Pptx);
+    } finally {
+        videoStream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+**Чтение параметров обрезки**
+
+Чтобы просмотреть существующие параметры обрезки, загрузите презентацию, найдите объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) среди фигур на первом слайде и прочитайте значения через методы [VideoFrame.getTrimFromStart](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/gettrimfromstart/) и [VideoFrame.getTrimFromEnd](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/gettrimfromend/).
+
+Следующий пример кода находит первый видеокадр на первом слайде и выводит его параметры обрезки в миллисекундах:
+
+```javascript
+const presentation = new aspose.slides.Presentation("video_with_trim.pptx");
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const shapeCount = slide.getShapes().size();
+    for (let shapeIndex = 0; shapeIndex < shapeCount; shapeIndex++) {
+        const shape = slide.getShapes().get_Item(shapeIndex);
+        if (java.instanceOf(shape, "com.aspose.slides.VideoFrame")) {
+            const videoFrame = shape;
+            const trimFromStart = videoFrame.getTrimFromStart();
+            const trimFromEnd = videoFrame.getTrimFromEnd();
+
+            console.log("Trim from start: " + trimFromStart + " ms");
+            console.log("Trim from end: " + trimFromEnd + " ms");
+            break;
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
 ## **Управление субтитрами видео**
 
 Aspose.Slides позволяет управлять закрытыми субтитрами для видеокадров в презентациях PowerPoint. Субтитры хранятся в формате WebVTT и доступны через метод [VideoFrame.getCaptionTracks](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/#getCaptionTracks).
@@ -142,10 +209,10 @@ Aspose.Slides позволяет управлять закрытыми субт�
 
 Чтобы добавить субтитры к видеокадру:
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/presentation/).
 1. Добавьте видео в презентацию.
 1. Добавьте объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) на слайд.
-1. Используйте коллекцию [CaptionsCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/) для добавления трека субтитров WebVTT.
+1. Используйте коллекцию [CaptionsCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/) для добавления дорожки субтитров WebVTT.
 1. Сохраните изменённую презентацию.
 
 Следующий код показывает, как добавить субтитры к видеокадру:
@@ -175,9 +242,9 @@ try {
 Чтобы извлечь субтитры из видеокадра:
 
 1. Загрузите презентацию, содержащую видео.
-1. Найдите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) .
-1. Пройдите по коллекции [CaptionsCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/) .
-1. Сохраните каждый трек субтитров в файл с расширением `.vtt`.
+1. Найдите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/).
+1. Пройдитесь по коллекции [CaptionsCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/).
+1. Сохраните каждую дорожку субтитров в файл с расширением `.vtt`.
 
 Следующий код показывает, как извлечь субтитры из видеокадра:
 
@@ -205,15 +272,15 @@ try {
 }
 ```
 
-Каждый объект [Captions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captions/) раскрывает идентификатор субтитров, метку, двоичные данные и текст субтитров в виде UTF‑8 строки.
+Каждый объект [Captions](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captions/) раскрывает идентификатор субтитров, метку, бинарные данные и текст субтитров в виде строки UTF‑8.
 
 **Удаление субтитров из видеокадра**
 
 Чтобы удалить субтитры из видеокадра:
 
 1. Загрузите презентацию, содержащую видео.
-1. Получите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) .
-1. Удалите треки субтитров из коллекции [CaptionsCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/) .
+1. Получите целевой объект [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/).
+1. Удалите дорожки субтитров из коллекции [CaptionsCollection](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/).
 1. Сохраните изменённую презентацию.
 
 Следующий код показывает, как удалить все субтитры из видеокадра:
@@ -233,22 +300,21 @@ try {
 }
 ```
 
-Если необходимо удалить только один трек субтитров, используйте методы [remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/#remove) или [removeAt](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/#removeAt) вместо метода [clear](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/#clear).
-
+Если необходимо удалить только одну дорожку субтитров, используйте методы [remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/#remove) или [removeAt](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/#removeAt) вместо метода [clear](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/captionscollection/#clear).
 
 ## **Извлечение видео со слайда**
 
-Помимо добавления видео в слайды, Aspose.Slides позволяет извлекать встроенные в презентацию видео.
+Помимо добавления видео на слайды, Aspose.Slides позволяет извлекать видео, встроенное в презентации.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation) для загрузки презентации, содержащей видео.
-2. Пройдите по всем объектам [Slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/) .
-3. Пройдите по всем объектам [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/) в поисках [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) .
+1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/Presentation) для загрузки презентации с видео.
+2. Пройдитесь по всем объектам [Slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/).
+3. Пройдитесь по всем объектам [Shape](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/shape/) в поисках [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/).
 4. Сохраните видео на диск.
 
 Этот JavaScript‑код показывает, как извлечь видео со слайда презентации:
 
 ```javascript
-// Создаёт объект Presentation, представляющий файл презентации
+// Создает объект Presentation, представляющий файл презентации
 var pres = new aspose.slides.Presentation("VideoSample.pptx");
 try {
     for (let i = 0; i < pres.getSlides().size(); i++) {
@@ -279,18 +345,18 @@ try {
 
 ## **FAQ**
 
-**Какие параметры воспроизведения можно изменить для VideoFrame?**
+**Какие параметры воспроизведения видео можно изменить для VideoFrame?**
 
-Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/setplaymode/) (автоматически или по щелчку) и [циклическим воспроизведением](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/) .
+Вы можете управлять [режимом воспроизведения](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/setplaymode/) (авто или по щелчку) и [повторением](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/setplayloopmode/). Эти параметры доступны через свойства объекта [VideoFrame](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/).
 
 **Влияет ли добавление видео на размер файла PPTX?**
 
-Да. При встраивании локального видео бинарные данные включаются в документ, поэтому размер презентации растёт пропорционально размеру файла. При добавлении онлайн‑видео встраивается ссылка и миниатюра, поэтому рост размера меньше.
+Да. При встраивании локального видео двоичные данные включаются в документ, поэтому размер презентации увеличивается пропорционально размеру файла. При добавлении онлайн‑видео в документ встраивается ссылка и миниатюра, поэтому увеличение размера меньше.
 
-**Можно ли заменить видео в существующем VideoFrame, не меняя его позицию и размер?**
+**Можно ли заменить видео в существующем VideoFrame, не меняя его положение и размер?**
 
-Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию фигуры; такой сценарий часто используется для обновления медиа в существующей разметке.
+Да. Вы можете заменить [видеоконтент](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/videoframe/setembeddedvideo/) внутри кадра, сохранив геометрию формы; это типичный сценарий обновления медиа в уже существующем макете.
 
 **Можно ли определить тип содержимого (MIME) встроенного видео?**
 
-Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/getcontenttype/), который можно прочитать и использовать, например, при сохранении его на диск.
+Да. Встроенное видео имеет [тип содержимого](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/video/getcontenttype/), который можно прочитать и использовать, например, при сохранении на диск.

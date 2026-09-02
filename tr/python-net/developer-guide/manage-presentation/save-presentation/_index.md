@@ -1,5 +1,5 @@
 ---
-title: Python'da Sunumları Kaydet
+title: Python'da Sunumları Kaydetme
 linktitle: Sunumları Kaydet
 type: docs
 weight: 80
@@ -12,54 +12,54 @@ keywords:
 - PPT kaydet
 - PPTX kaydet
 - ODP kaydet
-- dosyaya sunum
-- akışa sunum
-- ön tanımlı görünüm türü
+- sunumu dosyaya
+- sunumu akışa
+- önceden tanımlı görünüm tipi
 - Katı Office Open XML Biçimi
 - Zip64 modu
 - küçük resmi yenileme
 - kaydetme ilerlemesi
 - Python
 - Aspose.Slides
-description: "Aspose.Slides kullanarak Python'da sunumları nasıl kaydedeceğinizi keşfedin—düzenleri, yazı tiplerini ve efektleri koruyarak PowerPoint veya OpenDocument olarak dışa aktarın."
+description: "Aspose.Slides kullanarak Python'da sunumları nasıl kaydedeceğinizi keşfedin—PowerPoint veya OpenDocument olarak dışa aktarırken düzenleri, yazı tiplerini ve efektleri koruyun."
 ---
 ## **Genel Bakış**
 
-[Open a Presentation in Python](/slides/tr/python-net/open-presentation/) sunumu açmak için [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıkladı. Bu makale, sunumların nasıl oluşturulup kaydedileceğini açıklar. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı bir sunumun içeriğini tutar. Sıfırdan bir sunum oluşturuyor ya da mevcut bir sunumu değiştiriyor olsanız da, tamamladığınızda onu kaydetmek isteyeceksiniz. Aspose.Slides for Python ile bir **dosyaya** ya da **akışa** kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
+[Python'da Bir Sunumu Aç](/slides/tr/python-net/open-presentation/) kısmı, bir sunumu açmak için **Presentation**(https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının nasıl kullanılacağını açıklamaktadır. Bu makale, sunumların nasıl oluşturulacağını ve kaydedileceğini anlatır. **Presentation** sınıfı, bir sunumun içeriğini tutar. Sıfırdan bir sunum oluşturuyor ya da mevcut bir sunumu değiştiriyor olun, işiniz bittiğinde kaydetmek isteyeceksiniz. Aspose.Slides for Python ile bir **dosya**ya ya da **akışa** kaydedebilirsiniz. Bu makale, bir sunumu kaydetmenin farklı yollarını açıklar.
 
-## **Sunumları Dosyalara Kaydet**
+## **Sunumları Dosyalara Kaydetme**
 
-Bir sunumu, [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının `save` yöntemini çağırarak dosyaya kaydedin. Yönteme dosya adını ve kaydetme formatını geçin. Aşağıdaki örnek, Aspose.Slides for Python ile bir sunumu nasıl kaydedeceğinizi gösterir.
+Bir sunumu, **Presentation**(https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının `save` metodunu çağırarak dosyaya kaydedin. Metoda dosya adı ve kaydetme formatını iletin. Aşağıdaki örnek, Aspose.Slides for Python ile bir sunumun nasıl kaydedileceğini gösterir.
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+# Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 with slides.Presentation() as presentation:
     
-    # Burada bazı işlemler yapın...
+    # Burada bazı işlemler yap...
 
-    # Sunumu bir dosyaya kaydedin.
+    # Sunumu bir dosyaya kaydet.
     presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sunumları Akışlara Kaydet**
+## **Sunumları Akışlara Kaydetme**
 
-Bir sunumu bir akışa kaydetmek için, çıktı akışını [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının `save` yöntemine aktarabilirsiniz. Bir sunum birçok akış türüne yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturuyor, bir şekle metin ekliyoruz ve onu bir akışa kaydediyoruz.
+`save` metoduna bir çıktı akışı geçirerek bir sunumu akışa kaydedebilirsiniz. Bir sunum, birçok akış tipine yazılabilir. Aşağıdaki örnekte yeni bir sunum oluşturup onu bir dosya akışına kaydediyoruz.
 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
+# Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 with slides.Presentation() as presentation:
     with open("output.pptx", "bw") as file_stream:
-        # Sunumu akışa kaydedin.
+        # Sunumu akışa kaydet.
         presentation.save(file_stream, slides.export.SaveFormat.PPTX)
 ```
 
-## **Ön Tanımlı Görünüm Türüyle Sunumları Kaydet**
+## **Önceden Tanımlı Görünüm Tipiyle Sunumları Kaydetme**
 
-Aspose.Slides for Python, oluşturulan sunum açıldığında PowerPoint'in kullandığı ilk görünümü [ViewProperties](https://reference.aspose.com/slides/tr/python-net/aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza olanak tanır. `last_view` özelliğini [ViewType](https://reference.aspose.com/slides/tr/python-net/aspose.slides/viewtype/) sayımından bir değere ayarlayın.
+Aspose.Slides for Python, oluşturulan sunum açıldığında PowerPoint’in kullandığı ilk görünümü **ViewProperties**(https://reference.aspose.com/slides/tr/python-net/aspose.slides/viewproperties/) sınıfı aracılığıyla ayarlamanıza izin verir. `last_view` özelliğini **ViewType**(https://reference.aspose.com/slides/tr/python-net/aspose.slides/viewtype/) sayılımından bir değerle ayarlayın.
 
 ```py
 import aspose.slides as slides
@@ -69,9 +69,9 @@ with slides.Presentation() as presentation:
     presentation.save("slide_master_view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Sunumları Katı Office Open XML Biçiminde Kaydet**
+## **Katı Office Open XML Biçiminde Sunumları Kaydetme**
 
-Aspose.Slides, bir sunumu Katı Office Open XML biçiminde kaydetmenize izin verir. Kaydederken [PptxOptions](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/) sınıfını kullanın ve uyumluluk özelliğini ayarlayın. `Conformance.ISO_29500_2008_STRICT` ayarlarsanız, çıktı dosyası Katı Office Open XML biçiminde kaydedilir.
+Aspose.Slides, bir sunumu Katı Office Open XML biçiminde kaydetmenizi sağlar. Kaydederken **PptxOptions**(https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/) sınıfını kullanın ve `conformance` özelliğini ayarlayın. `Conformance.ISO_29500_2008_STRICT` ayarlanırsa çıktı dosyası Katı Office Open XML biçiminde kaydedilir.
 
 Aşağıdaki örnek bir sunum oluşturur ve onu Katı Office Open XML biçiminde kaydeder.
 
@@ -81,27 +81,29 @@ import aspose.slides as slides
 options = slides.export.PptxOptions()
 options.conformance = slides.export.Conformance.ISO_29500_2008_STRICT
 
-# Presentation dosyasını temsil eden Presentation sınıfını örnekleyin.
+# Sunum dosyasını temsil eden Presentation sınıfının bir örneğini oluştur.
 with slides.Presentation() as presentation:
-    # Sunumu Katı Office Open XML biçiminde kaydedin.
+    # Sunumu Katı Office Open XML biçiminde kaydet.
     presentation.save("strict_office_open_xml.pptx", slides.export.SaveFormat.PPTX, options)
 ```
 
-## **Sunumları Office Open XML Biçiminde Zip64 Modunda Kaydet**
+## **ZIP64 Modunda Office Open XML Biçiminde Sunumları Kaydetme**
 
-Bir Office Open XML dosyası, sıkıştırılmamış bir dosyanın 4 GB (2^32 bayt) limitini, sıkıştırılmış bir dosyanın boyutunu ve arşivin toplam boyutunu sınırlayan bir ZIP arşividir; ayrıca arşiv 65 535 (2^16‑1) dosyayla sınırlıdır. ZIP64 biçim uzantıları bu limitleri 2^64’e yükseltir.
+Office Open XML dosyası, sıkıştırılmamış dosya boyutu, sıkıştırılmış dosya boyutu ve arşiv toplam boyutu için 4 GB (2^32 bayt) ve 65 535 (2^16‑1) dosya sınırları getiren bir ZIP arşividir. ZIP64 biçim uzantıları bu sınırları 2^64’e çıkarır.
 
-[PptxOptions.zip_64_mode](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) özelliği, bir Office Open XML dosyası kaydedilirken ZIP64 uzantılarının ne zaman kullanılacağını seçmenizi sağlar.
+**PptxOptions.zip_64_mode**(https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/zip_64_mode/) özelliği, bir Office Open XML dosyası kaydedilirken ZIP64 uzantılarını ne zaman kullanacağınıza karar verir.
 
 Bu özellik aşağıdaki modları sunar:
 
-- `IF_NECESSARY` yalnızca sunum yukarıdaki sınırlamaları aşarsa ZIP64 uzantılarını kullanır. Bu varsayılan moddur.
+- `IF_NECESSARY` sunum yukarıdaki sınırlamaları aşıyorsa ZIP64 uzantılarını kullanır. Varsayılan moddur.
 - `NEVER` ZIP64 uzantılarını asla kullanmaz.
 - `ALWAYS` her zaman ZIP64 uzantılarını kullanır.
 
-Aşağıdaki kod, ZIP64 uzantıları etkinleştirilmiş bir PPTX olarak bir sunumu nasıl kaydedeceğinizi gösterir:
+Aşağıdaki kod, ZIP64 uzantıları etkinleştirilmiş bir PPTX dosyası olarak bir sunumu nasıl kaydedeceğinizi gösterir:
 
 ```py
+import aspose.slides as slides
+
 pptx_options = slides.export.PptxOptions()
 pptx_options.zip_64_mode = slides.export.Zip64Mode.ALWAYS
 
@@ -110,17 +112,60 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="NOTE" color="warning" %}}
-`Zip64Mode.NEVER` ile kaydettiğinizde, sunum ZIP32 biçiminde kaydedilemezse bir [PptxException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxexception/) fırlatılır.
+`Zip64Mode.NEVER` ile kaydederseniz, sunum ZIP32 biçiminde kaydedilemezse bir **PptxException**(https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxexception/) fırlatılır.
 {{% /alert %}}
 
-## **Küçük Resmi Yenilemeden Sunumları Kaydet**
+## **Sıkıştırma Seviyeleriyle Office Open XML Biçiminde Sunumları Kaydetme**
 
-[PptxOptions.refresh_thumbnail](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) özelliği, bir sunumu PPTX olarak kaydederken küçük resim oluşturulmasını kontrol eder:
+Büyük sunumlarla çalışırken dosya boyutu ve işlem süresi dengesini ayarlamak için sıkıştırma seviyesini değiştirebilirsiniz. Gereksinimlerinize bağlı olarak daha hızlı işlem ya da daha küçük dosya tercih edebilirsiniz.
 
-- `True` olarak ayarlanırsa, kaydetme sırasında küçük resim yenilenir. Bu varsayılandır.
-- `False` olarak ayarlanırsa, mevcut küçük resim korunur. Sunumun küçük resmi yoksa hiç biri oluşturulmaz.
+Aspose.Slides, Office Open XML biçiminde kaydederken kullanılacak sıkıştırma seviyesini belirtmenizi sağlayan **PptxOptions.compression_level**(https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/compression_level/) özelliğini sunar.
 
-Aşağıdaki kodda, sunum küçük resmi yenilenmeden PPTX olarak kaydedilir.
+Mevcut sıkıştırma seviyeleri:
+
+- [**NONE**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): Sıkıştırma uygulanmaz. Dosyalar olduğu gibi depolanır.
+- [**LEVEL1**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): En düşük sıkıştırma oranı ile en hızlı sıkıştırma.
+- [**LEVEL2**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): **LEVEL1**’e göre biraz daha iyi sıkıştırma oranı, hâlâ hızlı.
+- [**LEVEL3**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): **LEVEL2**’ye göre daha iyi sıkıştırma, işlem süresinde orta derecede etki.
+- [**LEVEL4**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): **LEVEL3**’ten daha iyi sıkıştırma.
+- [**LEVEL5**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): **LEVEL4**’e ek işlem süresi karşılığında geliştirilmiş sıkıştırma.
+- [**LEVEL6**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): İşlem hızı ve dosya boyutu arasında iyi bir denge sunan standart sıkıştırma. *Varsayılan sıkıştırma seviyesidir*.
+- [**LEVEL7**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): **LEVEL6**’dan daha iyi sıkıştırma, ancak daha yavaş işlem.
+- [**LEVEL8**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): **LEVEL7**’den daha iyi sıkıştırma.
+- [**LEVEL9**](https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/compressionlevel/): Maksimum sıkıştırma. En uzun işlem süresi karşılığında en küçük dosya boyutunu üretir.
+
+Aşağıdaki örnek, bir sunumu *sıkıştırma olmadan* PPTX dosyası olarak kaydetmeyi gösterir:
+
+```py
+import aspose.slides as slides
+
+pptx_options = slides.export.PptxOptions()
+pptx_options.compression_level = slides.export.CompressionLevel.NONE
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("sample_out.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+```
+
+Bu örnek ise bir sunumu *maksimum sıkıştırma* ile PPTX dosyası olarak kaydetmeyi gösterir:
+
+```py
+import aspose.slides as slides
+
+pptx_options = slides.export.PptxOptions()
+pptx_options.compression_level = slides.export.CompressionLevel.LEVEL9
+
+with slides.Presentation("sample.pptx") as presentation:
+    presentation.save("sample_level9.pptx", slides.export.SaveFormat.PPTX, pptx_options)
+```
+
+## **Küçük Resmi Yenilemeden Sunumları Kaydetme**
+
+**PptxOptions.refresh_thumbnail**(https://reference.aspose.com/slides/tr/python-net/aspose.slides.export/pptxoptions/refresh_thumbnail/) özelliği, PPTX olarak kaydederken küçük resim oluşturulmasını denetler:
+
+- `True` ise kaydetme sırasında küçük resim yenilenir. Varsayılan davranıştır.
+- `False` ise mevcut küçük resim korunur. Sunumda küçük resim yoksa hiç oluşturulmaz.
+
+Aşağıdaki kod, sunumu küçük resmi yenilenmeden PPTX olarak kaydeder.
 
 ```py
 import aspose.slides as slides
@@ -133,27 +178,27 @@ with slides.Presentation("sample.pptx") as presentation:
 ```
 
 {{% alert title="Info" color="info" %}}
-Bu seçenek, PPTX formatında bir sunumu kaydetme süresini azaltmaya yardımcı olur.
+Bu seçenek, PPTX biçiminde bir sunumu kaydetme süresini azaltmaya yardımcı olur.
 {{% /alert %}}
 
 {{% alert title="Info" color="info" %}}
-Aspose, kendi API'sini kullanarak [ücretsiz PowerPoint Splitter uygulaması](https://products.aspose.app/slides/tr/splitter) geliştirdi. Uygulama, seçili slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
+Aspose, kendi API’si kullanılarak geliştirilmiş bir [ücretsiz PowerPoint Bölücü uygulaması](https://products.aspose.app/slides/tr/splitter) sunmaktadır. Uygulama, seçilen slaytları yeni PPTX veya PPT dosyaları olarak kaydederek bir sunumu birden fazla dosyaya bölmenizi sağlar.
 {{% /alert %}}
 
 ## **SSS**
 
-**“Hızlı kaydet” (artımlı kaydet) yalnızca değişikliklerin yazılması destekleniyor mu?**
+**“Hızlı kaydetme” (artımlı kaydetme) sadece değişiklikler yazılacak şekilde destekleniyor mu?**
 
-Hayır. Kaydetme her seferinde tam hedef dosyayı oluşturur; artımlı “hızlı kaydet” desteklenmez.
+Hayır. Kaydetme her seferinde tam hedef dosyasını oluşturur; artımlı “hızlı kaydetme” desteklenmez.
 
-**Aynı Presentation örneğini birden fazla thread'den kaydetmek thread‑safe midir?**
+**Aynı Presentation örneğini birden çok iş parçacığından kaydetmek güvenli mi?**
 
-Hayır. Bir [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği [thread‑safe değildir](/slides/tr/python-net/multithreading/); tek bir thread'den kaydedin.
+Hayır. **Presentation**(https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) örneği [thread‑safe değildir](/slides/tr/python-net/multithreading/); tek bir iş parçacığından kaydedilmelidir.
 
-**Kaydederken hiperlinkler ve harici bağlı dosyalar ne olur?**
+**Kaydederken köprüler ve harici bağlı dosyalar ne olur?**
 
-[Hyperlinkler](/slides/tr/python-net/manage-hyperlinks/) korunur. Harici bağlı dosyalar (ör. göreceli yollarla videolar) otomatik olarak kopyalanmaz — referans verilen yolların erişilebilir olduğundan emin olun.
+[Hyperlinkler](/slides/tr/python-net/manage-hyperlinks/) korunur. Harici bağlı dosyalar (ör. göreceli yollarla eklenmiş videolar) otomatik olarak kopyalanmaz—referans verilen yolların erişilebilir olduğundan emin olun.
 
-**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp kaydedebilir miyim?**
+**Belge meta verilerini (Yazar, Başlık, Şirket, Tarih) ayarlayıp/kaydedebilir miyim?**
 
-Evet. Standart [document properties](/slides/tr/python-net/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.
+Evet. Standart [belge özellikleri](/slides/tr/python-net/presentation-properties/) desteklenir ve kaydetme sırasında dosyaya yazılır.

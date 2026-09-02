@@ -1,86 +1,86 @@
 ---
-title: Presentatieslides converteren naar afbeeldingen in .NET
-linktitle: Slide naar afbeelding
+title: Presentatiedia's omzetten naar afbeeldingen in .NET
+linktitle: Dia naar afbeelding
 type: docs
 weight: 41
 url: /nl/net/convert-slide/
 keywords:
-- slide converteren
-- slide exporteren
-- slide naar afbeelding
-- slide opslaan als afbeelding
-- slide naar PNG
-- slide naar JPEG
-- slide naar bitmap
-- slide naar TIFF
+- dia converteren
+- dia exporteren
+- dia naar afbeelding
+- dia opslaan als afbeelding
+- dia naar PNG
+- dia naar JPEG
+- dia naar bitmap
+- dia naar TIFF
 - PowerPoint
 - OpenDocument
 - presentatie
 - .NET
 - C#
 - Aspose.Slides
-description: "Converteer slides van PPT, PPTX en ODP naar afbeeldingen in C# met Aspose.Slides voor .NET — snelle, hoogwaardige weergave met duidelijke codevoorbeelden."
+description: "Dia's converteren van PPT, PPTX en ODP naar afbeeldingen in C# met Aspose.Slides voor .NET—snelle, hoogwaardige weergave met heldere code‑voorbeelden."
 ---
-## **Introductie**
+## **Inleiding**
 
-Aspose.Slides voor .NET stelt u in staat om eenvoudig PowerPoint- en OpenDocument-presentatieslides te converteren naar verschillende afbeeldingsformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
+Aspose.Slides for .NET stelt u in staat om eenvoudig PowerPoint- en OpenDocument-presentatiedia's te converteren naar verschillende beeldformaten, waaronder BMP, PNG, JPG (JPEG), GIF en andere.
 
-Om een slide naar een afbeelding te converteren, volgt u deze stappen:
+Om een dia naar een afbeelding te converteren, volgt u deze stappen:
 
-1. Definieer de gewenste conversie‑instellingen en selecteer de slides die u wilt exporteren door gebruik te maken van:
+1. Definieer de gewenste conversie‑instellingen en selecteer de dia's die u wilt exporteren met behulp van:
     - De [ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) interface, of
     - De [IRenderingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/irenderingoptions/) interface.
-2. Genereer de slide‑afbeelding door de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/)‑methode aan te roepen.
+2. Genereer de dia‑afbeelding door de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) methode aan te roepen.
 
-In .NET is een [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) een object waarmee u kunt werken met afbeeldingen die zijn gedefinieerd door pixelgegevens. U kunt een instantie van deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
+In .NET is een [Bitmap](https://docs.microsoft.com/en-us/dotnet/api/system.drawing.bitmap?view=net-5.0) een object dat u in staat stelt te werken met afbeeldingen gedefinieerd door pixelgegevens. U kunt een instantie van deze klasse gebruiken om afbeeldingen op te slaan in een breed scala aan formaten (BMP, JPG, PNG, enz.).
 
-## **Slides converteren naar Bitmaps en de afbeeldingen opslaan in PNG**
+## **Dia's converteren naar Bitmaps en de afbeeldingen opslaan in PNG**
 
-U kunt een slide converteren naar een bitmap‑object en deze direct in uw applicatie gebruiken. Alternatief kunt u een slide converteren naar een bitmap en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
+U kunt een dia converteren naar een bitmap‑object en deze direct in uw applicatie gebruiken. Als alternatief kunt u een dia naar een bitmap converteren en vervolgens de afbeelding opslaan in JPEG of een ander gewenst formaat.
 
-Deze C#‑code laat zien hoe u de eerste slide van een presentatie kunt converteren naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
+Deze C#‑code laat zien hoe u de eerste dia van een presentatie converteert naar een bitmap‑object en vervolgens de afbeelding opslaat in PNG‑formaat:
 
 ```cs
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Converteer de eerste slide in de presentatie naar een bitmap.
+    // Converteer de eerste dia in de presentatie naar een bitmap.
     using (IImage image = presentation.Slides[0].GetImage())
     {
-        // Sla de afbeelding op in PNG-formaat.
+        // Sla de afbeelding op in het PNG-formaat.
         image.Save("Slide_0.png", ImageFormat.Png);
     }
 }
 ```
 
-## **Slides converteren naar afbeeldingen met aangepaste afmetingen**
+## **Dia's converteren naar Afbeeldingen met Aangepaste Afmetingen**
 
-U wilt misschien een afbeelding van een bepaalde grootte verkrijgen. Met een overload van de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) kunt u een slide converteren naar een afbeelding met specifieke afmetingen (breedte en hoogte). 
+U heeft mogelijk een afbeelding van een bepaalde grootte nodig. Met een overload van de [GetImage](https://reference.aspose.com/slides/nl/net/aspose.slides/islide/getimage/) kunt u een dia converteren naar een afbeelding met specifieke afmetingen (breedte en hoogte).
 
-Deze voorbeeldcode laat zien hoe u dit doet:
+Deze voorbeeldcode toont hoe u dit doet:
 
 ```cs
 Size imageSize = new Size(1820, 1040);
 
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Converteer de eerste slide in de presentatie naar een bitmap met de opgegeven grootte.
+    // Converteer de eerste dia in de presentatie naar een bitmap met de opgegeven grootte.
     using (IImage image = presentation.Slides[0].GetImage(imageSize))
     {
-        // Sla de afbeelding op in JPEG-formaat.
+        // Sla de afbeelding op in het JPEG-formaat.
         image.Save("Slide_0.jpg", ImageFormat.Jpeg);
     }
 }
 ```
 
-## **Slides met aantekeningen en opmerkingen converteren naar afbeeldingen**
+## **Dia's met Notities en Opmerkingen naar Afbeeldingen converteren**
 
-Sommige slides kunnen aantekeningen en opmerkingen bevatten.
+Sommige dia's kunnen notities en opmerkingen bevatten.
 
-Aspose.Slides biedt twee interfaces—[ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) en [IRenderingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/irenderingoptions/)—die u in staat stellen de rendering van presentatieslides naar afbeeldingen te beheersen. Beide interfaces bevatten de eigenschap `SlidesLayoutOptions`, waarmee u de rendering van aantekeningen en opmerkingen op een slide kunt configureren bij het converteren naar een afbeelding.
+Aspose.Slides biedt twee interfaces—[ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) en [IRenderingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/irenderingoptions/)—die u in staat stellen de weergave van presentatiedia's naar afbeeldingen te regelen. Beide interfaces bevatten de eigenschap `SlidesLayoutOptions`, waarmee u de weergave van notities en opmerkingen op een dia kunt configureren bij het omzetten naar een afbeelding.
 
-Met de klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notescommentslayoutingoptions/) kunt u de gewenste positie voor aantekeningen en opmerkingen in de resulterende afbeelding opgeven.
+Met de klasse [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/notescommentslayoutingoptions/) kunt u de gewenste positie van notities en opmerkingen in de resulterende afbeelding opgeven.
 
-Deze C#‑code laat zien hoe u een slide met aantekeningen en opmerkingen kunt converteren:
+Deze C#‑code laat zien hoe u een dia met notities en opmerkingen converteert:
 
 ```cs
 float scaleX = 2;
@@ -89,54 +89,56 @@ float scaleY = scaleX;
 // Laad een presentatiebestand.
 using (Presentation presentation = new Presentation("Presentation_with_notes_and_comments.pptx"))
 {
-    // Maak de rendering‑opties aan.
+    // Maak de renderopties aan.
     RenderingOptions options = new RenderingOptions
     {
         SlidesLayoutOptions = new NotesCommentsLayoutingOptions
         {
             NotesPosition = NotesPositions.BottomTruncated,  // Stel de positie van de notities in.
             CommentsPosition = CommentsPositions.Right,      // Stel de positie van de opmerkingen in.
-            CommentsAreaWidth = 500,                         // Stel de breedte van het opmerkingen‑gebied in.
-            CommentsAreaColor = Color.AntiqueWhite           // Stel de kleur van het opmerkingen‑gebied in.
+            CommentsAreaWidth = 500,                         // Stel de breedte van het opmerkingengebied in.
+            CommentsAreaColor = Color.AntiqueWhite           // Stel de kleur van het opmerkingengebied in.
         }
     };
 
-    // Converteer de eerste slide van de presentatie naar een afbeelding.
+    // Converteer de eerste dia van de presentatie naar een afbeelding.
     using (IImage image = presentation.Slides[0].GetImage(options, scaleX, scaleY))
     {
-        // Sla de afbeelding op in GIF‑formaat.
+        // Sla de afbeelding op in GIF-formaat.
         image.Save("Image_with_notes_and_comments_0.gif", ImageFormat.Gif);
     }
 }
 ```
 
-{{% alert title="Note" color="warning" %}} 
-In elk slide‑naar‑afbeelding‑conversieproces kan de eigenschap [NotesPosition](https://reference.aspose.com/slides/nl/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) niet worden ingesteld op `BottomFull` (om de positie van aantekeningen te bepalen) omdat de tekst van een aantekening mogelijk te groot is, waardoor deze niet binnen de opgegeven afbeeldingsgrootte past.
+{{% alert title="Opmerking" color="warning" %}} 
+
+In elk dia-naar-afbeelding conversieproces kan de eigenschap [NotesPosition](https://reference.aspose.com/slides/nl/net/aspose.slides.export/inotescommentslayoutingoptions/notesposition/) niet worden ingesteld op `BottomFull` (om de positie van notities op te geven) omdat de tekst van een notitie te groot kan zijn, waardoor deze niet in de gespecificeerde afbeeldingsgrootte past.
+
 {{% /alert %}} 
 
-## **Slides converteren naar afbeeldingen met TIFF‑opties**
+## **Dia's converteren naar Afbeeldingen met TIFF‑opties**
 
-De [ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) interface biedt meer controle over de resulterende TIFF‑afbeelding door u parameters zoals grootte, resolutie, kleurenpalet en meer te laten specificeren.
+De [ITiffOptions](https://reference.aspose.com/slides/nl/net/aspose.slides.export/itiffoptions/) interface biedt meer controle over de resulterende TIFF‑afbeelding door u parameters zoals grootte, resolutie, kleurenpalet en meer te kunnen specificeren.
 
-Deze C#‑code laat een conversieproces zien waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding te genereren met een resolutie van 300 DPI en een grootte van 2160 × 2800:
+Deze C#‑code toont een conversieproces waarbij TIFF‑opties worden gebruikt om een zwart‑wit afbeelding te genereren met een resolutie van 300 DPI en een grootte van 2160 × 2800:
 
 ```cs
 // Laad een presentatiebestand.
 using (Presentation presentation = new Presentation("sample.pptx"))
 {
-    // Haal de eerste slide uit de presentatie.
+    // Haal de eerste dia uit de presentatie.
     ISlide slide = presentation.Slides[0];
 
-    // Configureer de instellingen van de uitvoer-TIFF-afbeelding.
+    // Configureer de instellingen van de uitvoer TIFF-afbeelding.
     TiffOptions tiffOptions = new TiffOptions
     {
-        ImageSize = new Size(2160, 2880),                  // Stel de afbeeldingsgrootte in.
+        ImageSize = new Size(2160, 2880),                  // Stel de afbeeldinggrootte in.
         PixelFormat = ImagePixelFormat.Format1bppIndexed,  // Stel het pixelformaat in (zwart-wit).
         DpiX = 300,                                        // Stel de horizontale resolutie in.
         DpiY = 300                                         // Stel de verticale resolutie in.
     };
 
-    // Converteer de slide naar een afbeelding met de opgegeven opties.
+    // Converteer de dia naar een afbeelding met de opgegeven opties.
     using (IImage image = slide.GetImage(tiffOptions))
     {
         // Sla de afbeelding op in TIFF-formaat.
@@ -145,11 +147,11 @@ using (Presentation presentation = new Presentation("sample.pptx"))
 }
 ```
 
-## **Alle slides converteren naar afbeeldingen**
+## **Alle dia's naar Afbeeldingen converteren**
 
-Aspose.Slides stelt u in staat om alle slides in een presentatie te converteren naar afbeeldingen, waardoor de volledige presentatie wordt omgezet in een reeks afbeeldingen.
+Aspose.Slides stelt u in staat om alle dia's in een presentatie naar afbeeldingen te converteren, waardoor de volledige presentatie werd omgezet in een reeks afbeeldingen.
 
-Deze voorbeeldcode laat zien hoe u alle slides in een presentatie kunt converteren naar afbeeldingen in C#:
+Deze voorbeeldcode laat zien hoe u alle dia's in een presentatie naar afbeeldingen converteert in C#:
 
 ```cs
 float scaleX = 2;
@@ -157,7 +159,7 @@ float scaleY = scaleX;
 
 using (Presentation presentation = new Presentation("Presentation.pptx"))
 {
-    // Render de presentatie naar afbeeldingen dia per dia.
+    // Render de presentatie naar afbeeldingen dia voor dia.
     for (int i = 0; i < presentation.Slides.Count; i++)
     {
         // Beheer verborgen dia's (render geen verborgen dia's).
@@ -174,16 +176,22 @@ using (Presentation presentation = new Presentation("Presentation.pptx"))
 }
 ```
 
-## **FAQ**
+## **Kleur‑emoji weergave**
 
-**1. Ondersteunt Aspose.Slides het renderen van slides met animaties?**
+{{% alert title="Opmerking" color="warning" %}} 
+Om kleur‑emoji’s correct weer te geven bij het converteren van presentatiedia's naar afbeeldingen, moeten de emoji‑lettertypen die in de presentatie worden gebruikt geïnstalleerd en beschikbaar zijn op het systeem dat de conversie uitvoert. Bijvoorbeeld, als de presentatie **Segoe UI Emoji** gebruikt en dit lettertype ontbreekt, kunnen emoji’s in monochroom verschijnen in de gegenereerde afbeeldingen.
+{{% /alert %}}
 
-Nee, de methode `GetImage` slaat alleen een statische afbeelding van de slide op, zonder animaties.
+## **Veelgestelde vragen**
 
-**2. Kunnen verborgen slides worden geëxporteerd als afbeeldingen?**
+**Ondersteunt Aspose.Slides het weergeven van dia's met animaties?**
 
-Ja, verborgen slides kunnen net als reguliere slides worden verwerkt. Zorg er alleen voor dat ze zijn opgenomen in de verwerkingslus.
+Nee, de `GetImage`‑methode slaat alleen een statische afbeelding van de dia op, zonder animaties.
 
-**3. Kunnen afbeeldingen worden opgeslagen met schaduwen en effecten?**
+**Kunnen verborgen dia's als afbeeldingen worden geëxporteerd?**
 
-Ja, Aspose.Slides ondersteunt het renderen van schaduwen, transparantie en andere grafische effecten bij het opslaan van slides als afbeeldingen.
+Ja, verborgen dia's kunnen net als normale dia's worden verwerkt. Zorg er alleen voor dat ze zijn opgenomen in de verwerkingslus.
+
+**Kunnen afbeeldingen worden opgeslagen met schaduwen en effecten?**
+
+Ja, Aspose.Slides ondersteunt het renderen van schaduwen, transparantie en andere grafische effecten bij het opslaan van dia's als afbeeldingen.

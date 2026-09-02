@@ -1,5 +1,5 @@
 ---
-title: Εφαρμογή Κινήσεων Σχήματος σε Παρουσιάσεις χρησιμοποιώντας PHP
+title: Εφαρμογή κινήσεων σχήματος στις παρουσιάσεις χρησιμοποιώντας PHP
 linktitle: Κίνηση Σχήματος
 type: docs
 weight: 60
@@ -22,453 +22,499 @@ keywords:
 - παρουσίαση
 - PHP
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να δημιουργείτε και να προσαρμόζετε κινήσεις σχήματος σε παρουσιάσεις PowerPoint με το Aspose.Slides για PHP μέσω Java. Ξεχωρίστε!"
+description: "Μάθετε πώς να προσθέτετε, ελέγχετε και προσαρμόζετε κινήσεις σχήματος, χρονικά, ήχους, συμπεριφορά μετά την κίνηση και κινούμενο κείμενο με το Aspose.Slides για PHP μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Οι κινήσεις είναι οπτικά εφέ που μπορούν να εφαρμοστούν σε κείμενα, εικόνες, σχήματα ή [charts](https://docs.aspose.com/slides/el/php-java/animated-charts/). Δίνουν ζωή στις παρουσιάσεις ή στα στοιχεία τους.
+Aspose.Slides for PHP via Java αντιπροσωπεύει τις κινήσεις των διαφανειών ως εφέ σε μια χρονογραμμή διαφάνειας. Ένα εφέ έχει ένα σχήμα-στόχο, έναν τύπο και υποτύπο κίνησης, ένα σκανδάμη, ρυθμίσεις χρόνου και προαιρετικές ιδιότητες όπως ήχος ή συμπεριφορά μετά την κίνηση.
 
-## **Γιατί να χρησιμοποιήσετε κινήσεις σε παρουσιάσεις;**
+Η χρονογραμμή περιέχει δύο είδη ακολουθιών:
 
-Χρησιμοποιώντας κινήσεις, μπορείτε  
+- Η **κύρια ακολουθία** παίζει καθώς προχωρά η διαφάνεια.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν κλικάρετε το σχήμα‑σκανδάμη.
 
-* να ελέγχετε τη ροή των πληροφοριών  
-* να τονίζετε σημαντικά σημεία  
-* να αυξάνετε το ενδιαφέρον ή τη συμμετοχή του κοινού σας  
-* να κάνετε το περιεχόμενο πιο εύκολο στην ανάγνωση, την κατανόηση ή την επεξεργασία  
-* να ελκύετε την προσοχή των αναγνωστών ή θεατών σας σε σημαντικά τμήματα μιας παρουσίασης  
+Καθώς τα πλαίσια κειμένου, οι εικόνες, τα γραφήματα, οι πίνακες και άλλα αντικείμενα διαφάνειας είναι σχήματα, χρησιμοποιείτε την ίδια μέθοδο [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) για το περισσότερο περιεχόμενο της διαφάνειας. Τα διαθέσιμα εφέ εμφανίζονται στην κλάση [EffectType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttype/).
 
-Το PowerPoint παρέχει πολλές επιλογές και εργαλεία για κινήσεις και εφέ κινήσεων στις κατηγορίες **entrance**, **exit**, **emphasis**, και **motion paths**.
+## **Προσθήκη Κινήσεων Σχήματος**
 
-## **Κινήσεις στο Aspose.Slides**
+Για να προσθέσετε μια κίνηση, πάρτε την κύρια ακολουθία της διαφάνειας και καλέστε [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) με το σχήμα‑στόχο, τον τύπο εφέ, τον υποτύπο και το σκανδάμη. Για εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία του οποίου το σκανδάμι είναι αυτό το άλλο σχήμα.
 
-* Το Aspose.Slides παρέχει τις κλάσεις και τους τύπους που χρειάζεστε για εργασία με κινήσεις στο χώρο ονομάτων `Aspose.Slides.Animation`,  
-* Το Aspose.Slides παρέχει πάνω από **150 εφέ κινήσεων** στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttype). Τα εφέ αυτά είναι ουσιαστικά τα ίδια (ή ισοδύναμα) εφέ που χρησιμοποιούνται στο PowerPoint.
-
-## **Εφαρμογή κίνησης σε TextBox**
-
-Το Aspose.Slides for PHP via Java σας επιτρέπει να εφαρμόσετε κίνηση στο κείμενο ενός σχήματος.
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).  
-2. Λάβετε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).  
-4. Προσθέστε κείμενο στο [TextFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/#getTextFrame) του `AutoShape`.  
-5. Αποκτήστε την κύρια ακολουθία εφέ.  
-6. Προσθέστε ένα εφέ κίνησης στο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).  
-7. Χρησιμοποιήστε τη μέθοδο `TextAnimation.setBuildType` και την τιμή από την απαρίθμηση `BuildType`.  
-8. Γράψτε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
-
-Αυτός ο κώδικας PHP δείχνει πώς να εφαρμόσετε το εφέ `Fade` στο AutoShape και να ορίσετε την κίνηση κειμένου στην τιμή *By 1st Level Paragraphs*:
+Το παρακάτω παράδειγμα δημιουργεί και τις δύο μορφές κίνησης και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
 ```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Προσθέτει νέο AutoShape με κείμενο
-    $autoShape = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 100);
-    $textFrame = $autoShape->getTextFrame();
-    $textFrame->setText("First paragraph \nSecond paragraph \n Third paragraph");
-    # Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    $sequence = $sld->getTimeline()->getMainSequence();
-    # Προσθέτει εφέ κίνησης Fade στο σχήμα
-    $effect = $sequence->addEffect($autoShape, EffectType::Fade, EffectSubType::None, EffectTriggerType::OnClick);
-    # Κουνεί το κείμενο του σχήματος με παραγράφους πρώτου επιπέδου
-    $effect->getTextAnimation()->setBuildType(BuildType::ByLevelParagraphs1);
-    # Αποθηκεύει το αρχείο PPTX στο δίσκο
-    $pres->save($path . "AnimText_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-{{%  alert color="primary"  %}} 
-
-Εκτός από την εφαρμογή κινήσεων στο κείμενο, μπορείτε επίσης να εφαρμόσετε κινήσεις σε ένα μοναδικό [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/). Δείτε [**Animated Text**](/slides/el/php-java/animated-text/).
-
-{{% /alert %}} 
-
-## **Εφαρμογή κίνησης σε PictureFrame**
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).  
-2. Λάβετε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Προσθέστε ή λάβετε ένα [PictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/pictureframe) στη διαφάνεια.  
-4. Αποκτήστε την κύρια ακολουθία εφέ.  
-5. Προσθέστε ένα εφέ κίνησης στο [PictureFrame](https://reference.aspose.com/slides/el/php-java/aspose.slides/pictureframe).  
-6. Γράψτε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
-
-```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-  $pres = new Presentation();
-  try {
-    # Φορτώνει εικόνα που θα προστεθεί στη συλλογή εικόνων της παρουσίασης
-    $picture;
-    $image = Images->fromFile("aspose-logo.jpg");
-    try {
-      $picture = $pres->getImages()->addImage($image);
-    } finally {
-      if (!java_is_null($image)) {
-        $image->dispose();
-      }
-    }
-    # Προσθέτει πλαίσιο εικόνας στη διαφάνεια
-    $picFrame = $pres->getSlides()->get_Item(0)->getShapes()->addPictureFrame(ShapeType::Rectangle, 50, 50, 100, 100, $picture);
-    # Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Προσθέτει εφέ κίνησης Fly από αριστερά στο πλαίσιο εικόνας
-    $effect = $sequence->addEffect($picFrame, EffectType::Fly, EffectSubType::Left, EffectTriggerType::OnClick);
-    # Αποθηκεύει το αρχείο PPTX στο δίσκο
-    $pres->save($path . "AnimImage_out.pptx", SaveFormat::Pptx);
-  } catch (JavaException $e) {
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Εφαρμογή κίνησης σε Shape**
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/Presentation).  
-2. Λάβετε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Προσθέστε ένα ορθογώνιο [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/).  
-4. Προσθέστε ένα [AutoShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/autoshape/) με κλίση (όταν αυτό το αντικείμενο κλικάρει, η κίνηση εκτελείται).  
-5. Δημιουργήστε μια ακολουθία εφέ στο σχήμα με κλίση.  
-6. Δημιουργήστε ένα προσαρμοσμένο `UserPath`.  
-7. Προσθέστε εντολές για κίνηση στο `UserPath`.  
-8. Γράψτε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
-
-```php
-  # Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-  $pres = new Presentation();
-  try {
-    $sld = $pres->getSlides()->get_Item(0);
-    # Δημιουργεί το εφέ PathFootball για υπάρχον σχήμα από το μηδέν.
-    $ashp = $sld->getShapes()->addAutoShape(ShapeType::Rectangle, 150, 150, 250, 25);
-    $ashp->addTextFrame("Animated TextBox");
-    # Προσθέτει το εφέ κίνησης PathFootBall
-    $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence()->addEffect($ashp, EffectType::PathFootball, EffectSubType::None, EffectTriggerType::AfterPrevious);
-    # Δημιουργεί ένα είδος "κουμπιού".
-    $shapeTrigger = $pres->getSlides()->get_Item(0)->getShapes()->addAutoShape(ShapeType::Bevel, 10, 10, 20, 20);
-    # Δημιουργεί μια ακολουθία εφέ για αυτό το κουμπί.
-    $seqInter = $pres->getSlides()->get_Item(0)->getTimeline()->getInteractiveSequences()->add($shapeTrigger);
-    # Δημιουργεί προσαρμοσμένη διαδρομή χρήστη. Το αντικείμενό μας θα κινηθεί μόνο μετά το κλικ στο κουμπί.
-    $fxUserPath = $seqInter->addEffect($ashp, EffectType::PathUser, EffectSubType::None, EffectTriggerType::OnClick);
-    # Προσθέτει εντολές κίνησης επειδή η δημιουργημένη διαδρομή είναι κενή.
-    $motionBhv = $fxUserPath->getBehaviors()->get_Item(0);
-    $pts = new Point2DFloat[1];
-    $pts[0] = new Point2DFloat(0.076, 0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, true);
-    $pts[0] = new Point2DFloat(-0.076, -0.59);
-    $motionBhv->getPath()->add(MotionCommandPathType::LineTo, $pts, MotionPathPointsType::Auto, false);
-    $motionBhv->getPath()->add(MotionCommandPathType::End, null, MotionPathPointsType::Auto, false);
-    # Γράφει το αρχείο PPTX στο δίσκο
-    $pres->save("AnimExample_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Λήψη των εφέ κίνησης που έχουν εφαρμοστεί σε ένα Shape**
-
-Τα παρακάτω παραδείγματα δείχνουν πώς να χρησιμοποιήσετε τη μέθοδο `getEffectsByShape` από την κλάση [Sequence](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/) για να λάβετε όλα τα εφέ κίνησης που έχουν εφαρμοστεί σε ένα shape.
-
-**Παράδειγμα 1: Λήψη εφέ κίνησης που έχουν εφαρμοστεί σε ένα shape σε κανονική διαφάνεια**
-
-Στο παρελθόν, μάθατε πώς να προσθέτετε εφέ κίνησης σε σχήματα σε παρουσιάσεις PowerPoint. Ο παρακάτω κώδικας δείχνει πώς να λάβετε τα εφέ που εφαρμόζονται στο πρώτο shape στην πρώτη κανονική διαφάνεια της παρουσίασης `AnimExample_out.pptx`.
-
-```php
-  $Array = new java_class("java.lang.reflect.Array");
-  $presentation = new Presentation("AnimExample_out.pptx");
-
-  try {
-    $firstSlide = $presentation->getSlides()->get_Item(0);
-
-    # Λαμβάνει την κύρια ακολουθία κίνησης της διαφάνειας.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-
-    # Λαμβάνει το πρώτο σχήμα στην πρώτη διαφάνεια.
-    $shape = $firstSlide->getShapes()->get_Item(0);
-
-    # Λαμβάνει τα εφέ κίνησης που εφαρμόζονται στο σχήμα.
-    $shapeEffects = $sequence->getEffectsByShape($shape);
-
-    if (java_values($Array->getLength($shapeEffects)) > 0) {
-      echo("The shape " . $shape->getName() . " has " . $Array->getLength($shapeEffects) . " animation effects.");
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
-```
-
-**Παράδειγμα 2: Λήψη όλων των εφέ κίνησης, συμπεριλαμβανομένων αυτών που κληρονομούνται από placeholders**
-
-Εάν ένα shape σε κανονική διαφάνεια έχει placeholders που βρίσκονται στη διαφάνεια διάταξης και/ή στην κύρια διαφάνεια, και σε αυτά τα placeholders έχουν προστεθεί εφέ κίνησης, τότε όλα τα εφέ του shape θα αναπαράγονται κατά τη διάρκεια της παρουσίασης, συμπεριλαμβανομένων αυτών που κληρονομούνται από τα placeholders.
-
-Ας υποθέσουμε ότι έχουμε αρχείο παρουσίασης PowerPoint `sample.pptx` με μία διαφάνεια που περιέχει μόνο ένα shape υποσέλιδου με το κείμενο "Made with Aspose.Slides" και το εφέ **Random Bars** έχει εφαρμοστεί στο shape.
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-Ας υποθέσουμε επίσης ότι το εφέ **Split** έχει εφαρμοστεί στο placeholder υποσέλιδου στη **layout** διαφάνεια.
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-Τέλος, το εφέ **Fly In** έχει εφαρμοστεί στο placeholder υποσέλιδου στη **master** διαφάνεια.
-
-![Master shape animation effect](master-shape-animation.png)
-
-Ο παρακάτω κώδικας δείχνει πώς να χρησιμοποιήσετε τη μέθοδο `getBasePlaceholder` από την κλάση [Shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/) για να αποκτήσετε πρόσβαση στα placeholders του shape και να λάβετε τα εφέ κίνησης που έχουν εφαρμοστεί στο shape του υποσέλιδου, συμπεριλαμβανομένων αυτών που κληρονομούνται από placeholders που βρίσκονται στις διαφάνειες layout και master.
-
-```php
-$presentation = new Presentation("sample.pptx");
-
-$slide = $presentation->getSlides()->get_Item(0);
-
-// Λαμβάνει τα εφέ κίνησης του σχήματος στη κανονική διαφάνεια.
-$shape = $slide->getShapes()->get_Item(0);
-$shapeEffects = $slide->getTimeline()->getMainSequence()->getEffectsByShape($shape);
-
-// Λαμβάνει τα εφέ κίνησης του placeholder στη διαφάνεια διάταξης.
-$layoutShape = $shape->getBasePlaceholder();
-$layoutShapeEffects = $slide->getLayoutSlide()->getTimeline()->getMainSequence()->getEffectsByShape($layoutShape);
-
-// Λαμβάνει τα εφέ κίνησης του placeholder στη κύρια διαφάνεια.
-$masterShape = $layoutShape->getBasePlaceholder();
-$masterShapeEffects = $slide->getLayoutSlide()->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($masterShape);
-
-echo "Main sequence of shape effects:" . PHP_EOL;
-printEffects($masterShapeEffects);
-printEffects($layoutShapeEffects);
-printEffects($shapeEffects);
-
-$presentation->dispose();
-```
-```php
-function printEffects($effects) {
-    foreach ($effects as $effect) {
-        echo "Type: " . $effect->getType() . ", subtype: " . $effect->getSubtype() . PHP_EOL;
-    }
-}
-```
-
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Πτήση, Κάτω
-Type: 134, subtype: 45            // Διαίρεση, Κατακόρυφο Εντός
-Type: 126, subtype: 22            // Τυχαίες Μπάρες, Οριζόντια
-```
-
-## **Αλλαγή μεθόδων χρονολόγησης εφέ κίνησης**
-
-Το Aspose.Slides for PHP via Java σας επιτρέπει να αλλάξετε τις ιδιότητες Timing ενός εφέ κίνησης.
-
-![example1_image](shape-animation.png)
-
-Αυτές είναι οι αντιστοιχίες μεταξύ PowerPoint Timing και ιδιοτήτων [Effect Timing](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#getTiming):
-
-- Η λίστα επιλογής **Start** του PowerPoint Timing αντιστοιχεί στη μέθοδο [Timing::getTriggerType](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/#getTriggerType).  
-- Το **Duration** του PowerPoint Timing αντιστοιχεί στη μέθοδο [Timing::getDuration](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/#getDuration). Η διάρκεια μιας κίνησης (σε δευτερόλεπτα) είναι ο συνολικός χρόνος που χρειάζεται για να ολοκληρωθεί ένας κύκλος.  
-- Το **Delay** του PowerPoint Timing αντιστοιχεί στη μέθοδο [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/#getTriggerDelayTime).  
-
-Αυτή είναι η διαδικασία αλλαγής των ιδιοτήτων χρονολόγησης του εφέ:
-
-1. [Apply](#apply-animation-to-shape) ή λάβετε το εφέ κίνησης.  
-2. Ορίστε τις νέες τιμές που χρειάζεστε χρησιμοποιώντας τη μέθοδο [Effect::getTiming](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#getTiming).  
-3. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
-
-```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    $sequence = $pres->getSlides()->get_Item(0)->getTimeline()->getMainSequence();
-    # Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας.
-    $effect = $sequence->get_Item(0);
-    # Αλλάζει το TriggerType του εφέ ώστε να ξεκινά με κλικ
-    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
-    # Αλλάζει τη διάρκεια του εφέ
-    $effect->getTiming()->setDuration(3.0);
-    # Αλλάζει το TriggerDelayTime του εφέ
-    $effect->getTiming()->setTriggerDelayTime(0.5);
-    # Αποθηκεύει το αρχείο PPTX στο δίσκο
-    $pres->save("AnimExample_changed.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-## **Ήχος εφέ κίνησης**
-
-Το Aspose.Slides παρέχει αυτές τις μεθόδους για εργασία με ήχους σε εφέ κίνησης:  
-
-- [setSound(IAudio value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
-
-### **Προσθήκη ήχου σε εφέ κίνησης**
-
-Αυτός ο κώδικας PHP δείχνει πώς να προσθέσετε ήχο σε εφέ κίνησης και να τον σταματήσετε όταν ξεκινά το επόμενο εφέ:
-
-```php
-  $pres = new Presentation("AnimExample_out.pptx");
-  try {
-    # Προσθέτει ήχο στη συλλογή ήχων της παρουσίασης
-$Array = new JavaClass("java.lang.reflect.Array");
-$Byte = (new JavaClass("java.lang.Byte"))->TYPE;
+$presentation = new Presentation();
 try {
-    $dis = new Java("java.io.DataInputStream", new Java("java.io.FileInputStream", "sampleaudio.wav"));
-    $bytes = $Array->newInstance($Byte, $dis->available());
-    $dis->readFully($bytes);
-} finally {
-    if (!java_is_null($dis)) $dis->close();
-}
-    $effectSound = $pres->getAudios()->addAudio($bytes);
-
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    $sequence = $firstSlide->getTimeline()->getMainSequence();
-    # Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    $firstEffect = $sequence->get_Item(0);
-    # Ελέγχει το εφέ για "Χωρίς ήχο"
-    if (java_is_null(!$firstEffect->getStopPreviousSound() && $firstEffect->getSound())) {
-      # Προσθέτει ήχο στο πρώτο εφέ
-      $firstEffect->setSound($effectSound);
-    }
-    # Λαμβάνει την πρώτη διαδραστική ακολουθία της διαφάνειας.
-    $interactiveSequence = $firstSlide->getTimeline()->getInteractiveSequences()->get_Item(0);
-    # Ορίζει τη σημαία εφέ "Σταμάτημα προηγούμενου ήχου"
-    $interactiveSequence->get_Item(0)->setStopPreviousSound(true);
-    # Γράφει το αρχείο PPTX στο δίσκο
-    $pres->save("AnimExample_Sound_out.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
-```
-
-### **Εξαγωγή ήχου εφέ κίνησης**
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/php-java/aspose.slides/presentation/) .  
-2. Λάβετε μια αναφορά σε διαφάνεια μέσω του δείκτη της.  
-3. Αποκτήστε την κύρια ακολουθία εφέ.  
-4. Εξάγετε το [setSound(IAudio value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setSound-com.aspose.slides.IAudio-) ενσωματωμένο σε κάθε εφέ κίνησης.  
-
-Αυτός ο κώδικας PHP δείχνει πώς να εξάγετε τον ήχο που είναι ενσωματωμένος σε ένα εφέ κίνησης:
-
-```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-  $presentation = new Presentation("EffectSound.pptx");
-  try {
     $slide = $presentation->getSlides()->get_Item(0);
-    # Λαμβάνει την κύρια ακολουθία της διαφάνειας.
+
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::RoundCornerRectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Click to animate this shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $entranceEffect = $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $entranceEffect->getTiming()->setDuration(1.5);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $presentation->save("shape-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Το σκανδάμι καθορίζει πότε ένα εφέ αρχίζει:
+
+- [EffectTriggerType::OnClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) περιμένει κλικ στην κύρια ακολουθία ή κλικ στο σχήμα‑σκανδάμι σε διαδραστική ακολουθία.
+- [EffectTriggerType::WithPrevious](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) ξεκινά με το προηγούμενο εφέ.
+- [EffectTriggerType::AfterPrevious](https://reference.aspose.com/slides/el/php-java/aspose.slides/effecttriggertype/) ξεκινά όταν το προηγούμενο εφέ ολοκληρωθεί.
+
+Για να κινήσετε μια εικόνα, ένα γράφημα ή άλλο τύπο σχήματος, περάστε το αντικείμενο αυτό στο [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) αντί για `$targetShape`. Για επιλογές ομαδοποίησης ειδικές για γραφήματα, δείτε [Animated Charts](/slides/el/php-java/animated-charts/).
+
+## **Ανάγνωση Κινήσεων Σχήματος**
+
+Χρησιμοποιήστε το [Sequence::getEffectsByShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/geteffectsbyshape/) όταν γνωρίζετε το σχήμα‑στόχο. Για να ελέγξετε κάθε εφέ, επαναλάβετε τη κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η επανάληψη αποφεύγει την υπόθεση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
+
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας και διαδραστικής ακολουθίας, λαμβάνει τα εφέ που στοχεύουν το σχήμα και, στη συνέχεια, επαναλαμβάνει κάθε ακολουθία στη διαφάνεια.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\ShapeType;
+
+function printSequence($label, $sequence)
+{
+    $effectCount = java_values($sequence->getCount());
+
+    echo "  " . $label . ": " . $effectCount . " effect(s)" . PHP_EOL;
+
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $targetShape = $effect->getTargetShape();
+        $targetName = java_is_null($targetShape) ? "unknown" : java_values($targetShape->getName());
+        $effectType = java_values($effect->getType());
+        $effectSubtype = java_values($effect->getSubtype());
+        $triggerType = java_values($effect->getTiming()->getTriggerType());
+        echo "    type: " . $effectType . "; subtype: " . $effectSubtype . "; target: " . $targetName . "; trigger: " . $triggerType . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $targetShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $targetShape->addTextFrame("Animated shape");
+
+    $mainSequence = $slide->getTimeline()->getMainSequence();
+    $mainSequence->addEffect($targetShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $triggerShape = $slide->getShapes()->addAutoShape(ShapeType::Bevel, 20, 20, 100, 40);
+    $triggerShape->addTextFrame("Move");
+
+    $interactiveSequence = $slide->getTimeline()->getInteractiveSequences()->add($triggerShape);
+    $interactiveSequence->addEffect($targetShape, EffectType::PathFootball, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $targetEffects = $mainSequence->getEffectsByShape($targetShape);
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo "The main sequence contains " . java_values($Array->getLength($targetEffects)) . " effect(s) for " . java_values($targetShape->getName()) . "." . PHP_EOL;
+
+    printSequence("Main sequence", $mainSequence);
+
+    $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+    $interactiveCount = java_values($interactiveSequences->getCount());
+    for ($interactiveIndex = 0; $interactiveIndex < $interactiveCount; $interactiveIndex++) {
+        $sequence = $interactiveSequences->get_Item($interactiveIndex);
+        $sequenceTrigger = $sequence->getTriggerShape();
+        $triggerName = java_is_null($sequenceTrigger) ? "unknown" : java_values($sequenceTrigger->getName());
+        printSequence("Interactive sequence " . ($interactiveIndex + 1) . ", trigger: " . $triggerName, $sequence);
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Αν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα εντοπίστε το σχήμα κατά όνομα, τύπο υποκαρτέλας ή άλλη σταθερή ιδιότητα· έπειτα καλέστε [Sequence::getEffectsByShape](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/geteffectsbyshape/). Μην υποθέτετε ότι το [ShapeCollection::get_Item](https://reference.aspose.com/slides/el/php-java/aspose.slides/shapecollection/get_item/) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
+
+## **Εργασία με Κληρονομημένες Επιδράσεις Συμπλήρωσης**
+
+Μια υποκαρτέλα σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από την αντίστοιχη υποκαρτέλα στη διαφάνεια διάταξης και στη διαφάνεια προτύπου. Η μέθοδος [Shape::getBasePlaceholder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getbaseplaceholder/) επιστρέφει αυτήν την γονική υποκαρτέλα, ή `null` όταν δεν υπάρχει γονέας.
+
+Στην παρουσίαση του παραδείγματος, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη διαφάνεια προτύπου.
+
+![Εφέ κίνησης υποσέλιδου στη κανονική διαφάνεια](slide-shape-animation.png)
+
+![Εφέ κίνησης υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
+
+![Εφέ κίνησης υποσέλιδου στη διαφάνεια προτύπου](master-shape-animation.png)
+
+Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία υποκαρτελών από νέα παρουσίαση. Προσθέτει εφέ σε μια υποκαρτέλα προτύπου, μια υποκαρτέλα διάταξης και την αντίστοιχη υποκαρτέλα σε κανονική διαφάνεια. Κάθε κλήση στο [Shape::getBasePlaceholder](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getbaseplaceholder/) ελέγχεται πριν χρησιμοποιηθεί το επιστρεφόμενο σχήμα.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+function findLayoutPlaceholderWithBase($layoutSlide)
+{
+    $shapes = $layoutSlide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        if (!java_is_null($shape->getBasePlaceholder())) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function findSlidePlaceholderWithBase($slide, $expectedBase)
+{
+    $shapes = $slide->getShapes();
+    $shapeCount = java_values($shapes->size());
+    for ($shapeIndex = 0; $shapeIndex < $shapeCount; $shapeIndex++) {
+        $shape = $shapes->get_Item($shapeIndex);
+        $basePlaceholder = $shape->getBasePlaceholder();
+        if (!java_is_null($basePlaceholder) && java_values($basePlaceholder->equals($expectedBase))) {
+            return $shape;
+        }
+    }
+
+    return null;
+}
+
+function printEffects($source, $effects)
+{
+    $Array = new JavaClass("java.lang.reflect.Array");
+    echo $source . ": " . java_values($Array->getLength($effects)) . " effect(s)" . PHP_EOL;
+
+    foreach ($effects as $effect) {
+        echo "  type: " . java_values($effect->getType()) . "; subtype: " . java_values($effect->getSubtype()) . PHP_EOL;
+    }
+}
+
+$presentation = new Presentation();
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+    $layoutPlaceholder = findLayoutPlaceholderWithBase($layoutSlide);
+
+    if ($layoutPlaceholder === null) {
+        throw new RuntimeException("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    $masterPlaceholder = $layoutPlaceholder->getBasePlaceholder();
+    $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->addEffect($masterPlaceholder, EffectType::Fly, EffectSubtype::Bottom, EffectTriggerType::OnClick);
+    $layoutSlide->getTimeline()->getMainSequence()->addEffect($layoutPlaceholder, EffectType::Split, EffectSubtype::VerticalIn, EffectTriggerType::OnClick);
+
+    $slide = $presentation->getSlides()->addEmptySlide($layoutSlide);
+    $slidePlaceholder = findSlidePlaceholderWithBase($slide, $layoutPlaceholder);
+
+    if ($slidePlaceholder === null) {
+        throw new RuntimeException("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    $slide->getTimeline()->getMainSequence()->addEffect($slidePlaceholder, EffectType::RandomBars, EffectSubtype::Horizontal, EffectTriggerType::OnClick);
+    printEffects("Normal slide", $slide->getTimeline()->getMainSequence()->getEffectsByShape($slidePlaceholder));
+
+    $baseLayoutPlaceholder = $slidePlaceholder->getBasePlaceholder();
+    if (!java_is_null($baseLayoutPlaceholder)) {
+        printEffects("Layout slide", $layoutSlide->getTimeline()->getMainSequence()->getEffectsByShape($baseLayoutPlaceholder));
+
+        $baseMasterPlaceholder = $baseLayoutPlaceholder->getBasePlaceholder();
+        if (!java_is_null($baseMasterPlaceholder)) {
+            printEffects("Master slide", $layoutSlide->getMasterSlide()->getTimeline()->getMainSequence()->getEffectsByShape($baseMasterPlaceholder));
+        }
+    }
+
+    $presentation->save("placeholder-animations.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Αλλαγή Χρονισμού Κίνησης**
+
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [Timing](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/).
+
+![Διάλογος Timing του PowerPoint για εφέ κίνησης](shape-animation.png)
+
+- **Start** αντιστοιχεί στο [Timing::getTriggerType](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/gettriggertype/).
+- **Duration** αντιστοιχεί στο [Timing::getDuration](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getduration/), σε δευτερόλεπτα.
+- **Delay** αντιστοιχεί στο [Timing::getTriggerDelayTime](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/gettriggerdelaytime/), σε δευτερόλεπτα.
+- **Repeat** αντιστοιχεί στο [Timing::getRepeatCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatcount/), [Timing::getRepeatUntilNextClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatuntilnextclick/), ή [Timing::getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrepeatuntilendslide/).
+- **Rewind when done playing** αντιστοιχεί στο [Timing::getRewind](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/getrewind/).
+
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει το χρόνο του μέσω του αντικειμένου που επιστρέφει το [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/), και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς στο επιστρεφόμενο [Effect](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/) αποτρέπει την άσκοπη πρόσβαση σε δείκτη συλλογής.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Timed animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTiming()->setTriggerType(EffectTriggerType::OnClick);
+    $effect->getTiming()->setDuration(2.0);
+    $effect->getTiming()->setTriggerDelayTime(0.5);
+    $effect->getTiming()->setRepeatUntilNextClick(false);
+    $effect->getTiming()->setRepeatUntilEndSlide(false);
+    $effect->getTiming()->setRepeatCount(2.0);
+    $effect->getTiming()->setRewind(true);
+
+    $presentation->save("shape-animation-timing.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρήματος επανάληψης με μια σημαία «until» μπορεί να δημιουργήσει συγκεχυμένα αποτελέσματα σε διαφορετικούς προβολείς. Όταν αλλάζετε τρόπους επανάληψης, ορίστε πρώτα [Timing::setRepeatUntilNextClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatuntilnextclick/) και [Timing::setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatuntilendslide/) πριν από το [Timing::setRepeatCount](https://reference.aspose.com/slides/el/php-java/aspose.slides/timing/setrepeatcount/), επειδή ο ορισμός οποιασδήποτε από τις δύο σημαίες αλλάζει επίσης τη δραστήρια λειτουργία επανάληψης.
+
+## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
+
+Ένα εφέ κίνησης μπορεί να αναφέρεται σε ενσωματωμένο ήχο μέσω του [Effect::getSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getsound/). Η μέθοδος [Effect::setStopPreviousSound](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/setstopprevioussound/) υποδεικνύει σε ένα εφέ να σταματήσει ήχο που είχε ξεκινήσει ένα προηγούμενο εφέ.
+
+### **Προσθήκη Ήχου σε Εφέ**
+
+Το παρακάτω παράδειγμα αναμένει ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει το [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/), έτσι δεν απαιτείται δείκτης ακολουθίας.
+
+```php
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$Files = new JavaClass("java.nio.file.Files");
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $firstShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 100, 240, 80);
+    $secondShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 400, 100, 240, 80);
+    $firstShape->addTextFrame("Starts sound");
+    $secondShape->addTextFrame("Stops sound");
+
     $sequence = $slide->getTimeline()->getMainSequence();
-    foreach($sequence as $effect) {
-      if (java_is_null($effect->getSound())) {
-        continue;
-      }
-      # Εξάγει τον ήχο του εφέ σε byte array
-      $audio = $effect->getSound()->getBinaryData();
-    }
-  } finally {
-    if (!java_is_null($presentation)) {
-      $presentation->dispose();
-    }
-  }
+    $firstEffect = $sequence->addEffect($firstShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $secondEffect = $sequence->addEffect($secondShape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+
+    $baseDirectory = getcwd();
+    $audioPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "animation-sound.wav"))->toPath();
+    $audioData = $Files->readAllBytes($audioPath);
+    $effectSound = $presentation->getAudios()->addAudio($audioData);
+    $firstEffect->setSound($effectSound);
+    $secondEffect->setStopPreviousSound(true);
+
+    $presentation->save($baseDirectory . DIRECTORY_SEPARATOR . "shape-animation-sound.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Μετά την κίνηση**
+### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-Το Aspose.Slides for PHP via Java σας επιτρέπει να αλλάξετε την ιδιότητα After animation ενός εφέ κίνησης.
-
-![example1_image](shape-after-animation.png)
-
-Η λίστα επιλογής **After animation** του PowerPoint ταιριάζει με τις ακόλουθες μεθόδους:  
-
-- Η μέθοδος [setAfterAnimationType(int value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setAfterAnimationType) περιγράφει τον τύπο After animation:  
-  * Το **More Colors** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/#Color).  
-  * Το **Don't Dim** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType::DoNotDim](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/#DoNotDim) (προεπιλεγμένος τύπος μετά την κίνηση).  
-  * Το **Hide After Animation** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType::HideAfterAnimation](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/#HideAfterAnimation).  
-  * Το **Hide on Next Mouse Click** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType::HideOnNextMouseClick](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick).  
-
-- Η μέθοδος [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setAfterAnimationColor) ορίζει μια μορφή χρώματος μετά την κίνηση. Αυτή η μέθοδος λειτουργεί σε συνδυασμό με τον τύπο [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/#Color). Εάν αλλάξετε τον τύπο σε κάποιον άλλο, το χρώμα μετά την κίνηση θα διαγραφεί.  
+Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον κατάλογο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME ήχου που παρέχει το [Audio::getContentType](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getcontenttype/).
 
 ```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-  $pres = new Presentation("AnimImage_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Αλλάζει τον τύπο μετά την κίνηση σε Χρώμα
-    $firstEffect->setAfterAnimationType(AfterAnimationType::Color);
-    # Ορίζει το χρώμα μετά την κίνηση
-    $firstEffect->getAfterAnimationColor()->setColor(java("java.awt.Color")->BLUE);
-    # Γράφει το αρχείο PPTX στο δίσκο
-    $pres->save("AnimImage_AfterAnimation.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
+use aspose\slides\Presentation;
+
+function getAudioExtension($contentType)
+{
+    $normalizedType = strtolower($contentType === null ? "" : java_values($contentType));
+
+    if ($normalizedType === "audio/mpeg") {
+        return ".mp3";
     }
-  }
+
+    if ($normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if ($normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if ($normalizedType === "audio/wav" || $normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds($sequence, $outputDirectory, $soundIndex)
+{
+    $effectCount = java_values($sequence->getCount());
+    for ($effectIndex = 0; $effectIndex < $effectCount; $effectIndex++) {
+        $effect = $sequence->get_Item($effectIndex);
+        $sound = $effect->getSound();
+        if (java_is_null($sound)) {
+            continue;
+        }
+
+        $extension = getAudioExtension($sound->getContentType());
+        $outputPath = $outputDirectory->resolve("effect-sound-" . $soundIndex . $extension);
+        $outputStream = new Java("java.io.FileOutputStream", $outputPath->toFile());
+        try {
+            $outputStream->write($sound->getBinaryData());
+        } finally {
+            $outputStream->close();
+        }
+        $soundIndex++;
+    }
+
+    return $soundIndex;
+}
+
+$baseDirectory = getcwd();
+$inputPath = (new Java("java.io.File", $baseDirectory . DIRECTORY_SEPARATOR . "presentation-with-animation-sounds.pptx"))->toPath();
+$outputDirectoryName = $baseDirectory . DIRECTORY_SEPARATOR . "extracted-animation-sounds";
+if (!is_dir($outputDirectoryName)) {
+    mkdir($outputDirectoryName, 0777, true);
+}
+$outputDirectory = (new Java("java.io.File", $outputDirectoryName))->toPath();
+
+$presentation = new Presentation($inputPath->toString());
+try {
+    $soundIndex = 1;
+
+    $slides = $presentation->getSlides();
+    $slideCount = java_values($slides->size());
+    for ($slideIndex = 0; $slideIndex < $slideCount; $slideIndex++) {
+        $slide = $slides->get_Item($slideIndex);
+        $soundIndex = saveSounds($slide->getTimeline()->getMainSequence(), $outputDirectory, $soundIndex);
+
+        $interactiveSequences = $slide->getTimeline()->getInteractiveSequences();
+        $interactiveCount = java_values($interactiveSequences->getCount());
+        for ($sequenceIndex = 0; $sequenceIndex < $interactiveCount; $sequenceIndex++) {
+            $sequence = $interactiveSequences->get_Item($sequenceIndex);
+            $soundIndex = saveSounds($sequence, $outputDirectory, $soundIndex);
+        }
+    }
+
+    echo "Extracted " . ($soundIndex - 1) . " sound file(s) to " . java_values($outputDirectory->toAbsolutePath()->toString()) . "." . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **Κίνηση κειμένου**
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [Audio::getStream](https://reference.aspose.com/slides/el/php-java/aspose.slides/audio/getstream/) και αντιγράψτε τη ροή σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
 
-Το Aspose.Slides παρέχει αυτές τις μεθόδους για εργασία με το τμήμα *Animate text* ενός εφέ κίνησης:  
+## **Ορισμός Συμπεριφοράς Μετά την Κίνηση**
 
-- Η μέθοδος [setAnimateTextType(int value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setAnimateTextType) περιγράφει έναν τύπο κειμένου κίνησης του εφέ. Το κείμενο του shape μπορεί να κινείται:  
-  * Όλη τη φορά ([AnimateTextType::AllAtOnce](https://reference.aspose.com/slides/el/php-java/aspose.slides/animatetexttype/#AllAtOnce) τύπος)  
-  * Κατά λέξη ([AnimateTextType::ByWord](https://reference.aspose.com/slides/el/php-java/aspose.slides/animatetexttype/#ByWord) τύπος)  
-  * Κατά γράμμα ([AnimateTextType::ByLetter](https://reference.aspose.com/slides/el/php-java/aspose.slides/animatetexttype/#ByLetter) τύπος)  
-- Η μέθοδος [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setDelayBetweenTextParts) ορίζει μια καθυστέρηση μεταξύ των τμημάτων του κειμένου που κινείται (λέξεις ή γράμματα). Μια θετική τιμή καθορίζει το ποσοστό της διάρκειας του εφέ. Μια αρνητική τιμή καθορίζει την καθυστέρηση σε δευτερόλεπτα.  
+Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα μετά το τέλος του εφέ του.
 
-Αυτή είναι η διαδικασία αλλαγής των ιδιοτήτων κίνησης κειμένου:
+![Διάλογος Επιλογών Εφέ του PowerPoint που εμφανίζει ρυθμίσεις After animation](shape-after-animation.png)
 
-1. [Apply](#apply-animation-to-shape) ή λάβετε το εφέ κίνησης.  
-2. Χρησιμοποιήστε τη μέθοδο [setBuildType(int value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/textanimation/#setBuildType) και την τιμή [BuildType::AsOneObject](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/#AsOneObject) για να απενεργοποιήσετε τη λειτουργία κίνησης *By Paragraphs*.  
-3. Ορίστε νέες τιμές χρησιμοποιώντας τις μεθόδους [setAnimateTextType(int value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setAnimateTextType) και [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/#setDelayBetweenTextParts).  
-4. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
+Η κλάση [AfterAnimationType](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/) υποστηρίζει το να αφήνετε το σχήμα αμετάβλητο, να αλλάζετε το χρώμα του, να το κρύβετε μετά την κίνηση ή να το κρύβετε στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/), ορίστε επίσης το [Effect::getAfterAnimationColor](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getafteranimationcolor/).
+
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά του μετά την κίνηση μέσω του αντικειμένου εφέ που επιστρέφεται, και αποθηκεύει το αποτέλεσμα.
 
 ```php
-  # Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-  $pres = new Presentation("AnimTextBox_out.pptx");
-  try {
-    $firstSlide = $pres->getSlides()->get_Item(0);
-    # Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    $firstEffect = $firstSlide->getTimeline()->getMainSequence()->get_Item(0);
-    # Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε "Ως ένα αντικείμενο"
-    $firstEffect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
-    # Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε "Κατά λέξη"
-    $firstEffect->setAnimateTextType(AnimateTextType::ByWord);
-    # Ορίζει την καθυστέρηση μεταξύ των λέξεων στο 20% της διάρκειας του εφέ
-    $firstEffect->setDelayBetweenTextParts(20.0);
-    # Γράφει το αρχείο PPTX στο δίσκο
-    $pres->save("AnimTextBox_AnimateText.pptx", SaveFormat::Pptx);
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+use aspose\slides\AfterAnimationType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
+
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 120, 100, 320, 80);
+    $shape->addTextFrame("Dim after animation");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($shape, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->setAfterAnimationType(AfterAnimationType::Color);
+    $effect->getAfterAnimationColor()->setColor(java("java.awt.Color")->LIGHT_GRAY);
+
+    $presentation->save("shape-animation-after-effect.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
 ```
 
-## **ΣΥΧΝΕΣ ΕΡΩΤΗΣΕΙΣ**
+Αλλάζοντας τον τύπο από το [AfterAnimationType::Color](https://reference.aspose.com/slides/el/php-java/aspose.slides/afteranimationtype/) διαγράφει τη ρύθμιση χρώματος μετά την κίνηση.
 
-**Πώς μπορώ να εξασφαλίσω ότι οι κινήσεις παραμένουν όταν δημοσιεύω την παρουσίαση στο web;**
+## **Κίνηση Κειμένου**
 
-[Export to HTML5](/slides/el/php-java/export-to-html5/) και ενεργοποιήστε τις [options](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/) που είναι υπεύθυνες για τα animations των [shape](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/setanimateshapes/) και των [transition](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/setanimatetransitions/). Το απλό HTML δεν εκτελεί τις κινήσεις των διαφανειών, ενώ το HTML5 το κάνει.
+Η κίνηση κειμένου διαθέτει δύο σχετικούς ελέγχους:
 
-**Πώς η αλλαγή της σειράς z-order (σειράς επιπέδων) των shapes επηρεάζει την κίνηση;**
+- Το [TextAnimation::getBuildType](https://reference.aspose.com/slides/el/php-java/aspose.slides/textanimation/getbuildtype/) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή κατά επίπεδο παραγράφου.
+- Το [Effect::getAnimateTextType](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getanimatetexttype/) ελέγχει αν το κείμενο εμφανίζεται όλο μαζί, λέξη προς λέξη ή γράμμα προς γράμμα. Το [Effect::getDelayBetweenTextParts](https://reference.aspose.com/slides/el/php-java/aspose.slides/effect/getdelaybetweentextparts/) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-Η κίνηση και η σειρά σχεδίασης είναι ανεξάρτητες: ένα εφέ ελέγχει το χρονοδιάγραμμα και τον τύπο της εμφάνισης/απόκρυψης, ενώ το [z-order](https://reference.aspose.com/slides/el/php-java/aspose.slides/shape/getzorderposition/) καθορίζει τι καλύπτει τι. Το ορατό αποτέλεσμα καθορίζεται από τον συνδυασμό τους. (Αυτή είναι η γενική συμπεριφορά του PowerPoint· το μοντέλο effects-and-shapes του Aspose.Slides ακολουθεί την ίδια λογική.)
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType::AsOneObject](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/) απενεργοποιεί την κατασκευή παράγραφος‑κατά‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει για ολόκληρο το πλαίσιο κειμένου.
 
-**Υπάρχουν περιορισμοί κατά τη μετατροπή κινήσεων σε βίντεο για ορισμένα εφέ;**
+```php
+use aspose\slides\AnimateTextType;
+use aspose\slides\BuildType;
+use aspose\slides\EffectSubtype;
+use aspose\slides\EffectTriggerType;
+use aspose\slides\EffectType;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\ShapeType;
 
-Γενικά, τα [animations are supported](/slides/el/php-java/convert-powerpoint-to-video/), αλλά σπάνιες περιπτώσεις ή συγκεκριμένα εφέ μπορεί να αποδοθούν διαφορετικά. Συνιστάται να δοκιμάζετε με τα εφέ που χρησιμοποιείτε και με την έκδοση της βιβλιοθήκης.
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $textBox = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 560, 100);
+    $textBox->addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    $effect = $slide->getTimeline()->getMainSequence()->addEffect($textBox, EffectType::Fade, EffectSubtype::None, EffectTriggerType::OnClick);
+    $effect->getTextAnimation()->setBuildType(BuildType::AsOneObject);
+    $effect->setAnimateTextType(AnimateTextType::ByWord);
+    $effect->setDelayBetweenTextParts(20.0);
+
+    $presentation->save("animated-text.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Για να κατασκευάσετε ένα πλαίσιο κειμένου κατά παράγραφο, ορίστε το [BuildType::ByLevelParagraphs1](https://reference.aspose.com/slides/el/php-java/aspose.slides/buildtype/) (ή κάποιο άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μοναδική παράγραφο με το δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [Sequence::addEffect](https://reference.aspose.com/slides/el/php-java/aspose.slides/sequence/addeffect/) που δέχεται ένα [Paragraph](https://reference.aspose.com/slides/el/php-java/aspose.slides/paragraph/). Δείτε το [Animated Text](/slides/el/php-java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
+
+## **Σημειώσεις Εξαγωγής και Συμβατότητας**
+
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από τον προβολέα παρουσίασης.
+- Τα PDF και οι στατικές εικόνες δεν εκτελούν κίνησεις. Χρησιμοποιήστε [HTML5 export](/slides/el/php-java/export-to-html5/), animated GIF ή [video conversion](/slides/el/php-java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Για HTML5, ενεργοποιήστε το [Html5Options::setAnimateShapes](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/setanimateshapes/) και, όταν χρειάζεται, το [Html5Options::setAnimateTransitions](https://reference.aspose.com/slides/el/php-java/aspose.slides/html5options/setanimatetransitions/).
+- Η δημιουργία βίντεο υποστηρίζει πολλά συνηθισμένα εφέ εισόδου, έμφασης, εξόδου και διαδρομής κίνησης, αλλά δεν υποστηρίζει κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [supported animations and effects](/slides/el/php-java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση Aspose.Slides που χρησιμοποιείτε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά στο PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
+
+## **Συχνές Ερωτήσεις**
+
+**Γιατί εμφανίζεται μια κίνηση στο PowerPoint αλλά δεν εμφανίζεται σε PDF;**
+
+Το PDF είναι στατικό format, επομένως οι κίνηση και οι μεταβάσεις διαφάνειας δεν εκτελούνται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν πρέπει να διατηρηθεί η κίνηση.
+
+**Γιατί ένα εφέ εκτελείται διαφορετικά σε βίντεο;**
+
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Ελέγξτε τον πίνακα υποστηριζόμενων εφέ και δοκιμάστε την παρουσίαση πριν την παραγωγή.
+
+**Αλλάζει η σειρά κίνησης ενός σχήματος όταν το μετακινείτε εμπρός ή πίσω;**
+
+Όχι. Η σειρά z-order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και τα σκανδαλώματα ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε τη χρονογραμμή αν χρειάζεστε διαφορετική σειρά αναπαραγωγής.

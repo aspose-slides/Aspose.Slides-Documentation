@@ -19,7 +19,7 @@ This section includes the following topics
 - [High level Programming with Presentation Document Object Model](/slides/net/high-level-programming-with-presentation-document-object-model/)
   - [Assemble Slides](/slides/net/assemble-slides/)
   - [Find and Replace in Presentation](/slides/net/find-and-replace-in-presentation/)
-- [Rendering and Printing of Presentation](/slides/net/rendering-and-printing-of-presentation/)
+- [Presentation Rendering](/slides/net/presentation-rendering/)
   - [Conversion to Tiff with Notes](/slides/net/conversion-to-tiff-with-notes/)
   - [Rendered As Tiff](/slides/net/rendered-as-tiff/)
   - [Rendered As Tiff By User Defined Dimension](/slides/net/rendered-as-tiff-by-user-defined-dimension/)

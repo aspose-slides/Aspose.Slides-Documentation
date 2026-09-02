@@ -1,14 +1,12 @@
 ---
-title: Định dạng văn bản bản trình chiếu trong JavaScript
+title: Định dạng Văn bản Bản trình chiếu trong JavaScript
 linktitle: Định dạng Văn bản
 type: docs
 weight: 50
 url: /vi/nodejs-java/text-formatting/
 keywords:
-- làm nổi bật văn bản
-- biểu thức chính quy
-- căn chỉnh đoạn
-- kiểu văn bản
+- căn chỉnh đoạn văn
+- kiểu chữ
 - nền văn bản
 - độ trong suốt văn bản
 - khoảng cách ký tự
@@ -20,7 +18,7 @@ keywords:
 - khoảng cách dòng
 - thuộc tính tự động vừa
 - neo khung văn bản
-- căn tab văn bản
+- đánh tab văn bản
 - ngôn ngữ mặc định
 - PowerPoint
 - OpenDocument
@@ -28,86 +26,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Định dạng và tạo kiểu văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng cách sử dụng Aspose.Slides cho Node.js qua Java. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
+description: "Định dạng và tạo kiểu văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Node.js qua Java. Tùy chỉnh phông chữ, màu sắc, căn chỉnh và nhiều hơn nữa."
 ---
 ## **Tổng quan**
 
-Bài viết này hướng dẫn cách định dạng văn bản trong các bài thuyết trình PowerPoint và OpenDocument bằng Aspose.Slides cho Node.js thông qua Java. Nội dung bao gồm làm nổi bật, màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn, hành vi tự động vừa, neo văn bản, ngắt tab và cài đặt ngôn ngữ.
+Bài viết này trình bày cách định dạng văn bản trong các bản trình chiếu PowerPoint và OpenDocument bằng Aspose.Slides cho Node.js thông qua Java. Nội dung bao gồm màu nền, độ trong suốt, khoảng cách ký tự, thuộc tính phông chữ, xoay, khoảng cách đoạn văn, hành vi tự động vừa, neo văn bản, dừng tab và cài đặt ngôn ngữ.
 
-Trong các ví dụ dưới đây, chúng tôi sẽ sử dụng tệp có tên “sample.pptx”, chứa một hộp văn bản duy nhất trên slide đầu tiên với nội dung sau:
+Trong các ví dụ dưới đây, chúng ta sẽ sử dụng tệp có tên **"sample.pptx"**, chứa một hộp văn bản duy nhất trên slide đầu tiên với nội dung sau:
 
-![Văn bản mẫu](sample_text.png)
+![Sample text](sample_text.png)
 
-## **Làm nổi bật văn bản**
+Để tìm và làm nổi bật văn bản nguyên mẫu hoặc các kết quả khớp biểu thức chính quy, xem [Tìm kiếm và Thay thế Văn bản](/slides/vi/nodejs-java/search-and-replace-text/).
 
-Sử dụng phương thức [TextFrame.highlightText](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-) khi bạn cần làm nổi bật văn bản khớp với một mẫu cụ thể trong khung văn bản. Phương thức này áp dụng màu nền cho các đoạn văn bản khớp và có thể được sử dụng cùng với [TextSearchOptions](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textsearchoptions/) để kiểm soát cách tìm kiếm, ví dụ chỉ khớp toàn từ.
+## **Đặt Màu Nền Cho Văn Bản**
 
-Mã ví dụ dưới đây làm nổi bật tất cả các lần xuất hiện của ký tự **"try"** và sau đó chỉ làm nổi bật từ đầy đủ **"to"**.
+Sử dụng [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) để đặt màu nền mặc định cho một đoạn văn, hoặc dùng [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) cho các phần văn bản riêng lẻ.
 
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const textFrame = shape.getTextFrame();
-
-    // Làm nổi bật từ "try" trong hình dạng.
-    textFrame.highlightText("try", java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
-
-    const searchOptions = new aspose.slides.TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // Làm nổi bật từ "to" trong hình dạng.
-    textFrame.highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Kết quả:
-
-![Văn bản được làm nổi bật](highlighted_text.png)
-
-## **Làm nổi bật văn bản bằng biểu thức chính quy**
-
-Phương thức [TextFrame.highlightRegex](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-aspose.slides.IFindResultCallback-) làm nổi bật các khớp văn bản được tìm bởi một biểu thức chính quy. Trong Node.js qua Java, API này được cung cấp trên [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/).
-
-Mã ví dụ dưới đây làm nổi bật tất cả các từ có **bảy ký tự trở lên**:
+Ví dụ sau cho thấy cách đặt màu nền cho **toàn bộ đoạn văn**:
 
 ```javascript
-const Pattern = java.import("java.util.regex.Pattern");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const regex = Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // Làm nổi bật tất cả các từ có bảy ký tự trở lên.
-    shape.getTextFrame().highlightRegex(regex, java.getStaticFieldValue("java.awt.Color", "YELLOW"), null);
-
-    presentation.save("highlighted_text_using_regex.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-Kết quả:
-
-![Văn bản được làm nổi bật bằng biểu thức chính quy](highlighted_text_using_regex.png)
-
-## **Đặt màu nền cho văn bản**
-
-Sử dụng [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) để đặt màu nền mặc định cho một đoạn, hoặc sử dụng [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getHighlightColor--) cho các phần văn bản riêng lẻ.
-
-Mã ví dụ sau cho thấy cách đặt màu nền cho **toàn bộ đoạn**:
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt màu làm nổi bật cho toàn bộ đoạn.
+    // Đặt màu nền cho toàn bộ đoạn văn.
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -118,14 +65,18 @@ try {
 
 Kết quả:
 
-![Đoạn màu xám](gray_paragraph.png)
+![The gray paragraph](gray_paragraph.png)
 
-Mã ví dụ dưới đây minh họa cách đặt màu nền cho **các phần văn bản có phông chữ đậm**:
+Ví dụ dưới đây minh họa cách đặt màu nền cho **các phần văn bản có phông chữ đậm**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -133,7 +84,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // Đặt màu làm nổi bật cho phần văn bản.
+            // Đặt màu nền cho phần văn bản.
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -146,21 +97,24 @@ try {
 
 Kết quả:
 
-![Các phần văn bản màu xám](gray_text_portions.png)
+![The gray text portions](gray_text_portions.png)
 
-## **Căn chỉnh các đoạn văn bản**
+## **Căn Lề Đoạn Văn Bản**
 
-Sử dụng [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setAlignment-byte-) để đặt căn chỉnh đoạn trong khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
+Sử dụng [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) để thiết lập căn chỉnh đoạn văn trong khung văn bản. Giá trị có thể là căn giữa, căn trái, căn phải, căn đều, v.v.
 
-Mã ví dụ sau cho thấy cách căn đoạn về **giữa**:
+Ví dụ sau cho thấy cách căn đoạn văn **ở giữa**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // Đặt căn chỉnh đoạn về trung tâm.
+    // Đặt căn chỉnh của đoạn văn thành trung tâm.
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -171,20 +125,24 @@ try {
 
 Kết quả:
 
-![Đoạn được căn chỉnh](aligned_paragraph.png)
+![The aligned paragraph](aligned_paragraph.png)
 
-## **Đặt độ trong suốt cho văn bản**
+## **Đặt Độ Trong Suốt Cho Văn Bản**
 
-Độ trong suốt của văn bản được kiểm soát qua thành phần alpha của màu được chỉ định cho [PortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getFillFormat--). Trong các ví dụ dưới đây, `alpha = 50` là giá trị kênh alpha ARGB trên thang 0‑255, không phải là phần trăm trong suốt.
+Độ trong suốt văn bản được điều khiển thông qua thành phần alpha của màu được gán cho [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Trong các ví dụ dưới đây, `alpha = 50` là giá trị kênh alpha ARGB trên thang 0–255, không phải là phần trăm trong suốt.
 
-Mã ví dụ dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn**:
+Ví dụ dưới đây cho thấy cách áp dụng độ trong suốt cho **toàn bộ đoạn văn**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const alpha = 50;
 const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
@@ -200,16 +158,20 @@ try {
 
 Kết quả:
 
-![Đoạn trong suốt](transparent_paragraph.png)
+![The transparent paragraph](transparent_paragraph.png)
 
-Mã ví dụ sau cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ đậm**:
+Ví dụ sau cho thấy cách áp dụng độ trong suốt cho **các phần văn bản có phông chữ đậm**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const alpha = 50;
 const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -219,7 +181,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const fillFormat = portion.getPortionFormat().getFillFormat();
 
-            // Đặt độ trong suốt của phần văn bản.
+            // Đặt độ trong suốt cho phần văn bản.
             fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
             fillFormat.getSolidFillColor().setColor(transparentBlack);
         }
@@ -233,18 +195,21 @@ try {
 
 Kết quả:
 
-![Các phần văn bản trong suốt](transparent_text_portions.png)
+![The transparent text portions](transparent_text_portions.png)
 
-## **Đặt khoảng cách ký tự cho văn bản**
+## **Đặt Khoảng Cách Ký Tự Cho Văn Bản**
 
 Sử dụng [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) để mở rộng hoặc thu hẹp khoảng cách giữa các ký tự trong một hộp văn bản.
 
-Mã JavaScript sau cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn**:
+Mã JavaScript dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **toàn bộ đoạn văn**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     // Lưu ý: Sử dụng giá trị âm để nén khoảng cách ký tự.
@@ -258,14 +223,17 @@ try {
 
 Kết quả:
 
-![Khoảng cách ký tự trong đoạn](character_spacing_in_paragraph.png)
+![The character spacing in the paragraph](character_spacing_in_paragraph.png)
 
-Mã ví dụ dưới đây cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ đậm**:
+Ví dụ sau cho thấy cách mở rộng khoảng cách ký tự trong **các phần văn bản có phông chữ đậm**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -286,18 +254,21 @@ try {
 
 Kết quả:
 
-![Khoảng cách ký tự trong các phần văn bản](character_spacing_in_text_portions.png)
+![The character spacing in the text portions](character_spacing_in_text_portions.png)
 
-### **Vô hiệu hóa Kerning cho các phông chữ cụ thể**
+### **Vô Hiệu Hóa Kerning Cho Các Phông Chữ Cụ Thể**
 
-Trong một số trường hợp, văn bản được Aspose.Slides render có thể trông chặt hơn một chút so với cùng văn bản được hiển thị trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ chứa thông tin kerning hợp lệ và kerning đã được bật trong cài đặt PowerPoint.
+Trong một số trường hợp, văn bản được render bởi Aspose.Slides có thể trông hơi chặt hơn so với cùng một văn bản trong PowerPoint. Điều này có thể xảy ra vì PowerPoint có thể bỏ qua dữ liệu kerning cho một số phông chữ, ngay cả khi phông chữ chứa thông tin kerning hợp lệ và kerning đã được bật trong cài đặt PowerPoint.
 
-Để làm cho kết quả render gần với PowerPoint hơn trong các trường hợp này, bạn có thể vô hiệu hóa kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Đặt [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) thành một giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
+Để đầu ra render gần hơn với PowerPoint trong những trường hợp như vậy, bạn có thể vô hiệu hoá kerning cho các phần văn bản sử dụng phông chữ bị ảnh hưởng. Đặt [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) thành một giá trị lớn hơn đáng kể so với kích thước phông chữ thực tế:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraphs = autoShape.getTextFrame().getParagraphs();
     const paragraphCount = paragraphs.getCount();
     const targetFont = "Roboto";
@@ -327,22 +298,26 @@ try {
 }
 ```
 
-Cài đặt này ngăn kerning được áp dụng cho các phần văn bản khớp và có thể giúp đồng bộ việc render của Aspose.Slides với đầu ra hình ảnh của PowerPoint cho các phông chữ bị ảnh hưởng bởi hành vi đặc thù này.
+Cài đặt này ngăn kerning được áp dụng cho các phần văn bản phù hợp và có thể giúp đồng bộ việc render của Aspose.Slides với kết quả hiển thị của PowerPoint cho những phông chữ bị ảnh hưởng bởi hành vi đặc thù này.
 
-## **Quản lý thuộc tính phông chữ văn bản**
+## **Quản Lý Thuộc Tính Phông Chữ Văn Bản**
 
-Thuộc tính phông chữ có thể được đặt ở mức đoạn thông qua [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) hoặc trên từng phần riêng lẻ thông qua [PortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/).
+Thuộc tính phông chữ có thể được đặt ở mức đoạn văn thông qua [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) hoặc trên từng phần riêng lẻ thông qua [PortionFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/).
 
-Mã sau đặt phông chữ và kiểu văn bản cho toàn bộ đoạn: nó áp dụng kích thước phông chữ, in đậm, in nghiêng, gạch chân chấm và phông Times New Roman cho tất cả các phần trong đoạn.
+Mã dưới đây đặt phông chữ và kiểu văn bản cho toàn bộ đoạn văn: áp dụng kích thước phông, đậm, nghiêng, gạch chân chấm và phông Times New Roman cho tất cả các phần trong đoạn:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // Đặt các thuộc tính phông chữ cho đoạn.
+    // Đặt các thuộc tính phông chữ cho đoạn văn.
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -357,14 +332,18 @@ try {
 
 Kết quả:
 
-![Thuộc tính phông chữ của đoạn](font_properties_for_paragraph.png)
+![The font properties for the paragraph](font_properties_for_paragraph.png)
 
-Mã ví dụ dưới đây áp dụng các thuộc tính tương tự cho **các phần văn bản có phông chữ đậm**:
+Ví dụ sau áp dụng các thuộc tính tương tự cho **các phần văn bản có phông chữ đậm**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -390,18 +369,22 @@ try {
 
 Kết quả:
 
-![Thuộc tính phông chữ của các phần văn bản](font_properties_for_text_portions.png)
+![The font properties for text portions](font_properties_for_text_portions.png)
 
-## **Đặt xoay văn bản**
+## **Đặt Xoay Văn Bản**
 
-Sử dụng [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) để đặt hướng văn bản định sẵn trong một hình dạng.
+Sử dụng [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) để thiết lập hướng văn bản định sẵn trong một hình dạng.
 
-Mã ví dụ sau đặt hướng văn bản trong hình dạng thành `Vertical270`, xoay văn bản **90 độ ngược chiều kim đồng hồ**:
+Mã sau đặt hướng văn bản trong hình dạng thành `Vertical270`, quay văn bản **90 độ ngược chiều kim đồng hồ**:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
 
@@ -413,18 +396,21 @@ try {
 
 Kết quả:
 
-![Xoay văn bản](text_rotation.png)
+![The text rotation](text_rotation.png)
 
-## **Đặt xoay tùy chỉnh cho khung văn bản**
+## **Đặt Xoay Tùy Chỉnh Cho Khung Văn Bản**
 
-Sử dụng [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) để đặt góc xoay tùy chỉnh cho một [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/).
+Sử dụng [TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) để thiết lập góc xoay tùy chỉnh cho một [TextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframe/).
 
-Mã ví dụ dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
+Mã dưới đây xoay khung văn bản 3 độ theo chiều kim đồng hồ trong hình dạng:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -436,21 +422,24 @@ try {
 
 Kết quả:
 
-![Xoay văn bản tùy chỉnh](custom_text_rotation.png)
+![The custom text rotation](custom_text_rotation.png)
 
-## **Đặt khoảng cách dòng cho các đoạn**
+## **Đặt Khoảng Cách Dòng Cho Đoạn Văn**
 
-Aspose.Slides cung cấp [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) và [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) để kiểm soát khoảng cách đoạn. Các thuộc tính này được dùng như sau:
+Aspose.Slides cung cấp [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-) và [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) để kiểm soát khoảng cách đoạn. Các thuộc tính này được sử dụng như sau:
 
-* Sử dụng giá trị dương để chỉ định khoảng cách dòng dưới dạng phần trăm của chiều cao dòng.
-* Sử dụng giá trị âm để chỉ định khoảng cách dòng theo điểm.
+* Dùng giá trị dương để chỉ định khoảng cách dòng dưới dạng phần trăm chiều cao dòng.
+* Dùng giá trị âm để chỉ định khoảng cách dòng tính bằng điểm.
 
-Mã ví dụ sau cho thấy cách chỉ định khoảng cách dòng trong đoạn:
+Mã dưới đây cho thấy cách chỉ định khoảng cách dòng trong đoạn văn:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -463,16 +452,20 @@ try {
 
 Kết quả:
 
-![Khoảng cách dòng trong đoạn](line_spacing.png)
+![The line spacing within the paragraph](line_spacing.png)
 
-## **Đặt loại tự động vừa cho khung văn bản**
+## **Đặt Kiểu Tự Động Vừa Cho Khung Văn Bản**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) xác định cách văn bản hành xử khi vượt quá giới hạn của khung chứa. Sử dụng nó để kiểm soát việc văn bản co lại, tràn ra ngoài hoặc tự động thay đổi kích thước hình dạng.
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) xác định cách văn bản hành xử khi vượt quá giới hạn của vùng chứa. Sử dụng nó để kiểm soát việc văn bản co lại, tràn hoặc tự động thay đổi kích thước hình dạng.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
 
@@ -482,14 +475,18 @@ try {
 }
 ```
 
-## **Đặt neo cho khung văn bản**
+## **Đặt Neo Cho Khung Văn Bản**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) xác định cách văn bản được đặt vị trí theo chiều dọc trong một hình dạng, ví dụ ở trên cùng, giữa hoặc dưới cùng.
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) xác định cách vị trí văn bản được định vị theo chiều dọc bên trong một hình dạng, ví dụ ở trên, giữa hoặc dưới.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
 
@@ -499,14 +496,18 @@ try {
 }
 ```
 
-## **Đặt tab cho văn bản**
+## **Đặt Tabulation Cho Văn Bản**
 
-Sử dụng [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) và [ParagraphFormat.getTabs](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getTabs--) để cấu hình các điểm dừng tab trong một đoạn.
+Sử dụng [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) và [ParagraphFormat.getTabs](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraphformat/#getTabs--) để cấu hình các vị trí dừng tab trong một đoạn văn.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -520,18 +521,21 @@ try {
 
 Kết quả:
 
-![Các tab của đoạn](paragraph_tabs.png)
+![The paragraph tabs](paragraph_tabs.png)
 
-## **Đặt ngôn ngữ kiểm tra chính tả**
+## **Đặt Ngôn Ngữ Kiểm Tra Chính Tả**
 
-Aspose.Slides cung cấp [PortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ này xác định ngôn ngữ được dùng để kiểm tra chính tả và ngữ pháp trong PowerPoint.
+Aspose.Slides cung cấp [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-), cho phép bạn đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản. Ngôn ngữ này xác định ngôn ngữ được sử dụng cho việc kiểm tra chính tả và ngữ pháp trong PowerPoint.
 
-Mã ví dụ sau cho thấy cách đặt ngôn ngữ kiểm tra cho một phần văn bản:
+Mã dưới đây cho thấy cách đặt ngôn ngữ kiểm tra chính tả cho một phần văn bản:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
 
@@ -544,7 +548,7 @@ try {
     // Đặt Id của ngôn ngữ kiểm tra.
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", aspose.slides.SaveFormat.Pptx);
@@ -553,11 +557,13 @@ try {
 }
 ```
 
-## **Đặt ngôn ngữ mặc định**
+## **Đặt Ngôn Ngữ Mặc Định**
 
-Sử dụng [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) để xác định ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bài thuyết trình.
+Sử dụng [LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) để định nghĩa ngôn ngữ mặc định cho văn bản được tạo khi tải hoặc tạo một bản trình chiếu mới.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -577,16 +583,19 @@ try {
 }
 ```
 
-## **Đặt kiểu văn bản mặc định**
+## **Đặt Kiểu Văn Bản Mặc Định**
 
-Để áp dụng định dạng văn bản mặc định ở mức bài thuyết trình, sử dụng [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
+Để áp dụng định dạng văn bản mặc định ở cấp độ bản trình chiếu, sử dụng [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--).
 
-Mã ví dụ dưới đây cho thấy cách đặt phông chữ đậm mặc định kích thước 14 pt cho tất cả văn bản trên các slide trong một bài thuyết trình mới.
+Mã dưới đây cho thấy cách đặt phông chữ đậm mặc định với kích thước 14 pt cho tất cả văn bản trên các slide trong một bản trình chiếu mới.
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
-    // Lấy định dạng đoạn cấp cao nhất.
+    // Lấy định dạng đoạn văn cấp cao nhất.
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -600,20 +609,23 @@ try {
 }
 ```
 
-## **Trích xuất văn bản với hiệu ứng viết hoa toàn bộ**
+## **Trích Xuất Văn Bản Với Hiệu Ứng All-Caps**
 
-Trong PowerPoint, áp dụng hiệu ứng **All Caps** khiến văn bản hiển thị ở dạng chữ hoa trên slide ngay cả khi ban đầu được gõ bằng chữ thường. Khi bạn lấy một phần văn bản như vậy bằng Aspose.Slides, thư viện sẽ trả về văn bản nguyên gốc. Để khớp với văn bản hiển thị, kiểm tra [TextCapType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textcaptype/) và chuyển chuỗi trả về sang chữ hoa khi giá trị là `All`.
+Trong PowerPoint, áp dụng hiệu ứng phông **All Caps** sẽ làm cho văn bản hiển thị dưới dạng chữ hoa trên slide ngay cả khi ban đầu được nhập bằng chữ thường. Khi bạn lấy phần văn bản đó bằng Aspose.Slides, thư viện trả về văn bản đúng như khi nhập. Để khớp với văn bản hiển thị, kiểm tra [TextCapType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/textcaptype/) và chuyển chuỗi trả về sang chữ hoa khi giá trị là `All`.
 
 Giả sử chúng ta có hộp văn bản sau trên slide đầu tiên của tệp sample2.pptx.
 
-![Hiệu ứng All Caps](all_caps_effect.png)
+![The All Caps effect](all_caps_effect.png)
 
-Mã ví dụ dưới đây cho thấy cách trích xuất văn bản có hiệu ứng **All Caps** được áp dụng:
+Mã dưới đây cho thấy cách trích xuất văn bản với hiệu ứng **All Caps** đã được áp dụng:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     console.log("Original text: " + textPortion.getText());
@@ -635,12 +647,12 @@ Original text: Hello, Aspose!
 All-Caps effect: HELLO, ASPOSE!
 ```
 
-## **Câu hỏi thường gặp**
+## **Câu Hỏi Thường Gặp**
 
-**Làm thế nào để sửa đổi văn bản trong bảng trên một slide?**
+**Làm sao chỉnh sửa văn bản trong bảng trên slide?**
 
-Để sửa đổi văn bản trong bảng trên một slide, sử dụng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/table/). Duyệt qua các ô và cập nhật mỗi ô thông qua [Cell.getTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/#getTextFrame--) và định dạng đoạn qua [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
+Để chỉnh sửa văn bản trong bảng trên slide, sử dụng [Table](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/table/). Duyệt qua các ô và cập nhật mỗi ô thông qua [Cell.getTextFrame](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/cell/#getTextFrame--) và định dạng đoạn bằng [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--).
 
-**Làm thế nào để áp dụng màu gradient cho văn bản trong slide PowerPoint?**
+**Làm sao áp dụng màu gradient cho văn bản trong slide PowerPoint?**
 
-Để áp dụng màu gradient cho văn bản, sử dụng [PortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/portionformat/#getFillFormat--). Đặt [FillFormat.setFillType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) thành [FillType.Gradient](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/filltype/) và cấu hình các điểm dừng gradient, hướng và độ trong suốt.
+Để áp dụng màu gradient cho văn bản, dùng [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--). Đặt [FillFormat.setFillType](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) thành [FillType.Gradient](https://reference.aspose.com/slides/vi/nodejs-java/aspose.slides/filltype/) và cấu hình các điểm dừng gradient, hướng và độ trong suốt.

@@ -1,5 +1,5 @@
 ---
-title: Terapkan atau Ubah Tata Letak Slide di Android
+title: Terapkan atau Ubah Tata Letak Slide pada Android
 linktitle: Tata Letak Slide
 type: docs
 weight: 60
@@ -10,7 +10,7 @@ keywords:
 - placeholder
 - desain presentasi
 - desain slide
-- tata letak tidak terpakai
+- tata letak yang tidak terpakai
 - visibilitas footer
 - slide judul
 - judul dan konten
@@ -29,151 +29,129 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Kelola dan sesuaikan tata letak slide di Aspose.Slides untuk Android. Jelajahi jenis tata letak, kontrol placeholder, dan visibilitas footer melalui contoh kode Java."
+description: "Terapkan, buat, dan modifikasi tata letak slide di Aspose.Slides untuk Android via Java, tambahkan placeholder, hapus tata letak yang tidak terpakai, dan kontrol visibilitas footer."
 ---
-## **Pendahuluan**
+## **Gambaran Umum**
 
-Sebuah tata letak slide mendefinisikan susunan kotak placeholder dan pemformatan untuk konten pada slide. Tata letak mengontrol placeholder yang tersedia dan lokasi penampilannya. Tata letak slide membantu Anda merancang presentasi dengan cepat dan konsisten—baik saat membuat sesuatu yang sederhana maupun yang lebih kompleks. Beberapa tata letak slide yang paling umum di PowerPoint meliputi:
+Tata letak slide menentukan posisi dan pemformatan placeholder seperti judul, teks, gambar, diagram, dan tabel. Menerapkan tata letak memberikan slide struktur yang konsisten sekaligus memungkinkan setiap slide berisi kontennya sendiri.
 
-**Title Slide layout** – Menyertakan dua placeholder teks: satu untuk judul dan satu untuk subjudul.
+Tata letak yang paling umum meliputi:
 
-**Title and Content layout** – Menampilkan placeholder judul yang lebih kecil di bagian atas dan placeholder yang lebih besar di bawahnya untuk konten utama (seperti teks, poin-poin, bagan, gambar, dan lainnya).
+- **Slide Judul**: Memiliki placeholder judul dan subjudul.
+- **Judul dan Konten**: Memiliki placeholder judul dan placeholder konten serbaguna.
+- **Kosong**: Tidak memiliki placeholder konten dan berguna ketika setiap bentuk akan ditempatkan secara manual.
 
-**Blank layout** – Tidak berisi placeholder, memberi Anda kontrol penuh untuk merancang slide dari awal.
+## **Memahami Pewarisan Tata Letak**
 
-Tata letak slide merupakan bagian dari slide master, yaitu slide tingkat atas yang mendefinisikan gaya tata letak untuk keseluruhan presentasi. Anda dapat mengakses dan memodifikasi slide tata letak melalui slide master—baik berdasarkan tipe, nama, atau ID unik. Atau, Anda dapat menyunting slide tata letak tertentu secara langsung di dalam presentasi.
+Sebuah presentasi memiliki tiga tingkatan terkait:
 
-Untuk bekerja dengan tata letak slide di Aspose.Slides for Android, Anda dapat menggunakan:
+1. Sebuah [master slide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslide/) mendefinisikan tema, pemformatan bersama, latar belakang, dan objek umum.
+1. Sebuah [layout slide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/) merupakan bagian dari master dan menentukan susunan placeholder tertentu.
+1. Sebuah [normal slide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/) menggunakan satu tata letak dan menyimpan konten yang dimasukkan untuk slide tersebut.
 
-- Metode seperti [getLayoutSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) dan [getMasters](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getMasters--) pada kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/)
-- Tipe seperti [ILayoutSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), dan [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+Sebuah normal slide mewarisi tema dan pemformatan dari tata letaknya, dan tata letak mewarisi dari masternya. Nilai yang ditetapkan langsung pada normal slide menimpa nilai yang diwarisi pada tingkat tersebut. Ketika sebuah normal slide dibuat, bentuk placeholder‑nya dihasilkan dari tata letak yang dipilih, sementara konten yang dimasukkan ke dalam placeholder tersebut menjadi milik normal slide.
 
-{{% alert title="Info" color="info" %}}
-Untuk mempelajari lebih lanjut tentang cara kerja slide master, lihat artikel [Slide Master](/slides/id/androidjava/slide-master/).
-{{% /alert %}}
+Tambahkan placeholder yang diperlukan ke tata letak sebelum membuat slide darinya. Menambahkan placeholder lain ke tata letak kemudian tidak secara otomatis menambah bentuk placeholder yang bersesuaian pada slide normal yang sudah ada.
 
-## **Menambahkan Tata Letak Slide ke Presentasi**
+Hubungan ini memiliki dua konsekuensi penting:
 
-Untuk menyesuaikan tampilan dan struktur slide Anda, Anda mungkin perlu menambahkan slide tata letak baru ke sebuah presentasi. Aspose.Slides for Android memungkinkan Anda memeriksa apakah tata letak tertentu sudah ada, menambahkan yang baru bila diperlukan, dan menggunakannya untuk menyisipkan slide berdasarkan tata letak tersebut.
+- Mengubah pemformatan yang diwarisi atau geometri placeholder yang ada pada tata letak dapat memperbarui setiap slide yang bergantung padanya. Sebelum mengedit tata letak yang sudah digunakan, periksa slide yang bergantung dan tinjau hasil presentasi.
+- Tata letak yang masih digunakan oleh sebuah slide tidak dapat dihapus. Alihkan slide yang bergantung ke tata letak lain terlebih dahulu, atau hapus hanya tata letak yang tidak terpakai.
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-1. Akses [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterlayoutslidecollection/).
-1. Periksa apakah slide tata letak yang diinginkan sudah ada dalam koleksi. Jika tidak, tambahkan slide tata letak yang diperlukan.
-1. Tambahkan slide kosong berdasarkan slide tata letak baru.
-1. Simpan presentasi.
+Untuk informasi lebih lanjut tentang tingkat atas hierarki ini, lihat [Slide Master](/slides/id/androidjava/slide-master/).
 
-Kode Java berikut menunjukkan cara menambahkan tata letak slide ke presentasi PowerPoint:
+## **Pilih dan Terapkan Tata Letak Slide**
+
+Gunakan jenis tata letak ketika presentasi mengikuti definisi tata letak PowerPoint standar. Nama tata letak dapat diedit oleh pengguna dan dapat dilokalisasi, sehingga pemilihan berbasis nama kurang dapat diandalkan kecuali Anda mengendalikan templat sumber.
+
+Contoh berikut mencari **Judul dan Konten** pada master pertama. Jika tata letak itu tidak tersedia, secara sengaja beralih ke **Kosong**. Pemeriksaan null kedua diperlukan karena sebuah presentasi dapat berisi hanya tata letak khusus. Tata letak yang dipilih kemudian diterapkan ke slide normal pertama melalui metode [ISlide.setLayoutSlide](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
 
 ```java
-// Membuat instance kelas Presentation yang mewakili file PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Menelusuri tipe slide tata letak untuk memilih slide tata letak.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Situasi di mana presentasi tidak berisi semua tipe tata letak.
-        // File presentasi hanya berisi tipe tata letak Blank dan Custom.
-        // Namun, slide tata letak dengan tipe khusus mungkin memiliki nama yang dapat dikenali,
-        // seperti "Title", "Title and Content", dll., yang dapat digunakan untuk pemilihan slide tata letak.
-        // Anda juga dapat mengandalkan sekumpulan tipe bentuk placeholder.
-        // Misalnya, slide Title seharusnya hanya memiliki tipe placeholder Title, dan seterusnya.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Tambahkan slide kosong menggunakan slide tata letak yang telah ditambahkan.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Simpan presentasi ke disk.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Menghapus Slide Tata Letak yang Tidak Digunakan**
+Mengubah tata letak sebuah slide tidak menghapus bentuk biasa yang ditambahkan langsung ke slide. Namun, posisi placeholder, pemformatan yang diwarisi, dan korespondensi antara placeholder yang ada dengan tata letak baru dapat berubah, sehingga periksa output saat beralih antara tata letak yang sangat berbeda.
 
-Aspose.Slides menyediakan metode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) dari kelas [Compress](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/compress/) untuk memungkinkan Anda menghapus slide tata letak yang tidak diinginkan dan tidak terpakai.
+## **Tambahkan Tata Letak Slide**
 
-Kode Java berikut memperlihatkan cara menghapus slide tata letak dari presentasi PowerPoint:
+Pemilihan dan pembuatan adalah operasi terpisah. Contoh sebelumnya memilih tata letak yang ada; tidak membuat yang baru. Untuk membuat tata letak, panggil metode [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) pada koleksi tata letak master target.
+
+Contoh berikut selalu menambahkan tata letak **Judul dan Konten** baru bernama `Report Title and Content`, kemudian menambahkan slide normal yang berdasar padanya. Nama tata letak harus unik dalam koleksi.
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Menambahkan Placeholder ke Tata Letak Slide**
+Tambahkan tata letak hanya ketika templat memang membutuhkan struktur dapat pakai kembali lain. Jika tata letak yang cocok sudah ada, pilih dan gunakan kembali alih-alih membuat duplikat.
 
-Aspose.Slides menyediakan metode [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) yang memungkinkan Anda menambahkan placeholder baru ke sebuah slide tata letak.
+## **Tambahkan Placeholder ke Tata Letak Slide**
 
-Manajer ini berisi metode untuk tipe placeholder berikut:
+Metode [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) menyediakan sebuah [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) untuk menambah bentuk placeholder ke tata letak.
 
-| Placeholder PowerPoint              | Metode [ILayoutPlaceholderManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| Placeholder PowerPoint             | `ILayoutPlaceholderManager` Method |
+| ----------------------------------- | ---------------------------------- |
+| ![Konten](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Konten (Vertikal)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Teks](text.png)                  | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Teks (Vertikal)](textV.png)      | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Gambar](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Diagram](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tabel](table.png)                 | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Gambar Online](onlineImage.png)  | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-Kode Java berikut memperlihatkan cara menambahkan bentuk placeholder baru ke slide tata letak Blank:
+Contoh berikut memverifikasi bahwa tata letak **Kosong** ada, menambahkan empat placeholder ke dalamnya, lalu membuat slide normal yang menggunakan tata letak yang telah dimodifikasi. Urutannya disengaja: placeholder ditambahkan sebelum slide normal dibuat, sehingga Aspose.Slides dapat menghasilkan bentuk placeholder yang bersesuaian pada slide tersebut.
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Dapatkan slide tata letak Blank.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Dapatkan manajer placeholder dari slide tata letak.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Tambahkan berbagai placeholder ke slide tata letak Blank.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Tambahkan slide baru dengan tata letak Blank.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -181,88 +159,100 @@ try {
 
 Hasilnya:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![Placeholder pada tata letak slide](add_placeholders.png)
 
-## **Mengatur Visibilitas Footer untuk Slide Tata Letak**
+{{% alert color="warning" title="Peringatan" %}}
+Mengubah pemformatan yang diwarisi atau geometri placeholder tata letak yang ada dapat memengaruhi slide yang bergantung. Placeholder tata letak yang baru ditambahkan tidak secara otomatis ditambahkan ke slide normal yang sudah ada. Uji perubahan tata letak pada salinan presentasi dan periksa setiap slide yang bergantung.
+{{% /alert %}}
 
-Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat ditampilkan atau disembunyikan tergantung pada tata letak slide. Aspose.Slides for Android memungkinkan Anda mengontrol visibilitas placeholder footer ini. Ini berguna ketika Anda ingin tata letak tertentu menampilkan informasi footer sementara yang lain tetap bersih dan minimal.
+## **Hapus Tata Letak Slide yang Tidak Terpakai**
 
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-1. Dapatkan referensi slide tata letak berdasarkan indeksnya.
-1. Atur placeholder footer slide menjadi terlihat.
-1. Atur placeholder nomor slide menjadi terlihat.
-1. Atur placeholder tanggal-waktu menjadi terlihat.
-1. Simpan presentasi.
-
-Kode Java berikut menunjukkan cara mengatur visibilitas footer slide dan melakukan tugas terkait:
+Gunakan metode [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) untuk menghapus tata letak yang tidak direferensikan oleh slide normal mana pun. Metode ini membiarkan tata letak yang masih dipakai tetap utuh.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Untuk menghapus satu tata letak tertentu, pertama gunakan metode [hasDependingSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) atau [getDependingSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) miliknya. Alihkan slide yang bergantung sebelum memanggil [ILayoutSlide.remove](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#remove--). Mencoba menghapus tata letak yang masih dipakai akan memunculkan [PptxEditException](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pptxeditexception/).
+
+## **Kontrol Visibilitas Footer pada Tata Letak Slide**
+
+Sebuah tata letak memiliki footer, nomor slide, dan placeholder tanggal‑waktu masing‑masing. Gunakan metode [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) untuk mengatur placeholder tersebut pada satu tata letak. Ini berguna ketika, misalnya, tata letak konten harus menampilkan footer tetapi tata letak judul tidak.
+
+Contoh berikut memilih tata letak secara aman dan membuat elemen footernya terlihat:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Mengatur Visibilitas Footer Anak untuk Slide**
+## **Kontrol Visibilitas Footer pada Master dan Tata Letak Turunannya**
 
-​Dalam presentasi PowerPoint, elemen footer seperti tanggal, nomor slide, dan teks khusus dapat dikontrol pada tingkat slide master untuk memastikan konsistensi di semua slide tata letak. Aspose.Slides for Android memungkinkan Anda mengatur visibilitas dan konten placeholder footer pada slide master dan menyebarkan pengaturan ini ke semua slide tata letak anak. Pendekatan ini memastikan informasi footer yang seragam di seluruh presentasi.​
-
-1. Buat instance kelas [Presentation](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/).
-1. Dapatkan referensi ke slide master berdasarkan indeksnya.
-1. Atur semua placeholder footer pada master dan semua anak menjadi terlihat.
-1. Atur semua placeholder nomor slide pada master dan semua anak menjadi terlihat.
-1. Atur semua placeholder tanggal-waktu pada master dan semua anak menjadi terlihat.
-1. Simpan presentasi.
-
-Kode Java berikut memperlihatkan operasi tersebut:
+Untuk menerapkan pengaturan footer yang konsisten di seluruh hierarki master, gunakan metode [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) . Metode propagasi pada [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) beroperasi pada master serta slide tata letak dan slide normal yang bergantung; mereka tidak menargetkan hanya satu slide normal.
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Tanya Jawab**
 
-**Apa perbedaan antara slide master dan slide tata letak?**
+**Apa Perbedaan antara Master Slide dan Layout Slide?**
 
-Slide master mendefinisikan tema keseluruhan dan pemformatan default, sementara slide tata letak mendefinisikan susunan spesifik placeholder untuk berbagai jenis konten.
+Master slide mendefinisikan tema dan pemformatan bersama presentasi. Layout slide merupakan bagian dari master dan menentukan satu susunan placeholder yang dapat dipakai kembali. Slide normal menggunakan tata letak tersebut dan menyimpan konten spesifik slide.
 
-**Apakah saya dapat menyalin slide tata letak dari satu presentasi ke presentasi lain?**
+**Bisakah Saya Menyalin Layout Slide dari Satu Presentasi ke Presentasi Lain?**
 
-Ya, Anda dapat mengkloning slide tata letak dari koleksi slide tata letak sebuah presentasi, yang dapat diakses melalui metode [getLayoutSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/presentation/#getLayoutSlides--), dan menyisipkannya ke presentasi lain menggunakan metode `addClone`.
+Ya. Tambahkan salinan ke koleksi tujuan dengan metode [addClone](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Saat menyalin antar presentasi, periksa juga font, tema, gambar, dan sumber daya lain yang digunakan oleh tata letak sumber.
 
-**Apa yang terjadi jika saya menghapus slide tata letak yang masih digunakan oleh slide lain?**
+**Apa yang Terjadi ketika Saya Memodifikasi Tata Letak yang Sudah Digunakan?**
 
-Jika Anda mencoba menghapus slide tata letak yang masih direferensikan oleh setidaknya satu slide dalam presentasi, Aspose.Slides akan melemparkan [PptxEditException](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pptxeditexception/). Untuk menghindarinya, gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) yang secara aman menghapus hanya slide tata letak yang tidak digunakan.
+Slide yang bergantung mewarisi perubahan tata letak kecuali mereka menimpa pemformatan atau objek yang bersangkutan secara lokal. Geometri placeholder dan gaya yang diwarisi dapat berubah pada banyak slide sekaligus. Gunakan [getDependingSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) untuk mengidentifikasi slide yang terpengaruh sebelum mengedit tata letak.
+
+**Apa yang Terjadi Jika Saya Menghapus Tata Letak yang Masih Digunakan?**
+
+Aspose.Slides akan melempar [PptxEditException](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/pptxeditexception/). Alihkan slide yang bergantung terlebih dahulu, atau gunakan [removeUnusedLayoutSlides](https://reference.aspose.com/slides/id/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) untuk menghapus hanya tata letak yang tidak direferensikan.

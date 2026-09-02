@@ -1,81 +1,127 @@
 ---
-title: แสดงสไลด์การนำเสนอเป็นภาพ SVG ใน Python
+title: เรนเดอร์สไลด์การนำเสนอเป็นภาพ SVG ใน Python
 linktitle: สไลด์เป็น SVG
 type: docs
 weight: 50
 url: /th/python-net/render-a-slide-as-an-svg-image/
 keywords:
-- สไลด์เป็น SVG
-- การนำเสนอเป็น SVG
 - PowerPoint เป็น SVG
-- OpenDocument เป็น SVG
+- การนำเสนอเป็น SVG
+- สไลด์เป็น SVG
 - PPT เป็น SVG
 - PPTX เป็น SVG
-- ODP เป็น SVG
-- เรนเดอร์สไลด์
-- แปลงสไลด์
-- ส่งออกสไลด์
-- ภาพเวกเตอร์
+- ตัวเลือกรายการส่งออก SVG
 - PowerPoint
-- OpenDocument
 - การนำเสนอ
 - Python
 - Aspose.Slides
-description: "เรียนรู้วิธีการเรนเดอร์สไลด์ PowerPoint และ OpenDocument เป็นภาพ SVG ด้วย Aspose.Slides สำหรับ Python ผ่าน .NET พร้อมภาพคุณภาพสูงและตัวอย่างโค้ดที่ง่าย"
+description: "ส่งออกสไลด์ PowerPoint เป็นภาพ SVG ใน Python และควบคุมฟอนต์, ข้อความ, และภาพด้วย Aspose.Slides."
 ---
 ## **ภาพรวม**
 
-บทความนี้อธิบายวิธีการแสดงสไลด์การนำเสนอเป็นภาพ SVG โดยใช้ Aspose.Slides โดยอธิบายรูปแบบ SVG และข้อได้เปรียบของมัน รวมถึงความสามารถในการปรับขนาด การเข้าถึงได้ และความเหมาะสมสำหรับการพัฒนาเว็บ
+SVG คือรูปแบบภาพแบบ XML ที่สามารถปรับขนาดได้ซึ่งทำงานได้ดีสำหรับการเผยแพร่บนเว็บ, โปรแกรมดูสไลด์, กระบวนการทำให้เข้าถึงได้, และการประมวลผลหลังอัตโนมัติ. Aspose.Slides จะส่งออกแต่ละสไลด์เป็นไฟล์ SVG แยกต่างหากและให้คุณควบคุมวิธีการเขียนข้อความ, ฟอนต์, รูปภาพ, และองค์ประกอบ SVG
 
-คุณจะได้เรียนรู้วิธีโหลดไฟล์การนำเสนอ, วนผ่านสไลด์ทั้งหมด, และบันทึกแต่ละสไลด์เป็นไฟล์ SVG แยกต่างหาก บทความครอบคลุมรูปแบบการนำเสนอ PowerPoint และ OpenDocument รวมถึง PPT, PPTX, ODP, และ PPS และแสดงวิธีทำการแปลงโดยใช้โปรแกรมด้วยคลาส `Presentation` และเมธอด `write_as_svg`
+ใช้ [SVGOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/) เมื่อ SVG ที่ส่งออกต้องมีขนาดกะทัดรัด, คาดเดาได้ข้ามเบราว์เซอร์, หรือพร้อมสำหรับการใช้งานแบบโต้ตอบ
 
-## **รูปแบบ SVG**
+## **ส่งออกสไลด์เป็น SVG**
 
-SVG—เป็นตัวย่อของ Scalable Vector Graphics—เป็นรูปแบบกราฟิกมาตรฐานที่ใช้ในการแสดงภาพสองมิติ. SVG จัดเก็บภาพเป็นเวกเตอร์ในรูปแบบ XML พร้อมรายละเอียดที่กำหนดพฤติกรรมหรือรูปลักษณ์ของภาพ
-
-SVG เป็นหนึ่งในไม่กี่รูปแบบของภาพที่ตอบสนองมาตรฐานสูงในด้านต่างๆ ได้แก่ ความสามารถในการปรับขนาด, ความโต้ตอบ, ประสิทธิภาพ, การเข้าถึง, ความสามารถในการเขียนโปรแกรม, และอื่นๆ ด้วยเหตุนี้จึงมักถูกใช้ในการพัฒนาเว็บ
-
-คุณอาจต้องการใช้ไฟล์ SVG เมื่อคุณต้องการ
-
-- **พิมพ์การนำเสนอของคุณในรูปแบบ *ขนาดใหญ่มาก***. ภาพ SVG สามารถขยายถึงความละเอียดหรือระดับใดก็ได้ คุณสามารถปรับขนาดภาพ SVG ได้หลายครั้งตามต้องการโดยไม่สูญเสียคุณภาพ
-- **ใช้แผนภูมิและกราฟจากสไลด์ของคุณใน *สื่อหรือแพลตฟอร์มที่แตกต่าง***. ผู้อ่านส่วนใหญ่สามารถแปลความหมายไฟล์ SVG ได้
-- **ใช้ *ขนาดที่เล็กที่สุดของภาพ***. ไฟล์ SVG โดยทั่วไปมีขนาดเล็กกว่าภาพความละเอียดสูงในรูปแบบอื่น โดยเฉพาะรูปแบบที่อิงบิตแมป (JPEG หรือ PNG)
-
-## **เรนเดอร์สไลด์เป็นภาพ SVG**
-
-Aspose.Slides for Python via .NET ช่วยให้คุณสามารถส่งออกสไลด์ในงานนำเสนอของคุณเป็นภาพ SVG ทำตามขั้นตอนต่อไปนี้เพื่อสร้างภาพ SVG
-
-1. สร้างอินสแตนซ์ของคลาส `Presentation`
-2. วนผ่านสไลด์ทั้งหมดในงานนำเสนอ
-3. เขียนสไลด์แต่ละสไลด์ลงไฟล์ SVG ของมันเองโดยใช้ `FileStream`
-
-{{% alert color="primary" %}} 
-คุณอาจต้องการลองใช้ [แอปพลิเคชันเว็บฟรี](https://products.aspose.app/slides/th/conversion/ppt-to-svg) ของเราซึ่งเราได้ทำการแปลง PPT เป็น SVG ด้วย Aspose.Slides for Python via .NET
-{{% /alert %}} 
+สร้าง [Presentation](https://reference.aspose.com/slides/th/python-net/aspose.slides/presentation/), เลือกสไลด์, และเขียนลงสตรีม ตัวอย่างต่อไปนี้ส่งออกแต่ละสไลด์ในงานนำเสนอเป็นไฟล์ SVG แยกต่างหาก
 
 ```py
 import aspose.slides as slides
 
-# สร้างวัตถุ Presentation ที่เป็นตัวแทนของไฟล์การนำเสนอ
-pres = slides.Presentation("pres.pptx")
+with slides.Presentation("presentation.pptx") as presentation:
+    for slide in presentation.slides:
+        with open("slide-{}.svg".format(slide.slide_number), "wb") as svg_stream:
+            slide.write_as_svg(svg_stream)
+```
 
-for index in range(pres.slides.length):
-    slide = pres.slides[index]
+ชื่อไฟล์ใช้ [Slide.slide_number](https://reference.aspose.com/slides/th/python-net/aspose.slides/slide/slide_number/) แทนการใช้ดัชนีของลูป คุณยังสามารถส่งออกรูปร่างเดี่ยวด้วย [Shape.write_as_svg](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/write_as_svg/) เมื่อโปรแกรมดูสไลด์หรือเว็บเพจต้องการเพียงรูปร่างนั้นเท่านั้น
 
-    with open("slide-{index}.svg".format(index = index), "wb") as file:
-        slide.write_as_svg(file)
+## **กำหนดค่าการส่งออก SVG**
+
+[SVGOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/) ควบคุมการเรนเดอร์ SVG สำหรับกรอบข้อความ, [SVGOptions.use_frame_size](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/use_frame_size/) จะรวมกรอบข้อความในพื้นที่การเรนเดอร์, และ [SVGOptions.use_frame_rotation](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/use_frame_rotation/) กำหนดว่าจะใช้การหมุนกรอบหรือไม่ ตั้งค่า [SVGOptions.disable_font_ligatures](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/disable_font_ligatures/) เป็น `True` เมื่อต้องการให้ข้อความแสดงโดยไม่มีลิการเจอร์
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.disable_font_ligatures = True
+    svg_options.use_frame_size = True
+    svg_options.use_frame_rotation = False
+
+    with open("slide-with-custom-options.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+## **ควบคุมข้อความและฟอนต์**
+
+### **แปลงข้อความทั้งหมดเป็นเวกเตอร์**
+
+ตั้งค่า [SVGOptions.vectorize_text](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/vectorize_text/) เป็น `True` เพื่อเขียนข้อความทั้งหมดของสไลด์เป็นกราฟิกเวกเตอร์ สิ่งนี้จะกำจัดการขึ้นอยู่กับฟอนต์และทำให้ผลลัพธ์ภาพดูสม่ำเสมอข้ามเบราว์เซอร์มากขึ้น, แต่ข้อความจะไม่สามารถเลือกหรือค้นหาเป็นข้อความ SVG ได้แล้ว
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.vectorize_text = True
+
+    with open("slide-with-vectorized-text.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
+```
+
+### **เลือกวิธีการจัดการฟอนต์ภายนอก**
+
+[SVGOptions.external_fonts_handling](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/external_fonts_handling/) ใช้ค่า [SvgExternalFontsHandling](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgexternalfontshandling/) สำหรับฟอนต์ที่โหลดจากภายนอก เลือก `ADD_LINKS_TO_FONT_FILES` เพื่ออ้างอิงไฟล์ฟอนต์แยกต่างหาก, `EMBED` เพื่อฝังข้อมูลฟอนต์ใน SVG, หรือ `VECTORIZE` เพื่อเรนเดอร์เฉพาะข้อความที่ใช้ฟอนต์ภายนอกเป็นกราฟิก ตรวจสอบลิขสิทธิ์ฟอนต์ก่อนฝังฟอนต์
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    linked_fonts_options = slides.export.SVGOptions()
+    linked_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.ADD_LINKS_TO_FONT_FILES
+
+    with open("slide-with-font-links.svg", "wb") as linked_fonts_stream:
+        presentation.slides[0].write_as_svg(linked_fonts_stream, linked_fonts_options)
+
+    embedded_fonts_options = slides.export.SVGOptions()
+    embedded_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.EMBED
+
+    with open("slide-with-embedded-fonts.svg", "wb") as embedded_fonts_stream:
+        presentation.slides[0].write_as_svg(embedded_fonts_stream, embedded_fonts_options)
+
+    vectorized_external_fonts_options = slides.export.SVGOptions()
+    vectorized_external_fonts_options.external_fonts_handling = slides.export.SvgExternalFontsHandling.VECTORIZE
+
+    with open("slide-with-vectorized-external-fonts.svg", "wb") as vectorized_external_fonts_stream:
+        presentation.slides[0].write_as_svg(vectorized_external_fonts_stream, vectorized_external_fonts_options)
+```
+
+## **ลดขนาดภาพที่ฝังไว้**
+
+ใช้ [SVGOptions.pictures_compression](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/pictures_compression/) เพื่อลดความละเอียดของภาพที่ฝังไว้, [SVGOptions.delete_pictures_cropped_areas](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/delete_pictures_cropped_areas/) เพื่อตัดส่วนที่ครอบตัดของแหล่งภาพ, และ [SVGOptions.jpeg_quality](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/jpeg_quality/) เพื่อควบคุมคุณภาพการเข้ารหัส JPEG การตั้งค่าเหล่านี้จะลดขนาดไฟล์โดยอาจสูญเสียความแม่นยำของภาพหรือข้อมูลภาพที่เก็บไว้
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    svg_options = slides.export.SVGOptions()
+    svg_options.pictures_compression = slides.export.PicturesCompression.DPI150
+    svg_options.delete_pictures_cropped_areas = True
+    svg_options.jpeg_quality = 80
+
+    with open("compressed-slide.svg", "wb") as svg_stream:
+        presentation.slides[0].write_as_svg(svg_stream, svg_options)
 ```
 
 ## **คำถามที่พบบ่อย**
 
-**ทำไม SVG ที่ได้อาจดูแตกต่างกันในแต่ละเบราว์เซอร์?**
+**เมื่อใดควรใช้ [SVGOptions.vectorize_text](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/vectorize_text/) แทน [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgexternalfontshandling/)?**
 
-การสนับสนุนฟีเจอร์ SVG เฉพาะต่างกันตามแต่ละเอนจิ้นของเบราว์เซอร์ พารามิเตอร์ใน [SVGOptions](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/) ช่วยลดความไม่เข้ากัน
+ใช้ [SVGOptions.vectorize_text](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgoptions/vectorize_text/) เมื่อข้อความทั้งหมดต้องไม่พึ่งพาฟอนต์ ใช้ [SvgExternalFontsHandling.VECTORIZE](https://reference.aspose.com/slides/th/python-net/aspose.slides.export/svgexternalfontshandling/) เมื่อต้องการแปลงเป็นกราฟิกเฉพาะข้อความที่ใช้ฟอนต์ภายนอกเท่านั้น
 
-**สามารถส่งออกไม่เพียงแค่สไลด์แต่ยังรวมถึงรูปร่างแต่ละชิ้นเป็น SVG ได้หรือไม่?**
+**วิธีที่ดีที่สุดในการทำให้ SVG มีขนาดเล็กลงคืออะไร?**
 
-ได้. ทุก [shape สามารถบันทึกเป็น SVG แยกต่างหาก](https://reference.aspose.com/slides/th/python-net/aspose.slides/shape/write_as_svg/) ซึ่งสะดวกสำหรับไอคอน, พิกโตแกรม และการนำกราฟิกกลับมาใช้ใหม่
-
-**สามารถรวมสไลด์หลายสไลด์เป็น SVG เดียว (strip/document) ได้หรือไม่?**
-
-สถานการณ์มาตรฐานคือสไลด์หนึ่ง → SVG หนึ่ง การรวมหลายสไลด์เป็นแคนวาส SVG เดียวเป็นขั้นตอนหลังการประมวลผลที่ทำที่ระดับแอปพลิเคชัน
+เริ่มต้นด้วยการบีบอัดภาพที่ฝังไว้, ลบส่วนภาพที่ถูกครอบตัด, และเลือกไฟล์ฟอนต์แบบลิงก์เมื่อสภาพแวดล้อมเป้าหมายสามารถให้บริการได้ ทดสอบผลลัพธ์เนื่องจากความละเอียดภาพที่ต่ำกว่า, คุณภาพ JPEG ที่ต่ำกว่า, และข้อความที่แปลงเป็นเวกเตอร์มีการแลกเปลี่ยนระหว่างคุณภาพและขนาดที่ต่างกัน

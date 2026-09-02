@@ -1,5 +1,5 @@
 ---
-title: .NET में प्रस्तुतियों पर डिजिटल हस्ताक्षर जोड़ें
+title: .NET में प्रस्तुतियों में डिजिटल हस्ताक्षर जोड़ें
 linktitle: डिजिटल हस्ताक्षर
 type: docs
 weight: 10
@@ -7,90 +7,170 @@ url: /hi/net/digital-signature-in-powerpoint/
 keywords:
 - डिजिटल हस्ताक्षर
 - डिजिटल प्रमाणपत्र
-- प्रमाणपत्र प्राधिकारी
+- प्रमाणपत्र प्राधिकरण
 - PFX प्रमाणपत्र
+- PKCS#12
+- हस्ताक्षर सत्यापन
 - PowerPoint
-- OpenDocument
-- प्रस्तुति
+- PPTX
+- प्रस्तुति सुरक्षा
 - .NET
 - C#
 - Aspose.Slides
-description: "Aspose.Slides for .NET का उपयोग करके PowerPoint और OpenDocument फ़ाइलों पर डिजिटल हस्ताक्षर करना सीखें। स्पष्ट कोड उदाहरणों के साथ कुछ ही सेकंड में अपनी स्लाइड्स को सुरक्षित करें।"
+description: "PFX प्रमाणपत्रों के साथ मौजूदा PPTX प्रस्तुतियों पर हस्ताक्षर करने और .NET के लिए Aspose.Slides का उपयोग करके डिजिटल हस्ताक्षरों को सत्यापित या हटाने का तरीका जानें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-**डिजिटल प्रमाणपत्र** का उपयोग पासवर्ड सुरक्षा वाली PowerPoint प्रस्तुति बनाने के लिए किया जाता है, जिसे किसी विशेष संगठन या व्यक्ति द्वारा बनाया गया चिह्नित किया जाता है। डिजिटल प्रमाणपत्र को किसी अधिकृत संगठन — प्रमाणपत्र प्राधिकारी से संपर्क करके प्राप्त किया जा सकता है। सिस्टम में डिजिटल प्रमाणपत्र स्थापित करने के बाद, इसे फ़ाइल → जानकारी → प्रेज़ेंटेशन को सुरक्षित करें के माध्यम से प्रस्तुति में डिजिटल हस्ताक्षर जोड़ने के लिए उपयोग किया जा सकता है:
+एक डिजिटल हस्ताक्षर प्राप्तकर्ता को यह निर्धारित करने में मदद करता है कि प्रस्तुति पर किसने हस्ताक्षर किया और क्या हस्ताक्षरित सामग्री में परिवर्तन हुआ है। यहाँ तीन संबंधित सुरक्षा अवधारणाएँ महत्वपूर्ण हैं:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- एक **डिजिटल प्रमाणपत्र** एक इलेक्ट्रॉनिक क्रेडेंशियल है जो एक पहचान को एक सार्वजनिक कुंजी से जोड़ता है। एक विश्वसनीय प्रमाणपत्र प्राधिकारी (CA) प्रमाणपत्र जारी कर सकता है, या कोई संगठन आंतरिक कार्यप्रवाहों के लिए स्वयं-हस्ताक्षरित प्रमाणपत्र का उपयोग कर सकता है।
+- एक **डिजिटल हस्ताक्षर** प्रस्तुति सामग्री और प्रमाणपत्र धारक की निजी कुंजी से बनाया जाता है। प्रमाणपत्र की सार्वजनिक कुंजी का उपयोग करके हस्ताक्षर को सत्यापित किया जा सकता है। हस्ताक्षर मूल और अखंडता का प्रमाण प्रदान करता है; यह प्रस्तुति को एन्क्रिप्ट नहीं करता।
+- **Password protection** नियंत्रित करता है कि उपयोगकर्ता प्रस्तुति को खोल या संशोधित कर सकता है या नहीं। यह डिजिटल हस्ताक्षर से अलग है और इसे [Password-Protected Presentations](/net/password-protected-presentation/) में वर्णित किया गया है।
 
-एक प्रस्तुति में एक से अधिक डिजिटल हस्ताक्षर हो सकते हैं। प्रस्तुति में डिजिटल हस्ताक्षर जोड़ने के बाद, PowerPoint में एक विशेष संदेश दिखाई देगा:
+PowerPoint **File > Info > Protect Presentation** के तहत **Add a Digital Signature** कमांड प्रदान करता है।
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![PowerPoint Protect Presentation मेनू जिसमें Add a Digital Signature हाइलाइट किया गया है](add-digital-signature-in-powerpoint.png)
 
-प्रेज़ेंटेशन पर हस्ताक्षर करने या प्रस्तुति हस्ताक्षरों की प्रामाणिकता जांचने के लिए, **Aspose.Slides API** [**IDigitalSignature**](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignature)interface, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/hi/net/aspose.slides/IDigitalSignatureCollection)interface और [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/properties/digitalsignatures) property प्रदान करता है। वर्तमान में, डिजिटल हस्ताक्षर केवल PPTX फ़ॉर्मेट के लिए समर्थित हैं।
+हस्ताक्षरित प्रस्तुति खोलने के बाद, PowerPoint एक हस्ताक्षर‑स्थिति सूचना प्रदर्शित कर सकता है।
 
-## **PFX प्रमाणपत्र से डिजिटल हस्ताक्षर जोड़ना**
+![PowerPoint सूचना जिसमें कहा गया है कि प्रस्तुति में वैध हस्ताक्षर हैं](digital-signature-status-in-powerpoint.png)
 
-नीचे दिया गया कोड नमूना दिखाता है कि कैसे PFX प्रमाणपत्र से डिजिटल हस्ताक्षर जोड़ा जाए:
+Aspose.Slides हस्ताक्षर को [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/digitalsignatures/) के माध्यम से उजागर करता है, जो एक [IDigitalSignatureCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignaturecollection/) है जिनकी वस्तुएँ [IDigitalSignature](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignature/) को लागू करती हैं। एक प्रस्तुति कई हस्ताक्षर रख सकती है।
 
-1. PFX फ़ाइल खोलें और PFX पासवर्ड को [**DigitalSignature**](https://reference.aspose.com/slides/hi/net/aspose.slides/digitalsignature)object को पास करें।
-2. निर्मित हस्ताक्षर को प्रस्तुति ऑब्जेक्ट में जोड़ें।
+## **PFX प्रमाणपत्र और पासवर्ड को समझें**
 
-```c#
-using (Presentation pres = new Presentation())
+एक PFX फ़ाइल, जिसे PKCS#12 फ़ाइल भी कहा जाता है और सामान्यतः `.pfx` या `.p12` विस्तार के साथ दी जाती है, इसमें X.509 प्रमाणपत्र, उसकी निजी कुंजी, और प्रमाणपत्र श्रृंखला शामिल हो सकती है। निजी कुंजी वह है जो धारक को हस्ताक्षर बनाने की अनुमति देती है। बिना पहुँच योग्य निजी कुंजी के प्रमाणपत्र का उपयोग प्रस्तुति पर हस्ताक्षर करने के लिए नहीं किया जा सकता।
+
+PFX पासवर्ड प्रमाणपत्र पैकेज और निजी कुंजी की सुरक्षा करता है। यह प्रस्तुति को खोलने या संपादित करने के लिए **पासवर्ड नहीं** है। PFX फ़ाइलों या उनके पासवर्ड को स्रोत नियंत्रण में कमिट न करें। उत्पादन वातावरण में, प्रमाणपत्र फ़ाइल तक पहुँच को सीमित रखें और उसका पासवर्ड किसी गुप्त स्टोर या अन्य सुरक्षित कॉन्फ़िगरेशन स्रोत से प्राप्त करें। नीचे के उदाहरण केवल कोड में पासवर्ड एम्बेड करने से बचने के लिए पर्यावरण चर का उपयोग करते हैं।
+
+## **प्रस्तुति में एक डिजिटल हस्ताक्षर जोड़ें**
+
+वास्तविक प्रस्तुति कार्यप्रवाह को हस्ताक्षरित करने के लिए, मौजूदा PPTX फ़ाइल लोड करें, PFX प्रमाणपत्र और उसके पासवर्ड से एक [DigitalSignature](https://reference.aspose.com/slides/hi/net/aspose.slides/digitalsignature/) बनाएँ, हस्ताक्षर को प्रस्तुति की संग्रह में जोड़ें, और PPTX फ़ाइल के रूप में सहेजें।
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var certificatePassword = Environment.GetEnvironmentVariable("PFX_PASSWORD")
+    ?? throw new InvalidOperationException("Set the PFX_PASSWORD environment variable.");
+
+using var presentation = new Presentation("InputPresentation.pptx");
+
+var signature = new DigitalSignature("signing-certificate.pfx", certificatePassword)
 {
-    // PFX फ़ाइल और PFX पासवर्ड के साथ DigitalSignature ऑब्जेक्ट बनाएं 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
+    Comments = "Approved for release."
+};
 
-    // नई डिजिटल हस्ताक्षर की टिप्पणी करें
-    signature.Comments = "Aspose.Slides digital signing test.";
-
-    // डिजिटल हस्ताक्षर को प्रस्तुति में जोड़ें
-    pres.DigitalSignatures.Add(signature);
-
-    // प्रस्तुति सहेजें
-    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-}
+presentation.DigitalSignatures.Add(signature);
+presentation.Save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 ```
 
-अब आप जांच सकते हैं कि प्रस्तुति पर डिजिटल हस्ताक्षर किया गया था और उसे संशोधित नहीं किया गया है:
+परिणाम को नए नाम से सहेजने से बिना हस्ताक्षर वाली स्रोत फ़ाइल बरकरार रहती है। [DigitalSignature.Comments](https://reference.aspose.com/slides/hi/net/aspose.slides/digitalsignature/comments/) मान हस्ताक्षर का उद्देश्य वर्णन करता है; यह कोई सुरक्षा नियंत्रण नहीं है।
 
-```c#
-// प्रस्तुति खोलें
-using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
+## **डिजिटल हस्ताक्षर को मान्य करें**
+
+जब आप एक हस्ताक्षरित PPTX फ़ाइल लोड करते हैं, तो [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/digitalsignatures/) में प्रत्येक वस्तु की जाँच करें। [IDigitalSignature.IsValid](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignature/isvalid/) गुण यह इंगित करता है कि एम्बेडेड हस्ताक्षर वर्तमान प्रस्तुति सामग्री के लिये वैध है या नहीं।
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+var signatureCount = presentation.DigitalSignatures.Count;
+
+if (signatureCount == 0)
 {
-    if (pres.DigitalSignatures.Count > 0)
+    Console.WriteLine("The presentation does not contain digital signatures.");
+}
+else
+{
+    var allSignaturesAreValid = true;
+
+    foreach (var signature in presentation.DigitalSignatures)
     {
-        bool allSignaturesAreValid = true;
+        var signatureStatus = signature.IsValid ? "VALID" : "INVALID";
+        var signerName = signature.Certificate.SubjectName.Name;
 
-        Console.WriteLine("Signatures used to sign the presentation: ");
+        Console.WriteLine(
+            $"{signerName}, {signature.SignTime:yyyy-MM-dd HH:mm:ss} -- {signatureStatus}");
 
-        // जाँचें कि सभी डिजिटल हस्ताक्षर मान्य हैं या नहीं
-        foreach (DigitalSignature signature in pres.DigitalSignatures)
-        {
-            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
-                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.IsValid;
-        }
-
-        if (allSignaturesAreValid)
-            Console.WriteLine("Presentation is genuine, all signatures are valid.");
-        else
-            Console.WriteLine("Presentation has been modified since signing.");
+        allSignaturesAreValid &= signature.IsValid;
     }
+
+    Console.WriteLine(allSignaturesAreValid
+        ? "All embedded signatures are valid for the current presentation."
+        : "At least one embedded signature is invalid.");
 }
 ```
 
-## **अक्सर पूछे जाने वाले प्रश्न**
+एक अवैध परिणाम सामान्यतः इस बात का संकेत देता है कि हस्ताक्षरित प्रस्तुति सामग्री या हस्ताक्षर डेटा हस्ताक्षर के बाद बदल गया है, या फ़ाइल क्षतिग्रस्त है। सभी हस्ताक्षर हटाने से एक बिना हस्ताक्षर वाली प्रस्तुति बनती है, इसलिए केवल वस्तुओं की वैधता जाँचना पर्याप्त नहीं है: एक सुरक्षा‑सेंसिटिव कार्यप्रवाह को यह भी सत्यापित करना चाहिए कि अपेक्षित संख्या के हस्ताक्षर और अपेक्षित हस्ताक्षरकर्ता पहचान मौजूद हैं।
 
-**क्या मैं फ़ाइल से मौजूदा हस्ताक्षर हटा सकता हूँ?**
+इस वैधता परिणाम को पूर्ण प्रमाणपत्र‑विश्वास निर्णय के रूप में नहीं माना जाना चाहिए। आपके सुरक्षा नीति के अनुसार, आपका अनुप्रयोग X.509 प्रमाणपत्र श्रृंखला बनाना और मान्य करना, प्रमाणपत्र वैधता तिथियों और निरसन स्थिति की जाँच करना, अपेक्षित विषय या थंबप्रिंट की पुष्टि करना, कुंजी उपयोग को सत्यापित करना, और विश्वसनीय टाइम‑स्टैम्प का मूल्यांकन करना भी आवश्यक हो सकता है। [IDigitalSignature.SignTime](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignature/signtime/) मान केवल विश्वसनीय टाइम‑स्टैम्प प्राधिकरण से प्रमाण नहीं है।
 
-हाँ। डिजिटल हस्ताक्षर संग्रह [व्यक्तिगत आइटम हटाने](https://reference.aspose.com/slides/hi/net/aspose.slides/digitalsignaturecollection/removeat/) और [पूरी तरह से साफ़ करने](https://reference.aspose.com/slides/hi/net/aspose.slides/digitalsignaturecollection/clear/) का समर्थन करता है; फ़ाइल सहेजने के बाद, प्रस्तुति में कोई हस्ताक्षर नहीं रहेगा।
+## **डिजिटल हस्ताक्षर को हटाएँ**
 
-**क्या हस्ताक्षर करने के बाद फ़ाइल "केवल-पढ़ने योग्य" बन जाती है?**
+हस्ताक्षर हटाने से प्रस्तुति की सुरक्षा स्थिति बदलती है। नीचे दिया गया उदाहरण एक हस्ताक्षरित PPTX फ़ाइल लोड करता है, सभी हस्ताक्षर को [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignaturecollection/clear/) से हटाता है, और एक बिना हस्ताक्षर की प्रति सहेजता है।
 
-नहीं। हस्ताक्षर अखंडता और लेखन अधिकार को संरक्षित करता है लेकिन संपादन को रोकता नहीं है। संपादन को सीमित करने के लिए, इसे ["केवल पढ़ने योग्य" या पासवर्ड](/slides/hi/net/password-protected-presentation/) के साथ मिलाएँ।
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-**क्या विभिन्न PowerPoint संस्करणों में हस्ताक्षर सही ढंग से प्रदर्शित होगा?**
+using var presentation = new Presentation("InputPresentation-signed.pptx");
 
-हस्ताक्षर OOXML (PPTX) कंटेनर के लिए बनाया गया है। उन आधुनिक PowerPoint संस्करणों में जो OOXML हस्ताक्षरों को समर्थन देते हैं, यह हस्ताक्षरों की स्थिति को सही ढंग से दर्शाता है।
+presentation.DigitalSignatures.Clear();
+presentation.Save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+```
+
+केवल एक हस्ताक्षर हटाने के लिये, उसके शून्य‑आधारित सूचकांक के साथ [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/hi/net/aspose.slides/idigitalsignaturecollection/removeat/) को कॉल करें। यदि आपका कार्यप्रवाह स्पष्ट रूप से मूल हस्ताक्षरित फ़ाइल को ओवरराइट करने की अनुमति नहीं देता, तो नई फ़ाइल में सहेजें।
+
+## **संपादन और स्वरूप विचार**
+
+- एक हस्ताक्षर प्रस्तुति को केवल‑पढ़ने योग्य नहीं बनाता। उपयोगकर्ता और अनुप्रयोग फ़ाइल को अभी भी संपादित कर सकते हैं, लेकिन हस्ताक्षरित सामग्री में परिवर्तन आम तौर पर मौजूदा हस्ताक्षर को अमान्य कर देता है।
+- हस्ताक्षर करने से पहले सभी इच्छित संपादन पूर्ण कर लें। यदि प्रस्तुति को बदलना आवश्यक है, तो संशोधित प्रस्तुति सहेजें और उस संशोधन को फिर से हस्ताक्षरित करें।
+- अंतिम आउटपुट को PPTX स्वरूप में रखें। एक हस्ताक्षरित प्रस्तुति को किसी अन्य स्वरूप में परिवर्तित करने से मूल PPTX हस्ताक्षर परिवर्तित फ़ाइल के लिये वैध हस्ताक्षर के रूप में नहीं चला जाता।
+- प्रमाणपत्र की निजी कुंजी को संवेदनशील मानें। जो कोई भी निजी कुंजी और उसका पासवर्ड प्राप्त करता है, वह उस प्रमाणपत्र धारक के रूप में दिखने वाले हस्ताक्षर बना सकता है।
+- यदि आपके दस्तावेज़‑रिटेंशन नीति के अनुसार आवश्यक है, तो बिना हस्ताक्षर वाले स्रोत या कोई नियंत्रित प्रतिलिपि रखें।
+
+## **FAQ**
+
+**क्या एक डिजिटल हस्ताक्षर प्रस्तुति को एन्क्रिप्ट करता है?**
+
+नहीं। डिजिटल हस्ताक्षर मूल और अखंडता का प्रमाण प्रदान करता है, लेकिन प्रस्तुति सामग्री पढ़ने योग्य रहती है जब तक अलग से एन्क्रिप्शन लागू न किया जाए। जब सामग्री तक पहुँच सीमित करनी हो तो [password protection](/net/password-protected-presentation/) का उपयोग करें।
+
+**क्या PFX पासवर्ड प्रस्तुति पासवर्ड के समान है?**
+
+नहीं। PFX पासवर्ड प्रमाणपत्र पैकेज में संग्रहीत निजी कुंजी को अनलॉक करता है। यह यह नियंत्रित नहीं करता कि कौन PPTX फ़ाइल खोल या संपादित कर सकता है।
+
+**क्या मैं स्वयं‑हस्ताक्षरित प्रमाणपत्र का उपयोग कर सकता हूँ?**
+
+तकनीकी रूप से, यदि उसमें पहुंच योग्य निजी कुंजी शामिल है तो स्वयं‑हस्ताक्षरित प्रमाणपत्र का उपयोग किया जा सकता है। प्राप्तकर्ता इसे स्वचालित रूप से भरोसा नहीं करेंगे, जब तक कि वह प्रमाणपत्र स्पष्ट रूप से उनके विश्वसनीय पर्यावरण में नहीं जोड़ा गया हो। सार्वजनिक या क्रॉस‑ऑर्गनाइज़ेशन कार्यप्रवाह आम तौर पर विश्वसनीय CA द्वारा जारी प्रमाणपत्र का उपयोग करते हैं।
+
+**एक हस्ताक्षर को अवैध क्या बनाता है?**
+
+हस्ताक्षरित प्रस्तुति सामग्री या हस्ताक्षर डेटा को हस्ताक्षर के बाद बदलना हस्ताक्षर को अमान्य कर सकता है। फ़ाइल भ्रष्टाचार भी सत्यापन को विफल बना सकता है। यदि सभी हस्ताक्षर हटाए जाते हैं, तो प्रस्तुति बिना हस्ताक्षर वाली बन जाती है, न कि एक फ़ाइल जिसमें अवैध हस्ताक्षर हो।
+
+**क्या वैध हस्ताक्षर का अर्थ है कि मुझे हस्ताक्षरकर्ता पर भरोसा करना चाहिए?**
+
+स्वयं में नहीं। हस्ताक्षर की अखंडता और हस्ताक्षरकर्ता का भरोसा अलग‑अलग निर्णय हैं। उत्पादन सत्यापन नीति को प्रमाणपत्र श्रृंखला, वैधता अवधि, निरसन स्थिति, अपेक्षित पहचान, कुंजी उपयोग, और किसी विश्वसनीय टाइम‑स्टैम्प आवश्यकताओं की भी जाँच करनी चाहिए।
+
+**जब प्रमाणपत्र समाप्त हो जाता है तो क्या होता है?**
+
+प्रमाणपत्र समाप्ति प्रस्तुति के बाइट्स को नहीं बदलती, लेकिन यह प्रमाणपत्र‑विश्वास मूल्यांकन को प्रभावित करती है। क्या हस्ताक्षर स्वीकार्य रहता है, यह आपके नीति और इस बात पर निर्भर करता है कि क्या एक वैध विश्वसनीय टाइम‑स्टैम्प यह प्रमाणित करता है कि हस्ताक्षर तब हुआ जब प्रमाणपत्र मान्य था। केवल प्रदर्शित हस्ताक्षर समय को विश्वसनीय टाइम‑स्टैम्प के रूप में न मानें।
+
+**क्या एक हस्ताक्षरित प्रस्तुति अभी भी संपादित की जा सकती है?**
+
+हाँ। हस्ताक्षर फ़ाइल को लॉक नहीं करता। हस्ताक्षरित सामग्री को संपादित करने से आम तौर पर मौजूदा हस्ताक्षर अमान्य हो जाता है, इसलिए पहले प्रस्तुति को पूर्ण करें और अंतिम संशोधन पर हस्ताक्षर करें।
+
+**क्या एक प्रस्तुति में एक से अधिक हस्ताक्षर हो सकते हैं?**
+
+हाँ। प्रत्येक हस्ताक्षर को [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/hi/net/aspose.slides/ipresentation/digitalsignatures/) में जोड़ें और फिर सहेजें। सत्यापन के दौरान, प्रत्येक हस्ताक्षर की जाँच करें और सुनिश्चित करें कि सभी आवश्यक हस्ताक्षरकर्ता मौजूद हैं।
+
+**कौन‑से प्रस्तुति स्वरूप ये संचालन समर्थन करते हैं?**
+
+Aspose.Slides यहाँ वर्णित डिजिटल‑हस्ताक्षर संचालन केवल PPTX के लिये समर्थन करता है। PPT और OpenDocument प्रस्तुति स्वरूप इस API कार्यप्रवाह द्वारा समर्थित नहीं हैं।
+
+**क्या मैं स्लाइड्स को प्रभावित किए बिना हस्ताक्षर हटा सकता हूँ?**
+
+हाँ। आप एक हस्ताक्षर हटा सकते हैं या पूरी संग्रह को साफ़ कर सकते हैं और फिर प्रस्तुति को सहेज सकते हैं। स्लाइड सामग्री बनी रहती है, लेकिन सहेजी गई फ़ाइल अब हटाए गए हस्ताक्षर का प्रमाण नहीं रखती।

@@ -1,357 +1,399 @@
 ---
-title: إدارة سلاسل بيانات المخطط في العروض التقديمية باستخدام Java
-linktitle: سلسلة البيانات
+title: إدارة سلاسل بيانات المخطط في العروض التقديمية بجافا
+linktitle: سلاسل البيانات
 type: docs
 url: /ar/java/chart-series/
 keywords:
 - سلسلة المخطط
 - تداخل السلسلة
 - لون السلسلة
-- لون الفئة
 - اسم السلسلة
 - نقطة البيانات
+- خلية دفتر العمل
 - فجوة السلسلة
-- PowerPoint
-- العرض التقديمي
-- Java
+- قيمة سلبية
+- باوربوينت
+- عرض تقديمي
+- جافا
 - Aspose.Slides
-description: "تعلم كيفية إدارة سلاسل المخطط في Java لبرنامج PowerPoint (PPT/PPTX) من خلال أمثلة عملية على الشفرة وأفضل الممارسات لتعزيز عروض البيانات الخاصة بك."
+description: "تعلم كيفية إدارة سلاسل المخطط ونقاط البيانات وخلايا دفتر العمل والتنسيق والتداخل وعرض الفجوة والقيم السلبية في العروض التقديمية باستخدام جافا."
 ---
+## **نظرة عامة**
 
-سلسلة هي صف أو عمود من الأرقام مرسومة في مخطط.
+يخزن المخطط بياناته المرسومة في دفتر بيانات المخطط. تمثل [IChartSeries](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/) مجموعة واحدة من القيم المرتبطة، وكل [IChartDataPoint](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapoint/) في السلسلة يشير إلى خلية أو أكثر في دفتر العمل. توفر كائنات [IChartCategory](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartcategory/) التسميات أو قيم التجميع المشتركة بين السلاسل. لذلك يتم ربط اسم السلسلة والفئات وقيم النقاط بكائنات [IChartDataCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatacell/) بدلاً من تخزينها كنص عرض فقط.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+بالنسبة إلى مخطط فئة نموذجي، يستخدم دفتر العمل الافتراضي الصف 0 لأسماء السلاسل، والعمود 0 لأسماء الفئات، وتملأ الخلايا المتبقية قيم السلاسل. فهارس ورقة العمل والصف والعمود التي تُمرَّر إلى [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-) هي صفرية. هذا التخطيط مفيد عندما تُنشئ مخططًا ببيانات افتراضية، لكن لا تفترض أن كل مخطط موجود يستخدمه. بالنسبة إلى عرض تقديمي مُحمَّل، تحقق من الخلايا التي تشير إليها السلاسل والفئات ونقاط البيانات قبل تعديل قيم دفتر العمل.
 
-## **ضبط تداخل سلسلة المخطط**
+لإعدادات المخطط ثلاث نطاقات مختلفة:
 
-مع خاصية [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) يمكنك تحديد مقدار التداخل بين الأشرطة والأعمدة في مخطط ثلاثي الأبعاد (النطاق: -100 إلى 100). تنطبق هذه الخاصية على جميع السلاسل في مجموعة السلاسل الأصلية: هذا عرض للخاصية المناسبة للمجموعة. لذلك، هذه الخاصية للقراءة فقط.
+- إعدادات على مستوى السلسلة، مثل [IChartSeries.getFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getFormat--)، توفر المظهر الافتراضي لجميع النقاط في سلسلة واحدة.
+- إعدادات نقطة البيانات، مثل [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapoint/#getFormat--)، تتجاوز مظهر السلسلة لنقطة واحدة.
+- إعدادات المجموعة تنطبق على السلاسل المتوافقة التي تنتمي إلى نفس [IChartSeriesGroup](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseriesgroup/). ادخل إلى المجموعة عبر [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getParentSeriesGroup--) عندما تحتاج إلى تعيين خيارات مثل تداخل أو عرض الفجوة.
 
-استخدم الخاصية القابلة للقراءة/الكتابة `ParentSeriesGroup.Overlap` لتعيين القيمة المفضلة لـ `Overlap`.
+عندما لا يتم تعيين تعبئة صريحة للنقطة أو السلسلة، يحدد نمط المخطط والموضوع المظهر التلقائي. عندما يتوفر كل من تنسيق السلسلة وتنسيق النقطة، يتفوق تنسيق النقطة لتلك النقطة.
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. أضف مخطط عمودي مجموعة على شريحة.
-1. احصل على أول سلسلة في المخطط.
-1. احصل على `ParentSeriesGroup` للسلسلة واضبط قيمة التداخل المفضلة للسلسلة.
-1. احفظ العرض المعدل إلى ملف PPTX.
+![سلسلة-المخطط-باوربوينت](chart-series-powerpoint.png)
 
-يعرض هذا الشيفرة Java كيفية ضبط التداخل لسلسلة مخطط:
+## **تعيين تداخل سلسلة المخطط**
+
+[IChartSeries.getOverlap](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getOverlap--) يوضح مقدار تداخل الأعمدة أو الأعمدة في مخطط ثنائي الأبعاد، من -100 إلى 100 بالمئة. وهو إسقاط قراءة فقط لإعداد المجموعة الأصلية للسلسلة. استخدم [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) لتحديث كل السلاسل المتوافقة في تلك المجموعة. ينطبق هذا الخيار على أنواع المخططات التي تعرض أعمدة أو أعمدة مجمعة؛ ولا يؤثر على مجموعات السلاسل غير المتعلقة في مخطط مركب.
+
+المثال التالي يحدد التداخل للمجموعة التي تحتوي على السلسلة الأولى:
+
 ```java
-Presentation pres = new Presentation();
-try {
-    // إضافة مخطط
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // ضبط تداخل السلسلة
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // حفظ ملف العرض التقديمي على القرص
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // المخطط الجديد يحتوي على سلاسل تجريبية وفئات وقيم.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **تغيير لون السلسلة**
+![تداخل السلسلة](series_overlap.png)
 
-يسمح Aspose.Slides for Java بتغيير لون السلسلة بهذه الطريقة:
+## **تغيير لون تعبئة السلسلة**
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. أضف مخططًا إلى الشريحة.
-1. احصل على السلسلة التي تريد تغيير لونها.
-1. اضبط نوع التعبئة ولون التعبئة المفضلين.
-1. احفظ العرض المعدل.
+استخدم [IChartSeries.getFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getFormat--) لتعيين التعبئة الافتراضية لسلسلة كاملة. إذا كانت النقطة لديها تعبئة صريحة بالفعل، فإن إعداد [IChartDataPoint.getFormat](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapoint/#getFormat--) يتجاوز تعبئة السلسلة لتلك النقطة.
 
-يعرض هذا الشيفرة Java كيفية تغيير لون السلسلة:
+المثال التالي يطّبق تعبئة صلبة زرقاء على السلسلة الأولى:
+
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **تغيير لون فئة السلسلة**
-
-يسمح Aspose.Slides for Java بتغيير لون فئة السلسلة بهذه الطريقة:
-
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. أضف مخططًا إلى الشريحة.
-1. احصل على فئة السلسلة التي تريد تغيير لونها.
-1. اضبط نوع التعبئة ولون التعبئة المفضلين.
-1. احفظ العرض المعدل.
-
-يعرض هذا الشيفرة Java كيفية تغيير لون فئة السلسلة:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **تغيير اسم السلسلة** 
-
-بشكل افتراضي، تكون أسماء وسيلة الإيضاح للمخطط هي محتويات الخلايا فوق كل عمود أو صف من البيانات.
-
-في مثالنا (صورة عينة)،
-
-* الأعمدة هي *Series 1* و*Series 2* و*Series 3*؛
-* الصفوف هي *Category 1* و*Category 2* و*Category 3* و*Category 4*.
-
-يسمح Aspose.Slides for Java بتحديث أو تغيير اسم السلسلة في بيانات المخطط ووسيلة الإيضاح.
-
-يعرض هذا الشيفرة Java كيفية تغيير اسم السلسلة في بيانات المخطط `ChartDataWorkbook`:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-يعرض هذا الشيفرة Java كيفية تغيير اسم السلسلة في وسيلة الإيضاح عبر `Series`:
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **ضبط لون تعبئة سلسلة المخطط**
-
-يسمح Aspose.Slides for Java بتعيين لون تعبئة تلقائي لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
-
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة عبر فهرستها.
-1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه، استخدمنا `ChartType.ClusteredColumn`).
-1. احصل على سلسلة المخطط واضبط لون التعبئة إلى تلقائي.
-1. احفظ العرض إلى ملف PPTX.
-
-يعرض هذا الشيفرة Java كيفية تعيين لون تعبئة تلقائي لسلسلة مخطط:
-```java
-Presentation pres = new Presentation();
-try {
-    // إنشاء مخطط عمود مجمع
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // يضبط تنسيق تعبئة السلسلة إلى تلقائي
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // يحفظ ملف العرض التقديمي على القرص
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-
-## **ضبط لون تعبئة عكسي لسلسلة مخطط**
-يسمح Aspose.Slides بتعيين لون تعبئة عكسي لسلاسل المخطط داخل منطقة الرسم بهذه الطريقة:
-
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على مرجع الشريحة عبر فهرستها.
-1. أضف مخططًا ببيانات افتراضية بناءً على النوع المفضل لديك (في المثال أدناه، استخدمنا `ChartType.ClusteredColumn`).
-1. احصل على سلسلة المخطط واضبط لون التعبئة إلى عكسي.
-1. احفظ العرض إلى ملف PPTX.
-
-يعرض هذا الشيفرة Java العملية:
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // يضيف سلاسل وفئات جديدة
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // يأخذ أول سلسلة مخطط ويملأ بيانات السلسلة الخاصة بها
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **ضبط عكس السلسلة عندما تكون القيمة سلبية**
-يسمح Aspose.Slides بضبط العكس عبر خاصيتي `IChartDataPoint.InvertIfNegative` و`ChartDataPoint.InvertIfNegative`. عندما يتم ضبط العكس باستخدام الخصائص، يعكس نقطة البيانات ألوانها عند حصولها على قيمة سلبية.
+![لون السلسلة](series_color.png)
 
-يعرض هذا الشيفرة Java العملية:
+## **تغيير اسم السلسلة**
+
+يُخزن اسم السلسلة في دفتر بيانات المخطط وعادةً ما يُعرض في المفتاح. في دفتر العمل الافتراضي المُنشأ لمخطط عمود مُجَمع، الخلية B1 هي الصف 0، العمود 1 وتحتوي على اسم السلسلة الأولى. الثوابت المُسماة في المثال التالي تجعل هذا الهيكل واضحًا:
+
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+يمكنك أيضًا تحديث الخلية التي يُشير إليها [IChartSeries.getName](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getName--) بالفعل. يَتفادى هذا الأسلوب الافتراض بوجود صف وعمود معينين في مخطط موجود:
 
-## **مسح بيانات نقطة محددة**
-يسمح Aspose.Slides for Java بمسح بيانات `DataPoints` لسلسلة مخطط معينة بهذه الطريقة:
-
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-2. احصل على مرجع شريحة عبر فهرستها.
-3. احصل على مرجع مخطط عبر فهرسته.
-4. استعرض جميع `DataPoints` للمخطط واضبط `XValue` و`YValue` إلى null.
-5. امسح جميع `DataPoints` للسلسلة المحددة.
-6. احفظ العرض المعدل إلى ملف PPTX.
-
-يعرض هذا الشيفرة Java العملية:
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة:
+
+![اسم السلسلة](series_name.png)
+
+## **الحصول على لون تعبئة السلسلة التلقائي**
+
+[IChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) يرجع اللون المحسوب من فهرس السلسلة ونمط المخطط. هذا هو اللون المستخدم عندما لا يتم تعريف تعبئة السلسلة صراحة. استدعاء الطريقة يقرأ اللون المحسوب؛ لا يُعَيِّن تعبئة جديدة.
+
+المثال التالي يطبع اللون التلقائي لكل سلسلة افتراضية:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        Color automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+مخرجات المثال لنمط المخطط الافتراضي:
+
+```text
+Series 0: java.awt.Color[r=79,g=129,b=189]
+Series 1: java.awt.Color[r=192,g=80,b=77]
+Series 2: java.awt.Color[r=155,g=187,b=89]
+```
+
+الألوان الدقيقة تعتمد على نمط المخطط والموضوع.
+
+## **تعيين لون تعبئة عكسي لسلسلة المخطط**
+
+لسلاسل الشريط، العمود، والفقاعة، يمكن لـ [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) عرض القيم السالبة بتعبئة مختلفة. عيّن تعبئة السلسلة العادية إلى صلبة، وفعل العكس، وعيّن لون القيمة السالبة عبر [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). تظل الأرقام السالبة غير متغيرة في دفتر العمل؛ فقط يتغير لون عرضها.
+
+المثال التالي يستبدل بيانات المخطط الافتراضية بسلسلة واحدة. يحتوي الصف 0 من ورقة العمل على اسم السلسلة، العمود 0 على أسماء الفئات، والعمود 1 على القيم:
+
+```java
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+النتيجة:
 
-## **ضبط عرض الفجوة للسلسلة**
-يسمح Aspose.Slides for Java بضبط عرض الفجوة لسلسلة عبر خاصية **`GapWidth`** بهذه الطريقة:
+![لون التعبئة الصلبة العكسي](inverted_solid_fill_color.png)
 
-1. أنشئ كائنًا من فئة [Presentation](https://reference.aspose.com/slides/java/com.aspose.slides/Presentation).
-1. احصل على الشريحة الأولى.
-1. أضف مخططًا ببيانات افتراضية.
-1. احصل على أي سلسلة مخطط.
-1. اضبط خاصية `GapWidth`.
-1. احفظ العرض المعدل إلى ملف PPTX.
+يمكنك تمكين العكس لنقطة واحدة عبر [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). في المثال التالي، تم إلغاء العكس للسلسلة وتفعيلها فقط للنقطة المحددة. تم أيضًا تعيين قيمة سالبة للنقطة لتظهر التأثير:
 
-يعرض هذا الشيفرة Java كيفية ضبط عرض الفجوة لسلسلة:
 ```java
-// ينشئ عرض تقديمي فارغ
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import java.awt.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // يصل إلى الشريحة الأولى في العرض التقديمي
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // يضيف مخططًا ببيانات افتراضية
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // يحدد فهرس ورقة بيانات المخطط
-    int defaultWorksheetIndex = 0;
-    
-    // يحصل على ورقة عمل بيانات المخطط
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // يضيف سلاسل
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // يضيف فئات
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // يأخذ السلسلة الثانية في المخطط
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // يملأ بيانات السلسلة
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // يحدد قيمة GapWidth
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // يحفظ العرض التقديمي على القرص
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    Color automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+## **مسح قيمة نقطة بيانات محددة**
+
+لجعل نقطة واحدة فارغة دون إزالة النقاط الأخرى، عيّن خلية دفتر العمل الداعمة لها إلى `null`. بالنسبة إلى مخطط عمودي، تتوفر القيمة المرسومة من خلال [IChartDataPoint.getValue](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapoint/#getValue--). تظل نقطة البيانات في نفس موضع الفئة، لكن المخطط يتعامل مع قيمتها كفارغة وفقًا لإعدادات القيم الفارغة للمخطط.
+
+المثال التالي يمسح فقط النقطة الثانية في السلسلة الأولى:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+تستعمل مخططات التبعثر خلايا X وY منفصلة، وتستعمل مخططات الفقاعات أيضًا خلية حجم. امسح فقط الخلية التي تمثل القيمة التي تريد إزالتها. لا تستدعِ [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapointcollection/#clear--) عندما تريد الحفاظ على النقاط الأخرى، لأن هذه الطريقة تزيل كل نقاط البيانات من المجموعة.
+
+## **تعيين عرض الفجوة للسلسلة**
+
+عرض الفجوة هو المسافة بين مجموعات الأعمدة أو الشرائط المجاورة، ويُعبَّر عنه كنسبة مئوية من عرض العمود أو الشريط. مثل التداخل، يخص مجموعة السلسلة الأصلية وليس سلسلة واحدة. استدعِ [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) مرة واحدة للمجموعة. القيمة الأكبر تُنشئ مساحة أكبر بين المجموعات؛ القيمة الأصغر تجعلها أكثر كثافة.
+
+المثال التالي يغيّر عرض الفجوة ويحفظ العرض التقديمي النهائي فقط:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+النتيجة:
+
+![عرض الفجوة](gap_width.png)
 
 ## **الأسئلة المتكررة**
 
-**هل هناك حد لعدد السلاسل التي يمكن لمخطط واحد أن يحتويها؟**
+**ما أنواع المخططات التي تدعم سلاسل البيانات؟**
 
-لا يفرض Aspose.Slides حداً ثابتاً لعدد السلاسل التي يمكنك إضافتها. الحد العملي يحدده وضوح المخطط والذاكرة المتاحة لتطبيقك.
+جميع أنواع المخططات التي يمثلها تعداد [ChartType](https://reference.aspose.com/slides/ar/java/com.aspose.slides/charttype/) تستخدم بيانات المخطط، لكن سلاسلها لا تتشارك جميعًا بنية القيم أو الإعدادات نفسها. على سبيل المثال، تستخدم مخططات الفئات الفئات والقيم، وتستخدم مخططات التبعثر قيم X وY، وتضيف مخططات الفقاعات أحجام الفقاعات. استخدم طريقة إنشاء نقطة البيانات التي تتطابق مع نوع السلسلة. تنطبق خيارات مثل التداخل وعرض الفجوة فقط على مجموعات الأعمدة أو الشرائط المتوافقة.
 
-**ماذا لو كانت الأعمدة داخل مجموعة متقاربة جداً أو متباعدة جداً؟**
+**ما هي مجموعة سلاسل المخطط؟**
 
-قم بضبط إعداد `GapWidth` لتلك السلسلة (أو مجموعة السلاسل الأصلية). زيادة القيمة توسع الفجوة بين الأعمدة، وتقليلها يقربها من بعضها.
+تحتوي [IChartSeriesGroup](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseriesgroup/) على سلاسل متوافقة تشترك في إعدادات التخطيط على مستوى المجموعة. يمكن لمخطط مركب أن يحتوي على أكثر من مجموعة، لذا فإن تغيير المجموعة التي تُصل من خلالها سلسلة واحدة لا يعني بالضرورة تغيير كل السلاسل في المخطط.
+
+**هل يحتوي المخطط المُنشأ حديثًا على بيانات افتراضية؟**
+
+نعم. بشكل افتراضي، يقوم [IShapeCollection.addChart](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) بإنشاء سلاسل وعناصر فئة وقيم تجريبية. يمكنك تعديل تلك الخلايا أو مسح كل من مجموعات السلاسل والفئات قبل إضافة مجموعة بيانات مخصصة بالكامل. يمكن أيضًا لاستدعاء آخر إنشاء مخطط بدون بيانات افتراضية.
+
+**كيف ترتبط كائنات المخطط بخلايا دفتر العمل؟**
+
+تشير أسماء السلاسل، تسميات الفئات، وقيم نقاط البيانات إلى خلايا في [IChartDataWorkbook](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdataworkbook/). تعديل خلية مُشار إليها يحدث تحديثًا للعنصر المقابل في المخطط. عند بناء بيانات مخصصة، احرص على محاذاة صفوف الفئات وصفوف قيم السلاسل بحيث تُرسم كل نقطة تحت الفئة المقصودة.
+
+**كيف أمسح نقطة واحدة بدلًا من السلسلة بأكملها؟**
+
+عيّن خلية القيمة ذات الصلة إلى `null` لتبقى نقطة الفئة في موضعها كنقطة فارغة. استخدم [IChartDataPointCollection.clear](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapointcollection/#clear--) فقط عندما تريد إزالة جميع النقاط من تلك السلسلة.
+
+**كيف تُعرض النقاط الفارغة؟**
+
+النتيجة تعتمد على نوع المخطط والقيمة المُكوَّنة عبر [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichart/#setDisplayBlanksAs-int-). يمكن للمخططات المدعومة عرض الفواصل كفجوات، أو كقيم صفر، أو بربط النقاط المجاورة. اختر الإعداد الذي يتطابق مع معنى البيانات المفقودة في عرضك.
+
+**كيف تُنسق القيم السالبة؟**
+
+لسلاسل الشريط والعمود والفقاعة المدعومة، استدعِ [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) وعيّن اللون الذي تُعيده [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--). يمكنك تجاوز السلوك لنقطة فردية عبر [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-). هذه الطرق تؤثر على التنسيق فقط، وليس على القيم العددية المخزَّنة.
+
+**أي تنسيق يفوز عندما يتم تنسيق كل من السلسلة والنقطة؟**
+
+يأخذ تنسيق نقطة البيانات الصريح الأسبقية لتلك النقطة. تستمر النقاط الأخرى في استخدام تنسيق السلسلة الصريح أو، إذا لم يُحدَّد تنسيق السلسلة، نمط المخطط والموضوع التلقائي. إعدادات المجموعة مثل التداخل وعرض الفجوة تتحكم في التخطيط ولا تُعدُّ تجاوزات تنسيق على مستوى النقطة.
+
+**هل هناك حد لعدد السلاسل التي يمكن للمخطط احتواؤها؟**
+
+لا يفرض Aspose.Slides حدًا ثابتًا منفصلًا لعدد السلاسل. في الواقع، تحدد قيود ملف العرض التقدمي، والذاكرة المتاحة، ووقت التصيير، وقابلية قراءة المخطط حدًا عمليًا.
+
+**ماذا أفعل عندما تكون الأعمدة قريبة جدًا أو متباعدة جدًا؟**
+
+استدعِ [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/ar/java/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) على مجموعة السلسلة الأصلية المناسبة. زِد القيمة لتوسيع الفجوة بين المجموعات، أو قلِّلها لجعل المجموعات أقرب إلى بعضها.

@@ -1,5 +1,5 @@
 ---
-title: اعمال یا تغییر طرح اسلاید در PHP
+title: اعمال یا تغییر طرح‌های اسلاید در PHP
 linktitle: طرح اسلاید
 type: docs
 weight: 60
@@ -7,7 +7,7 @@ url: /fa/php-java/slide-layout/
 keywords:
 - طرح اسلاید
 - طرح محتوا
-- جای‌دار
+- مکان‌گیر
 - طراحی ارائه
 - طراحی اسلاید
 - طرح استفاده‌نشده
@@ -19,8 +19,8 @@ keywords:
 - مقایسه
 - فقط عنوان
 - طرح خالی
-- محتوا با کپشن
-- عکس با کپشن
+- محتوا با توضیح
+- تصویر با توضیح
 - عنوان و متن عمودی
 - عنوان عمودی و متن
 - PowerPoint
@@ -28,153 +28,135 @@ keywords:
 - ارائه
 - PHP
 - Aspose.Slides
-description: "مدیریت و سفارشی‌سازی طرح‌های اسلاید در Aspose.Slides برای PHP از طریق Java. انواع طرح‌ها، کنترل جای‌دارها و قابلیت نمایش پاورقی را با مثال‌های کد بررسی کنید."
+description: "اعمال، ایجاد و اصلاح طرح‌های اسلاید در Aspose.Slides برای PHP از طریق Java، افزودن مکان‌گیرها، حذف طرح‌های استفاده‌نشده و کنترل نمایش پاورقی."
 ---
-## **مقدمه**
+## **نمای کلی**
 
-یک طرح اسلاید نحوه‌ی چیدمان جعبه‌های جای‌دار و قالب‌بندی محتوا را در یک اسلاید تعیین می‌کند. این طرح کنترل می‌کند که کدام جای‌دارها در دسترس هستند و در کجا ظاهر می‌شوند. طرح‌های اسلاید به شما کمک می‌کنند تا ارائه‌ها را به‑سرعت و به‑صورت یکنواخت طراحی کنید—چه در حال ایجاد یک چیز ساده باشید و چه پیچیده‌تر. برخی از رایج‌ترین طرح‌های اسلاید در PowerPoint شامل موارد زیر هستند:
+یک طرح اسلاید مکان‌ها و قالب‌بندی مکان‌گیرها مانند عنوان‌ها، متن، تصاویر، نمودارها و جداول را تعریف می‌کند. اعمال یک طرح به اسلایدها ساختاری یکسان می‌بخشد در حالی که به هر اسلاید اجازه می‌دهد محتوای خود را داشته باشد.
 
-**طرح اسلاید عنوان** – شامل دو جای‌دار متنی است: یکی برای عنوان و دیگری برای زیرعنوان.
+متداول‌ترین طرح‌ها شامل:
 
-**طرح اسلاید عنوان و محتوا** – دارای یک جای‌دار عنوان کوچکتر در بالا و یک جای‌دار بزرگتر زیر آن برای محتواهای اصلی (مانند متن، نقطه‌چین‌ها، نمودارها، تصاویر و غیره) است.
+- **صفحه عنوان**: شامل مکان‌گیرهای عنوان و زیرعنوان است.
+- **عنوان و محتوا**: شامل یک مکان‌گیر عنوان و یک مکان‌گیر محتوا با کاربرد عمومی است.
+- **خالی**: حاوی هیچ مکان‌گیر محتوایی نیست و زمانی مفید است که هر شکل به صورت دستی موقعیت‌یابی شود.
 
-**طرح خالی** – هیچ جای‌داری ندارد و به شما امکان می‌دهد اسلاید را از ابتدا طراحی کنید.
+## **درک ارث‌بری طرح**
 
-طرح‌های اسلاید بخشی از یک **اسلاید اصلی** (slide master) هستند که اسلاید سطح بالایی است و سبک‌های طرح را برای ارائه تعریف می‌کند. می‌توانید طرح‌های اسلاید را از طریق اسلاید اصلی دسترسی و ویرایش کنید—از طریق نوع، نام یا شناسهٔ یکتای آن. همچنین می‌توانید یک طرح اسلاید خاص را مستقیماً داخل ارائه ویرایش کنید.
+یک ارائه دارای سه سطح مرتبط است:
 
-برای کار با طرح‌های اسلاید در Aspose.Slides برای PHP می‌توانید از موارد زیر استفاده کنید:
+1. یک [اسلاید اصلی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/) تم، قالب‌بندی مشترک، پس‌زمینه‌ها و اشیای عمومی را تعریف می‌کند.
+1. یک [اسلاید طرح](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/) به یک اسلاید اصلی تعلق دارد و چینش خاصی از مکان‌گیرها را تعریف می‌کند.
+1. یک [اسلاید عادی](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/) از یک طرح استفاده می‌کند و محتوای وارد شده برای آن اسلاید را ذخیره می‌سازد.
 
-- متدهایی مانند [getLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getLayoutSlides) و [getMasters](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getMasters) در کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/)
-- انواعی مانند [LayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/)، [MasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterlayoutslidecollection/)، [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/)، و [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslideheaderfootermanager/)
+یک اسلاید عادی تم و قالب‌بندی را از طرح خود به‌ارث می‌برد و طرح نیز از اسلاید اصلی ارث می‌برد. مقدار تنظیم‌شده مستقیم بر روی اسلاید عادی، مقدار به‌ارث‌برده در همان سطح را نادیده می‌گیرد. وقتی یک اسلاید عادی ساخته می‌شود، شکل‌های مکان‌گیر آن از طرح انتخاب‌شده تولید می‌شوند، در حالی که محتوای وارد شده به آن مکان‌گیرها متعلق به اسلاید عادی است.
 
-{{% alert title="Info" color="info" %}}
+پیش از ایجاد اسلایدها، مکان‌گیرهای موردنیاز را به یک طرح اضافه کنید. افزودن مکان‌گیر دیگر به یک طرح پس از آن، به‌صورت خودکار شکل مکان‌گیر متناظر را به اسلایدهای عادی موجود اضافه نمی‌کند.
 
-برای یادگیری بیشتر درباره کار با اسلایدهای اصلی، مقالهٔ [Slide Master](/slides/fa/php-java/slide-master/) را بررسی کنید.
+این رابطه دو پیامد مهم دارد:
 
-{{% /alert %}}
+- تغییر قالب‌بندی به‌ارث‌برده یا هندسه مکان‌گیرهای موجود در یک طرح می‌تواند هر اسلایدی که به آن وابسته است را به‌روزرسانی کند. پیش از ویرایش طرحی که قبلاً استفاده شده، اسلایدهای وابسته را بررسی و ارائه نهایی را مرور کنید.
+- طرحی که هنوز توسط اسلایدی استفاده می‌شود نمی‌تواند حذف شود. پیش از حذف، اسلایدهای وابسته را به طرح دیگری اختصاص دهید یا فقط طرح‌های بدون استفاده را حذف کنید.
 
-## **افزودن طرح‌های اسلاید به ارائه‌ها**
+برای اطلاعات بیشتر درباره سطح بالایی این سلسله‌مراتوب، به [اسلاید مستر](/slides/fa/php-java/slide-master/) مراجعه کنید.
 
-برای سفارشی‌سازی ظاهر و ساختار اسلایدهای خود ممکن است نیاز داشته باشید طرح اسلایدهای جدیدی به ارائه اضافه کنید. Aspose.Slides برای PHP به شما امکان می‌دهد بررسی کنید آیا یک طرح خاص از پیش وجود دارد یا نه، در صورت نیاز یک طرح جدید اضافه کنید و از آن برای درج اسلایدهایی بر پایه آن طرح استفاده کنید.
+## **انتخاب و اعمال یک طرح اسلاید**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-1. به [MasterLayoutSlideCollection](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterlayoutslidecollection/) دسترسی پیدا کنید.  
-1. بررسی کنید آیا طرح اسلاید موردنظر قبلاً در مجموعه وجود دارد یا خیر. اگر موجود نیست، طرح اسلاید موردنیاز را اضافه کنید.  
-1. یک اسلاید خالی بر پایهٔ طرح اسلاید جدید اضافه کنید.  
-1. ارائه را ذخیره کنید.
+هنگامی که ارائه با تعاریف استاندارد طرح‌های PowerPoint سازگار است، از نوع طرح استفاده کنید. نام‌های طرح توسط کاربر قابل ویرایش و قابل بومی‌سازی هستند، بنابراین انتخاب بر اساس نام کمتر قابل اعتماد است مگر اینکه قالب منبع را کنترل کنید.
 
-کد PHP زیر نشان می‌دهد چگونه یک طرح اسلاید به ارائهٔ PowerPoint اضافه می‌شود:
+مثال زیر به دنبال **عنوان و محتوا** در اولین اسلاید اصلی می‌گردد. اگر آن طرح در دسترس نباشد، عمداً به **خالی** بازمی‌گردد. بررسی null دوم ضروری است زیرا یک ارائه می‌تواند فقط شامل طرح‌های سفارشی باشد. طرح انتخاب‌شده سپس از طریق متد [Slide.setLayoutSlide](https://reference.aspose.com/slides/fa/php-java/aspose.slides/slide/#setLayoutSlide) به اولین اسلاید عادی اعمال می‌شود.
 
 ```php
-// یک شی از کلاس Presentation که نمایانگر یک فایل PowerPoint است، ایجاد کنید.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // از انواع اسلایدهای طرح عبور کنید تا یک اسلاید طرح را انتخاب کنید.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // حالی که ارائه تمام انواع طرح‌ها را شامل نمی‌شود.
-        // فایل ارائه فقط شامل انواع طرح Blank و Custom است.
-        // با این حال، اسلایدهای طرح با انواع سفارشی ممکن است نام‌های قابل شناسایی داشته باشند،
-        // مانند "Title"، "Title and Content" و غیره، که می‌توانند برای انتخاب اسلاید طرح استفاده شوند.
-        // همچنین می‌توانید به مجموعه‌ای از انواع اشکال جای‌دار تکیه کنید.
-        // برای مثال، یک اسلاید Title باید فقط نوع جای‌دار Title را داشته باشد و به همین ترتیب.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // یک اسلاید خالی با استفاده از اسلاید طرح اضافه‌شده اضافه کنید.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // ارائه را در دیسک ذخیره کنید.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **حذف طرح‌های اسلاید استفاده نشده**
+تغییر طرح یک اسلاید مکان‌گیرها، قالب‌بندی به‌ارث‌برده و تطبیق بین مکان‌گیرهای موجود و طرح جدید را تغییر نمی‌دهد، اما شکل‌های عادی اضافه‌شده مستقیم به اسلاید حذف نمی‌شوند. بنابراین هنگام جابه‌جایی بین طرح‌های متفاوت به‌طرز چشم‌گیر، خروجی را بررسی کنید.
 
-Aspose.Slides متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) را از کلاس [Compress](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/) ارائه می‌دهد تا بتوانید طرح‌های اسلاید ناخواسته و استفاده نشده را حذف کنید.
+## **افزودن یک اسلاید طرح**
 
-کد PHP زیر نحوهٔ حذف یک طرح اسلاید از ارائهٔ PowerPoint را نشان می‌دهد:
+انتخاب و ایجاد عملیات‌های جداگانه‌ای هستند. مثال قبلی یک طرح موجود را انتخاب می‌کرد؛ آن را نمی‌ساخت. برای ساخت یک طرح، متد [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterlayoutslidecollection/#add) را بر روی مجموعهٔ طرح‌های اسلاید اصلی هدف فراخوانی کنید.
+
+مثال زیر همیشه یک طرح جدید **عنوان و محتوا** به نام `Report Title and Content` اضافه می‌کند، سپس بر پایهٔ آن یک اسلاید عادی می‌سازد. نام‌های طرح باید درون مجموعه یکتا باشند.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **افزودن جای‌دارها به طرح‌های اسلاید**
+طرح را فقط زمانی اضافه کنید که قالب واقعاً به ساختار قابل استفاده دیگری نیاز داشته باشد. اگر طرح مناسب از قبل وجود دارد، آن را انتخاب و مجدداً استفاده کنید به‌جای ایجاد یک نسخهٔ تکراری.
 
-Aspose.Slides متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getPlaceholderManager) را فراهم می‌کند که به شما امکان می‌دهد جای‌دارهای جدیدی به یک طرح اسلاید اضافه کنید.
+## **افزودن مکان‌گیرها به یک اسلاید طرح**
 
-این مدیر شامل متدهایی برای انواع جای‌دار زیر است:
+متد [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getPlaceholderManager) یک [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/) برای افزودن شکل‌های مکان‌گیر به یک طرح فراهم می‌کند.
 
-| جای‌دار PowerPoint | متد [LayoutPlaceholderManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/) |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| ![Content](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| مکان‌گیر PowerPoint | متد `LayoutPlaceholderManager` |
+| ------------------- | ----------------------------- |
+| ![محتوا](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![محتوا (عمودی)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![متن](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![متن (عمودی)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![تصویر](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![نمودار](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![جدول](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![رسانه](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![تصویر آنلاین](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-کد PHP زیر نحوهٔ افزودن شکل‌های جای‌دار جدید به طرح اسلاید خالی را نشان می‌دهد:
+مثال زیر وجود طرح **خالی** را بررسی می‌کند، چهار مکان‌گیر به آن اضافه می‌سازد و سپس یک اسلاید عادی که از طرح اصلاح‌شده استفاده می‌کند می‌سازد. ترتیب به عمد است: ابتدا مکان‌گیرها اضافه می‌شوند سپس اسلاید عادی ساخته می‌شود تا Aspose.Slides بتواند شکل‌های مکان‌گیر متناظر را روی آن اسلاید تولید کند.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // دریافت اسلاید طرح Blank.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // دریافت مدیر جای‌دار اسلاید طرح.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // افزودن جای‌دارهای مختلف به اسلاید طرح Blank.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // افزودن اسلاید جدید با طرح Blank.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -182,88 +164,105 @@ try {
 
 نتیجه:
 
-![The placeholders on the layout slide](add_placeholders.png)
+![مکان‌گیرهای موجود بر روی اسلاید طرح](add_placeholders.png)
 
-## **تنظیم نمایش پاورقی برای یک طرح اسلاید**
+{{% alert color="warning" title="هشدار" %}}
+تغییر قالب‌بندی به‌ارث‌برده یا هندسهٔ مکان‌گیرهای موجود در طرح می‌تواند اسلایدهای وابسته را تحت تأثیر قرار دهد. یک مکان‌گیر جدید به‌صورت خودکار در اسلایدهای عادی موجود پر نمی‌شود. تغییرات طرح را روی یک نسخهٔ کپی از ارائه آزمایش کنید و هر اسلاید وابسته را بررسی نمایید.
+{{% /alert %}}
 
-در ارائه‌های PowerPoint، عناصر پاورقی مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند بسته به طرح اسلاید نشان داده یا مخفی شوند. Aspose.Slides برای PHP به شما امکان کنترل نمایش این جای‌دارهای پاورقی را می‌دهد. این ویژگی زمانی مفید است که بخواهید برخی طرح‌ها اطلاعات پاورقی را نمایش دهند در حالی که دیگران تمیز و ساده باقی بمانند.
+## **حذف اسلایدهای طرح بدون استفاده**
 
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-1. با استفاده از ایندکس، به یک طرح اسلاید اشاره کنید.  
-1. جای‌دار پاورقی اسلاید را به حالت قابل مشاهده تنظیم کنید.  
-1. جای‌دار شماره اسلاید را به حالت قابل مشاهده تنظیم کنید.  
-1. جای‌دار تاریخ‑زمان را به حالت قابل مشاهده تنظیم کنید.  
-1. ارائه را ذخیره کنید.
-
-کد PHP زیر نشان می‌دهد چگونه نمایش پاورقی اسلاید را تنظیم کنید و وظایف مرتبط را انجام دهید:
+از متد [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) برای حذف طرح‌هایی که هیچ اسلاید عادی به آن‌ها ارجاع نمی‌دهد استفاده کنید. این متد طرح‌های هنوز مورد استفاده را دست‌نخورده می‌گذارد.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
+برای حذف یک طرح خاص، ابتدا از متدهای [hasDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#hasDependingSlides) یا [getDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getDependingSlides) آن استفاده کنید. پیش از فراخوانی [LayoutSlide.remove](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#remove) اسلایدهای وابسته را به‌جای دیگر اختصاص دهید. تلاش برای حذف طرحی که در حال استفاده است، باعث بروز [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) می‌شود.
+
+## **کنترل نمایش پاورقی در یک اسلاید طرح**
+
+یک طرح پاورقی، شمارهٔ اسلاید و مکان‌گیرهای تاریخ‑زمان خود را دارد. برای کنترل این مکان‌گیرها برای یک طرح، از متد [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) استفاده کنید. این کار وقتی مفید است که به‌عنوان مثال، طرح‌های محتوا باید پاورقی نشان دهند اما طرح‌های عنوان نباید.
+
+مثال زیر یک طرح را به‌صورت ایمن انتخاب می‌کند و عناصر پاورقی آن را نمایانی می‌سازد:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     }
 
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
     $headerFooterManager->setFooterText("Footer text");
     $headerFooterManager->setDateTimeText("Date and time text");
 
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **تنظیم نمایش پاورقی فرزند برای یک اسلاید**
+## **کنترل نمایش پاورقی در یک اسلاید اصلی و طرح‌های فرزند آن**
 
-​در ارائه‌های PowerPoint، عناصر پاورقی مانند تاریخ، شماره اسلاید و متن سفارشی می‌توانند در سطح اسلاید اصلی کنترل شوند تا یکنواختی در تمام طرح‌های اسلاید حفظ شود. Aspose.Slides برای PHP به شما امکان می‌دهد نمایش و محتوای این جای‌دارهای پاورقی را در اسلاید اصلی تنظیم کنید و این تنظیمات را به تمام طرح‌های اسلاید فرزند منتقل کنید. این رویکرد اطلاعات پاورقی یکسانی را در کل ارائه تضمین می‌کند.​
-
-1. یک نمونه از کلاس [Presentation](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/) ایجاد کنید.  
-1. با استفاده از ایندکس، به اسلاید اصلی ارجاع پیدا کنید.  
-1. تمام جای‌دارهای پاورقی اصلی و فرزند را به حالت قابل مشاهده تنظیم کنید.  
-1. تمام جای‌دارهای شماره اسلاید اصلی و فرزند را به حالت قابل مشاهده تنظیم کنید.  
-1. تمام جای‌دارهای تاریخ‑زمان اصلی و فرزند را به حالت قابل مشاهده تنظیم کنید.  
-1. ارائه را ذخیره کنید.
-
-کد PHP زیر این عملیات را نشان می‌دهد:
+برای اعمال تنظیمات یکسان پاورقی در سرتاسر سلسله‌مراتوب اسلاید اصلی، از متد [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslide/#getHeaderFooterManager) استفاده کنید. متدهای انتقالی [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fa/php-java/aspose.slides/masterslideheaderfootermanager/) بر روی اسلاید اصلی و اسلایدهای طرح وابسته و اسلایدهای عادی آن عمل می‌کنند؛ نه فقط یک اسلاید عادی مشخص.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **سوالات متداول**
+## **پرسش‌های متداول**
 
 **تفاوت اسلاید اصلی و اسلاید طرح چیست؟**
 
-اسلاید اصلی تم کلی و قالب‌بندی پیش‌فرض را تعریف می‌کند، در حالی که اسلایدهای طرح چیدمان‌های خاصی از جای‌دارها را برای انواع محتواهای مختلف مشخص می‌کنند.
+اسلاید اصلی تم و قالب‌بندی مشترک ارائه را تعریف می‌کند. اسلاید طرح به اسلاید اصلی تعلق دارد و یک چینش قابل استفاده مجدد از مکان‌گیرها را تعیین می‌کند. اسلایدهای عادی از این طرح‌ها استفاده می‌کنند و محتوای خاص خود را ذخیره می‌نمایند.
 
 **آیا می‌توانم یک اسلاید طرح را از یک ارائه به ارائهٔ دیگر کپی کنم؟**
 
-بله، می‌توانید یک اسلاید طرح را از مجموعهٔ اسلایدهای طرح یک ارائه (از طریق متد [getLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/presentation/#getLayoutSlides)) کلون کنید و با استفاده از متد `addClone` آن را به ارائهٔ دیگری اضافه کنید.
+بله. با استفاده از متد [addClone](https://reference.aspose.com/slides/fa/php-java/aspose.slides/globallayoutslidecollection/#addClone) یک نسخه به مجموعهٔ مقصد اضافه کنید. هنگام کپی بین ارائه‌ها، فونت‌ها، تم‌ها، تصاویر و سایر منابع مورد استفادهٔ طرح منبع را نیز بررسی کنید.
 
-**اگر اسلاید طرحی را که هنوز توسط اسلایدی استفاده می‌شود حذف کنم چه می‌شود؟**
+**چه اتفاقی می‌افتد وقتی یک طرح که در حال استفاده است را اصلاح می‌کنم؟**
 
-اگر سعی کنید اسلاید طرحی را حذف کنید که هنوز حداقل یک اسلاید در ارائه به آن ارجاع داده است، Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) پرتاب می‌کند. برای جلوگیری از این وضعیت، از متد [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) استفاده کنید تا تنها طرح‌های اسلایدی که استفاده نمی‌شوند حذف شوند.
+اسلایدهای وابسته تغییرات طرح را به‌ارث می‌برند مگر این‌که قالب‌بندی یا اشیای موردنظر را به‌صورت محلی نادیده بگیرند. بنابراین هندسهٔ مکان‌گیر و سبک‌های به‌ارث‌برده می‌تواند به‌طور همزمان در بسیاری از اسلایدها تغییر کند. پیش از ویرایش طرح، با استفاده از [getDependingSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/layoutslide/#getDependingSlides) اسلایدهای تحت تأثیر را شناسایی کنید.
+
+**اگر زهی یک طرح که هنوز استفاده می‌شود را حذف کنم چه می‌شود؟**
+
+Aspose.Slides یک [PptxEditException](https://reference.aspose.com/slides/fa/php-java/aspose.slides/pptxeditexception/) می‌اندازد. ابتدا اسلایدهای وابسته را به طرح دیگری اختصاص دهید یا با استفاده از [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fa/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) فقط طرح‌های بدون ارجاع را حذف کنید.

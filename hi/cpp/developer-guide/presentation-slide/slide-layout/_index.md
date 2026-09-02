@@ -1,5 +1,5 @@
 ---
-title: C++ में स्लाइड लेआउट लागू या बदलें
+title: C++ में स्लाइड लेआउट लागू करें या बदलें
 linktitle: स्लाइड लेआउट
 type: docs
 weight: 60
@@ -8,183 +8,183 @@ keywords:
 - स्लाइड लेआउट
 - सामग्री लेआउट
 - प्लेसहोल्डर
-- प्रेज़ेंटेशन डिज़ाइन
-- स्लाइड डिज़ाइन
+- प्रस्तुति डिजाइन
+- स्लाइड डिजाइन
 - अनुपयोगी लेआउट
-- फ़ूटर दिखावट
+- फुटर दृश्यता
 - शीर्षक स्लाइड
 - शीर्षक और सामग्री
 - सेक्शन हेडर
 - दो सामग्री
 - तुलना
 - केवल शीर्षक
-- खाली लेआउट
+- ब्लैंक लेआउट
 - कैप्शन के साथ सामग्री
 - कैप्शन के साथ चित्र
-- शीर्षक और ऊर्ध्वाधर पाठ
-- ऊर्ध्वाधर शीर्षक और पाठ
+- शीर्षक और ऊर्ध्वाधर टेक्स्ट
+- ऊर्ध्वाधर शीर्षक और टेक्स्ट
 - PowerPoint
 - OpenDocument
-- प्रेज़ेंटेशन
+- प्रस्तुति
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ में स्लाइड लेआउट प्रबंधित और अनुकूलित करें। लेआउट प्रकार, प्लेसहोल्डर नियंत्रण, और C++ कोड उदाहरणों के माध्यम से फ़ूटर दिखावट का अन्वेषण करें।"
+description: "Aspose.Slides for C++ में स्लाइड लेआउट को लागू करें, बनाएं और संशोधित करें, प्लेसहोल्डर जोड़ें, अनउपयोगित लेआउट हटाएँ, और फुटर दृश्यता को नियंत्रित करें।"
 ---
-## **परिचय**
+## **अवलोकन**
 
-एक स्लाइड लेआउट स्लाइड की सामग्री के लिए प्लेसहोल्डर बॉक्सों की व्यवस्था और फ़ॉर्मेटिंग को परिभाषित करता है। यह नियंत्रित करता है कि कौन से प्लेसहोल्डर उपलब्ध हैं और वे कहाँ दिखते हैं। स्लाइड लेआउट्स आपको प्रस्तुतीकरण जल्दी और स्थिर रूप से डिजाइन करने में मदद करते हैं—चाहे आप कुछ सरल बना रहे हों या अधिक जटिल। PowerPoint में सबसे सामान्य स्लाइड लेआउट्स में शामिल हैं:
+एक स्लाइड लेआउट प्लेसहोल्डर जैसे शीर्षक, टेक्स्ट, चित्र, चार्ट और टेबल की स्थितियों और फ़ॉर्मेटिंग को परिभाषित करता है। लेआउट को लागू करने से स्लाइड्स में एक समान संरचना मिलती है जबकि प्रत्येक स्लाइड अपना स्वयं का कंटेंट रख सकता है।
 
-**Title Slide layout** – दो टेक्स्ट प्लेसहोल्डर शामिल करता है: एक शीर्षक के लिए और एक उपशीर्षक के लिए।
+सबसे सामान्य लेआउट शामिल हैं:
 
-**Title and Content layout** – ऊपर एक छोटा शीर्षक प्लेसहोल्डर और नीचे मुख्य सामग्री (जैसे टेक्स्ट, बुलेट पॉइंट, चार्ट, चित्र, आदि) के लिए बड़ा प्लेसहोल्डर प्रदान करता है।
+- **Title Slide**: शीर्षक और उपशीर्षक प्लेसहोल्डर शामिल हैं।
+- **Title and Content**: एक शीर्षक प्लेसहोल्डर और एक सामान्य प्रयोजन सामग्री प्लेसहोल्डर शामिल है।
+- **Blank**: कोई सामग्री प्लेसहोल्डर नहीं होते और यह तब उपयोगी है जब प्रत्येक आकार को मैन्युअल रूप से स्थित किया जाएगा।
 
-**Blank layout** – कोई प्लेसहोल्डर नहीं होता, इसलिए आप स्लाइड को शून्य से डिजाइन कर सकते हैं।
+## **लेआउट विरासत को समझें**
 
-स्लाइड लेआउट्स एक स्लाइड मास्टर का हिस्सा होते हैं, जो प्रस्तुतीकरण के लिए लेआउट शैलियों को परिभाषित करने वाला शीर्ष‑स्तरीय स्लाइड है। आप स्लाइड मास्टर के माध्यम से लेआउट स्लाइड्स तक पहुँच और संशोधन कर सकते हैं—उन्हें उनके प्रकार, नाम या अनोखी ID द्वारा। वैकल्पिक रूप से, आप प्रस्तुतीकरण के भीतर सीधे किसी विशिष्ट लेआउट स्लाइड को भी संपादित कर सकते हैं।
+एक प्रस्तुति में तीन संबंधित स्तर होते हैं:
 
-Aspose.Slides for Android में स्लाइड लेआउट्स के साथ काम करने के लिए आप उपयोग कर सकते हैं:
+1. एक [master slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslide/) प्रस्तुतिकरण की थीम, साझा फ़ॉर्मेटिंग, पृष्ठभूमि, और सामान्य वस्तुओं को परिभाषित करता है।
+1. एक [layout slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/) एक मास्टर से जुड़ा होता है और प्लेसहोल्डर की विशिष्ट व्यवस्था को परिभाषित करता है।
+1. एक [normal slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/) एक लेआउट का उपयोग करता है और उस स्लाइड के लिए दर्ज किए गए कंटेंट को संग्रहीत करता है।
 
-- Methods such as [get_LayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_layoutslides/) and [get_Masters](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_masters/) under the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class
-- Types like [ILayoutSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/), and [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+एक normal slide अपने लेआउट से थीम और फ़ॉर्मेटिंग को विरासत में प्राप्त करता है, और लेआउट अपने मास्टर से विरासत में लेता है। normal slide पर सीधे सेट किया गया मान उस स्तर पर विरासत में मिले मान को ओवरराइड करता है। जब एक normal slide बनाई जाती है, तो उसके प्लेसहोल्डर आकार चयनित लेआउट से उत्पन्न होते हैं, जबकि उन प्लेसहोल्डर में दर्ज किया गया कंटेंट normal slide से सम्बंधित होता है।
 
-{{% alert title="Info" color="info" %}}
-अधिक जानकारी के लिए, मास्टर स्लाइड्स के साथ काम करने को देखें: [स्लाइड मास्टर](/slides/hi/cpp/slide-master/) लेख।
-{{% /alert %}}
+एक लेआउट बनाते समय आवश्यक प्लेसहोल्डर जोड़ें। बाद में लेआउट में दूसरा प्लेसहोल्डर जोड़ने से मौजूदा normal स्लाइड्स में स्वचालित रूप से संबंधित प्लेसहोल्डर आकार नहीं जुड़ता।
 
-## **प्रेजेंटेशन में स्लाइड लेआउट्स जोड़ें**
+इस संबंध के दो महत्वपूर्ण परिणाम हैं:
 
-अपनी स्लाइड्स की उपस्थिति और संरचना को अनुकूलित करने के लिए आपको नई लेआउट स्लाइड्स जोड़ने की आवश्यकता हो सकती है। Aspose.Slides for Android आपको यह जाँचने देता है कि कोई विशेष लेआउट पहले से मौजूद है या नहीं, आवश्यक होने पर नया लेआउट जोड़ता है, और उस लेआउट के आधार पर स्लाइड्स सम्मिलित करता है।
+- लेआउट पर विरासत में मिले फ़ॉर्मेटिंग या मौजूदा प्लेसहोल्डर ज्योमेट्री को बदलने से उस पर निर्भर सभी स्लाइड्स अपडेट हो सकती हैं। उपयोग में पहले से मौजूद लेआउट को संपादित करने से पहले, उसकी निर्भर स्लाइड्स की जाँच करें और परिणामस्वरूप प्रस्तुतिकरण की समीक्षा करें।
+- वह लेआउट जिसे अभी भी कोई स्लाइड उपयोग कर रही है, उसे हटाया नहीं जा सकता। पहले उसकी निर्भर स्लाइड्स को किसी अन्य लेआउट पर पुनः असाइन करें, या केवल अनउपयोगित लेआउट्स को हटाएँ।
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-2. Access the [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterlayoutslidecollection/).
-3. Check whether the desired layout slide already exists in the collection. If not, add the layout slide you need.
-4. Add an empty slide based on the new layout slide.
-5. Save the presentation.
+इस पदानुक्रम के शीर्ष स्तर के बारे में अधिक जानकारी के लिए देखें [Slide Master](/slides/hi/cpp/slide-master/)।
 
-The following C++ code demonstrates how to add a slide layout to a PowerPoint presentation:
+## **स्लाइड लेआउट चुनें और लागू करें**
+
+जब प्रस्तुति मानक PowerPoint लेआउट परिभाषाओं का अनुसरण करती है, तो लेआउट प्रकार का उपयोग करें। लेआउट नाम उपयोगकर्ता द्वारा संपादित किए जा सकते हैं और स्थानीयकरण योग्य होते हैं, इसलिए नाम-आधारित चयन कम विश्वसनीय होता है जब तक आप स्रोत टेम्पलेट को नियंत्रित नहीं करते।
+
+निम्न उदाहरण पहले मास्टर पर **Title and Content** खोजता है। यदि वह लेआउट उपलब्ध नहीं है, तो यह जानबूझकर **Blank** पर फ़ॉल बैक करता है। दूसरा null चेक आवश्यक है क्योंकि एक प्रस्तुतीकरण में केवल कस्टम लेआउट हो सकते हैं। चयनित लेआउट को फिर [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/islide/set_layoutslide/) मेथड के माध्यम से पहले normal स्लाइड पर लागू किया जाता है।
 
 ```cpp
-// PowerPoint फ़ाइल का प्रतिनिधित्व करने वाली Presentation क्लास का इंस्टेंस बनाएं।
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Go through the layout slide types to select a layout slide.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // ऐसी स्थिति जहाँ प्रस्तुति में सभी लेआउट प्रकार नहीं होते हैं।
-    // प्रस्तुति फ़ाइल में केवल Blank और Custom लेआउट प्रकार होते हैं।
-    // हालाँकि, कस्टम प्रकार वाली लेआउट स्लाइड्स में पहचाने जाने योग्य नाम हो सकते हैं,
-    // जैसे "Title", "Title and Content" आदि, जिन्हें लेआउट स्लाइड चयन के लिए उपयोग किया जा सकता है।
-    // आप प्लेसहोल्डर आकार प्रकारों के सेट पर भी निर्भर कर सकते हैं।
-    // उदाहरण के लिए, एक Title स्लाइड में केवल Title प्लेसहोल्डर प्रकार होना चाहिए, आदि।
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Add an empty slide using the added layout slide.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Save the presentation to disk.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **अनुपयोगी लेआउट स्लाइड्स हटाएँ**
+स्लाइड का लेआउट बदलने से सीधे स्लाइड में जोड़े गए सामान्य आकार हटते नहीं हैं। हालांकि, प्लेसहोल्डर की स्थिति, विरासत में मिला फ़ॉर्मेटिंग, और मौजूदा प्लेसहोल्डर व नए लेआउट के बीच संबंध बदल सकते हैं, इसलिए बहुत अलग लेआउट्स के बीच स्विच करते समय आउटपुट की जाँच करें।
 
-Aspose.Slides provides the [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) method from the [Compress](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/) class to allow you to delete unwanted and unused layout slides.
+## **लेआउट स्लाइड जोड़ें**
 
-The following C++ code shows how to remove a layout slide from a PowerPoint presentation:
+चयन और निर्माण अलग-अलग ऑपरेशन हैं। पिछले उदाहरण ने मौजूदा लेआउट का चयन किया; उसने कोई नया लेआउट नहीं बनाया। लेआउट बनाने के लिए लक्ष्य मास्टर के लेआउट संग्रह पर [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterlayoutslidecollection/add/) मेथड को कॉल करें।
+
+निम्न उदाहरण हमेशा `Report Title and Content` नामक एक नया **Title and Content** लेआउट जोड़ता है, फिर उसके आधार पर एक normal स्लाइड जोड़ता है। लेआउट नाम संग्रह में अद्वितीय होने चाहिए।
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **लेआउट स्लाइड्स में प्लेसहोल्डर जोड़ें**
+टेम्पलेट को वास्तव में एक और पुन: प्रयोज्य संरचना की आवश्यकता होने पर ही लेआउट जोड़ें। यदि उपयुक्त लेआउट पहले से मौजूद है, तो डुप्लिकेट बनाने के बजाय उसे चुनें और पुन: उपयोग करें।
 
-Aspose.Slides provides the [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) method, which allows you to add new placeholders to a layout slide.
+## **लेआउट स्लाइड में प्लेसहोल्डर जोड़ें**
 
-This manager contains methods for the following placeholder types:
+[ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/) मेथड एक [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/) प्रदान करता है जो लेआउट में प्लेसहोल्डर आकार जोड़ने के लिए उपयोग होता है।
 
-| PowerPoint प्लेसहोल्डर | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/) विधि |
-| ---------------------- | ------------------------------------------------------------ |
-| ![सामग्री](content.png) | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![पाठ](text.png) | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![पाठ (ऊर्ध्वाधर)](textV.png) | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![चित्र](picture.png) | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![चार्ट](chart.png) | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![तालिका](table.png) | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![स्मार्टआर्ट](smartart.png) | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![मीडिया](media.png) | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![ऑनलाइन छवि](onlineimage.png) | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint प्लेसहोल्डर              | `ILayoutPlaceholderManager` मेथड |
+| ----------------------------------- | -------------------------------- |
+| ![सामग्री](content.png)             | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![सामग्री (ऊर्ध्वाधर)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![पाठ](text.png)                   | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![पाठ (ऊर्ध्वाधर)](textV.png)       | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![चित्र](picture.png)               | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![चार्ट](chart.png)                 | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![टेबल](table.png)                 | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)           | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![मीडिया](media.png)                 | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![ऑनलाइन इमेज](onlineImage.png)    | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-The following C++ code demonstrates how to add new placeholder shapes to the Blank layout slide:
+निम्न उदाहरण **Blank** लेआउट के मौजूद होने की जाँच करता है, उसमें चार प्लेसहोल्डर जोड़ता है, और फिर उस संशोधित लेआउट का उपयोग करने वाली एक normal स्लाइड बनाता है। क्रम जानबूझकर है: प्लेसहोल्डर पहले जोड़े जाते हैं, फिर normal स्लाइड बनाई जाती है, ताकि Aspose.Slides उस स्लाइड पर संबंधित प्लेसहोल्डर आकार उत्पन्न कर सके।
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// खाली लेआउट स्लाइड प्राप्त करें।
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// लेआउट स्लाइड का प्लेसहोल्डर मैनेजर प्राप्त करें।
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// विभिन्न प्लेसहोल्डर को खाली लेआउट स्लाइड में जोड़ें।
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// खाली लेआउट के साथ एक नई स्लाइड जोड़ें।
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
@@ -192,84 +192,121 @@ presentation->Dispose();
 
 ![लेआउट स्लाइड पर प्लेसहोल्डर](add_placeholders.png)
 
-## **लेआउट स्लाइड के लिए फ़ूटर दृश्यता सेट करें**
+{{% alert color="warning" title="Warning" %}}
+विरासत में मिले फ़ॉर्मेटिंग या मौजूदा लेआउट प्लेसहोल्डर की ज्योमेट्री को बदलने से निर्भर स्लाइड्स प्रभावित हो सकती हैं। नया जोड़ा गया लेआउट प्लेसहोल्डर मौजूदा normal स्लाइड्स में बॅकफ़िल नहीं होता। लेआउट परिवर्तन को प्रस्तुति की एक कॉपी पर परीक्षण करें और प्रत्येक निर्भर स्लाइड की जाँच करें।
+{{% /alert %}}
 
-PowerPoint प्रस्तुतियों में, फ़ूटर तत्व जैसे तिथि, स्लाइड संख्या, और कस्टम टेक्स्ट लेआउट के आधार पर दिखाए या छुपाए जा सकते हैं। Aspose.Slides for Android आपको इन फ़ूटर प्लेसहोल्डर की दृश्यता को नियंत्रित करने की सुविधा देता है। यह तब उपयोगी होता है जब आप चाहते हैं कि कुछ लेआउट्स फ़ूटर जानकारी दिखाएँ जबकि अन्य साफ़ और न्यूनतम रहें।
+## **अप्रयुक्त लेआउट स्लाइड हटाएँ**
 
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-2. Get a layout slide reference by its index.
-3. Set the slide footer placeholder to visible.
-4. Set the slide number placeholder to visible.
-5. Set the date-time placeholder to visible.
-6. Save the presentation.
-
-The following C++ code shows how to set the visibility of a slide footer and perform related tasks:
+लेआउट को हटाने के लिए जो कोई normal स्लाइड संदर्भित नहीं करती, [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) मेथड का उपयोग करें। यह मेथड उन लेआउट्स को ऐसे ही छोड़ देता है जो अभी भी उपयोग में हैं।
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+एक विशिष्ट लेआउट हटाने के लिए, पहले उसकी [get_HasDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/) मेथड या [GetDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/getdependingslides/) मेथड का उपयोग करें। किसी भी निर्भर स्लाइड को पुनः असाइन करें और फिर [ILayoutSlide::Remove](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/remove/) को कॉल करें। उपयोग में रहे लेआउट को हटाने की कोशिश करने पर एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उत्पन्न होती है।
+
+## **लेआउट स्लाइड पर फुटर दृश्यता नियंत्रित करें**
+
+एक लेआउट का अपना फुटर, स्लाइड-नंबर, और डेट-टाइम प्लेसहोल्डर होता है। उन प्लेसहोल्डर को एक लेआउट के लिए नियंत्रित करने हेतु [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/) मेथड का उपयोग करें। यह तब उपयोगी होता है जब उदाहरण के तौर पर कंटेंट लेआउट्स में फुटर दिखाना हो लेकिन शीर्षक लेआउट्स में न दिखे।
+
+निम्न उदाहरण सुरक्षित रूप से एक लेआउट चुनता है और उसके फुटर तत्वों को दृश्यमान बनाता है:
+
+```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
 {
-    headerFooterManager->SetFooterVisibility(true);
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 }
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
+if (layoutSlide == nullptr)
 {
-    headerFooterManager->SetSlideNumberVisibility(true);
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
 }
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
 headerFooterManager->SetFooterText(u"Footer text");
 headerFooterManager->SetDateTimeText(u"Date and time text");
 
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **स्लाइड के लिए चाइल्ड फ़ूटर दृश्यता सेट करें**
+## **मास्टर और उसके चाइल्ड लेआउट्स पर फुटर दृश्यता नियंत्रित करें**
 
-PowerPoint प्रस्तुतियों में, फ़ूटर तत्व जैसे तिथि, स्लाइड संख्या, और कस्टम टेक्स्ट को मास्टर स्लाइड स्तर पर नियंत्रित किया जा सकता है ताकि सभी लेआउट स्लाइड्स में समानता बनी रहे। Aspose.Slides for Android आपको मास्टर स्लाइड पर इन फ़ूटर प्लेसहोल्डर की दृश्यता और सामग्री सेट करने और इन सेटिंग्स को सभी चाइल्ड लेआउट स्लाइड्स में लागू करने की अनुमति देता है। यह विधि आपके पूरे प्रस्तुतिकरण में समान फ़ूटर जानकारी सुनिश्चित करती है।
-
-1. Create an instance of the [Presentation](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/) class.
-2. Get a reference to the master slide by its index.
-3. Set the master’s and all child footer placeholders to visible.
-4. Set the master’s and all child slide number placeholders to visible.
-5. Set the master’s and all child date-time placeholders to visible.
-6. Save the presentation.
-
-The following C++ code demonstrates this operation:
+मास्टर पदानुक्रम में सुसंगत फुटर सेटिंग्स लागू करने हेतु [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslide/get_headerfootermanager/) मेथड का उपयोग करें। [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/imasterslideheaderfootermanager/) की प्रसार विधियाँ मास्टर और उसकी निर्भर लेआउट स्लाइड्स एवं normal स्लाइड्स पर लागू होती हैं; वे केवल एक normal स्लाइड को लक्षित नहीं करतीं।
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **FAQ**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
 **मास्टर स्लाइड और लेआउट स्लाइड में क्या अंतर है?**
 
-मास्टर स्लाइड कुल थीम और डिफ़ॉल्ट फ़ॉर्मेटिंग को परिभाषित करती है, जबकि लेआउट स्लाइड विशिष्ट प्रकार की सामग्री के लिए प्लेसहोल्डर की व्यवस्था को निर्धारित करती है।
+एक master slide प्रस्तुति की थीम और साझा फ़ॉर्मेटिंग को परिभाषित करता है। एक layout slide एक master से जुड़ी होती है और प्लेसहोल्डर की एक पुन: उपयोग योग्य व्यवस्था को परिभाषित करती है। normal स्लाइड्स उन लेआउट्स का उपयोग करती हैं और स्लाइड-विशिष्ट कंटेंट संग्रहीत करती हैं।
 
-**क्या मैं एक लेआउट स्लाइड को एक प्रस्तुतीकरण से दूसरे में कॉपी कर सकता हूँ?**
+**क्या मैं एक प्रस्तुति से दूसरी प्रस्तुति में लेआउट स्लाइड कॉपी कर सकता हूँ?**
 
-हाँ, आप किसी प्रस्तुतीकरण के लेआउट स्लाइड संग्रह से [get_LayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_layoutslides/) मेथड का उपयोग करके लेआउट स्लाइड को क्लोन कर सकते हैं, और `AddClone` मेथड से इसे दूसरे प्रस्तुतीकरण में डाल सकते हैं।
+हां। गंतव्य संग्रह में कॉपी जोड़ने के लिए [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/hi/cpp/aspose.slides/igloballayoutslidecollection/addclone/) मेथड का उपयोग करें। प्रस्तुति के बीच कॉपी करते समय फ़ॉन्ट, थीम, चित्र और स्रोत लेआउट द्वारा उपयोग किए गए अन्य संसाधनों की भी जाँच करें।
 
-**यदि मैं किसी लेआउट स्लाइड को हटाता हूँ जो अभी भी किसी स्लाइड द्वारा उपयोग में है तो क्या होता है?**
+**जब मैं एक लेआउट को संशोधित करता हूं जो पहले से उपयोग में है तो क्या होता है?**
 
-यदि आप ऐसी लेआउट स्लाइड को हटाने की कोशिश करते हैं जो कम से कम एक स्लाइड द्वारा अभी भी संदर्भित है, तो Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उठाएगा। इसे रोकने के लिए, आप [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) का उपयोग कर सकते हैं, जो सुरक्षित रूप से केवल अनउपयोगी लेआउट स्लाइड्स को हटाता है।
+निर्भर स्लाइड्स लेआउट परिवर्तन को विरासत में प्राप्त करती हैं जब तक कि वे स्थानीय रूप से प्रभावित फ़ॉर्मेटिंग या वस्तुओं को ओवरराइड नहीं करतीं। इसलिए कई स्लाइड्स पर प्लेसहोल्डर ज्योमेट्री और विरासत में मिली शैली एक साथ बदल सकती है। बदलाव करने से पहले प्रभावित स्लाइड्स की पहचान करने हेतु [GetDependingSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ilayoutslide/getdependingslides/) का उपयोग करें।
+
+**यदि मैं एक लेआउट हटाता हूं जो अभी भी उपयोग में है तो क्या होता है?**
+
+Aspose.Slides एक [PptxEditException](https://reference.aspose.com/slides/hi/cpp/aspose.slides/pptxeditexception/) उत्पन्न करती है। पहले निर्भर स्लाइड्स को पुनः असाइन करें, या केवल अनरेफ़रेंस्ड लेआउट्स को हटाने के लिए [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/hi/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) का उपयोग करें।

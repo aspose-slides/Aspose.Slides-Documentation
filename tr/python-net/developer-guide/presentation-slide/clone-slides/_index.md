@@ -41,7 +41,7 @@ Eğer aynı sunum içinde bir slaytı klonlayıp mevcut slaytların sonuna eklem
 1. [SlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slidecollection/) üzerinde `add_clone` yöntemini çağırın ve klonlanacak slaytı parametre olarak geçin.
 1. Değiştirilen sunumu kaydedin.
 
-Aşağıdaki örnekte, ilk slayt (indeks 0) klonlanıp sunumun sonuna eklenir.
+Aşağıdaki örnekte, ilk slayt (indeks 0) klonlanır ve sunumun sonuna eklenir.
 
 ```py
 import aspose.slides as slides
@@ -50,7 +50,7 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # Aynı sunumdaki slayt koleksiyonunun sonuna istenen slaytı klonlayın.
     presentation.slides.add_clone(presentation.slides[0])
-    # Değiştirilen sunumu diske kaydedin.
+    # Değiştirilmiş sunumu diske kaydedin.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -68,11 +68,11 @@ Aşağıdaki örnekte, indeks 1'deki slayt (konum 2) aynı sunum içinde indeks 
 ```py
 import aspose.slides as slides
 
-# Sunum dosyasını temsil etmek için Presentation sınıfını örnekleyin.
+# Sunum dosyasını temsil eden Presentation sınıfını örnekleyin.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # Aynı sunum içinde istenen slaytı belirtilen konuma (indeks) klonlayın.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Değiştirilen sunumu diske kaydedin.
+    # Değiştirilmiş sunumu diske kaydedin.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -169,19 +169,19 @@ Aşağıdaki Python örneği, bir slaytı nasıl klonlayıp belirli bir bölüme
 ```py
 import aspose.slides as slides
 
-# Yeni boş bir sunum oluşturun.
+# Yeni boş bir sunum oluştur.
 with slides.Presentation() as presentation:
     # İlk slaytın düzenine dayalı boş bir slayt ekleyin.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Yeni slayta bir elips şekli ekleyin; bu slayt daha sonra klonlanacak.
+    # Yeni slayta bir elips şekli ekle; bu slayt daha sonra klonlanacak.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
     # İlk slaytın düzenine dayalı bir başka boş slayt ekleyin.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # slide2'de başlayan "Section2" adlı bir bölüm oluşturun.
+    # slide2'de başlayan "Section2" adlı bir bölüm oluştur.
     section = presentation.sections.add_section("Section2", slide2)
-    # Daha önce oluşturulan slaytı "Section2" bölümüne klonlayın.
+    # Daha önce oluşturulan slaytı "Section2" bölümüne klonla.
     presentation.slides.add_clone(slide, section)
-    # Sunumu PPTX dosyası olarak kaydedin.
+    # Sunumu PPTX dosyası olarak kaydet.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 

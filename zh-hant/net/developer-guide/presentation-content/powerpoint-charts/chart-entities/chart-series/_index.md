@@ -1,5 +1,5 @@
 ---
-title: 在 .NET 中於簡報管理圖表資料系列
+title: 在 .NET 中管理簡報的圖表資料系列
 linktitle: 資料系列
 type: docs
 url: /zh-hant/net/chart-series/
@@ -16,298 +16,366 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "學習如何在 C# 中為 PowerPoint (PPT/PPTX) 管理圖表系列，透過實用的程式碼範例與最佳實踐，提升您的資料簡報效果。"
+description: "了解如何使用 C# 在簡報中管理圖表系列、資料點、工作簿儲存格、格式設定、重疊、間隙寬度以及負值。"
 ---
-## **概述**
+## **概覽**
 
-本文說明了 [ChartSeries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/chartseries/) 在 Aspose.Slides for .NET 中的角色，重點在於資料在簡報中的結構與視覺化方式。這些物件提供了定義圖表中單一資料點集合、類別和外觀參數的基礎元素。透過使用 [ChartSeries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/chartseries/)，開發人員可以無縫整合底層資料來源，並完全掌控資訊的顯示方式，從而產生動態、資料驅動的簡報，清晰傳達洞見與分析。
+圖表將其繪製的資料儲存在圖表資料工作簿中。 [IChartSeries](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/) 代表一組相關的值，系列中的每個 [IChartDataPoint](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapoint/) 參照一個或多個工作簿儲存格。 [IChartCategory](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartcategory/) 物件提供系列共用的標籤或分組值。因此，系列名稱、類別和資料點值會連結到 [IChartDataCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatacell/) 物件，而非僅以顯示文字保存。
 
-系列是一列或一欄在圖表中繪製的數字。
+對於典型的類別圖表，預設工作簿使用第 0 列儲存系列名稱，第 0 行儲存類別名稱，剩餘儲存格則存放系列值。傳遞給 [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/getcell/) 的工作表、列與欄索引皆為零基礎。此佈局在建立帶有預設資料的圖表時很有用，但不要假設每個現有圖表都使用它。對於已載入的簡報，請在變更工作簿值之前檢查系列、類別與資料點所參照的儲存格。
+
+圖表設定有三種不同的範圍：
+
+- 系列層級設定，例如 [IChartSeries.Format](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/format/)，提供單一系列中所有資料點的預設外觀。
+- 資料點層級設定，例如 [IChartDataPoint.Format](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapoint/format/)，會覆寫該系列的外觀以套用於單一資料點。
+- 群組設定套用於屬於相同 [IChartSeriesGroup](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseriesgroup/) 的相容系列。需要設定重疊或間隙寬度等選項時，請透過 [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/parentseriesgroup/) 取得該群組。
+
+當未設定明確的資料點或系列填色時，圖表樣式與佈景主題會決定自動外觀。當系列與資料點格式同時存在時，資料點的格式會優先套用於該資料點。
 
 ![chart-series-powerpoint](chart-series-powerpoint.png)
 
 ## **設定圖表系列重疊**
 
-[IChartSeriesOverlap](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/properties/overlap) 屬性透過指定 -100 到 100 的範圍，控制 2D 圖表中棒狀圖和柱狀圖的重疊方式。由於此屬性與系列群組相關，而非單一圖表系列，因此在系列層級上為唯讀。若要設定重疊值，請使用 `ParentSeriesGroup.Overlap` 可讀寫屬性，該屬性會將指定的重疊套用至該群組中的所有系列。
+[IChartSeries.Overlap](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/overlap/) 會回報 2D 圖表中長條或柱狀的重疊程度，範圍為 -100% 到 100%。它是父系列群組設定的唯讀投影。設定 [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseriesgroup/overlap/) 可更新該群組中所有相容的系列。此選項僅適用於顯示群組長條或柱狀的圖表類型；不會影響組合圖表中不相關的系列群組。
 
-以下是一個 C# 範例，示範如何建立簡報、加入叢集柱狀圖、存取第一個圖表系列、設定重疊屬性，然後將結果儲存為 PPTX 檔案：
+以下範例設定包含第一個系列的群組的重疊：
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // 新增預設資料的叢集柱狀圖。
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // 設定系列重疊。
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// 新增的圖表包含示範系列、類別和數值。
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 將簡報檔案儲存至磁碟。
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 結果：
 
-![系列重疊](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **變更系列填滿顏色**
+## **變更系列填色**
 
-Aspose.Slides 讓自訂圖表系列的填滿顏色變得簡單，您可以突出特定資料點，並建立視覺上吸引人的圖表。這透過 [IFormat](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/iformat/) 物件實現，該物件支援各種填充類型、顏色設定以及其他進階樣式選項。將圖表加入投影片並存取目標系列後，只需取得該系列並套用適當的填滿顏色。除了純色填滿，您還可以使用漸層或圖案填滿以提升設計彈性。設定完所需的顏色後，將簡報儲存即可完成更新的外觀。
+使用 [IChartSeries.Format](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/format/) 來設定整個系列的預設填色。如果資料點已具備明確的填色，則其 [IChartDataPoint.Format](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapoint/format/) 會覆寫該系列的填色。
 
-以下 C# 程式碼範例示範如何變更第一個系列的顏色：
+以下範例將第一個系列套用為純藍色填色：
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // 新增預設資料的叢集柱狀圖。
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 設定第一個系列的顏色。
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 將簡報檔案儲存至磁碟。
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 結果：
 
-![系列的顏色](series_color.png)
+![The color of the series](series_color.png)
 
 ## **變更系列名稱**
 
-Aspose.Slides 提供簡易的方式來修改圖表系列的名稱，使資料標籤更清晰且具意義。透過存取圖表資料中的相關工作表儲存格，開發人員可以自訂資料的呈現方式。當系列名稱需要根據資料情境進行更新或說明時，此修改特別有用。重新命名系列後，可儲存簡報以保留變更。
-
-以下是展示此過程的 C# 程式碼片段。
+系列名稱儲存在圖表資料工作簿中，通常會顯示在圖例中。在預設的叢集柱狀圖工作簿中，儲存格 B1 位於第 0 列第 1 欄，內含第一個系列的名稱。以下範例中的具名常數明確說明了此結構：
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // 新增預設資料的叢集柱狀圖。
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 設定第一個系列的名稱。
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 將簡報檔案儲存至磁碟。
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-以下 C# 程式碼示範另一種變更系列名稱的方法：
+您也可以直接更新 [IChartSeries.Name](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/name/) 已參照的儲存格。此做法避免在既有圖表中假設特定的列與欄：
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // 新增預設資料的叢集柱狀圖。
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 設定第一個系列的名稱。
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 將簡報檔案儲存至磁碟。
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 結果：
 
-![系列名稱](series_name.png)
+![The series name](series_name.png)
 
-## **取得自動系列填滿顏色**
+## **取得自動系列填色**
 
-Aspose.Slides for .NET 允許您取得圖表區域內系列的自動填滿顏色。建立 [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation/) 類別的實例後，您可以透過索引取得目標投影片的參考，然後使用您偏好的類型（例如 `ChartType.ClusteredColumn`）新增圖表。存取圖表中的系列後，即可取得自動填滿顏色。
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) 會回傳依系列索引與圖表樣式計算出的顏色。這是系列填色未明確定義時所使用的顏色。呼叫此方法只會讀取計算出的顏色，並不會指派新的填色。
 
-以下 C# 程式碼詳細示範此流程。
+以下範例列印每個預設系列的自動顏色：
 
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // 新增預設資料的叢集柱狀圖。
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // 取得系列的填滿顏色。
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
-輸出：
+預設圖表樣式的範例輸出：
 
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **設定圖表系列的反轉填滿顏色**
+確切的顏色會根據圖表樣式與佈景主題而異。
 
-當資料系列同時包含正值與負值時，若所有柱形或棒狀圖使用相同顏色，圖表將難以閱讀。Aspose.Slides for .NET 允許您指定反轉填滿顏色——這是一種會自動套用於低於零的資料點的獨立填充，使負值一目了然。在本節中，您將學習如何啟用此選項、選擇合適的顏色，並儲存更新後的簡報。
+## **為圖表系列設定負值反轉填色**
 
-以下程式碼範例示範此操作：
+對於長條、柱狀與氣泡系列，可使用 [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/invertifnegative/) 以不同的填色顯示負值。將常規系列填色設定為實心，啟用反轉，並透過 [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/) 指定負值的顏色。負數在工作簿中仍保持不變，只有顯示顏色會改變。
+
+以下範例以單一系列取代預設圖表資料。工作表第 0 列儲存系列名稱，第 0 欄儲存類別名稱，第 1 欄儲存值：
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // 新增類別。
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // 新增系列。
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // 填入系列資料。
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // 設定系列的顏色設定。
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 結果：
 
-![反轉的實心填充顏色](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-您可以對單一資料點而非整個系列套用反轉填充顏色。只需存取目標 `IChartDataPoint`，並將其 `InvertIfNegative` 屬性設為 true。
-
-以下程式碼範例示範如何執行此操作：
+您也可以對單一資料點啟用反轉，方法是使用 [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapoint/invertifnegative/)。以下範例將系列的反轉關閉，僅為選取的資料點啟用，並為該點指定負值以便觀察效果：
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // 若索引 2 的資料點為負值，則反轉顏色。
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **清除特定資料點值**
+## **清除特定資料點的值**
 
-有時圖表中會包含測試值、異常值或過時的條目，您需要在不重建整個系列的情況下將其移除。Aspose.Slides for .NET 允許您透過索引定位任意資料點，清除其內容，並即時重新整理圖表，使剩餘的資料點移位，座標軸自動重新調整比例。
+若要讓某一資料點變為空白而不移除其他點，請將其對應的工作簿儲存格設為 `null`。對於柱狀圖而言，繪製的值可透過 [IChartDataPoint.YValue](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapoint/yvalue/) 取得。資料點仍保留在相同的類別位置，但圖表會根據圖表的空白值設定將其視為空白。
 
-以下程式碼範例示範此操作：
+以下範例僅清除第一個系列的第二個資料點：
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
+
+散佈圖使用獨立的 X 與 Y 儲存格，氣泡圖還會使用大小儲存格。僅清除您想移除的值所在的儲存格。若只想保留其他資料點，請勿呼叫 [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapointcollection/clear/)，因為該方法會移除集合中的所有資料點。
 
 ## **設定系列間隙寬度**
 
-間隙寬度控制相鄰柱形或棒狀圖之間的空白量——較寬的間隙凸顯個別類別，而較窄的間隙則產生更緊密、緊湊的外觀。透過 Aspose.Slides for .NET，您可以對整個系列微調此參數，以達到簡報所需的視覺平衡，而無需更改底層資料。
+間隙寬度是相鄰長條或柱狀叢集之間的間距，以長條或柱狀寬度的百分比表示。與重疊相同，它屬於父系列群組而非單一系列。對群組設定一次 [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) 即可。較大的值會在叢集之間產生更多空間，較小的值則使叢集更緊密。
 
-以下程式碼範例示範如何為系列設定間隙寬度：
+以下範例變更間隙寬度，並僅儲存最終簡報：
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// 建立空白簡報。
-using (Presentation presentation = new Presentation())
-{
-    // 存取第一張投影片。
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // 新增預設資料的圖表。
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // 將簡報儲存至磁碟。
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // 設定 GapWidth 值。
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // 將簡報儲存至磁碟。
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 結果：
 
-![間隙寬度](gap_width.png)
+![The gap width](gap_width.png)
 
-## **常見問題**
+## **常見問題集**
 
-**單一圖表能包含的系列數量是否有限制？**
+**哪些圖表類型支援資料系列？**
 
-Aspose.Slides 並未對您可加入的系列數量設定固定上限。實際限制取決於圖表的可讀性以及您的應用程式可用的記憶體。
+所有由 [ChartType](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/charttype/) 列舉表示的圖表類型皆使用圖表資料，但其系列的值結構或設定並不完全相同。例如，類別圖使用類別與值，散佈圖使用 X 與 Y 值，氣泡圖則額外加入氣泡大小。請使用與系列類型相符的資料點建立方法。重疊與間隙寬度等選項僅適用於相容的長條或柱狀群組。
 
-**如果叢集內的柱形過於接近或相隔過遠，該怎麼辦？**
+**什麼是圖表系列群組？**
 
-調整該系列（或其父系列群組）的 `GapWidth` 設定。增大數值會擴大柱形之間的間距，減小數值則會使它們更靠近。
+[IChartSeriesGroup](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseriesgroup/) 包含共享群組層級繪圖設定的相容系列。組合圖表可以包含多個群組，因此透過某一系列取得的群組設定不一定會影響圖表中的所有系列。
+
+**新建立的圖表是否包含預設資料？**
+
+是的。預設情況下，[IShapeCollection.AddChart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishapecollection/addchart/) 會建立範例系列、類別與值。您可以編輯這些儲存格，或在加入完全自訂的資料集之前先清除系列與類別集合。也可使用其他重載以建立不含預設資料的圖表。
+
+**圖表物件如何與工作簿儲存格連結？**
+
+系列名稱、類別標籤以及資料點值皆參照 [IChartDataWorkbook](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdataworkbook/) 中的儲存格。變更參照的儲存格會更新相應的圖表元素。自行建立自訂資料時，請確保類別列與系列值列對齊，使每個資料點都繪製在預期的類別下。
+
+**如何只清除單一資料點而非整個系列？**
+
+將相關的值儲存格設為 `null`，即可保留該點的類別位置作為空白點。僅在您想移除該系列所有資料點時才使用 [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapointcollection/clear/)。若同時移除類別，請更新每個系列，使其值仍與類別集合保持對齊。
+
+**空白點會如何顯示？**
+
+顯示結果取決於圖表類型與 [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichart/displayblanksas/)。支援的圖表可以將空白顯示為間隙、零值，或連接相鄰點。請選擇符合您簡報中遺失資料意義的設定。
+
+**負值會如何格式化？**
+
+對於支援的長條、柱狀與氣泡系列，啟用 [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/invertifnegative/) 並設定 [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/)。您亦可透過 [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartdatapoint/invertifnegative/) 為單一資料點覆寫此行為。這些屬性影響格式化，而非儲存的數值。
+
+**當系列與資料點同時設定格式時，哪個會生效？**
+
+明確的資料點格式會優先套用於該點。其他資料點仍使用明確的系列格式，或在未定義系列格式時使用自動圖表樣式與佈景主題。群組屬性（如重疊與間隙寬度）僅控制版面配置，並非資料點層級的格式覆寫。
+
+**圖表能容納的系列數量是否有限制？**
+
+Aspose.Slides 本身未設定固定的系列數量上限。實務上，簡報檔案的限制、可用記憶體、渲染時間以及圖表可讀性會決定實際可用的上限。
+
+**當柱狀圖的欄位過於接近或過於分離時，應如何調整？**
+
+對適當的父系列群組設定 [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/zh-hant/net/aspose.slides.charts/ichartseriesgroup/gapwidth/)。增加值會擴大叢集之間的間距，減少值則會使叢集更靠近。

@@ -17,35 +17,35 @@ keywords:
 - प्रस्तुति
 - Python
 - Aspose.Slides
-description: "Python के लिए Aspose.Slides via .NET के साथ PowerPoint PPT और PPTX में गणितीय समीकरण जोड़ें और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Python कोड उदाहरण प्रदान करता है।"
+description: "Aspose.Slides for Python via .NET के साथ PowerPoint PPT और PPTX में गणितीय समीकरण सम्मिलित और संपादित करें, OMML का समर्थन, स्वरूपण नियंत्रण, और स्पष्ट Python कोड उदाहरण।"
 ---
 ## **अवलोकन**
 
-PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहित करता है। Aspose.Slides for Python via .NET के साथ, आप प्रोग्रामेटिक रूप से समान प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमाएँ, N-ary ऑपरेटर, मैट्रिक्स, ऐरे, और स्वरूपित गणितीय ब्लॉक।
+PowerPoint समीकरणों को Office Math Markup Language (OMML) के रूप में संग्रहीत करता है। Aspose.Slides for Python via .NET के साथ, आप प्रोग्रामेटिक रूप से वही प्रकार की गणितीय सामग्री बना सकते हैं: भिन्न, मूल, फ़ंक्शन, सीमा, N-ary ऑपरेटर्स, मैट्रिक्स, एर्रे, और स्वरूपित गणित ब्लॉक्स।
 
-PowerPoint में, उपयोगकर्ता सामान्यतः **Insert > Equation** से समीकरण जोड़ते हैं:
+PowerPoint में, उपयोगकर्ता सामान्यतः समीकरण **Insert > Equation** से जोड़ते हैं:
 
 ![PowerPoint Insert टैब जिसमें Equation कमांड चयनित है](powerpoint-math-equations_1.png)
 
-परिणाम स्लाइड पर संपादन योग्य गणितीय पाठ है:
+परिणाम स्लाइड पर संपादन योग्य गणितीय टेक्स्ट होता है:
 
 ![एक PowerPoint स्लाइड जिसमें संपादन योग्य गणितीय समीकरण है](powerpoint-math-equations_2.png)
 
-Aspose.Slides इस गणितीय पाठ को तीन मुख्य वस्तुओं के माध्यम से बनाता है:
+Aspose.Slides तीन मुख्य ऑब्जेक्ट्स के माध्यम से वह गणितीय टेक्स्ट बनाता है:
 
-- एक गणितीय आकार, जो [add_math_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_math_shape/) के साथ बनाया गया है, वह आकार है जो समीकरण रखता है।
-- [MathPortion](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathportion/) आकार के टेक्स्ट फ़्रेम के भीतर गणितीय सामग्री संग्रहीत करता है।
-- [MathParagraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathblock/) वस्तुओं को समाहित करता है।
+- एक गणितीय आकार, जो [add_math_shape](https://reference.aspose.com/slides/hi/python-net/aspose.slides/shapecollection/add_math_shape/) से बनाया गया है, वह आकार है जो समीकरण रखता है।
+- [MathPortion](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathportion/) आकार के टेक्स्ट फ्रेम के अंदर गणितीय सामग्री संग्रहीत करता है।
+- [MathParagraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathparagraph/) एक या अधिक [MathBlock](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathblock/) ऑब्जेक्ट्स को सम्मिलित करता है।
 
-नीचे अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/) की fluent विधियों का उपयोग करके कोड को छोटा और पठनीय रखते हैं।
+नीचे के अधिकांश उदाहरण [MathematicalText](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathematicaltext/) और [IMathElement](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/) की फ्लुएंट मेथड्स का उपयोग करते हैं ताकि कोड छोटा और पठनीय रहे।
 
-MathML निर्यात परिदृश्यों के लिए, देखें [Export Math Equations from Presentations in Python via .NET](/slides/hi/python-net/exporting-math-equations/)।
+MathML निर्यात परिदृश्यों के लिए, देखें [Python के माध्यम से .NET में प्रस्तुतियों से गणितीय समीकरण निर्यात करें](/slides/hi/python-net/exporting-math-equations/)।
 
-## **एक समीकरण बनाएं**
+## **समीकरण बनाएं**
 
-यह उदाहरण एक गणितीय आकार बनाता है और पाइथागोरस प्रमेय जोड़ता है:
+यह उदाहरण एक गणितीय आकार बनाता है और पिथागोरस सिद्धांत जोड़ता है:
 
-![c वर्ग बराबर a वर्ग प्लस b वर्ग](powerpoint-math-equations_3.png)
+![समकरण c² = a² + b²](powerpoint-math-equations_3.png)
 
 ```py
 import aspose.slides as slides
@@ -72,12 +72,14 @@ with slides.Presentation() as presentation:
 ```
 
 {{% alert color="primary" %}}
-`add_math_shape` एक ऐसा आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ होता है। पहले `MathPortion` को एक्सेस करें, उसका `MathParagraph` प्राप्त करें, और उसमें गणितीय ब्लॉक्स या गणितीय तत्व जोड़ें।
+
+`add_math_shape` एक आकार बनाता है जिसमें पहले से ही एक गणितीय पैराग्राफ शामिल होता है। पहले `MathPortion` तक पहुँचें, उसका `MathParagraph` प्राप्त करें, और उसमें गणितीय ब्लॉक या गणितीय तत्व जोड़ें।
+
 {{% /alert %}}
 
 ## **भिन्न जोड़ें**
 
-एक भिन्न बनाने के लिए [`divide`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/divide/) का प्रयोग करें। आप भिन्न शैली को [MathFractionTypes](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathfractiontypes/) से चुन सकते हैं।
+`divide` का उपयोग करके आप एक भिन्न बना सकते हैं। आप [MathFractionTypes](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathfractiontypes/) से एक भिन्न शैली चुन सकते हैं।
 
 ![एक तिरछा गणितीय भिन्न जिसमें 1 को x से विभाजित दिखाया गया है](powerpoint-math-equations_4.png)
 
@@ -106,9 +108,9 @@ stacked_fraction = math.MathematicalText("x + 1").divide("y - 1", math.MathFract
 
 ## **मूल जोड़ें**
 
-एक वर्गमूल, घनमूल या अन्य मूल बनाने के लिए [`radical`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/radical/) का प्रयोग करें। वर्तमान तत्व आधार बन जाता है, और तर्क डिग्री बन जाता है।
+`radical` का उपयोग करके आप वर्गमूल, घनमूल या अन्य मूल बना सकते हैं। वर्तमान तत्व बेस बन जाता है, और तर्क डिग्री बन जाता है।
 
-![एक n-थ मूल अभिव्यक्ति जिसमें x मूल चिह्न के नीचे है](powerpoint-math-equations_5.png)
+![एक n-थ मूल अभिव्यक्ति जिसमें x मूल संकेत के नीचे है](powerpoint-math-equations_5.png)
 
 ```py
 import aspose.slides as slides
@@ -129,9 +131,9 @@ with slides.Presentation() as presentation:
 
 ## **फ़ंक्शन और सीमाएँ जोड़ें**
 
-फ़ंक्शन जैसे `sin(x)`, `log(x)` या कस्टम फ़ंक्शन नामों के लिए [`as_argument_of_function`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) या [`function`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/function/) का उपयोग करें। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathlimit/) में रखें या [`set_lower_limit`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/) का उपयोग करें।
+`as_argument_of_function` या `function` का उपयोग करके `sin(x)`, `log(x)` जैसे फ़ंक्शन या कस्टम फ़ंक्शन नाम बना सकते हैं। सीमाओं के लिए, `lim` को एक [MathLimit](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathlimit/) में रखें या [`set_lower_limit`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/) का उपयोग करें।
 
-![x की सीमा जब x अनंत की ओर बढ़ता है](powerpoint-math-equations_8.png)
+![x की सीमा जब x अनंत की ओर जाता है](powerpoint-math-equations_8.png)
 
 ```py
 import aspose.slides as slides
@@ -160,11 +162,11 @@ with slides.Presentation() as presentation:
 custom_function = math.MathematicalText("f").function("x + 1")
 ```
 
-## **N-ary ऑपरेटर और इंटीग्रल जोड़ें**
+## **N-ary ऑपरेटर्स और इंटीग्रल जोड़ें**
 
-योग, संघ, प्रतिच्छेदन और अन्य बड़े ऑपरेटरों के लिए [`nary`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/nary/) का प्रयोग करें। इंटीग्रल के लिए [`integral`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/integral/) का उपयोग करें। दोनों विधियाँ आपको नीचे और ऊपर सीमाएँ निर्धारित करने देती हैं।
+`nary` का उपयोग करके आप जमा, संघ, प्रतिच्छेद और अन्य बड़े ऑपरेटर्स बना सकते हैं। `integral` का उपयोग इंटीग्रल के लिए करें। दोनों मेथड्स आपको निचली और ऊपरी सीमाएँ सेट करने देते हैं।
 
-![नीचे और ऊपर सीमाओं के साथ एक योग](powerpoint-math-equations_7.png)
+![निचली और ऊपरी सीमाओं के साथ एक समेशन](powerpoint-math-equations_7.png)
 
 ```py
 import aspose.slides as slides
@@ -189,7 +191,7 @@ with slides.Presentation() as presentation:
     presentation.save("nary-operators.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-N-ary ऑपरेटर बड़े ऑपरेटरों के लिए होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। `+`, `-`, और `=` जैसे सरल ऑपरेटर आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
+N-ary ऑपरेटर्स बड़े ऑपरेटर्स होते हैं जिनमें वैकल्पिक सीमाएँ हो सकती हैं। सरल ऑपरेटर्स जैसे `+`, `-`, और `=` आमतौर पर `MathematicalText` के रूप में जोड़े जाते हैं और अभिव्यक्ति में सम्मिलित होते हैं।
 
 इंटीग्रल के लिए, `integral` का उपयोग करें:
 
@@ -200,9 +202,9 @@ integral = integral_base.integral(math.MathIntegralTypes.SIMPLE, "0", "1")
 
 ## **मैट्रिक्स जोड़ें**
 
-पंक्तियों और स्तम्भों के लिए [MathMatrix](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathmatrix/) का प्रयोग करें। मैट्रिक्स में डिफ़ॉल्ट रूप से कोष्ठक नहीं होते, इसलिए जब कोष्ठक, ब्रैकेट या कर्ली ब्रेसेस चाहिए हों तो मैट्रिक्स को घेरें।
+पंक्तियों और स्तंभों के लिए [MathMatrix](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathmatrix/) का उपयोग करें। मैट्रिक्स डिफ़ॉल्ट रूप से कोष्ठक शामिल नहीं करता, इसलिए जब आपको कोष्ठक, ब्रेस या कर्ली ब्रेसेस चाहिए हों तो मैट्रिक्स को इनके भीतर घेरें।
 
-![दो पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली कोशिका है](powerpoint-math-equations_10.png)
+![एक दो-पंक्तियों वाला गणितीय मैट्रिक्स जिसमें एक खाली सेल है](powerpoint-math-equations_10.png)
 
 ```py
 import aspose.slides as slides
@@ -226,11 +228,11 @@ with slides.Presentation() as presentation:
     presentation.save("matrix.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **समीकरण ऐरे जोड़ें**
+## **समीकरण एर्रे जोड़ें**
 
-निर्देशित समीकरणों या अभिव्यक्तियों के लम्बवत स्टैक की आवश्यकता होने पर [`to_math_array`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) का प्रयोग करें।
+जब आपको संरेखित समीकरण या अभिव्यक्तियों की लंबवत श्रृंखला चाहिए, तो [`to_math_array`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) का उपयोग करें।
 
-![एक लम्बवत गणितीय ऐरे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
+![एक लंबवत गणितीय एर्रे जिसमें x y के ऊपर है](powerpoint-math-equations_11.png)
 
 ```py
 import aspose.slides as slides
@@ -278,11 +280,11 @@ with slides.Presentation() as presentation:
     presentation.save("trigonometric-function.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **सबस्क्रिप्ट और सुपर्सक्रिप्ट जोड़ें**
+## **सबस्क्रिप्ट और सुपरस्क्रिप्ट जोड़ें**
 
-सूचकांक और घात के लिए सबस्क्रिप्ट और सुपर्सक्रिप्ट सहायक विधियों का प्रयोग करें। जब सूचकांक को आधार के बाएँ पक्ष पर दिखाना हो, तो [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) का प्रयोग करें।
+इंडेक्स और पावर के लिए सबस्क्रिप्ट और सुपरस्क्रिप्ट सहायक फ़ंक्शन का उपयोग करें। जब इंडेक्स बेस के बाएँ पक्ष पर दिखाने हों, तो [`set_sub_superscript_on_the_left`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) का उपयोग करें।
 
-![एक बड़े अक्षर Y जिसमें बाएँ ओर सबस्क्रिप्ट 1 और सुपर्सक्रिप्ट n है](powerpoint-math-equations_9.png)
+![एक बड़े अक्षर Y जिसमें बाएँ तरफ सबस्क्रिप्ट 1 और सुपरस्क्रिप्ट n है](powerpoint-math-equations_9.png)
 
 ```py
 import aspose.slides as slides
@@ -303,9 +305,9 @@ with slides.Presentation() as presentation:
 
 ## **डिलिमिटर जोड़ें**
 
-एक अभिव्यक्ति को डिलिमिटर के अंदर रखने के लिए [`enclose`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/enclose/) का प्रयोग करें। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए एक विभाजन वर्ण भी निर्धारित कर सकते हैं।
+एक अभिव्यक्ति को डिलिमिटर्स के भीतर रखने के लिए [`enclose`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/enclose/) का उपयोग करें। आप कई तत्वों वाली डिलिमिटर अभिव्यक्तियों के लिए विभाजक अक्षर भी सेट कर सकते हैं।
 
-![एक डिलिमिटर अभिव्यक्ति जिसमें x, y, और z लम्बवत बार द्वारा अलग किए गए हैं](powerpoint-math-equations_13.png)
+![एक डिलिमिटर अभिव्यक्ति जिसमें x, y, और z को लंबवत रेखाओं से अलग किया गया है](powerpoint-math-equations_13.png)
 
 ```py
 import aspose.slides as slides
@@ -332,9 +334,9 @@ with slides.Presentation() as presentation:
 
 ## **बॉर्डर बॉक्स जोड़ें**
 
-जब स्वयं समीकरण को फ्रेम किया जाना हो, तो [`to_border_box`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) का प्रयोग करें।
+जब समीकरण को ढाँचे में रखना हो, तो [`to_border_box`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) का उपयोग करें।
 
-![एक बॉक्स्ड समीकरण जिसमें a वर्ग बराबर b वर्ग प्लस c वर्ग दिखाया गया है](powerpoint-math-equations_12.png)
+![एक बॉक्स वाला समीकरण जिसमें a² = b² + c² दिखाया गया है](powerpoint-math-equations_12.png)
 
 ```py
 import aspose.slides as slides
@@ -361,11 +363,11 @@ with slides.Presentation() as presentation:
     presentation.save("border-box.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **शब्दों को समूहित करें**
+## **टर्म समूहित करें**
 
-एक अभिव्यक्ति के ऊपर या नीचे समूहित करने वाला अक्षर रखने के लिए [`group`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/group/) का प्रयोग करें। समूहित शब्दों को लेबल करने के लिए एक सीमा जोड़ें।
+एक अभिव्यक्ति के ऊपर या नीचे समूहित करने वाला कैरेक्टर रखने के लिए [`group`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/group/) का उपयोग करें। समूहित टर्म को लेबल करने के लिए एक सीमा जोड़ें।
 
-![x प्लस y अभिव्यक्ति को समूहित करके उसके नीचे लेबल any text के साथ](powerpoint-math-equations_15.png)
+![अभिव्यक्ति x + y को समूहित किया गया है, नीचे लेबल के साथ कोई भी टेक्स्ट](powerpoint-math-equations_15.png)
 
 ```py
 import aspose.slides as slides
@@ -388,11 +390,11 @@ with slides.Presentation() as presentation:
     presentation.save("grouped-terms.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **गणितीय तत्वों को स्वरूपित करें**
+## **गणितीय तत्वों का स्वरूपित करें**
 
-फ़ॉर्मेटिंग सहायक केवल तब उपयोग करें जब वे सूत्र को स्पष्ट करें। उदाहरण के लिए, [`overbar`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/overbar/) गणितीय तत्व के ऊपर एक बार लगाता है।
+फॉर्मेटिंग सहायक का उपयोग केवल तब करें जब वे सूत्र को स्पष्ट करें। उदाहरण के लिए, [`overbar`](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/overbar/) एक गणितीय तत्व के ऊपर बार रखता है।
 
-![एक गणितीय अभिव्यक्ति ABC जिसके ऊपर एक ओवरबार है](powerpoint-math-equations_14.png)
+![ABC के ऊपर एक ओवरबार के साथ एक गणितीय अभिव्यक्ति](powerpoint-math-equations_14.png)
 
 ```py
 import aspose.slides as slides
@@ -415,31 +417,31 @@ with slides.Presentation() as presentation:
 
 | कार्य | मुख्य API |
 | --- | --- |
-| गणितीय पाठ बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathematicaltext/) |
+| गणितीय टेक्स्ट बनाएं | [MathematicalText](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathematicaltext/) |
 | तत्वों को मिलाएं | [IMathElement.join](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/join/) |
 | भिन्न बनाएं | [IMathElement.divide](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/divide/) |
 | सुपरस्क्रिप्ट या सबस्क्रिप्ट जोड़ें | [set_superscript](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_superscript/), [set_subscript](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_subscript/) |
 | फ़ंक्शन जोड़ें | [function](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/function/), [as_argument_of_function](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/as_argument_of_function/) |
 | मूल जोड़ें | [radical](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/radical/) |
-| सीमाएँ जोड़ें | [set_lower_limit](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
-| बाएँ‑साइड स्क्रिप्ट जोड़ें | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
-| योग और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/integral/) |
+| सीमा जोड़ें | [set_lower_limit](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_lower_limit/), [set_upper_limit](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_upper_limit/) |
+| बाएँ-साइड स्क्रिप्ट जोड़ें | [set_sub_superscript_on_the_left](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/set_sub_superscript_on_the_left/) |
+| समेश और इंटीग्रल जोड़ें | [nary](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/nary/), [integral](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/integral/) |
 | मैट्रिक्स जोड़ें | [MathMatrix](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathmatrix/) |
-| समीकरण ऐरे जोड़ें | [to_math_array](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
+| समीकरण एर्रे जोड़ें | [to_math_array](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_math_array/) |
 | डिलिमिटर जोड़ें | [enclose](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/enclose/) |
 | बार और बॉर्डर जोड़ें | [overbar](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/overbar/), [to_border_box](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/to_border_box/) |
-| शब्दों को समूहित करें | [group](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/group/) |
+| टर्म समूहित करें | [group](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/imathelement/group/) |
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
 **क्या मैं मौजूदा PowerPoint समीकरण को संपादित कर सकता हूँ?**
 
-हाँ। प्रस्तुति खोलें, वह आकार खोजें जिसमें `MathPortion` है, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ में गणितीय ब्लॉक्स को अपडेट करें।
+हां। प्रस्तुति खोलें, उस आकार को खोजें जिसमें `MathPortion` हो, उसका `MathParagraph` प्राप्त करें, और उस पैराग्राफ में गणितीय ब्लॉक को अपडेट करें।
 
 **क्या समीकरण संपादन योग्य PowerPoint गणित के रूप में सहेजे जाते हैं?**
 
-हाँ। PPTX में सहेजते समय, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
+हां। जब आप PPTX के रूप में सहेजते हैं, Aspose.Slides समीकरण को संपादन योग्य Office गणित सामग्री के रूप में लिखता है।
 
 **क्या मैं समीकरणों को LaTeX में निर्यात कर सकता हूँ?**
 
-Aspose.Slides गणितीय समीकरणों को MathML में निर्यात करता है। यदि आपको LaTeX चाहिए, तो पहले MathML में निर्यात करें और फिर उस MathML को ऐसे टूल के साथ परिवर्तित करें जो आपके लक्ष्य LaTeX संस्करण का समर्थन करता हो।
+हां। समीकरण के [MathParagraph](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathparagraph/) को उसके [MathPortion](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathportion/) से प्राप्त करें, और सीधे निर्यात करने के लिए [MathParagraph.to_latex](https://reference.aspose.com/slides/hi/python-net/aspose.slides.mathtext/mathparagraph/to_latex/) को कॉल करें। एक पूर्ण उदाहरण के लिए, देखें [Python के माध्यम से .NET में प्रस्तुतियों से गणितीय समीकरण निर्यात करें](/slides/hi/python-net/exporting-math-equations/#export-math-equations-to-latex)।

@@ -14,8 +14,8 @@ keywords:
 - sidfotssynlighet
 - titelsida
 - titel och innehåll
-- sektionrubrik
-- tvådelat innehåll
+- sektionstitel
+- två innehåll
 - jämförelse
 - endast titel
 - tom layout
@@ -28,151 +28,135 @@ keywords:
 - presentation
 - PHP
 - Aspose.Slides
-description: "Hantera och anpassa bildlayouter i Aspose.Slides för PHP via Java. Utforska layouttyper, kontroll av platshållare och sidfotssynlighet genom kodexempel."
+description: "Tillämpa, skapa och modifiera bildlayouter i Aspose.Slides för PHP via Java, lägg till platshållare, ta bort oanvända layouter och styr sidfotssynlighet."
 ---
-## **Introduktion**
+## **Översikt**
 
-En bildlayout definierar arrangemanget av platshållarrutor och formatering för innehållet på en bild. Den styr vilka platshållare som är tillgängliga och var de visas. Bildlayouter hjälper dig att designa presentationer snabbt och konsekvent—oavsett om du skapar något enkelt eller mer komplext. Några av de vanligaste bildlayouterna i PowerPoint är:
+En bildlayout definierar positionerna och formateringen av platshållare såsom titlar, text, bilder, diagram och tabeller. Genom att använda en layout får bilder en konsekvent struktur samtidigt som varje bild kan innehålla sitt eget innehåll.
 
-**Titelbildslayout** – Inkluderar två textplatshållare: en för titeln och en för undertiteln.
+De vanligaste layouterna är:
 
-**Titel- och innehållslayout** – Har en mindre titelplats hållare högst upp och en större nedanför för huvudinnehåll (som text, punktlistor, diagram, bilder och mer).
+- **Title Slide**: Innehåller platshållare för titel och undertitel.
+- **Title and Content**: Innehåller en platshållare för titel och en allmän innehållsplats.
+- **Blank**: Innehåller inga innehållsplatshållare och är användbar när varje form placeras manuellt.
 
-**Tom layout** – Innehåller inga platshållare, vilket ger dig full kontroll att designa bilden från grunden.
+## **Förstå ärvning av layout**
 
-Bildlayouter är en del av en bildmaster, som är den översta bilden som definierar layoutstilar för presentationen. Du kan komma åt och modifiera layoutbilder via bildmastern—antingen efter deras typ, namn eller unika ID. Alternativt kan du redigera en specifik layoutbild direkt i presentationen.
+En presentation har tre relaterade nivåer:
 
-För att arbeta med bildlayouter i Aspose.Slides för PHP kan du använda:
+1. En [master‑bild](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterslide/) definierar tema, delad formatering, bakgrunder och gemensamma objekt.
+1. En [layout‑bild](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/) tillhör en master och definierar en specifik placering av platshållare.
+1. En [normal‑bild](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/) använder en layout och lagrar innehållet som anges för den bilden.
 
-- Metoder som [getLayoutSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getLayoutSlides) och [getMasters](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getMasters) under klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/) 
-- Typer som [LayoutSlide](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/), och [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslideheaderfootermanager/)
+En normal‑bild ärver tema och formatering från sin layout, och layouten ärver från sin master. Ett värde som sätts direkt på en normal‑bild åsidosätter det ärvda värdet på den nivån. När en normal‑bild skapas genereras dess platshållarformer från den valda layouten, medan innehållet som skrivs in i dessa platshållare tillhör den normala bilden.
 
-{{% alert title="Info" color="info" %}}
-För att lära dig mer om att arbeta med masternbilder, se artikeln [Slide Master](/slides/sv/php-java/slide-master/).
-{{% /alert %}}
+Lägg till nödvändiga platshållare i en layout innan du skapar bilder från den. Att senare lägga till en ny platshållare i en layout lägger inte automatiskt till motsvarande platshållarform i befintliga normala bilder.
 
-## **Lägg till bildlayouter i presentationer**
+Detta förhållande har två viktiga konsekvenser:
 
-För att anpassa utseendet och strukturen på dina bilder kan du behöva lägga till nya layoutbilder i en presentation. Aspose.Slides för PHP låter dig kontrollera om en specifik layout redan finns, lägga till en ny om det behövs och använda den för att infoga bilder baserade på den layouten.
+- Att ändra ärvd formatering eller befintlig platshållargeometri i en layout kan uppdatera varje bild som beror på den. Innan du redigerar en layout som redan används, inspektera dess beroende bilder och granska den resulterande presentationen.
+- En layout som fortfarande används av en bild kan inte tas bort. Tilldela dess beroende bilder till en annan layout först, eller ta bara bort oanvända layouter.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Åtkomst till [MasterLayoutSlideCollection](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterlayoutslidecollection/).
-3. Kontrollera om den önskade layoutbilden redan finns i samlingen. Om inte, lägg till den layoutbild du behöver.
-4. Lägg till en tom bild baserad på den nya layoutbilden.
-5. Spara presentationen.
+För mer information om den översta nivån i hierarkin, se [Bildmaster](/slides/sv/php-java/slide-master/).
 
-Följande PHP‑kod demonstrerar hur man lägger till en bildlayout i en PowerPoint‑presentation:
+## **Välj och tillämpa en bildlayout**
+
+Använd en layouttyp när presentationen följer standarddefinitioner för PowerPoint‑layouter. Layoutnamn kan redigeras av användaren och kan lokalanpassas, så namnbaserad urval är mindre pålitligt om du inte kontrollerar källmallen.
+
+Följande exempel letar efter **Title and Content** på den första master‑bilden. Om den layouten inte finns, faller den medvetet tillbaka till **Blank**. Den andra null‑kontrollen är nödvändig eftersom en presentation kan innehålla endast anpassade layouter. Den valda layouten tillämpas sedan på den första normala bilden via metoden [Slide.setLayoutSlide](https://reference.aspose.com/slides/sv/php-java/aspose.slides/slide/#setLayoutSlide).
 
 ```php
-// Instansiera Presentation-klassen som representerar en PowerPoint-fil.
-$presentation = new Presentation("Sample.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    // Gå igenom layoutbildtyperna för att välja en layoutbild.
     $layoutSlides = $presentation->getMasters()->get_Item(0)->getLayoutSlides();
-    $layoutSlide = null;
-    if (!java_is_null($layoutSlides->getByType(SlideLayoutType::TitleAndObject))) {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
-    } else {
-        $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Title);
+    $targetLayout = $layoutSlides->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($targetLayout)) {
+        $targetLayout = $layoutSlides->getByType(SlideLayoutType::Blank);
     }
 
-    if (java_is_null($layoutSlide)) {
-        // En situation där presentationen inte innehåller alla layouttyper.
-        // Presentationsfilen innehåller endast tomma och anpassade layouttyper.
-        // Dock kan layoutbilder med anpassade typer ha igenkännbara namn,
-        // såsom "Title", "Title and Content" etc., som kan användas för att välja layoutbild.
-        // Du kan också förlita dig på en uppsättning av platshållarformtyper.
-        // Till exempel bör en titelsida endast ha titels-platshållartypen, och så vidare.
-        foreach($layoutSlides as $titleAndObjectLayoutSlide) {
-            if (java_values($titleAndObjectLayoutSlide->getName()) == "Title and Object") {
-                $layoutSlide = $titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (java_is_null($layoutSlide)) {
-            foreach($layoutSlides as $titleLayoutSlide) {
-                if (java_values($titleLayoutSlide->getName()) == "Title") {
-                    $layoutSlide = $titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (java_is_null($layoutSlide)) {
-                $layoutSlide = $layoutSlides->getByType(SlideLayoutType::Blank);
-                if (java_is_null($layoutSlide)) {
-                    $layoutSlide = $layoutSlides->add(SlideLayoutType::TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (java_is_null($targetLayout)) {
+        throw new \RuntimeException("The first master does not contain a suitable layout slide.");
     }
 
-    // Lägg till en tom bild med den tillagda layoutbilden.
-    $presentation->getSlides()->insertEmptySlide(0, $layoutSlide);
-
-    // Spara presentationen till disk.
-    $presentation->save("output.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->get_Item(0)->setLayoutSlide($targetLayout);
+    $presentation->save("output-with-new-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Ta bort oanvända layoutbilder**
+Att ändra en bilds layout tar inte bort vanliga former som lagts till direkt på bilden. Dock kan platshållarpositioner, ärvd formatering och motsvarigheten mellan befintliga platshållare och den nya layouten ändras, så inspektera resultatet när du byter mellan väsentligt olika layouter.
 
-Aspose.Slides tillhandahåller metoden [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) från klassen [Compress](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compress/) för att låta dig ta bort oönskade och oanvända layoutbilder.
+## **Lägg till en layout‑bild**
 
-Följande PHP‑kod visar hur man tar bort en layoutbild från en PowerPoint‑presentation:
+Urval och skapande är separata operationer. Det föregående exemplet väljer en befintlig layout; det skapar ingen ny. För att skapa en layout, anropa metoden [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterlayoutslidecollection/#add) på mål‑masterens layoutsamling.
+
+Följande exempel lägger alltid till en ny **Title and Content**‑layout med namnet `Report Title and Content`, och lägger sedan till en normal bild baserad på den. Layoutnamn måste vara unika inom samlingen.
 
 ```php
-$presentation = new Presentation("Presentation.pptx");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
 try {
-    Compress::removeUnusedLayoutSlides($presentation);
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $masterSlide = $presentation->getMasters()->get_Item(0);
+    $reportLayout = $masterSlide->getLayoutSlides()->add(SlideLayoutType::TitleAndObject, "Report Title and Content");
+    $presentation->getSlides()->addEmptySlide($reportLayout);
+
+    $presentation->save("output-with-report-layout.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Lägg till platshållare i bildlayouter**
+Lägg bara till en layout när mallen verkligen behöver en ytterligare återanvändbar struktur. Om en lämplig layout redan finns, välj och återanvänd den i stället för att skapa en duplikat.
 
-Aspose.Slides tillhandahåller metoden [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#getPlaceholderManager), som låter dig lägga till nya platshållare i en layoutbild.
+## **Lägg till platshållare i en layout‑bild**
 
-Denna manager innehåller metoder för följande platshållartyper:
+Metoden [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#getPlaceholderManager) tillhandahåller en [LayoutPlaceholderManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/) för att lägga till platshållarformer i en layout.
 
-| PowerPoint‑platshållare | [LayoutPlaceholderManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/) Metod |
-| ----------------------- | ------------------------------------------------------------ |
-| ![Innehåll](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Innehåll (Vertikal)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertikal)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Bild](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Diagram](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tabell](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online‑bild](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint‑platshållare            | `LayoutPlaceholderManager`‑metod |
+| ---------------------------------- | --------------------------------- |
+| ![Content](content.png)            | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                  | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)      | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)            | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)                | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)                | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)          | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)   | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Följande PHP‑kod demonstrerar hur man lägger till nya platshållarformer i den tomma layoutbilden:
+Följande exempel verifierar att **Blank**‑layouten finns, lägger till fyra platshållare i den och skapar sedan en normal bild som använder den modifierade layouten. Ordningen är avsiktlig: platshållarna läggs till innan den normala bilden skapas, så att Aspose.Slides kan generera motsvarande platshållarformer på den bilden.
 
 ```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
 $presentation = new Presentation();
 try {
-    // Hämta den tomma layoutbilden.
-    $layout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
+    $blankLayout = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
 
-    // Hämta platshållarhanteraren för layoutbilden.
-    $placeholderManager = $layout->getPlaceholderManager();
+    if (java_is_null($blankLayout)) {
+        throw new \RuntimeException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Lägg till olika platshållare i den tomma layoutbilden.
+    $placeholderManager = $blankLayout->getPlaceholderManager();
     $placeholderManager->addContentPlaceholder(20, 20, 310, 270);
     $placeholderManager->addVerticalTextPlaceholder(350, 20, 350, 270);
     $placeholderManager->addChartPlaceholder(20, 310, 310, 180);
     $placeholderManager->addTablePlaceholder(350, 310, 350, 180);
 
-    // Lägg till en ny bild med den tomma layouten.
-    $newSlide = $presentation->getSlides()->addEmptySlide($layout);
-
-    $presentation->save("Placeholders.pptx", SaveFormat::Pptx);
+    $presentation->getSlides()->addEmptySlide($blankLayout);
+    $presentation->save("output-with-placeholders.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
@@ -180,88 +164,107 @@ try {
 
 Resultatet:
 
-![Platshållarna på layoutbilden](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Ställ in sidfotsynlighet för en layoutbild**
+{{% alert color="warning" title="Varning" %}}
 
-I PowerPoint‑presentationer kan sidfotselement som datum, bildnummer och anpassad text visas eller döljas beroende på bildlayouten. Aspose.Slides för PHP låter dig styra synligheten för dessa sidfot‑platshållare. Detta är användbart när du vill att vissa layouter ska visa sidfotinformation medan andra förblir rena och minimala.
+Att ändra ärvd formatering eller geometrin för befintliga layout‑platshållare kan påverka beroende bilder. En nyligen tillagd layout‑platshållare fylls inte retroaktivt i befintliga normala bilder. Testa layout‑ändringar på en kopia av presentationen och inspektera varje beroende bild.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta en referens till en layoutbild via dess index.
-3. Ställ in sidfot‑platshållaren för bilden till synlig.
-4. Ställ in bildnummer‑platshållaren till synlig.
-5. Ställ in datum‑tid‑platshållaren till synlig.
-6. Spara presentationen.
+{{% /alert %}}
 
-Följande PHP‑kod visar hur man ställer in synligheten för en sidfot i en bild och utför relaterade uppgifter:
+## **Ta bort oanvända layout‑bilder**
+
+Använd metoden [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) för att ta bort layouter som ingen normal bild refererar till. Metoden låter intakta de layouter som fortfarande är i bruk.
 
 ```php
-$presentation = new Presentation("Presentation.ppt");
+use aspose\slides\Compress;
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
-    $headerFooterManager = $presentation->getLayoutSlides()->get_Item(0)->getHeaderFooterManager();
+    Compress::removeUnusedLayoutSlides($presentation);
+    $presentation->save("output-without-unused-layouts.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
 
-    if (!$headerFooterManager->isFooterVisible()) {
-        $headerFooterManager->setFooterVisibility(true);
+För att ta bort en specifik layout, använd först dess [hasDependingSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#hasDependingSlides) eller [getDependingSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#getDependingSlides)‑metod. Tilldela eventuella beroende bilder innan du anropar [LayoutSlide.remove](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#remove). Att försöka ta bort en layout som används kastar en [PptxEditException](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxeditexception/).
+
+## **Styr synlighet för sidfot på en layout‑bild**
+
+En layout har egna sidfot-, bildnummer‑ och datum‑tid‑platshållare. Använd metoden [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#getHeaderFooterManager) för att kontrollera dessa platshållare för en layout. Detta är användbart när till exempel innehållslayouter ska visa sidfot men titel‑layouter inte ska göra det.
+
+Följande exempel väljer en layout på ett säkert sätt och gör dess sidfotelement synliga:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+use aspose\slides\SlideLayoutType;
+
+$presentation = new Presentation("input.pptx");
+try {
+    $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::TitleAndObject);
+
+    if (java_is_null($layoutSlide)) {
+        $layoutSlide = $presentation->getLayoutSlides()->getByType(SlideLayoutType::Blank);
     }
 
-    if (!$headerFooterManager->isSlideNumberVisible()) {
-        $headerFooterManager->setSlideNumberVisibility(true);
+    if (java_is_null($layoutSlide)) {
+        throw new \RuntimeException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!$headerFooterManager->isDateTimeVisible()) {
-        $headerFooterManager->setDateTimeVisibility(true);
-    }
-
+    $headerFooterManager = $layoutSlide->getHeaderFooterManager();
+    $headerFooterManager->setFooterVisibility(true);
+    $headerFooterManager->setSlideNumberVisibility(true);
+    $headerFooterManager->setDateTimeVisibility(true);
     $headerFooterManager->setFooterText("Footer text");
     $headerFooterManager->setDateTimeText("Date and time text");
 
-    $presentation->save("Presentation.ppt", SaveFormat::Ppt);
+    $presentation->save("output-with-layout-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Ställ in barnsidfotsynlighet för en bild**
+## **Styr synlighet för sidfot på en master och dess underliggande layouter**
 
-I PowerPoint‑presentationer kan sidfotselement som datum, bildnummer och anpassad text kontrolleras på masternivå för att säkerställa konsekvens över alla layoutbilder. Aspose.Slides för PHP gör det möjligt att ställa in synlighet och innehåll för dessa sidfot‑platshållare på mastern och sprida dessa inställningar till alla underliggande layoutbilder. Detta tillvägagångssätt säkerställer enhetlig sidfotinformation i hela presentationen.
-
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/).
-2. Hämta en referens till mastern via dess index.
-3. Ställ in masterns och alla barns sidfot‑platshållare till synliga.
-4. Ställ in masterns och alla barns bildnummer‑platshållare till synliga.
-5. Ställ in masterns och alla barns datum‑tid‑platshållare till synliga.
-6. Spara presentationen.
-
-Följande PHP‑kod demonstrerar denna operation:
+För att tillämpa enhetliga sidfotinställningar över en master‑hierarki, använd metoden [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterslide/#getHeaderFooterManager). Spridningsmetoderna i [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/sv/php-java/aspose.slides/masterslideheaderfootermanager/) verkar på master‑bilden samt dess beroende layout‑bilder och normala bilder; de riktar sig inte bara mot en enskild normal bild.
 
 ```php
-$presentation = new Presentation("presentation.ppt");
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("input.pptx");
 try {
     $headerFooterManager = $presentation->getMasters()->get_Item(0)->getHeaderFooterManager();
-
     $headerFooterManager->setFooterAndChildFootersVisibility(true);
     $headerFooterManager->setSlideNumberAndChildSlideNumbersVisibility(true);
     $headerFooterManager->setDateTimeAndChildDateTimesVisibility(true);
-
     $headerFooterManager->setFooterAndChildFootersText("Footer text");
     $headerFooterManager->setDateTimeAndChildDateTimesText("Date and time text");
 
-    $presentation->save("Output.pptx", SaveFormat::Pptx);
+    $presentation->save("output-with-master-footers.pptx", SaveFormat::Pptx);
 } finally {
     $presentation->dispose();
 }
 ```
 
-## **Vanliga frågor**
+## **FAQ**
 
 **Vad är skillnaden mellan en master‑bild och en layout‑bild?**
 
-En master‑bild definierar det övergripande temat och standardformateringen, medan layout‑bilder definierar specifika arrangemang av platshållare för olika typer av innehåll.
+En master‑bild definierar presentationens tema och delad formatering. En layout‑bild tillhör en master och definierar en återanvändbar placering av platshållare. Normala bilder använder dessa layouter och lagrar bildspecifikt innehåll.
 
 **Kan jag kopiera en layout‑bild från en presentation till en annan?**
 
-Ja, du kan klona en layout‑bild från en presentations layout‑bildsamling, som är åtkomlig via metoden [getLayoutSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/presentation/#getLayoutSlides), och infoga den i en annan presentation med metoden `addClone`.
+Ja. Lägg till en kopia i destinationssamlingen med metoden [addClone](https://reference.aspose.com/slides/sv/php-java/aspose.slides/globallayoutslidecollection/#addClone). Vid kopiering mellan presentationer, verifiera också teckensnitt, teman, bilder och andra resurser som används av käll‑layouten.
 
-**Vad händer om jag tar bort en layout‑bild som fortfarande används av en bild?**
+**Vad händer när jag modifierar en layout som redan används?**
 
-Om du försöker ta bort en layout‑bild som fortfarande refereras av minst en bild i presentationen, kommer Aspose.Slides att kasta ett [PptxEditException](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxeditexception/). För att undvika detta, använd [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) som säkert tar bort endast de layout‑bilder som inte är i bruk.
+Beroende bilder ärver layout‑ändringarna såvida de inte har åsidosatt den påverkade formateringen eller objekten lokalt. Platshållargeometri och ärvd stil kan därför förändras på många bilder samtidigt. Använd [getDependingSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/layoutslide/#getDependingSlides) för att identifiera de påverkade bilderna innan du redigerar layouten.
+
+**Vad händer om jag tar bort en layout som fortfarande är i bruk?**
+
+Aspose.Slides kastar en [PptxEditException](https://reference.aspose.com/slides/sv/php-java/aspose.slides/pptxeditexception/). Tilldela de beroende bilderna först, eller använd [removeUnusedLayoutSlides](https://reference.aspose.com/slides/sv/php-java/aspose.slides/compress/#removeUnusedLayoutSlides) för att enbart ta bort referenslösa layouter.

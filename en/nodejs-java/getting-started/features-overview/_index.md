@@ -9,7 +9,6 @@ keywords:
 - file format
 - conversion
 - rendering
-- printing
 - formatting
 - PowerPoint
 - OpenDocument
@@ -35,14 +34,14 @@ Aspose.Slides for Node.js via Java supports most PowerPoint document formats. It
 |Tagged Image File Format (TIFF)|You can export all supported presentation file formats to Tagged Image File Format (TIFF).|
 |PPTX To HTML Conversion|Aspose.Slides for Node.js via Java supports the conversion of PresentationEx to HTML format.|
 
-## **Rendering and Printing**
+## **Presentation Rendering**
 Aspose.Slides for Node.js via Java supports high fidelity rendering of slides in presentation to different graphics formats. Go through these details:
 
 |**Feature**|**Description**|
 | :- | :- |
 |Java Supported Image Formats|Using Aspose.Slides for Node.js via Java, you get to render presentation slides and images on slides to all the Java supported graphics formats such as TIFF, PNG, BMP, JPEG, GIF.|
 |SVG Format|Aspose.Slides for Node.js via Java also provides built-in methods that allow you to export presentation slides to Scalable Vector Graphics (SVG) formats.|
-|Presentation Printing|The latest versions of Aspose.Slides for Node.js via Java provide built-in print methods with different options.|
+
 ## **Content Features**
 Aspose.Slides for Node.js via Java allows you to access, modify, or create almost all the items or contents of presentation documents. Go through these details:
 

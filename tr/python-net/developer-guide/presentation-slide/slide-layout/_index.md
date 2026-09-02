@@ -1,5 +1,5 @@
 ---
-title: Python'da Slayt Düzenlerini Uygula veya Değiştir
+title: Python'da Slayt Düzenlerini Uygulama veya Değiştirme
 linktitle: Slayt Düzeni
 type: docs
 weight: 60
@@ -17,226 +17,214 @@ keywords:
 - bölüm başlığı
 - iki içerik
 - karşılaştırma
-- sadece başlık
+- yalnızca başlık
 - boş düzen
-- altyazılı içerik
-- altyazılı resim
+- başlıklı içerik
+- başlıklı resim
 - başlık ve dikey metin
 - dikey başlık ve metin
 - PowerPoint
 - OpenDocument
+- sunum
 - Python
 - Aspose.Slides
-description: "Aspose.Slides for Python via .NET ile slayt düzenlerini nasıl yöneteceğinizi ve özelleştireceğinizi öğrenin. Layout türlerini, yer tutucu kontrolünü, alt bilgi görünürlüğünü ve Python kod örnekleriyle düzen manipülasyonunu keşfedin."
+description: "Aspose.Slides for Python via .NET ile slayt düzenlerini uygulayın, oluşturun ve değiştirin, yer tutucular ekleyin, kullanılmayan düzenleri kaldırın ve alt bilgi görünürlüğünü kontrol edin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Bir slayt düzeni, slayttaki içeriğin yer tutucu kutularının ve biçimlendirmesinin düzenini tanımlar. Hangi yer tutucuların mevcut olduğunu ve nerede görüneceklerini kontrol eder. Slayt düzenleri, basit ya da daha karmaşık bir şey oluştururken sunumları hızlı ve tutarlı bir şekilde tasarlamanıza yardımcı olur. PowerPoint'te en yaygın slayt düzenlerinden bazıları şunlardır:
+Bir slayt düzeni, başlıklar, metin, resimler, grafikler ve tablolar gibi yer tutucuların konumlarını ve biçimlendirmesini tanımlar. Bir düzen uygulandığında slaytlara tutarlı bir yapı kazandırılır ve her slayt kendi içeriğini barındırabilir.
 
-**Başlık Slaytı düzeni** – Başlık ve alt başlık için iki metin yer tutucusu içerir.
+En yaygın düzenler şunlardır:
 
-**Başlık ve İçerik düzeni** – Üstte daha küçük bir başlık yer tutucusu ve altında metin, madde işaretleri, grafikler, resimler vb. ana içerik için daha büyük bir yer tutucu bulundurur.
+- **Başlık Slaytı**: Başlık ve alt başlık yer tutucularını içerir.
+- **Başlık ve İçerik**: Bir başlık yer tutucusu ve genel amaçlı bir içerik yer tutucusu içerir.
+- **Boş**: İçerik yer tutucusu bulunmaz ve her şeklin manuel olarak konumlandırılacağı durumlarda kullanışlıdır.
 
-**Boş düzen** – Yer tutucu bulunmaz; slaytı sıfırdan tasarlama konusunda tam kontrol sağlar.
+## **Düzen Kalıtımını Anlamak**
 
-Slayt düzenleri, sunumun stillerini tanımlayan en üst düzey slayt olan slayt ana sayfasının bir parçasıdır. Düzen slaytlarına, türüne, adına veya benzersiz kimliğine göre slayt ana sayfası üzerinden erişebilir ve bunları değiştirebilirsiniz. Alternatif olarak, belirli bir düzen slaytını doğrudan sunum içinde düzenleyebilirsiniz.
+Bir sunum üç ilişkili seviyeye sahiptir:
 
-Aspose.Slides for Python'da slayt düzenleriyle çalışmak için şunları kullanabilirsiniz:
+1. Bir [master slayt](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/) temayı, ortak biçimlendirmeyi, arka planları ve ortak nesneleri tanımlar.
+1. Bir [düzen slayt](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/) bir master’a aittir ve belirli bir yer tutucu düzenini tanımlar.
+1. Bir [normal slayt](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/) bir düzeni kullanır ve o slayt için girilen içeriği depolar.
 
-- [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfı altındaki [layout_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/layout_slides/) ve [masters](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/masters/) gibi özellikler
-- [LayoutSlide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/) ve [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslideheaderfootermanager/) gibi tipler
+Bir normal slayt temayı ve biçimlendirmeyi düzeninden kalıtır, düzen ise master’dan kalıtır. Normal bir slaytta doğrudan ayarlanan bir değer, o seviyedeki kalıtılan değeri geçersiz kılar. Bir normal slayt oluşturulduğunda, seçilen düzenten yer tutucu şekilleri oluşturulur; bu yer tutuculara girilen içerik ise normal slayta aittir.
 
-{{% alert title="Info" color="info" %}}
-Ana slaytlarla çalışmayı öğrenmek için [Manage PowerPoint Slide Masters in Python](/slides/tr/python-net/slide-master/) makalesine göz atın.
-{{% /alert %}}
+Kaydırılardan slayt oluşturulmadan önce bir düzene gerekli yer tutucular eklenmelidir. Daha sonra bir düzene yeni bir yer tutucu eklemek, mevcut normal slaytlara otomatik olarak bir yer tutucu şekli eklemez.
 
-## **Sunumalara Slayt Düzenleri Ekleme**
+Bu ilişkinin iki önemli sonucu vardır:
 
-Slaytlarınızın görünümünü ve yapısını özelleştirmek için sunuma yeni düzen slaytları eklemeniz gerekebilir. Aspose.Slides for Python, belirli bir düzenin zaten var olup olmadığını kontrol etmenize, gerekirse yeni bir düzen eklemenize ve bu düzeni temel alarak slayt eklemenize olanak tanır.
+- Bir düzen üzerindeki kalıtılan biçimlendirmeyi veya mevcut yer tutucu geometrisini değiştirmek, ona bağlı olan tüm slaytları güncelleyebilir. Kullanımda olan bir düzeni düzenlemeden önce, bağımlı slaytlarını inceleyin ve ortaya çıkan sunumu gözden geçirin.
+- Bir slayt hâlâ bir düzeni kullanıyorsa o düzen kaldırılamaz. Önce bağımlı slaytlarını başka bir düzene atayın veya yalnızca kullanılmayan düzenleri kaldırın.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. [MasterLayoutSlideCollection](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterlayoutslidecollection/) erişin.  
-1. İstenen düzen slaytının koleksiyonda zaten olup olmadığını kontrol edin. Yoksa ihtiyacınız olan düzen slaytını ekleyin.  
-1. Yeni düzen slaytına dayalı boş bir slayt ekleyin.  
-1. Sunumu kaydedin.
+Bu hiyerarşinin üst düzeyi hakkında daha fazla bilgi için [Slide Master](/slides/tr/python-net/slide-master/) sayfasına bakın.
 
-Aşağıdaki Python kodu bir PowerPoint sunumuna slayt düzeni eklemeyi gösterir:
+## **Bir Slayt Düzeni Seçme ve Uygulama**
+
+Sunum standart PowerPoint düzen tanımlarını izliyorsa bir düzen türü kullanın. Düzen adları kullanıcı tarafından düzenlenebilir ve yerelleştirilebilir, bu nedenle ad temelli seçim, kaynak şablon üzerindeki kontrolünüz yoksa daha az güvenilirdir.
+
+Aşağıdaki örnek, ilk master’da **Başlık ve İçerik** düzenini arar. Bu düzen bulunamazsa kasıtlı olarak **Boş** düzenine geri döner. İkinci null kontrolü, bir sunumun yalnızca özel düzenler içerebileceği durumlar için gereklidir. Seçilen düzen daha sonra ilk normal slayta [Slide.layout_slide](https://reference.aspose.com/slides/tr/python-net/aspose.slides/slide/layout_slide/) özelliğiyle uygulanır.
 
 ```python
 import aspose.slides as slides
 
-# Sunum dosyasını açmak için Presentation sınıfını örnekleyin.
-with slides.Presentation("sample.pptx") as presentation:
-    # Bir düzen slaytı seçmek için düzen slaytı türlerini dolaşın.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # Sunumun tüm düzen türlerini içermediği bir durum.
-        # Sunum dosyası yalnızca Boş ve Özel düzen türlerini içerir.
-        # Ancak, özel türlere sahip düzen slaytları tanınabilir isimlere sahip olabilir,
-        # örneğin "Title", "Title and Content", vb., bu isimler düzen slaytı seçiminde kullanılabilir.
-        # Ayrıca bir dizi yer tutucu şekil türüne dayanabilirsiniz.
-        # Örneğin, bir Başlık slaytı yalnızca Başlık yer tutucu tipine sahip olmalıdır, vb.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # Eklenen düzen slaytını kullanarak boş bir slayt ekleyin.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # Sunumu diske kaydedin.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kullanılmayan Düzen Slaytlarını Kaldırma**
+Bir slaytın düzenini değiştirmek, doğrudan slayta eklenen sıradan şekilleri kaldırmaz. Ancak yer tutucu konumları, kalıtılan biçimlendirme ve mevcut yer tutucular ile yeni düzen arasındaki eşleşme değişebilir; bu nedenle çok farklı düzenler arasında geçiş yaparken çıktıyı inceleyin.
 
-Aspose.Slides, kullanılmayan ve istenmeyen düzen slaytlarını silmenize olanak tanıyan [Compress](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/) sınıfındaki [remove_unused_layout_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) yöntemini sağlar.
+## **Bir Düzen Slaytı Ekleme**
 
-Aşağıdaki Python kodu bir PowerPoint sunumundan düzen slaytını kaldırmayı gösterir:
+Seçim ve oluşturma ayrı işlemlerdir. Önceki örnek mevcut bir düzeni seçer; bir tane oluşturmaz. Bir düzen oluşturmak için hedef master’ın düzen koleksiyonunda [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterlayoutslidecollection/add/) yöntemini çağırın.
+
+Aşağıdaki örnek her zaman `Rapor Başlığı ve İçeriği` adında yeni bir **Başlık ve İçerik** düzeni ekler, ardından ona dayalı bir normal slayt ekler. Düzen adları koleksiyon içinde benzersiz olmalıdır.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Slayt Düzenlerine Yer Tutucu Ekleme**
+Bir şablon gerçekten başka bir yeniden kullanılabilir yapıya ihtiyaç duyduğunda bir düzen ekleyin. Uygun bir düzen zaten varsa, bir kopya oluşturmaktansa onu seçip yeniden kullanın.
 
-Aspose.Slides, bir düzen slaytına yeni yer tutucular eklemenizi sağlayan [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/placeholder_manager/) özelliğini sunar.
+## **Bir Düzen Slaytına Yer Tutucular Ekleme**
 
-Bu yönetici aşağıdaki yer tutucu türleri için yöntemler içerir:
+[LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/placeholder_manager/) özelliği, bir düzene yer tutucu şekilleri eklemek için bir [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/) sunar.
 
-| PowerPoint Yer Tutucu              | [LayoutPlaceholderManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/) Yöntemi |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![İçerik](content.png)             | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![İçerik (Dikey)](contentV.png)    | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Metin](text.png)                 | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Metin (Dikey)](textV.png)        | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Resim](picture.png)              | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Grafik](chart.png)               | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Tablo](table.png)                | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png)          | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Medya](media.png)                | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Çevrimiçi Görüntü](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+| PowerPoint Yer Tutucu               | `LayoutPlaceholderManager` Metodu |
+| ----------------------------------- | --------------------------------- |
+| ![İçerik](content.png)              | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![İçerik (Dikey)](contentV.png)    | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Metin](text.png)                  | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Metin (Dikey)](textV.png)        | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Resim](picture.png)               | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Grafik](chart.png)                | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Tablo](table.png)                 | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Medya](media.png)                 | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Çevrimiçi Görüntü](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-Aşağıdaki Python kodu Boş düzen slaytına yeni yer tutucu şekilleri eklemeyi gösterir:
+Aşağıdaki örnek, **Boş** düzeninin var olduğunu doğrular, ona dört yer tutucu ekler ve ardından değiştirilmiş düzeni kullanan bir normal slayt oluşturur. Sıra kasıtlıdır: yer tutucular normal slayt oluşturulmadan önce eklenir, böylece Aspose.Slides o slaytta karşılık gelen yer tutucu şekillerini üretebilir.
 
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Boş düzen slaydını alın.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Düzen slaydının yer tutucu yöneticisini alın.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Boş düzen slaydına farklı yer tutucular ekleyin.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Boş düzenle yeni bir slayt ekleyin.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 Sonuç:
 
-![Yer tutucular yerleşim slaytında](add_placeholders.png)
+![Düzen slaytındaki yer tutucular](add_placeholders.png)
 
-## **Bir Düzen Slaytı İçin Alt Bilgi Görünürlüğünü Ayarlama**
+{{% alert color="warning" title="Uyarı" %}}
 
-PowerPoint sunumlarında tarih, slayt numarası ve özelleştirilmiş metin gibi alt bilgi öğeleri slayt düzenine göre gösterilebilir veya gizlenebilir. Aspose.Slides for Python, bu alt bilgi yer tutucularının görünürlüğünü kontrol etmenizi sağlar. Bu özellik, belirli düzenlerin alt bilgi bilgilerini göstermesini, diğerlerinin ise temiz kalmasını istediğinizde kullanışlıdır.
+Kalıtılan biçimlendirmeyi veya mevcut düzen yer tutucularının geometrisini değiştirmek, bağımlı slaytları etkileyebilir. Yeni eklenen bir düzen yer tutucusu mevcut normal slaytlara otomatik olarak eklenmez. Düzen değişikliklerini bir sunum kopyası üzerinde test edin ve her bağımlı slaytı inceleyin.
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre bir düzen slaytı referansı alın.  
-1. Slayt alt bilgi yer tutucusunu görünür yapın.  
-1. Slayt numarası yer tutucusunu görünür yapın.  
-1. Tarih‑zaman yer tutucusunu görünür yapın.  
-1. Sunumu kaydedin.
+{{% /alert %}}
 
-Aşağıdaki Python kodu bir slayt alt bilgisinin görünürlüğünü ayarlamayı ve ilgili görevleri göstermektedir:
+## **Kullanılmayan Düzen Slaytlarını Kaldırma**
+
+[Kullanılmayan düzen slaytlarını kaldır](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) yöntemi, hiçbir normal slayt tarafından referans edilmeyen düzenleri siler. Yöntem, hâlâ kullanılan düzenleri aynı bırakır.
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Bir Slayt İçin Çocuk Alt Bilgi Görünürlüğünü Ayarlama**
+Belirli bir düzeni kaldırmak için önce onun [has_depending_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/has_depending_slides/) özelliğini veya [get_depending_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/get_depending_slides/) yöntemini kullanın. Bağımlı slaytları yeniden atadıktan sonra [LayoutSlide.remove](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/remove/) metodunu çağırın. Kullanılan bir düzeni kaldırmaya çalışmak bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) hatası oluşturur.
 
-PowerPoint sunumlarında tarih, slayt numarası ve özelleştirilmiş metin gibi alt bilgi öğeleri, tüm düzen slaytları arasında tutarlılığı sağlamak için ana slayt düzeyinde kontrol edilebilir. Aspose.Slides for Python, bu alt bilgi yer tutucularının görünürlüğünü ve içeriğini ana slaytta ayarlamanıza ve bu ayarları tüm alt düzen slaytlarına yaymanıza izin verir. Bu yaklaşım, sunumunuz boyunca tutarlı alt bilgi bilgileri sağlar.
+## **Bir Düzen Slaytında Alt Bilgi Görünürlüğünü Kontrol Etme**
 
-1. [Presentation](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
-1. İndeksine göre ana slayta bir referans alın.  
-1. Ana slaytın ve tüm alt slaytların alt bilgi yer tutucularını görünür yapın.  
-1. Ana slaytın ve tüm alt slaytların slayt numarası yer tutucularını görünür yapın.  
-1. Ana slaytın ve tüm alt slaytların tarih‑zaman yer tutucularını görünür yapın.  
-1. Sunumu kaydedin.
+Bir düzenin kendi alt bilgi, slayt numarası ve tarih‑saat yer tutucuları vardır. Bu yer tutucuları tek bir düzen için kontrol etmek üzere [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/header_footer_manager/) özelliğini kullanın. Örneğin, içerik düzenlerinin alt bilgi göstermesi, başlık düzenlerinin göstermemesi gerektiğinde bu yararlıdır.
 
-Aşağıdaki Python kodu bu işlemi göstermektedir:
+Aşağıdaki örnek bir düzeni güvenli bir şekilde seçer ve alt bilgi öğelerini görünür kılar:
 
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Bir Master ve Alt Düzenlerinde Alt Bilgi Görünürlüğünü Kontrol Etme**
+
+Tutarlı alt bilgi ayarlarını bir master hiyerarşisi boyunca uygulamak için [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslide/header_footer_manager/) özelliğini kullanın. [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/tr/python-net/aspose.slides/masterslideheaderfootermanager/) sınıfının yayılım yöntemleri master, ona bağlı düzen slaytları ve normal slaytlar üzerinde çalışır; yalnızca tek bir normal slaytı hedeflemez.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **SSS**
 
-**Bir ana slayt ile bir düzen slaytı arasındaki fark nedir?**
+**Master Slayt ile Düzen Slaytı Arasındaki Fark Nedir?**
 
-Ana slayt, genel temayı ve varsayılan biçimlendirmeyi tanımlarken, düzen slaytları farklı içerik tipleri için yer tutucuların belirli düzenlemelerini tanımlar.
+Bir master slayt, sunumun temasını ve ortak biçimlendirmesini tanımlar. Bir düzen slaytı bir master’a aittir ve yeniden kullanılabilir bir yer tutucu düzeni tanımlar. Normal slaytlar bu düzenleri kullanır ve slayta özgü içeriği saklar.
 
-**Bir düzen slaytını bir sunumdan diğerine kopyalayabilir miyim?**
+**Bir Düzen Slaytını Bir Sunumdan Başka Bir Sunuma Kopyalayabilir miyim?**
 
-Evet, bir sunumun [layout_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/presentation/layout_slides/) koleksiyonundan bir düzen slaytını klonlayabilir ve `add_clone` yöntemiyle başka birine ekleyebilirsiniz.
+Evet. Hedef koleksiyona bir kopya eklemek için [add_clone](https://reference.aspose.com/slides/tr/python-net/aspose.slides/globallayoutslidecollection/add_clone/) yöntemini kullanın. Sunumlar arasında kopyalama yaparken, kaynak düzenin kullandığı yazı tiplerini, temaları, görüntüleri ve diğer kaynakları da doğrulayın.
 
-**Bir düzen slaytı hâlâ bir slayt tarafından kullanılıyorken silerseniz ne olur?**
+**Kullanımda Olan Bir Düzeni Değiştirirsem Ne Olur?**
 
-Bir düzen slaytı, sunumda en az bir slayt tarafından hâlâ referans alınıyorsa silmeye çalıştığınızda Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) fırlatır. Bunu önlemek için, yalnızca kullanılmayan düzen slaytlarını güvenle kaldıran [remove_unused_layout_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) yöntemini kullanın.
+Bağımlı slaytlar, yerel olarak etkilenmiş biçimlendirme veya nesneleri geçersiz kılmadıkları sürece düzen değişikliklerini kalıtır. Yer tutucu geometrisi ve kalıtılan stil, bir anda birçok slaytta değişebilir. Düzeni düzenlemeden önce etkilenen slaytları belirlemek için [get_depending_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides/layoutslide/get_depending_slides/) yöntemini kullanın.
+
+**Hâlâ Kullanımda Olan Bir Düzeni Kaldırırsam Ne Olur?**
+
+Aspose.Slides bir [PptxEditException](https://reference.aspose.com/slides/tr/python-net/aspose.slides/pptxeditexception/) hatası fırlatır. Önce bağımlı slaytları yeniden atayın veya yalnızca referans edilmeyen düzenleri kaldırmak için [remove_unused_layout_slides](https://reference.aspose.com/slides/tr/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) yöntemini kullanın.

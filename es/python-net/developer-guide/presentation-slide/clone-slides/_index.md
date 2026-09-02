@@ -103,7 +103,11 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 
 ## **Clonar a una posición específica en otra presentación**
 
-Si necesitas clonar una diapositiva de una presentación e insertarla en otra presentación en una posición específica:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación de origen (la que contiene la diapositiva a clonar).
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación de destino (donde se añadirá la diapositiva).
+1. Obtenga la colección de diapositivas de la presentación de destino.
+1. Llame al método `insert_clone` en la [SlideCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/) de destino, pasando la diapositiva de la presentación de origen y el índice de destino deseado.
+1. Guarde la presentación de destino modificada.
 
 1. Crea una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación origen (la que contiene la diapositiva a clonar).
 1. Crea una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación destino (donde se añadirá la diapositiva).
@@ -128,9 +132,16 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
 
 ## **Clonar una diapositiva con su diapositiva maestra en otra presentación**
 
-Si necesitas clonar una diapositiva **con su maestra** de una presentación y usarla en otra, primero clona la diapositiva maestra requerida de la presentación origen a la presentación destino. Luego usa esa maestra de destino al clonar la diapositiva. El método `add_clone(Slide, MasterSlide)` espera una **diapositiva maestra de la presentación destino**, no de la origen.
+Para clonar una diapositiva con su maestra, siga estos pasos:
 
-Para clonar una diapositiva con su maestra, sigue estos pasos:
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación de origen (la que contiene la diapositiva a clonar).
+1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación de destino.
+1. Acceda a la diapositiva de origen que se va a clonar y a su diapositiva maestra.
+1. Obtenga la [MasterSlideCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/masterslidecollection/) de la colección de maestras de la presentación de destino.
+1. Llame a `add_clone` en la [MasterSlideCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/masterslidecollection/) de destino, pasando la maestra de origen para clonarla en el destino.
+1. Obtenga la [SlideCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/) de la colección de diapositivas de la presentación de destino.
+1. Llame a `add_clone` en la [SlideCollection](https://reference.aspose.com/slides/es/python-net/aspose.slides/slidecollection/) de destino, pasando la diapositiva de origen y la maestra de destino clonada.
+1. Guarde la presentación de destino modificada.
 
 1. Crea una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación origen (la que contiene la diapositiva a clonar).
 1. Crea una instancia de la clase [Presentación](https://reference.aspose.com/slides/es/python-net/aspose.slides/presentation/) para la presentación destino.

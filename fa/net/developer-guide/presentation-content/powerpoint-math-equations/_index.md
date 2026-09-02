@@ -1,5 +1,5 @@
 ---
-title: افزودن معادلات ریاضی به ارائه‌های PowerPoint در .NET
+title: اضافه کردن معادلات ریاضی به ارائه‌های PowerPoint در .NET
 linktitle: معادلات ریاضی PowerPoint
 type: docs
 weight: 80
@@ -9,44 +9,44 @@ keywords:
 - نماد ریاضی
 - فرمول ریاضی
 - متن ریاضی
-- افزودن معادله ریاضی
-- افزودن نماد ریاضی
-- افزودن فرمول ریاضی
-- افزودن متن ریاضی
+- اضافه کردن معادله ریاضی
+- اضافه کردن نماد ریاضی
+- اضافه کردن فرمول ریاضی
+- اضافه کردن متن ریاضی
 - PowerPoint
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "در PowerPoint (PPT و PPTX) معادلات ریاضی را با Aspose.Slides برای .NET وارد و ویرایش کنید؛ پشتیبانی از OMML، ابزارهای قالب‌بندی، و نمونه‌های کد واضح C#."
+description: "درج و ویرایش معادلات ریاضی در فایل‌های PPT و PPTX PowerPoint با Aspose.Slides برای .NET، پشتیبانی از OMML، کنترل‌های قالب‌بندی، و نمونه‌های واضح کد C#."
 ---
-## **بررسی کلی**
+## **مروری کلی**
 
-PowerPoint معادلات را به صورت Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای .NET می‌توانید همان نوع محتوای ریاضی را به‌صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، حدها، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
+PowerPoint معادلات را به عنوان Office Math Markup Language (OMML) ذخیره می‌کند. با Aspose.Slides برای .NET، می‌توانید همان نوع محتویات ریاضی را به صورت برنامه‌نویسی ایجاد کنید: کسرها، رادیکال‌ها، توابع، محدودیت‌ها، عملگرهای N-ary، ماتریس‌ها، آرایه‌ها و بلوک‌های ریاضی قالب‌بندی‌شده.
 
 در PowerPoint، کاربران معمولاً معادلات را از **Insert > Equation** اضافه می‌کنند:
 
-![زبانه Insert در PowerPoint با انتخاب فرمان Equation](powerpoint-math-equations_1.png)
+![PowerPoint Insert tab with the Equation command selected](powerpoint-math-equations_1.png)
 
 نتیجه متن ریاضی قابل ویرایش بر روی اسلاید است:
 
-![یک اسلاید PowerPoint شامل یک معادله ریاضی قابل ویرایش](powerpoint-math-equations_2.png)
+![A PowerPoint slide containing an editable math equation](powerpoint-math-equations_2.png)
 
 Aspose.Slides این متن ریاضی را از طریق سه شیء اصلی می‌سازد:
 
-- یک شکل ریاضی، که با [AddMathShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addmathshape/) ساخته می‌شود، شکل حاوی معادله است.
-- [MathPortion](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathportion/) محتوای ریاضی را داخل فریم متن شکل ذخیره می‌کند.
-- [MathParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathparagraph/) حاوی یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathblock/) است.
+- یک شکل ریاضی که با [AddMathShape](https://reference.aspose.com/slides/fa/net/aspose.slides/ishapecollection/addmathshape/) ایجاد می‌شود، شکلی است که معادله را در خود دارد.
+- [MathPortion](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathportion/) محتویات ریاضی را داخل فریم متن شکل ذخیره می‌کند.
+- [MathParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathparagraph/) شامل یک یا چند شیء [MathBlock](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathblock/) است.
 
-اکثر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathematicaltext/) و روش‌های زنجیره‌ای [IMathElement](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/) برای کوتاه و خوانا نگه داشتن کد استفاده می‌کنند.
+اکثر مثال‌های زیر از [MathematicalText](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathematicaltext/) و روش‌های fluent از [IMathElement](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/) استفاده می‌کنند تا کد کوتاه و قابل خواندن باشد.
 
-برای سناریوهای صادرات MathML، به [صادرات معادلات ریاضی از ارائه‌ها در .NET](/slides/fa/net/exporting-math-equations/) مراجعه کنید.
+برای سناریوهای خروجی MathML، به [Export Math Equations from Presentations in .NET](/slides/fa/net/exporting-math-equations/) مراجعه کنید.
 
-## **ایجاد یک معادله**
+## **ایجاد معادله**
 
-این مثال یک شکل ریاضی ایجاد می‌کند و قضیه فیثاغورث را اضافه می‌کند:
+این مثال یک شکل ریاضی ایجاد می‌کند و قضیه فیثاغورث را اضافه می‌نماید:
 
-![معادله c² برابر a² به‌اضافه b²](powerpoint-math-equations_3.png)
+![The equation c squared equals a squared plus b squared](powerpoint-math-equations_3.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -68,14 +68,14 @@ presentation.Save("pythagorean-theorem.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="primary" %}}
-`AddMathShape` شکلی ایجاد می‌کند که از قبل شامل یک پاراگراف ریاضی است. اولین `MathPortion` را دسترسی بگیرید، `MathParagraph` آن را دریافت کنید و بلوک‌های ریاضی یا عناصر ریاضی را به آن اضافه کنید.
+`AddMathShape` یک شکلی ایجاد می‌کند که از پیش شامل یک پاراگراف ریاضی است. اولین `MathPortion` را دسترسی پیدا کنید، `MathParagraph` آن را دریافت کنید، و بلوک‌های ریاضی یا عناصر ریاضی را به آن اضافه کنید.
 {{% /alert %}}
 
 ## **افزودن کسرها**
 
-از `Divide` برای ایجاد یک کسر استفاده کنید. می‌توانید سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathfractiontypes/) انتخاب کنید.
+`Divide` برای ایجاد یک کسر استفاده می‌شود. می‌توانید یک سبک کسر را با [MathFractionTypes](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathfractiontypes/) انتخاب کنید.
 
-![یک کسر ریاضی منحنی که یک تقسیم بر x را نشان می‌دهد](powerpoint-math-equations_4.png)
+![A skewed math fraction showing one divided by x](powerpoint-math-equations_4.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -92,7 +92,7 @@ mathParagraph.Add(new MathBlock(fraction));
 presentation.Save("fraction.pptx", SaveFormat.Pptx);
 ```
 
-برای یک کسر چیده‌شده، از `MathFractionTypes.Bar` استفاده کنید:
+برای یک کسر تودرتو، از `MathFractionTypes.Bar` استفاده کنید:
 
 ```csharp
 var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFractionTypes.Bar);
@@ -100,9 +100,9 @@ var stackedFraction = new MathematicalText("x + 1").Divide("y - 1", MathFraction
 
 ## **افزودن رادیکال‌ها**
 
-از `Radical` برای ایجاد رادیکال درجه دوم، سوم یا دیگر ریشه‌ها استفاده کنید. عنصر جاری به عنوان پایه و آرگومان به عنوان درجه قرار می‌گیرد.
+`Radical` برای ایجاد ریشه دوم، ریشه سوم یا سایر ریشه‌ها استفاده می‌شود. عنصر فعلی به عنوان پایه می‌شود و آرگومان به عنوان درجه ریشه.
 
-![یک عبارت رادیکال nام با x زیر علامت رادیکال](powerpoint-math-equations_5.png)
+![An n-th root radical expression with x under the radical sign](powerpoint-math-equations_5.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -121,9 +121,9 @@ presentation.Save("radical.pptx", SaveFormat.Pptx);
 
 ## **افزودن توابع و حدها**
 
-از `AsArgumentOfFunction` یا `Function` برای توابعی مانند `sin(x)`، `log(x)` یا نام‌های توابع سفارشی استفاده کنید. برای حدها، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathlimit/) بگذارید یا از `SetLowerLimit` استفاده کنید.
+از `AsArgumentOfFunction` یا `Function` برای توابعی مانند `sin(x)`، `log(x)` یا نام‌های توابع سفارشی استفاده کنید. برای حدها، `lim` را در یک [MathLimit](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathlimit/) قرار دهید یا از `SetLowerLimit` استفاده کنید.
 
-![حد x زمانی که x به بی‌نهایت میل می‌کند](powerpoint-math-equations_8.png)
+![The limit of x as x approaches infinity](powerpoint-math-equations_8.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -141,7 +141,7 @@ mathParagraph.Add(new MathBlock(limit));
 presentation.Save("functions-and-limits.pptx", SaveFormat.Pptx);
 ```
 
-برای نام تابع سفارشی، نام تابع را به عنوان عنصر جاری تعیین کنید:
+برای نام تابع سفارشی، نام تابع را به عنوان عنصر فعلی تنظیم کنید:
 
 ```csharp
 var customFunction = new MathematicalText("f").Function("x + 1");
@@ -149,9 +149,9 @@ var customFunction = new MathematicalText("f").Function("x + 1");
 
 ## **افزودن عملگرهای N-ary و انتگرال‌ها**
 
-از `Nary` برای جمع‌ها، اتحادها، تقاطع‌ها و سایر عملگرهای بزرگ استفاده کنید. از `Integral` برای انتگرال‌ها استفاده کنید. هر دو روش به شما امکان تنظیم حدهای پایین و بالا را می‌دهند.
+از `Nary` برای جمع‌ها، اتحادیه‌ها، اشتراک‌ها و سایر عملگرهای بزرگ استفاده کنید. از `Integral` برای انتگرال‌ها استفاده کنید. هر دو روش امکان تنظیم حد پایین و بالا را می‌دهند.
 
-![یک جمع با حدهای پایین و بالا](powerpoint-math-equations_7.png)
+![A summation with lower and upper limits](powerpoint-math-equations_7.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -171,7 +171,7 @@ mathParagraph.Add(new MathBlock(summation));
 presentation.Save("nary-operators.pptx", SaveFormat.Pptx);
 ```
 
-عملگرهای N-ary برای عملگرهای بزرگ با حدهای اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌صورت `MathematicalText` افزوده شده و به عبارت پیوست می‌شوند.
+عملگرهای N-ary برای عملگرهای بزرگ با حدهای اختیاری هستند. عملگرهای ساده مانند `+`، `-` و `=` معمولاً به‌عنوان `MathematicalText` اضافه می‌شوند و به عبارت متصل می‌گردند.
 
 برای یک انتگرال، از `Integral` استفاده کنید:
 
@@ -182,9 +182,9 @@ var integral = integralBase.Integral(MathIntegralTypes.Simple, "0", "1");
 
 ## **افزودن ماتریس‌ها**
 
-از [MathMatrix](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها براکت ندارند، بنابراین برای نیاز به پرانتز، براکت یا کروشه ماتریس را درون آن‌ها بکشید.
+از [MathMatrix](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathmatrix/) برای ردیف‌ها و ستون‌ها استفاده کنید. به‌طور پیش‌فرض ماتریس‌ها پرانتز ندارند، بنابراین زمانی که به پرانتز، کروشه یا آکولاد نیاز دارید، ماتریس را درون آنها بگذارید.
 
-![یک ماتریس ریاضی دو ردیفی با یک سلول خالی](powerpoint-math-equations_10.png)
+![A two-row math matrix with one empty cell](powerpoint-math-equations_10.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -207,9 +207,9 @@ presentation.Save("matrix.pptx", SaveFormat.Pptx);
 
 ## **افزودن آرایه‌های معادله**
 
-از `ToMathArray` زمانی که به معادلات هم‌ردیف یا یک پشته عمودی از عبارات نیاز دارید استفاده کنید.
+از `ToMathArray` زمانی که به معادلات تراز شده یا یک پشته عمودی از عبارات نیاز دارید، استفاده کنید.
 
-![یک آرایه ریاضی عمودی با x بالاتر از y](powerpoint-math-equations_11.png)
+![A vertical math array with x above y](powerpoint-math-equations_11.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -229,9 +229,9 @@ presentation.Save("equation-array.pptx", SaveFormat.Pptx);
 
 ## **افزودن توابع مثلثاتی**
 
-از `AsArgumentOfFunction` زمانی که آرگومان عنصر جاری است و نام تابع شناخته‌شده است استفاده کنید.
+از `AsArgumentOfFunction` زمانی که آرگومان عنصر فعلی است و نام تابع شناخته شده است، استفاده کنید.
 
-![تابع مثلثاتی cos اعمال‌شده بر 2x](powerpoint-math-equations_6.png)
+![The trigonometric function cos applied to 2x](powerpoint-math-equations_6.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -250,9 +250,9 @@ presentation.Save("trigonometric-function.pptx", SaveFormat.Pptx);
 
 ## **افزودن زیرنویس و بالانویس**
 
-از کمک‌کننده‌های زیرنویس و بالانویس برای شاخص‌ها و توان‌ها استفاده کنید. هنگامی که شاخص‌ها باید در سمت چپ پایه ظاهر شوند، از `SetSubSuperscriptOnTheLeft` استفاده کنید.
+از ابزارهای زیرنویس و بالانویس برای اندیس‌ها و توان‌ها استفاده کنید. هنگامی که اندیس‌ها باید در سمت چپ پایه ظاهر شوند، از `SetSubSuperscriptOnTheLeft` استفاده کنید.
 
-![یک Y بزرگ با زیرنویس 1 در سمت چپ و بالانویس n](powerpoint-math-equations_9.png)
+![A capital Y with left-side subscript 1 and superscript n](powerpoint-math-equations_9.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -269,11 +269,11 @@ mathParagraph.Add(new MathBlock(scripts));
 presentation.Save("subscript-superscript.pptx", SaveFormat.Pptx);
 ```
 
-## **افزودن تقسیم‌کننده‌ها**
+## **افزودن جداکننده‌ها**
 
-از `Enclose` برای قرار دادن یک عبارت داخل تقسیم‌کننده‌ها استفاده کنید. می‌توانید کاراکتر جداکننده را برای عبارات تقسیم‌کننده‌ای که شامل چند عنصر هستند نیز تنظیم کنید.
+از `Enclose` برای قرار دادن یک عبارت داخل جداکننده‌ها استفاده کنید. همچنین می‌توانید کاراکتر جداساز را برای عبارات دارای چند عنصر تنظیم کنید.
 
-![یک عبارت تقسیم‌کننده شامل x ، y و z که با خطوط عمودی جدا شده‌اند](powerpoint-math-equations_13.png)
+![A delimiter expression containing x, y, and z separated by vertical bars](powerpoint-math-equations_13.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -295,9 +295,9 @@ presentation.Save("delimiters.pptx", SaveFormat.Pptx);
 
 ## **افزودن جعبه مرزی**
 
-از `ToBorderBox` زمانی که خود معادله باید در قالب یک جعبه قرار گیرد استفاده کنید.
+از `ToBorderBox` زمانی که خود معادله باید در یک قاب قرار گیرد، استفاده کنید.
 
-![یک معادله در جعبه که a² برابر b² به‌اضافه c² است](powerpoint-math-equations_12.png)
+![A boxed equation showing a squared equals b squared plus c squared](powerpoint-math-equations_12.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -321,9 +321,9 @@ presentation.Save("border-box.pptx", SaveFormat.Pptx);
 
 ## **گروه‌بندی عبارات**
 
-از `Group` برای قرار دادن یک کاراکتر گروه‌بندی بالای یا زیر یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی‌شده می‌توانید یک حد اضافه کنید.
+از `Group` برای قرار دادن یک کاراکتر گروه‌بندی بالا یا پایین یک عبارت استفاده کنید. برای برچسب‌گذاری عبارات گروه‌بندی شده، یک حد اضافه کنید.
 
-![عبارت x به‌اضافه y که با برچسب هر متنی در زیر آن گروه‌بندی شده است](powerpoint-math-equations_15.png)
+![The expression x plus y grouped with the label any text below it](powerpoint-math-equations_15.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -343,9 +343,9 @@ presentation.Save("grouped-terms.pptx", SaveFormat.Pptx);
 
 ## **قالب‌بندی عناصر ریاضی**
 
-از کمک‌کننده‌های قالب‌بندی فقط در جایی استفاده کنید که فرمول را واضح‌تر می‌کند. برای مثال، `Overbar` یک خط بالا روی عنصر ریاضی می‌گذارد.
+از ابزارهای قالب‌بندی فقط در جایی که فرمول را واضح‌تر می‌کند استفاده کنید. به‌عنوان مثال، `Overbar` بار را بالای یک عنصر ریاضی قرار می‌دهد.
 
-![یک عبارت ریاضی ABC با یک خط بالای آن](powerpoint-math-equations_14.png)
+![A math expression ABC with an overbar](powerpoint-math-equations_14.png)
 
 ```csharp
 using var presentation = new Presentation();
@@ -361,9 +361,9 @@ mathParagraph.Add(new MathBlock(overbar));
 presentation.Save("overbar.pptx", SaveFormat.Pptx);
 ```
 
-## **راهنمای سریع**
+## **مرجع سریع**
 
-| وظیفه | API اصلی |
+| کار | API اصلی |
 | --- | --- |
 | ایجاد متن ریاضی | [MathematicalText](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathematicaltext/) |
 | ترکیب عناصر | [IMathElement.Join](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/join/) |
@@ -376,20 +376,20 @@ presentation.Save("overbar.pptx", SaveFormat.Pptx);
 | افزودن جمع‌ها و انتگرال‌ها | [Nary](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/integral/) |
 | افزودن ماتریس‌ها | [MathMatrix](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathmatrix/) |
 | افزودن آرایه‌های معادله | [ToMathArray](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/tomatharray/) |
-| افزودن تقسیم‌کننده‌ها | [Enclose](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/enclose/) |
-| افزودن خط فوق و حاشیه | [Overbar](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/toborderbox/) |
+| افزودن جداکننده‌ها | [Enclose](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/enclose/) |
+| افزودن میله و قاب‌ها | [Overbar](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/toborderbox/) |
 | گروه‌بندی عبارات | [Group](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathelement/group/) |
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
 **آیا می‌توانم یک معادله موجود در PowerPoint را ویرایش کنم؟**
 
-بله. ارائه را باز کنید، شکلی که شامل `MathPortion` است پیدا کنید، `MathParagraph` آن را دریافت کنید و بلوک‌های ریاضی در آن پاراگراف را به‌روز کنید.
+بله. ارائه را باز کنید، شکلی که شامل یک `MathPortion` است پیدا کنید، `MathParagraph` آن را دریافت کنید، و بلوک‌های ریاضی در آن پاراگراف را به‌روز کنید.
 
 **آیا معادلات به‌صورت ریاضی قابل ویرایش PowerPoint ذخیره می‌شوند؟**
 
-بله. هنگام ذخیره به PPTX، Aspose.Slides معادله را به‌صورت محتوای ریاضی Office قابل ویرایش می‌نویسد.
+بله. زمانی که به قالب PPTX ذخیره می‌کنید، Aspose.Slides معادله را به‌عنوان محتوای ریاضی قابل ویرایش Office می‌نویسد.
 
 **آیا می‌توانم معادلات را به LaTeX صادر کنم؟**
 
-Aspose.Slides معادلات ریاضی را به MathML صادر می‌کند. اگر به LaTeX نیاز دارید، ابتدا به MathML صادر کنید و سپس با ابزاری که دیالکت LaTeX هدف شما را پشتیبانی می‌کند، MathML را تبدیل کنید.
+بله. معادله را از طریق [IMathParagraph](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathparagraph/) که از [MathPortion](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/mathportion/) دریافت می‌کنید، بگیرید و [IMathParagraph.ToLatex](https://reference.aspose.com/slides/fa/net/aspose.slides.mathtext/imathparagraph/tolatex/) را صدا بزنید تا مستقیماً صادر شود. برای یک مثال کامل، به [Export Math Equations from Presentations in .NET](/slides/fa/net/exporting-math-equations/#export-math-equations-to-latex) مراجعه کنید.

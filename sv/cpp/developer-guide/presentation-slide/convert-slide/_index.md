@@ -1,43 +1,41 @@
 ---
-title: Konvertera presentationsbilder till bilder i C++
-linktitle: Bild till bild
+title: "Konvertera presentationsbilder till bilder i C++"
+linktitle: "Bildspel till bild"
 type: docs
 weight: 41
 url: /sv/cpp/convert-slide/
 keywords:
-- konvertera bild
-- exportera bild
-- bild till bild
-- spara bild som bild
-- bild till PNG
-- bild till JPEG
-- bild till bitmap
-- bild till TIFF
-- PowerPoint
-- OpenDocument
-- presentation
-- C++
-- Aspose.Slides
-description: "Konvertera bilder från PPT, PPTX och ODP till bildfiler i C++ med Aspose.Slides—snabb, högkvalitativ rendering med tydliga kodexempel."
+- "konvertera bildspel"
+- "exportera bildspel"
+- "bildspel till bild"
+- "spara bildspel som bild"
+- "bildspel till PNG"
+- "bildspel till JPEG"
+- "bildspel till bitmap"
+- "bildspel till TIFF"
+- "PowerPoint"
+- "OpenDocument"
+- "presentation"
+- "C++"
+- "Aspose.Slides"
+description: "Konvertera bildspel från PPT, PPTX och ODP till bilder i C++ med Aspose.Slides – snabb rendering av hög kvalitet med tydliga kodexempel."
 ---
 ## **Introduktion**
 
-Aspose.Slides for C++ gör det enkelt att konvertera PowerPoint‑ och OpenDocument‑presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
+Aspose.Slides för C++ gör det enkelt att konvertera PowerPoint- och OpenDocument-presentationer till olika bildformat, inklusive BMP, PNG, JPG (JPEG), GIF och andra.
 
-För att konvertera en bild till en bildfil, följ dessa steg:
+För att konvertera en bild till en bild, följ dessa steg:
 
-1. Definera önskade konverteringsinställningar och välj de bilder du vill exportera genom att använda:
-    - Gränssnittet [ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/), eller
-    - Gränssnittet [IRenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/irenderingoptions/).
+1. Definiera önskade konverteringsinställningar och välj de bilder du vill exportera genom att använda:
+    - [ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/)‑gränssnittet, eller
+    - [IRenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/irenderingoptions/)‑gränssnittet.
 2. Generera bildfilen genom att anropa metoden [GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/).
 
-En [Bitmap](https://reference.aspose.com/slides/sv/cpp/system.drawing/bitmap/) är ett objekt som låter dig arbeta med bilder definierade av pixeldata. Du kan använda en instans av denna klass för att spara bilder i ett brett sortiment av format (BMP, JPG, PNG osv.).
+En [Bitmap](https://reference.aspose.com/slides/sv/cpp/system.drawing/bitmap/) är ett objekt som låter dig arbeta med bilder definierade av pixeldatapunkter. Du kan använda en instans av denna klass för att spara bilder i ett brett urval av format (BMP, JPG, PNG osv.).
 
-## **Konvertera bilder till bitmapar och spara dem i PNG**
+## **Konvertera bildspel till bitmapp och spara bilderna i PNG**
 
-Du kan konvertera en bild till ett bitmap‑objekt och använda det direkt i din applikation. Alternativt kan du konvertera en bild till en bitmap och sedan spara den i JPEG eller något annat önskat format.
-
-Denna C++‑kod visar hur man konverterar den första bilden i en presentation till ett bitmap‑objekt och sedan sparar bilden i PNG‑format:
+Du kan konvertera en bild till ett bitmappsobjekt och använda det direkt i din applikation. Alternativt kan du konvertera en bild till en bitmapp och sedan spara bilden i JPEG eller något annat föredraget format.
 
 ```cpp 
 auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
@@ -52,11 +50,9 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konvertera bilder till bildfiler med anpassade storlekar**
+## **Konvertera bildspel till bilder med anpassade storlekar**
 
-Du kan behöva en bild av en viss storlek. Genom att använda en överlagring av [GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/) kan du konvertera en bild till en bildfil med specifika dimensioner (bredd och höjd).
-
-Denna exempelkod visar hur man gör detta:
+Du kan behöva få en bild av en viss storlek. Genom att använda en overload från [GetImage](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/getimage/), kan du konvertera en bild till en bild med specifika dimensioner (bredd och höjd).
 
 ```cpp 
 Size imageSize(1820, 1040);
@@ -66,32 +62,30 @@ auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 // Konvertera den första bilden i presentationen till en bitmap med angiven storlek.
 auto image = presentation->get_Slide(0)->GetImage(imageSize);
 
-// Spara bilden i JPEG-format.
+// Spara bilden i JPEG-formatet.
 image->Save(u"Slide_0.jpg", ImageFormat::Jpeg);
 
 image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konvertera bilder med anteckningar och kommentarer till bildfiler**
+## **Konvertera bildspel med anteckningar och kommentarer till bilder**
 
 Vissa bilder kan innehålla anteckningar och kommentarer.
 
-Aspose.Slides tillhandahåller två gränssnitt—[ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/) och [IRenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/irenderingoptions/)—som låter dig styra rendering av presentationsbilder till bildfiler. Båda gränssnitten innehåller metoden `set_SlidesLayoutOptions`, som gör det möjligt att konfigurera rendering av anteckningar och kommentarer på en bild när den konverteras till en bildfil.
+Aspose.Slides tillhandahåller två gränssnitt—[ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/) och [IRenderingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/irenderingoptions/)—som låter dig kontrollera rendering av presentationsbilder till bilder. Båda gränssnitten inkluderar metoden `set_SlidesLayoutOptions`, som gör det möjligt att konfigurera rendering av anteckningar och kommentarer på en bild när den konverteras till en bild.
 
 Med klassen [NotesCommentsLayoutingOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/) kan du ange din föredragna position för anteckningar och kommentarer i den resulterande bilden.
-
-Denna C++‑kod visar hur du konverterar en bild med anteckningar och kommentarer:
 
 ```cpp 
 float scaleX = 2;
 float scaleY = scaleX;
 
-// Läs in en presentationsfil.
+// Ladda in en presentationsfil.
 auto presentation = MakeObject<Presentation>(u"Presentation_with_notes_and_comments.pptx");
 
 auto notesCommentsOptions = MakeObject<NotesCommentsLayoutingOptions>();
-notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Ange positionen för noterna.
+notesCommentsOptions->set_NotesPosition(NotesPositions::BottomTruncated);  // Ange positionen för anteckningarna.
 notesCommentsOptions->set_CommentsPosition(CommentsPositions::Right);      // Ange positionen för kommentarerna.
 notesCommentsOptions->set_CommentsAreaWidth(500);                          // Ange bredden på kommentarsområdet.
 notesCommentsOptions->set_CommentsAreaColor(Color::get_AntiqueWhite());    // Ange färgen för kommentarsområdet.
@@ -112,24 +106,22 @@ presentation->Dispose();
 
 {{% alert title="Note" color="warning" %}} 
 
-I vilken som helst bild‑till‑bildfil‑konverteringsprocess kan metoden [set_NotesPosition](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) inte tillämpa `BottomFull` (för att ange positionen för anteckningar) eftersom en antecknings text kan vara för stor för att få plats i den angivna bildstorleken.
+I alla bild‑till‑bild‑konverteringsprocesser kan metoden [set_NotesPosition](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/notescommentslayoutingoptions/set_notesposition/) inte tillämpa `BottomFull` (för att ange positionen för anteckningar) eftersom en antecknings text kan vara för stor för att få plats inom den angivna bildstorleken.
 
 {{% /alert %}} 
 
-## **Konvertera bilder till bildfiler med TIFF‑alternativ**
+## **Konvertera bildspel till bilder med TIFF-alternativ**
 
-Gränssnittet [ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/) ger större kontroll över den resulterande TIFF‑bilden genom att låta dig specificera parametrar såsom storlek, upplösning, färgpalett och mer.
-
-Denna C++‑kod demonstrerar en konverteringsprocess där TIFF‑alternativ används för att skapa en svart‑vit bild med 300 DPI upplösning och en storlek på 2160 × 2800:
+[ITiffOptions](https://reference.aspose.com/slides/sv/cpp/aspose.slides.export/itiffoptions/)‑gränssnittet ger större kontroll över den resulterande TIFF‑bilden genom att låta dig specificera parametrar såsom storlek, upplösning, färgpalett och mer.
 
 ```cpp 
-// Läs in en presentationsfil.
+// Ladda in en presentationsfil.
 auto presentation = MakeObject<Presentation>(u"sample.pptx");
 
-// Hämta den första bilden från presentationen.
+// Get the first slide from the presentation.
 auto slide = presentation->get_Slide(0);
 
-// Konfigurera inställningarna för den utgående TIFF-bilden.
+// Configure the settings of the output TIFF image.
 auto tiffOptions = MakeObject<TiffOptions>();
 tiffOptions->set_ImageSize(Size(2160, 2880));                       // Ange bildstorleken.
 tiffOptions->set_PixelFormat(ImagePixelFormat::Format1bppIndexed);  // Ange pixelformatet (svartvitt).
@@ -146,11 +138,9 @@ image->Dispose();
 presentation->Dispose();
 ```
 
-## **Konvertera alla bilder till bildfiler**
+## **Konvertera alla bildspel till bilder**
 
-Aspose.Slides låter dig konvertera alla bilder i en presentation till bildfiler, vilket effektivt omvandlar hela presentationen till en serie bilder.
-
-Denna exempelkod visar hur du konverterar alla bilder i en presentation till bildfiler i C++:
+Aspose.Slides låter dig konvertera alla bilder i en presentation till bilder, vilket effektivt konverterar hela presentationen till en serie bilder.
 
 ```cpp 
 float scaleX = 2;
@@ -179,16 +169,22 @@ for (int i = 0; i < presentation->get_Slides()->get_Count(); i++)
 presentation->Dispose();
 ```
 
+## **Färgad Emoji-rendering**
+
+{{% alert title="Note" color="warning" %}} 
+För att rendera färgade emojis korrekt när du konverterar presentationsbilder till bilder måste emojis‑teckensnitten som används i presentationen vara installerade och tillgängliga på systemet som utför konverteringen. Till exempel, om presentationen använder **Segoe UI Emoji** och detta teckensnitt saknas, kan emojis visas i monokrom i de genererade bilderna.
+{{% /alert %}}
+
 ## **FAQ**
 
 **Stöder Aspose.Slides rendering av bilder med animationer?**
 
 Nej, metoden `GetImage` sparar endast en statisk bild av bilden, utan animationer.
 
-**Kan dolda bilder exporteras som bildfiler?**
+**Kan dolda bilder exporteras som bilder?**
 
-Ja, dolda bilder kan behandlas precis som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
+Ja, dolda bilder kan bearbetas precis som vanliga. Se bara till att de inkluderas i bearbetningsloopen.
 
 **Kan bilder sparas med skuggor och effekter?**
 
-Ja, Aspose.Slides stöder rendering av skuggor, transparens och andra grafikeffekter när bilder sparas som bildfiler.
+Ja, Aspose.Slides stödjer rendering av skuggor, transparens och andra grafiska effekter när bilder sparas som bilder.

@@ -32,9 +32,21 @@ V Aspose.Slides pro Python prostřednictvím .NET poskytuje [slide collection](h
 pip install aspose.slides
 ```
 
-## **Klonovat na konci ve stejné prezentaci**
+## **Instalace**
 
-Pokud chcete klonovat snímek ve stejné prezentaci a připojit jej na konec existujících snímků, použijte metodu `add_clone`. Postupujte podle těchto kroků:
+```bash
+pip install aspose.slides
+```
+
+## **Installation**
+
+```bash
+pip install aspose.slides
+```
+
+## **Klonování na konci ve stejné prezentaci**
+
+Pokud chcete klonovat snímek ve stejné prezentaci a připojit jej na konec existujících snímků, použijte metodu `add_clone`. Postupujte podle následujících kroků:
 
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
 1. Získejte kolekci snímků z objektu [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/).
@@ -46,15 +58,15 @@ V níže uvedeném příkladu je první snímek (index 0) klonován a připojen 
 ```py
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation, která představuje soubor prezentace.
+# Vytvoří instanci třídy Presentation, která představuje soubor prezentace.
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
     # Naklonujte požadovaný snímek na konec kolekce snímků ve stejné prezentaci.
     presentation.slides.add_clone(presentation.slides[0])
-    # Uložte upravenou prezentaci na disk.
+    # Uloží upravenou prezentaci na disk.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klonovat na konkrétní pozici ve stejné prezentaci**
+## **Klonování na konkrétní pozici ve stejné prezentaci**
 
 Pokud chcete klonovat snímek ve stejné prezentaci a umístit jej na jinou pozici, použijte metodu `insert_clone`:
 
@@ -72,11 +84,11 @@ import aspose.slides as slides
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     # Naklonujte požadovaný snímek na určenou pozici (index) ve stejné prezentaci.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Uložte upravenou prezentaci na disk.
+    # Uloží upravenou prezentaci na disk.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klonovat na konci jiné prezentace**
+## **Klonování na konci jiné prezentace**
 
 Pokud potřebujete klonovat snímek z jedné prezentace a připojit jej na konec jiné prezentace:
 
@@ -101,7 +113,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klonovat na konkrétní pozici v jiné prezentaci**
+## **Klonování na konkrétní pozici v jiné prezentaci**
 
 Pokud potřebujete klonovat snímek z jedné prezentace a vložit jej do jiné prezentace na konkrétní pozici:
 
@@ -126,13 +138,13 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klonovat snímek s jeho hlavním snímkem do jiné prezentace**
+## **Klonovat snímek s jeho hlavním snímkem (master) do jiné prezentace**
 
 Pokud potřebujete klonovat snímek **s jeho hlavním snímkem** z jedné prezentace a použít jej v jiné, nejprve klonujte požadovaný hlavní snímek ze zdrojové prezentace do cílové prezentace. Poté použijte tento cílový hlavní snímek při klonování snímku. Metoda `add_clone(Slide, MasterSlide)` očekává **hlavní snímek z cílové prezentace**, ne ze zdrojové.
 
 Pro klonování snímku s jeho hlavním snímkem postupujte podle následujících kroků:
 
-1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) pro zdrojovou prezentaci (tu, která obsahuje snímek k klonování).
+1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) pro zdrojovou prezentaci (ta, která obsahuje snímek k klonování).
 1. Vytvořte instanci třídy [Presentation](https://reference.aspose.com/slides/cs/python-net/aspose.slides/presentation/) pro cílovou prezentaci.
 1. Získejte přístup k výstupnímu snímku, který má být klonován, a k jeho hlavnímu snímku.
 1. Získejte [MasterSlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/masterslidecollection/) z kolekce hlavních snímků cílové prezentace.
@@ -146,7 +158,7 @@ V níže uvedeném příkladu je snímek na indexu 0 ve zdrojové prezentaci klo
 ```py
 import aspose.slides as slides
 
-# Vytvořte instanci třídy Presentation, která představuje soubor zdrojové prezentace.
+# Vytvořte instanci třídy Presentation, která představuje zdrojový soubor prezentace.
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
     # Vytvořte instanci třídy Presentation pro cílovou prezentaci, kde bude snímek klonován.
     with slides.Presentation() as target_presentation:
@@ -162,7 +174,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klonovat na konci ve specifikované sekci**
+## **Klonovat na konci v určené sekci**
 
 S Aspose.Slides pro Python prostřednictvím .NET můžete klonovat snímek z jedné sekce prezentace a vložit jej do jiné sekce ve stejné prezentaci. K tomu použijte metodu `add_clone(Slide, Section)` třídy [SlideCollection](https://reference.aspose.com/slides/cs/python-net/aspose.slides/slidecollection/).
 

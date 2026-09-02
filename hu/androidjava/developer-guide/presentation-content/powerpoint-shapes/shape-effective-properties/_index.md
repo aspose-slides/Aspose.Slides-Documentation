@@ -1,315 +1,300 @@
 ---
-title: Alakzat hatékony tulajdonságainak lekérése prezentációkból Androidon
-linktitle: Hatékony tulajdonságok
+title: Alakzat Hatékony Tulajdonságainak Lekérése Prezentációkból Androidon
+linktitle: Hatékony Tulajdonságok
 type: docs
 weight: 50
 url: /hu/androidjava/shape-effective-properties/
 keywords:
 - alakzat tulajdonságok
 - kamera tulajdonságok
-- világítási rig
-- bevél alak
+- világítás
+- fokozott alakzat
 - szövegkeret
 - szövegstílus
 - betűmagasság
-- kitöltési formátum
+- kitöltés formátum
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan számítja ki és alkalmazza az Aspose.Slides Androidra Java segítségével a hatékony alakzattulajdonságokat a pontos PowerPoint megjelenítéshez."
+description: "Ismerje meg, hogyan használja az Aspose.Slides for Android Java-val a helyi, örökölt és hatékony alakzatformázás megkülönböztetésére a PowerPoint prezentációkban."
 ---
-## **Áttekintés**
+## **Helyi, örökölt és tényleges tulajdonságok megértése**
 
-Ez a téma elmagyarázza a **helyi** és **hatékony** tulajdonságok közötti különbséget. A helyi értékek olyan értékek, amelyeket közvetlenül egy adott formázási szinten állítanak be, például:
+A PowerPoint formázás több helyről származhat. Az objektumon közvetlenül tárolt érték a **helyi érték**. Ha ez az érték nincs beállítva, a PowerPoint a szülő formázási forrásokat nézi, például egy bekezdés alapértelmezettjét, egy szövegstílust, egy elrendezést vagy fődiát, egy témát vagy a prezentáció szintű alapértelmezéseket. Ezek az értékek **örökölt értékek**. Az az érték, amely a teljes hierarchia feloldása után megmarad, a **hatékony érték** — az objektum megjelenítéséhez használt érték.
 
-1. Részlet tulajdonságok egy diaon.
-1. Prototípus alakzat szövegstílusok egy elrendezésen vagy fődian, ha a részlet szövegkeret alakzata rendelkezik ilyennel.
-1. Globális szövegbeállítások egy bemutatóban.
+Például egy szövegrészlet nem definiálhatja a saját betűmagasságát. A helyi [getFontHeight](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) értéke ilyenkor `Float.NaN`, ami azt jelenti, hogy „nincs itt beállítva”. A részlet örökölhet magasságot a bekezdéséből, a bemutató alapértelmezett szövegstílusából vagy egy másik alkalmazható forrásból. A [getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportionformat/#getEffective--) meghívása a részlet formázásán a végső feloldott magasságot adja vissza.
 
-A helyi értékek meghatározhatók vagy elhagyhatók bármely szinten. Amikor az Aspose.Slides a végső „megjelenítettként” formázásra van szüksége, feloldja az öröklődési láncot, és **hatékony** értékeket ad vissza. Ezeket a helyi formátumobjektumon meghívott `getEffective()` metódussal kaphatja meg.
+Használd a kétféle formázási adatot különböző célokra:
 
-A következő példa azt mutatja, hogyan lehet hatékony értékeket lekérni. Feltételezi, hogy az első dia első alakzata egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) szövegkerettel és legalább egy résszel rendelkezik.
+- Olvasd vagy módosítsd a helyi formátumobjektumot, például a [IPortionFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportionformat/), ha szabályozni szeretnéd, hol van definiálva az érték.
+- Olvasd a hatékony adatobjektumot, például a [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportionformateffectivedata/), ha a végső, renderelt eredményre van szükséged. A hatékony adatok csak olvashatóak.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **Helyi, örökölt és hatékony értékek összehasonlítása**
 
-    ITextFrame textFrame = shape.getTextFrame();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrame.getTextFrameFormat().getEffective();
-
-    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormatEffectiveData effectivePortionFormat = portion.getPortionFormat().getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-A hatékony formázási adatok a jelenleg kiszámított formázást jelölik az öröklődés alkalmazása után. A jelenlegi megvalósításban néhány hatékony adatobjektum, például a [IPortionFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportionformateffectivedata/), belsőleg gyorsítótárazott lehet. A `getEffective()` újbóli meghívása a szülő vagy az örökölt formázás megváltoztatása után frissítheti a gyorsítótárazott adatokat, és egy korábban lekérdezett objektum már nem feltétlenül tükrözi a korábbi állapotot. Ha meg szeretné őrizni a hatékony értékeket későbbi felhasználásra, másolja a szükséges tulajdonságokat, például betűmagasság, kitöltőszín, betűstílus vagy igazítás, a saját adatobjektumába.
-{{% /alert %}}
-
-## **Hatékony kamera tulajdonságok lekérése**
-
-Az Aspose.Slides lehetővé teszi a kamera hatékony tulajdonságainak lekérését. A [ICameraEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icameraeffectivedata/) interfész egy immutable (változtathatatlan) objektumot képvisel, amely a hatékony kamera tulajdonságokat tartalmazza. Egy [ICameraEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icameraeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/) révén érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformat/) számára.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet a kamera hatékony tulajdonságait lekérni. Feltételezi, hogy az első dia első alakzata 3D formázással rendelkezik.
+Az alábbi teljes példa létrehoz egy alakzatot, és a prezentáció, a bekezdés és a részlet szintjén alkalmaz betűmagasságot. Minden lépés kiírja az adott szinten definiált értékeket, valamint ugyanannak a szövegrészletnek a kapott hatékony értékét. Emellett bemutatja, miért kell a hatékony adatot újra beolvasni a formázási módosítások után.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraEffectiveData.getCameraType());
-    System.out.println("Field of view: " + cameraEffectiveData.getFieldOfViewAngle());
-    System.out.println("Zoom: " + cameraEffectiveData.getZoom());
-} finally {
-    presentation.dispose();
-}
-```
+            // Határozza meg az örökölt értékeket két különböző szinten.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-## **Hatékony Light Rig tulajdonságok lekérése**
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Az Aspose.Slides lehetővé teszi a Light Rig hatékony tulajdonságainak lekérését. A [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilightrigeffectivedata/) interfész egy immutable (változtathatatlan) objektumot képvisel, amely a hatékony fényrig tulajdonságokat tartalmazza. Egy [ILightRigEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilightrigeffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/) révén érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformat/) számára.
+            // A részlet helyi értéke felülírja mindkét örökölt értéket.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-Az alábbi kódrészlet bemutatja, hogyan lehet a fényrig hatékony tulajdonságait lekérni. Feltételezi, hogy az első dia első alakzata 3D formázással rendelkezik.
+            // Az örökölt érték módosítása nem írja felül a meglévő helyi értéket.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+            // Törölje a helyi értéket. A részlet most újra a bekezdésből örököl.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
+            // Törölje a bekezdés értékét. A prezentáció alapértelmezése most adja a végeredményt.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightRigEffectiveData.getLightType());
-    System.out.println("Direction: " + lightRigEffectiveData.getDirection());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Hatékony bevel alakzat tulajdonságok lekérése**
-
-Az Aspose.Slides lehetővé teszi egy alakzat bevel hatékony tulajdonságainak lekérését. A [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapebeveleffectivedata/) interfész egy immutable (változtathatatlan) objektumot képvisel, amely a alakzat felületének hatékony relief tulajdonságait tartalmazza. Egy [IShapeBevelEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapebeveleffectivedata/) példány a [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/) révén érhető el, amely hatékony értékeket biztosít a [IThreeDFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformat/) számára.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet egy alakzat felső beveljének hatékony tulajdonságait lekérni. Feltételezi, hogy az első dia első alakzata 3D formázással rendelkezik.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTopEffectiveData = threeDEffectiveData.getBevelTop();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelTopEffectiveData.getBevelType());
-    System.out.println("Width: " + bevelTopEffectiveData.getWidth());
-    System.out.println("Height: " + bevelTopEffectiveData.getHeight());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Hatékony szövegkeret tulajdonságok lekérése**
-
-Az Aspose.Slides segítségével lekérheti egy szövegkeret hatékony tulajdonságait. A [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframeformateffectivedata/) interfész a hatékony szövegkeret formázási tulajdonságokat tartalmazza.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet a szövegkeret hatékony formázási tulajdonságait lekérni. Feltételezi, hogy az első dia első alakzata egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) szövegkerettel rendelkezik.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-
-    System.out.println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    System.out.println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    System.out.println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
-    System.out.println("Margins");
-    System.out.println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    System.out.println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    System.out.println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    System.out.println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Hatékony szövegstílus tulajdonságok lekérése**
-
-Az Aspose.Slides segítségével lekérheti egy szövegstílus hatékony tulajdonságait. A [ITextStyleEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextstyleeffectivedata/) interfész a hatékony szövegstílus tulajdonságokat tartalmazza.
-
-Az alábbi kódrészlet bemutatja, hogyan lehet a szövegstílus hatékony tulajdonságait lekérni. Feltételezi, hogy az első dia első alakzata egy [IAutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iautoshape/) szövegkerettel rendelkezik.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + effectiveStyleLevel.getDepth());
-        System.out.println("Indent: " + effectiveStyleLevel.getIndent());
-        System.out.println("Alignment: " + effectiveStyleLevel.getAlignment());
-        System.out.println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Olvassa be a hatékony adatot az előző módosítások után.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **A hatékony betűmagasság értékének lekérése**
+A példában a prioritás a részlet helyi formázása, majd a bekezdés formázása, végül a prezentáció alapértelmezése. Más objektumok rendelkezhetnek eltérő öröklődési láncokkal, de az elv ugyanaz: egy specifikusabb, explicit érték nyer, és a [getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportionformat/#getEffective--) visszaadja a végső eredményt.
 
-Az Aspose.Slides segítségével lekérheti a hatékony betűmagasságot. Az alábbi kód azt mutatja be, hogyan változik egy részlet hatékony betűmagassága, ha a helyi betűmagasság értékeket különböző prezentációs struktúra szinteken állítják be.
+## **Hatékony szövegtulajdonságok lekérése**
+
+Szövegformázás több objektumra oszlik:
+
+- A [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextframeformat/#getEffective--) feloldja a szövegkeret tulajdonságait, például a margókat, rögzítést, automatikus kitöltést és a függőleges szövegirányt.
+- A [ITextStyle.getEffective()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itextstyle/#getEffective--) feloldja a bekezdés formázását minden szövegstílus szinten.
+- A [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iparagraphformat/#getEffective--) feloldja a bekezdés tulajdonságait, mint az igazítás, behúzás és a felsorolásjeleket.
+- A [IPortionFormat.getEffective()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iportionformat/#getEffective--) feloldja a karaktertulajdonságokat, mint a betűmagasság, betűtípus, szín, félkövér és dőlt.
+
+A következő példához a `text-formatting.pptx` legalább egy diát és egy [AutoShape](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/autoshape/) nem üres szövegkerettel kell hogy tartalmazzon. Az AutoShape a forma gyűjtemény bármely pozíciójában megjelenhet; a kód keres egy megfelelő objektumot, és használat előtt ellenőrzi azt.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **A táblázat hatékony kitöltési formátumának lekérése**
+## **Hatékony 3D tulajdonságok lekérése**
 
-Az Aspose.Slides segítségével lekérheti a táblázat különböző részeinek hatékony kitöltési formátumát. A [IFillFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifillformateffectivedata/) interfész a hatékony kitöltési formázási tulajdonságokat tartalmazza. A cella formázásának nagyobb prioritása van, mint a sor formázásának, a sor formázásnak nagyobb prioritása van, mint az oszlop formázásának, és az oszlop formázásnak nagyobb prioritása van, mint a teljes táblázat formázásának.
+[AThreeDFormat.getEffective()](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformat/#getEffective--) egy [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/) objektumot ad vissza, amely csoportosítja az összes feloldott 3D beállítást. A [getCamera](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/#getCamera--), a [getLightRig](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), a [getBevelTop](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--) és a [getBevelBottom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) metódusok a megfelelő hatékony adatokat teszik elérhetővé. Ezeknek a kapcsolódó beállításoknak az egyszerre történő olvasása megkönnyíti egy alakzat végső 3D megjelenésének megértését.
 
-Ennek eredményeként a [ICellFormatEffectiveData](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icellformateffectivedata/) tulajdonságai használatosak a táblázatcellák kirajzolásához. Az alábbi kódrészlet bemutatja, hogyan lehet a táblázat különböző részeinek hatékony kitöltési formátumát lekérni. Feltételezi, hogy az első dia első alakzata egy [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itable/) objektum.
+A példához a `shape-3d.pptx` első diáján legalább egy alakzatnak kell lennie. Alkalmazz 3D kamerát, fényeket vagy fazett beállításokat arra az alakzatra, ha a kimenetnek az alapértelmezett beállításokon kívül is tartalmaznia kell értékeket.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IRow row = table.getRows().get_Item(0);
-    IColumn column = table.getColumns().get_Item(0);
-    ICell cell = table.get_Item(0, 0);
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
 
-    IFillFormatEffectiveData tableFillFormatEffective = table.getTableFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = row.getRowFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = column.getColumnFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cell.getCellFormat().getEffective().getFillFormat();
-} finally {
-    presentation.dispose();
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+## **Hatékony táblázatformázás lekérése**
+
+A táblázat formázása származhat a táblázat stílusból, valamint a teljes táblázatra, egy oszlopra, egy sorra vagy egy egyedi cellára alkalmazott formátumokból. Az explicit módon meghatározott kitöltések közti ütközések esetén a prioritás: cella, sor, oszlop, majd a teljes táblázat. A cella hatékony formátuma a végső formátum, amely a cella kirajzolásához használatos.
+
+A példához a `table-formatting.pptx` első diáján legalább egy táblázatnak kell lennie. A táblázatnak legalább egy sorral és egy oszloppal kell rendelkeznie. A kód egy [ITable](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/itable/) keres, ahelyett, hogy azt feltételezné, hogy a `getShapes().get_Item(0)` egy táblázat.
+
+```java
+import com.aspose.slides.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
+
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
+
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
+
+Ha a színt kell használnod, nem csak a kitöltés típusát, először ellenőrizd a hatékony [getFillType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifillformateffectivedata/#getFillType--), majd olvasd el az arra a típusra vonatkozó metódust – például a [getSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) egy szilárd kitöltés esetén.
+
+## **Hatékony adatok újraolvasása módosítások után**
+
+Az effektív adatok leírják a formázási hierarchiát a feloldás időpontjában. Hívd újra a `getEffective` metódust, miután megváltoztattál bármilyen elemet, amely részt vehet a hierarchiában, beleértve:
+
+- az objektum helyi formázását;
+- a bekezdés vagy szövegkeret alapértelmezéseit;
+- egy táblázat stílusát, táblázatot, oszlopot, sort vagy cellaformátumot;
+- elrendezés vagy fődia formázását;
+- témaadatokat vagy a prezentáció szintű alapértelmezéseket;
+- a diára hozzárendelt elrendezést vagy fődiát.
+
+Ne tarts egy hatékony adatobjektumot állandó pillanatképként. Az Aspose.Slides tárolhat néhány effektív adatot belső gyorsítótárban, és egy későbbi `getEffective` hívás frissítheti ezeket az adatokat. Ha össze kell hasonlítanod az értékeket módosítás előtt és után, másold a szükséges skalár értékeket – például betűmagasság, szín, igazítás vagy fazett szélesség – saját változóidba a módosítás előtt.
+
+Érték módosításához frissítsd a megfelelő helyi formátumobjektumot, majd hívd a `getEffective` metódust az eredmény ellenőrzéséhez. A hatékony adatobjektumok maguk csak olvashatóak.
 
 ## **GYIK**
 
-**A `getEffective()` pillanatképet ad vissza?**
+**Hogyan tudom megállapítani, melyik szint szolgáltatta a hatékony értéket?**
 
-Nem mindig. A hatékony adatok az öröklődés alkalmazása után kiszámított formázást jelölik, de egyes hatékony adatobjektumok belsőleg gyorsítótárazottak lehetnek. Egy későbbi `getEffective()` hívás újraszámíthatja a formázást és frissítheti a gyorsítótárazott adatokat, ezért egy korábban lekért objektumot nem szabad tartós pillanatképként kezelni.
+A hatékony adat tartalmazza a végső értéket, nem annak forrását. Vizsgáld meg az alkalmazandó helyi objektumokat a legspecifikusabb szintről kifelé. Szöveg esetén ez magában foglalhatja a részletet, a bekezdést, a szövegkeretet, az elrendezést, a fődiát, a témát és a prezentáció alapértelmezéseit. A nem definiált értékek, mint `Float.NaN` vagy `null`, azt jelzik, hogy a keresés egy másik szintre folytatódik.
 
-**Mikor kell újból beolvasni a hatékony tulajdonságokat?**
+**Mi történik, ha egyetlen szint sem definiál egy tulajdonságot?**
 
-Hívja meg a `getEffective()` metódust újra a helyi formázás, a szülő stílusok, az elrendezés, a fődia vagy a prezentáció szintű alapértelmezések módosítása után. A következő hívás újraértékeli a formázási hierarchiát és a jelenlegi hatékony eredményt adja vissza.
+Az Aspose.Slides a megfelelő PowerPoint vagy könyvtári alapértelmezést oldja fel. Ez a feloldott érték megjelenik a hatékony adatok között, még akkor is, ha egy helyi objektum sem definiálja kifejezetten.
 
-**A megváltoztatás vagy egy elrendezés/fődia eltávolítása befolyásolja a már lekért hatékony tulajdonságokat?**
+**Miért egyezik néha a hatékony érték a helyi értékkel?**
 
-Igen, de a változás csak a következő `getEffective()` híváskor jelenik meg. Ha egy szülő formázási forrás megváltozik vagy eltávolításra kerül, a korábban lekért hatékony adatok elavultak lehetnek. Amint a `getEffective()` újra végrehajtásra kerül, az Aspose.Slides újraértékeli a formázási fát, és a betűtípusok, színek, méretek vagy egyéb értékek módosulhatnak.
+A helyi érték nyerte meg az öröklődési számítást. Ez akkor várható, amikor a tulajdonság kifejezetten az objektumon van beállítva, és nincs specifikusabb szabály, amely felülírná.
 
-**Módosíthatok értékeket a hatékony adatobjektumokon keresztül?**
+**Mikor használjam a helyi adatot a hatékony adat helyett?**
 
-Nem. A hatékony adatobjektumok csak a számított értékeket mutatják. A módosításokat a helyi formázási objektumokban kell elvégezni, majd újra le kell kérni a hatékony értékeket.
-
-**Mi történik, ha egy tulajdonság nincs beállítva sem az alakzat szintjén, sem az elrendezésen/fődian, sem a globális beállításokban?**
-
-A hatékony értéket a alapértelmezett mechanizmus határozza meg, amely magában foglalja a PowerPoint és az Aspose.Slides alapértelmezéseit. Ez az eredményül kapott érték a jelenlegi hatékony adatok része lesz.
-
-**Az effektív betűérték alapján meg tudom határozni, melyik szint biztosította a méretet vagy a betűtípust?**
-
-Nem közvetlenül. A hatékony adat csak a végső értéket adja vissza. A forrás megtalálásához ellenőrizze a helyi értékeket a részlet, bekezdés, szövegkeret és a szövegstílusok szintjein az elrendezésen, a fődian és a prezentáción, hogy hol jelenik meg az első explicit definíció.
-
-**Miért tűnnek néha a hatékony értékek azonosnak a helyi értékekkel?**
-
-Mert a helyi érték végsővé vált (nem volt szükség magasabb szintű öröklődésre). Ilyenkor a hatékony érték megegyezik a helyi értékkel.
-
-**Mikor kell hatékony tulajdonságokat használni, és mikor csak a helyi értékekkel dolgozni?**
-
-Használjon hatékony adatokat, ha a "megjelenítettként" eredményre van szüksége az összes öröklődés után, például színek, behúzások vagy méretek összehangolásához. Ha ezeket az értékeket későbbi formázási változásoktól függetlenül meg kell őrizni, másolja a szükséges tulajdonságokat egy saját objektumba. Ha egy adott szinten szeretne formázást módosítani, változtassa meg a helyi tulajdonságokat, majd szükség esetén olvassa újra a hatékony adatokat az eredmény ellenőrzéséhez.
+Használd a helyi adatot egy adott formázási szint vizsgálatához vagy szerkesztéséhez. Használd a hatékony adatot, ha a végső megjelenésre van szükséged az öröklődés, a téma szabályok és az alkalmazható stílusok feloldása után. A [complete comparison example](#compare-local-inherited-and-effective-values) mindkettőt bemutatja ugyanabban a munkafolyamatban.

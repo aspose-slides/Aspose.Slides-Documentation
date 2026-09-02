@@ -20,7 +20,7 @@ description: "See why Aspose.Slides is a better choice than the free Open XML SD
 
 This article explains when developers might choose Open XML SDK or Aspose.Slides for working with presentation documents. It describes Open XML SDK as a library for manipulating OOXML packages and their underlying XML elements, while Aspose.Slides is presented as a presentation processing library with a high-level object model and support for many PowerPoint-related tasks.
 
-The article compares both options by supported formats, programming model, rendering and printing capabilities, platform support, and common use cases. It also clarifies that Open XML SDK may be suitable for basic PPTX operations or direct access to OOXML elements, while Aspose.Slides is more appropriate for complex presentation tasks such as working with multiple PowerPoint formats, copying or cloning shapes, replacing text, applying animations, and converting presentations to PDF, TIFF, or XPS.
+The article compares both options by supported formats, programming model, rendering, platform support, and common use cases. It also clarifies that Open XML SDK may be suitable for basic PPTX operations or direct access to OOXML elements, while Aspose.Slides is more appropriate for complex presentation tasks such as working with multiple PowerPoint formats, copying or cloning shapes, replacing text, applying animations, and converting presentations to PDF, TIFF, or XPS.
 
 ## **What Is Open XML SDK?**
 According to the [MSDN Library](https://docs.microsoft.com/en-us/office/open-xml/open-xml-sdk), Open XML SDK is defined as: 

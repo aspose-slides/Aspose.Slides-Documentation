@@ -5,7 +5,7 @@ type: docs
 url: /es/net/chart-series/
 keywords:
 - series de gráficos
-- superposición de series
+- solapamiento de series
 - color de series
 - color de categoría
 - nombre de serie
@@ -16,44 +16,50 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Aprenda a administrar series de gráficos en C# para PowerPoint (PPT/PPTX) con ejemplos de código prácticos y buenas prácticas para mejorar sus presentaciones de datos."
+description: "Aprenda a administrar series de gráficos, puntos de datos, celdas del libro de trabajo, formato, solapamiento, ancho de separación y valores negativos en presentaciones con C#."
 ---
+## **Visión general**
 
-## **Descripción general**
+Un gráfico almacena sus datos trazados en un libro de datos del gráfico. Un [IChartSeries](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/) representa un conjunto de valores relacionados, y cada [IChartDataPoint](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapoint/) de la serie se refiere a una o más celdas del libro. Los objetos [IChartCategory](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartcategory/) proporcionan las etiquetas o valores de agrupación compartidos por las series. Por lo tanto, el nombre de la serie, las categorías y los valores de los puntos están conectados a objetos [IChartDataCell](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatacell/) en lugar de almacenarse solo como texto visible.
 
-Este artículo describe el papel de [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/) en Aspose.Slides for .NET, centrándose en cómo se estructuran y visualizan los datos dentro de las presentaciones. Estos objetos proporcionan los elementos fundamentales que definen conjuntos individuales de puntos de datos, categorías y parámetros de apariencia en un gráfico. Al trabajar con [ChartSeries](https://reference.aspose.com/slides/net/aspose.slides.charts/chartseries/), los desarrolladores pueden integrar sin problemas fuentes de datos subyacentes y mantener un control total sobre cómo se muestra la información, lo que resulta en presentaciones dinámicas y basadas en datos que transmiten claramente ideas y análisis.
+Para un gráfico de categorías típico, el libro de datos predeterminado utiliza la fila 0 para los nombres de las series, la columna 0 para los nombres de las categorías y el resto de celdas para los valores de las series. Los índices de hoja, fila y columna que se pasan a [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/getcell/) son base cero. Este diseño es útil cuando crea un gráfico con datos predeterminados, pero no asuma que todo gráfico existente lo usa. Para una presentación cargada, inspeccione las celdas a las que hacen referencia las series, categorías y puntos de datos antes de cambiar los valores del libro.
 
-Una serie es una fila o columna de números representados en un gráfico.
+Los ajustes del gráfico tienen tres ámbitos diferentes:
 
-![serie-de-gráfica-powerpoint](chart-series-powerpoint.png)
+- Ajustes a nivel de serie, como [IChartSeries.Format](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/format/), que proporcionan la apariencia predeterminada para todos los puntos de una serie.
+- Ajustes de punto de datos, como [IChartDataPoint.Format](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapoint/format/), que sustituyen la apariencia de la serie para un punto.
+- Los ajustes de grupo se aplican a series compatibles que pertenecen al mismo [IChartSeriesGroup](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseriesgroup/). Acceda al grupo mediante [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/parentseriesgroup/) cuando necesite establecer opciones como solapamiento o ancho de separación.
 
-## **Establecer la superposición de series del gráfico**
+Cuando no se define un relleno explícito para el punto o la serie, el estilo y el tema del gráfico determinan la apariencia automática. Cuando existen formatos tanto para la serie como para el punto, el formato del punto tiene prioridad para ese punto.
 
-La propiedad [IChartSeriesOverlap](https://reference.aspose.com/slides/net/aspose.slides.charts/ichartseries/properties/overlap) controla cómo se superponen las barras y columnas en un gráfico 2D especificando un rango de -100 a 100. Dado que esta propiedad está asociada al grupo de series y no a una serie individual, es de solo lectura a nivel de serie. Para configurar los valores de superposición, utilice la propiedad de lectura/escritura `ParentSeriesGroup.Overlap`, que aplica la superposición especificada a todas las series del grupo.
+![chart-series-powerpoint](chart-series-powerpoint.png)
 
-A continuación se muestra un ejemplo en C# que demuestra cómo crear una presentación, añadir un gráfico de columnas agrupadas, acceder a la primera serie del gráfico, configurar la superposición y guardar el resultado como archivo PPTX:
+## **Establecer el solapamiento de series del gráfico**
+
+[IChartSeries.Overlap](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/overlap/) indica cuánto se solapan las barras o columnas en un gráfico 2D, de –100 a 100 por ciento. Es una proyección de solo lectura del ajuste en el grupo de series padre. Establezca [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseriesgroup/overlap/) para actualizar todas las series compatibles en ese grupo. Esta opción se aplica a los tipos de gráfico que muestran barras o columnas agrupadas; no afecta a los grupos de series no relacionados en un gráfico combinado.
+
+El siguiente ejemplo establece el solapamiento para el grupo que contiene la primera serie:
+
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // Agregar un gráfico de columnas agrupadas con datos predeterminados.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // Establecer la superposición de la serie.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// El nuevo gráfico contiene series, categorías y valores de muestra.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Guardar el archivo de presentación en disco.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
-
 
 El resultado:
 
@@ -61,29 +67,30 @@ El resultado:
 
 ## **Cambiar el color de relleno de la serie**
 
-Aspose.Slides facilita la personalización de los colores de relleno de las series del gráfico, lo que le permite resaltar puntos de datos específicos y crear gráficos visualmente atractivos. Esto se logra a través del objeto [IFormat](https://reference.aspose.com/slides/net/aspose.slides.charts/iformat/), que admite varios tipos de relleno, configuraciones de color y otras opciones avanzadas de estilo. Después de añadir un gráfico a una diapositiva y acceder a la serie deseada, simplemente obtenga la serie y aplique el color de relleno apropiado. Más allá de los rellenos sólidos, también puede aprovechar los rellenos degradados o de patrón para una mayor flexibilidad de diseño. Una vez que haya establecido los colores según sus requisitos, guarde la presentación para finalizar el aspecto actualizado.
+Utilice [IChartSeries.Format](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/format/) para definir el relleno predeterminado de una serie completa. Si un punto ya tiene un relleno explícito, su ajuste [IChartDataPoint.Format](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapoint/format/) sustituye el relleno de la serie para ese punto.
 
-El siguiente ejemplo en C# muestra cómo cambiar el color de la primera serie:
+El siguiente ejemplo aplica un relleno sólido azul a la primera serie:
+
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // Añadir un gráfico de columnas agrupadas con datos predeterminados.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Establecer el color de la primera serie.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Guardar el archivo de presentación en disco.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
-
 
 El resultado:
 
@@ -91,49 +98,52 @@ El resultado:
 
 ## **Cambiar el nombre de la serie**
 
-Aspose.Slides ofrece una manera sencilla de modificar los nombres de las series del gráfico, facilitando el etiquetado de datos de forma clara y significativa. Al acceder a la celda de hoja de cálculo correspondiente en los datos del gráfico, los desarrolladores pueden personalizar la forma en que se presentan los datos. Esta modificación es particularmente útil cuando los nombres de las series deben actualizarse o aclararse según el contexto de los datos. Después de cambiar el nombre de la serie, la presentación puede guardarse para preservar los cambios.
+El nombre de una serie se almacena en el libro de datos del gráfico y normalmente se muestra en la leyenda. En el libro predeterminado creado para un gráfico de columnas agrupadas, la celda B1 está en la fila 0, columna 1 y contiene el nombre de la primera serie. Las constantes nombradas en el siguiente ejemplo hacen explícita esa estructura:
 
-A continuación se muestra un fragmento de código C# que demuestra este proceso en acción.
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // Añadir un gráfico de columnas agrupadas con datos predeterminados.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Establecer el nombre de la primera serie.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Guardar el archivo de presentación en disco.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
+También puede actualizar la celda ya referenciada por [IChartSeries.Name](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/name/). Este enfoque evita suponer una fila y columna determinadas en un gráfico existente:
 
-El siguiente fragmento de código C# muestra una forma alternativa de cambiar el nombre de la serie:
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // Añadir un gráfico de columnas agrupadas con datos predeterminados.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Establecer el nombre de la primera serie.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Guardar el archivo de presentación en disco.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
-
 
 El resultado:
 
@@ -141,174 +151,231 @@ El resultado:
 
 ## **Obtener el color de relleno automático de la serie**
 
-Aspose.Slides for .NET le permite obtener el color de relleno automático para series del gráfico dentro del área de trazado. Después de crear una instancia de la clase [Presentation](https://reference.aspose.com/slides/net/aspose.slides/presentation/), puede obtener una referencia a la diapositiva deseada por índice y, a continuación, añadir un gráfico usando el tipo que prefiera (como `ChartType.ClusteredColumn`). Al acceder a las series del gráfico, puede obtener el color de relleno automático.
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) devuelve el color calculado a partir del índice de la serie y del estilo del gráfico. Este es el color que se usa cuando el relleno de la serie no se ha definido explícitamente. Llamar al método lee el color calculado; no asigna un nuevo relleno.
 
-El código C# a continuación demuestra este proceso en detalle.
+El siguiente ejemplo muestra el color automático de cada serie predeterminada:
+
 ```cs
-using (Presentation presentation = new Presentation())
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
 {
-    ISlide slide = presentation.Slides[0];
-
-    // Añadir un gráfico de columnas agrupadas con datos predeterminados.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // Obtener el color de relleno de la serie.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
 }
 ```
 
+Salida de ejemplo para el estilo de gráfico predeterminado:
 
-Salida:
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
+Los colores exactos dependen del estilo y del tema del gráfico.
 
-## **Establecer color de relleno invertido para una serie del gráfico**
+## **Establecer el color de relleno invertido para una serie del gráfico**
 
-Cuando su serie de datos contiene valores positivos y negativos, colorear todas las columnas o barras de la misma forma puede dificultar la lectura del gráfico. Aspose.Slides for .NET le permite asignar un color de relleno invertido, un relleno separado que se aplica automáticamente a los puntos de datos que están por debajo de cero, de modo que los valores negativos se destaquen de un vistazo. En esta sección aprenderá a habilitar esa opción, elegir un color adecuado y guardar la presentación actualizada.
+Para series de barras, columnas y burbujas, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/invertifnegative/) puede mostrar los valores negativos con un relleno diferente. Establezca el relleno regular de la serie a sólido, habilite la inversión y asigne el color para valores negativos mediante [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Los números negativos permanecen sin cambios en el libro; solo cambia su color de visualización.
 
-El siguiente ejemplo de código demuestra la operación:
+El siguiente ejemplo reemplaza los datos del gráfico predeterminados por una única serie. La fila 0 de la hoja contiene el nombre de la serie, la columna 0 contiene los nombres de las categorías y la columna 1 contiene los valores:
+
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Agregar nuevas categorías.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // Agregar una nueva serie.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Poblar los datos de la serie.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // Establecer la configuración de color para la serie.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
-```
 
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+```
 
 El resultado:
 
 ![Color de relleno sólido invertido](inverted_solid_fill_color.png)
 
-Puede invertir el color de relleno para un solo punto de datos en lugar de toda la serie. Simplemente acceda al `IChartDataPoint` deseado y establezca su propiedad `InvertIfNegative` en true.
+Puede habilitar la inversión para un punto mediante [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). En el siguiente ejemplo, la inversión está desactivada para la serie y activada solo para el punto seleccionado. Además, al punto se le asigna un valor negativo para que el efecto sea visible:
 
-El siguiente ejemplo de código muestra cómo hacerlo:
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Invertir el color si el punto de datos en el índice 2 es negativo.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
+## **Borrar el valor de un punto de datos específico**
 
-## **Borrar valores específicos de puntos de datos**
+Para dejar vacío un punto sin eliminar los demás, establezca su celda de respaldo en el libro a `null`. En un gráfico de columnas, el valor trazado está disponible mediante [IChartDataPoint.YValue](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapoint/yvalue/). El punto de datos permanece en la misma posición de categoría, pero el gráfico trata su valor como vacío según la configuración de valores en blanco del gráfico.
 
-A veces un gráfico contiene valores de prueba, valores atípicos o entradas obsoletas que necesita eliminar sin volver a crear toda la serie. Aspose.Slides for .NET le permite apuntar a cualquier punto de datos por índice, borrar su contenido y refrescar instantáneamente el trazado para que los puntos restantes se desplacen y los ejes se reescalen automáticamente.
+El siguiente ejemplo borra solo el segundo punto de la primera serie:
 
-El siguiente ejemplo de código demuestra la operación:
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
+Los gráficos de dispersión usan celdas X e Y separadas, y los gráficos de burbujas también utilizan una celda de tamaño. Borre solo la celda que representa el valor que desea eliminar. No llame a [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapointcollection/clear/) cuando quiera conservar los demás puntos, porque ese método elimina todos los puntos de datos de la colección.
 
-## **Establecer el ancho del espacio entre series**
+## **Establecer el ancho de separación de la serie**
 
-El ancho del espacio controla la cantidad de espacio vacío entre columnas o barras adyacentes: los espacios más amplios enfatizan categorías individuales, mientras que los espacios más estrechos crean un aspecto más denso y compacto. A través de Aspose.Slides for .NET puede ajustar finamente este parámetro para una serie completa, logrando el equilibrio visual exacto que su presentación requiere sin alterar los datos subyacentes.
+El ancho de separación es el espacio entre clusters de barras o columnas adyacentes, expresado como porcentaje del ancho de la barra o columna. Al igual que el solapamiento, pertenece al grupo de series padre y no a una serie individual. Establezca [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) una sola vez para el grupo. Un valor mayor crea más espacio entre clusters; un valor menor los hace más densos.
 
-El siguiente ejemplo de código muestra cómo establecer el ancho del espacio para una serie:
+El siguiente ejemplo modifica el ancho de separación y guarda solo la presentación final:
+
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Crear una presentación vacía.
-using (Presentation presentation = new Presentation())
-{
-    // Acceder a la primera diapositiva.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // Agregar un gráfico con datos predeterminados.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Guardar la presentación en disco.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // Establecer el valor de GapWidth.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // Guardar la presentación en disco.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
-
 
 El resultado:
 
-![Ancho del espacio](gap_width.png)
+![Ancho de separación](gap_width.png)
 
-## **Preguntas frecuentes**
+## **FAQ**
 
-**¿Existe un límite en la cantidad de series que puede contener un gráfico único?**
+**¿Qué tipos de gráfico admiten series de datos?**
 
-Aspose.Slides no impone una capa fija al número de series que añada. El techo práctico está determinado por la legibilidad del gráfico y por la memoria disponible para su aplicación.
+Todos los tipos de gráfico representados por la enumeración [ChartType](https://reference.aspose.com/slides/es/net/aspose.slides.charts/charttype/) utilizan datos de gráfico, pero sus series no comparten la misma estructura de valores ni los mismos ajustes. Por ejemplo, los gráficos de categorías usan categorías y valores, los gráficos de dispersión usan valores X e Y, y los gráficos de burbujas añaden tamaños de burbuja. Use el método de creación de puntos de datos que corresponda al tipo de serie. Opciones como solapamiento y ancho de separación solo se aplican a grupos de barras o columnas compatibles.
 
-**¿Qué pasa si las columnas dentro de un clúster están demasiado juntas o demasiado separadas?**
+**¿Qué es un grupo de series de gráfico?**
 
-Ajuste la configuración `GapWidth` para esa serie (o su grupo de series padre). Incrementar el valor amplía el espacio entre columnas, mientras que disminuirlo las acerca más.
+Un [IChartSeriesGroup](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseriesgroup/) contiene series compatibles que comparten ajustes de trazado a nivel de grupo. Un gráfico combinado puede contener más de un grupo, por lo que cambiar el grupo al que se accede mediante una serie no modifica necesariamente todas las series del gráfico.
+
+**¿Un gráfico recién creado contiene datos predeterminados?**
+
+Sí. Por defecto, [IShapeCollection.AddChart](https://reference.aspose.com/slides/es/net/aspose.slides/ishapecollection/addchart/) crea series, categorías y valores de ejemplo. Puede editar esas celdas o borrar tanto las colecciones de series como de categorías antes de añadir un conjunto de datos completamente personalizado. Otra sobrecarga también puede crear un gráfico sin datos predeterminados.
+
+**¿Cómo se conectan los objetos del gráfico a las celdas del libro?**
+
+Los nombres de series, las etiquetas de categoría y los valores de los puntos de datos hacen referencia a celdas en un [IChartDataWorkbook](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdataworkbook/). Cambiar una celda referenciada actualiza el elemento correspondiente del gráfico. Cuando construye datos personalizados, mantenga alineadas las filas de categorías y las filas de valores de series para que cada punto se trace bajo la categoría prevista.
+
+**¿Cómo borro un punto sin eliminar toda la serie?**
+
+Establezca la celda de valor correspondiente a `null` para conservar la posición de categoría del punto como un punto vacío. Utilice [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapointcollection/clear/) solo cuando pretenda eliminar todos los puntos de esa serie. Si también elimina categorías, actualice todas las series para que sus valores sigan alineados con la colección de categorías.
+
+**¿Cómo se muestran los puntos vacíos?**
+
+El resultado depende del tipo de gráfico y de [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichart/displayblanksas/). Los gráficos compatibles pueden mostrar los vacíos como huecos, como valores cero o conectando los puntos vecinos. Elija la configuración que corresponda al significado de los datos ausentes en su presentación.
+
+**¿Cómo se formatean los valores negativos?**
+
+Para series de barras, columnas y burbujas admitidas, habilite [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/invertifnegative/) y establezca [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Puede anular el comportamiento para un punto individual con [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Estas propiedades afectan al formato, no a los valores numéricos almacenados.
+
+**¿Qué formato tiene prioridad cuando tanto la serie como el punto están formateados?**
+
+El formato explícito del punto de datos tiene prioridad para ese punto. Los demás puntos continúan usando el formato explícito de la serie o, cuando el formato de la serie no está definido, el estilo y tema automático del gráfico. Las propiedades del grupo, como solapamiento y ancho de separación, controlan la disposición y no son sobrescrituras de formato a nivel de punto.
+
+**¿Existe un límite en la cantidad de series que puede contener un gráfico?**
+
+Aspose.Slides no impone un límite fijo separado de series. En la práctica, las limitaciones del archivo de presentación, la memoria disponible, el tiempo de renderizado y la legibilidad del gráfico determinan un límite útil.
+
+**¿Qué debo cambiar cuando las columnas están demasiado juntas o demasiado separadas?**
+
+Establezca [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/es/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) en el grupo de series padre correspondiente. Aumente el valor para ampliar el espacio entre clusters o disminúyalo para acercar los clusters.

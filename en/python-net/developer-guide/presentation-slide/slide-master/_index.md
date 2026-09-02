@@ -42,7 +42,7 @@ In Aspose.Slides, a slide master is represented by the [MasterSlide](https://ref
 
 {{% alert color="info" title="Inheritance" %}}
 
-When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/python-net/slide-layout/).
+When the same property is defined at more than one level, the more specific level wins. For example, if a master slide and a layout slide both define a background, slides based on that layout use the layout background. For more information about layout slides, see [Apply or Change Slide Layouts](/slides/python-net/slide-layout/).
 
 {{% /alert %}}
 
@@ -123,7 +123,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-with-logo.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-For more information about picture frames, see [Picture Frame](/python-net/picture-frame/).
+For more information about picture frames, see [Picture Frame](/slides/python-net/picture-frame/).
 
 ## **Work with Placeholders**
 
@@ -188,7 +188,7 @@ with slides.Presentation("presentation.pptx") as presentation:
 
 ![Formatted title placeholder inherited by normal slides](slide-master_8.png)
 
-For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/python-net/manage-placeholder/) and [Text Formatting](/python-net/text-formatting/).
+For more placeholder and text formatting options, see [Set Prompt Text in Placeholder](/slides/python-net/manage-placeholder/) and [Text Formatting](/slides/python-net/text-formatting/).
 
 ## **Change a Slide Master Background**
 
@@ -208,7 +208,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-For related topics, see [Presentation Background](/python-net/presentation-background/) and [Presentation Theme](/python-net/presentation-theme/).
+For related topics, see [Presentation Background](/slides/python-net/presentation-background/) and [Presentation Theme](/slides/python-net/presentation-theme/).
 
 ## **Clone a Slide Master to Another Presentation**
 
@@ -225,7 +225,7 @@ with slides.Presentation("source.pptx") as source_presentation:
         destination_presentation.save("destination-with-master.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-If you need to clone normal slides together with their master, see [Clone Slides](/python-net/clone-slides/).
+If you need to clone normal slides together with their master, see [Clone Slides](/slides/python-net/clone-slides/).
 
 ## **Add Multiple Slide Masters**
 
@@ -284,7 +284,7 @@ with slides.Presentation("first.pptx") as first_presentation:
                             second_master_index))
 ```
 
-For more information, see [Compare Presentation Slides](/python-net/compare-slides/).
+For more information, see [Compare Presentation Slides](/slides/python-net/compare-slides/).
 
 ## **Set Slide Master View as the Default View**
 
@@ -298,7 +298,7 @@ with slides.Presentation("presentation.pptx") as presentation:
     presentation.save("presentation-master-view.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-For more view settings, see [Save Presentation](/python-net/save-presentation/).
+For more view settings, see [Save Presentation](/slides/python-net/save-presentation/).
 
 ## **Remove Unused Master Slides**
 

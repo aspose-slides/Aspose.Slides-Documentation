@@ -1,5 +1,5 @@
 ---
-title: JavaScript'te Sunum Yer Tutucularını Yönet
+title: Sunum Yer Tutucularını JavaScript ile Yönet
 linktitle: Yer Tutucuları Yönet
 type: docs
 weight: 10
@@ -7,126 +7,437 @@ url: /tr/nodejs-java/manage-placeholder/
 keywords:
 - yer tutucu
 - metin yer tutucu
-- görsel yer tutucu
+- resim yer tutucu
 - grafik yer tutucu
-- istem metni
+- içerik yer tutucu
+- ipucu metni
 - PowerPoint
-- OpenDocument
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aspose.Slides for Node.js via Java ile yer tutucuları zahmetsizce yönetin: metni değiştirin, istemleri özelleştirin ve PowerPoint ve OpenDocument'te görsel şeffaflığını ayarlayın."
+description: "Aspose.Slides for Node.js ile Java üzerinden metin, resim, grafik ve içerik yer tutucularını incelemeyi ve düzenlemeyi, ayrıca yer tutucu kalıtımını öğrenin."
 ---
 ## **Genel Bakış**
 
-Aspose.Slides, sunum yer tutucularını programlı olarak yönetmenizi sağlar. Bu makale, slaytlardaki yer tutucuları nasıl bulup metinlerini değiştireceğinizi, yer tutucu düzenleri için özel istem metni nasıl ayarlayacağınızı ve bir yer tutucu arka planı olarak kullanılan resmin şeffaflığını nasıl ayarlayacağınızı açıklar. Ayrıca, temel yer tutucular ile yerel şekiller arasındaki farkı netleştiren kısa bir SSS bölümü, yer tutucu değişikliklerinin düzenler veya masterlar aracılığıyla nasıl uygulanabileceğini ve başlık ile alt bilgi yer tutucularının yönetimine dair ipuçlarını içerir.
+Bir yer tutucu, bir sunum şablonunda belirli bir içerik türü için bir konumu ayıran bir şekildir. Yaygın örnekler başlık, gövde, resim, grafik ve genel amaçlı içerik yer tutucularıdır. Normal bir şekilden farklı olarak, yer tutucu konumunu, boyutunu, biçimlendirmesini ve diğer ayarları bir yerleşim slaytından veya ana slayttan miras alabilir.
 
-## **Yer Tutucudaki Metni Değiştir**
+Aspose.Slides, yer tutucu bilgilerini [Shape.getPlaceholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getPlaceholder) yöntemiyle sunar. Yöntem, normal bir şekil için `null` döndürür ve bir [Placeholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholder/) nesnesi döndürür. Yer tutucunun ne içerdiğini belirlemek için [Placeholder.getType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholder/#getType) yöntemini kullanın.
 
-[ Aspose.Slides for Node.js via Java](/slides/tr/nodejs-java/) kullanarak, sunumlardaki slaytlarda yer tutucuları bulabilir ve değiştirebilirsiniz. Aspose.Slides, bir yer tutucudaki metni değiştirme imkanı sunar.
+Yer tutucu türünü öğrendikten sonra şekil sınıfı hâlâ önemlidir:
 
-**Önkoşul**: Yer tutucu içeren bir sunuma ihtiyacınız var. Bu tür bir sunumu standart Microsoft PowerPoint uygulamasında oluşturabilirsiniz.
+- Boş bir metin, resim, grafik veya içerik yer tutucusu genellikle bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) ile temsil edilir.
+- Dolu bir resim yer tutucusu bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) ile temsil edilebilir.
+- Dolu bir grafik yer tutucusu bir [Chart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/) ile temsil edilebilir.
+- Bir içerik yer tutucusu çeşitli içerik türlerini barındırabilir. Her yer tutucunun bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) olduğunu varsaymak yerine hem [Placeholder.getType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholder/#getType) hem de çalışma zamanı şekil sınıfını kontrol edin.
 
-Aspose.Slides kullanarak bu sunumdaki yer tutucunun metnini nasıl değiştireceğiniz aşağıda gösterilmiştir:
+{{% alert color="warning" title="Warning" %}}
+[Placeholder.getType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholder/#getType) bir yer tutucunun rolünü tanımlar; şeklin çalışma zamanı tipini garanti etmez. Metin, resim, grafik, tablo veya medya öğelerine erişmeden önce her zaman bir tip kontrolü yapın.
+{{% /alert %}}
 
-1. [`Presentation`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun ve sunumu argüman olarak geçirin.  
-2. Slayt referansını indeks üzerinden alın.  
-3. Şekilleri döngüye alarak yer tutucuyu bulun.  
-4. Yer tutucu şekli bir [`AutoShape`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AutoShape) tipine dönüştürün ve ilgili [`AutoShape`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AutoShape) ile ilişkili [`TextFrame`](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/TextFrame) kullanarak metni değiştirin.  
-5. Değiştirilmiş sunumu kaydedin.
+## **Yer Tutucu Mirasını Anlama**
 
-Bu JavaScript kodu, yer tutucudaki metnin nasıl değiştirileceğini gösterir:
+Yer tutucular bir hiyerarşi oluşturur:
+
+1. Bir ana slayt, yeniden kullanılabilir stiller ve bazı durumlarda ana‑seviye yer tutucular tanımlar.
+2. Bir yerleşim slaytı, bir veya daha fazla normal slayt tarafından kullanılan düzeni tanımlar ve ana slayttan miras alabilir.
+3. Normal bir slayt, o slayt için yer tutucuları içerir ve yerleşiminden miras alabilir.
+
+Bu hiyerarşide bir seviye yukarı çıkmak için [Shape.getBasePlaceholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getBasePlaceholder) yöntemini çağırın. Bir slayt yer tutucusu genellikle yerleşim yer tutucusunu döndürür; bir yerleşim yer tutucusu ise ana yer tutucusunu döndürebilir. Şeklin temel yer tutucusu yoksa yöntem `null` döndürür.
+
+Aşağıdaki örnek, ilk slayttaki yer tutucuları listeler ve temel yer tutucularını raporlar:
 
 ```javascript
-// Bir Presentation sınıfı örnekler
-var pres = new aspose.slides.Presentation("ReplacingText.pptx");
-try {
-    // İlk slayta erişir
-    var sld = pres.getSlides().get_Item(0);
-    // Yer tutucuyu bulmak için şekilleri iterasyonla dolaşır
-    for (let i = 0; i < sld.getShapes().size(); i++) {
-        let shp = sld.getShapes().get_Item(i);
-        if (shp.getPlaceholder() != null) {
-            // Her yer tutucudaki metni değiştirir
-            shp.getTextFrame().setText("This is Placeholder");
-        }
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function getShapeClassName(shape) {
+    if (java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+        return "AutoShape";
     }
-    // Sunumu diske kaydeder
-    pres.save("output.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+        return "PictureFrame";
     }
+
+    if (java.instanceOf(shape, "com.aspose.slides.IChart")) {
+        return "Chart";
+    }
+
+    return "Shape";
 }
-```
 
-## **Yer Tutucuda İstem Metni Ayarla**
-
-Standart ve önceden oluşturulmuş düzenler, ***Click to add a title*** veya ***Click to add a subtitle*** gibi yer tutucu istem metinleri içerir. Aspose.Slides kullanarak, yer tutucu düzenlerine tercih ettiğiniz istem metinlerini ekleyebilirsiniz.
-
-Bu JavaScript kodu, yer tutucuda istem metninin nasıl ayarlanacağını gösterir:
-
-```javascript
-var pres = new aspose.slides.Presentation("Presentation.pptx");
+const presentation = new aspose.slides.Presentation("template.pptx");
 try {
-    var slide = pres.getSlides().get_Item(0);
-    // Slaytı iterasyonla dolaşır
-    for (let i = 0; i < slide.getSlide().getShapes().size(); i++) {
-        let shape = slide.getSlide().getShapes().get_Item(i);
-        if ((shape.getPlaceholder() != null) && (java.instanceOf(shape, "com.aspose.slides.AutoShape"))) {
-            var text = "";
-            // PowerPoint "Click to add title" ifadesini gösterir
-            if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.CenteredTitle) {
-                text = "Add Title";
-            } else // Alt başlık ekler
-            if (shape.getPlaceholder().getType() == aspose.slides.PlaceholderType.Subtitle) {
-                text = "Add Subtitle";
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        const shapeClassName = getShapeClassName(shape);
+        const slidePlaceholderMessage = "Slide placeholder: " + placeholderType + "; shape class: " + shapeClassName;
+        console.log(slidePlaceholderMessage);
+
+        const layoutPlaceholder = shape.getBasePlaceholder();
+        if (layoutPlaceholder != null) {
+            const layoutPlaceholderInfo = layoutPlaceholder.getPlaceholder();
+            const layoutPlaceholderType = layoutPlaceholderInfo == null ? null : layoutPlaceholderInfo.getType();
+            const layoutPlaceholderMessage = "  Layout placeholder: " + layoutPlaceholderType;
+            console.log(layoutPlaceholderMessage);
+
+            const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+            if (masterPlaceholder != null) {
+                const masterPlaceholderInfo = masterPlaceholder.getPlaceholder();
+                const masterPlaceholderType = masterPlaceholderInfo == null ? null : masterPlaceholderInfo.getType();
+                const masterPlaceholderMessage = "  Master placeholder: " + masterPlaceholderType;
+                console.log(masterPlaceholderMessage);
             }
-            shape.getTextFrame().setText(text);
-            console.log("Placeholder with text: " + text);
         }
     }
-    pres.save("Placeholders_PromptText.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Yer Tutucu Resim Şeffaflığını Ayarla**
+Normal bir slaytta bir yer tutucuyu düzenlemek, o slayt için yerel bir geçersiz kılma oluşturur veya değiştirir. İlgili yerleşim veya ana slaydı düzenlemek, hâlâ bu ayarı miras alan tüm slaytları etkileyebilir. Yerel bir normal şeklin temel yer tutucusu yoktur ve aynı koordinatları kapsaması nedeniyle miras almaya başlamaz.
 
-Aspose.Slides, bir metin yer tutucusundaki arka plan resminin şeffaflığını ayarlamanıza izin verir. Bu çerçevedeki resmin şeffaflığını ayarlayarak, metin veya resim (renklerine bağlı olarak) öne çıkabilir.
+## **Yer Tutucudaki Metni Değiştirme**
 
-Bu JavaScript kodu, bir şekil içindeki resim arka planının şeffaflığının nasıl ayarlanacağını gösterir:
+Başlık, ortalanmış‑başlık, alt‑başlık, gövde ve metin yer tutucuları genellikle metin destekler. [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) olup olmadığını kontrol ettikten sonra [getTextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/#getTextFrame) yöntemini kullanın.
+
+Bu örnek, ilk slayttaki ilk başlık yer tutucusunu günceller ve sonucu kaydeder:
 
 ```javascript
-var presentation = new aspose.slides.Presentation("example.pptx");
-var shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-var operationCollection = shape.getFillFormat().getPictureFillFormat().getPicture().getImageTransform();
-for (var i = 0; i < operationCollection.size(); i++) {
-    if (java.instanceOf(operationCollection.get_Item(i), "com.aspose.slides.AlphaModulateFixed")) {
-        var alphaModulate = operationCollection.get_Item(i);
-        var currentValue = 100 - alphaModulate.getAmount();
-        console.log("Current transparency value: " + currentValue);
-        var alphaValue = 40;
-        alphaModulate.setAmount(100 - alphaValue);
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let titleShape = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        if (placeholderType === aspose.slides.PlaceholderType.Title || placeholderType === aspose.slides.PlaceholderType.CenteredTitle) {
+            titleShape = shape;
+            break;
+        }
     }
+
+    if (titleShape == null) {
+        throw new Error("The first slide does not contain a title placeholder.");
+    }
+
+    titleShape.getTextFrame().setText("Quarterly Business Review");
+    presentation.save("title-placeholder-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
-presentation.save("example_out.pptx", aspose.slides.SaveFormat.Pptx);
+```
+
+Bu desen, resim, grafik, tablo veya medya yer tutucularını [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) nesneleri olarak ele almayı önler. Ayrıca yer tutucuyu kırılgan bir şekil indeksine dayanmak yerine amacına göre tanımlar.
+
+## **Yerleşimde İpucu Metni Ayarlama**
+
+İpucu metni, boş bir yer tutucuda gösterilen tasarım‑zamanı talimatıdır; örneğin *Başlık eklemek için tıklayın*. Normal bir slaytın şekil koleksiyonundan ulaşmaya çalışmak yerine, yerleşim yer tutucusunda özel bir ipucu metni ayarlayın. Yerleşime, [Slide.getLayoutSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/slide/#getLayoutSlide) yöntemiyle erişin ve [BaseSlide.getShapes](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/baseslide/#getShapes) tarafından döndürülen koleksiyon üzerinde döngü kurun.
+
+Aşağıdaki örnek, ilk slayt tarafından kullanılan yerleşimde başlık ve alt‑başlık ipuçlarını değiştirir:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const firstSlide = slides.get_Item(0);
+    const layoutSlide = firstSlide.getLayoutSlide();
+    const shapes = layoutSlide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            continue;
+        }
+
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+
+        if (placeholderType === aspose.slides.PlaceholderType.Title || placeholderType === aspose.slides.PlaceholderType.CenteredTitle) {
+            shape.getTextFrame().setText("Enter a concise slide title");
+        } else if (placeholderType === aspose.slides.PlaceholderType.Subtitle) {
+            shape.getTextFrame().setText("Enter a subtitle or reporting period");
+        }
+    }
+
+    presentation.save("custom-placeholder-prompts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+İpucu metni normal bir slayt içeriği değildir. PowerPoint gibi düzenleme uygulamalarında boş yer tutucular için tasarlanmıştır. Bir kullanıcı veya program gerçek içerik sağladığında ipucu artık gösterilmez. Bir ipucu değiştirmek, yerleşimi kullanan slaytlardaki mevcut metni değiştirmez.
+
+## **Resim Yer Tutucusunu Güncelleme**
+
+İki durum ele alınmalıdır:
+
+- Resim yer tutucusu zaten doluysa ve bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) ile temsil ediliyorsa, resmi [PictureFrame.getPictureFormat](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/#getPictureFormat), [PictureFillFormat.getPicture](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picturefillformat/#getPicture) ve [Picture.setImage](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/picture/#setImage) yöntemleriyle değiştirin.
+- Hâlâ boş bir yer tutucuysa, [ShapeCollection.addPictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#addPictureFrame) yöntemiyle yer tutucunun koordinatlarında bir resim çerçevesi ekleyin ve boş yer tutucuyu kaldırın.
+
+Sonraki örnek her iki durumu da destekler ve sunumu kaydeder:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("picture-template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let picturePlaceholder = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() === aspose.slides.PlaceholderType.Picture) {
+            picturePlaceholder = shape;
+            break;
+        }
+    }
+
+    if (picturePlaceholder == null) {
+        throw new Error("The first slide does not contain a picture placeholder.");
+    }
+
+    const sourceImage = aspose.slides.Images.fromFile("replacement.png");
+    try {
+        const image = presentation.getImages().addImage(sourceImage);
+
+        if (java.instanceOf(picturePlaceholder, "com.aspose.slides.IPictureFrame")) {
+            picturePlaceholder.getPictureFormat().getPicture().setImage(image);
+        } else {
+            const x = picturePlaceholder.getX();
+            const y = picturePlaceholder.getY();
+            const width = picturePlaceholder.getWidth();
+            const height = picturePlaceholder.getHeight();
+            const frameX = java.newFloat(x);
+            const frameY = java.newFloat(y);
+            const frameWidth = java.newFloat(width);
+            const frameHeight = java.newFloat(height);
+            shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, frameX, frameY, frameWidth, frameHeight, image);
+            shapes.remove(picturePlaceholder);
+        }
+    } finally {
+        sourceImage.dispose();
+    }
+
+    presentation.save("picture-placeholder-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Boş bir yer tutucu için oluşturulan değiştirme, yeni bir yer tutucu değil, yerel bir resim çerçevesidir; çünkü [Shape.getPlaceholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getPlaceholder) bir ayarlayıcı sağlamaz. Ayrılmış konumu korur ancak artık yer tutucu‑özel davranışı miras almaz. Yer tutucu ilişkisi kritikse, önce PowerPoint’te yer tutucuyu hazırlayıp doldurun, ardından Aspose.Slides ile ortaya çıkan [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe/) nesnesini güncelleyin.
+
+Görsel şeffaflığı, kırpma ve diğer resim‑özel efektler için [Manage Picture Frames](/slides/tr/nodejs-java/picture-frame/) bölümüne bakın. Bu işlemler resim çerçevesi veya resim doldurmasıyla ilgilidir, yer tutucu meta verisiyle değil.
+
+## **Grafik ve İçerik Yer Tutucularıyla Çalışma**
+
+Dolu bir grafik yer tutucusu bir [Chart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/) ile temsil edilebilir. Bu örnek, yer tutucu türü ve çalışma zamanı sınıfı ile bir grafiği bulur, başlığını değiştirir ve dosyayı kaydeder:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("chart-template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let placeholderChart = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        if (!java.instanceOf(shape, "com.aspose.slides.IChart")) {
+            continue;
+        }
+
+        const placeholder = shape.getPlaceholder();
+        if (placeholder != null && placeholder.getType() === aspose.slides.PlaceholderType.Chart) {
+            placeholderChart = shape;
+            break;
+        }
+    }
+
+    if (placeholderChart == null) {
+        throw new Error("The first slide does not contain a populated chart placeholder.");
+    }
+
+    placeholderChart.setTitle(true);
+    placeholderChart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    presentation.save("chart-placeholder-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Genel bir içerik yer tutucusu genellikle [PlaceholderType.Object](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholdertype/#Object) değerine sahiptir. PowerPoint’te, grafik, tablo, diyagram, resim ve medya gibi çeşitli içerik türleri için bir başlatıcı görevi görür. Doldurulduktan sonra, ne içerdiğini öğrenmek için gerçek şekil sınıfını inceleyin. Özelleştirilmiş yerleşimler ayrıca [PlaceholderType.Chart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholdertype/#Chart), [PlaceholderType.Table](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholdertype/#Table), [PlaceholderType.Picture](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholdertype/#Picture), [PlaceholderType.Media](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholdertype/#Media) veya [PlaceholderType.Diagram](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholdertype/#Diagram) değerlerini sergileyebilir.
+
+Aspose.Slides, boş bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape/) yer tutucusunu yalnızca [Placeholder.getType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/placeholder/#getType) değiştirmekle bir [Chart](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/chart/) haline getirmez; tip nesne üzerinden değiştirilemez. Boş bir grafik veya içerik alanını programlı olarak doldurmak için, gerekli nesneyi yer tutucunun koordinatlarına ekleyip boş yer tutucuyu kaldırın. Aşağıdaki örnek bunu bir grafik için gösterir:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("content-template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let targetPlaceholder = null;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        if (placeholderType === aspose.slides.PlaceholderType.Chart || placeholderType === aspose.slides.PlaceholderType.Object) {
+            targetPlaceholder = shape;
+            break;
+        }
+    }
+
+    if (targetPlaceholder == null) {
+        throw new Error("The first slide does not contain a chart or content placeholder.");
+    }
+
+    const x = targetPlaceholder.getX();
+    const y = targetPlaceholder.getY();
+    const width = targetPlaceholder.getWidth();
+    const height = targetPlaceholder.getHeight();
+    const chartX = java.newFloat(x);
+    const chartY = java.newFloat(y);
+    const chartWidth = java.newFloat(width);
+    const chartHeight = java.newFloat(height);
+    const chart = shapes.addChart(aspose.slides.ChartType.ClusteredColumn, chartX, chartY, chartWidth, chartHeight);
+    chart.setTitle(true);
+    chart.getChartTitle().addTextFrameForOverriding("Quarterly Revenue");
+    shapes.remove(targetPlaceholder);
+    presentation.save("content-placeholder-replaced-with-chart.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Eklenen grafik, yerel bir sıradan grafiktir. Yer tutucunun alanını kaplar ancak yerleşim yer tutucusundan miras almaz. Kategorileri, serileri veya çalışma kitabı verilerini değiştirmek gerektiğinde ilgili [chart management articles](/slides/tr/nodejs-java/powerpoint-charts/) bölümünü kullanın.
+
+## **Tam Örnek: Metin veya Görsel İçeriği Güncelleme**
+
+Aşağıdaki uç‑uç örnek bir şablonu açar, ilk slaytta bir başlık veya resim yer tutucusu arar, yer tutucu ve şekil tiplerini kontrol eder, uygun içeriği günceller ve çıktıyı kaydeder. Örnek, şekil indeksine dayanmaktan veya her yer tutucuyu aynı sınıf olarak işlemekten kaçınmak için kasıtlı olarak tasarlanmıştır:
+
+```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation("template.pptx");
+try {
+    const slides = presentation.getSlides();
+    const slide = slides.get_Item(0);
+    const shapes = slide.getShapes();
+    let updated = false;
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const placeholder = shape.getPlaceholder();
+        if (placeholder == null) {
+            continue;
+        }
+
+        const placeholderType = placeholder.getType();
+        const isTitlePlaceholder = placeholderType === aspose.slides.PlaceholderType.Title || placeholderType === aspose.slides.PlaceholderType.CenteredTitle;
+
+        if (isTitlePlaceholder && java.instanceOf(shape, "com.aspose.slides.IAutoShape")) {
+            shape.getTextFrame().setText("Quarterly Business Review");
+            updated = true;
+            break;
+        }
+
+        if (placeholderType === aspose.slides.PlaceholderType.Picture) {
+            const sourceImage = aspose.slides.Images.fromFile("replacement.png");
+            try {
+                const image = presentation.getImages().addImage(sourceImage);
+
+                if (java.instanceOf(shape, "com.aspose.slides.IPictureFrame")) {
+                    shape.getPictureFormat().getPicture().setImage(image);
+                } else {
+                    const x = shape.getX();
+                    const y = shape.getY();
+                    const width = shape.getWidth();
+                    const height = shape.getHeight();
+                    const frameX = java.newFloat(x);
+                    const frameY = java.newFloat(y);
+                    const frameWidth = java.newFloat(width);
+                    const frameHeight = java.newFloat(height);
+                    shapes.addPictureFrame(aspose.slides.ShapeType.Rectangle, frameX, frameY, frameWidth, frameHeight, image);
+                    shapes.remove(shape);
+                }
+            } finally {
+                sourceImage.dispose();
+            }
+
+            updated = true;
+            break;
+        }
+    }
+
+    if (!updated) {
+        throw new Error("No supported title or picture placeholder was found on the first slide.");
+    }
+
+    presentation.save("placeholder-content-updated.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
 ```
 
 ## **SSS**
 
-**Temel bir yer tutucu nedir ve bir slayttaki yerel şekilden nasıl farklıdır?**
+**Temel yer tutucu nedir?**
 
-Temel yer tutucu, slaytın şeklinin miras aldığı, düzen ya da master üzerindeki orijinal şekildir—tür, konum ve bazı biçimlendirmeler ondan gelir. Yerel şekil bağımsızdır; temel bir yer tutucu yoksa miras uygulanmaz.
+Temel yer tutucu, başka bir yer tutucunun miras aldığı yerleşim veya ana slayttaki ilgili şekildir. Onu almak için [Shape.getBasePlaceholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getBasePlaceholder) yöntemini kullanın. Normal bir yerel şekil `null` döndürür çünkü yer tutucu hiyerarşisinin bir parçası değildir.
 
-**Sunum genelinde tüm başlıkları veya alt yazıları, her slaytı tek tek dolaşmadan nasıl güncelleyebilirim?**
+**Tüm slayt başlıklarını bir yerleşim yer tutucusunu düzenleyerek değiştirebilir miyim?**
 
-İlgili yer tutucuyu düzen veya master üzerinde düzenleyin. Bu düzen/ master üzerine kurulu slaytlar değişikliği otomatik olarak devralır.
+Bir yerleşim üzerinden kalıtsal biçimlendirme veya ipucu metnini değiştirebilirsiniz, ancak mevcut başlık içeriği normal slaytlarda depolanır. Sunumda gerçek başlık metnini değiştirmek için slaytları döngüyle gezip her başlık yer tutucusunu güncellemeniz gerekir.
 
-**Standart başlık/alt bilgi yer tutucularını—tarih & saat, slayt numarası ve alt bilgi metnini—nasıl kontrol ederim?**
+**Tarih, slayt‑numarası, üst‑bilgi ve alt‑bilgi yer tutucularını nasıl yönetirim?**
 
-Uygun kapsamda (normal slaytlar, düzenler, master, notlar/el kitapçıkları) HeaderFooter yöneticilerini kullanarak bu yer tutucuları açıp kapatabilir ve içeriklerini ayarlayabilirsiniz.
+Uygun slayt, yerleşim, ana, notlar veya dağıtım kapsamındaki üst‑bilgi ve alt‑bilgi yöneticilerini kullanın. Tam örnekler için [Manage Presentation Header and Footer](/slides/tr/nodejs-java/presentation-header-and-footer/) bölümüne bakın.

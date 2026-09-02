@@ -1,6 +1,6 @@
 ---
-title: استنساخ شرائح PowerPoint في Python
-linktitle: استنساخ الشرائح
+title: "استنساخ شرائح PowerPoint في Python"
+linktitle: "استنساخ الشرائح"
 type: docs
 weight: 40
 url: /ar/python-net/clone-slides/
@@ -46,11 +46,11 @@ pip install aspose.slides
 ```py
 import aspose.slides as slides
 
-# إنشاء مثيل لفئة Presentation لتمثيل ملف العرض التقديمي.
+# إنشاء كائن من فئة Presentation لتمثيل ملف العرض التقديمي.
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
-    # استنساخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي.
+    # نسخ الشريحة المطلوبة إلى نهاية مجموعة الشرائح في نفس العرض التقديمي.
     presentation.slides.add_clone(presentation.slides[0])
-    # حفظ العرض التقديمي المعدل إلى القرص.
+    # حفظ العرض التقديمي المعدل على القرص.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -70,9 +70,9 @@ import aspose.slides as slides
 
 # إنشاء مثيل لفئة Presentation لتمثيل ملف العرض التقديمي.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
-    # استنساخ الشريحة المطلوبة إلى الموضع المحدد (الفهرس) داخل نفس العرض التقديمي.
+    # استنساخ الشريحة المطلوبة إلى الموقع المحدد (الفهرس) داخل نفس العرض التقديمي.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # حفظ العرض التقديمي المعدل إلى القرص.
+    # حفظ العرض التقديمي المعدل على القرص.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 

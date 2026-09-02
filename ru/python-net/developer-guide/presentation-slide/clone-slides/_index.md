@@ -5,9 +5,9 @@ type: docs
 weight: 40
 url: /ru/python-net/clone-slides/
 keywords:
-- клонировать слайд
+- клонирование слайда
 - копировать слайд
-- сохранить слайд
+- сохранять слайд
 - PowerPoint
 - презентация
 - Python

@@ -23,461 +23,404 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Upptäck hur du skapar och anpassar formanimationer i PowerPoint-presentationer med Aspose.Slides för .NET. Stick ut!"
+description: "Lär dig hur du lägger till, granskar och anpassar formanimationer, timing, ljud, efter-animationbeteende och animerad text med Aspose.Slides för .NET."
 ---
-## **Introduktion**
+## **Översikt**
 
-Animationer är visuella effekter som kan tillämpas på texter, bilder, former eller [diagram](/slides/sv/net/animated-charts/). De ger liv åt presentationer eller deras beståndsdelar. 
+Aspose.Slides for .NET representerar bildanimationer som effekter i en bilds tidslinje. En effekt har en målform, en animationstyp och undertyp, en utlösare, tidsinställningar och valfria egenskaper såsom ljud eller beteende efter animationen.
 
-## **Varför använda animationer i presentationer?**
+Tidslinjen innehåller två typer av sekvenser:
 
-* styra informationsflödet
-* betona viktiga punkter
-* öka intresse eller engagemang hos din publik
-* göra innehållet lättare att läsa, assimilera eller bearbeta
-* leda dina läsare eller tittare uppmärksamhet till viktiga delar i en presentation
+- **Huvudsekvensen** spelas när bilden avancerar.
+- En **interaktiv sekvens** startar när dess utlösande form klickas.
 
-PowerPoint erbjuder många alternativ och verktyg för animationer och animationseffekter inom kategorierna **entrance**, **exit**, **emphasis** och **motion paths**. 
+Eftersom textrutor, bilder, diagram, tabeller och andra bildobjekt implementerar [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/), använder du samma [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) metod för de flesta bildinnehåll. De tillgängliga effekterna listas i uppräkningen [EffectType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttype/).
 
-## **Animationer i Aspose.Slides**
+## **Lägg till formanimationer**
 
-* Aspose.Slides tillhandahåller de klasser och typer du behöver för att arbeta med animationer under namnutrymmet [Aspose.Slides.Animation](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/).
-* Aspose.Slides tillhandahåller över **150 animationseffekter** under uppräkningen [EffectType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttype). Dessa effekter är i princip samma (eller motsvarande) som de som används i PowerPoint.
+För att lägga till en animation, hämta bildens huvudsekvens och anropa [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) med målformen, effekttypen, undertypen och utlösaren. För en effekt som startar när en annan form klickas, skapa en interaktiv sekvens vars utlösare är den andra formen.
 
-## **Tillämpa animation på en TextBox**
+Följande exempel skapar båda typerna av animation och sparar resultatet till `shape-animations.pptx`.
 
-Aspose.Slides för .NET låter dig applicera animation på texten i en form. 
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-1. Skapa en instans av klassen [Presentation](http://www.aspose.com/api/net/slides/sv/aspose.slides/).
-2. Hämta en slides referens via dess index.
-3. Lägg till en `rectangle` [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape). 
-4. Lägg till text till [IAutoShape.TextFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape/properties/textframe).
-5. Hämta en huvudsekvens av effekter.
-6. Lägg till en animationseffekt på [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape).
-7. Ställ in egenskapen [TextAnimation.BuildType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/textanimation/properties/buildtype) till värdet från [BuildType Enumeration](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype).
-8. Skriv presentationen till disk som en PPTX‑fil.
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-```c#
-// Skapar en presentation-klass som representerar en presentationsfil.
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    
-    // Lägger till en ny AutoShape med text
-    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Click to animate this shape";
 
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+var mainSequence = slide.Timeline.MainSequence;
+var entranceEffect = mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+entranceEffect.Timing.Duration = 1.5f;
 
-    // Hämtar huvudsekvensen för sliden.
-    ISequence sequence = sld.Timeline.MainSequence;
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
 
-    // Lägger till Fade‑animationseffekt på formen
-    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // Animera formens text efter stycken på första nivån
-    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
-
-    // Spara PPTX‑filen till disk
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+Utlösaren styr när en effekt startar:
 
-Förutom att applicera animationer på text kan du också applicera animationer på ett enskilt [Paragraph](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph). Se [**Animerad text**](/slides/sv/net/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) väntar på ett klick i huvudsekvensen, eller på ett klick på utlösningsformen i en interaktiv sekvens.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) startar med den föregående effekten.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effecttriggertype/) startar när den föregående effekten avslutas.
 
-{{% /alert %}} 
+För att animera en bild, ett diagram eller en annan formtyp, skicka det objektet till [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/) i stället för `targetShape`. För diagramspecifika grupperingalternativ, se [Animated Charts](/slides/sv/net/animated-charts/).
 
-## **Tillämpa animation på en PictureFrame**
+## **Läs formanimationer**
 
-1. Skapa en instans av klassen [Presentation](http://www.aspose.com/api/net/slides/sv/aspose.slides/).
-2. Hämta en slides referens via dess index.
-3. Lägg till eller hämta en [PictureFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ipictureframe) på sliden. 
-5. Hämta huvudsekvensen av effekter.
-6. Lägg till en animationseffekt på [PictureFrame](https://reference.aspose.com/slides/sv/net/aspose.slides/ipictureframe).
-8. Skriv presentationen till disk som en PPTX‑fil.
+Använd [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/geteffectsbyshape/) när du känner till målformen. För att inspektera varje effekt, iterera över huvudsekvensen och varje interaktiv sekvens. Enumeration undviker att anta att en sekvens innehåller en effekt på index `0`.
 
-```c#
-// Skapar en presentation-klass som representerar en presentationsfil.
-using (Presentation pres = new Presentation())
+Följande exempel skapar en form med huvudsekvens- och interaktiva effekter, hämtar effekterna som riktar sig mot formen och itererar sedan över varje sekvens på bilden.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Animated shape";
+
+var mainSequence = slide.Timeline.MainSequence;
+mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
+
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var targetEffects = mainSequence.GetEffectsByShape(targetShape);
+Console.WriteLine($"The main sequence contains {targetEffects.Length} effect(s) for {targetShape.Name}.");
+
+PrintSequence("Main sequence", mainSequence);
+
+var interactiveIndex = 1;
+foreach (var sequence in slide.Timeline.InteractiveSequences)
 {
-    // Ladda bild som ska läggas till i presentationens bildsamling
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // Lägger till en bildram på sliden
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // Hämtar huvudsekvensen för sliden.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-    // Lägger till Fly‑från‑vänster‑animationseffekt på bildramen
-    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // Spara PPTX‑filen till disk
-    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
+    var triggerName = sequence.TriggerShape == null ? "unknown" : sequence.TriggerShape.Name;
+    var sequenceLabel = $"Interactive sequence {interactiveIndex}, trigger: {triggerName}";
+    PrintSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
 
-## **Tillämpa animation på en Shape**
-
-1. Skapa en instans av klassen [Presentation](http://www.aspose.com/api/net/slides/sv/aspose.slides/).
-2. Hämta en slides referens via dess index.
-3. Lägg till en `rectangle` [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape). 
-4. Lägg till en `Bevel` [IAutoShape](https://reference.aspose.com/slides/sv/net/aspose.slides/iautoshape) (när detta objekt klickas på spelas animationen).
-5. Skapa en sekvens av effekter på bevel‑formen.
-6. Skapa en anpassad `UserPath`.
-7. Lägg till kommandon för att flytta till `UserPath`.
-8. Skriv presentationen till disk som en PPTX‑fil.
-
-```c#
-// Skapar en Presentation-klass som representerar en presentationsfil.
-using (Presentation pres = new Presentation())
+static void PrintSequence(string label, ISequence sequence)
 {
-    ISlide sld = pres.Slides[0];
+    Console.WriteLine($"  {label}: {sequence.Count} effect(s)");
 
-    // Skapar PathFootball-effekt för befintlig form från början.
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-
-    ashp.AddTextFrame("Animated TextBox");
-
-    // Lägger till PathFootBall-animationseffekten.
-    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // Skapar någon typ av "knapp".
-    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // Skapar en sekvens av effekter för knappen.
-    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
-
-    // Skapar en anpassad användarstig. Vårt objekt kommer endast att flyttas efter att knappen har klickats.
-    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // Lägger till kommandon för att flytta eftersom den skapade stigen är tom.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
-
-    PointF[] pts = new PointF[1];
-    pts[0] = new PointF(0.076f, 0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new PointF(-0.076f, -0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-    // Skriver PPTX-filen till disk
-    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **Hämta animationseffekterna som tillämpats på en Shape**
-
-Följande exempel visar hur du använder metoden `GetEffectsByShape` från gränssnittet [ISequence](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/) för att hämta alla animationseffekter som tillämpats på en shape.
-
-**Exempel 1: Hämta animationseffekter som tillämpats på en shape i en vanlig slide**
-
-Tidigare lärde du dig hur du lägger till animationseffekter på former i PowerPoint‑presentationer. Följande exempel visar hur du får de effekter som tillämpats på den första formen på den första vanliga sliden i presentationen `AnimExample_out.pptx`.
-
-```c#
-using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
-{
-    ISlide firstSlide = presentation.Slides[0];
-
-    // Hämtar huvudanimationssekvensen för sliden.
-    ISequence sequence = firstSlide.Timeline.MainSequence;
-
-    // Hämtar den första formen på den första sliden.
-    IShape shape = firstSlide.Shapes[0];
-
-    // Hämtar animationseffekter som tillämpats på formen.
-    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
-
-    if (shapeEffects.Length > 0)
-        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
-}
-```
-
-**Exempel 2: Hämta alla animationseffekter, inklusive de som ärvs från platshållare**
-
-Om en shape på en vanlig slide har platshållare som finns på layout‑sliden och/eller master‑sliden, och animationseffekter har lagts till på dessa platshållare, så kommer alla effekter för shape:n att spelas under bildspelet, inklusive de som ärvs från platshållarna.
-
-Låt oss anta att vi har en PowerPoint‑fil `sample.pptx` med en slide som bara innehåller en sidfot‑shape med texten "Made with Aspose.Slides" och **Random Bars**‑effekten är tillämpad på shape:n.
-
-![Slide form animationseffekt](slide-shape-animation.png)
-
-Låt oss också anta att **Split**‑effekten är tillämpad på sidfot‑platshållaren på **layout**‑sliden.
-
-![Layout form animationseffekt](layout-shape-animation.png)
-
-Och slutligen är **Fly In**‑effekten tillämpad på sidfot‑platshållaren på **master**‑sliden.
-
-![Master form animationseffekt](master-shape-animation.png)
-
-Följande exempel visar hur du använder metoden `GetBasePlaceholder` från gränssnittet [IShape](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/) för att komma åt shape‑platshållarna och hämta animationseffekterna som tillämpats på sidfots‑shape:n, inklusive de som ärvs från platshållare på layout‑ och master‑slides.
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Hämta animationseffekter för formen på den normala sliden.
-    IShape shape = slide.Shapes[0];
-    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
-
-    // Hämta animationseffekter för platshållaren på layout‑sliden.
-    IShape layoutShape = shape.GetBasePlaceholder();
-    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
-
-    // Hämta animationseffekter för platshållaren på master‑sliden.
-    IShape masterShape = layoutShape.GetBasePlaceholder();
-    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
-
-    Console.WriteLine("Main sequence of shape effects:");
-    PrintEffects(masterShapeEffects);
-    PrintEffects(layoutShapeEffects);
-    PrintEffects(shapeEffects);
-}
-```
-```cs
-static void PrintEffects(IEnumerable<IEffect> effects)
-{
-    foreach (IEffect effect in effects)
+    foreach (var effect in sequence)
     {
-        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+        var targetName = effect.TargetShape == null ? "unknown" : effect.TargetShape.Name;
+        var effectDescription = $"{effect.Type} {effect.Subtype}; target: {targetName}; trigger: {effect.Timing.TriggerType}";
+        Console.WriteLine($"    {effectDescription}");
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+Om du bara behöver effekterna för en form, identifiera först formen efter namn, platshållartyp eller en annan stabil egenskap; anropa sedan [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/geteffectsbyshape/). Anta inte att [IShapeCollection.Item](https://reference.aspose.com/slides/sv/net/aspose.slides/ishapecollection/item/) på index `0` alltid är det avsedda objektet.
 
-## **Ändra timingegenskaper för animationseffekter**
+## **Arbeta med ärvda platshållareffekter**
 
-Aspose.Slides för .NET låter dig ändra timingegenskaperna för en animationseffekt.
+En platshållare på en normal bild kan ärva animationsbeteende från motsvarande platshållare på dess layoutbild och mastern. [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/getbaseplaceholder/) returnerar den föräldraplatshållaren, eller `null` när ingen förälder finns.
 
-This is the Animation Timing pane and extended menu in Microsoft PowerPoint:
+I följande exempelpresentation har sidfoten **Random Bars** på den normala bilden, **Split** på layoutbilden och **Fly In** på mastern.
 
-![example1_image](shape-animation.png)
+![Sidfotens animationseffekt på den normala bilden](slide-shape-animation.png)
+![Sidfotens platshållaranimationseffekt på layoutbilden](layout-shape-animation.png)
+![Sidfotens platshållaranimationseffekt på mastern](master-shape-animation.png)
 
-These are the correspondences between PowerPoint Timing and [Effect.Timing](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effect/properties/timing) properties:
-- PowerPoint Timing **Start** drop‑down list matches the [Effect.Timing.TriggerType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/properties/triggertype) property. 
-- PowerPoint Timing **Duration** matches the [Effect.Timing.Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/properties/duration) property. The duration of an animation (in seconds) is the total time it takes the animation to complete one cycle. 
-- PowerPoint Timing **Delay** matches the [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/properties/triggerdelaytime) property. 
-- PowerPoint Timing **Repeat** drop‑down list matches these properties: 
-  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount) property which describes the *number* of times the effect is repeated;
-  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide) flag which specifies whether the effect is repeated until the end of the slide;
-  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick) flag which specifies whether the effect is repeated until the next click.
-- PowerPoint Timing **Rewind when done playing** checkbox matches the [Effect.Timing.Rewind](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/rewind/) property. 
+Nästa exempel bygger platshållarhierarkin själv. Det lägger till effekter på en master-platshållare, en layout-platshållare och motsvarande platshållare på en normal bild. Varje anrop till [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/sv/net/aspose.slides/ishape/getbaseplaceholder/) kontrolleras innan den returnerade formen används.
 
-This is how you change the Effect Timing properties:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-1. [Apply](#apply-animation-to-shape) eller hämta animationseffekten.
-2. Ställ in nya värden för de [Effect.Timing](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effect/properties/timing) egenskaper du behöver. 
-3. Spara den ändrade PPTX‑filen.
+using var presentation = new Presentation();
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
+layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-```c#
-// Skapar en presentation-klass som representerar en presentationsfil.
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+var masterPlaceholder = layoutPlaceholder.GetBasePlaceholder();
+if (masterPlaceholder != null)
 {
-    // Hämtar huvudsekvensen för sliden.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+    var masterSequence = layoutSlide.MasterSlide.Timeline.MainSequence;
+    masterSequence.AddEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+}
 
-    // Hämtar den första effekten i huvudsekvensen.
-    IEffect effect = sequence[0];
+var slide = presentation.Slides.AddEmptySlide(layoutSlide);
+var slidePlaceholder = FindPlaceholderWithBase(slide);
 
-    // Ändrar effektens TriggerType till att starta vid klick
-    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+if (slidePlaceholder == null)
+{
+    throw new InvalidOperationException("The slide does not contain a placeholder linked to its layout slide.");
+}
 
-    // Ändrar effektens varaktighet
-    effect.Timing.Duration = 3f;
+slide.Timeline.MainSequence.AddEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+PrintEffects("Normal slide", slide.Timeline.MainSequence.GetEffectsByShape(slidePlaceholder));
 
-    // Ändrar effektens TriggerDelayTime
-    effect.Timing.TriggerDelayTime = 0.5f;
+var baseLayoutPlaceholder = slidePlaceholder.GetBasePlaceholder();
+if (baseLayoutPlaceholder != null)
+{
+    PrintEffects("Layout slide", layoutSlide.Timeline.MainSequence.GetEffectsByShape(baseLayoutPlaceholder));
 
-    // Om effektens Repeat‑värde är "none"
-    if (effect.Timing.RepeatCount == 1f)
+    var baseMasterPlaceholder = baseLayoutPlaceholder.GetBasePlaceholder();
+    if (baseMasterPlaceholder != null)
     {
-        // Ändrar effektens Repeat till "Until Next Click"
-        effect.Timing.RepeatUntilNextClick = true;
+        PrintEffects("Master slide", layoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(baseMasterPlaceholder));
     }
-    else
+}
+
+presentation.Save("placeholder-animations.pptx", SaveFormat.Pptx);
+
+static IShape FindPlaceholderWithBase(ISlide slide)
+{
+    foreach (var shape in slide.Shapes)
     {
-        // Ändrar effektens Repeat till "Until End of Slide"
-        effect.Timing.RepeatUntilEndSlide = true;
+        if (shape.GetBasePlaceholder() != null)
+        {
+            return shape;
+        }
     }
 
-    // Slår på effektens Rewind
-        effect.Timing.Rewind = true;
-    
-    // Sparar PPTX‑filen till disk
-    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+    return null;
+}
+
+static void PrintEffects(string source, IEffect[] effects)
+{
+    Console.WriteLine($"{source}: {effects.Length} effect(s)");
+
+    foreach (var effect in effects)
+    {
+        Console.WriteLine($"  {effect.Type} {effect.Subtype}");
+    }
 }
 ```
 
-## **Ljud för animationseffekter**
+## **Ändra animationstiming**
 
-Aspose.Slides provides these properties to allow you to work with sounds in animation effects: 
-- [IEffect.Sound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effect/sound/) 
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effect/stopprevioussound/) 
+PowerPoint **Timing**-dialogen motsvarar egenskaperna i [ITiming](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/).
 
-### **Lägg till ljud för en animationseffekt**
+![PowerPoint Timing-dialog för en animationseffekt](shape-animation.png)
 
-This C# code shows you how to add an animation effect sound and stop it when the next effect starts:
+- **Start** motsvarar [ITiming.TriggerType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/triggertype/).
+- **Duration** motsvarar [ITiming.Duration](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/duration/), i sekunder.
+- **Delay** motsvarar [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/triggerdelaytime/), i sekunder.
+- **Repeat** motsvarar [ITiming.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick/), eller [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide/).
+- **Spola tillbaka när uppspelning är klar** motsvarar [ITiming.Rewind](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/rewind/).
 
-```c#
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
-{
-	// Lägger till ljud i presentationens ljudsamling
-	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+Detta fristående exempel lägger till en effekt, ändrar dess timing via objektet som returneras av [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/), och sparar resultatet. Att behålla den returnerade [IEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/)‑referensen undviker ett onödigt samlingsindex.
 
-	ISlide firstSlide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-	// Hämtar huvudsekvensen för sliden.
-	ISequence sequence = firstSlide.Timeline.MainSequence;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Timed animation";
 
-	// Hämtar den första effekten i huvudsekvensen
-	IEffect firstEffect = sequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.Timing.TriggerType = EffectTriggerType.OnClick;
+effect.Timing.Duration = 2.0f;
+effect.Timing.TriggerDelayTime = 0.5f;
+effect.Timing.RepeatUntilNextClick = false;
+effect.Timing.RepeatUntilEndSlide = false;
+effect.Timing.RepeatCount = 2.0f;
+effect.Timing.Rewind = true;
 
-	// Kontrollerar om effekten har "No Sound"
-	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
-	{
-		// Lägger till ljud för den första effekten
-		firstEffect.Sound = effectSound;
-	}
-
-	// Hämtar den första interaktiva sekvensen för sliden.
-	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
-
-	// Sätter flaggan "Stop previous sound" för effekten
-	interactiveSequence[0].StopPreviousSound = true;
-
-	// Skriver PPTX-filen till disk
-	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-### **Extrahera ljud för en animationseffekt**
+Använd ett upprepningsläge med avsikt. Att kombinera ett upprepningsantal med ett "tills"‑flagga kan ge förvirrande resultat i olika visare. När du ändrar upprepningslägen, sätt [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilnextclick/) och [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatuntilendslide/) innan [ITiming.RepeatCount](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itiming/repeatcount/), eftersom inställning av någon av flaggorna också ändrar det aktiva upprepningsläget.
 
-1. Skapa en instans av klassen [Presentation](https://reference.aspose.com/slides/sv/net/aspose.slides/presentation/).
-2. Hämta en slides referens via dess index. 
-3. Hämta huvudsekvensen av effekter. 
-4. Extrahera [Sound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/effect/sound/) som är inbäddat i varje animationseffekt. 
+## **Lägg till och extrahera animationsljud**
 
-This C# code shows you how to extract the sound embedded in an animation effect:
+En animationseffekt kan referera till inbäddat ljud via [IEffect.Sound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/sound/). [IEffect.StopPreviousSound](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/stopprevioussound/) instruerar en effekt att stoppa ljud som startats av en tidigare effekt.
 
-```c#
-// Skapar en presentation-klass som representerar en presentationsfil.
-using (Presentation presentation = new Presentation("EffectSound.pptx"))
+### **Lägg till ett ljud till en effekt**
+
+Följande exempel förväntar sig en lokal ljudfil med namnet `animation-sound.wav`. Det skapar två effekter, bäddar in den filen som ljud för den första effekten och konfigurerar den andra effekten att stoppa ljudet. Det använder objekten som returneras av [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/), så inget sekvensindex krävs.
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+firstShape.TextFrame.Text = "Starts sound";
+secondShape.TextFrame.Text = "Stops sound";
+
+var sequence = slide.Timeline.MainSequence;
+var firstEffect = sequence.AddEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var secondEffect = sequence.AddEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var audioData = File.ReadAllBytes("animation-sound.wav");
+var effectSound = presentation.Audios.AddAudio(audioData);
+firstEffect.Sound = effectSound;
+secondEffect.StopPreviousSound = true;
+
+presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
+```
+
+### **Extrahera inbäddade effektljud**
+
+Följande exempel förväntar sig en lokal presentation med namnet `presentation-with-animation-sounds.pptx`. Det genomsöker både huvud- och interaktiva sekvenser och skriver varje inbäddat effektljud till katalogen `extracted-animation-sounds`. Filändelsen väljs utifrån ljud‑MIME‑typen som exponeras av [IAudio.ContentType](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudio/contenttype/).
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+var inputPath = "presentation-with-animation-sounds.pptx";
+var outputDirectory = "extracted-animation-sounds";
+
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation(inputPath);
+var soundIndex = 1;
+
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
+    SaveSounds(slide.Timeline.MainSequence, outputDirectory, ref soundIndex);
 
-    // Hämtar huvudsekvensen för sliden.
-    ISequence sequence = slide.Timeline.MainSequence;
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        SaveSounds(sequence, outputDirectory, ref soundIndex);
+    }
+}
 
-    foreach (IEffect effect in sequence)
+Console.WriteLine($"Extracted {soundIndex - 1} sound file(s) to {Path.GetFullPath(outputDirectory)}.");
+
+static void SaveSounds(ISequence sequence, string outputDirectory, ref int soundIndex)
+{
+    foreach (var effect in sequence)
     {
         if (effect.Sound == null)
             continue;
 
-        // Extraherar effektens ljud som byte-array
-        byte[] audio = effect.Sound.BinaryData;
+        var extension = GetAudioExtension(effect.Sound.ContentType);
+        var outputPath = Path.Combine(outputDirectory, $"effect-sound-{soundIndex}{extension}");
+        File.WriteAllBytes(outputPath, effect.Sound.BinaryData);
+        soundIndex++;
     }
 }
-```
 
-## **Efter animation**
-
-Aspose.Slides för .NET låter dig ändra egenskapen After animation för en animationseffekt.
-
-This is the Animation Effect pane and extended menu in Microsoft PowerPoint:
-
-![example1_image](shape-after-animation.png)
-
-PowerPoint Effect **After animation** drop‑down list matches these properties: 
-
-- [IEffect.AfterAnimationType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/afteranimationtype/) property which describes the After animation type :
-  * PowerPoint **More Colors** matches the [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) type;
-  * PowerPoint **Don't Dim** list item matches the [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) type (default after animation type);
-  * PowerPoint **Hide After Animation** item matches the [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) type;
-  * PowerPoint **Hide on Next Mouse Click** item matches the [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) type;
-- [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/afteranimationcolor/) property which defines an after animation color format. This property works in conjunction with the [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) type. If you change the type to another, the after animation color will be cleared.
-
-```c#
-// Skapar en presentation-klass som representerar en presentationsfil
-using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+static string GetAudioExtension(string contentType)
 {
-    ISlide firstSlide = pres.Slides[0];
+    var normalizedType = contentType == null ? string.Empty : contentType.ToLowerInvariant();
 
-    // Hämtar den första effekten i huvudsekvensen
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    if (normalizedType == "audio/mpeg")
+        return ".mp3";
 
-    // Ändrar efteranimationstypen till Color
-    firstEffect.AfterAnimationType = AfterAnimationType.Color;
+    if (normalizedType == "audio/mp4")
+        return ".m4a";
 
-    // Sätter dim‑färgen för efteranimationen
-    firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+    if (normalizedType == "audio/ogg")
+        return ".ogg";
 
-    // Skriver PPTX‑filen till disk
-    pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+    if (normalizedType == "audio/wav" || normalizedType == "audio/x-wav")
+        return ".wav";
+
+    return ".bin";
 }
 ```
+
+För stora ljudobjekt, använd [IAudio.GetStream](https://reference.aspose.com/slides/sv/net/aspose.slides/iaudio/getstream/) och kopiera strömmen till en fil istället för att läsa in hela objektet i en byte‑array.
+
+## **Ställ in efter‑animationsbeteende**
+
+**After animation**‑alternativet styr vad som händer med en form efter att dess effekt är klar.
+
+![PowerPoint Effektalternativ‑dialog som visar efter‑animationsinställningar](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/)‑uppsättningen stöder att lämna formen oförändrad, ändra dess färg, dölja den efter animationen, eller dölja den vid nästa klick. När typen är [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/), sätt även [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/afteranimationcolor/).
+
+Detta fristående exempel skapar en effekt, sätter dess efter‑animationsbeteende via det returnerade effektobjektet, och sparar resultatet.
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Dim after animation";
+
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.AfterAnimationType = AfterAnimationType.Color;
+effect.AfterAnimationColor.Color = Color.LightGray;
+
+presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+```
+
+Att byta typen från [AfterAnimationType.Color](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/afteranimationtype/) rensar efter‑animationsfärgsinställningen.
 
 ## **Animera text**
 
-Aspose.Slides provides these properties to allow you to work with an animation effect's *Animate text* block:
+Textanimation har två relaterade kontroller:
 
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/animatetexttype/) which describes an animate text type of the effect. The shape text can be animated:
-  - All at once ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/animatetexttype/) type)
-  - By word ([AnimateTextType.ByWord](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/animatetexttype/) type)
-  - By letter ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/animatetexttype/) type)
-- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/delaybetweentextparts/) sets a delay between the animated text parts (words or letters). A positive value specifies the percentage of effect duration. A negative value specifies the delay in seconds.
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itextanimation/buildtype/) styr om stycken visas tillsammans eller per stycknivå.
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/animatetexttype/) styr om text visas på en gång, per ord eller per bokstav. [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/delaybetweentextparts/) anger fördröjningen mellan ord eller bokstäver. Ett positivt värde är en procentsats av effektens varaktighet; ett negativt värde är en fördröjning i sekunder.
 
-This is how you can change the Effect Animate text properties:
+Följande fristående exempel animera orden i en textruta. [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) inaktiverar byggning stycke för stycke så att ordinställningen gäller för hela textramen.
 
-1. [Apply](#apply-animation-to-shape) eller hämta animationseffekten.
-2. Ställ in egenskapen [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/itextanimation/buildtype/) till värdet [BuildType.AsOneObject](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) för att stänga av *By Paragraphs*-animeringen.
-3. Ställ in nya värden för [IEffect.AnimateTextType](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/animatetexttype/) och [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/ieffect/delaybetweentextparts/).
-4. Spara den ändrade PPTX‑filen.
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-```c#
-// Instansierar en presentationsklass som representerar en presentationsfil.
-using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-{
-    ISlide firstSlide = pres.Slides[0];
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
 
-    // Hämtar den första effekten i huvudsekvensen
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.TextAnimation.BuildType = BuildType.AsOneObject;
+effect.AnimateTextType = AnimateTextType.ByWord;
+effect.DelayBetweenTextParts = 20.0f;
 
-    // Ändrar effektens TextAnimation-typ till "As One Object"
-    firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
-
-    // Ändrar effektens AnimateText-typ till "By word"
-    firstEffect.AnimateTextType = AnimateTextType.ByWord;
-
-    // Ställer in fördröjningen mellan ord till 20% av effektens varaktighet
-    firstEffect.DelayBetweenTextParts = 20f;
-
-    // Skriver PPTX-filen till disk
-    pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-}
+presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
+
+För att bygga en textruta stycke för stycke, sätt [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/buildtype/) (eller en annan stycknivå). För att rikta en enskild stycke med sin egen effekt, använd den [ISequence.AddEffect](https://reference.aspose.com/slides/sv/net/aspose.slides.animation/isequence/addeffect/)‑överladdning som accepterar ett [IParagraph](https://reference.aspose.com/slides/sv/net/aspose.slides/iparagraph/). Se [Animated Text](/slides/sv/net/animated-text/) för exempel på stycknivå.
+
+## **Export- och kompatibilitetsanteckningar**
+
+- Att spara till PPT eller PPTX bevarar animationsmodellen, men den slutgiltiga uppspelningen styrs av presentationsvisaren.
+- PDF och statiska bilder spelar inte upp animationer. Använd [HTML5 export](/slides/sv/net/export-to-html5/), animerad GIF eller [video conversion](/slides/sv/net/convert-powerpoint-to-video/) när utdata måste visa rörelse.
+- För HTML5, aktivera [Html5Options.AnimateShapes](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animateshapes/) och, vid behov, [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animatetransitions/).
+- Video‑rendering stödjer många vanliga ingångs‑, betoning‑, utgångs‑ och rörelse‑ban‑effekter, men inte alla PowerPoint‑effekter stöds. Kontrollera den aktuella [supported animations and effects](/slides/sv/net/convert-powerpoint-to-video/#supported-animations-and-effects) och testa kritiska presentationer med din mål‑Aspose.Slides‑version.
+- Avancerade anpassade effekter och effekter som importeras från andra presentationsformat kan bevaras i filen men renderas olika i PowerPoint, HTML5 eller video. Validera det exporterade resultatet i stället för att enbart förlita sig på effektens namn.
 
 ## **FAQ**
 
-**Hur kan jag säkerställa att animationer bevaras när presentationen publiceras på webben?**
+**Varför visas en animation i PowerPoint men inte i en PDF?**
 
-[Export to HTML5](/slides/sv/net/export-to-html5/) and enable the [options](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/) responsible for [shape](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animateshapes/) and [transition](https://reference.aspose.com/slides/sv/net/aspose.slides.export/html5options/animatetransitions/) animations. Ren HTML spelar inte upp bildspelsanimationer, medan HTML5 gör det.
+PDF är ett statiskt format, så animationer och bildövergångar spelas inte upp. Exportera till HTML5, animerad GIF eller video när rörelse måste bevaras.
 
-**Hur påverkar ändring av z‑order (lagerordning) för former animationen?**
+**Varför spelas en effekt annorlunda i en video?**
 
-Animation och ritordning är oberoende: en effekt kontrollerar timing och typ av visning/borttagning, medan [z-order](https://reference.aspose.com/slides/sv/net/aspose.slides/shape/zorderposition/) bestämmer vad som täcker vad. Det synliga resultatet definieras av deras kombination. (Detta är det generella PowerPoint‑beteendet; Aspose.Slides‑modellen för effekter och former följer samma logik.)
+Video‑export renderar animationer istället för att lagra det ursprungliga PowerPoint‑beteendet. Vissa avancerade effekter stöds inte eller approximeras. Granska tabellen med stödda effekter och testa den faktiska presentationen innan produktionsanvändning.
 
-**Finns det begränsningar när animationer konverteras till video för vissa effekter?**
+**Ändrar flyttning av en form framåt eller bakåt dess animationsordning?**
 
-I allmänhet stöds [animationer](/slides/sv/net/convert-powerpoint-to-video/), men sällsynta fall eller specifika effekter kan renderas annorlunda. Det rekommenderas att testa med de effekter du använder och med den aktuella versionen av biblioteket.
+Nej. Formens z‑ordning styr överlappning, medan sekvensordning och utlösare styr animationsuppspelning. Ändra tidslinjen om du behöver en annan uppspelningsordning.

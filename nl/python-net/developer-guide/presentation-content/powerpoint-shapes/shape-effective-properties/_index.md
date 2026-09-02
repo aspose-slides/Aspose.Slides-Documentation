@@ -1,5 +1,5 @@
 ---
-title: Haal effectieve vormeigenschappen op uit presentaties met Python
+title: Haal effectieve vormeigenschappen op uit presentaties in Python
 linktitle: Effectieve eigenschappen
 type: docs
 weight: 50
@@ -7,301 +7,253 @@ url: /nl/python-net/shape-effective-properties/
 keywords:
 - vormeigenschappen
 - camera-eigenschappen
-- lichtinstallatie
-- bevelvorm
-- tekstkader
+- lichtopstelling
+- afgeschuinde vorm
+- tekstframe
 - tekststijl
 - letterhoogte
-- opvulopmaak
+- vulopmaak
 - PowerPoint
 - presentatie
 - Python
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides voor Python via .NET effectieve vormeigenschappen berekent en toepast voor nauwkeurige weergave in PowerPoint."
+description: "Leer hoe u Aspose.Slides voor Python via .NET kunt gebruiken om lokale, geërfde en effectieve vormopmaak in PowerPoint-presentaties te onderscheiden."
 ---
-## **Overzicht**
+## **Begrijp lokale, geërfde en effectieve eigenschappen**
 
-Dit onderwerp legt het verschil uit tussen **lokale** en **effectieve** eigenschappen. Lokale waarden zijn waarden die rechtstreeks op een specifiek opmaakniveau worden ingesteld, bijvoorbeeld:
+PowerPoint-opmaak kan uit verschillende bronnen komen. De waarde die rechtstreeks op een object wordt opgeslagen, is de **lokale waarde**. Als die waarde niet is ingesteld, kijkt PowerPoint naar bovenliggende opmaakbronnen, zoals een alinea‑standaard, een tekst‑style, een indeling‑ of masterslide, een thema of de standaardinstellingen van de presentatie. Deze waarden zijn **geërfde waarden**. De waarde die overblijft nadat de volledige hiërarchie is verwerkt, is de **effectieve waarde**, die wordt gebruikt om het object weer te geven.
 
-1. Portie‑eigenschappen op een dia.
-1. Tekststijlen van prototype‑vormen op een lay‑out‑ of master‑dia, wanneer het tekstkadervorm van de portie er een heeft.
-1. Globale tekstopmaak in een presentatie.
+Bijvoorbeeld, een tekstgedeelte definieert mogelijk niet zijn eigen letterhoogte. De lokale [font_height](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ibaseportionformat/font_height/) is dan `float("nan")`, wat betekent “hier niet ingesteld”. Het gedeelte kan een hoogte erven van de alinea, de standaard‑tekst‑style van de presentatie, of een andere toepasselijke bron. Het aanroepen van [get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iportionformat/get_effective/) op het opmaakobject van het gedeelte retourneert de uiteindelijk berekende hoogte.
 
-Lokale waarden kunnen op elk niveau worden gedefinieerd of weggelaten. Wanneer Aspose.Slides de uiteindelijke “as rendered” opmaak nodig heeft, lost het de overervingsketen op en retourneert **effectieve** waarden. Je kunt ze verkrijgen door de `get_effective`‑methode aan te roepen op het lokale opmaakobject.
+Gebruik de twee soorten opmaakgegevens voor verschillende doeleinden:
 
-Het volgende voorbeeld toont hoe je effectieve waarden kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) is met een tekstkader en minstens één portie.
+- Lees of wijzig een lokaal opmaakobject, zoals [IPortionFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iportionformat/), wanneer u moet bepalen waar een waarde wordt gedefinieerd.
+- Lees een effectief gegevensobject, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iportionformateffectivedata/), wanneer u het uiteindelijke, gerenderde resultaat nodig hebt. Effectieve gegevens zijn alleen‑lezen.
 
-```py
+## **Vergelijk lokale, geërfde en effectieve waarden**
+
+Het volgende volledige voorbeeld maakt een vorm aan en past letterhoogtes toe op presentatieniveau, alinea‑niveau en gedeelte‑niveau. Elke stap drukt de waarden af die op die niveaus zijn gedefinieerd en de resulterende effectieve waarde voor hetzelfde tekstgedeelte. Het laat ook zien waarom effectieve gegevens opnieuw moeten worden gelezen na opmaakwijzigingen.
+
+```python
+import math
+
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
 
-    local_text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = local_text_frame_format.get_effective()
+def format_local_value(value):
+    return "<not set>" if math.isnan(value) else str(value)
 
-    paragraph = shape.text_frame.paragraphs[0]
-    portion = paragraph.portions[0]
-    local_portion_format = portion.portion_format
-    effective_portion_format = local_portion_format.get_effective()
-```
 
-{{% alert color="primary" %}}
-Effectieve opmaakgegevens vertegenwoordigen de momenteel berekende opmaak nadat overerving is toegepast. In de huidige implementatie kunnen sommige effectieve gegevensobjecten, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iportionformateffectivedata/), intern worden gecached. Een tweede aanroep van `get_effective` na het wijzigen van ouder‑ of geërfde opmaak kan de cache verversen, en een eerder verkregen object vertegenwoordigt mogelijk niet meer de eerdere staat. Als je effectieve waarden later opnieuw wilt gebruiken, kopieer dan de benodigde eigenschappen (bijvoorbeeld letterhoogte, vulkleur, lettertype‑stijl of uitlijning) naar je eigen gegevensobject.
-{{% /alert %}}
+def print_font_heights(caption, presentation, paragraph, portion):
+    presentation_value = presentation.default_text_style.get_level(0).default_portion_format.font_height
+    paragraph_value = paragraph.paragraph_format.default_portion_format.font_height
+    local_value = portion.portion_format.font_height
 
-## **Effectieve eigenschappen van een camera**
+    # Lees effectieve gegevens na de voorgaande wijzigingen.
+    effective_value = portion.portion_format.get_effective().font_height
 
-Aspose.Slides maakt het mogelijk om de effectieve eigenschappen van een camera op te halen. Het type [ICameraEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/icameraeffectivedata/) vertegenwoordigt een onveranderlijk object dat effectieve camera‑eigenschappen bevat. Een [ICameraEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/icameraeffectivedata/)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/), dat effectieve waarden levert voor [ThreeDFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/).
+    print(caption)
+    print("  Presentation default: " + format_local_value(presentation_value))
+    print("  Paragraph default:    " + format_local_value(paragraph_value))
+    print("  Portion local:        " + format_local_value(local_value))
+    print("  Portion effective:    " + str(effective_value))
 
-De volgende codevoorbeeld laat zien hoe je de effectieve eigenschappen van de camera kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    camera = three_d_effective_data.camera
-
-    camera_type = camera.camera_type
-    field_of_view_angle = camera.field_of_view_angle
-    zoom = camera.zoom
-
-    print("= Effective camera properties =")
-    print("Type: " + str(camera_type))
-    print("Field of view: " + str(field_of_view_angle))
-    print("Zoom: " + str(zoom))
-```
-
-## **Effectieve eigenschappen van een lichtinstallatie**
-
-Aspose.Slides maakt het mogelijk om de effectieve eigenschappen van een lichtinstallatie op te halen. Het type [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ilightrigeffectivedata/) vertegenwoordigt een onveranderlijk object dat effectieve lichtinstallatie‑eigenschappen bevat. Een [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ilightrigeffectivedata/)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/), dat effectieve waarden levert voor [ThreeDFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/).
-
-De volgende codevoorbeeld toont hoe je de effectieve eigenschappen van de lichtinstallatie kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    light_rig = three_d_effective_data.light_rig
-
-    light_type = light_rig.light_type
-    direction = light_rig.direction
-
-    print("= Effective light rig properties =")
-    print("Type: " + str(light_type))
-    print("Direction: " + str(direction))
-```
-
-## **Effectieve eigenschappen van een bevelvorm**
-
-Aspose.Slides maakt het mogelijk om de effectieve eigenschappen van een vorm‑bevel op te halen. Het type [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapebeveleffectivedata/) vertegenwoordigt een onveranderlijk object dat effectieve front‑reliëf‑eigenschappen voor een vorm bevat. Een [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ishapebeveleffectivedata/)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/), dat effectieve waarden levert voor [ThreeDFormat](https://reference.aspose.com/slides/nl/python-net/aspose.slides/threedformat/).
-
-De volgende codevoorbeeld toont hoe je de effectieve eigenschappen van het boven‑bevel van een vorm kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    three_d_effective_data = shape.three_d_format.get_effective()
-    top_bevel = three_d_effective_data.bevel_top
-
-    bevel_type = top_bevel.bevel_type
-    bevel_width = top_bevel.width
-    bevel_height = top_bevel.height
-
-    print("= Effective shape's top face relief properties =")
-    print("Type: " + str(bevel_type))
-    print("Width: " + str(bevel_width))
-    print("Height: " + str(bevel_height))
-```
-
-## **Effectieve eigenschappen van een tekstkader**
-
-Met Aspose.Slides kun je de effectieve eigenschappen van een tekstkader ophalen. Het type [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/itextframeformateffectivedata/) bevat effectieve opmaak‑eigenschappen voor een tekstkader.
-
-De volgende codevoorbeeld toont hoe je de effectieve opmaak‑eigenschappen van een tekstkader kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) is met een tekstkader.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-
-    text_frame_format = shape.text_frame.text_frame_format
-    effective_text_frame_format = text_frame_format.get_effective()
-
-    anchoring_type = effective_text_frame_format.anchoring_type
-    autofit_type = effective_text_frame_format.autofit_type
-    text_vertical_type = effective_text_frame_format.text_vertical_type
-    margin_left = effective_text_frame_format.margin_left
-    margin_top = effective_text_frame_format.margin_top
-    margin_right = effective_text_frame_format.margin_right
-    margin_bottom = effective_text_frame_format.margin_bottom
-
-    print("Anchoring type: " + str(anchoring_type))
-    print("Autofit type: " + str(autofit_type))
-    print("Text vertical type: " + str(text_vertical_type))
-    print("Margins")
-    print("   Left: " + str(margin_left))
-    print("   Top: " + str(margin_top))
-    print("   Right: " + str(margin_right))
-    print("   Bottom: " + str(margin_bottom))
-```
-
-## **Effectieve eigenschappen van een tekststijl**
-
-Met Aspose.Slides kun je de effectieve eigenschappen van een tekststijl ophalen. Het type [ITextStyleEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/itextstyleeffectivedata/) bevat effectieve tekststijl‑eigenschappen.
-
-De volgende codevoorbeeld toont hoe je de effectieve tekststijl‑eigenschappen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) is met een tekstkader.
-
-```py
-import aspose.slides as slides
-
-with slides.Presentation("sample.pptx") as presentation:
-    shape = presentation.slides[0].shapes[0]
-    text_frame_format = shape.text_frame.text_frame_format
-    text_style = text_frame_format.text_style
-    effective_text_style = text_style.get_effective()
-    level_count = 9
-
-    for level_index in range(level_count):
-        effective_style_level = effective_text_style.get_level(level_index)
-        depth = effective_style_level.depth
-        indent = effective_style_level.indent
-        alignment = effective_style_level.alignment
-        font_alignment = effective_style_level.font_alignment
-
-        print("= Effective paragraph formatting for style level #" + str(level_index) + " =")
-
-        print("Depth: " + str(depth))
-        print("Indent: " + str(indent))
-        print("Alignment: " + str(alignment))
-        print("Font alignment: " + str(font_alignment))
-```
-
-## **Effectieve letterhoogte‑waarde ophalen**
-
-Met Aspose.Slides kun je de effectieve letterhoogte ophalen. De volgende code demonstreert hoe de effectieve letterhoogte van een portie verandert nadat lokale letterhoogte‑waarden op verschillende niveaus van de presentatie‑structuur zijn ingesteld.
-
-```py
-import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    auto_shape = presentation.slides[0].shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 400, 75, False)
-    auto_shape.add_text_frame("")
+    slide = presentation.slides[0]
+    shape = slide.shapes.add_auto_shape(slides.ShapeType.RECTANGLE, 100, 100, 500, 80, False)
+    text_frame = shape.add_text_frame("Effective formatting")
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
 
-    paragraph = auto_shape.text_frame.paragraphs[0]
-    paragraph.portions.clear()
+    # Definieer geërfde waarden op twee verschillende niveaus.
+    presentation.default_text_style.get_level(0).default_portion_format.font_height = 20
+    paragraph.paragraph_format.default_portion_format.font_height = 28
 
-    first_portion = slides.Portion("Sample text with first portion")
-    second_portion = slides.Portion(" and second portion.")
+    print_font_heights("The portion inherits from the paragraph", presentation, paragraph, portion)
 
-    paragraph.portions.add(first_portion)
-    paragraph.portions.add(second_portion)
+    # Een lokale waarde op het gedeelte overschrijft beide geërfde waarden.
+    portion.portion_format.font_height = 36
+    print_font_heights("A local value overrides inherited values", presentation, paragraph, portion)
 
-    print("Effective font height just after creation:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Het wijzigen van een geërfde waarde overschrijft geen bestaande lokale waarde.
+    paragraph.paragraph_format.default_portion_format.font_height = 30
+    print_font_heights("The local value still has priority", presentation, paragraph, portion)
 
-    default_text_style_level = presentation.default_text_style.get_level(0)
-    default_text_style_level.default_portion_format.font_height = 24
+    # Wis de lokale waarde. Het gedeelte erft nu weer van de alinea.
+    portion.portion_format.font_height = float("nan")
+    print_font_heights("The local value is cleared", presentation, paragraph, portion)
 
-    print("Effective font height after setting the presentation default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
+    # Wis de alinea‑waarde. De standaard van de presentatie levert nu het resultaat.
+    paragraph.paragraph_format.default_portion_format.font_height = float("nan")
+    print_font_heights("The paragraph value is cleared", presentation, paragraph, portion)
 
-    paragraph.paragraph_format.default_portion_format.font_height = 40
-
-    print("Effective font height after setting paragraph default font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    first_portion.portion_format.font_height = 55
-
-    print("Effective font height after setting portion #0 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    second_portion.portion_format.font_height = 18
-
-    print("Effective font height after setting portion #1 font height:")
-    first_portion_font_height = first_portion.portion_format.get_effective().font_height
-    second_portion_font_height = second_portion.portion_format.get_effective().font_height
-    print("Portion #0: " + str(first_portion_font_height))
-    print("Portion #1: " + str(second_portion_font_height))
-
-    presentation.save("SetLocalFontHeightValues.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("effective-properties.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Effectieve opvul­opmaak voor een tabel**
+De prioriteit in dit voorbeeld is eerst de lokale opmaak van het gedeelte, daarna de alinea‑opmaak, en vervolgens de standaard van de presentatie. Andere objecten kunnen verschillende ervaringsketens hebben, maar het principe is hetzelfde: een specifiekere expliciete waarde heeft voorrang, en [get_effective](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iportionformat/get_effective/) retourneert het eindresultaat.
 
-Met Aspose.Slides kun je de effectieve opvul­opmaak voor verschillende tabelonderdelen ophalen. Het type [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ifillformateffectivedata/) bevat effectieve opvul‑opmaak‑eigenschappen. Cel‑opmaak heeft een hogere prioriteit dan rij‑opmaak, rij‑opmaak heeft een hogere prioriteit dan kolom‑opmaak, en kolom‑opmaak heeft een hogere prioriteit dan tabel‑brede opmaak.
+## **Haal effectieve tekst‑eigenschappen op**
 
-Als gevolg daarvan worden de eigenschappen van [ICellFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/icellformateffectivedata/) gebruikt om de tabelcel te tekenen. De volgende codevoorbeeld toont hoe je de effectieve opvul‑opmaak voor verschillende tabelonderdelen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/) is.
+Tekstopmaak is verdeeld over verschillende objecten:
 
-```py
+- [ITextFrameFormat.get_effective()](https://reference.aspose.com/slides/nl/python-net/aspose.slides/itextframeformat/get_effective/) lost tekst‑frame‑eigenschappen op zoals marges, verankering, autofit en verticale tekstrichting.
+- [ITextStyle.get_effective()](https://reference.aspose.com/slides/nl/python-net/aspose.slides/itextstyle/get_effective/) lost alinea‑opmaak op voor elk tekst‑style‑niveau.
+- [IParagraphFormat.get_effective()](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iparagraphformat/get_effective/) lost alinea‑eigenschappen op, zoals uitlijning, inspringing en opsommingstekens.
+- [IPortionFormat.get_effective()](https://reference.aspose.com/slides/nl/python-net/aspose.slides/iportionformat/get_effective/) lost teken‑eigenschappen op, zoals letterhoogte, lettertype, kleur, vet en cursief.
+
+Voor het volgende voorbeeld moet `text-formatting.pptx` ten minste één dia en één [AutoShape](https://reference.aspose.com/slides/nl/python-net/aspose.slides/autoshape/) bevatten met een niet‑lege tekstframe. De AutoShape kan zich op elke positie in de vormverzameling bevinden; de code zoekt naar een geschikt object en valideert het voordat het wordt gebruikt.
+
+```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    table = presentation.slides[0].shapes[0]
-    first_row = table.rows[0]
-    first_column = table.columns[0]
-    first_cell = first_row[0]
 
-    table_format_effective = table.table_format.get_effective()
-    row_format_effective = first_row.row_format.get_effective()
-    column_format_effective = first_column.column_format.get_effective()
-    cell_format_effective = first_cell.cell_format.get_effective()
+def has_non_empty_text(shape):
+    if not isinstance(shape, slides.AutoShape):
+        return False
+    if shape.text_frame is None:
+        return False
+    if shape.text_frame.paragraphs.count == 0:
+        return False
+    return shape.text_frame.paragraphs[0].portions.count > 0
 
-    table_fill_format_effective = table_format_effective.fill_format
-    row_fill_format_effective = row_format_effective.fill_format
-    column_fill_format_effective = column_format_effective.fill_format
-    cell_fill_format_effective = cell_format_effective.fill_format
+
+with slides.Presentation("text-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    shape = None
+    for candidate in presentation.slides[0].shapes:
+        if has_non_empty_text(candidate):
+            shape = candidate
+            break
+
+    if shape is None:
+        raise RuntimeError("The first slide must contain an AutoShape with non-empty text.")
+
+    text_frame = shape.text_frame
+    paragraph = text_frame.paragraphs[0]
+    portion = paragraph.portions[0]
+
+    text_frame_effective = text_frame.text_frame_format.get_effective()
+    paragraph_effective = paragraph.paragraph_format.get_effective()
+    portion_effective = portion.portion_format.get_effective()
+
+    print("Text frame margins:")
+    print("  Left: " + str(text_frame_effective.margin_left))
+    print("  Top: " + str(text_frame_effective.margin_top))
+    print("  Right: " + str(text_frame_effective.margin_right))
+    print("  Bottom: " + str(text_frame_effective.margin_bottom))
+    print("Paragraph alignment: " + str(paragraph_effective.alignment))
+    print("Font height: " + str(portion_effective.font_height))
+    print("Bold: " + str(portion_effective.font_bold))
+
+    effective_text_style = text_frame.text_frame_format.text_style.get_effective()
+    for level in range(9):
+        level_effective = effective_text_style.get_level(level)
+        print("Level " + str(level) + " indent: " + str(level_effective.indent))
 ```
+
+## **Haal effectieve 3D‑eigenschappen op**
+
+[IThreeDFormat.get_effective()](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformat/get_effective/) retourneert één [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/) object dat alle berekende 3D‑instellingen groepeert. De eigenschappen [camera](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/camera/), [light_rig](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/light_rig/), [bevel_top](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/bevel_top/), en [bevel_bottom](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ithreedformateffectivedata/bevel_bottom/) geven de overeenkomstige effectieve gegevens weer. Het samen lezen van deze verwante instellingen maakt het makkelijker te begrijpen hoe de uiteindelijke 3D‑weergave van een vorm eruitziet.
+
+Voor dit voorbeeld moet `shape-3d.pptx` op de eerste dia ten minste één vorm bevatten. Pas een 3D‑camera, belichting of afschuining toe op die vorm als u wilt dat de uitvoer andere waarden dan de standaardinstellingen bevat.
+
+```python
+import aspose.slides as slides
+
+
+with slides.Presentation("shape-3d.pptx") as presentation:
+    if presentation.slides.count == 0 or presentation.slides[0].shapes.count == 0:
+        raise RuntimeError("The first slide must contain a shape.")
+
+    shape = presentation.slides[0].shapes[0]
+    three_d_effective = shape.three_d_format.get_effective()
+
+    print("Camera:")
+    print("  Type: " + str(three_d_effective.camera.camera_type))
+    print("  Field of view: " + str(three_d_effective.camera.field_of_view_angle))
+    print("  Zoom: " + str(three_d_effective.camera.zoom))
+
+    print("Light rig:")
+    print("  Type: " + str(three_d_effective.light_rig.light_type))
+    print("  Direction: " + str(three_d_effective.light_rig.direction))
+
+    print("Top bevel:")
+    print("  Type: " + str(three_d_effective.bevel_top.bevel_type))
+    print("  Width: " + str(three_d_effective.bevel_top.width))
+    print("  Height: " + str(three_d_effective.bevel_top.height))
+```
+
+## **Haal effectieve tabel‑opmaak op**
+
+Tabel‑opmaak kan afkomstig zijn van de tabelstyle en van opmaak die op de volledige tabel, een kolom, een rij of een individuele cel wordt toegepast. Bij conflicten tussen expliciet gedefinieerde vullingen is de prioriteit cel, rij, kolom en daarna de volledige tabel. De effectieve opmaak van een cel is de uiteindelijke opmaak die wordt gebruikt om die cel te tekenen.
+
+Voor dit voorbeeld moet `table-formatting.pptx` op de eerste dia ten minste één tabel bevatten. De tabel moet minstens één rij en één kolom hebben. De code zoekt naar een [Table](https://reference.aspose.com/slides/nl/python-net/aspose.slides/table/) in plaats van ervan uit te gaan dat `shapes[0]` een tabel is.
+
+```python
+import aspose.slides as slides
+
+
+with slides.Presentation("table-formatting.pptx") as presentation:
+    if presentation.slides.count == 0:
+        raise RuntimeError("The presentation contains no slides.")
+
+    table = None
+    for shape in presentation.slides[0].shapes:
+        if isinstance(shape, slides.Table):
+            table = shape
+            break
+
+    if table is None:
+        raise RuntimeError("The first slide must contain a table.")
+
+    if table.rows.count == 0 or table.columns.count == 0:
+        raise RuntimeError("The table must contain at least one cell.")
+
+    table_effective = table.table_format.get_effective()
+    row_effective = table.rows[0].row_format.get_effective()
+    column_effective = table.columns[0].column_format.get_effective()
+    cell_effective = table.rows[0][0].cell_format.get_effective()
+
+    print("Table fill: " + str(table_effective.fill_format.fill_type))
+    print("Row fill: " + str(row_effective.fill_format.fill_type))
+    print("Column fill: " + str(column_effective.fill_format.fill_type))
+    print("Final cell fill: " + str(cell_effective.fill_format.fill_type))
+```
+
+Als u de kleur nodig hebt in plaats van alleen het vul‑type, controleer dan eerst de effectieve [fill_type](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ifillformateffectivedata/fill_type/), en lees vervolgens de eigenschap die van toepassing is op dat type, bijvoorbeeld [solid_fill_color](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ifillformateffectivedata/solid_fill_color/) voor een effen vulkleur.
+
+## **Lees effectieve gegevens opnieuw na wijzigingen**
+
+Effectieve gegevens beschrijven de opmaakhiërarchie op het moment dat deze wordt berekend. Roep `get_effective` opnieuw aan nadat u iets hebt gewijzigd dat deel kan uitmaken van die hiërarchie, inclusief:
+
+- de lokale opmaak van het object;
+- standaardinstellingen van alinea of tekst‑frame;
+- een tabel‑style, tabel, kolom, rij of cel‑opmaak;
+- indeling‑ of masterslide‑opmaak;
+- themagegevens of standaardinstellingen van de presentatie;
+- de indeling of master die aan een dia is toegewezen.
+
+Bewaar een effectief gegevensobject niet als een permanent momentopname. Aspose.Slides kan sommige effectieve gegevens intern cachen, en een latere `get_effective`‑aanroep kan die gegevens vernieuwen. Als u waarden vóór en na een wijziging moet vergelijken, kopieer dan de scalare waarden die u nodig hebt, zoals een letterhoogte, kleur, uitlijning of afschuiningsbreedte, naar uw eigen variabelen voordat u de wijziging doorvoert.
+
+Om een waarde te wijzigen, werkt u het juiste lokale opmaakobject bij en roept u vervolgens `get_effective` aan om het resultaat te verifiëren. Effectieve gegevensobjecten zelf zijn alleen‑lezen.
 
 ## **FAQ**
 
-**Retourneert `get_effective` een momentopname?**
+**Hoe kan ik zien welk niveau een effectieve waarde heeft geleverd?**
 
-Niet altijd. Effectieve gegevens vertegenwoordigen de berekende opmaak nadat overerving is toegepast, maar sommige effectieve gegevensobjecten kunnen intern worden gecached. Een volgende aanroep van `get_effective` kan de opmaak opnieuw berekenen en de cache verversen, zodat een eerder verkregen object niet als een duurzame momentopname moet worden beschouwd.
+Effectieve gegevens bevatten de uiteindelijke waarde, niet de bron ervan. Inspecteer de toepasselijke lokale objecten van het meest specifieke niveau naar buiten toe. Voor tekst kan dit het gedeelte, de alinea, het tekst‑frame, de indeling, de master, het thema en de standaardinstellingen van de presentatie omvatten. Niet‑gedefinieerde waarden zoals `float("nan")` of `None` geven aan dat de zoektocht doorgaat naar een ander niveau.
 
-**Wanneer moet ik de effectieve eigenschappen opnieuw lezen?**
+**Wat gebeurt er als geen enkel niveau een eigenschap definieert?**
 
-Roep `get_effective` opnieuw aan nadat je de lokale opmaak, ouder‑stijlen, lay‑out‑opmaak, master‑opmaak of presentatieniveau‑standaarden hebt gewijzigd. De volgende aanroep evalueert de opmaak‑hiërarchie opnieuw en retourneert het huidige effectieve resultaat.
+Aspose.Slides lost de juiste PowerPoint‑ of bibliotheek‑standaard op. Die berekende waarde verschijnt in de effectieve gegevens, ook al definieert geen lokaal object deze expliciet.
 
-**Heeft het wijzigen of verwijderen van een lay‑out/master‑dia invloed op reeds opgehaalde effectieve eigenschappen?**
+**Waarom komt een effectieve waarde soms overeen met de lokale waarde?**
 
-Ja, maar de wijziging wordt pas zichtbaar bij de volgende `get_effective`‑aanroep. Als een bron van ouder‑opmaak wordt gewijzigd of verwijderd, kan eerder verkregen effectieve data verouderd zijn. Zodra `get_effective` opnieuw wordt aangeroepen, evalueert Aspose.Slides de opmaakboom opnieuw en kunnen de resulterende lettertypen, kleuren, groottes of andere waarden wijzigen.
+De lokale waarde heeft de erfenisberekening gewonnen. Dit is te verwachten wanneer de eigenschap expliciet op het object is ingesteld en geen specifiekere regel deze overschrijft.
 
-**Kan ik waarden wijzigen via effectieve gegevensobjecten?**
+**Wanneer moet ik lokale gegevens gebruiken in plaats van effectieve gegevens?**
 
-Nee. Effectieve gegevensobjecten exposeren alleen berekende waarden. Breng wijzigingen aan in de lokale opmaakobjecten en haal vervolgens de effectieve waarden opnieuw op.
-
-**Wat gebeurt er als een eigenschap niet is ingesteld op het vorm‑niveau, noch in de lay‑out/master, noch in de globale instellingen?**
-
-De effectieve waarde wordt bepaald door het standaardmechanisme, dat de PowerPoint‑ en Aspose.Slides‑standaarden omvat. Die afgeleide waarde wordt onderdeel van de huidige effectieve gegevens.
-
-**Kan ik aan de hand van een effectieve lettertype‑waarde zien op welk niveau de grootte of het lettertype is gedefinieerd?**
-
-Niet rechtstreeks. Effectieve gegevens geven alleen de uiteindelijke waarde terug. Om de bron te vinden, controleer je de lokale waarden op portie‑, alinea‑, tekstkader‑ en tekststijl‑niveau in de lay‑out, master en presentatie om te zien waar de eerste expliciete definitie voorkomt.
-
-**Waarom lijken effectieve waarden soms identiek aan de lokale waarden?**
-
-Omdat de lokale waarde uiteindelijk de definitieve is (er was geen hogere‑niveau overerving nodig). In dat geval komt de effectieve waarde overeen met de lokale waarde.
-
-**Wanneer moet ik effectieve eigenschappen gebruiken, en wanneer alleen met lokale werken?**
-
-Gebruik effectieve gegevens wanneer je het “as rendered” resultaat nodig hebt na toepassing van alle overerving, bijvoorbeeld om kleuren, inspringen of groottes op elkaar af te stemmen. Als je die waarden moet behouden ongeacht latere opmaakwijzigingen, kopieer dan de benodigde eigenschappen naar je eigen object. Als je opmaak op een specifiek niveau wilt wijzigen, wijzig dan de lokale eigenschappen en lees vervolgens, indien nodig, de effectieve gegevens opnieuw om het resultaat te verifiëren.
+Gebruik lokale gegevens om een specifiek opmaakniveau te inspecteren of te bewerken. Gebruik effectieve gegevens wanneer u de uiteindelijke weergave nodig heeft na erfenis, themaregels en toepasselijke stijlen. Het [complete vergelijking voorbeeld](#compare-local-inherited-and-effective-values) laat beide zien in dezelfde workflow.

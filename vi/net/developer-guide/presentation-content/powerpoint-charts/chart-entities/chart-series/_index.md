@@ -1,312 +1,381 @@
 ---
-title: Quản lý Series dữ liệu biểu đồ trong bản trình bày bằng .NET
-linktitle: Series dữ liệu
+title: Quản lý chuỗi dữ liệu biểu đồ trong bản trình chiếu bằng .NET
+linktitle: Chuỗi dữ liệu
 type: docs
 url: /vi/net/chart-series/
 keywords:
-- series biểu đồ
-- chồng lấn series
-- màu series
+- chuỗi biểu đồ
+- chồng chéo chuỗi
+- màu chuỗi
 - màu danh mục
-- tên series
+- tên chuỗi
 - điểm dữ liệu
-- khoảng cách series
+- khoảng trống chuỗi
 - PowerPoint
-- trình bày
+- bản trình chiếu
 - .NET
 - C#
 - Aspose.Slides
-description: "Học cách quản lý series biểu đồ trong C# cho PowerPoint (PPT/PPTX) với các ví dụ mã thực tế và các thực tiễn tốt nhất để nâng cao các bản trình bày dữ liệu của bạn."
+description: "Tìm hiểu cách quản lý chuỗi biểu đồ, điểm dữ liệu, các ô trong sổ làm việc, định dạng, chồng chéo, độ rộng khoảng trống và các giá trị âm trong bản trình chiếu bằng C#."
 ---
 ## **Tổng quan**
 
-Bài viết này mô tả vai trò của [ChartSeries](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartseries/) trong Aspose.Slides for .NET, tập trung vào cách dữ liệu được cấu trúc và hiển thị trong các bản trình bày. Những đối tượng này cung cấp các thành phần cơ bản xác định các tập hợp điểm dữ liệu, danh mục và tham số hiển thị riêng lẻ trong một biểu đồ. Khi làm việc với [ChartSeries](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/chartseries/), các nhà phát triển có thể tích hợp nguồn dữ liệu nền một cách liền mạch và duy trì kiểm soát hoàn toàn cách thông tin được hiển thị, tạo ra các bản trình bày động, dựa trên dữ liệu, truyền tải rõ ràng các insight và phân tích.
+Một biểu đồ lưu trữ dữ liệu đã vẽ trong một sổ làm việc dữ liệu biểu đồ. Một [IChartSeries](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/) đại diện cho một tập hợp các giá trị liên quan, và mỗi [IChartDataPoint](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapoint/) trong chuỗi tham chiếu tới một hoặc nhiều ô trong sổ làm việc. Các đối tượng [IChartCategory](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartcategory/) cung cấp các nhãn hoặc giá trị nhóm được chia sẻ bởi các chuỗi. Vì vậy, tên chuỗi, các danh mục và giá trị điểm được kết nối với các đối tượng [IChartDataCell](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatacell/) thay vì chỉ được lưu dưới dạng văn bản hiển thị.
 
-Series là một hàng hoặc cột các số được vẽ trên biểu đồ.
+Đối với một biểu đồ danh mục điển hình, sổ làm việc mặc định sử dụng hàng 0 cho tên chuỗi, cột 0 cho tên danh mục và các ô còn lại cho giá trị chuỗi. Các chỉ mục worksheet, hàng và cột được truyền vào [IChartDataWorkbook.GetCell](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdataworkbook/getcell/) là dựa trên chỉ số 0. Bố cục này hữu ích khi bạn tạo biểu đồ với dữ liệu mặc định, nhưng không nên cho rằng mọi biểu đồ hiện có đều sử dụng nó. Đối với một bản trình bày đã tải, hãy kiểm tra các ô được chuỗi, danh mục và các điểm dữ liệu tham chiếu trước khi thay đổi giá trị sổ làm việc.
 
-![chuỗi-biểu-đồ-powerpoint](chart-series-powerpoint.png)
+Cài đặt biểu đồ có ba phạm vi khác nhau:
 
-## **Đặt độ chồng lấn của Series biểu đồ**
+- Cài đặt mức chuỗi, chẳng hạn như [IChartSeries.Format](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/format/), cung cấp giao diện mặc định cho tất cả các điểm trong một chuỗi.
+- Cài đặt mức điểm dữ liệu, chẳng hạn như [IChartDataPoint.Format](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapoint/format/), ghi đè giao diện chuỗi cho một điểm.
+- Cài đặt nhóm áp dụng cho các chuỗi tương thích thuộc cùng một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseriesgroup/). Truy cập nhóm qua [IChartSeries.ParentSeriesGroup](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/parentseriesgroup/) khi bạn cần đặt các tùy chọn như độ chồng chéo hoặc độ rộng khoảng trống.
 
-Thuộc tính [IChartSeriesOverlap](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/properties/overlap) điều khiển cách các thanh và cột chồng lên nhau trong biểu đồ 2D bằng cách chỉ định một phạm vi từ -100 đến 100. Vì thuộc tính này liên kết với nhóm series chứ không phải từng series riêng lẻ, nên nó chỉ đọc ở mức series. Để cấu hình giá trị chồng lấn, hãy sử dụng thuộc tính `ParentSeriesGroup.Overlap` có thể đọc/ghi, thuộc tính này áp dụng độ chồng lấn đã chỉ định cho tất cả các series trong cùng một nhóm.
+Khi không có màu nền điểm hoặc chuỗi nào được đặt một cách rõ ràng, kiểu biểu đồ và chủ đề sẽ quyết định giao diện tự động. Khi cả định dạng chuỗi và điểm đều tồn tại, định dạng điểm sẽ có ưu tiên cho điểm đó.
 
-Dưới đây là ví dụ C# minh họa cách tạo một bản trình bày, thêm biểu đồ cột nhóm, truy cập series đầu tiên, cấu hình thiết lập chồng lấn, và sau đó lưu kết quả dưới dạng tệp PPTX:
+![chart-series-powerpoint](chart-series-powerpoint.png)
+
+## **Đặt Chồng Chéo Chuỗi Biểu Đồ**
+
+[IChartSeries.Overlap](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/overlap/) báo cáo mức độ các thanh hoặc cột chồng lên nhau trong biểu đồ 2D, từ -100 tới 100 phần trăm. Đây là một phép chiếu chỉ đọc của cài đặt trên nhóm chuỗi cha. Đặt [IChartSeriesGroup.Overlap](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseriesgroup/overlap/) để cập nhật mọi chuỗi tương thích trong nhóm đó. Tùy chọn này áp dụng cho các loại biểu đồ hiển thị các thanh hoặc cột được nhóm lại; nó không ảnh hưởng đến các nhóm chuỗi không liên quan trong biểu đồ kết hợp.
+
+Ví dụ sau đặt độ chồng chéo cho nhóm chứa chuỗi đầu tiên:
 
 ```cs
-sbyte overlap = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const sbyte overlapPercent = 30;
 
-    // Thêm biểu đồ cột nhóm với dữ liệu mặc định.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    IChartSeries series = chart.ChartData.Series[0];
-    if (series.Overlap == 0)
-    {
-        // Đặt độ chồng lấn của series.
-        series.ParentSeriesGroup.Overlap = overlap;
-    }
+// Biểu đồ mới chứa các chuỗi mẫu, danh mục và giá trị.
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Lưu tệp bản trình bày vào đĩa.
-    presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.Overlap = overlapPercent;
+
+presentation.Save("series_overlap.pptx", SaveFormat.Pptx);
 ```
 
 Kết quả:
 
-![Độ chồng lấn của series](series_overlap.png)
+![The series overlap](series_overlap.png)
 
-## **Thay đổi màu tô nền của Series**
+## **Thay Đổi Màu Nền Chuỗi**
 
-Aspose.Slides giúp bạn dễ dàng tùy chỉnh màu tô nền của series trong biểu đồ, cho phép làm nổi bật các điểm dữ liệu cụ thể và tạo ra các biểu đồ hấp dẫn về mặt trực quan. Điều này được thực hiện qua đối tượng [IFormat](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/iformat/), hỗ trợ nhiều loại tô, cấu hình màu và các tùy chọn định dạng nâng cao khác. Sau khi thêm biểu đồ vào một slide và truy cập series mong muốn, chỉ cần lấy series và áp dụng màu tô phù hợp. Ngoài việc tô đặc, bạn còn có thể sử dụng tô gradient hoặc pattern để tăng tính linh hoạt trong thiết kế. Khi đã thiết lập màu sắc theo yêu cầu, lưu bản trình bày để hoàn thiện giao diện mới.
+Sử dụng [IChartSeries.Format](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/format/) để đặt màu nền mặc định cho toàn bộ chuỗi. Nếu một điểm đã có màu nền rõ ràng, cài đặt [IChartDataPoint.Format](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapoint/format/) của nó sẽ ghi đè màu nền chuỗi cho điểm đó.
 
-Đoạn mã C# dưới đây cho thấy cách thay đổi màu của series đầu tiên:
+Ví dụ sau áp dụng màu nền xanh đậm đặc cho chuỗi đầu tiên:
 
 ```cs
-Color seriesColor = Color.Blue;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
 
-    // Thêm biểu đồ cột nhóm với dữ liệu mặc định.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Đặt màu cho series đầu tiên.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Lưu tệp bản trình bày vào đĩa.
-    presentation.Save("series_color.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = Color.Blue;
+
+presentation.Save("series_color.pptx", SaveFormat.Pptx);
 ```
 
 Kết quả:
 
-![Màu của series](series_color.png)
+![The color of the series](series_color.png)
 
-## **Thay đổi tên Series**
+## **Thay Đổi Tên Chuỗi**
 
-Aspose.Slides cung cấp cách đơn giản để sửa đổi tên của các series trong biểu đồ, giúp gắn nhãn dữ liệu một cách rõ ràng và có ý nghĩa. Bằng cách truy cập ô tính tương ứng trong dữ liệu biểu đồ, các nhà phát triển có thể tùy chỉnh cách dữ liệu được hiển thị. Việc sửa đổi này đặc biệt hữu ích khi cần cập nhật hoặc làm rõ tên series dựa trên ngữ cảnh của dữ liệu. Sau khi đổi tên series, lưu bản trình bày để giữ lại các thay đổi.
-
-Đoạn mã C# dưới đây minh họa quy trình này:
+Tên chuỗi được lưu trong sổ làm việc dữ liệu biểu đồ và thường được hiển thị trong chú giải. Trong sổ làm việc mặc định được tạo cho biểu đồ cột cụm, ô B1 nằm ở hàng 0, cột 1 và chứa tên của chuỗi đầu tiên. Các hằng số được đặt tên trong ví dụ sau làm rõ cấu trúc này:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int seriesNameRowIndex = 0;
+const int firstSeriesColumnIndex = 1;
 
-    // Thêm biểu đồ cột nhóm với dữ liệu mặc định.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Đặt tên cho series đầu tiên.
-    IChartDataCell seriesCell = chart.ChartData.ChartDataWorkbook.GetCell(0, 0, 1);
-    seriesCell.Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Lưu tệp bản trình bày vào đĩa.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
+var workbook = chart.ChartData.ChartDataWorkbook;
+var seriesNameCell = workbook.GetCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+seriesNameCell.Value = "Revenue";
+
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
-Đoạn mã C# tiếp theo cho thấy cách thay thế khác để đổi tên series:
+Bạn cũng có thể cập nhật ô đã được [IChartSeries.Name](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/name/) tham chiếu. Cách tiếp cận này tránh việc giả định một hàng và cột cụ thể trong biểu đồ hiện có:
 
 ```cs
-string seriesName = "New name";
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int firstNameCellIndex = 0;
 
-    // Thêm biểu đồ cột nhóm với dữ liệu mặc định.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Đặt tên cho series đầu tiên.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.Name.AsCells[0].Value = seriesName;
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Lưu tệp bản trình bày vào đĩa.
-    presentation.Save("series_name.pptx", SaveFormat.Pptx);
-}
-```
+var series = chart.ChartData.Series[firstSeriesIndex];
+var seriesNameCell = series.Name.AsCells[firstNameCellIndex];
+seriesNameCell.Value = "Revenue";
 
-Kết quả:
-
-![Tên series](series_name.png)
-
-## **Lấy màu tô tự động cho Series**
-
-Aspose.Slides for .NET cho phép bạn lấy màu tô tự động cho series trong một vùng vẽ. Sau khi tạo một thể hiện của lớp [Presentation](https://reference.aspose.com/slides/vi/net/aspose.slides/presentation/), bạn có thể lấy tham chiếu đến slide mong muốn theo chỉ mục, sau đó thêm một biểu đồ bằng loại bạn muốn (ví dụ `ChartType.ClusteredColumn`). Bằng cách truy cập các series trong biểu đồ, bạn có thể lấy màu tô tự động.
-
-Đoạn mã C# dưới đây mô tả chi tiết quy trình này:
-
-```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
-
-    // Thêm biểu đồ cột nhóm với dữ liệu mặc định.
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-
-    for (int i = 0; i < chart.ChartData.Series.Count; i++)
-    {
-        // Lấy màu tô của series.
-        Color color = chart.ChartData.Series[i].GetAutomaticSeriesColor();
-        Console.WriteLine($"Series {i} color: {color.Name}");
-    }
-}
+presentation.Save("series_name.pptx", SaveFormat.Pptx);
 ```
 
 Kết quả:
+
+![The series name](series_name.png)
+
+## **Lấy Màu Nền Tự Động Của Chuỗi**
+
+[IChartSeries.GetAutomaticSeriesColor](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/getautomaticseriescolor/) trả về màu được tính dựa trên chỉ mục chuỗi và kiểu biểu đồ. Đây là màu được sử dụng khi màu nền chuỗi không được định nghĩa một cách rõ ràng. Gọi phương thức này chỉ đọc màu đã tính; nó không gán màu nền mới.
+
+Ví dụ sau in màu tự động của mỗi chuỗi mặc định:
+
+```cs
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+
+const int firstSlideIndex = 0;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var seriesCount = chart.ChartData.Series.Count;
+for (var seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++)
+{
+    var series = chart.ChartData.Series[seriesIndex];
+    var automaticColor = series.GetAutomaticSeriesColor();
+    Console.WriteLine($"Series {seriesIndex}: {automaticColor.Name}");
+}
+```
+
+Đầu ra ví dụ cho kiểu biểu đồ mặc định:
+
 ```text
-Series 0 color: ff4f81bd
-Series 1 color: ffc0504d
-Series 2 color: ff9bbb59
+Series 0: ff4f81bd
+Series 1: ffc0504d
+Series 2: ff9bbb59
 ```
 
-## **Đặt màu tô đảo ngược cho Series biểu đồ**
+Màu sắc cụ thể phụ thuộc vào kiểu biểu đồ và chủ đề.
 
-Khi series dữ liệu của bạn chứa cả giá trị dương và âm, việc tô tất cả cột hoặc thanh bằng cùng một màu có thể làm biểu đồ khó đọc. Aspose.Slides for .NET cho phép bạn chỉ định màu tô đảo ngược — một màu tô riêng được áp dụng tự động cho các điểm dữ liệu nằm dưới zero — để các giá trị âm nổi bật ngay lập tức. Trong phần này, bạn sẽ học cách kích hoạt tùy chọn này, chọn màu phù hợp và lưu bản trình bày đã cập nhật.
+## **Đặt Màu Nền Đảo Ngược Cho Một Chuỗi Biểu Đồ**
 
-Đoạn mã sau minh họa thao tác:
+Đối với các chuỗi thanh, cột và bong bóng, [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/invertifnegative/) có thể hiển thị các giá trị âm bằng một màu nền khác. Đặt màu nền chuỗi thường thành đặc, bật tính năng đảo ngược, và gán màu cho giá trị âm qua [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Các số âm vẫn giữ nguyên trong sổ làm việc; chỉ màu hiển thị của chúng thay đổi.
+
+Ví dụ sau thay thế dữ liệu biểu đồ mặc định bằng một chuỗi. Hàng 0 của worksheet chứa tên chuỗi, cột 0 chứa tên danh mục, và cột 1 chứa các giá trị:
 
 ```cs
-Color inverColor = Color.Red;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-using (Presentation presentation = new Presentation())
+const int firstSlideIndex = 0;
+const int worksheetIndex = 0;
+const int headerRowIndex = 0;
+const int categoryColumnIndex = 0;
+const int firstSeriesColumnIndex = 1;
+const int firstDataRowIndex = 1;
+
+var categoryNames = new[] { "Category 1", "Category 2", "Category 3" };
+var seriesValues = new[] { -20, 50, -30 };
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+var chartData = chart.ChartData;
+var workbook = chartData.ChartDataWorkbook;
+
+chartData.Series.Clear();
+chartData.Categories.Clear();
+
+var seriesNameCell = workbook.GetCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+var series = chartData.Series.Add(seriesNameCell, chart.Type);
+
+for (var categoryIndex = 0; categoryIndex < categoryNames.Length; categoryIndex++)
 {
-    ISlide slide = presentation.Slides[0];
+    var dataRowIndex = firstDataRowIndex + categoryIndex;
+    var categoryName = categoryNames[categoryIndex];
+    var seriesValue = seriesValues[categoryIndex];
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
-    IChartDataWorkbook workBook = chart.ChartData.ChartDataWorkbook;
+    var categoryCell = workbook.GetCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+    chartData.Categories.Add(categoryCell);
 
-    chart.ChartData.Series.Clear();
-    chart.ChartData.Categories.Clear();
-
-    // Thêm các danh mục mới.
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 1, 0, "Category 1"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 2, 0, "Category 2"));
-    chart.ChartData.Categories.Add(workBook.GetCell(0, 3, 0, "Category 3"));
-
-    // Thêm một series mới.
-    IChartSeries series = chart.ChartData.Series.Add(workBook.GetCell(0, 0, 1, "Series 1"), chart.Type);
-
-    // Điền dữ liệu cho series.
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 1, 1, -20));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 2, 1, 50));
-    series.DataPoints.AddDataPointForBarSeries(workBook.GetCell(0, 3, 1, -30));
-
-    // Đặt các thiết lập màu cho series.
-    var seriesColor = series.GetAutomaticSeriesColor();
-    series.InvertIfNegative = true;
-    series.Format.Fill.FillType = FillType.Solid;
-    series.Format.Fill.SolidFillColor.Color = seriesColor;
-    series.InvertedSolidFillColor.Color = inverColor;
-
-    presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
+    var valueCell = workbook.GetCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+    series.DataPoints.AddDataPointForBarSeries(valueCell);
 }
+
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertIfNegative = true;
+series.InvertedSolidFillColor.Color = Color.Red;
+
+presentation.Save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 ```
 
 Kết quả:
 
-![Màu tô đặc đảo ngược](inverted_solid_fill_color.png)
+![The inverted solid fill color](inverted_solid_fill_color.png)
 
-Bạn cũng có thể đảo ngược màu tô cho một điểm dữ liệu duy nhất thay vì toàn bộ series. Chỉ cần truy cập `IChartDataPoint` mong muốn và đặt thuộc tính `InvertIfNegative` thành `true`.
-
-Đoạn mã sau cho thấy cách thực hiện:
+Bạn có thể bật đảo ngược cho một điểm thông qua [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Trong ví dụ sau, tính năng đảo ngược bị tắt cho chuỗi và chỉ được bật cho điểm đã chọn. Điểm này cũng được gán một giá trị âm để hiệu ứng hiển thị:
 
 ```cs
-using (Presentation presentation = new Presentation())
-{
-    ISlide slide = presentation.Slides[0];
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    IChart chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200, true);
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 2;
+const int negativeValue = -30;
 
-    chart.ChartData.Series.Clear();
-    IChartSeries series = chart.ChartData.Series.Add(chart.ChartData.ChartDataWorkbook.GetCell(0, "B1"), chart.Type);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B2", -5));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B3", 3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B4", -3));
-    series.DataPoints.AddDataPointForBarSeries(chart.ChartData.ChartDataWorkbook.GetCell(0, "B5", 1));
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    // Đảo ngược màu nếu điểm dữ liệu ở chỉ mục 2 là âm.
-    series.InvertIfNegative = false;
-    series.DataPoints[2].InvertIfNegative = true;
-                
-    presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
-}
+var series = chart.ChartData.Series[firstSeriesIndex];
+var automaticSeriesColor = series.GetAutomaticSeriesColor();
+series.Format.Fill.FillType = FillType.Solid;
+series.Format.Fill.SolidFillColor.Color = automaticSeriesColor;
+series.InvertedSolidFillColor.Color = Color.Red;
+series.InvertIfNegative = false;
+
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = negativeValue;
+dataPoint.InvertIfNegative = true;
+
+presentation.Save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 ```
 
-## **Xóa giá trị điểm dữ liệu cụ thể**
+## **Xóa Giá Trị Điểm Dữ Liệu Cụ Thể**
 
-Đôi khi một biểu đồ chứa các giá trị thử nghiệm, ngoại lệ hoặc mục không còn sử dụng mà bạn cần loại bỏ mà không phải xây dựng lại toàn bộ series. Aspose.Slides for .NET cho phép bạn xác định bất kỳ điểm dữ liệu nào theo chỉ mục, xóa nội dung của nó và ngay lập tức làm mới vùng vẽ để các điểm còn lại dịch chuyển và các trục tự động thay đổi tỉ lệ.
+Để làm cho một điểm trở nên trống mà không xóa các điểm khác, đặt ô sổ làm việc hỗ trợ của nó thành `null`. Đối với biểu đồ cột, giá trị đã vẽ có thể truy cập qua [IChartDataPoint.YValue](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapoint/yvalue/). Điểm dữ liệu vẫn giữ vị trí danh mục, nhưng biểu đồ sẽ coi giá trị của nó là trống theo cài đặt về giá trị trống của biểu đồ.
 
-Đoạn mã sau minh họa thao tác:
+Ví dụ sau xóa chỉ điểm thứ hai trong chuỗi đầu tiên:
 
 ```cs
-using (Presentation presentation = new Presentation("test_chart.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-    IChart chart = (IChart)slide.Shapes[0];
-    IChartSeries series = chart.ChartData.Series[0];
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-    foreach (IChartDataPoint dataPoint in series.DataPoints)
-    {
-        dataPoint.XValue.AsCell.Value = null;
-        dataPoint.YValue.AsCell.Value = null;
-    }
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int targetDataPointIndex = 1;
 
-    series.DataPoints.Clear();
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    presentation.Save("clear_data_points.pptx", SaveFormat.Pptx);
-}
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+var series = chart.ChartData.Series[firstSeriesIndex];
+var dataPoint = series.DataPoints[targetDataPointIndex];
+dataPoint.YValue.AsCell.Value = null;
+
+presentation.Save("clear_data_point_value.pptx", SaveFormat.Pptx);
 ```
 
-## **Đặt độ rộng khoảng cách của Series**
+Biểu đồ phân tán sử dụng các ô X và Y riêng biệt, và biểu đồ bong bóng còn sử dụng một ô kích thước. Chỉ xóa ô đại diện cho giá trị bạn muốn loại bỏ. Không gọi [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapointcollection/clear/) khi bạn muốn giữ các điểm còn lại, vì phương thức này sẽ xóa mọi điểm dữ liệu trong bộ sưu tập.
 
-Khoảng cách (gap width) điều khiển mức độ không gian trống giữa các cột hoặc thanh liền kề — khoảng cách rộng hơn làm nổi bật các danh mục riêng lẻ, trong khi khoảng cách hẹp tạo nên vẻ gọn gàng, dày đặc hơn. Thông qua Aspose.Slides for .NET, bạn có thể tinh chỉnh tham số này cho toàn bộ series, đạt được sự cân bằng trực quan chính xác mà bản trình bày của bạn cần mà không làm thay đổi dữ liệu nền.
+## **Đặt Độ Rộng Khoảng Trống Giữa Các Chuỗi**
 
-Đoạn mã dưới đây cho thấy cách đặt độ rộng khoảng cách cho một series:
+Độ rộng khoảng trống là khoảng cách giữa các cụm thanh hoặc cột liền kề, được biểu thị dưới dạng phần trăm của chiều rộng thanh hoặc cột. Giống như độ chồng chéo, nó thuộc về nhóm chuỗi cha chứ không phải một chuỗi riêng lẻ. Đặt [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) một lần cho nhóm. Giá trị lớn hơn tạo ra nhiều không gian hơn giữa các cụm; giá trị nhỏ hơn làm chúng dày đặc hơn.
+
+Ví dụ sau thay đổi độ rộng khoảng trống và chỉ lưu bản trình bày cuối cùng:
 
 ```cs
-ushort gapWidth = 30;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
 
-// Tạo một bản trình bày trống.
-using (Presentation presentation = new Presentation())
-{
-    // Truy cập slide đầu tiên.
-    ISlide slide = presentation.Slides[0];
+const int firstSlideIndex = 0;
+const int firstSeriesIndex = 0;
+const int gapWidthPercent = 30;
 
-    // Thêm một biểu đồ với dữ liệu mặc định.
-    IChart chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
+using var presentation = new Presentation();
+var slide = presentation.Slides[firstSlideIndex];
 
-    // Lưu bản trình bày vào đĩa.
-    presentation.Save("default_gap_width.pptx", SaveFormat.Pptx);
+var chart = slide.Shapes.AddChart(ChartType.StackedColumn, 20, 20, 500, 200);
 
-    // Đặt giá trị GapWidth.
-    IChartSeries series = chart.ChartData.Series[0];
-    series.ParentSeriesGroup.GapWidth = gapWidth;
+var series = chart.ChartData.Series[firstSeriesIndex];
+series.ParentSeriesGroup.GapWidth = gapWidthPercent;
 
-    // Lưu bản trình bày vào đĩa.
-    presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
-}
+presentation.Save("gap_width_30.pptx", SaveFormat.Pptx);
 ```
 
 Kết quả:
 
-![Độ rộng khoảng cách](gap_width.png)
+![The gap width](gap_width.png)
 
-## **FAQ**
+## **Câu Hỏi Thường Gặp**
 
-**Có giới hạn số lượng series mà một biểu đồ đơn có thể chứa không?**
+**Các loại biểu đồ nào hỗ trợ chuỗi dữ liệu?**
 
-Aspose.Slides không áp đặt giới hạn cố định cho số lượng series bạn thêm vào. Giới hạn thực tế phụ thuộc vào khả năng đọc hiểu của biểu đồ và lượng bộ nhớ có sẵn cho ứng dụng của bạn.
+Tất cả các loại biểu đồ được biểu diễn bằng enumeration [ChartType](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/charttype/) đều sử dụng dữ liệu biểu đồ, nhưng các chuỗi của chúng không phải luôn có cùng cấu trúc giá trị hoặc cùng cài đặt. Ví dụ, biểu đồ danh mục sử dụng danh mục và giá trị, biểu đồ phân tán sử dụng giá trị X và Y, và biểu đồ bong bóng còn thêm kích thước bong bóng. Hãy dùng phương pháp tạo điểm dữ liệu phù hợp với loại chuỗi. Các tùy chọn như độ chồng chéo và độ rộng khoảng trống chỉ áp dụng cho các nhóm thanh hoặc cột tương thích.
 
-**Nếu các cột trong một cụm quá gần nhau hoặc quá xa nhau thì sao?**
+**Một nhóm chuỗi biểu đồ là gì?**
 
-Điều chỉnh thiết lập `GapWidth` cho series đó (hoặc cho nhóm series cha). Tăng giá trị sẽ làm rộng khoảng cách giữa các cột, trong khi giảm giá trị sẽ khiến chúng gần nhau hơn.
+Một [IChartSeriesGroup](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseriesgroup/) chứa các chuỗi tương thích chia sẻ các cài đặt vẽ ở mức nhóm. Một biểu đồ kết hợp có thể chứa nhiều hơn một nhóm, vì vậy việc thay đổi nhóm thông qua một chuỗi không nhất thiết thay đổi mọi chuỗi trong biểu đồ.
+
+**Biểu đồ mới tạo có chứa dữ liệu mặc định không?**
+
+Có. Theo mặc định, [IShapeCollection.AddChart](https://reference.aspose.com/slides/vi/net/aspose.slides/ishapecollection/addchart/) tạo các chuỗi, danh mục và giá trị mẫu. Bạn có thể chỉnh sửa các ô này hoặc xóa cả bộ sưu tập chuỗi và danh mục trước khi thêm một bộ dữ liệu tùy chỉnh hoàn toàn. Một overload cũng có thể tạo biểu đồ mà không có dữ liệu mặc định.
+
+**Các đối tượng biểu đồ được kết nối với các ô trong sổ làm việc như thế nào?**
+
+Tên chuỗi, nhãn danh mục và giá trị điểm dữ liệu tham chiếu tới các ô trong một [IChartDataWorkbook](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdataworkbook/). Thay đổi một ô được tham chiếu sẽ cập nhật phần tử biểu đồ tương ứng. Khi bạn xây dựng dữ liệu tùy chỉnh, hãy giữ các hàng danh mục và các hàng giá trị chuỗi đồng bộ để mỗi điểm được vẽ dưới danh mục dự kiến.
+
+**Làm sao để xóa một điểm mà không xóa toàn bộ chuỗi?**
+
+Đặt ô giá trị tương ứng thành `null` để giữ vị trí danh mục của điểm như một điểm trống. Chỉ sử dụng [IChartDataPointCollection.Clear](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapointcollection/clear/) khi bạn muốn xóa tất cả các điểm trong chuỗi đó. Nếu bạn cũng xóa các danh mục, hãy cập nhật mọi chuỗi sao cho giá trị của chúng vẫn đồng bộ với bộ sưu tập danh mục.
+
+**Các điểm trống được hiển thị như thế nào?**
+
+Kết quả phụ thuộc vào loại biểu đồ và [IChart.DisplayBlanksAs](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichart/displayblanksas/). Các biểu đồ hỗ trợ có thể hiển thị điểm trống dưới dạng khoảng trống, giá trị 0, hoặc bằng cách nối các điểm liền kề. Chọn cài đặt phù hợp với ý nghĩa của dữ liệu thiếu trong bản trình bày của bạn.
+
+**Các giá trị âm được định dạng như thế nào?**
+
+Đối với các chuỗi thanh, cột và bong bóng được hỗ trợ, bật [IChartSeries.InvertIfNegative](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/invertifnegative/) và đặt [IChartSeries.InvertedSolidFillColor](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseries/invertedsolidfillcolor/). Bạn có thể ghi đè hành vi cho một điểm riêng lẻ bằng [IChartDataPoint.InvertIfNegative](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartdatapoint/invertifnegative/). Các thuộc tính này ảnh hưởng đến định dạng, không phải giá trị số lưu trữ.
+
+**Thuộc tính định dạng nào thắng khi cả chuỗi và điểm đều được định dạng?**
+
+Định dạng điểm dữ liệu rõ ràng sẽ có ưu tiên cho điểm đó. Các điểm khác vẫn dùng định dạng chuỗi rõ ràng hoặc, nếu chuỗi không có định dạng, sẽ dùng kiểu biểu đồ và chủ đề tự động. Các thuộc tính nhóm như độ chồng chéo và độ rộng khoảng trống kiểm soát bố cục và không phải là sự ghi đè định dạng mức điểm.
+
+**Có giới hạn số lượng chuỗi mà một biểu đồ có thể chứa không?**
+
+Aspose.Slides không áp đặt một giới hạn cố định riêng biệt cho số chuỗi. Trong thực tế, các ràng buộc của tệp bản trình bày, bộ nhớ khả dụng, thời gian render và khả năng đọc biểu đồ sẽ quyết định mức giới hạn thực tế.
+
+**Tôi nên thay đổi gì khi các cột quá gần nhau hoặc quá xa nhau?**
+
+Đặt [IChartSeriesGroup.GapWidth](https://reference.aspose.com/slides/vi/net/aspose.slides.charts/ichartseriesgroup/gapwidth/) trên nhóm chuỗi cha thích hợp. Tăng giá trị để mở rộng không gian giữa các cụm, hoặc giảm giá trị để các cụm lại gần nhau hơn.

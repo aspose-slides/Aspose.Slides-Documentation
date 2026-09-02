@@ -1,20 +1,24 @@
 ---
-title: 在 Android 上優化簡報的影像管理
-linktitle: 管理影像
+title: 在 Android 上優化簡報的圖片管理
+linktitle: 管理圖片
 type: docs
 weight: 10
 url: /zh-hant/androidjava/image/
 keywords:
-- 新增影像
+- 新增圖片
 - 新增圖片
 - 新增點陣圖
-- 取代影像
+- 取代圖片
 - 取代圖片
 - 來自網路
 - 背景
 - 新增 PNG
 - 新增 JPG
 - 新增 SVG
+- 外部 SVG 資源
+- SVG 解析器
+- 已連結的 SVG 圖片
+- SVG 字型
 - 新增 EMF
 - 新增 WMF
 - 新增 TIFF
@@ -24,93 +28,36 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "使用 Aspose.Slides for Android（透過 Java）簡化 PowerPoint 與 OpenDocument 的影像管理，提升效能並自動化工作流程。"
+description: "使用 Aspose.Slides for Android via Java，簡化 PowerPoint 與 OpenDocument 中的圖片管理，提升效能並自動化工作流程。"
 ---
 ## **簡介**
 
-影像讓簡報更具吸引力與趣味。在 Microsoft PowerPoint 中，您可以從檔案、網路或其他位置將圖片插入投影片。類似地，Aspose.Slides 允許您透過多種方式將影像加入簡報的投影片中。
+圖片能讓簡報更具吸引力與視覺效果。在 Microsoft PowerPoint 中，您可以從檔案、網路或其他來源將圖片插入投影片。 同樣地，Aspose.Slides 也提供多種方式將圖片加入簡報投影片。
 
-{{% alert  title="Tip" color="primary" %}} 
-Aspose 提供免費的轉換器——[JPEG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 和 [PNG to PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)——讓使用者能快速從圖像建立簡報。 
+{{% alert  title="提示" color="primary" %}} 
+Aspose 提供免費轉換工具——[JPEG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/jpg-to-ppt) 與 [PNG 轉 PowerPoint](https://products.aspose.app/slides/zh-hant/import/png-to-ppt)——可讓您快速從圖片建立簡報。 
 {{% /alert %}} 
 
-{{% alert title="Info" color="info" %}}
-如果您想將圖像作為框架物件加入——尤其是打算使用標準格式選項來調整大小、添加效果等——請參閱 [圖片框架](https://docs.aspose.com/slides/zh-hant/androidjava/picture-frame/)。
+{{% alert title="資訊" color="info" %}}
+如果您想將圖片作為圖片框插入——尤其是計畫調整大小、套用效果或使用其他標準格式設定——請參考 [圖片框](/slides/zh-hant/androidjava/picture-frame/)。 
 {{% /alert %}} 
 
-Aspose.Slides 支援在這些常見格式（JPEG、PNG、GIF 等）中對影像進行操作。
+{{% alert title="注意" color="warning" %}}
+您可以將圖片從一種格式轉換為另一種格式。請參考以下頁面：轉換 [image to JPG](https://products.aspose.com/slides/zh-hant/androidjava/conversion/image-to-jpg/)、[JPG to image](https://products.aspose.com/slides/zh-hant/androidjava/conversion/jpg-to-image/)、[JPG to PNG](https://products.aspose.com/slides/zh-hant/androidjava/conversion/jpg-to-png/)、[PNG to JPG](https://products.aspose.com/slides/zh-hant/androidjava/conversion/png-to-jpg/)、[PNG to SVG](https://products.aspose.com/slides/zh-hant/androidjava/conversion/png-to-svg/)，以及 [SVG to PNG](https://products.aspose.com/slides/zh-hant/androidjava/conversion/svg-to-png/)。 
+{{% /alert %}}
 
-## **在本機儲存的影像加入投影片**
+Aspose.Slides 支援 JPEG、PNG、BMP、GIF 等常見格式的圖片。 
 
-您可以將電腦上的一張或多張影像加入簡報的投影片中。以下 Java 範例碼示範如何將影像加入投影片：
+## **將本機儲存的圖片加入投影片**
 
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	    IPPImage picture;
-        IImage image = Images.fromFile("image.png");
-        try {
-            picture = pres.getImages().addImage(image);
-        } finally {
-            if (image != null) image.dispose();
-        }
-	slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **從網路加入影像至投影片**
-
-如果您想加入投影片的影像在電腦上不存在，您可以直接從網路加入該影像。  
-以下範例碼示範如何在 Java 中從網路將影像加入投影片：
+您可以將一或多張儲存在電腦上的圖片加入簡報投影片。以下 Java 範例程式碼示範如何將圖片加入投影片：
 
 ```java
+import com.aspose.slides.*;
+
 Presentation pres = new Presentation();
 try {
-	ISlide slide = pres.getSlides().get_Item(0);
-
-	URL imageUrl = new URL("[REPLACE WITH URL]");
-	URLConnection connection = imageUrl.openConnection();
-	InputStream inputStream = connection.getInputStream();
-
-	ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	try {
-		byte[] buffer = new byte[1024];
-		int read;
-
-		while ((read = inputStream.read(buffer, 0, buffer.length)) != -1)
-			outputStream.write(buffer, 0, read);
-
-		outputStream.flush();
-
-		IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
-		slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
-	} finally {
-		if (inputStream != null) inputStream.close();
-		outputStream.close();
-	}
-
-	pres.save("pres.pptx", SaveFormat.Pptx);
-} catch(IOException e) {
-} finally {
-	if (pres != null) pres.dispose();
-}
-```
-
-## **將影像加入投影片母片**
-
-投影片母片是位於最上層的投影片，負責儲存與控制其下所有投影片的資訊（主題、版面配置等）。因此，將影像加入投影片母片後，該影像會出現在該母片所屬的所有投影片上。  
-以下 Java 範例碼示範如何將影像加入投影片母片：
-
-```java
-Presentation pres = new Presentation();
-try {
-	ISlide slide = pres.getSlides().get_Item(0);
-	IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
+    ISlide slide = pres.getSlides().get_Item(0);
 
     IPPImage picture;
     IImage image = Images.fromFile("image.png");
@@ -119,157 +66,466 @@ try {
     } finally {
         if (image != null) image.dispose();
     }
-	masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
 
-	pres.save("pres.pptx", SaveFormat.Pptx);
+    slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
 } finally {
-	if (pres != null) pres.dispose();
+    pres.dispose();
 }
 ```
 
-## **將影像設為投影片背景**
+## **從網路加入圖片至投影片**
 
-您可能會決定將圖片作為特定投影片或多張投影片的背景。在此情況下，請參考 *[將影像設定為投影片背景](https://docs.aspose.com/slides/zh-hant/androidjava/presentation-background/#setting-images-as-background-for-slides)*。
+若欲加入的圖片未儲存在本機，您可以直接從網路將其加入投影片。以下 Java 範例程式碼示範如何從網路加入圖片：
+
+```java
+import com.aspose.slides.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+
+    URL imageUrl = new URL("[REPLACE WITH URL]");
+    URLConnection connection = imageUrl.openConnection();
+    InputStream inputStream = connection.getInputStream();
+
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    try {
+        byte[] buffer = new byte[1024];
+        int read;
+
+        while ((read = inputStream.read(buffer, 0, buffer.length)) != -1) {
+            outputStream.write(buffer, 0, read);
+        }
+
+        outputStream.flush();
+
+        IPPImage image = pres.getImages().addImage(outputStream.toByteArray());
+        slide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, image);
+    } finally {
+        if (inputStream != null) inputStream.close();
+        outputStream.close();
+    }
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} catch (IOException e) {
+} finally {
+    pres.dispose();
+}
+```
+
+## **將圖片加入投影片母片**
+
+投影片母片儲存並控制使用該母片的投影片之主題與版面配置。將圖片加入投影片母片後，該圖片會顯示在所有以此母片為基礎的投影片上。以下 Java 範例程式碼示範如何將圖片加入投影片母片：
+
+```java
+import com.aspose.slides.*;
+
+Presentation pres = new Presentation();
+try {
+    ISlide slide = pres.getSlides().get_Item(0);
+    IMasterSlide masterSlide = slide.getLayoutSlide().getMasterSlide();
+
+    IPPImage picture;
+    IImage image = Images.fromFile("image.png");
+    try {
+        picture = pres.getImages().addImage(image);
+    } finally {
+        if (image != null) image.dispose();
+    }
+
+    masterSlide.getShapes().addPictureFrame(ShapeType.Rectangle, 10, 10, 100, 100, picture);
+
+    pres.save("pres.pptx", SaveFormat.Pptx);
+} finally {
+    pres.dispose();
+}
+```
+
+## **將圖片設定為投影片背景**
+
+您可以將圖片設為一或多張投影片的背景。詳情請參閱 *[設定投影片背景圖片](/slides/zh-hant/androidjava/presentation-background/#setting-images-as-background-for-slides)*。
 
 ## **將 SVG 加入簡報**
 
-您可以使用屬於 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection) 介面的 [addPictureFrame](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection#addPictureFrame-int-float-float-float-float-com.aspose.slides.IPPImage-) 方法，將任何影像加入或插入簡報中。  
-若要根據 SVG 圖像建立影像物件，您可以這樣做：
+可使用 [SvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgimage/) 類別將 SVG 內容加入簡報。產生的 [ISvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgimage/) 物件可加入簡報的圖片集合，並用於建立圖片框。
 
-1. 建立 SvgImage 物件以插入至 ImageShapeCollection
-2. 從 ISvgImage 建立 PPImage 物件
-3. 使用 IPPImage 介面建立 PictureFrame 物件
+以下 Java 範例匯入一段自包含的 SVG 字串。所有圖片、樣式與其他資源皆直接嵌入於 SVG 內容中。
 
-以下範例碼示範如何實作上述步驟，將 SVG 圖像加入簡報：
+```java
+import com.aspose.slides.*;
 
-```java 
-// 實例化代表 PPTX 檔案的 Presentation 類別
-Presentation pres = new Presentation();
+String svgContent =
+        "<svg xmlns='http://www.w3.org/2000/svg' width='320' height='180'>" +
+        "    <rect width='320' height='180' fill='#4F81BD'/>" +
+        "    <circle cx='160' cy='90' r='55' fill='#F2F2F2'/>" +
+        "</svg>";
+
+Presentation presentation = new Presentation();
 try {
-    String svgContent = new String(Files.readAllBytes(Paths.get("image.svg")));
     ISvgImage svgImage = new SvgImage(svgContent);
-    IPPImage ppImage = pres.getImages().addImage(svgImage);
-    pres.getSlides().get_Item(0).getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0, 
-			ppImage.getWidth(), ppImage.getHeight(), ppImage);
-    pres.save("output.pptx", SaveFormat.Pptx);
-} catch (IOException e) {
+    IPPImage image = presentation.getImages().addImage(svgImage);
+
+    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
+            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+
+    presentation.save("self-contained-svg.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **將 SVG 轉換為多個形狀**
+## **匯入含外部資源的 SVG 內容**
 
-Aspose.Slides 將 SVG 轉換為多個形狀的功能類似於 PowerPoint 處理 SVG 圖像的功能：
+從設計工具、圖表編輯器、圖示系統或網路管線匯出的 SVG 檔案可能會引用儲存在 SVG 文件外部的資源。例如，SVG 可能包含 `images/photo.png` 的圖片連結、CSS `url(...)` 值，或字型 URL。
+
+若要匯入此類 SVG 內容，請建立一個 [IExternalResourceResolver](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iexternalresourceresolver/) 實作，並將其與基礎 URI 一起傳遞給相應的 [SvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/svgimage/) 建構子。基礎 URI 用於識別 SVG 文件的位置，並用來解析相對連結。
+
+[ISvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isvgimage/) 介面提供以下資訊：
+
+- `getSvgContent()` 以字串回傳 SVG 標記。
+- `getSvgData()` 以位元組陣列回傳 SVG 內容。
+- `getBaseUri()` 回傳用於相對連結的基礎 URI。
+- `getExternalResourceResolver()` 回傳指派給 SVG 圖片的解析器。
+
+### **實作外部資源解析器**
+
+解析器包含兩個方法：
+
+- `resolveUri` 結合基礎 URI 與相對資源連結，回傳絕對 URI。若連結無法解析或不允許，回傳 `null`。
+- `getEntity` 為絕對資源 URI 回傳可讀取的串流。若資源缺失、被阻擋或無法取得，回傳 `null`。必要時亦可回傳備用串流。
+
+以下解析器僅從允許的本機目錄載入已連結的資源。網路資源與目錄外的路徑將被阻擋。對於無法解析的圖片連結，會回傳備用圖片。
+
+```java
+import com.aspose.slides.ExternalResourceResolver;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Locale;
+
+class LocalSvgResourceResolver extends ExternalResourceResolver {
+    private final Path allowedRoot;
+    private final byte[] fallbackImageData;
+
+    public LocalSvgResourceResolver(String allowedRoot, byte[] fallbackImageData) {
+        this.allowedRoot = Paths.get(allowedRoot).toAbsolutePath().normalize();
+        this.fallbackImageData = fallbackImageData;
+    }
+
+    @Override
+    public String resolveUri(String baseUri, String relativeUri) {
+        if (baseUri == null || baseUri.trim().isEmpty() ||
+                relativeUri == null || relativeUri.trim().isEmpty()) {
+            return null;
+        }
+
+        try {
+            URI baseAddress = URI.create(baseUri);
+            URI absoluteAddress = baseAddress.resolve(relativeUri);
+
+            // 此解析器僅允許本機檔案。
+            if (!"file".equalsIgnoreCase(absoluteAddress.getScheme())) {
+                return null;
+            }
+
+            Path resourcePath = Paths.get(absoluteAddress).toAbsolutePath().normalize();
+            if (!isInsideAllowedRoot(resourcePath)) {
+                return null;
+            }
+
+            return resourcePath.toUri().toString();
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    @Override
+    public InputStream getEntity(String absoluteUri) {
+        try {
+            URI resourceUri = URI.create(absoluteUri);
+            if (!"file".equalsIgnoreCase(resourceUri.getScheme())) {
+                return null;
+            }
+
+            Path resourcePath = Paths.get(resourceUri).toAbsolutePath().normalize();
+            if (!isInsideAllowedRoot(resourcePath)) {
+                return null;
+            }
+
+            if (Files.exists(resourcePath)) {
+                return Files.newInputStream(resourcePath);
+            }
+
+            // 只對圖像資源使用備用。返回圖像串流
+            // 對於缺失的字型或樣式表則無效。
+            if (fallbackImageData != null && isImageFile(resourcePath)) {
+                return new ByteArrayInputStream(fallbackImageData);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+
+        return null;
+    }
+
+    private boolean isInsideAllowedRoot(Path resourcePath) {
+        return resourcePath.normalize().startsWith(allowedRoot);
+    }
+
+    private static boolean isImageFile(Path path) {
+        String fileName = path.getFileName().toString().toLowerCase(Locale.ROOT);
+
+        return fileName.endsWith(".png") ||
+                fileName.endsWith(".jpg") ||
+                fileName.endsWith(".jpeg") ||
+                fileName.endsWith(".gif") ||
+                fileName.endsWith(".bmp");
+    }
+}
+```
+
+### **在 SVG 匯入過程中解析連結資源**
+
+假設 `assets/diagram.svg` 含有如下相對參考：
+
+```xml
+<image href="images/photo.png" x="20" y="20" width="320" height="180" />
+```
+
+以下 Java 範例將 SVG 檔案 URI 作為基礎 URI，並提供自訂解析器。解析器將相對圖片連結轉換為絕對 URI，並在 Aspose.Slides 處理 SVG 時回傳包含連結資源的串流。
+
+```java
+import com.aspose.slides.*;
+
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+Path svgFilePath = Paths.get("assets", "diagram.svg").toAbsolutePath().normalize();
+Path assetDirectory = svgFilePath.getParent();
+String svgContent = new String(Files.readAllBytes(svgFilePath), StandardCharsets.UTF_8);
+
+// 基礎 URI 代表 SVG 文件的位置。
+String baseUri = svgFilePath.toUri().toString();
+
+byte[] fallbackImageData = null;
+Path fallbackImagePath = assetDirectory.resolve("fallback.png");
+if (Files.exists(fallbackImagePath)) {
+    fallbackImageData = Files.readAllBytes(fallbackImagePath);
+}
+
+IExternalResourceResolver resolver = new LocalSvgResourceResolver(assetDirectory.toString(), fallbackImageData);
+ISvgImage svgImage = new SvgImage(svgContent, resolver, baseUri);
+
+// ISvgImage 會公開來源內容、二進位資料、基礎 URI 與解析器。
+String importedContent = svgImage.getSvgContent();
+byte[] importedData = svgImage.getSvgData();
+String importedBaseUri = svgImage.getBaseUri();
+IExternalResourceResolver importedResolver = svgImage.getExternalResourceResolver();
+
+Presentation presentation = new Presentation();
+try {
+    IPPImage image = presentation.getImages().addImage(svgImage);
+
+    presentation.getSlides().get_Item(0).getShapes().addPictureFrame(
+            ShapeType.Rectangle, 20, 20, image.getWidth(), image.getHeight(), image);
+
+    presentation.save("svg-with-linked-resources.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+`SvgImage` 類別亦提供接受位元組陣列或輸入串流的多載方法，並可同時指定外部資源解析器與基礎 URI。
+
+{{% alert title="重要" color="warning" %}}
+資源解析器在 Aspose.Slides 處理與呈現 SVG 時，使外部資源可用。它不會修改原始 SVG 標記，也不會自動將已解析的資源嵌入其中。
+
+當 `ISvgImage` 被加入簡報圖片集合時，PPTX 檔案可能同時包含原始 SVG 表示與點陣圖備援圖片。連結資源可能出現在產生的備援圖片中，而例如 `images/photo.png` 的相對連結則保持在儲存的 SVG 中。若原始外部資源不可用，渲染原生 SVG 表示的應用程式可能會省略該連結內容。 
+{{% /alert %}}
+
+### **建立可攜式 SVG 圖片**
+
+若要建立不依賴外部檔案的 SVG 圖片，請在建立 `SvgImage` 前先將 SVG 變為自包含。舉例而言，可將連結的圖片 URL 取代為含有圖片資料的 `data:` URI：
+
+```xml
+<image href="data:image/png;base64,..." x="20" y="20" width="320" height="180" />
+```
+
+在所有必需資源已嵌入 SVG 內容後，建立 `SvgImage`、將其加入簡報圖片集合，並如前例般插入圖片框即可。
+
+### **處理缺失或被阻擋的資源**
+
+當資源 URI 無效、被禁止或無法解析時，`resolveUri` 應回傳 `null`。當資源無法讀取時，`getEntity` 亦回傳 `null`。Aspose.Slides 會在可能的情況下繼續處理 SVG 而不使用該資源。
+
+若提供備用串流，內容必須與請求的資源類型相符。例如，只在缺失圖片時回傳圖片串流，不能將圖片串流用於缺失的字型或樣式表。
+
+{{% alert title="安全" color="warning" %}}
+請勿解析來自不可信 SVG 檔案的任意檔案路徑或未受限制的網路 URL。應限制允許的協定、目錄與主機。對於網路資源，亦須設定連線逾時、回應大小上限與內容驗證。 
+{{% /alert %}}
+
+## **將 SVG 轉換為形狀集合**
+
+Aspose.Slides 可將 SVG 轉換為形狀集合，功能類似 PowerPoint：
 
 ![PowerPoint Popup Menu](img_01_01.png)
 
-此功能由 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection) 介面的其中一個 [addGroupShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) 方法的多載提供，該方法以 [ISvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ISvgImage) 物件作為第一個參數。  
-以下範例碼示範如何使用上述方法將 SVG 檔案轉換為多個形狀：
+此功能由 [IShapeCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection) 介面的 [addGroupShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/IShapeCollection#addGroupShape-com.aspose.slides.ISvgImage-float-float-float-float-) 方法的多載提供，該方法的第一個參數接受 [ISvgImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ISvgImage) 物件。
 
-```java 
-// 建立新的簡報
+以下 Java 範例示範如何使用此方法將 SVG 檔案轉換為形狀集合：
+
+```java
+import com.aspose.slides.*;
+import java.awt.geom.Dimension2D;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+// 原始 SVG 檔案名稱。
+String svgFileName = "sample.svg";
+
+// 輸出簡報檔案名稱。
+String outPptxPath = "presentation.pptx";
+
+// 建立新的簡報。
 IPresentation presentation = new Presentation();
 try {
-    // 讀取 SVG 檔案內容
-    byte[] svgContent = Files.readAllBytes(Paths.get("image.svg"));
+    // 讀取 SVG 檔案內容。
+    byte[] svgContent = Files.readAllBytes(Paths.get(svgFileName));
 
-    // 建立 SvgImage 物件
+    // 建立 SvgImage 物件。
     ISvgImage svgImage = new SvgImage(svgContent);
 
-    // 取得投影片尺寸
+    // 取得投影片尺寸。
     Dimension2D slideSize = presentation.getSlideSize().getSize();
 
-    // 將 SVG 圖片轉換為形狀群組，並依投影片尺寸縮放
-    presentation.getSlides().get_Item(0).getShapes().
-            addGroupShape(svgImage, 0f, 0f, (float)slideSize.getWidth(), (float)slideSize.getHeight());
+    // 將 SVG 圖片轉換為形狀群組並依投影片尺寸縮放。
+    presentation.getSlides().get_Item(0).getShapes().addGroupShape(
+            svgImage, 0f, 0f,
+            (float) slideSize.getWidth(), (float) slideSize.getHeight());
 
-    // 以 PPTX 格式儲存簡報
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    // 以 PPTX 格式儲存簡報。
+    presentation.save(outPptxPath, SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
-    if (presentation != null) presentation.dispose();
+    presentation.dispose();
 }
 ```
 
-## **將影像以 EMF 形式加入投影片**
+## **將 EMF 圖片加入投影片**
 
-Aspose.Slides for Android（透過 Java）允許您從 Excel 工作表產生 EMF 影像，並使用 Aspose.Cells 將這些影像以 EMF 形式加入投影片中。  
-以下範例碼示範如何執行上述任務：
+Aspose.Slides for Android via Java 允許您使用 Aspose.Cells 從 Excel 工作表產生 EMF 圖片，並將其加入簡報投影片。
 
-```java 
+以下 Java 範例示範如何執行：
+
+```java
+import com.aspose.slides.*;
+import com.aspose.cells.ImageOrPrintOptions;
+import com.aspose.cells.ImageType;
+import com.aspose.cells.SheetRender;
+import com.aspose.cells.Workbook;
+import com.aspose.cells.Worksheet;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 Workbook book = new Workbook("chart.xlsx");
 Worksheet sheet = book.getWorksheets().get(0);
+
 ImageOrPrintOptions options = new ImageOrPrintOptions();
 options.setHorizontalResolution(200);
 options.setVerticalResolution(200);
 options.setImageType(ImageType.EMF);
 
-//將活頁簿儲存至資料流
+// 將工作簿儲存到串流。
 SheetRender sr = new SheetRender(sheet, options);
 Presentation pres = new Presentation();
 try {
     pres.getSlides().removeAt(0);
-    
-    String EmfSheetName = "";
-    for (int j = 0; j < sr.getPageCount(); j++)
-    {
-    
-        EmfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
-        sr.toImage(j, EmfSheetName);
 
+    String emfSheetName;
+    for (int j = 0; j < sr.getPageCount(); j++) {
+        emfSheetName = "test" + sheet.getName() + " Page" + (j + 1) + ".out.emf";
+        sr.toImage(j, emfSheetName);
+
+        // 直接加入檔案，使圖片保持向量 EMF 而非被點陣化。
         IPPImage picture;
-        IImage image = Images.fromFile(EmfSheetName);
+        InputStream imageStream = new FileInputStream(emfSheetName);
         try {
-            picture = pres.getImages().addImage(image);
+            picture = pres.getImages().addImage(imageStream);
         } finally {
-            if (image != null) image.dispose();
+            imageStream.close();
         }
-        ISlide slide = pres.getSlides().addEmptySlide(pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
-        IShape m = slide.getShapes().addPictureFrame(ShapeType.Rectangle, 0, 0,
-					(float)pres.getSlideSize().getSize().getWidth(), 
-					(float)pres.getSlideSize().getSize().getHeight(), 
-					picture);
+
+        ISlide slide = pres.getSlides().addEmptySlide(
+                pres.getLayoutSlides().getByType(SlideLayoutType.Blank));
+        slide.getShapes().addPictureFrame(
+                ShapeType.Rectangle,
+                0,
+                0,
+                (float) pres.getSlideSize().getSize().getWidth(),
+                (float) pres.getSlideSize().getSize().getHeight(),
+                picture);
     }
-    
+
     pres.save("output.pptx", SaveFormat.Pptx);
 } catch (IOException e) {
 } finally {
-    if (pres != null) pres.dispose();
+    pres.dispose();
 }
 ```
 
-## **取代影像集合中的影像**
+## **取代圖片集合中的圖片**
 
-Aspose.Slides 讓您取代儲存在簡報影像集合中的影像（包括投影片形狀使用的影像）。本節示範了更新集合中影像的多種方法。API 提供直接的方式，可使用原始位元組資料、[IImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimage/) 實例，或集合中已存在的其他影像來取代影像。  
-請依照以下步驟：
+Aspose.Slides 讓您可以取代簡報圖片集合中儲存的圖片，包括投影片形狀使用的圖片。本節說明多種更新集合內圖片的方法。您可以使用原始位元組資料、[IImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimage/) 實例，或已存在於集合中的其他圖片來取代圖片。
 
-1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別載入包含影像的簡報檔案。
-1. 從檔案載入新影像至位元組陣列。
-1. 使用位元組陣列將目標影像取代為新影像。
-1. 在第二種方法中，將影像載入 [IImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimage/) 物件，並以該物件取代目標影像。
-1. 在第三種方法中，使用已存在於簡報影像集合中的影像取代目標影像。
-1. 將修改後的簡報寫入為 PPTX 檔案。
+請依下列步驟操作：
+
+1. 使用 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別載入含有圖片的簡報檔案。  
+2. 從檔案載入新圖片至位元組陣列。  
+3. 使用位元組陣列將目標圖片取代為新圖片。  
+4. 在第二種方法中，將圖片載入為 [IImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iimage/) 物件，並以該物件取代目標圖片。  
+5. 在第三種方法中，將目標圖片取代為已存在於簡報圖片集合中的圖片。  
+6. 將修改後的簡報寫出為 PPTX 檔案。  
 
 ```java
+import com.aspose.slides.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 // 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation("sample.pptx");
 try {
     // 第一種方式。
-    IImage imageData = Images.fromStream(new FileInputStream("image0.jpeg"));
+    byte[] imageData = Files.readAllBytes(Paths.get("image0.jpeg"));
     IPPImage oldImage = presentation.getImages().get_Item(0);
     oldImage.replaceImage(imageData);
-    
+
     // 第二種方式。
     IImage newImage = Images.fromFile("image1.png");
-    oldImage = presentation.getImages().get_Item(1);
-    oldImage.replaceImage(newImage);
-    newImage.dispose();
-    
+    try {
+        oldImage = presentation.getImages().get_Item(1);
+        oldImage.replaceImage(newImage);
+    } finally {
+        if (newImage != null) newImage.dispose();
+    }
+
     // 第三種方式。
     oldImage = presentation.getImages().get_Item(2);
     oldImage.replaceImage(presentation.getImages().get_Item(3));
-    
+
     // 將簡報儲存至檔案。
     presentation.save("output.pptx", SaveFormat.Pptx);
 } finally {
@@ -277,28 +533,28 @@ try {
 }
 ```
 
-{{% alert title="Info" color="info" %}}
-使用 Aspose FREE [Text to GIF](https://products.aspose.app/slides/zh-hant/text-to-gif) 轉換器，您可以輕鬆為文字製作動畫、從文字建立 GIF 等。 
+{{% alert title="資訊" color="info" %}}
+使用 Aspose 免費的 [Text to GIF](https://products.aspose.app/slides/zh-hant/text-to-gif) 轉換器，您可以輕鬆將文字動畫化，並產生 GIF。 
 {{% /alert %}}
 
 ## **常見問題**
 
-**插入後原始影像解析度是否保持不變？**
+**插入後原始圖片解析度是否保持不變？**
 
-是的。來源像素被保留，但最終呈現取決於投影片上 [圖片](/slides/zh-hant/androidjava/picture-frame/) 的縮放方式以及儲存時的壓縮情形。
+是的。來源像素會被保留，但最終呈現取決於 [picture](/slides/zh-hant/androidjava/picture-frame/) 在投影片上的縮放方式與儲存時的壓縮情況。
 
-**一次性在數十張投影片中取代相同標誌的最佳方法是什麼？**
+**如何一次在 dozens 張投影片中取代相同的商標？**
 
-將標誌放置於母片或版面配置上，並在簡報的影像集合中取代它——更新將會套用到所有使用該資源的元件。
+將商標放在母片或版面配置上，並在簡報的圖片集合中取代它——所有使用該資源的元素都會同步更新。
 
-**插入的 SVG 可以轉換成可編輯的形狀嗎？**
+**插入的 SVG 能否轉換為可編輯的形狀？**
 
 可以。您可以將 SVG 轉換為一組形狀，之後各個部件即可使用標準形狀屬性進行編輯。
 
-**如何一次性為多張投影片設定圖片為背景？**
+**如何一次為多張投影片設定相同的背景圖片？**
 
-在母片或相關版面配置上 [指定影像為背景](/slides/zh-hant/androidjava/presentation-background/)，使用該母片/版面的所有投影片都會繼承此背景。
+在母片或相關版面配置上 [指派圖片為背景](/slides/zh-hant/androidjava/presentation-background/)，使用該母片/版面的投影片皆會繼承該背景。
 
-**如何防止因大量圖片導致簡報檔案大小「膨脹」？**
+**如何防止因大量圖片導致簡報檔案過大？**
 
-重複使用單一影像資源而非多個副本，選擇合理的解析度，儲存時套用壓縮，並在適當情況下將重複的圖形放在母片上。
+重複使用單一圖片資源而非多份複製，選擇適當的解析度，儲存時套用壓縮，並在適當情況下將重複圖形放在母片上。

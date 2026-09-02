@@ -7,6 +7,8 @@ url: /pl/php-java/shape-formatting/
 keywords:
 - formatowanie kształtu
 - formatowanie linii
+- efekt szkicu
+- linia kształtu szkicowa
 - formatowanie stylu łączenia
 - wypełnienie gradientowe
 - wypełnienie wzorem
@@ -14,36 +16,36 @@ keywords:
 - wypełnienie teksturą
 - wypełnienie jednolitym kolorem
 - przezroczystość kształtu
-- obrót kształtu
+- obrócenie kształtu
 - efekt fazowania 3D
-- efekt obrotu 3D
+- efekt rotacji 3D
 - resetowanie formatowania
 - PowerPoint
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Dowiedz się, jak formatować kształty PowerPoint w PHP przy użyciu Aspose.Slides — ustaw style wypełnienia, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
+description: "Dowiedz się, jak formatować kształty PowerPoint w PHP przy użyciu Aspose.Slides - ustaw style wypełnienia, linii i efektów dla plików PPT, PPTX i ODP z precyzją i pełną kontrolą."
 ---
-## **Introduction**
+## **Wstęp**
 
-W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz je formatować, modyfikując lub stosując efekty na ich konturach. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące sposób wypełniania ich wnętrz.
+W programie PowerPoint możesz dodawać kształty do slajdów. Ponieważ kształty składają się z linii, możesz je formatować, modyfikując lub stosując efekty do ich konturów. Dodatkowo możesz formatować kształty, określając ustawienia kontrolujące wypełnienie ich wnętrz.
 
-![formatowanie-kształtu-powerpoint](format-shape-powerpoint.png)
+![formatowanie kształtu w PowerPoint](format-shape-powerpoint.png)
 
-Aspose.Slides for PHP via Java udostępnia klasy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji, które są dostępne w PowerPoint.
+Aspose.Slides for PHP via Java udostępnia klasy i metody, które pozwalają formatować kształty przy użyciu tych samych opcji dostępnych w programie PowerPoint.
 
-## **Format Lines**
+## **Formatowanie linii**
 
-Korzystając z Aspose.Slides, możesz określić własny styl linii dla kształtu. Poniżej opisano procedurę:
+Używając Aspose.Slides, możesz określić własny styl linii dla kształtu. Poniżej opisano kolejne kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [line style](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linestyle/) kształtu.
-1. Ustaw szerokość linii.
-1. Ustaw [dash style](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linedashstyle/) linii.
-1. Ustaw kolor linii kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [styl linii](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linestyle/) kształtu.
+5. Ustaw szerokość linii.
+6. Ustaw [styl kreski](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linedashstyle/) linii.
+7. Ustaw kolor linii kształtu.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Poniższy kod PHP demonstruje, jak sformatować prostokąt `AutoShape`:
 
@@ -54,7 +56,7 @@ Poniższy kod PHP demonstruje, jak sformatować prostokąt `AutoShape`:
         // Uzyskaj pierwszy slajd.
         $slide = $presentation->getSlides()->get_Item(0);
 
-        // Dodaj automatyczny kształt typu Prostokąt.
+        // Dodaj automatyczny kształt typu Rectangle.
         $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 150, 150, 75);
 
         // Ustaw kolor wypełnienia dla prostokątnego kształtu.
@@ -80,28 +82,76 @@ Wynik:
 
 ![Sformatowane linie w prezentacji](formatted-lines.png)
 
-## **Format Join Styles**
+## **Zastosuj efekty szkicu do linii kształtu**
 
-Oto trzy dostępne opcje typu połączenia:
+Efekt szkicu sprawia, że linia kształtu wygląda jak ręcznie rysowana. Użyj [Shape.getLineFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shape/) aby uzyskać dostęp do ustawień linii, [LineFormat.getSketchFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/lineformat/) aby uzyskać dostęp do ustawień szkicu oraz [SketchFormat.setSketchType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/sketchformat/) aby wybrać wartość z wyliczenia [LineSketchType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linesketchtype/).
+
+Poniższy kod PHP pokazuje, jak zastosować efekt [LineSketchType.Curved](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linesketchtype/) , odczytać wyraźnie przypisaną wartość i usunąć efekt przy użyciu [LineSketchType.None](https://reference.aspose.com/slides/pl/php-java/aspose.slides/linesketchtype/):
+
+```php
+$presentation = new Presentation();
+try {
+    $slide = $presentation->getSlides()->get_Item(0);
+    $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 200, 100);
+
+    // Uzyskaj dostęp do formatu linii kształtu oraz jego formatu szkicu.
+    $sketchFormat = $shape->getLineFormat()->getSketchFormat();
+
+    // Zastosuj efekt szkicu.
+    $sketchFormat->setSketchType(LineSketchType::Curved);
+
+    // Odczytaj efekt szkicu przypisany bezpośrednio do kształtu.
+    $explicitSketchType = $sketchFormat->getSketchType();
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+
+    // Usuń efekt szkicu.
+    $sketchFormat->setSketchType(LineSketchType::None);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Wartość zwracana przez [SketchFormat.getSketchType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/sketchformat/) reprezentuje ustawienie przypisane bezpośrednio do kształtu. Jeśli formatowanie linii może być dziedziczone z motywu, slajdu-macierzy lub slajdu układu, użyj [LineFormat.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/lineformat/), uzyskaj metodę `getSketchFormat` zwróconego obiektu i odczytaj jego wartość `getSketchType`. Wartość efektywna odzwierciedla formatowanie faktycznie zastosowane po rozwiązaniu dziedziczenia:
+
+```php
+$presentation = new Presentation("presentation.pptx");
+try {
+    $shape = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $lineFormat = $shape->getLineFormat();
+
+    $explicitSketchType = $lineFormat->getSketchFormat()->getSketchType();
+    $effectiveLineFormat = $lineFormat->getEffective();
+    $effectiveSketchType = $effectiveLineFormat->getSketchFormat()->getSketchType();
+
+    echo "Explicit sketch type: " . $explicitSketchType . PHP_EOL;
+    echo "Effective sketch type: " . $effectiveSketchType . PHP_EOL;
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Formatowanie stylów łączenia**
+
+Oto trzy dostępne opcje typów łączenia:
 
 * Round
 * Miter
 * Bevel
 
-Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (na przykład w rogu kształtu), używa ustawienia **Round**. Jednak jeśli rysujesz kształt o ostrych kątach, możesz woleć opcję **Miter**.
+Domyślnie, gdy PowerPoint łączy dwie linie pod kątem (np. w rogu kształtu), używa ustawienia **Round**. Jednakże, jeśli rysujesz kształt o ostrych kątach, możesz preferować opcję **Miter**.
 
 ![Styl połączenia w prezentacji](join-style-powerpoint.png)
 
-Poniższy kod PHP pokazuje, jak trzy prostokąty (widoczne na powyższym obrazku) zostały utworzone przy użyciu ustawień połączenia Miter, Bevel i Round:
+Poniższy kod PHP demonstruje, jak trzy prostokąty (jak pokazano na powyższym obrazie) zostały utworzone przy użyciu ustawień typów połączeń Miter, Bevel i Round:
 
 ```php
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj trzy automatyczne kształty typu Prostokąt.
+    // Dodaj trzy automatyczne kształty typu Rectangle.
     $shape1 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 20, 150, 75);
     $shape2 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 210, 20, 150, 75);
     $shape3 = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 20, 135, 150, 75);
@@ -119,7 +169,7 @@ try {
     $shape2->getLineFormat()->setWidth(15);
     $shape3->getLineFormat()->setWidth(15);
 
-    // Ustaw kolor linii dla każdego prostokąta.
+    // Ustaw kolor linii każdego prostokąta.
     $shape1->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
     $shape1->getLineFormat()->getFillFormat()->getSolidFillColor()->setColor(java("java.awt.Color")->BLUE);
     $shape2->getLineFormat()->getFillFormat()->setFillType(FillType::Solid);
@@ -144,18 +194,18 @@ try {
 }
 ```
 
-## **Gradient Fill**
+## **Wypełnienie gradientowe**
 
-W programie PowerPoint wypełnienie gradientowe to opcja formatowania, która pozwala zastosować ciągłe przejście kolorów do kształtu. Na przykład możesz nałożyć dwa lub więcej kolorów w taki sposób, że jeden stopniowo przechodzi w drugi.
+W programie PowerPoint wypełnienie gradientowe jest opcją formatowania, która pozwala zastosować ciągłe przejście kolorów w kształcie. Na przykład możesz nałożyć dwa lub więcej kolorów tak, aby jeden stopniowo przechodził w drugi.
 
-Jak zastosować wypełnienie gradientowe do kształtu przy użyciu Aspose.Slides:
+Oto jak zastosować wypełnienie gradientowe do kształtu przy użyciu Aspose.Slides:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Gradient`.
-1. Dodaj dwie wybrane kolory z określonymi pozycjami, używając metod `add` kolekcji przystanków gradientu udostępnianej przez klasę [GradientFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/gradientformat/).
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Gradient`.
+5. Dodaj dwie wybrane kolory z określonymi pozycjami, używając metod `add` kolekcji przystanków gradientu udostępnianej przez klasę [GradientFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/gradientformat/).
+6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Poniższy kod PHP demonstruje, jak zastosować efekt wypełnienia gradientowego do elipsy:
 
@@ -163,10 +213,10 @@ Poniższy kod PHP demonstruje, jak zastosować efekt wypełnienia gradientowego 
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt typu Elipsa.
+    // Dodaj automatyczny kształt typu Ellipse.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Ellipse, 50, 50, 150, 75);
 
     // Zastosuj formatowanie gradientowe do elipsy.
@@ -191,22 +241,22 @@ Wynik:
 
 ![Elipsa z wypełnieniem gradientowym](gradient-fill.png)
 
-## **Pattern Fill**
+## **Wypełnienie wzorem**
 
-W programie PowerPoint wypełnienie wzorem to opcja formatowania, która pozwala zastosować dwukolorowy wzór — taki jak kropki, paski, krzyżykowe kreski lub kratkę — do kształtu. Możesz wybrać własne kolory dla pierwszego planu i tła wzoru.
+W programie PowerPoint wypełnienie wzorem to opcja formatowania, która pozwala na zastosowanie dwukolorowego wzoru — takiego jak kropki, paski, krzyżówki lub szachownica — do kształtu. Możesz wybrać własne kolory dla pierwszego planu i tła wzoru.
 
-Aspose.Slides udostępnia ponad 45 predefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu predefiniowanego wzoru możesz określić dokładne kolory, które mają być użyte.
+Aspose.Slides udostępnia ponad 45 predefiniowanych stylów wzorów, które możesz zastosować do kształtów, aby zwiększyć atrakcyjność wizualną prezentacji. Nawet po wybraniu predefiniowanego wzoru możesz dalej określić dokładne kolory, które mają być użyte.
 
-Jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
+Oto jak zastosować wypełnienie wzorem do kształtu przy użyciu Aspose.Slides:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Pattern`.
-1. Wybierz styl wzoru z dostępnych opcji.
-1. Ustaw [Background Color](https://reference.aspose.com/slides/pl/php-java/aspose.slides/patternformat/#getBackColor) wzoru.
-1. Ustaw [Foreground Color](https://reference.aspose.com/slides/pl/php-java/aspose.slides/patternformat/#getForeColor) wzoru.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Pattern`.
+5. Wybierz styl wzoru spośród predefiniowanych opcji.
+6. Ustaw [Background Color](https://reference.aspose.com/slides/pl/php-java/aspose.slides/patternformat/#getBackColor) wzoru.
+7. Ustaw [Foreground Color](https://reference.aspose.com/slides/pl/php-java/aspose.slides/patternformat/#getForeColor) wzoru.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Poniższy kod PHP demonstruje, jak zastosować wypełnienie wzorem do prostokąta:
 
@@ -214,13 +264,13 @@ Poniższy kod PHP demonstruje, jak zastosować wypełnienie wzorem do prostokąt
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt typu Prostokąt.
+    // Dodaj automatyczny kształt typu Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Ustaw typ wypełnienia na Wzór.
+    // Ustaw typ wypełnienia na Pattern.
     $shape->getFillFormat()->setFillType(FillType::Pattern);
 
     // Ustaw styl wzoru.
@@ -241,24 +291,24 @@ Wynik:
 
 ![Prostokąt z wypełnieniem wzorem](pattern-fill.png)
 
-## **Picture Fill**
+## **Wypełnienie obrazem**
 
-W programie PowerPoint wypełnienie obrazem to opcja formatowania, która pozwala wstawić obraz wewnątrz kształtu — skutecznie używając obrazu jako tła kształtu.
+W programie PowerPoint wypełnienie obrazem jest opcją formatowania, która pozwala wstawić obraz wewnątrz kształtu — efektywnie używając obrazu jako tła kształtu.
 
-Jak używać Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
+Oto jak używać Aspose.Slides do zastosowania wypełnienia obrazem w kształcie:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Picture`.
-1. Ustaw tryb wypełnienia obrazem na `Tile` (lub inny preferowany tryb).
-1. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) z obrazu, którego chcesz użyć.
-1. Przekaż obraz do metody `SlidesPicture.setImage`.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Picture`.
+5. Ustaw tryb wypełnienia obrazem na `Tile` (lub inny preferowany tryb).
+6. Utwórz obiekt [PPImage](https://reference.aspose.com/slides/pl/php-java/aspose.slides/ppimage/) z wybranego obrazu.
+7. Przekaż obraz metodzie `SlidesPicture.setImage`.
+8. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Załóżmy, że mamy plik "lotus.png" z następującym obrazem:
 
-![Obrazek lotosu](lotus.png)
+![Obraz lotosu](lotus.png)
 
 Poniższy kod PHP demonstruje, jak wypełnić kształt obrazem:
 
@@ -266,19 +316,19 @@ Poniższy kod PHP demonstruje, jak wypełnić kształt obrazem:
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt typu Prostokąt.
+    // Dodaj automatyczny kształt typu Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 255, 130);
 
-    // Ustaw typ wypełnienia na Obraz.
+    // Ustaw typ wypełnienia na Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
     // Ustaw tryb wypełnienia obrazem.
     $shape->getFillFormat()->getPictureFillFormat()->setPictureFillMode(PictureFillMode::Tile);
 
-    // Wczytaj obraz i dodaj go do zasobów prezentacji.
+    // Załaduj obraz i dodaj go do zasobów prezentacji.
     $image = Images::fromFile("lotus.png");
     $picture = $presentation->getImages()->addImage($image);
     $image->dispose();
@@ -295,36 +345,36 @@ try {
 
 Wynik:
 
-![Kształt z wypełnieniem obrazem](picture-fill.png)
+![Kształt wypełniony obrazem](picture-fill.png)
 
-### **Tile Picture As Texture**
+### **Ustaw obraz kafelkowany jako teksturę**
 
-Jeśli chcesz ustawić obraz kafelkowany jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/):
+Jeśli chcesz ustawić obraz kafelkowy jako teksturę i dostosować zachowanie kafelkowania, możesz użyć następujących metod klasy [PictureFillFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/):
 
 - [setPictureFillMode](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setPictureFillMode): Ustawia tryb wypełnienia obrazem — `Tile` lub `Stretch`.
-- [setTileAlignment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileAlignment): Określa wyrównanie kafelków w kształcie.
-- [setTileFlip](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileFlip): Kontroluje, czy kafelek jest odbijany w poziomie, w pionie lub w obu kierunkach.
+- [setTileAlignment](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileAlignment): Określa wyrównanie kafelków wewnątrz kształtu.
+- [setTileFlip](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileFlip): Kontroluje, czy kafelek jest odbity poziomo, pionowo lub w obu kierunkach.
 - [setTileOffsetX](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileOffsetX): Ustawia poziomy offset kafelka (w punktach) od początku kształtu.
 - [setTileOffsetY](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileOffsetY): Ustawia pionowy offset kafelka (w punktach) od początku kształtu.
-- [setTileScaleX](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definiuje poziomą skalę kafelka w procentach.
-- [setTileScaleY](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definiuje pionową skalę kafelka w procentach.
+- [setTileScaleX](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileScaleX): Definiuje poziomą skalę kafelka jako procent.
+- [setTileScaleY](https://reference.aspose.com/slides/pl/php-java/aspose.slides/picturefillformat/#setTileScaleY): Definiuje pionową skalę kafelka jako procent.
 
-Poniższy przykład kodu pokazuje, jak dodać prostokątny kształt z kafelkowanym wypełnieniem obrazem i skonfigurować opcje kafelkowania:
+Poniższy przykład kodu pokazuje, jak dodać prostokąt z kafelkowym wypełnieniem obrazem i skonfigurować opcje kafelkowania:
 
 ```php
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $firstSlide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt prostokątny.
+    // Dodaj automatyczny kształt prostokąta.
     $shape = $firstSlide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 190, 95);
 
-    // Ustaw typ wypełnienia kształtu na Obraz.
+    // Ustaw typ wypełnienia kształtu na Picture.
     $shape->getFillFormat()->setFillType(FillType::Picture);
 
-    // Wczytaj obraz i dodaj go do zasobów prezentacji.
+    // Załaduj obraz i dodaj go do zasobów prezentacji.
     $sourceImage = Images::fromFile("lotus.png");
     $presentationImage = $presentation->getImages()->addImage($sourceImage);
     $sourceImage->dispose();
@@ -333,7 +383,7 @@ try {
     $pictureFillFormat = $shape->getFillFormat()->getPictureFillFormat();
     $pictureFillFormat->getPicture()->setImage($presentationImage);
 
-    // Skonfiguruj tryb wypełnienia obrazem i właściwości kafelkowania.
+    // Skonfiguruj tryb wypełnienia obrazem oraz właściwości kafelkowania.
     $pictureFillFormat->setPictureFillMode(PictureFillMode::Tile);
     $pictureFillFormat->setTileOffsetX(-32);
     $pictureFillFormat->setTileOffsetY(-32);
@@ -353,18 +403,18 @@ Wynik:
 
 ![Opcje kafelkowania](tile-options.png)
 
-## **Solid Color Fill**
+## **Wypełnienie jednolitym kolorem**
 
-W programie PowerPoint wypełnienie jednolitym kolorem to opcja formatowania, która wypełnia kształt jednym, równomiernym kolorem. Ten prosty kolor tła jest nakładany bez gradientów, tekstur ani wzorów.
+W programie PowerPoint wypełnienie jednolitym kolorem to opcja formatowania, która wypełnia kształt jednym, jednolitym kolorem. Ten prosty kolor tła jest stosowany bez gradientów, tekstur ani wzorów.
 
 Aby zastosować wypełnienie jednolitym kolorem do kształtu przy użyciu Aspose.Slides, wykonaj następujące kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Solid`.
-1. Przypisz wybrany kolor wypełnienia do kształtu.
-1. Zapisz zmodyfikowaną prezentację jako plik PPTX.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) kształtu na `Solid`.
+5. Przypisz wybrany kolor wypełnienia do kształtu.
+6. Zapisz zmodyfikowaną prezentację jako plik PPTX.
 
 Poniższy kod PHP demonstruje, jak zastosować wypełnienie jednolitym kolorem do prostokąta w slajdzie PowerPoint:
 
@@ -372,13 +422,13 @@ Poniższy kod PHP demonstruje, jak zastosować wypełnienie jednolitym kolorem d
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt typu Prostokąt.
+    // Dodaj automatyczny kształt typu Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Ustaw typ wypełnienia na Jednolity.
+    // Ustaw typ wypełnienia na Solid.
     $shape->getFillFormat()->setFillType(FillType::Solid);
 
     // Ustaw kolor wypełnienia.
@@ -393,20 +443,20 @@ try {
 
 Wynik:
 
-![Kształt z wypełnieniem jednolitym kolorem](solid-color-fill.png)
+![Kształt z jednolitym kolorowym wypełnieniem](solid-color-fill.png)
 
-## **Set Transparency**
+## **Ustaw przezroczystość**
 
-W programie PowerPoint, gdy stosujesz wypełnienie jednolitym kolorem, gradientem, obrazem lub teksturą do kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować krycie wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przezroczysty, pozwalając częściowo widzieć tło lub obiekty pod nim.
+W programie PowerPoint, gdy zastosujesz wypełnienie jednolitym kolorem, gradientem, obrazem lub teksturą do kształtów, możesz także ustawić poziom przezroczystości, aby kontrolować krycie wypełnienia. Wyższa wartość przezroczystości sprawia, że kształt jest bardziej przezroczysty, pozwalając tłu lub poniższym obiektom być częściowo widocznymi.
 
 Aspose.Slides umożliwia ustawienie poziomu przezroczystości poprzez dostosowanie wartości alfa w kolorze używanym do wypełnienia. Oto jak to zrobić:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) na `Solid`.
-1. Użyj klasy `Color`, aby zdefiniować kolor z przezroczystością (składnik `alpha` kontroluje przezroczystość).
-1. Zapisz prezentację.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw [FillType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/filltype/) na `Solid`.
+5. Użyj `Color`, aby zdefiniować kolor z przezroczystością (składnik `alpha` kontroluje przezroczystość).
+6. Zapisz prezentację.
 
 Poniższy kod PHP demonstruje, jak zastosować przezroczysty kolor wypełnienia do prostokąta:
 
@@ -414,13 +464,13 @@ Poniższy kod PHP demonstruje, jak zastosować przezroczysty kolor wypełnienia 
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt prostokątny jednolity.
+    // Dodaj automatyczny kształt prostokąta z wypełnieniem stałym.
     $solidShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
-    // Dodaj automatyczny kształt prostokątny przezroczysty nad jednolitym kształtem.
+    // Dodaj automatyczny prostokąt o przezroczystym wypełnieniu nad stałym kształtem.
     $transparentShape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 80, 80, 150, 75);
     $transparentShape->getFillFormat()->setFillType(FillType::Solid);
     $transparentShape->getFillFormat()->getSolidFillColor()->setColor(new java("java.awt.Color", 255, 255, 0, 204));
@@ -436,17 +486,17 @@ Wynik:
 
 ![Przezroczysty kształt](shape-transparency.png)
 
-## **Rotate Shapes**
+## **Obracanie kształtów**
 
-Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne przy pozycjonowaniu elementów wizualnych z określonym wyrównaniem lub wymaganiami projektowymi.
+Aspose.Slides umożliwia obracanie kształtów w prezentacjach PowerPoint. Może to być przydatne przy pozycjonowaniu elementów wizualnych wymagających określonego wyrównania lub projektu.
 
 Aby obrócić kształt na slajdzie, wykonaj następujące kroki:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Ustaw właściwość obrotu kształtu na żądany kąt.
-1. Zapisz prezentację.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Ustaw właściwość rotacji kształtu na żądany kąt.
+5. Zapisz prezentację.
 
 Poniższy kod PHP demonstruje, jak obrócić kształt o 5 stopni:
 
@@ -454,10 +504,10 @@ Poniższy kod PHP demonstruje, jak obrócić kształt o 5 stopni:
 // Utwórz instancję klasy Presentation, która reprezentuje plik prezentacji.
 $presentation = new Presentation();
 try {
-    // Pobierz pierwszy slajd.
+    // Uzyskaj pierwszy slajd.
     $slide = $presentation->getSlides()->get_Item(0);
 
-    // Dodaj automatyczny kształt typu Prostokąt.
+    // Dodaj automatyczny kształt typu Rectangle.
     $shape = $slide->getShapes()->addAutoShape(ShapeType::Rectangle, 50, 50, 150, 75);
 
     // Obróć kształt o 5 stopni.
@@ -472,21 +522,21 @@ try {
 
 Wynik:
 
-![Obrócenie kształtu](shape-rotation.png)
+![Obrót kształtu](shape-rotation.png)
 
-## **Add 3D Bevel Effects**
+## **Dodaj efekty fazowania 3D**
 
-Aspose.Slides pozwala dodać efekty 3‑D fazowania do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/).
+Aspose.Slides pozwala na zastosowanie efektów fazowania 3D do kształtów poprzez konfigurację właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/).
 
-Aby dodać efekty 3‑D fazowania do kształtu, wykonaj następujące kroki:
+Aby dodać efekty fazowania 3D do kształtu, wykonaj następujące kroki:
 
-1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/) kształtu, aby określić ustawienia fazowania.
-1. Zapisz prezentację.
+1. Zainicjuj klasę [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Skonfiguruj [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/) kształtu, aby zdefiniować ustawienia fazowania.
+5. Zapisz prezentację.
 
-Poniższy kod PHP pokazuje, jak zastosować efekty 3‑D fazowania do kształtu:
+Poniższy kod PHP pokazuje, jak zastosować efekty fazowania 3D do kształtu:
 
 ```php
 // Utwórz instancję klasy Presentation.
@@ -520,21 +570,21 @@ try {
 
 Wynik:
 
-![Efekt 3‑D fazowania](3D-bevel-effect.png)
+![Efekt fazowania 3D](3D-bevel-effect.png)
 
-## **Add 3D Rotation Effects**
+## **Dodaj efekty rotacji 3D**
 
-Aspose.Slides pozwala dodać efekty obrotu 3‑D do kształtów poprzez konfigurowanie ich właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/).
+Aspose.Slides pozwala na zastosowanie efektów rotacji 3D do kształtów poprzez konfigurację właściwości [ThreeDFormat](https://reference.aspose.com/slides/pl/php-java/aspose.slides/threedformat/).
 
-Aby zastosować obrót 3‑D do kształtu:
+Aby zastosować rotację 3D do kształtu:
 
 1. Utwórz instancję klasy [Presentation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/).
-1. Pobierz odniesienie do slajdu według jego indeksu.
-1. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
-1. Użyj metod [setCameraType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/camera/#setCameraType) i [setLightType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/lightrig/#setLightType), aby określić obrót 3‑D.
-1. Zapisz prezentację.
+2. Uzyskaj odniesienie do slajdu po jego indeksie.
+3. Dodaj [AutoShape](https://reference.aspose.com/slides/pl/php-java/aspose.slides/autoshape/) do slajdu.
+4. Użyj [setCameraType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/camera/#setCameraType) i [setLightType](https://reference.aspose.com/slides/pl/php-java/aspose.slides/lightrig/#setLightType), aby określić rotację 3D.
+5. Zapisz prezentację.
 
-Poniższy kod PHP demonstruje, jak zastosować efekty obrotu 3‑D do kształtu:
+Poniższy kod PHP demonstruje, jak zastosować efekty rotacji 3D do kształtu:
 
 ```php
 // Utwórz instancję klasy Presentation.
@@ -559,11 +609,11 @@ try {
 
 Wynik:
 
-![Efekt obrotu 3‑D](3D-rotation-effect.png)
+![Efekt rotacji 3D](3D-rotation-effect.png)
 
-## **Reset Formatting**
+## **Resetowanie formatowania**
 
-Poniższy kod Java pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/) do ich domyślnych ustawień:
+Poniższy kod Java pokazuje, jak zresetować formatowanie slajdu i przywrócić pozycję, rozmiar oraz formatowanie wszystkich kształtów z placeholderami na [LayoutSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/) do ich ustawień domyślnych:
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -581,14 +631,14 @@ try {
 
 ## **FAQ**
 
-**Czy formatowanie kształtów wpływa na ostateczny rozmiar pliku prezentacji?**
+**Czy formatowanie kształtów wpływa na rozmiar końcowego pliku prezentacji?**
 
-Tylko minimalnie. Osadzone obrazy i multimedia zajmują większość miejsca w pliku, natomiast parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
+Tylko nieznacznie. Osadzone obrazy i multimedia zajmują większość przestrzeni w pliku, podczas gdy parametry kształtów, takie jak kolory, efekty i gradienty, są przechowywane jako metadane i praktycznie nie zwiększają rozmiaru.
 
-**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby móc je pogrupować?**
+**Jak mogę wykryć kształty na slajdzie, które mają identyczne formatowanie, aby je pogrupować?**
 
-Porównaj kluczowe właściwości formatowania każdego kształtu — ustawienia wypełnienia, linii i efektów. Jeśli wszystkie odpowiadające sobie wartości są takie same, traktuj ich style jako identyczne i logicznie grupuj te kształty, co upraszcza późniejsze zarządzanie stylami.
+Porównaj kluczowe właściwości formatowania każdego kształtu — ustawienia wypełnienia, linii i efektów. Jeśli wszystkie odpowiadające sobie wartości są równe, potraktuj ich style jako identyczne i logicznie pogrupuj te kształty, co ułatwia późniejsze zarządzanie stylami.
 
-**Czy mogę zapisać zestaw własnych stylów kształtów w osobnym pliku i ponownie używać go w innych prezentacjach?**
+**Czy mogę zapisać zestaw niestandardowych stylów kształtów do osobnego pliku w celu ponownego użycia w innych prezentacjach?**
 
-Tak. Przechowuj przykładowe kształty z żądanymi stylami w szablonie prezentacji lub pliku szablonu .POTX. Podczas tworzenia nowej prezentacji otwórz szablon, sklonuj potrzebne stylowane kształty i zastosuj ich formatowanie tam, gdzie jest wymagane.
+Tak. Przechowaj przykładowe kształty z pożądanymi stylami w szablonie prezentacji lub pliku .POTX. Przy tworzeniu nowej prezentacji otwórz szablon, sklonuj potrzebne stylowe kształty i ponownie zastosuj ich formatowanie w odpowiednich miejscach.

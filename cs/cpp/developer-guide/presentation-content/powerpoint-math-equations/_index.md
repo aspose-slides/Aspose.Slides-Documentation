@@ -1,6 +1,6 @@
 ---
 title: Přidání matematických rovnic do prezentací PowerPoint v C++
-linktitle: Matematické rovnice PowerPoint
+linktitle: Matematické rovnice v PowerPointu
 type: docs
 weight: 80
 url: /cs/cpp/powerpoint-math-equations/
@@ -17,17 +17,17 @@ keywords:
 - prezentace
 - C++
 - Aspose.Slides
-description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro C++, s podporou OMML, ovládacích prvků formátování a přehlednými ukázkami kódu v C++."
+description: "Vkládejte a upravujte matematické rovnice v PowerPoint PPT a PPTX pomocí Aspose.Slides pro C++, s podporou OMML, formátovacích ovládacích prvků a přehledných ukázek kódu v C++."
 ---
 ## **Přehled**
 
-PowerPoint uchovává rovnice jako Office Math Markup Language (OMML). S Aspose.Slides pro C++ můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, n‑aritmetické operátory, matice, pole a formátované matematické bloky.
+PowerPoint ukládá rovnice ve formátu Office Math Markup Language (OMML). S knihovnou Aspose.Slides pro C++ můžete programově vytvářet stejný typ matematického obsahu: zlomky, odmocniny, funkce, limity, N-ární operátory, matice, pole a formátované matematické bloky.
 
-V PowerPointu uživatelé obvykle přidávají rovnice z **Insert > Equation**:
+V PowerPointu uživatelé obvykle přidávají rovnice přes **Vložit > Rovnice**:
 
-![Karta Vložení v PowerPointu s vybraným příkazem Rovnice](powerpoint-math-equations_1.png)
+![Karta Vložit v PowerPointu s vybraným příkazem Rovnice](powerpoint-math-equations_1.png)
 
-Výsledkem je editovatelný matematický text na snímku:
+Výsledek je editovatelný matematický text na snímku:
 
 ![Snímek PowerPointu obsahující editovatelnou matematickou rovnici](powerpoint-math-equations_2.png)
 
@@ -37,11 +37,11 @@ Aspose.Slides vytváří tento matematický text pomocí tří hlavních objekt�
 - [MathPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathportion/) ukládá matematický obsah uvnitř textového rámce tvaru.
 - [MathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathparagraph/) obsahuje jeden nebo více objektů [MathBlock](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathblock/).
 
-Většina příkladů níže používá [MathematicalText](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathematicaltext/) a řetězené metody z [IMathElement](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/) pro stručnost a čitelnost kódu.
+Většina příkladů níže používá [MathematicalText](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathematicaltext/) a řetězené metody z [IMathElement](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/) k tomu, aby byl kód stručný a čitelný.
 
 Pro scénáře exportu MathML viz [Exportovat matematické rovnice z prezentací v C++](/slides/cs/cpp/exporting-math-equations/).
 
-## **Vytvořit rovnici**
+## **Vytvoření rovnice**
 
 Tento příklad vytvoří matematický tvar a přidá Pythagorovu větu:
 
@@ -74,9 +74,9 @@ presentation->Dispose();
 
 ## **Přidat zlomky**
 
-Použijte `Divide` k vytvoření zlomku. Můžete zvolit styl zlomku pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathfractiontypes/).
+Použijte `Divide` k vytvoření zlomku. Styl zlomku můžete zvolit pomocí [MathFractionTypes](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathfractiontypes/).
 
-![Zkosený matematický zlomek zobrazující 1 děleno x](powerpoint-math-equations_4.png)
+![Šikmý matematický zlomek zobrazující 1 děleno x](powerpoint-math-equations_4.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -95,7 +95,7 @@ presentation->Save(u"fraction.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Pro skladaný zlomek použijte `MathFractionTypes::Bar`:
+Pro naskládaný zlomek použijte `MathFractionTypes::Bar`:
 
 ```cpp
 auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"y - 1", MathFractionTypes::Bar);
@@ -103,9 +103,9 @@ auto stackedFraction = System::MakeObject<MathematicalText>(u"x + 1")->Divide(u"
 
 ## **Přidat odmocniny**
 
-Použijte `Radical` k vytvoření druhé odmocniny, třetí odmocniny nebo jiné odmocniny. Aktuální element se stane základem a argument představuje stupeň.
+Použijte `Radical` k vytvoření druhé odmocniny, třetí odmocniny nebo jiné odmocniny. Aktuální element se stane základnou a argument určuje stupeň.
 
-![Výraz n‑tá odmocnina s x pod znakem odmocniny](powerpoint-math-equations_5.png)
+![n-tá odmocnina s x pod znakem odmocniny](powerpoint-math-equations_5.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -126,7 +126,7 @@ presentation->Dispose();
 
 ## **Přidat funkce a limity**
 
-Použijte `AsArgumentOfFunction` nebo `Function` pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity umístěte `lim` do [MathLimit](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathlimit/) nebo použijte `SetLowerLimit`.
+Použijte `AsArgumentOfFunction` nebo `Function` pro funkce jako `sin(x)`, `log(x)` nebo vlastní názvy funkcí. Pro limity vložte `lim` do [MathLimit](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathlimit/) nebo použijte `SetLowerLimit`.
 
 ![Limit x, když x směřuje k nekonečnu](powerpoint-math-equations_8.png)
 
@@ -154,7 +154,7 @@ Pro vlastní název funkce nastavte název funkce jako aktuální element:
 auto customFunction = System::MakeObject<MathematicalText>(u"f")->Function(u"x + 1");
 ```
 
-## **Přidat N‑aritmetické operátory a integrály**
+## **Přidat N-ární operátory a integrály**
 
 Použijte `Nary` pro součty, sjednocení, průniky a další velké operátory. Použijte `Integral` pro integrály. Obě metody umožňují nastavit dolní a horní limity.
 
@@ -180,7 +180,7 @@ presentation->Save(u"nary-operators.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-N‑aritmetické operátory slouží pro velké operátory s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako `MathematicalText` a spojují do výrazu.
+N-ární operátory slouží k velkým operátorům s volitelnými limity. Jednoduché operátory jako `+`, `-` a `=` se obvykle přidávají jako `MathematicalText` a spojují do výrazu.
 
 Pro integrál použijte `Integral`:
 
@@ -191,7 +191,7 @@ auto integral = integralBase->Integral(MathIntegralTypes::Simple, u"0", u"1");
 
 ## **Přidat matice**
 
-Použijte [MathMatrix](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathmatrix/) pro řádky a sloupce. Matice ve výchozím nastavení neobsahují závorky, proto je obalte, když potřebujete závorky, hranaté závorky nebo složené závorky.
+Použijte [MathMatrix](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathmatrix/) pro řádky a sloupce. Matice standardně neobsahují závorky, takže pokud potřebujete závorky, hranaté závorky nebo složené závorky, obalte matici.
 
 ![Matematická matice se dvěma řádky a jednou prázdnou buňkou](powerpoint-math-equations_10.png)
 
@@ -218,9 +218,9 @@ presentation->Dispose();
 
 ## **Přidat pole rovnic**
 
-Použijte `ToMathArray`, když potřebujete zarovnané rovnice nebo svislý zásobník výrazů.
+Použijte `ToMathArray`, pokud potřebujete zarovnané rovnice nebo vertikální zásobník výrazů.
 
-![Svislé matematické pole s x nad y](powerpoint-math-equations_11.png)
+![Vertikální matematické pole s x nad y](powerpoint-math-equations_11.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -265,7 +265,7 @@ presentation->Dispose();
 
 ## **Přidat dolní a horní indexy**
 
-Použijte pomocníky pro dolní a horní indexy pro indexy a mocniny. Když se indexy musí zobrazit na levé straně základu, použijte `SetSubSuperscriptOnTheLeft`.
+Použijte pomocníky pro dolní a horní indexy pro indexy a exponenty. Když se indexy mají objevit na levé straně základny, použijte `SetSubSuperscriptOnTheLeft`.
 
 ![Velké Y s levým dolním indexem 1 a horním indexem n](powerpoint-math-equations_9.png)
 
@@ -288,9 +288,9 @@ presentation->Dispose();
 
 ## **Přidat ohraničovače**
 
-Použijte `Enclose` k umístění výrazu do ohraničovačů. Můžete také nastavit znak oddělovače pro výrazy s ohraničovači, které obsahují několik elementů.
+Použijte `Enclose` k vložení výrazu do ohraničovačů. Můžete také nastavit oddělovací znak pro výrazy v ohraničovačích, které obsahují několik prvků.
 
-![Výraz ohraničovače obsahující x, y a z oddělené svislými pruhy](powerpoint-math-equations_13.png)
+![Výraz v ohraničovačích obsahující x, y a z oddělené svislými čarami](powerpoint-math-equations_13.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -311,11 +311,11 @@ presentation->Save(u"delimiters.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Přidat rámeček**
+## **Přidat rámečkový rámeček**
 
-Použijte `ToBorderBox`, když má být samotná rovnice ohraničena rámečkem.
+Použijte `ToBorderBox`, pokud má být rovnice sama o sobě ohraničena rámečkem.
 
-![Rovnice v rámečku zobrazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
+![Rovnice v rámečku ukazující a na druhou rovná se b na druhou plus c na druhou](powerpoint-math-equations_12.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -341,9 +341,9 @@ presentation->Dispose();
 
 ## **Seskupit termíny**
 
-Použijte `Group` k umístění seskupovacího znaku nad nebo pod výraz. Přidejte limit pro popisek seskupených termínů.
+Použijte `Group` k umístění grupovacího znaku nad nebo pod výrazem. Přidejte limitu pro označení seskupených členů.
 
-![Výraz x plus y seskupený s popiskem libovolného textu pod ním](powerpoint-math-equations_15.png)
+![Výraz x plus y seskupený s popiskem libovolný text pod ním](powerpoint-math-equations_15.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -365,9 +365,9 @@ presentation->Dispose();
 
 ## **Formátovat matematické elementy**
 
-Používejte pomocníky formátování jen tam, kde objasňují vzorec. Například `Overbar` umístí čáru nad matematický element.
+Používejte formátovací pomocníky pouze tam, kde objasňují vzorec. Například `Overbar` umístí čáru nad matematický element.
 
-![Matematický výraz ABC s nadčarou](powerpoint-math-equations_14.png)
+![Matematický výraz ABC s čárou nad ním](powerpoint-math-equations_14.png)
 
 ```cpp
 auto presentation = System::MakeObject<Presentation>();
@@ -385,35 +385,35 @@ presentation->Save(u"overbar.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Rychlý odkaz**
+## **Rychlý přehled**
 
 | Úkol | Hlavní API |
 | --- | --- |
 | Vytvořit matematický text | [MathematicalText](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathematicaltext/) |
-| Kombinovat elementy | [IMathElement.Join](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/join/) |
+| Spojit elementy | [IMathElement.Join](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/join/) |
 | Vytvořit zlomky | [IMathElement.Divide](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/divide/) |
 | Přidat horní nebo dolní index | [SetSuperscript](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/setsuperscript/), [SetSubscript](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/setsubscript/) |
 | Přidat funkce | [Function](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/function/), [AsArgumentOfFunction](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/asargumentoffunction/) |
 | Přidat odmocniny | [IMathElement.Radical](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/radical/) |
 | Přidat limity | [SetLowerLimit](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/setlowerlimit/), [SetUpperLimit](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/setupperlimit/) |
-| Přidat levé indexy | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
+| Přidat levostranné indexy | [SetSubSuperscriptOnTheLeft](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/setsubsuperscriptontheleft/) |
 | Přidat součty a integrály | [Nary](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/nary/), [Integral](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/integral/) |
 | Přidat matice | [MathMatrix](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/mathmatrix/) |
 | Přidat pole rovnic | [ToMathArray](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/tomatharray/) |
 | Přidat ohraničovače | [Enclose](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/enclose/) |
 | Přidat čáry a rámečky | [Overbar](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/overbar/), [ToBorderBox](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/toborderbox/) |
-| Seskupit termíny | [Group](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/group/) |
+| Seskupit výrazy | [Group](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathelement/group/) |
 
 ## **Často kladené otázky**
 
 **Mohu upravit existující rovnici v PowerPointu?**
 
-Ano. Otevřete prezentaci, najděte tvar, který obsahuje `MathPortion`, získejte jeho `MathParagraph` a aktualizujte matematické bloky v tomto odstavci.
+Ano. Otevřete prezentaci, najděte tvar, který obsahuje `MathPortion`, získejte jeho `MathParagraph` a aktualizujte v tomto odstavci matematické bloky.
 
 **Ukládají se rovnice jako editovatelná matematika v PowerPointu?**
 
-Ano. Při ukládání do PPTX Aspose.Slides zapisuje rovnici jako editovatelný obsah Office math.
+Ano. Při uložení do PPTX Aspose.Slides zapíše rovnici jako editovatelný obsah Office Math.
 
-**Mohu exportovat rovnice do LaTeXu?**
+**Mohu exportovat rovnice do LaTeX?**
 
-Aspose.Slides exportuje matematické rovnice do MathML. Pokud potřebujete LaTeX, nejprve exportujte do MathML a poté jej převěďte pomocí nástroje, který podporuje požadovaný LaTeX dialekt.
+Ano. Získáte [IMathParagraph](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathparagraph/) rovnice z jejího [IMathPortion](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathportion/) a zavoláte [IMathParagraph::ToLatex](https://reference.aspose.com/slides/cs/cpp/aspose.slides.mathtext/imathparagraph/tolatex/) pro přímý export. Kompletní příklad najdete v [Exportovat matematické rovnice z prezentací v C++](/slides/cs/cpp/exporting-math-equations/#export-math-equations-to-latex).

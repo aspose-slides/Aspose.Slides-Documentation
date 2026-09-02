@@ -1,16 +1,16 @@
 ---
-title: Effectieve vormeigenschappen ophalen uit presentaties op Android
+title: Vorm effectieve eigenschappen ophalen vanuit presentaties op Android
 linktitle: Effectieve eigenschappen
 type: docs
 weight: 50
 url: /nl/androidjava/shape-effective-properties/
 keywords:
 - vormeigenschappen
-- cameraeigenschappen
-- lichtrig
-- afgeschuinde vorm
-- tekstvak
-- tekststijl
+- camera-eigenschappen
+- licht-rig
+- afschuining vorm
+- tekst-frame
+- tekst-stijl
 - letterhoogte
 - opvulformaat
 - PowerPoint
@@ -18,298 +18,283 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Ontdek hoe Aspose.Slides voor Android via Java effectieve vormeigenschappen berekent en toepast voor nauwkeurige PowerPoint-weergave."
+description: "Leer hoe u Aspose.Slides voor Android via Java kunt gebruiken om lokale, geërfde en effectieve vormopmaak in PowerPoint-presentaties te onderscheiden."
 ---
-## **Overzicht**
+## **Begrijp lokale, geërfde en effectieve eigenschappen**
 
-Deze onderwerp legt het verschil uit tussen **lokale** en **effectieve** eigenschappen. Lokale waarden zijn waarden die direct op een specifiek opmaakniveau worden ingesteld, zoals:
+PowerPoint-opmaak kan uit meerdere bronnen komen. De waarde die rechtstreeks op een object wordt opgeslagen, is de **lokale waarde**. Als die waarde niet is ingesteld, kijkt PowerPoint naar bovenliggende opmaakbronnen, zoals een alinea‑standaard, een tekst‑stijl, een lay‑out‑ of master‑dia, een thema of standaardinstellingen op presentatieniveau. Die waarden zijn **geërfde waarden**. De waarde die overblijft nadat de volledige hiërarchie is doorlopen, is de **effectieve waarde** — de waarde die wordt gebruikt om het object weer te geven.
 
-1. Deel‑eigenschappen op een dia.
-1. Prototype‑vormtekststijlen op een lay‑out‑ of mastersdia, wanneer de vorm van het tekstvak van het deel er één heeft.
-1. Globale tekstopmaakinstellingen in een presentatie.
+Bijvoorbeeld, een tekstdelen kan haar eigen lettergrootte niet definiëren. De lokale [getFontHeight](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ibaseportionformat/#getFontHeight--) waarde is dan `Float.NaN`, wat betekent "hier niet ingesteld". Het deel kan een hoogte erven van de alinea, de standaardtekst‑stijl van de presentatie, of een andere toepasselijke bron. Het aanroepen van [getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iportionformat/#getEffective--) op het deel‑formaat geeft de uiteindelijk opgeloste hoogte terug.
 
-Lokale waarden kunnen op elk niveau worden gedefinieerd of weggelaten. Wanneer Aspose.Slides de uiteindelijke "as rendered"‑opmaak nodig heeft, lost het de erfenisketen op en retourneert **effectieve** waarden. Je kunt ze verkrijgen door de `getEffective()`‑methode aan te roepen op het lokale opmaakobject.
+Gebruik de twee soorten opmaakdata voor verschillende doeleinden:
 
-Het volgende voorbeeld toont hoe je effectieve waarden kunt krijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) is met een tekstvak en minstens één deel.
+- Lees of wijzig een lokaal opmaakobject, zoals [IPortionFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iportionformat/), wanneer u moet bepalen waar een waarde wordt gedefinieerd.
+- Lees een effectief data‑object, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iportionformateffectivedata/), wanneer u het uiteindelijke, gerenderde resultaat nodig hebt. Effectieve data is alleen‑lezen.
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
+## **Vergelijk lokale, geërfde en effectieve waarden**
 
-    ITextFrame textFrame = shape.getTextFrame();
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = textFrame.getTextFrameFormat().getEffective();
-
-    IPortion portion = textFrame.getParagraphs().get_Item(0).getPortions().get_Item(0);
-    IPortionFormatEffectiveData effectivePortionFormat = portion.getPortionFormat().getEffective();
-} finally {
-    presentation.dispose();
-}
-```
-
-{{% alert color="primary" %}}
-Effectieve opmaakgegevens vertegenwoordigen de momenteel berekende opmaak nadat erfenis is toegepast. In de huidige implementatie kunnen sommige effectieve gegevensobjecten, zoals [IPortionFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iportionformateffectivedata/), intern worden gecached. Het opnieuw aanroepen van `getEffective()` na het wijzigen van ouder‑ of geërfde opmaak kan de cache vernieuwen, en een eerder verkregen object vertegenwoordigt mogelijk niet meer de eerdere staat. Als je effectieve waarden wilt behouden voor later hergebruik, kopieer dan de benodigde eigenschappen, zoals letterhoogte, opvulkleur, lettertype‑stijl of uitlijning, naar je eigen gegevensobject.
-{{% /alert %}}
-
-## **Effectieve eigenschappen van een camera ophalen**
-
-Aspose.Slides maakt het mogelijk om effectieve eigenschappen van een camera op te halen. De [ICameraEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icameraeffectivedata/) interface vertegenwoordigt een onveranderlijk object dat effectieve camera‑eigenschappen bevat. Een [ICameraEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icameraeffectivedata/)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformat/).
-
-De volgende codevoorbeelden tonen hoe je effectieve eigenschappen voor de camera kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
+Het volgende volledige voorbeeld maakt een vorm aan en past letterhoogtes toe op presentatie‑, alinea‑ en gedeelte‑niveau. Elke stap toont de waarden die op die niveaus zijn gedefinieerd en de resulterende effectieve waarde voor hetzelfde tekstdelen. Het laat ook zien waarom effectieve data opnieuw moet worden gelezen na opmaakwijzigingen.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ICameraEffectiveData cameraEffectiveData = threeDEffectiveData.getCamera();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation();
+        try {
+            ISlide slide = presentation.getSlides().get_Item(0);
+            IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+            ITextFrame textFrame = shape.addTextFrame("Effective formatting");
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    System.out.println("= Effective camera properties =");
-    System.out.println("Type: " + cameraEffectiveData.getCameraType());
-    System.out.println("Field of view: " + cameraEffectiveData.getFieldOfViewAngle());
-    System.out.println("Zoom: " + cameraEffectiveData.getZoom());
-} finally {
-    presentation.dispose();
-}
-```
+            // Definieer geërfde waarden op twee verschillende niveaus.
+            presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(20);
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(28);
 
-## **Effectieve eigenschappen van een verlichtingsrig ophalen**
+            printFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-Aspose.Slides maakt het mogelijk om effectieve eigenschappen van een licht‑rig op te halen. De [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ilightrigeffectivedata/) interface vertegenwoordigt een onveranderlijk object dat effectieve licht‑rig‑eigenschappen bevat. Een [ILightRigEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ilightrigeffectivedata/)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformat/).
+            // Een lokale waarde op het gedeelte overschrijft beide geërfde waarden.
+            portion.getPortionFormat().setFontHeight(36);
+            printFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-De volgende codevoorbeelden tonen hoe je effectieve eigenschappen voor het licht‑rig kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
+            // Een geërfde waarde wijzigen overschrijft geen bestaande lokale waarde.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(30);
+            printFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
+            // Verwijder de lokale waarde. Het gedeelte erft nu opnieuw van de alinea.
+            portion.getPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    ILightRigEffectiveData lightRigEffectiveData = threeDEffectiveData.getLightRig();
+            // Verwijder de alinea‑waarde. De standaardwaarde van de presentatie levert nu het resultaat.
+            paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(Float.NaN);
+            printFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-    System.out.println("= Effective light rig properties =");
-    System.out.println("Type: " + lightRigEffectiveData.getLightType());
-    System.out.println("Direction: " + lightRigEffectiveData.getDirection());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Effectieve eigenschappen van een afgeschuinde vorm ophalen**
-
-Aspose.Slides maakt het mogelijk om effectieve eigenschappen van een vorm‑afschuining op te halen. De [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapebeveleffectivedata/) interface vertegenwoordigt een onveranderlijk object dat effectieve oppervlak‑reliefs‑eigenschappen voor een vorm bevat. Een [IShapeBevelEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ishapebeveleffectivedata/)‑instantie wordt blootgesteld via [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/), die effectieve waarden levert voor [IThreeDFormat](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformat/).
-
-De volgende codevoorbeelden tonen hoe je effectieve eigenschappen voor de bovenste afschuining van een vorm kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia 3D‑opmaak heeft.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IShape shape = slide.getShapes().get_Item(0);
-
-    IThreeDFormatEffectiveData threeDEffectiveData = shape.getThreeDFormat().getEffective();
-    IShapeBevelEffectiveData bevelTopEffectiveData = threeDEffectiveData.getBevelTop();
-
-    System.out.println("= Effective shape's top face relief properties =");
-    System.out.println("Type: " + bevelTopEffectiveData.getBevelType());
-    System.out.println("Width: " + bevelTopEffectiveData.getWidth());
-    System.out.println("Height: " + bevelTopEffectiveData.getHeight());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Effectieve eigenschappen van een tekstvak ophalen**
-
-Met Aspose.Slides kun je effectieve eigenschappen van een tekstvak ophalen. De [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframeformateffectivedata/) interface bevat effectieve opmaak‑eigenschappen van een tekstvak.
-
-De volgende codevoorbeelden tonen hoe je effectieve opmaak‑eigenschappen van een tekstvak kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) met een tekstvak is.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextFrameFormatEffectiveData effectiveTextFrameFormat = shape.getTextFrame().getTextFrameFormat().getEffective();
-
-    System.out.println("Anchoring type: " + effectiveTextFrameFormat.getAnchoringType());
-    System.out.println("Autofit type: " + effectiveTextFrameFormat.getAutofitType());
-    System.out.println("Text vertical type: " + effectiveTextFrameFormat.getTextVerticalType());
-    System.out.println("Margins");
-    System.out.println("   Left: " + effectiveTextFrameFormat.getMarginLeft());
-    System.out.println("   Top: " + effectiveTextFrameFormat.getMarginTop());
-    System.out.println("   Right: " + effectiveTextFrameFormat.getMarginRight());
-    System.out.println("   Bottom: " + effectiveTextFrameFormat.getMarginBottom());
-} finally {
-    presentation.dispose();
-}
-```
-
-## **Effectieve eigenschappen van een tekststijl ophalen**
-
-Met Aspose.Slides kun je effectieve eigenschappen van een tekststijl ophalen. De [ITextStyleEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextstyleeffectivedata/) interface bevat effectieve tekststijl‑eigenschappen.
-
-De volgende codevoorbeelden tonen hoe je effectieve tekststijl‑eigenschappen kunt verkrijgen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [IAutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iautoshape/) met een tekstvak is.
-
-```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape shape = (IAutoShape)slide.getShapes().get_Item(0);
-
-    ITextStyleEffectiveData effectiveTextStyle = shape.getTextFrame().getTextFrameFormat().getTextStyle().getEffective();
-    int levelCount = 9;
-
-    for (int levelIndex = 0; levelIndex < levelCount; levelIndex++) {
-        IParagraphFormatEffectiveData effectiveStyleLevel = effectiveTextStyle.getLevel(levelIndex);
-
-        System.out.println("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-        System.out.println("Depth: " + effectiveStyleLevel.getDepth());
-        System.out.println("Indent: " + effectiveStyleLevel.getIndent());
-        System.out.println("Alignment: " + effectiveStyleLevel.getAlignment());
-        System.out.println("Font alignment: " + effectiveStyleLevel.getFontAlignment());
+            presentation.save("effective-properties.pptx", SaveFormat.Pptx);
+        } finally {
+            presentation.dispose();
+        }
     }
-} finally {
-    presentation.dispose();
+
+    private static void printFontHeights(String caption, Presentation presentation, IParagraph paragraph, IPortion portion) {
+        float presentationValue = presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().getFontHeight();
+        float paragraphValue = paragraph.getParagraphFormat().getDefaultPortionFormat().getFontHeight();
+        float localValue = portion.getPortionFormat().getFontHeight();
+
+        // Lees effectieve data na de vorige wijzigingen.
+        float effectiveValue = portion.getPortionFormat().getEffective().getFontHeight();
+
+        System.out.println(caption);
+        System.out.println("  Presentation default: " + formatLocalValue(presentationValue));
+        System.out.println("  Paragraph default:    " + formatLocalValue(paragraphValue));
+        System.out.println("  Portion local:        " + formatLocalValue(localValue));
+        System.out.println("  Portion effective:    " + effectiveValue);
+    }
+
+    private static String formatLocalValue(float value) {
+        return Float.isNaN(value) ? "<not set>" : Float.toString(value);
+    }
 }
 ```
 
-## **De effectieve letterhoogte‑waarde ophalen**
+De prioriteit in dit voorbeeld is lokale opmaak van het gedeelte, vervolgens alinea‑opmaak, daarna de presentatie‑standaard. Andere objecten kunnen andere erfenis‑ketens hebben, maar het principe blijft hetzelfde: een meer specifieke expliciete waarde wint, en [getEffective](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iportionformat/#getEffective--) geeft het uiteindelijke resultaat terug.
 
-Met Aspose.Slides kun je de effectieve letterhoogte ophalen. De volgende code demonstreert hoe de effectieve letterhoogte van een deel verandert nadat lokale letterhoogte‑waarden op verschillende niveaus van de presentatiestructuur zijn ingesteld.
+## **Haalt effectieve tekst‑eigenschappen op**
+
+Tekstopmaak is verdeeld over verschillende objecten:
+
+- [ITextFrameFormat.getEffective()](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextframeformat/#getEffective--) bepaalt tekst‑frame‑eigenschappen zoals marges, verankering, autofit en verticale tekstrichting.
+- [ITextStyle.getEffective()](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itextstyle/#getEffective--) bepaalt alinea‑opmaak voor elk tekst‑stijl‑niveau.
+- [IParagraphFormat.getEffective()](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iparagraphformat/#getEffective--) bepaalt alinea‑eigenschappen zoals uitlijning, inspringing en opsommingstekens.
+- [IPortionFormat.getEffective()](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/iportionformat/#getEffective--) bepaalt teken‑eigenschappen zoals letterhoogte, lettertype, kleur, vet en cursief.
+
+Voor het volgende voorbeeld moet `text-formatting.pptx` minstens één dia en één [AutoShape](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/autoshape/) met een niet‑lege tekst‑frame bevatten. De AutoShape kan zich op elke positie in de vormverzameling bevinden; de code zoekt naar een geschikt object en valideert dit vóór gebruik.
 
 ```java
-Presentation presentation = new Presentation();
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    IAutoShape autoShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-    autoShape.addTextFrame("");
+import com.aspose.slides.*;
 
-    IParagraph paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
-    paragraph.getPortions().clear();
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("text-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
 
-    IPortion firstPortion = new Portion("Sample text with first portion");
-    IPortion secondPortion = new Portion(" and second portion.");
+            IAutoShape shape = findAutoShapeWithText(presentation.getSlides().get_Item(0));
+            if (shape == null) {
+                throw new IllegalStateException("The first slide must contain an AutoShape with non-empty text.");
+            }
 
-    paragraph.getPortions().add(firstPortion);
-    paragraph.getPortions().add(secondPortion);
+            ITextFrame textFrame = shape.getTextFrame();
+            IParagraph paragraph = textFrame.getParagraphs().get_Item(0);
+            IPortion portion = paragraph.getPortions().get_Item(0);
 
-    IPortionFormatEffectiveData firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    IPortionFormatEffectiveData secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height just after creation:");
-    double firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    double secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextFrameFormatEffectiveData textFrameEffective = textFrame.getTextFrameFormat().getEffective();
+            IParagraphFormatEffectiveData paragraphEffective = paragraph.getParagraphFormat().getEffective();
+            IPortionFormatEffectiveData portionEffective = portion.getPortionFormat().getEffective();
 
-    presentation.getDefaultTextStyle().getLevel(0).getDefaultPortionFormat().setFontHeight(24);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+            System.out.println("Text frame margins:");
+            System.out.println("  Left: " + textFrameEffective.getMarginLeft());
+            System.out.println("  Top: " + textFrameEffective.getMarginTop());
+            System.out.println("  Right: " + textFrameEffective.getMarginRight());
+            System.out.println("  Bottom: " + textFrameEffective.getMarginBottom());
+            System.out.println("Paragraph alignment: " + paragraphEffective.getAlignment());
+            System.out.println("Font height: " + portionEffective.getFontHeight());
+            System.out.println("Bold: " + portionEffective.getFontBold());
 
-    System.out.println("Effective font height after setting the presentation default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
+            ITextStyleEffectiveData effectiveTextStyle = textFrame.getTextFrameFormat().getTextStyle().getEffective();
+            for (int level = 0; level < 9; level++) {
+                IParagraphFormatEffectiveData levelEffective = effectiveTextStyle.getLevel(level);
+                System.out.println("Level " + level + " indent: " + levelEffective.getIndent());
+            }
+        } finally {
+            presentation.dispose();
+        }
+    }
 
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setFontHeight(40);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
+    private static IAutoShape findAutoShapeWithText(ISlide slide) {
+        for (IShape candidate : slide.getShapes()) {
+            if (candidate instanceof IAutoShape && hasNonEmptyText((IAutoShape)candidate)) {
+                return (IAutoShape)candidate;
+            }
+        }
+        return null;
+    }
 
-    System.out.println("Effective font height after setting paragraph default font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    firstPortion.getPortionFormat().setFontHeight(55);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-
-    System.out.println("Effective font height after setting portion #0 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    secondPortion.getPortionFormat().setFontHeight(18);
-    firstPortionFormatEffectiveData = firstPortion.getPortionFormat().getEffective();
-    secondPortionFormatEffectiveData = secondPortion.getPortionFormat().getEffective();
-    
-    System.out.println("Effective font height after setting portion #1 font height:");
-    firstPortionFontHeight = firstPortionFormatEffectiveData.getFontHeight();
-    secondPortionFontHeight = secondPortionFormatEffectiveData.getFontHeight();
-    System.out.println("Portion #0: " + firstPortionFontHeight);
-    System.out.println("Portion #1: " + secondPortionFontHeight);
-
-    presentation.save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
+    private static boolean hasNonEmptyText(IAutoShape shape) {
+        if (shape.getTextFrame() == null) {
+            return false;
+        }
+        if (shape.getTextFrame().getParagraphs().getCount() == 0) {
+            return false;
+        }
+        return shape.getTextFrame().getParagraphs().get_Item(0).getPortions().getCount() > 0;
+    }
 }
 ```
 
-## **Effectief opvulformaat van een tabel ophalen**
+## **Haalt effectieve 3D‑eigenschappen op**
 
-Met Aspose.Slides kun je effectieve opvulopmaak voor verschillende tabelonderdelen verkrijgen. De [IFillFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/) interface bevat effectieve opvulopmaak‑eigenschappen. Cel‑opmaak heeft een hogere prioriteit dan rij‑opmaak, rij‑opmaak heeft een hogere prioriteit dan kolom‑opmaak, en kolom‑opmaak heeft een hogere prioriteit dan opmaak voor de hele tabel.
+[IThreeDFormat.getEffective()](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformat/#getEffective--) retourneert één [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/) object dat alle opgeloste 3D‑instellingen groepeert. Zijn methoden [getCamera](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/#getCamera--), [getLightRig](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/#getLightRig--), [getBevelTop](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelTop--) en [getBevelBottom](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ithreedformateffectivedata/#getBevelBottom--) onthullen de overeenkomstige effectieve data. Het gezamenlijk lezen van deze gerelateerde instellingen maakt het makkelijker om de uiteindelijke 3D‑weergave van een vorm te begrijpen.
 
-Als gevolg hiervan worden de eigenschappen van [ICellFormatEffectiveData](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/icellformateffectivedata/) gebruikt om de tabelcel te tekenen. De volgende codevoorbeelden tonen hoe je effectieve opvulopmaak voor verschillende tabelonderdelen kunt ophalen. Het gaat ervan uit dat de eerste vorm op de eerste dia een [ITable](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itable/) is.
+Voor dit voorbeeld moet `shape-3d.pptx` minstens één vorm op de eerste dia bevatten. Pas 3D‑camera‑, verlichtings‑ of afschuining‑instellingen toe op die vorm als u wilt dat de uitvoer andere waarden dan de standaard bevat.
 
 ```java
-Presentation presentation = new Presentation("sample.pptx");
-try {
-    ISlide slide = presentation.getSlides().get_Item(0);
-    ITable table = (ITable)slide.getShapes().get_Item(0);
+import com.aspose.slides.*;
 
-    IRow row = table.getRows().get_Item(0);
-    IColumn column = table.getColumns().get_Item(0);
-    ICell cell = table.get_Item(0, 0);
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("shape-3d.pptx");
+        try {
+            if (presentation.getSlides().size() == 0 || presentation.getSlides().get_Item(0).getShapes().size() == 0) {
+                throw new IllegalStateException("The first slide must contain a shape.");
+            }
 
-    IFillFormatEffectiveData tableFillFormatEffective = table.getTableFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData rowFillFormatEffective = row.getRowFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData columnFillFormatEffective = column.getColumnFormat().getEffective().getFillFormat();
-    IFillFormatEffectiveData cellFillFormatEffective = cell.getCellFormat().getEffective().getFillFormat();
-} finally {
-    presentation.dispose();
+            IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+            IThreeDFormatEffectiveData threeDEffective = shape.getThreeDFormat().getEffective();
+
+            System.out.println("Camera:");
+            System.out.println("  Type: " + threeDEffective.getCamera().getCameraType());
+            System.out.println("  Field of view: " + threeDEffective.getCamera().getFieldOfViewAngle());
+            System.out.println("  Zoom: " + threeDEffective.getCamera().getZoom());
+
+            System.out.println("Light rig:");
+            System.out.println("  Type: " + threeDEffective.getLightRig().getLightType());
+            System.out.println("  Direction: " + threeDEffective.getLightRig().getDirection());
+
+            System.out.println("Top bevel:");
+            System.out.println("  Type: " + threeDEffective.getBevelTop().getBevelType());
+            System.out.println("  Width: " + threeDEffective.getBevelTop().getWidth());
+            System.out.println("  Height: " + threeDEffective.getBevelTop().getHeight());
+        } finally {
+            presentation.dispose();
+        }
+    }
 }
 ```
+
+## **Haalt effectieve tabel‑opmaak op**
+
+Tabelopmaak kan afkomstig zijn van de tabel‑stijl en van opmaak die toegepast wordt op de hele tabel, een kolom, een rij of een individuele cel. Bij conflicten tussen expliciet gedefinieerde vullingen is de prioriteit cel, rij, kolom en daarna de hele tabel. Het effectieve formaat van een cel is het uiteindelijke formaat dat wordt gebruikt om die cel te tekenen.
+
+Voor dit voorbeeld moet `table-formatting.pptx` minstens één tabel op de eerste dia bevatten. De tabel moet minstens één rij en één kolom hebben. De code zoekt naar een [ITable](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/itable/) in plaats van te veronderstellen dat `getShapes().get_Item(0)` een tabel is.
+
+```java
+import com.aspose.slides.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Presentation presentation = new Presentation("table-formatting.pptx");
+        try {
+            if (presentation.getSlides().size() == 0) {
+                throw new IllegalStateException("The presentation contains no slides.");
+            }
+
+            ITable table = findTable(presentation.getSlides().get_Item(0));
+            if (table == null) {
+                throw new IllegalStateException("The first slide must contain a table.");
+            }
+            if (table.getRows().size() == 0 || table.getColumns().size() == 0) {
+                throw new IllegalStateException("The table must contain at least one cell.");
+            }
+
+            ITableFormatEffectiveData tableEffective = table.getTableFormat().getEffective();
+            IRowFormatEffectiveData rowEffective = table.getRows().get_Item(0).getRowFormat().getEffective();
+            IColumnFormatEffectiveData columnEffective = table.getColumns().get_Item(0).getColumnFormat().getEffective();
+            ICellFormatEffectiveData cellEffective = table.get_Item(0, 0).getCellFormat().getEffective();
+
+            System.out.println("Table fill: " + tableEffective.getFillFormat().getFillType());
+            System.out.println("Row fill: " + rowEffective.getFillFormat().getFillType());
+            System.out.println("Column fill: " + columnEffective.getFillFormat().getFillType());
+            System.out.println("Final cell fill: " + cellEffective.getFillFormat().getFillType());
+        } finally {
+            presentation.dispose();
+        }
+    }
+
+    private static ITable findTable(ISlide slide) {
+        for (IShape shape : slide.getShapes()) {
+            if (shape instanceof ITable) {
+                return (ITable)shape;
+            }
+        }
+        return null;
+    }
+}
+```
+
+Als u de kleur nodig heeft in plaats van alleen het vultype, controleer dan eerst de effectieve [getFillType](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/#getFillType-- ) en lees daarna de methode die bij dat type hoort — bijvoorbeeld [getSolidFillColor](https://reference.aspose.com/slides/nl/androidjava/com.aspose.slides/ifillformateffectivedata/#getSolidFillColor--) voor een effen vulling.
+
+## **Lees effectieve data opnieuw na wijzigingen**
+
+Effectieve data beschrijft de opmaak‑hiërarchie op het moment dat deze wordt bepaald. Roep `getEffective` opnieuw aan nadat u iets hebt gewijzigd dat deel kan uitmaken van die hiërarchie, inclusief:
+
+- de lokale opmaak van het object;
+- alinea‑ of tekst‑frame‑standaarden;
+- een tabel‑stijl, tabel, kolom, rij of cel‑opmaak;
+- lay‑out‑ of master‑dia‑opmaak;
+- themagegevens of standaardinstellingen op presentatieniveau;
+- de lay‑out of master die aan een dia is toegewezen.
+
+Bewaar geen effectief data‑object als een permanente momentopname. Aspose.Slides kan sommige effectieve data intern cachen, en een latere `getEffective`‑aanroep kan die data verversen. Als u waarden vóór en na een wijziging wilt vergelijken, kopieer dan de scalare waarden die u nodig heeft — zoals een letterhoogte, kleur, uitlijning of profielbreedte — naar eigen variabelen voordat u de wijziging doorvoert.
+
+Om een waarde te wijzigen, werk het juiste lokale opmaakobject bij en roep daarna `getEffective` aan om het resultaat te verifiëren. Effectieve data‑objecten zelf zijn alleen‑lezen.
 
 ## **FAQ**
 
-**Geeft `getEffective()` een momentopname terug?**
+**Hoe kan ik zien op welk niveau een effectieve waarde is geleverd?**
 
-Nee, niet altijd. Effectieve gegevens vertegenwoordigen de berekende opmaak nadat erfenis is toegepast, maar sommige effectieve gegevensobjecten kunnen intern gecached worden. Een volgende `getEffective()`‑aanroep kan de opmaak opnieuw berekenen en de cache vernieuwen, waardoor een eerder verkregen object niet als een persistente momentopname moet worden beschouwd.
+Effectieve data bevat de uiteindelijke waarde, niet de bron. Inspecteer de toepasselijke lokale objecten van het meest specifieke niveau naar buiten. Voor tekst kan dit het gedeelte, de alinea, het tekst‑frame, de lay‑out, de master, het thema en de presentatiestandaarden omvatten. Onbepaalde waarden zoals `Float.NaN` of `null` geven aan dat de zoektocht doorgaat naar een ander niveau.
 
-**Wanneer moet ik de effectieve eigenschappen opnieuw lezen?**
+**Wat gebeurt er wanneer geen enkel niveau een eigenschap definieert?**
 
-Roep `getEffective()` opnieuw aan nadat je lokale opmaak, ouder‑stijlen, lay‑out‑opmaak, master‑opmaak of de standaardinstellingen op presentatieniveau hebt gewijzigd. De volgende aanroep evalueert de opmaakhiërarchie opnieuw en retourneert het huidige effectieve resultaat.
+Aspose.Slides bepaalt de juiste PowerPoint‑ of bibliotheek‑standaard. Die opgeloste waarde verschijnt in de effectieve data, hoewel geen lokaal object deze expliciet definieert.
 
-**Heeft het wijzigen of verwijderen van een lay‑out‑/masterdia invloed op reeds opgehaalde effectieve eigenschappen?**
+**Waarom komt een effectieve waarde soms overeen met de lokale waarde?**
 
-Ja, maar de wijziging wordt pas zichtbaar bij de volgende `getEffective()`‑aanroep. Als een ouder‑opmaakbron wordt gewijzigd of verwijderd, kan eerder verkregen effectieve data verouderd zijn. Zodra `getEffective()` opnieuw wordt aangeroepen, evalueert Aspose.Slides de opmaakboom opnieuw en kunnen de resulterende lettertypen, kleuren, groottes of andere waarden wijzigen.
+De lokale waarde won de erfenis‑berekening. Dit is te verwachten wanneer de eigenschap expliciet op het object is ingesteld en geen specifiekere regel deze overschrijft.
 
-**Kan ik waarden wijzigen via effectieve gegevensobjecten?**
+**Wanneer moet ik lokale data gebruiken in plaats van effectieve data?**
 
-Nee. Effectieve gegevensobjecten geven berekende waarden weer. Breng wijzigingen aan in de lokale opmaakobjecten en haal vervolgens opnieuw de effectieve waarden op.
-
-**Wat gebeurt er als een eigenschap niet is ingesteld op vormeniveau, noch in de lay‑out/master, noch in de globale instellingen?**
-
-De effectieve waarde wordt bepaald door het standaardmechanisme, dat zowel de standaarden van PowerPoint als die van Aspose.Slides omvat. Die afgevoerde waarde wordt onderdeel van de huidige effectieve gegevens.
-
-**Kan ik aan de hand van een effectieve lettertype‑waarde zien op welk niveau de grootte of het lettertype is vastgesteld?**
-
-Nee, niet rechtstreeks. Effectieve gegevens geven de uiteindelijke waarde terug. Om de bron te achterhalen, controleer je de lokale waarden op het deel, de alinea, het tekstvak en de tekststijlen op lay‑out-, master‑ en presentatieniveau om te zien waar de eerste expliciete definitie voorkomt.
-
-**Waarom lijken effectieve waarden soms identiek aan de lokale waarden?**
-
-Omdat de lokale waarde uiteindelijk definitief was (er was geen hoger‑niveau‑erfenis nodig). In dat geval komt de effectieve waarde overeen met de lokale waarde.
-
-**Wanneer moet ik effectieve eigenschappen gebruiken en wanneer alleen met lokale werken?**
-
-Gebruik effectieve gegevens wanneer je het "as rendered"‑resultaat nodig hebt nadat alle erfenis is toegepast, bijvoorbeeld om kleuren, inspringingen of groottes uit te lijnen. Als je die waarden wilt behouden, ongeacht latere opmaakwijzigingen, kopieer dan de benodigde eigenschappen naar je eigen object. Als je op een specifiek niveau de opmaak wilt wijzigen, pas dan de lokale eigenschappen aan en lees vervolgens, indien nodig, de effectieve gegevens opnieuw om het resultaat te verifiëren.
+Gebruik lokale data om een specifiek opmaakniveau te inspecteren of te bewerken. Gebruik effectieve data wanneer u de uiteindelijke weergave nodig heeft na erfenis, thema‑regels en toepasselijke stijlen. Het [complete vergelijkingsvoorbeeld](#compare-local-inherited-and-effective-values) toont beide in dezelfde workflow.

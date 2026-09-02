@@ -1,6 +1,6 @@
 ---
-title: "Εφαρμογή Κινήσεων Σχήματος σε Παρουσιάσεις Χρησιμοποιώντας JavaScript"
-linktitle: "Κίνηση Σχήματος"
+title: Εφαρμογή Κινητών Σχημάτων σε Παρουσιάσεις Χρησιμοποιώντας JavaScript
+linktitle: Κίνηση Σχημάτων
 type: docs
 weight: 60
 url: /el/nodejs-java/shape-animation/
@@ -8,13 +8,13 @@ keywords:
 - σχήμα
 - κίνηση
 - εφέ
-- κινούμενο σχήμα
-- κινούμενο κείμενο
+- κινητό σχήμα
+- κινητό κείμενο
 - προσθήκη κίνησης
-- λήψη κίνησης
+- ανάκτηση κίνησης
 - εξαγωγή κίνησης
 - προσθήκη εφέ
-- λήψη εφέ
+- ανάκτηση εφέ
 - εξαγωγή εφέ
 - ήχος εφέ
 - εφαρμογή κίνησης
@@ -23,455 +23,453 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Ανακαλύψτε πώς να δημιουργείτε και να προσαρμόζετε κινήσεις σχήματος σε παρουσιάσεις PowerPoint με JavaScript και Aspose.Slides για Node.js μέσω Java. Διακριθείτε!"
+description: "Μάθετε πώς να προσθέτετε, να ελέγχετε και να προσαρμόζετε τα κινούμενα σχήματα, τον χρονισμό, τους ήχους, τη συμπεριφορά μετά το κίνημα και το κείμενο με κίνηση με το Aspose.Slides για Node.js μέσω Java."
 ---
-## **Εισαγωγή**
+## **Επισκόπηση**
 
-Οι κινήσεις είναι οπτικά εφέ που μπορούν να εφαρμοστούν σε κείμενα, εικόνες, σχήματα ή [διαγράμματα](/slides/el/nodejs-java/animated-charts/). Δίνουν ζωή σε παρουσιάσεις ή στα συστατικά τους.
+Aspose.Slides for Node.js μέσω Java αντιπροσωπεύει τις κινήσεις διαφανειών ως εφέ σε μια χρονογραμμή διαφάνειας. Ένα εφέ έχει ένα σχήμα‑στόχο, έναν τύπο και υποτύπο κίνησης, έναν ενεργοποιητή, ρυθμίσεις χρονισμού και προαιρετικές ιδιότητες όπως ήχο ή συμπεριφορά μετά το εφέ.
 
-## **Γιατί να χρησιμοποιήσετε κινήσεις στις παρουσιάσεις;**
+Η χρονογραμμή περιέχει δύο είδη ακολουθιών:
 
-Με τη χρήση κινήσεων, μπορείτε  
+- Η **κύρια ακολουθία** παίζεται καθώς η διαφάνεια προχωρά.
+- Μια **διαδραστική ακολουθία** ξεκινά όταν το σχήμα‑ενεργοποιητής της γίνεται κλικ.
 
-* Έλεγχο της ροής των πληροφοριών  
-* Έμφαση σε σημαντικά σημεία  
-* Αύξηση του ενδιαφέροντος ή της συμμετοχής του κοινού σας  
-* Κάνοντας το περιεχόμενο πιο εύκολο στην ανάγνωση, την απορρόφηση ή την επεξεργασία  
-* Κατεύθυνση της προσοχής των αναγνωστών ή θεατών σας σε σημαντικά μέρη της παρουσίασης  
+Επειδή τα πλαίσια κειμένου, οι εικόνες, τα διαγράμματα, οι πίνακες και άλλα αντικείμενα διαφάνειας είναι αντικείμενα [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/) , χρησιμοποιείτε την ίδια μέθοδο [Sequence.addEffect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#addEffect) για τα περισσότερα περιεχόμενα διαφάνειας. Τα διαθέσιμα εφέ αναγράφονται στην απαρίθμηση [EffectType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effecttype/).
 
-Το PowerPoint παρέχει πολλές επιλογές και εργαλεία για κινήσεις και εφέ κινήσεων στις κατηγορίες **entrance**, **exit**, **emphasis** και **motion paths**.
+## **Προσθήκη Κινητών Σχημάτων**
 
-## **Κινήσεις στο Aspose.Slides**
+Για να προσθέσετε ένα κίνημα, λάβετε την κύρια ακολουθία της διαφάνειας και καλέστε [Sequence.addEffect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#addEffect) με το σχήμα‑στόχο, τον τύπο εφέ, τον υποτύπο και τον ενεργοποιητή. Για εφέ που ξεκινά όταν κλικάρεται ένα άλλο σχήμα, δημιουργήστε μια διαδραστική ακολουθία της οποίας ο ενεργοποιητής είναι το συγκεκριμένο σχήμα.
 
-* Το Aspose.Slides παρέχει τις κλάσεις και τους τύπους που χρειάζεστε για εργασία με κινήσεις στο χώρο ονομάτων `Aspose.Slides.Animation`,  
-* Το Aspose.Slides παρέχει πάνω από **150 εφέ κίνησης** μέσω της αρίθμησης [EffectType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effecttype). Αυτά τα εφέ είναι ουσιαστικά τα ίδια (ή ισοδύναμα) με τα εφέ που χρησιμοποιούνται στο PowerPoint.
-
-## **Εφαρμογή κίνησης σε TextBox**
-
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να εφαρμόσετε κίνηση στο κείμενο ενός σχήματος.
-
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).  
-2. Αποκτήστε μια αναφορά διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα `rectangle` [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape).  
-4. Προσθέστε κείμενο χρησιμοποιώντας το [AutoShape.addTextFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-).  
-5. Λάβετε την κύρια ακολουθία εφέ.  
-6. Προσθέστε ένα εφέ κίνησης στο [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape).  
-7. Καλέστε τη μέθοδο `TextAnimation.setBuildType` με την τιμή από την αρίθμηση `BuildType`.  
-8. Αποθηκεύστε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
-
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να εφαρμόσετε το εφέ `Fade` στο AutoShape και να ορίσετε την κίνηση κειμένου στην τιμή *By 1st Level Paragraphs*:
+Το παρακάτω παράδειγμα δημιουργεί και τα δύο είδη κινήματος και αποθηκεύει το αποτέλεσμα στο `shape-animations.pptx`.
 
 ```javascript
-// Δημιουργεί ένα αντικείμενο κλάσης παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // Προσθέτει νέο AutoShape με κείμενο
-    var autoShape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 100);
-    var textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    var sequence = sld.getTimeline().getMainSequence();
-    // Προσθέτει εφέ κίνησης Fade στο σχήμα
-    var effect = sequence.addEffect(autoShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Κινεί το κείμενο του σχήματος κατά παραγράφους πρώτου επιπέδου
-    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Click to animate this shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    const entranceEffect = mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    entranceEffect.getTiming().setDuration(java.newFloat(1.5));
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    presentation.save("shape-animations.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
+Ο ενεργοποιητής ελέγχει πότε ξεκινά ένα εφέ:
 
-Εκτός από την εφαρμογή κινήσεων στο κείμενο, μπορείτε επίσης να εφαρμόσετε κινήσεις σε ένα μεμονωμένο [Paragraph](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph). Δείτε [**Animated Text**](/slides/el/nodejs-java/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effecttriggertype/#OnClick) περιμένει ένα κλικ στην κύρια ακολουθία ή ένα κλικ στο σχήμα‑ενεργοποιητή σε μια διαδραστική ακολουθία.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) αρχίζει μαζί με το προηγούμενο εφέ.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) αρχίζει όταν ολοκληρωθεί το προηγούμενο εφέ.
 
-{{% /alert %}} 
+Για να κινήσετε μια εικόνα, διάγραμμα ή άλλο τύπο σχήματος, περάστε το αντικείμενο στο [Sequence.addEffect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#addEffect) αντί για `targetShape`. Για επιλογές ομαδοποίησης ειδικές για διαγράμματα, δείτε [Animated Charts](/slides/el/nodejs-java/animated-charts/).
 
-## **Εφαρμογή κίνησης σε PictureFrame**
+## **Ανάγνωση Κινητών Σχήματος**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation).  
-2. Αποκτήστε μια αναφορά διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ή λάβετε ένα [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe) στη διαφάνεια.  
-4. Λάβετε την κύρια ακολουθία εφέ.  
-5. Προσθέστε ένα εφέ κίνησης στο [PictureFrame](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/pictureframe).  
-6. Αποθηκεύστε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
+Χρησιμοποιήστε [Sequence.getEffectsByShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#getEffectsByShape) όταν γνωρίζετε το σχήμα‑στόχο. Για να ελέγξετε κάθε εφέ, απαριθμήστε την κύρια ακολουθία και κάθε διαδραστική ακολουθία. Η απαρίθμηση αποτρέπει την παρανόηση ότι μια ακολουθία περιέχει εφέ στη θέση `0`.
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να εφαρμόσετε το εφέ `Fly` σε ένα πλαίσιο εικόνας:
+Το παρακάτω παράδειγμα δημιουργεί ένα σχήμα με εφέ κύριας‑ακολουθίας και διαδραστικά εφέ, παίρνει τα εφέ που στοχεύουν το σχήμα, και στη συνέχεια απαριθμεί κάθε ακολουθία στη διαφάνεια.
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-var pres = new aspose.slides.Presentation();
-try {
-    // Φορτώνει εικόνα για να προστεθεί στη συλλογή εικόνων της παρουσίασης
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
         }
     }
-    // Προσθέτει πλαίσιο εικόνας στη διαφάνεια
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, picture);
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Προσθέτει εφέ κίνησης Fly από αριστερά στο πλαίσιο εικόνας
-    var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    return String(value);
+}
+
+function printSequence(label, sequence) {
+    console.log(`  ${label}: ${sequence.getCount()} effect(s)`);
+
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+        const targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        const triggerName = getEnumName(aspose.slides.EffectTriggerType, effect.getTiming().getTriggerType());
+        console.log(`    ${typeName} ${subtypeName}; target: ${targetName}; trigger: ${triggerName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Animated shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const targetEffects = mainSequence.getEffectsByShape(targetShape);
+    console.log(`The main sequence contains ${targetEffects.length} effect(s) for ${targetShape.getName()}.`);
+
+    printSequence("Main sequence", mainSequence);
+
+    const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+    for (let i = 0; i < interactiveSequences.getCount(); i++) {
+        const sequence = interactiveSequences.get_Item(i);
+        const triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+        printSequence(`Interactive sequence ${i + 1}, trigger: ${triggerName}`, sequence);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Εφαρμογή κίνησης σε Shape**
+Εάν χρειάζεστε μόνο τα εφέ για ένα σχήμα, πρώτα προσδιορίστε το σχήμα με όνομα, τύπο placeholder ή άλλη σταθερή ιδιότητα· μετά καλέστε [Sequence.getEffectsByShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#getEffectsByShape). Μην υποθέτετε ότι [ShapeCollection.get_Item](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shapecollection/#get_Item) στη θέση `0` είναι πάντα το επιθυμητό αντικείμενο.
 
-1. Δημιουργήστε ένα στιγμιότυπο της [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Presentation) κλάσης.  
-2. Αποκτήστε μια αναφορά διαφάνειας μέσω του δείκτη της.  
-3. Προσθέστε ένα `rectangle` [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape).  
-4. Προσθέστε ένα `Bevel` [AutoShape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/autoshape) (όταν αυτό το αντικείμενο κλικάρεται, η κίνηση εκτελείται).  
-5. Δημιουργήστε μια ακολουθία εφέ στο σχήμα Bevel.  
-6. Δημιουργήστε ένα προσαρμοσμένο `UserPath`.  
-7. Προσθέστε εντολές για μετακίνηση στο `UserPath`.  
-8. Αποθηκεύστε την παρουσίαση στο δίσκο ως αρχείο PPTX.  
+## **Εργασία με Κληρονομημένα Εφέ Καθηλωτή**
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να εφαρμόσετε το εφέ `PathFootball` (path football) σε ένα σχήμα:
+Ένα placeholder σε κανονική διαφάνεια μπορεί να κληρονομήσει τη συμπεριφορά κίνησης από το αντίστοιχο placeholder στη διάταξη και στο κύριο πρότυπο. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getBasePlaceholder) επιστρέφει το γονικό placeholder, ή `null` όταν δεν υπάρχει γονέας.
+
+Στην παρακάτω παρουσίαση παραδείγματος, το υποσέλιδο έχει **Random Bars** στη κανονική διαφάνεια, **Split** στη διαφάνεια διάταξης και **Fly In** στη διαφάνεια προτύπου.
+
+![Εφέ κίνησης υποσέλιδου στη κανονική διαφάνεια](slide-shape-animation.png)
+
+![Εφέ κίνησης placeholder υποσέλιδου στη διαφάνεια διάταξης](layout-shape-animation.png)
+
+![Εφέ κίνησης placeholder υποσέλιδου στη κύρια διαφάνεια](master-shape-animation.png)
+
+Το επόμενο παράδειγμα χρησιμοποιεί μια ιεραρχία placeholders από μια νέα παρουσίαση. Προσθέτει εφέ σε ένα placeholder προτύπου, ένα placeholder διάταξης και το αντίστοιχο placeholder σε μια κανονική διαφάνεια. Κάθε κλήση στο [Shape.getBasePlaceholder](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/#getBasePlaceholder) ελέγχεται πριν χρησιμοποιηθεί το shape που επιστρέφεται.
 
 ```javascript
-// Δημιουργεί μια κλάση Presentation που αντιπροσωπεύει ένα αρχείο PPTX.
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    // Δημιουργεί το εφέ PathFootball για υπάρχον σχήμα από το μηδέν.
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-    // Προσθέτει το εφέ κίνησης PathFootBall
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
-    // Δημιουργεί ένα είδος «κουμπιού».
-    var shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 10, 10, 20, 20);
-    // Δημιουργεί μια ακολουθία εφέ για αυτό το κουμπί.
-    var seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-    // Δημιουργεί ένα προσαρμοσμένο μονοπάτι χρήστη. Το αντικείμενό μας θα κινηθεί μόνο μετά το κλικ στο κουμπί.
-    var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Προσθέτει εντολές για κίνηση επειδή το δημιουργημένο μονοπάτι είναι κενό.
-    var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
-    // Γράφει το αρχείο PPTX στον δίσκο
-    pres.save("AnimExample_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function findPlaceholderWithBase(baseSlide, expectedBase) {
+    const shapes = baseSlide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const basePlaceholder = shape.getBasePlaceholder();
+
+        if (basePlaceholder == null) {
+            continue;
+        }
+
+        if (expectedBase == null || basePlaceholder.getPlaceholder().getType() === expectedBase.getPlaceholder().getType()) {
+            return shape;
+        }
     }
+
+    return null;
 }
-```
 
-## **Λήψη των εφέ κίνησης που έχουν εφαρμοστεί σε σχήμα**
-
-Τα ακόλουθα παραδείγματα δείχνουν πώς να χρησιμοποιήσετε τη μέθοδο `getEffectsByShape` από την κλάση [Sequence](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/) για να λάβετε όλα τα εφέ κίνησης που έχουν εφαρμοστεί σε ένα σχήμα.
-
-**Παράδειγμα 1: Λήψη εφέ κίνησης που έχουν εφαρμοστεί σε σχήμα σε κανονική διαφάνεια**
-
-Προηγουμένως, μάθατε πώς να προσθέτετε εφέ κίνησης σε σχήματα σε παρουσιάσεις PowerPoint. Ο παρακάτω κώδικας δείχνει πώς να λάβετε τα εφέ που έχουν εφαρμοστεί στο πρώτο σχήμα της πρώτης κανονικής διαφάνειας στην παρουσίαση `AnimExample_out.pptx`.
-
-```javascript
-var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-
-    // Λαμβάνει την κύρια ακολουθία κίνησης της διαφάνειας.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-
-    // Λαμβάνει το πρώτο σχήμα στην πρώτη διαφάνεια.
-    var shape = firstSlide.getShapes().get_Item(0);
-
-    // Λαμβάνει τα εφέ κίνησης που έχουν εφαρμοστεί στο σχήμα.
-    var shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0) {
-        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
+        }
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return String(value);
 }
-```
 
-**Παράδειγμα 2: Λήψη όλων των εφέ κίνησης, συμπεριλαμβανομένων των κληρονομικών από placeholders**
+function printEffects(source, effects) {
+    console.log(`${source}: ${effects.length} effect(s)`);
 
-Εάν ένα σχήμα σε κανονική διαφάνεια έχει placeholders που βρίσκονται στη διαφάνεια διάταξης και/ή στην κύρια διαφάνεια, και έχουν προστεθεί εφέ κίνησης σε αυτά τα placeholders, τότε όλα τα εφέ του σχήματος θα αναπαράγονται κατά τη παρουσίαση, συμπεριλαμβανομένων των κληρονομικών από τα placeholders.
-
-Ας πούμε ότι έχουμε ένα αρχείο παρουσίασης PowerPoint `sample.pptx` με μία διαφάνεια που περιέχει μόνο ένα σχήμα υποσέλιδου με το κείμενο "Made with Aspose.Slides" και το εφέ **Random Bars** έχει εφαρμοστεί στο σχήμα.
-
-![Εφέ κίνησης σχήματος διαφάνειας](slide-shape-animation.png)
-
-Ας υποθέσουμε επίσης ότι το εφέ **Split** έχει εφαρμοστεί στο placeholder υποσέλιδου στη **layout** διαφάνεια.
-
-![Εφέ κίνησης σχήματος διάταξης](layout-shape-animation.png)
-
-Και τέλος, το εφέ **Fly In** έχει εφαρμοστεί στο placeholder υποσέλιδου στη **master** διαφάνεια.
-
-![Εφέ κίνησης σχήματος κύριου](master-shape-animation.png)
-
-Ο παρακάτω κώδικας δείχνει πώς να χρησιμοποιήσετε τη μέθοδο `getBasePlaceholder` από την κλάση [Shape](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/) για να προσπελάσετε τα placeholders του σχήματος και να λάβετε τα εφέ κίνησης που έχουν εφαρμοστεί στο σχήμα υποσέλιδου, συμπεριλαμβανομένων των κληρονομικών από placeholders που βρίσκονται στις διαφάνειες layout και master.
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-var slide = presentation.getSlides().get_Item(0);
-
-// Λάβετε τα εφέ κίνησης του σχήματος στη κανονική διαφάνεια.
-var shape = slide.getShapes().get_Item(0);
-var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Λάβετε τα εφέ κίνησης του placeholder στη διαφάνεια διάταξης.
-var layoutShape = shape.getBasePlaceholder();
-var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Λάβετε τα εφέ κίνησης του placeholder στη κύρια διαφάνεια.
-var masterShape = layoutShape.getBasePlaceholder();
-var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-console.log("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```js
-function printEffects(effects) {
     for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        console.log(`  ${typeName} ${subtypeName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
+    const layoutPlaceholder = findPlaceholderWithBase(layoutSlide, null);
+
+    if (layoutPlaceholder == null) {
+        throw new Error("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+    layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+    layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, aspose.slides.EffectType.Split, aspose.slides.EffectSubtype.VerticalIn, aspose.slides.EffectTriggerType.OnClick);
+
+    const slide = presentation.getSlides().addEmptySlide(layoutSlide);
+    const slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+    if (slidePlaceholder == null) {
+        throw new Error("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, aspose.slides.EffectType.RandomBars, aspose.slides.EffectSubtype.Horizontal, aspose.slides.EffectTriggerType.OnClick);
+    printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+    const baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+    if (baseLayoutPlaceholder != null) {
+        printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+        const baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+        if (baseMasterPlaceholder != null) {
+            printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+        }
+    }
+
+    presentation.save("placeholder-animations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Πτήση, Κάτω
-Type: 134, subtype: 45            // Διαίρεση, Κάθετη Εισαγωγή
-Type: 126, subtype: 22            // Τυχαίες Γραμμές, Οριζόντια
-```
+## **Αλλαγή Χρονισμού Κίνησης**
 
-## **Αλλαγή ιδιοτήτων χρονομέτρησης εφέ κίνησης**
+Ο διάλογος **Timing** του PowerPoint αντιστοιχεί στις ιδιότητες του [Timing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/).
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να αλλάξετε τις ιδιότητες Timing ενός εφέ κίνησης.
+![Διάλογος Χρονισμού PowerPoint για εφέ κίνησης](shape-animation.png)
 
-Αυτό είναι το παράθυρο Animation Timing στο Microsoft PowerPoint:
+- **Έναρξη** αντιστοιχεί σε [Timing.getTriggerType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getTriggerType).
+- **Διάρκεια** αντιστοιχεί σε [Timing.getDuration](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getDuration), σε δευτερόλεπτα.
+- **Καθυστέρηση** αντιστοιχεί σε [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getTriggerDelayTime), σε δευτερόλεπτα.
+- **Επανάληψη** αντιστοιχεί σε [Timing.getRepeatCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) ή [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide).
+- **Επαναφορά όταν ολοκληρωθεί η αναπαραγωγή** αντιστοιχεί σε [Timing.getRewind](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#getRewind).
 
-![παράδειγμα1_εικόνα](shape-animation.png)
-
-Αυτές είναι οι αντιστοιχίες μεταξύ PowerPoint Timing και ιδιοτήτων [Effect.Timing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Effect#getTiming--):
-
-- Το πεδίο επιλογής **Start** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.TriggerType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Timing#getTriggerType--).  
-- Το **Duration** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.Duration](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Timing#getDuration--). Η διάρκεια μιας κίνησης (σε δευτερόλεπτα) είναι ο συνολικός χρόνος που χρειάζεται η κίνηση για να ολοκληρώσει έναν κύκλο.  
-- Το **Delay** του PowerPoint Timing αντιστοιχεί στην ιδιότητα [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--).  
-
-Αυτός είναι ο τρόπος αλλαγής των ιδιοτήτων Timing του εφέ:
-
-1. [Εφαρμόστε](#apply-animation-to-shape) ή λάβετε το εφέ κίνησης.  
-2. Ορίστε νέες τιμές για τις ιδιότητες [Effect.Timing](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/Effect#getTiming--) που χρειάζεστε.  
-3. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
-
-Αυτός ο κώδικας JavaScript δείχνει τη λειτουργία:
+Αυτό το ανεξάρτητο παράδειγμα προσθέτει ένα εφέ, αλλάζει τον χρονισμό του μέσω του αντικειμένου που επιστρέφεται από το [Sequence.addEffect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#addEffect) και αποθηκεύει το αποτέλεσμα. Η διατήρηση της αναφοράς στο [Effect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/) που επιστρέφεται αποτρέπει ανεπιθύμητη πρόσβαση σε δείκτη συλλογής.
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας.
-    var effect = sequence.get_Item(0);
-    // Αλλάζει τον TriggerType του εφέ ώστε να ξεκινά με κλικ
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Timed animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
-    // Αλλάζει τη διάρκεια του εφέ
-    effect.getTiming().setDuration(3.0);
-    // Αλλάζει το TriggerDelayTime του εφέ
-    effect.getTiming().setTriggerDelayTime(0.5);
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
+    effect.getTiming().setDuration(java.newFloat(2.0));
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
+    effect.getTiming().setRepeatUntilNextClick(false);
+    effect.getTiming().setRepeatUntilEndSlide(false);
+    effect.getTiming().setRepeatCount(java.newFloat(2.0));
+    effect.getTiming().setRewind(true);
+
+    presentation.save("shape-animation-timing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Ήχος εφέ κίνησης**
+Χρησιμοποιήστε έναν τρόπο επανάληψης σκόπιμα. Ο συνδυασμός μετρητή επανάληψης με σημαία «μέχρι» μπορεί να δημιουργήσει συγχύσιμα αποτελέσματα σε διαφορετικούς προβολείς. Κατά την αλλαγή των τρόπων επανάληψης, ορίστε πρώτα [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) και [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) πριν το [Timing.setRepeatCount](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/timing/#setRepeatCount), επειδή το να θέσετε οποιαδήποτε από τις σημαίες αλλάζει επίσης την ενεργή λειτουργία επανάληψης.
 
-Το Aspose.Slides παρέχει αυτές τις ιδιότητες για να εργαστείτε με ήχους σε εφέ κίνησης: 
+## **Προσθήκη και Εξαγωγή Ήχων Κίνησης**
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-)  
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
+Ένα εφέ κίνησης μπορεί να αναφέρεται σε ενσωματωμένο ήχο μέσω του [Effect.getSound](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#getSound). Το [Effect.setStopPreviousSound](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setStopPreviousSound) ζητά από ένα εφέ να σταματήσει ήχο που ξεκίνησε από προηγούμενο εφέ.
 
-### **Προσθήκη ήχου εφέ κίνησης**
+### **Προσθήκη Ήχου σε Εφέ**
 
-Αυτός ο κώδικας JavaScript σας δείχνει πώς να προσθέσετε ήχο εφέ κίνησης και να τον διακόψετε όταν ξεκινά το επόμενο εφέ:
+Το παρακάτω παράδειγμα απαιτεί ένα τοπικό αρχείο ήχου με όνομα `animation-sound.wav`. Δημιουργεί δύο εφέ, ενσωματώνει το αρχείο ως ήχο για το πρώτο εφέ και ρυθμίζει το δεύτερο εφέ να σταματά τον ήχο. Χρησιμοποιεί τα αντικείμενα που επιστρέφει το [Sequence.addEffect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#addEffect), οπότε δεν απαιτείται δείκτης ακολουθίας.
 
 ```javascript
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const fs = require("fs");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Προσθέτει ήχο στη συλλογή ήχων της παρουσίασης
-    var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    var firstEffect = sequence.get_Item(0);
-    // Ελέγχει το εφέ για «Κανέναν ήχο»
-    if ((!firstEffect.getStopPreviousSound()) && (firstEffect.getSound() == null)) {
-        // Προσθέτει ήχο για το πρώτο εφέ
-        firstEffect.setSound(effectSound);
-    }
-    // Λαμβάνει την πρώτη διαδραστική ακολουθία της διαφάνειας.
-    var interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
-    // Ορίζει τη σημαία εφέ «Διακοπή προηγούμενου ήχου»
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-    // Γράφει το αρχείο PPTX στον δίσκο
-    pres.save("AnimExample_Sound_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
+    const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+    firstShape.addTextFrame("Starts sound");
+    secondShape.addTextFrame("Stops sound");
+
+    const sequence = slide.getTimeline().getMainSequence();
+    const firstEffect = sequence.addEffect(firstShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    const secondEffect = sequence.addEffect(secondShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("animation-sound.wav")));
+    const effectSound = presentation.getAudios().addAudio(audioData);
+    firstEffect.setSound(effectSound);
+    secondEffect.setStopPreviousSound(true);
+
+    presentation.save("shape-animation-sound.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Εξαγωγή ήχου εφέ κίνησης**
+### **Εξαγωγή Ενσωματωμένων Ήχων Εφέ**
 
-1. Δημιουργήστε ένα στιγμιότυπο της κλάσης [Presentation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/presentation/) .  
-2. Αποκτήστε μια αναφορά διαφάνειας μέσω του δείκτη της.  
-3. Λάβετε την κύρια ακολουθία εφέ.  
-4. Εξάγετε το ενσωματωμένο [setSound(IAudio value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) σε κάθε εφέ κίνησης.  
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να εξάγετε τον ήχο που είναι ενσωματωμένος σε ένα εφέ κίνησης:
+Το παρακάτω παράδειγμα απαιτεί μια τοπική παρουσίαση με όνομα `presentation-with-animation-sounds.pptx`. Σαρώνει τόσο τις κύριες όσο και τις διαδραστικές ακολουθίες και γράφει κάθε ενσωματωμένο ήχο εφέ στον φάκελο `extracted-animation-sounds`. Η επέκταση επιλέγεται από τον τύπο MIME του ήχου που εκτίθεται από το [Audio.getContentType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/audio/#getContentType).
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-var presentation = new aspose.slides.Presentation("EffectSound.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Λαμβάνει την κύρια ακολουθία της διαφάνειας.
-    var sequence = slide.getTimeline().getMainSequence();
-    for (var i = 0; i < sequence.getCount(); i++) {
-        var effect = sequence.get_Item(i);
+const fs = require("fs");
+const path = require("path");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getAudioExtension(contentType) {
+    const normalizedType = contentType == null ? "" : contentType.toLowerCase();
+
+    if (normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if (normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if (normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if (normalizedType === "audio/wav" || normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds(sequence, outputDirectory, soundIndex) {
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+
         if (effect.getSound() == null) {
             continue;
         }
-        // Εξάγει τον ήχο του εφέ σε πίνακα byte
-        var audio = effect.getSound().getBinaryData();
+
+        const extension = getAudioExtension(effect.getSound().getContentType());
+        const outputPath = path.join(outputDirectory, `effect-sound-${soundIndex}${extension}`);
+        fs.writeFileSync(outputPath, Buffer.from(effect.getSound().getBinaryData()));
+        soundIndex++;
     }
+
+    return soundIndex;
+}
+
+const outputDirectory = "extracted-animation-sounds";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const presentation = new aspose.slides.Presentation("presentation-with-animation-sounds.pptx");
+try {
+    let soundIndex = 1;
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let sequenceIndex = 0; sequenceIndex < interactiveSequences.getCount(); sequenceIndex++) {
+            soundIndex = saveSounds(interactiveSequences.get_Item(sequenceIndex), outputDirectory, soundIndex);
+        }
+    }
+
+    console.log(`Extracted ${soundIndex - 1} sound file(s) to ${path.resolve(outputDirectory)}.`);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Μετά την κίνηση**
+Για μεγάλα αντικείμενα ήχου, χρησιμοποιήστε το [Audio.getStream](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/audio/#getStream) και αντιγράψτε το ρεύμα σε αρχείο αντί να φορτώσετε ολόκληρο το αντικείμενο σε πίνακα byte.
 
-Το Aspose.Slides για Node.js μέσω Java σας επιτρέπει να αλλάξετε την ιδιότητα After animation ενός εφέ κίνησης.
+## **Ορισμός Συμπεριφοράς Μετά το Κίνημα**
 
-Αυτό είναι το παράθυρο Effect και το εκτατικό μενού στο Microsoft PowerPoint:
+Η επιλογή **After animation** ελέγχει τι συμβαίνει με ένα σχήμα αφού το εφέ του ολοκληρωθεί.
 
-![παράδειγμα1_εικόνα](shape-after-animation.png)
+![Διάλογος Επιλογών Εφέ PowerPoint που δείχνει ρυθμίσεις Μετά το κίνημα](shape-after-animation.png)
 
-Η λίστα επιλογής **After animation** του PowerPoint ταιριάζει με τις παρακάτω ιδιότητες: 
+Η απαρίθμηση [AfterAnimationType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/) υποστηρίζει να αφήνει το σχήμα αμετάβλητο, να αλλάζει το χρώμα του, να το κρύβει μετά το κίνημα ή να το κρύβει στο επόμενο κλικ. Όταν ο τύπος είναι [AfterAnimationType.Color](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#Color), ορίστε επίσης το [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#getAfterAnimationColor).
 
-- Η μέθοδος [setAfterAnimationType(int value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) περιγράφει τον τύπο After animation·  
-  * Το **More Colors** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.Color](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#Color).  
-  * Το **Don't Dim** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) (προεπιλεγμένος τύπος μετά την κίνηση).  
-  * Το **Hide After Animation** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation).  
-  * Το **Hide on Next Mouse Click** του PowerPoint ταιριάζει με τον τύπο [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick).  
-- Η μέθοδος [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) ορίζει μορφή χρώματος μετά την κίνηση. Αυτή η μέθοδος λειτουργεί μαζί με τον τύπο [AfterAnimationType.Color](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#Color). Αν αλλάξετε τον τύπο σε κάποιον άλλο, το χρώμα μετά την κίνηση θα καθαριστεί.  
-
-Αυτός ο κώδικας JavaScript δείχνει πώς να αλλάξετε ένα εφέ μετά την κίνηση:
+Αυτό το ανεξάρτητο παράδειγμα δημιουργεί ένα εφέ, ορίζει τη συμπεριφορά μετά το κίνημα μέσω του αντικειμένου εφέ που επιστρέφεται, και αποθηκεύει το αποτέλεσμα.
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης
-var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Αλλάζει τον τύπο μετά την κίνηση σε Color
-    firstEffect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
-    // Ορίζει το χρώμα μετά την κίνηση
-    firstEffect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // Αποθηκεύει το αρχείο PPTX στον δίσκο
-    pres.save("AnimImage_AfterAnimation.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Dim after animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
+    effect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("shape-animation-after-effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Κίνηση κειμένου**
+Αλλάζοντας τον τύπο από το [AfterAnimationType.Color](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/afteranimationtype/#Color) διαγράφει τη ρύθμιση χρώματος μετά το κίνημα.
 
-Το Aspose.Slides παρέχει αυτές τις ιδιότητες ώστε να εργαστείτε με το τμήμα *Animate text* ενός εφέ κίνησης:
+## **Κίνηση Κειμένου**
 
-- Η μέθοδος [setAnimateTextType(int value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) περιγράφει τον τύπο Animate text του εφέ. Το κείμενο του σχήματος μπορεί να αναδιατάσσεται:  
-  - Όλα ταυτόχρονα ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/animatetexttype/#AllAtOnce) τύπος)  
-  - Κατά λέξη ([AnimateTextType.ByWord](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/animatetexttype/#ByWord) τύπος)  
-  - Κατά γράμμα ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/animatetexttype/#ByLetter) τύπος)  
-- Η μέθοδος [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) ορίζει καθυστέρηση μεταξύ των τμημάτων του κειμένου (λέξεις ή γράμματα). Μία θετική τιμή καθορίζει το ποσοστό της διάρκειας του εφέ. Μία αρνητική τιμή ορίζει την καθυστέρηση σε δευτερόλεπτα.  
+Η κίνηση κειμένου έχει δύο σχετικές ρυθμίσεις:
 
-Αυτός είναι ο τρόπος αλλαγής των ιδιοτήτων Animate text του εφέ:
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textanimation/#getBuildType) ελέγχει αν οι παράγραφοι εμφανίζονται μαζί ή ανά επίπεδο παραγράφου.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#getAnimateTextType) ελέγχει αν το κείμενο εμφανίζεται ολόκληρο, ανά λέξη ή ανά γράμμα. Το [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts) ορίζει την καθυστέρηση μεταξύ λέξεων ή γραμμάτων. Μια θετική τιμή είναι ποσοστό της διάρκειας του εφέ· μια αρνητική τιμή είναι καθυστέρηση σε δευτερόλεπτα.
 
-1. [Εφαρμόστε](#apply-animation-to-shape) ή λάβετε το εφέ κίνησης.  
-2. Ορίστε τη μέθοδο [setBuildType(int value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/textanimation/#setBuildType-int-) στην τιμή [BuildType.AsOneObject](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/buildtype/#AsOneObject) για να απενεργοποιήσετε τη λειτουργία *By Paragraphs*.  
-3. Ορίστε νέες τιμές για τις ιδιότητες [setAnimateTextType(int value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) και [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-).  
-4. Αποθηκεύστε το τροποποιημένο αρχείο PPTX.  
-
-Αυτός ο κώδικας JavaScript δείχνει τη λειτουργία:
+Το παρακάτω ανεξάρτητο παράδειγμα κινεί τις λέξεις σε ένα πλαίσιο κειμένου. Το [BuildType.AsOneObject](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/buildtype/#AsOneObject) απενεργοποιεί την κατασκευή παράγραφος‑από‑παράγραφο ώστε η ρύθμιση λέξης να ισχύει σε ολόκληρο το πλαίσιο κειμένου.
 
 ```javascript
-// Δημιουργεί μια κλάση παρουσίασης που αντιπροσωπεύει ένα αρχείο παρουσίασης.
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Λαμβάνει το πρώτο εφέ της κύριας ακολουθίας
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε «Ως ένα αντικείμενο»
-    firstEffect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
-    // Αλλάζει τον τύπο κίνησης κειμένου του εφέ σε «Κατά λέξη»
-    firstEffect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
-    // Ορίζει την καθυστέρηση μεταξύ λέξεων στο 20% της διάρκειας του εφέ
-    firstEffect.setDelayBetweenTextParts(20.0);
-    // Γράφει το αρχείο PPTX στον δίσκο
-    pres.save("AnimTextBox_AnimateText.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
+    textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(textBox, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
+    effect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
+    effect.setDelayBetweenTextParts(java.newFloat(20.0));
+
+    presentation.save("animated-text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Συχνές ερωτήσεις**
+Για να κατασκευάσετε ένα πλαίσιο κειμένου ανά παράγραφο, ορίστε το [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (ή άλλο επίπεδο παραγράφου). Για να στοχεύσετε μια μόνο παράγραφο με δικό της εφέ, χρησιμοποιήστε την υπερφόρτωση του [Sequence.addEffect](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/sequence/#addEffect) που δέχεται ένα [Paragraph](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/paragraph/). Δείτε το [Animated Text](/slides/el/nodejs-java/animated-text/) για παραδείγματα επιπέδου παραγράφου.
 
-**Πώς μπορώ να διασφαλίσω ότι οι κινήσεις διατηρούνται όταν δημοσιεύεται η παρουσίαση στον ιστό;**
+## **Σημειώσεις Εξαγωγής και Συμβατότητας**
 
-[Export to HTML5](/slides/el/nodejs-java/export-to-html5/) και ενεργοποιήστε τις [options](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/html5options/) που είναι υπεύθυνες για τις κινήσεις σχήματος ([setanimateshapes]()) και μετάβασης ([setanimatetransitions]()). Η απλή HTML δεν αναπαράγει κινήσεις διαφάνειας, ενώ η HTML5 το κάνει.
+- Η αποθήκευση σε PPT ή PPTX διατηρεί το μοντέλο κίνησης, αλλά η τελική αναπαραγωγή ελέγχεται από το πρόγραμμα προβολής παρουσίασης.
+- Τα PDF και οι στατικές εικόνες δεν παίζουν κινήσεις. Χρησιμοποιήστε την εξαγωγή σε [HTML5](/slides/el/nodejs-java/export-to-html5/), animated GIF ή [μετατροπή σε βίντεο](/slides/el/nodejs-java/convert-powerpoint-to-video/) όταν η έξοδος πρέπει να δείχνει κίνηση.
+- Για HTML5, ενεργοποιήστε το [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/html5options/#setAnimateShapes) και, όταν χρειάζεται, το [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/html5options/#setAnimateTransitions).
+- Η απόδοση βίντεο υποστηρίζει πολλά κοινά εφέ εισόδου, έντονης έμφασης, εξόδου και μονοπατιού κίνησης, αλλά δεν υποστηρίζει κάθε εφέ του PowerPoint. Ελέγξτε τις τρέχουσες [υποστηριζόμενες κινήσεις και εφέ](/slides/el/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) και δοκιμάστε κρίσιμες παρουσιάσεις με την έκδοση του Aspose.Slides που χρησιμοποιείτε.
+- Προηγμένα προσαρμοσμένα εφέ και εφέ που εισάγονται από άλλες μορφές παρουσίασης μπορεί να διατηρηθούν στο αρχείο αλλά να αποδοθούν διαφορετικά στο PowerPoint, HTML5 ή βίντεο. Επαληθεύστε το εξαγόμενο αποτέλεσμα αντί να βασίζεστε μόνο στο όνομα του εφέ.
 
-**Πώς η αλλαγή της σειράς z (σειράς επιπέδων) των σχημάτων επηρεάζει την κίνηση;**
+## **Συχνές Ερωτήσεις**
 
-Η σειρά χ (z-order) και η σειρά σχεδίασης είναι ανεξάρτητες: ένα εφέ ελέγχει το χρόνο και τον τύπο εμφάνισης/εξαφάνισης, ενώ η [z-order](https://reference.aspose.com/slides/el/nodejs-java/aspose.slides/shape/getzorderposition/) καθορίζει τι καλύπτει τι. Το ορατό αποτέλεσμα ορίζεται από το συνδυασμό τους. (Αυτή είναι η γενική συμπεριφορά του PowerPoint· το μοντέλο Aspose.Slides ακολουθεί την ίδια λογική.)
+**Γιατί ένα κίνημα εμφανίζεται στο PowerPoint αλλά όχι σε PDF;**
 
-**Υπάρχουν περιορισμοί κατά τη μετατροπή κινήσεων σε βίντεο για ορισμένα εφέ;**
+Το PDF είναι στατική μορφή, επομένως οι κινήσεις και οι μεταβάσεις διαφανειών δεν παίζονται. Εξάγετε σε HTML5, animated GIF ή βίντεο όταν η κίνηση πρέπει να διατηρηθεί.
 
-Γενικά, [οι κινήσεις υποστηρίζονται](/slides/el/nodejs-java/convert-powerpoint-to-video/), αλλά σπάνιες περιπτώσεις ή συγκεκριμένα εφέ μπορεί να αποδοθούν διαφορετικά. Συνιστάται να δοκιμάζετε με τα εφέ που χρησιμοποιείτε και με την έκδοση της βιβλιοθήκης.
+**Γιατί ένα εφέ παίζει διαφορετικά σε βίντεο;**
+
+Η εξαγωγή βίντεο αποδίδει τις κινήσεις αντί να αποθηκεύει την αρχική συμπεριφορά του PowerPoint. Ορισμένα προχωρημένα εφέ δεν υποστηρίζονται ή προσεγγίζονται. Εξετάστε τον πίνακα των υποστηριζόμενων εφέ και δοκιμάστε την πραγματική παρουσίαση πριν την παραγωγική χρήση.
+
+**Αλλάζει η μετακίνηση ενός σχήματος προς τα εμπρός ή πίσω τη σειρά των κινήσεων;**
+
+Όχι. Η σειρά z‑order ελέγχει την επικάλυψη, ενώ η σειρά ακολουθίας και οι ενεργοποιητές ελέγχουν την αναπαραγωγή των κινήσεων. Αλλάξτε τη χρονογραμμή αν χρειάζεται διαφορετική σειρά αναπαραγωγής.

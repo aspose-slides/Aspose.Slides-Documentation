@@ -1,21 +1,23 @@
 ---
-title: 在 Android 上格式化 PowerPoint 形狀
-linktitle: 形狀格式化
+title: 在 Android 上格式化 PowerPoint 圖形
+linktitle: 圖形格式化
 type: docs
 weight: 20
 url: /zh-hant/androidjava/shape-formatting/
 keywords:
-- 格式化形狀
+- 格式化圖形
 - 格式化線條
+- 素描效果
+- 圖形線條素描
 - 格式化接合樣式
-- 漸層填滿
-- 圖案填滿
-- 圖片填滿
-- 紋理填滿
-- 單色填滿
-- 形狀透明度
-- 旋轉形狀
-- 3D 磨角效果
+- 漸層填色
+- 圖案填色
+- 圖片填色
+- 紋理填色
+- 純色填色
+- 圖形透明度
+- 旋轉圖形
+- 3D 斜角效果
 - 3D 旋轉效果
 - 重設格式
 - PowerPoint
@@ -23,42 +25,42 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "了解如何在 Android 上使用 Aspose.Slides 格式化 PowerPoint 形狀——精確且完全掌控地為 PPT、PPTX 與 ODP 檔案設定填充、線條與效果樣式。"
+description: "了解如何在 Android 上使用 Aspose.Slides 格式化 PowerPoint 圖形—精確且完整控制地設定 PPT、PPTX 與 ODP 檔案的填色、線條與效果樣式。"
 ---
 ## **簡介**
 
-在 PowerPoint 中，您可以向投影片加入形狀。由於形狀是由線條組成，您可以透過修改或套用外框效果來格式化它們。同時，您也可以透過指定填滿設定來控制形狀內部的填充方式。
+在 PowerPoint 中，您可以在投影片中加入圖形。由於圖形是由線條組成，您可以透過修改或套用效果來格式化其輪廓。另外，您也可以透過設定控制圖形內部的填滿方式來格式化圖形。
 
 ![format-shape-powerpoint](format-shape-powerpoint.png)
 
-Aspose.Slides for Android via Java 提供了介面與方法，讓您能使用 PowerPoint 中相同的選項來格式化形狀。
+Aspose.Slides for Android via Java 提供介面與方法，讓您能使用 PowerPoint 中相同的選項來格式化圖形。
 
 ## **格式化線條**
 
-使用 Aspose.Slides，您可以為形狀指定自訂的線條樣式。以下步驟說明作法：
+使用 Aspose.Slides，您可以為圖形指定自訂的線條樣式。以下步驟說明此程序：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 設定形狀的 [線條樣式](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linestyle/)。
+1. 設定圖形的 [line style](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linestyle/)。
 1. 設定線條寬度。
-1. 設定線條的 [虛線樣式](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linedashstyle/)。
-1. 設定形狀的線條顏色。
-1. 將修改後的簡報儲存為 PPTX 檔案。
+1. 設定線條的 [dash style](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linedashstyle/)。
+1. 設定圖形的線條顏色。
+1. 將修改後的簡報存為 PPTX 檔案。
 
 以下程式碼示範如何格式化矩形 `AutoShape`：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的自動形狀。
+    // 加入一個矩形類型的自動圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 150, 150, 75);
 
-    // 設定矩形形狀的填滿顏色。
+    // 設定矩形圖形的填充顏色。
     shape.getFillFormat().setFillType(FillType.NoFill);
 
     // 套用格式至矩形的線條。
@@ -81,103 +83,151 @@ try {
 
 ![The formatted lines in the presentation](formatted-lines.png)
 
-## **格式化接合樣式**
+## **套用草圖效果於圖形線條**
 
-以下為三種接合類型選項：
+草圖效果會讓圖形線條看起來像手繪。使用 [IShape.getLineFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ishape/) 取得線條設定，使用 [ILineFormat.getSketchFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilineformat/) 取得草圖設定，並使用 [ISketchFormat.setSketchType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isketchformat/) 從 [LineSketchType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linesketchtype/) 列舉中選取值。
 
-* 圓角 (Round)
-* 斜角 (Miter)
-* 斜面 (Bevel)
-
-預設情況下，PowerPoint 在形狀角落以角度連接兩條線時，會使用 **Round** 設定。但若您繪製的形狀具有銳角，可能會較偏好 **Miter** 選項。
-
-![The join style in the presentation](join-style-powerpoint.png)
-
-以下 Java 程式碼示範如何以 Miter、Bevel 與 Round 接合樣式建立三個矩形（如上圖所示）：
+以下 Java 程式碼顯示如何套用 [LineSketchType.Curved](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linesketchtype/) 效果、讀取明確指派的值，並使用 [LineSketchType.None](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/linesketchtype/) 移除效果：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
-    // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
+    IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 200, 100);
 
-    // 新增三個矩形類型的自動形狀。
-    IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
-    IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
-    IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+    // 取得圖形的線條格式與其草圖格式。
+    ISketchFormat sketchFormat = shape.getLineFormat().getSketchFormat();
 
-    // 為每個矩形形狀設定填滿顏色。
-    shape1.getFillFormat().setFillType(FillType.Solid);
-    shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape2.getFillFormat().setFillType(FillType.Solid);
-    shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
-    shape3.getFillFormat().setFillType(FillType.Solid);
-    shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+    // 套用草圖效果。
+    sketchFormat.setSketchType(LineSketchType.Curved);
 
-    // 設定線條寬度。
-    shape1.getLineFormat().setWidth(15);
-    shape2.getLineFormat().setWidth(15);
-    shape3.getLineFormat().setWidth(15);
+    // 讀取直接指派給圖形的草圖效果。
+    int explicitSketchType = sketchFormat.getSketchType();
+    System.out.println("Explicit sketch type: " + explicitSketchType);
 
-    // 為每個矩形的線條設定顏色。
-    shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-    shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
-    shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
-
-    // 設定接合樣式。
-    shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
-    shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
-    shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
-
-    // 為每個矩形加入文字。
-    shape1.getTextFrame().setText("Miter Join Style");
-    shape2.getTextFrame().setText("Bevel Join Style");
-    shape3.getTextFrame().setText("Round Join Style");
-
-    // 將 PPTX 檔案儲存至磁碟。
-    presentation.save("join_styles.pptx", SaveFormat.Pptx);
+    // 移除草圖效果。
+    sketchFormat.setSketchType(LineSketchType.None);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **漸層填滿**
-
-在 PowerPoint 中，漸層填滿是一種格式化選項，可讓您對形狀套用連續的顏色混合。例如，您可以使用兩種或以上的顏色，使其逐漸由一種顏色淡化為另一種顏色。
-
-以下說明如何使用 Aspose.Slides 為形狀套用漸層填滿：
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
-1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 將形狀的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Gradient`。
-1. 使用 [IGradientFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igradientformat/) 介面所公開的漸層停止集合的 `add` 方法，依定義的位置加入兩個您偏好的顏色。
-1. 將修改後的簡報儲存為 PPTX 檔案。
-
-以下 Java 程式碼示範如何對橢圓套用漸層填滿效果：
+由 [ISketchFormat.getSketchType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isketchformat/) 回傳的值代表直接指派給圖形的設定。如果線條格式可以從佈景主題、母片或版面投影片繼承，請使用 [ILineFormat.getEffective](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilineformat/)，存取 [ILineFormatEffectiveData.getSketchFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilineformateffectivedata/)，並讀取 [ISketchFormatEffectiveData.getSketchType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/isketchformateffectivedata/)。此有效值反映經過繼承解析後實際套用的格式：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IShape shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    ILineFormat lineFormat = shape.getLineFormat();
+
+    int explicitSketchType = lineFormat.getSketchFormat().getSketchType();
+    ILineFormatEffectiveData effectiveLineFormat = lineFormat.getEffective();
+    int effectiveSketchType = effectiveLineFormat.getSketchFormat().getSketchType();
+
+    System.out.println("Explicit sketch type: " + explicitSketchType);
+    System.out.println("Effective sketch type: " + effectiveSketchType);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **格式化接合樣式**
+
+以下是三種接合類型選項：
+
+* 圓形
+* 斜接
+* 斜角
+
+預設情況下，PowerPoint 在角度（例如圖形的角落）處連接兩條線時，使用 **圓形** 設定。但是，若您繪製的圖形具有銳角，可能會較喜歡 **斜接** 選項。
+
+![The join style in the presentation](join-style-powerpoint.png)
+
+以下 Java 程式碼示範如何使用斜接、斜角與圓形接合樣式建立上圖所示的三個矩形：
+
+```java
+    // 實例化代表簡報檔案的 Presentation 類別。
+    Presentation presentation = new Presentation();
+    try {
+        // 取得第一張投影片。
+        ISlide slide = presentation.getSlides().get_Item(0);
+
+        // 加入三個矩形類型的自動圖形。
+        IAutoShape shape1 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 20, 150, 75);
+        IAutoShape shape2 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 210, 20, 150, 75);
+        IAutoShape shape3 = slide.getShapes().addAutoShape(ShapeType.Rectangle, 20, 135, 150, 75);
+
+        // 設定每個矩形圖形的填充顏色。
+        shape1.getFillFormat().setFillType(FillType.Solid);
+        shape1.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+        shape2.getFillFormat().setFillType(FillType.Solid);
+        shape2.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+        shape3.getFillFormat().setFillType(FillType.Solid);
+        shape3.getFillFormat().getSolidFillColor().setColor(Color.BLACK);
+
+        // 設定線條寬度。
+        shape1.getLineFormat().setWidth(15);
+        shape2.getLineFormat().setWidth(15);
+        shape3.getLineFormat().setWidth(15);
+
+        // 設定每個矩形線條的顏色。
+        shape1.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        shape1.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+        shape2.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        shape2.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+        shape3.getLineFormat().getFillFormat().setFillType(FillType.Solid);
+        shape3.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.BLUE);
+
+        // 設定接合樣式。
+        shape1.getLineFormat().setJoinStyle(LineJoinStyle.Miter);
+        shape2.getLineFormat().setJoinStyle(LineJoinStyle.Bevel);
+        shape3.getLineFormat().setJoinStyle(LineJoinStyle.Round);
+
+        // 為每個矩形加入文字。
+        shape1.getTextFrame().setText("Miter Join Style");
+        shape2.getTextFrame().setText("Bevel Join Style");
+        shape3.getTextFrame().setText("Round Join Style");
+
+        // 將 PPTX 檔案儲存至磁碟。
+        presentation.save("join_styles.pptx", SaveFormat.Pptx);
+    } finally {
+        presentation.dispose();
+    }
+```
+
+## **漸層填色**
+
+在 PowerPoint 中，漸層填色是一種格式化選項，可讓您對圖形套用連續的顏色混合。例如，您可以使用兩種或多種顏色，使其中一種顏色逐漸淡入另一種顏色。
+
+以下說明如何使用 Aspose.Slides 為圖形套用漸層填色：
+
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
+1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
+1. 將圖形的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Gradient`。
+1. 使用由 [IGradientFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igradientformat/) 介面公開的漸層停止集合的 `add` 方法，加入您偏好的兩種顏色及其位置。
+1. 將修改後的簡報存為 PPTX 檔案。
+
+以下 Java 程式碼示範如何對橢圓套用漸層填色效果：
+
+```java
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增橢圓類型的自動形狀。
+    // 加入一個橢圓類型的自動圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 150, 75);
 
-    // 為橢圓套用漸層格式。
+    // 對橢圓套用漸層格式。
     shape.getFillFormat().setFillType(FillType.Gradient);
     shape.getFillFormat().getGradientFormat().setGradientShape(GradientShape.Linear);
 
     // 設定漸層的方向。
     shape.getFillFormat().getGradientFormat().setGradientDirection(GradientDirection.FromCorner2);
 
-    // 新增兩個漸層停止點。
+    // 加入兩個漸層停止點。
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)1.0, PresetColor.Purple);
     shape.getFillFormat().getGradientFormat().getGradientStops().addPresetColor((float)0, PresetColor.Red);
 
@@ -192,36 +242,36 @@ try {
 
 ![The ellipse with gradient fill](gradient-fill.png)
 
-## **圖案填滿**
+## **圖案填色**
 
-在 PowerPoint 中，圖案填滿是一種格式化選項，讓您能將兩種顏色的設計（例如點、條紋、十字紋或格子）套用於形狀。您可以為圖案的前景與背景自訂顏色。
+在 PowerPoint 中，圖案填色是一種格式化選項，可讓您對圖形套用雙色圖案─如點、條紋、交叉或格子─。您可以為圖案的前景色與背景色自訂顏色。
 
-Aspose.Slides 提供超過 45 種預定義圖案樣式，您可以將其套用於形狀以提升簡報的視覺吸引力。即使選取了預定義圖案，仍可自行指定確切的前景與背景顏色。
+Aspose.Slides 提供超過 45 種預定義圖案樣式，您可套用於圖形以提升簡報的視覺效果。即使選取了預定義圖案，仍可指定其使用的確切顏色。
 
-以下說明如何使用 Aspose.Slides 為形狀套用圖案填滿：
+以下說明如何使用 Aspose.Slides 為圖形套用圖案填色：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 將形狀的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Pattern`。
-1. 從預定義選項中挑選圖案樣式。
-1. 設定圖案的 [背景色彩](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/patternformat/#getBackColor--)。
-1. 設定圖案的 [前景色彩](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/patternformat/#getForeColor--)。
-1. 將修改後的簡報儲存為 PPTX 檔案。
+1. 將圖形的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Pattern`。
+1. 從預定義選項中選取圖案樣式。
+1. 設定圖案的 [Background Color](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/patternformat/#getBackColor--)。
+1. 設定圖案的 [Foreground Color](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/patternformat/#getForeColor--)。
+1. 將修改後的簡報存為 PPTX 檔案。
 
-以下 Java 程式碼示範如何對矩形套用圖案填滿：
+以下 Java 程式碼示範如何對矩形套用圖案填色：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的自動形狀。
+    // 加入一個矩形類型的自動圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 設定填滿類型為圖案。
+    // 設定填充類型為 Pattern。
     shape.getFillFormat().setFillType(FillType.Pattern);
 
     // 設定圖案樣式。
@@ -242,44 +292,44 @@ try {
 
 ![The rectangle with pattern fill](pattern-fill.png)
 
-## **圖片填滿**
+## **圖片填色**
 
-在 PowerPoint 中，圖片填滿是一種格式化選項，允許您在形狀內插入影像，實質上將影像作為形狀的背景。
+在 PowerPoint 中，圖片填色是一種格式化選項，允許您在圖形內插入影像──實際上將影像作為圖形的背景。
 
-以下說明如何使用 Aspose.Slides 為形狀套用圖片填滿：
+以下說明如何使用 Aspose.Slides 為圖形套用圖片填色：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 將形狀的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Picture`。
-1. 將圖片填滿模式設定為 `Tile`（或其他您偏好的模式）。
+1. 將圖形的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Picture`。
+1. 將圖片填充模式設定為 `Tile`（或其他您偏好的模式）。
 1. 從欲使用的影像建立 [IPPImage](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ippimage/) 物件。
 1. 將影像傳遞給 `ISlidesPicture.setImage` 方法。
-1. 將修改後的簡報儲存為 PPTX 檔案。
+1. 將修改後的簡報存為 PPTX 檔案。
 
-假設我們有一個名為「lotus.png」的檔案，內容如下圖所示：
+以下為「lotus.png」檔案的圖片示例：
 
 ![The lotus picture](lotus.png)
 
-以下 Java 程式碼示範如何以圖片填滿形狀：
+以下 Java 程式碼示範如何以圖片填滿圖形：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的自動形狀。
+    // 加入一個矩形類型的自動圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 255, 130);
     
-    // 設定填滿類型為圖片。
+    // 設定填充類型為 Picture。
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // 設定圖片填滿模式。
+    // 設定圖片填充模式。
     shape.getFillFormat().getPictureFillFormat().setPictureFillMode(PictureFillMode.Tile);
 
-    // 載入圖像並將其加入簡報資源。
+    // 載入影像並將其加入簡報資源。
     IImage image = Images.fromFile("lotus.png");
     IPPImage picture = presentation.getImages().addImage(image);
     image.dispose();
@@ -298,43 +348,43 @@ try {
 
 ![The shape with picture fill](picture-fill.png)
 
-### **將圖片以圖塊方式作為紋理**
+### **將圖片平鋪為紋理**
 
-如果您想將平鋪的圖片作為紋理，並自訂平鋪行為，可使用 [IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/) 介面與 [PictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/picturefillformat/) 類別的下列方法：
+如果您想將平鋪圖片作為紋理並自訂平鋪行為，可使用 [IPictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/) 介面與 [PictureFillFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/picturefillformat/) 類別的以下方法：
 
-- [setPictureFillMode](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-)：設定圖片填滿模式 — `Tile` 或 `Stretch`。
-- [setTileAlignment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-)：指定圖塊在形狀內的對齊方式。
-- [setTileFlip](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-)：控制圖塊是水平翻轉、垂直翻轉或兩者皆翻轉。
-- [setTileOffsetX](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-)：設定圖塊相對於形狀原點的水平偏移（以點為單位）。
-- [setTileOffsetY](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-)：設定圖塊相對於形狀原點的垂直偏移（以點為單位）。
-- [setTileScaleX](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-)：以百分比定義圖塊的水平縮放比例。
-- [setTileScaleY](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-)：以百分比定義圖塊的垂直縮放比例。
+- [setPictureFillMode](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setPictureFillMode-int-): 設定圖片填充模式——`Tile` 或 `Stretch`。
+- [setTileAlignment](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileAlignment-byte-): 指定圖形內平鋪圖塊的對齊方式。
+- [setTileFlip](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileFlip-int-): 控制圖塊是水平翻轉、垂直翻轉或同時翻轉。
+- [setTileOffsetX](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetX-float-): 設定圖塊相對於圖形原點的水平偏移（單位為點）。
+- [setTileOffsetY](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileOffsetY-float-): 設定圖塊相對於圖形原點的垂直偏移（單位為點）。
+- [setTileScaleX](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleX-float-): 定義圖塊的水平比例（百分比）。
+- [setTileScaleY](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ipicturefillformat/#setTileScaleY-float-): 定義圖塊的垂直比例（百分比）。
 
-以下程式碼範例示範如何新增一個具有平鋪圖片填滿的矩形形狀，並設定圖塊選項：
+以下程式碼範例顯示如何加入一個使用平鋪圖片填色的矩形，並設定平鋪選項：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide firstSlide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形自動形狀。
+    // 加入一個矩形自動圖形。
     IAutoShape shape = firstSlide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 190, 95);
 
-    // 設定形狀的填滿類型為圖片。
+    // 設定圖形的填充類型為 Picture。
     shape.getFillFormat().setFillType(FillType.Picture);
 
-    // 載入圖像並將其加入簡報資源。
+    // 載入影像並將其加入簡報資源。
     IImage sourceImage = Images.fromFile("lotus.png");
     IPPImage presentationImage = presentation.getImages().addImage(sourceImage);
     sourceImage.dispose();
 
-    // 將圖像指派給形狀。
+    // 將影像指派給圖形。
     IPictureFillFormat pictureFillFormat = shape.getFillFormat().getPictureFillFormat();
     pictureFillFormat.getPicture().setImage(presentationImage);
 
-    // 設定圖片填滿模式與平鋪屬性。
+    // 設定圖片填充模式與平鋪屬性。
     pictureFillFormat.setPictureFillMode(PictureFillMode.Tile);
     pictureFillFormat.setTileOffsetX(-32);
     pictureFillFormat.setTileOffsetY(-32);
@@ -354,35 +404,35 @@ try {
 
 ![The tile options](tile-options.png)
 
-## **單色填滿**
+## **純色填色**
 
-在 PowerPoint 中，單色填滿是一種格式化選項，會以單一、均勻的顏色填滿形狀。此純色背景不含任何漸層、紋理或圖案。
+在 PowerPoint 中，純色填色是一種格式化選項，會以單一均勻顏色填滿圖形。此純色背景不包含任何漸層、紋理或圖案。
 
-若要使用 Aspose.Slides 為形狀套用單色填滿，請依照下列步驟：
+要使用 Aspose.Slides 為圖形套用純色填色，請遵循以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 將形狀的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Solid`。
-1. 為形狀指定您偏好的填滿顏色。
-1. 將修改後的簡報儲存為 PPTX 檔案。
+1. 將圖形的 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Solid`。
+1. 為圖形指定您偏好的填色。
+1. 將修改後的簡報存為 PPTX 檔案。
 
-以下 Java 程式碼示範如何在 PowerPoint 投影片的矩形上套用單色填滿：
+以下 Java 程式碼示範如何在 PowerPoint 投影片中的矩形套用純色填色：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的自動形狀。
+    // 加入一個矩形類型的自動圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 設定填滿類型為實色。
+    // 設定填充類型為 Solid。
     shape.getFillFormat().setFillType(FillType.Solid);
 
-    // 設定填滿顏色。
+    // 設定填充顏色。
     shape.getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
 
     // 將 PPTX 檔案儲存至磁碟。
@@ -398,30 +448,30 @@ try {
 
 ## **設定透明度**
 
-在 PowerPoint 中，當您對形狀套用單色、漸層、圖片或紋理填滿時，亦可設定透明度以控制填滿的不透明程度。較高的透明度值會使形狀更為半透明，讓背景或底層物件部分可見。
+在 PowerPoint 中，當您為圖形套用純色、漸層、圖片或紋理填色時，也可以設定透明度，以控制填色的透明程度。較高的透明度值會使圖形更透明，讓背景或底層物件部分可見。
 
-Aspose.Slides 讓您透過調整填滿顏色的 alpha 值來設定透明度。操作步驟如下：
+Aspose.Slides 讓您透過調整填色所使用顏色的 alpha 值來設定透明度。操作步驟如下：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
 1. 將 [FillType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/filltype/) 設為 `Solid`。
-1. 使用 `Color` 定義帶有透明度的顏色（alpha 分量控制透明度）。
+1. 使用 `Color` 定義具有透明度的顏色（alpha 元件控制透明度）。
 1. 儲存簡報。
 
-以下 Java 程式碼示範如何對矩形套用透明填色：
+以下 Java 程式碼示範如何為矩形套用透明填色：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增實心矩形自動形狀。
+    // 加入一個實心矩形自動圖形。
     IAutoShape solidShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 在實心形狀上新增透明矩形自動形狀。
+    // 在實心圖形上加入一個透明矩形自動圖形。
     IAutoShape transparentShape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 80, 80, 150, 75);
     transparentShape.getFillFormat().setFillType(FillType.Solid);
     transparentShape.getFillFormat().getSolidFillColor().setColor(new Color(255, 255, 0, 204));
@@ -437,31 +487,31 @@ try {
 
 ![The transparent shape](shape-transparency.png)
 
-## **旋轉形狀**
+## **旋轉圖形**
 
-Aspose.Slides 讓您在 PowerPoint 簡報中旋轉形狀。此功能在需要特定對齊或設計需求時相當實用。
+Aspose.Slides 允許您在 PowerPoint 簡報中旋轉圖形。這在需要特定對齊或設計需求時相當有用。
 
-若要在投影片上旋轉形狀，請遵循以下步驟：
+要在投影片上旋轉圖形，請依照以下步驟：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 將形狀的旋轉屬性設定為所需的角度。
+1. 將圖形的 rotation 屬性設定為目標角度。
 1. 儲存簡報。
 
-以下 Java 程式碼示範如何將形狀旋轉 5 度：
+以下 Java 程式碼示範如何將圖形旋轉 5 度：
 
 ```java
-// 實例化表示簡報檔案的 Presentation 類別。
+// 實例化代表簡報檔案的 Presentation 類別。
 Presentation presentation = new Presentation();
 try {
     // 取得第一張投影片。
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 新增矩形類型的自動形狀。
+    // 加入一個矩形類型的自動圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Rectangle, 50, 50, 150, 75);
 
-    // 將形狀旋轉 5 度。
+    // 旋轉圖形 5 度。
     shape.setRotation(5);
 
     // 將 PPTX 檔案儲存至磁碟。
@@ -475,19 +525,19 @@ try {
 
 ![The shape rotation](shape-rotation.png)
 
-## **加入 3D 磨角效果**
+## **加入 3D 斜角效果**
 
-Aspose.Slides 允許您透過設定形狀的 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 屬性，為形狀加入 3D 磨角效果。
+Aspose.Slides 允許您透過設定圖形的 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 屬性，為圖形加入 3D 斜角效果。
 
-若要為形狀加入 3D 磨角效果，請依照以下步驟：
+要為圖形加入 3D 斜角效果，請依以下步驟操作：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 實例化 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
-1. 設定形狀的 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 以定義磨角設定。
+1. 設定圖形的 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 以定義斜角設定。
 1. 儲存簡報。
 
-以下 Java 程式碼示範如何為形狀套用 3D 磨角效果：
+以下 Java 程式碼說明如何為圖形套用 3D 斜角效果：
 
 ```java
 // 建立 Presentation 類別的實例。
@@ -495,7 +545,7 @@ Presentation presentation = new Presentation();
 try {
     ISlide slide = presentation.getSlides().get_Item(0);
 
-    // 在投影片中新增形狀。
+    // 在投影片中加入圖形。
     IAutoShape shape = slide.getShapes().addAutoShape(ShapeType.Ellipse, 50, 50, 100, 100);
     shape.getFillFormat().setFillType(FillType.Solid);
     shape.getFillFormat().getSolidFillColor().setColor(Color.GREEN);
@@ -503,7 +553,7 @@ try {
     shape.getLineFormat().getFillFormat().getSolidFillColor().setColor(Color.ORANGE);
     shape.getLineFormat().setWidth(2.0);
 
-    // 設定形狀的 ThreeDFormat 屬性。
+    // 設定圖形的 ThreeDFormat 屬性。
     shape.getThreeDFormat().setDepth(4);
     shape.getThreeDFormat().getBevelTop().setBevelType(BevelPresetType.Circle);
     shape.getThreeDFormat().getBevelTop().setHeight(6);
@@ -525,17 +575,17 @@ try {
 
 ## **加入 3D 旋轉效果**
 
-Aspose.Slides 允許您透過設定形狀的 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 屬性，為形狀加入 3D 旋轉效果。
+Aspose.Slides 允許您透過設定圖形的 [ThreeDFormat](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/threedformat/) 屬性，為圖形加入 3D 旋轉效果。
 
-若要為形狀套用 3D 旋轉：
+要為圖形套用 3D 旋轉：
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。
-1. 依索引取得投影片參考。
+1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的執行個體。
+1. 依索引取得投影片的參照。
 1. 在投影片中加入 [IAutoShape](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/iautoshape/)。
 1. 使用 [setCameraType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/icamera/#setCameraType-int-) 與 [setLightType](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilightrig/#setLightType-int-) 定義 3D 旋轉。
 1. 儲存簡報。
 
-以下 Java 程式碼示範如何為形狀套用 3D 旋轉效果：
+以下 Java 程式碼示範如何為圖形套用 3D 旋轉效果：
 
 ```java
 // 建立 Presentation 類別的實例。
@@ -564,13 +614,13 @@ try {
 
 ## **重設格式**
 
-以下 Java 程式碼示範如何重設投影片的格式，將 [LayoutSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/layoutslide/) 上所有含有版位的形狀的 位置、大小與格式恢復為預設設定：
+以下 Java 程式碼示範如何重設投影片的格式，並將其佔位符上所有圖形的位罝、大小與格式復原為 [LayoutSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/layoutslide/) 的預設設定：
 
 ```java
 Presentation presentation = new Presentation("sample.pptx");
 try {
     for (ISlide slide : presentation.getSlides()) {
-        // 重設投影片上每個在版面上具有版位的形狀。
+        // 重置投影片上在版面上具有占位符的每個圖形。
         slide.reset();
     }
     presentation.save("reset_formatting.pptx", SaveFormat.Pptx);
@@ -581,14 +631,14 @@ try {
 
 ## **常見問題**
 
-**形狀格式化會影響最終簡報檔案大小嗎？**
+**圖形格式化會影響最終簡報檔案大小嗎？**
 
-影響極小。嵌入的圖片與媒體佔據大部分檔案空間，而形狀的參數（如顏色、效果與漸層）以中繼資料形式儲存，幾乎不會增加額外大小。
+影響很小。嵌入的圖像與媒體佔用了大部分檔案空間，而圖形的顏色、效果與漸層等參數僅以中繼資料形式儲存，幾乎不會增加額外大小。
 
-**如何偵測投影片上具有相同格式的形狀，以便將它們分組？**
+**我該如何偵測投影片上具有相同格式的圖形，以便將它們分組？**
 
-比較每個形狀的關鍵格式屬性——填滿、線條與效果設定。若所有對應的值皆相同，則視為樣式相同，並在邏輯上將這些形狀分組，這樣可簡化稍後的樣式管理。
+比較每個圖形的關鍵格式屬性──填色、線條與效果設定。若所有相應值相符，即可視為樣式相同，並在邏輯上將這些圖形分組，這樣可以簡化後續的樣式管理。
 
-**我可以將自訂的形狀樣式集合儲存為獨立檔案，以便在其他簡報中重複使用嗎？**
+**我能否將一組自訂圖形樣式儲存到單獨的檔案，以便在其他簡報中重複使用？**
 
-可以。將帶有所需樣式的範本形狀存於範本投影片檔或 .POTX 範本檔。建立新簡報時，開啟該範本，克隆您需要的樣式形狀，並在需要的地方重新套用其格式。
+可以。將帶有所需樣式的樣本圖形存入範本投影片或 .POTX 範本檔案。建立新簡報時，開啟該範本，復制您需要的已樣式化圖形，然後在需要的地方重新套用其格式。

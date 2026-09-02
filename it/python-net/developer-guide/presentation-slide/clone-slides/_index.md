@@ -70,9 +70,9 @@ import aspose.slides as slides
 
 # Instanzia la classe Presentation per rappresentare il file della presentazione.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
-    # Clona la diapositiva desiderata nella posizione specificata (indice) all'interno della stessa presentazione.
+    # Clonare la diapositiva desiderata nella posizione (indice) specificata all'interno della stessa presentazione.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Salva la presentazione modificata su disco.
+    # Salvare la presentazione modificata su disco.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -95,9 +95,9 @@ import aspose.slides as slides
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     # Instanzia la classe Presentation per il PPTX di destinazione (dove la diapositiva verrà clonata).
     with slides.Presentation() as target_presentation:
-        # Clona la diapositiva desiderata dalla presentazione di origine alla fine della collezione di diapositive nella presentazione di destinazione.
+        # Clonare la diapositiva desiderata dalla presentazione di origine alla fine della collezione di diapositive nella presentazione di destinazione.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Salva la presentazione di destinazione su disco.
+        # Salvare la presentazione di destinazione su disco.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -122,7 +122,7 @@ with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # Inserisci una copia della prima diapositiva dalla presentazione di origine all'indice 2 nella presentazione di destinazione.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Salva la presentazione di destinazione su disco.
+        # Salvare la presentazione di destinazione su disco.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -138,7 +138,7 @@ Per clonare una diapositiva con il suo master, segui questi passaggi:
 1. Ottieni la [MasterSlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/) dalla collezione master della presentazione di destinazione.
 1. Chiama `add_clone` sulla [MasterSlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/masterslidecollection/) di destinazione, passando il master di origine per clonarlo nella destinazione.
 1. Ottieni la [SlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/) dalla collezione di diapositive della presentazione di destinazione.
-1. Chiama `add_clone` sulla [SlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/) di destinazione, passando la diapositiva di origine e il master di destinazione appena clonato.
+1. Chiama `add_clone` sulla [SlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/) di destinazione, passando la diapositiva di origine e il master di destinazione clonato.
 1. Salva la presentazione di destinazione modificata.
 
 Nell'esempio seguente, la diapositiva all'indice 0 nella presentazione di origine viene clonata alla fine della presentazione di destinazione usando il master clonato dall'origine.
@@ -150,15 +150,15 @@ import aspose.slides as slides
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
     # Instanzia la classe Presentation per la presentazione di destinazione dove la diapositiva verrà clonata.
     with slides.Presentation() as target_presentation:
-        # Ottieni la prima diapositiva dalla presentazione di origine.
+        # Ottenere la prima diapositiva dalla presentazione di origine.
         source_slide = source_presentation.slides[0]
         # Ottieni la diapositiva master utilizzata dalla prima diapositiva.
         source_master = source_slide.layout_slide.master_slide
         # Clona la diapositiva master nella collezione master della presentazione di destinazione.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Clona la diapositiva dalla presentazione di origine alla fine della presentazione di destinazione usando il master clonato.
+        # Clonare la diapositiva dalla presentazione di origine alla fine della presentazione di destinazione usando il master clonato.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Salva la presentazione di destinazione su disco.
+        # Salvare la presentazione di destinazione su disco.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -166,24 +166,24 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 
 Con Aspose.Slides per Python via .NET, puoi clonare una diapositiva da una sezione di una presentazione e inserirla in un'altra sezione all'interno della stessa presentazione. Per farlo, utilizza il metodo `add_clone(Slide, Section)` della classe [SlideCollection](https://reference.aspose.com/slides/it/python-net/aspose.slides/slidecollection/).
 
-Il seguente esempio Python mostra come clonare una diapositiva e inserire la copia in una sezione specificata:
+Il seguente esempio Python mostra come clonare una diapositiva e inserire il clone in una sezione specificata:
 
 ```py
 import aspose.slides as slides
 
-# Crea una nuova presentazione vuota.
+# Creare una nuova presentazione vuota.
 with slides.Presentation() as presentation:
-    # Aggiungi una diapositiva vuota basata sul layout della prima diapositiva.
+    # Aggiungere una diapositiva vuota basata sul layout della prima diapositiva.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Aggiungi una forma ellittica alla nuova diapositiva; questa diapositiva sarà clonata in seguito.
+    # Aggiungere una forma ellisse alla nuova diapositiva; questa diapositiva sarà clonata in seguito.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Aggiungi un'altra diapositiva vuota basata sul layout della prima diapositiva.
+    # Aggiungere un'altra diapositiva vuota basata sul layout della prima diapositiva.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Crea una sezione denominata "Section2" che inizia con slide2.
     section = presentation.sections.add_section("Section2", slide2)
-    # Clona la diapositiva creata in precedenza nella sezione "Section2".
+    # Clonare la diapositiva creata in precedenza nella sezione "Section2".
     presentation.slides.add_clone(slide, section)
-    # Salva la presentazione come file PPTX.
+    # Salvare la presentazione come file PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -214,4 +214,4 @@ L'oggetto grafico, la formattazione e i dati incorporati vengono copiati. Se il 
 
 ### Posso controllare la posizione di inserimento e le sezioni per la copia?
 
-Sì. Puoi inserire la copia in un indice di diapositiva specifico e posizionarla in una [sezione](/slides/it/python-net/slide-section/) scelta. Se la sezione di destinazione non esiste, creala prima e poi sposta la diapositiva al suo interno.
+Sì. Puoi inserire il clone in un indice di diapositiva specifico e posizionarlo in una [sezione](/slides/it/python-net/slide-section/) scelta. Se la sezione di destinazione non esiste, creala prima e poi sposta la diapositiva al suo interno.

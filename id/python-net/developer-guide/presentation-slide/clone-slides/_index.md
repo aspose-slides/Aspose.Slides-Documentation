@@ -32,9 +32,15 @@ Dalam Aspose.Slides for Python via .NET, [koleksi slide](https://reference.aspos
 pip install aspose.slides
 ```
 
-## **Kloning di Akhir dalam Presentasi yang Sama**
+## **Instalasi**
 
-Jika Anda ingin mengkloning slide dalam presentasi yang sama dan menambahkannya ke akhir slide yang ada, gunakan metode `add_clone`. Ikuti langkah-langkah berikut:
+```bash
+pip install aspose.slides
+```
+
+## **Mengklon di Akhir dalam Presentasi yang Sama**
+
+Jika Anda ingin mengklon slide dalam presentasi yang sama dan menambahkannya ke akhir slide yang ada, gunakan metode `add_clone`. Ikuti langkah‑langkah berikut:
 
 1. Buat instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
 2. Dapatkan koleksi slide dari objek [Presentasi](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/).
@@ -48,13 +54,13 @@ import aspose.slides as slides
 
 # Membuat instance kelas Presentation untuk merepresentasikan file presentasi.
 with slides.Presentation("CloneWithinSamePresentationToEnd.pptx") as presentation:
-    # Mengkloning slide yang diinginkan ke akhir koleksi slide dalam presentasi yang sama.
+    # Mengklon slide yang diinginkan ke akhir koleksi slide dalam presentasi yang sama.
     presentation.slides.add_clone(presentation.slides[0])
-    # Menyimpan presentasi yang telah dimodifikasi ke disk.
+    # Simpan presentasi yang telah dimodifikasi ke disk.
     presentation.save("Aspose_CloneWithinSamePresentationToEnd_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kloning ke Posisi Tertentu dalam Presentasi yang Sama**
+## **Mengklon ke Posisi Tertentu dalam Presentasi yang Sama**
 
 Jika Anda ingin mengkloning slide dalam presentasi yang sama dan menaruhnya pada posisi yang berbeda, gunakan metode `insert_clone`:
 
@@ -70,15 +76,15 @@ import aspose.slides as slides
 
 # Membuat instance kelas Presentation untuk merepresentasikan file presentasi.
 with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
-    # Mengkloning slide yang diinginkan ke posisi (indeks) yang ditentukan dalam presentasi yang sama.
+    # Mengklon slide yang diinginkan ke posisi (indeks) tertentu dalam presentasi yang sama.
     presentation.slides.insert_clone(2, presentation.slides[1])
-    # Menyimpan presentasi yang telah dimodifikasi ke disk.
+    # Simpan presentasi yang telah dimodifikasi ke disk.
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Kloning di Akhir Presentasi Lain**
+## **Mengklon di Akhir Presentasi Lain**
 
-Jika Anda perlu mengkloning slide dari satu presentasi dan menambahkannya ke akhir presentasi lain:
+Jika Anda perlu mengklon slide dari satu presentasi dan menambahkannya ke akhir presentasi lain:
 
 1. Buat instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) untuk presentasi sumber (yang berisi slide yang akan dikloning).
 2. Buat instance dari kelas [Presentasi](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/) untuk presentasi tujuan (tempat slide akan ditambahkan).
@@ -93,11 +99,11 @@ import aspose.slides as slides
 
 # Membuat instance kelas Presentation untuk merepresentasikan file presentasi sumber.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Membuat instance kelas Presentation untuk PPTX tujuan (tempat slide akan dikloning).
+    # Membuat instance kelas Presentation untuk PPTX tujuan (tempat slide akan diklon).
     with slides.Presentation() as target_presentation:
         # Mengkloning slide yang diinginkan dari presentasi sumber ke akhir koleksi slide di presentasi tujuan.
         target_presentation.slides.add_clone(source_presentation.slides[0])
-        # Menyimpan presentasi tujuan ke disk.
+        # Simpan presentasi tujuan ke disk.
         target_presentation.save("Aspose2_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -118,17 +124,17 @@ import aspose.slides as slides
 
 # Membuat instance kelas Presentation untuk merepresentasikan file presentasi sumber.
 with slides.Presentation("CloneAtEndOfAnother.pptx") as source_presentation:
-    # Membuat instance kelas Presentation untuk PPTX tujuan (tempat slide akan dikloning).
+    # Membuat instance kelas Presentation untuk PPTX tujuan (tempat slide akan diklon).
     with slides.Presentation("Aspose2_out.pptx") as target_presentation:
         # Menyisipkan klon slide pertama dari sumber pada indeks 2 di presentasi tujuan.
         target_presentation.slides.insert_clone(2, source_presentation.slides[0])
-        # Menyimpan presentasi tujuan ke disk.
+        # Simpan presentasi tujuan ke disk.
         target_presentation.save("Aspose3_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
 ## **Kloning Slide beserta Master Slide-nya ke Presentasi Lain**
 
-Jika Anda perlu mengkloning slide **dengan master-nya** dari satu presentasi dan menggunakannya di presentasi lain, pertama kloning master slide yang diperlukan dari presentasi sumber ke presentasi tujuan. Kemudian gunakan master tujuan tersebut saat mengkloning slide. Metode `add_clone(Slide, MasterSlide)` mengharapkan **master slide dari presentasi tujuan**, bukan dari sumber.
+Jika Anda perlu mengklon slide **beserta masternya** dari satu presentasi dan menggunakannya di presentasi lain, pertama klon master slide yang diperlukan dari presentasi sumber ke presentasi tujuan. Kemudian gunakan master tujuan tersebut saat mengklon slide. Metode `add_clone(Slide, MasterSlide)` mengharapkan **slide master dari presentasi tujuan**, bukan dari sumber.
 
 Untuk mengkloning slide beserta master-nya, ikuti langkah-langkah berikut:
 
@@ -154,11 +160,11 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         source_slide = source_presentation.slides[0]
         # Mengambil master slide yang digunakan oleh slide pertama.
         source_master = source_slide.layout_slide.master_slide
-        # Mengkloning master slide ke dalam koleksi master presentasi tujuan.
+        # Klon master slide ke dalam koleksi master presentasi tujuan.
         cloned_master = target_presentation.masters.add_clone(source_master)
         # Mengkloning slide dari presentasi sumber ke akhir presentasi tujuan menggunakan master yang dikloning.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
-        # Menyimpan presentasi tujuan ke disk.
+        # Simpan presentasi tujuan ke disk.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -171,19 +177,19 @@ Contoh Python berikut menunjukkan cara mengkloning slide dan menyisipkan hasil k
 ```py
 import aspose.slides as slides
 
-# Membuat presentasi kosong baru.
+# Buat presentasi kosong baru.
 with slides.Presentation() as presentation:
-    # Menambahkan slide kosong berdasarkan tata letak slide pertama.
+    # Tambahkan slide kosong berdasarkan tata letak slide pertama.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # Menambahkan shape elips ke slide baru; slide ini akan dikloning nanti.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # Menambahkan slide kosong lain berdasarkan tata letak slide pertama.
+    # Tambahkan slide kosong lain berdasarkan tata letak slide pertama.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Membuat seksi bernama "Section2" yang dimulai pada slide2.
+    # Buat seksi bernama "Section2" yang dimulai pada slide2.
     section = presentation.sections.add_section("Section2", slide2)
     # Mengkloning slide yang dibuat sebelumnya ke dalam seksi "Section2".
     presentation.slides.add_clone(slide, section)
-    # Menyimpan presentasi sebagai file PPTX.
+    # Simpan presentasi sebagai file PPTX.
     presentation.save("presentation.pptx", slides.export.SaveFormat.PPTX)
 ```
 
@@ -203,6 +209,7 @@ target_presentation.slide_size.set_size(
 Lakukan ini sebelum mengkloning master dan slide.
 
 ## **FAQ**
+### Apakah catatan pembicara dan komentar reviewer dikloning?
 
 ### Apakah catatan pembicara dan komentar reviewer juga dikloning?
 

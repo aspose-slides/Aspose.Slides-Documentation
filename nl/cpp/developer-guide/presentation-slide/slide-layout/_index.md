@@ -1,24 +1,24 @@
 ---
-title: Dia‑indelingen toepassen of wijzigen in C++
-linktitle: Dia‑indeling
+title: Dia lay-outs toepassen of wijzigen in C++
+linktitle: Dia lay-out
 type: docs
 weight: 60
 url: /nl/cpp/slide-layout/
 keywords:
-- dia‑indeling
-- inhoudsindeling
-- placeholder
+- dia lay-out
+- inhoud lay-out
+- plaatsaanduiding
 - presentatieontwerp
-- dia‑ontwerp
-- ongebruikte indeling
-- voettekst‑zichtbaarheid
-- titel‑dia
+- diadesign
+- ongebruikte lay-out
+- voettekst-zichtbaarheid
+- titel-dia
 - titel en inhoud
 - sectiekop
 - twee inhoud
 - vergelijking
 - alleen titel
-- lege indeling
+- lege lay-out
 - inhoud met bijschrift
 - afbeelding met bijschrift
 - titel en verticale tekst
@@ -28,248 +28,283 @@ keywords:
 - presentatie
 - C++
 - Aspose.Slides
-description: "Beheer en pas dia‑indelingen aan in Aspose.Slides voor C++. Ontdek indelingstypen, placeholder‑beheer en voettekst‑zichtbaarheid via C++‑codevoorbeelden."
+description: "Dia lay-outs toepassen, maken en wijzigen in Aspose.Slides voor C++, plaatsaanduidingen toevoegen, ongebruikte lay-outs verwijderen en de voettekst-zichtbaarheid regelen."
 ---
-## **Inleiding**
+## **Overzicht**
 
-Een dia‑indeling definieert de rangschikking van placeholder‑vakken en de opmaak van de inhoud op een dia. Het bepaalt welke placeholders beschikbaar zijn en waar ze verschijnen. Dia‑indelingen helpen je om presentaties snel en consistent te ontwerpen – of je nu iets eenvoudigs of complexere maakt. Enkele van de meest voorkomende dia‑indelingen in PowerPoint zijn:
+Een dia‑lay‑out definieert de posities en opmaak van tijdelijke aanduidingen zoals titels, tekst, afbeeldingen, diagrammen en tabellen. Het toepassen van een lay‑out geeft dia’s een consistente structuur, terwijl elke dia zijn eigen inhoud kan bevatten.
 
-**Titel‑dia‑indeling** – Bevat twee tekst‑placeholders: één voor de titel en één voor de ondertitel.
+De meest voorkomende lay‑outs zijn:
 
-**Titel‑en‑Inhoud‑indeling** – Heeft een kleiner titel‑placeholder bovenaan en een groter eronder voor de hoofdinhoud (zoals tekst, opsommingstekens, grafieken, afbeeldingen en meer).
+- **Titel-dia**: Bevat titel‑ en subtitel‑plaatsaanduidingen.
+- **Titel en inhoud**: Bevat een titel‑plaatsaanduiding en een algemene inhouds‑plaatsaanduiding.
+- **Leeg**: Bevat geen inhouds‑plaatsaanduidingen en is nuttig wanneer elke vorm handmatig wordt gepositioneerd.
 
-**Lege indeling** – Bevat geen placeholders, zodat je volledige controle hebt om de dia vanaf nul te ontwerpen.
+## **Begrijp lay‑out‑overerving**
 
-Dia‑indelingen maken deel uit van een dia‑master, die de bovenste dia is die lay‑outstijlen voor de presentatie definieert. Je kunt indelingsdia’s benaderen en wijzigen via de dia‑master – ofwel op basis van hun type, naam of unieke ID. Alternatief kun je een specifieke indelingsdia rechtstreeks binnen de presentatie bewerken.
+Een presentatie heeft drie verwante niveaus:
 
-Om met dia‑indelingen te werken in Aspose.Slides for Android, kun je gebruiken:
+1. Een [master‑dia](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslide/) definieert het thema, de gedeelde opmaak, achtergronden en gemeenschappelijke objecten.
+2. Een [lay‑out‑dia](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/) behoort tot een master en definieert een specifieke rangschikking van plaatsaanduidingen.
+3. Een [normale dia](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/) gebruikt één lay‑out en slaat de ingevoerde inhoud voor die dia op.
 
-- Methoden zoals [get_LayoutSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_layoutslides/) en [get_Masters](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_masters/) onder de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse
-- Types zoals [ILayoutSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/) en [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslideheaderfootermanager/)
+Een normale dia erft thema en opmaak van zijn lay‑out, en de lay‑out erft van de master. Een waarde die rechtstreeks op een normale dia wordt ingesteld, overschrijft de geërfde waarde op dat niveau. Wanneer een normale dia wordt aangemaakt, worden de plaatsaanduidings‑vormen gegenereerd uit de gekozen lay‑out, terwijl de ingevoerde inhoud in die plaatsaanduidingen tot de normale dia behoort.
 
-{{% alert title="Info" color="info" %}}
-Om meer te leren over het werken met masterslides, bekijk het artikel [Slide Master](/slides/nl/cpp/slide-master/).
-{{% /alert %}}
+Voeg de benodigde plaatsaanduidingen toe aan een lay‑out voordat je er dia's op baseert. Een later toegevoegde plaatsaanduiding aan een lay‑out voegt niet automatisch een overeenkomstige plaatsaanduidings‑vorm toe aan bestaande normale dia's.
 
-## **Dia‑indelingen toevoegen aan presentaties**
+Deze relatie heeft twee belangrijke consequenties:
 
-Om het uiterlijk en de structuur van je dia’s aan te passen, moet je mogelijk nieuwe indelingsdia’s aan een presentatie toevoegen. Aspose.Slides for Android stelt je in staat te controleren of een specifieke indeling al bestaat, er een nieuwe toe te voegen indien nodig, en deze te gebruiken om dia’s in te voegen op basis van die indeling.
+- Het wijzigen van geërfde opmaak of bestaande plaatsaanduidings‑geometrie op een lay‑out kan elke afhankelijke dia updaten. Controleer vóór het bewerken van een al in gebruik zijnde lay‑out eerst de afhankelijke dia's en beoordeel de resulterende presentatie.
+- Een lay‑out die nog door een dia wordt gebruikt, kan niet worden verwijderd. Wijs eerst de afhankelijke dia's opnieuw toe aan een andere lay‑out, of verwijder alleen ongebruikte lay‑outs.
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
-1. Benader de [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterlayoutslidecollection/).
-1. Controleer of de gewenste indelingsdia al bestaat in de collectie. Zo niet, voeg dan de benodigde indelingsdia toe.
-1. Voeg een lege dia toe op basis van de nieuwe indelingsdia.
-1. Sla de presentatie op.
+Voor meer informatie over het bovenste niveau van deze hiërarchie, zie [Slide Master](/slides/nl/cpp/slide-master/).
 
-De volgende C++‑code toont hoe je een dia‑indeling toevoegt aan een PowerPoint‑presentatie:
+## **Selecteer en pas een dia‑lay‑out toe**
+
+Gebruik een lay‑outtype wanneer de presentatie de standaard PowerPoint‑lay‑outdefinities volgt. Lay‑outnamen zijn door de gebruiker bewerkbaar en kunnen worden gelokaliseerd, waardoor selectie op basis van naam minder betrouwbaar is tenzij je de bron‑template beheert.
+
+Het volgende voorbeeld zoekt naar **Titel en inhoud** op de eerste master. Als die lay‑out niet beschikbaar is, valt het expres terug op **Leeg**. De tweede null‑controle is nodig omdat een presentatie alleen aangepaste lay‑outs kan bevatten. De geselecteerde lay‑out wordt vervolgens toegepast op de eerste normale dia via de [ISlide::set_LayoutSlide](https://reference.aspose.com/slides/nl/cpp/aspose.slides/islide/set_layoutslide/)‑methode.
 
 ```cpp
-// Instantieer de Presentation-klasse die een PowerPoint-bestand vertegenwoordigt.
-auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
 
-// Ga door de indelingsdia‑types om een indelingsdia te selecteren.
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
 auto layoutSlides = presentation->get_Master(0)->get_LayoutSlides();
-SharedPtr<ILayoutSlide> layoutSlide;
-if (layoutSlides->GetByType(SlideLayoutType::TitleAndObject) != nullptr)
+auto targetLayout = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
+
+if (targetLayout == nullptr)
 {
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::TitleAndObject);
-}
-else if (layoutSlides->GetByType(SlideLayoutType::Title) != nullptr)
-{
-    layoutSlide = layoutSlides->GetByType(SlideLayoutType::Title);
+    targetLayout = layoutSlides->GetByType(SlideLayoutType::Blank);
 }
 
-if (layoutSlide == nullptr)
+if (targetLayout == nullptr)
 {
-    // Een situatie waarin de presentatie niet alle indelingstypen bevat.
-    // Het presentiebestand bevat alleen lege en aangepaste indelingstypen.
-    // Echter kunnen indelingsdia's met aangepaste typen herkenbare namen hebben,
-    // zoals "Titel", "Titel en Inhoud", enz., die gebruikt kunnen worden voor het selecteren van een indelingsdia.
-    // Je kunt ook vertrouwen op een reeks placeholder-vormtypen.
-    // Bijvoorbeeld, een titel-diapositief moet alleen het Titel-placeholder-type hebben, enzovoort.
-    for (int i = 0; i < layoutSlides->get_Count(); i++)
-    {
-        auto titleAndObjectLayoutSlide = layoutSlides->idx_get(i);
-
-        if (titleAndObjectLayoutSlide->get_Name().Equals(u"Title and Object"))
-        {
-            layoutSlide = titleAndObjectLayoutSlide;
-            break;
-        }
-    }
-
-    if (layoutSlide == nullptr)
-    {
-        for (int i = 0; i < layoutSlides->get_Count(); i++)
-        {
-            auto titleLayoutSlide = layoutSlides->idx_get(i);
-
-            if (titleLayoutSlide->get_Name() == u"Title")
-            {
-                layoutSlide = titleLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == nullptr)
-        {
-            layoutSlide = layoutSlides->GetByType(SlideLayoutType::Blank);
-            if (layoutSlide == nullptr)
-            {
-                layoutSlide = layoutSlides->Add(SlideLayoutType::TitleAndObject, u"Title and Object");
-            }
-        }
-    }
+    throw InvalidOperationException(u"The first master does not contain a suitable layout slide.");
 }
 
-// Voeg een lege dia toe met behulp van de toegevoegde indelingsdia.
-presentation->get_Slides()->InsertEmptySlide(0, layoutSlide);
-
-// Sla de presentatie op naar schijf.
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->get_Slide(0)->set_LayoutSlide(targetLayout);
+presentation->Save(u"output-with-new-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Ongebruikte indelingsdia's verwijderen**
+Het wijzigen van de lay‑out van een dia verwijdert niet de gewone vormen die rechtstreeks aan de dia zijn toegevoegd. Plaatsaanduidingsposities, geërfde opmaak en de overeenkomst tussen bestaande plaatsaanduidingen en de nieuwe lay‑out kunnen echter veranderen, dus controleer de output bij het schakelen tussen wezenlijk verschillende lay‑outs.
 
-Aspose.Slides biedt de [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/)‑methode uit de [Compress](https://reference.aspose.com/slides/nl/cpp/aspose.slides.lowcode/compress/)‑klasse om ongewenste en ongebruikte indelingsdia’s te verwijderen.
+## **Een lay‑out‑dia toevoegen**
 
-De volgende C++‑code laat zien hoe je een indelingsdia uit een PowerPoint‑presentatie verwijdert:
+Selectie en creatie zijn afzonderlijke handelingen. Het vorige voorbeeld selecteert een bestaande lay‑out; het maakt er geen nieuwe aan. Om een lay‑out te creëren, roep je de [IMasterLayoutSlideCollection::Add](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterlayoutslidecollection/add/)‑methode aan op de lay‑outcollectie van de doel‑master.
+
+Het volgende voorbeeld voegt altijd een nieuwe **Titel en inhoud**‑lay‑out toe met de naam `Report Title and Content`, en voegt vervolgens een normale dia toe die daarop gebaseerd is. Lay‑outnamen moeten binnen de collectie uniek zijn.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterLayoutSlideCollection.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
 
-Compress::RemoveUnusedLayoutSlides(presentation);
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto masterSlide = presentation->get_Master(0);
+auto reportLayout = masterSlide->get_LayoutSlides()->Add(SlideLayoutType::TitleAndObject, u"Report Title and Content");
+presentation->get_Slides()->AddEmptySlide(reportLayout);
+
+presentation->Save(u"output-with-report-layout.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Placeholders toevoegen aan dia‑indelingen**
+Voeg alleen een lay‑out toe wanneer de template echt een extra herbruikbare structuur nodig heeft. Als er al een geschikte lay‑out bestaat, selecteer en hergebruik die in plaats van een duplicaat te maken.
 
-Aspose.Slides biedt de [ILayoutSlide.get_PlaceholderManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/)‑methode, waarmee je nieuwe placeholders aan een indelingsdia kunt toevoegen.
+## **Plaatsaanduidingen toevoegen aan een lay‑out‑dia**
 
-Deze manager bevat methoden voor de volgende placeholder‑typen:
+De [ILayoutSlide::get_PlaceholderManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/get_placeholdermanager/)‑methode levert een [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/) voor het toevoegen van plaatsaanduidings‑vormen aan een lay‑out.
 
-| PowerPoint‑placeholder              | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/) Methode |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Content](content.png)             | AddContentPlaceholder(float x, float y, float width, float height) |
-| ![Content (Vertical)](contentV.png) | AddVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Text](text.png)                   | AddTextPlaceholder(float x, float y, float width, float height) |
-| ![Text (Vertical)](textV.png)       | AddVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Picture](picture.png)             | AddPicturePlaceholder(float x, float y, float width, float height) |
-| ![Chart](chart.png)                 | AddChartPlaceholder(float x, float y, float width, float height) |
-| ![Table](table.png)                 | AddTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | AddSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Media](media.png)                 | AddMediaPlaceholder(float x, float y, float width, float height) |
-| ![Online Image](onlineimage.png)    | AddOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint‑plaatsaanduiding       | `ILayoutPlaceholderManager` Method |
+| --------------------------------- | ---------------------------------- |
+| ![Content](content.png)           | [`AddContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addcontentplaceholder/) |
+| ![Content (Vertical)](contentV.png) | [`AddVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addverticalcontentplaceholder/) |
+| ![Text](text.png)                 | [`AddTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addtextplaceholder/) |
+| ![Text (Vertical)](textV.png)     | [`AddVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addverticaltextplaceholder/) |
+| ![Picture](picture.png)           | [`AddPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addpictureplaceholder/) |
+| ![Chart](chart.png)               | [`AddChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addchartplaceholder/) |
+| ![Table](table.png)               | [`AddTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addtableplaceholder/) |
+| ![SmartArt](smartart.png)         | [`AddSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addsmartartplaceholder/) |
+| ![Media](media.png)               | [`AddMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addmediaplaceholder/) |
+| ![Online Image](onlineImage.png)  | [`AddOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutplaceholdermanager/addonlineimageplaceholder/) |
 
-De volgende C++‑code demonstreert hoe je nieuwe placeholder‑vormen toevoegt aan de lege indelingsdia:
+Het volgende voorbeeld controleert of de **Leeg**‑lay‑out bestaat, voegt er vier plaatsaanduidingen aan toe, en maakt vervolgens een normale dia die de gewijzigde lay‑out gebruikt. De volgorde is bewust gekozen: de plaatsaanduidingen worden toegevoegd voordat de normale dia wordt aangemaakt, zodat Aspose.Slides de overeenkomstige plaatsaanduidings‑vormen op die dia kan genereren.
 
 ```cpp
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutPlaceholderManager.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ISlideCollection.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
-// Haal de lege indelingsdia op.
-auto layout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+auto blankLayout = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
 
-// Get the placeholder manager of the layout slide.
-auto placeholderManager = layout->get_PlaceholderManager();
+if (blankLayout == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a Blank layout slide.");
+}
 
-// Add different placeholders to the Blank layout slide.
-placeholderManager->AddContentPlaceholder(20, 20, 310, 270);
-placeholderManager->AddVerticalTextPlaceholder(350, 20, 350, 270);
-placeholderManager->AddChartPlaceholder(20, 310, 310, 180);
-placeholderManager->AddTablePlaceholder(350, 310, 350, 180);
+auto placeholderManager = blankLayout->get_PlaceholderManager();
+placeholderManager->AddContentPlaceholder(20.0f, 20.0f, 310.0f, 270.0f);
+placeholderManager->AddVerticalTextPlaceholder(350.0f, 20.0f, 350.0f, 270.0f);
+placeholderManager->AddChartPlaceholder(20.0f, 310.0f, 310.0f, 180.0f);
+placeholderManager->AddTablePlaceholder(350.0f, 310.0f, 350.0f, 180.0f);
 
-// Add a new slide with the Blank layout.
-auto newSlide = presentation->get_Slides()->AddEmptySlide(layout);
-
-presentation->Save(u"Placeholders.pptx", SaveFormat::Pptx);
+presentation->get_Slides()->AddEmptySlide(blankLayout);
+presentation->Save(u"output-with-placeholders.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 Het resultaat:
 
-![De placeholders op de indelingsdia](add_placeholders.png)
+![De plaatsaanduidingen op de lay‑out‑dia](add_placeholders.png)
 
-## **Voettekst‑zichtbaarheid instellen voor een indelingsdia**
+{{% alert color="warning" title="Waarschuwing" %}}
+Het wijzigen van geërfde opmaak of de geometrie van bestaande lay‑out‑plaatsaanduidingen kan invloed hebben op afhankelijke dia's. Een nieuw toegevoegde lay‑out‑plaatsaanduiding wordt niet automatisch achteraf toegevoegd aan bestaande normale dia's. Test lay‑out‑wijzigingen op een kopie van de presentatie en controleer elke afhankelijke dia.
+{{% /alert %}}
 
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, paginanummer en aangepaste tekst worden weergegeven of verborgen afhankelijk van de dia‑indeling. Aspose.Slides for Android stelt je in staat de zichtbaarheid van deze voettekst‑placeholders te regelen. Dit is handig wanneer je wilt dat bepaalde indelingen voettekstinformatie tonen terwijl andere schoon blijven.
+## **Ongebruikte lay‑out‑dia's verwijderen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar een indelingsdia op via de index.
-1. Stel de voettekst‑placeholder van de dia in op zichtbaar.
-1. Stel de paginanummer‑placeholder van de dia in op zichtbaar.
-1. Stel de datum‑tijd‑placeholder van de dia in op zichtbaar.
-1. Sla de presentatie op.
-
-De volgende C++‑code laat zien hoe je de zichtbaarheid van een dia‑voettekst instelt en gerelateerde taken uitvoert:
+Gebruik de [Compress::RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/)‑methode om lay‑outs te verwijderen waar geen normale dia naar verwijst. De methode laat lay‑outs die nog in gebruik zijn ongewijzigd.
 
 ```cpp
-auto presentation = MakeObject<Presentation>(u"Presentation.ppt");
-auto headerFooterManager = presentation->get_LayoutSlides()->idx_get(0)->get_HeaderFooterManager();
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <LowCode/Compress.h>
+#include <system/smart_ptr.h>
 
-if (!headerFooterManager->get_IsFooterVisible())
-{
-    headerFooterManager->SetFooterVisibility(true);
-}
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace Aspose::Slides::LowCode;
+using namespace System;
 
-if (!headerFooterManager->get_IsSlideNumberVisible())
-{
-    headerFooterManager->SetSlideNumberVisibility(true);
-}
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
-if (!headerFooterManager->get_IsDateTimeVisible())
-{
-    headerFooterManager->SetDateTimeVisibility(true);
-}
-
-headerFooterManager->SetFooterText(u"Footer text");
-headerFooterManager->SetDateTimeText(u"Date and time text");
-
-presentation->Save(u"Presentation.ppt", SaveFormat::Pptx);
+Compress::RemoveUnusedLayoutSlides(presentation);
+presentation->Save(u"output-without-unused-layouts.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Voettekst‑zichtbaarheid van sub‑dia's instellen**
+Om één specifieke lay‑out te verwijderen, gebruik eerst de [get_HasDependingSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/get_hasdependingslides/)‑methode of de [GetDependingSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/getdependingslides/)‑methode. Wijs eventuele afhankelijke dia's opnieuw toe voordat je [ILayoutSlide::Remove](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/remove/) aanroept. Een poging om een gebruikte lay‑out te verwijderen resulteert in een [PptxEditException](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pptxeditexception/).
 
-In PowerPoint‑presentaties kunnen voettekstelementen zoals datum, paginanummer en aangepaste tekst op master‑dia‑niveau worden beheerd om consistentie over alle indelingsdia’s te waarborgen. Aspose.Slides for Android maakt het mogelijk om de zichtbaarheid en inhoud van deze voettekst‑placeholders op de master‑dia in te stellen en deze instellingen door te voeren naar alle onderliggende indelingsdia’s. Deze aanpak zorgt voor uniforme voettekst‑informatie in de gehele presentatie.
+## **Voettekst‑zichtbaarheid op een lay‑out‑dia regelen**
 
-1. Maak een instantie van de [Presentation](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/)‑klasse.
-1. Haal een referentie naar de master‑dia op via de index.
-1. Stel de master‑ en alle onderliggende voettekst‑placeholders in op zichtbaar.
-1. Stel de master‑ en alle onderliggende paginanummer‑placeholders in op zichtbaar.
-1. Stel de master‑ en alle onderliggende datum‑tijd‑placeholders in op zichtbaar.
-1. Sla de presentatie op.
-
-De volgende C++‑code demonstreert deze bewerking:
+Een lay‑out heeft zijn eigen voettekst‑, dia‑nummer‑ en datum‑tijd‑plaatsaanduidingen. Gebruik de [ILayoutSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/get_headerfootermanager/)‑methode om die plaatsaanduidingen voor één lay‑out te beheren. Dit is handig wanneer bijvoorbeeld inhoud‑lay‑outs wel voetteksten moeten tonen, maar titel‑lay‑outs niet.
 
 ```cpp
-auto presentation = MakeObject<Presentation>();
+#include <DOM/IGlobalLayoutSlideCollection.h>
+#include <DOM/ILayoutSlide.h>
+#include <DOM/ILayoutSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <DOM/SlideLayoutType.h>
+#include <Export/SaveFormat.h>
+#include <system/exceptions.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
+
+auto layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::TitleAndObject);
+
+if (layoutSlide == nullptr)
+{
+    layoutSlide = presentation->get_LayoutSlides()->GetByType(SlideLayoutType::Blank);
+}
+
+if (layoutSlide == nullptr)
+{
+    throw InvalidOperationException(u"The presentation does not contain a suitable layout slide.");
+}
+
+auto headerFooterManager = layoutSlide->get_HeaderFooterManager();
+headerFooterManager->SetFooterVisibility(true);
+headerFooterManager->SetSlideNumberVisibility(true);
+headerFooterManager->SetDateTimeVisibility(true);
+headerFooterManager->SetFooterText(u"Footer text");
+headerFooterManager->SetDateTimeText(u"Date and time text");
+
+presentation->Save(u"output-with-layout-footers.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+## **Voettekst‑zichtbaarheid op een master en diens onderliggende lay‑outs regelen**
+
+Om consistente voettekstinstellingen toe te passen over een master‑hiërarchie, gebruik je de [IMasterSlide::get_HeaderFooterManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslide/get_headerfootermanager/)‑methode. De propagatiemethoden van [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/nl/cpp/aspose.slides/imasterslideheaderfootermanager/) werken op de master en zijn afhankelijke lay‑out‑dia's en normale dia's; ze richten zich niet alleen op één enkele normale dia.
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/IMasterSlideHeaderFooterManager.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"input.pptx");
 
 auto headerFooterManager = presentation->get_Master(0)->get_HeaderFooterManager();
-
 headerFooterManager->SetFooterAndChildFootersVisibility(true);
 headerFooterManager->SetSlideNumberAndChildSlideNumbersVisibility(true);
 headerFooterManager->SetDateTimeAndChildDateTimesVisibility(true);
-
 headerFooterManager->SetFooterAndChildFootersText(u"Footer text");
 headerFooterManager->SetDateTimeAndChildDateTimesText(u"Date and time text");
 
-presentation->Save(u"Output.pptx", SaveFormat::Pptx);
+presentation->Save(u"output-with-master-footers.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
 ## **FAQ**
 
-**Wat is het verschil tussen een masterslide en een indelingsdia?**
+**Wat is het verschil tussen een master‑dia en een lay‑out‑dia?**
 
-Een masterslide definieert het algemene thema en de standaardopmaak, terwijl indelingsdia’s specifieke rangschikkingen van placeholders voor verschillende soorten inhoud definiëren.
+Een master‑dia definieert het thema van de presentatie en de gedeelde opmaak. Een lay‑out‑dia behoort tot een master en definieert één herbruikbare rangschikking van plaatsaanduidingen. Normale dia's gebruiken die lay‑outs en slaan dia‑specifieke inhoud op.
 
-**Kan ik een indelingsdia van de ene presentatie naar de andere kopiëren?**
+**Kan ik een lay‑out‑dia van de ene presentatie naar de andere kopiëren?**
 
-Ja, je kunt een indelingsdia klonen vanuit de indelingsdia‑collectie van een presentatie, toegankelijk via de [get_LayoutSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/presentation/get_layoutslides/)‑methode, en deze invoegen in een andere presentatie met de `AddClone`‑methode.
+Ja. Voeg een kopie toe aan de doel‑collectie met de [IGlobalLayoutSlideCollection::AddClone](https://reference.aspose.com/slides/nl/cpp/aspose.slides/igloballayoutslidecollection/addclone/)‑methode. Bij het kopiëren tussen presentaties controleer je ook fonts, thema's, afbeeldingen en andere bronnen die door de bron‑lay‑out worden gebruikt.
 
-**Wat gebeurt er als ik een indelingsdia verwijder dat nog door een dia wordt gebruikt?**
+**Wat gebeurt er als ik een lay‑out wijzig die al in gebruik is?**
 
-Als je probeert een indelingsdia te verwijderen dat nog wordt gerefereerd door ten minste één dia in de presentatie, zal Aspose.Slides een [PptxEditException](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pptxeditexception/) werpen. Om dit te voorkomen, gebruik je [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/), die veilig alleen de niet‑gebruikte indelingsdia’s verwijdert.
+Afhankelijke dia's erven de lay‑out‑wijzigingen tenzij ze de getroffen opmaak of objecten lokaal overschrijven. De geometrie van plaatsaanduidingen en geërfde styling kunnen daardoor in één keer op veel dia's veranderen. Gebruik [GetDependingSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides/ilayoutslide/getdependingslides/) om de betrokken dia's te identificeren vóór het bewerken van de lay‑out.
+
+**Wat gebeurt er als ik een lay‑out verwijder die nog in gebruik is?**
+
+Aspose.Slides gooit een [PptxEditException](https://reference.aspose.com/slides/nl/cpp/aspose.slides/pptxeditexception/). Wijs eerst de afhankelijke dia's opnieuw toe, of gebruik [RemoveUnusedLayoutSlides](https://reference.aspose.com/slides/nl/cpp/aspose.slides.lowcode/compress/removeunusedlayoutslides/) om alleen niet‑gerefereerde lay‑outs te verwijderen.

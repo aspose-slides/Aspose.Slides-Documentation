@@ -15,7 +15,7 @@ keywords:
 - 标题幻灯片
 - 标题和内容
 - 部分标题
-- 双内容
+- 两列内容
 - 对比
 - 仅标题
 - 空白布局
@@ -29,243 +29,230 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Android 中管理和自定义幻灯片布局。通过 Java 代码示例探索布局类型、占位符控制和页脚可见性。"
+description: "通过 Java 在 Aspose.Slides for Android 中应用、创建和修改幻灯片布局，添加占位符，删除未使用的布局，并控制页脚可见性。"
 ---
-
 ## **概述**
 
-幻灯片布局定义了占位框的排列方式以及幻灯片内容的格式化。它控制哪些占位符可用以及它们出现的位置。幻灯片布局帮助您快速且一致地设计演示文稿——无论是创建简单的还是更复杂的内容。PowerPoint 中最常见的幻灯片布局包括：
+幻灯片布局定义了标题、文本、图片、图表和表格等占位符的位置和格式。应用布局可以为幻灯片提供一致的结构，同时允许每张幻灯片包含其自己的内容。
 
-**标题幻灯片布局** – 包含两个文本占位符：一个用于标题，一个用于副标题。
+最常用的布局包括：
 
-**标题和内容布局** – 在顶部有较小的标题占位符，下方有较大的内容占位符（如文本、项目符号、图表、图像等）。
+- **标题幻灯片**：包含标题和副标题占位符。
+- **标题和内容**：包含标题占位符和通用内容占位符。
+- **空白**：不包含任何内容占位符，适用于需要手动定位每个形状的情况。
 
-**空白布局** – 不包含任何占位符，您可以完全自行设计幻灯片。
+## **了解布局继承**
 
-幻灯片布局是幻灯片母版的一部分，母版是定义演示文稿布局样式的顶级幻灯片。您可以通过幻灯片母版访问和修改布局幻灯片——可以按类型、名称或唯一 ID 进行操作。或者，您也可以直接在演示文稿内编辑特定的布局幻灯片。
+演示文稿有三个相关层级：
 
-要在 Aspose.Slides for Android 中使用幻灯片布局，您可以使用：
+1. 一个[母版幻灯片](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslide/)定义主题、共享格式、背景和公共对象。
+1. 一个[布局幻灯片](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/)属于母版，定义特定的占位符排列。
+1. 一个[普通幻灯片](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islide/)使用一个布局并存储该幻灯片的内容。
 
-- 方法，例如 [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) 和 [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--)，位于 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类下
-- 类型，如 [ILayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/)，以及 [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+普通幻灯片从其布局继承主题和格式，布局则从其母版继承。直接在普通幻灯片上设置的值会覆盖该层级的继承值。创建普通幻灯片时，其占位符形状是根据所选布局生成的，而填入这些占位符的内容属于普通幻灯片。
 
-{{% alert title="Info" color="info" %}}
+在从布局创建幻灯片之前，请先向布局添加所需的占位符。随后再向布局添加占位符不会自动为已有的普通幻灯片添加相应的占位符形状。
 
-要了解更多关于母版幻灯片的使用，请查看 [Slide Master](/slides/zh/androidjava/slide-master/) 文章。
+此关系有两个重要后果：
 
-{{% /alert %}}
+- 更改布局上继承的格式或现有占位符的几何形状会更新所有依赖该布局的幻灯片。在编辑已在使用的布局之前，请检查其依赖的幻灯片并预览生成的演示文稿。
+- 仍被幻灯片使用的布局无法删除。请先将其依赖的幻灯片重新分配到其他布局，或仅删除未使用的布局。
 
-## **向演示文稿添加幻灯片布局**
+有关此层级顶部的更多信息，请参阅[幻灯片母版](/slides/zh/androidjava/slide-master/)。
 
-为了自定义幻灯片的外观和结构，您可能需要向演示文稿添加新的布局幻灯片。Aspose.Slides for Android 允许您检查特定布局是否已存在，必要时添加新布局，并基于该布局插入幻灯片。
+## **选择并应用幻灯片布局**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。
-1. 访问 [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/)。
-1. 检查所需的布局幻灯片是否已经存在于集合中。如果不存在，添加所需的布局幻灯片。
-1. 基于新布局幻灯片添加一个空白幻灯片。
-1. 保存演示文稿。
+当演示文稿遵循标准 PowerPoint 布局定义时，请使用布局类型。布局名称可由用户编辑并本地化，因此除非您控制源模板，否则基于名称的选择可靠性较低。
 
-以下 Java 代码演示了如何向 PowerPoint 演示文稿添加幻灯片布局：
+下面的示例在第一个母版上查找**标题和内容**布局。如果该布局不可用，则有意回退到**空白**。第二次空检查是必要的，因为演示文稿可能只包含自定义布局。随后通过[ISlide.setLayoutSlide](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-)方法将选定的布局应用到第一个普通幻灯片。
+
 ```java
-// 实例化表示 PowerPoint 文件的 Presentation 类。
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // 遍历布局幻灯片类型以选择布局幻灯片。
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // 演示文稿不包含所有布局类型的情况。
-        // 演示文稿文件仅包含 Blank 和 Custom 布局类型。
-        // 但是，具有自定义类型的布局幻灯片可能具有可识别的名称，
-        // 如 “Title”“Title and Content”等，可用于布局幻灯片选择。
-        // 也可以依据一组占位符形状类型。
-        // 例如，标题幻灯片应只有 Title 占位符类型，依此类推。
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // 使用添加的布局幻灯片插入一个空白幻灯片。
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // 将演示文稿保存到磁盘。
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+更改幻灯片的布局不会删除直接添加到幻灯片的普通形状。但占位符位置、继承的格式以及现有占位符与新布局之间的对应关系可能会改变，因此在在差异较大的布局之间切换时请检查输出。
 
-## **移除未使用的布局幻灯片**
+## **添加布局幻灯片**
 
-Aspose.Slides 提供了位于 [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) 类中的 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 方法，以便您删除不需要的未使用布局幻灯片。
+选择和创建是分开的操作。前面的示例只选择了已有布局，并未创建新的布局。要创建布局，请在目标母版的布局集合上调用[IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-)方法。
 
-以下 Java 代码展示了如何从 PowerPoint 演示文稿中移除布局幻灯片：
+下面的示例始终添加一个新的**标题和内容**布局，名称为`Report Title and Content`，随后基于该布局添加普通幻灯片。布局名称在集合内必须唯一。
+
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
-try {
-    Compress.removeUnusedLayoutSlides(presentation);
+import com.aspose.slides.*;
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+Presentation presentation = new Presentation("input.pptx");
+try {
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+仅在模板确实需要另一个可重用结构时才添加布局。如果已存在合适的布局，请选择并重复使用，而不是创建重复的布局。
 
 ## **向布局幻灯片添加占位符**
 
-Aspose.Slides 提供了 [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 方法，允许您向布局幻灯片添加新占位符。
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--)方法提供一个[ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/)用于向布局添加占位符形状。
 
-该管理器包含以下占位符类型的方法：
+| PowerPoint 占位符                | `ILayoutPlaceholderManager` 方法 |
+| --------------------------------- | -------------------------------- |
+| ![内容](content.png)              | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![内容（垂直）](contentV.png)     | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![文本](text.png)                 | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![文本（垂直）](textV.png)        | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![图片](picture.png)              | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![图表](chart.png)                | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![表格](table.png)                | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)         | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![媒体](media.png)                | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![在线图片](onlineImage.png)      | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-| PowerPoint 占位符                | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) 方法 |
-| -------------------------------- | ------------------------------------------------------------ |
-| ![内容](content.png)             | addContentPlaceholder(float x, float y, float width, float height) |
-| ![内容（垂直）](contentV.png)    | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![文本](text.png)                | addTextPlaceholder(float x, float y, float width, float height) |
-| ![文本（垂直）](textV.png)       | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![图片](picture.png)             | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![图表](chart.png)               | addChartPlaceholder(float x, float y, float width, float height) |
-| ![表格](table.png)               | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)        | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![媒体](media.png)               | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![在线图片](onlineimage.png)    | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+下面的示例验证**空白**布局是否存在，向其添加四个占位符，然后创建使用该修改后布局的普通幻灯片。顺序是刻意的：在创建普通幻灯片之前先添加占位符，这样 Aspose.Slides 能在该幻灯片上生成相应的占位符形状。
 
-以下 Java 代码演示了如何向空白布局幻灯片添加新的占位符形状：
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // 获取 Blank 布局幻灯片。
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // 获取布局幻灯片的占位符管理器。
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // 向 Blank 布局幻灯片添加不同的占位符。
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // 使用 Blank 布局添加新幻灯片。
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 结果：
 
 ![布局幻灯片上的占位符](add_placeholders.png)
 
-## **设置布局幻灯片的页脚可见性**
+{{% alert color="warning" title="Warning" %}}
+更改继承的格式或现有布局占位符的几何形状可能会影响依赖的幻灯片。新添加的布局占位符不会回填到已有的普通幻灯片中。请在演示文稿的副本上测试布局更改，并检查每一张依赖的幻灯片。
+{{% /alert %}}
 
-在 PowerPoint 演示文稿中，页脚元素（如日期、幻灯片编号和自定义文本）可以根据布局幻灯片的不同显示或隐藏。Aspose.Slides for Android 允许您控制这些页脚占位符的可见性。这对于希望某些布局显示页脚信息而其他布局保持简洁的情况非常有用。
+## **删除未使用的布局幻灯片**
 
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。
-1. 通过索引获取布局幻灯片的引用。
-1. 将幻灯片页脚占位符设置为可见。
-1. 将幻灯片编号占位符设置为可见。
-1. 将日期时间占位符设置为可见。
-1. 保存演示文稿。
+使用[Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)方法删除没有普通幻灯片引用的布局。该方法会保留仍在使用的布局。
 
-以下 Java 代码展示了如何设置幻灯片页脚的可见性并执行相关操作：
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+要删除特定布局，首先使用其[hasDependingSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--)或[getDependingSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--)方法。在调用[ILayoutSlide.remove](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#remove--)之前，先重新分配任何依赖的幻灯片。尝试删除正在使用的布局会抛出[PptxEditException](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/pptxeditexception/)。
+
+## **在布局幻灯片上控制页脚可见性**
+
+布局拥有自己的页脚、幻灯片编号和日期时间占位符。使用[ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--)方法可为单个布局控制这些占位符。这在例如内容布局需要显示页脚而标题布局不需要时非常有用。
+
+下面的示例安全地选择一个布局并使其页脚元素可见：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **在母版及其子布局上控制页脚可见性**
 
-## **设置子布局幻灯片的页脚可见性**
+要在母版层次结构中统一页脚设置，请使用[IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--)方法。[IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/imasterslideheaderfootermanager/)的传播方法作用于母版及其依赖的布局幻灯片和普通幻灯片；它们不会只针对单个普通幻灯片。
 
-在 PowerPoint 演示文稿中，页脚元素（如日期、幻灯片编号和自定义文本）可以在母版幻灯片层面进行控制，以确保所有布局幻灯片的一致性。Aspose.Slides for Android 使您能够在母版幻灯片上设置这些页脚占位符的可见性和内容，并将这些设置传播到所有子布局幻灯片，从而在整个演示文稿中保持统一的页脚信息。
-
-1. 创建一个 [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 类的实例。
-1. 通过索引获取母版幻灯片的引用。
-1. 将母版及所有子布局的页脚占位符设置为可见。
-1. 将母版及所有子布局的幻灯片编号占位符设置为可见。
-1. 将母版及所有子布局的日期时间占位符设置为可见。
-1. 保存演示文稿。
-
-以下 Java 代码演示了此操作：
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 ## **常见问题**
 
 **母版幻灯片和布局幻灯片有什么区别？**
 
-母版幻灯片定义整体主题和默认格式，而布局幻灯片则为不同类型的内容定义占位符的具体排列方式。
+母版幻灯片定义演示文稿的主题和共享格式。布局幻灯片属于母版，定义一种可复用的占位符排列。普通幻灯片使用这些布局并存储特定于幻灯片的内容。
 
-**我可以将布局幻灯片从一个演示文稿复制到另一个吗？**
+**可以将布局幻灯片从一个演示文稿复制到另一个吗？**
 
-可以，您可以通过 [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) 方法获取的布局幻灯片集合克隆布局幻灯片，然后使用 `addClone` 方法将其插入到另一个演示文稿中。
+可以。使用[addClone](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-)方法将副本添加到目标集合。在跨演示文稿复制时，还需检查源布局使用的字体、主题、图像和其他资源。
 
-**如果删除仍被幻灯片使用的布局幻灯片会怎样？**
+**修改已在使用的布局会怎样？**
 
-如果尝试删除仍被演示文稿中至少一张幻灯片引用的布局幻灯片，Aspose.Slides 会抛出 [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/)。为避免此问题，请使用 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 方法，它只会安全地移除未使用的布局幻灯片。
+依赖的幻灯片会继承布局的更改，除非它们在本地覆盖了受影响的格式或对象。因此，占位符的几何形状和继承的样式可能会一次性在多个幻灯片上改变。使用[getDependingSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--)在编辑布局之前识别受影响的幻灯片。
+
+**如果删除仍在使用的布局会怎样？**
+
+Aspose.Slides 会抛出[PptxEditException]。请先重新分配依赖的幻灯片，或使用[removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)只删除未被引用的布局。

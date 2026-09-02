@@ -49,6 +49,26 @@ with slides.Presentation("chart.pptx") as presentation:
     chart.chart_data.write_workbook_stream(data_stream)
 ```
 
+### **Validate Chart Layout After Workbook Modification**
+
+When you replace an embedded workbook with a modified one, the chart retains its original series and category collections. This mismatch can cause [IChart.validate_chart_layout](https://reference.aspose.com/slides/python-net/aspose.slides.charts/ichart/validate_chart_layout/) to fail with an index-out-of-range error. Clear the existing series and categories before writing the updated workbook back to the chart.
+
+```python
+# After modifying the workbook stream (e.g., using Aspose.Cells)
+updated_workbook = chart_data.read_workbook_stream()
+
+# Clear existing data references.
+chart_data.series.clear()
+chart_data.categories.clear()
+
+updated_workbook.seek(0)
+chart_data.write_workbook_stream(updated_workbook)
+
+chart.validate_chart_layout()
+```
+
+Clearing the collections ensures that the chart data structure is consistent with the new workbook, allowing `validate_chart_layout` to complete without errors.
+
 ## **Set a WorkBook Cell as a Chart Data Label**
 
 Sometimes you need chart labels that come directly from cells in the underlying data workbook. Aspose.Slides allows you to bind data labels to specific workbook cells so the label text always reflects the cell’s value. The example below shows how to enable value-from-cell labels and point selected labels to custom cells in the chart’s workbook.

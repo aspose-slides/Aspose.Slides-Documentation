@@ -7,20 +7,20 @@ url: /zh-hant/androidjava/slide-layout/
 keywords:
 - 投影片版面
 - 內容版面
-- 佔位元件
+- 佔位元
 - 簡報設計
 - 投影片設計
 - 未使用的版面
-- 頁尾可見性
+- 頁腳可見性
 - 標題投影片
 - 標題與內容
-- 區段標題
-- 兩個內容
+- 節標題
+- 雙內容
 - 比較
-- 只有標題
+- 僅標題
 - 空白版面
-- 內容與說明文字
-- 圖片與說明文字
+- 帶說明文字的內容
+- 帶說明文字的圖片
 - 標題與垂直文字
 - 垂直標題與文字
 - PowerPoint
@@ -29,240 +29,230 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "在 Aspose.Slides for Android 中管理與自訂投影片版面。透過 Java 程式碼範例探索版面類型、佔位元件控制與頁尾可見性。"
+description: "在 Aspose.Slides for Android（使用 Java）中套用、建立與修改投影片版面，新增佔位元、移除未使用的版面，並控制頁腳可見性。"
 ---
-## **簡介**
+## **概述**
 
-投影片版面定義了投影片上佔位盒的排列方式與內容的格式設定。它控制哪些佔位元件可用以及它們出現的位置。投影片版面協助您快速且一致地設計簡報——無論是建立簡單或較複雜的內容。PowerPoint 中最常見的投影片版面包括：
+投影片版面定義了標題、文字、圖片、圖表與表格等佔位元的定位與格式。套用版面可為投影片提供一致的結構，同時允許每張投影片保有自己的內容。
 
-**標題投影片版面** – 包含兩個文字佔位元件：一個用於標題，另一個用於副標題。
+最常見的版面包括：
 
-**標題與內容版面** – 於頂部有較小的標題佔位元件，下方則有較大的主要內容佔位元件（如文字、項目符號、圖表、影像等）。
+- **Title Slide**：包含標題與副標題佔位元。
+- **Title and Content**：包含標題佔位元與通用內容佔位元。
+- **Blank**：不含任何內容佔位元，適用於所有圖形需要手動定位的情況。
 
-**空白版面** – 不含任何佔位元件，讓您完全自行從頭設計投影片。
+## **了解版面繼承**
 
-投影片版面是投影片母片的一部分，母片是定義簡報版面樣式的最高層級投影片。您可以透過投影片母片存取並修改版面投影片——可依類型、名稱或唯一 ID。或者，您也可以直接在簡報內編輯特定的版面投影片。
+簡報具有三個相關層級：
 
-若要在 Aspose.Slides for Android 中使用投影片版面，您可以使用：
+1. [master slide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslide/) 定義主題、共享格式、背景與共用物件。
+2. [layout slide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/) 隸屬於 master，並定義特定的佔位元排列。
+3. [normal slide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islide/) 使用單一版面，並儲存該投影片輸入的內容。
 
-- 方法，例如在 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別下的 [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getLayoutSlides--)和[getMasters](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getMasters--)。
-- 型別，例如 [ILayoutSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/)、[IMasterLayoutSlideCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterlayoutslidecollection/)、[ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/)、以及[ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)。
+normal slide 會從其版面繼承主題與格式，而版面則從 master 繼承。直接設定於 normal slide 的值會覆寫該層級繼承的值。建立 normal slide 時，其佔位元形狀會根據所選版面產生，而填入佔位元的內容則屬於 normal slide。
 
-{{% alert title="Info" color="info" %}}
-若想了解更多有關使用母片的資訊，請參閱 [Slide Master](/slides/zh-hant/androidjava/slide-master/) 文章。
-{{% /alert %}}
+在使用版面建立投影片之前，請先於版面加入必要的佔位元。之後再向版面新增佔位元，並不會自動為已存在的 normal slide 加入相應的佔位元形狀。
 
-## **將投影片版面新增至簡報**
+此關係帶來兩個重要的結果：
 
-若要自訂投影片的外觀與結構，您可能需要在簡報中新增版面投影片。Aspose.Slides for Android 允許您檢查特定版面是否已存在，若需要則新增，並使用該版面插入投影片。
+- 變更版面上繼承的格式或既有佔位元的幾何形狀，會更新所有依賴該版面的投影片。編輯已在使用的版面前，請先檢查其依賴的投影片並審視最終簡報。
+- 仍被投影片使用的版面無法移除。必須先將依賴的投影片重新指派至其他版面，或僅刪除未使用的版面。
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。  
-1. 取得 [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterlayoutslidecollection/)。  
-1. 檢查所需的版面投影片是否已存在於集合中。若不存在，則新增所需的版面投影片。  
-1. 依據新建立的版面投影片新增一張空白投影片。  
-1. 儲存簡報。
+如需瞭解此層級階層的頂層資訊，請參閱 [Slide Master](/slides/zh-hant/androidjava/slide-master/)。
 
-以下 Java 程式碼示範如何將投影片版面新增至 PowerPoint 簡報：
+## **選取與套用投影片版面**
+
+當簡報遵循標準 PowerPoint 版面定義時，請使用版面類型。版面名稱可由使用者編輯且能本地化，因此以名稱進行選取的可靠度較低，除非您掌控來源模板。
+
+以下範例在第一個 master 上尋找 **Title and Content**。若找不到該版面，則刻意退回使用 **Blank**。第二個 null 檢查是必要的，因為簡報可能僅包含自訂版面。接著透過 [ISlide.setLayoutSlide](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) 方法，將選取的版面套用至第一張 normal slide。
 
 ```java
-// 實例化代表 PowerPoint 檔案的 Presentation 類別。
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // 瀏覽版面投影片類型以選取版面投影片。
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // 簡報未包含所有版面類型的情況。
-        // 簡報檔案僅包含空白與自訂版面類型。
-        // 然而，具有自訂類型的版面投影片可能具有可辨識的名稱，
-        // 例如「Title」、「Title and Content」等，可用於版面投影片的選取。
-        // 您也可以依賴一組佔位形狀類型。
-        // 例如，標題投影片應僅有 Title 佔位元件類型，依此類推。
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // 使用新增的版面投影片插入一張空白投影片。
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // 將簡報儲存至磁碟。
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **移除未使用的版面投影片**
+變更投影片的版面不會移除直接加於投影片的普通圖形。但佔位元位置、繼承的格式以及既有佔位元與新版面的對應關係可能會改變，因此在切換差異較大的版面時請檢查輸出結果。
 
-Aspose.Slides 於 [Compress](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/compress/) 類別提供 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 方法，讓您刪除不需要且未使用的版面投影片。
+## **新增版面投影片**
 
-以下 Java 程式碼示範如何從 PowerPoint 簡報中移除版面投影片：
+選取與建立是分開的動作。前一個範例僅選取既有版面，並未建立。若要建立版面，請在目標 master 的版面集合上呼叫 [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) 方法。
+
+以下範例會始終新增一個名為 `Report Title and Content` 的 **Title and Content** 版面，接著加入一張以該版面為基礎的 normal slide。版面名稱在集合內必須唯一。
 
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **在投影片版面中新增佔位元件**
+僅在模板真的需要另一個可重複使用的結構時才新增版面。若已有合適的版面，請選取並重複使用，而非建立重複的版面。
 
-Aspose.Slides 提供 [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 方法，讓您能在版面投影片中新增佔位元件。
+## **在版面投影片中新增佔位元**
 
-此管理器包含以下佔位元件類型的相關方法：
+[ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) 方法會回傳一個 [ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/)，用於在版面中新增佔位元形狀。
 
-| PowerPoint 佔位元件 | [ILayoutPlaceholderManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) 方法 |
-| ------------------- | ------------------------------------------------------------ |
-| ![內容](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![內容 (垂直)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![文字](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![文字 (垂直)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![圖片](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![圖表](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![表格](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![媒體](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![線上影像](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint 佔位元                | `ILayoutPlaceholderManager` 方法 |
+| -------------------------------- | -------------------------------- |
+| ![內容](content.png)             | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![內容 (垂直)](contentV.png)     | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![文字](text.png)                | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![文字 (垂直)](textV.png)        | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![圖片](picture.png)             | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![圖表](chart.png)               | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![表格](table.png)               | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png)        | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![媒體](media.png)               | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![線上圖片](onlineImage.png)     | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-以下 Java 程式碼示範如何將新佔位元件形狀新增至空白版面投影片：
+以下範例驗證 **Blank** 版面是否存在，向其新增四個佔位元，然後建立使用該修改後版面的 normal slide。此順序刻意為之：先加入佔位元再建立 normal slide，讓 Aspose.Slides 能於該投影片產生相對應的佔位元形狀。
 
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // 取得空白版面投影片。
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // 取得版面投影片的佔位元件管理器。
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // 在空白版面投影片上新增不同的佔位元件。
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // 使用空白版面新增一張投影片。
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-結果如下：
+結果：
 
-![版面投影片上的佔位元件](add_placeholders.png)
+![版面投影片上的佔位元](add_placeholders.png)
 
-## **設定版面投影片的頁尾可見性**
+{{% alert color="warning" title="Warning" %}}
+變更繼承的格式或既有版面佔位元的幾何形狀可能會影響依賴的投影片。新加入的版面佔位元不會自動填入既有的 normal slide。請在簡報的副本上測試版面變更，並檢查所有依賴的投影片。
+{{% /alert %}}
 
-在 PowerPoint 簡報中，頁尾元素（如日期、投影片編號與自訂文字）可依版面顯示或隱藏。Aspose.Slides for Android 允許您控制這些頁尾佔位元件的可見性。當您希望某些版面顯示頁尾資訊，而其他版面保持簡潔時，此功能相當有用。
+## **移除未使用的版面投影片**
 
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。  
-1. 依索引取得版面投影片的參照。  
-1. 設定投影片頁尾佔位元件為可見。  
-1. 設定投影片編號佔位元件為可見。  
-1. 設定日期時間佔位元件為可見。  
-1. 儲存簡報。
-
-以下 Java 程式碼示範如何設定投影片頁尾的可見性以及相關操作：
+使用 [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 方法移除沒有任何 normal slide 參考的版面。此方法會保留仍在使用中的版面不變。
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+若要移除特定的版面，請先使用其 [hasDependingSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) 或 [getDependingSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) 方法。於呼叫 [ILayoutSlide.remove](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#remove--) 之前，先重新指派所有依賴的投影片。嘗試移除仍在使用中的版面會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。
+
+## **控制版面投影片的頁腳可見性**
+
+版面擁有自己的頁腳、投影片編號與日期時間佔位元。使用 [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) 方法，可針對單一版面控制這些佔位元。此功能在例如內容版面需要顯示頁腳，而標題版面則不需要時，非常有用。
+
+以下範例安全地選取一個版面，並將其頁腳元素設為可見：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **設定子版面投影片的頁尾可見性**
+## **控制 Master 及其子版面的頁腳可見性**
 
-在 PowerPoint 簡報中，頁尾元素（例如日期、投影片編號與自訂文字）可在母片層級控制，以確保所有版面投影片的一致性。Aspose.Slides for Android 讓您可在母片上設定這些頁尾佔位元件的可見性與內容，並將設定傳遞至所有子版面投影片。此作法確保簡報中頁尾資訊保持統一。
-
-1. 建立 [Presentation](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/) 類別的實例。  
-1. 依索引取得母片的參照。  
-1. 設定母片及所有子投影片的頁尾佔位元件為可見。  
-1. 設定母片及所有子投影片的投影片編號佔位元件為可見。  
-1. 設定母片及所有子投影片的日期時間佔位元件為可見。  
-1. 儲存簡報。
-
-以下 Java 程式碼示範此操作：
+若要在 master 階層中套用一致的頁腳設定，請使用 [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--) 方法。[IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) 的傳播方法會作用於 master 及其依賴的版面投影片與 normal slide；不會僅針對單一 normal slide。
 
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **常見問題**
+## **常見問答**
 
-**母片與版面投影片有何差異？**
+**Master Slide 與 Layout Slide 有何差異？**
 
-母片定義整體主題與預設格式，而版面投影片則針對不同類型的內容定義特定的佔位元件排列方式。
+master slide 定義簡報的主題與共享格式。layout slide 隸屬於 master，定義一個可重複使用的佔位元排列。normal slide 會使用這些版面，並儲存投影片特定的內容。
 
-**我可以將版面投影片從一個簡報複製到另一個嗎？**
+**可以將 Layout Slide 從一個簡報複製到另一個簡報嗎？**
 
-是的，您可以從一個簡報的版面投影片集合（可透過 [getLayoutSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) 方法取得）中複製（克隆）版面投影片，然後使用 `addClone` 方法將其插入另一個簡報。
+可以。使用 [addClone](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-) 方法將副本加入目標集合。於簡報之間複製時，同時須確認來源版面使用的字型、主題、影像及其他資源。
 
-**如果我刪除仍被投影片使用的版面投影片會發生什麼？**
+**當我修改已在使用的版面時會發生什麼？**
 
-如果您嘗試刪除仍被簡報中至少一張投影片引用的版面投影片，Aspose.Slides 會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。為避免此情況，請使用 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-)，它只會安全地移除未使用的版面投影片。
+依賴的投影片會繼承版面的變更，除非它們在本機覆寫了受影響的格式或物件。因而多張投影片的佔位元幾何形狀與繼承樣式可能同時改變。編輯版面前，請使用 [getDependingSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) 以辨識受影響的投影片。
+
+**如果移除仍在使用中的版面會發生什麼？**
+
+Aspose.Slides 會拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/pptxeditexception/)。請先重新指派依賴的投影片，或使用 [removeUnusedLayoutSlides](https://reference.aspose.com/slides/zh-hant/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) 只移除未被參照的版面。

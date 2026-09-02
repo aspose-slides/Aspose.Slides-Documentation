@@ -18,11 +18,11 @@ description: "Kloon of dupliceer snel PowerPoint-dia's met Aspose.Slides voor Py
 
 Klonen is het proces waarbij een exacte kopie of replica van iets wordt gemaakt. Aspose.Slides stelt u ook in staat om (een) dia te kopiëren (klonen) en vervolgens de gekloonde dia in de huidige presentatie of een andere geopende presentatie in te voegen. Dia‑klonen maakt een nieuwe dia aan die ontwikkelaars kunnen aanpassen zonder de originele dia te beïnvloeden. Er zijn verschillende manieren om een dia te klonen:
 
-- Kloon aan het einde van een presentatie.
-- Kloon op een andere positie binnen een presentatie.
-- Kloon aan het einde van een andere presentatie.
-- Kloon op een andere positie in een andere presentatie.
-- Kloon op een specifieke positie in een andere presentatie.
+- Een dia klonen aan het einde van een presentatie.
+- Een dia klonen op een andere positie binnen een presentatie.
+- Een dia klonen aan het einde van een andere presentatie.
+- Een dia klonen op een andere positie in een andere presentatie.
+- Een dia klonen op een specifieke positie in een andere presentatie.
 
 In Aspose.Slides voor Python via .NET biedt de [dia collectie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/slidecollection/) die door het [Presentatie](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/) object wordt blootgesteld, de methoden `add_clone` en `insert_clone` om deze vormen van dia‑klonen uit te voeren.
 
@@ -34,7 +34,7 @@ pip install aspose.slides
 
 ## **Kloon aan het einde binnen dezelfde presentatie**
 
-Als u een dia binnen dezelfde presentatie wilt klonen en aan het einde van de bestaande dia's wilt toevoegen, gebruikt u de `add_clone`‑methode. Volg deze stappen:
+Als u een dia binnen dezelfde presentatie wilt klonen en aan het einde van de bestaande dia's wilt toevoegen, gebruik dan de `add_clone` methode. Volg deze stappen:
 
 1. Maak een instantie van de Presentatie‑klasse.
 1. Haal de dia collectie op uit het Presentatie‑object.
@@ -150,13 +150,13 @@ import aspose.slides as slides
 with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_presentation:
     # Instantieer de Presentation-klasse voor de doelpresentatie waarin de dia gekloond zal worden.
     with slides.Presentation() as target_presentation:
-        # Haal de eerste dia op uit de bronpresentatie.
+        # Haal de eerste dia uit de bronpresentatie.
         source_slide = source_presentation.slides[0]
         # Haal de masterdia op die door de eerste dia wordt gebruikt.
         source_master = source_slide.layout_slide.master_slide
         # Kloon de masterdia naar de mastercollectie van de doelpresentatie.
         cloned_master = target_presentation.masters.add_clone(source_master)
-        # Kloon de dia uit de bronpresentatie naar het einde van de doelpresentatie met gebruik van de gekloonde master.
+        # Kloon de dia uit de bronpresentatie naar het einde van de doelpresentatie met behulp van de gekloonde master.
         target_presentation.slides.add_clone(source_slide, cloned_master, True)
         # Sla de doelpresentatie op naar schijf.
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)

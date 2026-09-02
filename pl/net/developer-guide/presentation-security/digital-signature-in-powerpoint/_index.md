@@ -1,5 +1,5 @@
 ---
-title: Dodaj podpisy cyfrowe do prezentacji w .NET
+title: Dodawanie podpisów cyfrowych do prezentacji w .NET
 linktitle: Podpis cyfrowy
 type: docs
 weight: 10
@@ -9,88 +9,158 @@ keywords:
 - certyfikat cyfrowy
 - urząd certyfikacji
 - certyfikat PFX
+- PKCS#12
+- weryfikacja podpisu
 - PowerPoint
-- OpenDocument
-- prezentacja
+- PPTX
+- bezpieczeństwo prezentacji
 - .NET
 - C#
 - Aspose.Slides
-description: "Dowiedz się, jak cyfrowo podpisać pliki PowerPoint i OpenDocument przy użyciu Aspose.Slides dla .NET. Zabezpiecz swoje slajdy w kilka sekund dzięki przejrzystym przykładom kodu."
+description: "Dowiedz się, jak podpisywać istniejące prezentacje PPTX certyfikatami PFX oraz używać Aspose.Slides dla .NET do weryfikacji lub usuwania podpisów cyfrowych."
 ---
-## **Wprowadzenie**
+## **Przegląd**
 
-**Certyfikat cyfrowy** jest używany do tworzenia prezentacji PowerPoint chronionej hasłem, oznaczonej jako utworzonej przez określoną organizację lub osobę. Certyfikat cyfrowy można uzyskać, kontaktując się z autoryzowaną organizacją – urzędem certyfikacji. Po zainstalowaniu certyfikatu cyfrowego w systemie można go używać do dodania cyfrowego podpisu do prezentacji poprzez Plik → Informacje → Zabezpiecz prezentację:
+Podpis cyfrowy pomaga odbiorcy określić, kto podpisał prezentację i czy podpisana zawartość uległa zmianie. Trzy powiązane pojęcia bezpieczeństwa są tutaj istotne:
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/OPGhgHMb_L54PGJztP5oIO9zhxGXzhtnbcrC-z7yLUrc_NkRX1obBfwffXhPV1NWBiqhidiupCphixNGl25LkfQhliG6MCM6E-x16ZuQgMyLABC9bQ446ohMluZr6-ThgQLXCOyy)
+- **certyfikat cyfrowy** jest elektronicznym poświadczeniem, które łączy tożsamość z kluczem publicznym. Zaufany urząd certyfikacji (CA) może wystawić certyfikat, lub organizacja może używać certyfikatu samopodpisanego w wewnętrznych procesach.
+- **podpis cyfrowy** jest tworzony z zawartości prezentacji oraz prywatnego klucza posiadacza certyfikatu. Publiczny klucz certyfikatu może być następnie użyty do weryfikacji podpisu. Podpis dostarcza dowodu pochodzenia i integralności; nie szyfruje prezentacji.
+- **Ochrona hasłem** kontroluje, czy użytkownik może otworzyć lub modyfikować prezentację. Jest ona oddzielna od podpisywania cyfrowego i jest opisana w [Prezentacje chronione hasłem](/net/password-protected-presentation/).
 
-Prezentacja może zawierać więcej niż jeden podpis cyfrowy. Po dodaniu cyfrowego podpisu do prezentacji pojawi się specjalna wiadomość w PowerPoint:
+PowerPoint udostępnia polecenie **Add a Digital Signature** w menu **File > Info > Protect Presentation**.
 
-![todo:image_alt_text](https://lh3.googleusercontent.com/7ZfH7wElhwcvgJ_btF3C32zasBRbT1yA4tFOpnNnUm0q57ayBKJr0Pb43Oi4RgeCoOmwhyxxz_g8kw3H3Qw8Iqeaka5Xipip9cqvwbadY4E40D_NhXnUnbtdXSHFX6fjNm_UBvLJ)
+![Menu PowerPoint Protect Presentation z podświetnionym Add a Digital Signature](add-digital-signature-in-powerpoint.png)
 
-Aby podpisać prezentację lub sprawdzić autentyczność podpisów, **Aspose.Slides API** udostępnia [**IDigitalSignature**](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignature) interfejs, [**IDigitalSignatureCollection**](https://reference.aspose.com/slides/pl/net/aspose.slides/IDigitalSignatureCollection) interfejs i [**IPresentation.DigitalSignatures**](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/properties/digitalsignatures) właściwość. Obecnie podpisy cyfrowe są obsługiwane tylko dla formatu PPTX.
+Po otwarciu podpisanej prezentacji PowerPoint może wyświetlić powiadomienie o stanie podpisu.
 
-## **Dodaj podpis cyfrowy z certyfikatu PFX**
+![Powiadomienie PowerPoint informujące, że prezentacja zawiera prawidłowe podpisy](digital-signature-status-in-powerpoint.png)
 
-Przykład kodu poniżej pokazuje, jak dodać podpis cyfrowy z certyfikatu PFX:
+Aspose.Slides udostępnia podpisy poprzez [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/digitalsignatures/), [IDigitalSignatureCollection](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignaturecollection/), którego elementy implementują [IDigitalSignature](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignature/). Prezentacja może zawierać wiele podpisów.
 
-1. Otwórz plik PFX i przekaż hasło PFX do [**DigitalSignature**](https://reference.aspose.com/slides/pl/net/aspose.slides/digitalsignature) obiektu.  
-1. Dodaj utworzony podpis do obiektu prezentacji.
+## **Zrozumienie certyfikatów PFX i haseł**
 
-```c#
-using (Presentation pres = new Presentation())
+Plik PFX, znany również jako plik PKCS#12 i zwykle posiadający rozszerzenie `.pfx` lub `.p12`, może zawierać certyfikat X.509, jego prywatny klucz oraz łańcuch certyfikatów. Prywatny klucz umożliwia posiadaczowi stworzenie podpisu. Certyfikat bez dostępnego prywatnego klucza nie może być użyty do podpisania prezentacji.
+
+Hasło PFX chroni pakiet certyfikatu i prywatny klucz. **Nie** jest to hasło do otwierania lub edytowania prezentacji. Nie zapisuj plików PFX ani ich haseł w systemie kontroli wersji. W środowisku produkcyjnym ogranicz dostęp do pliku certyfikatu i pobieraj jego hasło ze sklepu tajemnic lub innego chronionego źródła konfiguracji. Poniższe przykłady używają zmiennej środowiskowej wyłącznie po to, aby uniknąć osadzania hasła w kodzie.
+
+## **Dodaj podpis cyfrowy do prezentacji**
+
+Aby podpisać rzeczywistą prezentację, wczytaj istniejący plik PPTX, utwórz [DigitalSignature](https://reference.aspose.com/slides/pl/net/aspose.slides/digitalsignature/) z certyfikatu PFX i jego hasła, dodaj podpis do kolekcji prezentacji i zapisz do pliku PPTX.
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+var certificatePassword = Environment.GetEnvironmentVariable("PFX_PASSWORD")
+    ?? throw new InvalidOperationException("Set the PFX_PASSWORD environment variable.");
+
+using var presentation = new Presentation("InputPresentation.pptx");
+
+var signature = new DigitalSignature("signing-certificate.pfx", certificatePassword)
 {
-    // Utwórz obiekt DigitalSignature z plikiem PFX i hasłem PFX 
-    DigitalSignature signature = new DigitalSignature("testsignature1.pfx", @"testpass1");
+    Comments = "Approved for release."
+};
 
-    // Skomentuj nowy podpis cyfrowy
-    signature.Comments = "Aspose.Slides digital signing test.";
-
-    // Dodaj podpis cyfrowy do prezentacji
-    pres.DigitalSignatures.Add(signature);
-
-    // Zapisz prezentację
-    pres.Save("SomePresentationSigned.pptx", SaveFormat.Pptx);
-}
+presentation.DigitalSignatures.Add(signature);
+presentation.Save("InputPresentation-signed.pptx", SaveFormat.Pptx);
 ```
 
-Teraz można sprawdzić, czy prezentacja została podpisana cyfrowo i nie została zmodyfikowana:
+Zapis wyniku pod nową nazwą zachowuje niepodpisane źródło. Wartość [DigitalSignature.Comments](https://reference.aspose.com/slides/pl/net/aspose.slides/digitalsignature/comments/) opisuje cel podpisu; nie jest to mechanizm kontroli bezpieczeństwa.
 
-```c#
-// Otwórz prezentację
-using (Presentation pres = new Presentation("SomePresentationSigned.pptx"))
+## **Walidacja podpisów cyfrowych**
+
+Gdy wczytasz podpisany plik PPTX, sprawdź każdy element w [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/digitalsignatures/). Właściwość [IDigitalSignature.IsValid](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignature/isvalid/) wskazuje, czy osadzony podpis jest prawidłowy dla bieżącej zawartości prezentacji.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+var signatureCount = presentation.DigitalSignatures.Count;
+
+if (signatureCount == 0)
 {
-    if (pres.DigitalSignatures.Count > 0)
+    Console.WriteLine("The presentation does not contain digital signatures.");
+}
+else
+{
+    var allSignaturesAreValid = true;
+
+    foreach (var signature in presentation.DigitalSignatures)
     {
-        bool allSignaturesAreValid = true;
+        var signatureStatus = signature.IsValid ? "VALID" : "INVALID";
+        var signerName = signature.Certificate.SubjectName.Name;
 
-        Console.WriteLine("Signatures used to sign the presentation: ");
+        Console.WriteLine(
+            $"{signerName}, {signature.SignTime:yyyy-MM-dd HH:mm:ss} -- {signatureStatus}");
 
-        // Sprawdź, czy wszystkie podpisy cyfrowe są ważne
-        foreach (DigitalSignature signature in pres.DigitalSignatures)
-        {
-            Console.WriteLine(signature.Certificate.SubjectName.Name + ", "
-                    + signature.SignTime.ToString("yyyy-MM-dd HH:mm") + " -- " + (signature.IsValid ? "VALID" : "INVALID"));
-            allSignaturesAreValid &= signature.IsValid;
-        }
-
-        if (allSignaturesAreValid)
-            Console.WriteLine("Presentation is genuine, all signatures are valid.");
-        else
-            Console.WriteLine("Presentation has been modified since signing.");
+        allSignaturesAreValid &= signature.IsValid;
     }
+
+    Console.WriteLine(allSignaturesAreValid
+        ? "All embedded signatures are valid for the current presentation."
+        : "At least one embedded signature is invalid.");
 }
 ```
+
+Nieprawidłowy wynik zazwyczaj oznacza, że zawartość podpisanej prezentacji lub dane podpisu uległy zmianie po podpisaniu, lub plik jest uszkodzony. Usunięcie wszystkich podpisów tworzy niepodpisaną prezentację, więc sprawdzanie jedynie poprawności elementów nie jest wystarczające: wrażliwy na bezpieczeństwo proces musi także zweryfikować, czy występuje oczekiwana liczba podpisów i oczekiwane tożsamości podpisujących.
+
+Ten wynik nie powinien być traktowany jako ostateczna decyzja o zaufaniu do certyfikatu. W zależności od polityki bezpieczeństwa aplikacja może również musieć zbudować i zweryfikować łańcuch certyfikatów X.509, sprawdzić daty ważności i status odwołania certyfikatu, potwierdzić oczekiwany podmiot lub odcisk palca, zweryfikować przeznaczenie klucza oraz ocenić zaufany znacznik czasu. Wartość [IDigitalSignature.SignTime](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignature/signtime/) sama w sobie nie jest dowodem od zaufanego wystawcy znacznika czasu.
+
+## **Usuwanie podpisów cyfrowych**
+
+Usunięcie podpisów zmienia stan bezpieczeństwa prezentacji. Poniższy przykład wczytuje podpisany plik PPTX, usuwa wszystkie podpisy za pomocą [IDigitalSignatureCollection.Clear](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignaturecollection/clear/), i zapisuje niepodpisaną kopię.
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("InputPresentation-signed.pptx");
+
+presentation.DigitalSignatures.Clear();
+presentation.Save("InputPresentation-unsigned.pptx", SaveFormat.Pptx);
+```
+
+Aby usunąć tylko jeden podpis, wywołaj [IDigitalSignatureCollection.RemoveAt](https://reference.aspose.com/slides/pl/net/aspose.slides/idigitalsignaturecollection/removeat/) z odpowiednim indeksem zerowym. Zapisz do nowego pliku, chyba że nadpisywanie podpisanego oryginału jest wyraźnym elementem twojego procesu.
+
+## **Rozważania dotyczące edycji i formatu**
+
+- Podpis nie sprawia, że prezentacja staje się tylko do odczytu. Użytkownicy i aplikacje nadal mogą edytować plik, ale zmiany w podpisanej zawartości zazwyczaj unieważniają istniejący podpis.
+- Dokonaj wszystkich zamierzonych edycji przed podpisaniem. Jeśli prezentacja musi zostać zmieniona, zapisz zaktualizowaną wersję i ponownie ją podpisz.
+- Zachowaj ostateczny wynik w formacie PPTX. Konwersja podpisanej prezentacji do innego formatu nie przenosi oryginalnego podpisu PPTX jako ważnego podpisu w pliku przekonwertowanym.
+- Traktuj prywatny klucz certyfikatu jako wrażliwy. Każdy, kto zdobędzie prywatny klucz i jego hasło, może tworzyć podpisy, które wydają się pochodzić od posiadacza tego certyfikatu.
+- Zachowaj niepodpisane źródło lub inną kontrolowaną kopię, gdy wymaga tego polityka przechowywania dokumentów.
 
 ## **FAQ**
 
-**Czy mogę usunąć istniejące podpisy z pliku?**
+**Czy podpis cyfrowy szyfruje prezentację?**  
+Nie. Podpis cyfrowy dostarcza dowodu o pochodzeniu i integralności, ale zawartość prezentacji pozostaje czytelna, chyba że zastosowano oddzielne szyfrowanie. Użyj [ochrony hasłem](/net/password-protected-presentation/) gdy dostęp do treści musi być ograniczony.
 
-Tak. Kolekcja podpisów cyfrowych obsługuje [usuwanie poszczególnych elementów](https://reference.aspose.com/slides/pl/net/aspose.slides/digitalsignaturecollection/removeat/) oraz [całkowite czyszczenie](https://reference.aspose.com/slides/pl/net/aspose.slides/digitalsignaturecollection/clear/); po zapisaniu pliku prezentacja nie będzie posiadała żadnych podpisów.
+**Czy hasło PFX jest takie same jak hasło do prezentacji?**  
+Nie. Hasło PFX odblokowuje prywatny klucz przechowywany w pakiecie certyfikatu. Nie kontroluje ono, kto może otworzyć lub edytować plik PPTX.
 
-**Czy plik staje się „tylko do odczytu” po podpisaniu?**
+**Czy mogę używać certyfikatu samopodpisanego?**  
+Technicznie tak, pod warunkiem że zawiera dostępny prywatny klucz. Odbiorcy nie będą go automatycznie ufać, chyba że certyfikat zostanie wyraźnie dodany do ich zaufanego środowiska. Przepływy publiczne lub międzyorganizacyjne zazwyczaj korzystają z certyfikatu wystawionego przez zaufany urząd certyfikacji.
 
-Nie. Podpis zapewnia integralność i autorstwo, ale nie blokuje edycji. Aby ograniczyć możliwość edycji, połącz go z ["tylko do odczytu" lub hasłem](/slides/pl/net/password-protected-presentation/).
+**Co powoduje, że podpis jest nieprawidłowy?**  
+Zmiana podpisanej treści prezentacji lub danych podpisu po podpisaniu może unieważnić podpis. Uszkodzenie pliku również może spowodować niepowodzenie weryfikacji. Jeśli wszystkie podpisy zostaną usunięte, prezentacja jest niepodpisana, a nie zawiera nieprawidłowego podpisu.
 
-**Czy podpis będzie wyświetlany poprawnie w różnych wersjach PowerPointa?**
+**Czy prawidłowy podpis oznacza, że powinienem ufać podpisującemu?**  
+Nie samodzielnie. Integralność podpisu i zaufanie do podpisującego to odrębne decyzje. Polityka walidacji w produkcji powinna także sprawdzać łańcuch certyfikatów, okres ważności, status odwołania, oczekiwaną tożsamość, przeznaczenie klucza oraz ewentualne wymagania dotyczące zaufanego znacznika czasu.
 
-Podpis jest tworzony dla kontenera OOXML (PPTX). Nowoczesne wersje PowerPointa obsługujące podpisy OOXML wyświetlają status takich podpisów poprawnie.
+**Co się dzieje, gdy certyfikat wygasa?**  
+Wygaśnięcie certyfikatu nie zmienia bajtów prezentacji, ale wpływa na ocenę zaufania do certyfikatu. Czy podpis pozostaje akceptowalny, zależy od twojej polityki oraz od tego, czy ważny zaufany znacznik czasu dowodzi, że podpis został wykonany, gdy certyfikat był ważny. Nie polegaj wyłącznie na wyświetlanej godzinie podpisu jako na zaufanym znaczniku czasu.
+
+**Czy podpisaną prezentację można dalej edytować?**  
+Tak. Podpis nie blokuje pliku. Edycja podpisanej treści zazwyczaj unieważnia istniejący podpis, więc zakończ edycję przed ostatecznym podpisaniem.
+
+**Czy prezentacja może zawierać więcej niż jeden podpis?**  
+Tak. Dodaj każdy podpis do [IPresentation.DigitalSignatures](https://reference.aspose.com/slides/pl/net/aspose.slides/ipresentation/digitalsignatures/) przed zapisaniem. Podczas walidacji sprawdź każdy podpis i potwierdź, że wszyscy wymagani podpisujący są obecni.
+
+**Jakie formaty prezentacji obsługują te operacje?**  
+Aspose.Slides obsługuje opisane tutaj operacje związane z podpisem cyfrowym wyłącznie dla formatu PPTX. Format PPT oraz OpenDocument nie są wspierane przez ten interfejs API.
+
+**Czy mogę usunąć podpis bez wpływu na slajdy?**  
+Tak. Możesz usunąć jeden podpis lub wyczyścić całą kolekcję, a następnie zapisać prezentację. Zawartość slajdów pozostaje nienaruszona, ale zapisany plik nie będzie już zawierał dowodu podpisu.

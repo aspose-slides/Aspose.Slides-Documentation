@@ -1,497 +1,428 @@
 ---
-title: .NET में प्रस्तुतियों में आकार एनीमेशन लागू करें
-linktitle: आकार एनीमेशन
+title: ".NET में प्रस्तुतियों में शेप एनीमेशन लागू करें"
+linktitle: "शेप एनीमेशन"
 type: docs
 weight: 60
 url: /hi/net/shape-animation/
 keywords:
-- आकार
-- एनीमेशन
-- इफ़ेक्ट
-- एनिमेटेड आकार
-- एनिमेटेड टेक्स्ट
-- एनीमेशन जोड़ें
-- एनीमेशन प्राप्त करें
-- एनीमेशन निकालें
-- इफ़ेक्ट जोड़ें
-- इफ़ेक्ट प्राप्त करें
-- इफ़ेक्ट निकालें
-- इफ़ेक्ट साउंड
-- एनीमेशन लागू करें
-- PowerPoint
-- प्रेज़ेंटेशन
-- .NET
-- C#
-- Aspose.Slides
-description: "Aspose.Slides for .NET के साथ PowerPoint प्रस्तुतियों में आकार एनीमेशन बनाना और कस्टमाइज़ करना सीखें। अलग दिखें!"
+- "शेप"
+- "एनीमेशन"
+- "इफ़ेक्ट"
+- "एनिमेटेड शेप"
+- "एनिमेटेड टेक्स्ट"
+- "एनीमेशन जोड़ें"
+- "एनीमेशन प्राप्त करें"
+- "एनीमेशन निकालें"
+- "इफ़ेक्ट जोड़ें"
+- "इफ़ेक्ट प्राप्त करें"
+- "इफ़ेक्ट निकालें"
+- "इफ़ेक्ट साउंड"
+- "एनीमेशन लागू करें"
+- "PowerPoint"
+- "प्रेज़ेंटेशन"
+- ".NET"
+- "C#"
+- "Aspose.Slides"
+description: "Aspose.Slides for .NET के साथ शेप एनीमेशन, टाइमिंग, साउंड, एनीमेशन‑के‑बाद व्यवहार, और एनिमेटेड टेक्स्ट को जोड़ना, निरीक्षण करना और अनुकूलित करना सीखें।"
 ---
-## **परिचय**
+## **समीक्षा**
 
-एनिमेशन दृश्य प्रभाव हैं जिन्हें टेक्स्ट, छवियों, आकारों, या [चार्ट्स](/slides/hi/net/animated-charts/) पर लागू किया जा सकता है। ये प्रस्तुतियों या उनके तत्वों को जीवंत बनाते हैं। 
+Aspose.Slides for .NET स्लाइड एनीमेशन को स्लाइड टाइमलाइन में इफ़ेक्ट्स के रूप में प्रस्तुत करता है। एक इफ़ेक्ट में लक्ष्य शेप, एनीमेशन प्रकार और उपप्रकार, ट्रिगर, टाइमिंग सेटिंग्स, और वैकल्पिक गुण जैसे साउंड या एनीमेशन के बाद का व्यवहार शामिल होते हैं।
 
-## **प्रस्तुतियों में एनिमेशन का उपयोग क्यों करें?**
+टाइमलाइन दो प्रकार के क्रम रखती है:
 
-एनिमेशन का उपयोग करके आप 
+- **मुख्य क्रम** स्लाइड आगे बढ़ते समय चलता है।
+- **इंटरएक्टिव क्रम** तब शुरू होता है जब उसका ट्रिगर शेप क्लिक किया जाता है।
 
-* सूचना के प्रवाह को नियंत्रित करें  
-* महत्वपूर्ण बिंदुओं पर जोर दें  
-* अपने दर्शकों की रुचि या भागीदारी बढ़ाएँ  
-* सामग्री को पढ़ने, समझने या प्रोसेस करने में आसान बनाएँ  
-* अपने पाठकों या दर्शकों का ध्यान प्रस्तुति में महत्वपूर्ण भागों की ओर आकर्षित करें  
+क्योंकि टेक्स्ट बॉक्स, तस्वीरें, चार्ट, टेबल और अन्य स्लाइड ऑब्जेक्ट्स [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) को लागू करते हैं, आप अधिकांश स्लाइड कंटेंट के लिये समान [ISequence.AddEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/addeffect/) मेथड का उपयोग करते हैं। उपलब्ध इफ़ेक्ट्स [EffectType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effecttype/) enumeration में सूचीबद्ध हैं।
 
-PowerPoint एनिमेशन और एनिमेशन इफ़ेक्ट्स के लिए कई विकल्प और टूल्स प्रदान करता है, जो **प्रवेश**, **निकास**, **जोर**, और **गति पथ** श्रेणियों में विभाजित हैं। 
+## **शेप एनीमेशन जोड़ें**
 
-## **Aspose.Slides में एनिमेशन**
+एनीमेशन जोड़ने के लिये, स्लाइड की मुख्य क्रम प्राप्त करें और लक्ष्य शेप, इफ़ेक्ट प्रकार, उपप्रकार और ट्रिगर के साथ [ISequence.AddEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/addeffect/) को कॉल करें। ऐसे इफ़ेक्ट के लिये जो किसी अन्य शेप के क्लिक पर शुरू होता है, एक इंटरएक्टिव क्रम बनाएं जिसकी ट्रिगर वह अन्य शेप हो।
 
-* Aspose.Slides उन क्लासेज़ और प्रकारों को प्रदान करता है जिनकी आपको एनिमेशन के साथ काम करने के लिए आवश्यकता है, जो [Aspose.Slides.Animation](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/) नेमस्पेस के अंतर्गत हैं,  
-* Aspose.Slides [EffectType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effecttype) एन्उमरेशन के तहत **150 से अधिक एनिमेशन इफ़ेक्ट्स** प्रदान करता है। ये इफ़ेक्ट्स मूलतः वही (या समकक्ष) इफ़ेक्ट्स हैं जो PowerPoint में उपयोग होते हैं।  
+निम्न उदाहरण दोनों प्रकार के एनीमेशन बनाता है और परिणाम को `shape-animations.pptx` में सहेजता है।
 
-## **टेक्स्टबॉक्स पर एनिमेशन लागू करें**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-Aspose.Slides for .NET आपको आकार में टेक्स्ट पर एनिमेशन लागू करने की अनुमति देता है। 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. एक [Presentation](http://www.aspose.com/api/net/slides/hi/aspose.slides/) क्लास का उदाहरण बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. एक `rectangle` [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape) जोड़ें।  
-4. टेक्स्ट को [IAutoShape.TextFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape/properties/textframe) में जोड़ें।  
-5. इफ़ेक्ट्स की मुख्य श्रृंखला प्राप्त करें।  
-6. [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape) पर एक एनिमेशन इफ़ेक्ट जोड़ें।  
-7. [TextAnimation.BuildType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/textanimation/properties/buildtype) प्रॉपर्टी को [BuildType Enumeration](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/buildtype) से मान सेट करें।  
-8. प्रस्तुति को डिस्क पर PPTX फ़ाइल के रूप में लिखें।  
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Click to animate this shape";
 
-यह C# कोड दर्शाता है कि कैसे `Fade` इफ़ेक्ट को AutoShape पर लागू किया जाता है और टेक्स्ट एनीमेशन को *By 1st Level Paragraphs* मान पर सेट किया जाता है:
+var mainSequence = slide.Timeline.MainSequence;
+var entranceEffect = mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+entranceEffect.Timing.Duration = 1.5f;
 
-```c#
-// एक प्रस्तुति क्लास का उदाहरण बनाता है जो प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    
-    // टेक्स्ट के साथ नया AutoShape जोड़ता है
-    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
 
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // स्लाइड की मुख्य क्रम प्राप्त करता है।
-    ISequence sequence = sld.Timeline.MainSequence;
-
-    // आकार में Fade एनीमेशन इफ़ेक्ट जोड़ता है
-    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // आकार के टेक्स्ट को प्रथम स्तर के पैराग्राफ द्वारा एनीमेट करता है
-    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
-
-    // PPTX फ़ाइल को डिस्क पर सहेजता है
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+ट्रिगर निर्धारित करता है कि इफ़ेक्ट कब शुरू होता है:
 
-टेक्स्ट पर एनिमेशन लागू करने के अतिरिक्त, आप एकल [Paragraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph) पर भी एनिमेशन लागू कर सकते हैं। देखें [**एनिमेटेड टेक्स्ट**](/slides/hi/net/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effecttriggertype/) मुख्य क्रम में क्लिक की प्रतीक्षा करता है, या इंटरएक्टिव क्रम में ट्रिगर शेप के क्लिक की।
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effecttriggertype/) पिछले इफ़ेक्ट के साथ शुरू होता है।
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effecttriggertype/) पिछले इफ़ेक्ट के समाप्त होने पर शुरू होता है।
 
-{{% /alert %}} 
+चित्र, चार्ट या अन्य शेप प्रकार को एनीमेट करने के लिये, `targetShape` के बजाय उस ऑब्जेक्ट को [ISequence.AddEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/addeffect/) को पास करें। चार्ट‑विशिष्ट ग्रुपिंग विकल्पों के लिये, देखें [Animated Charts](/slides/hi/net/animated-charts/)।
 
-## **PictureFrame पर एनिमेशन लागू करें**
+## **शेप एनीमेशन पढ़ें**
 
-1. एक [Presentation](http://www.aspose.com/api/net/slides/hi/aspose.slides/) क्लास का उदाहरण बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe) को स्लाइड पर जोड़ें या प्राप्त करें।  
-5. इफ़ेक्ट्स की मुख्य श्रृंखला प्राप्त करें।  
-6. [PictureFrame](https://reference.aspose.com/slides/hi/net/aspose.slides/ipictureframe) पर एक एनिमेशन इफ़ेक्ट जोड़ें।  
-8. प्रस्तुति को डिस्क पर PPTX फ़ाइल के रूप में लिखें।  
+जब आप लक्ष्य शेप जानते हैं, तो [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/geteffectsbyshape/) का उपयोग करें। सभी इफ़ेक्ट्स का निरीक्षण करने के लिये, मुख्य क्रम और प्रत्येक इंटरएक्टिव क्रम को क्रमबद्ध करें। क्रमबद्ध करना यह मानने से बचाता है कि कोई क्रम इंडेक्स `0` पर इफ़ेक्ट रखता है।
 
-यह C# कोड दर्शाता है कि कैसे `Fly` इफ़ेक्ट को एक पिक्चर फ़्रेम पर लागू किया जाता है:
+निम्न उदाहरण एक शेप बनाता है जिसमें मुख्य‑क्रम और इंटरएक्टिव इफ़ेक्ट्स होते हैं, शेप को लक्षित करने वाले इफ़ेक्ट्स प्राप्त करता है, और फिर स्लाइड पर प्रत्येक क्रम को क्रमबद्ध करता है।
 
-```c#
-// एक प्रस्तुति क्लास का उदाहरण बनाता है जो प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Animated shape";
+
+var mainSequence = slide.Timeline.MainSequence;
+mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
+
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var targetEffects = mainSequence.GetEffectsByShape(targetShape);
+Console.WriteLine($"The main sequence contains {targetEffects.Length} effect(s) for {targetShape.Name}.");
+
+PrintSequence("Main sequence", mainSequence);
+
+var interactiveIndex = 1;
+foreach (var sequence in slide.Timeline.InteractiveSequences)
 {
-    // प्रस्तुति इमेज संग्रह में जोड़ने के लिए चित्र लोड करता है
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // स्लाइड में पिक्चर फ़्रेम जोड़ता है
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // स्लाइड की मुख्य क्रम प्राप्त करता है।
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-    // पिक्चर फ़्रेम में बाएँ से उड़ान एनीमेशन इफ़ेक्ट जोड़ता है
-    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // PPTX फ़ाइल को डिस्क पर सहेजता है
-    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
+    var triggerName = sequence.TriggerShape == null ? "unknown" : sequence.TriggerShape.Name;
+    var sequenceLabel = $"Interactive sequence {interactiveIndex}, trigger: {triggerName}";
+    PrintSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
 
-## **आकार पर एनिमेशन लागू करें**
-
-1. एक [Presentation](http://www.aspose.com/api/net/slides/hi/aspose.slides/) क्लास का उदाहरण बनाएँ।  
-2. इंडेक्स के माध्यम से स्लाइड का संदर्भ प्राप्त करें।  
-3. एक `rectangle` [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape) जोड़ें।  
-4. एक `Bevel` [IAutoShape](https://reference.aspose.com/slides/hi/net/aspose.slides/iautoshape) जोड़ें (जब इस वस्तु पर क्लिक किया जाता है, तो एनिमेशन चलाया जाता है)।  
-5. Bevel आकार पर इफ़ेक्ट्स की एक श्रृंखला बनाएं।  
-6. एक कस्टम `UserPath` बनाएँ।  
-7. `UserPath` पर ले जाने के लिए कमांड जोड़ें।  
-8. प्रस्तुति को डिस्क पर PPTX फ़ाइल के रूप में लिखें।  
-
-यह C# कोड दर्शाता है कि कैसे `PathFootball` (पाथ फुटबॉल) इफ़ेक्ट को एक आकार पर लागू किया जाता है:
-
-```c#
-// एक Presentation क्लास का उदाहरण बनाता है जो प्रस्तुति फ़ाइल का प्रतिनिधित्व करता है।
-using (Presentation pres = new Presentation())
+static void PrintSequence(string label, ISequence sequence)
 {
-    ISlide sld = pres.Slides[0];
+    Console.WriteLine($"  {label}: {sequence.Count} effect(s)");
 
-    // मौजूदा आकार के लिए प्रारंभ से PathFootball इफ़ेक्ट बनाता है।
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-
-    ashp.AddTextFrame("Animated TextBox");
-
-    // PathFootBall एनीमेशन इफ़ेक्ट जोड़ता है।
-    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // किसी प्रकार का “बटन” बनाता है।
-    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // बटन के लिये इफ़ेक्ट्स की एक क्रम बनाता है।
-    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
-
-    // एक कस्टम उपयोगकर्ता पथ बनाता है। हमारा ऑब्जेक्ट केवल बटन क्लिक होने के बाद ही चलेगा।
-    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // चूंकि बनाया गया पथ खाली है इसलिए चलने के लिए कमांड जोड़ता है।
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
-
-    PointF[] pts = new PointF[1];
-    pts[0] = new PointF(0.076f, 0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new PointF(-0.076f, -0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **आकार पर लागू किए गए एनिमेशन इफ़ेक्ट्स प्राप्त करें**
-
-निम्न उदाहरण दर्शाते हैं कि कैसे आप [ISequence](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/) इंटरफ़ेस की `GetEffectsByShape` मेथड का उपयोग करके किसी आकार पर लागू सभी एनिमेशन इफ़ेक्ट्स प्राप्त कर सकते हैं।
-
-**उदाहरण 1: सामान्य स्लाइड पर आकार पर लागू एनिमेशन इफ़ेक्ट्स प्राप्त करें**
-
-पहले, आपने सीखा था कि PowerPoint प्रस्तुतियों में आकारों पर एनिमेशन इफ़ेक्ट्स कैसे जोड़ें। निम्न नमूना कोड दर्शाता है कि कैसे `AnimExample_out.pptx` प्रस्तुति में पहली सामान्य स्लाइड के पहले आकार पर लागू इफ़ेक्ट्स प्राप्त किए जाएँ।
-
-```c#
-using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
-{
-    ISlide firstSlide = presentation.Slides[0];
-
-    // स्लाइड की मुख्य एनीमेशन क्रम प्राप्त करता है।
-    ISequence sequence = firstSlide.Timeline.MainSequence;
-
-    // पहली स्लाइड पर पहला आकार प्राप्त करता है।
-    IShape shape = firstSlide.Shapes[0];
-
-    // आकार पर लागू एनीमेशन इफ़ेक्ट्स प्राप्त करता है।
-    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
-
-    if (shapeEffects.Length > 0)
-        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
-}
-```
-
-**उदाहरण 2: सभी एनिमेशन इफ़ेक्ट्स प्राप्त करें, जिसमें प्लेसहोल्डर से विरासत में मिला हुआ भी शामिल है**
-
-यदि एक सामान्य स्लाइड पर कोई आकार ऐसे प्लेसहोल्डर रखता है जो लेआउट स्लाइड और/या मास्टर स्लाइड पर हैं, और इन प्लेसहोल्डर पर एनिमेशन इफ़ेक्ट्स जोड़े गए हैं, तो स्लाइड शो के दौरान आकार के सभी इफ़ेक्ट्स चलाए जाएंगे, जिसमें प्लेसहोल्डर से विरासत में मिले इफ़ेक्ट्स भी शामिल हैं।
-
-मान लीजिए हमारे पास एक PowerPoint प्रस्तुति फ़ाइल `sample.pptx` है, जिसमें एक स्लाइड केवल एक फुटर आकार रखती है, जिसकी टेक्स्ट "Made with Aspose.Slides" है और उस आकार पर **Random Bars** इफ़ेक्ट लागू किया गया है।
-
-![स्लाइड आकार एनिमेशन इफ़ेक्ट](slide-shape-animation.png)
-
-मान लीजिए कि **Split** इफ़ेक्ट लेआउट स्लाइड पर फुटर प्लेसहोल्डर पर लागू किया गया है।
-
-![लेआउट आकार एनिमेशन इफ़ेक्ट](layout-shape-animation.png)
-
-अंत में, **Fly In** इफ़ेक्ट मास्टर स्लाइड पर फुटर प्लेसहोल्डर पर लागू किया गया है।
-
-![मास्टर आकार एनिमेशन इफ़ेक्ट](master-shape-animation.png)
-
-निम्न नमूना कोड दर्शाता है कि कैसे आप [IShape](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/) इंटरफ़ेस की `GetBasePlaceholder` मेथड का उपयोग करके आकार प्लेसहोल्डर तक पहुंचें और फुटर आकार पर लागू एनिमेशन इफ़ेक्ट्स प्राप्त करें, जिसमें लेआउट और मास्टर स्लाइड पर स्थित प्लेसहोल्डर से विरासत में मिले इफ़ेक्ट्स भी शामिल हैं।
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // सामान्य स्लाइड पर आकार के एनीमेशन इफ़ेक्ट्स प्राप्त करें.
-    IShape shape = slide.Shapes[0];
-    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
-
-    // लेआउट स्लाइड पर प्लेसहोल्डर के एनीमेशन इफ़ेक्ट्स प्राप्त करें.
-    IShape layoutShape = shape.GetBasePlaceholder();
-    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
-
-    // मास्टर स्लाइड पर प्लेसहोल्डर के एनीमेशन इफ़ेक्ट्स प्राप्त करें.
-    IShape masterShape = layoutShape.GetBasePlaceholder();
-    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
-
-    Console.WriteLine("Main sequence of shape effects:");
-    PrintEffects(masterShapeEffects);
-    PrintEffects(layoutShapeEffects);
-    PrintEffects(shapeEffects);
-}
-```
-```cs
-static void PrintEffects(IEnumerable<IEffect> effects)
-{
-    foreach (IEffect effect in effects)
+    foreach (var effect in sequence)
     {
-        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+        var targetName = effect.TargetShape == null ? "unknown" : effect.TargetShape.Name;
+        var effectDescription = $"{effect.Type} {effect.Subtype}; target: {targetName}; trigger: {effect.Timing.TriggerType}";
+        Console.WriteLine($"    {effectDescription}");
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+यदि आपको केवल किसी एक शेप के लिये इफ़ेक्ट चाहिए, तो पहले शेप को नाम, प्लेसहोल्डर प्रकार या किसी स्थिर गुण से पहचानें; फिर [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/geteffectsbyshape/) को कॉल करें। यह मान कर न चलें कि इंडेक्स `0` पर [IShapeCollection.Item](https://reference.aspose.com/slides/hi/net/aspose.slides/ishapecollection/item/) हमेशा वांछित ऑब्जेक्ट है।
 
-## **एनिमेशन इफ़ेक्ट टाइमिंग प्रॉपर्टीज़ बदलें**
+## **विरासत में मिले प्लेसहोल्डर इफ़ेक्ट्स के साथ कार्य करें**
 
-Aspose.Slides for .NET आपको एक एनिमेशन इफ़ेक्ट की टाइमिंग प्रॉपर्टीज़ बदलने की अनुमति देता है।
+सामान्य स्लाइड पर एक प्लेसहोल्डर अपने लेआउट स्लाइड और मास्टर स्लाइड पर संबंधित प्लेसहोल्डर से एनीमेशन व्यवहार वारिस में ले सकता है। [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/getbaseplaceholder/) वह पैरेंट प्लेसहोल्डर लौटाता है, या जब कोई पैरेंट न हो तो `null`।
 
-यह Microsoft PowerPoint में एनीमेशन टाइमिंग पेन और विस्तारित मेन्यू है:
+निम्न उदाहरण प्रस्तुति में, फुटर की सामान्य स्लाइड पर **Random Bars**, लेआउट स्लाइड पर **Split**, और मास्टर स्लाइड पर **Fly In** लागू हैं।
 
-![उदाहरण1_छवि](shape-animation.png)
+![सामान्य स्लाइड पर फुटर एनीमेशन इफ़ेक्ट](slide-shape-animation.png)
 
-इनमें PowerPoint टाइमिंग और [Effect.Timing](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effect/properties/timing) प्रॉपर्टीज़ के बीच सम्बंध हैं:
-- PowerPoint टाइमिंग **Start** ड्रॉप-डाउन सूची [Effect.Timing.TriggerType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/properties/triggertype) प्रॉपर्टी के साथ मेल खाती है। 
-- PowerPoint टाइमिंग **Duration** [Effect.Timing.Duration](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/properties/duration) प्रॉपर्टी से मेल खाती है। एनिमेशन की अवधि (सेकंड में) वह कुल समय है जो एनिमेशन को एक चक्र पूरा करने में लेता है। 
-- PowerPoint टाइमिंग **Delay** [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/properties/triggerdelaytime) प्रॉपर्टी से मेल खाती है। 
-- PowerPoint टाइमिंग **Repeat** ड्रॉप-डाउन सूची इन प्रॉपर्टीज़ से मेल खाती है: 
-  * [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatcount) प्रॉपर्टी जो इफ़ेक्ट के *संख्या* वर्णन करती है;  
-  * [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatuntilendslide) फ्लैग जो यह निर्दिष्ट करता है कि इफ़ेक्ट स्लाइड के अंत तक दोहराया जाए;  
-  * [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatuntilnextclick) फ्लैग जो यह निर्दिष्ट करता है कि इफ़ेक्ट अगले क्लिक तक दोहराया जाए।  
-- PowerPoint टाइमिंग **Rewind when done playing** चेकबॉक्स [Effect.Timing.Rewind](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/rewind/) प्रॉपर्टी से मेल खाता है। 
+![लेआउट स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](layout-shape-animation.png)
 
-इफ़ेक्ट टाइमिंग प्रॉपर्टीज़ बदलने का तरीका यह है:
+![मास्टर स्लाइड पर फुटर प्लेसहोल्डर एनीमेशन इफ़ेक्ट](master-shape-animation.png)
 
-1. [Apply](#apply-animation-to-shape) या एनिमेशन इफ़ेक्ट प्राप्त करें।  
-2. आवश्यक [Effect.Timing](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effect/properties/timing) प्रॉपर्टीज़ के नए मान सेट करें।  
-3. संशोधित PPTX फ़ाइल को सहेजें।  
+अगला उदाहरण स्वयं प्लेसहोल्डर पदानुक्रम बनाता है। यह मास्टर प्लेसहोल्डर, लेआउट प्लेसहोल्डर और सामान्य स्लाइड पर संबंधित प्लेसहोल्डर में इफ़ेक्ट्स जोड़ता है। प्रत्येक कॉल से पहले [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/hi/net/aspose.slides/ishape/getbaseplaceholder/) जांची जाती है।
 
-यह C# कोड इस ऑपरेशन को दर्शाता है:
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-```c#
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है.
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+using var presentation = new Presentation();
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
+layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
+
+var masterPlaceholder = layoutPlaceholder.GetBasePlaceholder();
+if (masterPlaceholder != null)
 {
-    // स्लाइड की मुख्य क्रम प्राप्त करता है.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+    var masterSequence = layoutSlide.MasterSlide.Timeline.MainSequence;
+    masterSequence.AddEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+}
 
-    // मुख्य क्रम का पहला इफ़ेक्ट प्राप्त करता है.
-    IEffect effect = sequence[0];
+var slide = presentation.Slides.AddEmptySlide(layoutSlide);
+var slidePlaceholder = FindPlaceholderWithBase(slide);
 
-    // इफ़ेक्ट का TriggerType बदलकर क्लिक पर शुरू होने के लिए करता है
-    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+if (slidePlaceholder == null)
+{
+    throw new InvalidOperationException("The slide does not contain a placeholder linked to its layout slide.");
+}
 
-    // इफ़ेक्ट की अवधि बदलता है
-    effect.Timing.Duration = 3f;
+slide.Timeline.MainSequence.AddEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+PrintEffects("Normal slide", slide.Timeline.MainSequence.GetEffectsByShape(slidePlaceholder));
 
-    // इफ़ेक्ट का TriggerDelayTime बदलता है
-    effect.Timing.TriggerDelayTime = 0.5f;
+var baseLayoutPlaceholder = slidePlaceholder.GetBasePlaceholder();
+if (baseLayoutPlaceholder != null)
+{
+    PrintEffects("Layout slide", layoutSlide.Timeline.MainSequence.GetEffectsByShape(baseLayoutPlaceholder));
 
-    // यदि इफ़ेक्ट का Repeat मान "none" है
-    if (effect.Timing.RepeatCount == 1f)
+    var baseMasterPlaceholder = baseLayoutPlaceholder.GetBasePlaceholder();
+    if (baseMasterPlaceholder != null)
     {
-        // इफ़ेक्ट के Repeat को "Until Next Click" में बदलता है
-        effect.Timing.RepeatUntilNextClick = true;
+        PrintEffects("Master slide", layoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(baseMasterPlaceholder));
     }
-    else
+}
+
+presentation.Save("placeholder-animations.pptx", SaveFormat.Pptx);
+
+static IShape FindPlaceholderWithBase(ISlide slide)
+{
+    foreach (var shape in slide.Shapes)
     {
-        // इफ़ेक्ट के Repeat को "Until End of Slide" में बदलता है
-        effect.Timing.RepeatUntilEndSlide = true;
+        if (shape.GetBasePlaceholder() != null)
+        {
+            return shape;
+        }
     }
 
-    // इफ़ेक्ट का Rewind चालू करता है
-        effect.Timing.Rewind = true;
-    
-    // PPTX फ़ाइल को डिस्क पर सहेजता है
-    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+    return null;
+}
+
+static void PrintEffects(string source, IEffect[] effects)
+{
+    Console.WriteLine($"{source}: {effects.Length} effect(s)");
+
+    foreach (var effect in effects)
+    {
+        Console.WriteLine($"  {effect.Type} {effect.Subtype}");
+    }
 }
 ```
 
-## **एनिमेशन इफ़ेक्ट साउंड**
+## **एनीमेशन टाइमिंग बदलें**
 
-Aspose.Slides इन प्रॉपर्टीज़ को प्रदान करता है जिससे आप एनिमेशन इफ़ेक्ट्स में साउंड के साथ काम कर सकते हैं: 
-- [IEffect.Sound](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effect/sound/)  
-- [IEffect.StopPreviousSound](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effect/stopprevioussound/) 
+PowerPoint **Timing** डायलॉग [ITiming](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/) की गुणों से मैप होता है।
 
-### **एनिमेशन इफ़ेक्ट साउंड जोड़ें**
+![एनीमेशन इफ़ेक्ट के लिये PowerPoint Timing डायलॉग](shape-animation.png)
 
-यह C# कोड दर्शाता है कि कैसे एक एनिमेशन इफ़ेक्ट साउंड जोड़ें और अगले इफ़ेक्ट शुरू होने पर उसे रोकें:
+- **Start** [ITiming.TriggerType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/triggertype/) से मैप होता है।
+- **Duration** [ITiming.Duration](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/duration/) से मैप होता है, सेकंड में।
+- **Delay** [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/triggerdelaytime/) से मैप होता है, सेकंड में।
+- **Repeat** [ITiming.RepeatCount](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatuntilnextclick/) या [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatuntilendslide/) से मैप होता है।
+- **Rewind when done playing** [ITiming.Rewind](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/rewind/) से मैप होता है।
 
-```c#
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
-{
-	// प्रस्तुति ऑडियो संग्रह में ऑडियो जोड़ता है
-	IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट जोड़ता है, उसे [ISequence.AddEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट के माध्यम से टाइमिंग बदलता है, और परिणाम सहेजता है। लौटाए गए [IEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/) रेफ़रेंस को बनाए रखने से अनावश्यक कलेक्शन इंडेक्स से बचा जा सकता है।
 
-	ISlide firstSlide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-	// स्लाइड की मुख्य क्रम प्राप्त करता है।
-	ISequence sequence = firstSlide.Timeline.MainSequence;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Timed animation";
 
-	// मुख्य क्रम का पहला इफ़ेक्ट प्राप्त करता है
-	IEffect firstEffect = sequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.Timing.TriggerType = EffectTriggerType.OnClick;
+effect.Timing.Duration = 2.0f;
+effect.Timing.TriggerDelayTime = 0.5f;
+effect.Timing.RepeatUntilNextClick = false;
+effect.Timing.RepeatUntilEndSlide = false;
+effect.Timing.RepeatCount = 2.0f;
+effect.Timing.Rewind = true;
 
-	// इफ़ेक्ट को "नो साउंड" के लिए जाँचता है
-	if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
-	{
-		// पहले इफ़ेक्ट के लिए साउंड जोड़ता है
-		firstEffect.Sound = effectSound;
-	}
-
-	// स्लाइड की पहली इंटरैक्टिव क्रम प्राप्त करता है।
-	ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
-
-	// इफ़ेक्ट "Stop previous sound" फ़्लैग सेट करता है
-	interactiveSequence[0].StopPreviousSound = true;
-
-	// PPTX फ़ाइल को डिस्क पर लिखता है
-	pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-### **एनिमेशन इफ़ेक्ट साउंड निकालें**
+एक रिपीट मोड को जानबूझकर उपयोग करें। रिपीट काउंट को “until” फ़्लैग के साथ मिलाने से विभिन्न व्यूअर्स में भ्रमित करने वाले परिणाम मिल सकते हैं। रिपीट मोड बदलते समय पहले [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatuntilnextclick/) और [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatuntilendslide/) सेट करें, फिर [ITiming.RepeatCount](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itiming/repeatcount/) सेट करें, क्योंकि किसी भी फ़्लैग को सेट करने से सक्रिय रिपीट मोड बदल जाता है।
 
-1. एक [Presentation](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/) क्लास का उदाहरण बनाएँ।  
-2. स्लाइड का संदर्भ इंडेक्स के माध्यम से प्राप्त करें।  
-3. इफ़ेक्ट्स की मुख्य श्रृंखला प्राप्त करें।  
-4. प्रत्येक एनिमेशन इफ़ेक्ट में एम्बेडेड [Sound](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/effect/sound/) निकालें।  
+## **एनीमेशन साउंड जोड़ें और निकालें**
 
-यह C# कोड दर्शाता है कि कैसे एक एनिमेशन इफ़ेक्ट में एम्बेडेड साउंड को निकाला जाए:
+एक एनीमेशन इफ़ेक्ट एम्बेडेड ऑडियो को [IEffect.Sound](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/sound/) के माध्यम से संदर्भित कर सकता है। [IEffect.StopPreviousSound](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/stopprevioussound/) किसी इफ़ेक्ट को बताता है कि वह पहले शुरू किए गए साउंड को बंद करे।
 
-```c#
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है.
-using (Presentation presentation = new Presentation("EffectSound.pptx"))
+### **इफ़ेक्ट में साउंड जोड़ें**
+
+निम्न उदाहरण एक स्थानीय ऑडियो फ़ाइल `animation-sound.wav` की अपेक्षा करता है। यह दो इफ़ेक्ट बनाता है, पहली इफ़ेक्ट के लिये उस फ़ाइल को साउंड के रूप में एम्बेड करता है, और दूसरे इफ़ेक्ट को साउंड रोकने के लिये कॉन्फ़िगर करता है। यह [ISequence.AddEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/addeffect/) द्वारा लौटाए गए ऑब्जेक्ट्स का उपयोग करता है, इसलिए क्रम इंडेक्स की आवश्यकता नहीं है।
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+firstShape.TextFrame.Text = "Starts sound";
+secondShape.TextFrame.Text = "Stops sound";
+
+var sequence = slide.Timeline.MainSequence;
+var firstEffect = sequence.AddEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var secondEffect = sequence.AddEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var audioData = File.ReadAllBytes("animation-sound.wav");
+var effectSound = presentation.Audios.AddAudio(audioData);
+firstEffect.Sound = effectSound;
+secondEffect.StopPreviousSound = true;
+
+presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
+```
+
+### **एम्बेडेड इफ़ेक्ट साउंड निकालें**
+
+निम्न उदाहरण एक स्थानीय प्रस्तुति `presentation-with-animation-sounds.pptx` की अपेक्षा करता है। यह मुख्य और इंटरएक्टिव क्रम दोनों को स्कैन करता है और प्रत्येक एम्बेडेड इफ़ेक्ट साउंड को `extracted-animation-sounds` डायरेक्टरी में लिखता है। एक्सटेंशन ऑडियो MIME टाइप से चुना जाता है जो [IAudio.ContentType](https://reference.aspose.com/slides/hi/net/aspose.slides/iaudio/contenttype/) द्वारा दिया गया है।
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+var inputPath = "presentation-with-animation-sounds.pptx";
+var outputDirectory = "extracted-animation-sounds";
+
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation(inputPath);
+var soundIndex = 1;
+
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
+    SaveSounds(slide.Timeline.MainSequence, outputDirectory, ref soundIndex);
 
-    // स्लाइड की मुख्य क्रम प्राप्त करता है.
-    ISequence sequence = slide.Timeline.MainSequence;
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        SaveSounds(sequence, outputDirectory, ref soundIndex);
+    }
+}
 
-    foreach (IEffect effect in sequence)
+Console.WriteLine($"Extracted {soundIndex - 1} sound file(s) to {Path.GetFullPath(outputDirectory)}.");
+
+static void SaveSounds(ISequence sequence, string outputDirectory, ref int soundIndex)
+{
+    foreach (var effect in sequence)
     {
         if (effect.Sound == null)
             continue;
 
-        // इफ़ेक्ट साउंड को बाइट ऐरे में निकालता है
-        byte[] audio = effect.Sound.BinaryData;
+        var extension = GetAudioExtension(effect.Sound.ContentType);
+        var outputPath = Path.Combine(outputDirectory, $"effect-sound-{soundIndex}{extension}");
+        File.WriteAllBytes(outputPath, effect.Sound.BinaryData);
+        soundIndex++;
     }
 }
-```
 
-## **एनिमेशन के बाद**
-
-Aspose.Slides for .NET आपको एक एनिमेशन इफ़ेक्ट के After animation प्रॉपर्टी को बदलने की अनुमति देता है।
-
-यह Microsoft PowerPoint में एनीमेशन इफ़ेक्ट पेन और विस्तारित मेन्यू है:
-
-![उदाहरण1_छवि](shape-after-animation.png)
-
-PowerPoint इफ़ेक्ट **After animation** ड्रॉप-डाउन सूची इन प्रॉपर्टीज़ से मेल खाती है: 
-
-- [IEffect.AfterAnimationType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/afteranimationtype/) प्रॉपर्टी जो After animation प्रकार को वर्णित करती है :
-  * PowerPoint **More Colors** का चयन [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) प्रकार से मेल खाता है;  
-  * PowerPoint **Don't Dim** विकल्प [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) प्रकार से मेल खाता है (डिफ़ॉल्ट after animation प्रकार);  
-  * PowerPoint **Hide After Animation** विकल्प [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) प्रकार से मेल खाता है;  
-  * PowerPoint **Hide on Next Mouse Click** विकल्प [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) प्रकार से मेल खाता है;  
-- [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/afteranimationcolor/) प्रॉपर्टी जो after animation का कलर फ़ॉर्मेट निर्धारित करती है। यह प्रॉपर्टी [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) प्रकार के साथ मिलकर काम करती है। यदि आप प्रकार को किसी अन्य में बदलते हैं, तो after animation कलर साफ़ हो जाएगा।  
-
-यह C# कोड दर्शाता है कि कैसे after animation इफ़ेक्ट को बदलें:
-
-```c#
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है
-using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+static string GetAudioExtension(string contentType)
 {
-    ISlide firstSlide = pres.Slides[0];
+    var normalizedType = contentType == null ? string.Empty : contentType.ToLowerInvariant();
 
-    // मुख्य क्रम का पहला इफ़ेक्ट प्राप्त करता है
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    if (normalizedType == "audio/mpeg")
+        return ".mp3";
 
-    // after animation प्रकार को Color पर बदलता है
-    firstEffect.AfterAnimationType = AfterAnimationType.Color;
+    if (normalizedType == "audio/mp4")
+        return ".m4a";
 
-    // after animation डिम रंग सेट करता है
-    firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+    if (normalizedType == "audio/ogg")
+        return ".ogg";
 
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+    if (normalizedType == "audio/wav" || normalizedType == "audio/x-wav")
+        return ".wav";
+
+    return ".bin";
 }
 ```
+
+बड़े ऑडियो ऑब्जेक्ट्स के लिये, [IAudio.GetStream](https://reference.aspose.com/slides/hi/net/aspose.slides/iaudio/getstream/) का उपयोग करके स्ट्रीम को फ़ाइल में कॉपी करें, बजाय पूरे ऑब्जेक्ट को बाइट एरे में लोड करने के।
+
+## **एनीमेशन के बाद व्यवहार सेट करें**
+
+**After animation** विकल्प निर्धारित करता है कि इफ़ेक्ट समाप्त होने के बाद शेप के साथ क्या होना चाहिए।
+
+![After animation सेटिंग्स दिखाता हुआ PowerPoint Effect Options डायलॉग](shape-after-animation.png)
+
+[AfterAnimationType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) enumeration शेप को अपरिवर्तित छोड़ना, उसका रंग बदलना, एनीमेशन के बाद छिपाना, या अगले क्लिक पर छिपाना समर्थन करता है। जब प्रकार [AfterAnimationType.Color](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) हो, तो साथ ही [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/afteranimationcolor/) सेट करें।
+
+यह स्वतंत्र उदाहरण एक इफ़ेक्ट बनाता है, लौटाए गए इफ़ेक्ट ऑब्जेक्ट के माध्यम से उसके एनीमेशन‑के‑बाद व्यवहार को सेट करता है, और परिणाम सहेजता है।
+
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Dim after animation";
+
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.AfterAnimationType = AfterAnimationType.Color;
+effect.AfterAnimationColor.Color = Color.LightGray;
+
+presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
+```
+
+[AfterAnimationType.Color](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/afteranimationtype/) से प्रकार बदलने पर एनीमेशन‑के‑बाद रंग सेटिंग साफ हो जाती है।
 
 ## **टेक्स्ट एनीमेट करें**
 
-Aspose.Slides इन प्रॉपर्टीज़ को प्रदान करता है जिससे आप किसी एनिमेशन इफ़ेक्ट के *Animate text* ब्लॉक के साथ काम कर सकें:
+टेक्स्ट एनीमेशन में दो संबंधित नियंत्रण होते हैं:
 
-- [IEffect.AnimateTextType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/animatetexttype/) जो इफ़ेक्ट के animate text प्रकार को वर्णित करता है। आकार का टेक्स्ट एनीमेट किया जा सकता है:
-  - सभी एक साथ ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/animatetexttype/) प्रकार)  
-  - शब्द दर शब्द ([AnimateTextType.ByWord](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/animatetexttype/) प्रकार)  
-  - अक्षर दर अक्षर ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/animatetexttype/) प्रकार)  
-- [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/delaybetweentextparts/) एनिमेटेड टेक्स्ट भागों (शब्द या अक्षर) के बीच देरी सेट करता है। एक सकारात्मक मान इफ़ेक्ट की अवधि का प्रतिशत दर्शाता है। एक नकारात्मक मान सेकंड में देरी दर्शाता है।  
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itextanimation/buildtype/) नियंत्रित करता है कि पैराग्राफ एक साथ दिखें या पैराग्राफ स्तर पर।
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/animatetexttype/) नियंत्रित करता है कि टेक्स्ट एक साथ, शब्द‑दर‑शब्द या अक्षर‑दर‑अक्षर दिखे। [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/ieffect/delaybetweentextparts/) शब्दों या अक्षरों के बीच विलंब सेट करता है। सकारात्मक मान इफ़ेक्ट अवधि का प्रतिशत होता है; नकारात्मक मान सेकंड में देरी होता है।
 
-इफ़ेक्ट Animate text प्रॉपर्टीज़ को बदलने का तरीका यह है:
+निम्न स्वतंत्र उदाहरण एक टेक्स्ट बॉक्स के शब्दों को एनीमेट करता है। [BuildType.AsOneObject](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/buildtype/) पैराग्राफ‑दर‑पैराग्राफ बिल्डिंग को निष्क्रिय करता है, जिससे शब्द सेटिंग पूरे टेक्स्ट फ्रेम पर लागू होती है।
 
-1. [Apply](#apply-animation-to-shape) या एनिमेशन इफ़ेक्ट प्राप्त करें।  
-2. [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/itextanimation/buildtype/) प्रॉपर्टी को [BuildType.AsOneObject](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/buildtype/) मान पर सेट करें ताकि *By Paragraphs* एनीमेशन मोड बंद हो जाए।  
-3. [IEffect.AnimateTextType] और [IEffect.DelayBetweenTextParts] प्रॉपर्टीज़ के नए मान सेट करें।  
-4. संशोधित PPTX फ़ाइल को सहेजें।  
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-यह C# कोड इस ऑपरेशन को दर्शाता है:
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
 
-```c#
-// एक प्रस्तुति फ़ाइल का प्रतिनिधित्व करने वाली प्रस्तुति क्लास का उदाहरण बनाता है.
-using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-{
-    ISlide firstSlide = pres.Slides[0];
+var effect = slide.Timeline.MainSequence.AddEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.TextAnimation.BuildType = BuildType.AsOneObject;
+effect.AnimateTextType = AnimateTextType.ByWord;
+effect.DelayBetweenTextParts = 20.0f;
 
-    // मुख्य क्रम का पहला इफ़ेक्ट प्राप्त करता है
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
-
-    // इफ़ेक्ट के Text animation प्रकार को "As One Object" में बदलता है
-    firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
-
-    // इफ़ेक्ट के Animate text प्रकार को "By word" में बदलता है
-    firstEffect.AnimateTextType = AnimateTextType.ByWord;
-
-    // शब्दों के बीच देरी को इफ़ेक्ट अवधि के 20% पर सेट करता है
-    firstEffect.DelayBetweenTextParts = 20f;
-
-    // PPTX फ़ाइल को डिस्क पर लिखता है
-    pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-}
+presentation.Save("animated-text.pptx", SaveFormat.Pptx);
 ```
+
+पैराग्राफ‑दर‑पैराग्राफ बॉक्स बनाने के लिये, [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/buildtype/) (या किसी अन्य पैराग्राफ स्तर) सेट करें। किसी एक पैराग्राफ को अपने स्वयं के इफ़ेक्ट से लक्षित करने के लिये, उस [ISequence.AddEffect](https://reference.aspose.com/slides/hi/net/aspose.slides.animation/isequence/addeffect/) ओवरलोड का प्रयोग करें जो एक [IParagraph](https://reference.aspose.com/slides/hi/net/aspose.slides/iparagraph/) को स्वीकार करता है। पैराग्राफ‑स्तर के उदाहरणों के लिये देखें [Animated Text](/slides/hi/net/animated-text/)।
+
+## **एक्सपोर्ट और संगतता नोट्स**
+
+- PPT या PPTX में सहेजने से एनीमेशन मॉडल संरक्षित रहता है, लेकिन अंतिम प्लेबैक प्रस्तुति दर्शक द्वारा नियंत्रित होता है।
+- PDF और स्थिर इमेजेज एनीमेशन नहीं चलाते। जब मोशन दिखाना आवश्यक हो, तो [HTML5 export](/slides/hi/net/export-to-html5/), एनिमेटेड GIF या [वीडियो कन्वर्ज़न](/slides/hi/net/convert-powerpoint-to-video/) का उपयोग करें।
+- HTML5 के लिये, [Html5Options.AnimateShapes](https://reference.aspose.com/slides/hi/net/aspose.slides.export/html5options/animateshapes/) को सक्षम करें और आवश्यक होने पर [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/hi/net/aspose.slides.export/html5options/animatetransitions/) भी सक्षम करें।
+- वीडियो रेंडरिंग कई सामान्य प्रवेश, इम्फेसिस, निकास और मोशन‑पाथ इफ़ेक्ट्स को समर्थन देता है, लेकिन हर PowerPoint इफ़ेक्ट समर्थित नहीं है। वर्तमान [supported animations and effects](/slides/hi/net/convert-powerpoint-to-video/#supported-animations-and-effects) देखें और अपने लक्ष्य Aspose.Slides संस्करण के साथ महत्वपूर्ण प्रस्तुतियों का परीक्षण करें।
+- उन्नत कस्टम इफ़ेक्ट्स और अन्य प्रस्तुतिकरण फ़ॉर्मेट से आयातित इफ़ेक्ट्स फ़ाइल में संरक्षित रह सकते हैं, लेकिन PowerPoint, HTML5 या वीडियो में अलग तरह से रेंडर हो सकते हैं। केवल इफ़ेक्ट नाम पर भरोसा न करें; निर्यात परिणाम को सत्यापित करें।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**मैं कैसे सुनिश्चित करूँ कि वेब पर प्रस्तुति प्रकाशित करने पर एनिमेशन बना रहे?**
+**PowerPoint में एनीमेशन दिखता है लेकिन PDF में नहीं, ऐसा क्यों?**
 
-[Export to HTML5](/slides/hi/net/export-to-html5/) और उन [options](https://reference.aspose.com/slides/hi/net/aspose.slides.export/html5options/) को सक्षम करें जो [shape](https://reference.aspose.com/slides/hi/net/aspose.slides.export/html5options/animateshapes/) और [transition](https://reference.aspose.com/slides/hi/net/aspose.slides.export/html5options/animatetransitions/) एनिमेशन के लिए ज़िम्मेदार हैं। साधारण HTML स्लाइड एनिमेशन नहीं चलाता, जबकि HTML5 करता है।
+PDF एक स्थिर फ़ॉर्मेट है, इसलिए एनीमेशन और स्लाइड ट्रांज़िशन नहीं चलते। जब मोशन बनाए रखना आवश्यक हो, तो HTML5, एनिमेटेड GIF या वीडियो में निर्यात करें।
 
-**आकारों के z-order (लेयर क्रम) को बदलने से एनिमेशन पर कैसे प्रभाव पड़ता है?**
+**वीडियो में इफ़ेक्ट अलग तरह से चलता है, ऐसा क्यों?**
 
-एनिमेशन और ड्राइंग क्रम स्वतंत्र होते हैं: एक इफ़ेक्ट दिखने/गायब होने के समय और प्रकार को नियंत्रित करता है, जबकि [z-order](https://reference.aspose.com/slides/hi/net/aspose.slides/shape/zorderposition/) यह तय करता है कि क्या क्या कवर करता है। दृश्यमान परिणाम उनका संयोजन निर्धारित करता है। (यह सामान्य PowerPoint व्यवहार है; Aspose.Slides के इफ़ेक्ट-और-आकार मॉडल भी वही तर्क अपनाता है।)
+वीडियो निर्यात एनीमेशन को रेंडर करता है, मूल PowerPoint व्यवहार को नहीं रखता। कुछ उन्नत इफ़ेक्ट्स असमर्थित या अनुमानित होते हैं। समर्थित‑इफ़ेक्ट्स तालिका देखें और उत्पादन उपयोग से पहले वास्तविक प्रस्तुति का परीक्षण करें।
 
-**क्या कुछ इफ़ेक्ट्स को वीडियो में बदलते समय सीमाएँ हैं?**
+**क्या शेप को आगे या पीछे ले जाने से उसकी एनीमेशन क्रम बदलता है?**
 
-सामान्यतः, [animations are supported](/slides/hi/net/convert-powerpoint-to-video/), लेकिन दुर्लभ मामलों या विशेष इफ़ेक्ट्स में अलग रेंडरिंग हो सकती है। यह सलाह दी जाती है कि आप उपयोग किए गए इफ़ेक्ट्स और लाइब्रेरी संस्करण के साथ परीक्षण करें।
+नहीं। शेप का ज़‑ऑर्डर ओवरलैप नियंत्रित करता है, जबकि क्रमबद्धता और ट्रिगर एनीमेशन प्लेबैक को नियंत्रित करते हैं। यदि आपको अलग प्लेबैक क्रम चाहिए, तो टाइमलाइन बदलें।

@@ -1,365 +1,391 @@
 ---
-title: Diagram adat sorok kezelése Android-prezentációkban
-linktitle: Adatsorok
+title: Diagram adatsorozatok kezelése Android prezentációkban
+linktitle: Adatsorozatok
 type: docs
 url: /hu/androidjava/chart-series/
 keywords:
-- diagram sorok
-- sor átfedés
-- sor színe
-- kategória színe
-- sor neve
+- diagram sorozat
+- sorozat átfedés
+- sorozat szín
+- sorozat név
 - adatpont
-- sor hézag
+- munkafüzet cella
+- sorozat hézag
+- negatív érték
 - PowerPoint
 - prezentáció
 - Android
 - Java
 - Aspose.Slides
-description: "Ismerje meg, hogyan kezelje a diagram sorokat Androidon PowerPoint (PPT/PPTX) számára gyakorlati Java kódrészletekkel és legjobb gyakorlatokkal, hogy javítsa adatprezentációit."
+description: "Ismerje meg, hogyan kezelhet diagram sorozatokat, adatpontokat, munkafüzet cellákat, formázást, átfedést, hézag szélességet és negatív értékeket Android prezentációkban."
 ---
 ## **Áttekintés**
 
-Ez a cikk leírja a [ChartSeries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/chartseries/) szerepét az Aspose.Slides-ben, az adatstruktúra és vizualizáció bemutatására a prezentációkban. Ezek az objektumok biztosítják az alapvető elemeket, amelyek meghatározzák az egyes adatpontcsoportok, kategóriák és megjelenési paraméterek definícióját egy diagramon. A [ChartSeries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/chartseries/) használatával a fejlesztők zökkenőmentesen integrálhatják az alatta lévő adatforrásokat, és teljes irányítást gyakorolhatnak az információ megjelenítése felett, így dinamikus, adatalapú prezentációkat hozva létre, amelyek világosan közvetítik a betekintéseket és az elemzést.
+Egy diagram a megjelenített adatokat egy diagram adatkönyvtárban tárolja. Egy [IChartSeries](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/) egy kapcsolódó értékcsoportot képvisel, és a sorozat minden [IChartDataPoint](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapoint/) egy vagy több munkafüzetcellára hivatkozik. Az [IChartCategory](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartcategory/) objektumok a sorozatok által megosztott címkéket vagy csoportosítási értékeket biztosítják. Így a sorozat neve, a kategóriák és a pontértékek az [IChartDataCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatacell/) objektumokhoz kapcsolódnak, nem csupán megjelenő szövegként tárolódnak.
 
-A sor egy sor vagy oszlop számból áll, amely egy diagramon van ábrázolva.
+Egy tipikus kategória diagram esetén az alapértelmezett munkafüzet a 0‑s sorban tárolja a sorozatneveket, a 0‑s oszlopban a kategória neveket, a maradék cellákban pedig a sorozatértékeket. A [IChartDataWorkbook.getCell](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/#getCell-int-int-int-)‑nek átadott munkalap-, sor- és oszlopszámok nullárral kezdődnek. Ez a felépítés hasznos, ha alapértelmezett adatokkal hoz létre diagramot, de ne feltételezze, hogy minden meglévő diagram így működik. Betöltött bemutató esetén vizsgálja meg a sorozatok, kategóriák és adatpontok által hivatkozott cellákat, mielőtt módosítaná a munkafüzet értékeit.
 
-![chart-series-powerpoint](chart-series-powerpoint.png)
+Diagram beállítások három különböző hatókörrel rendelkeznek:
 
-## **A diagram sorok átfedésének beállítása**
+- Sorozatszintű beállítások, például a [IChartSeries.getFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getFormat--), amely egy sorozat összes pontjának alapértelmezett megjelenését biztosítja.
+- Adatpont beállítások, például a [IChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--), amely felülírja a sorozat megjelenését egy adott pont számára.
+- Csoportbeállítások érvényesek a kompatibilis sorozatokra, amelyek egy [IChartSeriesGroup](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseriesgroup/) csoportba tartoznak. A csoportot a [IChartSeries.getParentSeriesGroup](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getParentSeriesGroup--) segítségével érheti el, ha például átfedés vagy hézag szélesség beállítására van szükség.
 
-Az [IChartSeries.getOverlap](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getOverlap--) metódussal meghatározhatja, hogy a sávok és oszlopok mennyire fedjék át egymást egy 2D diagramon (tartomány: -100‑tól 100‑ig). Ez a tulajdonság a szülő sorcsoport összes sorára vonatkozik: ez a megfelelő csoport tulajdonságának leképezése. Ezért ez a tulajdonság csak olvasható.
+Ha nincs kifejezetten beállítva pont- vagy sorozatkitöltés, a diagram stílusa és témája határozza meg a automatikus megjelenést. Ha mind a sorozat, mind a pont formázása meg van adva, a pont formázása élvez elsőbbséget az adott pontnál.
 
-Használja a `getParentSeriesGroup().setOverlap()` író metódust az átfedés kívánt értékének beállításához.
+![diagram-sorozat-powerpoint](chart-series-powerpoint.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Adjon hozzá egy csoportosított oszlop diagramot egy diára.  
-3. Hozza el az első diagram sorát.  
-4. Hozza el a diagram sor `ParentSeriesGroup` tulajdonságát, és állítsa be a kívánt átfedési értéket a sorra.  
-5. Írja a módosított prezentációt egy PPTX fájlba.  
+## **A diagram sorozat átfedésének beállítása**
 
-This Java code shows you how to set the overlap for a chart series:
+[AChartSeries.getOverlap](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getOverlap--) megadja, hogy a sávok vagy oszlopok mennyire fednek át egy 2D diagramon, -100 és 100 százalék között. Ez a beállítás csak olvasható leképezése a szülő sorozatcsoportnak. A [IChartSeriesGroup.setOverlap](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseriesgroup/#setOverlap-byte-) használatával frissítheti a csoportban lévő minden kompatibilis sorozatot. Ez a lehetőség azoknál a diagramtípusoknál érvényes, amelyek csoportos sávokat vagy oszlopokat jelenítenek meg; egy kombinált diagramnél a nem kapcsolódó sorozatcsoportokat nem befolyásolja.
+
+A következő példa beállítja az átfedést azon csoportban, amely az első sorozatot tartalmazza:
 
 ```java
-Presentation pres = new Presentation();
-try {
-    // Diagram hozzáadása
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    if (series.get_Item(0).getOverlap() == 0)
-    {
-        // Sor átfedés beállítása
-        series.get_Item(0).getParentSeriesGroup().setOverlap((byte)-30);
-    }
+import com.aspose.slides.*;
 
-    // A prezentáció fájl mentése a lemezre
-    pres.save("SetChartSeriesOverlap_out.pptx", SaveFormat.Pptx);
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final byte overlapPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    // Az új diagram minta sorozatokat, kategóriákat és értékeket tartalmaz.
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setOverlap(overlapPercent);
+
+    presentation.save("series_overlap.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **A sor színének módosítása**
+Az eredmény:
 
-Az Aspose.Slides for Android Java segítségével a sor színét a következőképpen módosíthatja:
+![A sorozat átfedése](series_overlap.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Adjon hozzá diagramot a diára.  
-3. Hozza el azt a sort, amelynek a színét módosítani kívánja.  
-4. Állítsa be a kívánt kitöltéstípust és kitöltőszínt.  
-5. Mentse a módosított prezentációt.  
+## **A sorozat kitöltőszínének módosítása**
 
-This Java code shows you how to change a series' color:
+A [IChartSeries.getFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getFormat--) használatával állíthatja be az egész sorozat alapértelmezett kitöltését. Ha egy pont már rendelkezik kifejezett kitöltéssel, akkor annak a [IChartDataPoint.getFormat](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapoint/#getFormat--) beállítása felülírja a sorozat kitöltését az adott pontnál.
+
+A következő példa egy egységes kék kitöltést alkalmaz az első sorozatra:
 
 ```java
-Presentation pres = new Presentation("test.pptx");
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Pie, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(1);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    point.setExplosion(30);
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **A sor kategória színének módosítása**
-
-Az Aspose.Slides for Android Java segítségével a sor kategória színét a következőképpen módosíthatja:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Adjon hozzá diagramot a diára.  
-3. Hozza el a sor kategóriát, amelynek a színét módosítani kívánja.  
-4. Állítsa be a kívánt kitöltéstípust és kitöltőszínt.  
-5. Mentse a módosított prezentációt.  
-
-This code in Java shows you how to change a series category's color:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400);
-    IChartDataPoint point = chart.getChartData().getSeries().get_Item(0).getDataPoints().get_Item(0);
-
-    point.getFormat().getFill().setFillType(FillType.Solid);
-    point.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
-
-    pres.save("output.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **A sor nevének módosítása** 
-
-Alapértelmezés szerint a diagram jelmagyarázatának nevei a megfelelő oszlop vagy sor feletti cellák tartalma.  
-
-A példánkban (minta kép),
-
-* a oszlopok *Series 1, Series 2,* és *Series 3*;  
-* a sorok *Category 1, Category 2, Category 3,* és *Category 4.*  
-
-Az Aspose.Slides for Android Java segítségével frissítheti vagy módosíthatja egy sor nevét a diagram adatában és a jelmagyarázatban.
-
-This Java code shows you how to change a series' name in its chart data `ChartDataWorkbook`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-
-    IChartDataCell seriesCell = chart.getChartData().getChartDataWorkbook().getCell(0, 0, 1);
-    seriesCell.setValue("New name");
-
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-This Java code shows you how to change a series name in its legend through`Series`:
-
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Column3D, 50, 50, 600, 400, true);
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-
-    IStringChartValue name = series.getName();
-    name.getAsCells().get_Item(0).setValue("New name");
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **A diagram sor kitöltőszínének beállítása**
-
-Az Aspose.Slides for Android Java segítségével a diagram sorok automatikus kitöltőszínét a következőképpen állíthatja be a diagramterületen belül:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus alapján (az alábbi példában a `ChartType.ClusteredColumn` típust használtuk).  
-4. Hozza el a diagram sorát, és állítsa a kitöltőszínt Automatikusra.  
-5. Mentse a prezentációt egy PPTX fájlba.  
-
-This Java code shows you how to set the automatic fill color for a chart series:
-
-```java
-Presentation pres = new Presentation();
-try {
-    // Létrehoz egy csoportosított oszlop diagramot
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 50, 600, 400);
-
-    // Beállítja a sor kitöltési formátumát automatikusra
-    for (int i = 0; i < chart.getChartData().getSeries().size(); i++)
-    {
-        chart.getChartData().getSeries().get_Item(i).getAutomaticSeriesColor();
-    }
-
-    // A prezentáció fájlt a lemezre írja
-    pres.save("AutoFillSeries_out.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
-
-## **Invertált kitöltőszín beállítása diagram sorhoz**
-
-Az Aspose.Slides for Android Java segítségével a diagram sorok invertált kitöltőszínét a következőképpen állíthatja be a diagramterületen belül:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Adjon hozzá egy diagramot alapértelmezett adatokkal a kívánt típus alapján (az alábbi példában a `ChartType.ClusteredColumn` típust használtuk).  
-4. Hozza el a diagram sorát, és állítsa a kitöltőszínt invertáltra.  
-5. Mentse a prezentációt egy PPTX fájlba.  
-
-This Java code demonstrates the operation:
-
-```java
-Color inverColor = Color.RED;
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 100, 100, 400, 300);
-    IChartDataWorkbook workBook = chart.getChartData().getChartDataWorkbook();
-
-    chart.getChartData().getSeries().clear();
-    chart.getChartData().getCategories().clear();
-
-    // Új sorokat és kategóriákat ad hozzá
-    chart.getChartData().getSeries().add(workBook.getCell(0, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getCategories().add(workBook.getCell(0, 1, 0, "Category 1"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 2, 0, "Category 2"));
-    chart.getChartData().getCategories().add(workBook.getCell(0, 3, 0, "Category 3"));
-
-    // Az első diagram sorát veszi, és feltölti a sor adataival.
-    IChartSeries series = chart.getChartData().getSeries().get_Item(0);
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 1, 1, -20));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(workBook.getCell(0, 3, 1, -30));
-    Color seriesColor = series.getAutomaticSeriesColor();
-    series.setInvertIfNegative(true);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
     series.getFormat().getFill().setFillType(FillType.Solid);
-    series.getFormat().getFill().getSolidFillColor().setColor(seriesColor);
-    series.getInvertedSolidFillColor().setColor(inverColor);
-    
-    pres.save("SetInvertFillColorChart_out.pptx", SaveFormat.Pptx);
+    series.getFormat().getFill().getSolidFillColor().setColor(Color.BLUE);
+
+    presentation.save("series_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Állítsa be, hogy egy sor invertáljon, ha az érték negatív**
+Az eredmény:
 
-Az Aspose.Slides lehetővé teszi az invertálás beállítását az `IChartDataPoint.InvertIfNegative` és `ChartDataPoint.InvertIfNegative` tulajdonságokon keresztül. Amikor a tulajdonságokkal invertálást állítanak be, az adatpont negatív érték esetén megfordítja színeit.  
+![A sorozat színe](series_color.png)
 
-This Java code demonstrates the operation:
+## **A sorozat nevének módosítása**
+
+Egy sorozat neve a diagram adatkönyvtárban van tárolva, és általában a jelmagyarázatban jelenik meg. A klaszteres oszlopdiagram alapértelmezett munkafüzetében a B1 cella a 0‑s sorban, 1‑es oszlopban található, és az első sorozat nevét tartalmazza. A következő példa elnevezett konstansai egyértelművé teszik ezt a struktúrát:
 
 ```java
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int seriesNameRowIndex = 0;
+final int firstSeriesColumnIndex = 1;
+
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.ClusteredColumn, 50, 50, 600, 400, true);
-    IChartSeriesCollection series = chart.getChartData().getSeries();
-    chart.getChartData().getSeries().clear();
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChartSeries chartSeries = series.add(chart.getChartData().getChartDataWorkbook().getCell(0, "B1"), chart.getType());
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B2", -5));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B3", 3));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B4", -2));
-    chartSeries.getDataPoints().addDataPointForBarSeries(chart.getChartData().getChartDataWorkbook().getCell(0, "B5", 1));
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    chartSeries.setInvertIfNegative(false);
+    IChartDataWorkbook workbook = chart.getChartData().getChartDataWorkbook();
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, seriesNameRowIndex, firstSeriesColumnIndex);
+    seriesNameCell.setValue("Revenue");
 
-    chartSeries.getDataPoints().get_Item(2).setInvertIfNegative(true);
-
-    pres.save("out.pptx", SaveFormat.Pptx);
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **Specifikus pontadatok törlése**
-
-Az Aspose.Slides for Android Java segítségével a `DataPoints` adatokat egy adott diagram sorra vonatkozóan a következőképpen törölheti:
-
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Szerezze meg egy dia hivatkozását az indexe alapján.  
-3. Szerezze meg egy diagram hivatkozását az indexe alapján.  
-4. Iteráljon a diagram összes `DataPoints` elemén, és állítsa az `XValue` és `YValue` értékét nullára.  
-5. Törölje az összes `DataPoints` értéket a specifikus diagram sorból.  
-6. Írja a módosított prezentációt egy PPTX fájlba.  
-
-This Java code demonstrates the operation:
+A [IChartSeries.getName](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getName--) által már hivatkozott cellát is frissítheti. Ez a megközelítés elkerüli, hogy egy meglévő diagramnál egy adott sort és oszlopot feltételezzünk:
 
 ```java
-Presentation pres = new Presentation("TestChart.pptx");
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int firstNameCellIndex = 0;
+
+Presentation presentation = new Presentation();
 try {
-    ISlide sl = pres.getSlides().get_Item(0);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
 
-    IChart chart = (IChart)sl.getShapes().get_Item(0);
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
 
-    for (IChartDataPoint dataPoint : chart.getChartData().getSeries().get_Item(0).getDataPoints())
-    {
-        dataPoint.getXValue().getAsCell().setValue(null);
-        dataPoint.getYValue().getAsCell().setValue(null);
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataCell seriesNameCell = series.getName().getAsCells().get_Item(firstNameCellIndex);
+    seriesNameCell.setValue("Revenue");
+
+    presentation.save("series_name.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény:
+
+![A sorozat neve](series_name.png)
+
+## **Az automatikus sorozatkitöltőszín lekérdezése**
+
+[AChartSeries.getAutomaticSeriesColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getAutomaticSeriesColor--) visszaadja a sorozat indexéből és a diagram stílusából számított színt Android ARGB szín egészként. Ez a szín akkor kerül felhasználásra, amikor a sorozat kitöltése nincs kifejezetten meghatározva. A metódus meghívása csak leolvassa a kiszámított színt; nem rendel hozzá új kitöltést.
+
+A következő példa kiírja minden alapértelmezett sorozat automatikus színértékét:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    int seriesCount = chart.getChartData().getSeries().size();
+    for (int seriesIndex = 0; seriesIndex < seriesCount; seriesIndex++) {
+        IChartSeries series = chart.getChartData().getSeries().get_Item(seriesIndex);
+        int automaticColor = series.getAutomaticSeriesColor();
+        System.out.println("Series " + seriesIndex + ": " + automaticColor);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+A pontos egész értékek a diagram stílusától és témájától függenek.
+
+## **Inverz kitöltőszín beállítása diagram sorozathoz**
+
+Sáv-, oszlop- és buboréksorozatok esetén a [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) képes a negatív értékeket eltérő kitöltéssel megjeleníteni. Állítsa be a normál sorozatkitöltést szilárdra, engedélyezze az invertálást, és rendelje hozzá a negatív érték színét a [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) segítségével. A negatív számok a munkafüzetben változatlanok maradnak; csak a megjelenő színük változik.
+
+A következő példa lecseréli az alapértelmezett diagram adatokat egy sorozatra. A munkalap 0‑s sorában a sorozat neve, a 0‑s oszlopban a kategória nevek, az 1‑es oszlopban pedig az értékek találhatók:
+
+```java
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int worksheetIndex = 0;
+final int headerRowIndex = 0;
+final int categoryColumnIndex = 0;
+final int firstSeriesColumnIndex = 1;
+final int firstDataRowIndex = 1;
+
+String[] categoryNames = { "Category 1", "Category 2", "Category 3" };
+int[] seriesValues = { -20, 50, -30 };
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+    IChartData chartData = chart.getChartData();
+    IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+
+    chartData.getSeries().clear();
+    chartData.getCategories().clear();
+
+    IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, headerRowIndex, firstSeriesColumnIndex, "Series 1");
+    int chartType = chart.getType();
+    IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+
+    for (int categoryIndex = 0; categoryIndex < categoryNames.length; categoryIndex++) {
+        int dataRowIndex = firstDataRowIndex + categoryIndex;
+        String categoryName = categoryNames[categoryIndex];
+        int seriesValue = seriesValues[categoryIndex];
+
+        IChartDataCell categoryCell = workbook.getCell(worksheetIndex, dataRowIndex, categoryColumnIndex, categoryName);
+        chartData.getCategories().add(categoryCell);
+
+        IChartDataCell valueCell = workbook.getCell(worksheetIndex, dataRowIndex, firstSeriesColumnIndex, seriesValue);
+        series.getDataPoints().addDataPointForBarSeries(valueCell);
     }
 
-    chart.getChartData().getSeries().get_Item(0).getDataPoints().clear();
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.setInvertIfNegative(true);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
 
-    pres.save("ClearSpecificChartSeriesDataPointsData.pptx", SaveFormat.Pptx);
+    presentation.save("inverted_solid_fill_color.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **A sor hézagszélességének beállítása**
+Az eredmény:
 
-Az Aspose.Slides for Android Java segítségével egy sor `GapWidth` értékét a **`GapWidth`** tulajdonságon keresztül a következőképpen állíthatja be:
+![Az invertált szilárd kitöltőszín](inverted_solid_fill_color.png)
 
-1. Hozzon létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/Presentation) osztályból.  
-2. Hozza el az első diát.  
-3. Adjon hozzá diagramot alapértelmezett adatokkal.  
-4. Hozza el bármelyik diagram sort.  
-5. Állítsa be a `GapWidth` tulajdonságot.  
-6. Írja a módosított prezentációt egy PPTX fájlba.  
-
-This code in Java shows you how to set a series' Gap Width:
+Az invertálást egy pontnál a [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) segítségével engedélyezheti. A következő példában az invertálás le van tiltva a sorozatra, és csak a kiválasztott pontnál van engedélyezve. A pontnak negatív értéket is adunk, hogy a hatás látható legyen:
 
 ```java
-// Üres prezentáció létrehozása 
-Presentation pres = new Presentation();
+import com.aspose.slides.*;
+import android.graphics.Color;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 2;
+final int negativeValue = -30;
+
+Presentation presentation = new Presentation();
 try {
-    // A prezentáció első diájának elérése
-    ISlide slide = pres.getSlides().get_Item(0);
-    
-    // Alapértelmezett adatokkal diagramot ad hozzá
-    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 0, 0, 500, 500);
-    
-    // Beállítja a diagram adatlap indexét
-    int defaultWorksheetIndex = 0;
-    
-    // Lekéri a diagram adatlapot
-    IChartDataWorkbook fact = chart.getChartData().getChartDataWorkbook();
-    
-    // Sorokat ad hozzá
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 1, "Series 1"), chart.getType());
-    chart.getChartData().getSeries().add(fact.getCell(defaultWorksheetIndex, 0, 2, "Series 2"), chart.getType());
-    
-    // Kategóriákat ad hozzá
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 1, 0, "Caetegoty 1"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 2, 0, "Caetegoty 2"));
-    chart.getChartData().getCategories().add(fact.getCell(defaultWorksheetIndex, 3, 0, "Caetegoty 3"));
-    
-    // A második diagram sorát veszi
-    IChartSeries series = chart.getChartData().getSeries().get_Item(1);
-    
-    // Feltölti a sor adataival
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 1, 20));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 1, 50));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 1, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 1, 2, 30));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 2, 2, 10));
-    series.getDataPoints().addDataPointForBarSeries(fact.getCell(defaultWorksheetIndex, 3, 2, 60));
-    
-    // Beállítja a GapWidth értéket
-    series.getParentSeriesGroup().setGapWidth(50);
-    
-    // A prezentációt lemezen menti
-    pres.save("GapWidth_out.pptx", SaveFormat.Pptx);
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    int automaticSeriesColor = series.getAutomaticSeriesColor();
+    series.getFormat().getFill().setFillType(FillType.Solid);
+    series.getFormat().getFill().getSolidFillColor().setColor(automaticSeriesColor);
+    series.getInvertedSolidFillColor().setColor(Color.RED);
+    series.setInvertIfNegative(false);
+
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(negativeValue);
+    dataPoint.setInvertIfNegative(true);
+
+    presentation.save("data_point_invert_color_if_negative.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+## **Egy adott adatpont értékének törlése**
 
-**Van korláta, hogy egy diagram hány sor tartalmazhat?**
+Egy pont üresé tételéhez a többi pont eltávolítása nélkül állítsa be a mögöttes munkafüzetcellát `null`-ra. Oszlopdiagram esetén a megjelenített érték a [IChartDataPoint.getValue](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapoint/#getValue--) által érhető el. Az adatpont ugyanazon a kategóriapozíción marad, de a diagram a beállított üresérték-kezelés szerint üresként kezeli az értékét.
 
-Az Aspose.Slides nem állapít meg fix korlátot a hozzáadott sorok számában. A gyakorlati határ a diagram olvashatóságától és az alkalmazás rendelkezésre álló memóriájától függ.
+A következő példa csak az első sorozat második pontját törli:
 
-**Mi van, ha a csoportos oszlopok túl közel vagy túl távol vannak egymástól?**
+```java
+import com.aspose.slides.*;
 
-Állítsa be a `GapWidth` értéket a sorra (vagy annak szülő sorcsoportjára). Az érték növelése szélesíti az oszlopok közti távolságot, a csökkentése közelebb hozza őket.
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int targetDataPointIndex = 1;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.ClusteredColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    IChartDataPoint dataPoint = series.getDataPoints().get_Item(targetDataPointIndex);
+    dataPoint.getValue().getAsCell().setValue(null);
+
+    presentation.save("clear_data_point_value.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+A szórt diagramok külön X és Y cellákat használnak, a buborékdiagramok pedig méretcellát is. Törölje csak azt a cellát, amely az eltávolítani kívánt értéket tartalmazza. Ne hívja meg a [IChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) metódust, ha a többi pontot meg szeretné tartani, mivel ez a metódus az összes adatpontot eltávolítja a gyűjteményből.
+
+## **A sorozat hézag szélességének beállítása**
+
+A hézag szélessége a szomszédos sáv- vagy oszlopcsoportok közti távolság, a sáv vagy oszlop szélességének százalékában kifejezve. Az átfedéshez hasonlóan ez is a szülő sorozatcsoporthoz tartozik, nem egyetlen sorozathoz. Hívja meg egyszer a [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) metódust a csoport számára. Nagyobb érték nagyobb távolságot eredményez a csoportok között; kisebb érték szorosabb elrendezést eredményez.
+
+A következő példa módosítja a hézag szélességét, és csak a végső bemutatót menti:
+
+```java
+import com.aspose.slides.*;
+
+final int firstSlideIndex = 0;
+final int firstSeriesIndex = 0;
+final int gapWidthPercent = 30;
+
+Presentation presentation = new Presentation();
+try {
+    ISlide slide = presentation.getSlides().get_Item(firstSlideIndex);
+
+    IChart chart = slide.getShapes().addChart(ChartType.StackedColumn, 20, 20, 500, 200);
+
+    IChartSeries series = chart.getChartData().getSeries().get_Item(firstSeriesIndex);
+    series.getParentSeriesGroup().setGapWidth(gapWidthPercent);
+
+    presentation.save("gap_width_30.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Az eredmény:
+
+![A hézag szélessége](gap_width.png)
+
+## **GYIK**
+
+**Mely diagramtípusok támogatják az adat sorozatokat?**
+
+Minden, a [ChartType](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/charttype/) felsorolás által képviselt diagramtípus használ diagram adatokat, de sorozataik nem mindegyiknek ugyanaz a értékstruktúrája vagy beállításai. Például a kategória diagramok kategóriákat és értékeket használnak, a szórt diagramok X és Y értékeket, a buborékdiagramok pedig buborékméreteket adnak hozzá. Használja a sorozattípussal megegyező adatpont létrehozási módszert. Az átfedés és hézag szélesség beállítások csak a kompatibilis sáv- vagy oszlopcsoportokra vonatkoznak.
+
+**Mi az a diagram sorozatcsoport?**
+
+Egy [IChartSeriesGroup](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseriesgroup/) kompatibilis sorozatokat tartalmaz, amelyek közös csoportszintű ábrázolási beállításokat osztanak meg. Egy kombinált diagram több csoportot is tartalmazhat, így egy sorozaton keresztül elérhető csoport módosítása nem feltétlenül változtatja meg a diagram minden sorozatát.
+
+**Tartalmaz-e egy újonnan létrehozott diagram alapértelmezett adatokat?**
+
+Igen. Alapértelmezés szerint a [IShapeCollection.addChart](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapecollection/#addChart-int-float-float-float-float-) mintasorozatokat, kategóriákat és értékeket hoz létre. Ezeket a cellákat szerkesztheti, vagy törölheti a sorozat- és kategóriagyűjteményeket, mielőtt teljesen egyedi adatkészletet adna hozzá. Egy túlterhelés segítségével diagramot is létrehozhat alapértelmezett adatok nélkül.
+
+**Hogyan kapcsolódnak a diagram objektumok a munkafüzet celláihoz?**
+
+A sorozatnevek, kategória címkék és adatpont értékek egy [IChartDataWorkbook](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdataworkbook/) celláira hivatkoznak. Egy hivatkozott cella módosítása frissíti a megfelelő diagram elemet. Egyéni adatokat építve tartsa a kategória sorokat és a sorozat-érték sorokat igazítva, hogy minden pont a kívánt kategória alatt legyen ábrázolva.
+
+**Hogyan törölhetek egy pontot a teljes sorozat helyett?**
+
+Állítsa a megfelelő értékcellát `null`-ra, hogy a pont kategória pozíciója üres pontként megmaradjon. Használja a [IChartDataPointCollection.clear](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapointcollection/#clear--) metódust csak akkor, ha az adott sorozat összes pontját el kívánja távolítani. Ha a kategóriákat is eltávolítja, frissítse minden sorozatot, hogy az értékek illeszkedjenek a kategóriagyűjteményhez.
+
+**Hogyan jelennek meg az üres pontok?**
+
+Az eredmény a diagram típusától és a [IChart.setDisplayBlanksAs](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichart/#setDisplayBlanksAs-int-) által beállított értéktől függ. A támogatott diagramok az üresek megjeleníthetők hézagokként, nulla értékekként, vagy a szomszédos pontok összekapcsolásával. Válassza ki azt a beállítást, amely megfelel a hiányzó adatok jelentésének az Ön bemutatójában.
+
+**Hogyan formázódnak a negatív értékek?**
+
+Támogatott sáv-, oszlop- és buboréksorozatok esetén hívja meg a [IChartSeries.setInvertIfNegative](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#setInvertIfNegative-boolean-) metódust, és állítsa be a [IChartSeries.getInvertedSolidFillColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseries/#getInvertedSolidFillColor--) által visszaadott színt. Egy adott pont viselkedését felülírhatja a [IChartDataPoint.setInvertIfNegative](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartdatapoint/#setInvertIfNegative-boolean-) metódussal. Ezek a metódusok a formázásra hatnak, nem a tárolt numerikus értékekre.
+
+**Melyik formázás nyer, ha egy sorozat és egy pont is formázott?**
+
+A kifejezett adatpont formázás elsőbbséget élvez az adott pontnál. A többi pont továbbra is a kifejezett sorozatformátumot vagy, ha a sorozatformátum nincs definiálva, az automatikus diagram stílust és témát használja. A csoportbeállítások, mint az átfedés és a hézag szélesség, az elrendezést szabályozzák, és nem pontszintű formázási felülbírálásokat jelentenek.
+
+**Van korlát arra, hogy egy diagram hány sorozatot tartalmazhat?**
+
+Az Aspose.Slides nem szab ki különálló, rögzített sorozatszám‑korlátot. Gyakorlatban a bemutató fájl korlátai, a rendelkezésre álló memória, a renderelési idő és a diagram olvashatósága határozza meg a hasznos korlátot.
+
+**Mit kell változtatni, ha az oszlopok túl közel vagy túl távol vannak egymástól?**
+
+Hívja meg a [IChartSeriesGroup.setGapWidth](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ichartseriesgroup/#setGapWidth-int-) metódust a megfelelő szülő sorozatcsoporton. Növelje az értéket a csoportok közti térköz szélesítéséhez, vagy csökkentse, ha a csoportokat közelebb szeretné hozni.

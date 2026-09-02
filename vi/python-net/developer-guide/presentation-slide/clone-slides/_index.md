@@ -6,7 +6,7 @@ weight: 40
 url: /vi/python-net/clone-slides/
 keywords:
 - sao chép slide
-- sao chép slide
+- chép slide
 - lưu slide
 - PowerPoint
 - bản trình bày
@@ -152,7 +152,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
     with slides.Presentation() as target_presentation:
         # Lấy slide đầu tiên từ bản trình bày nguồn.
         source_slide = source_presentation.slides[0]
-        # Lấy master slide được sử dụng bởi slide đầu tiên.
+        # Lấy slide chủ được sử dụng bởi slide đầu tiên.
         source_master = source_slide.layout_slide.master_slide
         # Sao chép master slide vào collection master của bản trình bày đích.
         cloned_master = target_presentation.masters.add_clone(source_master)
@@ -179,7 +179,7 @@ with slides.Presentation() as presentation:
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
     # Thêm một slide trống khác dựa trên bố cục của slide đầu tiên.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Tạo một phần có tên "Section2" bắt đầu tại slide2.
+    # Tạo một phần có tên "Section2" bắt đầu từ slide2.
     section = presentation.sections.add_section("Section2", slide2)
     # Sao chép slide đã tạo trước vào phần "Section2".
     presentation.slides.add_clone(slide, section)

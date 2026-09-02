@@ -136,6 +136,14 @@ shape4.getTextFrame().setText("");
 // shape4.isTextBox() returns false
 ```
 
+## **Find the Shape That Owns a Text Frame**
+
+In generic text-processing code, you may receive an [ITextFrame](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/) without already knowing which presentation object contains it. Use the [ITextFrame.getParentShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentShape--) method to navigate back to the owning [IShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ishape/).
+
+For a text frame that belongs to an [IAutoShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/iautoshape/) or another text-containing shape, [ITextFrame.getParentShape](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentShape--) returns the owner and [ITextFrame.getParentCell](https://reference.aspose.com/slides/androidjava/com.aspose.slides/itextframe/#getParentCell--) returns `null`. Both methods provide read-only navigation, so calling them does not change ownership. Always check the returned value for `null` before accessing the shape.
+
+For a complete example that identifies shape and table-cell owners, including shapes associated with SmartArt nodes, see [Search and Replace Text](/slides/androidjava/search-and-replace-text/).
+
 ## **Add Columns to a Text Box**
 
 Aspose.Slides provides the [ColumnCount](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnCount-int-) and [ColumnSpacing](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat#setColumnSpacing-double-) properties (from the [ITextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ITextFrameFormat) interface and [TextFrameFormat](https://reference.aspose.com/slides/androidjava/com.aspose.slides/TextFrameFormat) class) that allow you to add columns to textboxes. You get to specify the number of columns in a text box and set the amount spacing in points between columns.
@@ -325,10 +333,10 @@ try {
 
 ## **FAQ**
 
-### What’s the difference between a text box and a text placeholder when working with master slides?
+**What’s the difference between a text box and a text placeholder when working with master slides?**
 
 A [placeholder](/slides/androidjava/manage-placeholder/) inherits style/position from the [master](https://reference.aspose.com/slides/androidjava/com.aspose.slides/masterslide/) and can be overridden on [layouts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/layoutslide/), whereas a regular text box is an independent object on a specific slide and doesn’t change when you switch layouts.
 
-### How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?
+**How can I perform a bulk text replacement across the presentation without touching text inside charts, tables, and SmartArt?**
 
 Limit your iteration to auto-shapes that have text frames and exclude embedded objects ([charts](https://reference.aspose.com/slides/androidjava/com.aspose.slides/chart/), [tables](https://reference.aspose.com/slides/androidjava/com.aspose.slides/table/), [SmartArt](https://reference.aspose.com/slides/androidjava/com.aspose.slides/smartart/)) by traversing their collections separately or skipping those object types.

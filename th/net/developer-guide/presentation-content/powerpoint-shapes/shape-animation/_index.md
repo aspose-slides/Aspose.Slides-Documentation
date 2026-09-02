@@ -1,5 +1,5 @@
 ---
-title: ใช้การเคลื่อนไหวรูปทรงในงานนำเสนอใน .NET
+title: นำการเคลื่อนไหวของรูปทรงไปใช้ในงานนำเสนอด้วย .NET
 linktitle: การเคลื่อนไหวรูปทรง
 type: docs
 weight: 60
@@ -11,486 +11,418 @@ keywords:
 - รูปทรงเคลื่อนไหว
 - ข้อความเคลื่อนไหว
 - เพิ่มการเคลื่อนไหว
-- รับการเคลื่อนไหว
+- ดึงการเคลื่อนไหว
 - สกัดการเคลื่อนไหว
 - เพิ่มเอฟเฟกต์
-- รับเอฟเฟกต์
+- ดึงเอฟเฟกต์
 - สกัดเอฟเฟกต์
-- เสียงเอฟเฟกต์
-- ใช้การเคลื่อนไหว
+- เสียงของเอฟเฟกต์
+- ใช้การเคลื่อนไหวย
 - PowerPoint
-- การนำเสนอ
+- งานนำเสนอ
 - .NET
 - C#
 - Aspose.Slides
-description: "ค้นพบวิธีสร้างและปรับแต่งการเคลื่อนไหวรูปทรงในงานนำเสนอ PowerPoint ด้วย Aspose.Slides สำหรับ .NET ให้โดดเด่น!"
+description: "เรียนรู้วิธีเพิ่ม ตรวจสอบ และปรับแต่งการเคลื่อนไหวของรูปทรง การตั้งเวลา เสียง พฤติกรรมหลังการเคลื่อนไหว และข้อความเคลื่อนไหวด้วย Aspose.Slides สำหรับ .NET."
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-การเคลื่อนไหวเป็นเอฟเฟกต์ภาพที่สามารถนำไปใช้กับข้อความ ภาพ รูปร่าง หรือ [แผนภูมิ](/slides/th/net/animated-charts/). พวกมันทำให้การนำเสนอหรือส่วนประกอบของมันมีชีวิตชีวา. 
+Aspose.Slides for .NET จะเป็นตัวแทนการเคลื่อนไหวของสไลด์เป็นเอฟเฟกต์ในไทม์ไลน์ของสไลด์ เอฟเฟกต์จะมีรูปทรงเป้าหมาย ประเภทและชนิดย่อยของการเคลื่อนไหว ตัวกระตุ้น การตั้งค่าเวลา และคุณสมบัติเสริมเช่น เสียงหรือพฤติกรรมหลังการเคลื่อนไหว
 
-## **ทำไมต้องใช้การเคลื่อนไหวในงานนำเสนอ?**
+ไทม์ไลน์ประกอบด้วยลำดับสองประเภท:
 
-การใช้การเคลื่อนไหวคุณสามารถ 
+- **ลำดับหลัก** เล่นเมื่อสไลด์ก้าวหน้า
+- **ลำดับเชิงโต้ตอบ** เริ่มเมื่อรูปทรงตัวกระตุ้นถูกคลิก
 
-* ควบคุมการไหลของข้อมูล
-* เน้นจุดสำคัญ
-* เพิ่มความสนใจหรือการมีส่วนร่วมของผู้ชม
-* ทำให้เนื้อหาง่ายต่อการอ่าน หรือการทำความเข้าใจ หรือการประมวลผล
-* ดึงดูดความสนใจของผู้อ่านหรือผู้ชมไปยังส่วนสำคัญในงานนำเสนอ
+เนื่องจากกล่องข้อความ รูปภาพ แผนภูมิ ตาราง และวัตถุสไลด์อื่น ๆ ทำงานตาม [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) คุณจึงใช้เมธอดเดียวกัน [ISequence.AddEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/addeffect/) สำหรับเนื้อหาสไลด์ส่วนใหญ่ เอฟเฟกต์ที่ใช้ได้จะถูกระบุไว้ใน enumeration [EffectType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effecttype/)
 
-PowerPoint มีตัวเลือกและเครื่องมือหลายอย่างสำหรับการเคลื่อนไหวและเอฟเฟกต์การเคลื่อนไหวในหมวด **entrance**, **exit**, **emphasis**, และ **motion paths**. 
+## **เพิ่มการเคลื่อนไหวให้รูปทรง**
 
-## **การเคลื่อนไหวใน Aspose.Slides**
+เพื่อเพิ่มการเคลื่อนไหว ให้ดึงลำดับหลักของสไลด์และเรียก [ISequence.AddEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/addeffect/) พร้อมกับรูปทรงเป้าหมาย ประเภทเอฟเฟกต์ ชนิดย่อย และตัวกระตุ้น สำหรับเอฟเฟกต์ที่เริ่มเมื่อรูปทรงอื่นถูกคลิก ให้สร้างลำดับเชิงโต้ตอบที่ตัวกระตุ้นคือรูปทรงนั้น
 
-* Aspose.Slides มีคลาสและชนิดที่คุณต้องการใช้สำหรับการทำงานกับการเคลื่อนไหวในเนมสเปซ [Aspose.Slides.Animation](https://reference.aspose.com/slides/th/net/aspose.slides.animation/) 
-* Aspose.Slides มีเอฟเฟกต์การเคลื่อนไหวกว่า **150** ชนิดใน enumeration [EffectType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effecttype). เอฟเฟกต์เหล่านี้โดยพื้นฐานแล้วเหมือนกับ (หรือเทียบเท่า) เอฟเฟกต์ที่ใช้ใน PowerPoint.
+ตัวอย่างต่อไปนี้สร้างการเคลื่อนไหวทั้งสองประเภทและบันทึกผลลัพธ์เป็น `shape-animations.pptx`
 
-## **ใช้การเคลื่อนไหวกับ TextBox**
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-Aspose.Slides สำหรับ .NET ให้คุณเพิ่มการเคลื่อนไหวให้กับข้อความในรูปทรง. 
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](http://www.aspose.com/api/net/slides/th/aspose.slides/). 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. เพิ่ม `rectangle` [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape). 
-4. เพิ่มข้อความไปยัง [IAutoShape.TextFrame](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape/properties/textframe). 
-5. รับลำดับหลักของเอฟเฟกต์. 
-6. เพิ่มเอฟเฟกต์การเคลื่อนไหวให้กับ [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape). 
-7. ตั้งค่า property [TextAnimation.BuildType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/textanimation/properties/buildtype) ให้เป็นค่าจาก [BuildType Enumeration](https://reference.aspose.com/slides/th/net/aspose.slides.animation/buildtype). 
-8. บันทึกงานนำเสนอลงดิสก์เป็นไฟล์ PPTX. 
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Click to animate this shape";
 
-โค้ด C# นี้แสดงวิธีการใช้เอฟเฟกต์ `Fade` กับ AutoShape และตั้งค่าการเคลื่อนไหวของข้อความเป็นค่า *By 1st Level Paragraphs* :
+var mainSequence = slide.Timeline.MainSequence;
+var entranceEffect = mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+entranceEffect.Timing.Duration = 1.5f;
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
-using (Presentation pres = new Presentation())
-{
-    ISlide sld = pres.Slides[0];
-    
-    // เพิ่ม AutoShape ใหม่พร้อมข้อความ
-    IAutoShape autoShape = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 150, 100);
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
 
-    ITextFrame textFrame = autoShape.TextFrame;
-    textFrame.Text = "First paragraph \nSecond paragraph \n Third paragraph";
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
 
-    // รับลำดับหลักของสไลด์.
-    ISequence sequence = sld.Timeline.MainSequence;
-
-    // เพิ่มเอฟเฟกต์การเคลื่อนไหว Fade ให้กับรูปร่าง
-    IEffect effect = sequence.AddEffect(autoShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // ทำให้ข้อความของรูปร่างเคลื่อนไหวตามย่อหน้าเชิงระดับที่ 1
-    effect.TextAnimation.BuildType = BuildType.ByLevelParagraphs1;
-
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.Save(path + "AnimTextBox_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animations.pptx", SaveFormat.Pptx);
 ```
 
-{{%  alert color="primary"  %}} 
+ตัวกระตุ้นกำหนดว่าเอฟเฟกต์จะเริ่มเมื่อใด:
 
-นอกจากการเพิ่มการเคลื่อนไหวให้กับข้อความแล้ว คุณยังสามารถเพิ่มการเคลื่อนไหวให้กับ [Paragraph](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph) เดียวได้ ดูที่ [**Animated Text**](/slides/th/net/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effecttriggertype/) รอการคลิกในลำดับหลักหรือการคลิกบนรูปทรงตัวกระตุ้นในลำดับเชิงโต้ตอบ
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effecttriggertype/) เริ่มพร้อมกับเอฟเฟกต์ก่อนหน้า
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effecttriggertype/) เริ่มเมื่อเอฟเฟกต์ก่อนหน้าจบลง
 
-{{% /alert %}} 
+เพื่อทำให้รูปภาพ แผนภูมิ หรือรูปทรงประเภทอื่นเคลื่อนไหว ให้ส่งอ็อบเจ็กต์นั้นไปยัง [ISequence.AddEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/addeffect/) แทน `targetShape` สำหรับตัวเลือกการจัดกลุ่มเฉพาะแผนภูมิ ดูที่ [Animated Charts](/slides/th/net/animated-charts/)
 
-## **ใช้การเคลื่อนไหวกับ PictureFrame**
+## **อ่านการเคลื่อนไหวของรูปทรง**
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](http://www.aspose.com/api/net/slides/th/aspose.slides/) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. เพิ่มหรือรับ [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe) บนสไลด์. 
-5. รับลำดับหลักของเอฟเฟกต์. 
-6. เพิ่มเอฟเฟกต์การเคลื่อนไหวให้กับ [PictureFrame](https://reference.aspose.com/slides/th/net/aspose.slides/ipictureframe). 
-8. บันทึกงานนำเสนอลงดิสก์เป็นไฟล์ PPTX. 
+ใช้ [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/geteffectsbyshape/) เมื่อคุณทราบรูปทรงเป้าหมาย เพื่อตรวจสอบทุกเอฟเฟกต์ให้วนลูปลำดับหลักและลำดับเชิงโต้ตอบทั้งหมด การวนลูปช่วยหลีกเลี่ยงการสมมติว่าลำดับมีเอฟเฟกต์ที่ดัชนี `0`
 
-โค้ด C# นี้แสดงวิธีการใช้เอฟเฟกต์ `Fly` กับ picture frame:
+ตัวอย่างต่อไปนี้สร้างรูปทรงที่มีเอฟเฟกต์ในลำดับหลักและเชิงโต้ตอบ ดึงเอฟเฟกต์ที่เป้าหมายเป็นรูปทรงนั้น แล้วจึงวนลูปรวมทุกลำดับบนสไลด์
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var targetShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+targetShape.TextFrame.Text = "Animated shape";
+
+var mainSequence = slide.Timeline.MainSequence;
+mainSequence.AddEffect(targetShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var triggerShape = slide.Shapes.AddAutoShape(ShapeType.Bevel, 20, 20, 100, 40);
+triggerShape.TextFrame.Text = "Move";
+
+var interactiveSequence = slide.Timeline.InteractiveSequences.Add(triggerShape);
+interactiveSequence.AddEffect(targetShape, EffectType.PathFootball, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var targetEffects = mainSequence.GetEffectsByShape(targetShape);
+Console.WriteLine($"The main sequence contains {targetEffects.Length} effect(s) for {targetShape.Name}.");
+
+PrintSequence("Main sequence", mainSequence);
+
+var interactiveIndex = 1;
+foreach (var sequence in slide.Timeline.InteractiveSequences)
 {
-    // โหลดภาพที่จะเพิ่มในคอลเลกชันภาพของงานนำเสนอ
-    IImage image = Images.FromFile("aspose-logo.jpg");
-    IPPImage ppImage = pres.Images.AddImage(image);
-    image.Dispose();
-
-    // เพิ่ม picture frame ไปยังสไลด์
-    IPictureFrame picFrame = pres.Slides[0].Shapes.AddPictureFrame(ShapeType.Rectangle, 50, 50, 100, 100, ppImage);
-
-    // รับลำดับหลักของสไลด์.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
-
-    // เพิ่มเอฟเฟกต์การเคลื่อนไหว Fly จากด้านซ้ายให้กับ picture frame
-    IEffect effect = sequence.AddEffect(picFrame, EffectType.Fly, EffectSubtype.Left, EffectTriggerType.OnClick);
-
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.Save("AnimImage_out.pptx", SaveFormat.Pptx);
+    var triggerName = sequence.TriggerShape == null ? "unknown" : sequence.TriggerShape.Name;
+    var sequenceLabel = $"Interactive sequence {interactiveIndex}, trigger: {triggerName}";
+    PrintSequence(sequenceLabel, sequence);
+    interactiveIndex++;
 }
-```
 
-## **ใช้การเคลื่อนไหวกับ Shape**
-
-1. สร้างอินสแตนซ์ของคลาส [Presentation](http://www.aspose.com/api/net/slides/th/aspose.slides/) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. เพิ่ม `rectangle` [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape). 
-4. เพิ่ม `Bevel` [IAutoShape](https://reference.aspose.com/slides/th/net/aspose.slides/iautoshape) (เมื่อออบเจกต์นี้ถูกคลิก การเคลื่อนไหวจะถูกเล่น). 
-5. สร้างลำดับของเอฟเฟกต์บนรูปร่าง bevel. 
-6. สร้าง `UserPath` แบบกำหนดเอง. 
-7. เพิ่มคำสั่งสำหรับการย้ายไปยัง `UserPath`. 
-8. บันทึกงานนำเสนอลงดิสก์เป็นไฟล์ PPTX. 
-
-โค้ด C# นี้แสดงวิธีการใช้เอฟเฟกต์ `PathFootball` (path football) กับรูปทร่าง:
-
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
-using (Presentation pres = new Presentation())
+static void PrintSequence(string label, ISequence sequence)
 {
-    ISlide sld = pres.Slides[0];
+    Console.WriteLine($"  {label}: {sequence.Count} effect(s)");
 
-    // สร้างเอฟเฟกต์ PathFootball สำหรับรูปร่างที่มีอยู่ตั้งแต่ต้น.
-    IAutoShape ashp = sld.Shapes.AddAutoShape(ShapeType.Rectangle, 150, 150, 250, 25);
-
-    ashp.AddTextFrame("Animated TextBox");
-
-    // เพิ่มเอฟเฟกต์การเคลื่อนไหว PathFootBall.
-    pres.Slides[0].Timeline.MainSequence.AddEffect(ashp, EffectType.PathFootball,
-                           EffectSubtype.None, EffectTriggerType.AfterPrevious);
-
-    // สร้างบางอย่างคล้าย "ปุ่ม".
-    IShape shapeTrigger = pres.Slides[0].Shapes.AddAutoShape(ShapeType.Bevel, 10, 10, 20, 20);
-
-    // สร้างลำดับของเอฟเฟกต์สำหรับปุ่ม.
-    ISequence seqInter = pres.Slides[0].Timeline.InteractiveSequences.Add(shapeTrigger);
-
-    // สร้างเส้นทางผู้ใช้แบบกำหนดเอง. วัตถุของเราจะเคลื่อนที่หลังจากคลิกปุ่มเท่านั้น.
-    IEffect fxUserPath = seqInter.AddEffect(ashp, EffectType.PathUser, EffectSubtype.None, EffectTriggerType.OnClick);
-
-    // เพิ่มคำสั่งการย้ายเนื่องจากเส้นทางที่สร้างยังว่างเปล่า.
-    IMotionEffect motionBhv = ((IMotionEffect)fxUserPath.Behaviors[0]);
-
-    PointF[] pts = new PointF[1];
-    pts[0] = new PointF(0.076f, 0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, true);
-    pts[0] = new PointF(-0.076f, -0.59f);
-    motionBhv.Path.Add(MotionCommandPathType.LineTo, pts, MotionPathPointsType.Auto, false);
-    motionBhv.Path.Add(MotionCommandPathType.End, null, MotionPathPointsType.Auto, false);
-
-    // เขียนไฟล์ PPTX ลงดิสก์
-    pres.Save("AnimExample_out.pptx", SaveFormat.Pptx);
-}
-```
-
-## **รับเอฟเฟกต์การเคลื่อนไหวที่ใช้กับ Shape**
-
-ตัวอย่างต่อไปนี้แสดงวิธีการใช้เมธอด `GetEffectsByShape` จากอินเตอร์เฟส [ISequence](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/) เพื่อรับเอฟเฟกต์การเคลื่อนไหวทั้งหมดที่ใช้กับรูปร่าง.
-
-**ตัวอย่าง 1: รับเอฟเฟกต์การเคลื่อนไหวที่ใช้กับรูปร่างบนสไลด์ปกติ**
-
-ก่อนหน้านี้คุณได้เรียนรู้วิธีเพิ่มเอฟเฟกต์การเคลื่อนไหวให้กับรูปร่างในงานนำเสนอ PowerPoint ตัวอย่างโค้ดต่อไปนี้แสดงวิธีรับเอฟเฟกต์ที่ใช้กับรูปร่างแรกบนสไลด์ปกติแรกในงานนำเสนอ `AnimExample_out.pptx`.
-
-```c#
-using (Presentation presentation = new Presentation("AnimExample_out.pptx"))
-{
-    ISlide firstSlide = presentation.Slides[0];
-
-    // รับลำดับการเคลื่อนไหวหลักของสไลด์.
-    ISequence sequence = firstSlide.Timeline.MainSequence;
-
-    // รับรูปทรงแรกบนสไลด์แรก.
-    IShape shape = firstSlide.Shapes[0];
-
-    // รับเอฟเฟกต์การเคลื่อนไหวที่ใช้กับรูปทรง.
-    IEffect[] shapeEffects = sequence.GetEffectsByShape(shape);
-
-    if (shapeEffects.Length > 0)
-        Console.WriteLine($"The shape {shape.Name} has {shapeEffects.Length} animation effects.");
-}
-```
-
-**ตัวอย่าง 2: รับเอฟเฟกต์การเคลื่อนไหวทั้งหมด รวมถึงที่สืบทอดจาก placeholder**
-
-หากรูปร่างบนสไลด์ปกติมี placeholder ที่อยู่บนสไลด์เลย์เอาต์และ/หรือสไลด์มาสเตอร์ และมีการเพิ่มเอฟเฟกต์การเคลื่อนไหวให้กับ placeholder เหล่านี้ แล้วเอฟเฟกต์ทั้งหมดของรูปร่างจะถูกเล่นระหว่างการแสดงสไลด์ รวมถึงที่สืบทอดจาก placeholder ด้วย
-
-สมมติว่าเรามีไฟล์งานนำเสนอ PowerPoint `sample.pptx` ที่มีสไลด์หนึ่งสไลด์ซึ่งมีเพียงรูปร่าง footer เท่านั้นที่มีข้อความ “Made with Aspose.Slides” และได้ใช้เอฟเฟกต์ **Random Bars** กับรูปร่างนั้น
-
-![Slide shape animation effect](slide-shape-animation.png)
-
-สมมติว่าเรายังได้ใช้เอฟเฟกต์ **Split** กับ placeholder ของ footer บนสไลด์ **layout** ด้วย
-
-![Layout shape animation effect](layout-shape-animation.png)
-
-และสุดท้ายได้ใช้เอฟเฟกต์ **Fly In** กับ placeholder ของ footer บนสไลด์ **master** ด้วย
-
-![Master shape animation effect](master-shape-animation.png)
-
-ตัวอย่างโค้ดต่อไปนี้แสดงวิธีการใช้เมธอด `GetBasePlaceholder` จากอินเตอร์เฟส [IShape](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/) เพื่อเข้าถึง placeholder ของรูปร่างและรับเอฟเฟกต์การเคลื่อนไหวที่ใช้กับรูปร่าง footer รวมถึงที่สืบทอดจาก placeholder ที่อยู่บนสไลด์เลย์เอาต์และมาสเตอร์
-
-```cs
-using (Presentation presentation = new Presentation("sample.pptx"))
-{
-    ISlide slide = presentation.Slides[0];
-
-    // รับเอฟเฟกต์การเคลื่อนไหวของรูปทรงบนสไลด์ปกติ.
-    IShape shape = slide.Shapes[0];
-    IEffect[] shapeEffects = slide.Timeline.MainSequence.GetEffectsByShape(shape);
-
-    // รับเอฟเฟกต์การเคลื่อนไหวของ placeholder บนสไลด์เลย์เอาต์.
-    IShape layoutShape = shape.GetBasePlaceholder();
-    IEffect[] layoutShapeEffects = slide.LayoutSlide.Timeline.MainSequence.GetEffectsByShape(layoutShape);
-
-    // รับเอฟเฟกต์การเคลื่อนไหวของ placeholder บนสไลด์มาสเตอร์.
-    IShape masterShape = layoutShape.GetBasePlaceholder();
-    IEffect[] masterShapeEffects = slide.LayoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(masterShape);
-
-    Console.WriteLine("Main sequence of shape effects:");
-    PrintEffects(masterShapeEffects);
-    PrintEffects(layoutShapeEffects);
-    PrintEffects(shapeEffects);
-}
-```
-```cs
-static void PrintEffects(IEnumerable<IEffect> effects)
-{
-    foreach (IEffect effect in effects)
+    foreach (var effect in sequence)
     {
-        Console.WriteLine($"{effect.Type} {effect.Subtype}");
+        var targetName = effect.TargetShape == null ? "unknown" : effect.TargetShape.Name;
+        var effectDescription = $"{effect.Type} {effect.Subtype}; target: {targetName}; trigger: {effect.Timing.TriggerType}";
+        Console.WriteLine($"    {effectDescription}");
     }
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Fly Bottom
-Split VerticalIn
-RandomBars Horizontal
-```
+หากคุณต้องการเอฟเฟกต์เฉพาะรูปทรงเดียว ให้ระบุตัวรูปทรงด้วยชื่อ ประเภท placeholder หรือคุณสมบัติคงที่อื่น ๆ แล้วเรียก [ISequence.GetEffectsByShape](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/geteffectsbyshape/) อย่าโดยสมมติว่า [IShapeCollection.Item](https://reference.aspose.com/slides/th/net/aspose.slides/ishapecollection/item/) ที่ดัชนี `0` คือออบเจ็กต์ที่ต้องการเสมอ
 
-## **เปลี่ยนคุณสมบัติการกำหนดเวลาเอฟเฟกต์การเคลื่อนไหว**
+## **ทำงานกับเอฟเฟกต์ Placeholder ที่สืบทอด**
 
-Aspose.Slides สำหรับ .NET ให้คุณเปลี่ยนคุณสมบัติ Timing ของเอฟเฟกต์การเคลื่อนไหว
+Placeholder บนสไลด์ปกติสามารถสืบทอดพฤติกรรมการเคลื่อนไหวจาก placeholder ที่สอดคล้องบนสไลด์เลย์เอาต์และมาสเตอร์ได้ [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/getbaseplaceholder/) คืนค่า placeholder พ่อแม่ หรือ `null` ถ้าไม่มีพ่อแม่
 
-นี่คือแถบ Animation Timing และเมนูขยายใน Microsoft PowerPoint:
+ในตัวอย่างงานนำเสนอต่อไปนี้ ส่วนท้าย (footer) มี **Random Bars** บนสไลด์ปกติ, **Split** บนสไลด์เลย์เอาต์, และ **Fly In** บนสไลด์มาสเตอร์
 
-![example1_image](shape-animation.png)
+![Footer animation effect on the normal slide](slide-shape-animation.png)
 
-ต่อไปนี้คือการจับคู่ระหว่าง PowerPoint Timing และคุณสมบัติ [Effect.Timing](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effect/properties/timing):
+![Footer placeholder animation effect on the layout slide](layout-shape-animation.png)
 
-- เมนูดรอปดาวน์ **Start** ของ PowerPoint ตรงกับคุณสมบัติ [Effect.Timing.TriggerType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/properties/triggertype) 
-- เมนู **Duration** ของ PowerPoint ตรงกับคุณสมบัติ [Effect.Timing.Duration](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/properties/duration) ซึ่งระยะเวลาของการเคลื่อนไหว (เป็นวินาที) คือเวลารวมที่การเคลื่อนไหวใช้เพื่อทำครบหนึ่งรอบ 
-- เมนู **Delay** ของ PowerPoint ตรงกับคุณสมบัติ [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/properties/triggerdelaytime) 
-- เมนูดรอปดาวน์ **Repeat** ของ PowerPoint ตรงกับคุณสมบัติเหล่านี้:
-  * คุณสมบัติ [Effect.Timing.RepeatCount](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatcount) ซึ่งอธิบาย *จำนวน* ครั้งที่เอฟเฟกต์ทำซ้ำ;
-  * ธง [Effect.Timing.RepeatUntilEndSlide](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatuntilendslide) ที่ระบุว่าเอฟเฟกต์จะทำซ้ำจนถึงตอนจบของสไลด์;
-  * ธง [Effect.Timing.RepeatUntilNextClick](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatuntilnextclick) ที่ระบุว่าเอฟเฟกต์จะทำซ้ำจนกว่าจะคลิกครั้งถัดไป.
-- ช่องทำเครื่องหมาย **Rewind when done playing** ของ PowerPoint ตรงกับคุณสมบัติ [Effect.Timing.Rewind](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/rewind/) 
+![Footer placeholder animation effect on the master slide](master-shape-animation.png)
 
-นี่คือวิธีการเปลี่ยนคุณสมบัติ Effect Timing:
+ตัวอย่างต่อไปสร้างลำดับชั้นของ placeholder เอง โดยเพิ่มเอฟเฟกต์ให้กับ placeholder ของมาสเตอร์, placeholder ของเลย์เอาต์, และ placeholder ที่สอดคล้องบนสไลด์ปกติ ทุกครั้งที่เรียก [IShape.GetBasePlaceholder](https://reference.aspose.com/slides/th/net/aspose.slides/ishape/getbaseplaceholder/) จะตรวจสอบว่าคืนค่า shape หรือไม่ก่อนใช้งาน
 
-1. [ใช้](#apply-animation-to-shape) หรือรับเอฟเฟกต์การเคลื่อนไหว
-2. ตั้งค่าคุณสมบัติ [Effect.Timing](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effect/properties/timing) ใหม่ตามที่ต้องการ
-3. บันทึกไฟล์ PPTX ที่แก้ไขแล้ว
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-โค้ด C# นี้แสดงการดำเนินการ:
+using var presentation = new Presentation();
+var layoutSlide = presentation.LayoutSlides.GetByType(SlideLayoutType.Blank);
+var layoutPlaceholder = layoutSlide.PlaceholderManager.AddTextPlaceholder(100, 100, 400, 80);
+layoutSlide.Timeline.MainSequence.AddEffect(layoutPlaceholder, EffectType.Split, EffectSubtype.VerticalIn, EffectTriggerType.OnClick);
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
+var masterPlaceholder = layoutPlaceholder.GetBasePlaceholder();
+if (masterPlaceholder != null)
 {
-    // รับลำดับหลักของสไลด์.
-    ISequence sequence = pres.Slides[0].Timeline.MainSequence;
+    var masterSequence = layoutSlide.MasterSlide.Timeline.MainSequence;
+    masterSequence.AddEffect(masterPlaceholder, EffectType.Fly, EffectSubtype.Bottom, EffectTriggerType.OnClick);
+}
 
-    // รับเอฟเฟ็กต์แรกของลำดับหลัก.
-    IEffect effect = sequence[0];
+var slide = presentation.Slides.AddEmptySlide(layoutSlide);
+var slidePlaceholder = FindPlaceholderWithBase(slide);
 
-    // เปลี่ยน TriggerType ของเอฟเฟ็กต์ให้เริ่มเมื่อคลิก
-    effect.Timing.TriggerType = EffectTriggerType.OnClick;
+if (slidePlaceholder == null)
+{
+    throw new InvalidOperationException("The slide does not contain a placeholder linked to its layout slide.");
+}
 
-    // เปลี่ยน Duration ของเอฟเฟ็กต์
-    effect.Timing.Duration = 3f;
+slide.Timeline.MainSequence.AddEffect(slidePlaceholder, EffectType.RandomBars, EffectSubtype.Horizontal, EffectTriggerType.OnClick);
+PrintEffects("Normal slide", slide.Timeline.MainSequence.GetEffectsByShape(slidePlaceholder));
 
-    // เปลี่ยน TriggerDelayTime ของเอฟเฟ็กต์
-    effect.Timing.TriggerDelayTime = 0.5f;
+var baseLayoutPlaceholder = slidePlaceholder.GetBasePlaceholder();
+if (baseLayoutPlaceholder != null)
+{
+    PrintEffects("Layout slide", layoutSlide.Timeline.MainSequence.GetEffectsByShape(baseLayoutPlaceholder));
 
-    // ถ้า Repeat ของเอฟเฟ็กต์เท่ากับ "none"
-    if (effect.Timing.RepeatCount == 1f)
+    var baseMasterPlaceholder = baseLayoutPlaceholder.GetBasePlaceholder();
+    if (baseMasterPlaceholder != null)
     {
-        // เปลี่ยน Repeat ของเอฟเฟ็กต์เป็น "Until Next Click"
-        effect.Timing.RepeatUntilNextClick = true;
+        PrintEffects("Master slide", layoutSlide.MasterSlide.Timeline.MainSequence.GetEffectsByShape(baseMasterPlaceholder));
     }
-    else
+}
+
+presentation.Save("placeholder-animations.pptx", SaveFormat.Pptx);
+
+static IShape FindPlaceholderWithBase(ISlide slide)
+{
+    foreach (var shape in slide.Shapes)
     {
-        // เปลี่ยน Repeat ของเอฟเฟ็กต์เป็น "Until End of Slide"
-        effect.Timing.RepeatUntilEndSlide = true;
+        if (shape.GetBasePlaceholder() != null)
+        {
+            return shape;
+        }
     }
 
-    // เปิดใช้งาน Rewind ของเอฟเฟ็กต์
-        effect.Timing.Rewind = true;
-    
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.Save("AnimExample_changed.pptx", SaveFormat.Pptx);
+    return null;
+}
+
+static void PrintEffects(string source, IEffect[] effects)
+{
+    Console.WriteLine($"{source}: {effects.Length} effect(s)");
+
+    foreach (var effect in effects)
+    {
+        Console.WriteLine($"  {effect.Type} {effect.Subtype}");
+    }
 }
 ```
 
-## **เสียงของเอฟเฟกต์การเคลื่อนไหว**
+## **เปลี่ยนการตั้งค่าเวลาของการเคลื่อนไหว**
 
-Aspose.Slides มีคุณสมบัติเหล่านี้เพื่อให้คุณทำงานกับเสียงในเอฟเฟกต์การเคลื่อนไหว: 
-- คุณสมบัติ [IEffect.Sound](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effect/sound/) 
-- คุณสมบัติ [IEffect.StopPreviousSound](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effect/stopprevioussound/) 
+กล่องโต้ตอบ **Timing** ของ PowerPoint จะสะท้อนคุณสมบัติของ [ITiming](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/)
 
-### **เพิ่มเสียงให้กับเอฟเฟกต์การเคลื่อนไหว**
+![PowerPoint Timing dialog for an animation effect](shape-animation.png)
 
-โค้ด C# นี้แสดงวิธีการเพิ่มเสียงให้กับเอฟเฟกต์การเคลื่อนไหวและหยุดเสียงเมื่อเอฟเฟกต์ถัดไปเริ่มต้น:
+- **Start** สอดคล้องกับ [ITiming.TriggerType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/triggertype/)
+- **Duration** สอดคล้องกับ [ITiming.Duration](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/duration/) หน่วยเป็นวินาที
+- **Delay** สอดคล้องกับ [ITiming.TriggerDelayTime](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/triggerdelaytime/) หน่วยเป็นวินาที
+- **Repeat** สอดคล้องกับ [ITiming.RepeatCount](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatcount/), [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatuntilnextclick/), หรือ [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatuntilendslide/)
+- **Rewind when done playing** สอดคล้องกับ [ITiming.Rewind](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/rewind/)
 
-```c#
-using (Presentation pres = new Presentation("AnimExample_out.pptx"))
-{
-    // เพิ่มเสียงไปยังคอลเลกชันเสียงของงานนำเสนอ
-    IAudio effectSound = pres.Audios.AddAudio(File.ReadAllBytes("sampleaudio.wav"));
+ตัวอย่างอิสระนี้เพิ่มเอฟเฟกต์ ปรับเวลาผ่านออบเจ็กต์ที่คืนมาจาก [ISequence.AddEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/addeffect/) และบันทึกผลลัพธ์ การเก็บอ้างอิงถึง [IEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/) ที่คืนมาช่วยหลีกเลี่ยงการอ้างอิงดัชนีคอลเลกชันที่ไม่จำเป็น
 
-    ISlide firstSlide = pres.Slides[0];
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-    // รับลำดับหลักของสไลด์.
-    ISequence sequence = firstSlide.Timeline.MainSequence;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Timed animation";
 
-    // รับเอฟเฟ็กต์แรกของลำดับหลัก
-    IEffect firstEffect = sequence[0];
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.Timing.TriggerType = EffectTriggerType.OnClick;
+effect.Timing.Duration = 2.0f;
+effect.Timing.TriggerDelayTime = 0.5f;
+effect.Timing.RepeatUntilNextClick = false;
+effect.Timing.RepeatUntilEndSlide = false;
+effect.Timing.RepeatCount = 2.0f;
+effect.Timing.Rewind = true;
 
-    // ตรวจสอบว่าเอฟเฟ็กต์ไม่มีเสียง
-    if (!firstEffect.StopPreviousSound && firstEffect.Sound == null)
-    {
-        // เพิ่มเสียงให้กับเอฟเฟ็กต์แรก
-        firstEffect.Sound = effectSound;
-    }
-
-    // รับลำดับโต้ตอบแรกของสไลด์.
-    ISequence interactiveSequence = firstSlide.Timeline.InteractiveSequences[0];
-
-    // ตั้งค่าสถานะ "Stop previous sound" ของเอฟเฟ็กต์
-    interactiveSequence[0].StopPreviousSound = true;
-
-    // เขียนไฟล์ PPTX ลงดิสก์
-    pres.Save("AnimExample_Sound_out.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-timing.pptx", SaveFormat.Pptx);
 ```
 
-### **สกัดเสียงจากเอฟเฟกต์การเคลื่อนไหว**
+ใช้โหมดการทำซ้ำแบบใดแบบหนึ่งเท่านั้น การผสานจำนวนครั้งกับแฟล็ก “until” อาจทำให้ผลลัพธ์สับสนในตัวแสดงผลต่าง ๆ เมื่อตั้งค่าโหมดทำซ้ำ ให้ตั้งค่า [ITiming.RepeatUntilNextClick](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatuntilnextclick/) และ [ITiming.RepeatUntilEndSlide](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatuntilendslide/) ก่อน [ITiming.RepeatCount](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itiming/repeatcount/) เนื่องจากการตั้งค่าแฟล็กใดแฟล็กหนึ่งจะเปลี่ยนโหมดทำซ้ำที่ทำงานอยู่
 
-1. สร้างอินสแตนซ์ของคลาส [Presentation](https://reference.aspose.com/slides/th/net/aspose.slides/presentation/) 
-2. รับอ้างอิงของสไลด์ผ่านดัชนีของมัน. 
-3. รับลำดับหลักของเอฟเฟกต์. 
-4. สกัด [Sound](https://reference.aspose.com/slides/th/net/aspose.slides.animation/effect/sound/) ที่ฝังอยู่ในแต่ละเอฟเฟกต์การเคลื่อนไหว. 
+## **เพิ่มและสกัดเสียงการเคลื่อนไหว**
 
-โค้ด C# นี้แสดงวิธีการสกัดเสียงที่ฝังอยู่ในเอฟเฟกต์การเคลื่อนไหว:
+เอฟเฟกต์การเคลื่อนไหวสามารถอ้างอิงไฟล์เสียงที่ฝังไว้ผ่าน [IEffect.Sound](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/sound/) [IEffect.StopPreviousSound](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/stopprevioussound/) บอกให้เอฟเฟกต์หยุดเสียงที่เริ่มโดยเอฟเฟกต์ก่อนหน้า
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
-using (Presentation presentation = new Presentation("EffectSound.pptx"))
+### **เพิ่มเสียงให้กับเอฟเฟกต์**
+
+ตัวอย่างต่อไปนี้คาดว่าไฟล์เสียงโลคัลชื่อ `animation-sound.wav` จะสร้างเอฟเฟกต์สองรายการ ฝังไฟล์นั้นเป็นเสียงของเอฟเฟกต์แรก และตั้งค่าให้เอฟเฟกต์ที่สองหยุดเสียง ใช้ออบเจ็กต์ที่คืนจาก [ISequence.AddEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/addeffect/) ดังนั้นจึงไม่ต้องระบุดัชนีลำดับ
+
+```csharp
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var firstShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 100, 240, 80);
+var secondShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 400, 100, 240, 80);
+firstShape.TextFrame.Text = "Starts sound";
+secondShape.TextFrame.Text = "Stops sound";
+
+var sequence = slide.Timeline.MainSequence;
+var firstEffect = sequence.AddEffect(firstShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+var secondEffect = sequence.AddEffect(secondShape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+
+var audioData = File.ReadAllBytes("animation-sound.wav");
+var effectSound = presentation.Audios.AddAudio(audioData);
+firstEffect.Sound = effectSound;
+secondEffect.StopPreviousSound = true;
+
+presentation.Save("shape-animation-sound.pptx", SaveFormat.Pptx);
+```
+
+### **สกัดเสียงที่ฝังอยู่ในเอฟเฟกต์**
+
+ตัวอย่างต่อไปนี้คาดว่าไฟล์งานนำเสนอโลคัลชื่อ `presentation-with-animation-sounds.pptx` จะสแกนทั้งลำดับหลักและเชิงโต้ตอบและเขียนเสียงเอฟเฟกต์ที่ฝังไว้ทั้งหมดไปยังไดเรกทอรี `extracted-animation-sounds` ส่วนขยายไฟล์จะเลือกจาก MIME type ของเสียงที่เปิดเผยโดย [IAudio.ContentType](https://reference.aspose.com/slides/th/net/aspose.slides/iaudio/contenttype/)
+
+```csharp
+using System;
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+
+var inputPath = "presentation-with-animation-sounds.pptx";
+var outputDirectory = "extracted-animation-sounds";
+
+Directory.CreateDirectory(outputDirectory);
+
+using var presentation = new Presentation(inputPath);
+var soundIndex = 1;
+
+foreach (var slide in presentation.Slides)
 {
-    ISlide slide = presentation.Slides[0];
+    SaveSounds(slide.Timeline.MainSequence, outputDirectory, ref soundIndex);
 
-    // รับลำดับหลักของสไลด์.
-    ISequence sequence = slide.Timeline.MainSequence;
+    foreach (var sequence in slide.Timeline.InteractiveSequences)
+    {
+        SaveSounds(sequence, outputDirectory, ref soundIndex);
+    }
+}
 
-    foreach (IEffect effect in sequence)
+Console.WriteLine($"Extracted {soundIndex - 1} sound file(s) to {Path.GetFullPath(outputDirectory)}.");
+
+static void SaveSounds(ISequence sequence, string outputDirectory, ref int soundIndex)
+{
+    foreach (var effect in sequence)
     {
         if (effect.Sound == null)
             continue;
 
-        // สกัดเสียงเอฟเฟ็กต์เป็นอาร์เรย์ของไบต์
-        byte[] audio = effect.Sound.BinaryData;
+        var extension = GetAudioExtension(effect.Sound.ContentType);
+        var outputPath = Path.Combine(outputDirectory, $"effect-sound-{soundIndex}{extension}");
+        File.WriteAllBytes(outputPath, effect.Sound.BinaryData);
+        soundIndex++;
     }
 }
-```
 
-## **หลังการเคลื่อนไหว**
-
-Aspose.Slides สำหรับ .NET ให้คุณเปลี่ยนคุณสมบัติ After animation ของเอฟเฟกต์การเคลื่อนไหว
-
-นี่คือแถบ Animation Effect และเมนูขยายใน Microsoft PowerPoint:
-
-![example1_image](shape-after-animation.png)
-
-เมนูดรอปดาวน์ **After animation** ของ PowerPoint ตรงกับคุณสมบัติเหล่านี้: 
-
-- คุณสมบัติ [IEffect.AfterAnimationType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/afteranimationtype/) ที่อธิบายประเภท After animation :
-  * PowerPoint **More Colors** ตรงกับประเภท [AfterAnimationType.Color](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) 
-  * PowerPoint **Don't Dim** ตรงกับประเภท [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) (ประเภท After animation เริ่มต้น) 
-  * PowerPoint **Hide After Animation** ตรงกับประเภท [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) 
-  * PowerPoint **Hide on Next Mouse Click** ตรงกับประเภท [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) 
-- คุณสมบัติ [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/afteranimationcolor/) ที่กำหนดรูปแบบสี After animation. คุณสมบัตินี้ทำงานร่วมกับประเภท [AfterAnimationType.Color](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/). หากคุณเปลี่ยนประเภทเป็นค่าอื่น สี After animation จะถูกล้าง
-
-โค้ด C# นี้แสดงวิธีการเปลี่ยนเอฟเฟกต์ After animation:
-
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ
-using (Presentation pres = new Presentation("AnimImage_out.pptx"))
+static string GetAudioExtension(string contentType)
 {
-    ISlide firstSlide = pres.Slides[0];
+    var normalizedType = contentType == null ? string.Empty : contentType.ToLowerInvariant();
 
-    // รับเอฟเฟ็กต์แรกของลำดับหลัก
-    IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+    if (normalizedType == "audio/mpeg")
+        return ".mp3";
 
-    // เปลี่ยนชนิด After animation เป็น Color
-    firstEffect.AfterAnimationType = AfterAnimationType.Color;
+    if (normalizedType == "audio/mp4")
+        return ".m4a";
 
-    // ตั้งค่าสี After animation ที่ทำให้มืด
-    firstEffect.AfterAnimationColor.Color = Color.AliceBlue;
+    if (normalizedType == "audio/ogg")
+        return ".ogg";
 
-    // บันทึกไฟล์ PPTX ลงดิสก์
-    pres.Save("AnimImage_AfterAnimation.pptx", SaveFormat.Pptx);
+    if (normalizedType == "audio/wav" || normalizedType == "audio/x-wav")
+        return ".wav";
+
+    return ".bin";
 }
 ```
 
-## **ทำให้ข้อความเคลื่อนไหว**
+สำหรับออบเจ็กต์เสียงขนาดใหญ่ ให้ใช้ [IAudio.GetStream](https://reference.aspose.com/slides/th/net/aspose.slides/iaudio/getstream/) แล้วคัดลอกสตรีมไปยังไฟล์แทนการโหลดออบเจ็กต์ทั้งหมดเข้าอาเรย์ไบต์
 
-Aspose.Slides มีคุณสมบัติเหล่านี้เพื่อให้คุณทำงานกับบล็อก *Animate text* ของเอฟเฟกต์การเคลื่อนไหว:
+## **กำหนดพฤติกรรมหลังการเคลื่อนไหว**
 
-- คุณสมบัติ [IEffect.AnimateTextType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/animatetexttype/) ที่อธิบายประเภทการเคลื่อนที่ของข้อความในเอฟเฟกต์. ข้อความในรูปร่างสามารถเคลื่อนไหวได้:
-  - ทั้งหมดพร้อมกัน ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/th/net/aspose.slides.animation/animatetexttype/) type)
-  - ตามคำ ([AnimateTextType.ByWord](https://reference.aspose.com/slides/th/net/aspose.slides.animation/animatetexttype/) type)
-  - ตามอักษร ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/th/net/aspose.slides.animation/animatetexttype/) type)
-- คุณสมบัติ [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/delaybetweentextparts/) ตั้งค่าการหน่วงเวลาระหว่างส่วนของข้อความที่เคลื่อนไหว (คำหรืออักษร). ค่าบวกระบุเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์. ค่าลบระบุเป็นวินาที
+ตัวเลือก **After animation** ควบคุมสิ่งที่เกิดขึ้นกับรูปทรงหลังจากเอฟเฟกต์เสร็จสิ้น
 
-นี่คือวิธีการเปลี่ยนคุณสมบัติ Effect Animate text:
+![PowerPoint Effect Options dialog showing After animation settings](shape-after-animation.png)
 
-1. [ใช้](#apply-animation-to-shape) หรือรับเอฟเฟกต์การเคลื่อนไหว
-2. ตั้งค่าคุณสมบัติ [IEffect.TextAnimation.BuildType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itextanimation/buildtype/) ให้เป็นค่า [BuildType.AsOneObject](https://reference.aspose.com/slides/th/net/aspose.slides.animation/buildtype/) เพื่อปิดโหมดการเคลื่อนไหว *By Paragraphs*
-3. ตั้งค่าค่าใหม่ให้กับคุณสมบัติ [IEffect.AnimateTextType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/animatetexttype/) และ [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/delaybetweentextparts/) 
-4. บันทึกไฟล์ PPTX ที่แก้ไขแล้ว
+enumeration [AfterAnimationType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) รองรับการคงรูปทรงไว้ไม่เปลี่ยน, การเปลี่ยนสี, การซ่อนหลังการเคลื่อนไหว, หรือการซ่อนเมื่อคลิกครั้งถัดไป เมื่อชนิดเป็น [AfterAnimationType.Color](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) ให้ตั้งค่า [IEffect.AfterAnimationColor](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/afteranimationcolor/) ด้วย
 
-โค้ด C# นี้แสดงการดำเนินการ:
+ตัวอย่างอิสระนี้สร้างเอฟเฟกต์ ตั้งค่าพฤติกรรมหลังการเคลื่อนไหวผ่านออบเจ็กต์เอฟเฟกต์ที่คืนมา และบันทึกผลลัพธ์
 
-```c#
-// สร้างอินสแตนซ์ของคลาส Presentation ที่แทนไฟล์การนำเสนอ.
-using (Presentation pres = new Presentation("AnimTextBox_out.pptx"))
-{
-	// รับเอฟเฟ็กต์แรกของลำดับหลัก
-	IEffect firstEffect = firstSlide.Timeline.MainSequence[0];
+```csharp
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
 
-	// เปลี่ยนประเภทการเคลื่อนไหวข้อความของเอฟเฟ็กต์เป็น "As One Object"
-	firstEffect.TextAnimation.BuildType = BuildType.AsOneObject;
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 120, 100, 320, 80);
+shape.TextFrame.Text = "Dim after animation";
 
-	// เปลี่ยนประเภท Animate text ของเอฟเฟ็กต์เป็น "By word"
-	firstEffect.AnimateTextType = AnimateTextType.ByWord;
+var effect = slide.Timeline.MainSequence.AddEffect(shape, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.AfterAnimationType = AfterAnimationType.Color;
+effect.AfterAnimationColor.Color = Color.LightGray;
 
-	// ตั้งค่าการหน่วงเวลาระหว่างคำเป็น 20% ของระยะเวลาเอฟเฟ็กต์
-	firstEffect.DelayBetweenTextParts = 20f;
-
-	// เขียนไฟล์ PPTX ลงดิสก์
-	pres.Save("AnimTextBox_AnimateText.pptx", SaveFormat.Pptx);
-}
+presentation.Save("shape-animation-after-effect.pptx", SaveFormat.Pptx);
 ```
+
+การเปลี่ยนชนิดจาก [AfterAnimationType.Color](https://reference.aspose.com/slides/th/net/aspose.slides.animation/afteranimationtype/) จะล้างการตั้งค่าสีหลังการเคลื่อนไหว
+
+## **เคลื่อนไหวข้อความ**
+
+การเคลื่อนไหวข้อความมีการควบคุมสองส่วนที่เกี่ยวข้อง:
+
+- [ITextAnimation.BuildType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/itextanimation/buildtype/) ควบคุมว่าข้อความย่อย (paragraph) จะปรากฏพร้อมกันหรือเป็นระดับย่อย
+- [IEffect.AnimateTextType](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/animatetexttype/) ควบคุมว่าข้อความจะแสดงทั้งหมด, ตามคำ, หรือตามตัวอักษร [IEffect.DelayBetweenTextParts](https://reference.aspose.com/slides/th/net/aspose.slides.animation/ieffect/delaybetweentextparts/) ตั้งค่าการหน่วงระหว่างคำหรืออักษร ค่าเป็นบวกเป็นเปอร์เซ็นต์ของระยะเวลาเอฟเฟกต์; ค่าเป็นลบเป็นหน่วงเวลาเป็นวินาที
+
+ตัวอย่างอิสระต่อไปนี้เคลื่อนไหวคำภายในกล่องข้อความ [BuildType.AsOneObject](https://reference.aspose.com/slides/th/net/aspose.slides.animation/buildtype/) ปิดการสร้างตามย่อหน้าจึงทำให้การตั้งค่าคำใช้กับกรอบข้อความทั้งหมด
+
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Animation;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var textBox = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 80, 80, 560, 100);
+textBox.TextFrame.Text = "Aspose.Slides animates this sentence word by word.";
+
+var effect = slide.Timeline.MainSequence.AddEffect(textBox, EffectType.Fade, EffectSubtype.None, EffectTriggerType.OnClick);
+effect.TextAnimation.BuildType = BuildType.AsOneObject;
+effect.AnimateTextType = AnimateTextType.ByWord;
+effect.DelayBetweenTextParts = 20.0f;
+
+presentation.Save("animated-text.pptx", SaveFormat.Pptx);
+```
+
+เพื่อสร้างกล่องข้อความตามย่อหน้า ให้ตั้งค่า [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/th/net/aspose.slides.animation/buildtype/) (หรือระดับย่อหน้าอื่น) เพื่อให้เอฟเฟกต์ทำงานกับย่อหน้าเดียว ใช้ overload ของ [ISequence.AddEffect](https://reference.aspose.com/slides/th/net/aspose.slides.animation/isequence/addeffect/) ที่รับ [IParagraph](https://reference.aspose.com/slides/th/net/aspose.slides/iparagraph/) ดูที่ [Animated Text](/slides/th/net/animated-text/) สำหรับตัวอย่างระดับย่อหน้า
+
+## **การส่งออกและบันทึกหมายเหตุความเข้ากันได้**
+
+- การบันทึกเป็น PPT หรือ PPTX จะคงโมเดลการเคลื่อนไหวไว้ แต่การเล่นขั้นสุดท้ายขึ้นกับตัวแสดงผลของงานนำเสนอ
+- PDF และรูปภาพคงที่จะไม่เล่นการเคลื่อนไหว ใช้ [HTML5 export](/slides/th/net/export-to-html5/), GIF เคลื่อนไหว, หรือ [video conversion](/slides/th/net/convert-powerpoint-to-video/) เมื่อผลลัพธ์ต้องแสดงการเคลื่อนไหว
+- สำหรับ HTML5 ให้เปิดใช้งาน [Html5Options.AnimateShapes](https://reference.aspose.com/slides/th/net/aspose.slides.export/html5options/animateshapes/) และเมื่อต้องการ [Html5Options.AnimateTransitions](https://reference.aspose.com/slides/th/net/aspose.slides.export/html5options/animatetransitions/)
+- การเรนเดอร์วิดีโอรองรับเอฟเฟกต์เข้า, เน้น, ออก, และเส้นทางการเคลื่อนที่หลายประเภททั่วไป แต่ไม่รองรับทุกเอฟเฟกต์ของ PowerPoint ตรวจสอบ [supported animations and effects](/slides/th/net/convert-powerpoint-to-video/#supported-animations-and-effects) ปัจจุบันและทดสอบงานนำเสนอสำคัญกับเวอร์ชัน Aspose.Slides ของคุณ
+- เอฟเฟกต์ที่กำหนดเองขั้นสูงหรือเอฟเฟกต์ที่นำเข้าจากรูปแบบงานนำเสนออื่นอาจถูกเก็บไว้ในไฟล์แต่แสดงผลต่างกันใน PowerPoint, HTML5 หรือวิดีโอ ตรวจสอบผลการส่งออกแทนการพึ่งพาแค่ชื่อเอฟเฟกต์
 
 ## **FAQ**
 
-**ฉันจะทำให้แน่ใจว่าการเคลื่อนไหวคงอยู่เมื่อเผยแพร่การนำเสนอบนเว็บได้อย่างไร?**
+**ทำไมการเคลื่อนไหวจึงปรากฏใน PowerPoint แต่ไม่แสดงใน PDF?**
 
-[Export to HTML5](/slides/th/net/export-to-html5/) และเปิดใช้งาน [options](https://reference.aspose.com/slides/th/net/aspose.slides.export/html5options/) ที่รับผิดชอบสำหรับการเคลื่อนไหวของ [shape](https://reference.aspose.com/slides/th/net/aspose.slides.export/html5options/animateshapes/) และ [transition](https://reference.aspose.com/slides/th/net/aspose.slides.export/html5options/animatetransitions/). HTML ธรรมดาไม่เล่นการเคลื่อนไหวของสไลด์ ในขณะที่ HTML5 ทำได้
+PDF เป็นรูปแบบคงที่ ดังนั้นการเคลื่อนไหวและการเปลี่ยนสไลด์จะไม่เล่น ส่งออกเป็น HTML5, GIF เคลื่อนไหว, หรือวิดีโอเมื่อจำเป็นต้องรักษาการเคลื่อนไหว
 
-**การเปลี่ยนลำดับชั้น (z-order) ของรูปร่างมีผลต่อการเคลื่อนไหวอย่างไร?**
+**ทำไมเอฟเฟกต์จึงเล่นแตกต่างกันในวิดีโอ?**
 
-การเคลื่อนไหวและลำดับการวาดเป็นเรื่องอิสระ: เอฟเฟกต์กำหนดเวลาและประเภทของการปรากฏ/หายไป ในขณะที่ [z-order](https://reference.aspose.com/slides/th/net/aspose.slides/shape/zorderposition/) กำหนดว่าอะไรอยู่ด้านบนอะไร ผลลัพธ์ที่มองเห็นได้ถูกกำหนดโดยการผสมผสานของทั้งสอง (นี่เป็นพฤติกรรมทั่วไปของ PowerPoint; โมเดลเอฟเฟกต์และรูปร่างของ Aspose.Slides ทำตามตรรกะเดียวกัน)
+การส่งออกวิดีโอเรนเดอร์การเคลื่อนไหวแทนการเก็บพฤติกรรมต้นฉบับของ PowerPoint บางเอฟเฟกต์ขั้นสูงไม่ได้รับการสนับสนุนหรือถูกประมาณค่า ตรวจสอบตารางเอฟเฟกต์ที่สนับสนุนและทดสอบงานนำเสนอจริงก่อนใช้งานจริง
 
-**มีข้อจำกัดใดบ้างเมื่อแปลงการเคลื่อนไหวเป็นวิดีโอสำหรับเอฟเฟกต์บางอย่างหรือไม่?**
+**การย้ายรูปทรงไปข้างหน้า หรือหลัง จะเปลี่ยนลำดับการเคลื่อนไหวหรือไม่?**
 
-โดยทั่วไป [animations are supported](/slides/th/net/convert-powerpoint-to-video/), แต่ในกรณีหายากหรือเอฟเฟกต์เฉพาะอาจถูกเรนเดอร์แตกต่างออกไป แนะนำให้ทดสอบกับเอฟเฟกต์ที่คุณใช้และกับเวอร์ชันของไลบรารี.
+ไม่ การจัดลำดับ z‑order ของรูปทรงควบคุมการทับซ้อน ส่วนลำดับใน timeline และตัวกระตุ้นควบคุมการเล่นการเคลื่อนไหว ปรับ timeline หากต้องการลำดับการเล่นที่ต่างออกไป

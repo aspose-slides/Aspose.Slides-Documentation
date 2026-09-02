@@ -1,5 +1,5 @@
 ---
-title: Применить или изменить макет слайда в JavaScript
+title: Применение или изменение макетов слайдов в JavaScript
 linktitle: Макет слайда
 type: docs
 weight: 60
@@ -10,259 +10,265 @@ keywords:
 - заполнитель
 - дизайн презентации
 - дизайн слайда
-- неиспользованный макет
-- видимость нижнего колонтитула
+- неиспользуемый макет
+- видимость колонтитула
 - титульный слайд
-- заголовок и содержимое
+- заголовок и содержание
 - заголовок раздела
-- два содержимого
+- два содержимых
 - сравнение
 - только заголовок
 - пустой макет
-- содержимое с подписью
+- содержание с подписью
 - изображение с подписью
 - заголовок и вертикальный текст
 - вертикальный заголовок и текст
+- PowerPoint
+- OpenDocument
+- презентация
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Узнайте, как управлять и настраивать макеты слайдов в Aspose.Slides для Node.js. Изучите типы макетов, управление заполнителями, видимость нижних колонтитулов и манипулирование макетами с помощью примеров кода на JavaScript."
+description: "Применяйте, создавайте и изменяйте макеты слайдов в Aspose.Slides для Node.js через Java, добавляйте заполнители, удаляйте неиспользуемые макеты и управляйте видимостью колонтитула."
 ---
-
 ## **Обзор**
 
-Макет слайда определяет расположение полей‑заполнителей и форматирование содержимого на слайде. Он контролирует, какие заполнители доступны и где они отображаются. Макеты слайдов помогают быстро и последовательно создавать презентации — независимо от того, простую вы делаете или более сложную. Некоторые из самых распространённых макетов слайдов в PowerPoint включают:
+Макет слайда определяет позиции и форматирование заполнителей, таких как заголовки, текст, изображения, диаграммы и таблицы. Применение макета придаёт слайдам согласованную структуру, позволяя каждому слайду содержать собственное содержание.
 
-**Макет титульного слайда** – Включает два текстовых заполнителя: один для заголовка и один для подзаголовка.
+Самыми распространёнными макетами являются:
 
-**Макет «Заголовок и содержимое»** – Содержит меньший заполнитель заголовка вверху и более крупный ниже для основного содержания (например, текста, маркеров, диаграмм, изображений и т.д.).
+- **Title Slide**: Содержит заполнители заголовка и подзаголовка.
+- **Title and Content**: Содержит заполнитель заголовка и универсальный заполнитель содержимого.
+- **Blank**: Не содержит заполнителей содержимого и полезен, когда все объекты размещаются вручную.
 
-**Пустой макет** – Не содержит заполнителей, давая вам полный контроль над созданием слайда с нуля.
+## **Понимание наследования макетов**
 
-Макеты слайдов являются частью мастер‑слайда, который является верхнеуровневым слайдом, определяющим стили макетов для презентации. Вы можете получить доступ к макетам слайдов и изменять их через мастер‑слайд — по типу, имени или уникальному идентификатору. Кроме того, можно редактировать конкретный макет слайда непосредственно в презентации.
+Презентация имеет три связанных уровня:
 
-Чтобы работать с макетами слайдов в Aspose.Slides for Node.js, вы можете использовать:
+1. A [master slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/) определяет тему, общие форматирования, фоны и общие объекты.
+2. A [layout slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/) принадлежит мастеру и определяет конкретное расположение заполнителей.
+3. A [normal slide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/) использует один макет и хранит введённое для него содержание.
 
-- Методы, такие как [getLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getLayoutSlides) и [getMasters](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/#getMasters) в классе [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/)
-- Типы, такие как [LayoutSlide](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutplaceholdermanager/) и [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+Обычный слайд наследует тему и форматирование от своего макета, а макет наследует их от своего мастера. Значение, установленное непосредственно для обычного слайда, переопределяет унаследованное значение на этом уровне. При создании обычного слайда его заполнители‑фигуры генерируются из выбранного макета, тогда как содержимое, введённое в эти заполнители, принадлежит обычному слайду.
 
-{{% alert title="Info" color="info" %}}
-Чтобы узнать больше о работе с мастер‑слайдами, ознакомьтесь со статьей [Мастер слайдов](/slides/ru/nodejs-java/slide-master/).
-{{% /alert %}}
+Добавьте необходимые заполнители к макету перед созданием слайдов из него. Добавление другого заполнителя к макету позже не добавит автоматически соответствующую форму‑заполнитель в существующие обычные слайды.
 
-## **Добавление макетов слайдов в презентацию**
+Эта связь имеет два важных следствия:
 
-Чтобы настроить внешний вид и структуру ваших слайдов, возможно, потребуется добавить новые макеты слайдов в презентацию. Aspose.Slides for Node.js позволяет проверить, существует ли уже конкретный макет, при необходимости добавить новый и использовать его для вставки слайдов на основе этого макета.
+- Изменение унаследованного форматирования или геометрии существующего заполнителя на макете может обновить каждый слайд, который от него зависит. Перед редактированием уже используемого макета проверьте зависимые слайды и просмотрите получившуюся презентацию.
+- Макет, который всё ещё используется слайдом, нельзя удалить. Сначала переназначьте его зависимые слайды на другой макет или удалите только неиспользуемые макеты.
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите доступ к [MasterLayoutSlideCollection](https://reference.aspose.com/slides/nodejs-java/aspose.slides/masterlayoutslidecollection/).
-3. Проверьте, существует ли требуемый макет в коллекции. Если нет, добавьте нужный макет.
-4. Добавьте пустой слайд на основе нового макета.
-5. Сохраните презентацию.
+Для получения дополнительной информации о верхнем уровне этой иерархии см. [Slide Master](/slides/ru/nodejs-java/slide-master/).
 
-Следующий код JavaScript демонстрирует, как добавить макет слайда в презентацию PowerPoint:
-```js
-// Создать экземпляр класса Presentation, представляющего файл PowerPoint.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+## **Выбор и применение макета слайда**
+
+Используйте значение [SlideLayoutType](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slidelayouttype/), когда презентация следует стандартным определениям макетов PowerPoint. Имена макетов редактируются пользователем и могут быть локализованы, поэтому выбор по имени менее надёжен, если вы не контролируете исходный шаблон.
+
+В следующем примере ищется **Title and Content** на первом мастере. Если этот макет недоступен, он намеренно переключается на **Blank**. Вторичная проверка на null необходима, потому что презентация может содержать только пользовательские макеты. Затем выбранный макет применяется к первому обычному слайду через метод [Slide.setLayoutSlide](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/slide/#setLayoutSlide).
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Пройти по типам макетов слайдов, чтобы выбрать макет слайда.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Ситуация, когда презентация не содержит все типы макетов.
-        // В файле презентации присутствуют только макеты Blank и Custom.
-        // Однако макеты с пользовательскими типами могут иметь узнаваемые имена,
-        // такие как "Title", "Title and Content" и т.д., которые можно использовать для выбора макета слайда.
-        // Также можно опираться на набор типов фигур-заполнителей.
-        // Например, слайд Title должен содержать только заполнитель типа Title и т.д.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Добавить пустой слайд, используя добавленный макет слайда.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Сохранить презентацию на диск.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Изменение макета слайда не удаляет обычные формы, добавленные напрямую на слайд. Однако позиция заполнителей, унаследованное форматирование и соответствие между существующими заполнителями и новым макетом могут измениться, поэтому проверяйте результат при переключении между существенно разными макетами.
 
-## **Удаление неиспользуемых макетов слайдов**
+## **Добавление макета‑слайда**
 
-Aspose.Slides предоставляет метод [removeUnusedLayoutSlides](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) из класса [Compress](https://reference.aspose.com/slides/nodejs-java/aspose.slides/compress/) для удаления нежелательных и неиспользуемых макетов слайдов.
+Выбор и создание – отдельные операции. В предыдущем примере выбирается существующий макет; он не создаётся. Чтобы создать макет, вызовите метод [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) у коллекции макетов целевого мастера.
 
-Следующий код JavaScript показывает, как удалить макет слайда из презентации PowerPoint:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+В следующем примере всегда добавляется новый макет **Title and Content** с именем `Report Title and Content`, затем на его основе создаётся обычный слайд. Имена макетов должны быть уникальными в пределах коллекции.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Добавляйте макет только тогда, когда шаблон действительно нуждается в новой переиспользуемой структуре. Если подходящий макет уже существует, выберите и используйте его вместо создания дубликата.
 
-## **Добавление заполнителей в макеты слайдов**
+## **Добавление заполнителей к макету‑слайду**
 
-Aspose.Slides предоставляет метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager), который позволяет добавлять новые заполнители в макет слайда.
+Метод [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) предоставляет объект [LayoutPlaceholderManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/) для добавления форм‑заполнителей к макету.
 
-Этот менеджер содержит методы для следующих типов заполнителей:
+| Заполнитель PowerPoint              | ``LayoutPlaceholderManager`` Метод |
+| ----------------------------------- | --------------------------------- |
+| ![Content](content.png)             | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Content (Vertical)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Text](text.png)                   | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Text (Vertical)](textV.png)       | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Picture](picture.png)             | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Chart](chart.png)                 | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Table](table.png)                 | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png)           | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Media](media.png)                 | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Image](onlineImage.png)    | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-| Заполнитель PowerPoint              | Метод [LayoutPlaceholderManager](https://reference.aspose.com/slides/nodejs-java/aspose.slides/layoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Содержимое](content.png)          | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Содержимое (вертикальное)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Текст](text.png)                  | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Текст (вертикальный)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Изображение](picture.png)         | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Диаграмма](chart.png)             | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Таблица](table.png)               | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png)           | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Медиа](media.png)                 | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Онлайн‑изображение](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+В следующем примере проверяется наличие макета **Blank**, к нему добавляются четыре заполнителя, после чего создаётся обычный слайд, использующий изменённый макет. Порядок намеренный: заполнители добавляются до создания обычного слайда, чтобы Aspose.Slides мог генерировать соответствующие формы‑заполнители на этом слайде.
 
-Следующий код JavaScript демонстрирует, как добавить новые фигуры‑заполнители к пустому макету слайда:
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Получить пустой макет слайда.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Получить менеджер заполнителей макета слайда.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Добавить различные заполнители к пустому макету слайда.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Добавить новый слайд с пустым макетом.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
-
 
 Результат:
 
-![Заполнители на макете слайда](add_placeholders.png)
+![The placeholders on the layout slide](add_placeholders.png)
 
-## **Установка видимости нижнего колонтитула для макета слайда**
+{{% alert color="warning" title="Warning" %}}
+Изменение унаследованного форматирования или геометрии существующих заполнителей макета может повлиять на зависимые слайды. Ново‑добавленный заполнитель макета не заполняется автоматически в существующие обычные слайды. Тестируйте изменения макета на копии презентации и проверяйте каждый зависимый слайд.
+{{% /alert %}}
 
-В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут отображаться или скрываться в зависимости от макета слайда. Aspose.Slides for Node.js позволяет управлять видимостью этих заполнителей нижнего колонтитула. Это полезно, когда вы хотите, чтобы определённые макеты показывали информацию нижнего колонтитула, а другие оставались чистыми и минимальными.
+## **Удаление неиспользуемых макетов‑слайдов**
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на макет слайда по его индексу.
-3. Установите видимость заполнителя нижнего колонтитула слайда.
-4. Установите видимость заполнителя номера слайда.
-5. Установите видимость заполнителя даты‑времени.
-6. Сохраните презентацию.
+Используйте метод [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления макетов, на которые не ссылаются обычные слайды. Метод оставляет в системе макеты, которые всё ещё используются.
 
-Следующий код JavaScript показывает, как установить видимость нижнего колонтитула слайда и выполнить связанные задачи:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Чтобы удалить конкретный макет, сначала используйте его метод [hasDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) или [getDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getDependingSlides). Переназначьте любые зависимые слайды перед вызовом [LayoutSlide.remove](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#remove). Попытка удалить используемый макет вызывает [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/).
+
+## **Управление видимостью колонтитулов на макете‑слайде**
+
+У макета есть собственные заполнители колонтитулов, номеров слайдов и даты/времени. Используйте метод [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) для управления этими заполнителями у одного макета. Это полезно, например, когда заполнители контента должны показывать колонтитулы, а заполнители заголовков — нет.
+
+В следующем примере безопасно выбирается макет и делают его элементы колонтитула видимыми:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Управление видимостью колонтитулов на мастере и его дочерних макетах**
 
-## **Установка видимости нижнего колонтитула у дочерних слайдов**
+Чтобы применить согласованные настройки колонтитулов по всей иерархии мастера, используйте метод [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager). Методы распространения [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/masterslideheaderfootermanager/) работают с мастером, его зависимыми макетами‑слайдами и обычными слайдами; они не нацелены только на один обычный слайд.
 
-В презентациях PowerPoint элементы нижнего колонтитула, такие как дата, номер слайда и пользовательский текст, могут управляться на уровне мастер‑слайда для обеспечения согласованности во всех макетах. Aspose.Slides for Node.js позволяет задать видимость и содержание этих заполнителей нижнего колонтитула на мастер‑слайде и распространить эти настройки на все дочерние макеты слайдов. Такой подход обеспечивает единообразную информацию нижнего колонтитула по всей презентации.
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-1. Создайте экземпляр класса [Presentation](https://reference.aspose.com/slides/nodejs-java/aspose.slides/presentation/).
-2. Получите ссылку на мастер‑слайд по его индексу.
-3. Установите видимость заполнителей нижнего колонтитула мастера и всех дочерних макетов.
-4. Установите видимость заполнителей номеров слайдов мастера и всех дочерних макетов.
-5. Установите видимость заполнителей даты‑времени мастера и всех дочерних макетов.
-6. Сохраните презентацию.
-
-Следующий код JavaScript демонстрирует эту операцию:
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**В чём разница между мастер‑слайдом и макетом слайда?**
+**В чём разница между мастер‑слайдом и макетом‑слайдом?**
 
-Мастер‑слайд определяет общую тему и форматирование по умолчанию, тогда как макеты слайдов задают конкретное расположение заполнителей для разных типов содержимого.
+Мастер‑слайд определяет тему презентации и общие форматирования. Макет‑слайд принадлежит мастеру и определяет одну переиспользуемую раскладку заполнителей. Обычные слайды используют эти макеты и хранят содержание, специфичное для конкретного слайда.
 
-**Можно ли скопировать макет слайда из одной презентации в другую?**
+**Можно ли скопировать макет‑слайд из одной презентации в другую?**
 
-Да, вы можете клонировать макет слайда из коллекции макетов одной презентации, доступной через метод [getLayoutSlides], и вставить его в другую презентацию, используя метод `addClone`.
+Да. Добавьте копию в целевую коллекцию с помощью метода [addClone](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone). При копировании между презентациями также проверьте шрифты, темы, изображения и другие ресурсы, используемые исходным макетом.
 
-**Что происходит, если удалить макет слайда, который всё ещё используется другим слайдом?**
+**Что происходит, если изменить макет, который уже используется?**
 
-Если попытаться удалить макет слайда, на который ссылается хотя бы один слайд презентации, Aspose.Slides выбросит исключение [PptxEditException]. Чтобы избежать этого, используйте [removeUnusedLayoutSlides], который безопасно удалит только те макеты, которые не используются.
+Зависимые слайды наследуют изменения макета, если только они не переопределили затронутое форматирование или объекты локально. Геометрия заполнителей и унаследованный стиль могут измениться сразу на многих слайдах. Используйте [getDependingSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/layoutslide/#getDependingSlides), чтобы определить затронутые слайды перед редактированием макета.
+
+**Что произойдёт, если попытаться удалить макет, который всё ещё используется?**
+
+Aspose.Slides бросит [PptxEditException](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/pptxeditexception/). Сначала переназначьте зависимые слайды или используйте [removeUnusedLayoutSlides](https://reference.aspose.com/slides/ru/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) для удаления только непереключённых макетов.

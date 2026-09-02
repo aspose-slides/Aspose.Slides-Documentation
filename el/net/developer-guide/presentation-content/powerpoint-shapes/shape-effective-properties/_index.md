@@ -1,5 +1,5 @@
 ---
-title: Ανακτήστε τις Αποτελεσματικές Ιδιότητες Σχήματος από Παρουσιάσεις σε .NET
+title: Λήψη Αποτελεσματικών Ιδιοτήτων Σχήματος από Παρουσιάσεις στο .NET
 linktitle: Αποτελεσματικές Ιδιότητες
 type: docs
 weight: 50
@@ -8,7 +8,7 @@ keywords:
 - ιδιότητες σχήματος
 - ιδιότητες κάμερας
 - σύστημα φωτισμού
-- σχήμα λοξοτομίας
+- σχήμα ανόρθωσης
 - πλαίσιο κειμένου
 - στυλ κειμένου
 - ύψος γραμματοσειράς
@@ -18,264 +18,247 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "Ανακαλύψτε πώς το Aspose.Slides για .NET υπολογίζει και εφαρμόζει τις αποτελεσματικές ιδιότητες σχήματος για ακριβή απόδοση PowerPoint."
+description: "Μάθετε πώς να χρησιμοποιείτε το Aspose.Slides για .NET για να διακρίνετε τη τοπική, κληρονομημένη και αποτελεσματική μορφοποίηση σχήματος σε παρουσιάσεις PowerPoint."
 ---
-## **Επισκόπηση**
+## **Κατανόηση Τοπικών, Κληρονομημένων και Αποτελεσματικών Ιδιοτήτων**
 
-Αυτό το θέμα εξηγεί τη διαφορά μεταξύ **τοπικών** και **αποτελεσματικών** ιδιοτήτων. Οι τοπικές τιμές είναι τιμές που ορίζονται άμεσα σε ένα συγκεκριμένο επίπεδο μορφοποίησης, όπως:
+Η μορφοποίηση του PowerPoint μπορεί να προέρχεται από πολλές πηγές. Η τιμή που αποθηκεύεται απευθείας σε ένα αντικείμενο είναι η **τοπική τιμή**. Εάν αυτή η τιμή δεν έχει οριστεί, το PowerPoint κοιτάζει τις πηγές μορφοποίησης γονέων, όπως η προεπιλογή παραγράφου, ένα στυλ κειμένου, μια διάταξη ή διαφάνεια προτύπου, ένα θέμα ή προεπιλογές σε επίπεδο παρουσίασης. Αυτές οι τιμές είναι **κληρονομημένες τιμές**. Η τιμή που απομένει αφού επιλυθεί ολόκληρη η ιεραρχία είναι η **αποτελεσματική τιμή**—η τιμή που χρησιμοποιείται για την απόδοση του αντικειμένου.
 
-1. Ιδιότητες τμήματος σε μια διαφάνεια.  
-2. Στυλ κειμένου προτύπου σχήματος σε διάταξη ή κύρια διαφάνεια, όταν το σχήμα πλαισίου κειμένου του τμήματος έχει ένα.  
-3. Καθολικές ρυθμίσεις κειμένου σε μια παρουσίαση.
+Για παράδειγμα, ένα τμήμα κειμένου ενδέχεται να μην ορίζει το δικό του ύψος γραμματοσειράς. Η τοπική του [FontHeight](https://reference.aspose.com/slides/el/net/aspose.slides/ibaseportionformat/fontheight/) είναι τότε `float.NaN`, που σημαίνει «δεν ορίστηκε εδώ». Το τμήμα μπορεί να κληρονομήσει ύψος από την παράγραφο, το προεπιλεγμένο στυλ κειμένου της παρουσίασης ή άλλη σχετική πηγή. Η κλήση του [GetEffective](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformat/geteffective/) στη μορφή του τμήματος επιστρέφει το τελικό επιλυμένο ύψος.
 
-Οι τοπικές τιμές μπορούν να οριστούν ή να παραλειφθούν σε οποιοδήποτε επίπεδο. Όταν το Aspose.Slides χρειάζεται την τελική μορφοποίηση «όπως αποδίδεται», επιλύει την αλυσίδα κληρονομικότητας και επιστρέφει τιμές **αποτελεσματικές**. Μπορείτε να τις λάβετε καλώντας τη μέθοδο `GetEffective` στο τοπικό αντικείμενο μορφοποίησης.
+Χρησιμοποιήστε τα δύο είδη δεδομένων μορφοποίησης για διαφορετικούς σκοπούς:
 
-Το παρακάτω παράδειγμα δείχνει πώς να λάβετε τις αποτελεσματικές τιμές. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) με πλαίσιο κειμένου και τουλάχιστον ένα τμήμα.
+- Αναγνώστε ή αλλάξτε ένα τοπικό αντικείμενο μορφής, όπως το [IPortionFormat](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformat/), όταν χρειάζεται να ελέγξετε πού ορίζεται μια τιμή.
+- Αναγνώστε ένα αντικείμενο αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformateffectivedata/), όταν χρειάζεστε το τελικό, αποδοθέν αποτέλεσμα. Τα αποτελεσματικά δεδομένα είναι μόνο για ανάγνωση.
 
-```csharp
-using var presentation = new Presentation("sample.pptx");
+## **Σύγκριση Τοπικών, Κληρονομημένων και Αποτελεσματικών Τιμών**
 
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var localTextFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = localTextFrameFormat.GetEffective();
-
-var portion = shape.TextFrame.Paragraphs[0].Portions[0];
-var localPortionFormat = portion.PortionFormat;
-var effectivePortionFormat = localPortionFormat.GetEffective();
-```
-
-{{% alert color="primary" %}}
-Τα δεδομένα αποτελεσματικής μορφοποίησης αντιπροσωπεύουν τη τρέχουσα υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας. Στην τρέχουσα υλοποίηση, ορισμένα αντικείμενα αποτελεσματικών δεδομένων, όπως το [IPortionFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformateffectivedata/), μπορεί να αποθηκεύονται προσωρινά εσωτερικά. Η επανάκληση του `GetEffective` μετά την αλλαγή της γονικής ή κληρονομημένης μορφοποίησης μπορεί να ανανεώσει τα προσωρινά δεδομένα, και ένα αντικείμενο που είχε ληφθεί προηγουμένως ίσως να μην αντιπροσωπεύει πλέον την προηγούμενη κατάσταση. Εάν χρειαστεί να διατηρήσετε τις αποτελεσματικές τιμές για μελλοντική χρήση, αντιγράψτε τις απαιτούμενες ιδιότητες, όπως το ύψος γραμματοσειράς, το χρώμα γεμίσματος, το στυλ γραμματοσειράς ή την ευθυγράμμιση, στο δικό σας αντικείμενο δεδομένων.
-{{% /alert %}}
-
-## **Λήψη Αποτελεσματικών Ιδιοτήτων Κάμερας**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε αποτελεσματικές ιδιότητες μιας κάμερας. Η διεπαφή [ICameraEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/icameraeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες κάμερας. Ένα αντικείμενο [ICameraEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/icameraeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες της κάμερας. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
+Το παρακάτω πλήρες παράδειγμα δημιουργεί ένα σχήμα και εφαρμόζει ύψη γραμματοσειράς στα επίπεδα παρουσίασης, παραγράφου και τμήματος. Κάθε βήμα εκτυπώνει τις τιμές που ορίζονται σε αυτά τα επίπεδα και την προκύπτουσα αποτελεσματική τιμή για το ίδιο τμήμα κειμένου. Επίσης, δείχνει γιατί πρέπει να διαβάζετε ξανά τα αποτελεσματικά δεδομένα μετά από αλλαγές μορφοποίησης.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
 
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective camera properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.Camera.CameraType);
-Console.WriteLine("Field of view: " + threeDEffectiveData.Camera.FieldOfViewAngle);
-Console.WriteLine("Zoom: " + threeDEffectiveData.Camera.Zoom);
-```
-
-## **Λήψη Αποτελεσματικών Ιδιοτήτων Φωτισμού (Light Rig)**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε αποτελεσματικές ιδιότητες ενός light rig. Η διεπαφή [ILightRigEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ilightrigeffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες του light rig. Ένα αντικείμενο [ILightRigEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ilightrigeffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες του light rig. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective light rig properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.LightRig.LightType);
-Console.WriteLine("Direction: " + threeDEffectiveData.LightRig.Direction);
-```
-
-## **Λήψη Αποτελεσματικών Ιδιοτήτων Κόψιματος Σχήματος (Bevel)**
-
-Το Aspose.Slides σας επιτρέπει να λάβετε αποτελεσματικές ιδιότητες ενός bevel σχήματος. Η διεπαφή [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ishapebeveleffectivedata/) αντιπροσωπεύει ένα αμετάβλητο αντικείμενο που περιέχει αποτελεσματικές ιδιότητες ανάπλασης επιφάνειας για ένα σχήμα. Ένα αντικείμενο [IShapeBevelEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ishapebeveleffectivedata/) εκτίθεται μέσω του [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/), το οποίο παρέχει αποτελεσματικές τιμές για το [IThreeDFormat](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformat/).
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες του άνω bevel ενός σχήματος. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια έχει 3D μορφοποίηση.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = slide.Shapes[0];
-
-var threeDEffectiveData = shape.ThreeDFormat.GetEffective();
-
-Console.WriteLine("= Effective shape's top face relief properties =");
-Console.WriteLine("Type: " + threeDEffectiveData.BevelTop.BevelType);
-Console.WriteLine("Width: " + threeDEffectiveData.BevelTop.Width);
-Console.WriteLine("Height: " + threeDEffectiveData.BevelTop.Height);
-```
-
-## **Λήψη Αποτελεσματικών Ιδιοτήτων Πλαισίου Κειμένου**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε αποτελεσματικές ιδιότητες ενός πλαισίου κειμένου. Η διεπαφή [ITextFrameFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformateffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες μορφοποίησης πλαισίου κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var textFrameFormat = shape.TextFrame.TextFrameFormat;
-var effectiveTextFrameFormat = textFrameFormat.GetEffective();
-
-Console.WriteLine("Anchoring type: " + effectiveTextFrameFormat.AnchoringType);
-Console.WriteLine("Autofit type: " + effectiveTextFrameFormat.AutofitType);
-Console.WriteLine("Text vertical type: " + effectiveTextFrameFormat.TextVerticalType);
-Console.WriteLine("Margins");
-Console.WriteLine("   Left: " + effectiveTextFrameFormat.MarginLeft);
-Console.WriteLine("   Top: " + effectiveTextFrameFormat.MarginTop);
-Console.WriteLine("   Right: " + effectiveTextFrameFormat.MarginRight);
-Console.WriteLine("   Bottom: " + effectiveTextFrameFormat.MarginBottom);
-```
-
-## **Λήψη Αποτελεσματικών Ιδιοτήτων Τεχνοτροπίας Κειμένου**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε αποτελεσματικές ιδιότητες μιας τεχνοτροπίας κειμένου. Η διεπαφή [ITextStyleEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/itextstyleeffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες τεχνοτροπίας κειμένου.
-
-Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε τις αποτελεσματικές ιδιότητες τεχνοτροπίας κειμένου. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [IAutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/iautoshape/) με πλαίσιο κειμένου.
-
-```csharp
-using var presentation = new Presentation("sample.pptx");
-
-var slide = presentation.Slides[0];
-var shape = (IAutoShape)slide.Shapes[0];
-
-var effectiveTextStyle = shape.TextFrame.TextFrameFormat.TextStyle.GetEffective();
-var levelCount = 9;
-
-for (var levelIndex = 0; levelIndex < levelCount; levelIndex++)
-{
-    var effectiveStyleLevel = effectiveTextStyle.GetLevel(levelIndex);
-    Console.WriteLine("= Effective paragraph formatting for style level #" + levelIndex + " =");
-
-    Console.WriteLine("Depth: " + effectiveStyleLevel.Depth);
-    Console.WriteLine("Indent: " + effectiveStyleLevel.Indent);
-    Console.WriteLine("Alignment: " + effectiveStyleLevel.Alignment);
-    Console.WriteLine("Font alignment: " + effectiveStyleLevel.FontAlignment);
-}
-```
-
-## **Λήψη Τιμής Αποτελεσματικού Ύψους Γραμματοσειράς**
-
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε το αποτελεσματικό ύψος γραμματοσειράς. Το παρακάτω δείγμα κώδικα δείχνει πώς το αποτελεσματικό ύψος γραμματοσειράς ενός τμήματος αλλάζει μετά τον ορισμό τοπικών τιμών ύψους γραμματοσειράς σε διαφορετικά επίπεδα δομής παρουσίασης.
-
-```csharp
 using var presentation = new Presentation();
 
 var slide = presentation.Slides[0];
-var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 400, 75, false);
-autoShape.AddTextFrame("");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 100, 100, 500, 80, false);
+var textFrame = shape.AddTextFrame("Effective formatting");
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
 
-var paragraph = autoShape.TextFrame.Paragraphs[0];
-paragraph.Portions.Clear();
+// Ορίστε κληρονομημένες τιμές σε δύο διαφορετικά επίπεδα.
+presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 20;
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 28;
 
-var firstPortion = new Portion("Sample text with first portion");
-var secondPortion = new Portion(" and second portion.");
+PrintFontHeights("The portion inherits from the paragraph", presentation, paragraph, portion);
 
-paragraph.Portions.Add(firstPortion);
-paragraph.Portions.Add(secondPortion);
+// Μια τοπική τιμή στο τμήμα αντικαθιστά και τις δύο κληρονομημένες τιμές.
+portion.PortionFormat.FontHeight = 36;
+PrintFontHeights("A local value overrides inherited values", presentation, paragraph, portion);
 
-var firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-var secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Η αλλαγή μιας κληρονομημένης τιμής δεν αντικαθιστά μια υπάρχουσα τοπική τιμή.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 30;
+PrintFontHeights("The local value still has priority", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height just after creation:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+// Καθαρίστε την τοπική τιμή. Το τμήμα τώρα κληρονομεί ξανά από την παράγραφο.
+portion.PortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The local value is cleared", presentation, paragraph, portion);
 
-presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight = 24;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+// Καθαρίστε την τιμή της παραγράφου. Η προεπιλογή της παρουσίασης παρέχει τώρα το αποτέλεσμα.
+paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = float.NaN;
+PrintFontHeights("The paragraph value is cleared", presentation, paragraph, portion);
 
-Console.WriteLine("Effective font height after setting the presentation default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+presentation.Save("effective-properties.pptx", SaveFormat.Pptx);
 
-paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight = 40;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+static void PrintFontHeights(string caption, Presentation presentation, IParagraph paragraph, IPortion portion)
+{
+    var presentationValue = presentation.DefaultTextStyle.GetLevel(0).DefaultPortionFormat.FontHeight;
+    var paragraphValue = paragraph.ParagraphFormat.DefaultPortionFormat.FontHeight;
+    var localValue = portion.PortionFormat.FontHeight;
 
-Console.WriteLine("Effective font height after setting paragraph default font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
+    // Διαβάστε τα αποτελεσματικά δεδομένα μετά τις προηγούμενες αλλαγές.
+    var effectiveValue = portion.PortionFormat.GetEffective().FontHeight;
 
-firstPortion.PortionFormat.FontHeight = 55;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
+    Console.WriteLine(caption);
+    Console.WriteLine($"  Presentation default: {FormatLocalValue(presentationValue)}");
+    Console.WriteLine($"  Paragraph default:    {FormatLocalValue(paragraphValue)}");
+    Console.WriteLine($"  Portion local:        {FormatLocalValue(localValue)}");
+    Console.WriteLine($"  Portion effective:    {effectiveValue}");
+}
 
-Console.WriteLine("Effective font height after setting portion #0 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-secondPortion.PortionFormat.FontHeight = 18;
-firstPortionFormatEffectiveData = firstPortion.PortionFormat.GetEffective();
-secondPortionFormatEffectiveData = secondPortion.PortionFormat.GetEffective();
-
-Console.WriteLine("Effective font height after setting portion #1 font height:");
-Console.WriteLine("Portion #0: " + firstPortionFormatEffectiveData.FontHeight);
-Console.WriteLine("Portion #1: " + secondPortionFormatEffectiveData.FontHeight);
-
-presentation.Save("SetLocalFontHeightValues.pptx", SaveFormat.Pptx);
+static string FormatLocalValue(float value) => float.IsNaN(value) ? "<not set>" : value.ToString();
 ```
 
-## **Λήψη Αποτελεσματικής Μορφοποίησης Γέμισης για Πίνακα**
+Η προτεραιότητα σε αυτό το παράδειγμα είναι η τοπική μορφοποίηση του τμήματος, στη συνέχεια η μορφοποίηση της παραγράφου, και τέλος η προεπιλογή της παρουσίασης. Άλλα αντικείμενα μπορεί να έχουν διαφορετικές αλυσίδες κληρονομικότητας, αλλά η αρχή είναι η ίδια: μια πιο συγκεκριμένη ρητή τιμή κερδίζει, και το [GetEffective](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformat/geteffective/) επιστρέφει το τελικό αποτέλεσμα.
 
-Χρησιμοποιώντας το Aspose.Slides, μπορείτε να λάβετε αποτελεσματική μορφοποίηση γέμισης για διαφορετικά τμήματα πίνακα. Η διεπαφή [IFillFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ifillformateffectivedata/) περιέχει τις αποτελεσματικές ιδιότητες μορφοποίησης γέμισης. Η μορφοποίηση κελιού έχει υψηλότερη προτεραιότητα από τη μορφοποίηση γραμμής, η μορφοποίηση γραμμής έχει υψηλότερη προτεραιότητα από τη μορφοποίηση στήλης, και η μορφοποίηση στήλης έχει υψηλότερη προτεραιότητα από τη μορφοποίηση ολόκληρου του πίνακα.
+## **Λήψη Αποτελεσματικών Ιδιοτήτων Κειμένου**
 
-Ως αποτέλεσμα, οι ιδιότητες [ICellFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/icellformateffectivedata/) χρησιμοποιούνται για τη σχεδίαση του κελιού του πίνακα. Το παρακάτω δείγμα κώδικα δείχνει πώς να λάβετε την αποτελεσματική μορφοποίηση γέμισης για διαφορετικά τμήματα πίνακα. Υποθέτει ότι το πρώτο σχήμα στην πρώτη διαφάνεια είναι ένα [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/).
+Η μορφοποίηση του κειμένου χωρίζεται σε διάφορα αντικείμενα:
+
+- [ITextFrameFormat.GetEffective()](https://reference.aspose.com/slides/el/net/aspose.slides/itextframeformat/geteffective/) επιλύει τις ιδιότητες του πλαισίου κειμένου όπως περιθώρια, αγκύρωση, αυτόματη προσαρμογή και κατακόρυφη κατεύθυνση κειμένου.
+- [ITextStyle.GetEffective()](https://reference.aspose.com/slides/el/net/aspose.slides/itextstyle/geteffective/) επιλύει τη μορφοποίηση παραγράφου για κάθε επίπεδο στυλ κειμένου.
+- [IParagraphFormat.GetEffective()](https://reference.aspose.com/slides/el/net/aspose.slides/iparagraphformat/geteffective/) επιλύει τις ιδιότητες της παραγράφου όπως ευθυγράμμιση, εσοχή και σημεία.
+- [IPortionFormat.GetEffective()](https://reference.aspose.com/slides/el/net/aspose.slides/iportionformat/geteffective/) επιλύει τις ιδιότητες χαρακτήρων όπως ύψος γραμματοσειράς, τύπος γραμματοσειράς, χρώμα, έντονη και πλάγια γραφή.
+
+Για το επόμενο παράδειγμα, το `text-formatting.pptx` πρέπει να περιέχει τουλάχιστον μία διαφάνεια και ένα [AutoShape](https://reference.aspose.com/slides/el/net/aspose.slides/autoshape/) με μη κενό πλαίσιο κειμένου. Το AutoShape μπορεί να εμφανίζεται σε οποιαδήποτε θέση στη συλλογή σχημάτων· ο κώδικας αναζητά ένα κατάλληλο αντικείμενο και το επαληθεύει πριν τη χρήση.
 
 ```csharp
-using var presentation = new Presentation("sample.pptx");
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-var slide = presentation.Slides[0];
-var table = (ITable)presentation.Slides[0].Shapes[0];
+using var presentation = new Presentation("text-formatting.pptx");
 
-var tableFormatEffective = table.TableFormat.GetEffective();
-var rowFormatEffective = table.Rows[0].RowFormat.GetEffective();
-var columnFormatEffective = table.Columns[0].ColumnFormat.GetEffective();
-var cellFormatEffective = table[0, 0].CellFormat.GetEffective();
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
 
-var tableFillFormatEffective = tableFormatEffective.FillFormat;
-var rowFillFormatEffective = rowFormatEffective.FillFormat;
-var columnFillFormatEffective = columnFormatEffective.FillFormat;
-var cellFillFormatEffective = cellFormatEffective.FillFormat;
+var autoShapes = presentation.Slides[0].Shapes.OfType<IAutoShape>();
+var shape = autoShapes.FirstOrDefault(candidate => HasNonEmptyText(candidate));
+
+if (shape == null)
+{
+    throw new InvalidOperationException("The first slide must contain an AutoShape with non-empty text.");
+}
+
+var textFrame = shape.TextFrame;
+var paragraph = textFrame.Paragraphs[0];
+var portion = paragraph.Portions[0];
+
+var textFrameEffective = textFrame.TextFrameFormat.GetEffective();
+var paragraphEffective = paragraph.ParagraphFormat.GetEffective();
+var portionEffective = portion.PortionFormat.GetEffective();
+
+Console.WriteLine("Text frame margins:");
+Console.WriteLine($"  Left: {textFrameEffective.MarginLeft}");
+Console.WriteLine($"  Top: {textFrameEffective.MarginTop}");
+Console.WriteLine($"  Right: {textFrameEffective.MarginRight}");
+Console.WriteLine($"  Bottom: {textFrameEffective.MarginBottom}");
+Console.WriteLine($"Paragraph alignment: {paragraphEffective.Alignment}");
+Console.WriteLine($"Font height: {portionEffective.FontHeight}");
+Console.WriteLine($"Bold: {portionEffective.FontBold}");
+
+var effectiveTextStyle = textFrame.TextFrameFormat.TextStyle.GetEffective();
+for (var level = 0; level < 9; level++)
+{
+    var levelEffective = effectiveTextStyle.GetLevel(level);
+    Console.WriteLine($"Level {level} indent: {levelEffective.Indent}");
+}
+
+static bool HasNonEmptyText(IAutoShape shape)
+{
+    if (shape.TextFrame == null)
+        return false;
+
+    if (shape.TextFrame.Paragraphs.Count == 0)
+        return false;
+
+    return shape.TextFrame.Paragraphs[0].Portions.Count > 0;
+}
 ```
+
+## **Λήψη Αποτελεσματικών Ιδιοτήτων 3Δ**
+
+[IThreeDFormat.GetEffective()](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformat/geteffective/) επιστρέφει ένα αντικείμενο [IThreeDFormatEffectiveData](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/) που ομαδοποιεί όλες τις επιλυμένες ρυθμίσεις 3Δ. Οι ιδιότητες του [Camera](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/camera/), [LightRig](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/lightrig/), [BevelTop](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/beveltop/) και [BevelBottom](https://reference.aspose.com/slides/el/net/aspose.slides/ithreedformateffectivedata/bevelbottom/) εκθέτουν τα αντίστοιχα αποτελεσματικά δεδομένα. Η ανάγνωση αυτών των σχετικών ρυθμίσεων μαζί κάνει πιο εύκολη την κατανόηση της τελικής 3Δ εμφάνισης ενός σχήματος.
+
+Για αυτό το παράδειγμα, το `shape-3d.pptx` πρέπει να περιέχει τουλάχιστον ένα σχήμα στην πρώτη του διαφάνεια. Εφαρμόστε 3Δ κάμερα, φωτισμό ή ρυθμίσεις ανόρθωσης σε αυτό το σχήμα εάν θέλετε το αποτέλεσμα να περιλαμβάνει τιμές διαφορετικές από τις προεπιλογές.
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("shape-3d.pptx");
+
+if (presentation.Slides.Count == 0 || presentation.Slides[0].Shapes.Count == 0)
+{
+    throw new InvalidOperationException("The first slide must contain a shape.");
+}
+
+var shape = presentation.Slides[0].Shapes[0];
+var threeDEffective = shape.ThreeDFormat.GetEffective();
+
+Console.WriteLine("Camera:");
+Console.WriteLine($"  Type: {threeDEffective.Camera.CameraType}");
+Console.WriteLine($"  Field of view: {threeDEffective.Camera.FieldOfViewAngle}");
+Console.WriteLine($"  Zoom: {threeDEffective.Camera.Zoom}");
+
+Console.WriteLine("Light rig:");
+Console.WriteLine($"  Type: {threeDEffective.LightRig.LightType}");
+Console.WriteLine($"  Direction: {threeDEffective.LightRig.Direction}");
+
+Console.WriteLine("Top bevel:");
+Console.WriteLine($"  Type: {threeDEffective.BevelTop.BevelType}");
+Console.WriteLine($"  Width: {threeDEffective.BevelTop.Width}");
+Console.WriteLine($"  Height: {threeDEffective.BevelTop.Height}");
+```
+
+## **Λήψη Αποτελεσματικής Μορφοποίησης Πίνακα**
+
+Η μορφοποίηση πίνακα μπορεί να προέρχεται από το στυλ πίνακα και από μορφές που εφαρμόζονται σε ολόκληρο τον πίνακα, στήλη, γραμμή ή μεμονωμένο κελί. Σε συγκρούσεις μεταξύ ρητών ορισμών γεμίσματος, η προτεραιότητα είναι κελί, γραμμή, στήλη και μετά ολόκληρος ο πίνακας. Η αποτελεσματική μορφή ενός κελιού είναι η τελική μορφή που χρησιμοποιείται για τη σχεδίασή του.
+
+Για αυτό το παράδειγμα, το `table-formatting.pptx` πρέπει να περιέχει τουλάχιστον έναν πίνακα στην πρώτη του διαφάνεια. Ο πίνακας πρέπει να έχει τουλάχιστον μια γραμμή και μια στήλη. Ο κώδικας αναζητά ένα [ITable](https://reference.aspose.com/slides/el/net/aspose.slides/itable/) αντί να υποθέτει ότι το `Shapes[0]` είναι πίνακας.
+
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
+
+using var presentation = new Presentation("table-formatting.pptx");
+
+if (presentation.Slides.Count == 0)
+    throw new InvalidOperationException("The presentation contains no slides.");
+
+var table = presentation.Slides[0].Shapes.OfType<ITable>().FirstOrDefault();
+
+if (table == null)
+    throw new InvalidOperationException("The first slide must contain a table.");
+
+if (table.Rows.Count == 0 || table.Columns.Count == 0)
+    throw new InvalidOperationException("The table must contain at least one cell.");
+
+var tableEffective = table.TableFormat.GetEffective();
+var rowEffective = table.Rows[0].RowFormat.GetEffective();
+var columnEffective = table.Columns[0].ColumnFormat.GetEffective();
+var cellEffective = table[0, 0].CellFormat.GetEffective();
+
+Console.WriteLine($"Table fill: {tableEffective.FillFormat.FillType}");
+Console.WriteLine($"Row fill: {rowEffective.FillFormat.FillType}");
+Console.WriteLine($"Column fill: {columnEffective.FillFormat.FillType}");
+Console.WriteLine($"Final cell fill: {cellEffective.FillFormat.FillType}");
+```
+
+Εάν χρειάζεστε το χρώμα αντί μόνο του τύπου γεμίσματος, πρώτα ελέγξτε το αποτελεσματικό [FillType](https://reference.aspose.com/slides/el/net/aspose.slides/ifillformateffectivedata/filltype/) και στη συνέχεια διαβάστε την ιδιότητα που εφαρμόζεται σε αυτόν τον τύπο—π.χ., το [SolidFillColor](https://reference.aspose.com/slides/el/net/aspose.slides/ifillformateffectivedata/solidfillcolor/) για στερεό γέμισμα.
+
+## **Επανάληψη Ανάγνωσης Αποτελεσματικών Δεδομένων Μετά από Αλλαγές**
+
+Τα αποτελεσματικά δεδομένα περιγράφουν την ιεραρχία μορφοποίησης τη στιγμή που επιλύονται. Καλέστε ξανά το `GetEffective` μετά από αλλαγή οτιδήποτε που μπορεί να συμμετέχει σε αυτήν την ιεραρχία, συμπεριλαμβανομένου:
+
+- της τοπικής μορφοποίησης του αντικειμένου·
+- των προεπιλογών παραγράφου ή πλαισίου κειμένου·
+- ενός στυλ πίνακα, πίνακα, στήλης, γραμμής ή μορφής κελιού·
+- της μορφοποίησης διάταξης ή διαφάνειας προτύπου·
+- των δεδομένων θέματος ή προεπιλογών σε επίπεδο παρουσίασης·
+- της διάταξης ή προτύπου που έχει εκχωρηθεί σε μια διαφάνεια.
+
+Μην διατηρείτε ένα αντικείμενο αποτελεσματικών δεδομένων ως μόνιμο στιγμιότυπο. Το Aspose.Slides μπορεί να αποθηκεύει προσωρινά κάποια αποτελεσματικά δεδομένα εσωτερικά, και μια μεταγενέστερη κλήση `GetEffective` μπορεί να ανανεώσει αυτά τα δεδομένα. Εάν χρειάζεται να συγκρίνετε τιμές πριν και μετά από μια αλλαγή, αντιγράψτε τις απαραίτητες ακέραιες τιμές—όπως ύψος γραμματοσειράς, χρώμα, ευθυγράμμιση ή πλάτος ανόρθωσης—σε δικές σας μεταβλητές πριν κάνετε την αλλαγή.
+
+Για να αλλάξετε μια τιμή, ενημερώστε το κατάλληλο τοπικό αντικείμενο μορφής και στη συνέχεια καλέστε το `GetEffective` για να επαληθεύσετε το αποτέλεσμα. Τα αντικείμενα αποτελεσματικών δεδομένων είναι μόνο για ανάγνωση.
 
 ## **Συχνές Ερωτήσεις**
 
-**Επιστρέφει η `GetEffective` ένα στιγμιότυπο;**
+**Πώς μπορώ να προσδιορίσω ποιο επίπεδο παρείχε μια αποτελεσματική τιμή;**
 
-Δεν συμβαίνει πάντα. Τα αποτελεσματικά δεδομένα αντιπροσωπεύουν τη υπολογισμένη μορφοποίηση μετά την εφαρμογή της κληρονομικότητας, αλλά ορισμένα αντικείμενα αποτελεσματικών δεδομένων μπορούν να αποθηκευτούν προσωρινά εσωτερικά. Ένα επόμενο κάλεσμα του `GetEffective` μπορεί να επαναϋπολογίσει τη μορφοποίηση και να ανανεώσει τα προσωρινά δεδομένα, επομένως ένα αντικείμενο που είχε ληφθεί προηγουμένως δεν πρέπει να θεωρείται ως μόνιμο στιγμιότυπο.
+Τα αποτελεσματικά δεδομένα περιέχουν την τελική τιμή, όχι την πηγή της. Εξετάστε τα σχετικά τοπικά αντικείμενα ξεκινώντας από το πιο συγκεκριμένο επίπεδο προς τα έξω. Για το κείμενο, αυτό μπορεί να περιλαμβάνει το τμήμα, την παράγραφο, το πλαίσιο κειμένου, τη διάταξη, το πρότυπο, το θέμα και τις προεπιλογές της παρουσίασης. Απροσδιόριστες τιμές όπως `float.NaN` ή `null` υποδεικνύουν ότι η αναζήτηση συνεχίζεται σε άλλο επίπεδο.
 
-**Πότε πρέπει να διαβάσω ξανά τις αποτελεσματικές ιδιότητες;**
+**Τι συμβαίνει όταν κανένα επίπεδο δεν ορίζει μια ιδιότητα;**
 
-Καλέστε τη `GetEffective` ξανά μετά την αλλαγή της τοπικής μορφοποίησης, των γονικών στυλ, της μορφοποίησης διάταξης, της μορφοποίησης κύριας διαφάνειας ή των προεπιλεγμένων ρυθμίσεων σε επίπεδο παρουσίασης. Η επόμενη κλήση επαναξιολογεί την ιεραρχία μορφοποίησης και επιστρέφει το τρέχον αποτελεσματικό αποτέλεσμα.
+Το Aspose.Slides επιλύει την κατάλληλη προεπιλογή του PowerPoint ή της βιβλιοθήκης. Αυτή η επιλυμένη τιμή εμφανίζεται στα αποτελεσματικά δεδομένα ακόμη και αν κανένα τοπικό αντικείμενο δεν την ορίζει ρητά.
 
-**Επηρεάζει η αλλαγή ή αφαίρεση μιας διαφάνειας διάταξης/κύριας διαφάνειας τις αποτελεσματικές ιδιότητες που έχουν ήδη ληφθεί;**
+**Γιατί μια αποτελεσματική τιμή μερικές φορές ισούται με την τοπική τιμή;**
 
-Ναι, αλλά η αλλαγή αντανακλάται στην επόμενη κλήση του `GetEffective`. Εάν μια πηγή γονικής μορφοποίησης αλλάξει ή αφαιρεθεί, τα προηγούμενα αποτελεσματικά δεδομένα μπορεί να είναι παλιά. Μόλις κληθεί ξανά η `GetEffective`, το Aspose.Slides επαναξιολογεί το δέντρο μορφοποίησης και οι τελικές γραμματοσειρές, χρώματα, μεγέθη ή άλλες τιμές μπορεί να αλλάξουν.
+Η τοπική τιμή κέρδισε τον υπολογισμό κληρονομικότητας. Αυτό είναι αναμενόμενο όταν η ιδιότητα ορίζεται ρητά στο αντικείμενο και κανένας πιο συγκεκριμένος κανόνας δεν την υπερισχύει.
 
-**Μπορώ να τροποποιήσω τιμές μέσω των αποτελεσματικών δεδομένων;**
+**Πότε πρέπει να χρησιμοποιήσω τοπικά δεδομένα αντί για αποτελεσματικά δεδομένα;**
 
-Όχι. Τα αποτελεσματικά δεδομένα εκθέτουν υπολογιζόμενες τιμές. Κάντε αλλαγές στα τοπικά αντικείμενα μορφοποίησης και, στη συνέχεια, λάβετε ξανά τις αποτελεσματικές τιμές.
-
-**Τι συμβαίνει αν μια ιδιότητα δεν ορίζεται σε επίπεδο σχήματος, ούτε στη διάταξη/κύρια διαφάνεια, ούτε στις καθολικές ρυθμίσεις;**
-
-Η αποτελεσματική τιμή καθορίζεται από τον μηχανισμό προεπιλογής, που περιλαμβάνει τις προεπιλογές του PowerPoint και του Aspose.Slides. Η τιμή που προκύπτει γίνεται μέρος των τρεχουσών αποτελεσματικών δεδομένων.
-
-**Από μια αποτελεσματική τιμή γραμματοσειράς, μπορώ να καταλάβω ποιο επίπεδο παρείχε το μέγεθος ή την οικογένεια γραμματοσειράς;**
-
-Όχι άμεσα. Τα αποτελεσματικά δεδομένα επιστρέφουν την τελική τιμή. Για να βρείτε την πηγή, ελέγξτε τις τοπικές τιμές στο τμήμα, την παράγραφο, το πλαίσιο κειμένου και τις τεχνοτροπίες κειμένου σε επίπεδα διάταξης, κύριας διαφάνειας και παρουσίασης, ώστε να εντοπίσετε πού εμφανίζεται η πρώτη ρητή ορισμός.
-
-**Γιατί οι αποτελεσματικές τιμές μερικές φορές φαίνονται ίδιες με τις τοπικές;**
-
-Επειδή η τοπική τιμή κατέληξε να είναι η τελική (δεν απαιτήθηκε κληρονομικότητα από ανώτερο επίπεδο). Σε αυτές τις περιπτώσεις, η αποτελεσματική τιμή ταιριάζει με την τοπική.
-
-**Πότε πρέπει να χρησιμοποιώ τις αποτελεσματικές ιδιότητες και πότε να εργάζομαι μόνο με τις τοπικές;**
-
-Χρησιμοποιήστε τα αποτελεσματικά δεδομένα όταν χρειάζεστε το αποτέλεσμα «όπως αποδίδεται» μετά την πλήρη κληρονομικότητα, π.χ. για να ευθυγραμμίσετε χρώματα, εσοχές ή μεγέθη. Εάν χρειάζεται να διατηρήσετε αυτές τις τιμές ανεξάρτητα από μελλοντικές αλλαγές μορφοποίησης, αντιγράψτε τις απαιτούμενες ιδιότητες στο δικό σας αντικείμενο. Εάν χρειάζεται να αλλάξετε τη μορφοποίηση σε συγκεκριμένο επίπεδο, τροποποιήστε τις τοπικές ιδιότητες και, εάν απαιτείται, διαβάστε ξανά τα αποτελεσματικά δεδομένα για να επαληθεύσετε το αποτέλεσμα.
+Χρησιμοποιήστε τοπικά δεδομένα για να εξετάσετε ή να επεξεργαστείτε ένα συγκεκριμένο επίπεδο μορφοποίησης. Χρησιμοποιήστε αποτελεσματικά δεδομένα όταν χρειάζεστε την τελική εμφάνιση μετά από κληρονομικότητα, κανόνες θέματος και εφαρμοσμένα στυλ. Το [complete comparison example](#compare-local-inherited-and-effective-values) δείχνει και τα δύο στην ίδια ροή εργασίας.

@@ -1,12 +1,12 @@
 ---
-title: Appliquer ou modifier les dispositions de diapositive sur Android
-linktitle: Disposition de diapositive
+title: "Appliquer ou modifier les dispositions de diapositives sur Android"
+linktitle: "Disposition de diapositive"
 type: docs
 weight: 60
 url: /fr/androidjava/slide-layout/
 keywords:
-- disposition de diapositive
-- disposition de contenu
+- mise en page de diapositive
+- mise en page de contenu
 - espace réservé
 - conception de présentation
 - conception de diapositive
@@ -17,8 +17,8 @@ keywords:
 - en-tête de section
 - deux contenus
 - comparaison
-- titre seul
-- disposition vierge
+- titre uniquement
+- disposition vide
 - contenu avec légende
 - image avec légende
 - titre et texte vertical
@@ -29,241 +29,228 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Gérez et personnalisez les dispositions de diapositives dans Aspose.Slides pour Android. Explorez les types de disposition, le contrôle des espaces réservés et la visibilité du pied de page à l’aide d’exemples de code Java."
+description: "Appliquer, créer et modifier les dispositions de diapositives dans Aspose.Slides pour Android via Java, ajouter des espaces réservés, supprimer les dispositions inutilisées et contrôler la visibilité du pied de page."
 ---
-
 ## **Vue d'ensemble**
 
-Une disposition de diapositive définit l'agencement des zones réservées et la mise en forme du contenu d'une diapositive. Elle contrôle quelles zones réservées sont disponibles et où elles apparaissent. Les dispositions de diapositives vous aident à créer des présentations rapidement et de façon cohérente—que vous réalisiez quelque chose de simple ou de plus complexe. Certaines des dispositions de diapositives les plus courantes dans PowerPoint incluent :
+Une disposition de diapositive définit les positions et le formatage des espaces réservés tels que les titres, le texte, les images, les graphiques et les tableaux. Appliquer une disposition donne aux diapositives une structure cohérente tout en permettant à chaque diapositive de contenir son propre contenu.
 
-**Disposition Titre** – Comprend deux zones de texte : une pour le titre et une pour le sous-titre.
+Les dispositions les plus courantes comprennent :
 
-**Disposition Titre et Contenu** – Présente une zone de titre plus petite en haut et une plus grande en dessous pour le contenu principal (comme du texte, des puces, des graphiques, des images, etc.).
+- **Diapositive titre** : contient des espaces réservés de titre et de sous‑titre.
+- **Titre et contenu** : contient un espace réservé de titre et un espace réservé de contenu à usage général.
+- **Vide** : ne contient aucun espace réservé de contenu et est utile lorsque chaque forme sera positionnée manuellement.
 
-**Disposition Vide** – Ne contient aucune zone réservée, vous donnant un contrôle total pour concevoir la diapositive à partir de zéro.
+## **Comprendre l'héritage des dispositions**
 
-Les dispositions de diapositives font partie d'un masque de diapositive, qui est la diapositive de niveau supérieur définissant les styles de disposition pour la présentation. Vous pouvez accéder aux diapositives de disposition et les modifier via le masque de diapositive—soit par leur type, leur nom ou leur ID unique. Alternativement, vous pouvez éditer directement une diapositive de disposition spécifique dans la présentation.
+Une présentation comporte trois niveaux liés :
 
-Pour travailler avec les dispositions de diapositives dans Aspose.Slides for Android, vous pouvez utiliser :
+1. Une [diapositive maître](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterslide/) définit le thème, le formatage partagé, les arrière‑plans et les objets communs.  
+1. Une [diapositive de disposition](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/) appartient à un maître et définit un arrangement particulier d'espaces réservés.  
+1. Une [diapositive normale](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islide/) utilise une disposition et stocke le contenu saisi pour cette diapositive.
 
-- Des méthodes telles que [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) et [getMasters](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getMasters--) sous la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/) 
-- Des types comme [ILayoutSlide](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/), [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/), [ILayoutPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutplaceholdermanager/), et [ILayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslideheaderfootermanager/)
+Une diapositive normale hérite du thème et du formatage de sa disposition, et la disposition hérite de son maître. Une valeur définie directement sur une diapositive normale remplace la valeur héritée à ce niveau. Lorsqu’une diapositive normale est créée, ses formes d’espace réservé sont générées à partir de la disposition sélectionnée, tandis que le contenu saisi dans ces espaces réservés appartient à la diapositive normale.
 
-{{% alert title="Info" color="info" %}}
-Pour en savoir plus sur l’utilisation des masques de diapositives, consultez l’article [Masque de diapositive](/slides/fr/androidjava/slide-master/).
-{{% /alert %}}
+Ajoutez les espaces réservés requis à une disposition avant de créer des diapositives à partir de celle‑ci. Ajouter un autre espace réservé à une disposition ultérieurement n’ajoute pas automatiquement la forme correspondante aux diapositives normales existantes.
 
-## **Ajouter des dispositions de diapositives aux présentations**
+Cette relation a deux conséquences importantes :
 
-Pour personnaliser l’apparence et la structure de vos diapositives, il peut être nécessaire d’ajouter de nouvelles diapositives de disposition à une présentation. Aspose.Slides pour Android vous permet de vérifier si une disposition spécifique existe déjà, d’en ajouter une nouvelle si besoin, et de l’utiliser pour insérer des diapositives basées sur cette disposition.
+- Modifier le formatage hérité ou la géométrie des espaces réservés existants sur une disposition peut mettre à jour chaque diapositive qui en dépend. Avant de modifier une disposition déjà utilisée, inspectez ses diapositives dépendantes et examinez la présentation résultante.  
+- Une disposition encore utilisée par une diapositive ne peut pas être supprimée. Réaffectez d’abord ses diapositives dépendantes à une autre disposition, ou supprimez uniquement les dispositions inutilisées.
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Accédez à la [IMasterLayoutSlideCollection](https://reference.aspose.com/slides/androidjava/com.aspose.slides/imasterlayoutslidecollection/).
-1. Vérifiez si la diapositive de disposition souhaitée existe déjà dans la collection. Sinon, ajoutez la diapositive de disposition dont vous avez besoin.
-1. Ajoutez une diapositive vierge basée sur la nouvelle diapositive de disposition.
-1. Enregistrez la présentation.
-1. Enregistrez la présentation.
+Pour plus d’informations sur le niveau supérieur de cette hiérarchie, voir [Slide Master](/slides/fr/androidjava/slide-master/).
 
-Le code Java suivant montre comment ajouter une disposition de diapositive à une présentation PowerPoint :
+## **Sélectionner et appliquer une disposition de diapositive**
+
+Utilisez un type de disposition lorsque la présentation suit les définitions de disposition PowerPoint standard. Les noms de disposition sont éditables par l’utilisateur et peuvent être localisés, de sorte qu’une sélection basée sur le nom est moins fiable à moins que vous ne contrôliez le modèle source.
+
+L’exemple suivant recherche **Titre et contenu** sur le premier maître. Si cette disposition n’est pas disponible, il revient délibérément à **Vide**. La seconde vérification de nullité est nécessaire parce qu’une présentation peut ne contenir que des dispositions personnalisées. La disposition sélectionnée est ensuite appliquée à la première diapositive normale via la méthode [ISlide.setLayoutSlide](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/islide/#setLayoutSlide-com.aspose.slides.ILayoutSlide-) .
+
 ```java
-// Instancie la classe Presentation qui représente un fichier PowerPoint.
-Presentation presentation = new Presentation("Sample.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    // Parcourir les types de diapositives de disposition pour sélectionner une diapositive de disposition.
     IMasterLayoutSlideCollection layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    ILayoutSlide layoutSlide = null;
-    if (layoutSlides.getByType(SlideLayoutType.TitleAndObject) != null)
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
-    else
-        layoutSlide = layoutSlides.getByType(SlideLayoutType.Title);
+    ILayoutSlide targetLayout = layoutSlides.getByType(SlideLayoutType.TitleAndObject);
 
-    if (layoutSlide == null) {
-        // Une situation où la présentation ne contient pas tous les types de disposition.
-        // Le fichier de présentation ne contient que les types de disposition Blank et Custom.
-        // Cependant, les diapositives de disposition avec des types personnalisés peuvent avoir des noms reconnaissables,
-        // comme "Title", "Title and Content", etc., qui peuvent être utilisés pour la sélection de la diapositive de disposition.
-        // Vous pouvez également vous appuyer sur un ensemble de types de formes d'espace réservé.
-        // Par exemple, une diapositive Titre ne doit contenir que le type d'espace réservé Title, etc.
-        for (ILayoutSlide titleAndObjectLayoutSlide : layoutSlides) {
-            if (titleAndObjectLayoutSlide.getName().equals("Title and Object")) {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (ILayoutSlide titleLayoutSlide : layoutSlides) {
-                if (titleLayoutSlide.getName().equals("Title")) {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(SlideLayoutType.Blank);
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(SlideLayoutType.TitleAndObject, "Title and Object");
-                }
-            }
-        }
+    if (targetLayout == null) {
+        targetLayout = layoutSlides.getByType(SlideLayoutType.Blank);
     }
 
-    // Ajouter une diapositive vide en utilisant la diapositive de disposition ajoutée.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
+    if (targetLayout == null) {
+        throw new IllegalStateException("The first master does not contain a suitable layout slide.");
+    }
 
-    // Enregistrer la présentation sur le disque.
-    presentation.save("output.pptx", SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Modifier la disposition d’une diapositive ne supprime pas les formes ordinaires ajoutées directement à la diapositive. Cependant, les positions des espaces réservés, le formatage hérité et la correspondance entre les espaces réservés existants et la nouvelle disposition peuvent changer, il faut donc inspecter le résultat lors du passage entre des dispositions sensiblement différentes.
 
-## **Supprimer les dispositions de diapositives inutilisées**
+## **Ajouter une diapositive de disposition**
 
-Aspose.Slides fournit la méthode [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) de la classe [Compress](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/) pour vous permettre de supprimer les dispositions de diapositives indésirables et inutilisées.
+La sélection et la création sont des opérations séparées. L’exemple précédent sélectionne une disposition existante ; il n’en crée pas une. Pour créer une disposition, appelez la méthode [IMasterLayoutSlideCollection.add](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterlayoutslidecollection/#add-byte-java.lang.String-) sur la collection de dispositions du maître cible.
 
-Le code Java suivant montre comment supprimer une diapositive de disposition d’une présentation PowerPoint :
+L’exemple suivant ajoute toujours une nouvelle disposition **Titre et contenu** nommée `Report Title and Content`, puis ajoute une diapositive normale basée sur celle‑ci. Les noms de disposition doivent être uniques au sein de la collection.
+
 ```java
-Presentation presentation = new Presentation("Presentation.pptx");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    Compress.removeUnusedLayoutSlides(presentation);
+    IMasterSlide masterSlide = presentation.getMasters().get_Item(0);
+    ILayoutSlide reportLayout = masterSlide.getLayoutSlides().add(SlideLayoutType.TitleAndObject, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-report-layout.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+Ajoutez une disposition uniquement lorsque le modèle a réellement besoin d’une autre structure réutilisable. Si une disposition appropriée existe déjà, sélectionnez‑la et réutilisez‑la plutôt que de créer un duplicata.
 
-## **Ajouter des zones réservées aux dispositions de diapositives**
+## **Ajouter des espaces réservés à une diapositive de disposition**
 
-Aspose.Slides fournit la méthode [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) qui vous permet d’ajouter de nouvelles zones réservées à une diapositive de disposition.
+La méthode [ILayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/#getPlaceholderManager--) fournit un [ILayoutPlaceholderManager](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/) pour ajouter des formes d’espace réservé à une disposition.
 
-Ce gestionnaire contient des méthodes pour les types de zones réservées suivants :
+| Espace réservé PowerPoint | `ILayoutPlaceholderManager` Method |
+| -------------------------- | ---------------------------------- |
+| ![Contenu](content.png) | [`addContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addContentPlaceholder-float-float-float-float-) |
+| ![Contenu (vertical)](contentV.png) | [`addVerticalContentPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalContentPlaceholder-float-float-float-float-) |
+| ![Texte](text.png) | [`addTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTextPlaceholder-float-float-float-float-) |
+| ![Texte (vertical)](textV.png) | [`addVerticalTextPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addVerticalTextPlaceholder-float-float-float-float-) |
+| ![Image](picture.png) | [`addPicturePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addPicturePlaceholder-float-float-float-float-) |
+| ![Graphique](chart.png) | [`addChartPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addChartPlaceholder-float-float-float-float-) |
+| ![Tableau](table.png) | [`addTablePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addTablePlaceholder-float-float-float-float-) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addSmartArtPlaceholder-float-float-float-float-) |
+| ![Média](media.png) | [`addMediaPlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addMediaPlaceholder-float-float-float-float-) |
+| ![Image en ligne](onlineImage.png) | [`addOnlineImagePlaceholder(float x, float y, float width, float height)`](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutplaceholdermanager/#addOnlineImagePlaceholder-float-float-float-float-) |
 
-| Zone réservée PowerPoint | Méthode [ILayoutPlaceholderManager] |
-| ------------------------ | ----------------------------------- |
-| ![Contenu](content.png) | addContentPlaceholder(float x, float y, float width, float height) |
-| ![Contenu (Vertical)](contentV.png) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| ![Texte](text.png) | addTextPlaceholder(float x, float y, float width, float height) |
-| ![Texte (Vertical)](textV.png) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| ![Image](picture.png) | addPicturePlaceholder(float x, float y, float width, float height) |
-| ![Graphique](chart.png) | addChartPlaceholder(float x, float y, float width, float height) |
-| ![Tableau](table.png) | addTablePlaceholder(float x, float y, float width, float height) |
-| ![SmartArt](smartart.png) | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| ![Média](media.png) | addMediaPlaceholder(float x, float y, float width, float height) |
-| ![Image en ligne](onlineimage.png) | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+L’exemple suivant vérifie que la disposition **Vide** existe, ajoute quatre espaces réservés, puis crée une diapositive normale qui utilise la disposition modifiée. L’ordre est intentionnel : les espaces réservés sont ajoutés avant la création de la diapositive normale, afin qu’Aspose.Slides puisse générer les formes d’espace réservé correspondantes sur cette diapositive.
 
-Le code Java suivant montre comment ajouter de nouvelles formes de zone réservée à la disposition Vide :
 ```java
+import com.aspose.slides.*;
+
 Presentation presentation = new Presentation();
 try {
-    // Obtenir la diapositive de disposition vierge.
-    ILayoutSlide layout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
+    ILayoutSlide blankLayout = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
 
-    // Obtenir le gestionnaire de zones réservées de la diapositive de disposition.
-    ILayoutPlaceholderManager placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout == null) {
+        throw new IllegalStateException("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Ajouter différentes zones réservées à la diapositive de disposition vierge.
+    ILayoutPlaceholderManager placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Ajouter une nouvelle diapositive avec la disposition vierge.
-    ISlide newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 Le résultat :
-![Les zones réservées sur la diapositive de disposition](add_placeholders.png)
 
-## **Définir la visibilité du pied de page pour une diapositive de disposition**
+![Les espaces réservés sur la diapositive de disposition](add_placeholders.png)
 
-Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être affichés ou masqués selon la disposition de la diapositive. Aspose.Slides pour Android vous permet de contrôler la visibilité de ces zones réservées de pied de page. Cela est utile lorsque vous souhaitez que certaines dispositions affichent les informations de pied de page tandis que d’autres restent épurées et minimalistes.
+{{% alert color="warning" title="Warning" %}}
+Modifier le formatage hérité ou la géométrie des espaces réservés de disposition existants peut affecter les diapositives dépendantes. Un espace réservé de disposition ajouté récemment n’est pas rétro‑appliqué aux diapositives normales existantes. Testez les modifications de disposition sur une copie de la présentation et inspectez chaque diapositive dépendante.
+{{% /alert %}}
 
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Obtenez une référence à une diapositive de disposition par son indice.
-1. Définissez la zone réservée du pied de page de la diapositive comme visible.
-1. Définissez la zone réservée du numéro de diapositive comme visible.
-1. Définissez la zone réservée de date/heure comme visible.
-1. Enregistrez la présentation.
+## **Supprimer les diapositives de disposition inutilisées**
 
-Le code Java suivant montre comment définir la visibilité d’un pied de page de diapositive et exécuter les tâches associées :
+Utilisez la méthode [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) pour supprimer les dispositions auxquelles aucune diapositive normale ne fait référence. La méthode laisse intactes les dispositions encore en cours d’utilisation.
+
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
-    ILayoutSlideHeaderFooterManager headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
+    Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
 
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
+Pour supprimer une disposition spécifique, utilisez d’abord sa méthode [hasDependingSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/#hasDependingSlides--) ou [getDependingSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--). Réaffectez les diapositives dépendantes avant d’appeler [ILayoutSlide.remove](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/#remove--). Tenter de supprimer une disposition utilisée lève une [PptxEditException](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/pptxeditexception/).
+
+## **Contrôler la visibilité du pied de page sur une diapositive de disposition**
+
+Une disposition possède ses propres espaces réservés de pied de page, de numéro de diapositive et de date‑heure. Utilisez la méthode [ILayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/#getHeaderFooterManager--) pour contrôler ces espaces réservés sur une disposition. Cela est utile lorsqu’une disposition de contenu doit afficher les pieds de page mais qu’une disposition de titre ne doit pas le faire.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
+try {
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.TitleAndObject);
+
+    if (layoutSlide == null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(SlideLayoutType.Blank);
     }
 
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
+    if (layoutSlide == null) {
+        throw new IllegalStateException("The presentation does not contain a suitable layout slide.");
     }
 
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
+    ILayoutSlideHeaderFooterManager headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
     headerFooterManager.setFooterText("Footer text");
     headerFooterManager.setDateTimeText("Date and time text");
 
-    presentation.save("Presentation.ppt", SaveFormat.Ppt);
+    presentation.save("output-with-layout-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
+## **Contrôler la visibilité du pied de page sur un maître et ses dispositions enfants**
 
-## **Définir la visibilité du pied de page des diapositives enfants**
+Pour appliquer des réglages de pied de page cohérents sur toute la hiérarchie d’un maître, utilisez la méthode [IMasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterslide/#getHeaderFooterManager--). Les méthodes de propagation de [IMasterSlideHeaderFooterManager](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/imasterslideheaderfootermanager/) agissent sur le maître ainsi que sur ses diapositives de disposition dépendantes et les diapositives normales ; elles ne ciblent pas une seule diapositive normale.
 
-Dans les présentations PowerPoint, les éléments de pied de page tels que la date, le numéro de diapositive et le texte personnalisé peuvent être contrôlés au niveau du masque de diapositive afin d’assurer la cohérence sur toutes les dispositions. Aspose.Slides pour Android vous permet de définir la visibilité et le contenu de ces zones réservées de pied de page sur le masque de diapositive et de propager ces paramètres à toutes les dispositions enfants. Cette approche garantit une uniformité des informations de pied de page dans toute votre présentation.
-
-1. Créez une instance de la classe [Presentation](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/).
-1. Obtenez une référence au masque de diapositive par son indice.
-1. Définissez les zones réservées du pied de page du masque et de toutes les dispositions enfants comme visibles.
-1. Définissez les zones réservées du numéro de diapositive du masque et de toutes les dispositions enfants comme visibles.
-1. Définissez les zones réservées de date/heure du masque et de toutes les dispositions enfants comme visibles.
-1. Enregistrez la présentation.
-
-Le code Java suivant montre cette opération :
 ```java
-Presentation presentation = new Presentation("Presentation.ppt");
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("input.pptx");
 try {
     IMasterSlideHeaderFooterManager headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-
 ## **FAQ**
 
-**Quelle est la différence entre un masque de diapositive et une diapositive de disposition ?**
+**Quelle est la différence entre une diapositive maître et une diapositive de disposition ?**
 
-Un masque de diapositive définit le thème global et la mise en forme par défaut, tandis que les diapositives de disposition définissent des agencements spécifiques de zones réservées pour différents types de contenu.
+Une diapositive maître définit le thème de la présentation et le formatage partagé. Une diapositive de disposition appartient à un maître et définit un arrangement réutilisable d’espaces réservés. Les diapositives normales utilisent ces dispositions et stockent le contenu propre à chaque diapositive.
 
-**Puis-je copier une diapositive de disposition d’une présentation à une autre ?**
+**Puis-je copier une diapositive de disposition d'une présentation à une autre ?**
 
-Oui, vous pouvez cloner une diapositive de disposition à partir de la collection de diapositives de disposition d’une présentation, accessible via la méthode [getLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/presentation/#getLayoutSlides--) , et l’insérer dans une autre présentation en utilisant la méthode `addClone`.
+Oui. Ajoutez une copie à la collection de destination avec la méthode [addClone](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/igloballayoutslidecollection/#addClone-com.aspose.slides.ILayoutSlide-). Lors de la copie entre présentations, vérifiez également les polices, les thèmes, les images et les autres ressources utilisées par la disposition source.
 
-**Que se passe-t-il si je supprime une diapositive de disposition qui est encore utilisée par une diapositive ?**
+**Que se passe-t-il lorsque je modifie une disposition déjà utilisée ?**
 
-Si vous essayez de supprimer une diapositive de disposition qui est encore référencée par au moins une diapositive de la présentation, Aspose.Slides lèvera une [PptxEditException](https://reference.aspose.com/slides/androidjava/com.aspose.slides/pptxeditexception/). Pour éviter cela, utilisez [removeUnusedLayoutSlides](https://reference.aspose.com/slides/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) , qui supprime en toute sécurité uniquement les diapositives de disposition qui ne sont pas utilisées.
+Les diapositives dépendantes héritent des modifications de la disposition sauf si elles remplacent localement le formatage ou les objets affectés. La géométrie des espaces réservés et le style hérité peuvent donc changer simultanément sur de nombreuses diapositives. Utilisez [getDependingSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/ilayoutslide/#getDependingSlides--) pour identifier les diapositives concernées avant de modifier la disposition.
+
+**Que se passe-t-il si je supprime une disposition qui est encore utilisée ?**
+
+Aspose.Slides lève une [PptxEditException](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/pptxeditexception/). Réaffectez d’abord les diapositives dépendantes, ou utilisez [removeUnusedLayoutSlides](https://reference.aspose.com/slides/fr/androidjava/com.aspose.slides/compress/#removeUnusedLayoutSlides-com.aspose.slides.Presentation-) pour ne supprimer que les dispositions non référencées.

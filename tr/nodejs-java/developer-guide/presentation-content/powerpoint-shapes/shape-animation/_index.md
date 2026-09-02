@@ -17,455 +17,459 @@ keywords:
 - efekt al
 - efekt çıkar
 - efekt sesi
-- animasyonu uygula
+- animasyon uygula
 - PowerPoint
 - sunum
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript ve Aspose.Slides for Node.js via Java kullanarak PowerPoint sunumlarında şekil animasyonları oluşturmayı ve özelleştirmeyi keşfedin. Öne çıkın!"
+description: "Aspose.Slides for Node.js via Java ile şekil animasyonlarını, zamanlamayı, sesleri, animasyon sonrası davranışı ve animasyonlu metni eklemeyi, incelemeyi ve özelleştirmeyi öğrenin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Animasyonlar, metinlere, görüntülere, şekillere veya [grafikler](/slides/tr/nodejs-java/animated-charts/) uygulanabilen görsel efektlerdir. Sunumlara veya bileşenlerine yaşam katar.
+Aspose.Slides for Node.js via Java, slayt animasyonlarını bir slayt zaman çizelgesindeki efektler olarak temsil eder. Bir efekt, hedef şekil, bir animasyon tipi ve alt tipi, bir tetikleyici, zamanlama ayarları ve ses veya animasyon sonrası davranış gibi isteğe bağlı özelliklere sahiptir.
 
-## **Neden Sunumlarda Animasyon Kullanılır?**
+Zaman çizelgesi iki tür sekans içerir:
 
-* bilgi akışını kontrol et
-* önemli noktaları vurgula
-* izleyicilerinizin ilgisini veya katılımını artır
-* içeriği okumayı, özümsemeyi veya işlemeyi kolaylaştır
-* okuyucularınızın veya izleyicilerinizin sunumdaki önemli bölümlere dikkatini çek
+- **ana sekans** slayt ilerledikçe oynatılır.
+- **etkileşimli sekans** tetikleyici şekline tıklandığında başlar.
 
-PowerPoint, **entrance**, **exit**, **emphasis** ve **motion paths** kategorilerinde animasyonlar ve animasyon efektleri için birçok seçenek ve araç sunar. 
+Metin kutuları, resimler, grafikler, tablolar ve diğer slayt nesneleri birer [Şekil](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) olduğundan, çoğu slayt içeriği için aynı [Sequence.addEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#addEffect) yöntemini kullanırsınız. Kullanılabilir efektler [EffectType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttype/) sayımında listelenir.
 
-## **Aspose.Slides'ta Animasyonlar**
+## **Şekil Animasyonları Ekle**
 
-* Aspose.Slides, animasyonlarla çalışmak için gereken sınıfları ve türleri `Aspose.Slides.Animation` ad alanı altında sağlar,
-* Aspose.Slides, [EffectType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttype) sayenumerasyonunda **150'den fazla animasyon efekti** sağlar. Bu efektler temelde PowerPoint'te kullanılan aynı (veya eşdeğer) efektlerdir.
+Bir animasyon eklemek için slaytın ana sekansını alın ve hedef şekil, efekt tipi, alt tip ve tetikleyiciyle [Sequence.addEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#addEffect) metodunu çağırın. Başka bir şekle tıklandığında başlayan bir efekt için, tetikleyicisi o diğer şekil olan bir etkileşimli sekans oluşturun.
 
-## **Metin Kutusuna Animasyon Uygulama**
-
-Aspose.Slides for Node.js via Java, bir şeklin içindeki metne animasyon uygulamanızı sağlar.
-
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. İndeks aracılığıyla bir slayt referansı edinin.
-3. `rectangle` bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape) ekleyin.
-4. [AutoShape.addTextFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/AutoShape#addTextFrame-java.lang.String-) kullanarak metin ekleyin.
-5. Efektlerin ana sırasını alın.
-6. [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape) bir animasyon efekti ekleyin.
-7. `TextAnimation.setBuildType` metodunu `BuildType` sayenumerasyonundan gelen değerle çağırın.
-8. Sunumu bir PPTX dosyası olarak diske yazın.
-
-Bu Javascript kodu, `Fade` efektini AutoShape'e nasıl uygulayacağınızı ve metin animasyonunu *By 1st Level Paragraphs* değerine nasıl ayarlayacağınızı gösterir:
+Aşağıdaki örnek her iki tip animasyonu oluşturur ve sonucu `shape-animations.pptx` dosyasına kaydeder.
 
 ```javascript
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekleştirir.
-var pres = new aspose.slides.Presentation();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var sld = pres.getSlides().get_Item(0);
-    // Metinle yeni AutoShape ekler
-    var autoShape = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 100);
-    var textFrame = autoShape.getTextFrame();
-    textFrame.setText("First paragraph \nSecond paragraph \n Third paragraph");
-    // Slaydın ana sırasını alır.
-    var sequence = sld.getTimeline().getMainSequence();
-    // Şekle Fade animasyon efekti ekler
-    var effect = sequence.addEffect(autoShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Şekil metnini birinci seviye paragraflara göre canlandırır
-    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.ByLevelParagraphs1);
-    // PPTX dosyasını diske kaydet
-    pres.save(path + "AnimText_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.RoundCornerRectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Click to animate this shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    const entranceEffect = mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    entranceEffect.getTiming().setDuration(java.newFloat(1.5));
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    presentation.save("shape-animations.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert color="primary"  %}} 
+Tetikleyici, bir efektin ne zaman başlayacağını kontrol eder:
 
-Metne animasyon uygulamanın yanı sıra tek bir [Paragraf](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph) üzerine de animasyon uygulayabilirsiniz. Bakın [**Animasyonlu Metin**](/slides/tr/nodejs-java/animated-text/).
+- [EffectTriggerType.OnClick](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttriggertype/#OnClick) ana sekans içinde bir tıklamayı veya etkileşimli sekans içinde tetikleyici şekle bir tıklamayı bekler.
+- [EffectTriggerType.WithPrevious](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttriggertype/#WithPrevious) önceki efektle birlikte başlar.
+- [EffectTriggerType.AfterPrevious](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effecttriggertype/#AfterPrevious) önceki efekt tamamlandığında başlar.
 
-{{% /alert %}} 
+Bir resim, grafik veya başka bir şekil türünü animasyonlamak için, `targetShape` yerine o nesneyi [Sequence.addEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#addEffect) metoduna geçirin. Grafik‑özel grup seçenekleri için [Animasyonlu Grafikler](/slides/tr/nodejs-java/animated-charts/) bölümüne bakın.
 
-## **PictureFrame'e Animasyon Uygulama**
+## **Şekil Animasyonlarını Okuma**
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2. İndeks aracılığıyla bir slayt referansı edinin.
-3. Slayta bir [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe) ekleyin veya edinin.
-4. Efektlerin ana sırasını alın.
-5. [PictureFrame](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/pictureframe) bir animasyon efekti ekleyin.
-6. Sunumu bir PPTX dosyası olarak diske yazın.
+Hedef şekli bildiğinizde [Sequence.getEffectsByShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#getEffectsByShape) yöntemini kullanın. Tüm efektleri incelemek için ana sekansı ve her etkileşimli sekansı dolaşın. Dolaşma, bir sekansın `0` dizininde bir efekt içerdiği varsayımını ortadan kaldırır.
 
-Bu Javascript kodu, `Fly` efektini bir resim çerçevesine nasıl uygulayacağınızı gösterir:
+Aşağıdaki örnek bir şekil oluşturur, ana‑sekans ve etkileşimli efektler ekler, şekli hedefleyen efektleri alır ve ardından slayttaki tüm sekansları dolaşır.
 
 ```javascript
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekleştirir.
-var pres = new aspose.slides.Presentation();
-try {
-    // Sunumun görüntü koleksiyonuna eklenecek resmi yükler
-    var picture;
-    var image = aspose.slides.Images.fromFile("aspose-logo.jpg");
-    try {
-        picture = pres.getImages().addImage(image);
-    } finally {
-        if (image != null) {
-            image.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
         }
     }
-    // Slayta resim çerçevesi ekler
-    var picFrame = pres.getSlides().get_Item(0).getShapes().addPictureFrame(aspose.slides.ShapeType.Rectangle, 50, 50, 100, 100, picture);
-    // Slaydın ana sırasını alır.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Resim çerçevesine Soldan Uçuş animasyon efekti ekler
-    var effect = sequence.addEffect(picFrame, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Left, aspose.slides.EffectTriggerType.OnClick);
-    // PPTX dosyasını diske kaydeder
-    pres.save(path + "AnimImage_out.pptx", aspose.slides.SaveFormat.Pptx);
-} catch (e) {console.log(e);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+
+    return String(value);
+}
+
+function printSequence(label, sequence) {
+    console.log(`  ${label}: ${sequence.getCount()} effect(s)`);
+
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+        const targetName = effect.getTargetShape() == null ? "unknown" : effect.getTargetShape().getName();
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        const triggerName = getEnumName(aspose.slides.EffectTriggerType, effect.getTiming().getTriggerType());
+        console.log(`    ${typeName} ${subtypeName}; target: ${targetName}; trigger: ${triggerName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const slide = presentation.getSlides().get_Item(0);
+    const targetShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    targetShape.addTextFrame("Animated shape");
+
+    const mainSequence = slide.getTimeline().getMainSequence();
+    mainSequence.addEffect(targetShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const triggerShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 20, 20, 100, 40);
+    triggerShape.addTextFrame("Move");
+
+    const interactiveSequence = slide.getTimeline().getInteractiveSequences().add(triggerShape);
+    interactiveSequence.addEffect(targetShape, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const targetEffects = mainSequence.getEffectsByShape(targetShape);
+    console.log(`The main sequence contains ${targetEffects.length} effect(s) for ${targetShape.getName()}.`);
+
+    printSequence("Main sequence", mainSequence);
+
+    const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+    for (let i = 0; i < interactiveSequences.getCount(); i++) {
+        const sequence = interactiveSequences.get_Item(i);
+        const triggerName = sequence.getTriggerShape() == null ? "unknown" : sequence.getTriggerShape().getName();
+        printSequence(`Interactive sequence ${i + 1}, trigger: ${triggerName}`, sequence);
+    }
+} finally {
+    presentation.dispose();
 }
 ```
 
-## **Şekle Animasyon Uygulama**
+Eğer sadece tek bir şekil için efektlere ihtiyacınız varsa, önce şekli ad, yer tutucu tipi veya başka bir sabit özellik ile tanımlayın; ardından [Sequence.getEffectsByShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#getEffectsByShape) metodunu çağırın. [ShapeCollection.get_Item](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shapecollection/#get_Item) dizin `0`'da her zaman istenen nesne olduğu varsayımında bulunmayın.
 
-1.   [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Presentation) sınıfının bir örneğini oluşturun.
-2.   İndeks aracılığıyla bir slayt referansı edinin.
-3.   `rectangle` bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape) ekleyin.
-4.   `Bevel` bir [AutoShape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/autoshape) ekleyin (bu nesne tıklandığında animasyon oynatılır).
-5.   `Bevel` şekli üzerinde bir efekt sırası oluşturun.
-6.   Özel bir `UserPath` oluşturun.
-7.   `UserPath`'e hareket komutları ekleyin.
-8.   Sunumu bir PPTX dosyası olarak diske yazın.
+## **Türetilmiş Yer Tutucu Efektleri ile Çalışma**
 
-Bu Javascript kodu, bir şekle `PathFootball` (yol futbolu) efektini nasıl uygulayacağınızı gösterir:
+Normal bir slayttaki bir yer tutucu, düzen slaytı ve ana slayttaki karşılık gelen yer tutucudan animasyon davranışını devralabilir. [Shape.getBasePlaceholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getBasePlaceholder) bu üst yer tutucuyu döndürür; üst yer tutucu yoksa `null` döner.
+
+Aşağıdaki örnek sunumda altbilgi, normal slaytta **Random Bars**, düzen slaytta **Split**, ana slaytta ise **Fly In** animasyonuna sahiptir.
+
+![Normal slayttaki altbilgi animasyon etkisi](slide-shape-animation.png)
+
+![Düzen slayttaki altbilgi yer tutucu animasyon etkisi](layout-shape-animation.png)
+
+![Ana slayttaki altbilgi yer tutucu animasyon etkisi](master-shape-animation.png)
+
+Sonraki örnek yeni bir sunumda yer tutucu hiyerarşisini kullanır. Bir ana yer tutucuya, bir düzen yer tutucuya ve normal bir slayttaki karşılık gelen yer tutucuya efekt ekler. Her [Shape.getBasePlaceholder](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/#getBasePlaceholder) çağrısı, döndürülen şekil kullanılmadan önce kontrol edilir.
 
 ```javascript
-// PPTX dosyasını temsil eden bir Presentation sınıfını örnekleştirir.
-var pres = new aspose.slides.Presentation();
-try {
-    var sld = pres.getSlides().get_Item(0);
-    // Mevcut şekil için sıfırdan PathFootball efekti oluşturur.
-    var ashp = sld.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 150, 150, 250, 25);
-    ashp.addTextFrame("Animated TextBox");
-    // PathFootBall animasyon efektini ekler
-    pres.getSlides().get_Item(0).getTimeline().getMainSequence().addEffect(ashp, aspose.slides.EffectType.PathFootball, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.AfterPrevious);
-    // Bir çeşit "button" oluşturur.
-    var shapeTrigger = pres.getSlides().get_Item(0).getShapes().addAutoShape(aspose.slides.ShapeType.Bevel, 10, 10, 20, 20);
-    // Bu buton için bir efekt sırası oluşturur.
-    var seqInter = pres.getSlides().get_Item(0).getTimeline().getInteractiveSequences().add(shapeTrigger);
-    // Özel bir kullanıcı yolu oluşturur. Nesnemiz yalnızca butona tıklandıktan sonra hareket ettirilecektir.
-    var fxUserPath = seqInter.addEffect(ashp, aspose.slides.EffectType.PathUser, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
-    // Oluşturulan yol boş olduğundan hareket komutları ekler
-    var motionBhv = fxUserPath.getBehaviors().get_Item(0);
-    var pts = java.newArray("com.aspose.slides.Point2DFloat", [java.newInstanceSync("com.aspose.slides.Point2DFloat", 0.076, 0.59)]);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, true);
-    pts[0] = java.newInstanceSync("com.aspose.slides.Point2DFloat", java.newFloat(-0.076), java.newFloat(-0.59));
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.LineTo, pts, aspose.slides.MotionPathPointsType.Auto, false);
-    motionBhv.getPath().add(aspose.slides.MotionCommandPathType.End, null, aspose.slides.MotionPathPointsType.Auto, false);
-    // PPTX dosyasını diske yazar
-    pres.save("AnimExample_out.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    if (pres != null) {
-        pres.dispose();
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+function findPlaceholderWithBase(baseSlide, expectedBase) {
+    const shapes = baseSlide.getShapes();
+
+    for (let i = 0; i < shapes.size(); i++) {
+        const shape = shapes.get_Item(i);
+        const basePlaceholder = shape.getBasePlaceholder();
+
+        if (basePlaceholder == null) {
+            continue;
+        }
+
+        if (expectedBase == null || basePlaceholder.getPlaceholder().getType() === expectedBase.getPlaceholder().getType()) {
+            return shape;
+        }
     }
+
+    return null;
 }
-```
 
-## **Şekle Uygulanan Animasyon Efektlerini Al**
-
-Aşağıdaki örnekler, bir şekle uygulanan tüm animasyon efektlerini elde etmek için [Sequence](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/) sınıfından `getEffectsByShape` metodunun nasıl kullanılacağını gösterir.
-
-**Örnek 1: Normal bir slayt üzerindeki bir şekle uygulanan animasyon efektlerini alın**
-
-Önceden, PowerPoint sunumlarındaki şekillere animasyon efektleri eklemeyi öğrenmiştiniz. Aşağıdaki örnek kod, `AnimExample_out.pptx` sunumunda ilk normal slaydın ilk şekline uygulanan efektleri nasıl alacağınızı gösterir:
-
-```javascript
-var presentation = new aspose.slides.Presentation("AnimExample_out.pptx");
-try {
-    var firstSlide = presentation.getSlides().get_Item(0);
-
-    // Slaydın ana animasyon sırasını alır.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-
-    // İlk slayttaki ilk şekli alır.
-    var shape = firstSlide.getShapes().get_Item(0);
-
-    // Şekle uygulanan animasyon efektlerini alır.
-    var shapeEffects = sequence.getEffectsByShape(shape);
-
-    if (shapeEffects.length > 0) {
-        console.log("The shape", shape.getName(), "has", shapeEffects.length, "animation effects.");
+function getEnumName(enumType, value) {
+    for (const [name, enumValue] of Object.entries(enumType)) {
+        if (enumValue === value) {
+            return name;
+        }
     }
-} finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+
+    return String(value);
 }
-```
 
-**Örnek 2: Yer tutuculardan miras alınanlar dahil tüm animasyon efektlerini alın**
+function printEffects(source, effects) {
+    console.log(`${source}: ${effects.length} effect(s)`);
 
-Normal bir slayttaki bir şeklin, düzen slaytında ve/veya ana slaytta yer tutucuları varsa ve bu yer tutuculara animasyon efektleri eklenmişse, o zaman şeklin tüm efektleri slayt gösterisi sırasında oynatılacak, yer tutuculardan miras alınanlar dahil.
-
-Diyelim ki `sample.pptx` adlı bir PowerPoint sunum dosyamız var; tek bir slaytı var ve sadece altbilgi şeklinde "Made with Aspose.Slides" metni bulunuyor ve şekle **Random Bars** efekti uygulanmış.
-
-![Slayt şekil animasyon efekti](slide-shape-animation.png)
-
-Ayrıca, **Split** efektinin **layout** slaydındaki altbilgi yer tutucusuna uygulandığını varsayalım.
-
-![Düzen şekil animasyon efekti](layout-shape-animation.png)
-
-Son olarak, **Fly In** efektinin **master** slaydındaki altbilgi yer tutucusuna uygulandığını varsayalım.
-
-![Ana slayt şekil animasyon efekti](master-shape-animation.png)
-
-Aşağıdaki örnek kod, [Shape](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/) sınıfından `getBasePlaceholder` metodunu kullanarak şekil yer tutucularına erişmeyi ve altbilgi şekline uygulanan animasyon efektlerini, düzen ve ana slaytlardaki yer tutuculardan miras alınanlar dahil, almayı gösterir:
-
-```js
-var presentation = new aspose.slides.Presentation("sample.pptx");
-
-var slide = presentation.getSlides().get_Item(0);
-
-// Normal slaydaki şeklin animasyon efektlerini al.
-var shape = slide.getShapes().get_Item(0);
-var shapeEffects = slide.getTimeline().getMainSequence().getEffectsByShape(shape);
-
-// Düzen slaydındaki yer tutucunun animasyon efektlerini al.
-var layoutShape = shape.getBasePlaceholder();
-var layoutShapeEffects = slide.getLayoutSlide().getTimeline().getMainSequence().getEffectsByShape(layoutShape);
-
-// Ana slaydındaki yer tutucunun animasyon efektlerini al.
-var masterShape = layoutShape.getBasePlaceholder();
-var masterShapeEffects = slide.getLayoutSlide().getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(masterShape);
-
-console.log("Main sequence of shape effects:");
-printEffects(masterShapeEffects);
-printEffects(layoutShapeEffects);
-printEffects(shapeEffects);
-
-presentation.dispose();
-```
-```js
-function printEffects(effects) {
     for (const effect of effects) {
-        console.log("Type:", effect.getType() + ", subtype:", effect.getSubtype());
+        const typeName = getEnumName(aspose.slides.EffectType, effect.getType());
+        const subtypeName = getEnumName(aspose.slides.EffectSubtype, effect.getSubtype());
+        console.log(`  ${typeName} ${subtypeName}`);
     }
+}
+
+const presentation = new aspose.slides.Presentation();
+try {
+    const layoutSlide = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
+    const layoutPlaceholder = findPlaceholderWithBase(layoutSlide, null);
+
+    if (layoutPlaceholder == null) {
+        throw new Error("The layout slide does not contain a placeholder linked to its master slide.");
+    }
+
+    const masterPlaceholder = layoutPlaceholder.getBasePlaceholder();
+    layoutSlide.getMasterSlide().getTimeline().getMainSequence().addEffect(masterPlaceholder, aspose.slides.EffectType.Fly, aspose.slides.EffectSubtype.Bottom, aspose.slides.EffectTriggerType.OnClick);
+    layoutSlide.getTimeline().getMainSequence().addEffect(layoutPlaceholder, aspose.slides.EffectType.Split, aspose.slides.EffectSubtype.VerticalIn, aspose.slides.EffectTriggerType.OnClick);
+
+    const slide = presentation.getSlides().addEmptySlide(layoutSlide);
+    const slidePlaceholder = findPlaceholderWithBase(slide, layoutPlaceholder);
+
+    if (slidePlaceholder == null) {
+        throw new Error("The slide does not contain a placeholder linked to its layout slide.");
+    }
+
+    slide.getTimeline().getMainSequence().addEffect(slidePlaceholder, aspose.slides.EffectType.RandomBars, aspose.slides.EffectSubtype.Horizontal, aspose.slides.EffectTriggerType.OnClick);
+    printEffects("Normal slide", slide.getTimeline().getMainSequence().getEffectsByShape(slidePlaceholder));
+
+    const baseLayoutPlaceholder = slidePlaceholder.getBasePlaceholder();
+    if (baseLayoutPlaceholder != null) {
+        printEffects("Layout slide", layoutSlide.getTimeline().getMainSequence().getEffectsByShape(baseLayoutPlaceholder));
+
+        const baseMasterPlaceholder = baseLayoutPlaceholder.getBasePlaceholder();
+        if (baseMasterPlaceholder != null) {
+            printEffects("Master slide", layoutSlide.getMasterSlide().getTimeline().getMainSequence().getEffectsByShape(baseMasterPlaceholder));
+        }
+    }
+
+    presentation.save("placeholder-animations.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
 }
 ```
 
-Output:
-```text
-Main sequence of shape effects:
-Type: 47, subtype: 2              // Uç, Alt
-Type: 134, subtype: 45            // Böl, Dikeyİçeri
-Type: 126, subtype: 22            // Rastgele Çubuklar, Yatay
-```
+## **Animasyon Zamanlamasını Değiştirme**
 
-## **Animasyon Efekti Zamanlama Özelliklerini Değiştir**
+PowerPoint **Timing** iletişim kutusu, [Timing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/) özelliklerine karşılık gelir.
 
-Aspose.Slides for Node.js via Java, bir animasyon efektinin Zamanlama özelliklerini değiştirmenizi sağlar.
+![Bir animasyon efekti için PowerPoint Timing iletişim kutusu](shape-animation.png)
 
-Bu, Microsoft PowerPoint'teki Animasyon Zamanlama panelidir:
+- **Start** [Timing.getTriggerType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getTriggerType) ile eşlenir.
+- **Duration** [Timing.getDuration](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getDuration) ile eşlenir; saniye cinsindendir.
+- **Delay** [Timing.getTriggerDelayTime](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getTriggerDelayTime) ile eşlenir; saniye cinsindendir.
+- **Repeat** [Timing.getRepeatCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getRepeatCount), [Timing.getRepeatUntilNextClick](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getRepeatUntilNextClick) veya [Timing.getRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getRepeatUntilEndSlide) ile eşlenir.
+- **Rewind when done playing** [Timing.getRewind](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#getRewind) ile eşlenir.
 
-![örnek1_resim](shape-animation.png)
-
-PowerPoint Zamanlama ile [Effect.Timing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Effect#getTiming--) özellikleri arasındaki eşleşmeler şunlardır:
-
-- PowerPoint Zamanlama **Start** açılır listesi, [Effect.Timing.TriggerType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Timing#getTriggerType--) özelliğiyle eşleşir.
-- PowerPoint Zamanlama **Duration**, [Effect.Timing.Duration](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Timing#getDuration--) özelliğiyle eşleşir. Bir animasyonun (saniye cinsinden) süresi, bir döngünün tamamlanması için geçen toplam süredir.
-- PowerPoint Zamanlama **Delay**, [Effect.Timing.TriggerDelayTime](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Timing#getTriggerDelayTime--) özelliğiyle eşleşir.
-
-Efekt Zamanlama özelliklerini nasıl değiştirirsiniz:
-
-1. [Uygula](#apply-animation-to-shape) ya da animasyon efektini alın.
-2. İhtiyacınız olan [Effect.Timing](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/Effect#getTiming--) özellikleri için yeni değerler ayarlayın.
-3. Değiştirilmiş PPTX dosyasını kaydedin.
+Bu bağımsız örnek bir efekt ekler, zamanlamasını [Sequence.addEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#addEffect) tarafından döndürülen nesne üzerinden değiştirir ve sonucu kaydeder. Döndürülen [Effect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/) referansını tutmak, gereksiz bir sekans indeksinden kaçınmayı sağlar.
 
 ```javascript
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekleştirir.
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Slaydın ana sırasını alır.
-    var sequence = pres.getSlides().get_Item(0).getTimeline().getMainSequence();
-    // Ana sıranın ilk efektini alır.
-    var effect = sequence.get_Item(0);
-    // Efektin TriggerType'ını tıklamayla başlatacak şekilde değiştirir
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Timed animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
     effect.getTiming().setTriggerType(aspose.slides.EffectTriggerType.OnClick);
-    // Efekt süresini değiştirir
-    effect.getTiming().setDuration(3.0);
-    // Efektin TriggerDelayTime'ını değiştirir
-    effect.getTiming().setTriggerDelayTime(0.5);
-    // PPTX dosyasını diske kaydeder
-    pres.save("AnimExample_changed.pptx", aspose.slides.SaveFormat.Pptx);
+    effect.getTiming().setDuration(java.newFloat(2.0));
+    effect.getTiming().setTriggerDelayTime(java.newFloat(0.5));
+    effect.getTiming().setRepeatUntilNextClick(false);
+    effect.getTiming().setRepeatUntilEndSlide(false);
+    effect.getTiming().setRepeatCount(java.newFloat(2.0));
+    effect.getTiming().setRewind(true);
+
+    presentation.save("shape-animation-timing.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Animasyon Efekti Ses**
+Tek bir tekrar modunu bilinçli olarak kullanın. Tekrar sayısı ile bir “until” bayrağını birleştirmek, farklı izleyicilerde kafa karıştırıcı sonuçlar verebilir. Tekrar modlarını değiştirirken, [Timing.setRepeatUntilNextClick](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#setRepeatUntilNextClick) ve [Timing.setRepeatUntilEndSlide](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#setRepeatUntilEndSlide) metodlarını, [Timing.setRepeatCount](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/timing/#setRepeatCount) çağırmadan önce ayarlayın; çünkü bu bayrakların herhangi birini ayarlamak aktif tekrar modunu da değiştirir.
 
-Aspose.Slides, animasyon efektlerinde seslerle çalışmanıza izin veren bu özellikleri sağlar:
+## **Animasyon Seslerini Ekle ve Çıkar**
 
-- [setSound(IAudio value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-)
-- [setStopPreviousSound(boolean value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setStopPreviousSound-boolean-)
+Bir animasyon efekti, gömülü ses dosyasına [Effect.getSound](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#getSound) üzerinden referans verebilir. [Effect.setStopPreviousSound](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setStopPreviousSound) bir efekti, önceki bir efekt tarafından başlatılan sesi durdurması için talimat verir.
 
-### **Animasyon Efekti Sesi Ekle**
+### **Bir Efekte Ses Ekleme**
 
-Bu Javascript kodu, bir animasyon efekti sesini nasıl ekleyeceğinizi ve bir sonraki efekt başladığında nasıl durduracağınızı gösterir:
+Aşağıdaki örnek, `animation-sound.wav` adlı yerel bir ses dosyası bekler. İki efekt oluşturur, bu dosyayı ilk efektin sesi olarak gömer ve ikinci efekti sesi durduracak şekilde ayarlar. [Sequence.addEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#addEffect) tarafından döndürülen nesneler kullanıldığı için sekans indeksi gerekmez.
 
 ```javascript
-var pres = new aspose.slides.Presentation("AnimExample_out.pptx");
+const fs = require("fs");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    // Sunuma ses koleksiyonuna ses ekler
-    var effectSound = pres.getAudios().addAudio(java.newInstanceSync("java.io.FileInputStream", java.newInstanceSync("java.io.File", "sampleaudio.wav")));
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Slaydın ana sırasını alır.
-    var sequence = firstSlide.getTimeline().getMainSequence();
-    // Ana sıranın ilk efektini alır
-    var firstEffect = sequence.get_Item(0);
-    // Efekti "Ses Yok" için kontrol eder
-    if ((!firstEffect.getStopPreviousSound()) && (firstEffect.getSound() == null)) {
-        // İlk efekt için ses ekler
-        firstEffect.setSound(effectSound);
-    }
-    // Slaydın ilk etkileşimli sırasını alır.
-    var interactiveSequence = firstSlide.getTimeline().getInteractiveSequences().get_Item(0);
-    // Efektin "Önceki sesi durdur" bayrağını ayarlar
-    interactiveSequence.get_Item(0).setStopPreviousSound(true);
-    // PPTX dosyasını diske yazar
-    pres.save("AnimExample_Sound_out.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const firstShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 100, 240, 80);
+    const secondShape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 400, 100, 240, 80);
+    firstShape.addTextFrame("Starts sound");
+    secondShape.addTextFrame("Stops sound");
+
+    const sequence = slide.getTimeline().getMainSequence();
+    const firstEffect = sequence.addEffect(firstShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    const secondEffect = sequence.addEffect(secondShape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+
+    const audioData = java.newArray("byte", Array.from(fs.readFileSync("animation-sound.wav")));
+    const effectSound = presentation.getAudios().addAudio(audioData);
+    firstEffect.setSound(effectSound);
+    secondEffect.setStopPreviousSound(true);
+
+    presentation.save("shape-animation-sound.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-### **Animasyon Efekti Sesini Çıkar**
+### **Gömülü Efekt Seslerini Çıkarma**
 
-1.   [Presentation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.
-2.   İndeks aracılığıyla bir slayt referansı edinin. 
-3.   Efektlerin ana sırasını alın. 
-4.   Her animasyon efektine gömülmüş [setSound(IAudio value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setSound-aspose.slides.IAudio-) metodunu çıkarın.
-
-Bu Javascript kodu, bir animasyon efektine gömülü sesin nasıl çıkarılacağını gösterir:
+Aşağıdaki örnek, `presentation-with-animation-sounds.pptx` adlı yerel bir sunum bekler. Hem ana hem de etkileşimli sekansları tarar ve her gömülü efekt sesini `extracted-animation-sounds` dizinine yazar. Uzantı, [Audio.getContentType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audio/#getContentType) tarafından sağlanan ses MIME tipinden seçilir.
 
 ```javascript
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekleştirir.
-var presentation = new aspose.slides.Presentation("EffectSound.pptx");
-try {
-    var slide = presentation.getSlides().get_Item(0);
-    // Slaydın ana sırasını alır.
-    var sequence = slide.getTimeline().getMainSequence();
-    for (var i = 0; i < sequence.getCount(); i++) {
-        var effect = sequence.get_Item(i);
+const fs = require("fs");
+const path = require("path");
+const aspose = { slides: require("aspose.slides.via.java") };
+
+function getAudioExtension(contentType) {
+    const normalizedType = contentType == null ? "" : contentType.toLowerCase();
+
+    if (normalizedType === "audio/mpeg") {
+        return ".mp3";
+    }
+
+    if (normalizedType === "audio/mp4") {
+        return ".m4a";
+    }
+
+    if (normalizedType === "audio/ogg") {
+        return ".ogg";
+    }
+
+    if (normalizedType === "audio/wav" || normalizedType === "audio/x-wav") {
+        return ".wav";
+    }
+
+    return ".bin";
+}
+
+function saveSounds(sequence, outputDirectory, soundIndex) {
+    for (let i = 0; i < sequence.getCount(); i++) {
+        const effect = sequence.get_Item(i);
+
         if (effect.getSound() == null) {
             continue;
         }
-        // Efekt sesini bayt dizisi olarak çıkarır
-        var audio = effect.getSound().getBinaryData();
+
+        const extension = getAudioExtension(effect.getSound().getContentType());
+        const outputPath = path.join(outputDirectory, `effect-sound-${soundIndex}${extension}`);
+        fs.writeFileSync(outputPath, Buffer.from(effect.getSound().getBinaryData()));
+        soundIndex++;
     }
+
+    return soundIndex;
+}
+
+const outputDirectory = "extracted-animation-sounds";
+fs.mkdirSync(outputDirectory, { recursive: true });
+
+const presentation = new aspose.slides.Presentation("presentation-with-animation-sounds.pptx");
+try {
+    let soundIndex = 1;
+
+    for (let slideIndex = 0; slideIndex < presentation.getSlides().size(); slideIndex++) {
+        const slide = presentation.getSlides().get_Item(slideIndex);
+        soundIndex = saveSounds(slide.getTimeline().getMainSequence(), outputDirectory, soundIndex);
+
+        const interactiveSequences = slide.getTimeline().getInteractiveSequences();
+        for (let sequenceIndex = 0; sequenceIndex < interactiveSequences.getCount(); sequenceIndex++) {
+            soundIndex = saveSounds(interactiveSequences.get_Item(sequenceIndex), outputDirectory, soundIndex);
+        }
+    }
+
+    console.log(`Extracted ${soundIndex - 1} sound file(s) to ${path.resolve(outputDirectory)}.`);
 } finally {
-    if (presentation != null) {
-        presentation.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Animasyondan Sonra**
+Büyük ses nesneleri için, nesneyi bir bayt dizisine yüklemek yerine [Audio.getStream](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/audio/#getStream) kullanın ve akışı bir dosyaya kopyalayın.
 
-Aspose.Slides for Node.js via Java, bir animasyon efektinin After animation özelliğini değiştirmenizi sağlar.
+## **Animasyon Sonrası Davranışı Ayarla**
 
-Bu, Microsoft PowerPoint'teki Animasyon Efekti paneli ve genişletilmiş menüsüdür:
+**After animation** seçeneği, bir şeklin efekti bittikten sonra ne olacağını kontrol eder.
 
-![örnek1_resim](shape-after-animation.png)
+![PowerPoint Effect Options iletişim kutusunda After animation ayarları gösteriliyor](shape-after-animation.png)
 
-PowerPoint Effect **After animation** açılır listesi bu özelliklerle eşleşir:
+[AfterAnimationType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/) sayımı, şekli değişmeden bırakma, rengini değiştirme, animasyondan sonra gizleme veya bir sonraki tıklamada gizleme gibi seçenekler sunar. Tipi [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#Color) olarak ayarladığınızda, ayrıca [Effect.getAfterAnimationColor](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#getAfterAnimationColor) ayarlanmalıdır.
 
-- [setAfterAnimationType(int value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setAfterAnimationType-int-) metodu, After animation tipini tanımlar;
-  * PowerPoint **More Colors**, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#Color) tipine karşılık gelir;
-  * PowerPoint **Don't Dim**, [AfterAnimationType.DoNotDim](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#DoNotDim) tipine karşılık gelir (varsayılan after animation tipi);
-  * PowerPoint **Hide After Animation**, [AfterAnimationType.HideAfterAnimation](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#HideAfterAnimation) tipine karşılık gelir;
-  * PowerPoint **Hide on Next Mouse Click**, [AfterAnimationType.HideOnNextMouseClick](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#HideOnNextMouseClick) tipine karşılık gelir;
-- [setAfterAnimationColor(IColorFormat value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setAfterAnimationColor-aspose.slides.IColorFormat-) metodu, after animation renk formatını tanımlar. Bu metod, [AfterAnimationType.Color](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#Color) tipiyle birlikte çalışır. Tipi başka bir şeye değiştirirseniz, after animation rengi temizlenir.
-
-Bu Javascript kodu, bir after animation efektini nasıl değiştireceğinizi gösterir:
+Bu bağımsız örnek bir efekt oluşturur, döndürülen efekt nesnesi üzerinden animasyon sonrası davranışı ayarlar ve sonucu kaydeder.
 
 ```javascript
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekleştirir
-var pres = new aspose.slides.Presentation("AnimImage_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Ana sıranın ilk efektini alır
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // After animation tipini Renk olarak değiştirir
-    firstEffect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
-    // After animation kararma rengini ayarlar
-    firstEffect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "BLUE"));
-    // PPTX dosyasını diske yazar
-    pres.save("AnimImage_AfterAnimation.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 120, 100, 320, 80);
+    shape.addTextFrame("Dim after animation");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(shape, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.setAfterAnimationType(aspose.slides.AfterAnimationType.Color);
+    effect.getAfterAnimationColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
+
+    presentation.save("shape-animation-after-effect.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **Metni Canlandır**
+[AfterAnimationType.Color](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/afteranimationtype/#Color) dışına bir tip seçmek, animasyon sonrası renk ayarını temizler.
 
-Aspose.Slides, bir animasyon efektinin *Animate text* bloğuyla çalışmanıza izin veren bu özellikleri sağlar:
+## **Metni Animasyonla**
 
-- [setAnimateTextType(int value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) efekti için *Animate text* tipini tanımlar. Şekil metni şu şekilde animasyonlanabilir:
-  - Hepsi bir anda ([AnimateTextType.AllAtOnce](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/animatetexttype/#AllAtOnce) tipi)
-  - Kelime kelime ([AnimateTextType.ByWord](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/animatetexttype/#ByWord) tipi)
-  - Harfe harfe ([AnimateTextType.ByLetter](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/animatetexttype/#ByLetter) tipi)
-- [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) animasyonlu metin parçaları (kelimeler veya harfler) arasında bir gecikme belirler. Pozitif bir değer, efekt süresinin yüzdesini belirtir. Negatif bir değer, saniye cinsinden gecikmeyi belirtir.
+Metin animasyonunda iki ilgili kontrol bulunur:
 
-Efekt Animate text özelliklerini nasıl değiştirirsiniz:
+- [TextAnimation.getBuildType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textanimation/#getBuildType), paragrafların birlikte mi yoksa paragraf düzeyinde mi görüneceğini belirler.
+- [Effect.getAnimateTextType](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#getAnimateTextType), metnin tamamen mi, kelime kelime mi yoksa harf harf mi görüneceğini belirler. [Effect.getDelayBetweenTextParts](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#getDelayBetweenTextParts), kelimeler veya harfler arasındaki gecikmeyi ayarlar. Pozitif bir değer, efekt süresinin yüzde değeri; negatif bir değer ise saniye cinsinden gecikmedir.
 
-1.   [Uygula](#apply-animation-to-shape) ya da animasyon efektini alın.
-2.   [setBuildType(int value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/textanimation/#setBuildType-int-) metodunu [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/buildtype/#AsOneObject) değerine ayarlayarak *By Paragraphs* animasyon modunu devre dışı bırakın.
-3.   Yeni değerleri [setAnimateTextType(int value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setAnimateTextType-int-) ve [setDelayBetweenTextParts(float value)](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/effect/#setDelayBetweenTextParts-float-) özelliklerine ayarlayın.
-4.   Değiştirilmiş PPTX dosyasını kaydedin.
+Aşağıdaki bağımsız örnek bir metin kutusundaki kelimeleri animasyonlaştırır. [BuildType.AsOneObject](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/buildtype/#AsOneObject), paragraf‑paragraf oluşturmayı devre dışı bırakır; böylece kelime ayarı tüm metin çerçevesine uygulanır.
 
 ```javascript
-// Sunum dosyasını temsil eden bir sunum sınıfını örnekleştirir.
-var pres = new aspose.slides.Presentation("AnimTextBox_out.pptx");
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
+const presentation = new aspose.slides.Presentation();
 try {
-    var firstSlide = pres.getSlides().get_Item(0);
-    // Ana sıranın ilk efektini alır
-    var firstEffect = firstSlide.getTimeline().getMainSequence().get_Item(0);
-    // Efektin Metin animasyon tipini "Tek Nesne Olarak" değiştirir
-    firstEffect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
-    // Efektin Metni Canlandırma tipini "Kelimeye göre" değiştirir
-    firstEffect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
-    // Kelimeler arasındaki gecikmeyi efekt süresinin %20'si olarak ayarlar
-    firstEffect.setDelayBetweenTextParts(20.0);
-    // PPTX dosyasını diske yazar
-    pres.save("AnimTextBox_AnimateText.pptx", aspose.slides.SaveFormat.Pptx);
+    const slide = presentation.getSlides().get_Item(0);
+    const textBox = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 80, 80, 560, 100);
+    textBox.addTextFrame("Aspose.Slides animates this sentence word by word.");
+
+    const effect = slide.getTimeline().getMainSequence().addEffect(textBox, aspose.slides.EffectType.Fade, aspose.slides.EffectSubtype.None, aspose.slides.EffectTriggerType.OnClick);
+    effect.getTextAnimation().setBuildType(aspose.slides.BuildType.AsOneObject);
+    effect.setAnimateTextType(aspose.slides.AnimateTextType.ByWord);
+    effect.setDelayBetweenTextParts(java.newFloat(20.0));
+
+    presentation.save("animated-text.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-## **FAQ**
+Metin kutusunu paragraf bazında oluşturmak için [BuildType.ByLevelParagraphs1](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/buildtype/#ByLevelParagraphs1) (veya başka bir paragraf seviyesi) ayarlayın. Tek bir paragrafı kendi efektiyle hedeflemek için, bir [Paragraph](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/paragraph/) kabul eden [Sequence.addEffect](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/sequence/#addEffect) aşırı yüklemesini kullanın. Paragraf‑seviyesi örnekleri için [Animasyonlu Metin](/slides/tr/nodejs-java/animated-text/) bölümüne bakın.
 
-**Sunumu web'e yayınlarken animasyonların korunmasını nasıl sağlayabilirim?**
+## **Dışa Aktarma ve Uyumluluk Notları**
 
-[HTML5'e Dönüştür](/slides/tr/nodejs-java/export-to-html5/) ve animasyonlu şekiller ([setanimateshapes]()) ve geçişler ([setanimatetransitions]()) için sorumlu [options](/slides/tr/nodejs-java/aspose.slides/html5options/) ayarlarını etkinleştirin. Düz HTML slayt animasyonlarını oynatmaz, HTML5 ise oynatır.
+- PPT veya PPTX olarak kaydetmek animasyon modelini korur, ancak nihai oynatma sunum görüntüleyicisi tarafından kontrol edilir.
+- PDF ve statik görüntüler animasyonları oynatmaz. Çıktının hareket göstermesi gerektiğinde [HTML5 dışa aktarımı](/slides/tr/nodejs-java/export-to-html5/), animasyonlu GIF veya [video dönüştürme](/slides/tr/nodejs-java/convert-powerpoint-to-video/) kullanın.
+- HTML5 için, gerektiğinde [Html5Options.setAnimateShapes](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/html5options/#setAnimateShapes) ve [Html5Options.setAnimateTransitions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/html5options/#setAnimateTransitions) etkinleştirin.
+- Video işleme, birçok yaygın giriş, vurgu, çıkış ve hareket‑yolu efektini destekler, ancak her PowerPoint efekti desteklenmez. Güncel [desteklenen animasyonlar ve efektler](/slides/tr/nodejs-java/convert-powerpoint-to-video/#supported-animations-and-effects) sayfasını kontrol edin ve kritik sunumları hedef Aspose.Slides sürümünüzle test edin.
+- Gelişmiş özel efektler ve diğer sunum formatlarından içe aktarılan efektler dosyada korunabilir, ancak PowerPoint, HTML5 veya video ortamlarında farklı şekilde işlenebilir. Etki adını yalnızca temel almayın; dışa aktarılan sonucu doğrulayın.
 
-**Şekillerin z-order (katman sırası) değiştirilmesi animasyonu nasıl etkiler?**
+## **SSS**
 
-Animasyon ve çizim sırası bağımsızdır: bir efekt, görünürlük zamanlamasını ve tipini kontrol eder, [z-order](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/shape/getzorderposition/) ise neyin neyi örteceğini belirler. Görünür sonuç, bunların birleşimiyle tanımlanır. (Bu, genel PowerPoint davranışıdır; Aspose.Slides efekt‑ve‑şekil modeli aynı mantığı izler.)
+**Bir animasyon PowerPoint’te görünürken PDF’de neden görünmüyor?**
 
-**Belirli efektler için animasyonları videoya dönüştürürken sınırlamalar var mı?**
+PDF statik bir formattır; animasyonlar ve slayt geçişleri oynatılmaz. Hareketin korunması gerektiğinde HTML5, animasyonlu GIF veya video olarak dışa aktarın.
 
-Genel olarak, [animasyonlar desteklenir](/slides/tr/nodejs-java/convert-powerpoint-to-video/), ancak nadir durumlarda veya belirli efektlerde farklı renderlanabilir. Kullandığınız efektleri ve kütüphane sürümünü test etmeniz önerilir.
+**Bir efekt video içinde farklı şekilde oynatılıyor neden?**
+
+Video dışa aktarımı, animasyonları render eder; orijinal PowerPoint davranışını saklamaz. Bazı gelişmiş efektler desteklenmez veya yaklaşık olarak işlenir. Desteklenen‑efektler tablosunu inceleyin ve gerçek sunumu üretim öncesi test edin.
+
+**Bir şekli öne ya da arkaya taşımak animasyon sırasını değiştirir mi?**
+
+Hayır. Şekil z‑sırası örtüşmeyi kontrol eder, sekans sırası ve tetikleyiciler animasyon oynatımını belirler. Farklı bir oynatma sırası gerekiyorsa zaman çizelgesini değiştirin.

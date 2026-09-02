@@ -1,101 +1,230 @@
 ---
-title: 在 Android 上管理演示文稿墨水对象
-linktitle: 管理墨水
+title: 管理 Android 上的演示文稿墨迹对象
+linktitle: 管理墨迹
 type: docs
 weight: 95
 url: /zh/androidjava/manage-ink/
 keywords:
-- 墨水
-- 墨水对象
-- 墨水轨迹
-- 管理墨水
-- 绘制墨水
+- 墨迹
+- 墨迹对象
+- 墨迹痕迹
+- 管理墨迹
+- 绘制墨迹
 - 绘图
+- 墨迹导出
+- 墨迹渲染
+- 隐藏墨迹
+- IInkOptions
 - PowerPoint
 - 演示文稿
 - Android
 - Java
 - Aspose.Slides
-description: "在 Android 上使用 Aspose.Slides 管理 PowerPoint 墨水对象——创建、编辑和设置数字墨水的样式。获取用于轨迹、笔刷颜色和大小的 Java 代码示例。"
+description: "使用 Aspose.Slides for Android 管理 PowerPoint 墨迹对象，编辑痕迹和画笔属性，并在 PDF、HTML、SVG、TIFF 和图像导出期间控制墨迹外观。"
 ---
+## **介绍**
 
-PowerPoint 提供了墨水功能，允许您绘制非标准图形，可用于突出其他对象、展示连接和流程，以及吸引幻灯片上特定项目的注意。
+PowerPoint 提供了一个墨迹功能，允许您绘制自由形状的笔画。墨迹可用于突出显示其他对象、展示连接和流程，以及吸引对幻灯片上特定项目的注意。
 
-Aspose.Slides 提供了创建和管理墨水对象所需的所有 Ink 类型（例如 [Ink](https://reference.aspose.com/slides/androidjava/com.aspose.slides/ink/) 类）。
+Aspose.Slides 提供了处理墨迹对象所需的类型。例如，[IInk](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iink/) 接口表示幻灯片上的墨迹对象。
 
-## **常规对象与墨水对象的区别**
+## **常规对象与墨迹对象的区别**
 
-PowerPoint 幻灯片上的对象通常由形状对象表示。形状对象在最简单的形式下是一个容器，定义了对象本身的区域（其框架）以及其属性。后者包括容器区域大小、容器的形状、容器的背景等。有关信息，请参阅 [Shape Layout Format](https://docs.aspose.com/slides/androidjava/shape-manipulations/#access-layout-formats-for-shape)。
+PowerPoint 幻灯片上的对象通常由形状对象表示。最简单的形式中，形状是一个容器，定义对象本身的区域（其框架），以及容器大小、形状和背景等属性。有关详细信息，请参阅[Shape Layout Format](https://docs.aspose.com/slides/zh/androidjava/shape-manipulations/#access-layout-formats-for-shape)。
 
-然而，当 PowerPoint 处理墨水对象时，它会忽略对象框架（容器）的所有属性，除非其大小。容器区域的大小由标准的 `width` 和 `height` 值决定：
+但是，当 PowerPoint 处理墨迹对象时，它会忽略对象框架（容器）的所有属性，仅保留其大小。容器区域的大小由标准[IShape.getWidth](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/#getWidth--) 和[IShape.getHeight](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/ishape/#getHeight--) 方法决定：
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **Inkshape Traces**
+## **墨迹痕迹**
 
-Trace 是用于记录用户书写数字墨水时笔迹轨迹的基本元素或标准。Trace 是描述一系列相连点的记录。
+墨迹痕迹是一种用于记录用户书写数字墨迹时笔尖轨迹的基本元素。痕迹存储一系列相连的点。
 
-最简单的编码形式指定每个采样点的 X 和 Y 坐标。当所有相连点被渲染时，会生成如下图像：
+最简单的编码形式指定每个采样点的 X 和 Y 坐标。当所有相连的点被渲染时，会产生如下图像：
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
-## **绘图的笔刷属性**
+## **绘图画笔属性**
 
-您可以使用笔刷绘制连接 trace 元素点的线条。笔刷有其自己的颜色和大小，对应于 `Brush.Color` 和 `Brush.Size` 属性。
+画笔用于绘制连接墨迹痕迹点的线条。画笔拥有自己的颜色和大小，分别通过[IInkBrush.getColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkbrush/#getColor--) 和[IInkBrush.getSize](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkbrush/#getSize--) 方法表示。
 
-### **设置 Ink 笔刷颜色**
+### **设置墨迹画笔颜色**
 
-以下 Java 代码展示了如何设置笔刷的颜色：
+以下 Java 代码演示如何设置墨迹画笔的颜色：
+
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import android.graphics.Color;
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IInkTrace[] traces = ink.getTraces();
-    IInkBrush brush = traces[0].getBrush();
-    Color brushColor = brush.getColor();
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IInk ink = (IInk) slide.getShapes().get_Item(0);
+    IInkBrush brush = ink.getTraces()[0].getBrush();
     brush.setColor(Color.RED);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
+### **设置墨迹画笔大小**
 
-### **设置 Ink 笔刷大小**
+以下 Java 代码演示如何设置墨迹画笔的大小：
 
-以下 Java 代码展示了如何设置笔刷的大小：
 ```java
-Presentation pres = new Presentation("pres.pptx");
+import com.aspose.slides.*;
+import com.aspose.slides.android.SizeF;
+
+Presentation presentation = new Presentation("pres.pptx");
 try {
-    IInk ink = (IInk)pres.getSlides().get_Item(0).getShapes().get_Item(0);
-    IInkTrace[] traces = ink.getTraces();
-    IInkBrush brush = traces[0].getBrush();
-    Dimension2D brushSize = brush.getSize();
-    brush.setSize(new Dimension(5, 10));
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IInk ink = (IInk) slide.getShapes().get_Item(0);
+    IInkBrush brush = ink.getTraces()[0].getBrush();
+    SizeF brushSize = new SizeF(5, 10);
+    brush.setSize(brushSize);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-
-通常，笔刷的宽度和高度不匹配，PowerPoint 不会显示笔刷大小（数据区域呈灰色）。但当笔刷宽度和高度匹配时，PowerPoint 会如此显示其大小：
+通常，画笔的宽度和高度不相等，PowerPoint 不会显示画笔大小（相应的数据区域呈灰色）。当画笔的宽度和高度相等时，PowerPoint 以如下方式显示其大小：
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-为便于说明，我们增加墨水对象的高度并查看重要尺寸：
+为便于说明，我们将墨迹对象的高度增加，并查看重要的尺寸：
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-容器（框架）不考虑笔刷的尺寸——它始终假设线条的粗细为零（见最后一张图）。
+容器（框架）不考虑画笔的大小——它始终假设线条粗细为零（见前图）。
 
-因此，要确定整个墨水对象的可见区域，必须考虑 trace 对象的笔刷尺寸。此处，目标对象（手写文本 trace 对象）已按容器（框架）大小进行缩放。当容器（框架）大小改变时，笔刷尺寸保持不变，反之亦然。
+因此，要确定整个墨迹对象的可视区域，必须将其痕迹的画笔大小计入其中。此处，目标对象（手写文本痕迹）已被缩放到容器（框架）的大小。容器大小改变时，画笔大小保持不变，反之亦然。
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-PowerPoint 在处理文本时表现出相同的行为：
+PowerPoint 对文本对象也采用类似的行为：
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
+## **控制导出和渲染期间的墨迹外观**
+
+Aspose.Slides 提供了[IInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/) 接口，以控制墨迹对象在导出或渲染输出中的显示方式。您可以使用其属性完全隐藏墨迹，或更改墨迹画笔遮罩操作的解释方式。
+
+墨迹选项可通过多种输出类型的导出或渲染选项获取：
+
+| 输出 | Ink 选项属性 |
+| --- | --- |
+| PDF | [PdfOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/pdfoptions/#getInkOptions--) |
+| HTML | [HtmlOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/htmloptions/#getInkOptions--) |
+| SVG | [SVGOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/svgoptions/#getInkOptions--) |
+| TIFF | [TiffOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/tiffoptions/#getInkOptions--) |
+| 幻灯片图像 | [RenderingOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/renderingoptions/#getInkOptions--) |
+
+以下[IInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/) 方法提供相同的两个设置：
+
+- [IInkOptions.getHideInk](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#getHideInk--) 确定是否在输出中包含墨迹对象。默认值为 `false`。
+- [IInkOptions.getInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#getInterpretMaskOpAsOpacity--) 确定在渲染墨迹画笔时，遮罩操作是否被解释为不透明度。默认值为 `true`；调用[IInkOptions.setInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#setInterpretMaskOpAsOpacity-boolean-) 并传入 `false` 可改为使用 ROP 操作。
+
+### **在 PDF 输出中隐藏墨迹对象**
+
+默认情况下，导出时墨迹对象仍然可见。若要生成不带手写批注或其他墨迹内容的干净输出，请调用[IInkOptions.setHideInk](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#setHideInk-boolean-) 并传入 `true`。
+
+以下 Java 示例在导出为 PDF 时隐藏所有墨迹对象：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    PdfOptions pdfOptions = new PdfOptions();
+    pdfOptions.getInkOptions().setHideInk(true);
+
+    presentation.save("presentation_without_ink.pdf", SaveFormat.Pdf, pdfOptions);
+} finally {
+    presentation.dispose();
+}
+```
+
+### **在将幻灯片渲染为图像时隐藏墨迹对象**
+
+要在将幻灯片渲染为位图图像时隐藏墨迹对象，请配置[RenderingOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/renderingoptions/#getInkOptions--) 并将渲染选项传递给[ISlide.getImage](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/islide/#getImage-com.aspose.slides.IRenderingOptions-)。
+
+以下 Java 示例将第一张幻灯片渲染为 PNG 图像且不包含墨迹对象：
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    RenderingOptions renderingOptions = new RenderingOptions();
+    renderingOptions.getInkOptions().setHideInk(true);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    IImage image = slide.getImage(renderingOptions);
+    try {
+        image.save("slide_without_ink.png", ImageFormat.Png);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+### **控制墨迹遮罩渲染**
+
+[IInkOptions.getInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#getInterpretMaskOpAsOpacity--) 设置控制在渲染墨迹画笔时，遮罩操作的解释方式。默认值为 `true`（使用不透明度）。若要改为使用 ROP 操作，请调用[IInkOptions.setInterpretMaskOpAsOpacity](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#setInterpretMaskOpAsOpacity-boolean-) 并传入 `false`。
+
+以下 Java 示例将幻灯片导出为 SVG，并使用基于 ROP 的墨迹遮罩渲染：
+
+```java
+import com.aspose.slides.*;
+import java.io.FileOutputStream;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    SVGOptions svgOptions = new SVGOptions();
+    svgOptions.getInkOptions().setInterpretMaskOpAsOpacity(false);
+
+    ISlide slide = presentation.getSlides().get_Item(0);
+    FileOutputStream stream = new FileOutputStream("slide.svg");
+    try {
+        slide.writeAsSvg(stream, svgOptions);
+    } finally {
+        stream.close();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+相同的设置也可通过[TiffOptions.getInkOptions](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/tiffoptions/#getInkOptions--) 在导出为 TIFF 或渲染为 TIFF 时使用。
+
+### **选择隐藏或保留墨迹**
+
+当需要为分发而生成不含批注标记的清洁版演示文稿时，请在导出时调用[IInkOptions.setHideInk](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#setHideInk-boolean-) 并传入 `true`。
+
+如果墨迹批注是预期内容（如审阅评论、手写笔记、突出显示或应保留的绘图），请保持[IInkOptions.getHideInk](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#getHideInk--) 的默认值 `false`。这样可在同一演示文稿中生成分别用于审阅和最终发布的输出，而无需修改源墨迹对象。
+
+## **常见问题**
+
+**是否可以更改已有墨迹笔画的颜色或大小？**
+
+可以。通过[IInk.getTraces](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iink/#getTraces--) 获取痕迹，然后更改其[IInkTrace.getBrush](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinktrace/#getBrush--)。调用[IInkBrush.setColor](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkbrush/#setColor-java.lang.Integer-) 或[IInkBrush.setSize](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkbrush/#setSize-com.aspose.slides.android.SizeF-) 以修改画笔。
+
+**隐藏墨迹会改变源演示文稿吗？**
+
+不会。调用[IInkOptions.setHideInk](https://reference.aspose.com/slides/zh/androidjava/com.aspose.slides/iinkoptions/#setHideInk-boolean-) 仅影响渲染或导出结果；不会删除或修改源演示文稿中的墨迹对象。
+
+**哪些导出格式支持墨迹选项？**
+
+您可以在上述对应的导出或渲染选项中为 PDF、HTML、SVG、TIFF 和位图幻灯片图像配置墨迹选项。
+
 **进一步阅读**
 
-* 要了解一般形状，请参阅 [PowerPoint Shapes](https://docs.aspose.com/slides/androidjava/powerpoint-shapes/) 部分。
-* 有关有效值的更多信息，请参阅 [Shape Effective Properties](https://docs.aspose.com/slides/androidjava/shape-effective-properties/#getting-effective-font-height-value)。
+* 有关形状的一般信息，请参阅 [PowerPoint Shapes](https://docs.aspose.com/slides/zh/androidjava/powerpoint-shapes/) 部分。
+* 有关有效值的更多信息，请参阅 [Shape Effective Properties](https://docs.aspose.com/slides/zh/androidjava/shape-effective-properties/#get-effective-font-height-value)。
+* 有关 PDF 导出的详细信息，请参阅 [Convert PPT and PPTX to PDF](https://docs.aspose.com/slides/zh/androidjava/convert-powerpoint-to-pdf/)。
+* 有关 HTML 导出的详细信息，请参阅 [Convert PowerPoint Presentations to HTML](https://docs.aspose.com/slides/zh/androidjava/convert-powerpoint-to-html/)。
+* 有关 SVG 导出的详细信息，请参阅 [Render Presentation Slides as SVG Images](https://docs.aspose.com/slides/zh/androidjava/render-a-slide-as-an-svg-image/)。
+* 有关 TIFF 导出的详细信息，请参阅 [Convert PowerPoint Presentations to TIFF](https://docs.aspose.com/slides/zh/androidjava/convert-powerpoint-to-tiff/)。
+* 有关幻灯片转图像渲染的详细信息，请参阅 [Convert Presentation Slides to Images](https://docs.aspose.com/slides/zh/androidjava/convert-slide/).

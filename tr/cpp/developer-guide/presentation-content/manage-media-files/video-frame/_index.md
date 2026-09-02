@@ -1,5 +1,5 @@
 ---
-title: C++ Kullanarak Sunumlarda Video Çerçevelerini Yönetme
+title: Sunumlarda Video Çerçevelerini C++ ile Yönetme
 linktitle: Video Çerçevesi
 type: docs
 weight: 10
@@ -17,28 +17,28 @@ keywords:
 - sunum
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument slaytlarında video çerçevelerini programlı olarak eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır rehberi."
+description: "Aspose.Slides for C++ kullanarak PowerPoint ve OpenDocument slaytlarında programlı olarak video çerçevelerini eklemeyi ve çıkarmayı öğrenin. Hızlı bir nasıl yapılır rehberi."
 ---
 ## **Giriş**
 
-Sunumda iyi yerleştirilmiş bir video, mesajınızı daha etkileyici hale getirebilir ve izleyicilerinizle etkileşim seviyesini artırabilir. 
+Bir sunumda yerleştirilen iyi bir video, mesajınızı daha etkileyici hâle getirebilir ve izleyicilerinizle etkileşim seviyesini artırabilir. 
 
-PowerPoint, bir sunumdaki slayta video eklemenizi iki şekilde sağlar:
+PowerPoint, bir sunumdaki bir slayta videoları iki şekilde eklemenizi sağlar:
 
-* Yerel bir video ekleyin veya gömün (makinenizde depolanmış)
-* Çevrimiçi bir video ekleyin (YouTube gibi bir web kaynağından). 
+* Yerel bir video ekleyin veya gömün (bilgisayarınızda depolanan)
+* Çevrimiçi bir video ekleyin (YouTube gibi bir web kaynağından).
 
-Bir sunuma videolar (video nesneleri) eklemenizi sağlamak için Aspose.Slides, [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) arayüzünü, [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) arayüzünü ve diğer ilgili türleri sunar. 
+Sunuma video nesneleri eklemenizi sağlamak için Aspose.Slides, [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) arayüzünü, [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) arayüzünü ve diğer ilgili türleri sağlar. 
 
-## **Gömülü Video Çerçevesi Oluşturma**
+## **Gömülü Bir Video Çerçevesi Oluşturma**
 
-Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanmışsa, videoyu sunuma gömmek için bir video çerçevesi oluşturabilirsiniz. 
+Slaytınıza eklemek istediğiniz video dosyası yerel olarak depolanmışsa, videoyu sunumunuza gömmek için bir video çerçevesi oluşturabilirsiniz. 
 
-1. Bir [Presentation ](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. Bir slaydın referansını indeksine göre alın. 
-1. [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) nesnesi ekleyin ve videoyu sunuma gömmek için video dosyasının yolunu geçirin. 
-1. [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesi ekleyerek video için bir çerçeve oluşturun.  
-1. Değiştirilmiş sunumu kaydedin. 
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Bir slaytın referansını indeksine göre alın.  
+1. Bir [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) nesnesi ekleyin ve videoyu sunuma gömmek için video dosyası yolunu geçirin.  
+1. Videoya bir çerçeve oluşturmak için bir [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesi ekleyin.  
+1. Değiştirilmiş sunumu kaydedin.  
 
 Bu C++ kodu, yerel olarak depolanmış bir videoyu sunuma nasıl ekleyeceğinizi gösterir:
 
@@ -56,7 +56,7 @@ pres->get_Slide(0)->get_Shapes()->AddVideoFrame(10.0f, 10.0f, 150.0f, 250.0f, vi
 pres->Save(u"pres-with-video.pptx", SaveFormat::Pptx);
 ```
 
-Alternatif olarak, videoyu doğrudan dosya yolunu [AddVideoFrame()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addvideoframe/) yöntemine geçirerek ekleyebilirsiniz:
+Alternatif olarak, videoyu doğrudan dosya yolunu [AddVideoFrame()](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishapecollection/addvideoframe/) metoduna geçirerek ekleyebilirsiniz:
 
 ``` c++
 System::SharedPtr<Presentation> pres = System::MakeObject<Presentation>();
@@ -65,17 +65,17 @@ System::SharedPtr<ISlide> sld = pres->get_Slide(0);
 System::SharedPtr<IVideoFrame> vf = sld->get_Shapes()->AddVideoFrame(50.0f, 150.0f, 300.0f, 150.0f, u"video1.avi");
 ```
 
-## **Web Kaynağından Video ile Video Çerçevesi Oluşturma**
+## **Web Kaynağından Video ile Bir Video Çerçevesi Oluşturma**
 
-Microsoft [PowerPoint 2013 ve sonrası](https://support.microsoft.com/en-us/office/versions-of-powerpoint-that-support-online-videos-2a0e184d-af50-4da9-b530-e4355ac436a9?ui=en-us&rs=en-us&ad=us) sürümleri, sunumlarda YouTube videolarını destekler. Kullanmak istediğiniz video çevrimiçi olarak mevcutsa (ör. YouTube’da), web bağlantısı aracılığıyla sunuma ekleyebilirsiniz. 
+Microsoft [PowerPoint](https://support.microsoft.com/en-us/powerpoint/training/insert-a-video-from-youtube-or-another-site) yeni sürümleri, sunumlardaki çevrimiçi videoları destekler. Kullanmak istediğiniz video çevrimiçi olarak (ör. YouTube’da) mevcutsa, web bağlantısı aracılığıyla sunumunuza ekleyebilirsiniz.
 
-1. Bir [Presentation ](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun
-1. Bir slaydın referansını indeksine göre alın. 
-1. [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) nesnesi ekleyin ve videonun bağlantısını geçirin.
-1. Video çerçevesi için bir küçük resim ayarlayın. 
-1. Sunumu kaydedin. 
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Bir slaytın referansını indeksine göre alın.  
+1. Bir [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) nesnesi ekleyin ve videonun bağlantısını geçirin.  
+1. Video çerçevesi için bir küçük resim ayarlayın.  
+1. Sunumu kaydedin.  
 
-Bu C++ kodu, web üzerindeki bir videoyu PowerPoint sunumundaki bir slayta nasıl ekleyeceğinizi gösterir:
+Bu C++ kodu, bir web kaynağından video ekleyerek PowerPoint sunumundaki bir slayta nasıl ekleyeceğinizi gösterir:
 
 ```c++
 // Belgeler dizininin yolu.
@@ -91,28 +91,88 @@ SharedPtr<ISlide> slide = pres->get_Slides()->idx_get(0);
 // Bir Video Çerçevesi ekler 
 System::SharedPtr<IVideoFrame> vf = slide->get_Shapes()->AddVideoFrame(10, 10, 427, 240,u"https://www.youtube.com/embed/Tj75Arhq5ho");
 
-// Videonun Oynatma Modu ve Ses Düzeyini ayarlar
+// Videonun Oynatma Modu ve Ses seviyesini ayarlar
 vf->set_PlayMode(VideoPlayModePreset::Auto);
 
 //Sunumu diske kaydeder
 pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
 ```
 
+## **Bir Video Çerçevesini Kırpma**
+
+Aspose.Slides, bir videonun hangi bölümünün oynatılacağını [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/set_trimfromstart/) ve [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/set_trimfromend/) aracılığıyla trim-from-start ve trim-from-end değerlerini ayarlayarak kontrol etmenizi sağlar. Her iki değer de milisaniye cinsindendir ve videonun başından ve sonundan atlanan süreyi belirtir. Bu ayarlar sunumdaki video oynatma ayarlarını değiştirir; gömülü video ikili verisini kesmez veya değiştirmez.
+
+**Kırpma Ayarlarını Ayarlama**
+
+Bir video çerçevesi oluşturmak ve kırpma ayarlarını belirlemek için:
+
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Sunuma bir [IVideo](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideo/) nesnesi ekleyin.  
+1. Bir slayta bir [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesi ekleyin.  
+1. [IVideoFrame::set_TrimFromStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/set_trimfromstart/) ve [IVideoFrame::set_TrimFromEnd](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/set_trimfromend/) aracılığıyla trim-from-start ve trim-from-end değerlerini ayarlayın.  
+1. Değiştirilmiş sunumu kaydedin.  
+
+Aşağıdaki kod örneği, gömülü bir videonun oynatılması sırasında ilk 2,5 saniyeyi ve son bir saniyeyi atlar:
+
+```cpp
+auto presentation = MakeObject<Presentation>();
+
+auto videoData = File::ReadAllBytes(u"video.mp4");
+auto video = presentation->get_Videos()->AddVideo(videoData);
+
+auto slide = presentation->get_Slide(0);
+auto videoFrame = slide->get_Shapes()->AddVideoFrame(50, 50, 640, 360, video);
+
+videoFrame->set_TrimFromStart(2500.0f);
+videoFrame->set_TrimFromEnd(1000.0f);
+
+presentation->Save(u"video_with_trim.pptx", SaveFormat::Pptx);
+presentation->Dispose();
+```
+
+**Kırpma Ayarlarını Okuma**
+
+Mevcut kırpma ayarlarını incelemek için bir sunumu yükleyin, ilk slayttaki şekiller arasında bir [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesi bulun ve değerleri [IVideoFrame::get_TrimFromStart](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_trimfromstart/) ve [IVideoFrame::get_TrimFromEnd](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_trimfromend/) aracılığıyla okuyun.
+
+Aşağıdaki kod örneği, ilk slayttaki ilk video çerçevesini bulur ve kırpma ayarlarını milisaniye cinsinden raporlar:
+
+```cpp
+auto presentation = MakeObject<Presentation>(u"video_with_trim.pptx");
+
+auto slide = presentation->get_Slide(0);
+for (auto&& shape : slide->get_Shapes())
+{
+    if (ObjectExt::Is<IVideoFrame>(shape))
+    {
+        auto videoFrame = ExplicitCast<IVideoFrame>(shape);
+        auto trimFromStart = videoFrame->get_TrimFromStart();
+        auto trimFromEnd = videoFrame->get_TrimFromEnd();
+
+        Console::WriteLine(u"Trim from start: {0} ms", trimFromStart);
+        Console::WriteLine(u"Trim from end: {0} ms", trimFromEnd);
+
+        break;
+    }
+}
+
+presentation->Dispose();
+```
+
 ## **Video Altyazılarını Yönetme**
 
 Aspose.Slides, PowerPoint sunumlarındaki video çerçeveleri için kapalı altyazıları yönetmenizi sağlar. Altyazılar WebVTT formatında depolanır ve [IVideoFrame::get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) yöntemi aracılığıyla sunulur.
 
-**Video Çerçevesine Altyazı Ekleme**
+**Bir Video Çerçevesine Altyazı Ekleme**
 
 Bir video çerçevesine altyazı eklemek için:
 
-1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun.
-1. Sunuma bir video ekleyin.
-1. Bir slayta [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesi ekleyin.
-1. [get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) tarafından döndürülen [ICaptionsCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/) kullanarak bir WebVTT altyazı izi ekleyin.
-1. Değiştirilmiş sunumu kaydedin.
+1. Bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+1. Sunuma bir video ekleyin.  
+1. Bir slayta bir [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesi ekleyin.  
+1. [get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) tarafından döndürülen [ICaptionsCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/)’ı kullanarak bir WebVTT altyazı izini ekleyin.  
+1. Değiştirilmiş sunumu kaydedin.  
 
-Aşağıdaki kod, bir video çerçevesine altyazı nasıl ekleneceğini gösterir:
+Aşağıdaki kod, bir video çerçevesine nasıl altyazı ekleyeceğinizi gösterir:
 
 ```cpp
 auto presentation = MakeObject<Presentation>();
@@ -123,7 +183,7 @@ auto video = presentation->get_Videos()->AddVideo(videoData);
 auto slide = presentation->get_Slide(0);
 auto videoFrame = slide->get_Shapes()->AddVideoFrame(0, 0, 100, 100, video);
 
-// Adds a new captions track from a WebVTT file.
+// WebVTT dosyasından yeni bir altyazı izi ekler.
 videoFrame->get_CaptionTracks()->Add(u"English", u"track.vtt");
 
 presentation->Save(u"video_with_captions.pptx", SaveFormat::Pptx);
@@ -132,14 +192,14 @@ presentation->Dispose();
 
 [ICaptionsCollection](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/) arayüzü ayrıca bir akıştan altyazı eklemenizi sağlayan bir aşırı yükleme sunar.
 
-**Video Çerçevesinden Altyazı Çıkarma**
+**Bir Video Çerçevesinden Altyazı Çıkarma**
 
 Bir video çerçevesinden altyazı çıkarmak için:
 
-1. Videoyu içeren sunumu yükleyin.
-2. Hedef [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesini bulun.
-3. [get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) tarafından döndürülen altyazı izleri arasında döngü yapın.
-4. Her bir altyazı izini bir `.vtt` dosyasına kaydedin.
+1. Videoyu içeren sunumu yükleyin.  
+1. Hedef [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesini bulun.  
+1. [get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) tarafından döndürülen altyazı izleri üzerinde döngü oluşturun.  
+1. Her altyazı izini bir `.vtt` dosyasına kaydedin.  
 
 Aşağıdaki kod, bir video çerçevesinden altyazı nasıl çıkarılacağını gösterir:
 
@@ -164,43 +224,43 @@ for (auto&& shape : slide->get_Shapes())
 presentation->Dispose();
 ```
 
-Her [ICaptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptions/) nesnesi, altyazı tanımlayıcısını, etiketini, ikili verisini ve altyazı verisini UTF-8 dizesi olarak sunar.
+Her [ICaptions](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptions/) nesnesi, altyazı kimliği, etiketi, ikili verisi ve UTF-8 dizgesi olarak altyazı verisini ortaya koyar.
 
-**Video Çerçevesinden Altyazı Kaldırma**
+**Bir Video Çerçevesinden Altyazı Kaldırma**
 
 Bir video çerçevesinden altyazı kaldırmak için:
 
-1. Videoyu içeren sunumu yükleyin.
-2. Hedef [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesini alın.
-3. [get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) tarafından döndürülen koleksiyondan altyazı izlerini kaldırın.
-4. Değiştirilmiş sunumu kaydedin.
+1. Videoyu içeren sunumu yükleyin.  
+1. Hedef [IVideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/) nesnesini alın.  
+1. [get_CaptionTracks](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ivideoframe/get_captiontracks/) tarafından döndürülen koleksiyondan altyazı izlerini kaldırın.  
+1. Değiştirilmiş sunumu kaydedin.  
 
-Aşağıdaki kod, bir video çerçevesinden tüm altyazıların nasıl kaldırılacağını gösterir:
+Aşağıdaki kod, bir video çerçevesindeki tüm altyazıların nasıl kaldırılacağını gösterir:
 
 ```cpp
 auto presentation = MakeObject<Presentation>(u"video_with_captions.pptx");
 auto slide = presentation->get_Slide(0);
 auto videoFrame = ExplicitCast<IVideoFrame>(slide->get_Shape(0));
 
-// Video çerçevesindeki tüm altyazıları kaldırır.
+// Video çerçevesinden tüm altyazıları kaldırır.
 videoFrame->get_CaptionTracks()->Clear();
 
 presentation->Save(u"video_without_captions.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-Yalnızca bir altyazı izini kaldırmanız gerekiyorsa, [Clear](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/clear/) yerine [Remove](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/remove/) veya [RemoveAt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/removeat/) yöntemlerini kullanın.
+Yalnızca bir altyazı izini kaldırmanız gerekiyorsa, [Clear](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/clear/) yerine [Remove](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/remove/) veya [RemoveAt](https://reference.aspose.com/slides/tr/cpp/aspose.slides/icaptionscollection/removeat/) metodlarını kullanın.
 
 ## **Bir Slayttan Video Çıkarma**
 
-Slaytlara video eklemenin yanı sıra, Aspose.Slides sunumlara gömülmüş videoları çıkarmanıza da olanak tanır.
+Videoları slaytlara eklemenin yanı sıra, Aspose.Slides sunumlarda gömülü videoları çıkarmanıza da olanak tanır.
 
-1. Videoyu içeren sunumu yüklemek için bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının örneğini oluşturun. 
-2. Tüm [ISlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/) nesneleri üzerinde döngü yapın.
-3. Bir [VideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/) bulmak için tüm [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) nesneleri üzerinde döngü yapın. 
-4. Videoyu diske kaydedin.
+1. Videoyu içeren sunumu yüklemek için bir [Presentation](https://reference.aspose.com/slides/tr/cpp/aspose.slides/presentation/) sınıfının bir örneğini oluşturun.  
+2. Tüm [ISlide](https://reference.aspose.com/slides/tr/cpp/aspose.slides/islide/) nesneleri üzerinde döngü oluşturun.  
+3. Tüm [IShape](https://reference.aspose.com/slides/tr/cpp/aspose.slides/ishape/) nesneleri arasında bir [VideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/) bulmak için gezin.  
+4. Videoyu diske kaydedin.  
 
-Bu C++ kodu, sunum slaytındaki videoyu nasıl çıkaracağınızı gösterir:
+Bu C++ kodu, bir sunum slaydındaki videoyu nasıl çıkaracağınızı gösterir:
 
 ```c++
 // Belgeler dizininin yolu.
@@ -230,18 +290,14 @@ for (auto&& slide : presentation->get_Slides())
 
 ## **SSS**
 
-**Bir VideoFrame için hangi video oynatma parametreleri değiştirilebilir?**
+**Bir VideoFrame için hangi video oynatma parametreleri değiştirilebilir?**  
+[playback mode](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/set_playmode/) (otomatik veya tıklamayla) ve [looping](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/set_playloopmode/) kontrol edilebilir. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/) nesnesinin özellikleri aracılığıyla mevcuttur.
 
-Oynatma modunu ([playback mode](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/set_playmode/) – otomatik veya tıklamayla) ve döngüyü ([looping](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/set_playloopmode/)) kontrol edebilirsiniz. Bu seçenekler, [VideoFrame](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/) nesnesinin özellikleri aracılığıyla kullanılabilir.
+**Video eklemek PPTX dosya boyutunu etkiler mi?**  
+Evet. Yerel bir video gömülürken ikili veri belgeye dahil edilir, bu yüzden sunum boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir video eklediğinizde ise bir bağlantı ve küçük resim gömülür, bu nedenle boyut artışı daha azdır.
 
-**Bir video eklemek PPTX dosya boyutunu etkiler mi?**
+**Mevcut bir VideoFrame içindeki videoyu konum ve boyutunu değiştirmeden değiştirebilir miyim?**  
+Evet. Çerçeve içindeki [video content](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/set_embeddedvideo/) değiştirilebilir, şeklin geometrisi korunur; bu, mevcut bir yerleşimde medyanın güncellenmesi için yaygın bir senaryodur.
 
-Evet. Yerel bir videoyu gömdüğünüzde, ikili veri belgeye eklenir ve bu nedenle sunumun boyutu dosya boyutuyla orantılı olarak artar. Çevrimiçi bir video eklediğinizde ise bir bağlantı ve küçük resim gömülür, bu nedenle boyut artışı daha küçüktür.
-
-**Mevcut bir VideoFrame içindeki videoyu konum ve boyutunu değiştirmeden değiştirebilir miyim?**
-
-Evet. Çerçevedeki [video content](https://reference.aspose.com/slides/tr/cpp/aspose.slides/videoframe/set_embeddedvideo/) öğesini, şeklin geometrisini koruyarak değiştirebilirsiniz; bu, mevcut bir yerleşimde medyanın güncellenmesi için yaygın bir senaryodur.
-
-**Gömülü bir videonun içerik türü (MIME) belirlenebilir mi?**
-
-Evet. Gömülü bir videonun okuyabileceğiniz ve örneğin diske kaydederken kullanabileceğiniz bir [content type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/video/get_contenttype/) (içerik türü) vardır.
+**Gömülü bir videonun içerik türü (MIME) belirlenebilir mi?**  
+Evet. Gömülü bir videonun okunup kullanılabilecek bir [content type](https://reference.aspose.com/slides/tr/cpp/aspose.slides/video/get_contenttype/) vardır, örneğin diske kaydedildiğinde.

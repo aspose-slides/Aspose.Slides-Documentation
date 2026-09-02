@@ -5,122 +5,260 @@ type: docs
 url: /cs/androidjava/data-points-of-treemap-and-sunburst-chart/
 weight: 40
 keywords:
-- graf treemap
-- graf sunburst
+- graf Treemap
+- graf Sunburst
+- hierarchický graf
 - datový bod
-- barva popisku
+- datový popisek
 - barva větve
 - PowerPoint
 - prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Naučte se, jak spravovat datové body v grafech treemap a sunburst pomocí Aspose.Slides pro Android přes Java, kompatibilní s formáty PowerPoint."
+description: "Naučte se vytvářet hierarchická data a přizpůsobovat úrovně, popisky a barvy v grafech Treemap a Sunburst pomocí Aspose.Slides pro Android via Java."
 ---
-## **Úvod**
+## **Přehled**
 
-Mezi ostatními typy grafů PowerPointu existují dva „hierarchické“ typy – **Treemap** a **Sunburst** graf (také známý jako Sunburst Graph, Sunburst Diagram, Radial Chart, Radial Graph nebo Multi Level Pie Chart). Tyto grafy zobrazují hierarchická data uspořádaná jako strom – od listů až k vrcholu větve. Listy jsou definovány datovými body řady a každá další vnořená úroveň skupiny je definována odpovídající kategorií. Aspose.Slides pro Android přes Java umožňuje formátovat datové body Sunburst grafu a Treemap v Javě.
+Grafy typu Treemap a Sunburst zobrazují stejný druh hierarchických dat, ale používají odlišné rozvržení. Treemap vykresluje hierarchii jako vnořené obdélníky, jejichž plochy představují hodnoty listů. Sunburst ji vykresluje jako soustředné kruhy: skupiny nejvyšší úrovně jsou blízko středu a kategorie listů jsou na vnějším kruhu.
 
-Zde je Sunburst graf, kde data ve sloupci Series1 definují listové uzly, zatímco ostatní sloupce definují hierarchické datové body:
+V Aspose.Slides pro Android via Java je každá číselná hodnota **[IChartDataPoint](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/)**. Jeho metoda **[IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--)** poskytuje přístup k listu a jeho nadřazeným skupinám. Tento článek vysvětluje toto mapování a ukazuje, jak vytvořit a formátovat oba typy grafů ze stejných ukázkových dat.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/TSSU5O7SLOi5NZD9JaubhgGU1QU5tYKc23RQX_cal3tlz5TpOvsgUFLV_rHvruwN06ft1XYgsLhbeEDXzVqdAybPIbpfGy-lwoQf_ydxDwcjAeZHWfw61c4koXezAAlEeCA7x6BZ)
+![Graf Treemap s větvemi Consumer a Business](treemap-hierarchy.png)
 
-Pojďme začít přidáním nového Sunburst grafu do prezentace:
+![Graf Sunburst se stejnou hierarchií Consumer a Business](sunburst-hierarchy.png)
+
+## **Pochopení kategorií, datových bodů a úrovní**
+
+Níže uvedený příklad obsahuje tři úrovně kategorií a jeden číselný řad:
+
+| Větev | Střed | List | Obrat |
+| --- | --- | --- | ---: |
+| Consumer | Computers | Laptops | 12 |
+| Consumer | Computers | Desktops | 8 |
+| Consumer | Mobile | Phones | 15 |
+| Consumer | Mobile | Tablets | 6 |
+| Business | Services | Consulting | 10 |
+| Business | Services | Support | 7 |
+| Business | Software | Licenses | 11 |
+| Business | Software | Subscriptions | 14 |
+
+Každý řádek vytvoří jednu kategorii listu a jeden datový bod. Úrovně seskupení kategorií popisují cestu od tohoto listu k jeho nadřazeným položkám. Pro první řádek je cesta `Consumer > Computers > Laptops`.
+
+Indexy vrácené metodou **[IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--)** probíhají od listu směrem vzhůru:
+
+| `getDataPointLevels()` index | Logická úroveň | Zobrazení Treemap | Zobrazení Sunburst |
+| ---: | --- | --- | --- |
+| `0` | List | Obdélník hodnoty | Segment vnějšího kruhu |
+| `1` | Střed | Obdélník nebo záhlaví rodiče | Segment prostředního kruhu |
+| `2` | Větev | Obdélník nebo záhlaví nejvyšší úrovně | Segment vnitřního kruhu |
+
+Toto pořadí je stejné pro oba typy grafů, i když se jejich vizuální rozvržení liší. Segment rodiče je sdílen několika listy. Pro jeho formátování použijte odpovídající úroveň prvního datového bodu v dané skupině. Například větev `Consumer` začíná bodem `Laptops`, zatímco střed `Software` začíná bodem `Licenses`. Uchovávání odkazů na tyto body je přehlednější a bezpečnější než používání nevysvětlených výrazů jako `dataPoints.get_Item(0)` nebo `dataPoints.get_Item(6)`.
+
+## **Vytvoření a přizpůsobení obou typů grafů**
+
+Následující kompletní příklad vytvoří Treemap na první snímku a Sunburst na druhém snímku. Vytvoří hierarchii, zobrazí hodnotu pro `Tablets`, použije pevné barvy na vybrané úrovně, naformátuje popisek větve a uloží prezentaci.
 
 ```java
-Presentation pres = new Presentation();
+Presentation presentation = new Presentation();
 try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+    final int worksheetIndex = 0;
+    final int leafLevelIndex = 0;
+    final int stemLevelIndex = 1;
+    final int branchLevelIndex = 2;
 
-    // ...
+    String[] branchNames = {
+        "Consumer", "Consumer", "Consumer", "Consumer",
+        "Business", "Business", "Business", "Business"
+    };
+    String[] stemNames = {
+        "Computers", "Computers", "Mobile", "Mobile",
+        "Services", "Services", "Software", "Software"
+    };
+    String[] leafNames = {
+        "Laptops", "Desktops", "Phones", "Tablets",
+        "Consulting", "Support", "Licenses", "Subscriptions"
+    };
+    double[] revenues = {12, 8, 15, 6, 10, 7, 11, 14};
+    int dataPointCount = leafNames.length;
+
+    int[] chartTypes = {ChartType.Treemap, ChartType.Sunburst};
+    int chartCount = chartTypes.length;
+    ILayoutSlide layoutSlide = presentation.getLayoutSlides().get_Item(0);
+
+    for (int chartIndex = 0; chartIndex < chartCount; chartIndex++) {
+        int chartType = chartTypes[chartIndex];
+        ISlide slide;
+
+        if (chartIndex == 0) {
+            slide = presentation.getSlides().get_Item(0);
+        } else {
+            slide = presentation.getSlides().addEmptySlide(layoutSlide);
+        }
+
+        IChart chart = slide.getShapes().addChart(chartType, 40, 40, 640, 440);
+        chart.setTitle(false);
+        chart.setLegend(false);
+
+        IChartData chartData = chart.getChartData();
+        chartData.getCategories().clear();
+        chartData.getSeries().clear();
+
+        IChartDataWorkbook workbook = chartData.getChartDataWorkbook();
+        workbook.clear(worksheetIndex);
+
+        // Přidejte kategorie listů. Prvek seskupení se nastaví pouze při zahájení nové skupiny;
+        // následující kategorie zůstávají v této skupině, dokud není nastaven jiný prvek.
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            IChartDataCell categoryCell = workbook.getCell(worksheetIndex, rowIndex, 2, leafName);
+            IChartCategory category = chartData.getCategories().add(categoryCell);
+
+            String stemName = stemNames[dataIndex];
+            boolean startsNewStem = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousStemName = stemNames[dataIndex - 1];
+                startsNewStem = !stemName.equals(previousStemName);
+            }
+            if (startsNewStem) {
+                category.getGroupingLevels().setGroupingItem(stemLevelIndex, stemName);
+            }
+
+            String branchName = branchNames[dataIndex];
+            boolean startsNewBranch = dataIndex == 0;
+            if (dataIndex > 0) {
+                String previousBranchName = branchNames[dataIndex - 1];
+                startsNewBranch = !branchName.equals(previousBranchName);
+            }
+            if (startsNewBranch) {
+                category.getGroupingLevels().setGroupingItem(branchLevelIndex, branchName);
+            }
+        }
+
+        IChartDataCell seriesNameCell = workbook.getCell(worksheetIndex, 0, 3, "Revenue");
+        IChartSeries series = chartData.getSeries().add(seriesNameCell, chartType);
+        series.getLabels().getDefaultDataLabelFormat().setShowCategoryName(true);
+
+        IChartDataPoint laptopsDataPoint = null;
+        IChartDataPoint tabletsDataPoint = null;
+        IChartDataPoint licensesDataPoint = null;
+
+        for (int dataIndex = 0; dataIndex < dataPointCount; dataIndex++) {
+            int rowIndex = dataIndex + 1;
+            String leafName = leafNames[dataIndex];
+            double revenue = revenues[dataIndex];
+            IChartDataCell valueCell = workbook.getCell(worksheetIndex, rowIndex, 3, revenue);
+            IChartDataPoint dataPoint;
+
+            if (chartType == ChartType.Treemap) {
+                dataPoint = series.getDataPoints().addDataPointForTreemapSeries(valueCell);
+            } else {
+                dataPoint = series.getDataPoints().addDataPointForSunburstSeries(valueCell);
+            }
+
+            if ("Laptops".equals(leafName)) {
+                laptopsDataPoint = dataPoint;
+            } else if ("Tablets".equals(leafName)) {
+                tabletsDataPoint = dataPoint;
+            } else if ("Licenses".equals(leafName)) {
+                licensesDataPoint = dataPoint;
+            }
+        }
+
+        // Zobrazte kategorii a hodnotu na listu Tablets.
+        IChartDataPointLevel tabletsLeafLevel = tabletsDataPoint.getDataPointLevels().get_Item(leafLevelIndex);
+        IDataLabelFormat tabletsLabelFormat = tabletsLeafLevel.getLabel().getDataLabelFormat();
+        tabletsLabelFormat.setShowCategoryName(true);
+        tabletsLabelFormat.setShowValue(true);
+        tabletsLabelFormat.setSeparator("\n");
+        tabletsLabelFormat.setNumberFormat("$0");
+
+        // Naformátujte větev Consumer pomocí prvního listu v této větvi.
+        IChartDataPointLevel consumerBranchLevel = laptopsDataPoint.getDataPointLevels().get_Item(branchLevelIndex);
+        IFillFormat consumerBranchFill = consumerBranchLevel.getFormat().getFill();
+        int consumerBranchColor = Color.rgb(31, 78, 121);
+        consumerBranchFill.setFillType(FillType.Solid);
+        consumerBranchFill.getSolidFillColor().setColor(consumerBranchColor);
+
+        IDataLabelFormat consumerLabelFormat = consumerBranchLevel.getLabel().getDataLabelFormat();
+        consumerLabelFormat.setShowCategoryName(true);
+        consumerLabelFormat.setShowSeriesName(false);
+        IFillFormat consumerLabelTextFill = consumerLabelFormat.getTextFormat().getPortionFormat().getFillFormat();
+        consumerLabelTextFill.setFillType(FillType.Solid);
+        consumerLabelTextFill.getSolidFillColor().setColor(Color.WHITE);
+
+        // Naformátujte větev Software pomocí prvního listu v této větvi.
+        IChartDataPointLevel softwareStemLevel = licensesDataPoint.getDataPointLevels().get_Item(stemLevelIndex);
+        IFillFormat softwareStemFill = softwareStemLevel.getFormat().getFill();
+        int softwareStemColor = Color.rgb(112, 173, 71);
+        softwareStemFill.setFillType(FillType.Solid);
+        softwareStemFill.getSolidFillColor().setColor(softwareStemColor);
+
+        // ParentLabelLayout ovlivňuje popisky rodičů v Treemap; Sunburst používá segmenty kruhů.
+        if (chartType == ChartType.Treemap) {
+            series.setParentLabelLayout(ParentLabelLayoutType.Overlapping);
+        }
+    }
+
+    presentation.save("hierarchical-charts.pptx", SaveFormat.Pptx);
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{% alert color="primary" title="Viz také" %}} 
-- [**Vytvořit nebo aktualizovat grafy PowerPoint prezentace na Androidu**](/slides/cs/androidjava/create-chart/)
-{{% /alert %}}
+Buňky kategorií a buňky hodnot používají stejný řádek listu, takže jejich pozice ve sbírce zůstávají zarovnané. Pokud pracujete s existujícím grafem místo jeho vytváření, nejprve prozkoumejte řádky kategorií a uložte pojmenované odkazy na datové body a úrovně, které chcete formátovat.
 
-Pokud je potřeba formátovat datové body grafu, měli bychom použít následující:
+## **Chování a praktické úvahy**
 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPointLevelsManager), 
-[IChartDataPointLevel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPointLevel) třídy 
-a [**IChartDataPoint.getDataPointLevels**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPoint#getDataPointLevels--) metoda 
-poskytují přístup k formátování datových bodů Treemap a Sunburst grafů. 
-[**IChartDataPointLevelsManager**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPointLevelsManager)
-se používá k přístupu k víceúrovňovým kategoriím – představuje kontejner pro 
-[**IChartCategoryLevelsManager**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartCategoryLevelsManager) s
-vlastnostmi přidanými specificky pro datové body. 
-Třída [**IChartDataPointLevel**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPointLevel) má
-dvě metody: [**getFormat**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPointLevel#getFormat--) a 
-[**getDataLabel**](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/IChartDataPointLevel#getLabel--) které
-poskytují přístup k odpovídajícím nastavením.
+### **Rozdíly mezi Treemap a Sunburst**
 
-## **Zobrazit hodnotu datového bodu**
+- Treemap používá plochu k vyjádření hodnoty a vnořené obdélníky k vyjádření hierarchie. Metoda **[IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#setParentLabelLayout-int-)** řídí, jak se zobrazují popisky rodičů v tomto typu grafu.
+- Sunburst používá úhel k vyjádření hodnoty a hloubku kruhu k vyjádření hierarchie. **[IChartSeries.setParentLabelLayout](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartseries/#setParentLabelLayout-int-)** neovlivňuje popisky jeho kruhů.
+- Oba typy grafů používají stejné úrovně seskupení kategorií a stejné pořadí list‑k‑rodiči vrácené metodou **[IChartDataPoint.getDataPointLevels](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapoint/#getDataPointLevels--)**, takže kód pro sestavování dat a formátování úrovní může být sdílen.
+- Hodnoty rodičů se vypočítávají z jejich podřízených listů. Nepřidávejte samostatné číselné body pro větve nebo středové úrovně.
 
-Zobrazit hodnotu datového bodu „Leaf 4“:
+### **Řazení a pořadí segmentů**
 
-```java
-IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
-dataPoints.get_Item(3).getDataPointLevels().get_Item(0).getLabel().getDataLabelFormat().setShowValue(true);
-```
+Engine rozvržení grafu určuje konečné umístění obdélníků a segmentů kruhů. Před jejich přidáním seskupte související řádky kategorií, ale nespoléhejte se na konkrétní pozici obdélníku nebo počáteční úhel. Pokud má sekvence význam, zahrňte ji do popisků nebo použijte typ grafu s explicitní kategoriální osou.
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/bKHMf5Bj37ZkMwUE1OfXjw7_CRmDhafhQOUuVWDmitwbtdkwD68ibWluY6Q1HQz_z2Q-BR_SBrBPZ_gID5bGH0PUqI5w37S22RT-ZZal6k7qIDstKntYi5QXS8z-SgpnsI78WGiu)
+### **Motiv a pevné barvy**
 
-## **Nastavit popisek a barvu datového bodu**
+Neformátované úrovně grafu dědí barvy z motivu prezentace. Příklad používá explicitní výplně RGB pro předvídatelný výstup. Pokud má graf následovat změny motivu, použijte barvy schématu místo pevných hodnot RGB a vyhněte se přepisování každé úrovně. Také po změně výplně větve nebo středu zkontrolujte kontrast popisků.
 
-Nastavte popisek datového bodu „Branch 1“, aby zobrazoval název řady („Series1“) místo názvu kategorie. Pak nastavte barvu textu na žlutou:
+### **Popisky a dostupný prostor**
 
-```java
-IDataLabel branch1Label = dataPoints.get_Item(0).getDataPointLevels().get_Item(0).getLabel();
-branch1Label.getDataLabelFormat().setShowCategoryName(false);
-branch1Label.getDataLabelFormat().setShowSeriesName(true);
+PowerPoint může skrýt nebo zkrátit popisky, pokud je segment příliš malý. Zvětšení velikosti grafu, zkrácení názvů kategorií nebo zobrazení méně polí popisku obvykle vede k jasnějšímu výsledku. Popisek může kombinovat název kategorie, název řady a hodnotu pomocí **[IDataLabelFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idatalabelformat/)**, ale povolení všech polí často ztěžuje čtení hierarchických grafů.
 
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().setFillType(FillType.Solid);
-branch1Label.getDataLabelFormat().getTextFormat().getPortionFormat().getFillFormat().getSolidFillColor().setColor(Color.YELLOW);
-```
+### **Export a vykreslování**
 
-![todo:image_alt_text](https://lh6.googleusercontent.com/I9g0kewJnxkhUVlfSWRN39Ng-wzjWyRwF3yTbOD9HhLTLBt_sMJiEfDe7vOfqRNx89o9AVZsYTW3Vv_TIuj4EgM4_UEEi7zQ3jdvaO8FoG2JcsOqNRgbiE5HQZNz8xx_q9qdj8JQ)
+Ukládání do PPTX zachovává graf editovatelný. Když Aspose.Slides vykresluje prezentaci do PDF nebo obrázku, podporované výplně a nastavení popisků jsou vykresleny s grafem. Substituce písem a malé rozdíly v dostupném prostoru rozvržení mohou změnit zalomení řádků nebo viditelnost popisků, proto nainstalujte požadovaná písma a ověřte důležité cíle exportu.
 
-## **Nastavit barvu větve datového bodu**
+## **Často kladené otázky**
 
-Změňte barvu větve „Steam 4“:
+**Proč změna úrovně rodiče ovlivní několik listů?**
 
-```java
-Presentation pres = new Presentation();
-try {
-    IChart chart = pres.getSlides().get_Item(0).getShapes().addChart(ChartType.Sunburst, 100, 100, 450, 400);
+Větev nebo střed je sdílený vizuální segment. K jeho **[IChartDataPointLevel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ichartdatapointlevel/)** lze přistupovat přes podřízený list, ale formátování patří sdílenému segmentu rodiče, nikoli jen danému listu.
 
-    IChartDataPointCollection dataPoints = chart.getChartData().getSeries().get_Item(0).getDataPoints();
+**Proč chybí datový popisek?**
 
-    IChartDataPointLevel stem4branch = dataPoints.get_Item(9).getDataPointLevels().get_Item(1);
+Nejprve povolte požadovaná pole na objektu **[IDataLabelFormat](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/idatalabelformat/)** popisku. Poté zkontrolujte, zda má segment dostatek místa. Rozvržení popisků rodičů u Treemap, rozměry grafu, délka popisku, velikost písma a počet povolených polí vše ovlivňuje, zda může být popisek zobrazen.
 
-    stem4branch.getFormat().getFill().setFillType(FillType.Solid);
-    stem4branch.getFormat().getFill().getSolidFillColor().setColor(Color.RED);
+**Mohu nastavit přesné pořadí či souřadnice segmentů?**
 
-    pres.save("pres.pptx", SaveFormat.Pptx);
-} finally {
-    if (pres != null) pres.dispose();
-}
-```
+Můžete řídit pořadí řádků zdroje a udržet každou skupinu souvislou, ale nemůžete přiřadit přesné obdélníky Treemap ani úhly Sunburst. Engine rozvržení grafu je vypočítá z hierarchie, hodnot a dostupného prostoru.
 
-![todo:image_alt_text](https://lh5.googleusercontent.com/Zll4cpQ5tTDdgwmJ4yuupolfGaANR8SWWTU3XaJav_ZVXVstV1pI1z1OFH-gov6FxPoDz1cxmMyrgjsdYGS24PlhaYa2daKzlNuL1a0xYcqEiyyO23AE6JMOLavWpvqA6SzOCA6_)
+**Proč se barvy změní po změně motivu prezentace?**
 
-## **FAQ**
+Výplně založené na motivu jsou navrženy tak, aby sledovaly paletu prezentace. Použijte explicitní barvy RGB pro úrovně, které musí zůstat pevné, nebo při upřednostňování přizpůsobení novému motivu zachovejte barvy schématu.
 
-**Mohu změnit pořadí (třídění) segmentů v Sunburst/Treemap?**
+**Zůstane vlastní formátování zachováno v exportech PDF a obrázků?**
 
-Ne. PowerPoint řadí segmenty automaticky (obvykle podle sestupných hodnot, po směru hodinových ručiček). Aspose.Slides tuto funkci napodobuje: pořadí nelze změnit přímo; dosáhnete toho předzpracováním dat.
+Ano, podporované výplně grafu a nastavení popisků jsou zahrnuty během vykreslování. Pro konzistentní výsledky napříč systémy zajistěte dostupnost požadovaných písem a otestujte konečnou velikost exportu, protože umístění popisků je závislé na rozvržení.
 
-**Jak ovlivňuje téma prezentace barvy segmentů a popisků?**
+## **Související odkazy**
 
-Barvy grafu dědí [téma/paletu](/slides/cs/androidjava/presentation-theme/) prezentace, pokud výslovně nenastavíte výplně/písma. Pro konzistentní výsledky uzamkněte plné výplně a formátování textu na požadovaných úrovních.
-
-**Zachová export do PDF/PNG vlastní barvy větví a nastavení popisků?**
-
-Ano. Při exportu prezentace jsou nastavení grafu (výplně, popisky) zachována v výstupních formátech, protože Aspose.Slides vykresluje s aplikovaným formátováním grafu.
-
-**Mohu vypočítat skutečné souřadnice popisku/elementu pro vlastní umístění překrytí nad grafem?**
-
-Ano. Po ověření rozvržení grafu jsou pro elementy k dispozici skutečné *x* a *y* (například u [DataLabel](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/datalabel/)), což usnadňuje přesné umístění překryvů.
+- [Create Treemap charts](/slides/cs/androidjava/create-chart/#create-tree-map-charts)
+- [Create Sunburst charts](/slides/cs/androidjava/create-chart/#create-sunburst-charts)
+- [Export presentation charts](/slides/cs/androidjava/export-chart/)
+- [Manage presentation themes](/slides/cs/androidjava/presentation-theme/)

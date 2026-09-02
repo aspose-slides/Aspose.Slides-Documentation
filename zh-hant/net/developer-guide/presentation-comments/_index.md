@@ -21,239 +21,406 @@ keywords:
 - .NET
 - C#
 - Aspose.Slides
-description: "使用 Aspose.Slides for .NET 精通簡報註解：快速且輕鬆地在 PowerPoint 檔案中新增、讀取、編輯與刪除註解。"
+description: "使用 Aspose.Slides for .NET 管理簡報註解：在 PowerPoint 簡報中快速且輕鬆地新增、閱讀、編輯、回覆及移除註解。"
 ---
 ## **概述**
 
-本文說明如何在 Aspose.Slides 中管理簡報註解。它展示了主要的與註解相關的類型，並示範如何向投影片新增註解、存取現有註解、處理回覆、使用現代註解以及從簡報中移除註解。
+本文說明如何使用 Aspose.Slides for .NET 管理簡報註解。它介紹了主要的註解相關類型，並示範如何將註解加入投影片、存取現有註解、處理回覆與現代註解，以及如何從簡報中移除註解。
 
-這些範例著重於 PowerPoint 中常見的審閱與協作情境，例如將註解指派給作者、讀取註解內容與中繼資料、建立回覆鏈，以及清除全部註解或刪除所選註解。
+這些範例涵蓋了 PowerPoint 中常見的審閱與協作情境，例如指派作者、讀取註解文字與中繼資料、建立回覆鏈，與移除選取的註解或全部註解。
 
-在 PowerPoint 中，註解會以投影片上的備註或標註形式顯示。點選註解時，即會顯示其內容或訊息。
+在 PowerPoint 中，註解會以標註的形式顯示在投影片上。選取註解即可顯示其文字與相關討論。
 
-## **為何在簡報中加入註解？**
+## **為何要在簡報中加入註解？**
 
-在審閱簡報時，您可能希望使用註解提供回饋或與同事溝通。
+在審閱簡報時，可使用註解提供回饋並與同事協作。
 
-為了讓您在 PowerPoint 簡報中使用註解，Aspose.Slides for .NET 提供了
+Aspose.Slides for .NET 提供以下 API 讓您操作註解：
 
-* The [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別，包含作者集合（來自 [CommentAuthorCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentauthorcollection/properties/index) 屬性）。作者會在投影片上加入註解。 
-* The  [ICommentCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection) 介面，包含個別作者的註解集合。 
-* The  [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 類別，包含作者及其註解的資訊：誰新增了註解、註解新增的時間、註解的位置等。 
-* The [CommentAuthor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentauthor) 類別，包含個別作者的資訊：作者名稱、其縮寫、與該作者名稱相關的註解等。 
+* [Presentation](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/presentation) 類別，可存取簡報的註解作者。
+* [ICommentCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection) 介面，表示單一作者所屬的註解集合。
+* [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面，提供註解的資訊，包括作者、建立時間、位置與文字。
+* [CommentAuthor](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentauthor) 類別，提供作者資訊，包括姓名、縮寫與相關註解。
 
 ## **新增投影片註解**
-以下 C# 程式碼示範如何在 PowerPoint 簡報的投影片中新增註解：
+以下範例說明如何在 PowerPoint 簡報的投影片中新增註解：
 
-```c#
-// 實例化 Presentation 類別
-using (Presentation presentation = new Presentation())
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var firstSlide = presentation.Slides[0];
+var secondSlide = presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+var author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
+var position = new PointF(0.2f, 0.2f);
+var createdTime = DateTime.Now;
+
+author.Comments.AddComment("Hello Jawad, this is a slide comment", firstSlide, position, createdTime);
+author.Comments.AddComment("Hello Jawad, this is the second slide comment", secondSlide, position, createdTime);
+
+var comments = firstSlide.GetSlideComments(author);
+if (comments.Length > 0)
 {
-    // 新增空白投影片
-    presentation.Slides.AddEmptySlide(presentation.LayoutSlides[0]);
+    var firstComment = comments[0];
+    Console.WriteLine(firstComment.Text);
 
-    // 新增作者
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Jawad", "MF");
-
-    // 設定註解的位置
-    PointF point = new PointF();
-    point.X = 0.2f;
-    point.Y = 0.2f;
-
-    // 在第 1 張投影片為作者新增註解
-    author.Comments.AddComment("Hello Jawad, this is slide comment", presentation.Slides[0], point, DateTime.Now);
-
-    // 在第 2 張投影片為作者新增註解
-    author.Comments.AddComment("Hello Jawad, this is second slide comment", presentation.Slides[1], point, DateTime.Now);
-
-    // 存取 ISlide 1
-    ISlide slide = presentation.Slides[0];
-
-    // 當傳入 null 作為參數時，會將所有作者的註解帶到選取的投影片
-    IComment[] Comments = slide.GetSlideComments(author);
-
-    // 存取第 1 張投影片索引 0 的註解
-    String str = Comments[0].Text;
-
-    presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
-
-    if (Comments.GetLength(0) > 0)
-    {
-        // 選取索引 0 處的作者註解集合
-        ICommentCollection commentCollection = Comments[0].Author.Comments;
-        String Comment = commentCollection[0].Text;
-    }
+    var commentText = firstComment.Author.Comments[0].Text;
+    Console.WriteLine(commentText);
 }
+
+presentation.Save("Comments_out.pptx", SaveFormat.Pptx);
 ```
 
 ## **存取投影片註解**
-以下 C# 程式碼示範如何在 PowerPoint 簡報的投影片上存取現有註解：
+以下範例說明如何存取 PowerPoint 簡報中已有的註解：
 
-```c#
-// 實例化 Presentation 類別
-using (Presentation presentation = new Presentation("Comments1.pptx"))
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Comments1.pptx");
+
+foreach (var author in presentation.CommentAuthors)
 {
-    foreach (var commentAuthor in presentation.CommentAuthors)
+    foreach (var comment in author.Comments)
     {
-        var author = (CommentAuthor) commentAuthor;
-        foreach (var comment1 in author.Comments)
-        {
-            var comment = (Comment) comment1;
-            Console.WriteLine("ISlide :" + comment.Slide.SlideNumber + " has comment: " + comment.Text + " with Author: " + comment.Author.Name + " posted on time :" + comment.CreatedTime + "\n");
-        }
+        Console.WriteLine($"Slide: {comment.Slide.SlideNumber}");
+        Console.WriteLine($"Comment: {comment.Text}");
+        Console.WriteLine($"Author: {comment.Author.Name}");
+        Console.WriteLine($"Posted at: {comment.CreatedTime}");
+        Console.WriteLine();
     }
 }
 ```
 
 ## **回覆註解**
-父註解是註解或回覆層級中的最上層或原始註解。使用 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性（來自 [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面），您可以設定或取得父註解。
+父註解是回覆層級最上方的原始註解。[IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面的 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性可取得或設定註解的父項。
 
-以下 C# 程式碼示範如何新增註解並取得其回覆：
+以下範例示範如何新增回覆並檢查產生的註解層級結構：
 
-```c#
-using (Presentation pres = new Presentation())
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var position = new PointF(10, 10);
+var createdTime = DateTime.Now;
+
+var author1 = presentation.CommentAuthors.AddAuthor("Author_1", "A.A.");
+var comment1 = author1.Comments.AddComment("comment 1", slide, position, createdTime);
+
+var author2 = presentation.CommentAuthors.AddAuthor("Author_2", "B.B.");
+var reply1 = author2.Comments.AddComment("reply 1 for comment 1", slide, position, createdTime);
+reply1.ParentComment = comment1;
+
+var reply2 = author2.Comments.AddComment("reply 2 for comment 1", slide, position, createdTime);
+reply2.ParentComment = comment1;
+
+var subReply = author1.Comments.AddComment("subreply 3 for reply 2", slide, position, createdTime);
+subReply.ParentComment = reply2;
+
+author2.Comments.AddComment("comment 2", slide, position, createdTime);
+var comment3 = author2.Comments.AddComment("comment 3", slide, position, createdTime);
+
+var reply3 = author1.Comments.AddComment("reply 4 for comment 3", slide, position, createdTime);
+reply3.ParentComment = comment3;
+
+var comments = slide.GetSlideComments(null);
+for (var i = 0; i < comments.Length; i++)
 {
-    // 新增註解
-    ICommentAuthor author1 = pres.CommentAuthors.AddAuthor("Author_1", "A.A.");
-    IComment comment1 = author1.Comments.AddComment("comment1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
-    // 為 comment1 新增回覆
-    ICommentAuthor author2 = pres.CommentAuthors.AddAuthor("Autror_2", "B.B.");
-    IComment reply1 = author2.Comments.AddComment("reply 1 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply1.ParentComment = comment1;
-
-    // 為 comment1 新增另一筆回覆
-    IComment reply2 = author2.Comments.AddComment("reply 2 for comment 1", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply2.ParentComment = comment1;
-
-    // 為現有回覆新增回覆
-    IComment subReply = author1.Comments.AddComment("subreply 3 for reply 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    subReply.ParentComment = reply2;
-
-    IComment comment2 = author2.Comments.AddComment("comment 2", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    IComment comment3 = author2.Comments.AddComment("comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-
-    IComment reply3 = author1.Comments.AddComment("reply 4 for comment 3", pres.Slides[0], new PointF(10, 10), DateTime.Now);
-    reply3.ParentComment = comment3;
-
-    // 在主控台顯示註解層級結構
-    ISlide slide = pres.Slides[0];
-    var comments = slide.GetSlideComments(null);
-    for (int i = 0; i < comments.Length; i++)
+    var comment = comments[i];
+    while (comment.ParentComment != null)
     {
-        IComment comment = comments[i];
-        while (comment.ParentComment != null)
-        {
-            Console.Write("\t");
-            comment = comment.ParentComment;
-        }
-
-        Console.Write("{0} : {1}", comments[i].Author.Name, comments[i].Text);
-        Console.WriteLine();
+        Console.Write("\t");
+        comment = comment.ParentComment;
     }
 
-    pres.Save("parent_comment.pptx",SaveFormat.Pptx);
-
-    // 移除 comment1 以及所有回覆
-    comment1.Remove();
-
-    pres.Save("remove_comment.pptx", SaveFormat.Pptx);
+    Console.WriteLine($"{comments[i].Author.Name}: {comments[i].Text}");
 }
+
+presentation.Save("parent_comment.pptx", SaveFormat.Pptx);
+
+comment1.Remove();
+presentation.Save("remove_comment.pptx", SaveFormat.Pptx);
 ```
 
 {{% alert color="warning" title="注意" %}} 
 
-* 使用來自 [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面的 [Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/methods/remove) 方法刪除註解時，該註解的回覆也會被刪除。 
-* 若 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 設定導致循環參考，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxeditexception)。
+* 當使用 [IComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment) 介面的 [Remove](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/methods/remove) 方法刪除註解時，該註解的所有回覆也會一起被刪除。
+* 若 [ParentComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icomment/properties/parentcomment) 屬性形成循環參照，將拋出 [PptxEditException](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/pptxeditexception)。
 
 {{% /alert %}}
 
 ## **新增現代註解**
 
-2021 年，Microsoft 在 PowerPoint 中引入了*現代註解*。現代註解功能顯著提升了 PowerPoint 的協作體驗。透過現代註解，PowerPoint 使用者可以解決註解、將註解錨定於物件與文字，並更輕鬆地進行互動。
+現代註解可以關聯至整張投影片、特定圖形，或 AutoShape 內的文字範圍。 [ICommentCollection.AddModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/icommentcollection/addmoderncomment/) 方法接受一個 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 參數，此外還需要投影片與註解標記的座標。
 
-在 [Aspose Slides for .NET 21.11](https://docs.aspose.com/slides/zh-hant/net/aspose-slides-for-net-21-11-release-notes/) 中，我們透過加入 [ModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncomment) 類別實作了對現代註解的支援。[AddModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentcollection/methods/addmoderncomment) 與 [InsertModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentcollection/methods/insertmoderncomment) 方法亦被加入至 [CommentCollection](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/commentcollection) 類別。
+當 shape 參數傳入 `null` 時，註解為投影片層級註解。其標記位置由提供的座標決定，但不會關聯到特定圖形，因而 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/) 會回傳 `null`。若提供 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/)，註解則會錨定於該圖形。座標仍然定義標記在投影片上的位置，而圖形關聯可透過 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/) 取得。
 
-以下 C# 程式碼示範如何在 PowerPoint 簡報的投影片中新增現代註解：
+### **將現代註解錨定至圖形**
 
-```c#
-using (Presentation pres = new Presentation())
+以下範例同時建立投影片層級的現代註解與錨定於特定 AutoShape 的現代註解，並讀取每個註解所關聯的圖形。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 300, 80);
+shape.Name = "Revenue title";
+shape.TextFrame.Text = "Quarterly revenue";
+
+var createdTime = DateTime.Now;
+var slideCommentPosition = new PointF(20, 20);
+var shapeCommentPosition = new PointF(60, 60);
+var slideComment = author.Comments.AddModernComment("Review the overall slide layout.", slide, null, slideCommentPosition, createdTime);
+var shapeComment = author.Comments.AddModernComment("Check this title.", slide, shape, shapeCommentPosition, createdTime);
+
+Console.WriteLine(slideComment.Shape == null);
+Console.WriteLine(shapeComment.Shape?.Name);
+
+presentation.Save("modern_comments.pptx", SaveFormat.Pptx);
+```
+
+### **將註解錨定至不同類型的圖形**
+
+任何實作了 [IShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ishape/) 的投影片物件都可作為圖形錨點。常見的範例包括 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/)、[IPictureFrame](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/ipictureframe/)、[IGroupShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igroupshape/)、[IConnector](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iconnector/)，以及如圖表等 [IGraphicalObject](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/igraphicalobject/) 實例。
+
+以下範例建立多種常見圖形類型，並為每個圖形關聯一個現代註解。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Charts;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var createdTime = DateTime.Now;
+
+var autoShape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 20, 20, 180, 60);
+autoShape.TextFrame.Text = "AutoShape";
+var autoShapeCommentPosition = new PointF(30, 30);
+author.Comments.AddModernComment("Comment on an AutoShape.", slide, autoShape, autoShapeCommentPosition, createdTime);
+
+var imageBase64 = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAAFklEQVR4nGP8//8/AwMDEwMDAwMDAwAkBgMB/DXemwAAAABJRU5ErkJggg==";
+var imageData = Convert.FromBase64String(imageBase64);
+var image = presentation.Images.AddImage(imageData);
+var pictureFrame = slide.Shapes.AddPictureFrame(ShapeType.Rectangle, 220, 20, 120, 80, image);
+var pictureCommentPosition = new PointF(230, 30);
+author.Comments.AddModernComment("Comment on a picture.", slide, pictureFrame, pictureCommentPosition, createdTime);
+
+var groupShape = slide.Shapes.AddGroupShape();
+groupShape.Shapes.AddAutoShape(ShapeType.Rectangle, 0, 0, 80, 40);
+groupShape.Shapes.AddAutoShape(ShapeType.Ellipse, 100, 0, 80, 40);
+var groupCommentPosition = new PointF(40, 150);
+author.Comments.AddModernComment("Comment on a group.", slide, groupShape, groupCommentPosition, createdTime);
+
+var connector = slide.Shapes.AddConnector(ShapeType.StraightConnector1, 220, 150, 140, 40);
+var connectorCommentPosition = new PointF(240, 150);
+author.Comments.AddModernComment("Comment on a connector.", slide, connector, connectorCommentPosition, createdTime);
+
+var chart = slide.Shapes.AddChart(ChartType.ClusteredColumn, 400, 20, 250, 180);
+var chartCommentPosition = new PointF(420, 40);
+author.Comments.AddModernComment("Comment on a graphical object.", slide, chart, chartCommentPosition, createdTime);
+
+presentation.Save("modern_comment_shape_types.pptx", SaveFormat.Pptx);
+```
+
+### **將註解錨定至文字並設定其狀態**
+
+對於關聯至 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 的現代註解，[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionstart/) 指定形狀文字框中所選文字的起始位置，而 [IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionlength/) 指定選取的長度。兩者共同將註解與 AutoShape 內的特定文字範圍關聯。
+
+[IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/) 屬性可讀取或以 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/) 列舉值進行設定：
+
+- `NotDefined` — 未定義特定的現代註解狀態。
+- `Active` — 註解為活躍狀態。
+- `Resolved` — 註解已解決。
+- `Closed` — 註解已關閉。
+
+以下範例建立一個錨定於圖形的現代註解，將其與文字選取關聯，標記為已解決，儲存簡報，並在重新開啟檔案後驗證其值。
+
+```csharp
+using System;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+const string outputFile = "modern_comment_text_anchor.pptx";
+const string shapeText = "Review the quarterly revenue forecast.";
+const string selectedText = "quarterly revenue";
+var expectedSelectionStart = shapeText.IndexOf(selectedText, StringComparison.Ordinal);
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var shape = slide.Shapes.AddAutoShape(ShapeType.Rectangle, 50, 50, 400, 100);
+shape.Name = "Forecast text";
+shape.TextFrame.Text = shapeText;
+
+var author = presentation.CommentAuthors.AddAuthor("Reviewer", "RV");
+var commentPosition = new PointF(60, 60);
+var comment = author.Comments.AddModernComment("Verify this forecast wording.", slide, shape, commentPosition, DateTime.Now);
+comment.TextSelectionStart = expectedSelectionStart;
+comment.TextSelectionLength = selectedText.Length;
+comment.Status = ModernCommentStatus.Resolved;
+
+presentation.Save(outputFile, SaveFormat.Pptx);
+
+using var reopenedPresentation = new Presentation(outputFile);
+var reopenedSlide = reopenedPresentation.Slides[0];
+var reopenedComments = reopenedSlide.GetSlideComments(null);
+
+foreach (var reopenedComment in reopenedComments)
 {
-     ICommentAuthor newAuthor = pres.CommentAuthors.AddAuthor("Some Author", "SA");
-     IModernComment modernComment = newAuthor.Comments.AddModernComment("This is a modern comment", pres.Slides[0], null, new PointF(100, 100), DateTime.Now);
- 
-     pres.Save("pres.pptx", SaveFormat.Pptx);
+    if (reopenedComment is not IModernComment modernComment)
+    {
+        continue;
+    }
+
+    var shapeMatches = modernComment.Shape?.Name == "Forecast text";
+    var selectionStartMatches = modernComment.TextSelectionStart == expectedSelectionStart;
+    var selectionLengthMatches = modernComment.TextSelectionLength == selectedText.Length;
+    var statusMatches = modernComment.Status == ModernCommentStatus.Resolved;
+
+    Console.WriteLine($"Shape anchor preserved: {shapeMatches}");
+    Console.WriteLine($"Text selection start preserved: {selectionStartMatches}");
+    Console.WriteLine($"Text selection length preserved: {selectionLengthMatches}");
+    Console.WriteLine($"Resolved status preserved: {statusMatches}");
+}
+```
+
+### **檢查現有的現代註解**
+
+若要檢查現有簡報，先找出哪些註解實作了 [IModernComment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/)，再檢查其 [IModernComment.Shape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/shape/)、[IModernComment.TextSelectionStart](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionstart/)、[IModernComment.TextSelectionLength](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/textselectionlength/) 與 [IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/)。`null` 的 shape 代表投影片層級註解。若為 [IAutoShape](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/iautoshape/) 錨點，文字選取屬性則指出該圖形文字框中的相關範圍。
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("comments.pptx");
+
+foreach (var slide in presentation.Slides)
+{
+    var comments = slide.GetSlideComments(null);
+    foreach (var comment in comments)
+    {
+        if (comment is not IModernComment modernComment)
+        {
+            continue;
+        }
+
+        Console.WriteLine($"Slide: {slide.SlideNumber}");
+        Console.WriteLine($"Text: {modernComment.Text}");
+        Console.WriteLine($"Status: {modernComment.Status}");
+
+        var shape = modernComment.Shape;
+        if (shape == null)
+        {
+            Console.WriteLine("Anchor: slide level");
+        }
+        else
+        {
+            Console.WriteLine($"Anchor shape: {shape.Name}");
+            Console.WriteLine($"Anchor type: {shape.GetType().Name}");
+
+            if (shape is IAutoShape)
+            {
+                Console.WriteLine($"Text selection start: {modernComment.TextSelectionStart}");
+                Console.WriteLine($"Text selection length: {modernComment.TextSelectionLength}");
+            }
+        }
+
+        Console.WriteLine();
+    }
 }
 ```
 
 ## **移除註解**
 
-### **刪除全部註解與作者**
+### **移除全部註解與註解作者**
 
-以下 C# 程式碼示範如何在簡報中移除全部註解與作者：
+以下範例示範如何從簡報中移除所有註解與註解作者：
 
-```c#
-using (var presentation = new Presentation("example.pptx"))
+```csharp
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("example.pptx");
+
+foreach (var author in presentation.CommentAuthors)
 {
-    // 刪除簡報中的所有註解
-    foreach (var author in presentation.CommentAuthors)
-    {
-        author.Comments.Clear();
-    }
-
-    // 刪除所有作者
-    presentation.CommentAuthors.Clear();
-
-    presentation.Save("example_out.pptx", SaveFormat.Pptx);
+    author.Comments.Clear();
 }
+
+presentation.CommentAuthors.Clear();
+presentation.Save("example_out.pptx", SaveFormat.Pptx);
 ```
 
-### **刪除特定註解**
+### **移除特定註解**
 
-以下 C# 程式碼示範如何刪除投影片上特定的註解：
+以下範例示範如何從投影片中移除特定註解：
 
-```c#
-using (var presentation = new Presentation())
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation();
+var slide = presentation.Slides[0];
+var author = presentation.CommentAuthors.AddAuthor("Author", "A");
+var createdTime = DateTime.Now;
+
+var firstCommentPosition = new PointF(0.2f, 0.2f);
+var secondCommentPosition = new PointF(0.3f, 0.2f);
+author.Comments.AddComment("comment 1", slide, firstCommentPosition, createdTime);
+author.Comments.AddComment("comment 2", slide, secondCommentPosition, createdTime);
+
+foreach (var commentAuthor in presentation.CommentAuthors)
 {
-    ISlide slide = presentation.Slides[0];
-    
-    // 新增註解...
-    ICommentAuthor author = presentation.CommentAuthors.AddAuthor("Author", "A");
-    author.Comments.AddComment("comment 1", slide, new PointF(0.2f, 0.2f), DateTime.Now);
-    author.Comments.AddComment("comment 2", slide, new PointF(0.3f, 0.2f), DateTime.Now);
-    
-    // 移除所有包含 "comment 1" 文字的註解
-    foreach (ICommentAuthor commentAuthor in presentation.CommentAuthors)
+    var commentsToRemove = new List<IComment>();
+    var comments = slide.GetSlideComments(commentAuthor);
+
+    foreach (var comment in comments)
     {
-        List<IComment> toRemove = new List<IComment>();
-        foreach (IComment comment in slide.GetSlideComments(commentAuthor))
+        if (comment.Text == "comment 1")
         {
-            if (comment.Text == "comment 1")
-            {
-                toRemove.Add(comment);
-            }
-        }
-        
-        foreach (IComment comment in toRemove)
-        {
-            commentAuthor.Comments.Remove(comment);
+            commentsToRemove.Add(comment);
         }
     }
-    
-    presentation.Save("pres.pptx", SaveFormat.Pptx);
+
+    foreach (var comment in commentsToRemove)
+    {
+        commentAuthor.Comments.Remove(comment);
+    }
 }
+
+presentation.Save("pres.pptx", SaveFormat.Pptx);
 ```
 
 ## **常見問題**
 
-**Aspose.Slides 是否支援類似「已解決」的狀態於現代註解？**
+**Aspose.Slides 是否支援現代註解的已解決狀態？**
 
-是。[Modern comments](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncomment/) 提供 [Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncomment/status/) 屬性；您可以讀取和設定 [註解的狀態](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/)（例如將其標記為已解決），此狀態會儲存在檔案中，且 PowerPoint 會辨識。
+是的。[IModernComment.Status](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/imoderncomment/status/) 可讀寫 [ModernCommentStatus](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/moderncommentstatus/) 值，其中包含 `Resolved`。此狀態會儲存在簡報中，重新開啟檔案後仍可讀取。
 
-**是否支援有層次的討論（回覆鏈），且是否有巢狀深度限制？**
+**是否支援串接討論（回覆鏈），且有巢狀深度限制嗎？**
 
-是。每個註解皆可參考其 [parent comment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/comment/parentcomment/)，因此可以建立任意深度的回覆鏈。API 並未宣告特定的巢狀深度限制。
+支援。每個註解均可參照其 [parent comment](https://reference.aspose.com/slides/zh-hant/net/aspose.slides/comment/parentcomment/)，形成回覆鏈。API 未定義具體的巢狀深度上限。
 
-**註解標記在投影片上的位置是以什麼座標系統定義的？**
+**註解標記在投影片上的位置使用哪種座標系統？**
 
-位置以浮點座標點儲存在投影片的座標系統中，讓您能將註解標記精確放置於所需位置。
+標記位置是以浮點座標表示，基於投影片的座標系統，您可以精確地將其放置於投影片上。

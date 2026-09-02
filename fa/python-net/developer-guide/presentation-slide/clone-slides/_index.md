@@ -76,7 +76,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **کلون در انتهای یک ارائهٔ دیگر**
+## **کلون در انتهای ارائهٔ دیگر**
 
 اگر نیاز دارید اسلایدی را از یک ارائه کلون کرده و به انتهای ارائهٔ دیگری اضافه کنید:
 
@@ -173,11 +173,11 @@ import aspose.slides as slides
 
 # یک ارائهٔ خالی جدید ایجاد کنید.
 with slides.Presentation() as presentation:
-    # یک اسلاید خالی بر پایهٔ چیدمان اولین اسلاید اضافه کنید.
+    # یک اسلاید خالی بر اساس طرح‌بندی اولین اسلاید اضافه کنید.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # یک شکل بیضی به اسلاید جدید اضافه کنید؛ این اسلاید بعداً کلون خواهد شد.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
-    # یک اسلاید خالی دیگر بر پایهٔ چیدمان اولین اسلاید اضافه کنید.
+    # یک اسلاید خالی دیگر بر اساس طرح‌بندی اولین اسلاید اضافه کنید.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # بخشی به نام "Section2" ایجاد کنید که از slide2 شروع می‌شود.
     section = presentation.sections.add_section("Section2", slide2)

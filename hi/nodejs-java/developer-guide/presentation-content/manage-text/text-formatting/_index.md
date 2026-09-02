@@ -5,8 +5,6 @@ type: docs
 weight: 50
 url: /hi/nodejs-java/text-formatting/
 keywords:
-- पाठ हाइलाइट करें
-- नियमित अभिव्यक्ति
 - अनुच्छेद संरेखित करें
 - पाठ शैली
 - पाठ पृष्ठभूमि
@@ -16,10 +14,10 @@ keywords:
 - फ़ॉन्ट परिवार
 - पाठ घुमाव
 - घुमाव कोण
-- पाठ फ़्रेम
-- लाइन स्पेसिंग
-- ऑटॉफिट गुण
-- पाठ फ़्रेम एंकर
+- पाठ फ्रेम
+- पंक्ति अंतराल
+- ऑटोफ़िट गुण
+- पाठ फ्रेम एंकर
 - पाठ टैबुलेशन
 - डिफ़ॉल्ट भाषा
 - PowerPoint
@@ -28,86 +26,35 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित और स्टाइल करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।
+description: "Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को स्वरूपित और शैलीबद्ध करें। फ़ॉन्ट, रंग, संरेखण आदि को अनुकूलित करें।"
 ---
 ## **अवलोकन**
 
-यह लेख बताता है कि Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को कैसे फॉर्मेट किया जाए। यह हाइलाइटिंग, पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घुमाव, अनुच्छेद अंतराल, ऑटोफिट व्यवहार, पाठ एंकरिंग, टैब स्टॉप और भाषा सेटिंग्स को कवर करता है।
+यह लेख Aspose.Slides for Node.js via Java का उपयोग करके PowerPoint और OpenDocument प्रस्तुतियों में पाठ को फ़ॉर्मेट करने के तरीके को दर्शाता है। यह पृष्ठभूमि रंग, पारदर्शिता, अक्षर अंतराल, फ़ॉन्ट गुण, घुमाव, अनुच्छेद अंतराल, ऑटोफ़िट व्यवहार, पाठ एंकरिंग, टैब स्टॉप्स, और भाषा सेटिंग्स को कवर करता है।
 
-नीचे दिए गए उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहले स्लाइड पर एकल टेक्स्ट बॉक्स है जिसमें निम्नलिखित पाठ है:
+नीचे दिए गए उदाहरणों में, हम "sample.pptx" नामक फ़ाइल का उपयोग करेंगे, जिसमें पहली स्लाइड पर एकल टेक्स्ट बॉक्स है जिसमें निम्नलिखित पाठ है:
 
-![नमूना पाठ](sample_text.png)
+![उदाहरण पाठ](sample_text.png)
 
-## **पाठ को हाइलाइट करें**
-
-जब आपको टेक्स्ट फ़्रेम के भीतर किसी विशिष्ट नमूने से मेल खाने वाले पाठ को हाइलाइट करने की आवश्यकता हो, तो [TextFrame.highlightText](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframe/#highlightText-java.lang.String-java.awt.Color-) विधि का उपयोग करें। इस विधि से मेल खाने वाले पाठ टुकड़ों पर हाइलाइट रंग लागू होता है और इसे [TextSearchOptions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textsearchoptions/) के साथ उपयोग करके खोज का तरीका नियंत्रित किया जा सकता है, उदाहरण के लिए केवल पूर्ण शब्दों से मेल करने के लिए।
-
-नीचे दिया गया कोड उदाहरण सभी पैटर्न **"try"** की घटनाओं को हाइलाइट करता है और फिर केवल पूर्ण शब्द **"to"** को हाइलाइट करता है।
-
-```javascript
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const textFrame = shape.getTextFrame();
-
-    // शेप में शब्द "try" को हाइलाइट करें।
-    textFrame.highlightText("try", java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
-
-    const searchOptions = new aspose.slides.TextSearchOptions();
-    searchOptions.setWholeWordsOnly(true);
-
-    // शेप में शब्द "to" को हाइलाइट करें।
-    textFrame.highlightText("to", java.getStaticFieldValue("java.awt.Color", "MAGENTA"), searchOptions, null);
-
-    presentation.save("highlighted_text.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-परिणाम:
-
-![हाइलाइट किया गया पाठ](highlighted_text.png)
-
-## **नियमित अभिव्यक्तियों का उपयोग करके पाठ को हाइलाइट करना**
-
-[TextFrame.highlightRegex](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframe/#highlightRegex-java.util.regex.Pattern-java.awt.Color-aspose.slides.IFindResultCallback-) विधि नियमित अभिव्यक्ति द्वारा पाए गए पाठ मिलानों को हाइलाइट करती है। Node.js via Java में इस API को [TextFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframe/) पर एक्सपोज़ किया गया है।
-
-नीचे दिया गया कोड उदाहरण सभी वे शब्द हाइलाइट करता है जिनमें **सात या अधिक अक्षर** होते हैं:
-
-```javascript
-const Pattern = java.import("java.util.regex.Pattern");
-const presentation = new aspose.slides.Presentation("sample.pptx");
-try {
-    const shape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
-    const regex = Pattern.compile("\\b[^\\s]{7,}\\b");
-
-    // सात या अधिक अक्षरों वाले सभी शब्दों को हाइलाइट करें।
-    shape.getTextFrame().highlightRegex(regex, java.getStaticFieldValue("java.awt.Color", "YELLOW"), null);
-
-    presentation.save("highlighted_text_using_regex.pptx", aspose.slides.SaveFormat.Pptx);
-} finally {
-    presentation.dispose();
-}
-```
-
-परिणाम:
-
-![नियमित अभिव्यक्ति का उपयोग करके हाइलाइट किया गया पाठ](highlighted_text_using_regex.png)
+पाठ खोजें और बदलें: [पाठ खोजें और बदलें](/slides/hi/nodejs-java/search-and-replace-text/).
 
 ## **पाठ की पृष्ठभूमि रंग सेट करें**
 
-पैराग्राफ के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने के लिए [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) का उपयोग करें, या व्यक्तिगत टेक्स्ट हिस्सों के लिए [PortionFormat.getHighlightColor](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/portionformat/#getHighlightColor--) का उपयोग करें।
+एक अनुच्छेद के लिए डिफ़ॉल्ट हाइलाइट रंग सेट करने हेतु [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) का उपयोग करें, या व्यक्तिगत पाठ भागों के लिए [BasePortionFormat.getHighlightColor](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#getHighlightColor--) का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण पूरे **अनुच्छेद** के लिए पृष्ठभूमि रंग सेट करता है:
+निम्नलिखित कोड उदाहरण दिखाता है कि कैसे **पूरे अनुच्छेद** की पृष्ठभूमि रंग सेट करें:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // पूरे पैराग्राफ के लिए हाइलाइट रंग सेट करें।
+    // पूरे अनुच्छेद के लिए हाइलाइट रंग सेट करें।
     paragraph.getParagraphFormat().getDefaultPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
 
     presentation.save("gray_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -120,12 +67,16 @@ try {
 
 ![धूसर अनुच्छेद](gray_paragraph.png)
 
-निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** के लिए पृष्ठभूमि रंग सेट करता है:
+नीचे दिया गया कोड उदाहरण दर्शाता है कि कैसे **बोल्ड फ़ॉन्ट वाले पाठ भागों** की पृष्ठभूमि रंग सेट करें:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -133,7 +84,7 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // टेक्स्ट भाग के लिए हाइलाइट रंग सेट करें।
+            // पाठ भाग के लिए हाइलाइट रंग सेट करें।
             portion.getPortionFormat().getHighlightColor().setColor(java.getStaticFieldValue("java.awt.Color", "LIGHT_GRAY"));
         }
     }
@@ -148,19 +99,22 @@ try {
 
 ![धूसर पाठ भाग](gray_text_portions.png)
 
-## **पाठ अनुच्छेदों को संरेखित करें**
+## **पाठ अनुच्छेद संरेखित करें**
 
-टेक्स्ट फ़्रेम के भीतर पैराग्राफ संरेखण सेट करने के लिए [ParagraphFormat.setAlignment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setAlignment-byte-) का उपयोग करें। मान केंद्रित, बाएँ संरेखित, दाएँ संरेखित, समानांतर आदि हो सकते हैं।
+[ParagraphFormat.setAlignment](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setAlignment-int-) का उपयोग करके टेक्स्ट फ़्रेम के भीतर अनुच्छेद संरेखण सेट करें। मान मध्य, बायाँ संरेखित, दायाँ संरेखित, समानान्तर, आदि हो सकता है।
 
-निम्नलिखित कोड उदाहरण पैराग्राफ को **केंद्र** में संरेखित करता है:
+नीचे दिया गया कोड उदाहरण दिखाता है कि कैसे अनुच्छेद को **केन्द्र** में संरेखित करें:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // पैराग्राफ का संरेखण केंद्र में सेट करें।
+    // पैराग्राफ का संरेखण केन्द्र में सेट करें।
     paragraph.getParagraphFormat().setAlignment(aspose.slides.TextAlignment.Center);
 
     presentation.save("aligned_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
@@ -175,20 +129,24 @@ try {
 
 ## **पाठ की पारदर्शिता सेट करें**
 
-पारदर्शिता को [PortionFormat.getFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/portionformat/#getFillFormat--) को असाइन किए गए रंग के अल्फा कंपोनेंट के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0‑255 स्केल पर एक ARGB अल्फा‑चैनल मान है, न कि पारदर्शिता प्रतिशत।
+पाठ की पारदर्शिता को [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) को सौंपे गए रंग के अल्फा घटक के माध्यम से नियंत्रित किया जाता है। नीचे के उदाहरणों में, `alpha = 50` 0–255 पैमाने पर ARGB अल्फा-चैनल मान है, न कि पारदर्शिता प्रतिशत।
 
-निम्नलिखित कोड उदाहरण पूरे **अनुच्छेद** पर पारदर्शिता लागू करता है:
+नीचे दिया गया कोड उदाहरण दर्शाता है कि कैसे **पूरे अनुच्छेद** पर पारदर्शिता लागू की जाए:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const alpha = 50;
 const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const fillFormat = paragraph.getParagraphFormat().getDefaultPortionFormat().getFillFormat();
 
-    // पाठ के फ़िल रंग को पारदर्शी रंग पर सेट करें।
+    // पाठ के भराव रंग को पारदर्शी रंग पर सेट करें।
     fillFormat.setFillType(java.newByte(aspose.slides.FillType.Solid));
     fillFormat.getSolidFillColor().setColor(transparentBlack);
 
@@ -202,14 +160,18 @@ try {
 
 ![पारदर्शी अनुच्छेद](transparent_paragraph.png)
 
-निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर पारदर्शिता लागू करता है:
+नीचे दिया गया कोड उदाहरण दर्शाता है कि कैसे **बोल्ड फ़ॉन्ट वाले पाठ भागों** पर पारदर्शिता लागू की जाए:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const alpha = 50;
 const transparentBlack = java.newInstanceSync("java.awt.Color", 0, 0, 0, alpha);
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -235,20 +197,23 @@ try {
 
 ![पारदर्शी पाठ भाग](transparent_text_portions.png)
 
-## **पाठ के अक्षर अंतराल को सेट करें**
+## **पाठ के अक्षर अंतराल सेट करें**
 
-टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को बढ़ाने या घटाने के लिए [BasePortionFormat.setSpacing](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) का उपयोग करें।
+[BasePortionFormat.setSpacing](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#setSpacing-float-) का उपयोग करके टेक्स्ट बॉक्स में अक्षरों के बीच अंतराल को विस्तारित या संकुचित करें।
 
-निम्नलिखित JavaScript कोड पूरे **अनुच्छेद** के लिए अक्षर अंतराल बढ़ाता है:
+निम्नलिखित जावास्क्रिप्ट कोड दिखाता है कि कैसे **पूरे अनुच्छेद** में अक्षर अंतराल को विस्तारित किया जाए:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
-    // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // अक्षर अंतराल का विस्तार करें।
+    // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+    paragraph.getParagraphFormat().getDefaultPortionFormat().setSpacing(3); // अक्षर अंतराल बढ़ाएँ।
 
     presentation.save("character_spacing_in_paragraph.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
@@ -260,12 +225,15 @@ try {
 
 ![अनुच्छेद में अक्षर अंतराल](character_spacing_in_paragraph.png)
 
-निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** में अक्षर अंतराल बढ़ाता है:
+नीचे दिया गया कोड उदाहरण दर्शाता है कि कैसे **बोल्ड फ़ॉन्ट वाले पाठ भागों** में अक्षर अंतराल को विस्तारित किया जाए:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -273,8 +241,8 @@ try {
     for (let portionIndex = 0; portionIndex < portionCount; portionIndex++) {
         const portion = portions.get_Item(portionIndex);
         if (portion.getPortionFormat().getEffective().getFontBold()) {
-            // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मान उपयोग करें।
-            portion.getPortionFormat().setSpacing(3); // अक्षर अंतराल का विस्तार करें।
+            // नोट: अक्षर अंतराल को संकुचित करने के लिए नकारात्मक मानों का उपयोग करें।
+            portion.getPortionFormat().setSpacing(3); // अक्षर अंतराल बढ़ाएँ।
         }
     }
 
@@ -288,16 +256,19 @@ try {
 
 ![पाठ भागों में अक्षर अंतराल](character_spacing_in_text_portions.png)
 
-### **विशिष्ट फ़ॉन्ट्स के लिए कर्निंग अक्षम करें**
+### **विशिष्ट फ़ॉन्ट्स के लिए कर्निंग निष्क्रिय करें**
 
-कभी‑कभी, Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में प्रदर्शित समान पाठ से थोड़ा अधिक घनत्व वाला दिख सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए कर्निंग डेटा को नजरअंदाज कर सकता है, भले ही फ़ॉन्ट में वैध कर्निंग जानकारी हो और PowerPoint सेटिंग्स में कर्निंग सक्षम हो।
+कुछ मामलों में, Aspose.Slides द्वारा रेंडर किया गया पाठ PowerPoint में दिखाए गए समान पाठ से थोड़ा अधिक सघन दिख सकता है। यह इसलिए हो सकता है क्योंकि PowerPoint कुछ फ़ॉन्ट्स के लिए कर्निंग डेटा को अनदेखा कर सकता है, भले ही फ़ॉन्ट में मान्य कर्निंग जानकारी हो और PowerPoint सेटिंग्स में कर्निंग सक्षम हो।
 
-ऐसे मामलों में, आप उन टेक्स्ट भागों के लिए कर्निंग अक्षम कर सकते हैं जो प्रभावित फ़ॉन्ट का उपयोग करते हैं। [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) को वास्तविक फ़ॉन्ट आकार से काफी बड़ा मान सेट करें:
+ऐसे मामलों में रेंडर किया गया आउटपुट PowerPoint के करीब लाने के लिये, आप प्रभावित फ़ॉन्ट का उपयोग करने वाले पाठ भागों के लिये कर्निंग को निष्क्रिय कर सकते हैं। वास्तविक फ़ॉन्ट आकार से स्पष्ट रूप से बड़ा मान सेट करने के लिये [BasePortionFormat.setKerningMinimalSize](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#setKerningMinimalSize-float-) को उपयोग करें:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraphs = autoShape.getTextFrame().getParagraphs();
     const paragraphCount = paragraphs.getCount();
     const targetFont = "Roboto";
@@ -327,22 +298,26 @@ try {
 }
 ```
 
-यह सेटिंग मेल खाने वाले टेक्स्ट भागों पर कर्निंग लागू होने से रोकती है और Aspose.Slides के रेंडरिंग को PowerPoint के दृश्य आउटपुट के साथ संरेखित करने में मदद कर सकती है।
+यह सेटिंग समान पाठ भागों पर कर्निंग लागू होने से रोकती है और इस PowerPoint-विशिष्ट व्यवहार से प्रभावित फ़ॉन्ट्स के लिये Aspose.Slides रेंडरिंग को PowerPoint के दृश्य आउटपुट के साथ संरेखित करने में मदद कर सकती है।
 
 ## **पाठ फ़ॉन्ट गुण प्रबंधित करें**
 
-फ़ॉन्ट गुण को पैराग्राफ स्तर पर [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) के माध्यम से या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/portionformat/) के माध्यम से सेट किया जा सकता है।
+फ़ॉन्ट गुणों को अनुच्छेद स्तर पर [ParagraphFormat.getDefaultPortionFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#getDefaultPortionFormat--) के माध्यम से या व्यक्तिगत भागों पर [PortionFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/portionformat/) के माध्यम से सेट किया जा सकता है।
 
-निम्नलिखित कोड पूरे अनुच्छेद के लिए फ़ॉन्ट और टेक्स्ट शैली सेट करता है: यह सभी भागों में फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन और Times New Roman फ़ॉन्ट लागू करता है।
+निम्नलिखित कोड पूरे अनुच्छेद के लिये फ़ॉन्ट और पाठ शैली सेट करता है: यह फ़ॉन्ट आकार, बोल्ड, इटैलिक, डॉटेड अंडरलाइन, और Times New Roman फ़ॉन्ट को अनुच्छेद के सभी भागों पर लागू करता है।
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const defaultPortionFormat = paragraph.getParagraphFormat().getDefaultPortionFormat();
 
-    // अनुच्छेद के फ़ॉन्ट गुण सेट करें।
+    // अनुच्छेद के लिए फ़ॉन्ट गुण सेट करें।
     defaultPortionFormat.setFontHeight(12);
     defaultPortionFormat.setFontBold(java.newByte(aspose.slides.NullableBool.True));
     defaultPortionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
@@ -359,12 +334,16 @@ try {
 
 ![अनुच्छेद के फ़ॉन्ट गुण](font_properties_for_paragraph.png)
 
-निम्नलिखित कोड उदाहरण **बोल्ड फ़ॉन्ट वाले टेक्स्ट भागों** पर समान गुण लागू करता है:
+नीचे दिया गया कोड उदाहरण समान गुणों को **बोल्ड फ़ॉन्ट वाले पाठ भागों** पर लागू करता है:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     const portions = paragraph.getPortions();
     const portionCount = portions.getCount();
@@ -374,7 +353,7 @@ try {
         if (portion.getPortionFormat().getEffective().getFontBold()) {
             const portionFormat = portion.getPortionFormat();
 
-            // टेक्स्ट भाग के लिए फ़ॉन्ट गुण सेट करें।
+            // पाठ भाग के लिए फ़ॉन्ट गुण सेट करें।
             portionFormat.setFontHeight(13);
             portionFormat.setFontItalic(java.newByte(aspose.slides.NullableBool.True));
             portionFormat.setFontUnderline(java.newByte(aspose.slides.TextUnderlineType.Dotted));
@@ -394,14 +373,18 @@ try {
 
 ## **पाठ घुमाव सेट करें**
 
-टेक्स्ट को किसी आकार के भीतर पूर्वनिर्धारित अभिविन्यास सेट करने के लिए [TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) का उपयोग करें।
+[TextFrameFormat.setTextVerticalType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setTextVerticalType-byte-) का उपयोग करके आकार के भीतर पूर्वनिर्धारित पाठ अभिविन्यास सेट करें।
 
-निम्नलिखित कोड उदाहरण आकार में टेक्स्ट अभिविन्यास को `Vertical270` पर सेट करता है, जो पाठ को **90 डिग्री घड़ी की विपरीत दिशा में** घुमा देता है:
+निम्नलिखित कोड उदाहरण आकार में पाठ अभिविन्यास को `Vertical270` पर सेट करता है, जो पाठ को **90 डिग्री प्रतिक्लॉकवाइस** घुमा देता है:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setTextVerticalType(java.newByte(aspose.slides.TextVerticalType.Vertical270));
 
@@ -415,16 +398,19 @@ try {
 
 ![पाठ घुमाव](text_rotation.png)
 
-## **टेक्स्ट फ़्रेम्स के लिए कस्टम घुमाव सेट करें**
+## **टेक्स्ट फ्रेम्स के लिए कस्टम घुमाव सेट करें**
 
-[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) का उपयोग करके आप किसी [TextFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframe/) के लिए कस्टम घुमाव कोण सेट कर सकते हैं।
+[TextFrameFormat.setRotationAngle](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setRotationAngle-float-) का उपयोग करके किसी [TextFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframe/) के लिये कस्टम घुमाव कोण सेट करें।
 
-निम्नलिखित कोड उदाहरण आकार के भीतर टेक्स्ट फ़्रेम को 3 डिग्री घड़ी की दिशा में घुमाता है:
+नीचे दिया गया कोड उदाहरण आकार के भीतर टेक्स्ट फ्रेम को 3 डिग्री क्लॉकवाइस घुमा देता है:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setRotationAngle(3);
 
@@ -436,21 +422,24 @@ try {
 
 परिणाम:
 
-![कस्टम टेक्स्ट घुमाव](custom_text_rotation.png)
+![कस्टम पाठ घुमाव](custom_text_rotation.png)
 
 ## **अनुच्छेदों की लाइन स्पेसिंग सेट करें**
 
-Aspose.Slides द्वारा प्रदान किए गए [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-), और [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) का उपयोग करके आप पैराग्राफ स्पेसिंग नियंत्रित कर सकते हैं। इन गुणों का उपयोग इस प्रकार किया जाता है:
+Aspose.Slides [ParagraphFormat.setSpaceAfter](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setSpaceAfter-float-), [ParagraphFormat.setSpaceBefore](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setSpaceBefore-float-), और [ParagraphFormat.setSpaceWithin](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setSpaceWithin-float-) प्रदान करता है ताकि अनुच्छेद स्पेसिंग को नियंत्रित किया जा सके। इन गुणों का उपयोग इस प्रकार किया जाता है:
 
-* लाइन स्पेसिंग को लाइन की ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने के लिए सकारात्मक मान उपयोग करें।
-* लाइन स्पेसिंग को पॉइंट्स में निर्दिष्ट करने के लिए नकारात्मक मान उपयोग करें।
+* लाइन स्पेसिंग को लाइन ऊँचाई के प्रतिशत के रूप में निर्दिष्ट करने हेतु सकारात्मक मान उपयोग करें।
+* लाइन स्पेसिंग को बिंदुओं में निर्दिष्ट करने हेतु नकारात्मक मान उपयोग करें।
 
-निम्नलिखित कोड उदाहरण पैराग्राफ के भीतर लाइन स्पेसिंग निर्दिष्ट करता है:
+निम्नलिखित कोड उदाहरण दर्शाता है कि कैसे अनुच्छेद के भीतर लाइन स्पेसिंग निर्दिष्ट करें:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setSpaceWithin(200);
@@ -465,14 +454,18 @@ try {
 
 ![अनुच्छेद के भीतर लाइन स्पेसिंग](line_spacing.png)
 
-## **टेक्स्ट फ़्रेम्स के लिए ऑटोफिट प्रकार सेट करें**
+## **टेक्स्ट फ्रेम्स के लिए ऑटोफ़िट प्रकार सेट करें**
 
-[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) निर्धारित करता है कि जब पाठ अपने कंटेनर की सीमाओं से बाहर हो जाता है तो वह कैसे व्यवहार करता है। इसका उपयोग यह नियंत्रित करने के लिए किया जाता है कि पाठ छोटा हो, अधिक हो, या आकार स्वतः बदलता रहे।
+[TextFrameFormat.setAutofitType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setAutofitType-byte-) निर्धारित करता है कि कंटेनर की सीमा से अधिक होने पर पाठ कैसे व्यवहार करता है। इसका उपयोग करके आप नियंत्रित कर सकते हैं कि पाठ छोटा हो, ओवरफ़्लो हो, या आकार को स्वतः पुनः आकार दे।
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAutofitType(java.newByte(aspose.slides.TextAutofitType.Shape));
 
@@ -482,14 +475,18 @@ try {
 }
 ```
 
-## **टेक्स्ट फ़्रेम्स का एंकर सेट करें**
+## **टेक्स्ट फ्रेम्स का एंकर सेट करें**
 
-[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) आकार के भीतर टेक्स्ट को लंबवत रूप से कहाँ स्थित किया जाए, जैसे शीर्ष, मध्य या नीचे, इसे निर्धारित करता है।
+[TextFrameFormat.setAnchoringType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textframeformat/#setAnchoringType-byte-) निर्धारित करता है कि आकार के भीतर पाठ को लंबवत रूप से कैसे स्थित किया जाए, उदाहरण के लिये शीर्ष, मध्य, या निचले हिस्से में।
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
 
     autoShape.getTextFrame().getTextFrameFormat().setAnchoringType(java.newByte(aspose.slides.TextAnchorType.Bottom));
 
@@ -499,14 +496,18 @@ try {
 }
 ```
 
-## **टेक्स्ट टैबुलेशन सेट करें**
+## **पाठ टॅबुलेशन सेट करें**
 
-टैब स्टॉप को कॉन्फ़िगर करने के लिए [ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) और [ParagraphFormat.getTabs](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#getTabs--) का उपयोग करें।
+[ParagraphFormat.setDefaultTabSize](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#setDefaultTabSize-float-) और [ParagraphFormat.getTabs](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraphformat/#getTabs--) का उपयोग करके अनुच्छेद में टैब स्टॉप्स कॉन्फ़िगर करें।
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation("sample.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
 
     paragraph.getParagraphFormat().setDefaultTabSize(100);
@@ -522,16 +523,19 @@ try {
 
 ![अनुच्छेद टैब्स](paragraph_tabs.png)
 
-## **प्रूफिंग भाषा सेट करें**
+## **प्रूफ़िंग भाषा सेट करें**
 
-Aspose.Slides द्वारा प्रदान किया गया [PortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) आपको टेक्स्ट भाग के लिए प्रूफिंग भाषा सेट करने की अनुमति देता है। प्रूफिंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिए उपयोग की जाने वाली भाषा निर्धारित करती है।
+Aspose.Slides [BasePortionFormat.setLanguageId](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#setLanguageId-java.lang.String-) प्रदान करता है, जो आपको टेक्स्ट भाग के लिये प्रूफ़िंग भाषा सेट करने की अनुमति देता है। प्रूफ़िंग भाषा PowerPoint में वर्तनी और व्याकरण जांच के लिये उपयोग की जाने वाली भाषा निर्धारित करती है।
 
-निम्नलिखित कोड उदाहरण टेक्स्ट भाग के लिए प्रूफिंग भाषा सेट करता है:
+निम्नलिखित कोड उदाहरण दिखाता है कि कैसे टेक्स्ट भाग के लिये प्रूफ़िंग भाषा सेट की जाए:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const paragraph = autoShape.getTextFrame().getParagraphs().get_Item(0);
     paragraph.getPortions().clear();
 
@@ -544,7 +548,7 @@ try {
     // प्रूफ़िंग भाषा का Id सेट करें।
     textPortion.getPortionFormat().setLanguageId("zh-CN");
 
-    textPortion.setText("1.");
+    textPortion.setText("1。");
     paragraph.getPortions().add(textPortion);
 
     presentation.save("proofing_language.pptx", aspose.slides.SaveFormat.Pptx);
@@ -555,9 +559,11 @@ try {
 
 ## **डिफ़ॉल्ट भाषा सेट करें**
 
-[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) का उपयोग करके आप प्रस्तुति लोड या बनाते समय बनाए गए पाठ की डिफ़ॉल्ट भाषा निर्धारित कर सकते हैं।
+[LoadOptions.setDefaultTextLanguage](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/loadoptions/#setDefaultTextLanguage-java.lang.String-) का उपयोग करके प्रस्तुति लोड या बनाते समय निर्मित पाठ के लिये डिफ़ॉल्ट भाषा निर्धारित करें।
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const loadOptions = new aspose.slides.LoadOptions();
 loadOptions.setDefaultTextLanguage("en-US");
 
@@ -565,11 +571,11 @@ const presentation = new aspose.slides.Presentation(loadOptions);
 try {
     const slide = presentation.getSlides().get_Item(0);
 
-    // नई आयताकार आकृति को पाठ के साथ जोड़ें।
+    // एक नया आयताकार आकार टेक्स्ट के साथ जोड़ें।
     const shape = slide.getShapes().addAutoShape(aspose.slides.ShapeType.Rectangle, 20, 20, 150, 50);
     shape.getTextFrame().setText("Sample text");
 
-    // पहले भाग की भाषा जाँचें।
+    // पहले भाग की भाषा जांचें।
     const portion = shape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
     console.log(portion.getPortionFormat().getLanguageId());
 } finally {
@@ -577,16 +583,19 @@ try {
 }
 ```
 
-## **डिफ़ॉल्ट टेक्स्ट स्टाइल सेट करें**
+## **डिफ़ॉल्ट टेक्स्ट शैली सेट करें**
 
-प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिए [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--) का उपयोग करें।
+प्रस्तुति स्तर पर डिफ़ॉल्ट टेक्स्ट फ़ॉर्मेटिंग लागू करने के लिये, [Presentation.getDefaultTextStyle](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/#getDefaultTextStyle--) का उपयोग करें।
 
-निम्नलिखित कोड उदाहरण नई प्रस्तुति में सभी स्लाइड्स के लिए 14 pt आकार का डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट करता है।
+निम्नलिखित कोड उदाहरण दर्शाता है कि कैसे नई प्रस्तुति में सभी स्लाइड्स के सभी पाठ के लिये 14 पॉइंट आकार के साथ डिफ़ॉल्ट बोल्ड फ़ॉन्ट सेट किया जाए।
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+const java = require("java");
+
 const presentation = new aspose.slides.Presentation();
 try {
-    // शीर्ष स्तर पैराग्राफ फ़ॉर्मेट प्राप्त करें।
+    // शीर्ष स्तर के अनुच्छेद फ़ॉर्मेट प्राप्त करें।
     const paragraphFormat = presentation.getDefaultTextStyle().getLevel(0);
 
     if (paragraphFormat !== null) {
@@ -600,20 +609,23 @@ try {
 }
 ```
 
-## **ऑल-कैप्स प्रभाव के साथ पाठ निकालें**
+## **ऑल-कैप्स इफ़ेक्ट के साथ पाठ निकालें**
 
-PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से स्लाइड पर पाठ बड़े अक्षरों में दिखता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसा पाठ भाग पुनः प्राप्त करते हैं, तो लाइब्रेरी पाठ को ठीक वैसे ही लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित पाठ से मेल खाने के लिए, [TextCapType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textcaptype/) जांचें और जब मान `All` हो तो लौटाए गए स्ट्रिंग को अपरकेस में बदलें।
+PowerPoint में **All Caps** फ़ॉन्ट प्रभाव लागू करने से पाठ स्लाइड पर बड़े अक्षरों में दिखता है, भले ही वह मूल रूप से छोटे अक्षरों में टाइप किया गया हो। जब आप Aspose.Slides के साथ ऐसे पाठ भाग को प्राप्त करते हैं, तो लाइब्रेरी पाठ को बिल्कुल वही रूप में लौटाती है जैसा वह दर्ज किया गया था। प्रदर्शित पाठ से मेल खाने के लिये, [TextCapType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/textcaptype/) जाँचें और जब मान `All` हो, तब लौटाए गए स्ट्रिंग को बड़े अक्षरों में बदलें।
 
 मान लीजिए हमारे पास sample2.pptx फ़ाइल की पहली स्लाइड पर निम्नलिखित टेक्स्ट बॉक्स है।
 
 ![ऑल कैप्स प्रभाव](all_caps_effect.png)
 
-नीचे दिया गया कोड उदाहरण **All Caps** प्रभाव लागू किए गए पाठ को निकालता है:
+नीचे दिया गया कोड उदाहरण दर्शाता है कि कैसे **All Caps** प्रभाव लागू किए हुए पाठ को निकालें:
 
 ```javascript
+const aspose = { slides: require("aspose.slides.via.java") };
+
 const presentation = new aspose.slides.Presentation("sample2.pptx");
 try {
-    const autoShape = presentation.getSlides().get_Item(0).getShapes().get_Item(0);
+    const slide = presentation.getSlides().get_Item(0);
+    const autoShape = slide.getShapes().get_Item(0);
     const textPortion = autoShape.getTextFrame().getParagraphs().get_Item(0).getPortions().get_Item(0);
 
     console.log("Original text: " + textPortion.getText());
@@ -637,10 +649,10 @@ All-Caps effect: HELLO, ASPOSE!
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**स्लाइड पर टेबल में पाठ को कैसे संशोधित करें?**
+**स्लाइड पर तालिका में पाठ को कैसे संशोधित करें?**
 
-स्लाइड पर टेबल में पाठ को संशोधित करने के लिए, [Table](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/table/) का उपयोग करें। सेल्स के माध्यम से इटररेट करें और प्रत्येक सेल को [Cell.getTextFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cell/#getTextFrame--) तथा पैराग्राफ फ़ॉर्मेट को [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) के द्वारा अपडेट करें।
+स्लाइड पर तालिका में पाठ संशोधित करने के लिये, [Table](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/table/) का उपयोग करें। सेल्स के माध्यम से क्रमबद्ध ढंग से जाएँ और प्रत्येक सेल को [Cell.getTextFrame](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/cell/#getTextFrame--) के माध्यम से तथा अनुच्छेद फ़ॉर्मेटिंग को [Paragraph.getParagraphFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/paragraph/#getParagraphFormat--) के माध्यम से अपडेट करें।
 
 **PowerPoint स्लाइड में पाठ पर ग्रेडिएंट रंग कैसे लागू करें?**
 
-ग्रेडिएंट रंग लागू करने के लिए, [PortionFormat.getFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/portionformat/#getFillFormat--) का उपयोग करें। [FillFormat.setFillType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) को [FillType.Gradient](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप, दिशा और पारदर्शिता को कॉन्फ़िगर करें।
+पाठ पर ग्रेडिएंट रंग लागू करने के लिये, [BasePortionFormat.getFillFormat](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/baseportionformat/#getFillFormat--) का उपयोग करें। [FillFormat.setFillType](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fillformat/#setFillType-byte-) को [FillType.Gradient](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/filltype/) पर सेट करें और ग्रेडिएंट स्टॉप्स, दिशा, तथा पारदर्शिता को कॉन्फ़िगर करें।

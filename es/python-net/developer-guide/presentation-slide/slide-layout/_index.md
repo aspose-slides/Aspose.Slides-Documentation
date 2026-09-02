@@ -1,16 +1,16 @@
 ---
-title: Aplicar o cambiar diseños de diapositiva en Python
-linktitle: Diseño de diapositiva
+title: Aplicar o cambiar distribuciones de diapositivas en Python
+linktitle: Distribución de diapositiva
 type: docs
 weight: 60
 url: /es/python-net/slide-layout/
 keywords:
-- diseño de diapositiva
-- diseño de contenido
+- distribución de diapositiva
+- distribución de contenido
 - marcador de posición
 - diseño de presentación
 - diseño de diapositiva
-- diseño no utilizado
+- distribución no usada
 - visibilidad del pie de página
 - diapositiva de título
 - título y contenido
@@ -18,226 +18,211 @@ keywords:
 - dos contenidos
 - comparación
 - solo título
-- diseño en blanco
+- distribución en blanco
 - contenido con leyenda
 - imagen con leyenda
 - título y texto vertical
 - título vertical y texto
 - PowerPoint
 - OpenDocument
+- presentación
 - Python
 - Aspose.Slides
-description: "Aprenda cómo gestionar y personalizar los diseños de diapositiva en Aspose.Slides para Python a través de .NET. Explore los tipos de diseños, el control de marcadores de posición, la visibilidad del pie de página y la manipulación de diseños mediante ejemplos de código en Python."
+description: "Aplicar, crear y modificar distribuciones de diapositivas en Aspose.Slides para Python mediante .NET, añadir marcadores de posición, eliminar distribuciones no usadas y controlar la visibilidad del pie de página."
 ---
+## **Visión general**
 
-## **Resumen**
+Una distribución de diapositiva define la posición y el formato de los marcadores de posición, como títulos, texto, imágenes, gráficos y tablas. Aplicar una distribución otorga a las diapositivas una estructura coherente mientras permite que cada diapositiva contenga su propio contenido.
 
-Un diseño de diapositiva define la disposición de los cuadros de marcador de posición y el formato del contenido en una diapositiva. Controla qué marcadores de posición están disponibles y dónde aparecen. Los diseños de diapositiva le ayudan a crear presentaciones rápida y consistentemente, ya sea que esté creando algo sencillo o más complejo. Algunos de los diseños de diapositiva más comunes en PowerPoint incluyen:
+Las distribuciones más habituales son:
 
-**Diseño de diapositiva de título** – Incluye dos marcadores de posición de texto: uno para el título y otro para el subtítulo.
+- **Diapositiva de título**: Contiene marcadores de posición para el título y el subtítulo.  
+- **Título y contenido**: Contiene un marcador de posición para el título y otro de contenido de uso general.  
+- **En blanco**: No contiene marcadores de posición y resulta útil cuando cada forma se posicionará manualmente.
 
-**Diseño de título y contenido** – Presenta un marcador de posición de título más pequeño en la parte superior y uno más grande debajo para el contenido principal (texto, viñetas, gráficos, imágenes y más).
+## **Comprender la herencia de distribuciones**
 
-**Diseño en blanco** – No contiene marcadores de posición, dándole control total para diseñar la diapositiva desde cero.
+Una presentación tiene tres niveles relacionados:
 
-Los diseños de diapositiva forman parte de una diapositiva maestra, que es la diapositiva de nivel superior que define los estilos de diseño para la presentación. Puede acceder y modificar las diapositivas de diseño a través de la diapositiva maestra, ya sea por su tipo, nombre o ID único. Alternativamente, puede editar una diapositiva de diseño específica directamente dentro de la presentación.
+1. Una [diapositiva maestra](https://reference.aspose.com/slides/es/python-net/aspose.slides/masterslide/) define el tema, el formato compartido, los fondos y los objetos comunes.  
+1. Una [diapositiva de distribución](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/) pertenece a una maestra y define una disposición concreta de marcadores de posición.  
+1. Una [diapositiva normal](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/) utiliza una distribución y almacena el contenido introducido para esa diapositiva.
 
-Para trabajar con diseños de diapositiva en Aspose.Slides for Python, puede usar:
+Una diapositiva normal hereda el tema y el formato de su distribución, y la distribución hereda de su maestra. Un valor establecido directamente en una diapositiva normal sobrescribe el valor heredado en ese nivel. Cuando se crea una diapositiva normal, sus formas de marcador de posición se generan a partir de la distribución seleccionada, mientras que el contenido introducido en esos marcadores pertenece a la diapositiva normal.
 
-- Propiedades como [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) y [masters](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/masters/) bajo la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/)
-- Tipos como [LayoutSlide](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/), [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/), [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) y [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslideheaderfootermanager/)
+Añada los marcadores de posición necesarios a una distribución antes de crear diapositivas a partir de ella. Añadir otro marcador de posición a una distribución más adelante no añade automáticamente una forma de marcador correspondiente a las diapositivas normales ya existentes.
 
-{{% alert title="Info" color="info" %}}
-Para obtener más información sobre el uso de diapositivas maestras, consulte el artículo [Administrar diapositivas maestras de PowerPoint en Python](/slides/es/python-net/slide-master/).
-{{% /alert %}}
+Esta relación tiene dos consecuencias importantes:
 
-## **Agregar diseños de diapositiva a presentaciones**
+- Cambiar el formato heredado o la geometría de un marcador de posición existente en una distribución puede actualizar todas las diapositivas que dependen de ella. Antes de editar una distribución que ya está en uso, inspeccione sus diapositivas dependientes y revise la presentación resultante.  
+- Una distribución que aún sea utilizada por alguna diapositiva no puede eliminarse. Reasigne primero sus diapositivas dependientes a otra distribución, o elimine sólo las distribuciones no usadas.
 
-Para personalizar la apariencia y la estructura de sus diapositivas, puede que necesite agregar nuevos diseños a una presentación. Aspose.Slides for Python le permite comprobar si un diseño específico ya existe, agregar uno nuevo si es necesario y usarlo para insertar diapositivas basadas en ese diseño.
+Para obtener más información sobre el nivel superior de esta jerarquía, consulte [Maestra de diapositivas](/slides/es/python-net/slide-master/).
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Acceda a la [MasterLayoutSlideCollection](https://reference.aspose.com/slides/python-net/aspose.slides/masterlayoutslidecollection/).
-1. Verifique si el diseño de diapositiva deseado ya existe en la colección. Si no, añada el diseño que necesita.
-1. Agregue una diapositiva en blanco basada en el nuevo diseño.
-1. Guarde la presentación.
+## **Seleccionar y aplicar una distribución de diapositiva**
 
-El siguiente código Python muestra cómo agregar un diseño de diapositiva a una presentación de PowerPoint:
+Utilice un tipo de distribución cuando la presentación siga las definiciones estándar de PowerPoint. Los nombres de las distribuciones son editables por el usuario y pueden localizarse, de modo que la selección basada en nombres es menos fiable a menos que controle la plantilla fuente.
+
+El siguiente ejemplo busca **Título y contenido** en la primera maestra. Si esa distribución no está disponible, recurre deliberadamente a **En blanco**. La segunda comprobación de nulo es necesaria porque una presentación puede contener sólo distribuciones personalizadas. La distribución seleccionada se aplica entonces a la primera diapositiva normal mediante la propiedad [Slide.layout_slide](https://reference.aspose.com/slides/es/python-net/aspose.slides/slide/layout_slide/).
+
 ```python
 import aspose.slides as slides
 
-# Instanciar la clase Presentation para abrir el archivo de presentación.
-with slides.Presentation("sample.pptx") as presentation:
-    # Recorrer los tipos de diapositivas de diseño para seleccionar una diapositiva de diseño.
+with slides.Presentation("input.pptx") as presentation:
     layout_slides = presentation.masters[0].layout_slides
-    layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
-    if layout_slide is None:
-         layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.TITLE)
+    target_layout = layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
-    if layout_slide is None:
-        # Una situación en la que la presentación no contiene todos los tipos de diseño.
-        # El archivo de presentación contiene solo los tipos de diseño Blank y Custom.
-        # Sin embargo, las diapositivas de diseño con tipos personalizados pueden tener nombres reconocibles,
-        # como "Title", "Title and Content", etc., que pueden usarse para la selección de la diapositiva de diseño.
-        # También puede basarse en un conjunto de tipos de formas de marcador de posición.
-        # Por ejemplo, una diapositiva Title debería tener solo el tipo de marcador de posición Title, y así sucesivamente.
-        for title_and_object_layout_slide in layout_slides:
-            if title_and_object_layout_slide.name == "Title and Object":
-                layout_slide = title_and_object_layout_slide
-                break
+    if target_layout is None:
+        target_layout = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-        if layout_slide is None:
-            for title_layout_slide in layout_slides:
-                if title_layout_slide.name == "Title":
-                    layout_slide = title_layout_slide
-                    break
+    if target_layout is None:
+        raise RuntimeError("The first master does not contain a suitable layout slide.")
 
-            if layout_slide is None:
-                layout_slide = layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
-                if layout_slide is None:
-                    layout_slide = layout_slides.Add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Title and Object")
-
-    # Add an empty slide using the added layout slide.
-    presentation.slides.insert_empty_slide(0, layout_slide)
-
-    # Save the presentation to disk.
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides[0].layout_slide = target_layout
+    presentation.save("output-with-new-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Cambiar la distribución de una diapositiva no elimina las formas ordinarias añadidas directamente a la diapositiva. Sin embargo, las posiciones de los marcadores de posición, el formato heredado y la correspondencia entre los marcadores existentes y la nueva distribución pueden cambiar, por lo que se debe inspeccionar el resultado al alternar entre distribuciones sustancialmente diferentes.
 
-## **Eliminar diseños de diapositiva no utilizados**
+## **Añadir una distribución de diapositiva**
 
-Aspose.Slides proporciona el método [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) de la clase [Compress](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/) para permitirle eliminar diseños de diapositiva no deseados y no utilizados.
+La selección y la creación son operaciones distintas. El ejemplo anterior selecciona una distribución existente; no la crea. Para crear una distribución, invoque el método [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/es/python-net/aspose.slides/masterlayoutslidecollection/add/) sobre la colección de distribuciones de la maestra de destino.
 
-El siguiente código Python muestra cómo eliminar un diseño de diapositiva de una presentación de PowerPoint:
+El siguiente ejemplo siempre añade una nueva distribución **Título y contenido** llamada `Report Title and Content`, y después añade una diapositiva normal basada en ella. Los nombres de las distribuciones deben ser únicos dentro de la colección.
+
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+with slides.Presentation("input.pptx") as presentation:
+    master_slide = presentation.masters[0]
+    report_layout = master_slide.layout_slides.add(slides.SlideLayoutType.TITLE_AND_OBJECT, "Report Title and Content")
+    presentation.slides.add_empty_slide(report_layout)
+
+    presentation.save("output-with-report-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Añada una distribución solo cuando la plantilla necesite realmente otra estructura reutilizable. Si ya existe una distribución adecuada, selecciónela y reutilícela en lugar de crear un duplicado.
 
-## **Agregar marcadores de posición a diseños de diapositiva**
+## **Añadir marcadores de posición a una distribución de diapositiva**
 
-Aspose.Slides proporciona la propiedad [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutslide/placeholder_manager/), que le permite agregar nuevos marcadores de posición a un diseño de diapositiva.
+La propiedad [LayoutSlide.placeholder_manager](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/placeholder_manager/) proporciona un [LayoutPlaceholderManager](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/) para agregar formas de marcador de posición a una distribución.
 
-Este administrador contiene métodos para los siguientes tipos de marcadores de posición:
+| Marcador de posición de PowerPoint | Método `LayoutPlaceholderManager` |
+| ----------------------------------- | --------------------------------- |
+| ![Contenido](content.png)           | [`add_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_content_placeholder/) |
+| ![Contenido (Vertical)](contentV.png) | [`add_vertical_content_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_content_placeholder/) |
+| ![Texto](text.png)                 | [`add_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_text_placeholder/) |
+| ![Texto (Vertical)](textV.png)     | [`add_vertical_text_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_vertical_text_placeholder/) |
+| ![Imagen](picture.png)             | [`add_picture_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_picture_placeholder/) |
+| ![Gráfico](chart.png)               | [`add_chart_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_chart_placeholder/) |
+| ![Tabla](table.png)                 | [`add_table_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_table_placeholder/) |
+| ![SmartArt](smartart.png)           | [`add_smart_art_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_smart_art_placeholder/) |
+| ![Multimedia](media.png)            | [`add_media_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_media_placeholder/) |
+| ![Imagen en línea](onlineImage.png) | [`add_online_image_placeholder(x, y, width, height)`](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutplaceholdermanager/add_online_image_placeholder/) |
 
-| Marcador de posición de PowerPoint | Método de [LayoutPlaceholderManager](https://reference.aspose.com/slides/python-net/aspose.slides/layoutplaceholdermanager/) |
-| ----------------------------------- | ------------------------------------------------------------ |
-| ![Contenido](content.png) | add_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Contenido (Vertical)](contentV.png) | add_vertical_content_placeholder(x: float, y: float, width: float, height: float) |
-| ![Texto](text.png) | add_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Texto (Vertical)](textV.png) | add_vertical_text_placeholder(x: float, y: float, width: float, height: float) |
-| ![Imagen](picture.png) | add_picture_placeholder(x: float, y: float, width: float, height: float) |
-| ![Gráfico](chart.png) | add_chart_placeholder(x: float, y: float, width: float, height: float) |
-| ![Tabla](table.png) | add_table_placeholder(x: float, y: float, width: float, height: float) |
-| ![SmartArt](smartart.png) | add_smart_art_placeholder(x: float, y: float, width: float, height: float) |
-| ![Medios](media.png) | add_media_placeholder(x: float, y: float, width: float, height: float) |
-| ![Imagen en línea](onlineimage.png) | add_online_image_placeholder(x: float, y: float, width: float, height: float) |
+El siguiente ejemplo verifica que la distribución **En blanco** exista, añade cuatro marcadores de posición a ella y, a continuación, crea una diapositiva normal que utiliza la distribución modificada. El orden es intencional: los marcadores se añaden antes de crear la diapositiva normal, de modo que Aspose.Slides pueda generar las formas de marcador correspondientes en esa diapositiva.
 
-El siguiente código Python muestra cómo agregar nuevas formas de marcador de posición al diseño en blanco:
-```py
+```python
 import aspose.slides as slides
 
 with slides.Presentation() as presentation:
-    # Obtener la diapositiva de diseño en blanco.
-    layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+    blank_layout = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
 
-    # Obtener el administrador de marcadores de posición de la diapositiva de diseño.
-    placeholder_manager = layout.placeholder_manager
+    if blank_layout is None:
+        raise RuntimeError("The presentation does not contain a Blank layout slide.")
 
-    # Añadir diferentes marcadores de posición a la diapositiva de diseño en blanco.
+    placeholder_manager = blank_layout.placeholder_manager
     placeholder_manager.add_content_placeholder(20, 20, 310, 270)
     placeholder_manager.add_vertical_text_placeholder(350, 20, 350, 270)
     placeholder_manager.add_chart_placeholder(20, 310, 310, 180)
     placeholder_manager.add_table_placeholder(350, 310, 350, 180)
 
-    # Añadir una nueva diapositiva con el diseño en blanco.
-    new_slide = presentation.slides.add_empty_slide(layout)
-
-    presentation.save("placeholders.pptx", slides.export.SaveFormat.PPTX)
+    presentation.slides.add_empty_slide(blank_layout)
+    presentation.save("output-with-placeholders.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 El resultado:
 
-![Los marcadores de posición en el diseño de diapositiva](add_placeholders.png)
+![Los marcadores de posición en la diapositiva de distribución](add_placeholders.png)
 
-## **Establecer visibilidad del pie de página para un diseño de diapositiva**
+{{% alert color="warning" title="Warning" %}}
+Cambiar el formato heredado o la geometría de los marcadores de posición existentes en una distribución puede afectar a las diapositivas dependientes. Un marcador de posición recién añadido a una distribución no se retropropaga a las diapositivas normales ya existentes. Pruebe los cambios de distribución en una copia de la presentación y examine cada diapositiva dependiente.
+{{% /alert %}}
 
-En presentaciones de PowerPoint, los elementos de pie de página como la fecha, el número de diapositiva y el texto personalizado pueden mostrarse u ocultarse según el diseño de la diapositiva. Aspose.Slides for Python le permite controlar la visibilidad de estos marcadores de posición de pie de página. Esto es útil cuando desea que ciertos diseños muestren información de pie de página mientras que otros se mantengan limpios y minimalistas.
+## **Eliminar distribuciones de diapositiva no usadas**
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtenga una referencia al diseño de diapositiva por su índice.
-1. Establezca el marcador de posición del pie de página como visible.
-1. Establezca el marcador de posición del número de diapositiva como visible.
-1. Establezca el marcador de posición de fecha y hora como visible.
-1. Guarde la presentación.
+Utilice el método [Compress.remove_unused_layout_slides](https://reference.aspose.com/slides/es/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) para eliminar las distribuciones que no están referenciadas por ninguna diapositiva normal. El método deja intactas las distribuciones que siguen en uso.
 
-El siguiente código Python muestra cómo establecer la visibilidad del pie de página de una diapositiva y realizar tareas relacionadas:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("sample.pptx") as presentation:
-    header_footer_manager = presentation.layout_slides[0].header_footer_manager
-
-    if not header_footer_manager.is_footer_visible: 
-        header_footer_manager.set_footer_visibility(True) 
-
-    if not header_footer_manager.is_slide_number_visible:  
-        header_footer_manager.set_slide_number_visibility(True) 
-
-    if not header_footer_manager.is_date_time_visible: 
-        header_footer_manager.set_date_time_visibility(True)
-
-    header_footer_manager.set_footer_text("Footer text") 
-    header_footer_manager.set_date_time_text("Date and time text") 
-
-    presentation.save("output.ppt", slides.export.SaveFormat.PPT)
+with slides.Presentation("input.pptx") as presentation:
+    slides.lowcode.Compress.remove_unused_layout_slides(presentation)
+    presentation.save("output-without-unused-layouts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
+Para eliminar una distribución concreta, primero use su propiedad [has_depending_slides](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/has_depending_slides/) o el método [get_depending_slides](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/get_depending_slides/). Reasigne cualquier diapositiva dependiente antes de llamar a [LayoutSlide.remove](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/remove/). Intentar eliminar una distribución que está en uso genera una [PptxEditException](https://reference.aspose.com/slides/es/python-net/aspose.slides/pptxeditexception/).
 
-## **Establecer visibilidad del pie de página hijo para una diapositiva**
+## **Controlar la visibilidad del pie de página en una distribución de diapositiva**
 
-​En presentaciones de PowerPoint, los elementos de pie de página como la fecha, el número de diapositiva y el texto personalizado pueden controlarse a nivel de diapositiva maestra para garantizar consistencia en todas las diapositivas de diseño. Aspose.Slides for Python le permite establecer la visibilidad y el contenido de estos marcadores de posición de pie de página en la diapositiva maestra y propagar estos ajustes a todas las diapositivas de diseño hijas. Esta abordagem garantiza información de pie de página uniforme en toda la presentación.​
+Una distribución tiene sus propios marcadores de posición de pie de página, número de diapositiva y fecha/hora. Utilice la propiedad [LayoutSlide.header_footer_manager](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/header_footer_manager/) para controlar esos marcadores en una distribución concreta. Esto resulta útil, por ejemplo, cuando las distribuciones de contenido deben mostrar pies de página pero las de título no.
 
-1. Cree una instancia de la clase [Presentation](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/).
-1. Obtenga una referencia a la diapositiva maestra por su índice.
-1. Establezca los marcadores de posición de pie de página de la maestra y de todas sus hijas como visibles.
-1. Establezca los marcadores de posición de número de diapositiva de la maestra y de todas sus hijas como visibles.
-1. Establezca los marcadores de posición de fecha y hora de la maestra y de todas sus hijas como visibles.
-1. Guarde la presentación.
+El siguiente ejemplo selecciona una distribución de forma segura y hace visibles sus elementos de pie de página:
 
-El siguiente código Python demuestra esta operación:
 ```python
 import aspose.slides as slides
 
-with slides.Presentation("presentation.pptx") as presentation:
-    header_footer_manager = presentation.masters[0].header_footer_manager
+with slides.Presentation("input.pptx") as presentation:
+    layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.TITLE_AND_OBJECT)
 
+    if layout_slide is None:
+        layout_slide = presentation.layout_slides.get_by_type(slides.SlideLayoutType.BLANK)
+
+    if layout_slide is None:
+        raise RuntimeError("The presentation does not contain a suitable layout slide.")
+
+    header_footer_manager = layout_slide.header_footer_manager
+    header_footer_manager.set_footer_visibility(True)
+    header_footer_manager.set_slide_number_visibility(True)
+    header_footer_manager.set_date_time_visibility(True)
+    header_footer_manager.set_footer_text("Footer text")
+    header_footer_manager.set_date_time_text("Date and time text")
+
+    presentation.save("output-with-layout-footers.pptx", slides.export.SaveFormat.PPTX)
+```
+
+## **Controlar la visibilidad del pie de página en una maestra y sus distribuciones hijas**
+
+Para aplicar configuraciones de pie de página coherentes en toda la jerarquía de una maestra, utilice la propiedad [MasterSlide.header_footer_manager](https://reference.aspose.com/slides/es/python-net/aspose.slides/masterslide/header_footer_manager/). Los métodos de propagación de [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/es/python-net/aspose.slides/masterslideheaderfootermanager/) actúan sobre la maestra y sus diapositivas de distribución y diapositivas normales; no se centran únicamente en una diapositiva normal.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("input.pptx") as presentation:
+    header_footer_manager = presentation.masters[0].header_footer_manager
     header_footer_manager.set_footer_and_child_footers_visibility(True)
     header_footer_manager.set_slide_number_and_child_slide_numbers_visibility(True)
     header_footer_manager.set_date_time_and_child_date_times_visibility(True)
-
     header_footer_manager.set_footer_and_child_footers_text("Footer text")
     header_footer_manager.set_date_time_and_child_date_times_text("Date and time text")
 
-    presentation.save("output.pptx", slides.export.SaveFormat.PPTX)
+    presentation.save("output-with-master-footers.pptx", slides.export.SaveFormat.PPTX)
 ```
-
 
 ## **Preguntas frecuentes**
 
-**¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de diseño?**
+**¿Cuál es la diferencia entre una diapositiva maestra y una diapositiva de distribución?**
 
-Una diapositiva maestra define el tema general y el formato predeterminado, mientras que las diapositivas de diseño definen disposiciones específicas de marcadores de posición para diferentes tipos de contenido.
+Una diapositiva maestra define el tema y el formato compartido de la presentación. Una diapositiva de distribución pertenece a una maestra y define una disposición reutilizable de marcadores de posición. Las diapositivas normales utilizan esas distribuciones y almacenan el contenido específico de cada diapositiva.
 
-**¿Puedo copiar una diapositiva de diseño de una presentación a otra?**
+**¿Puedo copiar una diapositiva de distribución de una presentación a otra?**
 
-Sí, puede clonar una diapositiva de diseño de la colección [layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides/presentation/layout_slides/) de una presentación e insertarla en otra usando el método `add_clone`.
+Sí. Añada una copia a la colección de destino con el método [add_clone](https://reference.aspose.com/slides/es/python-net/aspose.slides/globallayoutslidecollection/add_clone/). Al copiar entre presentaciones, también verifique fuentes, temas, imágenes y demás recursos que utilice la distribución origen.
 
-**¿Qué ocurre si elimino una diapositiva de diseño que aún está siendo usada por una diapositiva?**
+**¿Qué ocurre si modifico una distribución que ya está en uso?**
 
-Si intenta eliminar una diapositiva de diseño que aún es referenciada por al menos una diapositiva en la presentación, Aspose.Slides lanzará una [PptxEditException](https://reference.aspose.com/slides/python-net/aspose.slides/pptxeditexception/). Para evitarlo, use [remove_unused_layout_slides](https://reference.aspose.com/slides/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/), que elimina de forma segura solo los diseños que no están en uso.
+Las diapositivas dependientes heredan los cambios en la distribución, salvo que anulen localmente el formato o los objetos afectados. La geometría de los marcadores y el estilo heredado pueden, por tanto, cambiar en muchas diapositivas a la vez. Use [get_depending_slides](https://reference.aspose.com/slides/es/python-net/aspose.slides/layoutslide/get_depending_slides/) para identificar las diapositivas afectadas antes de editar la distribución.
+
+**¿Qué ocurre si elimino una distribución que sigue en uso?**
+
+Aspose.Slides genera una [PptxEditException](https://reference.aspose.com/slides/es/python-net/aspose.slides/pptxeditexception/). Reasigne primero las diapositivas dependientes o utilice [remove_unused_layout_slides](https://reference.aspose.com/slides/es/python-net/aspose.slides.lowcode/compress/remove_unused_layout_slides/) para eliminar solo las distribuciones no referenciadas.

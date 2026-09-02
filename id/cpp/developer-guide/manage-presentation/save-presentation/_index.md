@@ -1,54 +1,71 @@
 ---
-title: Menyimpan Presentasi dalam C++
+title: Simpan Presentasi dalam C++
 linktitle: Simpan Presentasi
 type: docs
 weight: 80
 url: /id/cpp/save-presentation/
 keywords:
-- menyimpan PowerPoint
-- menyimpan OpenDocument
-- menyimpan presentasi
-- menyimpan slide
-- menyimpan PPT
-- menyimpan PPTX
-- menyimpan ODP
+- simpan PowerPoint
+- simpan OpenDocument
+- simpan presentasi
+- simpan slide
+- simpan PPT
+- simpan PPTX
+- simpan ODP
 - presentasi ke file
 - presentasi ke stream
-- tipe tampilan yang ditentukan
+- tipe tampilan terdefinisi
 - Format Strict Office Open XML
 - mode Zip64
 - menyegarkan thumbnail
 - progres penyimpanan
 - C++
 - Aspose.Slides
-description: "Temukan cara menyimpan presentasi dalam C++ menggunakan Aspose.Slides—mengekspor ke PowerPoint atau OpenDocument sambil mempertahankan tata letak, font, dan efek."
+description: "Temukan cara menyimpan presentasi dalam C++ menggunakan Aspose.Slides—ekspor ke PowerPoint atau OpenDocument sambil mempertahankan tata letak, font, dan efek."
 ---
 ## **Gambaran Umum**
 
-[Open Presentations in C++](/slides/id/cpp/open-presentation/) menjelaskan cara menggunakan kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) untuk membuka sebuah presentasi. Artikel ini menjelaskan cara membuat dan menyimpan presentasi. Kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) berisi isi sebuah presentasi. Baik Anda membuat presentasi dari awal maupun memodifikasi yang sudah ada, Anda perlu menyimpannya setelah selesai. Dengan Aspose.Slides untuk C++, Anda dapat menyimpan ke **file** atau **stream**. Artikel ini menjelaskan berbagai cara menyimpan presentasi.
+[Open Presentations in C++](/slides/id/cpp/open-presentation/) described how to use the [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) class to open a presentation. This article explains how to create and save presentations. The [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) class contains a presentation’s contents. Whether you’re creating a presentation from scratch or modifying an existing one, you’ll want to save it when you’re finished. With Aspose.Slides for C++, you can save to a **file** or **stream**. This article explains the different ways to save a presentation.
 
-## **Menyimpan Presentasi ke File**
+## **Simpan Presentasi ke File**
 
-Simpan presentasi ke file dengan memanggil metode `Save` pada kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/). Berikan nama file dan format penyimpanan ke metode tersebut. Contoh berikut menunjukkan cara menyimpan presentasi dengan Aspose.Slides.
+Save a presentation to a file by calling the [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) class’s `Save` method. Pass the file name and save format to the method. The following example show how to save a presentation with Aspose.Slides.
 
 ```cpp
-// Instansiasi kelas Presentation yang mewakili file presentasi.
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Instansiasi kelas Presentation yang merepresentasikan file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Lakukan beberapa pekerjaan di sini...
 
-// Simpan presentasi ke file.
+// Simpan presentasi ke sebuah file.
 presentation->Save(u"Output.pptx", SaveFormat::Pptx);
 
 presentation->Dispose();
 ```
 
-## **Menyimpan Presentasi ke Stream**
+## **Simpan Presentasi ke Stream**
 
-Anda dapat menyimpan presentasi ke stream dengan memberikan output stream ke metode `Save` pada kelas [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/). Sebuah presentasi dapat ditulis ke banyak tipe stream. Pada contoh di bawah, kami membuat presentasi baru dan menyimpannya ke file stream.
+You can save a presentation to a stream by passing an output stream to the [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) class’s `Save` method. A presentation can be written to many stream types. In the example below, we create a new presentation and save it to a file stream.
 
 ```cpp
-// Instansiasikan kelas Presentation yang mewakili file presentasi.
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <system/io/file_mode.h>
+#include <system/io/file_stream.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+using namespace System::IO;
+
+// Instansiasi kelas Presentation yang merepresentasikan file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 auto fileStream = MakeObject<FileStream>(u"Output.pptx", FileMode::Create);
@@ -60,11 +77,20 @@ presentation->Dispose();
 fileStream->Close();
 ```
 
-## **Menyimpan Presentasi dengan Tipe Tampilan yang Sudah Ditentukan**
+## **Simpan Presentasi dengan Tipe Tampilan yang Telah Ditetapkan**
 
-Aspose.Slides memungkinkan Anda mengatur tampilan awal yang digunakan PowerPoint saat presentasi yang dihasilkan dibuka melalui kelas [ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/). Gunakan metode [set_LastView](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/set_lastview/) dengan nilai dari enumerasi [ViewType](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewtype/).
+Aspose.Slides lets you set the initial view that PowerPoint uses when the generated presentation opens through the [ViewProperties](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/) class. Use the [set_LastView](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewproperties/set_lastview/) method with a value from the [ViewType](https://reference.aspose.com/slides/id/cpp/aspose.slides/viewtype/) enumeration.
 
 ```cpp
+#include <DOM/IViewProperties.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <ViewType.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto presentation = MakeObject<Presentation>();
 
 presentation->get_ViewProperties()->set_LastView(ViewType::SlideMasterView);
@@ -73,17 +99,26 @@ presentation->Save(u"SlideMasterView.pptx", SaveFormat::Pptx);
 presentation->Dispose();
 ```
 
-## **Menyimpan Presentasi dalam Format Strict Office Open XML**
+## **Simpan Presentasi dalam Format Strict Office Open XML**
 
-Aspose.Slides memungkinkan Anda menyimpan presentasi dalam format Strict Office Open XML. Gunakan kelas [PptxOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pptxoptions/) dan atur properti conformance-nya saat menyimpan. Jika Anda menetapkan `Conformance.Iso29500_2008_Strict`, file output akan disimpan dalam format Strict Office Open XML.
+Aspose.Slides lets you save a presentation in the Strict Office Open XML format. Use the [PptxOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pptxoptions/) class and set its conformance property when saving. If you set `Conformance.Iso29500_2008_Strict`, the output file is saved in the Strict Office Open XML format.
 
-Contoh di bawah membuat presentasi dan menyimpannya dalam format Strict Office Open XML.
+The example below creates a presentation and saves it in the Strict Office Open XML format.
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/Conformance.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto options = MakeObject<PptxOptions>();
 options->set_Conformance(Conformance::Iso29500_2008_Strict);
 
-// Instansiasikan kelas Presentation yang mewakili file presentasi.
+// Instansiasi kelas Presentation yang merepresentasikan file presentasi.
 auto presentation = MakeObject<Presentation>();
 
 // Simpan presentasi dalam format Strict Office Open XML.
@@ -91,21 +126,30 @@ presentation->Save(u"StrictOfficeOpenXml.pptx", SaveFormat::Pptx, options);
 presentation->Dispose();
 ```
 
-## **Menyimpan Presentasi dalam Format Office Open XML dengan Mode Zip64**
+## **Simpan Presentasi dalam Format Office Open XML dengan Mode Zip64**
 
-File Office Open XML adalah arsip ZIP yang membatasi ukuran tidak terkompresi setiap file, ukuran terkompresi setiap file, dan total ukuran arsip menjadi 4 GB (2^32 byte), serta membatasi jumlah file dalam arsip menjadi 65 535 (2^16‑1). Ekstensi format ZIP64 mengangkat batasan ini menjadi 2^64.
+An Office Open XML file is a ZIP archive that imposes 4 GB (2^32 bytes) limits on the uncompressed size of any file, the compressed size of any file, and the total size of the archive, and it also limits the archive to 65,535 (2^16-1) files. ZIP64 format extensions raise these limits to 2^64.
 
-Metode [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) memungkinkan Anda memilih kapan menggunakan ekstensi format ZIP64 saat menyimpan file Office Open XML.
+The [IPptxOptions::set_Zip64Mode](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/ipptxoptions/set_zip64mode/) method lets you choose when to use ZIP64 format extensions when saving an Office Open XML file.
 
-Metode ini dapat digunakan dengan mode berikut:
+This method can be used with the following modes:
 
-- `IfNecessary` menggunakan ekstensi format ZIP64 hanya jika presentasi melampaui batasan di atas. Ini adalah mode default.
-- `Never` tidak pernah menggunakan ekstensi format ZIP64.
-- `Always` selalu menggunakan ekstensi format ZIP64.
+- `IfNecessary` uses ZIP64 format extensions only if the presentation exceeds the limitations above. This is the default mode.
+- `Never` never uses ZIP64 format extensions.
+- `Always` always uses ZIP64 format extensions.
 
-Kode berikut menunjukkan cara menyimpan presentasi sebagai PPTX dengan ekstensi format ZIP64 diaktifkan:
+The following code demonstrates how to save a presentation as a PPTX file with ZIP64 format extensions enabled:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <Export/Zip64Mode.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pptxOptions = MakeObject<PptxOptions>();
 pptxOptions->set_Zip64Mode(Zip64Mode::Always);
 
@@ -115,20 +159,93 @@ presentation->Save(u"OutputZip64.pptx", SaveFormat::Pptx, pptxOptions);
 presentation->Dispose();
 ```
 
-{{% alert title="NOTE" color="warning" %}}
-Saat Anda menyimpan dengan `Zip64Mode.Never`, sebuah [PptxException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxexception/) akan dilempar jika presentasi tidak dapat disimpan dalam format ZIP32.
+{{% alert title="CATATAN" color="warning" %}}
+When you save with `Zip64Mode.Never`, a [PptxException](https://reference.aspose.com/slides/id/cpp/aspose.slides/pptxexception/) is thrown if the presentation cannot be saved in ZIP32 format.
 {{% /alert %}}
 
-## **Menyimpan Presentasi tanpa Menyegarkan Thumbnail**
+## **Simpan Presentasi dalam Format Office Open XML dengan Tingkat Kompresi**
 
-Metode [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) mengontrol pembuatan thumbnail saat menyimpan presentasi ke PPTX:
+When working with large presentations, you can adjust the compression level to balance file size and processing time. Depending on your requirements, you may prefer faster processing or smaller output files.
 
-- Jika diatur ke `true`, thumbnail akan disegarkan selama proses penyimpanan. Ini adalah nilai default.
-- Jika diatur ke `false`, thumbnail saat ini akan dipertahankan. Jika presentasi tidak memiliki thumbnail, tidak ada yang akan dibuat.
+Aspose.Slides provides the [PptxOptions::set_CompressionLevel](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pptxoptions/set_compressionlevel/) method, which allows you to specify the compression level used when saving a presentation in Office Open XML format.
 
-Pada kode di bawah, presentasi disimpan ke PPTX tanpa menyegarkan thumbnail-nya.
+The following compression levels are available:
+
+- **None**: No compression is applied. Files are stored as-is.
+- **Level1:** The fastest compression with the lowest compression ratio.
+- **Level2:** Faster compression with a slightly better compression ratio than **Level1**.
+- **Level3:** Provides better compression than **Level2** with a moderate impact on processing time.
+- **Level4:** Provides better compression than **Level3**.
+- **Level5:** Provides improved compression over **Level4** with additional processing time.
+- **Level6:** Standard compression that offers a good balance between processing speed and file size. This is the *default compression level*.
+- **Level7:** Provides better compression than **Level6** with slower processing.
+- **Level8:** Provides better compression than **Level7**.
+- **Level9:** Maximum compression. Produces the smallest file size at the cost of the longest processing time.
+
+The following example demonstrates how to save a presentation as a PPTX file *without compression*:
 
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/CompressionLevel.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using Aspose::Slides::Export::CompressionLevel;
+using Aspose::Slides::Export::PptxOptions;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::MakeObject;
+
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_CompressionLevel(CompressionLevel::None);
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+presentation->Save(u"Sample-out.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
+
+This example shows how to save a presentation as a PPTX file with *maximum compression*:
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/CompressionLevel.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+
+using Aspose::Slides::Export::CompressionLevel;
+using Aspose::Slides::Export::PptxOptions;
+using Aspose::Slides::Export::SaveFormat;
+using Aspose::Slides::Presentation;
+using System::MakeObject;
+
+auto pptxOptions = MakeObject<PptxOptions>();
+pptxOptions->set_CompressionLevel(CompressionLevel::Level9);
+
+auto presentation = MakeObject<Presentation>(u"Sample.pptx");
+presentation->Save(u"Sample-level9.pptx", SaveFormat::Pptx, pptxOptions);
+presentation->Dispose();
+```
+
+## **Simpan Presentasi tanpa Menyegarkan Thumbnail**
+
+The [PptxOptions::set_RefreshThumbnail](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/pptxoptions/set_refreshthumbnail/) method controls thumbnail generation when saving a presentation to PPTX:
+
+- If set to `true`, the thumbnail is refreshed during save. This is the default.
+- If set to `false`, the current thumbnail is preserved. If the presentation has no thumbnail, none is generated.
+
+In the code below, the presentation is saved to PPTX without refreshing its thumbnail.
+
+```cpp
+#include <DOM/Presentation.h>
+#include <Export/PptxOptions.h>
+#include <Export/SaveFormat.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
 auto pptxOptions = MakeObject<PptxOptions>();
 pptxOptions->set_RefreshThumbnail(false);
 
@@ -139,20 +256,25 @@ presentation->Dispose();
 ```
 
 {{% alert title="Info" color="info" %}}
-Opsi ini membantu mengurangi waktu yang diperlukan untuk menyimpan presentasi dalam format PPTX.
+This option helps reduce the time required to save a presentation in PPTX format.
 {{% /alert %}}
 
-## **Pembaharuan Progres Penyimpanan dalam Persentase**
+## **Simpan Pembaruan Progres dalam Persentase**
 
-Antarmuka [IProgressCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprogresscallback/) digunakan melalui metode `set_ProgressCallback` yang disediakan oleh antarmuka [ISaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/isaveoptions/) dan kelas abstrak [SaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveoptions/). Tetapkan implementasi [IProgressCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprogresscallback/) dengan `set_ProgressCallback` untuk menerima pembaruan progres penyimpanan dalam persentase.
+The [IProgressCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprogresscallback/) interface is used via the `set_ProgressCallback` method exposed by the [ISaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/isaveoptions/) interface and the abstract [SaveOptions](https://reference.aspose.com/slides/id/cpp/aspose.slides.export/saveoptions/) class. Assign an [IProgressCallback](https://reference.aspose.com/slides/id/cpp/aspose.slides/iprogresscallback/) implementation with `set_ProgressCallback` to receive save-progress updates as a percentage.
 
-Potongan kode berikut memperlihatkan cara menggunakan `IProgressCallback`.
+The following code snippets show how to use `IProgressCallback`.
 
 ```cpp
+#include <IProgressCallback.h>
+#include <system/console.h>
+using namespace Aspose::Slides;
+using namespace System;
+
 class ExportProgressHandler : public IProgressCallback
 {
 public:
-    void Reporting(double progressValue)
+    void Reporting(double progressValue) override
     {
         // Gunakan nilai persentase kemajuan di sini.
         int progress = static_cast<int>(progressValue);
@@ -162,6 +284,28 @@ public:
 };
 ```
 ```cpp
+#include <DOM/Presentation.h>
+#include <Export/PdfOptions.h>
+#include <Export/SaveFormat.h>
+#include <IProgressCallback.h>
+#include <system/console.h>
+#include <system/smart_ptr.h>
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+// Kelas callback kemajuan yang didefinisikan di atas.
+class ExportProgressHandler : public IProgressCallback
+{
+public:
+    void Reporting(double progressValue) override
+    {
+        int progress = static_cast<int>(progressValue);
+
+        Console::WriteLine(u"{0}% of the file has been converted.", progress);
+    }
+};
+
 auto saveOptions = MakeObject<PdfOptions>();
 saveOptions->set_ProgressCallback(MakeObject<ExportProgressHandler>());
 
@@ -172,23 +316,23 @@ presentation->Dispose();
 ```
 
 {{% alert title="Info" color="info" %}}
-Aspose telah mengembangkan aplikasi [free PowerPoint Splitter app](https://products.aspose.app/slides/id/splitter) menggunakan API miliknya. Aplikasi ini memungkinkan Anda membagi sebuah presentasi menjadi beberapa file dengan menyimpan slide terpilih sebagai file PPTX atau PPT baru.
+Aspose has developed a [free PowerPoint Splitter app](https://products.aspose.app/slides/id/splitter) using its own API. The app lets you split a presentation into multiple files by saving selected slides as new PPTX or PPT files.
 {{% /alert %}}
 
 ## **FAQ**
 
 **Apakah "fast save" (penyimpanan inkremental) didukung sehingga hanya perubahan yang ditulis?**
 
-Tidak. Penyimpanan selalu membuat file target lengkap setiap kali; "fast save" inkremental tidak didukung.
+No. Saving creates the full target file each time; incremental "fast save" isn’t supported.
 
 **Apakah aman untuk menyimpan instance Presentation yang sama dari beberapa thread?**
 
-Tidak. Sebuah [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) [tidak thread‑safe](/slides/id/cpp/multithreading/); simpan hanya dari satu thread.
+No. A [Presentation](https://reference.aspose.com/slides/id/cpp/aspose.slides/presentation/) instance [isn’t thread-safe](/slides/id/cpp/multithreading/); save it from a single thread.
 
 **Apa yang terjadi pada hyperlink dan file yang ditautkan secara eksternal saat menyimpan?**
 
-[Hyperlink](/slides/id/cpp/manage-hyperlinks/) dipertahankan. File yang ditautkan secara eksternal (misalnya video dengan jalur relatif) tidak disalin secara otomatis—pastikan jalur yang dirujuk tetap dapat diakses.
+[Hyperlinks](/slides/id/cpp/manage-hyperlinks/) are preserved. External linked files (e.g., videos via relative paths) aren’t copied automatically—ensure the referenced paths remain accessible.
 
-**Bisakah saya mengatur/menyimpan metadata dokumen (Penulis, Judul, Perusahaan, Tanggal)?**
+**Apakah saya dapat mengatur/menyimpan metadata dokumen (Penulis, Judul, Perusahaan, Tanggal)?**
 
-Ya. [Properti dokumen](/slides/id/cpp/presentation-properties/) standar didukung dan akan ditulis ke file saat disimpan.
+Yes. Standard [document properties](/slides/id/cpp/presentation-properties/) are supported and will be written to the file on save.

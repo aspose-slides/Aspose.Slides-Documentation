@@ -1,5 +1,5 @@
 ---
-title: Diaelrendezések alkalmazása vagy módosítása JavaScriptben
+title: Alkalmazzon vagy módosítson diaelrendezéseket JavaScript-ben
 linktitle: Diaelrendezés
 type: docs
 weight: 60
@@ -7,14 +7,14 @@ url: /hu/nodejs-java/slide-layout/
 keywords:
 - diaelrendezés
 - tartalomelrendezés
-- helyőrző
+- helykitöltő
 - bemutatótervezés
-- diatervezés
-- használaton kívüli elrendezés
+- dia tervezés
+- nem használt elrendezés
 - lábléc láthatóság
-- címdia
+- cím dia
 - cím és tartalom
-- szakaszcím
+- szakaszfejléc
 - két tartalom
 - összehasonlítás
 - csak cím
@@ -29,153 +29,139 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Kezelje és testreszabja a diaelrendezéseket az Aspose.Slides for Node.js-ben. Fedezze fel az elrendezéstípusokat, a helyőrző vezérlést és a lábléc láthatóságát kódpéldákon keresztül."
+description: "Alkalmazzon, hozzon létre és módosítson diaelrendezéseket az Aspose.Slides for Node.js segítségével JavaScript-ben, adjon hozzá helykitöltőket, távolítson el nem használt elrendezéseket, és szabályozza a lábléc láthatóságát."
 ---
-## **Bevezetés**
+## **Áttekintés**
 
-A diaelrendezés meghatározza a helyőrződobozok elrendezését és a dia tartalmának formázását. Ez szabályozza, hogy mely helyőrzők érhetők el és hol jelennek meg. A diaelrendezések segítenek gyorsan és következetesen megtervezni a bemutatókat – akár egyszerű, akár összetettebb anyagot hozol létre. A PowerPointban a leggyakrabban használt diaelrendezések a következők:
+A diavetítés elrendezése meghatározza a helykitöltők, például címek, szöveg, képek, diagramok és táblázatok pozícióját és formázását. Egy elrendezés alkalmazásával a diák egységes szerkezetet kapnak, miközben minden dia saját tartalmát tartalmazhatja.
 
-**Címdia elrendezés** – Két szöveghelyőrzőt tartalmaz: egyet a címhez és egyet az alcímhez.
+A leggyakoribb elrendezések a következők:
 
-**Cím és tartalom elrendezés** – Kisebb címhelyőrzőt mutat a tetején, és alatta egy nagyobbat a fő tartalomhoz (például szöveg, felsorolás, diagramok, képek és egyéb).
+- **Cím Dia**: Cím és alcím helykitöltőket tartalmaz.
+- **Cím és Tartalom**: Cím helykitöltőt és egy általános célú tartalomhelykitöltőt tartalmaz.
+- **Üres**: Nem tartalmaz tartalomhelykitöltőket, és akkor hasznos, ha minden alakzatot kézzel helyeznek el.
 
-**Üres elrendezés** – Nem tartalmaz helyőrzőket, így teljesen saját kezűleg tervezheted meg a diát.
+## **Az Elrendezés Öröklődésének Megértése**
 
-A diaelrendezések a dia mester részei, amely a legfelső szintű dia, és meghatározza a bemutató elrendezési stílusait. A dia mesteren keresztül érheted el és módosíthatod az elrendezési diát – típus, név vagy egyedi azonosító alapján. Alternatívaként közvetlenül a bemutatóban szerkeszthetsz egy konkrét elrendezési diát.
+Egy bemutató három összefüggő szinttel rendelkezik:
 
-A Diaelrendezésekkel való munkához az Aspose.Slides for Node.js-ben használhatod a következőket:
+1. A [master dia](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) meghatározza a témát, a megosztott formázást, a háttereket és a közös objektumokat.
+1. A [layout dia](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/) egy masterhez tartozik, és meghatároz egy adott helykitöltő elrendezést.
+1. A [normál dia](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/) egy elrendezést használ, és tárolja az adott dia számára beírt tartalmat.
 
-- Olyan metódusok, mint a [getLayoutSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getLayoutSlides) és a [getMasters](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getMasters) a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályban
-- Olyan típusok, mint a [LayoutSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/), a [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterlayoutslidecollection/), a [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/), és a [LayoutSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslideheaderfootermanager/)
+A normál dia örökli a témát és a formázást az elrendezéséből, az elrendezés pedig a masterből örököl. A normál dián közvetlenül beállított érték felülírja az örökölt értéket ezen a szinten. Amikor egy normál diát létrehoznak, a helykitöltő alakzatok a kiválasztott elrendezésből generálódnak, míg a helykitöltőkbe beírt tartalom a normál diához tartozik.
 
-{{% alert title="Info" color="info" %}}
-A mesterdiák kezelésével kapcsolatos további információkért tekintsd meg a [Slide Master](/slides/hu/nodejs-java/slide-master/) cikket.
-{{% /alert %}}
+Adjunk hozzá szükséges helykitöltőket egy elrendezéshez, mielőtt diák létrehozására használnánk. Ha később egy másik helykitöltőt adunk egy elrendezéshez, az nem adja hozzá automatikusan a megfelelő helykitöltő alakzatot a már létező normál diákhoz.
 
-## **Diaelrendezések hozzáadása a bemutatókhoz**
+Ennek a kapcsolatnak két fontos következménye van:
 
-A diák megjelenésének és szerkezetének testreszabásához új elrendezési diák hozzáadására lehet szükség a bemutatóba. Az Aspose.Slides for Node.js lehetővé teszi, hogy ellenőrizd, létezik-e már egy adott elrendezés, szükség esetén újat adj hozzá, és ezzel elrendezésen alapuló diákat szúrj be.
+- Az örökölt formázás vagy a meglévő helykitöltő geometria módosítása egy elrendezésen minden, attól függő diát frissíthet. Mielőtt egy már használt elrendezést szerkesztenénk, nézzük át a függő diákat, és ellenőrizzük a keletkezett bemutatót.
+- Egy elrendezést, amelyet még diák használnak, nem lehet eltávolítani. Először rendeljük át a függő diákat egy másik elrendezésre, vagy csak a nem használt elrendezéseket távolítsuk el.
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.  
-2. Érj hozzá a [MasterLayoutSlideCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterlayoutslidecollection/) gyűjteményhez.  
-3. Ellenőrizd, hogy a kívánt elrendezési dia már létezik-e a gyűjteményben. Ha nem, add hozzá a szükséges elrendezési diát.  
-4. Adj egy üres diát az új elrendezési dia alapján.  
-5. Mentsd el a bemutatót.
+További információkért a hierarchia legfelső szintjéről lásd a [Dia Mester](/slides/hu/nodejs-java/slide-master/) oldalt.
 
-Az alábbi JavaScript kód bemutatja, hogyan adhatunk hozzá egy diaelrendezést egy PowerPoint bemutatóhoz:
+## **Elrendezés Kiválasztása és Alkalmazása**
 
-```js
-// Példányosítsa a Presentation osztályt, amely egy PowerPoint fájlt képvisel.
-let presentation = new aspose.slides.Presentation("Sample.pptx");
+Használjon egy [SlideLayoutType](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidelayouttype/) értéket, amikor a bemutató a standard PowerPoint elrendezésdefiníciókat követi. Az elrendezés nevei felhasználó által szerkeszthetők és lokalizálhatók, ezért a névre alapozott kiválasztás kevésbé megbízható, hacsak nem irányítja a forrás sablont.
+
+A következő példa a **Cím és Tartalom** elrendezést keresi az első masterben. Ha ez az elrendezés nem érhető el, szándékosan az **Üres** elrendezésre tér vissza. A második null ellenőrzés szükséges, mert egy bemutató csak egyedi elrendezéseket tartalmazhat. A kiválasztott elrendezést ezután a [Slide.setLayoutSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/#setLayoutSlide) metódussal alkalmazzák az első normál diára.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    // Végigjárja az elrendezési diatípusokat egy elrendezési dia kiválasztásához.
     let layoutSlides = presentation.getMasters().get_Item(0).getLayoutSlides();
-    let layoutSlide = null;
-    if (layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject)) != null) {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject));
-    } else {
-        layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Title));
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let targetLayout = layoutSlides.getByType(titleAndObjectLayoutType);
+
+    if (targetLayout === null) {
+        targetLayout = layoutSlides.getByType(blankLayoutType);
     }
 
-    if (layoutSlide == null) {
-        // Olyan helyzet, amikor a bemutató nem tartalmazza az összes elrendezési típust.
-        // A bemutató fájl csak Üres és Egyéni elrendezéstípusokat tartalmaz.
-        // Azonban az egyéni típusú elrendezési diák felismerhető nevekkel rendelkezhetnek,
-        // például "Title", "Title and Content" stb., amelyeket fel lehet használni az elrendezési dia kiválasztásához.
-        // Egy helyőrző alakzat típusok készletére is támaszkodhat.
-        // Például egy címdiának csak a Title helyőrző típusa kell, hogy legyen, és így tovább.
-        for (let i = 0; i < layoutSlides.size(); i++) {
-            let titleAndObjectLayoutSlide = layoutSlides.get_Item(i);
-            if (titleAndObjectLayoutSlide.getName() === "Title and Object") {
-                layoutSlide = titleAndObjectLayoutSlide;
-                break;
-            }
-        }
-
-        if (layoutSlide == null) {
-            for (let i = 0; i < layoutSlides.size(); i++) {
-                let titleLayoutSlide = layoutSlides.get_Item(i);
-                if (titleLayoutSlide.getName() === "Title") {
-                    layoutSlide = titleLayoutSlide;
-                    break;
-                }
-            }
-
-            if (layoutSlide == null) {
-                layoutSlide = layoutSlides.getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
-                if (layoutSlide == null) {
-                    layoutSlide = layoutSlides.add(java.newByte(aspose.slides.SlideLayoutType.TitleAndObject), "Title and Object");
-                }
-            }
-        }
+    if (targetLayout === null) {
+        throw new Error("The first master does not contain a suitable layout slide.");
     }
 
-    // Üres diát ad hozzá a hozzáadott elrendezési diával.
-    presentation.getSlides().insertEmptySlide(0, layoutSlide);
-
-    // Mentse a bemutatót a lemezen.
-    presentation.save("output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().get_Item(0).setLayoutSlide(targetLayout);
+    presentation.save("output-with-new-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Használaton kívüli elrendezési diák eltávolítása**
+Egy dia elrendezésének módosítása nem távolítja el a diára közvetlenül hozzáadott szokásos alakzatokat. Azonban a helykitöltő pozíciók, az örökölt formázás és a meglévő helykitöltők és az új elrendezés közti megfelelés változhat, ezért ellenőrizze a kimenetet, ha jelentősen eltérő elrendezések között vált.
 
-Az Aspose.Slides a [Compress](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/compress/) osztályból a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust biztosítja, amely lehetővé teszi a nem kívánt és nem használt elrendezési diák törlését.
+## **Elrendezés Dia Hozzáadása**
 
-Az alábbi JavaScript kód bemutatja, hogyan távolítható el egy elrendezési dia egy PowerPoint bemutatóból:
+A kiválasztás és a létrehozás külön műveletek. Az előző példa egy meglévő elrendezést választ ki; nem hoz létre újat. Egy elrendezés létrehozásához hívja meg a [MasterLayoutSlideCollection.add](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterlayoutslidecollection/#add) metódust a cél master elrendezésgyűjteményén.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.pptx");
+A következő példa mindig hozzáad egy új **Cím és Tartalom** elrendezést `Report Title and Content` névvel, majd hozzáad egy normál diát, amely azt használja. Az elrendezésneveknek egyedieknek kell lenniük a gyűjteményen belül.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    let masterSlide = presentation.getMasters().get_Item(0);
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let reportLayout = masterSlide.getLayoutSlides().add(titleAndObjectLayoutType, "Report Title and Content");
+    presentation.getSlides().addEmptySlide(reportLayout);
+
+    presentation.save("output-with-report-layout.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Helyőrzők hozzáadása a diaelrendezésekhez**
+Csak akkor adjon hozzá egy elrendezést, ha a sablon valóban igényel egy további újrahasználható struktúrát. Ha már létezik megfelelő elrendezés, válassza ki és használja újra a duplikálás helyett.
 
-Az Aspose.Slides a [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) metódust biztosítja, amely lehetővé teszi új helyőrzők hozzáadását egy elrendezési diához.
+## **Helykitöltők Hozzáadása egy Elrendezés Diához**
 
-Ez a kezelő a következő helyőrző típusokhoz tartalmaz metódusokat:
+A [LayoutSlide.getPlaceholderManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#getPlaceholderManager) metódus egy [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/) objektumot biztosít a helykitöltő alakzatok elrendezéshez történő hozzáadásához.
 
-| PowerPoint helyőrző | [LayoutPlaceholderManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/) metódus |
-| ------------------- | --------------------------------------- |
-| Tartalom | addContentPlaceholder(float x, float y, float width, float height) |
-| Tartalom (függőleges) | addVerticalContentPlaceholder(float x, float y, float width, float height) |
-| Szöveg | addTextPlaceholder(float x, float y, float width, float height) |
-| Szöveg (függőleges) | addVerticalTextPlaceholder(float x, float y, float width, float height) |
-| Kép | addPicturePlaceholder(float x, float y, float width, float height) |
-| Diagram | addChartPlaceholder(float x, float y, float width, float height) |
-| Táblázat | addTablePlaceholder(float x, float y, float width, float height) |
-| SmartArt | addSmartArtPlaceholder(float x, float y, float width, float height) |
-| Média | addMediaPlaceholder(float x, float y, float width, float height) |
-| Online kép | addOnlineImagePlaceholder(float x, float y, float width, float height) |
+| PowerPoint Helykitöltő | `LayoutPlaceholderManager` Metódus |
+| ----------------------- | ---------------------------------- |
+| ![Tartalom](content.png) | [`addContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addContentPlaceholder) |
+| ![Tartalom (Függőleges)](contentV.png) | [`addVerticalContentPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalContentPlaceholder) |
+| ![Szöveg](text.png) | [`addTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTextPlaceholder) |
+| ![Szöveg (Függőleges)](textV.png) | [`addVerticalTextPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addVerticalTextPlaceholder) |
+| ![Kép](picture.png) | [`addPicturePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addPicturePlaceholder) |
+| ![Diagram](chart.png) | [`addChartPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addChartPlaceholder) |
+| ![Táblázat](table.png) | [`addTablePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addTablePlaceholder) |
+| ![SmartArt](smartart.png) | [`addSmartArtPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addSmartArtPlaceholder) |
+| ![Média](media.png) | [`addMediaPlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addMediaPlaceholder) |
+| ![Online Kép](onlineImage.png) | [`addOnlineImagePlaceholder(x, y, width, height)`](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutplaceholdermanager/#addOnlineImagePlaceholder) |
 
-Az alábbi JavaScript kód bemutatja, hogyan adhatunk új helyőrző alakzatokat az Üres elrendezési diához:
+A következő példa ellenőrzi, hogy a **Üres** elrendezés létezik, négy helykitöltőt ad hozzá, majd létrehoz egy normál diát, amely a módosított elrendezést használja. A sorrend szándékos: a helykitöltőket a normál dia létrehozása előtt adják hozzá, így az Aspose.Slides a megfelelő helykitöltő alakzatokat generálja azon a dián.
 
-```js
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
 let presentation = new aspose.slides.Presentation();
 try {
-    // Szerezze meg az Üres elrendezési diát.
-    let layout = presentation.getLayoutSlides().getByType(java.newByte(aspose.slides.SlideLayoutType.Blank));
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let blankLayout = presentation.getLayoutSlides().getByType(blankLayoutType);
 
-    // Szerezze meg az elrendezési dia helyőrzőkezelőjét.
-    let placeholderManager = layout.getPlaceholderManager();
+    if (blankLayout === null) {
+        throw new Error("The presentation does not contain a Blank layout slide.");
+    }
 
-    // Különböző helyőrzőket ad az Üres elrendezési diához.
+    let placeholderManager = blankLayout.getPlaceholderManager();
     placeholderManager.addContentPlaceholder(20, 20, 310, 270);
     placeholderManager.addVerticalTextPlaceholder(350, 20, 350, 270);
     placeholderManager.addChartPlaceholder(20, 310, 310, 180);
     placeholderManager.addTablePlaceholder(350, 310, 350, 180);
 
-    // Új diát ad hozzá az Üres elrendezéssel.
-    let newSlide = presentation.getSlides().addEmptySlide(layout);
-
-    presentation.save("Placeholders.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.getSlides().addEmptySlide(blankLayout);
+    presentation.save("output-with-placeholders.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -183,71 +169,87 @@ try {
 
 Az eredmény:
 
-![A helyőrzők az elrendezési dián](add_placeholders.png)
+![A helykitöltők az elrendezés dián](add_placeholders.png)
 
-## **Lábléc láthatóságának beállítása egy elrendezési dián**
+{{% alert color="warning" title="Warning" %}}
+Az örökölt formázás vagy a meglévő elrendezés helykitöltőinek geometriai módosítása befolyásolhatja a függő diákat. Az újonnan hozzáadott elrendezéshelykitöltő nem töltődik be a már létező normál diákba. Tesztelje az elrendezés változásait a bemutató egy másolatán, és ellenőrizze minden függő diát.
+{{% /alert %}}
 
-PowerPoint bemutatókban a lábléc elemek, mint a dátum, dia száma és egyéni szöveg megjeleníthetők vagy elrejthetők a diaelrendezéstől függően. Az Aspose.Slides for Node.js lehetővé teszi ezen lábléchez tartozó helyőrzők láthatóságának szabályozását. Ez akkor hasznos, ha bizonyos elrendezéseknek lábléc információt kell mutatniuk, míg mások tiszták és minimálisak maradnak.
+## **Használatonkívüli Elrendezés Diák Eltávolítása**
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.  
-2. Szerezz egy elrendezési dia hivatkozást az indexe alapján.  
-3. Állítsd a dia lábléc helyőrzőt láthatóvá.  
-4. Állítsd a dia száma helyőrzőt láthatóvá.  
-5. Állítsd a dátum-idő helyőrzőt láthatóvá.  
-6. Mentsd el a bemutatót.
+Használja a [Compress.removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust a olyan elrendezések eltávolításához, amelyeket egy normál dia sem hivatkozik. A metódus érintetlenül hagyja azokat az elrendezéseket, amelyek még használatban vannak.
 
-Az alábbi JavaScript kód bemutatja, hogyan állítható be egy dia láblécének láthatósága és a kapcsolódó feladatok:
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
-    let headerFooterManager = presentation.getLayoutSlides().get_Item(0).getHeaderFooterManager();
-
-    if (!headerFooterManager.isFooterVisible()) {
-        headerFooterManager.setFooterVisibility(true);
-    }
-
-    if (!headerFooterManager.isSlideNumberVisible()) {
-        headerFooterManager.setSlideNumberVisibility(true);
-    }
-
-    if (!headerFooterManager.isDateTimeVisible()) {
-        headerFooterManager.setDateTimeVisibility(true);
-    }
-
-    headerFooterManager.setFooterText("Footer text");
-    headerFooterManager.setDateTimeText("Date and time text");
-
-    presentation.save("Presentation.ppt", aspose.slides.SaveFormat.Ppt);
+    aspose.slides.Compress.removeUnusedLayoutSlides(presentation);
+    presentation.save("output-without-unused-layouts.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
 ```
 
-## **Gyermek lábléc láthatóságának beállítása egy diához**
+Egy adott elrendezés eltávolításához először használja a [hasDependingSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#hasDependingSlides) vagy a [getDependingSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) metódust. A [LayoutSlide.remove](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#remove) meghívása előtt rendelje át a függő diákat. Egy használt elrendezés eltávolításának kísérlete [PptxEditException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pptxeditexception/) kivételt eredményez.
 
-PowerPoint bemutatókban a lábléc elemek, mint a dátum, dia száma és egyéni szöveg a mesterdia szintjén szabályozhatók, hogy következetességet biztosítsanak az összes elrendezési dián. Az Aspose.Slides for Node.js lehetővé teszi ezen lábléc helyőrzők láthatóságának és tartalmának beállítását a mesterdian, majd ezen beállítások terjesztését az összes gyermek elrendezési diára. Ez a megközelítés egységes lábléc információt biztosít a teljes bemutatóban.
+## **Lábléc Láthatóságának Szabályozása egy Elrendezés Dián**
 
-1. Hozz létre egy példányt a [Presentation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) osztályból.  
-2. Szerezz egy hivatkozást a mesterdiára az indexe alapján.  
-3. Állítsd a mester és az összes gyermek lábléc helyőrzőt láthatóvá.  
-4. Állítsd a mester és az összes gyermek dia szám helyőrzőt láthatóvá.  
-5. Állítsd a mester és az összes gyermek dátum-idő helyőrzőt láthatóvá.  
-6. Mentsd el a bemutatót.
+Egy elrendezésnek saját lábléca, diaszáma és dátum-idő helykitöltői vannak. Használja a [LayoutSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#getHeaderFooterManager) metódust ezeknek a helykitöltőknek a szabályozására egy adott elrendezésnél. Ez akkor hasznos, ha például a tartalom elrendezéseknek láblécet kell mutatniuk, míg a címelrendezéseknek nem.
 
-```js
-let presentation = new aspose.slides.Presentation("Presentation.ppt");
+A következő példa biztonságosan kiválaszt egy elrendezést, és láthatóvá teszi annak lábléc elemeit:
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+const java = require("java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
+try {
+    let titleAndObjectLayoutType = java.newByte(aspose.slides.SlideLayoutType.TitleAndObject);
+    let blankLayoutType = java.newByte(aspose.slides.SlideLayoutType.Blank);
+    let layoutSlide = presentation.getLayoutSlides().getByType(titleAndObjectLayoutType);
+
+    if (layoutSlide === null) {
+        layoutSlide = presentation.getLayoutSlides().getByType(blankLayoutType);
+    }
+
+    if (layoutSlide === null) {
+        throw new Error("The presentation does not contain a suitable layout slide.");
+    }
+
+    let headerFooterManager = layoutSlide.getHeaderFooterManager();
+    headerFooterManager.setFooterVisibility(true);
+    headerFooterManager.setSlideNumberVisibility(true);
+    headerFooterManager.setDateTimeVisibility(true);
+    headerFooterManager.setFooterText("Footer text");
+    headerFooterManager.setDateTimeText("Date and time text");
+
+    presentation.save("output-with-layout-footers.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+## **Lábléc Láthatóságának Szabályozása a Masteren és Gyermek Elrendezésein**
+
+Az egységes lábléc beállítások alkalmazásához egy master hierarchián belül használja a [MasterSlide.getHeaderFooterManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/#getHeaderFooterManager) metódust. A [MasterSlideHeaderFooterManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslideheaderfootermanager/) terjesztési metódusai a masteren, annak függő elrendezés diáikon és normál diákon működnek; nem egyetlen normál diára céloznak.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+let presentation = new aspose.slides.Presentation("input.pptx");
 try {
     let headerFooterManager = presentation.getMasters().get_Item(0).getHeaderFooterManager();
-
     headerFooterManager.setFooterAndChildFootersVisibility(true);
     headerFooterManager.setSlideNumberAndChildSlideNumbersVisibility(true);
     headerFooterManager.setDateTimeAndChildDateTimesVisibility(true);
-
     headerFooterManager.setFooterAndChildFootersText("Footer text");
     headerFooterManager.setDateTimeAndChildDateTimesText("Date and time text");
 
-    presentation.save("Output.pptx", aspose.slides.SaveFormat.Pptx);
+    presentation.save("output-with-master-footers.pptx", aspose.slides.SaveFormat.Pptx);
 } finally {
     presentation.dispose();
 }
@@ -255,11 +257,18 @@ try {
 
 ## **GYIK**
 
-**Mi a különbség a mesterdia és az elrendezési dia között?**  
-A mesterdia határozza meg a teljes témát és az alapértelmezett formázást, míg az elrendezési diák a különböző tartalomtípusokhoz tartozó helyőrzők konkrét elrendezését definiálják.
+**Mi a különbség a Master dia és az Elrendezés dia között?**
 
-**Másolhatok elrendezési diát egyik bemutatóból a másikba?**  
-Igen, egy bemutató elrendezési dia gyűjteményéből (amely a [getLayoutSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/#getLayoutSlides) metóduson keresztül érhető el) klónozhatsz egy elrendezési diát, és a `addClone` metódussal beillesztheted egy másik bemutatóba.
+A master dia meghatározza a bemutató témáját és a megosztott formázást. Egy elrendezés dia a masterhez tartozik, és egy újrahasználható helykitöltő elrendezést definiál. A normál diák ezeket az elrendezéseket használják, és tárolják a diához specifikus tartalmat.
 
-**Mi történik, ha törlök egy elrendezési diát, amelyet még egy dia használ?**  
-Ha megpróbálsz törölni egy olyan elrendezési diát, amelyre a bemutatóban legalább egy dia hivatkozik, az Aspose.Slides egy [PptxEditException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pptxeditexception/) kivételt dob. Ennek elkerülése érdekében használd a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust, amely biztonságosan csak a nem használt elrendezési diákat távolítja el.
+**Másolhatok egy Elrendezés Diát egyik bemutatóból a másikba?**
+
+Igen. Egy másolatot adjon hozzá a célgyűjteményhez a [addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/globallayoutslidecollection/#addClone) metódussal. Bemutatók közti másoláskor ellenőrizze a betűtípusokat, témákat, képeket és egyéb a forrás elrendezés által használt erőforrásokat.
+
+**Mi történik, ha módosítok egy már használatban lévő elrendezést?**
+
+A függő diák öröklik az elrendezés változásait, hacsak lokálisan felül nem írták az érintett formázást vagy objektumokat. Így a helykitöltő geometria és az örökölt stílus egyszerre sok dián változhat. Használja a [getDependingSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/#getDependingSlides) metódust a érintett diák azonosításához, mielőtt az elrendezést szerkesztené.
+
+**Mi történik, ha egy még használatban lévő elrendezést eltávolítok?**
+
+Az Aspose.Slides egy [PptxEditException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pptxeditexception/) kivételt dob. Először rendelje át a függő diákat, vagy használja a [removeUnusedLayoutSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) metódust, hogy csak a nem hivatkozott elrendezéseket távolítsa el.

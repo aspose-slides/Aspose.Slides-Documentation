@@ -173,7 +173,7 @@ import aspose.slides as slides
 
 # 创建一个新的空白演示文稿。
 with slides.Presentation() as presentation:
-    # 基于第一张幻灯片的布局添加一个空白幻灯片。
+    # 基于第一张幻灯片的布局添加一个空幻灯片。
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
     # 向新幻灯片添加椭圆形状；此幻灯片稍后将被克隆。
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)

@@ -13,21 +13,22 @@ keywords:
 - データ ソース
 - 外部ワークブック
 - 外部データ
+- チャート キャッシュ
+- ワークブック 復元
 - PowerPoint
 - プレゼンテーション
 - PHP
 - Aspose.Slides
-description: "Java 経由で PHP 用 Aspose.Slides を発見：PowerPoint および OpenDocument 形式でチャート ワークブックを簡単に管理し、プレゼンテーション データを効率化します。"
+description: "Java 経由で PHP 用 Aspose.Slides を体験し、PowerPoint および OpenDocument 形式のチャート ワークブックを簡単に管理してプレゼンテーション データを効率化しましょう。"
 ---
 ## **概要**
 
-本記事では Aspose.Slides でチャート ワークブックを操作する方法を説明します。ワークブック ストリームを使用してチャート データを読み書きする方法、ワークブック セルをチャート データ ラベルとして使用する方法、ワークシート コレクションへのアクセス方法、チャート 値のデータ ソース タイプの指定方法を示します。
+この記事では Aspose.Slides でチャート ワークブックを操作する方法を説明します。ワークブック ストリームを介したチャート データの読み取りと書き込み、ワークブック セルをチャート データ ラベルとして使用、ワークシート コレクションへのアクセス、およびチャート値のデータ ソース タイプの指定方法を示します。
 
-また、外部ワークブックをチャート データ ソースとして使用する方法も取り上げます。サンプルでは、外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパス取得、ワークブックが利用可能な場合のチャート データの編集方法を示します。
+また、外部ワークブックをチャート データ ソースとして使用する方法も扱います。例では、外部ワークブックの作成と割り当て、チャートにリンクされた外部ワークブックのパス取得、ワークブックが利用可能な場合のチャート データの編集方法を示しています。
 
 ## **ワークブックからチャート データを読み書きする**
-
-Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/#readWorkbookStream) および [writeWorkbookStream](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/#writeWorkbookStream) メソッドを提供し、ワークブック (Aspose.Cells で編集されたチャート データを含む) の読み書きが可能です。**注意**: チャート データは同じ構成であるか、元データに類似した構造である必要があります。
+Aspose.Slides は [readWorkbookStream](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/#readWorkbookStream) および [writeWorkbookStream](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/#writeWorkbookStream) メソッドを提供し、チャート データ ワークブック（Aspose.Cells で編集されたチャート データを含む）の読み取りと書き込みが可能です。**注意**: チャート データは元の構造と同様の形式で整理されている必要があります。
 
 この PHP コードはサンプル操作を示しています。
 
@@ -49,11 +50,11 @@ Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/ja/
 
 ## **ワークブック セルをチャート データ ラベルとして設定する**
 
-1. [Presentation](https://apireference.aspose.com/slides/ja/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. インデックスを使用してスライドの参照を取得します。  
-3. データを含むバブル チャートを追加します。  
-4. チャート シリーズにアクセスします。  
-5. ワークブック セルをデータ ラベルとして設定します。  
+1. **Presentation** クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. データを含むバブル チャートを追加します。
+4. チャート シリーズにアクセスします。
+5. ワークブック セルをデータ ラベルとして設定します。
 6. プレゼンテーションを保存します。
 
 この PHP コードはワークブック セルをチャート データ ラベルとして設定する方法を示しています。
@@ -62,7 +63,7 @@ Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/ja/
   $lbl0 = "Label 0 cell value";
   $lbl1 = "Label 1 cell value";
   $lbl2 = "Label 2 cell value";
-  # プレゼンテーション ファイルを表すプレゼンテーションクラスのインスタンスを作成します
+  # プレゼンテーション ファイルを表すプレゼンテーションクラスのインスタンスを生成
   $pres = new Presentation("chart2.pptx");
   try {
     $slide = $pres->getSlides()->get_Item(0);
@@ -84,7 +85,7 @@ Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/ja/
 
 ## **ワークシートの管理**
 
-この PHP コードは、[ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/#getWorksheets) メソッドを使用してワークシート コレクションにアクセスする操作を示します。
+この PHP コードは [ChartDataWorkbook::getWorksheets](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdataworkbook/#getWorksheets) メソッドを使用してワークシート コレクションにアクセスする操作を示しています。
 
 ```php
   $pres = new Presentation();
@@ -103,7 +104,7 @@ Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/ja/
 
 ## **データ ソース タイプの指定**
 
-この PHP コードはデータ ソースのタイプを指定する方法を示します。
+この PHP コードはデータ ソースのタイプを指定する方法を示しています。
 
 ```php
   $pres = new Presentation();
@@ -124,7 +125,7 @@ Aspose.Slides は、[readWorkbookStream](https://reference.aspose.com/slides/ja/
 
 ## **サポートされていない埋め込みワークブック形式の検出**
 
-Aspose.Slides は、一部のチャートに埋め込める Excel バイナリ ワークブック (.xlsb) 形式をサポートしていません。`getEmbeddedWorkbookType` メソッドを [ChartData](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/) と共に使用し、[WorkbookType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/workbooktype/) 列挙体でサポートされていない形式を検出し、該当チャートをスキップできます。
+Aspose.Slides は、一部のチャートに埋め込むことができる Excel バイナリ ワークブック（.xlsb）形式をサポートしていません。`getEmbeddedWorkbookType` メソッドを [ChartData](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/) とともに使用し、[WorkbookType](https://reference.aspose.com/slides/ja/php-java/aspose.slides/workbooktype/) 列挙体でサポート外形式を検出して対象のチャートをスキップできます。
 
 ```php
 $presentation = new Presentation("sample.pptx");
@@ -144,11 +145,11 @@ try {
 
     if (java_values($chartData->getDataSourceType()) == ChartDataSourceType::InternalWorkbook &&
         java_values($chartData->getEmbeddedWorkbookType()) == WorkbookType::WorkbookBinaryMacro) {
-      # 埋め込みワークブックは .xlsb 形式で、サポートされていません。
+      # 埋め込みワークブックは .xlsb 形式です。この形式はサポートされていません。
       continue;
     }
 
-    # ここでチャート ワークブック データを読み取りまたは変更します。
+    # ここでチャート ワークブック データを読み取るか、変更してください。
   }
 } finally {
   $presentation->dispose();
@@ -157,11 +158,11 @@ try {
 
 ## **外部ワークブック**
 
-Aspose.Slides は、外部ワークブックをチャートのデータ ソースとしてサポートします。
+Aspose.Slides はチャートのデータ ソースとして外部ワークブックをサポートします。
 
 ### **外部ワークブックの作成**
 
-**`readWorkbookStream`** と **`setExternalWorkbook`** メソッドを使用して、外部ワークブックを新規作成するか、内部ワークブックを外部化できます。
+**`readWorkbookStream`** と **`setExternalWorkbook`** メソッドを使用すると、最初から外部ワークブックを作成するか、内部ワークブックを外部化できます。
 
 この PHP コードは外部ワークブック作成プロセスを示しています。
 
@@ -193,9 +194,9 @@ Aspose.Slides は、外部ワークブックをチャートのデータ ソー�
 
 ### **外部ワークブックの設定**
 
-**`setExternalWorkbook`** メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てられます。また、外部ワークブックのパスが変更された場合にパスを更新することもできます。
+**`setExternalWorkbook`** メソッドを使用して、外部ワークブックをチャートのデータ ソースとして割り当てられます。このメソッドは外部ワークブックのパスが変更された場合（移動された場合）にも更新に使用できます。
 
-リモート ロケーションやリソースに保存されたワークブックのデータは編集できませんが、外部データ ソースとして利用できます。相対パスが指定された場合は、自動的にフルパスに変換されます。
+リモート ロケーションやリソースに保存されているワークブックのデータを直接編集することはできませんが、外部データ ソースとして使用することは可能です。相対パスが指定された場合は、自動的にフル パスに変換されます。
 
 この PHP コードは外部ワークブックの設定方法を示しています。
 
@@ -221,10 +222,10 @@ Aspose.Slides は、外部ワークブックをチャートのデータ ソー�
   }
 ```
 
-`setExternalWorkbook` メソッドの `ChartData` パラメータは、Excel ワークブックをロードするかどうかを指定します。
+`setExternalWorkbook` メソッドの `ChartData` パラメータは、Excel ワークブックを読み込むかどうかを指定します。
 
-* `ChartData` が `false` に設定されている場合、ワークブック パスのみが更新され、チャート データは対象ワークブックからロードまたは更新されません。対象ワークブックが存在しない、または利用できない状況でこの設定を使用します。  
-* `ChartData` が `true` に設定されている場合、チャート データは対象ワークブックから更新されます。
+* `ChartData` 値を `false` に設定すると、ワークブックのパスのみが更新され、チャート データは対象ワークブックから読み込まれません。対象ワークブックが存在しない、または利用できない場合にこの設定を使用します。
+* `ChartData` 値を `true` に設定すると、チャート データが対象ワークブックから更新されます。
 
 ```php
   # Presentation クラスのインスタンスを作成します
@@ -241,13 +242,13 @@ Aspose.Slides は、外部ワークブックをチャートのデータ ソー�
   }
 ```
 
-### **チャートの外部データ ソース ワークブック パス取得**
+### **チャートの外部データ ソース ワークブック パスの取得**
 
-1. [Presentation](https://apireference.aspose.com/slides/ja/php-java/aspose.slides/presentation) クラスのインスタンスを作成します。  
-2. インデックスでスライドの参照を取得します。  
-3. チャート シェイプのオブジェクトを作成します。  
-4. チャートのデータ ソースを表す `ChartDataSourceType` オブジェクトを作成します。  
-5. ソース タイプが外部ワークブック データ ソース タイプと同じであることを条件として指定します。
+1. **Presentation** クラスのインスタンスを作成します。
+2. インデックスを使用してスライドの参照を取得します。
+3. チャート シェイプのオブジェクトを作成します。
+4. チャートのデータ ソースを表す `ChartDataSourceType` オブジェクトを作成します。
+5. ソース タイプが外部ワークブックのデータ ソース タイプと同じであることを条件として指定します。
 
 この PHP コードは操作を示しています。
 
@@ -272,7 +273,7 @@ Aspose.Slides は、外部ワークブックをチャートのデータ ソー�
 
 ### **チャート データの編集**
 
-外部ワークブックのデータは、内部ワークブックと同様に編集できます。外部ワークブックをロードできない場合は例外がスローされます。
+外部ワークブックのデータは、内部ワークブックの内容を変更するのと同様に編集できます。外部ワークブックを読み込めない場合は例外がスローされます。
 
 この PHP コードは上記プロセスの実装例です。
 
@@ -291,28 +292,54 @@ Aspose.Slides は、外部ワークブックをチャートのデータ ソー�
   }
 ```
 
+### **チャート キャッシュからワークブックを復元する**
+
+チャートが欠落または利用不可能な外部ワークブックを使用している場合、Aspose.Slides はプレゼンテーションにキャッシュされたデータからチャート ワークブックを再構築できます。[LoadOptions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/loadoptions/) を作成し、[SpreadsheetOptions](https://reference.aspose.com/slides/ja/php-java/aspose.slides/spreadsheetoptions/) で構成し、プレゼンテーションを開く前に `SpreadsheetOptions::setRecoverWorkbookFromChartCache` を `true` に設定します。
+
+次の PHP 例は、利用できない外部ワークブックを参照するチャートを含むプレゼンテーションを開き、[Chart::getChartData](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chart/#getChartData) と [ChartData::getChartDataWorkbook](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/#getChartDataWorkbook) を通じて復元されたデータにアクセスする方法を示しています。
+
+```php
+$spreadsheetOptions = new SpreadsheetOptions();
+$spreadsheetOptions->setRecoverWorkbookFromChartCache(true);
+
+$loadOptions = new LoadOptions();
+$loadOptions->setSpreadsheetOptions($spreadsheetOptions);
+
+$presentation = new Presentation("presentation.pptx", $loadOptions);
+try {
+    $chart = $presentation->getSlides()->get_Item(0)->getShapes()->get_Item(0);
+    $recoveredWorkbook = $chart->getChartData()->getChartDataWorkbook();
+
+    # ここで復元されたワークブック データを読み取るか、変更します。
+} finally {
+    $presentation->dispose();
+}
+```
+
+外部ワークブックが利用できず、復元が無効化されている場合、Aspose.Slides は例外をスローします。キャッシュされたチャート データの使用が許容できるフォールバックとしてのみ復元を有効にしてください。キャッシュには、プレゼンテーションの最終更新以降に外部ワークブックで行われた変更が含まれていない可能性があります。
+
 ## **FAQ**
 
-**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックにリンクされているかを判別できますか？**
+**特定のチャートが外部ワークブックにリンクされているか、埋め込みワークブックかを判別できますか？**
 
-はい。チャートには [data source type](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/getdatasourcetype/) と [外部ワークブックへのパス](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/getexternalworkbookpath/) があり、外部ワークブックであればフルパスを読み取って外部ファイルが使用されているか確認できます。
+はい。チャートには [data source type](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/getdatasourcetype/) と [外部ワークブックへのパス](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/getexternalworkbookpath/) があり、外部ワークブックの場合はフル パスを読み取って外部ファイルが使用されていることを確認できます。
 
 **外部ワークブックへの相対パスはサポートされていますか？また、どのように保存されますか？**
 
-はい。相対パスを指定すると自動的に絶対パスに変換されます。プロジェクトのポータビリティには便利ですが、プレゼンテーションは PPTX ファイル内に絶対パスを保存します。
+はい。相対パスを指定すると自動的に絶対パスに変換されます。これはプロジェクトのポータビリティに便利ですが、PPTX ファイル内には絶対パスが保存される点に留意してください。
 
-**ネットワーク リソース/共有上にあるワークブックを使用できますか？**
+**ネットワーク上のリソース／共有フォルダーにあるワークブックを使用できますか？**
 
-はい、外部データ ソースとして使用可能です。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。読み取り専用での利用に限られます。
+はい、外部データ ソースとして使用可能です。ただし、Aspose.Slides からリモート ワークブックを直接編集することはサポートされていません。ソースとしてのみ利用できます。
 
-**プレゼンテーション保存時に外部 XLSX が上書きされますか？**
+**プレゼンテーションを保存するときに外部 XLSX が上書きされますか？**
 
-いいえ。プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/getexternalworkbookpath/) を保存し、データ読み取りに使用します。保存時に外部ファイル自体は変更されません。
+いいえ。プレゼンテーションは [外部ファイルへのリンク](https://reference.aspose.com/slides/ja/php-java/aspose.slides/chartdata/getexternalworkbookpath/) を保持し、データの読み取りに使用します。保存時に外部ファイル自体は変更されません。
 
-**外部ファイルがパスワードで保護されている場合はどうすればよいですか？**
+**外部ファイルがパスワードで保護されている場合はどうすべきですか？**
 
-Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策は、事前に保護を解除するか、[Aspose.Cells](/cells/php-java/) などで復号化したコピーを作成してそのコピーにリンクすることです。
+Aspose.Slides はリンク時にパスワードを受け付けません。一般的な対策として、事前に保護を解除するか、[Aspose.Cells](/cells/php-java/) などで復号化コピーを作成し、そのコピーにリンクしてください。
 
 **複数のチャートが同じ外部ワークブックを参照できますか？**
 
-はい。各チャートは独自のリンクを保持します。同じファイルを指す場合、ファイルを更新すると次回データをロードしたときにすべてのチャートに反映されます。
+はい。各チャートは独自のリンクを保持します。すべてが同一ファイルを指している場合、そのファイルを更新すると次回データを読み込む際に各チャートに反映されます。

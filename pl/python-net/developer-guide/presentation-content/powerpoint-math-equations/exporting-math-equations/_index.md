@@ -6,27 +6,60 @@ weight: 30
 url: /pl/python-net/exporting-math-equations/
 keywords:
 - eksport równań matematycznych
+- eksport równań do LaTeX
+- PowerPoint do LaTeX
 - MathML
 - LaTeX
 - PowerPoint
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Umożliw płynny eksport równań matematycznych z PowerPointa do MathML przy użyciu Aspose.Slides dla Pythona w .NET — zachowaj formatowanie i zwiększ kompatybilność."
+description: "Eksportuj równania matematyczne z prezentacji PowerPoint do LaTeX lub MathML bezpośrednio za pomocą Aspose.Slides dla Pythona poprzez .NET."
 ---
 ## **Wprowadzenie**
 
-Aspose.Slides for Python via .NET umożliwia eksportowanie równań matematycznych z prezentacji. Na przykład możesz potrzebować wyodrębnić równania z konkretnych slajdów i ponownie wykorzystać je w innym programie lub platformie.
+Aspose.Slides dla Pythona poprzez .NET umożliwia eksportowanie równań matematycznych z prezentacji. Na przykład może być konieczne wyodrębnienie równań z wybranych slajdów i ponowne użycie ich w innym programie lub platformie.
 
 {{% alert color="primary" %}}
-
-Możesz wyeksportować równania do MathML, szeroko stosowanego standardu reprezentacji treści matematycznej w sieci i wielu aplikacjach.
-
+Możesz eksportować równania bezpośrednio do LaTeX lub MathML, popularnego standardu treści matematycznych używanego w sieci i w wielu aplikacjach.
 {{% /alert %}}
 
-## **Zapisywanie równań matematycznych jako MathML**
+## **Eksportowanie równań matematycznych do LaTeX**
 
-Chociaż ludzie łatwo piszą LaTeX, MathML jest zazwyczaj generowany automatycznie przez aplikacje. Ponieważ MathML jest oparty na XML, programy mogą go odczytywać i analizować w sposób niezawodny, więc jest powszechnie używany jako format wyjściowy i drukowania w wielu dziedzinach.
+Aspose.Slides może konwertować równanie matematyczne PowerPoint bezpośrednio do LaTeX; nie jest wymagany pośredni plik MathML ani zewnętrzny konwerter. Równanie matematyczne jest przechowywane w ramce tekstowej jako [MathPortion](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathportion/). Użyj [MathPortion.math_paragraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathportion/math_paragraph/) aby uzyskać [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/), a następnie wywołaj [MathParagraph.to_latex](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/to_latex/). Metoda zwraca ciąg znaków, który możesz zapisać, wyświetlić, wysłać do innej aplikacji lub dalej przetworzyć.
+
+Przykład poniżej przegląda każdą ramkę tekstową na każdym slajdzie, znajduje wszystkie części matematyczne i zapisuje każde równanie do osobnego pliku `.tex`:
+
+```py
+import aspose.slides as slides
+
+with slides.Presentation("equations.pptx") as presentation:
+    for slide_number, slide in enumerate(presentation.slides, start=1):
+        equation_number = 1
+        text_frames = slides.util.SlideUtil.get_all_text_boxes(slide)
+
+        for text_frame in text_frames:
+            for paragraph in text_frame.paragraphs:
+                for portion in paragraph.portions:
+                    if not isinstance(portion, slides.mathtext.MathPortion):
+                        continue
+
+                    math_paragraph = portion.math_paragraph
+                    latex_path = f"slide_{slide_number}_equation_{equation_number}.tex"
+
+                    latex_text = math_paragraph.to_latex()
+                    with open(latex_path, "w", encoding="utf-8") as latex_file:
+                        latex_file.write(latex_text)
+                    equation_number += 1
+```
+
+[SlideUtil.get_all_text_boxes](https://reference.aspose.com/slides/pl/python-net/aspose.slides.util/slideutil/get_all_text_boxes/) zwraca wszystkie ramki tekstowe znalezione na slajdzie. Sprawdzenie typu [MathPortion](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathportion/) oddziela prawdziwe edytowalne równania od zwykłego tekstu i obrazów.
+
+Silniki LaTeX i szablony dokumentów nie obsługują wszystkich tych samych poleceń, pakietów ani znaków Unicode. Przetestuj zwrócony ciąg przy użyciu silnika LaTeX używanego w twojej aplikacji. Jeśli symbol lub element Office Math nie ma odpowiedniej reprezentacji w tym środowisku, zastąp go w zwróconym ciągu poleceniem specyficznym dla projektu lub pomiń równanie i zanotuj problem do przeglądu.
+
+## **Zapisz równania matematyczne jako MathML**
+
+Chociaż ludzie łatwo piszą LaTeX, MathML jest zazwyczaj generowany automatycznie przez aplikacje. Ponieważ MathML jest oparty na XML, programy mogą go czytać i analizować niezawodnie, dlatego jest powszechnie używany jako format wyjściowy i drukowania w wielu dziedzinach.
 
 Poniższy przykładowy kod pokazuje, jak wyeksportować równanie matematyczne z prezentacji do MathML:
 
@@ -54,22 +87,22 @@ with slides.Presentation() as presentation:
 
 ## **FAQ**
 
-**Co dokładnie jest eksportowane do MathML — akapit czy pojedynczy blok formuły?**
+**Co dokładnie jest eksportowane do MathML — paragraf czy pojedynczy blok formuły?**
 
-Możesz wyeksportować zarówno cały akapit matematyczny ([MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/)), jak i pojedynczy blok ([MathBlock](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathblock/)) do MathML. Oba typy udostępniają metodę zapisu do MathML.
+Możesz wyeksportować cały paragraf matematyczny ([MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/)) lub pojedynczy blok ([MathBlock](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathblock/)) do MathML. Oba typy udostępniają metodę zapisu do MathML.
 
-**Jak rozpoznać, że obiekt na slajdzie jest formułą matematyczną, a nie zwykłym tekstem lub obrazem?**
+**Jak mogę stwierdzić, że obiekt na slajdzie jest formułą matematyczną, a nie zwykłym tekstem lub obrazem?**
 
-Formuła znajduje się w [MathPortion](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathportion/) i posiada [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/). Obrazy i zwykłe fragmenty tekstu bez [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/) nie są eksportowalnymi formułami.
+Formuła znajduje się w [MathPortion](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathportion/) i ma [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/). Obrazy i zwykłe części tekstowe bez [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/) nie są eksportowalnymi formułami.
 
-**Skąd pochodzi MathML w prezentacji — czy jest specyficzne dla PowerPoint, czy jest standardem?**
+**Skąd pochodzi MathML w prezentacji — czy jest specyficzny dla PowerPointa, czy jest standardem?**
 
-Eksportuje się do standardowego MathML (XML). Aspose używa Presentation MathML — podzbioru prezentacji standardu, który jest szeroko stosowany w aplikacjach i w sieci.
+Eksport kieruje się do standardowego MathML (XML). Aspose używa Presentation MathML — podzbioru prezentacji tego standardu, który jest szeroko stosowany w aplikacjach i w sieci.
 
-**Czy eksport formuł znajdujących się w tabelach, SmartArt, grupach itp. jest obsługiwany?**
+**Czy eksportowanie formuł znajdujących się w tabelach, SmartArt, grupach itp. jest obsługiwane?**
 
-Tak, jeśli te obiekty zawierają fragmenty tekstu z [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/) (czyli prawdziwe formuły PowerPoint), są eksportowane. Jeśli formuła jest osadzona jako obraz, nie jest.
+Tak, jeśli te obiekty zawierają części tekstowe z [MathParagraph](https://reference.aspose.com/slides/pl/python-net/aspose.slides.mathtext/mathparagraph/) (czyli prawdziwe formuły PowerPoint), są eksportowane. Jeśli formuła jest osadzona jako obraz, nie jest.
 
 **Czy eksport do MathML modyfikuje oryginalną prezentację?**
 
-Nie. Zapis MathML jest serializacją zawartości formuły; nie modyfikuje pliku prezentacji.
+Nie. Zapis MathML to serializacja zawartości formuły; nie modyfikuje pliku prezentacji.

@@ -9,7 +9,7 @@ keywords:
 - dia másolása
 - dia mentése
 - PowerPoint
-- prezentáció
+- bemutató
 - Python
 - Aspose.Slides
 description: "Az Aspose.Slides for Python via .NET segítségével gyorsan klónozhat vagy megkettőzhet PowerPoint diákat. Kövesse világos kódrészleteinket és tippjeinket a PPT létrehozásának másodpercek alatt történő automatizálásához, a termelékenység növeléséhez és a manuális munka megszüntetéséhez."
@@ -32,7 +32,7 @@ Az Aspose.Slides for Python via .NET-ben a [dia gyűjtemény](https://reference.
 pip install aspose.slides
 ```
 
-## **Klónozás a végén ugyanabban a prezentációban**
+## **Telepítés**
 
 Ha ugyanabban a prezentációban szeretne egy diát klónozni, és a meglévő diák végére szeretné hozzáadni, használja az `add_clone` metódust. Kövesse az alábbi lépéseket:
 
@@ -76,7 +76,7 @@ with slides.Presentation("CloneWithInSamePresentation.pptx") as presentation:
     presentation.save("Aspose_CloneWithInSamePresentation_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klónozás egy másik prezentáció végén**
+## **Klónozás egy másik bemutató végén**
 
 Ha egy prezentációból szeretne egy diát klónozni, és egy másik prezentáció végére hozzáadni:
 
@@ -162,7 +162,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
         target_presentation.save("CloneToAnotherPresentationWithMaster_out.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-## **Klónozás a végén egy megadott szekcióban**
+## **Klónozás a végén egy meghatározott szekcióban**
 
 Az Aspose.Slides for Python via .NET segítségével egy prezentáció egy szekciójából klónozhat egy diát, és egy másik szekcióba illesztheti be ugyanabban a prezentációban. Ehhez használja a `add_clone(Slide, Section)` metódust a [SlideCollection](https://reference.aspose.com/slides/hu/python-net/aspose.slides/slidecollection/) osztályból.
 
@@ -171,15 +171,15 @@ Az alábbi Python példa bemutatja, hogyan klónozzon egy diát, és illessze be
 ```py
 import aspose.slides as slides
 
-# Hozzon létre egy új üres prezentációt.
+# Hozzon létre egy új üres bemutatót.
 with slides.Presentation() as presentation:
     # Üres diát ad hozzá az első dia elrendezésére alapozva.
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Ellipszis alakzatot ad hozzá az új diához; ez a dia később klónozva lesz.
+    # Adjon hozzá egy ellipszis alakzatot az új diához; ez a dia később klónozva lesz.
     slide.shapes.add_auto_shape(slides.ShapeType.ELLIPSE, 150, 150, 100, 100)
     # Egy másik üres diát ad hozzá az első dia elrendezésére alapozva.
     slide2 = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)
-    # Létrehoz egy "Section2" nevű szekciót, amely a slide2-nél kezdődik.
+    # Hozzon létre egy "Section2" nevű szekciót, amely a slide2-nél kezdődik.
     section = presentation.sections.add_section("Section2", slide2)
     # A korábban létrehozott diát a "Section2" szekcióba klónozza.
     presentation.slides.add_clone(slide, section)

@@ -171,7 +171,7 @@ with slides.Presentation("CloneToAnotherPresentationWithMaster.pptx") as source_
 ```py
 import aspose.slides as slides
 
-# 建立一個新的空白簡報。
+# 建立新的空白簡報。
 with slides.Presentation() as presentation:
     # 新增一張依據第一張投影片版面配置的空白投影片。
     slide = presentation.slides.add_empty_slide(presentation.slides[0].layout_slide)

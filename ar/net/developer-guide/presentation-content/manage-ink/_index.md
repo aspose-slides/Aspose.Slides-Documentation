@@ -1,5 +1,5 @@
 ---
-title: إدارة كائنات الحبر في العرض التقديمي باستخدام .NET
+title: إدارة كائنات حبر العرض التقديمي في .NET
 linktitle: إدارة الحبر
 type: docs
 weight: 95
@@ -7,91 +7,196 @@ url: /ar/net/manage-ink/
 keywords:
 - حبر
 - كائن حبر
-- آثار الحبر
+- أثر الحبر
 - إدارة الحبر
 - رسم الحبر
-- رسم
+- الرسم
+- تصدير الحبر
+- عرض الحبر
+- إخفاء الحبر
+- IInkOptions
 - PowerPoint
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة كائنات الحبر في PowerPoint — إنشاء، تعديل وتنسيق الحبر الرقمي باستخدام Aspose.Slides لـ .NET. احصل على أمثلة شفرة لتتبع الآثار، لون الفرشاة وحجمها."
+description: "إدارة كائنات حبر PowerPoint، تعديل الآثار وخصائص الفرشاة، والتحكم في مظهر الحبر أثناء تصدير PDF وHTML وSVG وTIFF والصور باستخدام Aspose.Slides لـ .NET."
 ---
+## **المقدمة**
 
-يقدم PowerPoint وظيفة الحبر لتسمح لك برسم أشكال غير قياسية، والتي يمكن استخدامها لتسليط الضوء على كائنات أخرى، وإظهار الاتصالات والعمليات، وجذب الانتباه إلى عناصر محددة في الشريحة.
+يقدّم PowerPoint ميزة الحبر التي تتيح لك رسم خطوط حرة. يمكن استخدام الحبر لتسليط الضوء على الكائنات الأخرى، وإظهار الاتصالات والعمليات، وجذب الانتباه إلى عناصر محددة في الشريحة.
 
-توفر Aspose.Slides الواجهة [Aspose.Slides.Ink](https://reference.aspose.com/slides/net/aspose.slides.ink/) التي تحتوي على الأنواع التي تحتاجها لإنشاء وإدارة كائنات الحبر.
+تحتوي مساحة الأسماء [Aspose.Slides.Ink](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/) على الفئات والواجهات اللازمة للعمل مع كائنات الحبر. على سبيل المثال، تمثل الواجهة [IInk](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iink/) كائن حبر في الشريحة.
 
-## **الاختلافات بين الكائنات العادية وكائنات الحبر**
+## **الفرق بين الكائنات العادية وكائنات الحبر**
 
-عادةً ما يتم تمثيل الكائنات على شريحة PowerPoint بواسطة كائنات الشكل. كائن الشكل، بأبسط صوره، هو حاوية تحدد مساحة الكائن نفسه (إطاره) إلى جانب خصائصه. تشمل الأخيرة حجم مساحة الحاوية، وشكل الحاوية، وخلفية الحاوية، وما إلى ذلك. للمزيد من المعلومات، راجع [تنسيق تخطيط الشكل](https://docs.aspose.com/slides/net/shape-manipulations/#access-layout-formats-for-shape).
+عادةً ما تُمثَّل الكائنات في شريحة PowerPoint بكائنات الشكل. في أبسط أشكالها، يُعد الشكل حاوية تُعرّف مساحة الكائن نفسه (الإطار) إلى جانب خصائص مثل حجم الحاوية، الشكل، والخلفية. لمزيد من المعلومات، راجع [Shape Layout Format](https://docs.aspose.com/slides/ar/net/shape-manipulations/#access-layout-formats-for-shape).
 
-ومع ذلك، عندما يتعامل PowerPoint مع كائن حبر، يتجاهل جميع خصائص إطار الكائن (الحاوية) باستثناء حجمه. يتم تحديد حجم مساحة الحاوية بواسطة قيم `width` و `height` القياسية:
+ومع ذلك، عند معالجة PowerPoint لكائن حبر، يتم تجاهل جميع خصائص إطار الكائن (الحاوية) باستثناء حجمه. يتم تحديد حجم مساحة الحاوية بواسطة خصائص [IShape.Width](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/width/) و[IShape.Height](https://reference.aspose.com/slides/ar/net/aspose.slides/ishape/height/) القياسية:
 
 ![ink_powerpoint1](ink_powerpoint1.png)
 
-## **آثار شكل الحبر**
+## **آثار الحبر**
 
-الأثر هو عنصر أساسي أو معيار يُستخدم لتسجيل مسار القلم عندما يكتب المستخدم حبرًا رقميًا. الآثار هي تسجيلات تصف تسلسلات من النقاط المتصلة.
+آثار الحبر هي عنصر أساسي يُستخدم لتسجيل مسار القلم أثناء كتابة الحبر الرقمي. يخزن الأثر سلسلة من النقاط المتصلة.
 
-أبسط صيغة للترميز تحدد إحداثيات X و Y لكل نقطة عينة. عندما يتم عرض جميع النقاط المتصلة، ينتج عنها صورة كهذه:
+أبسط أشكال الترميز تُحدد إحداثيات X وY لكل نقطة عينة. عندما يتم عرض جميع النقاط المتصلة، ينتج عنها صورة كهذه:
 
 ![ink_powerpoint2](ink_powerpoint2.png)
 
 ## **خصائص الفرشاة للرسم**
 
-يمكنك استخدام فرشاة لرسم خطوط تربط نقاط عناصر الأثر. للفرشاة لونها وحجمها الخاص، ويتطابقان مع خصائص `Brush.Color` و `Brush.Size`.
+تُستَخدم الفرشاة لرسم الخطوط التي تربط نقاط أثر الحبر. للفرشاة لونها وحجمها الخاصين، يُمثِّلان بخصائص [IInkBrush.Color](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iinkbrush/color/) و[IInkBrush.Size](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iinkbrush/size/).
 
 ### **تعيين لون فرشاة الحبر**
 
-هذا الكود C# يوضح لك كيفية تعيين اللون للفرشاة:
-```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    IInk ink = (IInk)pres.Slides[0].Shapes[0];
-    IInkTrace[] traces = ink.Traces;
-    IInkBrush brush = traces[0].Brush;
-    Color brushColor = brush.Color;
-    brush.Color = Color.Red;
-}
-```
+يوضح هذا الكود C# كيفية تعيين لون فرشاة الحبر:
 
+```c#
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Ink;
+
+using var presentation = new Presentation("pres.pptx");
+var ink = (IInk)presentation.Slides[0].Shapes[0];
+var brush = ink.Traces[0].Brush;
+brush.Color = Color.Red;
+```
 
 ### **تعيين حجم فرشاة الحبر**
 
-هذا الكود C# يوضح لك كيفية تعيين الحجم للفرشاة:
+يوضح هذا الكود C# كيفية تعيين حجم فرشاة الحبر:
+
 ```c#
-using (Presentation pres = new Presentation("pres.pptx"))
-{
-    IInk ink = (IInk)pres.Slides[0].Shapes[0];
-    IInkTrace[] traces = ink.Traces;
-    IInkBrush brush = traces[0].Brush;
-    SizeF brushSize = brush.Size;
-    brush.Size = new SizeF(5f, 10f);
-}
+using System.Drawing;
+using Aspose.Slides;
+using Aspose.Slides.Ink;
+
+using var presentation = new Presentation("pres.pptx");
+var ink = (IInk)presentation.Slides[0].Shapes[0];
+var brush = ink.Traces[0].Brush;
+brush.Size = new SizeF(5f, 10f);
 ```
 
-
-بشكل عام، لا يتطابق عرض وارتفاع الفرشاة، لذا لا يعرض PowerPoint حجم الفرشاة (القسم الخاص بالبيانات مظلل). ولكن عندما يتطابق عرض وارتفاع الفرشاة، يعرض PowerPoint حجمه بهذه الطريقة:
+عمومًا، لا يتطابق عرض وارتفاع الفرشاة، لذا لا يعرض PowerPoint حجم الفرشاة (القسم المعني من البيانات مُظلّل). عندما يتطابق عرض وارتفاع الفرشاة، يعرض PowerPoint حجمه بهذا الشكل:
 
 ![ink_powerpoint3](ink_powerpoint3.png)
 
-للتوضيح، لنقم بزيادة ارتفاع كائن الحبر ومراجعة الأبعاد المهمة:
+لتوضيح ذلك، لنقم بزيادة ارتفاع كائن الحبر ومراجعة الأبعاد الهامة:
 
 ![ink_powerpoint4](ink_powerpoint4.png)
 
-لا تأخذ الحاوية (الإطار) حجم الفرشاة في الاعتبار—دائمًا ما تفترض أن سمك الخط صفر (انظر الصورة الأخيرة).
+لا تحتسب الحاوية (الإطار) حجم الفرش—in؛ فهي تفترض دائمًا أن سمك الخط صفر (انظر الصورة السابقة).
 
-لذلك، لتحديد المنطقة الظاهرة لكائن الحبر بالكامل، يجب مراعاة حجم فرشاة كائنات الأثر. هنا، تم تحجيم كائن الهدف (كائن أثر النص المكتوب يدويًا) إلى حجم الحاوية (الإطار). عندما يتغير حجم الحاوية (الإطار)، يبقى حجم الفرشاة ثابتًا والعكس صحيح.
+لذلك، لتحديد المنطقة الظاهرة لكائن الحبر بأكمله، يجب أخذ حجم فرشاة آثاره في الاعتبار. هنا، تم تحجيم الكائن المستهدف (أثر النص المكتوب يدويًا) ليتناسب مع حجم الحاوية (الإطار). عندما يتغير حجم الحاوية، يبقى حجم الفرشاة ثابتًا، والعكس صحيح.
 
 ![ink_powerpoint5](ink_powerpoint5.png)
 
-يظهر PowerPoint نفس السلوك عند التعامل مع النصوص:
+يستخدم PowerPoint سلوكًا مشابهًا لكائنات النص:
 
 ![ink_powerpoint6](ink_powerpoint6.png)
 
-**قراءة إضافية**
+## **التحكم في مظهر الحبر أثناء التصدير والعرض**
 
-* لقراءة المزيد عن الأشكال بشكل عام، راجع قسم [PowerPoint Shapes](https://docs.aspose.com/slides/net/powerpoint-shapes/).
-* لمزيد من المعلومات حول القيم الفعّالة، راجع [خصائص الشكل الفعّالة](https://docs.aspose.com/slides/net/shape-effective-properties/#get-effective-font-height-value).
+يوفر Aspose.Slides الواجهة [IInkOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/) للتحكم في كيفية ظهور كائنات الحبر في النتيجة المصدَّرة أو المعروضة. يمكنك استخدام خصائصها لإخفاء الحبر تمامًا أو تغيير طريقة تفسير عمليات قناع فرشاة الحبر.
+
+تتوفر خيارات الحبر عبر خيارات التصدير أو العرض لعدة أنواع من المخرجات:
+
+| الإخراج | خاصية خيارات الحبر |
+| --- | --- |
+| PDF | [`PdfOptions.InkOptions`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/pdfoptions/inkoptions/) |
+| HTML | [`HtmlOptions.InkOptions`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/htmloptions/inkoptions/) |
+| SVG | [`SVGOptions.InkOptions`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/svgoptions/inkoptions/) |
+| TIFF | [`TiffOptions.InkOptions`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/tiffoptions/inkoptions/) |
+| صورة الشريحة | [`RenderingOptions.InkOptions`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/renderingoptions/inkoptions/) |
+
+الاعدادتان المتاحتان عبر هذه الخصائص:
+
+- [`HideInk`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/hideink/) يحدد ما إذا كانت كائنات الحبر تُضمّن في المخرج. القيمة الافتراضية هي `false`.
+- [`InterpretMaskOpAsOpacity`](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/interpretmaskopasopacity/) يحدد ما إذا كانت عملية القناع تُفسَّر كعتمة عند عرض فرشاة الحبر. القيمة الافتراضية هي `true`؛ قم بتعيينها إلى `false` لاستخدام عملية ROP بدلاً من ذلك.
+
+### **إخفاء كائنات الحبر في مخرج PDF**
+
+بشكل افتراضي، تظل كائنات الحبر مرئية أثناء التصدير. عيّن [IInkOptions.HideInk](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/hideink/) إلى `true` عندما تحتاج إلى مخرج نظيف خالٍ من التعليقات المكتوبة يدويًا أو أي محتوى حبر آخر.
+
+المثال التالي بلغة C# يصدر عرضًا تقديميًا إلى PDF مع إخفاء جميع كائنات الحبر:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var pdfOptions = new PdfOptions();
+pdfOptions.InkOptions.HideInk = true;
+
+presentation.Save("presentation_without_ink.pdf", SaveFormat.Pdf, pdfOptions);
+```
+
+### **إخفاء كائنات الحبر عند عرض الشريحة كصورة**
+
+لإخفاء كائنات الحبر عند عرض الشرائح كصور نقطية، قم بتهيئة [RenderingOptions.InkOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/renderingoptions/inkoptions/) ومرّر خيارات العرض إلى طريقة [ISlide.GetImage](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/getimage/).
+
+المثال التالي بلغة C# يعرض الشريحة الأولى كصورة PNG دون كائنات حبر:
+
+```c#
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var renderingOptions = new RenderingOptions();
+renderingOptions.InkOptions.HideInk = true;
+
+using var image = presentation.Slides[0].GetImage(renderingOptions);
+image.Save("slide_without_ink.png", ImageFormat.Png);
+```
+
+### **التحكم في عرض قناع الحبر**
+
+تتحكم الخاصية [IInkOptions.InterpretMaskOpAsOpacity](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/interpretmaskopasopacity/) في طريقة تفسير عمليات القناع عند عرض فرشاة الحبر. القيمة الافتراضية هي `true`، والتي تستخدم العتمة. عيّن الخاصية إلى `false` لاستخدام عملية ROP بدلاً من ذلك.
+
+المثال التالي بلغة C# يصدر شريحة إلى SVG ويستخدم عرضًا معتمدًا على ROP لعمليات قناع الحبر:
+
+```c#
+using System.IO;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var svgOptions = new SVGOptions();
+svgOptions.InkOptions.InterpretMaskOpAsOpacity = false;
+
+using var stream = File.Create("slide.svg");
+presentation.Slides[0].WriteAsSvg(stream, svgOptions);
+```
+
+يمكن تطبيق الإعداد نفسه عبر [TiffOptions.InkOptions](https://reference.aspose.com/slides/ar/net/aspose.slides.export/tiffoptions/inkoptions/) عند تصدير عرض تقديمي أو عرض شريحة إلى TIFF.
+
+### **اختيار إخفاء أو الحفاظ على الحبر**
+
+استخدم [IInkOptions.HideInk](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/hideink/) مع قيمة `true` عندما يجب أن يكون الملف المصدر نسخة نظيفة من عرض تقديمي مشروح، مثل نسخة نهائية موجهة للتوزيع دون علامات مراجعة.
+
+اترك [IInkOptions.HideInk](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/hideink/) على قيمته الافتراضية `false` عندما تكون تعليقات الحبر جزءًا من المحتوى المقصود، مثل تعليقات المراجعة، الملاحظات المكتوبة يدويًا، التظليل، أو الرسومات التي يجب أن تظل مرئية في النتيجة المصدَّرة. يتيح هذا للتطبيقات إنشاء مخرجات مراجعة ونهائية منفصلة من نفس العرض التقديمي دون تعديل كائنات الحبر الأصلية.
+
+## **الأسئلة المتكررة**
+
+**هل يمكنني تغيير لون أو حجم خط الحبر الموجود؟**
+
+نعم. احصل على الأثر من [IInk.Traces](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iink/traces/)، ثم غيّر [IInkTrace.Brush](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iinktrace/brush/). يمكنك تعيين خصائص [IInkBrush.Color](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iinkbrush/color/) و[IInkBrush.Size](https://reference.aspose.com/slides/ar/net/aspose.slides.ink/iinkbrush/size/).
+
+**هل تغيير إخفاء الحبر يؤثر على العرض التقديمي الأصلي؟**
+
+لا. يؤثر [IInkOptions.HideInk](https://reference.aspose.com/slides/ar/net/aspose.slides.export/iinkoptions/hideink/) فقط على النتيجة المعروضة أو المصدَّرة؛ ولا يزيل أو يغيّر كائنات الحبر في العرض التقديمي الأصلي.
+
+**ما صيغ التصدير التي تدعم خيارات الحبر؟**
+
+يمكنك تكوين خيارات الحبر للـ PDF، HTML، SVG، TIFF، وصور الشرائح النقطية عبر خيارات التصدير أو العرض المذكورة أعلاه.
+
+**مزيد من القراءة**
+
+* لقراءة حول الأشكال بشكل عام، راجع قسم [PowerPoint Shapes](https://docs.aspose.com/slides/ar/net/powerpoint-shapes/).
+* لمزيد من المعلومات حول القيم الفعّالة، انظر [Shape Effective Properties](https://docs.aspose.com/slides/ar/net/shape-effective-properties/#get-effective-font-height-value).
+* لتفاصيل تصدير PDF، راجع [Convert PPT and PPTX to PDF](https://docs.aspose.com/slides/ar/net/convert-powerpoint-to-pdf/).
+* لتفاصيل تصدير HTML، راجع [Convert PowerPoint Presentations to HTML](https://docs.aspose.com/slides/ar/net/convert-powerpoint-to-html/).
+* لتفاصيل تصدير SVG، راجع [Render Presentation Slides as SVG Images](https://docs.aspose.com/slides/ar/net/render-a-slide-as-an-svg-image/).
+* لتفاصيل تصدير TIFF، راجع [Convert PowerPoint Presentations to TIFF](https://docs.aspose.com/slides/ar/net/convert-powerpoint-to-tiff/).
+* لتفاصيل عرض الشرائح كصور، راجع [Convert Presentation Slides to Images](https://docs.aspose.com/slides/ar/net/convert-slide/).
