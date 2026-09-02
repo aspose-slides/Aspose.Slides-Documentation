@@ -1,5 +1,5 @@
 ---
-title: C++ का उपयोग करके प्रस्तुतियों में फ़ॉन्ट प्रतिस्थापन कॉन्फ़िगर करें
+title: C++ में प्रस्तुतियों में फ़ॉन्ट प्रतिस्थापन कॉन्फ़िगर करें
 linktitle: फ़ॉन्ट प्रतिस्थापन
 type: docs
 weight: 70
@@ -11,94 +11,176 @@ keywords:
 - फ़ॉन्ट बदलें
 - फ़ॉन्ट प्रतिस्थापन
 - प्रतिस्थापन नियम
-- प्रतिस्थापन नियम
+- बदलाव नियम
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
-- С++
+- C++
 - Aspose.Slides
-description: "Aspose.Slides में C++ के लिए PowerPoint और OpenDocument प्रस्तुतियों को अन्य फ़ाइल स्वरूपों में बदलते समय इष्टतम फ़ॉन्ट प्रतिस्थापन सक्षम करें।"
+description: "C++ के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और PowerPoint तथा OpenDocument प्रस्तुतियों को रेंडर या रूपांतरित करते समय प्रतिस्थापित फ़ॉन्ट देखिए।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-फ़ॉन्ट प्रतिस्थापन Aspose.Slides को रेंडरिंग या रूपांतरण के दौरान मूल प्रस्तुति फ़ॉन्ट उपलब्ध न होने पर एक अन्य फ़ॉन्ट उपयोग करने की अनुमति देता है। आप `IFontsManager` इंटरफ़ेस की `GetSubstitutions` मेथड का उपयोग करके देख सकते हैं कि कौन से फ़ॉन्ट प्रतिस्थापित किए गए थे।
+फ़ॉन्ट प्रतिस्थापन Aspose.Slides को प्रस्तुति के रेंडर या रूपांतरण के समय जब कोई फ़ॉन्ट उपलब्ध नहीं होता है, तब एक उपलब्ध फ़ॉन्ट का उपयोग करने की अनुमति देता है। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुति सामग्री में निर्धारित फ़ॉन्ट को नहीं बदलता है।
 
-Aspose.Slides आपको फ़ॉन्ट प्रतिस्थापन नियम भी परिभाषित करने की सुविधा देता है। उदाहरण के लिए, आप बता सकते हैं कि कोई अनुपलब्ध फ़ॉन्ट दूसरे उपलब्ध फ़ॉन्ट से बदल दिया जाए और फिर उन नियमों को प्रस्तुति के फ़ॉन्ट मैनेजर के माध्यम से लागू करें।
+आप किसी विशेष फ़ॉन्ट के अनुपलब्ध होने पर उपयोग करने के लिए फ़ॉन्ट को परिभाषित कर सकते हैं, और आप Aspose.Slides द्वारा रेंडरिंग के दौरान किए जाने वाले प्रतिस्थापन की जाँच कर सकते हैं। यह विभिन्न स्थापित फ़ॉन्ट वाले परिवेशों में आउटपुट को सुसंगत रखने में मदद करता है।
+
+## **फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
+
+प्रस्तुति के रेंडर होने पर कौन से फ़ॉन्ट प्रतिस्थापित किए जाएंगे, यह निर्धारित करने के लिए आप [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/getsubstitutions/) मेथड का उपयोग कर सकते हैं। यह मेथड [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट्स लौटाता है जो मूल और प्रतिस्थापित फ़ॉन्ट नामों की पहचान करते हैं।
+
+निम्नलिखित C++ उदाहरण प्रस्तुति के लिए सभी फ़ॉन्ट प्रतिस्थापनों की सूची देता है:
+
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+
+for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
+{
+    Console::WriteLine(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+}
+
+presentation->Dispose();
+```
+
+## **चयनित स्लाइड्स के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
+
+आप चयनित स्लाइड्स को रेंडर करने के लिए आवश्यक प्रतिस्थापनों को ही देखना चाहते हैं, तो आप `System::ArrayPtr<int32_t> slides` तर्क के साथ [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/getsubstitutions/) ओवरलोड का उपयोग कर सकते हैं। यह तब उपयोगी होता है जब आप प्रस्तुति के भाग को रेंडर या एक्सपोर्ट कर रहे हों, बड़े प्रस्तुति को क्रमिक रूप से जांच रहे हों, उन स्लाइड्स को ढूंढ रहे हों जो अनुपलब्ध फ़ॉन्ट पर निर्भर हैं, सर्वर या कंटेनर के लिए न्यूनतम फ़ॉन्ट पैकेज तैयार कर रहे हों, या असंबंधित स्लाइड्स को प्रोसेस किए बिना रेंडरिंग अंतर की जाँच करना चाहें।
+
+`slides` एरे में एक-आधारित स्लाइड इंडेक्स होते हैं: `1` पहली स्लाइड को दर्शाता है। इसके विपरीत, [Presentation::get_Slide](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_slide/) मेथड शून्य-आधारित इंडेक्स का उपयोग करता है, इसलिए वही स्लाइड `presentation->get_Slide(0)` द्वारा पहुँचा जाता है। एरे बनाते समय इस अंतर को ध्यान में रखें ताकि ओफ़‑बाय‑वन त्रुटियों से बचा जा सके।
+
+आप इस ओवरलोड को [Presentation::get_FontsManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/presentation/get_fontsmanager/) मेथड के माध्यम से कॉल करते हैं। यह केवल चयनित स्लाइड्स को रेंडर करते समय निर्धारित किए गए प्रतिस्थापनों को लौटाता है। प्रत्येक परिणाम एक [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट होता है जिसमें मूल और प्रतिस्थापित फ़ॉन्ट नाम होते हैं। यह परिणाम वर्तमान फ़ॉन्ट वातावरण, कॉन्फ़िगर किए गए फ़ॉलबैक नियम, [IFontSubstRuleCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsubstrulecollection/) में संग्रहीत प्रतिस्थापन नियम, और [externally loaded fonts](/slides/hi/cpp/custom-font/) को दर्शाता है।
+
+एक ही प्रतिस्थापन एक से अधिक चयनित स्लाइड्स द्वारा आवश्यक हो सकता है। जब आप फ़ॉन्ट इन्वेंट्री या प्री‑फ़्लाइट रिपोर्ट बनाते हैं, तो परिणामों को डिडुप्लिकेट करें। निम्नलिखित उदाहरण प्रत्येक लौटाए गए प्रतिस्थापन की रिपोर्ट करता है और फिर अद्वितीय फ़ॉन्ट मैपिंग की क्रमबद्ध सूची बनाता है:
+
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+
+auto selectedSlides = MakeArray<int32_t>({1, 3, 5});
+auto substitutions = presentation->get_FontsManager()->GetSubstitutions(selectedSlides);
+auto sortedPreflightEntries = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+Console::WriteLine(u"Substitutions for the selected slides:");
+for (auto&& substitution : substitutions)
+{
+    auto entry = String::Format(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+    Console::WriteLine(entry);
+    sortedPreflightEntries->Add(entry);
+}
+
+Console::WriteLine(u"Deduplicated font preflight report:");
+for (auto&& entry : sortedPreflightEntries)
+{
+    Console::WriteLine(entry);
+}
+
+presentation->Dispose();
+```
+
+[IFontsManager](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/) इंटरफ़ेस दोनों ओवरलोड प्रदान करता है। रेंडरिंग ऑपरेशन के दायरे के हिसाब से एक चुनें:
+
+| ओवरलोड | कब उपयोग करें |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | आपको पूरी प्रस्तुति के लिए प्रतिस्थापन चाहिए। |
+| [GetSubstitutions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | आपको चयनित रेंज, क्रमिक जाँच, या आंशिक निर्यात के लिए प्रतिस्थापन चाहिए। |
 
 ## **फ़ॉन्ट प्रतिस्थापन नियम सेट करें**
 
-Aspose.Slides आपको फ़ॉन्ट के लिए नियम सेट करने की सुविधा देता है जो कुछ स्थितियों में क्या किया जाना चाहिए, निर्धारित करता है (उदाहरण के लिए, जब फ़ॉन्ट तक पहुंच नहीं हो सकती), इस प्रकार:
+जब स्रोत फ़ॉन्ट अनुपलब्ध हो, तो Aspose.Slides द्वारा उपयोग किए जाने वाले फ़ॉन्ट को निर्दिष्ट करने के लिए:
 
-1. संबंधित प्रस्तुति लोड करें।
-2. उस फ़ॉन्ट को लोड करें जिसे बदलना है।
-3. नया फ़ॉन्ट लोड करें।
-4. प्रतिस्थापन के लिए एक नियम जोड़ें।
-5. नियम को प्रस्तुति फ़ॉन्ट प्रतिस्थापन नियम संग्रह में जोड़ें।
-6. प्रभाव देखने के लिए स्लाइड छवि बनाएं।
+1. प्रस्तुति लोड करें।  
+2. स्रोत और प्रतिस्थापन फ़ॉन्ट के लिए फ़ॉन्ट परिभाषाएँ बनाएँ।  
+3. एक [FontSubstRule](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsubstrule/) बनाएँ जिसमें [WhenInaccessible](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsubstcondition/) शर्त हो।  
+4. नियम को एक [FontSubstRuleCollection](https://reference.aspose.com/slides/hi/cpp/aspose.slides/fontsubstrulecollection/) में जोड़ें।  
+5. [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) मेथड का उपयोग करके संग्रह को असाइन करें।  
+6. प्रस्तुति को रेंडर या रूपांतरित करें।
 
-यह C++ कोड फ़ॉन्ट प्रतिस्थापन प्रक्रिया दर्शाता है:
+निम्नलिखित C++ उदाहरण `SomeRareFont` के अनुपलब्ध होने पर `Arial` को प्रतिस्थापित करता है, और फिर परिणाम की पुष्टि के लिए पहली स्लाइड को रेंडर करता है। प्रतिस्थापन फ़ॉन्ट Aspose.Slides के लिए उपलब्ध होना चाहिए।
 
-```c++
-// दस्तावेज़ निर्देशिका का पथ।
-const String outPath = u"../out/RuleBasedFontsReplacement_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
+```cpp
+#include <DOM/FontSubstCondition.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Fonts/FontSubstRule.h>
+#include <DOM/Fonts/FontSubstRuleCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
 
+using namespace Aspose::Slides;
+using namespace System;
 
-// प्रस्तुति लोड करता है
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
 
-// वह फ़ॉन्ट परिभाषित करता है जिसे बदलना है और नया फ़ॉन्ट
-SharedPtr<IFontData> sourceFont = MakeObject<FontData>(u"SomeRareFont");
-SharedPtr<IFontData> destFont = MakeObject<FontData>(u"Arial");
-	
-// फ़ॉन्ट प्रतिस्थापन के लिए एक फ़ॉन्ट नियम जोड़ता है
-SharedPtr<FontSubstRule> fontSubstRule = MakeObject<FontSubstRule>(sourceFont, destFont, FontSubstCondition::WhenInaccessible);
+auto sourceFont = MakeObject<FontData>(u"SomeRareFont");
+auto substituteFont = MakeObject<FontData>(u"Arial");
+auto substitutionRule = MakeObject<FontSubstRule>(sourceFont, substituteFont, FontSubstCondition::WhenInaccessible);
 
-// नियम को फ़ॉन्ट प्रतिस्थापन नियम संग्रह में जोड़ता है
-SharedPtr<FontSubstRuleCollection> fontSubstRuleCollection = MakeObject<FontSubstRuleCollection>();
-fontSubstRuleCollection->Add(fontSubstRule);
+auto substitutionRules = MakeObject<FontSubstRuleCollection>();
+substitutionRules->Add(substitutionRule);
+presentation->get_FontsManager()->set_FontSubstRuleList(substitutionRules);
 
-// फ़ॉन्ट नियम संग्रह को नियम सूची में जोड़ता है
-pres->get_FontsManager()->set_FontSubstRuleList ( fontSubstRuleCollection);
+auto image = presentation->get_Slide(0)->GetImage(1.0f, 1.0f);
+image->Save(u"slide.jpg", ImageFormat::Jpeg);
 
-
-// PPTX को डिस्क में सहेजता है
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+image->Dispose();
+presentation->Dispose();
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-आप देखना चाहेंगे [**फ़ॉन्ट प्रतिस्थापन**](/slides/hi/cpp/font-replacement/)। 
+{{% alert color="info" title="ध्यान दें" %}}
+पूरी प्रस्तुति में उपयोग किए जाने वाले फ़ॉन्ट में बिना शर्त परिवर्तन के लिए, देखें [Font Replacement](/slides/hi/cpp/font-replacement/)।
 {{% /alert %}}
 
-## **गणित समीकरण फ़ॉन्ट्स की सीमाएँ**
+## **गणितीय समीकरण फ़ॉन्ट के लिए सीमाएँ**
 
-फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग किए जाने वाले मानक फ़ॉन्ट चयन प्रक्रिया में भाग लेते हैं। वे नियमित पाठ स्थितियों के लिए उपयुक्त हैं जहाँ Aspose.Slides कॉन्फ़िगर किए गए नियम के अनुसार अनुपलब्ध फ़ॉन्ट को किसी अन्य उपलब्ध फ़ॉन्ट से बदल सकता है।
+फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग की जाने वाली मानक फ़ॉन्ट चयन प्रक्रिया का हिस्सा हैं। जब Aspose.Slides एक अनुपलब्ध फ़ॉन्ट को नियम द्वारा निर्दिष्ट उपलब्ध फ़ॉन्ट से बदल सकता है, तो ये सामान्य टेक्स्ट के लिए काम करते हैं।
 
-हालाँकि, Office गणित समीकरणों में एक महत्वपूर्ण सीमा है। यदि कोई समीकरण **Cambria Math** से बनाया गया था, तो Aspose.Slides को समीकरण लेआउट को सही ढंग से गणना और रेंडर करने के लिए मूल **Cambria Math** फ़ॉन्ट अभी भी आवश्यक हो सकता है। इसी कारण **Cambria Math** को किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, से बदलना समीकरण रेंडरिंग के लिए समर्थित नहीं है और इससे यह अपवाद उत्पन्न हो सकता है कि **Cambria Math** आवश्यक है।
+Office Math समीकरणों को एक अतिरिक्त आवश्यकता होती है। यदि कोई समीकरण **Cambria Math** का उपयोग करता है, तो Aspose.Slides को समीकरण लेआउट की गणना और रेंडर करने के लिए वही फ़ॉन्ट चाहिए हो सकता है। कोई नियम जो दूसरे गणित फ़ॉन्ट, जैसे **STIX Two Math**, को प्रतिस्थापित करता है, **Cambria Math** को इस उद्देश्य के लिए बदल नहीं सकता, और रेंडरिंग अभी भी यह रिपोर्ट कर सकती है कि **Cambria Math** आवश्यक है।
 
-ऐसी प्रस्तुतियों को सफलतापूर्वक रूपांतरित करने के लिए, सुनिश्चित करें कि **Cambria Math** रनटाइम पर Aspose.Slides के लिए उपलब्ध हो। आप इस फ़ॉन्ट को ऑपरेटिंग सिस्टम में स्थापित कर सकते हैं या इसे एक [बाहरी फ़ॉन्ट](/slides/hi/cpp/custom-font/) के रूप में प्रदान कर सकते हैं ताकि यह रेंडरिंग और रूपांतरण के दौरान सामान्य फ़ॉन्ट चयन प्रक्रिया में भाग ले सके।
+ऐसी प्रस्तुति को रेंडर या रूपांतरित करने के लिए, **Cambria Math** को Aspose.Slides के लिए उपलब्ध कराएँ। इसे ऑपरेटिंग सिस्टम में इंस्टॉल करें या एक [external font](/slides/hi/cpp/custom-font/) के रूप में लोड करें।
 
-यह सीमा विशेष रूप से समीकरण रेंडरिंग के लिए है। ऊपर वर्णित मानक फ़ॉन्ट प्रतिस्थापन नियम तब भी नियमित प्रस्तुति पाठ पर लागू होते हैं जब मूल फ़ॉन्ट अनुपलब्ध हो।
+यह सीमा समीकरण लेआउट पर लागू होती है। उपर्युक्त वर्णित प्रतिस्थापन नियम सामान्य प्रस्तुति टेक्स्ट पर अभी भी लागू होते हैं।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट प्रतिस्थापन नियम में क्या अंतर है?**  
-[प्रतिस्थापन](/slides/hi/cpp/font-replacement/) एक मजबूर ओवरराइड है जहाँ पूरे प्रस्तुति में एक फ़ॉन्ट को दूसरे फ़ॉन्ट से बदला जाता है। प्रतिस्थापन नियम एक ऐसी शर्त के तहत ट्रिगर होता है, उदाहरण के लिए जब मूल फ़ॉन्ट उपलब्ध नहीं होता, और तब एक निर्दिष्ट बैकअप फ़ॉन्ट उपयोग किया जाता है।
+**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट बदलने में क्या अंतर है?**  
+[Font replacement](/slides/hi/cpp/font-replacement/) इरादतन प्रस्तुति में पूरे एक फ़ॉन्ट को दूसरे में बदल देता है। फ़ॉन्ट प्रतिस्थापन तय शर्त पूरी होने पर, जैसे मूल फ़ॉन्ट उपलब्ध नहीं होने पर, रेंडर किए गए आउटपुट के लिए फ़ॉन्ट चुनता है।
 
-**वास्तव में प्रतिस्थापन नियम कब लागू होते हैं?**  
-नियम मानक [फ़ॉन्ट चयन](/slides/hi/cpp/font-selection-sequence/) क्रम में भाग लेते हैं जिसे लोडिंग, रेंडरिंग और रूपांतरण के दौरान मूल्यांकन किया जाता है; यदि चुना गया फ़ॉन्ट उपलब्ध नहीं है, तो प्रतिस्थापन या प्रतिस्थापन नियम लागू होते हैं।
+**प्रतिस्थापन नियम कब लागू होते हैं?**  
+रेंडरिंग और रूपांतरण के दौरान नियम [font selection sequence](/slides/hi/cpp/font-selection-sequence/) में भाग लेते हैं। `WhenInaccessible` के साथ, नियम केवल तब उपयोग किया जाता है जब Aspose.Slides स्रोत फ़ॉन्ट तक पहुंच नहीं पा रहा हो।
 
-**यदि न तो प्रतिस्थापन और न ही प्रतिस्थापन नियम कॉन्फ़िगर किए गए हों और सिस्टम पर फ़ॉन्ट अनुपलब्ध हो तो डिफ़ॉल्ट व्यवहार क्या है?**  
-लाइब्रेरी सबसे नज़दीकी उपलब्ध सिस्टम फ़ॉन्ट चुनने की कोशिश करेगी, ठीक वैसे ही जैसे PowerPoint करता है।
+**जब फ़ॉन्ट अनुपलब्ध हो और कोई प्रतिस्थापन नियम कॉन्फ़िगर न हो तो क्या होता है?**  
+Aspose.Slides अपने फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे निकटतम उपलब्ध फ़ॉन्ट चुनता है। परिणाम रन‑टाइम पर्यावरण में उपलब्ध फ़ॉन्ट पर निर्भर करता है।
 
-**क्या मैं रनटाइम पर कस्टम बाहरी फ़ॉन्ट संलग्न करके प्रतिस्थापन से बच सकता हूँ?**  
-हां। आप रनटाइम पर [बाहरी फ़ॉन्ट जोड़ें](/slides/hi/cpp/custom-font/) सकते हैं ताकि लाइब्रेरी उन्हें चयन और रेंडरिंग के लिए विचार करे, जिसमें बाद के रूपांतरण भी शामिल हैं।
+**क्या मैं बाहरी फ़ॉन्ट लोड करके प्रतिस्थापन से बच सकता हूँ?**  
+हाँ। आप [load external fonts](/slides/hi/cpp/custom-font/) कर सकते हैं ताकि Aspose.Slides रेंडरिंग और रूपांतरण के दौरान उनका उपयोग कर सके।
 
-**क्या Aspose लाइब्रेरी के साथ कोई फ़ॉन्ट वितरित करता है?**  
-नहीं। Aspose न तो पेड फ़ॉन्ट और न ही मुफ्त फ़ॉन्ट वितरित करता है; आप फ़ॉन्ट स्वयं जोड़ते और उपयोग करते हैं, यह आपकी विवेक और ज़िम्मेदारी पर निर्भर है।
+**क्या Aspose लाइब्रेरी के साथ फ़ॉन्ट वितरित करता है?**  
+नहीं। फ़ॉन्ट प्रदान करने और उनके लाइसेंस का पालन करने की जिम्मेदारी आपके ऊपर है।
 
-**क्या Windows, Linux और macOS पर प्रतिस्थापन व्यवहार में अंतर है?**  
-हां। फ़ॉन्ट खोज ऑपरेटिंग सिस्टम की फ़ॉन्ट डायरेक्टरी से शुरू होती है। डिफ़ॉल्ट उपलब्ध फ़ॉन्ट सेट और खोज पथ प्लेटफ़ॉर्म के अनुसार अलग होते हैं, जो उपलब्धता और प्रतिस्थापन की आवश्यकता को प्रभावित करते हैं।
+**क्या प्रतिस्थापन परिणाम Windows, Linux और macOS में अलग हो सकते हैं?**  
+हाँ। स्थापित फ़ॉन्ट और फ़ॉन्ट खोज स्थान ऑपरेटिंग सिस्टम के अनुसार भिन्न होते हैं, इसलिए एक मशीन पर उपलब्ध फ़ॉन्ट दूसरी पर प्रतिस्थापन की आवश्यकता हो सकती है।
 
-**बैच रूपांतरण के दौरान अनपेक्षित प्रतिस्थापन को कम करने के लिए पर्यावरण को कैसे तैयार करना चाहिए?**  
-मशीनों या कंटेनरों के बीच फ़ॉन्ट सेट को सिंक्रनाइज़ करें, आउटपुट दस्तावेज़ों के लिए आवश्यक [बाहरी फ़ॉन्ट](/slides/hi/cpp/custom-font/) जोड़ें, और जब संभव हो तो प्रस्तुति में [फ़ॉन्ट एम्बेड करें](/slides/hi/cpp/embedded-font/) ताकि चयन के समय चुने हुए फ़ॉन्ट उपलब्ध रहें।
+**बैच रूपांतरण में फ़ॉन्ट चयन को सुसंगत कैसे बनाएं?**  
+हर मशीन या कंटेनर पर समान फ़ॉन्ट फ़ाइलें और संस्करण उपयोग करें, आवश्यक [load external fonts](/slides/hi/cpp/custom-font/) लोड करें, और लाइसेंस की अनुमति होने पर [embed fonts](/slides/hi/cpp/embedded-font/) का उपयोग करें। आप निर्यात से पहले अप्रत्याशित प्रतिस्थापन पहचानने के लिए [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/hi/cpp/aspose.slides/ifontsmanager/getsubstitutions/) को भी कॉल कर सकते हैं।

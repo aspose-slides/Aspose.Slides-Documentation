@@ -6,105 +6,145 @@ weight: 70
 url: /nl/python-net/font-substitution/
 keywords:
 - lettertype
-- lettertype substitueren
+- vervangend lettertype
 - lettertypevervanging
 - lettertype vervangen
 - lettertypevervanging
-- substitutieregel
+- vervangingsregel
 - vervangingsregel
 - PowerPoint
 - OpenDocument
 - presentatie
 - Python
 - Aspose.Slides
-description: "Schakel optimale lettertypevervanging in Aspose.Slides voor Python via .NET in bij het converteren van PowerPoint & OpenDocument presentaties naar andere bestandsformaten."
+description: "Configureer regels voor lettertypevervanging en inspecteer de vervangen lettertypen in Aspose.Slides voor Python via .NET bij het renderen of converteren van PowerPoint- en OpenDocument‑presentaties."
 ---
 ## **Overzicht**
 
-Lettertypevervanging stelt Aspose.Slides in staat om een ander lettertype te gebruiken wanneer het oorspronkelijke lettertype van de presentatie niet beschikbaar is tijdens het renderen of converteren. U kunt controleren welke lettertypen zijn vervangen door de `get_substitutions`-methode van de `FontsManager`-klasse te gebruiken.
+Lettertypevervanging stelt Aspose.Slides in staat om een beschikbaar lettertype te gebruiken in plaats van een lettertype dat niet toegankelijk is wanneer een presentatie wordt gerenderd of geconverteerd. De vervanging heeft invloed op de gerenderde output; het wijzigt niet het lettertype dat aan de inhoud van de presentatie is toegewezen.
 
-Aspose.Slides maakt het ook mogelijk om regels voor lettertypevervanging te definiëren. Bijvoorbeeld, u kunt aangeven dat een ontoegankelijk lettertype moet worden vervangen door een ander beschikbaar lettertype en vervolgens die regels toepassen via de lettertype‑manager van de presentatie.
+U kunt het te gebruiken lettertype definiëren wanneer een bepaald lettertype niet beschikbaar is, en u kunt de vervangingen inspecteren die Aspose.Slides tijdens het renderen zal toepassen. Dit helpt de output consistent te houden tussen omgevingen met verschillende geïnstalleerde lettertypen.
 
-## **Vervangingsregels instellen**
+## **Lettertypevervangingen ophalen**
 
-Aspose.Slides stelt u in staat om regels voor lettertypen in te stellen die bepalen wat er moet gebeuren onder bepaalde omstandigheden (bijvoorbeeld wanneer een lettertype niet toegankelijk is) op deze manier:
+Gebruik de [FontsManager.get_substitutions](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_substitutions/) methode om te bepalen welke lettertypen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsubstitutioninfo/) objecten die de originele en vervangen lettertype‑namen identificeren.
 
-1. Laad de relevante presentatie.  
-2. Laad het lettertype dat vervangen zal worden.  
-3. Laad het nieuwe lettertype.  
-4. Voeg een regel toe voor de vervanging.  
-5. Voeg de regel toe aan de collectie van presentatie‑lettertypevervangingsregels.  
-6. Genereer de dia‑afbeelding om het effect te observeren.
-
-Deze Python‑code demonstreert het proces van lettertypevervanging:
+Het volgende Python‑voorbeeld geeft alle lettertypevervangingen voor een presentatie weer:
 
 ```python
 import aspose.slides as slides
 
-# Laadt een presentatie
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Laadt het bronlettertype dat wordt vervangen
-    sourceFont = slides.FontData("SomeRareFont")
-
-    # Laadt het nieuwe lettertype
-    destFont = slides.FontData("Arial")
-
-    # Voegt een lettertype‑regel toe voor vervanging
-    fontSubstRule = slides.FontSubstRule(sourceFont, destFont, slides.FontSubstCondition.WHEN_INACCESSIBLE)
-
-    # Voegt de regel toe aan de collectie van substitutieregels
-    fontSubstRuleCollection = slides.FontSubstRuleCollection()
-    fontSubstRuleCollection.add(fontSubstRule)
-
-    # Voegt de collectie van lettertype‑regels toe aan de regelijst
-    presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
-
-    #Arial lettertype wordt gebruikt in plaats van SomeRareFont wanneer het laatstgenoemde ontoegankelijk is
-    with presentation.slides[0].get_image(1, 1) as bmp:
-        # Slaat de afbeelding op schijf in JPEG‑formaat
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("Presentation.pptx") as presentation:
+    for substitution in presentation.fonts_manager.get_substitutions():
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-U wilt misschien [**Lettertypevervanging**](/slides/nl/python-net/font-replacement/) bekijken. 
+## **Lettertypevervangingen ophalen voor geselecteerde dia's**
+
+Gebruik [FontsManager.get_substitutions](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_substitutions/) met een lijst van dia‑indexen om alleen de vervangingen te inspecteren die nodig zijn om specifieke dia's te renderen. Dit is handig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's zoekt die afhankelijk zijn van niet‑beschikbare lettertypen, een minimale lettertype‑package voor een server of container voorbereidt, of renderingsverschillen diagnosticeert zonder ongerelateerde dia's te verwerken.
+
+De lijst bevat één‑gebaseerde dia‑indexen: `1` duidt de eerste dia aan. Daarentegen is de [Presentation.slides](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/slides/nl/) collectie nul‑gebaseerd, zodat dezelfde dia wordt benaderd als `presentation.slides[0]`. Houd dit verschil in gedachten bij het bouwen van de lijst om één‑off‑by‑one fouten te voorkomen.
+
+Roep de methode aan via de eigenschap [Presentation.fonts_manager](https://reference.aspose.com/slides/nl/python-net/aspose.slides/presentation/fonts_manager/). Deze retourneert alleen de vervangingen die tijdens het renderen van de geselecteerde dia's zijn bepaald. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsubstitutioninfo/) object dat de originele en vervangen lettertype‑namen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving, geconfigureerde fallback‑regels, vervangingsregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/ifontsubstrulecollection/), en [extern geladen lettertypen](/slides/nl/python-net/custom-font/).
+
+Dezelfde vervanging kan door meer dan één geselecteerde dia vereist zijn. Dupliceer de resultaten niet wanneer u een lettertype‑inventaris of pre‑flight‑rapport maakt. Het volgende voorbeeld meldt elke geretourneerde vervanging en maakt vervolgens een gesorteerde lijst van unieke lettertype‑koppelingen:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as presentation:
+    selected_slides = [1, 3, 5]
+    substitutions = list(presentation.fonts_manager.get_substitutions(selected_slides))
+
+    print("Substitutions for the selected slides:")
+    for substitution in substitutions:
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
+
+    preflight_entries = [f"{substitution.original_font_name} -> {substitution.substituted_font_name}" for substitution in substitutions]
+    unique_preflight_entries = {entry.casefold(): entry for entry in preflight_entries}
+    sorted_preflight_entries = sorted(unique_preflight_entries.values(), key=str.casefold)
+
+    print("Deduplicated font preflight report:")
+    for entry in sorted_preflight_entries:
+        print(entry)
+```
+
+De klasse [FontsManager](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/) biedt beide vormen van de methode. Kies er één op basis van de reikwijdte van de render‑operatie:
+
+| Methode‑aanroep | Gebruik wanneer |
+|---|---|
+| [get_substitutions](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_substitutions/) zonder argumenten | U heeft vervangingen nodig voor de volledige presentatie. |
+| [get_substitutions](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_substitutions/) met een lijst van dia‑indexen | U heeft vervangingen nodig voor een geselecteerd bereik, incrementele controle, of gedeeltelijke export. |
+
+## **Vervangingsregels voor lettertypen instellen**
+
+Om het lettertype op te geven dat Aspose.Slides moet gebruiken wanneer een bronlettertype niet beschikbaar is:
+
+1. Laad de presentatie.
+2. Maak lettertype‑definities voor het bron‑ en vervangings‑lettertype.
+3. Maak een [FontSubstRule](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsubstrule/) met de voorwaarde [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsubstcondition/).
+4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsubstrulecollection/).
+5. Wijs de collectie toe aan de eigenschap [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).
+6. Render of converteer de presentatie.
+
+Het volgende Python‑voorbeeld vervangt `Arial` door `SomeRareFont` wanneer `SomeRareFont` niet beschikbaar is, en rendert vervolgens de eerste dia om het resultaat te verifiëren. Het vervangende lettertype moet beschikbaar zijn voor Aspose.Slides.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Fonts.pptx") as presentation:
+    source_font = slides.FontData("SomeRareFont")
+    substitute_font = slides.FontData("Arial")
+    substitution_rule = slides.FontSubstRule(source_font, substitute_font, slides.FontSubstCondition.WHEN_INACCESSIBLE)
+
+    substitution_rules = slides.FontSubstRuleCollection()
+    substitution_rules.add(substitution_rule)
+    presentation.fonts_manager.font_subst_rule_list = substitution_rules
+
+    with presentation.slides[0].get_image(1, 1) as image:
+        image.save("slide.jpg", slides.ImageFormat.JPEG)
+```
+
+{{% alert color="info" title="Note" %}}
+Voor een onvoorwaardelijke wijziging van de lettertypen die in de hele presentatie worden gebruikt, zie [Font Replacement](/slides/nl/python-net/font-replacement/).
 {{% /alert %}}
 
-## **Beperkingen voor wiskundige‑equatie‑lettertypen**
+## **Beperkingen voor lettertypen in wiskundige vergelijkingen**
 
-Regels voor lettertypevervanging nemen deel aan het standaardlettertype‑selectieproces dat wordt gebruikt tijdens het renderen en converteren. Ze zijn geschikt voor normale tekstscenario's waarin Aspose.Slides een ontoegankelijk lettertype kan vervangen door een ander beschikbaar lettertype volgens de geconfigureerde regel.
+Vervangingsregels voor lettertypen maken deel uit van het standaard lettertype‑selectieproces dat tijdens het renderen en converteren wordt gebruikt. Ze werken voor gewone tekst wanneer Aspose.Slides een ontoegankelijk lettertype kan vervangen door het beschikbare lettertype dat in een regel is gespecificeerd.
 
-Echter, Office‑wiskunde‑equaties hebben een belangrijke beperking. Als een vergelijking is gemaakt met **Cambria Math**, kan Aspose.Slides nog steeds het originele **Cambria Math**‑lettertype nodig hebben om de lay-out van de vergelijking correct te berekenen en weer te geven. Hierdoor wordt het substitueren van **Cambria Math** door een ander wiskundig lettertype, zoals **STIX Two Math**, niet ondersteund voor het weergeven van vergelijkingen en kan dit nog steeds resulteren in een uitzondering die aangeeft dat **Cambria Math** vereist is.
+Office‑Math‑vergelijkingen hebben een extra vereiste. Als een vergelijking **Cambria Math** gebruikt, kan Aspose.Slides die exacte lettertype nodig hebben om de lay‑out van de vergelijking te berekenen en te renderen. Een regel die een ander wiskundig lettertype vervangt, zoals **STIX Two Math**, kan **Cambria Math** hiervoor niet vervangen, en de rendering kan nog steeds melden dat **Cambria Math** vereist is.
 
-Om dergelijke presentaties succesvol te converteren, moet u ervoor zorgen dat **Cambria Math** beschikbaar is voor Aspose.Slides tijdens runtime. U kunt het lettertype installeren in het besturingssysteem of het beschikbaar stellen als een [extern lettertype](/slides/nl/python-net/custom-font/) zodat het kan deelnemen aan het normale lettertype‑selectieproces tijdens het renderen en converteren.
+Om zo’n presentatie te renderen of te converteren, zorg ervoor dat **Cambria Math** beschikbaar is voor Aspose.Slides. Installeer het in het besturingssysteem of laad het als een [extern lettertype](/slides/nl/python-net/custom-font/).
 
-Deze beperking is specifiek voor het weergeven van vergelijkingen. De hierboven beschreven standaardregels voor lettertypevervanging zijn nog steeds van toepassing op reguliere presentatie‑tekst wanneer het originele lettertype ontoegankelijk is.
+Deze beperking geldt voor de vergelijking‑lay‑out. De hierboven beschreven vervangingsregels blijven wel van toepassing op gewone presentatietekst.
 
 ## **Veelgestelde vragen**
 
-**Wat is het verschil tussen lettertypevervanging en lettertypesubstitutie?**
+**Wat is het verschil tussen lettertype‑vervanging en lettertype‑substitutie?**
 
-[Vervanging](/slides/nl/python-net/font-replacement/) is een geforceerde overschrijving van één lettertype met een ander voor de volledige presentatie. Substitutie is een regel die wordt geactiveerd onder een specifieke voorwaarde, bijvoorbeeld wanneer het oorspronkelijke lettertype niet beschikbaar is, waarna een aangewezen reservé‑lettertype wordt gebruikt.
+[Font replacement](/slides/nl/python-net/font-replacement/) verandert opzettelijk één lettertype in een ander gedurende de hele presentatie. Lettertype‑substitutie kiest een lettertype voor de gerenderde output wanneer aan de geconfigureerde voorwaarde is voldaan, bijvoorbeeld wanneer het oorspronkelijke lettertype niet beschikbaar is.
 
-**Wanneer precies worden substitutieregels toegepast?**
+**Wanneer worden substitutieregels toegepast?**
 
-De regels nemen deel aan de standaard [lettertype‑selectie](/slides/nl/python-net/font-selection-sequence/)‑reeks die wordt geëvalueerd tijdens het laden, renderen en converteren; als het gekozen lettertype niet beschikbaar is, wordt vervanging of substitutie toegepast.
+De regels nemen deel aan de [lettertype‑selectie‑sequentie](/slides/nl/python-net/font-selection-sequence/) tijdens het renderen en converteren. Met `WHEN_INACCESSIBLE` wordt een regel alleen gebruikt wanneer Aspose.Slides geen toegang heeft tot het bronlettertype.
 
-**Wat is het standaardgedrag als noch vervanging noch substitutie is geconfigureerd en het lettertype ontbreekt op het systeem?**
+**Wat gebeurt er wanneer een lettertype ontbreekt en er geen substitutieregel is geconfigureerd?**
 
-De bibliotheek zal proberen het dichtstbijzijnde beschikbare systeem‑lettertype te kiezen, vergelijkbaar met hoe PowerPoint zich zou gedragen.
+Aspose.Slides selecteert het dichtstbijzijnde beschikbare lettertype volgens zijn lettertype‑selectieproces. Het resultaat hangt af van de lettertypen die beschikbaar zijn in de runtime‑omgeving.
 
-**Kan ik aangepaste externe lettertypen tijdens runtime toevoegen om substitutie te voorkomen?**
+**Kan ik externe lettertypen laden om substitutie te vermijden?**
 
-Ja. U kunt tijdens runtime [externe lettertypen toevoegen](/slides/nl/python-net/custom-font/) zodat de bibliotheek ze in aanmerking neemt voor selectie en weergave, inclusief voor daaropvolgende conversies.
+Ja. U kunt [externe lettertypen laden](/slides/nl/python-net/custom-font/) zodat Aspose.Slides ze kan gebruiken tijdens het renderen en converteren.
 
-**Distribueert Aspose lettertypen met de bibliotheek?**
+**Distributeert Aspose lettertypen met de bibliotheek?**
 
-Nee. Aspose distribueert geen betaalde of gratis lettertypen; u voegt lettertypen toe en gebruikt ze op eigen inzicht en verantwoordelijkheid.
+Nee. U bent verantwoordelijk voor het leveren van lettertypen en het naleven van hun licenties.
 
-**Zijn er verschillen in substitutiegedrag op Windows, Linux en macOS?**
+**Kunnen substitutieresultaten verschillen tussen Windows, Linux en macOS?**
 
-Ja. Het zoeken naar lettertypen begint in de font‑mappen van het besturingssysteem. De set van standaard beschikbare lettertypen en de zoekpaden verschillen per platform, wat invloed heeft op beschikbaarheid en de noodzaak voor substitutie.
+Ja. Geïnstalleerde lettertypen en zoeklocaties voor lettertypen verschillen per besturingssysteem, dus een lettertype dat op het ene systeem beschikbaar is, kan op een ander systeem substitutie vereisen.
 
-**Hoe moet ik de omgeving voorbereiden om onverwachte substitutie tijdens batch‑conversies te minimaliseren?**
+**Hoe kan ik de lettertype‑selectie consistent maken bij batch‑conversies?**
 
-Synchroniseer de verzameling lettertypen tussen machines of containers, [voeg de externe lettertypen](/slides/nl/python-net/custom-font/) toe die nodig zijn voor de uitvoerdocumenten, en [embed lettertypen](/slides/nl/python-net/embedded-font/) in presentaties waar mogelijk zodat de gekozen lettertypen beschikbaar zijn tijdens het renderen.
+Gebruik dezelfde lettertypebestanden en versies op elke machine of container, [laad vereiste externe lettertypen](/slides/nl/python-net/custom-font/), en [embed lettertypen](/slides/nl/python-net/embedded-font/) indien de licentie dit toestaat. U kunt ook [FontsManager.get_substitutions](https://reference.aspose.com/slides/nl/python-net/aspose.slides/fontsmanager/get_substitutions/) aanroepen vóór export om onverwachte substituties te identificeren.

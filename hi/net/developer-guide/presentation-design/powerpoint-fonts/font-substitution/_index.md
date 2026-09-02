@@ -1,5 +1,5 @@
 ---
-title: ".NET में प्रस्तुतियों में फ़ॉन्ट प्रतिस्थापन को कॉन्फ़िगर करें"
+title: ".NET में प्रस्तुतियों में फ़ॉन्ट प्रतिस्थापन कॉन्फ़िगर करें"
 linktitle: "फ़ॉन्ट प्रतिस्थापन"
 type: docs
 weight: 70
@@ -11,115 +11,153 @@ keywords:
 - फ़ॉन्ट बदलें
 - फ़ॉन्ट प्रतिस्थापन
 - प्रतिस्थापन नियम
-- बदलाव नियम
+- प्रतिस्थापन नियम
 - PowerPoint
 - OpenDocument
 - प्रस्तुति
 - .NET
 - C#
 - Aspose.Slides
-description: "PowerPoint और OpenDocument प्रस्तुतियों को अन्य फ़ाइल स्वरूपों में बदलते समय Aspose.Slides for .NET में इष्टतम फ़ॉन्ट प्रतिस्थापन सक्षम करें।"
+description: ".NET के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और PowerPoint और OpenDocument प्रस्तुतियों को रेंडर या रूपांतरित करते समय प्रतिस्थापित फ़ॉन्ट की जाँच करें।"
 ---
-## **अवलोकन**
+## **परिचय**
 
-फ़ॉन्ट प्रतिस्थापन Aspose.Slides को रेंडरिंग या रूपांतरण के दौरान मूल प्रेजेंटेशन फ़ॉन्ट उपलब्ध न होने पर किसी अन्य फ़ॉन्ट का उपयोग करने की अनुमति देता है। आप `IFontsManager` इंटरफ़ेस की `GetSubstitutions` विधि का उपयोग करके यह जांच सकते हैं कि कौन से फ़ॉन्ट प्रतिस्थापित किए गए थे।
+फ़ॉन्ट प्रतिस्थापन Aspose.Slides को उपलब्ध फ़ॉन्ट को उपयोग करने देता है जब प्रस्तुतिकरण रेंडर या रूपांतरीत किया जाता है और कोई फ़ॉन्ट उपलब्ध नहीं होता। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुतिकरण सामग्री को सौंपे गए फ़ॉन्ट को नहीं बदलता।
 
-Aspose.Slides आपको फ़ॉन्ट प्रतिस्थापन नियम निर्धारित करने की भी अनुमति देता है। उदाहरण के लिए, आप यह निर्दिष्ट कर सकते हैं कि अनुपलब्ध फ़ॉन्ट को किसी अन्य उपलब्ध फ़ॉन्ट से बदल दिया जाए और फिर उन नियमों को प्रेजेंटेशन के फ़ॉन्ट मैनेजर के माध्यम से लागू करें।
+आप किसी विशेष फ़ॉन्ट के अनुपलब्ध होने पर उपयोग करने के लिए फ़ॉन्ट को परिभाषित कर सकते हैं, और आप रेंडरिंग के दौरान Aspose.Slides द्वारा किए जाने वाले प्रतिस्थापनों को निरीक्षण कर सकते हैं। यह विभिन्न स्थापित फ़ॉन्ट वाले परिवेशों में आउटपुट को समान रखने में मदद करता है।
 
-## **फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
+## **फ़ॉन्ट प्रतिस्थापनों को प्राप्त करें**
 
-प्रेजेंटेशन रेंडरिंग प्रक्रिया के दौरान कौन से फ़ॉन्ट प्रतिस्थापित किए गए हैं, यह जानने के लिए Aspose.Slides [IFontsManager](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/) इंटरफ़ेस से [GetSubstitution](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsmanager/getsubstitutions/) विधि प्रदान करता है।
+प्रस्तुतिकरण रेंडर होने पर कौन से फ़ॉन्ट प्रतिस्थापित होंगे, यह निर्धारित करने के लिए [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/getsubstitutions/) मेथड का उपयोग करें। यह मेथड [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट लौटाता है जो मूल और प्रतिस्थापित फ़ॉन्ट नामों की पहचान करते हैं।
 
-```c#
-using (Presentation pres = new Presentation(@"Presentation.pptx"))
+निम्न C# उदाहरण एक प्रस्तुतिकरण के सभी फ़ॉन्ट प्रतिस्थापनों की सूची देता है:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 {
-    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
-    {
-        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
-    }
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
 }
 ```
 
-## **फ़ॉन्ट प्रतिस्थापन नियम सेट करें**
+## **चयनित स्लाइड्स के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
 
-Aspose.Slides आपको फ़ॉन्ट के लिए नियम सेट करने की अनुमति देता है जो कुछ परिस्थितियों में क्या किया जाना चाहिए, निर्धारित करता है (उदाहरण के लिए, जब फ़ॉन्ट तक पहुंच नहीं हो पाती) इस प्रकार:
+एक `int[] slides` आर्ग्यूमेंट के साथ [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/getsubstitutions/) ओवरलोड का उपयोग करके केवल विशिष्ट स्लाइड्स को रेंडर करने के लिए आवश्यक प्रतिस्थापनों को जांचें। यह तब उपयोगी है जब आप प्रस्तुतिकरण का भाग रेंडर या निर्यात कर रहे हों, बड़े प्रस्तुतिकरण को क्रमशः जाँच रहे हों, उन स्लाइड्स को ढूँढ़ रहे हों जो अनुपलब्ध फ़ॉन्ट पर निर्भर हैं, सर्वर या कंटेनर के लिए न्यूनतम फ़ॉन्ट पैकेज तैयार कर रहे हों, या अनावश्यक स्लाइड्स को प्रोसेस किए बिना रेंडरिंग अंतरों का निदान कर रहे हों।
 
-1. संबंधित प्रेजेंटेशन लोड करें।
-2. वह फ़ॉन्ट लोड करें जिसे बदलना होगा।
-3. नया फ़ॉन्ट लोड करें।
-4. बदलाव के लिए एक नियम जोड़ें।
-5. प्रेजेंटेशन फ़ॉन्ट प्रतिस्थापन नियम संग्रह में नियम जोड़ें।
-6. प्रभाव को देखने के लिए स्लाइड छवि उत्पन्न करें।
+`slides` एरे में एक-आधारित स्लाइड इंडेक्स होते हैं: `1` पहला स्लाइड दर्शाता है। इसके विपरीत, [Presentation.Slides](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/slides/hi/) संग्रह का इंडेक्सर शून्य-आधारित है, इसलिए वही स्लाइड `presentation.Slides[0]` से पहुँचा जाता है। एरे बनाते समय इस अंतर का ध्यान रखें ताकि ऑफ‑बाई‑वन त्रुटियों से बचा जा सके।
 
-यह C# कोड फ़ॉन्ट प्रतिस्थापन प्रक्रिया को दर्शाता है:
+ओवरलोड को [Presentation.FontsManager](https://reference.aspose.com/slides/hi/net/aspose.slides/presentation/fontsmanager/) प्रॉपर्टी के माध्यम से कॉल करें। यह केवल चयनित स्लाइड्स को रेंडर करते समय निर्धारित प्रतिस्थापनों को लौटाता है। प्रत्येक परिणाम एक [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट होता है जिसमें मूल और प्रतिस्थापित फ़ॉन्ट नाम शामिल होते हैं। परिणाम वर्तमान फ़ॉन्ट वातावरण, कॉन्फ़िगर किए गए फ़ॉलबैक नियम, [IFontSubstRuleCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsubstrulecollection/) में संग्रहीत प्रतिस्थापन नियम, और [बाहरी रूप से लोड किए गए फ़ॉन्ट](/slides/hi/net/custom-font/) को प्रतिबिंबित करता है।
 
-```c#
-// प्रस्तुति लोड करता है
-Presentation presentation = new Presentation("Fonts.pptx");
+एक ही प्रतिस्थापन एक से अधिक चयनित स्लाइड्स द्वारा आवश्यक हो सकता है। फ़ॉन्ट इन्वेंटरी या प्री‑फ़्लाइट रिपोर्ट बनाते समय परिणामों को ड्यूप्लिकेशन हटाएँ। निम्न उदाहरण प्रत्येक लौटाए गए प्रतिस्थापन की रिपोर्ट करता है और फिर अद्वितीय फ़ॉन्ट मैपिंग की क्रमबद्ध सूची बनाता है:
 
-// वह स्रोत फ़ॉन्ट लोड करता है जिसे बदलना है
-IFontData sourceFont = new FontData("SomeRareFont");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-// नया फ़ॉन्ट लोड करता है
-IFontData destFont = new FontData("Arial");
+using var presentation = new Presentation("Presentation.pptx");
 
-// फ़ॉन्ट प्रतिस्थापन के लिए फ़ॉन्ट नियम जोड़ता है
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+int[] selectedSlides = { 1, 3, 5 };
+var substitutions = presentation.FontsManager.GetSubstitutions(selectedSlides).ToList();
 
-// फ़ॉन्ट प्रतिस्थापन नियम संग्रह में नियम जोड़ता है
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
-
-// फ़ॉन्ट नियम संग्रह को नियम सूची में जोड़ता है
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+Console.WriteLine("Substitutions for the selected slides:");
+foreach (var substitution in substitutions)
 {
-    // इमेज को JPEG प्रारूप में डिस्क पर सहेजता है
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+var preflightEntries = substitutions.Select(substitution => $"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+var uniquePreflightEntries = preflightEntries.Distinct(StringComparer.OrdinalIgnoreCase);
+var sortedPreflightEntries = uniquePreflightEntries.OrderBy(entry => entry, StringComparer.OrdinalIgnoreCase).ToList();
+
+Console.WriteLine("Deduplicated font preflight report:");
+foreach (var entry in sortedPreflightEntries)
+{
+    Console.WriteLine(entry);
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-आप देखना चाह सकते हैं [**फ़ॉन्ट प्रतिस्थापन**](/slides/hi/net/font-replacement/)। 
+[IFontsManager](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/) इंटरफ़ेस दोनों ओवरलोड प्रदान करता है। रेंडरिंग ऑपरेशन के दायरे के अनुसार एक का चयन करें:
+
+| ओवरलोड | कब उपयोग करें |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/getsubstitutions/) बिना आर्ग्यूमेंट के | आपको पूरे प्रस्तुतिकरण के लिए प्रतिस्थापन चाहिए। |
+| [GetSubstitutions](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/getsubstitutions/) `int[] slides` के साथ | आपको चयनित रेंज, क्रमिक जांच, या आंशिक निर्यात के लिये प्रतिस्थापन चाहिए। |
+
+## **फ़ॉन्ट प्रतिस्थापन नियम निर्धारित करें**
+
+जब स्रोत फ़ॉन्ट उपलब्ध न हो, तो Aspose.Slides को कौन सा फ़ॉन्ट उपयोग करना चाहिए, इसे निर्दिष्ट करने के लिए:
+
+1. प्रस्तुतिकरण लोड करें।
+2. स्रोत और प्रतिस्थापन फ़ॉन्ट के लिए फ़ॉन्ट परिभाषाएँ बनाएँ।
+3. [FontSubstRule](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsubstrule/) को [WhenInaccessible](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsubstcondition/) शर्त के साथ बनाएँ।
+4. नियम को एक [FontSubstRuleCollection](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsubstrulecollection/) में जोड़ें।
+5. संग्रह को [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/hi/net/aspose.slides/fontsmanager/fontsubstrulelist/) प्रॉपर्टी को असाइन करें।
+6. प्रस्तुतिकरण को रेंडर या रूपांतरीत करें।
+
+निम्न C# उदाहरण `SomeRareFont` अनुपलब्ध होने पर `Arial` को प्रतिस्थापित करता है, और फिर परिणाम सत्यापित करने के लिये पहला स्लाइड रेंडर करता है। प्रतिस्थापित फ़ॉन्ट Aspose.Slides के लिये उपलब्ध होना चाहिए।
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("Fonts.pptx");
+
+var sourceFont = new FontData("SomeRareFont");
+var substituteFont = new FontData("Arial");
+var substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+var substitutionRules = new FontSubstRuleCollection();
+substitutionRules.Add(substitutionRule);
+presentation.FontsManager.FontSubstRuleList = substitutionRules;
+
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("slide.jpg", ImageFormat.Jpeg);
+```
+
+{{% alert color="info" title="Note" %}}
+पूरे प्रस्तुतिकरण में उपयोग किए जाने वाले फ़ॉन्ट को बिना शर्त बदलने के लिये, देखें [Font Replacement](/slides/hi/net/font-replacement/)।
 {{% /alert %}}
 
-## **गणित समीकरण फ़ॉन्ट्स के लिए सीमाएँ**
+## **गणित समीकरण फ़ॉन्ट के लिए सीमाएँ**
 
-फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग की जाने वाली मानक फ़ॉन्ट चयन प्रक्रिया में भाग लेते हैं। यह सामान्य पाठ स्थितियों के लिए उपयुक्त हैं जहाँ Aspose.Slides कॉन्फ़िगर किए गए नियम के अनुसार अनुपलब्ध फ़ॉन्ट को किसी अन्य उपलब्ध फ़ॉन्ट से बदल सकता है।
+फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग किए जाने वाले मानक फ़ॉन्ट चयन प्रक्रिया का हिस्सा हैं। वे सामान्य टेक्स्ट के लिये काम करते हैं जब Aspose.Slides अनुपलब्ध फ़ॉन्ट को नियम द्वारा निर्दिष्ट उपलब्ध फ़ॉन्ट से बदल सकता है।
 
-हालाँकि, Office गणित समीकरणों में एक महत्वपूर्ण सीमा है। यदि कोई समीकरण **Cambria Math** के साथ बनाया गया है, तो Aspose.Slides को समीकरण लेआउट को सही ढंग से गणना और रेंडर करने के लिए मूल **Cambria Math** फ़ॉन्ट की आवश्यकता हो सकती है। इसलिए, **Cambria Math** को किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, से बदलना समीकरण रेंडरिंग के लिये समर्थित नहीं है और इससे यह अपवर्जन उत्पन्न हो सकता है कि **Cambria Math** आवश्यक है।
+ऑफ़िस गणित समीकरणों में अतिरिक्त आवश्यकता होती है। यदि कोई समीकरण **Cambria Math** उपयोग करता है, तो Aspose.Slides को समीकरण लेआउट की गणना और रेंडरिंग के लिये ठीक वही फ़ॉन्ट चाहिए। कोई भी नियम जो दूसरे गणित फ़ॉन्ट, जैसे **STIX Two Math**, को प्रतिस्थापित करता है, वह **Cambria Math** को इस प्रयोजन के लिये बदल नहीं सकता, और रेंडरिंग अभी भी रिपोर्ट कर सकता है कि **Cambria Math** आवश्यक है।
 
-ऐसे प्रेजेंटेशन को सफलतापूर्वक रूपांतरित करने के लिए सुनिश्चित करें कि रनटाइम पर **Cambria Math** Aspose.Slides के लिए उपलब्ध हो। आप फ़ॉन्ट को ऑपरेटिंग सिस्टम में स्थापित कर सकते हैं या इसे एक [बाहरी फ़ॉन्ट](/slides/hi/net/custom-font/) के रूप में प्रदान कर सकते हैं ताकि यह रेंडरिंग और रूपांतरण के दौरान सामान्य फ़ॉन्ट चयन प्रक्रिया में भाग ले सके।
+ऐसे प्रस्तुतिकरण को रेंडर या रूपांतरीत करने के लिये, **Cambria Math** को Aspose.Slides के लिये उपलब्ध कराएँ। इसे ऑपरेटिंग सिस्टम में स्थापित करें या एक [बाहरी फ़ॉन्ट](/slides/hi/net/custom-font/) के रूप में लोड करें।
 
-यह सीमा विशेष रूप से समीकरण रेंडरिंग के लिए है। ऊपर वर्णित मानक फ़ॉन्ट प्रतिस्थापन नियम सामान्य प्रेजेंटेशन पाठ पर तब भी लागू होते हैं जब मूल फ़ॉन्ट अनुपलब्ध हो।
+यह सीमा केवल समीकरण लेआउट पर लागू होती है। ऊपर वर्णित प्रतिस्थापन नियम सामान्य प्रस्तुतिकरण टेक्स्ट पर अभी भी लागू होते हैं।
 
-## **प्रश्नोत्तर**
+## **अक्सर पूछे जाने वाले प्रश्न**
 
-**फ़ॉन्ट प्रतिस्थापन (Replacement) और फ़ॉन्ट प्रतिस्थापन (Substitution) में क्या अंतर है?**
+**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट प्रतिस्थापन में क्या अंतर है?**
 
-[रिप्लेसमेंट](/slides/hi/net/font-replacement/) पूरे प्रेजेंटेशन में एक फ़ॉन्ट को दूसरे से जबरदस्ती बदलना है। प्रतिस्थापन (Substitution) एक नियम है जो विशिष्ट स्थिति में ट्रिगर होता है, उदाहरण के लिए जब मूल फ़ॉन्ट उपलब्ध नहीं होता, तब निर्दिष्ट बैकअप फ़ॉन्ट उपयोग किया जाता है।
+[Font replacement](/slides/hi/net/font-replacement/) जानबूझकर पूरे प्रस्तुतिकरण में एक फ़ॉन्ट को दूसरे से बदलता है। फ़ॉन्ट प्रतिस्थापन उस शर्त के मिलने पर रेंडर किए गए आउटपुट के लिये फ़ॉन्ट चुनता है, जैसे जब मूल फ़ॉन्ट उपलब्ध नहीं होता।
 
-**प्रतिस्थापन नियम वास्तव में कब लागू होते हैं?**
+**प्रतिस्थापन नियम कब लागू होते हैं?**
 
-नियम मानक [फ़ॉन्ट चयन](/slides/hi/net/font-selection-sequence/) क्रम में भाग लेते हैं जो लोडिंग, रेंडरिंग और रूपांतरण के दौरान मूल्यांकन किया जाता है; यदि चयनित फ़ॉन्ट उपलब्ध नहीं है, तो प्रतिस्थापन या प्रतिस्थापन (substitution) लागू किया जाता है।
+नियम रेंडरिंग और रूपांतरण के दौरान [font selection sequence](/slides/hi/net/font-selection-sequence/) में भाग लेते हैं। `WhenInaccessible` के साथ, नियम केवल तब उपयोग किया जाता है जब Aspose.Slides स्रोत फ़ॉन्ट तक पहुँच नहीं सकता।
 
-**यदि न तो प्रतिस्थापन और न ही प्रतिस्थापन कॉन्फ़िगर किया गया है और सिस्टम में फ़ॉन्ट अनुपलब्ध है तो डिफ़ॉल्ट व्यवहार क्या है?**
+**यदि फ़ॉन्ट अनुपलब्ध है और कोई प्रतिस्थापन नियम कॉन्फ़िगर नहीं है तो क्या होता है?**
 
-लाइब्रेरी सबसे निकटतम उपलब्ध सिस्टम फ़ॉन्ट को चुनने का प्रयास करेगी, बिल्कुल उसी तरह जैसे PowerPoint करता है।
+Aspose.Slides अपने फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे निकट उपलब्ध फ़ॉन्ट चुनता है। परिणाम रन‑टाइम पर्यावरण में उपलब्ध फ़ॉन्ट पर निर्भर करता है।
 
-**क्या मैं रनटाइम पर कस्टम बाहरी फ़ॉन्ट संलग्न कर सकता हूँ ताकि प्रतिस्थापन से बचा जा सके?**
+**क्या मैं प्रतिस्थापन से बचने के लिये बाहरी फ़ॉन्ट लोड कर सकता हूँ?**
 
-हाँ। आप रनटाइम पर [बाहरी फ़ॉन्ट जोड़ सकते हैं](/slides/hi/net/custom-font/) ताकि लाइब्रेरी उन्हें चयन और रेंडरिंग के लिए विचार करे, जिसमें बाद के रूपांतरण भी शामिल हैं।
+हाँ। आप [load external fonts](/slides/hi/net/custom-font/) कर सकते हैं ताकि Aspose.Slides रेंडरिंग और रूपांतरण के दौरान उनका उपयोग कर सके।
 
-**क्या Aspose लाइब्रेरी के साथ कोई फ़ॉन्ट वितरित करता है?**
+**क्या Aspose लाइब्रेरी के साथ फ़ॉन्ट वितरित करता है?**
 
-नहीं। Aspose न तो पेड और न ही फ्री फ़ॉन्ट वितरित करता है; आप स्वयं की विवेक और ज़िम्मेदारी पर फ़ॉन्ट जोड़ते और उपयोग करते हैं।
+नहीं। फ़ॉन्ट प्रदान करने और उनके लाइसेंस का पालन करने की जिम्मेदारी आपके ऊपर है।
 
-**क्या Windows, Linux और macOS पर प्रतिस्थापन व्यवहार में अंतर है?**
+**क्या प्रतिस्थापन परिणाम Windows, Linux और macOS में अलग हो सकते हैं?**
 
-हां। फ़ॉन्ट खोज ऑपरेटिंग सिस्टम की फ़ॉन्ट डायरेक्टरी से शुरू होती है। डिफ़ॉल्ट उपलब्ध फ़ॉन्ट्स और खोज पथ प्लेटफ़ॉर्म के अनुसार अलग-अलग होते हैं, जिससे उपलब्धता और प्रतिस्थापन की आवश्यकता प्रभावित होती है।
+हां। स्थापित फ़ॉन्ट और फ़ॉन्ट खोज स्थान ऑपरेटिंग सिस्टम के अनुसार अलग होते हैं, इसलिए एक मशीन पर उपलब्ध फ़ॉन्ट दूसरे पर प्रतिस्थापन की आवश्यकता बना सकता है।
 
-**बैच रूपांतरण के दौरान अप्रत्याशित प्रतिस्थापन को कम करने के लिए मुझे पर्यावरण को कैसे तैयार करना चाहिए?**
+**बैच रूपांतरण में फ़ॉन्ट चयन को सुसंगत कैसे बनाऊँ?**
 
-मशीनों या कंटेनरों के बीच फ़ॉन्ट सेट को सिंक्रोनाइज़ करें, आउटपुट दस्तावेज़ों के लिए आवश्यक [बाहरी फ़ॉन्ट जोड़ें](/slides/hi/net/custom-font/) और संभव होने पर प्रेजेंटेशन्स में [फ़ॉन्ट एम्बेड करें](/slides/hi/net/embedded-font/) ताकि रेंडरिंग के दौरान चयनित फ़ॉन्ट उपलब्ध हों।
+हर मशीन या कंटेनर पर समान फ़ॉन्ट फ़ाइलें और संस्करण प्रयोग करें, आवश्यक बाहरी फ़ॉन्ट लोड करें [/slides/hi/net/custom-font/], और लाइसेंस अनुमति देने पर फ़ॉन्ट एम्बेड करें [/slides/hi/net/embedded-font/]। आप निर्यात से पहले [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/hi/net/aspose.slides/ifontsmanager/getsubstitutions/) को कॉल करके अनपेक्षित प्रतिस्थापनों की पहचान भी कर सकते हैं।

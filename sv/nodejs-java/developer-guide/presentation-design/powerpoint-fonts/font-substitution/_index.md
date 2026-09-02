@@ -8,7 +8,7 @@ keywords:
 - teckensnitt
 - ersätta teckensnitt
 - teckensnittssubstitution
-- byta teckensnitt
+- ersätt teckensnitt
 - teckensnittsersättning
 - substitutionsregel
 - ersättningsregel
@@ -18,101 +18,161 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Aktivera optimal teckensnittssubstitution i Aspose.Slides för Node.js när du konverterar PowerPoint- och OpenDocument-presentationer till andra filformat i JavaScript."
+description: "Konfigurera teckensnittssubstitutionsregler och inspektera ersatta teckensnitt i Aspose.Slides för Node.js via Java när du renderar eller konverterar PowerPoint- och OpenDocument-presentationer."
 ---
 ## **Översikt**
 
-Teckensnittssubstitution gör att Aspose.Slides kan använda ett annat teckensnitt när det ursprungliga teckensnittet i presentationen inte är tillgängligt under rendering eller konvertering. Du kan kontrollera vilka teckensnitt som ersattes genom att använda `getSubstitutions`‑metoden från `FontsManager`‑klassen.
+Teckensnittssubstitution gör att Aspose.Slides kan använda ett tillgängligt teckensnitt i stället för ett teckensnitt som inte kan nås när en presentation renderas eller konverteras. Substitutionen påverkar det renderade resultatet; den ändrar inte det teckensnitt som är tilldelat presentationsinnehållet.
 
-Aspose.Slides låter dig även definiera regler för teckensnittssubstitution. Till exempel kan du ange att ett otillgängligt teckensnitt ska ersättas med ett annat tillgängligt teckensnitt och sedan tillämpa dessa regler via presentationens teckensnittshanterare.
+Du kan definiera vilket teckensnitt som ska användas när ett visst teckensnitt inte är tillgängligt, och du kan inspektera de substitutioner som Aspose.Slides kommer att göra under rendering. Detta hjälper till att hålla resultatet konsekvent över miljöer med olika installerade teckensnitt.
 
-## **Ställ in regler för teckensnittssubstitution**
+## **Hämta teckensnittssubstitutioner**
 
-Aspose.Slides tillåter dig att ange regler för teckensnitt som bestämmer vad som ska göras i vissa situationer (till exempel när ett teckensnitt inte kan nås) på detta sätt:
+Använd metoden [FontsManager.getSubstitutions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) för att bestämma vilka teckensnitt som kommer att ersättas när presentationen renderas. Metoden returnerar [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsubstitutioninfo/) objekt som identifierar de ursprungliga och ersatta teckensnittsnamnen.
 
-1. Läs in den relevanta presentationen.
-2. Läs in teckensnittet som ska ersättas.
-3. Läs in det nya teckensnittet.
-4. Lägg till en regel för ersättningen.
-5. Lägg till regeln i samlingen av teckensnittsersättningsregler för presentationen.
-6. Generera bild för bilden för att observera resultatet.
-
-Denna JavaScript‑kod demonstrerar processen för teckensnittssubstitution:
+Följande JavaScript‑exempel listar alla teckensnittssubstitutioner för en presentation:
 
 ```javascript
-// Laddar en presentation
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Laddar källteckensnittet som ska ersättas
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Laddar det nya teckensnittet
-    var destFont = new aspose.slides.FontData("Arial");
-    // Lägger till en teckensnittregel för teckensnittsersättning
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Lägger till regeln i samlingen av teckensnittsersättningsregler
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Lägger till en teckensnittregelsamling i regellistan
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Arial-teckensnittet kommer att användas i stället för SomeRareFont när det sistnämnda är otillgängligt
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Sparar bilden till disk i JPEG-format
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Hämta teckensnittssubstitutioner för valda bilder**
 
-Du kanske vill se [**Font Replacement**](/slides/sv/nodejs-java/font-replacement/).
+Använd överlagringen av [FontsManager.getSubstitutions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) med en array av bildindex för att endast inspektera de substitutioner som krävs för att rendera specifika bilder. Detta är användbart när du renderar eller exporterar en del av en presentation, kontrollerar en stor presentation stegvis, lokaliserar bilder som beror på otillgängliga teckensnitt, förbereder ett minimalt teckensnittspaket för en server eller container, eller diagnostiserar renderingsskillnader utan att bearbeta irrelevanta bilder.
 
+Överlagringen förväntar sig en Java‑primitiv `int[]`. Skapa den med `java.newArray("int", [...])`; en vanlig JavaScript‑array konverteras till `Integer[]` och matchar inte denna överlagring.
+
+Arrayen innehåller ett-baserade bildindex: `1` identifierar den första bilden. Till skillnad från detta använder samlingsåtkomsten [Presentation.getSlides](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getslides/) nollbaserad indexering, så samma bild nås som `presentation.getSlides().get_Item(0)`. Tänk på denna skillnad när du bygger arrayen för att undvika avläsningsfel.
+
+Anropa överlagringen via [Presentation.getFontsManager](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/presentation/getfontsmanager/). Den returnerar endast de substitutioner som fastställts under rendering av de valda bilderna. Varje resultat är ett [FontSubstitutionInfo](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsubstitutioninfo/) objekt som innehåller de ursprungliga och ersatta teckensnittsnamnen. Resultatet speglar den aktuella teckensnittsmiljön, konfigurerade reservregler, substitutioner lagrade i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsubstrulecollection/) och [externalt laddade teckensnitt](/slides/sv/nodejs-java/custom-font/).
+
+Samma substitution kan krävas av mer än en vald bild. Deduplikera resultaten när du skapar ett teckensnittsinventarium eller en förhandsgranskningsrapport. Följande exempel rapporterar varje returnerad substitution och skapar sedan en sorterad lista med unika teckensnittsmappningar:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+[FontsManager](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/)‑klassen tillhandahåller båda överlagringarna. Välj den som passar omfattningen av renderingsoperationen:
+
+| Överlagring | Använd när |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) utan argument | Du behöver substitutioner för hela presentationen. |
+| [getSubstitutions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) med en Java `int[]` av bildindex | Du behöver substitutioner för ett markerat område, stegvis kontroll eller partiell export. |
+
+## **Ange teckensnittssubstitutionsregler**
+
+För att specificera vilket teckensnitt Aspose.Slides ska använda när ett källteckensnitt inte är tillgängligt:
+
+1. Läs in presentationen.  
+2. Skapa teckensnittdefinitioner för käll- och ersättningsteckensnitt.  
+3. Skapa en [FontSubstRule](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsubstrule/) med villkoret [WhenInaccessible](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsubstcondition/).  
+4. Lägg till regeln i en [FontSubstRuleCollection](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsubstrulecollection/).  
+5. Tilldela samlingen genom att använda metoden [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. Rendera eller konvertera presentationen.
+
+Följande JavaScript‑exempel ersätter `Arial` med `SomeRareFont` när `SomeRareFont` är otillgängligt, och renderar sedan den första bilden för att verifiera resultatet. Det ersättande teckensnittet måste vara tillgängligt för Aspose.Slides.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+För en ovillkorlig ändring av de teckensnitt som används i hela en presentation, se [Font Replacement](/slides/sv/nodejs-java/font-replacement/).
 {{% /alert %}}
 
-## **Begränsningar för matematiska ekvationsteckensnitt**
+## **Begränsningar för matematiska ekvations‑teckensnitt**
 
-Regler för teckensnittssubstitution deltar i den standardiserade processen för teckensnittsurval som används under rendering och konvertering. De är lämpliga för vanliga textsituationer där Aspose.Slides kan ersätta ett otillgängligt teckensnitt med ett annat tillgängligt teckensnitt enligt den konfigurerade regeln.
+Teckensnittssubstitutionsregler är en del av den standardiserade teckensnittsväljprocessen som används under rendering och konvertering. De fungerar för vanlig text när Aspose.Slides kan ersätta ett otillgängligt teckensnitt med det tillgängliga teckensnitt som anges i en regel.
 
-Dock har Office‑matteekvationer en viktig begränsning. Om en ekvation skapades med **Cambria Math** kan Aspose.Slides fortfarande kräva det ursprungliga **Cambria Math**‑teckensnittet för att beräkna och rendera ekvationens layout korrekt. På grund av detta stöds inte ersättning av **Cambria Math** med ett annat matte‑teckensnitt, såsom **STIX Two Math**, för ekvationsrendering och kan fortfarande resultera i ett undantag som indikerar att **Cambria Math** krävs.
+Office‑Math‑ekvationer har ett extra krav. Om en ekvation använder **Cambria Math** kan Aspose.Slides behöva exakt det teckensnittet för att beräkna och rendera ekvationslayouten. En regel som ersätter med ett annat matematiskt teckensnitt, såsom **STIX Two Math**, kan inte ersätta **Cambria Math** för detta ändamål, och rendering kan fortfarande rapportera att **Cambria Math** krävs.
 
-För att konvertera sådana presentationer framgångsrikt, se till att **Cambria Math** är tillgängligt för Aspose.Slides vid körning. Du kan installera teckensnittet i operativsystemet eller tillhandahålla det som ett [external font](/slides/sv/nodejs-java/custom-font/) så att det kan delta i den normala teckensnittsurvalsprocessen under rendering och konvertering.
+För att rendera eller konvertera en sådan presentation, gör **Cambria Math** tillgängligt för Aspose.Slides. Installera det i operativsystemet eller ladda det som ett [externalt teckensnitt](/slides/sv/nodejs-java/custom-font/).
 
-Denna begränsning är specifik för ekvationsrendering. De standardregler för teckensnittssubstitution som beskrivits ovan gäller fortfarande för vanlig presentationstext när det ursprungliga teckensnittet är otillgängligt.
+Denna begränsning gäller för ekvationslayout. Substitutionsreglerna som beskrivits ovan gäller fortfarande för vanlig presentations‑text.
 
-## **FAQ**
+## **Vanliga frågor**
 
-**Vad är skillnaden mellan teckensnittsersättning och teckensnittssubstitution?**
+**Vad är skillnaden mellan font replacement och font substitution?**  
+[Font replacement](/slides/sv/nodejs-java/font-replacement/) ändrar avsiktligt ett teckensnitt till ett annat i hela presentationen. Font substitution väljer ett teckensnitt för det renderade resultatet när den konfigurerade villkoret uppfylls, exempelvis när originalteckensnittet är otillgängligt.
 
-[Replacement](/slides/sv/nodejs-java/font-replacement/) är en tvingad överskrivning av ett teckensnitt med ett annat i hela presentationen. Substitution är en regel som triggas under ett specifikt villkor, till exempel när det ursprungliga teckensnittet är otillgängligt, och då används ett bestämt reservteckensnitt.
+**När tillämpas substitutionsregler?**  
+Reglerna deltar i [font selection sequence](/slides/sv/nodejs-java/font-selection-sequence/) under rendering och konvertering. Med `WhenInaccessible` används en regel endast när Aspose.Slides inte kan komma åt källteckensnittet.
 
-**När tillämpas subdivisionsregler exakt?**
+**Vad händer när ett teckensnitt saknas och ingen substitutionsregel är konfigurerad?**  
+Aspose.Slides väljer det närmaste tillgängliga teckensnittet enligt sin teckensnittsväljprocess. Resultatet beror på vilka teckensnitt som finns i körmiljön.
 
-Reglerna deltar i den standardiserade [font selection](/slides/sv/nodejs-java/font-selection-sequence/) sekvensen som utvärderas under inläsning, rendering och konvertering; om det valda teckensnittet är otillgängligt tillämpas ersättning eller substitution.
+**Kan jag ladda externa teckensnitt för att undvika substitution?**  
+Ja. Du kan [load external fonts](/slides/sv/nodejs-java/custom-font/) så att Aspose.Slides kan använda dem under rendering och konvertering.
 
-**Vad är standardbeteendet om varken ersättning eller substitution är konfigurerad och teckensnittet saknas på systemet?**
+**Distribuerar Aspose teckensnitt med biblioteket?**  
+Nej. Du är ansvarig för att tillhandahålla teckensnitt och följa deras licensvillkor.
 
-Biblioteket kommer att försöka välja det närmaste tillgängliga systemteckensnittet, likt hur PowerPoint skulle agera.
+**Kan substitutionsresultat skilja sig mellan Windows, Linux och macOS?**  
+Ja. Installerade teckensnitt och sökvägar skiljer sig mellan operativsystem, så ett teckensnitt som finns på en maskin kan behöva substitueras på en annan.
 
-**Kan jag bifoga anpassade externa teckensnitt vid körning för att undvika substitution?**
-
-Ja. Du kan [add external fonts](/slides/sv/nodejs-java/custom-font/) vid körning så att biblioteket tar dem i beaktande vid urval och rendering, även för efterföljande konverteringar.
-
-**Distribuerar Aspose några teckensnitt med biblioteket?**
-
-Nej. Aspose distribuerar inga betalda eller gratis teckensnitt; du lägger till och använder teckensnitt efter eget gottfinnande och ansvar.
-
-**Finns det skillnader i substitutionsbeteende på Windows, Linux och macOS?**
-
-Ja. Teckensnittsidentifiering startar i operativsystemets teckensnittskataloger. Mängden standardtillgängliga teckensnitt och sökvägarna varierar mellan plattformarna, vilket påverkar tillgänglighet och behovet av substitution.
-
-**Hur bör jag förbereda miljön för att minimera oväntad substitution under batchkonverteringar?**
-
-Synkronisera teckensnittssamlingen över maskiner eller containrar, [add the external fonts](/slides/sv/nodejs-java/custom-font/) som krävs för utsaktdokumenten, och [embed fonts](/slides/sv/nodejs-java/embedded-font/) i presentationer när det är möjligt så de valda teckensnitten är tillgängliga under rendering.
+**Hur kan jag göra teckensnittsväljning konsekvent i batchkonverteringar?**  
+Använd samma teckensnittsfiler och versioner på varje maskin eller container, [load required external fonts](/slides/sv/nodejs-java/custom-font/), och [embed fonts](/slides/sv/nodejs-java/embedded-font/) när licensen tillåter det. Du kan också anropa [FontsManager.getSubstitutions](https://reference.aspose.com/slides/sv/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) innan export för att identifiera oväntade substitutioner.

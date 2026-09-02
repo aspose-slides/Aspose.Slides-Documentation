@@ -1,15 +1,15 @@
 ---
-title: JavaScript Kullanarak Sunumlarda Font İkamesini Yapılandırma
-linktitle: Font İkamesi
+title: JavaScript Kullanarak Sunumlarda Yazı Tipi İkamesini Yapılandırma
+linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
 url: /tr/nodejs-java/font-substitution/
 keywords:
-- font
-- ikame font
-- font ikamesi
-- font değiştirme
-- font yerine koyma
+- yazı tipi
+- ikame yazı tipi
+- yazı tipi ikamesi
+- yazı tipi değiştirme
+- yazı tipi değiştirme
 - ikame kuralı
 - değiştirme kuralı
 - PowerPoint
@@ -18,99 +18,168 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "JavaScript'te PowerPoint ve OpenDocument sunumlarını diğer dosya formatlarına dönüştürürken Node.js için Aspose.Slides'te optimal font ikamesini etkinleştirin."
+description: "PowerPoint ve OpenDocument sunumlarını render ederken veya dönüştürürken, Node.js için Aspose.Slides'te yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
 ## **Genel Bakış**
 
-Font ikamesi, Aspose.Slides'in orijinal sunum fontu renderleme veya dönüştürme sırasında mevcut olmadığında başka bir font kullanmasını sağlar. `FontsManager` sınıfının `getSubstitutions` yöntemini kullanarak hangi fontların ikame edildiğini kontrol edebilirsiniz.
+Yazı tipi ikamesi, Aspose.Slides'in bir sunum render edildiğinde veya dönüştürüldüğünde erişilemeyen bir yazı tipinin yerine mevcut bir yazı tipini kullanmasını sağlar. İkame, oluşturulan çıktı üzerinde etkili olur; sunum içeriğine atanmış yazı tipini değiştirmez.
 
-Aspose.Slides ayrıca font ikame kuralları tanımlamanıza olanak verir. Örneğin, erişilemeyen bir fontun başka bir mevcut fontla değiştirilmesi gerektiğini belirtebilir ve bu kuralları sunumun font yöneticisi aracılığıyla uygulayabilirsiniz.
+Belirli bir yazı tipi bulunamadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'in render sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlar arasında çıktının tutarlı kalmasına yardımcı olur.
 
-## **Font İkame Kurallarını Ayarlama**
+## **Yazı Tipi İkamesini Alın**
 
-Aspose.Slides, belirli koşullarda (örneğin bir font erişilemez olduğunda) ne yapılacağını belirleyen kuralları şu şekilde ayarlamanıza izin verir:
+Sunum render edildiğinde hangi yazı tiplerinin ikame edileceğini belirlemek için [FontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) yöntemini kullanın. Yöntem, orijinal ve ikame edilen yazı tipi adlarını belirten [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
 
-1. İlgili sunumu yükleyin.
-2. Değiştirilecek fontu yükleyin.
-3. Yeni fontu yükleyin.
-4. Değiştirme için bir kural ekleyin.
-5. Kuralı sunumun font değiştirme kuralı koleksiyonuna ekleyin.
-6. Etkiyi gözlemlemek için slayt görüntüsünü oluşturun.
-
-Bu JavaScript kodu font ikame sürecini gösterir:
+Aşağıdaki JavaScript örneği, bir sunum için tüm yazı tipi ikamelerini listeler:
 
 ```javascript
-// Bir sunumu yükler
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Değiştirilecek kaynak fontu yükler
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Yeni fontu yükler
-    var destFont = new aspose.slides.FontData("Arial");
-    // Font değiştirme için bir kural ekler
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Kuralı font ikame kuralları koleksiyonuna ekler
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Kural listesine bir font kural koleksiyonu ekler
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Arial fontu, SomeRareFont erişilemez olduğunda onun yerine kullanılacak
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Görüntüyü JPEG formatında diske kaydeder
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Şu bağlantıya göz atmak isteyebilirsiniz [**Font Replacement**](/slides/tr/nodejs-java/font-replacement/).
+## **Seçili Slaytlar İçin Yazı Tipi İkamesini Alın**
+
+Yalnızca belirli slaytların render edilmesi için gereken ikameleri incelemek üzere, slayt indeksleri dizisiyle [FontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) aşırı yüklü yöntemini kullanın. Bu, bir sunumun bir bölümünü render ederken veya dışa aktarırken, büyük bir sunumu Artımlı olarak kontrol ederken, erişilemeyen yazı tiplerine bağımlı slaytları bulurken, bir sunucu ya da konteyner için minimal bir yazı tipi paketi hazırlarken veya ilgisiz slaytları işlemeye almadan render farklarını teşhis ederken faydalıdır.
+
+Aşırı yük, bir Java primitive `int[]` bekler. Bunu `java.newArray("int", [...])` ile oluşturun; düz bir JavaScript dizisi `Integer[]`'e dönüştürülür ve bu aşırı yüklü yönteme eşleşmez.
+
+Dizi, bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı tanımlar. Buna karşılık, [Presentation.getSlides](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/getslides/) koleksiyon erişicisi sıfır‑tabanlı indeksleme kullanır, bu yüzden aynı slayt `presentation.getSlides().get_Item(0)` ile erişilir. Dizi oluştururken bu farkı akılda tutarak tek‑bir‑hata hatalarından kaçının.
+
+Aşırı yükü [Presentation.getFontsManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/presentation/getfontsmanager/) üzerinden çağırın. Bu, yalnızca seçili slaytlar render edilirken belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış geri dönüş kurallarını, bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsubstrulecollection/) içinde depolanan ikame kurallarını ve [harici yüklenmiş yazı tiplerini](/slides/tr/nodejs-java/custom-font/) yansıtır.
+
+Aynı ikame birden fazla seçili slayt tarafından istenebilir. Bir yazı tipi envanteri ya da ön uç raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+[FontsManager](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/) sınıfı her iki aşırı yükü de sağlar. Render operasyonunun kapsamına göre birini seçin:
+
+| Aşırı Yük | Ne zaman kullanılır |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) parametresiz | Tüm sunum için ikameler gerektiğinde. |
+| [getSubstitutions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) slayt indekslerinin Java `int[]`'i | Seçili bir aralık, artımlı kontrol veya kısmi dışa aktarım gerektiğinde. |
+
+## **Yazı Tipi İkame Kurallarını Ayarlama**
+
+Kaynak bir yazı tipi erişilemez olduğunda Aspose.Slides'in hangi yazı tipini kullanacağını belirtmek için:
+
+1. Sunumu yükleyin.  
+2. Kaynak ve ikame yazı tipleri için tanımlar oluşturun.  
+3. [WhenInaccessible](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsubstrule/) oluşturun.  
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsubstrulecollection/) içine ekleyin.  
+5. Koleksiyonu [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/) yöntemiyle atayın.  
+6. Sunumu render edin veya dönüştürün.
+
+Aşağıdaki JavaScript örneği, `SomeRareFont` erişilemez olduğunda `Arial` ile ikame eder ve ardından sonucu doğrulamak için ilk slaytı render eder. İkame yazı tipi Aspose.Slides tarafından erişilebilir olmalıdır.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik yapmak için [Yazı Tipi Değiştirme](/slides/tr/nodejs-java/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemi Fontları İçin Sınırlamalar**
+## **Matematik Denklemi Yazı Tipleri İçin Sınırlamalar**
 
-Font ikame kuralları, renderleme ve dönüştürme sırasında kullanılan standart font seçim sürecine katılır. Aspose.Slides'in yapılandırılmış kurala göre erişilemeyen bir fontu başka bir mevcut fontla değiştirebildiği normal metin senaryoları için uygundur.
+Yazı tipi ikame kuralları, render ve dönüşüm sırasında kullanılan standart yazı tipi seçim sürecinin bir parçasıdır. Aspose.Slides'in erişilemeyen bir yazı tipini kuralda belirtilen mevcut yazı tipine değiştirebildiği sürece normal metin için çalışır.
 
-Bununla birlikte, Office matematik denklemlerinde önemli bir sınırlama vardır. Bir denklem **Cambria Math** ile oluşturulduysa, Aspose.Slides denklemin düzenini doğru bir şekilde hesaplamak ve renderlemek için hâlâ orijinal **Cambria Math** fontuna ihtiyaç duyabilir. Bu nedenle **Cambria Math**'ı **STIX Two Math** gibi başka bir matematik fontu ile değiştirmek, denklem renderlemesi için desteklenmez ve **Cambria Math**'ın gerekli olduğunu belirten bir istisna ortaya çıkabilir.
+Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides denklemin düzenini hesaplamak ve render etmek için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipini ikame eden bir kural, bu amaç için **Cambria Math**'ı değiştiremez ve render hâlâ **Cambria Math**'ın gerekli olduğunu bildirebilir.
 
-Bu tür sunumları başarılı bir şekilde dönüştürmek için, **Cambria Math**'ın çalışma zamanında Aspose.Slides tarafından ulaşılabilir olduğundan emin olun. Fontu işletim sistemine kurabilir veya bir [external font](/slides/tr/nodejs-java/custom-font/) sağlayarak renderleme ve dönüştürme sırasında normal font seçim sürecine katılmasını sağlayabilirsiniz.
+Böyle bir sunumu render ya da dönüştürmek için **Cambria Math**'ı Aspose.Slides'e sunun. İşletim sistemine yükleyin veya bir [harici yazı tipi](/slides/tr/nodejs-java/custom-font/) olarak yükleyin.
 
-Bu sınırlama yalnızca denklem renderlemesiyle ilgilidir. Yukarıda açıklanan standart font ikame kuralları, orijinal font erişilemez olduğunda normal sunum metni için hâlâ geçerlidir.
+Bu sınırlama yalnızca denklem düzeni için geçerlidir. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
 
 ## **SSS**
 
-**Font değiştirme ile font ikamesi arasındaki fark nedir?**
+**Yazı tipi değişimi ile yazı tipi ikamesi arasındaki fark nedir?**
 
-[Replacement](/slides/tr/nodejs-java/font-replacement/) tüm sunum boyunca bir fontun bir diğerine zorla geçersiz kılınmasıdır. İkame, belirli bir koşul altında (örneğin orijinal font bulunamadığında) devreye giren ve belirlenen bir yedek fontun kullanılmasını sağlayan bir kuraldır.
+[Font replacement](/slides/tr/nodejs-java/font-replacement/) sunum boyunca bir yazı tipini bilinçli olarak başka bir yazı tipine değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul karşılandığında (örneğin orijinal yazı tipi mevcut değilse) render edilen çıkış için bir yazı tipi seçer.
 
-**İkame kuralları tam olarak ne zaman uygulanır?**
+**İkame kuralları ne zaman uygulanır?**
 
-Kurallar, yükleme, renderleme ve dönüştürme sırasında değerlendirilen standart [font selection](/slides/tr/nodejs-java/font-selection-sequence/) sırasına katılır; seçilen font bulunamazsa değiştirme veya ikame uygulanır.
+Kurallar, render ve dönüşüm sırasında [font selection sequence](/slides/tr/nodejs-java/font-selection-sequence/) içinde yer alır. `WhenInaccessible` koşulu, yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kuralın kullanıldığını belirtir.
 
-**Ne replacement ne de substitution yapılandırılmadığında ve sistemde font eksik olduğunda varsayılan davranış nedir?**
+**Bir yazı tipi eksik olduğunda ve ikame kuralı yapılandırılmamışsa ne olur?**
 
-Kütüphane, PowerPoint'in davranışına benzer şekilde en yakın mevcut sistem fontunu seçmeye çalışır.
+Aspose.Slides, font seçim sürecine göre en yakın mevcut yazı tipini seçer. Sonuç, çalışma zaman ortamında mevcut olan yazı tiplerine bağlıdır.
 
-**Substituion önlemek için çalışma zamanında özel dış fontlar ekleyebilir miyim?**
+**İkameyi önlemek için harici yazı tipleri yükleyebilir miyim?**
 
-Evet. Çalışma zamanında [add external fonts](/slides/tr/nodejs-java/custom-font/) ekleyerek kütüphanenin seçim ve renderleme sırasında bunları dikkate almasını sağlayabilirsiniz; bu, sonraki dönüştürmeler için de geçerlidir.
+Evet. Aspose.Slides'in render ve dönüşüm sırasında kullanabilmesi için [harici yazı tipleri](/slides/tr/nodejs-java/custom-font/) yükleyebilirsiniz.
 
-**Aspose kütüphaneyle birlikte herhangi bir font dağıtıyor mu?**
+**Aspose kitaplık ile birlikte yazı tipleri dağıtıyor mu?**
 
-Hayır. Aspose ücretli veya ücretsiz fontları dağıtmaz; fontları kendi takdir ve sorumluluğunuzda ekler ve kullanırsınız.
+Hayır. Yazı tiplerini sağlamak ve lisanslarına uymak sizin sorumluluğunuzdadır.
 
-**Windows, Linux ve macOS'ta ikame davranışında farklılıklar var mı?**
+**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**
 
-Evet. Font keşfi işletim sisteminin font dizinlerinden başlar. Varsayılan olarak mevcut olan fontların seti ve arama yolları platformlar arasında farklılık gösterir; bu da kullanılabilirliği ve ikame ihtiyacını etkiler.
+Evet. Yüklü yazı tipleri ve yazı tipi arama konumları işletim sistemine göre değişir; bu yüzden bir makinede mevcut olan bir yazı tipi başka bir makinede ikame gerektirebilir.
 
-**Toplu dönüştürmeler sırasında beklenmedik ikameleri en aza indirmek için ortamı nasıl hazırlamalıyım?**
+**Toplu dönüşümlerde yazı tipi seçiminde tutarlılık nasıl sağlanır?**
 
-Makine veya konteynerler arasında font setini senkronize edin, çıktı belgeleri için gerekli olan [external fonts](/slides/tr/nodejs-java/custom-font/) ekleyin ve mümkün olduğunda sunumlara [embed fonts](/slides/tr/nodejs-java/embedded-font/) ekleyerek renderleme sırasında seçilecek fontların mevcut olmasını sağlayın.
+Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli harici yazı tiplerini](/slides/tr/nodejs-java/custom-font/) yükleyin ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/nodejs-java/embedded-font/). Ayrıca dışa aktarım öncesinde beklenmeyen ikameleri belirlemek için [FontsManager.getSubstitutions](https://reference.aspose.com/slides/tr/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) çağırabilirsiniz.

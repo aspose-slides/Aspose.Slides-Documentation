@@ -6,8 +6,8 @@ weight: 70
 url: /ru/python-net/font-substitution/
 keywords:
 - шрифт
-- заменяемый шрифт
-- подстановка шрифта
+- заменить шрифт
+- подстановка шрифтов
 - замена шрифта
 - замена шрифта
 - правило подстановки
@@ -17,90 +17,136 @@ keywords:
 - презентация
 - Python
 - Aspose.Slides
-description: "Обеспечьте оптимальную подстановку шрифтов в Aspose.Slides for Python через .NET при конвертации презентаций PowerPoint и OpenDocument в другие форматы файлов."
+description: "Настройте правила подстановки шрифтов и просмотрите подставленные шрифты в Aspose.Slides для Python через .NET при рендеринге или конвертации презентаций PowerPoint и OpenDocument."
 ---
-## **Установить правила подстановки**
+## **Обзор**
 
-Aspose.Slides позволяет задавать правила для шрифтов, определяющие, что необходимо сделать в определённых условиях (например, когда шрифт недоступен) следующим образом:
+Подстановка шрифтов позволяет Aspose.Slides использовать доступный шрифт вместо шрифта, к которому нельзя получить доступ при рендеринге или конвертации презентации. Подстановка влияет только на отрисованный вывод; она не меняет шрифт, назначенный содержимому презентации.
 
-1. Загрузите соответствующую презентацию.  
-2. Загрузите шрифт, который будет заменён.  
-3. Загрузите новый шрифт.  
-4. Добавьте правило для замены.  
-5. Добавьте правило в коллекцию правил замены шрифтов презентации.  
-6. Сгенерируйте изображение слайда, чтобы увидеть эффект.
+Вы можете задать шрифт, который будет использоваться, когда определённый шрифт недоступен, а также просмотреть подстановки, которые Aspose.Slides выполнит во время рендеринга. Это помогает поддерживать согласованность вывода в разных средах с различными установленными шрифтами.
 
-Этот код на Python демонстрирует процесс подстановки шрифтов:
+## **Получение подстановок шрифтов**
+
+Используйте метод [FontsManager.get_substitutions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_substitutions/) для определения, какие шрифты будут подменены при рендеринге презентации. Метод возвращает объекты [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsubstitutioninfo/), содержащие оригинальные и подставленные названия шрифтов.
+
+Ниже приведён пример на Python, который выводит все подстановки шрифтов для презентации:
 
 ```python
 import aspose.slides as slides
 
-# Загружает презентацию
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Загружает исходный шрифт, который будет заменён
-    sourceFont = slides.FontData("SomeRareFont")
-
-    # Загружает новый шрифт
-    destFont = slides.FontData("Arial")
-
-    # Добавляет правило шрифта для замены шрифта
-    fontSubstRule = slides.FontSubstRule(sourceFont, destFont, slides.FontSubstCondition.WHEN_INACCESSIBLE)
-
-    # Добавляет правило в коллекцию правил подстановки шрифтов
-    fontSubstRuleCollection = slides.FontSubstRuleCollection()
-    fontSubstRuleCollection.add(fontSubstRule)
-
-    # Добавляет коллекцию правил шрифтов в список правил
-    presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
-
-    #Arial шрифт будет использоваться вместо SomeRareFont, когда последний недоступен
-    with presentation.slides[0].get_image(1, 1) as bmp:
-        # Сохраняет изображение на диск в формате JPEG
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("Presentation.pptx") as presentation:
+    for substitution in presentation.fonts_manager.get_substitutions():
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Получение подстановок шрифтов для выбранных слайдов**
 
-Возможно, вам будет интересен [**Font Replacement**](/slides/ru/python-net/font-replacement/). 
+Используйте [FontsManager.get_substitutions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_substitutions/) со списком индексов слайдов, чтобы просмотреть только те подстановки, которые требуются для рендеринга конкретных слайдов. Это полезно, когда вы рендерите или экспортируете часть презентации, проверяете большую презентацию пошагово, находите слайды, зависящие от недоступных шрифтов, готовите минимальный пакет шрифтов для сервера или контейнера, либо диагностируете различия в рендеринге без обработки нерелевантных слайдов.
 
+Список содержит индексы слайдов, начинающиеся с 1: `1` обозначает первый слайд. В отличие от этого, коллекция [Presentation.slides](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/slides/ru/) использует нулевую основу, поэтому тот же слайд доступен как `presentation.slides[0]`. Учтите это различие при построении списка, чтобы избежать ошибок «на один».
+
+
+
+Вызовите метод через свойство [Presentation.fonts_manager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/presentation/fonts_manager/). Он возвращает только подстановки, определённые при рендеринге выбранных слайдов. Каждый результат — объект [FontSubstitutionInfo](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsubstitutioninfo/), содержащий оригинальное и подставленное имя шрифта. Результат отражает текущую среду шрифтов, настроенные правила резервирования, правила подстановки, хранящиеся в [IFontSubstRuleCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/ifontsubstrulecollection/), и [внешне загруженные шрифты](/slides/ru/python-net/custom-font/).
+
+Одна и та же подстановка может потребоваться более чем одному выбранному слайду. Удалите дубликаты результатов при создании инвентаризации шрифтов или отчёта о проверке. Ниже пример, который выводит каждую найденную подстановку, а затем создаёт отсортированный список уникальных соответствий шрифтов:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as presentation:
+    selected_slides = [1, 3, 5]
+    substitutions = list(presentation.fonts_manager.get_substitutions(selected_slides))
+
+    print("Substitutions for the selected slides:")
+    for substitution in substitutions:
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
+
+    preflight_entries = [f"{substitution.original_font_name} -> {substitution.substituted_font_name}" for substitution in substitutions]
+    unique_preflight_entries = {entry.casefold(): entry for entry in preflight_entries}
+    sorted_preflight_entries = sorted(unique_preflight_entries.values(), key=str.casefold)
+
+    print("Deduplicated font preflight report:")
+    for entry in sorted_preflight_entries:
+        print(entry)
+```
+
+Класс [FontsManager](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/) предоставляет обе формы метода. Выберите одну в зависимости от объёма операции рендеринга:
+
+| Вызов метода | Когда использовать |
+|---|---|
+| [get_substitutions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_substitutions/) без аргументов | Нужно получить подстановки для всей презентации. |
+| [get_substitutions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_substitutions/) со списком индексов слайдов | Нужно получить подстановки для выбранного диапазона, пошаговой проверки или частного экспорта. |
+
+## **Установка правил подстановки шрифтов**
+
+Чтобы указать шрифт, который Aspose.Slides должен использовать, когда исходный шрифт недоступен:
+
+1. Загрузите презентацию.  
+2. Создайте определения шрифтов для исходного и подставного шрифтов.  
+3. Создайте объект [FontSubstRule](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsubstrule/) с условием [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsubstcondition/).  
+4. Добавьте правило в [FontSubstRuleCollection](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsubstrulecollection/).  
+5. Назначьте коллекцию свойству [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).  
+6. Выполните рендеринг или конвертацию презентации.
+
+Ниже пример на Python, который подменяет `Arial` на `SomeRareFont`, когда `SomeRareFont` недоступен, а затем рендерит первый слайд для проверки результата. Подставляемый шрифт должен быть доступен Aspose.Slides.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Fonts.pptx") as presentation:
+    source_font = slides.FontData("SomeRareFont")
+    substitute_font = slides.FontData("Arial")
+    substitution_rule = slides.FontSubstRule(source_font, substitute_font, slides.FontSubstCondition.WHEN_INACCESSIBLE)
+
+    substitution_rules = slides.FontSubstRuleCollection()
+    substitution_rules.add(substitution_rule)
+    presentation.fonts_manager.font_subst_rule_list = substitution_rules
+
+    with presentation.slides[0].get_image(1, 1) as image:
+        image.save("slide.jpg", slides.ImageFormat.JPEG)
+```
+
+{{% alert color="info" title="Note" %}}
+Для безусловного изменения шрифтов, используемых во всей презентации, см. [Font Replacement](/slides/ru/python-net/font-replacement/).
 {{% /alert %}}
 
-## **Ограничения для шрифтов математических уравнений**
+## **Ограничения для шрифтов математических формул**
 
-Правила подстановки шрифтов участвуют в стандартном процессе выбора шрифта, используемого при рендеринге и конвертации. Они подходят для обычных текстовых сценариев, когда Aspose.Slides может заменить недоступный шрифт другим доступным шрифтом согласно настроенному правилу.
+Правила подстановки шрифтов являются частью стандартного процесса выбора шрифта, используемого при рендеринге и конвертации. Они работают для обычного текста, когда Aspose.Slides может заменить недоступный шрифт доступным, указанным правилом.
 
-Однако у уравнений Office Math есть важное ограничение. Если уравнение было создано с использованием **Cambria Math**, Aspose.Slides всё равно может потребовать оригинальный шрифт **Cambria Math** для правильного расчёта и рендеринга компоновки уравнения. Поэтому подстановка **Cambria Math** другим математическим шрифтом, например **STIX Two Math**, не поддерживается при рендеринге уравнений и может привести к исключению, указывающему, что требуется **Cambria Math**.
+Уравнения Office Math имеют дополнительное требование. Если уравнение использует **Cambria Math**, Aspose.Slides может потребовать именно этот шрифт для вычисления и рендеринга макета уравнения. Правило, подменяющее его другим математическим шрифтом, например **STIX Two Math**, не может заменить **Cambria Math** для этой цели, и рендеринг всё равно может сообщать, что требуется **Cambria Math**.
 
-Чтобы успешно конвертировать такие презентации, убедитесь, что **Cambria Math** доступен Aspose.Slides во время выполнения. Вы можете установить шрифт в операционной системе или предоставить его как [external font](/slides/ru/python-net/custom-font/), чтобы он мог участвовать в обычном процессе выбора шрифта при рендеринге и конвертации.
+Чтобы отрендерить или конвертировать такую презентацию, сделайте **Cambria Math** доступной Aspose.Slides. Установите её в операционной системе или загрузите как [внешний шрифт](/slides/ru/python-net/custom-font/).
 
-Это ограничение относится только к рендерингу уравнений. Стандартные правила подстановки шрифтов, описанные выше, по‑прежнему применяются к обычному тексту презентации, когда оригинальный шрифт недоступен.
+Это ограничение относится только к макету уравнений. Описанные выше правила подстановки продолжают применяться к обычному тексту презентации.
 
 ## **FAQ**
 
 **В чём разница между заменой шрифта и подстановкой шрифта?**
 
-[Replacement](/slides/ru/python-net/font-replacement/) — принудительное переопределение одного шрифта другим во всей презентации. Подстановка — правило, которое срабатывает при конкретном условии, например когда оригинальный шрифт недоступен, и тогда используется назначенный запасной шрифт.
+[Font replacement](/slides/ru/python-net/font-replacement/) целенаправленно меняет один шрифт на другой по всей презентации. Подстановка шрифта выбирает шрифт для отрисованного вывода, когда выполнено заданное условие, например когда оригинальный шрифт недоступен.
 
-**Когда именно применяются правила подстановки?**
+**Когда применяются правила подстановки?**
 
-Правила участвуют в стандартной последовательности [font selection](/slides/ru/python-net/font-selection-sequence/), которая оценивается при загрузке, рендеринге и конвертации; если выбранный шрифт недоступен, применяется замена или подстановка.
+Правила участвуют в [font selection sequence](/slides/ru/python-net/font-selection-sequence/) во время рендеринга и конвертации. При условии `WHEN_INACCESSIBLE` правило используется только когда Aspose.Slides не может получить доступ к исходному шрифту.
 
-**Каково поведение по умолчанию, если ни замена, ни подстановка не настроены, а шрифт отсутствует в системе?**
+**Что происходит, если шрифт отсутствует и правило подстановки не настроено?**
 
-Библиотека попытается выбрать ближайший доступный системный шрифт, аналогично тому, как ведёт себя PowerPoint.
+Aspose.Slides выбирает ближайший доступный шрифт согласно своему процессу выбора шрифтов. Результат зависит от шрифтов, доступных в среде выполнения.
 
-**Можно ли подключить пользовательские внешние шрифты во время выполнения, чтобы избежать подстановки?**
+**Могу ли я загрузить внешние шрифты, чтобы избежать подстановки?**
 
-Да. Вы можете [add external fonts](/slides/ru/python-net/custom-font/) во время выполнения, чтобы библиотека учитывала их при выборе и рендеринге, в том числе при последующей конвертации.
+Да. Вы можете [load external fonts](/slides/ru/python-net/custom-font/), чтобы Aspose.Slides использовал их при рендеринге и конвертации.
 
-**Поставляет ли Aspose какие‑либо шрифты вместе с библиотекой?**
+**Поставляет ли Aspose шрифты вместе с библиотекой?**
 
-Нет. Aspose не распространяет платные или бесплатные шрифты; вы добавляете и используете шрифты по своему усмотрению и ответственности.
+Нет. Вы несёте ответственность за предоставление шрифтов и соблюдение их лицензий.
 
-**Есть ли различия в поведении подстановки на Windows, Linux и macOS?**
+**Могут ли результаты подстановки различаться между Windows, Linux и macOS?**
 
-Да. Поиск шрифтов начинается с каталогов шрифтов операционной системы. Набор доступных по умолчанию шрифтов и пути поиска различаются между платформами, что влияет на их наличие и необходимость подстановки.
+Да. Установленные шрифты и места их поиска различаются в зависимости от операционной системы, поэтому шрифт, доступный на одной машине, может потребовать подстановки на другой.
 
-**Как подготовить окружение, чтобы минимизировать неожиданную подстановку при пакетных конверсиях?**
+**Как обеспечить согласованность выбора шрифтов при пакетных конверсиях?**
 
-Синхронизируйте набор шрифтов между машинами или контейнерами, [add the external fonts](/slides/ru/python-net/custom-font/) необходимые для итоговых документов, и по возможности [embed fonts](/slides/ru/python-net/embedded-font/) в презентациях, чтобы выбранные шрифты были доступны во время рендеринга.
+Используйте одинаковые файлы шрифтов и их версии на каждой машине или в контейнере, [load required external fonts](/slides/ru/python-net/custom-font/), и [embed fonts](/slides/ru/python-net/embedded-font/) при наличии соответствующей лицензии. Также можно вызвать [FontsManager.get_substitutions](https://reference.aspose.com/slides/ru/python-net/aspose.slides/fontsmanager/get_substitutions/) перед экспортом, чтобы выявить неожиданные подстановки.

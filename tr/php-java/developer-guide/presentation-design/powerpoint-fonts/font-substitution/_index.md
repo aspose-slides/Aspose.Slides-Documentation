@@ -1,5 +1,5 @@
 ---
-title: PHP Kullanarak Sunumlarda Yazı Tipi İkamesi Yapılandırma
+title: PHP Kullanarak Sunumlarda Yazı Tipi İkamesini Yapılandırma
 linktitle: Yazı Tipi İkamesi
 type: docs
 weight: 70
@@ -8,8 +8,8 @@ keywords:
 - yazı tipi
 - ikame yazı tipi
 - yazı tipi ikamesi
+- yazı tipini değiştirme
 - yazı tipi değiştirme
-- yazı tipi değişimi
 - ikame kuralı
 - değiştirme kuralı
 - PowerPoint
@@ -17,101 +17,181 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "PowerPoint ve OpenDocument sunumlarını diğer dosya biçimlerine dönüştürürken Aspose.Slides for PHP via Java'da optimal yazı tipi ikamesini etkinleştirin."
+description: "PowerPoint ve OpenDocument sunumlarını işleme veya dönüştürme sırasında, Java aracılığıyla PHP için Aspose.Slides içinde yazı tipi ikame kurallarını yapılandırın ve ikame edilen yazı tiplerini inceleyin."
 ---
-## **Giriş**
+## **Genel Bakış**
 
-Yazı tipi ikame, Aspose.Slides'in orijinal sunumda kullanılan yazı tipi render veya dönüşüm sırasında mevcut olmadığında başka bir yazı tipini kullanmasını sağlar. `FontsManager` sınıfının `getSubstitutions` metodunu kullanarak hangi yazı tiplerinin ikame edildiğini kontrol edebilirsiniz.
+Yazı tipi ikamesi, Aspose.Slides'in bir sunum işlendiğinde veya dönüştürüldüğünde erişilemeyen bir yazı tipinin yerine kullanılabilir bir yazı tipini kullanmasına olanak tanır. İkame, işlenen çıktıyı etkiler; sunum içeriğine atanmış yazı tipini değiştirmez.
 
-Aspose.Slides ayrıca yazı tipi ikame kurallarını tanımlamanıza da izin verir. Örneğin, erişilemeyen bir yazı tipinin başka bir mevcut yazı tipiyle değiştirilmesini belirtebilir ve ardından bu kuralları sunumun yazı tipi yöneticisi üzerinden uygulayabilirsiniz.
+Belirli bir yazı tipi mevcut olmadığında kullanılacak yazı tipini tanımlayabilir ve Aspose.Slides'in işleme sırasında yapacağı ikameleri inceleyebilirsiniz. Bu, farklı yüklü yazı tiplerine sahip ortamlarda çıktının tutarlı kalmasına yardımcı olur.
 
-## **Yazı Tipi İkame Kurallarını Ayarlama**
+## **Yazı Tipi İkamelerini Alın**
 
-Aspose.Slides, belirli koşullarda (örneğin bir yazı tipine erişilemediğinde) ne yapılacağını belirleyen kuralları aşağıdaki şekilde ayarlamanıza olanak tanır:
+Sunum işlendiğinde hangi yazı tiplerinin ikame edileceğini belirlemek için [FontsManager::getSubstitutions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getsubstitutions/) yöntemini kullanın. Yöntem, orijinal ve ikame edilen yazı tipi adlarını tanımlayan [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsubstitutioninfo/) nesnelerini döndürür.
 
-1. İlgili sunumu yükleyin.
-2. Değiştirilecek yazı tipini yükleyin.
-3. Yeni yazı tipini yükleyin.
-4. Değiştirme için bir kural ekleyin.
-5. Kuralı sunumun yazı tipi değiştirme kural koleksiyonuna ekleyin.
-6. Etkiyi gözlemlemek için slayt görselini oluşturun.
-
-Bu PHP kodu yazı tipi ikame sürecini göstermektedir:
+Aşağıdaki PHP örneği, bir sunum için tüm yazı tipi ikamelerini listeler:
 
 ```php
-  # Bir sunumu yükler
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # Değiştirilecek kaynak yazı tipini yükler
-    $sourceFont = new FontData("SomeRareFont");
-    # Yeni yazı tipini yükler
-    $destFont = new FontData("Arial");
-    # Yazı tipi değiştirme için bir kural ekler
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # Kuralı yazı tipi ikame kuralları koleksiyonuna ekler
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # Kural listesine bir yazı tipi kural koleksiyonu ekler
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # Arial yazı tipi, SomeRareFont erişilemez olduğunda onun yerine kullanılacaktır
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # Görseli JPEG formatında diske kaydeder
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $enumerator->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Seçili Slaytlar İçin Yazı Tipi İkamelerini Alın**
 
-[**Yazı Tipi Değiştirme**](/slides/tr/php-java/font-replacement/) görmek isteyebilirsiniz.
+Yalnızca belirli slaytların işlenmesi için gerekli ikameleri incelemek üzere, `int[] slides` bağımsız değişkeniyle [FontsManager::getSubstitutions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getsubstitutions/) aşırı yüklemesini kullanın. Bu, bir sunumun bir kısmını işlediğinizde, büyük bir sunumu art art kontrol ettiğinizde, erişilemeyen yazı tiplerine bağımlı slaytları bulmak istediğinizde, bir sunucu veya konteyner için minimum bir yazı tipi paketi hazırlarken veya ilişkili olmayan slaytları işlemeye gerek kalmadan işleme farklılıklarını teşhis ederken yararlıdır.
 
+`slides` dizisi bir‑tabanlı slayt indeksleri içerir: `1` ilk slaytı gösterir. Buna karşıt olarak, [Presentation::getSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getSlides) koleksiyon erişicisi sıfır‑tabanlı indeksleme kullanır; bu yüzden aynı slayt `$presentation->getSlides()->get_Item(0)` ile erişilir. Dizi oluştururken bu farkı aklınızda tutun, aksi takdirde bir‑bir eksik hata alabilirsiniz.
+
+Aşırı yüklemeyi [Presentation::getFontsManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/#getFontsManager) yöntemiyle çağırın. Yalnızca seçili slaytlar işlenirken belirlenen ikameleri döndürür. Her sonuç, orijinal ve ikame edilen yazı tipi adlarını içeren bir [FontSubstitutionInfo](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsubstitutioninfo/) nesnesidir. Sonuç, mevcut yazı tipi ortamını, yapılandırılmış yedekleme kurallarını, bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsubstrulecollection/) içinde depolanan ikame kurallarını ve [harici yüklenmiş yazı tiplerini](/slides/tr/php-java/custom-font/) yansıtır.
+
+Aynı ikame, birden fazla seçili slayt tarafından talep edilebilir. Bir yazı tipi envanteri veya ön kontrol raporu oluştururken sonuçları tekilleştirin. Aşağıdaki örnek, döndürülen her ikameyi raporlar ve ardından benzersiz yazı tipi eşlemelerinin sıralı bir listesini oluşturur:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+[FontsManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/) sınıfı her iki aşırı yüklemeyi de sağlar. İşleme işleminin kapsamına göre birini seçin:
+
+| Aşırı Yükleme | Ne Zaman Kullanılır |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getsubstitutions/) argüman olmadan | Tüm sunum için ikameler gerekirken. |
+| [getSubstitutions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getsubstitutions/) `int[] slides` ile | Seçili bir aralık, art art kontrol veya kısmi dışa aktarım için ikameler gerekirken. |
+
+## **Yazı Tipi İkame Kurallarını Ayarlayın**
+
+Kaynak bir yazı tipi kullanılamadığında Aspose.Slides'in hangi yazı tipini kullanacağını belirtmek için:
+
+1. Sunumu yükleyin.
+2. Kaynak ve ikame yazı tipleri için yazı tipi tanımları oluşturun.
+3. [WhenInaccessible](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsubstcondition/) koşuluyla bir [FontSubstRule](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsubstrule/) oluşturun.
+4. Kuralı bir [FontSubstRuleCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsubstrulecollection/) içine ekleyin.
+5. Koleksiyonu [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/) yöntemiyle atayın.
+6. Sunumu işleyin veya dönüştürün.
+
+Aşağıdaki PHP örneği, `SomeRareFont` kullanılamadığında `Arial` ile ikame eder ve ardından ilk slaytı işleyerek sonucu doğrular. İkame edilen yazı tipinin Aspose.Slides tarafından erişilebilir olması gerekir.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $sourceFont = new FontData("SomeRareFont");
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
+    try {
+        $image->save("slide.jpg", ImageFormat::Jpeg);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Sunum boyunca kullanılan yazı tiplerinde koşulsuz bir değişiklik için, [Yazı Tipi Değiştirme](/slides/tr/php-java/font-replacement/) bölümüne bakın.
 {{% /alert %}}
 
-## **Matematik Denklemi Yazı Tipleri için Sınırlamalar**
+## **Matematik Denklemi Yazı Tipleri İçin Sınırlamalar**
 
-Yazı tipi ikame kuralları, render ve dönüşüm sırasında kullanılan standart yazı tipi seçme sürecine katılır. Aspose.Slides'in yapılandırılmış kurala göre erişilemeyen bir yazı tipini başka bir mevcut yazı tipiyle değiştirebildiği normal metin senaryoları için uygundur.
+Yazı tipi ikame kuralları, işleme ve dönüştürme sırasında kullanılan standart yazı tipi seçme sürecinin bir parçasıdır. Aspose.Slides bir erişilemeyen yazı tipini kuralda belirtilen kullanılabilir bir yazı tipiyle değiştirebildiğinde normal metin için çalışır.
 
-Ancak Office matematik denklemlerinde önemli bir sınırlama vardır. Bir denklem **Cambria Math** ile oluşturulduysa, Aspose.Slides denklemin yerleşimini doğru şekilde hesaplamak ve renderlamak için hâlâ orijinal **Cambria Math** yazı tipine ihtiyaç duyabilir. Bu nedenle **Cambria Math**'ı **STIX Two Math** gibi başka bir matematik yazı tipiyle ikame etmek, denklem renderlaması için desteklenmez ve hâlâ **Cambria Math**'ın gerekli olduğunu belirten bir istisna ortaya çıkabilir.
+Office Math denklemlerinin ek bir gereksinimi vardır. Bir denklem **Cambria Math** kullanıyorsa, Aspose.Slides denklemin yerleşimini hesaplamak ve işlemek için tam olarak bu yazı tipine ihtiyaç duyabilir. **STIX Two Math** gibi başka bir matematik yazı tipine ikame eden bir kural, bu amaçla **Cambria Math** yerine geçemez; işleme hâlâ **Cambria Math** gerektiğini raporlayabilir.
 
-Bu tür sunumları başarılı bir şekilde dönüştürmek için, çalışma zamanında **Cambria Math**'ın Aspose.Slides tarafından erişilebilir olduğundan emin olun. Yazı tipini işletim sistemine kurabilir veya bir [external font](/slides/tr/php-java/custom-font/) olarak sağlayarak render ve dönüşüm sırasında normal yazı tipi seçme sürecine katılmasını sağlayabilirsiniz.
+Böyle bir sunumu işlemek veya dönüştürmek için **Cambria Math**'i Aspose.Slides'e erişilebilir kılın. İşletim sistemine kurun veya bir [harici yazı tipi](/slides/tr/php-java/custom-font/) olarak yükleyin.
 
-Bu sınırlama yalnızca denklem renderlamasına özgüdür. Yukarıda açıklanan standart yazı tipi ikame kuralları, orijinal yazı tipi erişilemediğinde normal sunum metni için hâlâ geçerlidir.
+Bu sınırlama sadece denklem yerleşimini etkiler. Yukarıda açıklanan ikame kuralları normal sunum metni için hâlâ geçerlidir.
 
 ## **SSS**
 
-**Yazı tipi değiştirme ile ikame arasındaki fark nedir?**
+**Yazı tipi değiştirme ile yazı tipi ikamesi arasındaki fark nedir?**
 
-[Değiştirme](/slides/tr/php-java/font-replacement/) tüm sunum boyunca bir yazı tipinin başka bir yazı tipine zorla geçersiz kılınmasıdır. İkame, belirli bir koşulda (örneğin orijinal yazı tipi mevcut değilse) tetiklenen ve ardından atanmış bir yedek yazı tipinin kullanıldığı bir kuraldır.
+[Font replacement](/slides/tr/php-java/font-replacement/) sunum genelinde bir yazı tipini bilinçli olarak başka birine değiştirir. Yazı tipi ikamesi, yapılandırılmış koşul karşılandığında (örneğin orijinal yazı tipi kullanılamadığında) işlenen çıktıya bir yazı tipi seçer.
 
-**İkame kuralları tam olarak ne zaman uygulanır?**
+**İkame kuralları ne zaman uygulanır?**
 
-Kurallar, yükleme, render ve dönüşüm sırasında değerlendirilen standart [font selection](/slides/tr/php-java/font-selection-sequence/) dizisine katılır; seçilen yazı tipi mevcut değilse, değiştirme veya ikame uygulanır.
+Kurallar, işleme ve dönüştürme sırasında [font selection sequence](/slides/tr/php-java/font-selection-sequence/) içinde yer alır. `WhenInaccessible` ile bir kural yalnızca Aspose.Slides kaynak yazı tipine erişemediğinde kullanılır.
 
-**Ne yazık ki hiçbir değiştirme veya ikame yapılandırılmamış ve sistemde yazı tipi eksikse varsayılan davranış nedir?**
+**Bir yazı tipi eksik ve ikame kuralı yapılandırılmamışsa ne olur?**
 
-Kütüphane, PowerPoint'in davranışına benzer şekilde, en yakın mevcut sistem yazı tipini seçmeye çalışır.
+Aspose.Slides, yazı tipi seçim sürecine göre en yakın kullanılabilir yazı tipini seçer. Sonuç, çalışma zaman ortamındaki mevcut yazı tiplerine bağlıdır.
 
-**İkameyi önlemek için çalışma zamanında özel dış yazı tipleri ekleyebilir miyim?**
+**Harici yazı tipleri yükleyerek ikameleri önleyebilir miyim?**
 
-Evet. Kütüphane, seçim ve renderlama sırasında (sonraki dönüşümler dahil) dikkate alması için çalışma zamanında [add external fonts](/slides/tr/php-java/custom-font/) ekleyebilir ve böylece ikame ihtiyacını azaltabilirsiniz.
+Evet. Aspose.Slides'in işleme ve dönüştürme sırasında kullanabilmesi için [harici yazı tipleri yükleyebilirsiniz](/slides/tr/php-java/custom-font/).
 
-**Aspose kütüphanesiyle birlikte herhangi bir yazı tipi dağıtıyor mu?**
+**Aspose, kütüphane ile birlikte yazı tipleri dağıtıyor mu?**
 
-Hayır. Aspose, ücretli veya ücretsiz yazı tipleri dağıtmaz; yazı tiplerini kendi takdiriniz ve sorumluluğunuzla ekler ve kullanırsınız.
+Hayır. Yazı tiplerini sağlamak ve lisanslarına uymak sizin sorumluluğunuzdadır.
 
-**Windows, Linux ve macOS üzerinde ikame davranışında farklılıklar var mı?**
+**İkame sonuçları Windows, Linux ve macOS arasında farklılık gösterebilir mi?**
 
-Evet. Yazı tipi keşfi, işletim sisteminin yazı tipi dizinlerinden başlar. Varsayılan mevcut yazı tipleri ve arama yolları platformlar arasında farklılık gösterir; bu da kullanılabilirliği ve ikame ihtiyacını etkiler.
+Evet. Yüklü yazı tipleri ve yazı tipi arama konumları işletim sistemine göre değişir; bir makinede mevcut olan bir yazı tipi diğerinde ikame gerektirebilir.
 
-**Toplu dönüşümler sırasında beklenmeyen ikameleri en aza indirmek için ortamı nasıl hazırlamalıyım?**
+**Toplu dönüştürmelerde yazı tipi seçimini tutarlı nasıl yapabilirim?**
 
-Makineler veya konteynerler arasında yazı tipi kümesini senkronize edin, çıktı belgeleri için gerekli [add the external fonts](/slides/tr/php-java/custom-font/) ekleyin ve mümkün olduğunda sunumlara [embed fonts](/slides/tr/php-java/embedded-font/) gömün böylece seçilen yazı tipleri render sırasında mevcut olur.
+Her makine veya konteynerde aynı yazı tipi dosyalarını ve sürümlerini kullanın, [gerekli harici yazı tiplerini yükleyin](/slides/tr/php-java/custom-font/) ve lisans izin veriyorsa [yazı tiplerini gömün](/slides/tr/php-java/embedded-font/). Ayrıca dışa aktarmadan önce beklenmedik ikameleri tespit etmek için [FontsManager::getSubstitutions](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontsmanager/getsubstitutions/) metodunu çağırabilirsiniz.

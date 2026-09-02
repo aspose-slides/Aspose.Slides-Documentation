@@ -1,117 +1,189 @@
 ---
-title: پیکربندی جایگزینی فونت در ارائه‌ها با استفاده از Java
-linktitle: جایگزینی فونت
+title: پیکربندی جایگزینی قلم در ارائه‌ها با استفاده از Java
+linktitle: جایگزینی قلم
 type: docs
 weight: 70
 url: /fa/java/font-substitution/
 keywords:
-- فونت
-- جایگزینی فونت
-- جایگزینی فونت
-- جایگزین فونت
-- جایگزینی فونت
+- قلم
+- قلم جایگزین
+- جایگزینی قلم
+- تعویض قلم
+- جایگزینی قلم
 - قانون جایگزینی
-- قانون جایگزینی
+- قانون تعویض
 - PowerPoint
 - OpenDocument
 - ارائه
 - Java
 - Aspose.Slides
-description: "اجازه می‌دهد تا جایگزینی بهینه فونت در Aspose.Slides برای Java هنگام تبدیل ارائه‌های PowerPoint و OpenDocument به سایر فرمت‌های فایل فعال شود."
+description: "قوانین جایگزینی قلم را پیکربندی کنید و قلم‌های جایگزین شده را در Aspose.Slides برای Java هنگام رندر یا تبدیل ارائه‌های PowerPoint و OpenDocument بررسی کنید."
 ---
-## **نمای کلی**
+## **بررسی کلی**
 
-جایگزینی فونت به Aspose.Slides اجازه می‌دهد هنگام عدم وجود فونت اصلی ارائه در حین رندر یا تبدیل، از یک فونت دیگر استفاده کند. می‌توانید با استفاده از متد `getSubstitutions` از اینترفیس `IFontsManager`، ببینید چه فونت‌هایی جایگزین شده‌اند.
+جایگزینی قلم به Aspose.Slides امکان می‌دهد تا در صورت عدم دسترسی به یک قلم هنگام رندر یا تبدیل ارائه، از یک قلم موجود استفاده کند. این جایگزینی فقط بر خروجی رندر شده اثر می‌گذارد؛ قلم اختصاص داده شده به محتوای ارائه را تغییر نمی‌دهد.
 
-Aspose.Slides همچنین امکان تعریف قوانین جایگزینی فونت را می‌دهد. به عنوان مثال، می‌توانید مشخص کنید که یک فونت غیرقابل دسترسی باید با فونت موجود دیگری جایگزین شود و سپس این قوانین را از طریق مدیر فونت‌های ارائه اعمال کنید.
+می‌توانید قلم مورد استفاده را زمانی که یک قلم خاص در دسترس نیست تعریف کنید و جایگزینی‌هایی که Aspose.Slides در طول رندر انجام می‌دهد را بررسی کنید. این کار به حفظ سازگاری خروجی در محیط‌هایی با قلم‌های نصب‌شده متفاوت کمک می‌کند.
 
-## **تنظیم قوانین جایگزینی فونت**
+## **دریافت جایگزینی قلم‌ها**
 
-با Aspose.Slides می‌توانید قوانین برای فونت‌ها تنظیم کنید که در شرایط خاص (مثلاً وقتی یک فونت قابل دسترسی نیست) مشخص می‌کند چه کاری باید انجام شود، به این صورت:
+از متد [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) برای تعیین اینکه کدام قلم‌ها هنگام رندر ارائه جایگزین می‌شوند استفاده کنید. این متد اشیای [FontSubstitutionInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsubstitutioninfo/) را برمی‌گرداند که نام قلم اصلی و قلم جایگزین را شناسایی می‌کند.
 
-1. ارائهٔ مرتبط را بارگذاری کنید.
-2. فونتی که قرار است جایگزین شود را بارگذاری کنید.
-3. فونت جدید را بارگذاری کنید.
-4. قاعده‌ای برای جایگزینی اضافه کنید.
-5. قانون را به مجموعهٔ قوانین جایگزینی فونت ارائه اضافه کنید.
-6. تصویر اسلاید را ایجاد کنید تا اثر را مشاهده کنید.
-
-این کد Java فرآیند جایگزینی فونت را نشان می‌دهد:
+مثال جاوا زیر تمام جایگزینی‌های قلم برای یک ارائه را فهرست می‌کند:
 
 ```java
-// ارائه‌ای را بارگذاری می‌کند
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // فونت منبعی که قرار است جایگزین شود را بارگذاری می‌کند
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // فونت جدید را بارگذاری می‌کند
-    IFontData destFont = new FontData("Arial");
-    
-    // قانونی برای جایگزینی فونت اضافه می‌کند
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // قانون را به مجموعه قوانین جایگزینی فونت اضافه می‌کند
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // مجموعه قوانین فونت را به فهرست قوانین اضافه می‌کند
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // فونت Arial به جای SomeRareFont استفاده خواهد شد زمانی که فونت دوم در دسترس نباشد
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // تصویر را به‌صورت JPEG در دیسک ذخیره می‌کند
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-ممکن است بخواهید [**جایگزینی فونت**](/slides/fa/java/font-replacement/) را ببینید. 
+## **دریافت جایگزینی قلم‌ها برای اسلایدهای منتخب**
+
+از overload متد [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) با آرگومان `int[] slides` استفاده کنید تا فقط جایگزینی‌های مورد نیاز برای رندر اسلایدهای خاص را بررسی کنید. این کار زمانی مفید است که بخواهید بخشی از ارائه را رندر یا صادر کنید، یک ارائه بزرگ را به‌صورت تدریجی بررسی کنید، اسلایدهایی که به قلم‌های ناموجود وابسته‌اند پیدا کنید، یک بسته قلم حداقلی برای سرور یا کانتینر آماده کنید، یا تفاوت‌های رندر را بدون پردازش اسلایدهای نامرتبط تشخیص دهید.
+
+آرایه `slides` شامل اندیس‌های اسلاید به‌صورت یک‌پایه است: `1` اولین اسلاید را شناسایی می‌کند. در مقابل، accessor مجموعه [Presentation.getSlides](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getSlides--) از ایندکس صفرپایه استفاده می‌کند، بنابراین همان اسلاید با `presentation.getSlides().get_Item(0)` دسترسی‌پذیر است. هنگام ساخت آرایه این تفاوت را در نظر بگیرید تا از خطای یک‑جای‌گیری جلوگیری کنید.
+
+این overload را از طریق متد [Presentation.getFontsManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/presentation/#getFontsManager--) فراخوانی کنید. این متد فقط جایگزینی‌هایی را برمی‌گرداند که در حین رندر اسلایدهای منتخب تعیین شده‌اند. هر نتیجه یک شیء [FontSubstitutionInfo](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsubstitutioninfo/) است که نام قلم اصلی و قلم جایگزین را شامل می‌شود. نتیجه بازتاب‌دهندهٔ محیط قلم فعلی، قوانین fallback پیکربندی‌شده، قواعد جایگزینی ذخیره‌شده در یک [IFontSubstRuleCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsubstrulecollection/) و [قلم‌های بارگذاری‌شده به‌صورت خارجی](/slides/fa/java/custom-font/) است.
+
+یک جایگزینی می‌تواند توسط بیش از یک اسلاید منتخب مورد نیاز باشد. هنگام ایجاد فهرست موجودی قلم یا گزارش پیش‌پرواز، نتایج را حذف تکرار کنید. مثال زیر هر جایگزینی برگردانده‌شده را گزارش می‌کند و سپس یک فهرست مرتب‌شده از نگاشت‌های قلم منحصر به فرد ایجاد می‌کند:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+رابط [IFontsManager](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/) هر دو overload را فراهم می‌کند. یکی را برحسب دامنهٔ عملیات رندر انتخاب کنید:
+
+| Overload | Use it when |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) بدون آرگومان | نیاز به جایگزینی برای کل ارائه دارید. |
+| [getSubstitutions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) با `int[] slides` | نیاز به جایگزینی برای بازهٔ منتخب، بررسی تدریجی یا خروجی جزئی دارید. |
+
+## **تنظیم قوانین جایگزینی قلم**
+
+برای تعیین قلمی که Aspose.Slides باید وقتی قلم منبع در دسترس نیست استفاده کند:
+
+1. ارائه را بارگذاری کنید.
+2. تعریف‌های قلم برای قلم منبع و قلم جایگزین ایجاد کنید.
+3. یک [FontSubstRule](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsubstrule/) با شرط [WhenInaccessible](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsubstcondition/) بسازید.
+4. قانون را به یک [FontSubstRuleCollection](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsubstrulecollection/) اضافه کنید.
+5. مجموعه را با استفاده از متد [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/fa/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) تنظیم کنید.
+6. ارائه را رندر یا تبدیل کنید.
+
+مثال جاوا زیر `Arial` را به‌جای `SomeRareFont` زمانی که `SomeRareFont` در دسترس نیست، جایگزین می‌کند و سپس اولین اسلاید را رندر می‌زند تا نتیجه را تأیید کند. قلم جایگزین باید برای Aspose.Slides در دسترس باشد.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+برای تغییر بدون شرط قلم‌های استفاده‌شده در سراسر ارائه، به [جایگزینی قلم](/slides/fa/java/font-replacement/) مراجعه کنید.
 {{% /alert %}}
 
-## **محدودیت‌های فونت‌های معادلات ریاضی**
+## **محدودیت‌ها برای قلم‌های معادلات ریاضی**
 
-قوانین جایگزینی فونت در فرایند استاندارد انتخاب فونت که در حین رندر و تبدیل استفاده می‌شود، شرکت می‌کنند. این قوانین برای سناریوهای متن عادی مناسب هستند، به‌طوری که Aspose.Slides می‌تواند یک فونت غیرقابل دسترسی را بر اساس قانون پیکربندی شده، با فونت موجود دیگری جایگزین کند.
+قوانین جایگزینی قلم بخشی از فرآیند استاندارد انتخاب قلم هستند که در حین رندر و تبدیل استفاده می‌شوند. این قوانین برای متن عادی کاربرد دارند، زمانی که Aspose.Slides می‌تواند قلم ناموجود را با قلم موجود تعریف‌شده توسط قانون جایگزین کند.
 
-اما معادلات ریاضی Office محدودیت مهمی دارند. اگر معادله‌ای با **Cambria Math** ایجاد شده باشد، Aspose.Slides ممکن است همچنان برای محاسبه و رندر صحیح طرح‌بندی معادله به فونت اصلی **Cambria Math** نیاز داشته باشد. به همین دلیل، جایگزینی **Cambria Math** با فونت ریاضی دیگری مانند **STIX Two Math** برای رندر معادله پشتیبانی نمی‌شود و ممکن است همچنان استثنایی نشان دهد که **Cambria Math** مورد نیاز است.
+معادلات Office Math نیاز اضافی دارند. اگر یک معادله از **Cambria Math** استفاده کند، ممکن است Aspose.Slides برای محاسبه و رندر قالب‌بندی معادله به همان قلم دقیقاً نیاز داشته باشد. قانونی که قلم ریاضی دیگری مانند **STIX Two Math** را جایگزین می‌کند، نمی‌تواند **Cambria Math** را در این منظور جایگزین کند و رندر ممکن است همچنان گزارش دهد که **Cambria Math** لازم است.
 
-برای تبدیل موفق این گونه ارائه‌ها، اطمینان حاصل کنید که **Cambria Math** در زمان اجرا در دسترس Aspose.Slides باشد. می‌توانید این فونت را در سیستم‌عامل نصب کنید یا به‌عنوان یک [فونت خارجی](/slides/fa/java/custom-font/) فراهم کنید تا در فرایند معمول انتخاب فونت هنگام رندر و تبدیل شرکت کند.
+برای رندر یا تبدیل چنین پیشنهادی، **Cambria Math** را در دسترس Aspose.Slides قرار دهید. آن را در سیستم‌عامل نصب کنید یا به‌عنوان یک [قلم خارجی](/slides/fa/java/custom-font/) بارگذاری کنید.
 
-این محدودیت مخصوص رندر معادله است. قوانین استاندارد جایگزینی فونت که در بالا توضیح داده شد همچنان برای متن عادی ارائه زمانی که فونت اصلی قابل دسترسی نیست اعمال می‌شود.
+این محدودیت فقط برای قالب‌بندی معادله اعمال می‌شود. قوانین جایگزینی توضیح داده‌شده در بالا همچنان برای متن عادی ارائه معتبر است.
 
-## **پرسش‌های متداول**
+## **سوالات متداول**
 
-**تفاوت بین جایگزینی فونت و جایگزینی (substitution) فونت چیست؟**
+**تفاوت جایگزینی قلم و جایگزینی فونت چیست؟**
 
-[جایگزینی](/slides/fa/java/font-replacement/) یک بازنویسی اجباری یک فونت با فونت دیگر در سراسر ارائه است. جایگزینی (substitution) قانونی است که تحت شرط خاصی فعال می‌شود، برای مثال زمانی که فونت اصلی در دسترس نیست، و سپس یک فونت پیش‌فرض تعیین‌شده استفاده می‌شود.
+[جایگزینی قلم](/slides/fa/java/font-replacement/) به‌صورت عمدی یک قلم را با قلم دیگر در سراسر ارائه تغییر می‌دهد. جایگزینی قلم یک قلم را برای خروجی رندر شده وقتی شرط پیکربندی‌شده برآورده شود، مانند عدم دسترسی به قلم اصلی، انتخاب می‌کند.
 
-**قوانین جایگزینی دقیقاً چه زمانی اعمال می‌شوند؟**
+**قوانین جایگزینی چه زمانی اعمال می‌شوند؟**
 
-قوانین در توالی استاندارد [انتخاب فونت](/slides/fa/java/font-selection-sequence/) شرکت می‌کنند که در زمان بارگذاری، رندر و تبدیل ارزیابی می‌شود؛ اگر فونت انتخاب‌شده در دسترس نباشد، جایگزینی یا جایگزینی (substitution) اعمال می‌شود.
+قوانین در [دنبالهٔ انتخاب قلم](/slides/fa/java/font-selection-sequence/) در طول رندر و تبدیل شرکت می‌کنند. با `WhenInaccessible`، قانون تنها زمانی استفاده می‌شود که Aspose.Slides نتواند به قلم منبع دسترسی پیدا کند.
 
-**اگر نه جایگزینی و نه جایگزینی (substitution) تنظیم نشده باشد و فونت در سیستم موجود نباشد، رفتار پیش‌فرض چیست؟**
+**اگر قلمی موجود نباشد و هیچ قانون جایگزینی پیکربندی نشده باشد چه می‌شود؟**
 
-کتابخانه سعی می‌کند نزدیک‌ترین فونت موجود در سیستم را انتخاب کند، مشابه رفتاری که PowerPoint اتخاذ می‌کند.
+Aspose.Slides نزدیک‌ترین قلم موجود را بر اساس فرآیند انتخاب قلم خود انتخاب می‌کند. نتیجه به قلم‌های موجود در محیط زمان اجرا بستگی دارد.
 
-**آیا می‌توانم در زمان اجرا فونت‌های خارجی سفارشی را اضافه کنم تا از جایگزینی جلوگیری شود؟**
+**آیا می‌توانم قلم‌های خارجی را بارگذاری کنم تا از جایگزینی جلوگیری کنم؟**
 
-بله. می‌توانید در زمان اجرا [فونت‌های خارجی](/slides/fa/java/custom-font/) اضافه کنید تا کتابخانه آن‌ها را برای انتخاب و رندر در نظر بگیرد، از جمله برای تبدیل‌های بعدی.
+بله. می‌توانید [قلم‌های خارجی را بارگذاری](/slides/fa/java/custom-font/) کنید تا Aspose.Slides در طول رندر و تبدیل از آن‌ها استفاده کند.
 
-**آیا Aspose فونتی همراه کتابخانه توزیع می‌کند؟**
+**آیا Aspose قلم‌ها را همراه کتابخانه توزیع می‌کند؟**
 
-خیر. Aspose هیچ فونت پرداختی یا رایگانی را توزیع نمی‌کند؛ شما فونت‌ها را بر اساس اختیار و مسئولیت خود اضافه و استفاده می‌کنید.
+خیر. شما مسئول فراهم‌آوری قلم‌ها و رعایت مجوزهای آن‌ها هستید.
 
-**آیا رفتار جایگزینی بین ویندوز، لینوکس و macOS متفاوت است؟**
+**آیا نتایج جایگزینی بین Windows، Linux و macOS می‌توانند متفاوت باشند؟**
 
-بله. کشف فونت‌ها از پوشه‌های فونت سیستم‌عامل شروع می‌شود. مجموعه فونت‌های پیش‌فرض موجود و مسیرهای جستجو در پلتفرم‌های مختلف متفاوت است که بر دسترسی و نیاز به جایگزینی تأثیر می‌گذارد.
+بله. قلم‌های نصب‌شده و مکان‌های جستجوی قلم‌ها بسته به سیستم‌عامل متفاوت است، بنابراین قلمی که در یک ماشین موجود است ممکن است در ماشین دیگر نیاز به جایگزینی داشته باشد.
 
-**چگونه باید محیط را آماده کنم تا جایگزینی ناخواسته در تبدیل‌های دسته‌ای به حداقل برسد؟**
+**چگونه می‌توانم انتخاب قلم را در تبدیل‌های دسته‌ای یکدست نگه دارم؟**
 
-مجموعه فونت‌ها را بین ماشین‌ها یا کانتینرها همگام کنید، [فونت‌های خارجی](/slides/fa/java/custom-font/) مورد نیاز برای اسناد خروجی را اضافه کنید، و در صورت امکان [فونت‌ها را درون‌سازید](/slides/fa/java/embedded-font/) در ارائه‌ها تا فونت‌های انتخاب‌شده در زمان رندر در دسترس باشند.
+از همان فایل‌ها و نسخه‌های قلم بر روی هر ماشین یا کانتینر استفاده کنید، [قلم‌های خارجی مورد نیاز را بارگذاری](/slides/fa/java/custom-font/) کنید و هنگام امکان [قلم‌ها را درون‌ساز](/slides/fa/java/embedded-font/) کنید. همچنین می‌توانید قبل از صادرات با [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/fa/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) فراخوانی کنید تا جایگزینی‌های غیرمنتظره را شناسایی کنید.

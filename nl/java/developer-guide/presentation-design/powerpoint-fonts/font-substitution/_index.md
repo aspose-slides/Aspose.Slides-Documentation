@@ -6,8 +6,8 @@ weight: 70
 url: /nl/java/font-substitution/
 keywords:
 - lettertype
-- lettertype vervangen
-- lettertypesubstitutie
+- vervangend lettertype
+- lettertypevervanging
 - lettertype vervangen
 - lettertypevervanging
 - substitutieregel
@@ -17,103 +17,173 @@ keywords:
 - presentatie
 - Java
 - Aspose.Slides
-description: "Schakel optimale lettertypesubstitutie in Aspose.Slides voor Java in bij het converteren van PowerPoint‑ en OpenDocument‑presentaties naar andere bestandsformaten."
+description: "Configureer lettertype‑substitutieregels en inspecteer vervangen lettertypen in Aspose.Slides voor Java bij het renderen of converteren van PowerPoint‑ en OpenDocument‑presentaties."
 ---
 ## **Overzicht**
 
-Lettertypevervanging maakt het mogelijk dat Aspose.Slides een ander lettertype gebruikt wanneer het oorspronkelijke lettertype van de presentatie niet beschikbaar is tijdens het renderen of converteren. U kunt controleren welke lettertypen zijn vervangen door de `getSubstitutions`‑methode van de `IFontsManager`‑interface te gebruiken.
+Lettertypevervanging stelt Aspose.Slides in staat een beschikbaar lettertype te gebruiken in plaats van een lettertype dat niet toegankelijk is wanneer een presentatie wordt gerenderd of geconverteerd. De vervanging heeft invloed op de gerenderde output; het verandert het aan de presentatietekst toegewezen lettertype niet.
 
-Aspose.Slides maakt het ook mogelijk om regels voor lettertypevervanging te definiëren. U kunt bijvoorbeeld opgeven dat een ontoegankelijk lettertype moet worden vervangen door een ander beschikbaar lettertype en die regels vervolgens toepassen via de lettertypebeheerder van de presentatie.
+U kunt het te gebruiken lettertype definiëren wanneer een bepaald lettertype niet beschikbaar is, en u kunt de substituties inspecteren die Aspose.Slides tijdens het renderen zal uitvoeren. Dit helpt om de output consistent te houden tussen omgevingen met verschillende geïnstalleerde lettertypen.
 
-## **Lettertypevervangingsregels instellen**
+## **Lettertypevervangingen ophalen**
 
-Aspose.Slides laat u regels instellen voor lettertypen die bepalen wat er moet gebeuren onder bepaalde omstandigheden (bijvoorbeeld wanneer een lettertype niet benaderbaar is) als volgt:
+Gebruik de [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) methode om te bepalen welke lettertypen worden vervangen wanneer de presentatie wordt gerenderd. De methode retourneert [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsubstitutioninfo/) objecten die de oorspronkelijke en vervangende lettertypenamen identificeren.
 
-1. Laad de betreffende presentatie.  
-2. Laad het lettertype dat vervangen moet worden.  
-3. Laad het nieuwe lettertype.  
-4. Voeg een regel toe voor de vervanging.  
-5. Voeg de regel toe aan de collectie van lettertypevervangingsregels van de presentatie.  
-6. Genereer de dia‑afbeelding om het effect te observeren.
-
-Deze Java‑code toont het proces van lettertypevervanging:
+Het volgende Java‑voorbeeld geeft alle lettertypevervangingen voor een presentatie weer:
 
 ```java
-// Laadt een presentatie
-Presentation pres = new Presentation("Fonts.pptx");
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Presentation.pptx");
 try {
-    // Laadt het bronlettertype dat zal worden vervangen
-    IFontData sourceFont = new FontData("SomeRareFont");
-    
-    // Laadt het nieuwe lettertype
-    IFontData destFont = new FontData("Arial");
-    
-    // Voegt een lettertype‑regel toe voor lettertypevervanging
-    IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-    
-    // Voegt de regel toe aan de collectie van lettertypevervangingsregels
-    IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    
-    // Voegt een collectie van lettertype‑regels toe aan de regel‑lijst
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    
-    // Lettertype Arial wordt gebruikt in plaats van SomeRareFont wanneer dat laatste ontoegankelijk is
-    IImage slideImage = pres.getSlides().get_Item(0).getImage(1f, 1f);
-    
-    // Slaat de afbeelding op schijf in JPEG‑formaat
-    try {
-          slideImage.save("Thumbnail_out.jpg", ImageFormat.Jpeg);
-    } finally {
-         if (slideImage != null) slideImage.dispose();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions()) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) pres.dispose();
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Lettertypevervangingen voor geselecteerde dia's ophalen**
 
-U wilt misschien [**Lettertypevervanging**](/slides/nl/java/font-replacement/) bekijken. 
+Gebruik de overload van [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) met een `int[] slides` argument om alleen de substituties te inspecteren die nodig zijn om specifieke dia's te renderen. Dit is handig wanneer u een deel van een presentatie rendert of exporteert, een grote presentatie incrementeel controleert, dia's zoekt die afhankelijk zijn van niet‑beschikbare lettertypen, een minimaal lettertype‑pakket voor een server of container voorbereidt, of renderingsverschillen diagnosticeert zonder ongerelateerde dia's te verwerken.
 
+De `slides`‑array bevat één‑gebaseerde diacijfers: `1` identificeert de eerste dia. In tegenstelling tot de [Presentation.getSlides](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getSlides--) collectie‑accessor die nul‑gebaseerde indexering gebruikt, wordt dezelfde dia benaderd als `presentation.getSlides().get_Item(0)`. Houd dit verschil in gedachten bij het samenstellen van de array om off‑by‑one‑fouten te voorkomen.
+
+Roep de overload aan via de [Presentation.getFontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/presentation/#getFontsManager--) methode. Deze retourneert alleen de substituties die tijdens het renderen van de geselecteerde dia's zijn bepaald. Elk resultaat is een [FontSubstitutionInfo](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsubstitutioninfo/) object dat de oorspronkelijke en vervangende lettertypenamen bevat. Het resultaat weerspiegelt de huidige lettertype‑omgeving, geconfigureerde fallback‑regels, substitutieregels opgeslagen in een [IFontSubstRuleCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsubstrulecollection/), en [extern geladen lettertypen](/slides/nl/java/custom-font/).
+
+Dezelfde substitutie kan door meer dan één geselecteerde dia vereist zijn. Verwijder dubbele resultaten wanneer u een lettertype‑inventaris of preflight‑rapport maakt. Het volgende voorbeeld meldt elke geretourneerde substitutie en maakt vervolgens een gesorteerde lijst van unieke lettertype‑toewijzingen:
+
+```java
+import com.aspose.slides.FontSubstitutionInfo;
+import com.aspose.slides.Presentation;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+
+Presentation presentation = new Presentation("Presentation.pptx");
+try {
+    int[] selectedSlides = { 1, 3, 5 };
+    List<FontSubstitutionInfo> substitutions = new ArrayList<>();
+    for (FontSubstitutionInfo substitution : presentation.getFontsManager().getSubstitutions(selectedSlides)) {
+        substitutions.add(substitution);
+    }
+
+    System.out.println("Substitutions for the selected slides:");
+    for (FontSubstitutionInfo substitution : substitutions) {
+        System.out.println(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    }
+
+    Set<String> sortedPreflightEntries = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+    for (FontSubstitutionInfo substitution : substitutions) {
+        String entry = substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+        sortedPreflightEntries.add(entry);
+    }
+
+    System.out.println("Deduplicated font preflight report:");
+    for (String entry : sortedPreflightEntries) {
+        System.out.println(entry);
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+De [IFontsManager](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/) interface biedt beide overloads. Kies er één op basis van de reikwijdte van de renderingsbewerking:
+
+| Overload | Gebruik wanneer |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) zonder argumenten | U hebt substituties nodig voor de volledige presentatie. |
+| [getSubstitutions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getSubstitutions-int---) met `int[] slides` | U hebt substituties nodig voor een geselecteerd bereik, een incrementele controle of een gedeeltelijke export. |
+
+## **Lettertype‑substitutieregels instellen**
+
+Om het lettertype op te geven dat Aspose.Slides moet gebruiken wanneer een bron‑lettertype niet beschikbaar is:
+
+1. Laad de presentatie.
+2. Maak lettertype‑definities voor het bron‑ en vervangende lettertype.
+3. Creëer een [FontSubstRule](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsubstrule/) met de [WhenInaccessible](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsubstcondition/) conditie.
+4. Voeg de regel toe aan een [FontSubstRuleCollection](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsubstrulecollection/).
+5. Wijs de collectie toe via de [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/nl/java/com.aspose.slides/fontsmanager/#setFontSubstRuleList-com.aspose.slides.IFontSubstRuleCollection-) methode.
+6. Render of converteer de presentatie.
+
+Het volgende Java‑voorbeeld vervangt `Arial` door `SomeRareFont` wanneer `SomeRareFont` niet beschikbaar is, en rendert vervolgens de eerste dia om het resultaat te verifiëren. Het vervangende lettertype moet beschikbaar zijn voor Aspose.Slides.
+
+```java
+import com.aspose.slides.FontData;
+import com.aspose.slides.FontSubstCondition;
+import com.aspose.slides.FontSubstRule;
+import com.aspose.slides.FontSubstRuleCollection;
+import com.aspose.slides.IFontData;
+import com.aspose.slides.IFontSubstRule;
+import com.aspose.slides.IFontSubstRuleCollection;
+import com.aspose.slides.IImage;
+import com.aspose.slides.ImageFormat;
+import com.aspose.slides.Presentation;
+
+Presentation presentation = new Presentation("Fonts.pptx");
+try {
+    IFontData sourceFont = new FontData("SomeRareFont");
+    IFontData substituteFont = new FontData("Arial");
+    IFontSubstRule substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+    IFontSubstRuleCollection substitutionRules = new FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    IImage image = presentation.getSlides().get_Item(0).getImage(1f, 1f);
+    try {
+        image.save("slide.jpg", ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Voor een onvoorwaardelijke wijziging van de lettertypen die door de hele presentatie worden gebruikt, zie [Font Replacement](/slides/nl/java/font-replacement/).
 {{% /alert %}}
 
-## **Beperkingen voor wiskundige formulelettertypen**
+## **Beperkingen voor wiskundige vergelijking‑lettertypen**
 
-Regels voor lettertypevervanging nemen deel aan het standaard selectieproces van lettertypen dat tijdens het renderen en converteren wordt gebruikt. Ze zijn geschikt voor gewone tekstscenario’s waarin Aspose.Slides een ontoegankelijk lettertype kan vervangen door een ander beschikbaar lettertype volgens de geconfigureerde regel.
+Lettertype‑substitutieregels maken deel uit van het standaard lettertype‑selectieproces dat tijdens het renderen en converteren wordt gebruikt. Ze werken voor gewone tekst wanneer Aspose.Slides een ontoegankelijk lettertype kan vervangen door het beschikbare lettertype dat door een regel is gespecificeerd.
 
-Voor wiskundige formules in Office bestaat echter een belangrijke beperking. Als een formule is gemaakt met **Cambria Math**, kan Aspose.Slides nog steeds het oorspronkelijke **Cambria Math**‑lettertype nodig hebben om de lay‑out van de formule correct te berekenen en te renderen. Daarom wordt het vervangen van **Cambria Math** door een ander wiskundig lettertype, zoals **STIX Two Math**, niet ondersteund voor het renderen van formules en kan er nog steeds een uitzondering optreden die aangeeft dat **Cambria Math** vereist is.
+Office Math‑vergelijkingen hebben een extra vereiste. Als een vergelijking **Cambria Math** gebruikt, kan Aspose.Slides dat exacte lettertype nodig hebben om de lay-out van de vergelijking te berekenen en te renderen. Een regel die een ander wiskundig lettertype, zoals **STIX Two Math**, vervangt, kan **Cambria Math** hiervoor niet vervangen, en renderen kan nog steeds aangeven dat **Cambria Math** vereist is.
 
-Zorg ervoor dat **Cambria Math** beschikbaar is voor Aspose.Slides tijdens runtime om dergelijke presentaties succesvol te converteren. U kunt het lettertype installeren in het besturingssysteem of het aanbieden als een [extern lettertype](/slides/nl/java/custom-font/) zodat het kan deelnemen aan het normale selectieproces van lettertypen tijdens het renderen en converteren.
+Om zo’n presentatie te renderen of te converteren, zorg ervoor dat **Cambria Math** beschikbaar is voor Aspose.Slides. Installeer het in het besturingssysteem of laad het als een [external font](/slides/nl/java/custom-font/).
 
-Deze beperking is specifiek voor het renderen van formules. De hierboven beschreven standaardregels voor lettertypevervanging blijven van toepassing op gewone presentatietekst wanneer het originele lettertype ontoegankelijk is.
+Deze beperking is van toepassing op de lay‑out van vergelijkingen. De hierboven beschreven substitutieregels blijven wel van toepassing op gewone presentatietekst.
 
 ## **FAQ**
 
-**Wat is het verschil tussen lettertypevervanging en lettertypesubstitutie?**
+**Wat is het verschil tussen lettertypevervanging en lettertype‑substitutie?**
 
-[Lettertypevervanging](/slides/nl/java/font-replacement/) is een geforceerde overschrijving van het ene lettertype door een ander in de gehele presentatie. Substitutie is een regel die wordt geactiveerd onder een specifieke voorwaarde, bijvoorbeeld wanneer het originele lettertype niet beschikbaar is, waarna een aangewezen fallback‑lettertype wordt gebruikt.
+[Font replacement](/slides/nl/java/font-replacement/) verandert opzettelijk één lettertype in een ander gedurende de hele presentatie. Lettertype‑substitutie kiest een lettertype voor de gerenderde output wanneer aan de geconfigureerde voorwaarde is voldaan, bijvoorbeeld wanneer het oorspronkelijke lettertype niet beschikbaar is.
 
-**Wanneer worden substitutieregels precies toegepast?**
+**Wanneer worden substitutieregels toegepast?**
 
-De regels nemen deel aan de standaard [lettertype‑selectie](/slides/nl/java/font-selection-sequence/) die wordt geëvalueerd tijdens het laden, renderen en converteren; als het gekozen lettertype niet beschikbaar is, wordt vervanging of substitutie toegepast.
+De regels nemen deel aan de [font selection sequence](/slides/nl/java/font-selection-sequence/) tijdens het renderen en converteren. Met `WhenInaccessible` wordt een regel alleen gebruikt wanneer Aspose.Slides geen toegang heeft tot het bron‑lettertype.
 
-**Wat is het standaardgedrag als noch vervanging noch substitutie is geconfigureerd en het lettertype ontbreekt op het systeem?**
+**Wat gebeurt er als een lettertype ontbreekt en er geen substitutieregel is geconfigureerd?**
 
-De bibliotheek probeert het dichtstbijzijnde beschikbare systeemlettertype te kiezen, vergelijkbaar met het gedrag van PowerPoint.
+Aspose.Slides selecteert het dichtstbijzijnde beschikbare lettertype volgens zijn lettertype‑selectieproces. Het resultaat hangt af van de lettertypen die beschikbaar zijn in de runtime‑omgeving.
 
-**Kan ik aangepaste externe lettertypen toevoegen tijdens runtime om substitutie te vermijden?**
+**Kan ik externe lettertypen laden om substitutie te vermijden?**
 
-Ja. U kunt [externe lettertypen](/slides/nl/java/custom-font/) toevoegen tijdens runtime zodat de bibliotheek ze meeneemt bij selectie en rendering, ook voor daaropvolgende conversies.
+Ja. U kunt [load external fonts](/slides/nl/java/custom-font/) zodat Aspose.Slides ze kan gebruiken tijdens het renderen en converteren.
 
 **Distribueert Aspose lettertypen met de bibliotheek?**
 
-Nee. Aspose distribueert geen betaalde of gratis lettertypen; u voegt lettertypen toe en gebruikt ze op eigen risico en verantwoordelijkheid.
+Nee. U bent verantwoordelijk voor het leveren van lettertypen en het naleven van hun licenties.
 
-**Zijn er verschillen in substitutiedrag op Windows, Linux en macOS?**
+**Kunnen substitutieresultaten verschillen tussen Windows, Linux en macOS?**
 
-Ja. Het ontdekken van lettertypen start vanuit de lettertype‑mappen van het besturingssysteem. De set standaard beschikbare lettertypen en de zoekpaden verschillen per platform, wat invloed heeft op de beschikbaarheid en de noodzaak van substitutie.
+Ja. Geïnstalleerde lettertypen en zoeklocaties voor lettertypen verschillen per besturingssysteem, zodat een lettertype dat op één machine beschikbaar is, op een andere machine substitutie kan vereisen.
 
-**Hoe bereid ik de omgeving voor om onverwachte substitutie tijdens batch‑conversies te minimaliseren?**
+**Hoe kan ik de lettertype‑selectie consistent maken bij batch‑conversies?**
 
-Synchroniseer de lettertype‑set tussen machines of containers, [voeg de benodigde externe lettertypen](/slides/nl/java/custom-font/) toe voor de uitvoer‑documenten, en [embed lettertypen](/slides/nl/java/embedded-font/) in presentaties waar mogelijk zodat de gekozen lettertypen beschikbaar zijn tijdens het renderen.
+Gebruik dezelfde lettertypebestanden en versies op elke machine of container, [load required external fonts](/slides/nl/java/custom-font/), en [embed fonts](/slides/nl/java/embedded-font/) wanneer de licentie dit toestaat. U kunt ook [IFontsManager.getSubstitutions](https://reference.aspose.com/slides/nl/java/com.aspose.slides/ifontsmanager/#getSubstitutions--) aanroepen vóór export om onverwachte substituties te identificeren.

@@ -1,15 +1,15 @@
 ---
-title: Configurare la sostituzione dei font nelle presentazioni usando C++
-linktitle: Sostituzione dei font
+title: Configura la sostituzione dei caratteri nelle presentazioni in C++
+linktitle: Sostituzione dei caratteri
 type: docs
 weight: 70
 url: /it/cpp/font-substitution/
 keywords:
-- font
-- sostituzione del font
-- sostituzione dei font
-- sostituzione del font
-- sostituzione del font
+- carattere
+- sostituzione del carattere
+- sostituzione dei caratteri
+- sostituire carattere
+- sostituzione del carattere
 - regola di sostituzione
 - regola di sostituzione
 - PowerPoint
@@ -17,88 +17,177 @@ keywords:
 - presentazione
 - C++
 - Aspose.Slides
-description: "Abilita la sostituzione ottimale dei font in Aspose.Slides per C++ quando si convertono presentazioni PowerPoint e OpenDocument in altri formati di file."
+description: "Configura le regole di sostituzione dei caratteri e visualizza i caratteri sostituiti in Aspose.Slides per C++ durante il rendering o la conversione di presentazioni PowerPoint e OpenDocument."
 ---
 ## **Panoramica**
 
-La sostituzione dei font consente ad Aspose.Slides di utilizzare un altro font quando il font originale della presentazione non è disponibile durante il rendering o la conversione. È possibile verificare quali font sono stati sostituiti utilizzando il metodo `GetSubstitutions` dell'interfaccia `IFontsManager`.
+La sostituzione dei caratteri consente ad Aspose.Slides di utilizzare un carattere disponibile al posto di un carattere che non può essere accesso quando una presentazione viene renderizzata o convertita. La sostituzione influisce sull'output renderizzato; non modifica il carattere assegnato al contenuto della presentazione.
 
-Aspose.Slides consente anche di definire regole di sostituzione dei font. Ad esempio, è possibile specificare che un font non accessibile debba essere sostituito con un altro font disponibile e quindi applicare tali regole tramite il gestore dei font della presentazione.
+È possibile definire il carattere da usare quando un determinato carattere non è disponibile e si possono esaminare le sostituzioni che Aspose.Slides eseguirà durante il rendering. Questo aiuta a mantenere l'output coerente in ambienti con diversi caratteri installati.
 
-## **Imposta regole di sostituzione dei font**
+## **Ottenere le sostituzioni dei caratteri**
 
-Aspose.Slides consente di impostare regole per i font che determinano cosa fare in determinate condizioni (ad esempio, quando un font non può essere accessibile) in questo modo:
+Utilizzare il metodo [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getsubstitutions/) per determinare quali caratteri verranno sostituiti quando la presentazione viene renderizzata. Il metodo restituisce oggetti [FontSubstitutionInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsubstitutioninfo/) che identificano i nomi del carattere originale e di quello sostituito.
 
-1. Carica la presentazione pertinente.
-2. Carica il font che verrà sostituito.
-3. Carica il nuovo font.
-4. Aggiungi una regola per la sostituzione.
-5. Aggiungi la regola alla collezione delle regole di sostituzione dei font della presentazione.
-6. Genera l'immagine della diapositiva per osservare l'effetto.
+Il seguente esempio C++ elenca tutte le sostituzioni dei caratteri per una presentazione:
 
-Questo codice C++ dimostra il processo di sostituzione dei font:
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-```c++
-// Il percorso della cartella dei documenti.
-const String outPath = u"../out/RuleBasedFontsReplacement_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
+using namespace Aspose::Slides;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// Carica una presentazione
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
+{
+    Console::WriteLine(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+}
 
-// Definisce il font da sostituire e il nuovo font
-SharedPtr<IFontData> sourceFont = MakeObject<FontData>(u"SomeRareFont");
-SharedPtr<IFontData> destFont = MakeObject<FontData>(u"Arial");
-	
-// Aggiunge una regola di font per la sostituzione del font
-SharedPtr<FontSubstRule> fontSubstRule = MakeObject<FontSubstRule>(sourceFont, destFont, FontSubstCondition::WhenInaccessible);
-
-// Aggiunge la regola alla raccolta delle regole di sostituzione dei font
-SharedPtr<FontSubstRuleCollection> fontSubstRuleCollection = MakeObject<FontSubstRuleCollection>();
-fontSubstRuleCollection->Add(fontSubstRule);
-
-// Aggiunge la raccolta delle regole di font all'elenco delle regole
-pres->get_FontsManager()->set_FontSubstRuleList ( fontSubstRuleCollection);
-
-
-// Salva il PPTX su disco
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Potresti voler vedere [**Sostituzione dei font**](/slides/it/cpp/font-replacement/). 
+## **Ottenere le sostituzioni dei caratteri per diapositive selezionate**
+
+Utilizzare la sovraccarico del metodo [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getsubstitutions/) con l'argomento `System::ArrayPtr<int32_t> slides` per ispezionare solo le sostituzioni necessarie a renderizzare diapositive specifiche. È utile quando si renderizza o si esporta una parte di una presentazione, si verifica una presentazione di grandi dimensioni in modo incrementale, si individuano diapositive che dipendono da caratteri non disponibili, si prepara un pacchetto di caratteri minimo per un server o contenitore, o si diagnostica una differenza di rendering senza elaborare diapositive non correlate.
+
+L'array `slides` contiene indici diapositive basati su 1: `1` identifica la prima diapositiva. Al contrario, il metodo [Presentation::get_Slide](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_slide/) utilizza un indice basato su 0, quindi la stessa diapositiva è accessibile con `presentation->get_Slide(0)`. Tenere presente questa differenza quando si costruisce l'array per evitare errori di offset.
+
+Chiamare la sovraccarico tramite il metodo [Presentation::get_FontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/presentation/get_fontsmanager/). Restituisce solo le sostituzioni determinate durante il rendering delle diapositive selezionate. Ogni risultato è un oggetto [FontSubstitutionInfo](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsubstitutioninfo/) che contiene i nomi del carattere originale e di quello sostituito. Il risultato riflette l'ambiente dei caratteri corrente, le regole di fallback configurate, le regole di sostituzione memorizzate in una [IFontSubstRuleCollection](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsubstrulecollection/) e i [caratteri caricati esternamente](/slides/it/cpp/custom-font/).
+
+La stessa sostituzione può essere richiesta da più di una diapositiva selezionata. Rimuovere i duplicati quando si crea un inventario dei caratteri o un rapporto di preflight. Il seguente esempio riporta ogni sostituzione restituita e poi crea un elenco ordinato di mappature di caratteri uniche:
+
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+
+auto selectedSlides = MakeArray<int32_t>({1, 3, 5});
+auto substitutions = presentation->get_FontsManager()->GetSubstitutions(selectedSlides);
+auto sortedPreflightEntries = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+Console::WriteLine(u"Substitutions for the selected slides:");
+for (auto&& substitution : substitutions)
+{
+    auto entry = String::Format(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+    Console::WriteLine(entry);
+    sortedPreflightEntries->Add(entry);
+}
+
+Console::WriteLine(u"Deduplicated font preflight report:");
+for (auto&& entry : sortedPreflightEntries)
+{
+    Console::WriteLine(entry);
+}
+
+presentation->Dispose();
+```
+
+L'interfaccia [IFontsManager](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/) fornisce entrambe le sovraccarichi. Scegliere quella più adatta allo scopo dell'operazione di rendering:
+
+| Sovraccarico | Quando usarlo |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getsubstitutions/) senza argomenti | Sono necessarie le sostituzioni per l'intera presentazione. |
+| [GetSubstitutions](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getsubstitutions/) con `System::ArrayPtr<int32_t> slides` | Sono necessarie le sostituzioni per un intervallo selezionato, un controllo incrementale o un'esportazione parziale. |
+
+## **Impostare le regole di sostituzione dei caratteri**
+
+Per specificare il carattere che Aspose.Slides deve usare quando un carattere sorgente non è disponibile:
+
+1. Caricare la presentazione.  
+2. Creare le definizioni dei caratteri per il carattere sorgente e quello di sostituzione.  
+3. Creare una [FontSubstRule](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsubstrule/) con la condizione [WhenInaccessible](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsubstcondition/).  
+4. Aggiungere la regola a una [FontSubstRuleCollection](https://reference.aspose.com/slides/it/cpp/aspose.slides/fontsubstrulecollection/).  
+5. Assegnare la collezione usando il metodo [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/).  
+6. Renderizzare o convertire la presentazione.
+
+Il seguente esempio C++ sostituisce `Arial` con `SomeRareFont` quando `SomeRareFont` non è disponibile, quindi renderizza la prima diapositiva per verificare il risultato. Il carattere di sostituzione deve essere disponibile per Aspose.Slides.
+
+```cpp
+#include <DOM/FontSubstCondition.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Fonts/FontSubstRule.h>
+#include <DOM/Fonts/FontSubstRuleCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+
+auto sourceFont = MakeObject<FontData>(u"SomeRareFont");
+auto substituteFont = MakeObject<FontData>(u"Arial");
+auto substitutionRule = MakeObject<FontSubstRule>(sourceFont, substituteFont, FontSubstCondition::WhenInaccessible);
+
+auto substitutionRules = MakeObject<FontSubstRuleCollection>();
+substitutionRules->Add(substitutionRule);
+presentation->get_FontsManager()->set_FontSubstRuleList(substitutionRules);
+
+auto image = presentation->get_Slide(0)->GetImage(1.0f, 1.0f);
+image->Save(u"slide.jpg", ImageFormat::Jpeg);
+
+image->Dispose();
+presentation->Dispose();
+```
+
+{{% alert color="info" title="Note" %}}
+Per una modifica incondizionata dei caratteri usati in tutta la presentazione, vedere [Sostituzione dei caratteri](/slides/it/cpp/font-replacement/).
 {{% /alert %}}
 
-## **Limitazioni per i font delle equazioni matematiche**
+## **Limitazioni per i caratteri delle equazioni matematiche**
 
-Le regole di sostituzione dei font partecipano al normale processo di selezione dei font utilizzato durante il rendering e la conversione. Sono adatte per scenari di testo comune in cui Aspose.Slides può sostituire un font non accessibile con un altro font disponibile secondo la regola configurata.
+Le regole di sostituzione dei caratteri fanno parte del processo standard di selezione dei caratteri utilizzato durante il rendering e la conversione. Funzionano per il testo normale quando Aspose.Slides può sostituire un carattere non accessibile con quello disponibile specificato da una regola.
 
-Tuttavia, le equazioni matematiche di Office hanno una limitazione importante. Se un'equazione è stata creata con **Cambria Math**, Aspose.Slides potrebbe comunque richiedere il font originale **Cambria Math** per calcolare e renderizzare correttamente il layout dell'equazione. Per questo motivo, la sostituzione di **Cambria Math** con un altro font matematico, come **STIX Two Math**, non è supportata per il rendering delle equazioni e potrebbe comunque generare un'eccezione che indica che è necessario **Cambria Math**.
+Le equazioni Office Math hanno un requisito aggiuntivo. Se un'equazione usa **Cambria Math**, Aspose.Slides potrebbe aver bisogno di quel carattere esatto per calcolare e renderizzare il layout dell'equazione. Una regola che sostituisce un altro carattere matematico, come **STIX Two Math**, non può sostituire **Cambria Math** a questo scopo, e il rendering potrebbe comunque segnalare che **Cambria Math** è necessario.
 
-Per convertire correttamente queste presentazioni, assicurati che **Cambria Math** sia disponibile per Aspose.Slides a runtime. Puoi installare il font nel sistema operativo o fornirlo come [font esterno](/slides/it/cpp/custom-font/) in modo che possa partecipare al normale processo di selezione dei font durante il rendering e la conversione.
+Per renderizzare o convertire una presentazione di questo tipo, rendere **Cambria Math** disponibile ad Aspose.Slides. Installarlo nel sistema operativo o caricarlo come [carattere esterno](/slides/it/cpp/custom-font/).
 
-Questa limitazione è specifica per il rendering delle equazioni. Le regole standard di sostituzione dei font descritte sopra continuano a essere applicate al testo normale della presentazione quando il font originale non è accessibile.
+Questa limitazione si applica al layout delle equazioni. Le regole di sostituzione descritte sopra continuano a valere per il testo normale della presentazione.
 
 ## **FAQ**
 
-**Qual è la differenza tra sostituzione forzata del font e sostituzione del font?**  
-[Replacement](/slides/it/cpp/font-replacement/) è una sovrascrittura forzata di un font con un altro su tutta la presentazione. La sostituzione è una regola che si attiva in una condizione specifica, ad esempio quando il font originale non è disponibile, e quindi viene utilizzato un font di riserva designato.
+**Qual è la differenza tra sostituzione dei caratteri e sostituzione dei caratteri?**
 
-**Quando vengono esattamente applicate le regole di sostituzione?**  
-Le regole partecipano alla sequenza standard di [selezione del font](/slides/it/cpp/font-selection-sequence/) valutata durante il caricamento, il rendering e la conversione; se il font scelto non è disponibile, viene applicata la sostituzione o la sostituzione.
+[Font replacement](/slides/it/cpp/font-replacement/) cambia intenzionalmente un carattere con un altro in tutta la presentazione. La sostituzione dei caratteri seleziona un carattere per l'output renderizzato quando la condizione configurata è soddisfatta, ad esempio quando il carattere originale non è disponibile.
 
-**Qual è il comportamento predefinito se né la sostituzione né la sostituzione sono configurate e il font non è presente nel sistema?**  
-La libreria tenterà di scegliere il font di sistema più vicino disponibile, in modo simile a come si comporterebbe PowerPoint.
+**Quando vengono applicate le regole di sostituzione?**
 
-**Posso aggiungere font esterni personalizzati a runtime per evitare la sostituzione?**  
-Sì. È possibile [aggiungere font esterni](/slides/it/cpp/custom-font/) a runtime in modo che la libreria li consideri per la selezione e il rendering, anche per le conversioni successive.
+Le regole partecipano alla [sequenza di selezione dei caratteri](/slides/it/cpp/font-selection-sequence/) durante il rendering e la conversione. Con `WhenInaccessible`, una regola è usata solo quando Aspose.Slides non può accedere al carattere sorgente.
 
-**Aspose distribuisce dei font con la libreria?**  
-No. Aspose non distribuisce font a pagamento o gratuiti; aggiungi e utilizzi i font a tua discrezione e responsabilità.
+** Cosa succede quando un carattere è mancante e non è configurata alcuna regola di sostituzione?**
 
-**Ci sono differenze nel comportamento di sostituzione su Windows, Linux e macOS?**  
-Sì. La scoperta dei font parte dalle directory dei font del sistema operativo. Il set di font disponibili di default e i percorsi di ricerca differiscono tra le piattaforme, influenzando la disponibilità e la necessità di sostituzione.
+Aspose.Slides seleziona il carattere più vicino disponibile secondo il suo processo di selezione dei caratteri. Il risultato dipende dai caratteri disponibili nell'ambiente di runtime.
 
-**Come devo preparare l'ambiente per ridurre al minimo le sostituzioni inattese durante le conversioni batch?**  
-Sincronizza il set di font tra macchine o contenitori, [aggiungi i font esterni](/slides/it/cpp/custom-font/) necessari per i documenti di output e [incorpora i font](/slides/it/cpp/embedded-font/) nelle presentazioni quando possibile, così i font scelti saranno disponibili durante il rendering.
+**Posso caricare caratteri esterni per evitare la sostituzione?**
+
+Sì. È possibile [caricare caratteri esterni](/slides/it/cpp/custom-font/) affinché Aspose.Slides li utilizzi durante il rendering e la conversione.
+
+**Aspose distribuisce i caratteri con la libreria?**
+
+No. È responsabilità dell'utente fornire i caratteri e rispettare le loro licenze.
+
+**I risultati della sostituzione possono differire tra Windows, Linux e macOS?**
+
+Sì. I caratteri installati e le posizioni di ricerca dei caratteri differiscono per sistema operativo, quindi un carattere disponibile su una macchina può richiedere sostituzione su un'altra.
+
+**Come posso rendere la selezione dei caratteri coerente nelle conversioni batch?**
+
+Usare gli stessi file e versioni dei caratteri su ogni macchina o contenitore, [caricare i caratteri esterni necessari](/slides/it/cpp/custom-font/) e [incorporare i caratteri](/slides/it/cpp/embedded-font/) quando le licenze lo consentono. È inoltre possibile chiamare [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/it/cpp/aspose.slides/ifontsmanager/getsubstitutions/) prima dell'esportazione per identificare sostituzioni inattese.

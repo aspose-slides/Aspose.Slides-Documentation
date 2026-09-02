@@ -1,6 +1,6 @@
 ---
-title: Configurar Substituição de Fonte em Apresentações Usando PHP
-linktitle: Substituição de Fonte
+title: Configurar substituição de fontes em apresentações usando PHP
+linktitle: Substituição de fontes
 type: docs
 weight: 70
 url: /pt/php-java/font-substitution/
@@ -9,107 +9,182 @@ keywords:
 - fonte substituta
 - substituição de fonte
 - substituir fonte
-- substituição de fonte
+- troca de fonte
 - regra de substituição
-- regra de substituição
+- regra de troca
 - PowerPoint
 - OpenDocument
 - apresentação
 - PHP
 - Aspose.Slides
-description: "Habilite a substituição ideal de fontes no Aspose.Slides para PHP via Java ao converter apresentações PowerPoint e OpenDocument para outros formatos de arquivo."
+description: "Configure regras de substituição de fontes e inspecione as fontes substituídas no Aspose.Slides para PHP via Java ao renderizar ou converter apresentações PowerPoint e OpenDocument."
 ---
-## **Introdução**
+## **Visão geral**
 
-A substituição de fontes permite que o Aspose.Slides use outra fonte quando a fonte original da apresentação não está disponível durante a renderização ou conversão. Você pode verificar quais fontes foram substituídas usando o método `getSubstitutions` da classe `FontsManager`.
+A substituição de fontes permite que o Aspose.Slides use uma fonte disponível no lugar de uma fonte que não pode ser acessada quando uma apresentação é renderizada ou convertida. A substituição afeta a saída renderizada; não altera a fonte atribuída ao conteúdo da apresentação.
 
-O Aspose.Slides também permite que você defina regras de substituição de fontes. Por exemplo, você pode especificar que uma fonte inacessível deve ser substituída por outra fonte disponível e, em seguida, aplicar essas regras através do gerenciador de fontes da apresentação.
+Você pode definir a fonte a ser usada quando uma fonte específica não está disponível e pode inspecionar as substituições que o Aspose.Slides fará durante a renderização. Isso ajuda a manter a saída consistente entre ambientes com diferentes fontes instaladas.
 
-## **Definir Regras de Substituição de Fonte**
+## **Obter substituições de fontes**
 
-O Aspose.Slides permite definir regras para fontes que determinam o que deve ser feito em certas condições (por exemplo, quando uma fonte não pode ser acessada) da seguinte forma:
+Use o método [FontsManager::getSubstitutions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getsubstitutions/) para determinar quais fontes serão substituídas quando a apresentação for renderizada. O método devolve objetos [FontSubstitutionInfo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsubstitutioninfo/) que identificam os nomes das fontes original e substituta.
 
-1. Carregue a apresentação relevante.  
-2. Carregue a fonte que será substituída.  
-3. Carregue a nova fonte.  
-4. Adicione uma regra para a substituição.  
-5. Adicione a regra à coleção de regras de substituição de fonte da apresentação.  
-6. Gere a imagem do slide para observar o efeito.
-
-Este código PHP demonstra o processo de substituição de fonte:
+O exemplo PHP a seguir lista todas as substituições de fontes para uma apresentação:
 
 ```php
-  # Carrega uma apresentação
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # Carrega a fonte de origem que será substituída
-    $sourceFont = new FontData("SomeRareFont");
-    # Carrega a nova fonte
-    $destFont = new FontData("Arial");
-    # Adiciona uma regra de fonte para substituição de fonte
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # Adiciona a regra à coleção de regras de substituição de fonte
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # Adiciona uma coleção de regras de fonte à lista de regras
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # A fonte Arial será usada em vez da SomeRareFont quando esta for inacessível
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # Salva a imagem no disco no formato JPEG
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $enumerator->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Você pode querer ver [**Substituição de Fonte**](/slides/pt/php-java/font-replacement/).
+## **Obter substituições de fontes para slides selecionados**
+
+Use a sobrecarga [FontsManager::getSubstitutions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getsubstitutions/) com um argumento `int[] slides` para inspecionar apenas as substituições necessárias para renderizar slides específicos. Isso é útil quando você está renderizando ou exportando parte de uma apresentação, verificando uma apresentação grande de forma incremental, localizando slides que dependem de fontes indisponíveis, preparando um pacote mínimo de fontes para um servidor ou contêiner, ou diagnosticando diferenças de renderização sem processar slides não relacionados.
+
+A matriz `slides` contém índices de slide baseados em 1: `1` identifica o primeiro slide. Em contraste, o acessor de coleção [Presentation::getSlides](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/#getSlides) usa indexação baseada em zero, de modo que o mesmo slide é acessado como `$presentation->getSlides()->get_Item(0)`. Mantenha essa diferença em mente ao montar a matriz para evitar erros de deslocamento.
+
+Chame a sobrecarga através do método [Presentation::getFontsManager](https://reference.aspose.com/slides/pt/php-java/aspose.slides/presentation/#getFontsManager). Ele devolve apenas as substituições determinadas ao renderizar os slides selecionados. Cada resultado é um objeto [FontSubstitutionInfo](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsubstitutioninfo/) contendo os nomes das fontes original e substituta. O resultado reflete o ambiente de fontes atual, as regras de fallback configuradas, as regras de substituição armazenadas em uma [FontSubstRuleCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsubstrulecollection/), e [fontes carregadas externamente](/slides/pt/php-java/custom-font/).
+
+A mesma substituição pode ser exigida por mais de um slide selecionado. Desduplicar os resultados ao criar um inventário de fontes ou um relatório de pré‑verificação. O exemplo a seguir relata cada substituição retornada e, em seguida, cria uma lista ordenada de mapeamentos de fontes exclusivos:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+A classe [FontsManager](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/) fornece ambas as sobrecargas. Escolha uma de acordo com o escopo da operação de renderização:
+
+| Sobrecarga | Use quando |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getsubstitutions/) sem argumentos | Você precisa de substituições para toda a apresentação. |
+| [getSubstitutions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getsubstitutions/) com `int[] slides` | Você precisa de substituições para um intervalo selecionado, verificação incremental ou exportação parcial. |
+
+## **Definir regras de substituição de fontes**
+
+Para especificar a fonte que o Aspose.Slides deve usar quando uma fonte de origem não está disponível:
+
+1. Carregue a apresentação.  
+2. Crie definições de fonte para as fontes de origem e de substituição.  
+3. Crie um [FontSubstRule](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsubstrule/) com a condição [WhenInaccessible](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsubstcondition/).  
+4. Adicione a regra a uma [FontSubstRuleCollection](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsubstrulecollection/).  
+5. Atribua a coleção usando o método [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).  
+6. Renderize ou converta a apresentação.
+
+O exemplo PHP a seguir substitui `Arial` por `SomeRareFont` quando `SomeRareFont` não está disponível e, em seguida, renderiza o primeiro slide para verificar o resultado. A fonte substituta deve estar disponível para o Aspose.Slides.
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $sourceFont = new FontData("SomeRareFont");
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
+    try {
+        $image->save("slide.jpg", ImageFormat::Jpeg);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Para uma alteração incondicional das fontes usadas em toda a apresentação, veja [Substituição de fontes](/slides/pt/php-java/font-replacement/).
 {{% /alert %}}
 
-## **Limitações para Fontes de Equações Matemáticas**
+## **Limitações para fontes de equações matemáticas**
 
-As regras de substituição de fonte participam do processo padrão de seleção de fontes usado durante a renderização e conversão. Elas são adequadas para cenários de texto regular em que o Aspose.Slides pode substituir uma fonte inacessível por outra fonte disponível de acordo com a regra configurada.
+As regras de substituição de fontes fazem parte do processo padrão de seleção de fontes usado durante a renderização e conversão. Elas funcionam para texto normal quando o Aspose.Slides pode substituir uma fonte inacessível pela fonte disponível especificada por uma regra.
 
-Entretanto, as equações matemáticas do Office têm uma limitação importante. Se uma equação foi criada com **Cambria Math**, o Aspose.Slides ainda pode exigir a fonte original **Cambria Math** para calcular e renderizar o layout da equação corretamente. Por causa disso, substituir **Cambria Math** por outra fonte matemática, como **STIX Two Math**, não é suportado para a renderização de equações e pode ainda gerar uma exceção indicando que **Cambria Math** é necessária.
+Equações do Office Math têm um requisito adicional. Se uma equação usa **Cambria Math**, o Aspose.Slides pode precisar exatamente dessa fonte para calcular e renderizar o layout da equação. Uma regra que substitui outra fonte matemática, como **STIX Two Math**, não pode substituir **Cambria Math** para esse propósito, e a renderização ainda pode relatar que **Cambria Math** é necessária.
 
-Para converter essas apresentações com sucesso, certifique‑se de que **Cambria Math** esteja disponível para o Aspose.Slides em tempo de execução. Você pode instalar a fonte no sistema operacional ou fornecê‑la como uma [fonte externa](/slides/pt/php-java/custom-font/) para que ela participe do processo normal de seleção de fontes durante a renderização e conversão.
+Para renderizar ou converter tal apresentação, disponibilize **Cambria Math** ao Aspose.Slides. Instale-a no sistema operacional ou carregue-a como uma [fonte externa](/slides/pt/php-java/custom-font/).
 
-Essa limitação é específica para a renderização de equações. As regras padrão de substituição de fonte descritas acima continuam válidas para o texto regular da apresentação quando a fonte original está inacessível.
+Esta limitação se aplica ao layout da equação. As regras de substituição descritas acima ainda se aplicam ao texto normal da apresentação.
 
-## **Perguntas Frequentes**
+## **Perguntas frequentes**
 
-**Qual a diferença entre substituição de fonte e substituição de fonte?**
+**Qual é a diferença entre substituição de fontes e substituição de fontes?**  
+[Substituição de fontes](/slides/pt/php-java/font-replacement/) altera intencionalmente uma fonte por outra em toda a apresentação. A substituição de fontes seleciona uma fonte para a saída renderizada quando a condição configurada é atendida, como quando a fonte original não está disponível.
 
-[Substituição](/slides/pt/php-java/font-replacement/) é uma sobrescrita forçada de uma fonte por outra em toda a apresentação. Substituição de fonte é uma regra que é acionada sob uma condição específica, por exemplo quando a fonte original está indisponível, e então uma fonte de fallback designada é usada.
+**Quando as regras de substituição são aplicadas?**  
+As regras participam da [sequência de seleção de fontes](/slides/pt/php-java/font-selection-sequence/) durante a renderização e conversão. Com `WhenInaccessible`, uma regra é usada somente quando o Aspose.Slides não pode acessar a fonte de origem.
 
-**Quando exatamente as regras de substituição são aplicadas?**
+**O que acontece quando uma fonte está ausente e nenhuma regra de substituição está configurada?**  
+O Aspose.Slides seleciona a fonte disponível mais próxima de acordo com seu processo de seleção de fontes. O resultado depende das fontes disponíveis no ambiente de tempo de execução.
 
-As regras participam da sequência padrão de [seleção de fonte](/slides/pt/php-java/font-selection-sequence/) que é avaliada durante o carregamento, renderização e conversão; se a fonte escolhida estiver indisponível, a substituição ou substituição de fonte é aplicada.
+**Posso carregar fontes externas para evitar substituição?**  
+Sim. Você pode [carregar fontes externas](/slides/pt/php-java/custom-font/) para que o Aspose.Slides as use durante a renderização e conversão.
 
-**Qual é o comportamento padrão se nem substituição nem substituição de fonte estiverem configuradas e a fonte estiver ausente no sistema?**
+**A Aspose distribui fontes com a biblioteca?**  
+Não. Você é responsável por fornecer as fontes e cumprir suas licenças.
 
-A biblioteca tentará escolher a fonte de sistema disponível mais próxima, similar ao comportamento do PowerPoint.
+**Os resultados de substituição podem diferir entre Windows, Linux e macOS?**  
+Sim. As fontes instaladas e os locais de pesquisa de fontes diferem por sistema operacional, de modo que uma fonte disponível em uma máquina pode exigir substituição em outra.
 
-**Posso anexar fontes externas personalizadas em tempo de execução para evitar substituição?**
-
-Sim. Você pode [adicionar fontes externas](/slides/pt/php-java/custom-font/) em tempo de execução para que a biblioteca as considere na seleção e renderização, inclusive em conversões subsequentes.
-
-**A Aspose distribui alguma fonte com a biblioteca?**
-
-Não. A Aspose não distribui fontes pagas ou gratuitas; você adiciona e usa fontes por sua própria conta e risco.
-
-**Existem diferenças no comportamento de substituição em Windows, Linux e macOS?**
-
-Sim. A descoberta de fontes começa nos diretórios de fontes do sistema operacional. O conjunto de fontes padrão disponíveis e os caminhos de pesquisa diferem entre as plataformas, o que afeta a disponibilidade e a necessidade de substituição.
-
-**Como devo preparar o ambiente para minimizar substituições inesperadas durante conversões em lote?**
-
-Sincronize o conjunto de fontes entre máquinas ou contêineres, [adicione as fontes externas](/slides/pt/php-java/custom-font/) necessárias para os documentos de saída e [incorpore fontes](/slides/pt/php-java/embedded-font/) nas apresentações quando possível, para que as fontes escolhidas estejam disponíveis durante a renderização.
+**Como garantir que a seleção de fontes seja consistente em conversões em lote?**  
+Use os mesmos arquivos e versões de fontes em todas as máquinas ou contêineres, [carregue as fontes externas necessárias](/slides/pt/php-java/custom-font/) e [incorpore fontes](/slides/pt/php-java/embedded-font/) quando a licença permitir. Você também pode chamar [FontsManager::getSubstitutions](https://reference.aspose.com/slides/pt/php-java/aspose.slides/fontsmanager/getsubstitutions/) antes da exportação para identificar substituições inesperadas.

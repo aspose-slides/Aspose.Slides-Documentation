@@ -1,111 +1,193 @@
 ---
-title: 使用 С++ 配置簡報中的字體替代
-linktitle: 字體替代
+title: 在 C++ 中配置投影片的字型取代
+linktitle: 字型取代
 type: docs
 weight: 70
 url: /zh-hant/cpp/font-substitution/
 keywords:
-- 字體
-- 替代字體
-- 字體替代
-- 取代字體
-- 字體取代
-- 替代規則
+- 字型
+- 取代字型
+- 字型取代
+- 更換字型
+- 字型替換
 - 取代規則
+- 替換規則
 - PowerPoint
 - OpenDocument
-- 簡報
-- С++
+- 投影片
+- C++
 - Aspose.Slides
-description: "在將 PowerPoint 與 OpenDocument 簡報轉換為其他檔案格式時，為 С++ 的 Aspose.Slides 啟用最佳的字體替代功能。"
+description: "在 Aspose.Slides for C++ 中，於渲染或轉換 PowerPoint 與 OpenDocument 投影片時，設定字型取代規則並檢查被取代的字型。"
 ---
-## **概述**
+## **概觀**
 
-字體替代允許 Aspose.Slides 在渲染或轉換期間原始簡報字體不可用時使用其他字體。您可以透過 `IFontsManager` 介面的 `GetSubstitutions` 方法來檢查哪些字體已被替代。
+字型取代允許 Aspose.Slides 在投影片呈現或轉換時，使用可用的字型來取代無法存取的字型。取代僅影響呈現的輸出；它不會更改投影片內容所指派的字型。
 
-Aspose.Slides 也允許您定義字體替代規則。例如，您可以指定將無法存取的字體替換為另一個可用字體，然後透過簡報的字體管理員套用這些規則。
+您可以在特定字型不可用時定義要使用的字型，並且可以檢查 Aspose.Slides 在呈現過程中所做的字型取代。這有助於在安裝字型不同的環境中保持輸出的一致性。
 
-## **設定字體替代規則**
+## **取得字型取代**
 
-Aspose.Slides 允許您設定字體規則，以決定在特定情況下（例如字體無法存取）應採取的行動，方法如下：
+使用 [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/getsubstitutions/) 方法來判斷在投影片呈現時會被取代的字型。該方法會傳回 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsubstitutioninfo/) 物件，該物件指出原始字型與取代字型的名稱。
 
-1. 載入相關的簡報。
-2. 載入將被替換的字體。
-3. 載入新字體。
-4. 新增一個替換規則。
-5. 將規則加入簡報的字體替代規則集合。
-6. 產生投影片影像以觀察效果。
+以下 C++ 範例列出投影片的所有字型取代：
 
-此 C++ 程式碼示範字體替代過程：
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/console.h>
 
-```c++
-// 文件目錄的路徑。
-const String outPath = u"../out/RuleBasedFontsReplacement_out.pptx";
-const String templatePath = u"../templates/DefaultFonts.pptx";
+using namespace Aspose::Slides;
+using namespace System;
 
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
 
-// 載入簡報
-SharedPtr<Presentation> pres = MakeObject<Presentation>(templatePath);
+for (auto&& substitution : presentation->get_FontsManager()->GetSubstitutions())
+{
+    Console::WriteLine(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+}
 
-// 定義將被取代的字體及新字體
-SharedPtr<IFontData> sourceFont = MakeObject<FontData>(u"SomeRareFont");
-SharedPtr<IFontData> destFont = MakeObject<FontData>(u"Arial");
-	
-// 新增字體取代規則
-SharedPtr<FontSubstRule> fontSubstRule = MakeObject<FontSubstRule>(sourceFont, destFont, FontSubstCondition::WhenInaccessible);
-
-// 將規則加入字體替代規則集合
-SharedPtr<FontSubstRuleCollection> fontSubstRuleCollection = MakeObject<FontSubstRuleCollection>();
-fontSubstRuleCollection->Add(fontSubstRule);
-
-// 將字體規則集合加入規則清單
-pres->get_FontsManager()->set_FontSubstRuleList ( fontSubstRuleCollection);
-
-
-// 將 PPTX 儲存至磁碟
-pres->Save(outPath, Aspose::Slides::Export::SaveFormat::Pptx);
+presentation->Dispose();
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-您可能想查看[**字體替換**](/slides/zh-hant/cpp/font-replacement/)。 
+## **取得選取投影片的字型取代**
+
+使用帶有 `System::ArrayPtr<int32_t> slides` 參數的 [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/getsubstitutions/) 多載，以僅檢查渲染特定投影片所需的取代。這在您只渲染或匯出投影片的部分、逐步檢查大型投影片、找出依賴不可用字型的投影片、為伺服器或容器準備最小字型套件、或在不處理不相關投影片的情況下診斷呈現差異時，都相當有用。
+
+`slides` 陣列使用以 1 為起始的投影片索引：`1` 代表第一張投影片。相較之下，[Presentation::get_Slide](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_slide/) 方法使用零基索引，因此同一投影片需以 `presentation->get_Slide(0)` 取得。建立陣列時請記得此差異，以避免一位錯誤。
+
+透過 [Presentation::get_FontsManager](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/presentation/get_fontsmanager/) 方法呼叫此多載。它僅傳回在渲染所選投影片時決定的取代。每個結果都是包含原始與取代字型名稱的 [FontSubstitutionInfo](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsubstitutioninfo/) 物件。結果會反映目前的字型環境、已配置的備援規則、儲存在 [IFontSubstRuleCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsubstrulecollection/) 中的取代規則，以及 [externally loaded fonts](/slides/zh-hant/cpp/custom-font/)。
+
+同一取代可能被多個選取的投影片需要。建立字型清單或預檢報告時請去除重複結果。以下範例列出所有回傳的取代，並產生唯一字型對映的排序清單：
+
+```cpp
+#include <DOM/FontSubstitutionInfo.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/Presentation.h>
+#include <system/array.h>
+#include <system/collections/sorted_set.h>
+#include <system/console.h>
+#include <system/string.h>
+#include <system/string_comparer.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+using namespace System::Collections::Generic;
+
+auto presentation = MakeObject<Presentation>(u"Presentation.pptx");
+
+auto selectedSlides = MakeArray<int32_t>({1, 3, 5});
+auto substitutions = presentation->get_FontsManager()->GetSubstitutions(selectedSlides);
+auto sortedPreflightEntries = MakeObject<SortedSet<String>>(StringComparer::get_OrdinalIgnoreCase());
+
+Console::WriteLine(u"Substitutions for the selected slides:");
+for (auto&& substitution : substitutions)
+{
+    auto entry = String::Format(u"{0} -> {1}", substitution->get_OriginalFontName(), substitution->get_SubstitutedFontName());
+    Console::WriteLine(entry);
+    sortedPreflightEntries->Add(entry);
+}
+
+Console::WriteLine(u"Deduplicated font preflight report:");
+for (auto&& entry : sortedPreflightEntries)
+{
+    Console::WriteLine(entry);
+}
+
+presentation->Dispose();
+```
+
+[IFontsManager](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/) 介面提供兩種多載。請依照呈現作業的範圍選擇使用：
+
+| 多載 | 使用時機 |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | 您需要整份投影片的字型取代。 |
+| [GetSubstitutions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/getsubstitutions/) with `System::ArrayPtr<int32_t> slides` | 您需要針對選取範圍、增量檢查或部分匯出的字型取代。 |
+
+## **設定字型取代規則**
+
+若要指定 Aspose.Slides 在來源字型不可用時應使用的字型：
+
+1. 載入投影片。
+2. 為來源字型與取代字型建立字型定義。
+3. 使用 [WhenInaccessible](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsubstcondition/) 條件建立 [FontSubstRule](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsubstrule/)。
+4. 將規則加入 [FontSubstRuleCollection](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/fontsubstrulecollection/)。
+5. 使用 [IFontsManager::set_FontSubstRuleList](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/set_fontsubstrulelist/) 方法指派此集合。
+6. 呈現或轉換投影片。
+
+以下 C++ 範例在 `SomeRareFont` 不可用時以 `Arial` 取代之，然後呈現第一張投影片以驗證結果。取代的字型必須可供 Aspose.Slides 使用。
+
+```cpp
+#include <DOM/FontSubstCondition.h>
+#include <DOM/Fonts/FontData.h>
+#include <DOM/Fonts/FontSubstRule.h>
+#include <DOM/Fonts/FontSubstRuleCollection.h>
+#include <DOM/IFontsManager.h>
+#include <DOM/ISlide.h>
+#include <DOM/Presentation.h>
+#include <IImage.h>
+#include <ImageFormat.h>
+
+using namespace Aspose::Slides;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"Fonts.pptx");
+
+auto sourceFont = MakeObject<FontData>(u"SomeRareFont");
+auto substituteFont = MakeObject<FontData>(u"Arial");
+auto substitutionRule = MakeObject<FontSubstRule>(sourceFont, substituteFont, FontSubstCondition::WhenInaccessible);
+
+auto substitutionRules = MakeObject<FontSubstRuleCollection>();
+substitutionRules->Add(substitutionRule);
+presentation->get_FontsManager()->set_FontSubstRuleList(substitutionRules);
+
+auto image = presentation->get_Slide(0)->GetImage(1.0f, 1.0f);
+image->Save(u"slide.jpg", ImageFormat::Jpeg);
+
+image->Dispose();
+presentation->Dispose();
+```
+
+{{% alert color="info" title="Note" %}}
+若要無條件變更整份投影片中使用的字型，請參閱 [Font Replacement](/slides/zh-hant/cpp/font-replacement/)。
 {{% /alert %}}
 
-## **數學公式字體的限制**
+## **數學方程式字型的限制**
 
-字體替代規則參與渲染與轉換期間使用的標準字體選擇流程。它們適用於一般文字情境，Aspose.Slides 能依照設定的規則將無法存取的字體替換為其他可用字體。
+字型取代規則是呈現與轉換過程中使用的標準字型選擇流程的一部份。當 Aspose.Slides 能以規則指定的可用字型取代不可存取的字型時，這些規則可對一般文字起作用。
 
-然而，Office 數學公式有一項重要限制。若方程式是使用 **Cambria Math** 建立的，Aspose.Slides 仍可能需要原始的 **Cambria Math** 字體來正確計算與呈現公式版面。基於此，將 **Cambria Math** 替換為其他數學字體（例如 **STIX Two Math**）在公式渲染時不受支援，且仍可能拋出需要 **Cambria Math** 的例外。
+Office Math 方程式有額外需求。若方程式使用 **Cambria Math**，Aspose.Slides 可能需要該精確字型來計算與呈現方程式版面。使用其他數學字型（例如 **STIX Two Math**）的取代規則無法取代 **Cambria Math**，因此呈現仍可能顯示需要 **Cambria Math**。
 
-若要成功轉換此類簡報，請確保 **Cambria Math** 在執行時間可供 Aspose.Slides 使用。您可以在作業系統中安裝該字體，或以[外部字體](/slides/zh-hant/cpp/custom-font/) 形式提供，使其能參與渲染與轉換期間的正常字體選擇流程。
+若要呈現或轉換此類投影片，請確保 **Cambria Math** 可供 Aspose.Slides 使用。可在作業系統中安裝，或以 [external font](/slides/zh-hant/cpp/custom-font/) 方式載入。
 
-此限制僅適用於公式渲染。上述標準字體替代規則仍會在原始字體不可用時套用於一般簡報文字。
+此限制僅適用於方程式版面。上述的取代規則仍適用於一般投影片文字。
 
 ## **常見問題**
 
-**字體替換與字體替代有何不同？**
+**字型取代與字型替換有何不同？**
 
-[Replacement](/slides/zh-hant/cpp/font-replacement/) 是在整個簡報中強制將一種字體覆寫為另一種字體。替代則是根據特定條件（例如原始字體不可用）觸發的規則，使用指定的備援字體。
+[Font replacement](/slides/zh-hant/cpp/font-replacement/) 會有意地將投影片中所有使用的字型更換為另一種字型。字型取代則在符合設定條件（例如原始字型不可用）時，為呈現的輸出選擇可用的字型。
 
-**替代規則究竟在何時套用？**
+**字型取代規則何時套用？**
 
-這些規則參與在載入、渲染與轉換期間評估的標準[字體選擇](/slides/zh-hant/cpp/font-selection-sequence/) 流程；若選取的字體不可用，則會套用替換或替代。
+這些規則會在呈現與轉換期間參與 [font selection sequence](/slides/zh-hant/cpp/font-selection-sequence/)。使用 `WhenInaccessible` 時，規則僅在 Aspose.Slides 無法存取來源字型時套用。
 
-**如果未設定替換或替代，且系統缺少該字體，預設行為為何？**
+**當字型缺失且未設定取代規則時會發生什麼情況？**
 
-函式庫會嘗試選取最接近的可用系統字體，類似 PowerPoint 的行為。
+Aspose.Slides 會根據其字型選擇流程選取最接近的可用字型。結果取決於執行環境中可取得的字型。
 
-**我能在執行時附加自訂外部字體以避免替代嗎？**
+**我能載入外部字型以避免取代嗎？**
 
-可以。您可以在執行時[加入外部字體](/slides/zh-hant/cpp/custom-font/)，讓函式庫在選擇與渲染時考慮它們，亦包含後續的轉換。
+可以。您可 [load external fonts](/slides/zh-hant/cpp/custom-font/) 讓 Aspose.Slides 在呈現與轉換時使用這些字型。
 
-**Aspose 是否隨函式庫一起分發任何字體？**
+**Aspose 會隨函式庫一起分發字型嗎？**
 
-不會。Aspose 不會分發付費或免費字體；您需自行決定並負責加入與使用字體。
+不會。您需自行提供字型並遵守其授權條款。
 
-**在 Windows、Linux 與 macOS 上，替代行為有何差異？**
+**字型取代結果會在 Windows、Linux 與 macOS 之間不同嗎？**
 
-有。字體偵測會從作業系統的字體目錄開始。各平台的預設可用字體集合與搜尋路徑不同，會影響字體可用性與是否需要替代。
+會。不同作業系統之間的已安裝字型與字型搜尋位置不同，於某台機器可用的字型在另一台可能需取代。
 
-**我應如何準備環境以降低批次轉換時意外的字體替代？**
+**如何在批次轉換中保持字型選擇的一致性？**
 
-同步各機器或容器的字體集合，[加入外部字體](/slides/zh-hant/cpp/custom-font/) 以滿足輸出文件的需求，並在可能時於簡報中[嵌入字體](/slides/zh-hant/cpp/embedded-font/)，確保在渲染時可使用所選字體。
+在每台機器或容器上使用相同的字型檔案與版本，[load required external fonts](/slides/zh-hant/cpp/custom-font/)，並在授權允許時 [embed fonts](/slides/zh-hant/cpp/embedded-font/)。您亦可在匯出前呼叫 [IFontsManager::GetSubstitutions](https://reference.aspose.com/slides/zh-hant/cpp/aspose.slides/ifontsmanager/getsubstitutions/) 以偵測意外的取代情況。

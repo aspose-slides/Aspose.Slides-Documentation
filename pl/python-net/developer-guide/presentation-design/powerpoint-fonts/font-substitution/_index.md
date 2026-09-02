@@ -1,15 +1,15 @@
 ---
-title: "Konfiguracja zastępowania czcionek w prezentacjach przy użyciu Pythona"
-linktitle: "Zastępowanie czcionek"
+title: Konfiguracja zastąpień czcionek w prezentacjach w języku Python
+linktitle: Zastąpienie czcionek
 type: docs
 weight: 70
 url: /pl/python-net/font-substitution/
 keywords:
 - czcionka
+- czcionka zastępcza
 - zastąpienie czcionki
-- zastąpianie czcionek
 - zamiana czcionki
-- zastąpienie czcionki
+- zamiana czcionki
 - reguła zastąpienia
 - reguła zamiany
 - PowerPoint
@@ -17,96 +17,134 @@ keywords:
 - prezentacja
 - Python
 - Aspose.Slides
-description: "Umożliw optymalne zastępowanie czcionek w Aspose.Slides dla Pythona za pośrednictwem .NET przy konwertowaniu prezentacji PowerPoint i OpenDocument na inne formaty plików."
+description: "Skonfiguruj reguły zastąpień czcionek i sprawdź zastąpione czcionki w Aspose.Slides dla Pythona za pośrednictwem .NET podczas renderowania lub konwertowania prezentacji PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-Zastępowanie czcionek pozwala Aspose.Slides używać innej czcionki, gdy oryginalna czcionka prezentacji nie jest dostępna podczas renderowania lub konwersji. Możesz sprawdzić, które czcionki zostały zastąpione, używając metody `get_substitutions` z klasy `FontsManager`.
+Zastępowanie czcionek umożliwia Aspose.Slides użycie dostępnej czcionki zamiast czcionki, do której nie można uzyskać dostępu podczas renderowania lub konwersji prezentacji. Zastąpienie wpływa na wynik renderowania; nie zmienia czcionki przypisanej do zawartości prezentacji.
 
-Aspose.Slides umożliwia również definiowanie reguł zastępowania czcionek. Na przykład możesz określić, że niedostępna czcionka powinna zostać zamieniona na inną dostępną czcionkę i zastosować te reguły poprzez menedżer czcionek prezentacji.
+Można określić czcionkę, która ma być używana, gdy dana czcionka jest niedostępna, oraz sprawdzić zastąpienia, które Aspose.Slides wykona podczas renderowania. Pomaga to zachować spójność wyniku w środowiskach z różnymi zainstalowanymi czcionkami.
 
-## **Ustaw reguły zastępowania**
+## **Pobieranie zastąpień czcionek**
 
-Aspose.Slides pozwala ustawić reguły dla czcionek, które określają, co należy zrobić w określonych warunkach (na przykład gdy czcionka nie jest dostępna) w następujący sposób:
+Użyj metody [FontsManager.get_substitutions](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/get_substitutions/) aby określić, które czcionki zostaną zastąpione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsubstitutioninfo/), które identyfikują oryginalne i zastąpione nazwy czcionek.
 
-1. Załaduj odpowiednią prezentację.  
-2. Załaduj czcionkę, która ma zostać zastąpiona.  
-3. Załaduj nową czcionkę.  
-4. Dodaj regułę zastąpienia.  
-5. Dodaj regułę do kolekcji reguł zastępowania czcionek prezentacji.  
-6. Wygeneruj obraz slajdu, aby zaobserwować efekt.
-
-Ten kod w języku Python demonstruje proces zastępowania czcionek:
+Poniższy przykład w Pythonie wyświetla wszystkie zastąpienia czcionek dla prezentacji:
 
 ```python
 import aspose.slides as slides
 
-# Ładuje prezentację
-with slides.Presentation(path + "Fonts.pptx") as presentation:
-    # Ładuje źródłową czcionkę, która ma zostać zastąpiona
-    sourceFont = slides.FontData("SomeRareFont")
-
-    # Wczytuje nową czcionkę
-    destFont = slides.FontData("Arial")
-
-    # Dodaje regułę czcionki dla zamiany czcionki
-    fontSubstRule = slides.FontSubstRule(sourceFont, destFont, slides.FontSubstCondition.WHEN_INACCESSIBLE)
-
-    # Dodaje regułę do kolekcji reguł zastępowania czcionek
-    fontSubstRuleCollection = slides.FontSubstRuleCollection()
-    fontSubstRuleCollection.add(fontSubstRule)
-
-    # Dodaje kolekcję reguł czcionki do listy reguł
-    presentation.fonts_manager.font_subst_rule_list = fontSubstRuleCollection
-
-    # Czcionka Arial zostanie użyta zamiast SomeRareFont, gdy ta ostatnia jest niedostępna
-    with presentation.slides[0].get_image(1, 1) as bmp:
-        # Zapisuje obraz na dysku w formacie JPEG
-        bmp.save("Thumbnail_out.jpg", slides.ImageFormat.JPEG)
+with slides.Presentation("Presentation.pptx") as presentation:
+    for substitution in presentation.fonts_manager.get_substitutions():
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Pobieranie zastąpień czcionek dla wybranych slajdów**
 
-Możesz chcieć zobaczyć [**Font Replacement**](/slides/pl/python-net/font-replacement/). 
+Użyj [FontsManager.get_substitutions](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/get_substitutions/) z listą indeksów slajdów, aby sprawdzić tylko te zastąpienia, które są wymagane do renderowania konkretnych slajdów. Jest to przydatne, gdy renderujesz lub eksportujesz część prezentacji, sprawdzasz dużą prezentację etapowo, lokalizujesz slajdy zależne od niedostępnych czcionek, przygotowujesz minimalny pakiet czcionek dla serwera lub kontenera albo diagnozujesz różnice w renderowaniu bez przetwarzania niepowiązanych slajdów.
 
+Lista zawiera indeksy slajdów liczone od 1: `1` identyfikuje pierwszy slajd. Natomiast kolekcja [Presentation.slides](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/slides/pl/) jest zerowo‑indeksowana, więc ten sam slajd jest dostępny jako `presentation.slides[0]`. Pamiętaj o tej różnicy przy tworzeniu listy, aby uniknąć błędów off‑by‑one.
+
+Wywołaj metodę przez właściwość [Presentation.fonts_manager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/presentation/fonts_manager/). Zwraca ona tylko zastąpienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsubstitutioninfo/), zawierającym oryginalną i zastąpioną nazwę czcionki. Wynik odzwierciedla bieżące środowisko czcionek, skonfigurowane reguły awaryjne, reguły zastąpień zapisane w [IFontSubstRuleCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/ifontsubstrulecollection/), oraz [zewnętrznie wczytane czcionki](/slides/pl/python-net/custom-font/).
+
+To samo zastąpienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników przy tworzeniu inwentarza czcionek lub raportu wstępnej kontroli. Poniższy przykład zgłasza każde zwrócone zastąpienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Presentation.pptx") as presentation:
+    selected_slides = [1, 3, 5]
+    substitutions = list(presentation.fonts_manager.get_substitutions(selected_slides))
+
+    print("Substitutions for the selected slides:")
+    for substitution in substitutions:
+        print(f"{substitution.original_font_name} -> {substitution.substituted_font_name}")
+
+    preflight_entries = [f"{substitution.original_font_name} -> {substitution.substituted_font_name}" for substitution in substitutions]
+    unique_preflight_entries = {entry.casefold(): entry for entry in preflight_entries}
+    sorted_preflight_entries = sorted(unique_preflight_entries.values(), key=str.casefold)
+
+    print("Deduplicated font preflight report:")
+    for entry in sorted_preflight_entries:
+        print(entry)
+```
+
+Klasa [FontsManager](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/) udostępnia obie formy metody. Wybierz jedną w zależności od zakresu operacji renderowania:
+
+| Wywołanie metody | Kiedy używać |
+|---|---|
+| [get_substitutions](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/get_substitutions/) bez argumentów | Potrzebujesz zastąpień dla całej prezentacji. |
+| [get_substitutions](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/get_substitutions/) z listą indeksów slajdów | Potrzebujesz zastąpień dla wybranego zakresu, sprawdzenia przyrostowego lub częściowego eksportu. |
+
+## **Ustawianie reguł zastąpień czcionek**
+
+Aby określić czcionkę, której Aspose.Slides ma używać, gdy czcionka źródłowa jest niedostępna:
+
+1. Załaduj prezentację.  
+2. Utwórz definicje czcionek dla czcionki źródłowej i zastępczej.  
+3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsubstrule/) z warunkiem [WHEN_INACCESSIBLE](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsubstcondition/).  
+4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsubstrulecollection/).  
+5. Przypisz kolekcję do właściwości [FontsManager.font_subst_rule_list](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/font_subst_rule_list/).  
+6. Renderuj lub konwertuj prezentację.
+
+Poniższy przykład w Pythonie zastępuje `Arial` czcionką `SomeRareFont`, gdy `SomeRareFont` jest niedostępna, a następnie renderuje pierwszy slajd w celu weryfikacji wyniku. Czcionka zastępcza musi być dostępna dla Aspose.Slides.
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("Fonts.pptx") as presentation:
+    source_font = slides.FontData("SomeRareFont")
+    substitute_font = slides.FontData("Arial")
+    substitution_rule = slides.FontSubstRule(source_font, substitute_font, slides.FontSubstCondition.WHEN_INACCESSIBLE)
+
+    substitution_rules = slides.FontSubstRuleCollection()
+    substitution_rules.add(substitution_rule)
+    presentation.fonts_manager.font_subst_rule_list = substitution_rules
+
+    with presentation.slides[0].get_image(1, 1) as image:
+        image.save("slide.jpg", slides.ImageFormat.JPEG)
+```
+
+{{% alert color="info" title="Note" %}}
+Dla bezwarunkowej zmiany czcionek używanych w całej prezentacji zobacz [Zamianę czcionek](/slides/pl/python-net/font-replacement/).
 {{% /alert %}}
 
-## **Ograniczenia dla czcionek równań matematycznych**
+## **Ograniczenia dotyczące czcionek równań matematycznych**
 
-Reguły zastępowania czcionek uczestniczą w standardowym procesie wyboru czcionki używanym podczas renderowania i konwersji. Są odpowiednie dla typowych scenariuszy tekstowych, w których Aspose.Slides może zamienić niedostępną czcionkę na inną dostępną czcionkę zgodnie z skonfigurowaną regułą.
+Reguły zastąpień czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają dla zwykłego tekstu, gdy Aspose.Slides może zamienić niedostępną czcionkę na dostępną czcionkę określoną w regule.
 
-Jednak równania matematyczne w Office mają istotne ograniczenie. Jeśli równanie zostało utworzone przy użyciu **Cambria Math**, Aspose.Slides może nadal wymagać oryginalnej czcionki **Cambria Math**, aby poprawnie obliczyć i wyrenderować układ równania. Z tego powodu zastąpienie **Cambria Math** inną czcionką matematyczną, taką jak **STIX Two Math**, nie jest obsługiwane przy renderowaniu równań i może nadal skutkować wyjątkiem wskazującym, że wymagana jest **Cambria Math**.
+Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować tej dokładnej czcionki do obliczenia i wyrenderowania układu równania. Reguła, która zastępuje inną czcionkę matematyczną, np. **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać, że **Cambria Math** jest wymagana.
 
-Aby pomyślnie konwertować takie prezentacje, upewnij się, że **Cambria Math** jest dostępna dla Aspose.Slides w czasie wykonywania. Możesz zainstalować czcionkę w systemie operacyjnym lub udostępnić ją jako [external font](/slides/pl/python-net/custom-font/), aby mogła uczestniczyć w normalnym procesie wyboru czcionki podczas renderowania i konwersji.
+Aby renderować lub konwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Zainstaluj ją w systemie operacyjnym lub załaduj jako [zewnętrzną czcionkę](/slides/pl/python-net/custom-font/).
 
-To ograniczenie dotyczy wyłącznie renderowania równań. Standardowe reguły zastępowania czcionek opisane powyżej nadal obowiązują dla zwykłego tekstu prezentacji, gdy oryginalna czcionka jest niedostępna.
+Ograniczenie dotyczy układu równań. Opisane wyżej reguły zastąpień nadal obowiązują dla zwykłego tekstu prezentacji.
 
 ## **FAQ**
 
-**Jaka jest różnica między zamianą czcionki a jej zastępowaniem?**
+**Jaka jest różnica między zamianą czcionki a zastąpieniem czcionki?**
 
-[Replacement](/slides/pl/python-net/font-replacement/) to wymuszone nadpisanie jednej czcionki drugą w całej prezentacji. Zastępowanie to reguła, która uruchamia się w określonym warunku, na przykład gdy oryginalna czcionka jest niedostępna, i wtedy używana jest wyznaczona czcionka zapasowa.
+[Zamiana czcionki](/slides/pl/python-net/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Zastąpienie czcionki wybiera czcionkę dla renderowanego wyniku, gdy spełniony jest skonfigurowany warunek, np. gdy oryginalna czcionka jest niedostępna.
 
-**Kiedy dokładnie stosowane są reguły zastępowania?**
+**Kiedy stosowane są reguły zastąpień?**
 
-Reguły uczestniczą w standardowej sekwencji [font selection](/slides/pl/python-net/font-selection-sequence/), która jest oceniana podczas ładowania, renderowania i konwersji; jeśli wybrana czcionka jest niedostępna, stosowane jest zastąpienie lub podmiana.
+Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/python-net/font-selection-sequence/) podczas renderowania i konwersji. Przy warunku `WHEN_INACCESSIBLE` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
 
-**Jakie jest domyślne zachowanie, jeśli nie skonfigurowano ani zamiany, ani zastąpienia, a czcionka brakuję w systemie?**
+**Co się dzieje, gdy czcionka jest brakująca i nie skonfigurowano reguły zastąpienia?**
 
-Biblioteka spróbuje wybrać najbliższą dostępną czcionkę systemową, podobnie jak zachowałoby się PowerPoint.
+Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionki. Wynik zależy od czcionek dostępnych w środowisku uruchomieniowym.
 
-**Czy mogę dołączyć własne czcionki zewnętrzne w czasie wykonywania, aby uniknąć zastąpienia?**
+**Czy mogę załadować zewnętrzne czcionki, aby uniknąć zastąpienia?**
 
-Tak. Możesz [add external fonts](/slides/pl/python-net/custom-font/) w czasie wykonywania, aby biblioteka brała je pod uwagę przy wyborze i renderowaniu, w tym przy późniejszych konwersjach.
+Tak. Możesz [załadować zewnętrzne czcionki](/slides/pl/python-net/custom-font/), aby Aspose.Slides mogło ich używać podczas renderowania i konwersji.
 
-**Czy Aspose dystrybuuje jakieś czcionki z biblioteką?**
+**Czy Aspose dystrybuuje czcionki wraz z biblioteką?**
 
-Nie. Aspose nie dystrybuuje płatnych ani darmowych czcionek; dodajesz i używasz czcionki na własną odpowiedzialność i według własnego uznania.
+Nie. Odpowiada Pan/Pani za udostępnienie czcionek i przestrzeganie ich licencji.
 
-**Czy istnieją różnice w zachowaniu zastępowania na Windows, Linux i macOS?**
+**Czy wyniki zastąpień mogą się różnić między systemami Windows, Linux i macOS?**
 
-Tak. Wykrywanie czcionek rozpoczyna się od katalogów czcionek systemu operacyjnego. Zestaw domyślnie dostępnych czcionek i ścieżki wyszukiwania różnią się w zależności od platformy, co wpływa na dostępność i potrzebę zastępowania.
+Tak. Zainstalowane czcionki i lokalizacje wyszukiwania czcionek różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednej maszynie może wymagać zastąpienia na innej.
 
-**Jak przygotować środowisko, aby zminimalizować nieoczekiwane zastąpienia podczas konwersji wsadowych?**
+**Jak zapewnić spójny wybór czcionek w konwersjach wsadowych?**
 
-Zsynchronizuj zestaw czcionek między maszynami lub kontenerami, [add the external fonts](/slides/pl/python-net/custom-font/) wymagane dla dokumentów wyjściowych oraz [embed fonts](/slides/pl/python-net/embedded-font/) w prezentacjach, gdy to możliwe, aby wybrane czcionki były dostępne podczas renderowania.
+Używaj tych samych plików czcionek i ich wersji na każdej maszynie lub w kontenerze, [ładuj wymagane zewnętrzne czcionki](/slides/pl/python-net/custom-font/), oraz [osadzaj czcionki](/slides/pl/python-net/embedded-font/), jeśli licencja na to pozwala. Możesz również wywołać [FontsManager.get_substitutions](https://reference.aspose.com/slides/pl/python-net/aspose.slides/fontsmanager/get_substitutions/) przed eksportem, aby zidentyfikować nieoczekiwane zastąpienia.

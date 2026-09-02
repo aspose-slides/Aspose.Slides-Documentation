@@ -1,109 +1,185 @@
 ---
-title: जावास्क्रिप्ट का उपयोग करके प्रस्तुतियों में फ़ॉन्ट प्रतिस्थापन को कॉन्फ़िगर करें
+title: JavaScript का उपयोग करके प्रस्तुतियों में फ़ॉन्ट प्रतिस्थापन कॉन्फ़िगर करें
 linktitle: फ़ॉन्ट प्रतिस्थापन
 type: docs
 weight: 70
 url: /hi/nodejs-java/font-substitution/
 keywords:
-- फ़ॉन्ट
-- प्रतिस्थापित फ़ॉन्ट
-- फ़ॉन्ट प्रतिस्थापन
-- फ़ॉन्ट बदलें
-- फ़ॉन्ट प्रतिस्थापन
-- प्रतिस्थापन नियम
-- बदलाव नियम
-- PowerPoint
-- OpenDocument
-- प्रेजेंटेशन
-- Node.js
-- JavaScript
-- Aspose.Slides
-description: "जावास्क्रिप्ट में PowerPoint और OpenDocument प्रस्तुतियों को अन्य फ़ाइल प्रारूपों में परिवर्तित करते समय Aspose.Slides for Node.js में इष्टतम फ़ॉन्ट प्रतिस्थापन सक्षम करें।"
+  - फ़ॉन्ट
+  - प्रतिस्थापित फ़ॉन्ट
+  - फ़ॉन्ट प्रतिस्थापन
+  - फ़ॉन्ट बदलें
+  - फ़ॉन्ट प्रतिस्थापन
+  - प्रतिस्थापन नियम
+  - बदलाव नियम
+  - PowerPoint
+  - OpenDocument
+  - प्रस्तुति
+  - Node.js
+  - JavaScript
+  - Aspose.Slides
+description: "PowerPoint और OpenDocument प्रस्तुतियों को रेंडर या परिवर्तित करते समय Node.js के लिए Aspose.Slides में फ़ॉन्ट प्रतिस्थापन नियम कॉन्फ़िगर करें और प्रतिस्थापित फ़ॉन्ट्स की जांच करें।"
 ---
-## **सारांश**
+## **अवलोकन**
 
-फ़ॉन्ट प्रतिस्थापन Aspose.Slides को रेंडरिंग या रूपांतरण के दौरान मूल प्रेजेंटेशन फ़ॉन्ट उपलब्ध न होने पर किसी अन्य फ़ॉन्ट का उपयोग करने की अनुमति देता है। आप `FontsManager` क्लास की `getSubstitutions` विधि का उपयोग करके यह जांच सकते हैं कि कौन से फ़ॉन्ट प्रतिस्थापित किए गए थे।
+फ़ॉन्ट प्रतिस्थापन Aspose.Slides को उस फ़ॉन्ट के स्थान पर उपलब्ध फ़ॉन्ट उपयोग करने की अनुमति देता है जिसे प्रस्तुति रेंडर या परिवर्तित करते समय पहुँच नहीं सकता। प्रतिस्थापन रेंडर किए गए आउटपुट को प्रभावित करता है; यह प्रस्तुति की सामग्री को सौंपे गए फ़ॉन्ट को नहीं बदलता।
 
-Aspose.Slides आपको फ़ॉन्ट प्रतिस्थापन नियम भी निर्धारित करने की अनुमति देता है। उदाहरण के लिए, आप यह निर्दिष्ट कर सकते हैं कि एक अनुपलब्ध फ़ॉन्ट को किसी अन्य उपलब्ध फ़ॉन्ट से बदला जाना चाहिए और फिर इन नियमों को प्रेजेंटेशन के फ़ॉन्ट मैनेजर के माध्यम से लागू किया जा सकता है।
+आप किसी विशेष फ़ॉन्ट के अनुपलब्ध होने पर उपयोग करने के लिए फ़ॉन्ट निर्धारित कर सकते हैं, और आप Aspose.Slides द्वारा रेंडरिंग के दौरान किए गए प्रतिस्थापनों की जांच कर सकते हैं। यह विभिन्न स्थापित फ़ॉन्ट्स वाले वातावरणों में आउटपुट को सुसंगत रखने में मदद करता है।
 
-## **फ़ॉन्ट प्रतिस्थापन नियम सेट करें**
+## **फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
 
-Aspose.Slides आपको फ़ॉन्ट के लिए नियम निर्धारित करने की अनुमति देता है जो कुछ स्थितियों में क्या करना है निर्धारित करता है (उदाहरण के लिए, जब फ़ॉन्ट तक पहुँच नहीं हो पाती) इस प्रकार:
+फ़ॉन्ट प्रतिस्थापन निर्धारित करने के लिए [FontsManager.getSubstitutions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) मेथड का उपयोग करें जब प्रस्तुति रेंडर की जाती है। यह मेथड उन [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट्स को लौटाता है जो मूल और प्रतिस्थापित फ़ॉन्ट नामों की पहचान करते हैं।
 
-1. संबंधित प्रेजेंटेशन लोड करें।
-2. वह फ़ॉन्ट लोड करें जिसे बदलना है।
-3. नया फ़ॉन्ट लोड करें।
-4. बदलाव के लिए एक नियम जोड़ें।
-5. प्रेजेंटेशन फ़ॉन्ट प्रतिस्थापन नियम संग्रह में नियम जोड़ें।
-6. प्रभाव देखने के लिए स्लाइड छवि उत्पन्न करें।
-
-यह JavaScript कोड फ़ॉन्ट प्रतिस्थापन प्रक्रिया को प्रदर्शित करता है:
+नीचे दिया गया JavaScript उदाहरण प्रस्तुति के सभी फ़ॉन्ट प्रतिस्थापनों को सूचीबद्ध करता है:
 
 ```javascript
-// प्रस्तुतिकरण लोड करता है
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // स्रोत फ़ॉन्ट लोड करता है जिसे प्रतिस्थापित किया जाएगा
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // नया फ़ॉन्ट लोड करता है
-    var destFont = new aspose.slides.FontData("Arial");
-    // फ़ॉन्ट प्रतिस्थापन के लिए एक फ़ॉन्ट नियम जोड़ता है
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // नियम को फ़ॉन्ट प्रतिस्थापन नियम संग्रह में जोड़ता है
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // नियम सूची में फ़ॉन्ट नियम संग्रह जोड़ता है
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // जब SomeRareFont अनुपलब्ध हो तो Arial फ़ॉन्ट SomeRareFont के स्थान पर उपयोग होगा
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // छवि को JPEG प्रारूप में डिस्क पर सहेजता है
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-आप देखना चाहेंगे [**Font Replacement**](/slides/hi/nodejs-java/font-replacement/).
+## **चयनित स्लाइड्स के लिए फ़ॉन्ट प्रतिस्थापन प्राप्त करें**
+
+केवल विशिष्ट स्लाइड्स को रेंडर करने के लिए आवश्यक प्रतिस्थापन की जाँच करने हेतु [FontsManager.getSubstitutions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) ओवरलोड को स्लाइड इंडेक्स की सरणी के साथ उपयोग करें। यह तब उपयोगी होता है जब आप प्रस्तुति का केवल हिस्सा रेंडर या एक्सपोर्ट कर रहे हों, बड़े प्रस्तुति को चरणबद्ध रूप से जांच रहे हों, उन स्लाइड्स को ढूँढ़ रहे हों जो अनुपलब्ध फ़ॉन्ट पर निर्भर हैं, सर्वर या कंटेनर के लिए न्यूनतम फ़ॉन्ट पैकेज तैयार कर रहे हों, या अप्रासंगिक स्लाइड्स को प्रोसेस किए बिना रेंडरिंग अंतर की जाँच कर रहे हों।
+
+ओवरलोड एक Java primitive `int[]` की अपेक्षा करता है। इसे `java.newArray("int", [...])` से बनाएँ; एक सामान्य JavaScript सरणी `Integer[]` में बदलती है और इस ओवरलोड से मेल नहीं खाती।
+
+सरणी में एक‑आधारित स्लाइड इंडेक्स होते हैं: `1` पहली स्लाइड को दर्शाता है। इसके विपरीत, [Presentation.getSlides](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/getslides/) कलेक्शन एक्सेसर शून्य‑आधारित इंडेक्सिंग का उपयोग करता है, इसलिए वही स्लाइड `presentation.getSlides().get_Item(0)` से एक्सेस की जाती है। इस अंतर को याद रखें ताकि ऑफ‑बाय‑वन त्रुटियों से बचा जा सके।
+
+ओवरलोड को [Presentation.getFontsManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/presentation/getfontsmanager/) के माध्यम से कॉल करें। यह केवल चयनित स्लाइड्स को रेंडर करते समय निर्धारित प्रतिस्थापनों को लौटाता है। प्रत्येक परिणाम एक [FontSubstitutionInfo](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsubstitutioninfo/) ऑब्जेक्ट होता है जिसमें मूल और प्रतिस्थापित फ़ॉन्ट नाम होते हैं। परिणाम वर्तमान फ़ॉन्ट पर्यावरण, कॉन्फ़िगर किए गए फ़ॉलबैक नियम, [FontSubstRuleCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsubstrulecollection/) में संग्रहीत प्रतिस्थापन नियम, और [externally loaded fonts](/slides/hi/nodejs-java/custom-font/) को दर्शाता है।
+
+एक ही प्रतिस्थापन अधिक से अधिक चयनित स्लाइड्स द्वारा आवश्यक हो सकता है। फ़ॉन्ट इन्वेंटरी या प्री‑फ़्लाइट रिपोर्ट बनाते समय परिणामों को ड्यूडुप्लीकेट करें। नीचे दिया गया उदाहरण प्रत्येक लौटाए गए प्रतिस्थापन को रिपोर्ट करता है और फिर अद्वितीय फ़ॉन्ट मैपिंग की सॉर्टेड सूची बनाता है:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+[FontsManager](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/) क्लास दोनों ओवरलोड प्रदान करता है। रेंडरिंग ऑपरेशन के दायरे के अनुसार एक चुनें:
+
+| ओवरलोड | उपयोग कब करें |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) बिना आर्ग्युमेंट के | आपको पूरी प्रस्तुति के लिए प्रतिस्थापन चाहिए। |
+| [getSubstitutions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) स्लाइड इंडेक्स की Java `int[]` के साथ | आपको चयनित रेंज, चरणबद्ध जांच, या भागीय एक्सपोर्ट के लिए प्रतिस्थापन चाहिए। |
+
+## **फ़ॉन्ट प्रतिस्थापन नियम निर्धारित करें**
+
+जब स्रोत फ़ॉन्ट उपलब्ध न हो तो Aspose.Slides को किस फ़ॉन्ट का उपयोग करना चाहिए, इसे निर्दिष्ट करने के लिए:
+
+1. प्रस्तुति को लोड करें।
+2. स्रोत और प्रतिस्थापित फ़ॉन्ट के लिए फ़ॉन्ट परिभाषाएँ बनाएँ।
+3. [WhenInaccessible](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsubstcondition/) शर्त के साथ एक [FontSubstRule](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsubstrule/) बनाएँ।
+4. नियम को एक [FontSubstRuleCollection](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsubstrulecollection/) में जोड़ें।
+5. संग्रह को [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/) मेथड का उपयोग करके असाइन करें।
+6. प्रस्तुति को रेंडर या परिवर्तित करें।
+
+नीचे दिया गया JavaScript उदाहरण `SomeRareFont` अनुपलब्ध होने पर `Arial` को प्रतिस्थापित करता है, और फिर पहले स्लाइड को रेंडर करके परिणाम सत्यापित करता है। प्रतिस्थापित फ़ॉन्ट Aspose.Slides के लिए उपलब्ध होना चाहिए।
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+पूरी प्रस्तुति में प्रयुक्त फ़ॉन्ट्स को बिना शर्त बदलने के लिए, देखें [Font Replacement](/slides/hi/nodejs-java/font-replacement/)।
 {{% /alert %}}
 
-## **गणित समीकरण फ़ॉन्ट्स की सीमाएँ**
+## **गणितीय समीकरण फ़ॉन्ट्स के लिए सीमाएँ**
 
-फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और रूपांतरण के दौरान उपयोग की जाने वाली मानक फ़ॉन्ट चयन प्रक्रिया में भाग लेते हैं। वे सामान्य टेक्स्ट परिदृश्यों के लिए उपयुक्त हैं जहाँ Aspose.Slides कॉन्फ़िगर किए गए नियम के अनुसार एक अनुपलब्ध फ़ॉन्ट को किसी अन्य उपलब्ध फ़ॉन्ट से बदल सकता है।
+फ़ॉन्ट प्रतिस्थापन नियम रेंडरिंग और परिवर्तित करने के दौरान इस्तेमाल होने वाली मानक फ़ॉन्ट चयन प्रक्रिया का हिस्सा होते हैं। ये नियमित टेक्स्ट के लिए काम करते हैं जब Aspose.Slides अनुपलब्ध फ़ॉन्ट को नियम द्वारा निर्दिष्ट उपलब्ध फ़ॉन्ट से बदल सकता है।
 
-हालाँकि, Office गणित समीकरणों में एक महत्वपूर्ण सीमा है। यदि कोई समीकरण **Cambria Math** के साथ बनाया गया हो, तो Aspose.Slides को सही ढंग से समीकरण लेआउट की गणना और रेंडर करने के लिए मूल **Cambria Math** फ़ॉन्ट की अभी भी आवश्यकता हो सकती है। इसलिए, **Cambria Math** को किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, से प्रतिस्थापित करना समीकरण रेंडरिंग के लिए समर्थित नहीं है और यह अभी भी एक अपवाद का कारण बन सकता है जो दर्शाता है कि **Cambria Math** आवश्यक है।
+ऑफ़िस मैथ समीकरणों में अतिरिक्त आवश्यकताएँ होती हैं। यदि कोई समीकरण **Cambria Math** का उपयोग करता है, तो Aspose.Slides को समीकरण लेआउट की गणना और रेंडर करने के लिए बिल्कुल वही फ़ॉन्ट चाहिए हो सकता है। किसी अन्य गणित फ़ॉन्ट, जैसे **STIX Two Math**, को प्रतिस्थापित करने वाला नियम **Cambria Math** को इस उद्देश्य के लिए नहीं बदल सकता, और रेंडरिंग अभी भी यह दर्शा सकती है कि **Cambria Math** आवश्यक है।
 
-ऐसी प्रेजेंटेशन को सफलतापूर्वक रूपांतरित करने के लिए सुनिश्चित करें कि **Cambria Math** रनटाइम पर Aspose.Slides के लिए उपलब्ध हो। आप फ़ॉन्ट को ऑपरेटिंग सिस्टम में स्थापित कर सकते हैं या उसे एक [external font](/slides/hi/nodejs-java/custom-font/) के रूप में प्रदान कर सकते हैं ताकि वह रेंडरिंग और रूपांतरण के दौरान सामान्य फ़ॉन्ट चयन प्रक्रिया में भाग ले सके।
+ऐसी प्रस्तुति को रेंडर या परिवर्तित करने हेतु, **Cambria Math** को Aspose.Slides के लिए उपलब्ध कराएँ। इसे ऑपरेटिंग सिस्टम में इंस्टॉल करें या एक [external font](/slides/hi/nodejs-java/custom-font/) के रूप में लोड करें।
 
-यह सीमा विशेष रूप से समीकरण रेंडरिंग के लिए है। ऊपर वर्णित मानक फ़ॉन्ट प्रतिस्थापन नियम अभी भी नियमित प्रेजेंटेशन टेक्स्ट पर लागू होते हैं जब मूल फ़ॉन्ट उपलब्ध नहीं होता है।
+यह सीमा केवल समीकरण लेआउट पर लागू होती है। ऊपर वर्णित प्रतिस्थापन नियम सामान्य प्रस्तुति टेक्स्ट पर अभी भी लागू होते हैं।
 
 ## **अक्सर पूछे जाने वाले प्रश्न**
 
-**फ़ॉन्ट रिप्लेसमेंट और फ़ॉन्ट सब्स्टिट्यूशन में क्या अंतर है?**  
-[Replacement](/slides/hi/nodejs-java/font-replacement/) पूरे प्रेजेंटेशन में एक फ़ॉन्ट को दूसरे से जबरन बदलने का तरीका है। सब्स्टिट्यूशन एक नियम है जो विशिष्ट स्थिति में सक्रिय होता है, जैसे जब मूल फ़ॉन्ट उपलब्ध नहीं हो, और तब निर्धारित फ़ॉलबैक फ़ॉन्ट का उपयोग किया जाता है।
+**फ़ॉन्ट प्रतिस्थापन और फ़ॉन्ट परिवर्तन में क्या अंतर है?**
 
-**सब्स्टिट्यूशन नियम बिल्कुल कब लागू होते हैं?**  
-नियम लोडिंग, रेंडरिंग और रूपांतरण के दौरान मूल्यांकन की जाने वाली मानक [font selection](/slides/hi/nodejs-java/font-selection-sequence/) क्रम में भाग लेते हैं; यदि चुना गया फ़ॉन्ट उपलब्ध नहीं है, तो रिप्लेसमेंट या सब्स्टिट्यूशन लागू किया जाता है।
+[Font replacement](/slides/hi/nodejs-java/font-replacement/) प्रस्तुति में एक फ़ॉन्ट को पूरे दस्तावेज़ में दूसरे फ़ॉन्ट से जानबूझकर बदलता है। फ़ॉन्ट प्रतिस्थापन रेंडर किए गए आउटपुट के लिए फ़ॉन्ट चुनता है जब विशिष्ट शर्त पूरी होती है, जैसे मूल फ़ॉन्ट उपलब्ध न होना।
 
-**यदि न तो रिप्लेसमेंट और न ही सब्स्टिट्यूशन कॉन्फ़िगर किया गया हो और सिस्टम पर फ़ॉन्ट अनुपलब्ध हो तो डिफ़ॉल्ट व्यवहार क्या है?**  
-लाइब्रेरी सबसे निकटतम उपलब्ध सिस्टम फ़ॉन्ट को चुनने की कोशिश करेगी, जैसे PowerPoint करता है।
+**प्रतिस्थापन नियम कब लागू होते हैं?**
 
-**क्या मैं रनटाइम पर कस्टम एक्सटर्नल फ़ॉन्ट संलग्न कर सकता हूँ ताकि सब्स्टिट्यूशन से बचा जा सके?**  
-हाँ। आप रनटाइम पर [add external fonts](/slides/hi/nodejs-java/custom-font/) कर सकते हैं ताकि लाइब्रेरी उन्हें चयन और रेंडरिंग के लिए, आगामी रूपांतरण सहित, विचार करे।
+नियम रेंडरिंग और परिवर्तित करने के दौरान [font selection sequence](/slides/hi/nodejs-java/font-selection-sequence/) में भाग लेते हैं। `WhenInaccessible` के साथ, नियम केवल तब उपयोग होता है जब Aspose.Slides स्रोत फ़ॉन्ट तक पहुँच नहीं सकता।
 
-**क्या Aspose लाइब्रेरी के साथ कोई फ़ॉन्ट वितरित करता है?**  
-नहीं। Aspose न तो पेड और न ही फ्री फ़ॉन्ट वितरित करता है; आप फ़ॉन्ट स्वयं अपनी समझ और जिम्मेदारी से जोड़ते और उपयोग करते हैं।
+**जब फ़ॉन्ट अनुपलब्ध हो और कोई प्रतिस्थापन नियम न हो तो क्या होता है?**
 
-**क्या Windows, Linux और macOS पर सब्स्टिट्यूशन व्यवहार में अंतर है?**  
-हां। फ़ॉन्ट खोज ऑपरेटिंग सिस्टम की फ़ॉन्ट डायरेक्टरीज़ से शुरू होती है। डिफ़ॉल्ट उपलब्ध फ़ॉन्ट्स और खोज पाथ प्रत्येक प्लेटफ़ॉर्म पर अलग होते हैं, जो उपलब्धता और सब्स्टिट्यूशन की आवश्यकता को प्रभावित करते हैं।
+Aspose.Slides अपने फ़ॉन्ट चयन प्रक्रिया के अनुसार सबसे नज़दीकी उपलब्ध फ़ॉन्ट चुनता है। परिणाम रन‑टाइम पर्यावरण में उपलब्ध फ़ॉन्ट्स पर निर्भर करता है।
 
-**बैच रूपांतरण के दौरान अप्रत्याशित सब्स्टिट्यूशन को कम करने के लिए मुझे वातावरण कैसे तैयार करना चाहिए?**  
-मशीनों या कंटेनरों में फ़ॉन्ट सेट को सिंक्रनाइज़ करें, आउटपुट दस्तावेज़ों के लिए आवश्यक [add the external fonts](/slides/hi/nodejs-java/custom-font/) जोड़ें, और जब संभव हो तो प्रेजेंटेशन में [embed fonts](/slides/hi/nodejs-java/embedded-font/) करें ताकि चयनित फ़ॉन्ट रेंडरिंग के दौरान उपलब्ध हों।
+**क्या मैं प्रतिस्थापन से बचने के लिए बाहरी फ़ॉन्ट लोड कर सकता हूँ?**
+
+हां। आप [external fonts](/slides/hi/nodejs-java/custom-font/) लोड कर सकते हैं ताकि Aspose.Slides उन्हें रेंडरिंग और परिवर्तित करने के दौरान उपयोग कर सके।
+
+**क्या Aspose लाइब्रेरी के साथ फ़ॉन्ट वितरित करता है?**
+
+नहीं। फ़ॉन्ट प्रदान करना और उनके लाइसेंस का पालन करना आपकी ज़िम्मेदारी है।
+
+**क्या प्रतिस्थापन परिणाम Windows, Linux, और macOS में अलग हो सकते हैं?**
+
+हां। स्थापित फ़ॉन्ट्स और फ़ॉन्ट खोज स्थान ऑपरेटिंग सिस्टम के अनुसार अलग होते हैं, इसलिए एक मशीन पर उपलब्ध फ़ॉन्ट दूसरे पर प्रतिस्थापन की आवश्यकता पैदा कर सकता है।
+
+**बैच रूपांतरण में फ़ॉन्ट चयन को सुसंगत कैसे बनाऊँ?**
+
+हर मशीन या कंटेनर पर समान फ़ॉन्ट फ़ाइलें और संस्करण उपयोग करें, आवश्यक [external fonts](/slides/hi/nodejs-java/custom-font/) लोड करें, और लाइसेंस अनुमति देने पर [embed fonts](/slides/hi/nodejs-java/embedded-font/) करें। आप निर्यात से पहले अप्रत्याशित प्रतिस्थापनों की पहचान के लिए [FontsManager.getSubstitutions](https://reference.aspose.com/slides/hi/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) भी कॉल कर सकते हैं।

@@ -1,115 +1,163 @@
 ---
-title: Schriftarten‑Substitution in Präsentationen in .NET konfigurieren
-linktitle: Schriftarten‑Substitution
+title: Schriftartenersetzung in Präsentationen in .NET konfigurieren
+linktitle: Schriftartenersetzung
 type: docs
 weight: 70
 url: /de/net/font-substitution/
 keywords:
 - Schriftart
 - Schriftart ersetzen
-- Schriftart‑Substitution
+- Schriftartenersetzung
 - Schriftart ersetzen
-- Schriftart‑Ersetzung
-- Substitutionsregel
+- Schriftartenaustausch
 - Ersetzungsregel
+- Austauschregel
 - PowerPoint
 - OpenDocument
 - Präsentation
 - .NET
 - C#
 - Aspose.Slides
-description: "Optimale Schriftart‑Substitution in Aspose.Slides für .NET ermöglichen, wenn PowerPoint‑ und OpenDocument‑Präsentationen in andere Dateiformate konvertiert werden."
+description: "Konfigurieren Sie Schriftartenersetzungsregeln und prüfen Sie ersetzte Schriftarten in Aspose.Slides für .NET beim Rendern oder Konvertieren von PowerPoint- und OpenDocument-Präsentationen."
 ---
+## **Übersicht**
 
-## **Font‑Ersetzungen abrufen**
+Schriftartersetzung ermöglicht Aspose.Slides, eine verfügbare Schriftart anstelle einer nicht zugänglichen Schriftart zu verwenden, wenn eine Präsentation gerendert oder konvertiert wird. Die Ersetzung wirkt sich auf die gerenderte Ausgabe aus; sie ändert nicht die der Präsentationsinhalte zugewiesene Schriftart.
 
-Um die während des Renderns einer Präsentation ersetzten Präsentations‑Fonts herauszufinden, stellt Aspose.Slides die Methode [GetSubstitution](https://reference.aspose.com/slides/net/aspose.slides/fontsmanager/getsubstitutions/) vom Interface [IFontsManager](https://reference.aspose.com/slides/net/aspose.slides/ifontsmanager/) bereit.
+Sie können die Schriftart definieren, die verwendet werden soll, wenn eine bestimmte Schriftart nicht verfügbar ist, und Sie können die Ersetzungen untersuchen, die Aspose.Slides während des Renderns vornimmt. Das hilft, die Ausgabe in Umgebungen mit unterschiedlichen installierten Schriftarten konsistent zu halten.
 
-Der C#‑Code zeigt, wie Sie alle Font‑Ersetzungen erhalten, die beim Rendern einer Präsentation durchgeführt werden:
-```c#
-using (Presentation pres = new Presentation(@"Presentation.pptx"))
+## **Schriftartersetzungen abrufen**
+
+Verwenden Sie die [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/)‑Methode, um zu bestimmen, welche Schriftarten beim Rendern der Präsentation ersetzt werden. Die Methode gibt [FontSubstitutionInfo](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstitutioninfo/)‑Objekte zurück, die den ursprünglichen und den ersetzten Schriftartnamen identifizieren.
+
+Das folgende C#‑Beispiel listet alle Schriftartersetzungen für eine Präsentation auf:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 {
-    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
-    {
-        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
-    }
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
 }
 ```
 
+## **Schriftartersetzungen für ausgewählte Folien abrufen**
 
+Verwenden Sie die Überladung von [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) mit einem `int[] slides`‑Argument, um nur die Ersetzungen zu untersuchen, die zum Rendern bestimmter Folien erforderlich sind. Dies ist nützlich, wenn Sie einen Teil einer Präsentation rendern oder exportieren, eine große Präsentation inkrementell prüfen, Folien finden, die von nicht verfügbaren Schriftarten abhängen, ein minimales Schriftpaket für einen Server oder Container vorbereiten oder Rendering‑Unterschiede diagnostizieren möchten, ohne nicht verwandte Folien zu verarbeiten.
 
-## **Font‑Ersetzungsregeln festlegen**
+Das `slides`‑Array enthält ein‑basiert indizierte Foliennummern: `1` bezeichnet die erste Folie. Im Gegensatz dazu ist der Indexer der [Presentation.Slides](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/slides/de/)‑Sammlung nullbasiert, sodass dieselbe Folie über `presentation.Slides[0]` angesprochen wird. Berücksichtigen Sie diesen Unterschied beim Erstellen des Arrays, um Off‑by‑One‑Fehler zu vermeiden.
 
-Aspose.Slides ermöglicht das Festlegen von Regeln für Fonts, die bestimmen, was unter bestimmten Bedingungen (z. B. wenn ein Font nicht verfügbar ist) zu tun ist:
+Rufen Sie die Überladung über die [Presentation.FontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/presentation/fontsmanager/)‑Eigenschaft auf. Sie liefert nur die Ersetzungen, die beim Rendern der ausgewählten Folien ermittelt wurden. Jeder Treffer ist ein [FontSubstitutionInfo](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstitutioninfo/)‑Objekt, das den ursprünglichen und den ersetzten Schriftartnamen enthält. Das Ergebnis spiegelt die aktuelle Schriftumgebung, konfigurierte Fallback‑Regeln, in einer [IFontSubstRuleCollection](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsubstrulecollection/) gespeicherte Ersetzungsregeln und [extern geladene Schriftarten](/slides/de/net/custom-font/) wider.
 
-1. Laden Sie die betreffende Präsentation.
-2. Laden Sie den Font, der ersetzt werden soll.
-3. Laden Sie den neuen Font.
-4. Fügen Sie eine Regel für die Ersetzung hinzu.
-5. Fügen Sie die Regel der Sammlung von Font‑Ersetzungsregeln der Präsentation hinzu.
-6. Generieren Sie das Folienbild, um den Effekt zu beobachten.
+Die gleiche Ersetzung kann von mehr als einer ausgewählten Folie benötigt werden. Entfernen Sie Duplikate, wenn Sie ein Schriftinventar oder einen Preflight‑Report erstellen. Das folgende Beispiel gibt jede zurückgegebene Ersetzung aus und erstellt anschließend eine sortierte Liste eindeutiger Schriftzuordnungen:
 
-Dieser C#‑Code demonstriert den Font‑Ersetzungsprozess:
-```c#
-// Lädt eine Präsentation
-Presentation presentation = new Presentation("Fonts.pptx");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-// Lädt die Quellschriftart, die ersetzt wird
-IFontData sourceFont = new FontData("SomeRareFont");
+using var presentation = new Presentation("Presentation.pptx");
 
-// Lädt die neue Schriftart
-IFontData destFont = new FontData("Arial");
+int[] selectedSlides = { 1, 3, 5 };
+var substitutions = presentation.FontsManager.GetSubstitutions(selectedSlides).ToList();
 
-// Fügt eine Schriftartregel für die Ersetzung hinzu
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
-
-// Fügt die Regel zur Sammlung von Schriftart-Substitutionsregeln hinzu
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
-
-// Fügt die Schriftartregel-Sammlung zur Regel-Liste hinzu
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+Console.WriteLine("Substitutions for the selected slides:");
+foreach (var substitution in substitutions)
 {
-    // Speichert das Bild im JPEG-Format auf die Festplatte
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+var preflightEntries = substitutions.Select(substitution => $"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+var uniquePreflightEntries = preflightEntries.Distinct(StringComparer.OrdinalIgnoreCase);
+var sortedPreflightEntries = uniquePreflightEntries.OrderBy(entry => entry, StringComparer.OrdinalIgnoreCase).ToList();
+
+Console.WriteLine("Deduplicated font preflight report:");
+foreach (var entry in sortedPreflightEntries)
+{
+    Console.WriteLine(entry);
 }
 ```
 
+Das [IFontsManager](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/)‑Interface stellt beide Überladungen bereit. Wählen Sie je nach Umfang des Rendering‑Vorgangs:
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+| Überladung | Verwenden, wenn |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) ohne Argumente | Sie benötigen Ersetzungen für die gesamte Präsentation. |
+| [GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) mit `int[] slides` | Sie benötigen Ersetzungen für einen ausgewählten Bereich, inkrementelle Prüfung oder Teil‑Export. |
 
-Vielleicht möchten Sie [**Font Replacement**](/slides/de/net/font-replacement/) sehen. 
+## **Regeln für Schriftartersetzung festlegen**
 
+Um die Schriftart anzugeben, die Aspose.Slides verwenden soll, wenn eine Quellschriftart nicht verfügbar ist:
+
+1. Laden Sie die Präsentation.
+2. Erstellen Sie Schriftartdefinitionen für die Quell‑ und Ersatzschriftarten.
+3. Erstellen Sie eine [FontSubstRule](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstrule/) mit der Bedingung [WhenInaccessible](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstcondition/).
+4. Fügen Sie die Regel einer [FontSubstRuleCollection](https://reference.aspose.com/slides/de/net/aspose.slides/fontsubstrulecollection/) hinzu.
+5. Weisen Sie die Sammlung der Eigenschaft [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/de/net/aspose.slides/fontsmanager/fontsubstrulelist/) zu.
+6. Rendern oder konvertieren Sie die Präsentation.
+
+Das folgende C#‑Beispiel ersetzt `Arial` durch `SomeRareFont`, wenn `SomeRareFont` nicht verfügbar ist, und rendert anschließend die erste Folie, um das Ergebnis zu prüfen. Die Ersatzschriftart muss für Aspose.Slides verfügbar sein.
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("Fonts.pptx");
+
+var sourceFont = new FontData("SomeRareFont");
+var substituteFont = new FontData("Arial");
+var substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+var substitutionRules = new FontSubstRuleCollection();
+substitutionRules.Add(substitutionRule);
+presentation.FontsManager.FontSubstRuleList = substitutionRules;
+
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("slide.jpg", ImageFormat.Jpeg);
+```
+
+{{% alert color="info" title="Hinweis" %}}
+Für eine bedingungslose Änderung der in einer gesamten Präsentation verwendeten Schriftarten siehe [Font Replacement](/slides/de/net/font-replacement/).
 {{% /alert %}}
+
+## **Einschränkungen für Schriftarten von mathematischen Gleichungen**
+
+Schriftartersetzungsregeln sind Teil des standardmäßigen Schriftartauswahlprozesses, der beim Rendern und Konvertieren verwendet wird. Sie funktionieren für normalen Text, wenn Aspose.Slides eine nicht zugängliche Schriftart durch die in einer Regel angegebene verfügbare Schriftart ersetzen kann.
+
+Office‑Math‑Gleichungen haben eine zusätzliche Anforderung. Wenn eine Gleichung **Cambria Math** verwendet, muss Aspose.Slides genau diese Schriftart besitzen, um das Layout der Gleichung zu berechnen und zu rendern. Eine Regel, die eine andere mathematische Schriftart wie **STIX Two Math** ersetzt, kann **Cambria Math** für diesen Zweck nicht ersetzen, und das Rendering kann weiterhin melden, dass **Cambria Math** erforderlich ist.
+
+Um eine solche Präsentation zu rendern oder zu konvertieren, stellen Sie **Cambria Math** Aspose.Slides zur Verfügung. Installieren Sie sie im Betriebssystem oder laden Sie sie als [external font](/slides/de/net/custom-font/) ​geladen.
+
+Diese Einschränkung gilt nur für das Gleichungs‑Layout. Die oben beschriebenen Ersetzungsregeln gelten weiterhin für normalen Präsentationstext.
 
 ## **FAQ**
 
-**Was ist der Unterschied zwischen Font Replacement und Font Substitution?**
+**Was ist der Unterschied zwischen Schriftartenersetzung und Schriftartenaustausch?**
 
-[Replacement](/slides/de/net/font-replacement/) ist ein erzwungenes Ersetzen eines Fonts durch einen anderen in der gesamten Präsentation. Substitution ist eine Regel, die unter einer bestimmten Bedingung ausgelöst wird, zum Beispiel wenn der ursprüngliche Font nicht verfügbar ist, und dann ein festgelegter Ersatz‑Font verwendet wird.
+[Font replacement](/slides/de/net/font-replacement/) ändert bewusst eine Schriftart durch eine andere in der gesamten Präsentation. Schriftartersetzung wählt eine Schriftart für die gerenderte Ausgabe, wenn die konfigurierte Bedingung erfüllt ist, beispielsweise wenn die Originalschriftart nicht verfügbar ist.
 
-**Wann genau werden Substitutionsregeln angewendet?**
+**Wann werden Ersetzungsregeln angewendet?**
 
-Die Regeln nehmen an der standardmäßigen [font selection](/slides/de/net/font-selection-sequence/)‑Sequenz teil, die beim Laden, Rendern und Konvertieren ausgewertet wird; ist der ausgewählte Font nicht verfügbar, wird eine Ersetzung oder Substitution angewendet.
+Die Regeln nehmen am [font selection sequence](/slides/de/net/font-selection-sequence/)‑Prozess während des Renderns und der Konvertierung teil. Mit `WhenInaccessible` wird eine Regel nur verwendet, wenn Aspose.Slides nicht auf die Quellschriftart zugreifen kann.
 
-**Wie ist das Standardverhalten, wenn weder Ersetzung noch Substitution konfiguriert ist und der Font im System fehlt?**
+**Was passiert, wenn eine Schriftart fehlt und keine Ersetzungsregel konfiguriert ist?**
 
-Die Bibliothek versucht, den am nächsten liegenden verfügbaren System‑Font zu wählen, ähnlich dem Verhalten von PowerPoint.
+Aspose.Slides wählt die am besten passende verfügbare Schriftart gemäß seinem Schriftartauswahlprozess. Das Ergebnis hängt von den im Laufzeit‑Umfeld verfügbaren Schriftarten ab.
 
-**Kann ich benutzerdefinierte externe Fonts zur Laufzeit anhängen, um Substitution zu vermeiden?**
+**Kann ich externe Schriftarten laden, um Ersetzungen zu vermeiden?**
 
-Ja. Sie können zur Laufzeit [externe Fonts hinzufügen](/slides/de/net/custom-font/) sodass die Bibliothek sie bei Auswahl und Rendering berücksichtigt, auch für nachfolgende Konvertierungen.
+Ja. Sie können [external fonts](/slides/de/net/custom-font/) ​laden, sodass Aspose.Slides sie beim Rendern und Konvertieren verwenden kann.
 
-**Verteilt Aspose irgendwelche Fonts mit der Bibliothek?**
+**Stellt Aspose Schriftarten mit der Bibliothek bereit?**
 
-Nein. Aspose verteilt keine kostenpflichtigen oder kostenlosen Fonts; Sie fügen Fonts nach eigenem Ermessen und Verantwortung hinzu und verwenden sie.
+Nein. Sie sind dafür verantwortlich, Schriftarten bereitzustellen und deren Lizenzbedingungen zu beachten.
 
-**Gibt es Unterschiede im Substitutionsverhalten unter Windows, Linux und macOS?**
+**Können sich Ersetzungsergebnisse zwischen Windows, Linux und macOS unterscheiden?**
 
-Ja. Die Font‑Erkennung beginnt in den Font‑Verzeichnissen des Betriebssystems. Die Menge der standardmäßig verfügbaren Fonts und die Suchpfade unterscheiden sich je nach Plattform, was die Verfügbarkeit und den Bedarf an Substitution beeinflusst.
+Ja. Installierte Schriftarten und Suchorte für Schriftarten unterscheiden sich je nach Betriebssystem, sodass eine Schriftart, die auf einem Rechner verfügbar ist, auf einem anderen substituiert werden muss.
 
-**Wie sollte ich die Umgebung vorbereiten, um unerwartete Substitutionen bei Stapelkonvertierungen zu minimieren?**
+**Wie kann ich die Schriftartauswahl bei Stapelkonvertierungen konsistent machen?**
 
-Synchronisieren Sie den Font‑Satz über Maschinen oder Container hinweg, [externe Fonts hinzufügen](/slides/de/net/custom-font/) für die Ausgabedokumente und, wenn möglich, [Fonts einbetten](/slides/de/net/embedded-font/) in Präsentationen, damit die ausgewählten Fonts während des Renderings verfügbar sind.
+Verwenden Sie dieselben Schriftdateien und -versionen auf jedem Rechner oder Container, [laden Sie erforderliche externe Schriftarten](/slides/de/net/custom-font/) und [betten Sie Schriftarten ein](/slides/de/net/embedded-font/), sofern die Lizenz dies zulässt. Sie können außerdem vor dem Export [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/de/net/aspose.slides/ifontsmanager/getsubstitutions/) ​aufrufen, um unerwartete Ersetzungen zu identifizieren.

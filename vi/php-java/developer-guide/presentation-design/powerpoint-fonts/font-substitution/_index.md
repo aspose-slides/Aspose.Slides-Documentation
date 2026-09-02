@@ -1,5 +1,5 @@
 ---
-title: Cấu hình Thay thế Phông chữ trong Bản trình chiếu bằng PHP
+title: Cấu hình Thay thế Phông chữ trong Bản trình chiếu sử dụng PHP
 linktitle: Thay thế Phông chữ
 type: docs
 weight: 70
@@ -7,8 +7,8 @@ url: /vi/php-java/font-substitution/
 keywords:
 - phông chữ
 - phông chữ thay thế
+- sự thay thế phông chữ
 - thay thế phông chữ
-- thay đổi phông chữ
 - thay thế phông chữ
 - quy tắc thay thế
 - quy tắc thay thế
@@ -17,92 +17,174 @@ keywords:
 - bản trình chiếu
 - PHP
 - Aspose.Slides
-description: "Kích hoạt việc thay thế phông chữ tối ưu trong Aspose.Slides cho PHP thông qua Java khi chuyển đổi bản trình chiếu PowerPoint và OpenDocument sang các định dạng tệp khác."
+description: "Cấu hình các quy tắc thay thế phông chữ và kiểm tra các phông chữ đã được thay thế trong Aspose.Slides cho PHP thông qua Java khi render hoặc chuyển đổi các bản trình chiếu PowerPoint và OpenDocument."
 ---
-## **Giới thiệu**
+## **Tổng quan**
 
-Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ khác khi phông chữ gốc của bản trình chiếu không khả dụng trong quá trình render hoặc chuyển đổi. Bạn có thể kiểm tra các phông chữ đã được thay thế bằng cách sử dụng phương thức `getSubstitutions` của lớp `FontsManager`.
+Thay thế phông chữ cho phép Aspose.Slides sử dụng một phông chữ có sẵn thay cho phông chữ không thể truy cập khi bản trình chiếu được render hoặc chuyển đổi. Việc thay thế ảnh hưởng đến đầu ra đã render; nó không thay đổi phông chữ được gán cho nội dung bản trình chiếu.
 
-Aspose.Slides cũng cho phép bạn định nghĩa các quy tắc thay thế phông chữ. Ví dụ, bạn có thể chỉ định rằng một phông chữ không truy cập được sẽ được thay bằng một phông chữ khả dụng khác và sau đó áp dụng các quy tắc đó thông qua font manager của bản trình chiếu.
+Bạn có thể xác định phông chữ sẽ sử dụng khi một phông chữ cụ thể không khả dụng, và bạn có thể kiểm tra các phép thay thế mà Aspose.Slides sẽ thực hiện trong quá trình render. Điều này giúp duy trì tính nhất quán của đầu ra trong các môi trường có các phông chữ được cài đặt khác nhau.
+
+## **Lấy các phép thay thế phông chữ**
+
+Sử dụng phương thức [FontsManager::getSubstitutions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/getsubstitutions/) để xác định những phông chữ nào sẽ được thay thế khi bản trình chiếu được render. Phương thức trả về các đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsubstitutioninfo/) mô tả tên phông chữ gốc và phông chữ thay thế.
+
+Ví dụ PHP sau liệt kê tất cả các phép thay thế phông chữ cho một bản trình chiếu:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+## **Lấy các phép thay thế phông chữ cho các slide đã chọn**
+
+Sử dụng phương thức overload của [FontsManager::getSubstitutions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/getsubstitutions/) có tham số `int[] slides` để kiểm tra chỉ các phép thay thế cần thiết cho việc render những slide cụ thể. Điều này hữu ích khi bạn render hoặc xuất một phần của bản trình chiếu, kiểm tra dần một bản trình chiếu lớn, xác định các slide phụ thuộc vào phông chữ không khả dụng, chuẩn bị một gói phông chữ tối thiểu cho máy chủ hoặc container, hoặc chẩn đoán sự khác biệt khi render mà không xử lý các slide không liên quan.
+
+Mảng `slides` chứa các chỉ mục slide dựa trên số 1: `1` xác định slide đầu tiên. Ngược lại, bộ truy cập collection [Presentation::getSlides](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getSlides) sử dụng chỉ mục bắt đầu từ 0, vì vậy cùng slide đó được truy cập bằng `$presentation->getSlides()->get_Item(0)`. Hãy nhớ sự khác biệt này khi xây dựng mảng để tránh lỗi lệch chỉ mục.
+
+Gọi overload thông qua phương thức [Presentation::getFontsManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/presentation/#getFontsManager). Nó trả về chỉ các phép thay thế được xác định khi render các slide đã chọn. Mỗi kết quả là một đối tượng [FontSubstitutionInfo](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsubstitutioninfo/) chứa tên phông chữ gốc và phông chữ thay thế. Kết quả phản ánh môi trường phông chữ hiện tại, các quy tắc fallback đã cấu hình, các quy tắc thay thế được lưu trong một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsubstrulecollection/), và [phông chữ được tải từ bên ngoài](/slides/vi/php-java/custom-font/).
+
+Cùng một phép thay thế có thể được yêu cầu bởi nhiều slide đã chọn. Hãy loại bỏ trùng lặp kết quả khi bạn tạo kiểm kê phông chữ hoặc báo cáo preflight. Ví dụ sau báo cáo mỗi phép thay thế được trả về và sau đó tạo danh sách đã sắp xếp các ánh xạ phông chữ duy nhất:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Lớp [FontsManager](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/) cung cấp cả hai overload. Chọn một phương thức phù hợp với phạm vi của hoạt động render:
+
+| Phương thức | Sử dụng khi |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/getsubstitutions/) không có đối số | Bạn cần các phép thay thế cho toàn bộ bản trình chiếu. |
+| [getSubstitutions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/getsubstitutions/) với `int[] slides` | Bạn cần các phép thay thế cho một phạm vi đã chọn, kiểm tra dần, hoặc xuất một phần. |
 
 ## **Đặt quy tắc thay thế phông chữ**
 
-Aspose.Slides cho phép bạn thiết lập các quy tắc cho phông chữ xác định những gì cần thực hiện trong các điều kiện nhất định (ví dụ, khi một phông chữ không thể truy cập) như sau:
+Để chỉ định phông chữ mà Aspose.Slides nên sử dụng khi phông chữ nguồn không khả dụng:
 
-1. Tải bản trình chiếu liên quan.  
-2. Tải phông chữ sẽ được thay thế.  
-3. Tải phông chữ mới.  
-4. Thêm một quy tắc cho việc thay thế.  
-5. Thêm quy tắc vào bộ sưu tập quy tắc thay thế phông chữ của bản trình chiếu.  
-6. Tạo ảnh slide để quan sát hiệu ứng.  
+1. Tải bản trình chiếu.
+2. Tạo định nghĩa phông chữ cho phông nguồn và phông thay thế.
+3. Tạo một [FontSubstRule](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsubstrule/) với điều kiện [WhenInaccessible](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsubstcondition/).
+4. Thêm quy tắc vào một [FontSubstRuleCollection](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsubstrulecollection/).
+5. Gán bộ sưu tập bằng cách sử dụng phương thức [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
+6. Render hoặc chuyển đổi bản trình chiếu.
 
-Đoạn code PHP sau minh họa quy trình thay thế phông chữ:
+Ví dụ PHP sau thay thế `Arial` cho `SomeRareFont` khi `SomeRareFont` không khả dụng, sau đó render slide đầu tiên để xác minh kết quả. Phông chữ thay thế phải có sẵn cho Aspose.Slides.
 
 ```php
-  # Tải một bản trình chiếu
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # Tải phông chữ nguồn sẽ được thay thế
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
     $sourceFont = new FontData("SomeRareFont");
-    # Tải phông chữ mới
-    $destFont = new FontData("Arial");
-    # Thêm một quy tắc phông chữ cho việc thay thế phông chữ
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # Thêm quy tắc vào bộ sưu tập các quy tắc thay thế phông chữ
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # Thêm một bộ sưu tập quy tắc phông chữ vào danh sách quy tắc
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # Phông chữ Arial sẽ được sử dụng thay cho SomeRareFont khi phông chữ này không thể truy cập
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # Lưu ảnh vào đĩa ở định dạng JPEG
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        $image->save("slide.jpg", ImageFormat::Jpeg);
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $image->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-Bạn có thể muốn xem [**Thay thế phông chữ**](/slides/vi/php-java/font-replacement/).
+{{% alert color="info" title="Note" %}}
+Để thay đổi không điều kiện các phông chữ được sử dụng trong toàn bộ bản trình chiếu, xem [Font Replacement](/slides/vi/php-java/font-replacement/).
 {{% /alert %}}
 
-## **Giới hạn đối với phông chữ công thức toán học**
+## **Hạn chế cho phông chữ công thức toán học**
 
-Các quy tắc thay thế phông chữ tham gia vào quy trình lựa chọn phông chữ chuẩn được sử dụng trong quá trình render và chuyển đổi. Chúng phù hợp cho các trường hợp văn bản thường, nơi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng một phông chữ khả dụng khác theo quy tắc đã cấu hình.
+Quy tắc thay thế phông chữ là một phần của quy trình lựa chọn phông chữ chuẩn được sử dụng trong quá trình render và chuyển đổi. Chúng hoạt động cho văn bản thường khi Aspose.Slides có thể thay thế một phông chữ không truy cập được bằng phông chữ khả dụng được chỉ định trong quy tắc.
 
-Tuy nhiên, các công thức toán học của Office có một hạn chế quan trọng. Nếu một công thức được tạo bằng **Cambria Math**, Aspose.Slides vẫn có thể yêu cầu phông chữ **Cambria Math** gốc để tính toán và render bố cục công thức một cách chính xác. Do đó, việc thay thế **Cambria Math** bằng một phông chữ toán học khác, chẳng hạn như **STIX Two Math**, không được hỗ trợ cho việc render công thức và có thể vẫn dẫn đến ngoại lệ cho biết **Cambria Math** là bắt buộc.
+Công thức Office Math có một yêu cầu bổ sung. Nếu một công thức sử dụng **Cambria Math**, Aspose.Slides có thể cần chính phông chữ đó để tính toán và render bố cục công thức. Một quy tắc thay thế bằng một phông chữ toán học khác, chẳng hạn **STIX Two Math**, không thể thay thế **Cambria Math** cho mục đích này, và việc render vẫn có thể báo cáo rằng **Cambria Math** là bắt buộc.
 
-Để chuyển đổi các bản trình chiếu như vậy một cách thành công, hãy chắc chắn rằng **Cambria Math** có sẵn cho Aspose.Slides ở thời điểm chạy. Bạn có thể cài đặt phông chữ này trong hệ điều hành hoặc cung cấp nó như một [phông chữ bên ngoài](/slides/vi/php-java/custom-font/) để nó có thể tham gia vào quy trình lựa chọn phông chữ bình thường trong quá trình render và chuyển đổi.
+Để render hoặc chuyển đổi bản trình chiếu như vậy, hãy làm cho **Cambria Math** khả dụng với Aspose.Slides. Cài đặt nó trong hệ điều hành hoặc tải nó như một [phông chữ bên ngoài](/slides/vi/php-java/custom-font/).
 
-Giới hạn này chỉ áp dụng cho việc render công thức. Các quy tắc thay thế phông chữ chuẩn được mô tả ở trên vẫn áp dụng cho văn bản bản trình chiếu thông thường khi phông chữ gốc không khả dụng.
+Hạn chế này chỉ áp dụng cho bố cục công thức. Các quy tắc thay thế được mô tả ở trên vẫn áp dụng cho văn bản thông thường của bản trình chiếu.
 
 ## **Câu hỏi thường gặp**
 
-**Sự khác biệt giữa thay thế phông chữ và thay thế (substitution) phông chữ là gì?**  
-[Replacement](/slides/vi/php-java/font-replacement/) là việc ép buộc ghi đè một phông chữ bằng một phông chữ khác trên toàn bộ bản trình chiếu. Thay thế (substitution) là một quy tắc được kích hoạt trong một điều kiện cụ thể, ví dụ khi phông chữ gốc không khả dụng, và sau đó một phông chữ dự phòng được chỉ định sẽ được sử dụng.
+**Sự khác biệt giữa thay thế phông chữ và thay thế phông chữ (substitution) là gì?**  
+[Font replacement](/slides/vi/php-java/font-replacement/) thay đổi cố ý một phông chữ thành phông chữ khác trên toàn bộ bản trình chiếu. Thay thế phông chữ chọn một phông chữ cho đầu ra đã render khi điều kiện cấu hình được đáp ứng, chẳng hạn khi phông chữ gốc không khả dụng.
 
-**Khi nào các quy tắc thay thế (substitution) được áp dụng?**  
-Các quy tắc tham gia vào chuỗi [lựa chọn phông chữ](/slides/vi/php-java/font-selection-sequence/) chuẩn được đánh giá trong quá trình tải, render và chuyển đổi; nếu phông chữ được chọn không khả dụng, việc thay thế hoặc thay thế (substitution) sẽ được áp dụng.
+**Khi nào các quy tắc thay thế được áp dụng?**  
+Các quy tắc tham gia vào [chuỗi lựa chọn phông chữ](/slides/vi/php-java/font-selection-sequence/) trong quá trình render và chuyển đổi. Với `WhenInaccessible`, quy tắc chỉ được sử dụng khi Aspose.Slides không thể truy cập phông chữ nguồn.
 
-**Hành vi mặc định là gì nếu không có cả thay thế nor substitution nào được cấu hình và phông chữ không tồn tại trên hệ thống?**  
-Thư viện sẽ cố gắng chọn phông chữ hệ thống khả dụng gần nhất, tương tự như cách PowerPoint hoạt động.
+**Điều gì xảy ra khi một phông chữ thiếu và không có quy tắc thay thế nào được cấu hình?**  
+Aspose.Slides sẽ chọn phông chữ khả dụng gần nhất theo quy trình lựa chọn phông chữ của nó. Kết quả phụ thuộc vào các phông chữ có sẵn trong môi trường runtime.
 
-**Tôi có thể đính kèm các phông chữ bên ngoài tùy chỉnh tại thời điểm chạy để tránh việc thay thế không?**  
-Có. Bạn có thể [thêm phông chữ bên ngoài](/slides/vi/php-java/custom-font/) tại thời điểm chạy để thư viện cân nhắc chúng trong việc lựa chọn và render, bao gồm cả các lần chuyển đổi tiếp theo.
+**Tôi có thể tải phông chữ bên ngoài để tránh việc thay thế không?**  
+Có. Bạn có thể [tải phông chữ bên ngoài](/slides/vi/php-java/custom-font/) để Aspose.Slides có thể sử dụng chúng trong quá trình render và chuyển đổi.
 
-**Aspose có phân phối bất kỳ phông chữ nào kèm theo thư viện không?**  
-Không. Aspose không phân phối phông chữ trả phí hay miễn phí; bạn tự thêm và sử dụng phông chữ theo quyết định và trách nhiệm của mình.
+**Aspose có phân phối phông chữ cùng với thư viện không?**  
+Không. Bạn chịu trách nhiệm cung cấp phông chữ và tuân thủ các giấy phép của chúng.
 
-**Có sự khác biệt nào trong hành vi thay thế trên Windows, Linux và macOS không?**  
-Có. Quá trình khám phá phông chữ bắt đầu từ các thư mục phông chữ của hệ điều hành. Bộ phông chữ khả dụng mặc định và các đường dẫn tìm kiếm khác nhau giữa các nền tảng, điều này ảnh hưởng tới khả năng sẵn có và nhu cầu thay thế.
+**Kết quả thay thế có thể khác nhau giữa Windows, Linux và macOS không?**  
+Có. Các phông chữ được cài đặt và vị trí tìm kiếm phông chữ khác nhau tùy theo hệ điều hành, vì vậy một phông chữ có sẵn trên máy này có thể cần được thay thế trên máy khác.
 
-**Làm thế nào tôi nên chuẩn bị môi trường để giảm thiểu việc thay thế không mong muốn trong quá trình chuyển đổi hàng loạt?**  
-Đồng bộ bộ phông chữ trên các máy hoặc container, [thêm các phông chữ bên ngoài](/slides/vi/php-java/custom-font/) cần thiết cho tài liệu đầu ra, và [nhúng phông chữ](/slides/vi/php-java/embedded-font/) vào bản trình chiếu khi có thể để các phông chữ đã chọn có sẵn trong quá trình render.
+**Làm thế nào để làm cho việc lựa chọn phông chữ nhất quán trong các chuyển đổi hàng loạt?**  
+Sử dụng cùng các tệp phông chữ và phiên bản trên mọi máy hoặc container, [tải phông chữ bên ngoài cần thiết](/slides/vi/php-java/custom-font/), và [nhúng phông chữ](/slides/vi/php-java/embedded-font/) khi giấy phép cho phép. Bạn cũng có thể gọi [FontsManager::getSubstitutions](https://reference.aspose.com/slides/vi/php-java/aspose.slides/fontsmanager/getsubstitutions/) trước khi xuất để xác định các phép thay thế không mong muốn.

@@ -1,16 +1,16 @@
 ---
-title: Konfiguracja podstawiania czcionek w prezentacjach przy użyciu JavaScript
-linktitle: Podstawianie czcionek
+title: Konfigurowanie zastępowania czcionek w prezentacjach przy użyciu JavaScript
+linktitle: Zastępowanie czcionek
 type: docs
 weight: 70
 url: /pl/nodejs-java/font-substitution/
 keywords:
 - czcionka
-- podstawianie czcionki
-- podstawianie czcionki
+- zastępcza czcionka
+- zastępowanie czcionek
 - zamiana czcionki
-- zamiana czcionki
-- reguła podstawiania
+- zamiana czcionek
+- reguła zastąpienia
 - reguła zamiany
 - PowerPoint
 - OpenDocument
@@ -18,101 +18,168 @@ keywords:
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Włącz optymalne podstawianie czcionek w Aspose.Slides dla Node.js podczas konwertowania prezentacji PowerPoint i OpenDocument na inne formaty plików w języku JavaScript."
+description: "Konfiguruj reguły zastępowania czcionek i sprawdzaj zastąpione czcionki w Aspose.Slides dla Node.js przy użyciu Java podczas renderowania lub konwersji prezentacji PowerPoint i OpenDocument."
 ---
 ## **Przegląd**
 
-Podstawianie czcionek pozwala Aspose.Slides używać innej czcionki, gdy oryginalna czcionka prezentacji nie jest dostępna podczas renderowania lub konwersji. Możesz sprawdzić, które czcionki zostały podstawione, używając metody `getSubstitutions` z klasy `FontsManager`.
+Zastępowanie czcionek pozwala Aspose.Slides używać dostępnej czcionki zamiast czcionki, której nie można uzyskać podczas renderowania lub konwersji prezentacji. Zastąpienie wpływa na renderowany wynik; nie zmienia czcionki przypisanej do treści prezentacji.
 
-Aspose.Slides umożliwia także definiowanie reguł podstawiania czcionek. Na przykład możesz określić, że niedostępna czcionka ma być zastąpiona inną dostępną czcionką i następnie zastosować te reguły za pomocą menedżera czcionek prezentacji.
+Możesz określić czcionkę, która ma być użyta, gdy dana czcionka jest niedostępna, oraz możesz sprawdzić zastąpienia, które Aspose.Slides wykona podczas renderowania. Pomaga to utrzymać spójność wyniku w różnych środowiskach z różnymi zainstalowanymi czcionkami.
 
-## **Ustaw reguły podstawiania czcionek**
+## **Pobieranie zastąpień czcionek**
 
-Aspose.Slides pozwala ustawić reguły dla czcionek określające, co należy zrobić w określonych warunkach (na przykład, gdy czcionka nie jest dostępna) w następujący sposób:
+Użyj metody [FontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/), aby określić, które czcionki zostaną zastąpione podczas renderowania prezentacji. Metoda zwraca obiekty [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsubstitutioninfo/), które identyfikują oryginalne i zastąpione nazwy czcionek.
 
-1. Wczytaj odpowiednią prezentację.  
-2. Wczytaj czcionkę, która ma zostać zastąpiona.  
-3. Wczytaj nową czcionkę.  
-4. Dodaj regułę zamiany.  
-5. Dodaj regułę do kolekcji reguł zamiany czcionek prezentacji.  
-6. Wygeneruj obraz slajdu, aby zobaczyć efekt.
-
-Ten kod JavaScript demonstruje proces podstawiania czcionek:
+Poniższy przykład JavaScript wyświetla wszystkie zastąpienia czcionek dla prezentacji:
 
 ```javascript
-// Ładuje prezentację
-var pres = new aspose.slides.Presentation("Fonts.pptx");
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
 try {
-    // Ładuje czcionkę źródłową, która ma zostać zastąpiona
-    var sourceFont = new aspose.slides.FontData("SomeRareFont");
-    // Ładuje nową czcionkę
-    var destFont = new aspose.slides.FontData("Arial");
-    // Dodaje regułę czcionki dla zamiany czcionki
-    var fontSubstRule = new aspose.slides.FontSubstRule(sourceFont, destFont, aspose.slides.FontSubstCondition.WhenInaccessible);
-    // Dodaje regułę do kolekcji reguł podstawiania czcionek
-    var fontSubstRuleCollection = new aspose.slides.FontSubstRuleCollection();
-    fontSubstRuleCollection.add(fontSubstRule);
-    // Dodaje kolekcję reguł czcionek do listy reguł
-    pres.getFontsManager().setFontSubstRuleList(fontSubstRuleCollection);
-    // Czcionka Arial będzie używana zamiast SomeRareFont, gdy ta ostatnia będzie niedostępna
-    var slideImage = pres.getSlides().get_Item(0).getImage(1.0, 1.0);
-    // Zapisuje obraz na dysk w formacie JPEG
-    try {
-        slideImage.save("Thumbnail_out.jpg", aspose.slides.ImageFormat.Jpeg);
-    } finally {
-        if (slideImage != null) {
-            slideImage.dispose();
-        }
+    var substitutions = presentation.getFontsManager().getSubstitutions().iterator();
+    while (substitutions.hasNext()) {
+        var substitution = substitutions.next();
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
     }
 } finally {
-    if (pres != null) {
-        pres.dispose();
-    }
+    presentation.dispose();
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
+## **Pobieranie zastąpień czcionek dla wybranych slajdów**
 
-Możesz chcieć zobaczyć [**Font Replacement**](/slides/pl/nodejs-java/font-replacement/).
+Użyj przeciążenia [FontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) z tablicą indeksów slajdów, aby sprawdzić tylko te zastąpienia potrzebne do renderowania konkretnych slajdów. Jest to przydatne podczas renderowania lub eksportowania części prezentacji, inkrementalnego sprawdzania dużej prezentacji, lokalizowania slajdów zależnych od niedostępnych czcionek, przygotowywania minimalnego pakietu czcionek dla serwera lub kontenera albo diagnozowania różnic w renderowaniu bez przetwarzania niepowiązanych slajdów.
 
+Przeciążenie oczekuje prymitywu Javy `int[]`. Utwórz je za pomocą `java.newArray("int", [...])`; zwykła tablica JavaScript jest konwertowana na `Integer[]` i nie pasuje do tego przeciążenia.
+
+Tablica zawiera indeksy slajdów zaczynające się od jedynki: `1` identyfikuje pierwszy slajd. Natomiast dostęp do kolekcji [Presentation.getSlides](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getslides/) używa indeksowania od zera, więc ten sam slajd jest dostępny jako `presentation.getSlides().get_Item(0)`. Pamiętaj o tej różnicy przy tworzeniu tablicy, aby uniknąć błędów o jeden.
+
+Wywołaj przeciążenie przez [Presentation.getFontsManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/presentation/getfontsmanager/). Zwraca ono tylko te zastąpienia określone podczas renderowania wybranych slajdów. Każdy wynik jest obiektem [FontSubstitutionInfo](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsubstitutioninfo/), zawierającym oryginalne i zastąpione nazwy czcionek. Wynik odzwierciedla bieżące środowisko czcionek, skonfigurowane zasady awaryjne, zasady zastępowania przechowywane w [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsubstrulecollection/) oraz [zewnętrznie załadowane czcionki](/slides/pl/nodejs-java/custom-font/).
+
+To samo zastąpienie może być wymagane przez więcej niż jeden wybrany slajd. Usuń duplikaty wyników podczas tworzenia inwentarza czcionek lub raportu weryfikacyjnego. Poniższy przykład raportuje każde zwrócone zastąpienie, a następnie tworzy posortowaną listę unikalnych mapowań czcionek:
+
+```javascript
+var aspose = aspose || {};
+const java = require("java");
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var selectedSlides = java.newArray("int", [1, 3, 5]);
+    var substitutions = [];
+    var substitutionIterator = presentation.getFontsManager().getSubstitutions(selectedSlides).iterator();
+    while (substitutionIterator.hasNext()) {
+        substitutions.push(substitutionIterator.next());
+    }
+
+    console.log("Substitutions for the selected slides:");
+    substitutions.forEach(function (substitution) {
+        console.log(substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName());
+    });
+
+    var preflightEntries = substitutions.map(function (substitution) {
+        return substitution.getOriginalFontName() + " -> " + substitution.getSubstitutedFontName();
+    });
+    var sortedPreflightEntries = Array.from(new Set(preflightEntries)).sort(function (first, second) {
+        return first.localeCompare(second, undefined, { sensitivity: "base" });
+    });
+
+    console.log("Deduplicated font preflight report:");
+    sortedPreflightEntries.forEach(function (entry) {
+        console.log(entry);
+    });
+} finally {
+    presentation.dispose();
+}
+```
+
+Klasa [FontsManager](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/) udostępnia oba przeciążenia. Wybierz odpowiednie w zależności od zakresu operacji renderowania:
+
+| Przeciążenie | Kiedy używać |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with no arguments | Potrzebujesz zastąpień dla całej prezentacji. |
+| [getSubstitutions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) with a Java `int[]` of slide indexes | Potrzebujesz zastąpień dla wybranego zakresu, inkrementalnego sprawdzenia lub częściowego eksportu. |
+
+## **Ustawianie reguł zastępowania czcionek**
+
+Aby określić czcionkę, której Aspose.Slides ma używać, gdy źródłowa czcionka jest niedostępna:
+
+1. Wczytaj prezentację.
+2. Utwórz definicje czcionek dla czcionki źródłowej i zastępczej.
+3. Utwórz [FontSubstRule](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsubstrule/) z warunkiem [WhenInaccessible](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsubstcondition/).
+4. Dodaj regułę do [FontSubstRuleCollection](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsubstrulecollection/).
+5. Przypisz kolekcję przy użyciu metody [FontsManager.setFontSubstRuleList](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/setfontsubstrulelist/).
+6. Renderuj lub konwertuj prezentację.
+
+Poniższy przykład JavaScript zastępuje `Arial` czcionką `SomeRareFont`, gdy `SomeRareFont` jest niedostępna, a następnie renderuje pierwszy slajd w celu weryfikacji wyniku. Czcionka zastępcza musi być dostępna dla Aspose.Slides.
+
+```javascript
+var aspose = aspose || {};
+aspose.slides = require("aspose.slides.via.java");
+
+var presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    var sourceFont = new aspose.slides.FontData("SomeRareFont");
+    var substituteFont = new aspose.slides.FontData("Arial");
+    var substitutionRule = new aspose.slides.FontSubstRule(sourceFont, substituteFont, aspose.slides.FontSubstCondition.WhenInaccessible);
+
+    var substitutionRules = new aspose.slides.FontSubstRuleCollection();
+    substitutionRules.add(substitutionRule);
+    presentation.getFontsManager().setFontSubstRuleList(substitutionRules);
+
+    var image = presentation.getSlides().get_Item(0).getImage(1.0, 1.0);
+    try {
+        image.save("slide.jpg", aspose.slides.ImageFormat.Jpeg);
+    } finally {
+        image.dispose();
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+Aby bezwarunkowo zmienić czcionki używane w całej prezentacji, zobacz [Font Replacement](/slides/pl/nodejs-java/font-replacement/).
 {{% /alert %}}
 
 ## **Ograniczenia dotyczące czcionek równań matematycznych**
 
-Reguły podstawiania czcionek uczestniczą w standardowym procesie wyboru czcionki używanym podczas renderowania i konwersji. Są odpowiednie dla zwykłych scenariuszy tekstowych, w których Aspose.Slides może zastąpić niedostępną czcionkę inną dostępną czcionką zgodnie z skonfigurowaną regułą.
+Reguły zastępowania czcionek są częścią standardowego procesu wyboru czcionki używanego podczas renderowania i konwersji. Działają one dla zwykłego tekstu, gdy Aspose.Slides może zamienić niedostępną czcionkę na czcionkę dostępną określoną w regule.
 
-Jednak równania matematyczne w Office mają istotne ograniczenie. Jeśli równanie zostało utworzone przy użyciu **Cambria Math**, Aspose.Slides może nadal wymagać oryginalnej czcionki **Cambria Math**, aby prawidłowo obliczyć i wyrenderować układ równania. Z tego powodu podstawianie **Cambria Math** inną czcionką matematyczną, taką jak **STIX Two Math**, nie jest obsługiwane przy renderowaniu równań i może skutkować wyjątkiem informującym, że wymagana jest czcionka **Cambria Math**.
+Równania Office Math mają dodatkowy wymóg. Jeśli równanie używa **Cambria Math**, Aspose.Slides może potrzebować dokładnie tej czcionki, aby obliczyć i wyrenderować układ równania. Reguła, która zastępuje inną czcionkę matematyczną, taką jak **STIX Two Math**, nie może zastąpić **Cambria Math** w tym celu i renderowanie może nadal zgłaszać wymóg **Cambria Math**.
 
-Aby pomyślnie konwertować takie prezentacje, upewnij się, że **Cambria Math** jest dostępna dla Aspose.Slides w czasie wykonywania. Możesz zainstalować czcionkę w systemie operacyjnym lub udostępnić ją jako [external font](/slides/pl/nodejs-java/custom-font/), aby mogła uczestniczyć w normalnym procesie wyboru czcionki podczas renderowania i konwersji.
+Aby wyrenderować lub skonwertować taką prezentację, udostępnij **Cambria Math** Aspose.Slides. Zainstaluj ją w systemie operacyjnym lub załaduj jako [zewnętrzną czcionkę](/slides/pl/nodejs-java/custom-font/).
 
-To ograniczenie dotyczy wyłącznie renderowania równań. Standardowe reguły podstawiania czcionek opisane powyżej nadal obowiązują dla zwykłego tekstu prezentacji, gdy oryginalna czcionka jest niedostępna.
+To ograniczenie dotyczy układu równań. Opisane powyżej reguły zastępowania nadal obowiązują dla zwykłego tekstu prezentacji.
 
-## **Najczęściej zadawane pytania**
+## **FAQ**
 
-**Jaka jest różnica między zamianą czcionki a podstawianiem czcionki?**
+**Jaka jest różnica między zastąpieniem czcionki a zastępowaniem czcionki?**
 
-[Replacement](/slides/pl/nodejs-java/font-replacement/) to wymuszone zastąpienie jednej czcionki inną w całej prezentacji. Substitution to reguła, która uruchamia się w określonym warunku, na przykład gdy oryginalna czcionka jest niedostępna, i wtedy używana jest wyznaczona czcionka zapasowa.
+[Font replacement](/slides/pl/nodejs-java/font-replacement/) celowo zmienia jedną czcionkę na inną w całej prezentacji. Zastępowanie czcionki wybiera czcionkę dla renderowanego wyniku, gdy spełniony jest skonfigurowany warunek, np. gdy pierwotna czcionka jest niedostępna.
 
-**Kiedy dokładnie stosowane są reguły podstawiania?**
+**Kiedy stosowane są reguły zastępowania?**
 
-Reguły uczestniczą w standardowej [font selection](/slides/pl/nodejs-java/font-selection-sequence/) kolejności ocenianej podczas ładowania, renderowania i konwersji; jeśli wybrana czcionka jest niedostępna, stosowana jest zamiana lub podstawienie.
+Reguły uczestniczą w [sekwencji wyboru czcionki](/slides/pl/nodejs-java/font-selection-sequence/) podczas renderowania i konwersji. Przy `WhenInaccessible` reguła jest używana tylko wtedy, gdy Aspose.Slides nie może uzyskać dostępu do czcionki źródłowej.
 
-**Jakie jest domyślne zachowanie, jeśli nie skonfigurowano ani zamiany, ani podstawienia i czcionka jest brakująca w systemie?**
+**Co się dzieje, gdy czcionka jest brakująca i nie jest skonfigurowana żadna reguła zastępowania?**
 
-Biblioteka spróbuje wybrać najbliższą dostępną czcionkę systemową, podobnie jak zachowałby się PowerPoint.
+Aspose.Slides wybiera najbliższą dostępną czcionkę zgodnie ze swoim procesem wyboru czcionek. Wynik zależy od czcionek dostępnych w środowisku uruchomieniowym.
 
-**Czy mogę dołączyć własne czcionki zewnętrzne w czasie wykonywania, aby uniknąć podstawienia?**
+**Czy mogę załadować zewnętrzne czcionki, aby uniknąć zastępowania?**
 
-Tak. Możesz [add external fonts](/slides/pl/nodejs-java/custom-font/) w czasie wykonywania, aby biblioteka brała je pod uwagę przy wyborze i renderowaniu, także przy kolejnych konwersjach.
+Tak. Możesz [załadować zewnętrzne czcionki](/slides/pl/nodejs-java/custom-font/), aby Aspose.Slides mogło ich używać podczas renderowania i konwersji.
 
-**Czy Aspose dystrybuuje jakiekolwiek czcionki wraz z biblioteką?**
+**Czy Aspose dystrybuuje czcionki wraz z biblioteką?**
 
-Nie. Aspose nie dystrybuuje płatnych ani darmowych czcionek; dodajesz i używasz czcionek na własną odpowiedzialność i według własnego uznania.
+Nie. To Ty jesteś odpowiedzialny za dostarczanie czcionek i przestrzeganie ich licencji.
 
-**Czy istnieją różnice w zachowaniu podstawiania na Windows, Linux i macOS?**
+**Czy wyniki zastępowania mogą się różnić pomiędzy Windows, Linux i macOS?**
 
-Tak. Wykrywanie czcionek rozpoczyna się od katalogów czcionek systemu operacyjnego. Zestaw domyślnie dostępnych czcionek i ścieżki wyszukiwania różnią się w zależności od platformy, co wpływa na dostępność i potrzebę podstawiania.
+Tak. Zainstalowane czcionki i lokalizacje wyszukiwania czcionek różnią się w zależności od systemu operacyjnego, więc czcionka dostępna na jednym komputerze może wymagać zastąpienia na innym.
 
-**Jak przygotować środowisko, aby zminimalizować nieoczekiwane podstawianie podczas konwersji wsadowych?**
+**Jak zapewnić spójny wybór czcionek przy konwersjach wsadowych?**
 
-Zsynchronizuj zestaw czcionek między maszynami lub kontenerami, [add the external fonts](/slides/pl/nodejs-java/custom-font/) wymagane dla dokumentów wyjściowych oraz [embed fonts](/slides/pl/nodejs-java/embedded-font/) w prezentacjach, gdy to możliwe, aby wybrane czcionki były dostępne podczas renderowania.
+Używaj tych samych plików czcionek i ich wersji na każdej maszynie lub w kontenerze, [ładuj wymagane czcionki zewnętrzne](/slides/pl/nodejs-java/custom-font/) oraz [osadzaj czcionki](/slides/pl/nodejs-java/embedded-font/) gdy licencja na to pozwala. Możesz także wywołać [FontsManager.getSubstitutions](https://reference.aspose.com/slides/pl/nodejs-java/aspose.slides/fontsmanager/getsubstitutions/) przed eksportem, aby zidentyfikować nieoczekiwane zastąpienia.

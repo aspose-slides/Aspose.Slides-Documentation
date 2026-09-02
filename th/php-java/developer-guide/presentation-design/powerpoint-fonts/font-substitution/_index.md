@@ -1,115 +1,197 @@
 ---
-title: กำหนดค่าการแทนฟอนต์ในการนำเสนอโดยใช้ PHP
-linktitle: การแทนฟอนต์
+title: "กำหนดค่าการทดแทนแบบอักษรในการนำเสนอโดยใช้ PHP"
+linktitle: "การทดแทนแบบอักษร"
 type: docs
 weight: 70
 url: /th/php-java/font-substitution/
 keywords:
-- ฟอนต์
-- ฟอนต์ทดแทน
-- การแทนฟอนต์
-- แทนที่ฟอนต์
-- การแทนที่ฟอนต์
-- กฎการแทนฟอนต์
-- กฎการแทนที่ฟอนต์
+- แบบอักษร
+- แทนแบบอักษร
+- การทดแทนแบบอักษร
+- แทนที่แบบอักษร
+- การแทนที่แบบอักษร
+- กฎการทดแทน
+- กฎการแทนที่
 - PowerPoint
 - OpenDocument
 - การนำเสนอ
 - PHP
 - Aspose.Slides
-description: เปิดใช้งานการแทนฟอนต์ที่เหมาะสมที่สุดใน Aspose.Slides สำหรับ PHP ผ่าน Java เมื่อแปลงงานนำเสนอ PowerPoint และ OpenDocument เป็นรูปแบบไฟล์อื่น
+description: "กำหนดกฎการทดแทนแบบอักษรและตรวจสอบแบบอักษรที่ถูกทดแทนใน Aspose.Slides สำหรับ PHP ผ่าน Java เมื่อทำการเรนเดอร์หรือแปลงการนำเสนอ PowerPoint และ OpenDocument"
 ---
-## **บทนำ**
+## **ภาพรวม**
 
-การแทนที่ฟอนต์ทำให้ Aspose.Slides สามารถใช้ฟอนต์อื่นเมื่อฟอนต์ของงานนำเสนอเดิมไม่สามารถใช้ได้ระหว่างการเรนเดอร์หรือการแปลง คุณสามารถตรวจสอบว่าฟอนต์ใดถูกแทนที่โดยใช้เมธอด `getSubstitutions` ของคลาส `FontsManager`
+การทดแทนแบบอักษรทำให้ Aspose.Slides สามารถใช้แบบอักษรที่มีอยู่แทนแบบอักษรที่ไม่สามารถเข้าถึงได้เมื่อการนำเสนอถูกเรนเดอร์หรือแปลง การทดแทนนี้มีผลต่อผลลัพธ์ที่เรนเดอร์; มันไม่ทำการเปลี่ยนแปลงแบบอักษรที่กำหนดให้กับเนื้อหาการนำเสนอ
 
-Aspose.Slides ยังอนุญาตให้คุณกำหนดกฎการแทนฟอนต์ ตัวอย่างเช่น คุณสามารถระบุว่าฟอนต์ที่ไม่สามารถเข้าถึงได้ควรถูกแทนที่ด้วยฟอนต์ที่มีอยู่แล้วและจากนั้นนำกฎเหล่านั้นไปใช้ผ่านฟอนต์เมเนเจอร์ของงานนำเสนอ
+คุณสามารถกำหนดแบบอักษรที่จะใช้เมื่อแบบอักษรบางตัวไม่ได้อยู่ และคุณสามารถตรวจสอบการทดแทนที่ Aspose.Slides จะทำระหว่างการเรนเดอร์ได้ สิ่งนี้ช่วยให้ผลลัพธ์คงที่ในสภาพแวดล้อมที่มีแบบอักษรติดตั้งต่างกัน
 
-## **ตั้งค่ากฎการแทนฟอนต์**
+## **รับการทดแทนแบบอักษร**
 
-Aspose.Slides อนุญาตให้คุณตั้งค่ากฎสำหรับฟอนต์ที่กำหนดว่าจะทำอย่างไรในเงื่อนไขบางอย่าง (เช่นเมื่อฟอนต์ไม่สามารถเข้าถึงได้) ดังนี้:
+ใช้เมธอด [FontsManager::getSubstitutions](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/getsubstitutions/) เพื่อกำหนดว่าแบบอักษรใดจะถูกทดแทนเมื่อการนำเสนอถูกเรนเดอร์ เมธอดนี้จะคืนค่าอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsubstitutioninfo/) ซึ่งระบุชื่อแบบอักษรต้นฉบับและแบบอักษรที่ถูกทดแทน
 
-1. โหลดงานนำเสนอที่เกี่ยวข้อง
-2. โหลดฟอนต์ที่ต้องการจะแทนที่
-3. โหลดฟอนต์ใหม่
-4. เพิ่มกฎสำหรับการแทนที่
-5. เพิ่มกฎลงในคอลเลกชันกฎการแทนฟอนต์ของงานนำเสนอ
-6. สร้างภาพสไลด์เพื่อสังเกตผลลัพธ์
-
-โค้ด PHP นี้แสดงกระบวนการแทนฟอนต์:
+ตัวอย่าง PHP ด้านล่างจะแสดงการทดแทนแบบอักษรทั้งหมดสำหรับการนำเสนอ:
 
 ```php
-  # โหลดการนำเสนอ
-  $pres = new Presentation("Fonts.pptx");
-  try {
-    # โหลดฟอนต์ต้นทางที่จะแทนที่
-    $sourceFont = new FontData("SomeRareFont");
-    # โหลดฟอนต์ใหม่
-    $destFont = new FontData("Arial");
-    # เพิ่มกฎฟอนต์สำหรับการแทนที่ฟอนต์
-    $fontSubstRule = new FontSubstRule($sourceFont, $destFont, FontSubstCondition->WhenInaccessible);
-    # เพิ่มกฎลงในคอลเลกชันกฎการแทนฟอนต์
-    $fontSubstRuleCollection = new FontSubstRuleCollection();
-    $fontSubstRuleCollection->add($fontSubstRule);
-    # เพิ่มคอลเลกชันกฎฟอนต์ลงในรายการกฎ
-    $pres->getFontsManager()->setFontSubstRuleList($fontSubstRuleCollection);
-    # ฟอนต์ Arial จะถูกใช้แทน SomeRareFont เมื่อฟอนต์หลังจากนั้นไม่สามารถเข้าถึงได้
-    $slideImage = $pres->getSlides()->get_Item(0)->getImage(1.0, 1.0);
-    # บันทึกรูปภาพลงดิสก์ในรูปแบบ JPEG
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $enumerator = $presentation->getFontsManager()->getSubstitutions()->iterator();
     try {
-      $slideImage->save("Thumbnail_out.jpg", ImageFormat::Jpeg);
+        while (java_values($enumerator->hasNext())) {
+            $substitution = $enumerator->next();
+            $originalFontName = java_values($substitution->getOriginalFontName());
+            $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+            echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+        }
     } finally {
-      if (!java_is_null($slideImage)) {
-        $slideImage->dispose();
-      }
+        $enumerator->dispose();
     }
-  } finally {
-    if (!java_is_null($pres)) {
-      $pres->dispose();
-    }
-  }
+} finally {
+    $presentation->dispose();
+}
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-คุณอาจต้องการดู [**การแทนที่ฟอนต์**](/slides/th/php-java/font-replacement/).
+## **รับการทดแทนแบบอักษรสำหรับสไลด์ที่เลือก**
+
+ใช้เมธอดโอเวอร์โหลดของ [FontsManager::getSubstitutions](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/getsubstitutions/) พร้อมอาร์กิวเมนต์ `int[] slides` เพื่อดูการทดแทนที่จำเป็นสำหรับการเรนเดอร์สไลด์เฉพาะเท่านั้น สิ่งนี้มีประโยชน์เมื่อคุณกำลังเรนเดอร์หรือส่งออกส่วนหนึ่งของการนำเสนอ ตรวจสอบการนำเสนอขนาดใหญ่เป็นขั้นเป็นตอน ค้นหาสไลด์ที่พึ่งพาแบบอักษรที่ไม่สามารถเข้าถึงได้ เตรียมแพคเกจแบบอักษรขนาดเล็กสำหรับเซิร์ฟเวอร์หรือคอนเทนเนอร์ หรือวินิจฉัยความแตกต่างของการเรนเดอร์โดยไม่ต้องประมวลผลสไลด์ที่ไม่เกี่ยวข้อง
+
+อาร์เรย์ `slides` มีดัชนีสไลด์ที่เริ่มจาก 1: `1` ระบุสไลด์แรก ในทางตรงกันข้าม ตัวเข้าถึงคอลเลกชัน [Presentation::getSlides](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getSlides) ใช้การจัดทำดัชนีเริ่มจาก 0 ดังนั้นสไลด์เดียวกันจะถูกเข้าถึงเป็น `$presentation->getSlides()->get_Item(0)` อย่าลืมคำนึงถึงความแตกต่างนี้เมื่อสร้างอาร์เรย์เพื่อหลีกเลี่ยงข้อผิดพลาด off-by-one
+
+เรียกโอเวอร์โหลดผ่านเมธอด [Presentation::getFontsManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/presentation/#getFontsManager) มันจะคืนค่าการทดแทนที่กำหนดระหว่างการเรนเดอร์สไลด์ที่เลือกแต่ละผลลัพธ์เป็นอ็อบเจ็กต์ [FontSubstitutionInfo](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsubstitutioninfo/) ที่บรรจุชื่อแบบอักษรต้นฉบับและแบบอักษรที่ถูกทดแทน ผลลัพธ์สะท้อนสภาพแวดล้อมแบบอักษรปัจจุบัน กฎ fallback ที่กำหนดไว้ กฎการทดแทนที่จัดเก็บไว้ใน [FontSubstRuleCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsubstrulecollection/) และ [แบบอักษรที่โหลดจากภายนอก](/slides/th/php-java/custom-font/)
+
+การทดแทนเดียวกันอาจจำเป็นสำหรับสไลด์ที่เลือกหลายสไลด์ ให้ทำการลบข้อมูลซ้ำเมื่อคุณสร้างรายการแบบอักษรหรือรายงาน preflight ตัวอย่างต่อไปนี้จะแสดงการรายงานการทดแทนที่คืนค่าแล้วสร้างรายการแบบอักษรที่แมปแบบไม่ซ้ำและเรียงลำดับ:
+
+```php
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Presentation.pptx");
+try {
+    $selectedSlides = [1, 3, 5];
+    $substitutions = [];
+    $enumerator = $presentation->getFontsManager()->getSubstitutions($selectedSlides)->iterator();
+    try {
+        while (java_values($enumerator->hasNext())) {
+            $substitutions[] = $enumerator->next();
+        }
+    } finally {
+        $enumerator->dispose();
+    }
+
+    echo "Substitutions for the selected slides:" . PHP_EOL;
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        echo $originalFontName . " -> " . $substitutedFontName . PHP_EOL;
+    }
+
+    $sortedPreflightEntries = [];
+    foreach ($substitutions as $substitution) {
+        $originalFontName = java_values($substitution->getOriginalFontName());
+        $substitutedFontName = java_values($substitution->getSubstitutedFontName());
+        $entry = $originalFontName . " -> " . $substitutedFontName;
+        $sortedPreflightEntries[strtolower($entry)] = $entry;
+    }
+    ksort($sortedPreflightEntries, SORT_NATURAL | SORT_FLAG_CASE);
+
+    echo "Deduplicated font preflight report:" . PHP_EOL;
+    foreach ($sortedPreflightEntries as $entry) {
+        echo $entry . PHP_EOL;
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+คลาส [FontsManager](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/) มีโอเวอร์โหลดทั้งสองแบบ ให้เลือกตามขอบเขตของการทำงานเรนเดอร์:
+
+| การโอเวอร์โหลด | ใช้เมื่อ |
+|---|---|
+| [getSubstitutions](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/getsubstitutions/) โดยไม่มีอาร์กิวเมนต์ | คุณต้องการการทดแทนสำหรับการนำเสนอทั้งหมด |
+| [getSubstitutions](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/getsubstitutions/) พร้อม `int[] slides` | คุณต้องการการทดแทนสำหรับช่วงเลือก การตรวจสอบแบบขั้นเป็นขั้น หรือการส่งออกบางส่วน |
+
+## **กำหนดกฎการทดแทนแบบอักษร**
+
+เพื่อระบุแบบอักษรที่ Aspose.Slides ควรใช้เมื่อแบบอักษรต้นทางไม่สามารถเข้าถึงได้:
+
+1. โหลดการนำเสนอ
+2. สร้างการกำหนดแบบอักษรสำหรับแบบอักษรต้นฉบับและแบบอักษรทดแทน
+3. สร้างอ็อบเจ็กต์ [FontSubstRule](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsubstrule/) พร้อมเงื่อนไข [WhenInaccessible](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsubstcondition/)
+4. เพิ่มกฎลงใน [FontSubstRuleCollection](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsubstrulecollection/)
+5. กำหนดคอลเลกชันโดยใช้เมธอด [FontsManager::setFontSubstRuleList](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/setfontsubstrulelist/)
+6. เรนเดอร์หรือแปลงการนำเสนอ
+
+ตัวอย่าง PHP ด้านล่างจะทดแทน `Arial` ด้วย `SomeRareFont` เมื่อ `SomeRareFont` ไม่พร้อมใช้งาน จากนั้นเรนเดอร์สไลด์แรกเพื่อตรวจสอบผลลัพธ์ แบบอักษรทดแทนต้องพร้อมใช้งานสำหรับ Aspose.Slides
+
+```php
+use aspose\slides\FontData;
+use aspose\slides\FontSubstCondition;
+use aspose\slides\FontSubstRule;
+use aspose\slides\FontSubstRuleCollection;
+use aspose\slides\ImageFormat;
+use aspose\slides\Presentation;
+
+$presentation = new Presentation("Fonts.pptx");
+try {
+    $sourceFont = new FontData("SomeRareFont");
+    $substituteFont = new FontData("Arial");
+    $substitutionRule = new FontSubstRule($sourceFont, $substituteFont, FontSubstCondition::WhenInaccessible);
+
+    $substitutionRules = new FontSubstRuleCollection();
+    $substitutionRules->add($substitutionRule);
+    $presentation->getFontsManager()->setFontSubstRuleList($substitutionRules);
+
+    $image = $presentation->getSlides()->get_Item(0)->getImage(1.0, 1.0);
+    try {
+        $image->save("slide.jpg", ImageFormat::Jpeg);
+    } finally {
+        $image->dispose();
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+{{% alert color="info" title="Note" %}}
+สำหรับการเปลี่ยนแปลงแบบอักษรโดยไม่มีเงื่อนไขทั่วทั้งการนำเสนอ โปรดดูที่ [Font Replacement](/slides/th/php-java/font-replacement/)
 {{% /alert %}}
 
-## **ข้อจำกัดสำหรับฟอนต์สมการคณิตศาสตร์**
+## **ข้อจำกัดสำหรับแบบอักษรสมการคณิตศาสตร์**
 
-กฎการแทนฟอนต์เข้าร่วมกระบวนการเลือกฟอนต์มาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง พวกมันเหมาะสำหรับสถานการณ์ข้อความทั่วไปที่ Aspose.Slides สามารถแทนฟอนต์ที่ไม่สามารถเข้าถึงได้ด้วยฟอนต์อื่นที่มีอยู่ตามกฎที่กำหนด
+กฎการทดแทนแบบอักษรเป็นส่วนหนึ่งของกระบวนการเลือกแบบอักษรมาตรฐานที่ใช้ระหว่างการเรนเดอร์และการแปลง พวกมันทำงานได้กับข้อความทั่วไปเมื่อ Aspose.Slides สามารถแทนที่แบบอักษรที่ไม่สามารถเข้าถึงได้ด้วยแบบอักษรที่กำหนดไว้ในกฎ
 
-อย่างไรก็ตามสมการคณิตศาสตร์ของ Office มีข้อจำกัดสำคัญ หากสมการถูกสร้างด้วย **Cambria Math** Aspose.Slides อาจยังต้องการฟอนต์ **Cambria Math** ดั้งเดิมเพื่อคำนวณและเรนเดอร์การจัดวางสมการอย่างถูกต้อง เพราะฉะนั้นการแทนที่ **Cambria Math** ด้วยฟอนต์คณิตศาสตร์อื่น เช่น **STIX Two Math** ไม่ได้รับการสนับสนุนสำหรับการเรนเดอร์สมการและอาจยังทำให้เกิดข้อผิดพลาดที่บ่งชี้ว่าต้องการ **Cambria Math** อยู่
+สมการ Office Math มีข้อกำหนดเพิ่มเติม หากสมการใช้ **Cambria Math** Aspose.Slides อาจต้องการแบบอักษรนั้นอย่างแม่นยำเพื่อคำนวณและเรนเดอร์การจัดรูปสมการ กฎที่ทดแทนแบบอักษรคณิตศาสตร์อื่น เช่น **STIX Two Math** ไม่สามารถแทนที่ **Cambria Math** ในกรณีนี้ได้ และการเรนเดอร์อาจยังรายงานว่าต้องการ **Cambria Math**
 
-เพื่อแปลงงานนำเสนอเช่นนี้สำเร็จ ให้ตรวจสอบว่า **Cambria Math** มีอยู่ในระบบสำหรับ Aspose.Slides ขณะรันไทม์ คุณสามารถติดตั้งฟอนต์ในระบบปฏิบัติการหรือให้เป็น [ฟอนต์ภายนอก](/slides/th/php-java/custom-font/) เพื่อให้มันเข้าร่วมกระบวนการเลือกฟอนต์ปกติระหว่างการเรนเดอร์และการแปลง
+เพื่อเรนเดอร์หรือแปลงการนำเสนอที่มีลักษณะเช่นนี้ ให้ทำให้ **Cambria Math** พร้อมใช้งานสำหรับ Aspose.Slides ติดตั้งในระบบปฏิบัติการหรือโหลดเป็น [แบบอักษรภายนอก](/slides/th/php-java/custom-font/)
 
-ข้อจำกัดนี้เฉพาะการเรนเดอร์สมการเท่านั้น กฎการแทนฟอนต์มาตรฐานที่อธิบายไว้ข้างต้นยังคงใช้กับข้อความทั่วไปของงานนำเสนอเมื่อฟอนต์ดั้งเดิมไม่สามารถเข้าถึงได้
+ข้อจำกัดนี้ใช้กับการจัดรูปสมการ กฎการทดแทนที่อธิบายข้างต้นยังคงใช้ได้กับข้อความปกติในการนำเสนอ
 
-## **คำถามที่พบบ่อย**
+## **FAQ**
 
-**ความแตกต่างระหว่างการแทนที่ฟอนต์และการแทนฟอนต์คืออะไร?**
+**ความแตกต่างระหว่างการเปลี่ยนแบบอักษรและการทดแทนแบบอักษรคืออะไร?**
 
-[การแทนที่](/slides/th/php-java/font-replacement/) คือการบังคับให้ฟอนต์หนึ่งแทนที่ด้วยฟอนต์อื่นทั่วทั้งงานนำเสนอ การแทนฟอนต์คือกฎที่ทำงานเมื่อเงื่อนไขเฉพาะเกิดขึ้น เช่นฟอนต์ดั้งเดิมไม่พร้อมใช้งาน แล้วฟอนต์สำรองที่กำหนดจะถูกใช้
+[Font replacement](/slides/th/php-java/font-replacement/) จะเปลี่ยนแบบอักษรหนึ่งเป็นอีกแบบหนึ่งทั่วทั้งการนำเสนออย่างตั้งใจ ส่วนการทดแทนแบบอักษรจะเลือกแบบอักษรสำหรับผลลัพธ์ที่เรนเดอร์เมื่อเงื่อนไขที่กำหนดไว้เป็นจริง เช่น เมื่อแบบอักษรต้นฉบับไม่พร้อมใช้งาน
 
-**กฎการแทนฟอนต์จะถูกนำไปใช้เมื่อใด?**
+**กฎการทดแทนจะถูกนำไปใช้เมื่อใด?**
 
-กฎเหล่านี้เข้าร่วมลำดับ [การเลือกฟอนต์](/slides/th/php-java/font-selection-sequence/) มาตรฐานที่ประเมินระหว่างการโหลด, การเรนเดอร์ และการแปลง; หากฟอนต์ที่เลือกไม่พร้อมใช้งาน การแทนที่หรือการแทนฟอนต์จะถูกนำมาใช้
+กฎจะมีส่วนร่วมใน [ลำดับการเลือกแบบอักษร](/slides/th/php-java/font-selection-sequence/) ระหว่างการเรนเดอร์และการแปลง ด้วย `WhenInaccessible` กฎจะใช้ก็ต่อเมื่อ Aspose.Slides ไม่สามารถเข้าถึงแบบอักษรต้นฉบับได้
 
-**พฤติกรรมเริ่มต้นคืออะไรหากไม่มีการตั้งค่าการแทนที่หรือการแทนฟอนต์และฟอนต์หายไปจากระบบ?**
+**จะเกิดอะไรขึ้นเมื่อแบบอักษรหายและไม่มีการกำหนดกฎการทดแทน?**
 
-ไลบรารีจะพยายามเลือกฟอนต์ระบบที่ใกล้เคียงที่สุด คล้ายกับที่ PowerPoint ทำ
+Aspose.Slides จะเลือกแบบอักษรที่ใกล้เคียงที่สุดที่มีอยู่ตามกระบวนการเลือกแบบอักษร ผลลัพธ์ขึ้นอยู่กับแบบอักษรที่มีในสภาพแวดล้อมรันไทม์
 
-**ฉันสามารถแนบฟอนต์ภายนอกแบบกำหนดเองในขณะรันไทม์เพื่อหลีกเลี่ยงการแทนฟอนต์ได้หรือไม่?**
+**ฉันสามารถโหลดแบบอักษรภายนอกเพื่อหลีกเลี่ยงการทดแทนได้หรือไม่?**
 
-ได้ คุณสามารถ [เพิ่มฟอนต์ภายนอก](/slides/th/php-java/custom-font/) ในขณะรันไทม์เพื่อให้ไลบรารีพิจารณาใช้ในการเลือกและเรนเดอร์ รวมถึงการแปลงต่อจากนั้น
+ได้ คุณสามารถ [โหลดแบบอักษรภายนอก](/slides/th/php-java/custom-font/) เพื่อให้ Aspose.Slides ใช้ระหว่างการเรนเดอร์และการแปลง
 
-**Aspose แจกจ่ายฟอนต์ใดกับไลบรารีหรือไม่?**
+**Aspose แจกจ่ายแบบอักษรพร้อมไลบรารีหรือไม่?**
 
-ไม่มี Aspose ไม่แจกจ่ายฟอนต์ที่เป็นแบบชำระเงินหรือฟรี; คุณต้องเพิ่มและใช้ฟอนต์ด้วยความรับผิดชอบของตนเอง
+ไม่ คุณต้องรับผิดชอบในการจัดหาแบบอักษรและปฏิบัติตามลิขสิทธิ์ของแบบอักษรเหล่านั้น
 
-**มีความแตกต่างในการทำงานของการแทนฟอนต์บน Windows, Linux และ macOS หรือไม่?**
+**ผลลัพธ์การทดแทนอาจแตกต่างระหว่าง Windows, Linux และ macOS หรือไม่?**
 
-มี การค้นหาฟอนต์เริ่มจากไดเรกทอรีฟอนต์ของระบบปฏิบัติการ ชุดฟอนต์ที่พร้อมใช้งานโดยค่าเริ่มต้นและเส้นทางค้นหาต่างกันตามแพลตฟอร์ม ซึ่งส่งผลต่อความพร้อมใช้และความจำเป็นในการแทนฟอนต์
+ใช่ แบบอักษรที่ติดตั้งและตำแหน่งการค้นหาแบบอักษรแตกต่างกันตามระบบปฏิบัติการ ดังนั้นแบบอักษรที่พร้อมใช้บนเครื่องหนึ่งอาจต้องการการทดแทนบนเครื่องอื่น
 
-**ฉันควรเตรียมสภาพแวดล้อมอย่างไรเพื่อให้การแทนฟอนต์ที่ไม่คาดคิดลดลงในการแปลงแบบแบทช์?**
+**จะทำให้การเลือกแบบอักษรสอดคล้องกันในการแปลงเป็นชุดได้อย่างไร?**
 
-ซิงโครไนซ์ชุดฟอนต์ข้ามเครื่องหรือคอนเทนเนอร์, [เพิ่มฟอนต์ภายนอก](/slides/th/php-java/custom-font/) ที่จำเป็นสำหรับเอกสารผลลัพธ์, และ [ฝังฟอนต์](/slides/th/php-java/embedded-font/) ในงานนำเสนอเมื่อเป็นไปได้เพื่อให้ฟอนต์ที่เลือกพร้อมใช้งานระหว่างการเรนเดอร์
+ใช้ไฟล์และเวอร์ชันแบบอักษรเดียวกันบนทุกเครื่องหรือคอนเทนเนอร์ [โหลดแบบอักษรภายนอกที่จำเป็น](/slides/th/php-java/custom-font/) และ [ฝังแบบอักษร](/slides/th/php-java/embedded-font/) เมื่อได้รับอนุญาตตามสัญญาอนุญาต คุณยังสามารถเรียก [FontsManager::getSubstitutions](https://reference.aspose.com/slides/th/php-java/aspose.slides/fontsmanager/getsubstitutions/) ก่อนการส่งออกเพื่อระบุการทดแทนที่ไม่คาดคิด)

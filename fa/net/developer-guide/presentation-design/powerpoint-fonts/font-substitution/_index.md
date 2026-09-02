@@ -1,126 +1,165 @@
 ---
-title: پیکربندی جایگزینی فونت در ارائه‌ها در .NET
-linktitle: جایگزینی فونت
+title: پیکربندی جایگزینی قلم در ارائه‌ها در .NET
+linktitle: جایگزینی قلم
 type: docs
 weight: 70
 url: /fa/net/font-substitution/
 keywords:
-- فونت
-- جایگزینی فونت
-- جایگزینی فونت
-- جایگزینی فونت
-- تعویض فونت
-- قاعدهٔ جایگزینی
-- قاعدهٔ تعویض
+- قلم
+- قلم جایگزین
+- جایگزینی قلم
+- تعویض قلم
+- جایگزینی قلم
+- قانون جایگزینی
+- قانون تعویض
 - PowerPoint
 - OpenDocument
 - ارائه
 - .NET
 - C#
 - Aspose.Slides
-description: "فعال‌سازی جایگزینی بهینه فونت در Aspose.Slides برای .NET هنگام تبدیل ارائه‌های PowerPoint و OpenDocument به فرمت‌های فایل دیگر."
+description: "قوانین جایگزینی قلم را پیکربندی کنید و قلم‌های جایگزین شده را در Aspose.Slides برای .NET هنگام رندر یا تبدیل ارائه‌های PowerPoint و OpenDocument بررسی کنید."
 ---
 ## **بررسی کلی**
 
-جایگزینی فونت به Aspose.Slides امکان می‌دهد تا هنگام رندر یا تبدیل، در صورت عدم دسترسی به فونت اصلی ارائه، از فونت دیگری استفاده کند. می‌توانید با استفاده از متد `GetSubstitutions` در اینترفیس `IFontsManager`، ببینید که کدام فونت‌ها جایگزین شده‌اند.
+جایگزینی قلم به Aspose.Slides اجازه می‌دهد که هنگام عدم دسترسی به یک قلم، از قلم موجود دیگری استفاده کند. این جایگزینی بر خروجی رندر شده تأثیر می‌گذارد؛ اما قلم اختصاص‌یافته به محتوای ارائه را تغییر نمی‌دهد.
 
-Aspose.Slides همچنین اجازه می‌دهد قوانین جایگزینی فونت را تعریف کنید. به عنوان مثال می‌توانید مشخص کنید که یک فونت غیرقابل دسترسی باید با فونت دیگری که در دسترس است جایگزین شود و سپس این قوانین را از طریق مدیر فونت ارائه اعمال کنید.
+می‌توانید قلمی را که وقتی قلم خاصی در دسترس نیست استفاده شود، تعریف کنید و همچنین می‌توانید جایگزینی‌هایی را که Aspose.Slides در طول رندر انجام می‌دهد، بررسی کنید. این کار به حفظ سازگاری خروجی در محیط‌هایی با قلم‌های نصب‌شده متفاوت کمک می‌کند.
 
-## **دریافت جایگزینی‌های فونت**
+## **دریافت جایگزینی‌های قلم**
 
-برای این که بتوانید بفهمید کدام فونت‌های ارائه حین فرآیند رندرینگ جایگزین می‌شوند، Aspose.Slides متد [GetSubstitution](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/getsubstitutions/) را از اینترفیس [IFontsManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/) ارائه می‌دهد.
+از روش [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) برای تعیین اینکه کدام قلم‌ها هنگام رندر ارائه جایگزین می‌شوند، استفاده کنید. این روش اشیاء [FontSubstitutionInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsubstitutioninfo/) را برمی‌گرداند که نام‌های قلم اصلی و جایگزین را شناسایی می‌کند.
 
-کد C# نشان می‌دهد چگونه تمام جایگزینی‌های فونتی که هنگام رندر یک ارائه انجام می‌شود را دریافت کنید:
-```c#
-using (Presentation pres = new Presentation(@"Presentation.pptx"))
+مثال C# زیر تمام جایگزینی‌های قلم برای یک ارائه را فهرست می‌کند:
+
+```csharp
+using System;
+using Aspose.Slides;
+
+using var presentation = new Presentation("Presentation.pptx");
+
+foreach (var substitution in presentation.FontsManager.GetSubstitutions())
 {
-    foreach (var fontSubstitution in pres.FontsManager.GetSubstitutions())
-    {
-        Console.WriteLine("{0} -> {1}", fontSubstitution.OriginalFontName, fontSubstitution.SubstitutedFontName);
-    }
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
 }
 ```
 
-## **تنظیم قوانین جایگزینی فونت**
+## **دریافت جایگزینی‌های قلم برای اسلایدهای انتخاب‌شده**
 
-Aspose.Slides به شما اجازه می‌دهد قوانین برای فونت‌هایی که در شرایط خاص (مثلاً زمانی که فونت قابل دسترسی نیست) باید چه کاری انجام شود را به این شکل تنظیم کنید:
+از بارگذاری [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) با آرگومان `int[] slides` استفاده کنید تا تنها جایگزینی‌های مورد نیاز برای رندر اسلایدهای خاص را بررسی کنید. این مورد زمانی مفید است که بخواهید بخشی از یک ارائه را رندر یا خروجی بگیرید، یک ارائه بزرگ را به‌صورت تدریجی بررسی کنید، اسلایدهایی که به قلم‌های غیرقابل دسترس وابسته‌اند را پیدا کنید، بسته قلمی حداقلی برای سرور یا کانتینر آماده کنید یا اختلافات رندر را بدون پردازش اسلایدهای نامرتبط تشخیص دهید.
 
-1. ارائهٔ مربوطه را بارگذاری کنید.
-2. فونتی که باید جایگزین شود را بارگذاری کنید.
-3. فونت جدید را بارگذاری کنید.
-4. یک قانون برای جایگزینی اضافه کنید.
-5. قانون را به مجموعهٔ قوانین جایگزینی فونت ارائه اضافه کنید.
-6. تصویر اسلاید را تولید کنید تا اثر را مشاهده کنید.
+آرایه `slides` شامل ایندکس‌های اسلاید یک‌پایه است: `1` اولین اسلاید را شناسایی می‌کند. در مقابل، ایندکس‌گذار مجموعه [Presentation.Slides](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/slides/fa/) پایه صفر دارد، بنابراین همان اسلاید به صورت `presentation.Slides[0]` دسترسی پیدا می‌کند. هنگام ساخت آرایه این تفاوت را در نظر بگیرید تا از خطای off-by-one جلوگیری کنید.
 
-این کد C# فرایند جایگزینی فونت را نمایش می‌دهد:
+بارگذاری را از طریق ویژگی [Presentation.FontsManager](https://reference.aspose.com/slides/fa/net/aspose.slides/presentation/fontsmanager/) صدا بزنید. این فقط جایگزینی‌هایی را که در حین رندر اسلایدهای انتخاب‌شده تعیین می‌شوند، برمی‌گرداند. هر نتیجه یک شیء [FontSubstitutionInfo](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsubstitutioninfo/) است که شامل نام‌های قلم اصلی و جایگزین می‌باشد. نتیجه بازتاب‌دهنده محیط قلم فعلی، قوانین fallback پیکربندی‌شده، قوانین جایگزینی ذخیره‌شده در یک [IFontSubstRuleCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsubstrulecollection/)، و [قلم‌های بارگذاری‌شده به‌صورت خارجی](/slides/fa/net/custom-font/) است.
 
-```c#
-// ارائه را بارگذاری می‌کند
-Presentation presentation = new Presentation("Fonts.pptx");
+همین جایگزینی می‌تواند توسط بیش از یک اسلاید انتخاب‌شده نیاز باشد. هنگام ایجاد فهرست موجودی قلم یا گزارش پیش‌پرواز، نتایج را حذف تکرار کنید. مثال زیر هر جایگزینی بازگردانده‌شده را گزارش می‌کند و سپس فهرست مرتب‌شده‌ای از نگاشت‌های قلم منحصر به‌فرد ایجاد می‌کند:
 
-// فونت منبعی را که جایگزین می‌شود بارگذاری می‌کند
-IFontData sourceFont = new FontData("SomeRareFont");
+```csharp
+using System;
+using System.Linq;
+using Aspose.Slides;
 
-// فونت جدید را بارگذاری می‌کند
-IFontData destFont = new FontData("Arial");
+using var presentation = new Presentation("Presentation.pptx");
 
-// قاعده‌ای برای جایگزینی فونت اضافه می‌کند
-IFontSubstRule fontSubstRule = new FontSubstRule(sourceFont, destFont, FontSubstCondition.WhenInaccessible);
+int[] selectedSlides = { 1, 3, 5 };
+var substitutions = presentation.FontsManager.GetSubstitutions(selectedSlides).ToList();
 
-// قانون را به مجموعهٔ قوانین جایگزینی فونت اضافه می‌کند
-IFontSubstRuleCollection fontSubstRuleCollection = new FontSubstRuleCollection();
-fontSubstRuleCollection.Add(fontSubstRule);
-
-// مجموعهٔ قوانین فونت را به لیست قوانین اضافه می‌کند
-presentation.FontsManager.FontSubstRuleList = fontSubstRuleCollection;
-
-using (IImage image = presentation.Slides[0].GetImage(1f, 1f))
+Console.WriteLine("Substitutions for the selected slides:");
+foreach (var substitution in substitutions)
 {
-    // تصویر را به‌صورت JPEG در دیسک ذخیره می‌کند
-    image.Save("Thumbnail_out.jpg", ImageFormat.Jpeg);
+    Console.WriteLine($"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+}
+
+var preflightEntries = substitutions.Select(substitution => $"{substitution.OriginalFontName} -> {substitution.SubstitutedFontName}");
+var uniquePreflightEntries = preflightEntries.Distinct(StringComparer.OrdinalIgnoreCase);
+var sortedPreflightEntries = uniquePreflightEntries.OrderBy(entry => entry, StringComparer.OrdinalIgnoreCase).ToList();
+
+Console.WriteLine("Deduplicated font preflight report:");
+foreach (var entry in sortedPreflightEntries)
+{
+    Console.WriteLine(entry);
 }
 ```
 
-{{%  alert title="NOTE"  color="warning"   %}} 
-ممکن است بخواهید به [**Font Replacement**](/slides/fa/net/font-replacement/) مراجعه کنید. 
+رابط [IFontsManager](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/) هر دو بارگذاری را فراهم می‌کند. یکی را بر اساس دامنه عملیات رندر انتخاب کنید:
+
+| بارگذاری | زمان استفاده |
+|---|---|
+| [GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) with no arguments | به جایگزینی‌ها برای کل ارائه نیاز دارید. |
+| [GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) with `int[] slides` | به جایگزینی‌ها برای بازه‌ای انتخابی، بررسی تدریجی یا خروجی جزئی نیاز دارید. |
+
+## **تنظیم قوانین جایگزینی قلم**
+
+برای مشخص کردن قلمی که Aspose.Slides باید زمانی که قلم منبع در دسترس نیست استفاده کند:
+
+1. ارائه را بارگذاری کنید.
+2. تعریف‌های قلم برای قلم منبع و قلم جایگزین را ایجاد کنید.
+3. یک [FontSubstRule](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsubstrule/) با شرط [WhenInaccessible](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsubstcondition/) ایجاد کنید.
+4. قانون را به یک [FontSubstRuleCollection](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsubstrulecollection/) اضافه کنید.
+5. مجموعه را به ویژگی [FontsManager.FontSubstRuleList](https://reference.aspose.com/slides/fa/net/aspose.slides/fontsmanager/fontsubstrulelist/) اختصاص دهید.
+6. ارائه را رندر یا تبدیل کنید.
+
+مثال C# زیر هنگام عدم دسترسی به `SomeRareFont`، `Arial` را به‌جای آن جایگزین می‌کند و سپس اولین اسلاید را برای تأیید نتیجه رندر می‌کند. قلم جایگزین باید برای Aspose.Slides در دسترس باشد.
+
+```csharp
+using Aspose.Slides;
+
+using var presentation = new Presentation("Fonts.pptx");
+
+var sourceFont = new FontData("SomeRareFont");
+var substituteFont = new FontData("Arial");
+var substitutionRule = new FontSubstRule(sourceFont, substituteFont, FontSubstCondition.WhenInaccessible);
+
+var substitutionRules = new FontSubstRuleCollection();
+substitutionRules.Add(substitutionRule);
+presentation.FontsManager.FontSubstRuleList = substitutionRules;
+
+using var image = presentation.Slides[0].GetImage(1f, 1f);
+image.Save("slide.jpg", ImageFormat.Jpeg);
+```
+
+{{% alert color="info" title="Note" %}}
+
+For an unconditional change to the fonts used throughout a presentation, see [Font Replacement](/slides/fa/net/font-replacement/).
+
 {{% /alert %}}
 
-## **محدودیت‌های فونت‌های معادلات ریاضی**
+## **محدودیت‌ها برای قلم‌های معادلات ریاضی**
 
-قوانین جایگزینی فونت در فرآیند استاندارد انتخاب فونت که هنگام رندرینگ و تبدیل استفاده می‌شود شرکت می‌کنند. این قوانین برای متن‌های معمولی مناسب هستند که Aspose.Slides می‌تواند فونت غیرقابل دسترسی را با فونت موجود دیگری طبق قانون پیکربندی‌شده جایگزین کند.
+قوانین جایگزینی قلم بخشی از فرآیند استاندارد انتخاب قلم هستند که در حین رندر و تبدیل استفاده می‌شود. آن‌ها برای متن معمولی کار می‌کنند زمانی که Aspose.Slides می‌تواند قلم غیرقابل دسترس را با قلم موجودی که توسط یک قانون مشخص شده جایگزین کند.
 
-با این حال، معادلات ریاضی Office محدودیت مهمی دارند. اگر معادله‌ای با **Cambria Math** ایجاد شده باشد، Aspose.Slides ممکن است هنوز برای محاسبه و رندر صحیح چیدمان معادله به فونت اصلی **Cambria Math** نیاز داشته باشد. به همین دلیل، جایگزینی **Cambria Math** با یک فونت ریاضی دیگر مانند **STIX Two Math** برای رندر معادله پشتیبانی نمی‌شود و ممکن است همچنان استثنایی نشان دهد که **Cambria Math** لازم است.
+معادلات Office Math نیاز اضافی دارند. اگر یک معادله از **Cambria Math** استفاده کند، ممکن است Aspose.Slides به آن قلم دقیق برای محاسبه و رندر طرح‌بندی معادله نیاز داشته باشد. قانون جایگزینی که قلم ریاضی دیگری مانند **STIX Two Math** را جایگزین می‌کند، نمی‌تواند **Cambria Math** را برای این منظور جایگزین کند و ممکن است رندر همچنان گزارش دهد که **Cambria Math** لازم است.
 
-برای تبدیل موفق این ارائه‌ها، اطمینان حاصل کنید که **Cambria Math** در زمان اجرا برای Aspose.Slides در دسترس باشد. می‌توانید این فونت را در سیستم عامل نصب کنید یا به عنوان یک [external font](/slides/fa/net/custom-font/) ارائه دهید تا در فرآیند انتخاب فونت استاندارد هنگام رندرینگ و تبدیل شرکت کند.
+برای رندر یا تبدیل چنین ارائه‌ای، **Cambria Math** را برای Aspose.Slides در دسترس بگذارید. آن را در سیستم‌عامل نصب کنید یا به‌صورت یک [قلم خارجی](/slides/fa/net/custom-font/) بارگذاری کنید.
 
-این محدودیت مخصوص رندر معادلات است. قوانین استاندارد جایگزینی فونت که در بالا توضیح داده شد، همچنان برای متن‌های معمولی ارائه اعمال می‌شوند وقتی فونت اصلی در دسترس نباشد.
+این محدودیت بر روی طرح‌بندی معادله اعمال می‌شود. قوانین جایگزینی که در بالا توضیح داده شد هنوز برای متن معمولی ارائه کاربرد دارند.
 
 ## **سؤالات متداول**
 
-**تفاوت جایگزینی فونت با جایگزینی (substitution) چیست؟**
+**تفاوت جایگزینی قلم و جایگزینی قلم (font replacement) چیست؟**
 
-[Replacement](/slides/fa/net/font-replacement/) یک اجبار برای جایگزینی یک فونت با فونت دیگر در تمام ارائه است. Substitution قانونی است که تحت شرط خاصی فعال می‌شود، برای مثال وقتی فونت اصلی در دسترس نیست و سپس یک فونت پیش‌فرض تعیین‌شده استفاده می‌شود.
+[Font replacement](/slides/fa/net/font-replacement/) به‌صورت عمدی یک قلم را در کل ارائه با قلم دیگری عوض می‌کند. جایگزینی قلم قلمی را برای خروجی رندر شده زمانی که شرط پیکربندی‌شده برآورده شود (مانند عدم دسترسی به قلم اصلی) انتخاب می‌کند.
 
-**قوانین جایگزینی دقیقاً کی اعمال می‌شوند؟**
+**قوانین جایگزینی کی اعمال می‌شوند؟**
 
-این قوانین در توالی استاندارد [font selection](/slides/fa/net/font-selection-sequence/) شرکت می‌کنند که هنگام بارگذاری، رندرینگ و تبدیل ارزیابی می‌شود؛ اگر فونت انتخاب‌شده در دسترس نباشد، جایگزینی یا substitution اعمال می‌شود.
+قوانین در [دنباله انتخاب قلم](/slides/fa/net/font-selection-sequence/) هنگام رندر و تبدیل شرکت می‌کنند. با `WhenInaccessible`، یک قانون تنها زمانی استفاده می‌شود که Aspose.Slides نتواند به قلم منبع دسترسی پیدا کند.
 
-**رفتار پیش‌فرض چه می‌شود اگر نه جایگزینی و نه substitution پیکربندی نشده باشد و فونت بر روی سیستم موجود نباشد؟**
+**هنگامی که قلم گم شود و هیچ قانون جایگزینی‌ای پیکربندی نشده باشد چه می‌شود؟**
 
-کتابخانه سعی می‌کند نزدیک‌ترین فونت سیستم موجود را انتخاب کند، مشابه رفتار PowerPoint.
+Aspose.Slides نزدیک‌ترین قلم موجود را بر اساس فرآیند انتخاب قلم خود انتخاب می‌کند. نتیجه به قلم‌های موجود در محیط زمان اجرا بستگی دارد.
 
-**آیا می‌توانم در زمان اجرا فونت‌های خارجی سفارشی را اضافه کنم تا از جایگزینی جلوگیری شود؟**
+**آیا می‌توانم قلم‌های خارجی را بارگذاری کنم تا از جایگزینی جلوگیری کنم؟**
 
-بله. می‌توانید [add external fonts](/slides/fa/net/custom-font/) را در زمان اجرا اضافه کنید تا کتابخانه آنها را برای انتخاب و رندرینگ در نظر بگیرد، از جمله برای تبدیل‌های بعدی.
+بله. می‌توانید [قلم‌های خارجی را بارگذاری کنید](/slides/fa/net/custom-font/) تا Aspose.Slides در حین رندر و تبدیل از آن‌ها استفاده کند.
 
-**آیا Aspose فونت‌هایی را همراه با کتابخانه توزیع می‌کند؟**
+**آیا Aspose قلم‌ها را همراه کتابخانه توزیع می‌کند؟**
 
-خیر. Aspose هیچ فونت پرداختی یا رایگانی را توزیع نمی‌کند؛ شما خودتان فونت‌ها را اضافه و استفاده می‌کنید و مسئولیت آن را بر عهده دارید.
+خیر. شما مسئول تأمین قلم‌ها و رعایت مجوزهای آن‌ها هستید.
 
-**آیا رفتار جایگزینی در Windows، Linux و macOS متفاوت است؟**
+**آیا نتایج جایگزینی بین Windows، Linux و macOS می‌تواند متفاوت باشد؟**
 
-بله. کشف فونت از دایرکتوری‌های فونت سیستم عامل آغاز می‌شود. مجموعه فونت‌های پیش‌فرض موجود و مسیرهای جستجو در هر پلتفرم متفاوت است که بر دسترس‌پذیری و نیاز به جایگزینی تأثیر می‌گذارد.
+بله. قلم‌های نصب‌شده و مکان‌های جستجوی قلم در هر سیستم‌عامل متفاوت است، بنابراین قلمی که در یک ماشین موجود است ممکن است در ماشین دیگر نیاز به جایگزینی داشته باشد.
 
-**چگونه می‌توانم محیط را برای کاهش جایگزینی غیرمنتظره در تبدیل‌های دسته‌ای آماده کنم؟**
+**چگونه می‌توانم انتخاب قلم را در تبدیل‌های دسته‌ای سازگار کنم؟**
 
-مجموعهٔ فونت‌ها را بین ماشین‌ها یا کانتینرها همگام‌سازی کنید، [add the external fonts](/slides/fa/net/custom-font/) مورد نیاز برای اسناد خروجی اضافه کنید و در صورت ممکن، [embed fonts](/slides/fa/net/embedded-font/) را در ارائه‌ها بگنجانید تا فونت‌های انتخاب‌شده در زمان رندرینگ در دسترس باشند.
+از همان فایل‌ها و نسخه‌های قلم در هر ماشین یا کانتینر استفاده کنید، [قلم‌های خارجی مورد نیاز را بارگذاری کنید](/slides/fa/net/custom-font/)، و هنگامی که مجوز اجازه دهد [قلم‌ها را جاسازی کنید](/slides/fa/net/embedded-font/). همچنین می‌توانید پیش از خروجی‌گیری [IFontsManager.GetSubstitutions](https://reference.aspose.com/slides/fa/net/aspose.slides/ifontsmanager/getsubstitutions/) را فراخوانی کنید تا جایگزینی‌های ناخواسته را شناسایی کنید.
