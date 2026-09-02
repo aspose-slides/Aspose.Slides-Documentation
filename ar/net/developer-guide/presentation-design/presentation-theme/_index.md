@@ -1,44 +1,46 @@
 ---
-title: إدارة سمات العرض التقديمي في .NET
-linktitle: سمة العرض
+title: إدارة سمات العروض التقديمية في .NET
+linktitle: نمط العرض
 type: docs
 weight: 10
 url: /ar/net/presentation-theme/
 keywords:
-- سمة PowerPoint
-- سمة العرض التقديمي
-- سمة الشريحة
-- تعيين سمة
-- تغيير سمة
-- إدارة سمة
-- لون السمة
-- لوحة ألوان إضافية
-- خط السمة
-- نمط السمة
-- تأثير السمة
+- نمط PowerPoint
+- نمط العرض التقديمي
+- نمط الشريحة
+- تعيين نمط
+- تغيير نمط
+- إدارة النمط
+- نمط خارجي
+- THMX
+- لون النمط
+- لوحة إضافية
+- خط النمط
+- نمط التصميم
+- مؤثر النمط
 - PowerPoint
 - OpenDocument
 - عرض تقديمي
 - .NET
 - C#
 - Aspose.Slides
-description: "إدارة سمات العرض التقديمي في Aspose.Slides لـ .NET لإنشاء وتخصيص وتحويل ملفات PowerPoint مع علامة تجارية متسقة."
+description: "إدارة سمات العروض التقديمية في Aspose.Slides لـ .NET لإنشاء وتخصيص وتحويل ملفات PowerPoint مع حفظ الهوية البصرية المتناسقة."
 ---
 ## **المقدمة**
 
-موضوع العرض التقديمي يعرّف مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. الكائنات التي تدعم الموضوع تشير إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيير الموضوع تحديث العديد من الكائنات مرة واحدة.
+يحدد نمط العرض التقديمي مجموعة منسقة من الألوان والخطوط وأنماط الخلفيات والتعبئات والخطوط والمؤثرات. تُشير الكائنات المدركة للنمط إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، بحيث يمكن لتغيير النمط أن يُحدّث العديد من الكائنات مرة واحدة.
 
-في Aspose.Slides، يتوفر موضوع العرض على مستوى العرض من خلال خاصية [Presentation.MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/mastertheme/). يمكن للعرض أيضاً أن يحتوي على تجاوزات للموضوع في مستويات أدنى. يمكن للماستر تجاوز موضوع العرض عبر [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/masterthememanager/overridetheme/)، ويمكن للتخطيط تجاوز موضوعه الموروث عبر [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/overridetheme/)، ويمكن للشفرة الفردية القيام بالمثل. عملياً، يتم حل الموضوع الفعّال للشفرة عبر سلسلة الوراثة هذه: موضوع العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
+في Aspose.Slides، يتوفر نمط العرض على مستوى العرض من خلال الخاصية [Presentation.MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/mastertheme/). يمكن للعرض أيضاً أن يحتوي على تعديلات للنمط على مستويات أدنى. يمكن للماستر أن يتجاوز نمط العرض عبر [MasterThemeManager.OverrideTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/masterthememanager/overridetheme/)، ويمكن لتصميم التخطيط أن يتجاوز النمط الموروث عبر [BaseOverrideThemeManager.OverrideTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/overridetheme/)، ويمكن للشريحة الفردية أن تفعل ذلك كذلك. عملياً، يتم حل النمط الفعّال لشريحة ما من خلال سلسلة الوراثة هذه: نمط العرض، تعديل الماستر، تعديل التخطيط، وتعديل الشريحة.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![مكونات النمط: الألوان، الخطوط، أنماط الخلفية، والمؤثرات](theme-constituents.png)
 
-الأقسام أدناه تُظهر أكثر سير عمل شائع للموضوع: فحص موضوع، تغيير الألوان والخطوط، نسخ أو تطبيق موضوع، تحديث أنماط الخلفية والتأثير، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
+الأقسام أدناه توضح أكثر سير عمل شائع للنمط: فحص النمط، تغيير الألوان والخطوط، نسخ أو تطبيق نمط، تحديث أنماط الخلفية والمؤثرات، وقراءة القيم الفعّالة بعد حل الوراثة والتعديلات.
 
-## **فحص موضوع**
+## **فحص النمط**
 
-الكائن [MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/) يُظهر [ColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/colorscheme/)، [FontScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/fontscheme/)، و[FormatScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/formatscheme/). فحص هذه المجموعات قبل تعديلها مفيد خصوصاً عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مدخلات الأنماط قد يختلف.
+الكائن [MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/) يُظهر [ColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/colorscheme/)، [FontScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/fontscheme/)، و[FormatScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/mastertheme/formatscheme/). فحص هذه المجموعات قبل تعديلها مفيد بشكل خاص عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مدخلات النمط قد يختلف.
 
-المثال التالي يقرأ الخصائص الرئيسية للموضوع ويُبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزّنة في الموضوع:
+المثال التالي يقرأ الخصائص الرئيسية للنمط ويبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والمؤثرات المخزنة في النمط:
 
 ```csharp
 using System;
@@ -57,13 +59,13 @@ Console.WriteLine($"Line styles: {theme.FormatScheme.LineStyles.Count}");
 Console.WriteLine($"Effect styles: {theme.FormatScheme.EffectStyles.Count}");
 ```
 
-إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لها نفس الموضوع الفعّال. افحص الماستر المرتبط بالشفرة، واستخدم سير عمل الموضوع الفعّال الموضح لاحقاً في هذه المقالة عندما قد تكون هناك تجاوزات على مستوى التخطيط أو الشريحة.
+إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لها نفس النمط الفعّال. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل النمط‑الفعّال الموضح لاحقاً في هذه المقالة عندما قد تكون هناك تعديلات على التخطيط أو الشريحة.
 
-## **تغيير ألوان الموضوع**
+## **تغيير ألوان النمط**
 
-التعبئات، الخطوط، والنصوص التي تدعم الموضوع يمكن أن تشير إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/). عندما تغير المدخل المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/)، يتم حل جميع الكائنات التي لا تزال تشير إلى ذلك اللون حسب القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير بتحديث لون الموضوع.
+يمكن للتعبئات، الخطوط، والنصوص المدركة للنمط أن تشير إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/). عندما تُغيّر المدخل المقابل في [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/)، تُطبق جميع الكائنات التي لا تزال تشير إلى ذلك اللون على القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتأثر بتحديث لون النمط.
 
-المثال التالي من البداية إلى النهاية ينشئ شكلاً يستخدم `Accent4`، يغيّر لون الموضوع `Accent4` إلى الأحمر، يحفظ العرض، يعيده للفتح، ويطبع لون التعبئة الفعّال:
+المثال الشامل التالي ينشئ شكلًا يستخدم `Accent4`، يغيّر لون `Accent4` في النمط إلى الأحمر، يحفظ العرض، يعيده مرة أخرى، ويطبع لون التعبئة الفعّال:
 
 ```csharp
 using System;
@@ -86,19 +88,18 @@ var effectiveFill = savedShape.FillFormat.GetEffective();
 Console.WriteLine($"Effective fill color: {effectiveFill.SolidFillColor}");
 ```
 
-لأن المستطيل لا يزال مرتبطاً بـ `Accent4`، يصبح لونه المرئي أحمر بعد تغيير الموضوع. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر بعد ذلك على تلك التعبئة.
+لأن المستطيل لا يزال مرتبطًا بـ `Accent4`، يصبح لونه المرئي أحمر بعد تغيير النمط. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات المستقبلية على `Accent4` لن تؤثر بعد ذلك على تلك التعبئة.
 
 ### **استخدام الألوان من اللوحة الإضافية**
 
-PowerPoint يولّد متباينات أفتح وأتمنى من لون الموضوع عبر تطبيق تحولات لونية. Aspose.Slides يكشف هذه التحولات عبر [ColorTransformOperation](https://reference.aspose.com/slides/ar/net/aspose.slides/colortransformoperation/).
+‏PowerPoint يُشتق المتغيّرات الفاتحة والداكنة من لون النمط بتطبيق تحويلات لونية. Aspose.Slides يُظهر هذه التحويلات عبر [ColorTransformOperation](https://reference.aspose.com/slides/ar/net/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![الألوان الرئيسية للنمط والألوان الفاتحة والداكنة المولدة من اللوحة الإضافية](additional-palette-colors.png)
 
-**1** - ألوان الموضوع الرئيسية.
+**1** - ألوان النمط الرئيسية.  
+**2** - المتغيّرات الفاتحة والداكنة المنتجة من ألوان النمط الرئيسية.
 
-**2** - المتباينات الأفتح والأتمنى المُنتجة من ألوان الموضوع الرئيسية.
-
-المثال التالي ينشئ ستة مستطيلات تستند إلى `Accent4`، يطبّق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
+المثال التالي ينشئ ستة مستطيلات تستند إلى `Accent4`، يطبّق تحويلات الإضاءة على خمسة منها، ويحفظ النتيجة:
 
 ```csharp
 using Aspose.Slides;
@@ -142,31 +143,31 @@ shape6.FillFormat.SolidFillColor.ColorTransform.Add(ColorTransformOperation.Mult
 presentation.Save("theme-color-palette.pptx", SaveFormat.Pptx);
 ```
 
-هذه المتباينات لا تزال تستند إلى لون الموضوع. إذا تغير `Accent4` لاحقاً، تُعاد حساب الألوان المتحوّلة من القيمة الجديدة لـ `Accent4`.
+تظل هذه المتغيّرات مستندة إلى لون النمط. إذا تغير `Accent4` لاحقًا، تُعاد حساب الألوان المحوّلة من القيمة الجديدة لـ `Accent4`.
 
-### **تعيين قيم `SchemeColor` إلى فتحات `IColorScheme`**
+### **ربط قيم `SchemeColor` بفتحات `IColorScheme`**
 
-تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/) يستخدم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يوضح [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/) نفس فتحات الموضوع كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الت mapping ثابت:
+تعداد [SchemeColor](https://reference.aspose.com/slides/ar/net/aspose.slides/schemecolor/) يستخدم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يقدّم [IColorScheme](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/icolorscheme/) نفس الفتحات كنصوص `Dark1`، `Light1`، `Dark2`، و`Light2`. الترابط ثابت:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هذه أسماء بديلة لنفس فتحات الموضوع؛ ليست قيماً تُحوَّل ديناميكياً من شكل إلى آخر.
+هذه أسماء بديلة لنفس فتحات النمط؛ ليست قيمًا تُحوَّل ديناميكيًا من شكل إلى آخر.
 
-## **تغيير خطوط الموضوع**
+## **تغيير خطوط النمط**
 
-مخطط خطوط الموضوع يحتوي على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص الأساسي. خصائص [FontScheme.Major](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/fontscheme/major/) و[FontScheme.Minor](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/fontscheme/minor/) تُظهر تلك المجموعات.
+يتضمن مخطط خطوط النمط مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص العادي. الخاصيتان [FontScheme.Major](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/fontscheme/major/) و[FontScheme.Minor](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/fontscheme/minor/) تُظهران هاتين المجموعتين.
 
-معرفات خطوط الموضوع المتوافقة مع PowerPoint يمكن استخدامها في تنسيق النص:
+يمكن استخدام مُعرّفات خطوط النمط المتوافقة مع PowerPoint في تنسيق النص:
 
-* `+mn‑lt` - خط النص الأساسي Latin (Minor Latin Font)
-* `+mj‑lt` - خط العنوان Latin (Major Latin Font)
-* `+mn‑ea` - خط النص الأساسي East Asian (Minor East Asian Font)
-* `+mj‑ea` - خط العنوان East Asian (Major East Asian Font)
+* `+mn-lt` - خط النص العادي لاتيني (Minor Latin Font)
+* `+mj-lt` - خط العنوان لاتيني (Major Latin Font)
+* `+mn-ea` - خط النص العادي شرق آسيوي (Minor East Asian Font)
+* `+mj-ea` - خط العنوان شرق آسيوي (Major East Asian Font)
 
-المثال التالي ينشئ عنواناً يستخدم خط الموضوع Latin الرئيسي، وسطر نص أساسي يستخدم خط الموضوع Latin الفرعي. ثم يغيّر خطوط الموضوع ويحفظ النتيجة:
+المثال التالي ينشئ عنوانًا يستخدم خط النمط اللاتيني الرئيسي وسطرًا نصيًا يستخدم خط النمط اللاتيني الفرعي. ثم يغيّر خطوط النمط ويحفظ النتيجة:
 
 ```csharp
 using Aspose.Slides;
@@ -189,21 +190,95 @@ presentation.MasterTheme.FontScheme.Minor.LatinFont = new FontData("Arial");
 presentation.Save("theme-fonts.pptx", SaveFormat.Pptx);
 ```
 
-العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الفرعي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف موضوع لن يتبدّل تلقائياً عندما يتغيّر مخطط خطوط الموضوع.
+العنوان يتبع الخط الرئيسي والنص العادي يتبع الخط الفرعي. النص الذي يحتوي على اسم خط صريح بدلًا من مُعرّف النمط لن يتغيّر تلقائيًا عند تغيير مخطط خطوط النمط.
 
-مجموعات الخطوط الرئيسية والفرعية يمكن أن تحتوي أيضاً على تعيينات خطوط لأنظمة كتابة فردية، مثل السيريالية، العربية، اليابانية، الجورجية، والثعنا. لفحص، إضافة، استبدال أو إزالة هذه التعيينات، راجع [Script-Specific Theme Fonts](/slides/ar/net/script-specific-font-mappings/).
+يمكن أن تحتوي مجموعات الخطوط الرئيسية والفرعية أيضًا على تعيينات خطوط للأنظمة الكتابية الفردية، مثل السريليانية والعربية واليابانية والجورجية والثانا. لفحص، إضافة، استبدال أو إزالة هذه التعيينات، راجع [خطوط النمط حسب النص البرمجي](/slides/ar/net/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
-لمزيد من المعلومات حول خطوط العرض التقديمي، راجع [PowerPoint Fonts](/slides/ar/net/powerpoint-fonts/).
+{{% alert color="info" title="نصيحة" %}}
+لمزيد من المعلومات حول خطوط العرض التقديمي، انظر [خطوط PowerPoint](/slides/ar/net/powerpoint-fonts/).
 {{% /alert %}}
 
-## **نسخ أو تطبيق موضوع**
+## **نسخ أو تطبيق نمط**
 
-هناك سيران شائعان، وكل منهما يحلّ مشكلة مختلفة.
+تُحلّ سير العمل أدناه مشكلات مختلفة متعلقة بالنمط.
 
-### **الحفاظ على موضوع المصدر عند نقل الشرائح**
+### **تطبيق نمط خارجي على الشرائح التابعة للماستر**
 
-إذا أردت نقل شريحة إلى عرض آخر والحفاظ على التصميم الأصلي، استنسخ الماستر المصدر إلى العرض الهدف عبر [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/)، ثم استنسخ الشريحة عبر [ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) والماستر المستنسخ. هذا يُحمل الماستر، تخطيطاته، والموضوع المرتبط معاً.
+استخدم [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) عندما يكون لديك ملف نمط PowerPoint (`.thmx`) وتريد إعادة تنسيق كل شريحة تعتمد على ماستر معين. حدد الماستر من مجموعة [Presentation.Masters](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/masters/) التي تنفّذ [IMasterSlideCollection](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/)، ومرّر مسار ملف النمط إلى الطريقة.
+
+تنفّذ الطريقة العمليات التالية:
+
+1. تنشئ شريحة ماستر جديدة استنادًا إلى الماستر المحدد.
+1. تُطبق النمط الخارجي على الماستر الجديد.
+1. تُعيد تعيين الماستر الجديد لجميع الشرائح التي كانت تعتمد على الماستر المحدد سابقًا.
+1. تُعيد الكائن [IMasterSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/) الذي تم إنشاؤه حديثًا.
+
+المثال التالي يُطبق نمطًا خارجيًا على الشرائح التي تعتمد على الماستر الأول، يحفظ العرض، ويعيد فتح النتيجة:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("presentation.pptx");
+var selectedMaster = presentation.Masters[0];
+var themedMaster = selectedMaster.ApplyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+Console.WriteLine($"Created master: {themedMaster.Name}");
+presentation.Save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+```
+
+قد يتسبب نمط غير صالح أو معطوب أو غير مدعوم في حدوث [PptxException](https://reference.aspose.com/slides/ar/net/aspose.slides/pptxexception/) أو أحد الفئات الفرعية المتعلقة بالتنسيق. تحقق من صحة المسارات التي يُدخلها المستخدمون، وتعامل مع فشل الوصول إلى نظام الملفات، واحفظ العرض فقط بعد تطبيق النمط بنجاح.
+
+يُعاد تعيين الشرائح التي كانت تعتمد على الماستر المحدد فقط. الشرائح المرتبطة بماسترات أخرى تحتفظ بماستراتها ونماذجها الحالية. تُحلّ الألوان والخطوط والتعبئات والخطوط الخلفية والمؤثرات المدركة للنمط وفقًا للنمط الخارجي. قد تظل الألوان والخطوط والتعبئات المعيّنة مباشرة دون تغيير. يمكن أن تتفوّق تعديلات المستوى التخطيطي أو المستوى الشريحة على القيم الموروثة من الماستر الجديد.
+
+قد يشير النمط إلى خطوط غير متوفرة في بيئة التشغيل. لضمان عرض وتصدير متسق، ثبّت الخطوط المطلوبة، أو وفّرها عبر [مصادر خطوط مخصصة](/slides/ar/net/custom-font/)، أو ضبط [بدائل الخطوط](/slides/ar/net/font-substitution/).
+
+هذا سير عمل مباشر على مستوى الماستر: الطريقة تقبل مسار ملف `.thmx` ولا تتطلب إنشاء تعديلات على مستوى الشريحة أو التخطيط يدويًا.
+
+### **تطبيق أنماط خارجية مختلفة في عرض متعدد الماسترات**
+
+عند عدم معرفة الماستر المناسب مسبقًا، احصله من شريحة تمثيلية عبر [ISlide.LayoutSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/islide/layoutslide/) و[ILayoutSlide.MasterSlide](https://reference.aspose.com/slides/ar/net/aspose.slides/ilayoutslide/masterslide/). احفظ مراجع الماسترات الأصلية قبل تطبيق أي نمط لأن كل استدعاء يُنشئ ماسترًا آخر في العرض.
+
+المثال التالي يستخدم شرائح من قسمين لتحديد ماستراتهما ويُطبق نمطًا خارجيًا مختلفًا على كل مجموعة:
+
+```csharp
+using System;
+using Aspose.Slides;
+using Aspose.Slides.Export;
+
+using var presentation = new Presentation("multi-master-presentation.pptx");
+
+if (presentation.Slides.Count < 5)
+{
+    Console.WriteLine("The presentation does not contain the expected representative slides.");
+}
+else
+{
+    var firstGroupMaster = presentation.Slides[0].LayoutSlide.MasterSlide;
+    var secondGroupMaster = presentation.Slides[4].LayoutSlide.MasterSlide;
+
+    if (ReferenceEquals(firstGroupMaster, secondGroupMaster))
+    {
+        Console.WriteLine("The representative slides use the same master.");
+    }
+    else
+    {
+        var firstThemedMaster = firstGroupMaster.ApplyExternalThemeToDependingSlides("blue-theme.thmx");
+        var secondThemedMaster = secondGroupMaster.ApplyExternalThemeToDependingSlides("green-theme.thmx");
+
+        Console.WriteLine($"First themed master: {firstThemedMaster.Name}");
+        Console.WriteLine($"Second themed master: {secondThemedMaster.Name}");
+        presentation.Save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+    }
+}
+```
+
+الاستدعاء الأول يؤثر فقط على الشرائح التي كانت تعتمد على `firstGroupMaster`، والاستدعاء الثاني يؤثر فقط على الشرائح التي كانت تعتمد على `secondGroupMaster`. الشرائح المرتبطة بأي ماستر آخر لا تُعاد تنسيقها.
+
+### **الحفاظ على نمط المصدر عند نقل الشرائح**
+
+إذا كنت تريد نقل شريحة إلى عرض آخر مع الحفاظ على التصميم الأصلي، استنسخ الماستر المصدر إلى العرض الهدف باستخدام [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/)، ثم استنسخ الشريحة باستخدام [ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/) والماستر المستنسخ. هذا يُنقل الماستر وتخطيطاته والنمط المرتبط به معًا.
 
 ```csharp
 using Aspose.Slides;
@@ -220,11 +295,11 @@ target.Slides.AddClone(sourceSlide, clonedMaster, true);
 target.Save("theme-preserved.pptx", SaveFormat.Pptx);
 ```
 
-هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى على ماستر وجهة غير مرتبط قد يغيّر الألوان، الخطوط، الخلفيات، والتأثيرات المدفوعة بالموضوع.
+هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية كما هي في الوجهة. مجرد استنسخ المحتوى على ماستر هدف غير مرتبط قد يُغيّر الألوان والخطوط والخلفيات والمؤثرات المدفوعة بالنمط.
 
-### **تطبيق قيم الموضوع على شريحة موجودة**
+### **تطبيق قيم النمط على شريحة موجودة**
 
-إذا كان يجب أن تبقى الشريحة الهدف على الماستر والتخطيط الحاليين، ابتدئ تجاوزاً على مستوى الشريحة من موضوع المصدر. طرق [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initfontschemefrom/)، و[OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initformatschemefrom/) تنسخ المكوّنات الثلاثة الرئيسية للموضوع إلى التجاوز.
+إذا كان على الشريحة الهدف البقاء على الماستر والتخطيط الحاليين، ابدأ بتعديل محلي على مستوى الشريحة من النمط المصدر. تُنسخ طرق [OverrideTheme.InitColorSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initcolorschemefrom/)، [OverrideTheme.InitFontSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initfontschemefrom/)، و[OverrideTheme.InitFormatSchemeFrom](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/initformatschemefrom/) المكونات الثلاثة الرئيسية للنمط إلى التعديل.
 
 ```csharp
 using Aspose.Slides;
@@ -242,11 +317,11 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-slide.pptx", SaveFormat.Pptx);
 ```
 
-هذا يغيّر الموضوع المستخدم لتلك الشريحة دون تغيير الموضوع الموروث للشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.Clear](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/clear/).
+يُغيّر هذا النمط المستخدم لتلك الشريحة دون تعديل النمط الموروث للشرائح الأخرى. لإزالة التعديل المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.Clear](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/overridetheme/clear/).
 
-### **تطبيق تجاوز موضوع على تخطيط**
+### **تطبيق تعديل نمط على تخطيط**
 
-تجاوز على مستوى التخطيط يطبق على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لها تجاوزها الخاص. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/layoutslidethememanager/):
+تعديل على مستوى التخطيط يُطبق على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لديها تعديل خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/layoutslidethememanager/) الخاص بالتخطيط:
 
 ```csharp
 using Aspose.Slides;
@@ -264,17 +339,17 @@ overrideTheme.InitFormatSchemeFrom(source.MasterTheme.FormatScheme);
 target.Save("theme-applied-to-layout.pptx", SaveFormat.Pptx);
 ```
 
-استخدم موضوع على مستوى الماستر أو العرض التقديمي عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدام تجاوز تخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدام تجاوز شريحة فقط للاستثناءات الحقيقية. التجاوزات الزائدة على مستوى الشريحة تجعل تغييرات الموضوع العامة لاحقاً أصعب في التنبؤ.
+استخدم نمطًا على مستوى الماستر أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في التصميم الأساسي ذاته، واستخدم تعديل تخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدم تعديل شريحة فقط للحالات الاستثنائية الحقيقية. التعديلات الزائدة على مستوى الشريحة تجعل تغييرات النمط العامة في المستقبل أصعب في التنبؤ.
 
-## **تحديث أنماط خلفية الموضوع**
+## **تحديث أنماط خلفية النمط**
 
-تُخزن تعبئات خلفية الموضوع في [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). يمكن لـ PowerPoint عرض خيارات خلفية أكثر في واجهته مقارنةً بعدد تعريفات التعبئة المادية المخزّنة في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات الموضوع مع ألوان الموضوع ومراجع أنماط أخرى.
+تُخزن تعبئات خلفية النمط في [FormatScheme.BackgroundFillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/backgroundfillstyles/). يمكن لـ PowerPoint عرض خيارات خلفية أكثر في واجهته مقارنة بعدد تعريفات التعبئة المخزنة فعليًا في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات النمط مع ألوان النمط ومراجع الأنماط الأخرى.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![معرض أنماط الخلفية في PowerPoint لنمط عرض تقديمي](presentation-design_8.png)
 
-قبل استخدام نمط خلفية، افحص المجموعة المخزّنة و[Background.StyleIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/background/styleindex/) الحالي. `StyleIndex` يستخدم `0` لعدم وجود تعبئة موضوع؛ القيم الموجبة هي مراجع لأنماط خلفية الموضوع. هذا مختلف عن فهرسة مجموعة .NET مباشرةً، حيث يعني `[0]` العنصر الأول المخزّن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
+قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.StyleIndex](https://reference.aspose.com/slides/ar/net/aspose.slides/background/styleindex/) الحالي. يستخدم `StyleIndex` القيمة `0` لعدم وجود تعبئة نمطية؛ القيم الموجبة تُشير إلى مراجع أنماط خلفية النمط. هذا يختلف عن فهرسة مجموعة .NET نفسها، حيث يعني `[0]` العنصر الأول المخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
 
-المثال التالي يبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية موضوع إلى أول ماستر، ويحفظ العرض:
+المثال التالي يبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية نمطي إلى الماستر الأول، ويحفظ العرض:
 
 ```csharp
 using System;
@@ -296,25 +371,25 @@ presentation.Masters[0].Background.StyleIndex = 1;
 presentation.Save("theme-background.pptx", SaveFormat.Pptx);
 ```
 
-النتيجة المرئية تعتمد على مدخل الموضوع الذي يشيره الماستر وعلى أي تجاوزات خلفية في التخطيط أو مستوى الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر فقط تلك الشريحة. استخدم [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
+النتيجة الظاهرة تعتمد على مدخل النمط المُشير إليه من قبل الماستر وأي تعديلات خلفية على مستوى التخطيط أو الشريحة. إذا كانت الشريحة تستخدم خلفية خاصة بها، قد لا يغيّر تعديل خلفية الماستر فقط تلك الشريحة. استخدم [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/) عندما تحتاج لمعرفة الخلفية النهائية بعد تطبيق الوراثة.
 
-{{% alert color="warning" title="Warning" %}}
-لا تعتَبِر `StyleIndex` كفهرس مجموعة يبدأ من صفر. كما تجنّب ترميز رقم نمط من ملف واحد وافتراض أن له نفس المظهر في ملف آخر؛ تعريفات أنماط الموضوع خاصة بالعرض.
+{{% alert color="warning" title="تحذير" %}}
+لا تعامل `StyleIndex` كفهرس مجموعة يبدأ من الصفر. وتجنب أيضًا ترميز رقم نمط من ملف واحد والافتراض أن له نفس المظهر في ملف آخر؛ تعريفات نمط العرض خاصة بالعرض نفسه.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-للتنسيق المباشر للخلفية ووراثتها، راجع [Presentation Background](/slides/ar/net/presentation-background/).
+{{% alert color="info" title="نصيحة" %}}
+للتنسيق المباشر للخلفية ووراثة الخلفية، راجع [خلفية العرض](/slides/ar/net/presentation-background/).
 {{% /alert %}}
 
-## **تحديث تأثيرات الموضوع**
+## **تحديث مؤثرات النمط**
 
-مخطط تنسيق الموضوع يحتوي على مجموعات منفصلة لـ [FillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/fillstyles/)، [LineStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/linestyles/)، و[EffectStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/effectstyles/). غالباً ما تحتوي موضوعات Office على ثلاث مدخلات أساسية تمثّل بصرياً التنسيقات الخفيفة، المتوسطة، والقوية، لكن يجب على الكود فحص كل مجموعة بدلاً من افتراض عدد ثابت.
+يحتوي مخطط تنسيق النمط على مجموعات منفصلة من [FillStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/fillstyles/)، [LineStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/linestyles/)، و[EffectStyles](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/formatscheme/effectstyles/). غالبًا ما تحتوي أنماط Office على ثلاثة مدخلات رئيسية تُطابق بصريًا تنسيقات دقيقة، متوسطة، ومكثفة، لكن يجب على الشيفرة فحص كل مجموعة بدلاً من افتراض عدد ثابت.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![مؤثرات النمط الدقيقة، المتوسطة، والمكثفة المطبقة على نفس الشكل](presentation-design_10.png)
 
-عند الوصول إلى هذه المجموعات في C#، يكون فهرس المجموعة يبدأ من صفر: `[0]` هو أول نمط مخزّن و`[2]` هو الثالث. فهارس مراجع النمط في الشكل مفهوم منفصل، يُعرض عبر [IShapeStyle](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapestyle/). تعديل نمط موضوع يؤثر على الأشكال التي تشير إلى ذلك النمط؛ الأشكال ذات التنسيق المباشر قد تظل غير متغيّرة.
+عند الوصول إلى هذه المجموعات في C#، يكون فهرس المجموعة بصفر: `[0]` هو أول نمط مخزن و`[2]` هو الثالث. فهارس مراجع النمط في الشكل مفهوم منفصل، يُعرض عبر [IShapeStyle](https://reference.aspose.com/slides/ar/net/aspose.slides/ishapestyle/). تعديل نمط النمط يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
 
-المثال التالي يتحقّق من وجود مدخلات النمط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط تأثير، ويحفظ النتيجة:
+المثال التالي يتحقق من وجود مدخلات الأنماط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط مؤثر، ويحفظ النتيجة:
 
 ```csharp
 using System;
@@ -340,15 +415,15 @@ formatScheme.EffectStyles[2].EffectFormat.OuterShadowEffect.Distance = 10f;
 presentation.Save("theme-effects.pptx", SaveFormat.Pptx);
 ```
 
-للأشكال التي تشير إلى هذه الفتحات، يصبح أول خط موضوع أحمر، وثالث تعبئة موضوع يصبح أخضر غابة صلب، وثالث نمط تأثير يكتسب ظلًا خارجيًا بمسافة 10 نقاط. النتيجة البصرية النهائية ما زالت تعتمد على الفتحات التي يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز الموضوع.
+بالنسبة للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط النمط أحمر، ويصبح ثالث نمط تعبئة النمط أخضر غامق صلب، ويضيف الثالث ظلًا خارجيًا بمسافة 10 نقاط. النتيجة البصرية الدقيقة لا تزال تعتمد على الفتحات التي تشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز النمط.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![أنماط مؤثرات النمط بعد تغيير خط وتعبئة وإعدادات الظل](presentation-design_11.png)
 
-## **قراءة قيم الموضوع الفعّالة**
+## **قراءة قيم النمط الفعّالة**
 
-كائنات الموضوع الخام تُظهر ما هو معرف على مستوى معين. القيم الفعّالة تُظهر ما يستخدمه الشريحة أو الشكل فعلياً بعد حل الوراثة والتجاوزات المحلية. للشريحة، استدعِ [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). للخلفية، استخدم [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/)، وللتعبئة استخدم [FillFormat.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/geteffective/).
+تُظهر كائنات النمط الأولية ما هو معرف على مستوى معين. القيم الفعّالة تُظهر ما يستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتعديلات المحلية. لشريحة، استدعِ [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/). للخلفية، استخدم [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/)، وللتعبئة استخدم [FillFormat.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/geteffective/).
 
-المثال التالي يقرأ الموضوع الفعّال، الخلفية، وتعبئة الشكل الأول من شريحة:
+المثال التالي يقرأ النمط الفعّال، الخلفية، وتعبئة الشكل الأول من شريحة:
 
 ```csharp
 using System;
@@ -374,18 +449,22 @@ if (slide.Shapes.Count > 0)
 }
 ```
 
-استخدم البيانات الفعّالة للتشخيص، التحقق، والمقارنات. إذا فحصت فقط [Presentation.MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/mastertheme/)، قد تفوتك أي تجاوز ماستر أو تخطيط أو شريحة أو شكل يُغيّر المظهر النهائي.
+استخدم البيانات الفعّالة لتشخيص العرض، والتحقق، والمقارنات. إذا فحصت فقط [Presentation.MasterTheme](https://reference.aspose.com/slides/ar/net/aspose.slides/presentation/mastertheme/)، قد تفوت تعديلًا على مستوى ماستر أو تخطيط أو شريحة أو شكل يغيّر المظهر النهائي.
 
 ## **الأسئلة المتكررة**
 
-**هل يمكنني تطبيق موضوع على شريحة واحدة دون تغيير الماستر؟**
+**هل يؤثر تطبيق نمط خارجي على كل شريحة في العرض؟**
 
-نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/slidethememanager/) للشفرة وابدأ تجاوزه للموضوع. التغيير يبقى محلياً لتلك الشريحة؛ الشرائح الأخرى تستمر في وراثة الموضوعات الحالية لها.
+لا. تقوم [IMasterSlide.ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslide/applyexternalthemetodependingslides/) بإعادة تعيين الشرائح التي تعتمد فقط على الماستر المختار. الشرائح التي تستخدم ماسترات أخرى تحتفظ بأنماطها الحالية.
 
-**ما هي الطريقة الأكثر أماناً لنقل موضوع من عرض إلى آخر؟**
+**هل يمكنني تطبيق نمط على شريحة واحدة دون تغيير الماستر؟**
 
-عند نقل شريحة والحفاظ على مظهر المصدر، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/) و[ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/). هذا يُبقي الماستر، التخطيطات، والموضوع معاً.
+نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/slidethememanager/) الخاص بالشريحة وابدأ تعديل النمط المحلي. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة أنماطها الحالية.
 
-**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
+**ما هي الطريقة الأكثر أمانًا لنقل نمط من عرض إلى آخر؟**
 
-استخدم [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) للموضوع على شريحة أو تخطيط، واستخدم طرق البيانات الفعّالة المقابلة لكائنات التنسيق مثل [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/) و[FillFormat.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/geteffective/). تُعيد هذه الواجهات القيم التي تم حلها بعد تطبيق الوراثة والتجاوزات.
+عند نقل شريحة مع الحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة ثم استنسخ الشريحة مع ذلك الماستر باستخدام [IMasterSlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/imasterslidecollection/addclone/) و[ISlideCollection.AddClone](https://reference.aspose.com/slides/ar/net/aspose.slides/islidecollection/addclone/). يضمن ذلك الحفاظ على الماستر والتخطيطات والنمط معًا.
+
+**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتعديلات؟**
+
+استخدم [BaseOverrideThemeManager.CreateThemeEffective](https://reference.aspose.com/slides/ar/net/aspose.slides.theme/baseoverridethememanager/createthemeeffective/) لنمط شريحة أو تخطيط، واستخدم الطرق الفعّالة المقابلة لكائنات التنسيق مثل [Background.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/background/geteffective/) و[FillFormat.GetEffective](https://reference.aspose.com/slides/ar/net/aspose.slides/fillformat/geteffective/). تُعيد هذه الواجهات القيم التي تم حلها بعد تطبيق الوراثة والتعديلات.

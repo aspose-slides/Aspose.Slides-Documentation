@@ -5,12 +5,14 @@ type: docs
 weight: 10
 url: /es/androidjava/presentation-theme/
 keywords:
-- Tema PowerPoint
+- Tema de PowerPoint
 - Tema de presentación
 - Tema de diapositiva
 - Establecer tema
 - Cambiar tema
 - Gestionar tema
+- Tema externo
+- THMX
 - Color del tema
 - Paleta adicional
 - Fuente del tema
@@ -22,23 +24,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Domine los temas de presentación en Aspose.Slides para Android mediante Java para crear, personalizar y convertir archivos PowerPoint con una marca coherente."
+description: "Temas maestros de presentación en Aspose.Slides para Android vía Java para crear, personalizar y convertir archivos PowerPoint con una marca consistente."
 ---
 ## **Introducción**
 
-Un tema de presentación define un conjunto coordinado de colores, fuentes, estilos de fondo, rellenos, líneas y efectos. Los objetos compatibles con el tema hacen referencia a estas definiciones compartidas en lugar de almacenar cada propiedad visual como un valor fijo, de modo que un cambio de tema puede actualizar muchos objetos a la vez.
+Un tema de presentación define un conjunto coordinado de colores, fuentes, estilos de fondo, rellenos, líneas y efectos. Los objetos con conocimiento de tema hacen referencia a estas definiciones compartidas en lugar de almacenar cada propiedad visual como un valor fijo, de modo que un cambio de tema puede actualizar muchos objetos a la vez.
 
-En Aspose.Slides, el tema a nivel de presentación está disponible a través de [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/). Una presentación también puede contener anulaciones de tema en niveles inferiores. Un máster puede anular el tema de la presentación mediante [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/masterthememanager/), mientras que un diseño o una diapositiva individual pueden anular su tema heredado mediante [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseoverridethememanager/). En la práctica, el tema efectivo para una diapositiva se resuelve a través de esta cadena de herencia: tema de presentación, anulación del máster, anulación del diseño y anulación de la diapositiva.
+En Aspose.Slides, el tema a nivel de presentación está disponible a través de [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/). Una presentación también puede contener anulación de temas en niveles inferiores. Un máster puede anular el tema de la presentación mediante [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/masterthememanager/), mientras que un diseño o una diapositiva individual pueden anular su tema heredado mediante [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseoverridethememanager/). En la práctica, el tema efectivo para una diapositiva se resuelve a través de esta cadena de herencia: tema de presentación, anulación del máster, anulación del diseño y anulación de la diapositiva.
 
 ![Componentes del tema: colores, fuentes, estilos de fondo y efectos](theme-constituents.png)
 
-Las secciones siguientes muestran los flujos de trabajo más habituales con los temas: inspeccionar un tema, cambiar colores y fuentes, copiar o aplicar un tema, actualizar estilos de fondo y de efecto, y leer los valores efectivos después de que se hayan resuelto la herencia y las anulaciones.
+Las secciones siguientes muestran los flujos de trabajo de tema más habituales: inspeccionar un tema, cambiar colores y fuentes, copiar o aplicar un tema, actualizar estilos de fondo y de efecto, y leer los valores efectivos tras la herencia y las anulaciones.
 
 ## **Inspeccionar un tema**
 
-El objeto [MasterTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/) expone el esquema de colores, el esquema de fuentes y el esquema de formato del tema a través de [MasterTheme.getColorScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/) y [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/). Inspeccionar estas colecciones antes de modificarlas es especialmente útil cuando una presentación proviene de una fuente externa, ya que el número y el contenido de las entradas de estilo pueden variar.
+El objeto [MasterTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/) expone el esquema de colores, el esquema de fuentes y el esquema de formato del tema mediante [MasterTheme.getColorScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/) y [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/mastertheme/). Inspeccionar estas colecciones antes de modificarlas es particularmente útil cuando una presentación proviene de una fuente externa, ya que el número y el contenido de las entradas de estilo pueden variar.
 
-El siguiente ejemplo lee las propiedades principales del tema e informa cuántos estilos de fondo, relleno, línea y efecto están almacenados en el tema:
+El siguiente ejemplo lee las propiedades principales del tema e informa cuántos estilos de fondo, relleno, línea y efecto se almacenan en el tema:
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +63,13 @@ try {
 }
 ```
 
-Si un archivo utiliza varios másters, no suponga que cada diapositiva tiene el mismo tema efectivo. Inspeccione el máster asociado a la diapositiva y utilice el flujo de trabajo de tema efectivo que se muestra más adelante en este artículo cuando puedan existir anulaciones de diseño o de diapositiva.
+Si un archivo utiliza varios másters, no asuma que cada diapositiva tiene el mismo tema efectivo. Inspeccione el máster asociado a la diapositiva y utilice el flujo de trabajo de tema efectivo que se muestra más adelante en este artículo cuando puedan existir anulaciones de diseño o diapositiva.
 
-## **Cambiar colores del tema**
+## **Cambiar los colores del tema**
 
-Los rellenos, líneas y textos compatibles con el tema pueden referirse a un color lógico de la enumeración [SchemeColor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/schemecolor/). Cuando cambia la entrada correspondiente en la [IColorScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icolorscheme/), todos los objetos que todavía hacen referencia a ese color del tema se resuelven contra el nuevo valor. Los objetos que utilizan un color RGB directo no se modifican mediante una actualización del color del tema.
+Los rellenos, líneas y textos con conocimiento de tema pueden referirse a un color lógico de la enumeración [SchemeColor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/schemecolor/). Cuando se modifica la entrada correspondiente en la [IColorScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icolorscheme/), todos los objetos que todavía hacen referencia a ese color de tema se resuelven con el nuevo valor. Los objetos que usan un color RGB directo no se modifican con la actualización del color del tema.
 
-El siguiente ejemplo de extremo a extremo crea una forma que usa `Accent4`, cambia el color `Accent4` del tema a rojo, guarda la presentación, la vuelve a abrir e imprime el color de relleno efectivo:
+El siguiente ejemplo integral crea una forma que utiliza `Accent4`, cambia el color `Accent4` del tema a rojo, guarda la presentación, la vuelve a abrir y muestra el color de relleno efectivo:
 
 ```java
 import com.aspose.slides.*;
@@ -97,17 +99,17 @@ try {
 }
 ```
 
-Porque el rectángulo sigue vinculado a `Accent4`, su color visible se vuelve rojo después de cambiar el tema. Si sustituye el color de esquema por un color directo en la forma, los cambios posteriores de `Accent4` ya no afectarán a ese relleno.
+Dado que el rectángulo sigue vinculado a `Accent4`, su color visible pasa a rojo tras el cambio de tema. Si sustituye el color de esquema por un color directo en la forma, los posteriores cambios de `Accent4` ya no afectarán a ese relleno.
 
-### **Utilizar colores de la paleta adicional**
+### **Usar colores de la paleta adicional**
 
-PowerPoint deriva variantes más claras y más oscuras de un color del tema aplicando transformaciones de color. Aspose.Slides expone estas transformaciones mediante la enumeración [ColorTransformOperation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/colortransformoperation/).
+PowerPoint genera variantes más claras y más oscuras a partir de un color del tema aplicando transformaciones de color. Aspose.Slides expone estas transformaciones mediante la enumeración [ColorTransformOperation](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/colortransformoperation/).
 
 ![Colores principales del tema y colores más claros y oscuros generados a partir de la paleta adicional](additional-palette-colors.png)
 
-**1** - Colores principales del tema.
+**1** – Colores principales del tema.
 
-**2** - Variantes más claras y más oscuras producidas a partir de los colores principales del tema.
+**2** – Variantes más claras y más oscuras producidas a partir de los colores principales del tema.
 
 El siguiente ejemplo crea seis rectángulos basados en `Accent4`, aplica transformaciones de luminancia a cinco de ellos y guarda el resultado:
 
@@ -156,11 +158,11 @@ try {
 }
 ```
 
-Estas variantes permanecen basadas en el color del tema. Si `Accent4` cambia más adelante, los colores transformados se recalculan a partir del nuevo valor de `Accent4`.
+Estas variantes siguen basadas en el color del tema. Si `Accent4` cambia más adelante, los colores transformados se recalculan a partir del nuevo valor de `Accent4`.
 
-### **Asignar valores `SchemeColor` a ranuras `IColorScheme`**
+### **Mapear valores de `SchemeColor` a ranuras de `IColorScheme`**
 
-La enumeración [SchemeColor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/schemecolor/) usa `Text1`, `Background1`, `Text2` y `Background2`, mientras que la [IColorScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icolorscheme/) expone las mismas ranuras del tema como `Dark1`, `Light1`, `Dark2` y `Light2`. El mapeo es fijo:
+La enumeración [SchemeColor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/schemecolor/) utiliza `Text1`, `Background1`, `Text2` y `Background2`, mientras que la [IColorScheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/icolorscheme/) expone las mismas ranuras del tema como `Dark1`, `Light1`, `Dark2` y `Light2`. La asignación es fija:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -169,18 +171,18 @@ La enumeración [SchemeColor](https://reference.aspose.com/slides/es/androidjava
 
 Estos son nombres alternativos para las mismas ranuras del tema; no son valores que se conviertan dinámicamente de una forma a otra.
 
-## **Cambiar fuentes del tema**
+## **Cambiar las fuentes del tema**
 
-Un esquema de fuentes del tema contiene un conjunto de fuentes principal para encabezados y un conjunto de fuentes secundario para el cuerpo del texto. Los métodos [IFontScheme.getMajor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifontscheme/) y [IFontScheme.getMinor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifontscheme/) exponen esos conjuntos.
+Un esquema de fuentes del tema contiene un conjunto de fuentes principal para encabezados y un conjunto secundario para el cuerpo del texto. Los métodos [IFontScheme.getMajor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifontscheme/) y [IFontScheme.getMinor](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ifontscheme/) exponen esos conjuntos.
 
-Los identificadores de fuentes de tema compatibles con PowerPoint pueden usarse en el formato de texto:
+Los identificadores de fuentes del tema compatibles con PowerPoint pueden usarse en el formato de texto:
 
-* `+mn-lt` - Fuente del cuerpo Latin (Fuente menor Latin)
-* `+mj-lt` - Fuente de encabezado Latin (Fuente mayor Latin)
-* `+mn-ea` - Fuente del cuerpo East Asian (Fuente menor East Asian)
-* `+mj-ea` - Fuente de encabezado East Asian (Fuente mayor East Asian)
+* `+mn-lt` – Fuente del cuerpo (Latin Minor)
+* `+mj-lt` – Fuente del encabezado (Latin Major)
+* `+mn-ea` – Fuente del cuerpo (East Asian Minor)
+* `+mj-ea` – Fuente del encabezado (East Asian Major)
 
-El siguiente ejemplo crea un encabezado que usa la fuente Latin mayor del tema y una línea de cuerpo que usa la fuente Latin menor del tema. Después cambia las fuentes del tema y guarda el resultado:
+El siguiente ejemplo crea un encabezado que utiliza la fuente latina mayor del tema y una línea de cuerpo que utiliza la fuente latina menor del tema. Luego cambia las fuentes del tema y guarda el resultado:
 
 ```java
 import com.aspose.slides.*;
@@ -205,21 +207,94 @@ try {
 }
 ```
 
-El encabezado sigue la fuente mayor y el texto del cuerpo sigue la fuente menor. El texto que tiene un nombre de fuente explícito en lugar de un identificador de tema no cambiará automáticamente cuando el esquema de fuentes del tema cambie.
+El encabezado sigue la fuente mayor y el texto del cuerpo sigue la fuente menor. Un texto que tenga un nombre de fuente explícito en lugar de un identificador de tema no cambiará automáticamente cuando el esquema de fuentes del tema cambie.
 
-Las colecciones de fuentes mayor y menor también pueden contener asignaciones de fuentes para sistemas de escritura individuales, como cirílico, árabe, japonés, georgiano y thaana. Para inspeccionar, añadir, reemplazar o eliminar estas asignaciones, consulte [Script-Specific Theme Fonts](/slides/es/androidjava/script-specific-font-mappings/).
+Las colecciones mayor y menor también pueden contener asignaciones de fuentes para sistemas de escritura individuales, como cirílico, árabe, japonés, georgiano y thaana. Para inspeccionar, añadir, reemplazar o eliminar estas asignaciones, consulte [Fuentes del tema específicas de script](/slides/es/androidjava/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
-Para obtener más información sobre las fuentes de la presentación, consulte [Fuentes de PowerPoint](/slides/es/androidjava/powerpoint-fonts/).
+{{% alert color="info" title="Consejo" %}}
+
+Para obtener más información sobre fuentes en presentaciones, consulte [Fuentes de PowerPoint](/slides/es/androidjava/powerpoint-fonts/).
+
 {{% /alert %}}
 
 ## **Copiar o aplicar un tema**
 
-Existen dos flujos de trabajo habituales, y resuelven problemas diferentes.
+Los flujos de trabajo siguientes resuelven diferentes problemas relacionados con temas.
 
-### **Conservar un tema de origen al mover diapositivas**
+### **Aplicar un tema externo a las diapositivas dependientes de un máster**
 
-Si desea mover una diapositiva a otra presentación y conservar su diseño original, clone el máster origen en la presentación destino con [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/), y luego clone la diapositiva con [ISlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/islidecollection/) y el máster clonado. Esto lleva el máster, sus diseños y el tema asociado juntos.
+Utilice [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslide/) cuando disponga de un archivo de tema de PowerPoint (`.thmx`) y desee re‑estilizar todas las diapositivas que dependen de un máster concreto. Seleccione el máster de la colección [Presentation.getMasters](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/), que implementa [IMasterSlideCollection](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/), y pase la ruta del archivo de tema al método.
+
+El método realiza las siguientes operaciones:
+
+1. Crea una nueva diapositiva máster basada en el máster seleccionado.  
+2. Aplica el tema externo al nuevo máster.  
+3. Asigna el nuevo máster a todas las diapositivas que previamente dependían del máster seleccionado.  
+4. Devuelve el [IMasterSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslide/) recién creado.
+
+El siguiente ejemplo aplica un tema externo a las diapositivas que dependen del primer máster y guarda la presentación:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Un tema inválido, corrupto o no compatible puede provocar una [PptxReadException](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/pptxreadexception/). Valide las rutas proporcionadas por los usuarios, gestione los fallos de acceso al sistema de archivos y guarde la presentación solo después de que el tema se haya aplicado correctamente.
+
+Solo se reasignan las diapositivas que dependían del máster seleccionado. Las diapositivas asociadas a otros másters conservan sus másters y temas actuales. Los colores, fuentes, rellenos, líneas, fondos y efectos con conocimiento de tema se resuelven contra el tema externo. Los colores, fuentes, rellenos y demás formato asignado directamente pueden permanecer sin cambios. Las anulaciones a nivel de diseño y a nivel de diapositiva también pueden prevalecer sobre los valores heredados del nuevo máster.
+
+El tema puede hacer referencia a fuentes que no estén disponibles en el entorno de ejecución. Para un renderizado y exportación consistentes, instale las fuentes requeridas, proporciónelas mediante [fuentes personalizadas](/slides/es/androidjava/custom-font/), o configure la [sustitución de fuentes](/slides/es/androidjava/font-substitution/).
+
+Este es un flujo de trabajo directo a nivel de máster: el método acepta la ruta a un archivo `.thmx` y no requiere crear manualmente anulaciones de tema a nivel de diapositiva o diseño.
+
+### **Aplicar diferentes temas externos en una presentación con varios másters**
+
+Cuando el máster relevante no se conoce de antemano, obténgalo a partir de una diapositiva representativa mediante [ISlide.getLayoutSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/islide/) y [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ilayoutslide/). Guarde las referencias al máster original antes de aplicar cualquier tema, ya que cada llamada crea otro máster en la presentación.
+
+El siguiente ejemplo usa diapositivas de dos secciones para localizar sus másters y aplica un tema externo distinto a cada grupo:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+La primera llamada afecta solo a las diapositivas que dependían de `firstGroupMaster`, y la segunda llamada afecta solo a las que dependían de `secondGroupMaster`. Las diapositivas pertenecientes a cualquier otro máster no se re‑estilizan.
+
+### **Conservar el tema origen al mover diapositivas**
+
+Si desea mover una diapositiva a otra presentación y conservar su diseño original, clone el máster origen en la presentación de destino con [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/), y luego clone la diapositiva con [ISlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/islidecollection/) y el máster clonado. Así se transportan el máster, sus diseños y el tema asociado.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +316,11 @@ try {
 }
 ```
 
-Este es el flujo de trabajo preferido cuando la diapositiva origen debe lucir igual en el destino. Simplemente clonar contenido sobre un máster de destino no relacionado puede cambiar colores, fuentes, fondos y efectos impulsados por el tema.
+Este es el flujo de trabajo recomendado cuando la diapositiva origen debe verse idéntica en el destino. Simplemente clonar contenido sobre un máster de destino no relacionado puede cambiar los colores, fuentes, fondos y efectos controlados por el tema.
 
-### **Aplicar valores del tema a una diapositiva existente**
+### **Aplicar valores de tema a una diapositiva existente**
 
-Si la diapositiva destino debe permanecer en su máster y diseño actuales, inicialice una anulación a nivel de diapositiva a partir del tema origen. Los métodos [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/) y [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/) copian los tres componentes principales del tema en la anulación.
+Si la diapositiva de destino debe permanecer en su máster y diseño actuales, inicialice una anulación a nivel de diapositiva a partir del tema origen. Los métodos [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/) y [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/) copian los tres componentes principales del tema en la anulación.
 
 ```java
 import com.aspose.slides.*;
@@ -268,7 +343,7 @@ try {
 }
 ```
 
-Esto cambia el tema usado por esa diapositiva sin modificar el tema heredado por otras diapositivas. Para eliminar la anulación local y volver a los valores heredados, llame a [OverrideTheme.clear](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/).
+Esto cambia el tema utilizado por esa diapositiva sin modificar el tema heredado por otras diapositivas. Para eliminar la anulación local y volver a los valores heredados, llame a [OverrideTheme.clear](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/overridetheme/).
 
 ### **Aplicar una anulación de tema a un diseño**
 
@@ -296,17 +371,17 @@ try {
 }
 ```
 
-Utilice un tema a nivel de máster o de presentación cuando muchos diseños y diapositivas deban compartir el mismo diseño base, una anulación de diseño cuando una familia de diseños necesite un estilo diferente, y una anulación de diapositiva solo para excepciones reales. Un exceso de anulaciones a nivel de diapositiva dificulta predecir los cambios globales posteriores del tema.
+Utilice un tema a nivel de máster o de presentación cuando muchos diseños y diapositivas deban compartir el mismo diseño base, una anulación de diseño cuando una familia de diseños necesite un estilo distinto, y una anulación de diapositiva solo para excepciones reales. Un exceso de anulaciones a nivel de diapositiva dificulta predecir los cambios globales de tema posteriores.
 
 ## **Actualizar estilos de fondo del tema**
 
-Los rellenos de fondo del tema se almacenan en [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/). PowerPoint puede presentar más opciones de fondo en su interfaz que el número de definiciones de relleno almacenadas físicamente en esta colección, porque la UI puede combinar rellenos de tema con colores de tema y otras referencias de estilo.
+Los rellenos de fondo del tema se almacenan en [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/). PowerPoint puede ofrecer más opciones de fondo en su UI que el número de definiciones de relleno realmente almacenadas en esta colección, ya que la UI puede combinar rellenos de tema con colores de tema y otras referencias de estilo.
 
 ![Galería de estilos de fondo de PowerPoint para un tema de presentación](presentation-design_8.png)
 
-Antes de utilizar un estilo de fondo, inspeccione la colección almacenada y el índice actual de estilo mediante [Background.getStyleIndex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/). Un índice de estilo `0` significa que no hay relleno temático; los valores positivos son referencias a estilos de fondo del tema. Esto difiere del indexado directo de la colección Java, donde `get_Item(0)` representa el primer elemento almacenado. No asuma que cada presentación contiene el mismo número de estilos de relleno de fondo.
+Antes de utilizar un estilo de fondo, inspeccione la colección almacenada y el índice actual mediante [Background.getStyleIndex](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/). Un índice de estilo `0` significa que no hay relleno temático; los valores positivos son referencias a estilos de fondo del tema. Esto difiere de indexar directamente la colección Java, donde `get_Item(0)` indica el primer elemento almacenado. No asuma que todas las presentaciones contienen la misma cantidad de estilos de relleno de fondo.
 
-El siguiente ejemplo informa el recuento de rellenos de fondo disponibles, asigna una referencia de fondo temático al primer máster y guarda la presentación:
+El siguiente ejemplo informa del número de rellenos de fondo disponibles, asigna una referencia de fondo temático al primer máster y guarda la presentación:
 
 ```java
 import com.aspose.slides.*;
@@ -328,23 +403,29 @@ try {
 }
 ```
 
-El resultado visible depende de la entrada del tema referenciada por el máster y de cualquier anulación de fondo a nivel de diseño o diapositiva. Si una diapositiva usa su propio fondo, cambiar solo el fondo del máster puede no afectar a esa diapositiva. Utilice [Background.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/) cuando necesite conocer el fondo final tras aplicar la herencia.
+El resultado visible depende de la entrada del tema referenciada por el máster y de cualquier anulación de fondo a nivel de diseño o diapositiva. Si una diapositiva utiliza su propio fondo, cambiar solo el fondo del máster puede no afectar a esa diapositiva. Utilice [Background.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/) cuando necesite conocer el fondo final después de aplicar la herencia.
 
-{{% alert color="warning" title="Warning" %}}
-No trate el índice de estilo como un índice de colección basado en cero. Además, evite codificar un número de estilo de un archivo y suponer que tendrá la misma apariencia en otro archivo; las definiciones de estilo del tema son específicas de cada presentación.
+{{% alert color="warning" title="Advertencia" %}}
+
+No trate el índice de estilo como un índice de colección basado en cero. Además, evite codificar un número de estilo de un archivo y suponer que tendrá la misma apariencia en otro archivo; las definiciones de estilo de tema son específicas de cada presentación.
+
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-Para formato directo de fondo y herencia de fondo, consulte [Presentation Background](/slides/es/androidjava/presentation-background/).
+{{% alert color="info" title="Consejo" %}}
+
+Para formato directo de fondo y herencia de fondo, consulte [Fondo de la presentación](/slides/es/androidjava/presentation-background/).
+
 {{% /alert %}}
 
 ## **Actualizar efectos del tema**
 
-Un esquema de formato del tema contiene colecciones separadas de estilos de relleno, línea y efecto expuestas mediante [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/) y [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/). Los temas típicos de Office a menudo contienen tres entradas principales de estilo que corresponden visualmente a formatos sutiles, moderados e intensos, pero el código debe inspeccionar cada colección en lugar de asumir un recuento fijo.
+Un esquema de formato del tema contiene colecciones separadas de estilos de relleno, línea y efecto, expuestas mediante [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/) y [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/iformatscheme/). Los temas típicos de Office suelen contener tres entradas principales que corresponden visualmente a formatos sutil, moderado e intenso, pero el código debe inspeccionar cada colección en vez de asumir un recuento fijo.
 
-![Efectos sutiles, moderados e intensos del tema aplicados a la misma forma](presentation-design_10.png)
+![Efectos de tema sutil, moderado e intenso aplicados a la misma forma](presentation-design_10.png)
 
-Al acceder a estas colecciones en Java, el índice de la colección es basado en cero: `get_Item(0)` es el primer estilo almacenado y `get_Item(2)` es el tercero. Los índices de referencia de estilo de una forma son un concepto separado, expuesto a través de [IShapeStyle](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapestyle/). Modificar un estilo del tema afecta a las formas que hacen referencia a ese estilo; las formas con formato directo pueden permanecer sin cambios.
+Al acceder a estas colecciones en Java, el índice de la colección es cero‑based: `get_Item(0)` es el primer estilo almacenado y `get_Item(2)` el tercero. Los índices de referencia de estilo de una forma son un concepto separado, expuesto a través de [IShapeStyle](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/ishapestyle/). Modificar un estilo de tema afecta a las formas que hacen referencia a ese estilo; las formas con formato directo pueden quedar sin cambios.
+
+El siguiente ejemplo verifica que existan las entradas de estilo requeridas, cambia el primer estilo de línea, cambia el tercer estilo de relleno, habilita una sombra externa en el tercer estilo de efecto y guarda el resultado:
 
 ```java
 import com.aspose.slides.*;
@@ -369,15 +450,15 @@ try {
 }
 ```
 
-Para las formas que referencian estas ranuras, el primer estilo de línea del tema se vuelve rojo, el tercer estilo de relleno del tema pasa a ser verde bosque sólido y el tercer estilo de efecto adquiere una sombra exterior con una distancia de 10 puntos. El resultado visual exacto sigue dependiendo de qué ranuras de estilo referencia cada forma y si el formato directo anula el tema.
+Para las formas que referencian esas ranuras, el primer estilo de línea del tema pasa a rojo, el tercer estilo de relleno del tema se vuelve verde bosque sólido y el tercer estilo de efecto gana una sombra externa con una distancia de 10 puntos. El resultado visual exacto sigue dependiendo de qué ranuras de estilo referencie cada forma y de si el formato directo sobrescribe al tema.
 
-![Estilos de efecto del tema después de cambiar la línea, el relleno y la sombra](presentation-design_11.png)
+![Estilos de efecto del tema tras modificar línea, relleno y sombra](presentation-design_11.png)
 
-## **Leer valores efectivos del tema**
+## **Leer valores de tema efectivos**
 
-Los objetos de tema en bruto indican qué está definido en un nivel concreto. Los valores efectivos indican qué usa realmente una diapositiva o forma después de que se hayan resuelto la herencia y las anulaciones locales. Para una diapositiva, llame a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseoverridethememanager/). Para un fondo, use [Background.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/), y para un relleno, use [FillFormat.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fillformat/).
+Los objetos de tema sin procesar indican lo que está definido en un nivel determinado. Los valores efectivos indican lo que una diapositiva o forma utiliza realmente tras la herencia y las anulaciones locales. Para una diapositiva, llame a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseoverridethememanager/). Para un fondo, use [Background.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/), y para un relleno, use [FillFormat.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fillformat/).
 
-El siguiente ejemplo lee el tema efectivo, el fondo y el primer relleno de forma de una diapositiva:
+El siguiente ejemplo lee el tema efectivo, el fondo y el relleno de la primera forma de una diapositiva:
 
 ```java
 import com.aspose.slides.*;
@@ -404,18 +485,22 @@ try {
 }
 ```
 
-Utilice los datos efectivos para diagnósticos de renderizado, validación y comparaciones. Si solo inspecciona [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/), puede pasar por alto una anulación de máster, diseño, diapositiva o forma que cambie la apariencia final.
+Utilice los datos efectivos para diagnósticos de renderizado, validación y comparaciones. Si solo inspecciona [Presentation.getMasterTheme](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/presentation/), puede pasar por alto una anulación de máster, diseño, diapositiva o forma que altere la apariencia final.
 
 ## **Preguntas frecuentes**
 
-**¿Puedo aplicar un tema a una sola diapositiva sin cambiar el maestro?**
+**¿Aplicar un tema externo afecta a todas las diapositivas de la presentación?**
 
-Sí. Utilice el [SlideThemeManager](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slidethememanager/) de la diapositiva e initialise su tema de anulación. El cambio permanece local a esa diapositiva; las demás diapositivas continúan heredando sus temas actuales.
+No. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslide/) reasigna solo las diapositivas que dependen del máster seleccionado. Las diapositivas que utilizan otros másters conservan sus temas actuales.
+
+**¿Puedo aplicar un tema a una sola diapositiva sin cambiar el máster?**
+
+Sí. Utilice el [SlideThemeManager](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/slidethememanager/) de la diapositiva e inicialice su tema de anulación. El cambio permanece local a esa diapositiva; las demás continúan heredando sus temas actuales.
 
 **¿Cuál es la forma más segura de trasladar un tema de una presentación a otra?**
 
-Al mover una diapositiva y conservar su aspecto original, clone el máster origen en el destino y clone la diapositiva con ese máster mediante [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/) y [ISlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/islidecollection/). Esto mantiene el máster, los diseños y el tema juntos.
+Al mover una diapositiva y conservar su aspecto original, clone el máster origen en el destino y clone la diapositiva con ese máster usando [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/imasterslidecollection/) y [ISlideCollection.addClone](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/islidecollection/). Así se mantiene el máster, los diseños y el tema juntos.
 
-**¿Cómo puedo ver los valores efectivos después de la herencia y las anulaciones?**
+**¿Cómo puedo ver los valores efectivos tras la herencia y las anulaciones?**
 
-Utilice [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseoverridethememanager/) para una diapositiva o tema de diseño y los métodos de datos efectivos correspondientes para objetos de formato como [Background.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/) y [FillFormat.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fillformat/). Estas API devuelven los valores resueltos tras aplicar la herencia y las anulaciones.
+Utilice [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/baseoverridethememanager/) para el tema de una diapositiva o diseño y los métodos de datos efectivos correspondientes para objetos de formato, como [Background.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/background/) y [FillFormat.getEffective](https://reference.aspose.com/slides/es/androidjava/com.aspose.slides/fillformat/). Estas APIs devuelven los valores resueltos tras aplicar la herencia y las anulaciones.

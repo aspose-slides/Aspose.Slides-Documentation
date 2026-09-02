@@ -9,8 +9,10 @@ keywords:
 - sunum teması
 - slayt teması
 - tema ayarla
-- tema değiştir
-- tema yönet
+- temayı değiştir
+- temayı yönet
+- harici tema
+- THMX
 - tema rengi
 - ek palet
 - tema yazı tipi
@@ -21,23 +23,23 @@ keywords:
 - sunum
 - Java
 - Aspose.Slides
-description: "Tutarlı markalama ile PowerPoint dosyalarını oluşturmak, özelleştirmek ve dönüştürmek için Aspose.Slides for Java'da ana sunum temalarını yönetin."
+description: "Aspose.Slides for Java'da ana sunum temalarını oluşturmak, özelleştirmek ve tutarlı bir marka ile PowerPoint dosyalarını dönüştürmek."
 ---
 ## **Giriş**
 
-Bir sunum teması, renkler, yazı tipleri, arka plan stilleri, doldurmalar, çizgiler ve efektler gibi koordine bir set tanımlar. Tema farkında olan nesneler, her görsel özelliği sabit bir değer olarak depolamak yerine bu ortak tanımlara referans verir, böylece bir tema değişikliği birçok nesneyi bir anda güncelleyebilir.
+Bir sunum teması, renkler, yazı tipleri, arka plan stilleri, dolgu, çizgi ve efektlerden oluşan uyumlu bir set tanımlar. Tema‑bilgili nesneler, her görsel özelliği sabit bir değer olarak depolamak yerine bu paylaşılan tanımlara başvurur, bu sayede bir tema değişikliği birçok nesneyi aynı anda güncelleyebilir.
 
-Aspose.Slides içinde, sunum düzeyindeki tema [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) aracılığıyla elde edilebilir. Bir sunum ayrıca daha düşük seviyelerde tema geçersiz kılmalarını içerebilir. Bir master, temayı [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/masterthememanager/) ile geçersiz kılabilir, bir düzen veya tek bir slayt ise kalıtılmış temayı [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseoverridethememanager/) ile geçersiz kılabilir. Pratikte, bir slayt için etkili tema bu kalıtım zinciri aracılığıyla çözülür: sunum teması, master geçersiz kılma, düzen geçersiz kılma ve slayt geçersiz kılma.
+Aspose.Slides içinde sunum düzeyindeki tema, [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) aracılığıyla kullanılabilir. Bir sunum ayrıca daha alt seviyelerde tema geçersiz kılmalarına da sahip olabilir. Bir master, sunum temasını [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/masterthememanager/) ile geçersiz kılabilir, bir düzen ya da tek bir slayt ise miras aldığı temayı [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseoverridethememanager/) ile geçersiz koyabilir. Pratikte, bir slayt için etkili tema, bu miras zinciri boyunca çözülür: sunum teması, master geçersiz kılma, düzen geçersiz kılma ve slayt geçersiz kılma.
 
 ![Tema bileşenleri: renkler, yazı tipleri, arka plan stilleri ve efektler](theme-constituents.png)
 
-Aşağıdaki bölümler en yaygın tema iş akışlarını gösterir: bir temayı inceleme, renk ve yazı tiplerini değiştirme, bir temayı kopyalama veya uygulama, arka plan ve efekt stillerini güncelleme ve kalıtım ile geçersiz kılmalar çözüldükten sonra etkili değerleri okuma.
+Aşağıdaki bölümler en yaygın tema iş akışlarını gösterir: bir temayı inceleme, renk ve yazı tiplerini değiştirme, bir temayı kopyalama veya uygulama, arka plan ve efekt stillerini güncelleme ve miras ve geçersiz kılmalar çözüldükten sonra etkili değerleri okuma.
 
-## **Temayı İnceleme**
+## **Bir Tema İnceleme**
 
-[MasterTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/) nesnesi, temanın renk şemasını, yazı tipi şemasını ve biçim şemasını sırasıyla [MasterTheme.getColorScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/) ve [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/) aracılığıyla ortaya koyar. Bu koleksiyonları değiştirmeden önce incelemek, özellikle dış bir kaynaktan gelen bir sunumda stil girdilerinin sayısı ve içeriği değişebileceği için faydalıdır.
+[MasterTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/) nesnesi, tema’nın renk şemasını, yazı tipi şemasını ve biçim şemasını sırasıyla [MasterTheme.getColorScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/) ve [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/mastertheme/) üzerinden ortaya koyar. Bu koleksiyonları değiştirmeden önce incelemek, özellikle sunum dış bir kaynaktan geldiğinde stil girişlerinin sayısı ve içeriği değişebileceği için oldukça faydalıdır.
 
-Aşağıdaki örnek, ana tema özelliklerini okur ve temada kaç tane arka plan, doldurma, çizgi ve efekt stilinin depolandığını raporlar:
+Aşağıdaki örnek, ana tema özelliklerini okur ve temada kaç adet arka plan, dolgu, çizgi ve efekt stilinin depolandığını raporlar:
 
 ```java
 import com.aspose.slides.*;
@@ -58,13 +60,13 @@ try {
 }
 ```
 
-Bir dosya birden fazla master kullandıysa, her slaytın aynı etkili temaya sahip olduğunu varsamamalısınız. Slayt ile ilişkili master’ı inceleyin ve düzen ya da slayt geçersiz kılmaları mevcut olduğunda bu makalede daha sonra gösterilen etkili‑tema iş akışını kullanın.
+Bir dosya birden çok master kullanıyorsa, her slaytın aynı etkili temaya sahip olduğunu varsamamalısınız. Slaytla ilişkilendirilen master’ı inceleyin ve düzen ya da slayt geçersiz kılmaları mevcut olduğunda bu makalenin ilerleyen kısmında gösterilen etkili‑tema iş akışını kullanın.
 
 ## **Tema Renklerini Değiştirme**
 
-Tema farkında olan doldurmalar, çizgiler ve metinler, [SchemeColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/schemecolor/) enum‘undan mantıksal bir renge referans verebilir. [IColorScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icolorscheme/) içindeki ilgili girişi değiştirdiğinizde, hâlâ o tema rengini referans eden tüm nesneler yeni değerle çözülür. Doğrudan RGB rengi kullanan nesneler tema rengi güncellemesinden etkilenmez.
+Tema‑bilgili dolgu, çizgi ve metin, [SchemeColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/schemecolor/) enum’undan mantıksal bir renge başvurabilir. [IColorScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icolorscheme/) içindeki ilgili girişi değiştirdiğinizde, hâlâ o tema rengini referans eden tüm nesneler yeni değerle çözümlenir. Doğrudan RGB rengi kullanan nesneler tema‑renk güncellemesinden etkilenmez.
 
-Aşağıdaki uçtan uca örnek, `Accent4` kullanan bir şekil oluşturur, temanın `Accent4` rengini kırmızıya değiştirir, sunumu kaydeder, yeniden açar ve etkili doldurma rengini yazdırır:
+Aşağıdaki uçtan‑uca örnek, `Accent4` kullanan bir şekil oluşturur, temanın `Accent4` rengini kırmızıya değiştirir, sunumu kaydeder, yeniden açar ve etkili dolgu rengini yazdırır:
 
 ```java
 import com.aspose.slides.*;
@@ -93,17 +95,17 @@ try {
 }
 ```
 
-Dikdörtgen `Accent4`e bağlı kaldığı için, tema değiştirildiğinde görünen rengi kırmızı olur. Şekildeki şema rengini doğrudan bir renkle değiştirirseniz, sonraki `Accent4` değişiklikleri o doldurmayı etkilemez.
+Dikdörtgen `Accent4`e bağlı kaldığı için tema değiştirildiğinde görünen rengi kırmızı olur. Şekildeki şema rengini doğrudan bir renkle değiştirirseniz, sonraki `Accent4` değişiklikleri o dolgu üzerinde artık etkili olmaz.
 
 ### **Ek Paletten Renk Kullanma**
 
-PowerPoint, bir tema renginden daha açık ve daha koyu varyantlar türetmek için renk dönüşümleri uygular. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/colortransformoperation/) enum‘u aracılığıyla sunar.
+PowerPoint, bir tema renginden daha açık ve daha koyu türevler üretmek için renk dönüşümleri uygular. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/java/com.aspose.slides/colortransformoperation/) enum’u aracılığıyla ortaya koyar.
 
 ![Ana tema renkleri ve ek paletten üretilen daha açık ve daha koyu renkler](additional-palette-colors.png)
 
-**1** - Ana tema renkleri.
+**1** – Ana tema renkleri.
 
-**2** - Ana tema renklerinden üretilen daha açık ve daha koyu varyantlar.
+**2** – Ana tema renklerinden üretilen daha açık ve daha koyu türevler.
 
 Aşağıdaki örnek, `Accent4` tabanlı altı dikdörtgen oluşturur, beşine parlaklık dönüşümleri uygular ve sonucu kaydeder:
 
@@ -152,31 +154,31 @@ try {
 }
 ```
 
-Bu varyantlar tema rengine dayalı kalır. `Accent4` daha sonra değişirse, dönüştürülmüş renkler yeni `Accent4` değerinden yeniden hesaplanır.
+Bu türevler tema rengine dayalı kalır. `Accent4` daha sonra değişirse, dönüştürülmüş renkler yeni `Accent4` değerinden yeniden hesaplanır.
 
 ### **`SchemeColor` Değerlerini `IColorScheme` Yuvalarına Eşleme**
 
-[SchemeColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/schemecolor/) enum‘u `Text1`, `Background1`, `Text2` ve `Background2` değerlerini kullanırken, [IColorScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icolorscheme/) aynı tema yuvalarını `Dark1`, `Light1`, `Dark2` ve `Light2` olarak sunar. Eşleme sabittir:
+[SchemeColor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/schemecolor/) enum’u `Text1`, `Background1`, `Text2` ve `Background2` kullanırken, [IColorScheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/icolorscheme/) aynı tema yuvalarını `Dark1`, `Light1`, `Dark2` ve `Light2` olarak ortaya koyar. Eşleme sabittir:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Bunlar aynı tema yuvalarının alternatif adlarıdır; bir biçimden diğerine dinamik olarak dönüştürülen değerler değildir.
+Bunlar aynı tema yuvalarının alternatif adlarıdır; bir formdan diğerine dinamik olarak dönüştürülen değerler değildir.
 
 ## **Tema Yazı Tiplerini Değiştirme**
 
-Bir tema yazı tipi şeması, başlıklar için büyük bir yazı tipi kümesi ve gövde metni için küçük bir yazı tipi kümesi içerir. [IFontScheme.getMajor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontscheme/) ve [IFontScheme.getMinor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontscheme/) yöntemleri bu kümeleri ortaya koyar.
+Bir tema yazı tipi şeması, başlıklar için büyük bir yazı tipi seti ve gövde metni için küçük bir yazı tipi seti içerir. [IFontScheme.getMajor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontscheme/) ve [IFontScheme.getMinor](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ifontscheme/) yöntemleri bu setleri ortaya koyar.
 
-PowerPoint uyumlu tema yazı tipi tanımlayıcıları metin biçimlendirmesinde kullanılabilir:
+PowerPoint‑uyumlu tema yazı tipi tanımlayıcıları metin biçimlendirmesinde kullanılabilir:
 
-* `+mn-lt` - Gövde Yazı Tipi Latin (Küçük Latin Yazı Tipi)
-* `+mj-lt` - Başlık Yazı Tipi Latin (Büyük Latin Yazı Tipi)
-* `+mn-ea` - Gövde Yazı Tipi Doğu Asya (Küçük Doğu Asya Yazı Tipi)
-* `+mj-ea` - Başlık Yazı Tipi Doğu Asya (Büyük Doğu Asya Yazı Tipi)
+* `+mn-lt` – Gövde Yazı Tipi Latin (Minor Latin Font)
+* `+mj-lt` – Başlık Yazı Tipi Latin (Major Latin Font)
+* `+mn-ea` – Gövde Yazı Tipi Doğu Asya (Minor East Asian Font)
+* `+mj-ea` – Başlık Yazı Tipi Doğu Asya (Major East Asian Font)
 
-Aşağıdaki örnek, büyük Latin tema yazı tipini kullanan bir başlık ve küçük Latin tema yazı tipini kullanan bir gövde satırı oluşturur, ardından tema yazı tiplerini değiştirir ve sonucu kaydeder:
+Aşağıdaki örnek, büyük Latin tema yazı tipini kullanan bir başlık ve küçük Latin tema yazı tipini kullanan bir gövde satırı oluşturur. Ardından tema yazı tiplerini değiştirir ve sonucu kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -201,21 +203,92 @@ try {
 }
 ```
 
-Başlık büyük yazı tipini, gövde metni ise küçük yazı tipini izler. Tema tanımlayıcısı yerine açıkça bir yazı tipi adı verilmiş metin, tema yazı tipi şeması değiştiğinde otomatik olarak geçiş yapmaz.
+Başlık büyük yazı tipini, gövde metni ise küçük yazı tipini izler. Tema tanımlayıcısı yerine açıkça bir yazı tipi adı belirtilmiş metin, tema yazı tipi şeması değiştiğinde otomatik olarak değişmez.
 
-Büyük ve küçük yazı tipi koleksiyonları, Kiril, Arapça, Japonca, Gürcüce ve Thaana gibi bireysel yazı sistemleri için yazı tipi eşlemeleri de içerebilir. Bu eşlemeleri incelemek, eklemek, değiştirmek veya kaldırmak için [Script-Özel Tema Yazı Tipleri](/slides/tr/java/script-specific-font-mappings/) bölümüne bakın.
+Büyük ve küçük yazı tipi koleksiyonları, Kiril, Arapça, Japonca, Gürcüce ve Thaana gibi bireysel yazı sistemleri için yazı tipi eşlemeleri de içerebilir. Bu eşlemeleri incelemek, eklemek, değiştirmek veya kaldırmak için [Script‑Specific Theme Fonts](/slides/tr/java/script-specific-font-mappings/) bölümüne bakın.
 
 {{% alert color="info" title="İpucu" %}}
-Sunum yazı tipleri hakkında daha fazla bilgi için [PowerPoint Yazı Tipleri](/slides/tr/java/powerpoint-fonts/) sayfasına bakın.
+Sunum yazı tipleri hakkında daha fazla bilgi için [PowerPoint Fonts](/slides/tr/java/powerpoint-fonts/) bölümüne bakın.
 {{% /alert %}}
 
 ## **Bir Temayı Kopyalama veya Uygulama**
 
-İki yaygın iş akışı vardır ve farklı sorunları çözerler.
+Aşağıdaki iş akışları farklı tema‑ilişkili sorunları çözer.
 
-### **Kaynak Temasını Slaytları Taşırken Korumak**
+### **Harici Bir Temayı Master’a Bağlı Slaytlara Uygulama**
 
-Bir slaytı başka bir sunuma taşımak ve orijinal tasarımını korumak istiyorsanız, kaynak master’ı hedef sunuma [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslidecollection/) ile klonlayın, ardından slaytı ve klonlanan master’ı [ISlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/) ile klonlayın. Bu, master’ı, düzenlerini ve ilişkili temayı birlikte taşır.
+Bir PowerPoint tema dosyanız (`.thmx`) varsa ve belirli bir master’a bağlı tüm slaytları yeniden stillendirmek istiyorsanız, [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/) kullanın. [Presentation.getMasters](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) koleksiyonundan (bu koleksiyon [IMasterSlideCollection](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslidecollection/) uygular) master’ı seçin ve tema dosya yolunu metoda geçirin.
+
+Metot aşağıdaki adımları gerçekleştirir:
+
+1. Seçilen master’a dayalı yeni bir master slayt oluşturur.
+1. Harici temayı yeni master’a uygular.
+1. Yeni master’ı, daha önce seçilen master’a bağlı olan tüm slaytlara atar.
+1. Yeni oluşturulan [IMasterSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/) nesnesini döndürür.
+
+Aşağıdaki örnek, ilk master’a bağlı slaytlara harici bir tema uygular ve sunumu kaydeder:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Geçersiz, bozuk veya desteklenmeyen bir tema, [PptxReadException](https://reference.aspose.com/slides/tr/java/com.aspose.slides/pptxreadexception/) oluşturabilir. Kullanıcıların sağladığı yolları doğrulayın, dosya sistemi erişim hatalarını yönetin ve temanın başarıyla uygulandığından emin olduktan sonra sunumu kaydedin.
+
+Yalnızca seçilen master’a bağlı slaytlar yeniden atanır. Diğer master’larla ilişkili slaytlar mevcut master ve temalarını korur. Tema‑bilgili renkler, yazı tipleri, dolgu, çizgi, arka plan ve efektler harici temaya göre çözülür. Doğrudan atanmış renkler, yazı tipleri, dolgu ve diğer açık biçimlendirmeler değişmeyebilir. Düzen‑seviyesi ve slayt‑seviyesi geçersiz kılmalar, yeni master'dan miras alınan değerlerin üzerine geçebilir.
+
+Tema, çalışma zaman ortamında bulunmayan yazı tiplerine referans verebilir. Tutarlı render ve dışa aktarım için gerekli yazı tiplerini kurun, [özel yazı tipi kaynakları](/slides/tr/java/custom-font/) aracılığıyla temin edin veya [yazı tipi ikamesi](/slides/tr/java/font-substitution/) yapılandırın.
+
+Bu doğrudan master‑seviyesi bir iş akışıdır: metot bir `.thmx` dosya yolu alır ve slayt‑seviyesi ya da düzen‑seviyesi tema geçersiz kılmaları manuel olarak oluşturmayı gerektirmez.
+
+### **Çok‑Masterlı Sunumda Farklı Harici Temalar Uygulama**
+
+İlgili master önceden bilinmiyorsa, bir temsilci slayttan [ISlide.getLayoutSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islide/) ve [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ilayoutslide/) ile elde edin. Her tema uygulamasının sunuma yeni bir master eklediğini unutmayın; bu yüzden temaları uygulamadan önce orijinal master referanslarını saklayın.
+
+Aşağıdaki örnek, iki bölüme ait slaytları kullanarak master’larını bulur ve her grup için farklı bir harici tema uygular:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+İlk çağrı yalnızca `firstGroupMaster`a bağlı slaytlara etki eder, ikinci çağrı yalnızca `secondGroupMaster`a bağlı slaytlara etki eder. Başka bir master’a ait slaytlar yeniden stillendirilmez.
+
+### **Slayt Taşırken Kaynak Temayı Korumak**
+
+Bir slaytı başka bir sunuma taşımak ve özgün tasarımını korumak istiyorsanız, kaynak master’ı hedef sunuma [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslidecollection/) ile klonlayın, ardından slaytı ve klonlanan master’ı [ISlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/) ile klonlayın. Böylece master, düzenleri ve ilişkili tema birlikte taşınır.
 
 ```java
 import com.aspose.slides.*;
@@ -237,11 +310,11 @@ try {
 }
 ```
 
-Bu, kaynak slaytın hedefte aynı görünmesini sağlamak istediğinizde tercih edilen iş akışıdır. İçerikleri bağımsız bir hedef master’a klonlamak tema‑türetilen renkleri, yazı tiplerini, arka planları ve efektleri değiştirebilir.
+Bu, kaynak slaytın hedefte aynı görünüme sahip olması gerektiğinde tercih edilen iş akışıdır. İçeriği bağımsız bir hedef master’a klonlamak, tema‑tabanlı renk, yazı tipi, arka plan ve efektlerin değişmesine yol açabilir.
 
 ### **Mevcut Bir Slayta Tema Değerlerini Uygulama**
 
-Hedef slayt mevcut master ve düzeni üzerinde kalmalıysa, kaynak temadan bir slayt‑düzeyi geçersiz kılma başlatın. [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/) ve [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/) yöntemleri üç ana tema bileşenini geçersiz kılmaya kopyalar.
+Hedef slayt mevcut master ve düzeninde kalmalıysa, kaynak temadan bir slayt‑seviyesi geçersiz kılma başlatın. [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/) ve [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/) yöntemleri üç ana tema bileşenini geçersiz kılmaya kopyalar.
 
 ```java
 import com.aspose.slides.*;
@@ -264,11 +337,11 @@ try {
 }
 ```
 
-Bu, diğer slaytların kalıtım temalarını değiştirmeden o slaytın kullandığı temayı değiştirir. Yerel geçersiz kılmayı kaldırıp kalıtım değerlere dönmek için [OverrideTheme.clear](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/) metodunu çağırın.
+Bu, diğer slaytların miras aldığı temayı değiştirmeden sadece bu slaytın temasını değiştirir. Yerel geçersiz kılmayı kaldırıp miras alınan değerlere dönmek için [OverrideTheme.clear](https://reference.aspose.com/slides/tr/java/com.aspose.slides/overridetheme/) metodunu çağırın.
 
-### **Bir Düzeni Tema Geçersiz Kılma ile Uygulama**
+### **Bir Düzeni Tema Geçersiz Kılamasıyla Uygulama**
 
-Düzen‑düzeyi geçersiz kılma, o düzeni kullanan slaytlara uygulanır; belirli bir slayt kendi geçersiz kılmasını yapmadıkça. Aynı başlatma metodları [LayoutSlideThemeManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/layoutslidethememanager/) aracılığıyla kullanılabilir:
+Düzen‑seviyesi bir geçersiz kılma, o düzeni kullanan slaytlara uygulanır; belirli bir slaytın kendi geçersiz kılması yoksa. Aynı başlatma yöntemleri, [LayoutSlideThemeManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/layoutslidethememanager/) aracılığıyla kullanılabilir:
 
 ```java
 import com.aspose.slides.*;
@@ -292,17 +365,17 @@ try {
 }
 ```
 
-Bir master veya sunum‑düzeyi tema, birçok düzen ve slayt aynı temel tasarımı paylaşmalıysa tercih edilir; bir düzen geçersiz kılma, tek bir düzen ailesinin farklı bir stil ihtiyacı olduğu durumlar için uygundur; slayt geçersiz kılma yalnızca gerçek istisnalar için kullanılmalıdır. Aşırı slayt‑düzeyi geçersiz kılmalar, sonraki küresel tema değişikliklerini tahmin etmeyi zorlaştırır.
+Birçok düzen ve slayt aynı temel tasarımı paylaşmalıysa master veya sunum‑seviyesi tema kullanın; bir düzen ailesi farklı bir stil gerektiriyorsa düzen geçersiz kılmayı, sadece istisna durumlar için slayt geçersiz kılmayı tercih edin. Aşırı slayt‑seviyesi geçersiz kılmalar, sonraki global tema değişikliklerini tahmin etmeyi zorlaştırır.
 
 ## **Tema Arka Plan Stillerini Güncelleme**
 
-Temanın arka plan doldurmaları, [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/) içinde depolanır. PowerPoint, UI’da tema doldurmalarını tema renkleri ve diğer stil referanslarıyla birleştirerek, bu koleksiyonda fiziksel olarak tanımlı doldurma sayısından daha fazla arka plan seçeneği sunabilir.
+Temanın arka plan dolgu stilleri, [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/) içinde depolanır. PowerPoint, UI’da temalar dolgu, tema renkleri ve diğer stil başvurularını birleştirebildiği için bu koleksiyonda fiziksel olarak tanımlı dolgu sayısından daha fazla arka plan seçeneği gösterebilir.
 
-![Bir sunum teması için PowerPoint arka plan stil galerisisi](presentation-design_8.png)
+![Bir sunum temasının PowerPoint arka plan stil galerisini gösterir](presentation-design_8.png)
 
-Bir arka plan stilini kullanmadan önce, saklanan koleksiyonu ve geçerli [Background.getStyleIndex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/) değerini inceleyin. `0` değeri temalı doldurma olmadığını, pozitif değerler ise tema arka plan‑stil referanslarını gösterir. Bu, Java koleksiyonunu doğrudan indekslemeden (`get_Item(0)` ilk saklanan öğeyi gösterir) farklıdır. Her sunumun aynı sayıda arka plan doldurma stiline sahip olduğunu varsamamalısınız.
+Bir arka plan stilini kullanmadan önce, depolanmış koleksiyonu ve mevcut [Background.getStyleIndex](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/) değerini inceleyin. `0` stil indeksi temalı bir dolgu olmadığını, pozitif değerlerin tema arka plan‑stil referansı olduğunu gösterir. Bu, Java koleksiyonundaki indeksleme (`get_Item(0)` ilk öğeyi verir) ile aynı şey değildir. Her sunumun aynı sayıda arka plan dolgu stiline sahip olduğunu varsaymayın.
 
-Aşağıdaki örnek mevcut arka plan doldurma sayısını raporlar, ilk master’a temalı bir arka plan referansı atar ve sunumu kaydeder:
+Aşağıdaki örnek mevcut arka plan dolgu sayısını raporlar, ilk master’a temalı bir arka plan referansı atar ve sunumu kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -324,25 +397,25 @@ try {
 }
 ```
 
-Görünür sonuç, master’ın referans verdiği tema girişine ve düzen ya da slayt düzeyindeki olası arka plan geçersiz kılmalarına bağlıdır. Bir slayt kendi arka planını kullanıyorsa, yalnızca master arka planını değiştirmek o slaytı etkilemeyebilir. Kalıtım uygulandıktan sonra nihai arka planı öğrenmek için [Background.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/) kullanın.
+Görünür sonuç, master tarafından başvurulan tema girdisine ve düzen ya da slayt seviyesindeki olası arka plan geçersiz kılmalarına bağlıdır. Bir slayt kendi arka planını kullanıyorsa, yalnızca master arka planını değiştirmek o slaytı etkilemez. Miras uygulandıktan sonraki nihai arka planı öğrenmek için [Background.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/) kullanın.
 
 {{% alert color="warning" title="Uyarı" %}}
-Stil indeksini sıfır‑tabanlı bir koleksiyon indeksi olarak değerlendirmeyin. Ayrıca bir dosyadan stil numarasını sabit kodlayıp başka bir dosyada aynı görünümü beklemeyin; tema stil tanımlamaları sunuma özgüdür.
+Stil indeksini sıfır‑tabanlı bir koleksiyon indeksi gibi değerlendirmeyin. Ayrıca bir dosyadan alınan stil numarasını başka bir dosyada aynı görünüme sahip olacağını varsaymayın; tema stil tanımları sunuma özgüdür.
 {{% /alert %}}
 
 {{% alert color="info" title="İpucu" %}}
-Doğrudan arka plan biçimlendirme ve arka plan kalıtımı için [Sunum Arka Planı](/slides/tr/java/presentation-background/) bölümüne bakın.
+Doğrudan arka plan biçimlendirmesi ve arka plan mirası için [Presentation Background](/slides/tr/java/presentation-background/) bölümüne bakın.
 {{% /alert %}}
 
 ## **Tema Efektlerini Güncelleme**
 
-Bir tema biçim şeması, ayrı doldurma, çizgi ve efekt stil koleksiyonlarını [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/) ve [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/) aracılığıyla ortaya koyar. Tipik Office temaları genellikle görsel olarak hafif, orta ve yoğun biçimlendirmeye karşılık gelen üç ana stil girdisi içerir, ancak kod sabit bir sayıyı varsaymak yerine her koleksiyonu incelemelidir.
+Tema biçim şeması, ayrı dolgu, çizgi ve efekt stil koleksiyonlarını [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/) ve [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/tr/java/com.aspose.slides/iformatscheme/) aracılığıyla ortaya koyar. Tipik Office temaları, görsel olarak ince, orta ve yoğun biçimlendirmelere karşılık gelen üç ana stil girdisi içerir; ancak kod, sabit bir sayıyı varsaymak yerine her koleksiyonu kontrol etmelidir.
 
-![Aynı şekle uygulanan hafif, orta ve yoğun tema efektleri](presentation-design_10.png)
+![Aynı şekle uygulanmış ince, orta ve yoğun tema efektleri](presentation-design_10.png)
 
-Java’da bu koleksiyonlara eriştiğinizde, koleksiyon indeksi sıfır‑tabanlıdır: `get_Item(0)` ilk saklanan stili, `get_Item(2)` ise üçüncüyü gösterir. Bir şeklin stil‑referans indeksleri ayrı bir kavramdır ve [IShapeStyle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapestyle/) aracılığıyla ortaya konur. Bir tema stilini değiştirmek o temayı referanslayan şekilleri etkiler; doğrudan biçimlendirme kullanan şekiller değişmeden kalabilir.
+Java’da bu koleksiyonlara erişirken indeksleme sıfır‑tabanlıdır: `get_Item(0)` ilk depolanmış stil, `get_Item(2)` üçüncüsü. Bir şeklin stil‑referans indeksleri ayrı bir kavramdır ve [IShapeStyle](https://reference.aspose.com/slides/tr/java/com.aspose.slides/ishapestyle/) ile ortaya konur. Bir tema stilini değiştirmek, o tema stiline başvuran şekilleri etkiler; doğrudan biçimlendirilmiş şekiller değişmez.
 
-Aşağıdaki örnek, gerekli stil girdilerinin varlığını kontrol eder, ilk çizgi stilini değiştirir, üçüncü doldurma stilini değiştirir, üçüncü efekt stilinde dış gölgeyi 10 puan mesafeyle etkinleştirir ve sonucu kaydeder:
+Aşağıdaki örnek, gerekli stil girdilerinin mevcut olduğunu doğrular, ilk çizgi stilini, üçüncü dolgu stilini değiştirir, üçüncü efekt stilinde dış gölgeyi etkinleştirir ve sonucu kaydeder:
 
 ```java
 import com.aspose.slides.*;
@@ -367,15 +440,15 @@ try {
 }
 ```
 
-Bu yuvaları referanslayan şekiller için, ilk tema çizgi stili kırmızı, üçüncü tema doldurma stili katı orman yeşili ve üçüncü efekt stili 10 puan uzaklıkta bir dış gölge kazanır. Tam görsel sonuç, her şeklin hangi stil yuvalarını referansladığına ve doğrudan biçimlendirmenin temayı geçersiz kılıp kılmadığına bağlıdır.
+Bu yuvalara başvuran şekillerde, ilk tema çizgi stili kırmızı, üçüncü tema dolgu stili katı orman yeşili ve üçüncü efekt stili 10 puan uzaklıkta dış gölge kazanır. Tam görsel sonuç, her şeklin hangi stil yuvalarına başvurduğuna ve doğrudan biçimlendirmelerin temayı geçersiz kılıyor olup olmadığına bağlıdır.
 
-![Satır, doldurma ve gölge ayarları değiştirildikten sonra tema efekt stilleri](presentation-design_11.png)
+![Çizgi, dolgu ve gölge ayarları değiştirildikten sonra tema efekt stilleri](presentation-design_11.png)
 
 ## **Etkili Tema Değerlerini Okuma**
 
-Ham tema nesneleri belirli bir seviyede tanımlı olanı gösterir. Etkili değerler, kalıtım ve yerel geçersiz kılmalar çözüldükten sonra bir slayt veya şeklin gerçekte ne kullandığını gösterir. Bir slayt için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseoverridethememanager/) çağırın. Bir arka plan için [Background.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/), bir doldurma için ise [FillFormat.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fillformat/) kullanın.
+Ham tema nesneleri, belirli bir seviyede neyin tanımlandığını gösterir. Etkili değerler, miras ve yerel geçersiz kılmalar çözüldükten sonra bir slayt ya da şeklin gerçekte ne kullandığını gösterir. Bir slayt için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseoverridethememanager/) metodunu çağırın. Bir arka plan için [Background.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/), bir dolgu için ise [FillFormat.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fillformat/) kullanın.
 
-Aşağıdaki örnek, bir slayttan etkili temayı, arka planı ve ilk şekil doldurmasını okur:
+Aşağıdaki örnek, bir slayttan etkili temayı, arka planı ve ilk şekil dolgusunu okur:
 
 ```java
 import com.aspose.slides.*;
@@ -400,18 +473,22 @@ try {
 }
 ```
 
-Render diagnostikleri, doğrulama ve karşılaştırmalar için etkili verileri kullanın. Yalnızca [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) incelemek, final görünümü değiştiren bir master, düzen, slayt veya şekil geçersiz kılmasını kaçırmanıza neden olabilir.
+Etkili verileri render tanılaması, doğrulama ve karşılaştırmalar için kullanın. Yalnızca [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/java/com.aspose.slides/presentation/) incelerseniz, bir master, düzen, slayt veya şekil geçersiz kılmasının final görünümü değiştirdiğini kaçırabilirsiniz.
 
 ## **SSS**
 
-**Bir temayı master’ı değiştirmeden tek bir slayta uygulayabilir miyim?**
+**Harici bir tema uygulamak sunumdaki tüm slaytları etkiler mi?**
 
-Evet. Slaytın [SlideThemeManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidethememanager/) kullanın ve geçersiz kılma temasını başlatın. Değişiklik yalnızca o slayta uygulanır; diğer slaytlar mevcut temalarını kalıtımsal olarak almaya devam eder.
+Hayır. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslide/) yalnızca seçilen master’a bağlı slaytları yeniden atar. Diğer master’ları kullanan slaytlar mevcut temalarını korur.
 
-**Bir temayı bir sunumdan diğerine taşımanın en güvenli yolu nedir?**
+**Bir temayı tek bir slayta, master’ı değiştirmeden uygulayabilir miyim?**
 
-Bir slaytı taşırken ve kaynak görünümünü korurken, kaynak master’ı hedefe klonlayın ve ardından slaytı o master ile birlikte [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslidecollection/) ve [ISlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/) kullanarak klonlayın. Bu, master, düzenler ve temayı bir arada tutar.
+Evet. Slaytın [SlideThemeManager](https://reference.aspose.com/slides/tr/java/com.aspose.slides/slidethememanager/) kullanın ve geçersiz kılma temasını başlatın. Değişiklik sadece o slayta yerel olur; diğer slaytlar mevcut temalarını miras almaya devam eder.
 
-**Kalıtım ve geçersiz kılmalardan sonra etkili değerleri nasıl görebilirim?**
+**Bir temayı bir sunumdan diğerine taşımak için en güvenli yol nedir?**
 
-Bir slayt veya düzen teması için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseoverridethememanager/) ve [Background.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/) ile [FillFormat.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fillformat/) gibi format nesneleri için ilgili etkili‑veri yöntemlerini kullanın. Bu API’ler, kalıtım ve geçersiz kılmalar uygulandıktan sonraki çözümlenmiş değerleri döndürür.
+Bir slaytı taşırken ve kaynak görünümünü korurken, kaynak master’ı hedefte [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/imasterslidecollection/) ile klonlayın ve ardından slaytı aynı master ile [ISlideCollection.addClone](https://reference.aspose.com/slides/tr/java/com.aspose.slides/islidecollection/) kullanarak klonlayın. Böylece master, düzenleri ve tema bir arada kalır.
+
+**Miras ve geçersiz kılmalardan sonra etkili değerleri nasıl görebiliriz?**
+
+Bir slayt veya düzen teması için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/baseoverridethememanager/) ve format nesneleri (ör. [Background.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/background/) ve [FillFormat.getEffective](https://reference.aspose.com/slides/tr/java/com.aspose.slides/fillformat/)) için ilgili etkili‑veri metodlarını kullanın. Bu API’ler, miras ve geçersiz kılmalar uygulandıktan sonraki çözülmüş değerleri döndürür.

@@ -1,16 +1,18 @@
 ---
-title: C++ でプレゼンテーションテーマを管理する
+title: C++でプレゼンテーションテーマを管理する
 linktitle: プレゼンテーションテーマ
 type: docs
 weight: 10
 url: /ja/cpp/presentation-theme/
 keywords:
-- PowerPoint テーマ
+- PowerPointテーマ
 - プレゼンテーションテーマ
 - スライドテーマ
 - テーマの設定
 - テーマの変更
 - テーマの管理
+- 外部テーマ
+- THMX
 - テーマカラー
 - 追加パレット
 - テーマフォント
@@ -21,23 +23,23 @@ keywords:
 - プレゼンテーション
 - C++
 - Aspose.Slides
-description: "Aspose.Slides for C++ でプレゼンテーションテーマをマスターし、一貫したブランディングで PowerPoint ファイルを作成、カスタマイズ、変換します。"
+description: "Aspose.Slides for C++ でプレゼンテーションテーマをマスターし、PowerPoint ファイルを一貫したブランディングで作成、カスタマイズ、変換します。"
 ---
-## **はじめに**
+## **導入**
 
-プレゼンテーションテーマは、カラー、フォント、背景スタイル、塗りつぶし、線、および効果の調整されたセットを定義します。テーマ対応オブジェクトは、各視覚プロパティを固定値として保持する代わりに、これらの共有定義を参照するため、テーマを変更すると多数のオブジェクトが一度に更新されます。
+プレゼンテーションテーマは、色、フォント、背景スタイル、塗りつぶし、線、効果の調和したセットを定義します。テーマ対応オブジェクトは、個々の視覚プロパティを固定値として保存する代わりに、これらの共有定義を参照します。そのため、テーマを変更すると多数のオブジェクトが一度に更新されます。
 
-Aspose.Slides では、プレゼンテーション レベルのテーマは [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_mastertheme/) で取得できます。プレゼンテーションは下位レベルでもテーマの上書きを含めることができます。マスターは [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) を介してプレゼンテーション テーマを上書きでき、レイアウトや個々のスライドは [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) を使用できます。実際には、スライドの有効なテーマは次の継承チェーンを通じて決定されます：プレゼンテーション テーマ、マスター上書き、レイアウト上書き、スライド上書き。
+Aspose.Slides では、プレゼンテーションレベルのテーマは [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_mastertheme/) で取得できます。プレゼンテーションは、下位レベルでもテーマのオーバーライドを保持できます。マスターは [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/) でプレゼンテーションテーマを上書きでき、レイアウトや個別スライドは [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/) を使用できます。実際には、スライドの有効テーマは次の継承チェーンを通じて解決されます：プレゼンテーションテーマ → マスターオーバーライド → レイアウトオーバーライド → スライドオーバーライド。
 
-![テーマ コンポーネント: カラー、フォント、背景スタイル、効果](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-以下のセクションでは、最も一般的なテーマのワークフローを示します。テーマの検査、カラーとフォントの変更、テーマのコピーまたは適用、背景と効果スタイルの更新、継承と上書きが解決された後の有効な値の取得です。
+以下のセクションでは、最も一般的なテーマ操作フローを示します。テーマの検査、色とフォントの変更、テーマのコピーまたは適用、背景と効果スタイルの更新、継承とオーバーライドが解決された後の有効値の取得です。
 
 ## **テーマの検査**
 
-[MasterTheme](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/) オブジェクトは、テーマの [get_ColorScheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/get_colorscheme/)、[get_FontScheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/get_fontscheme/)、および [get_FormatScheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) メソッドを公開します。これらのコレクションを変更前に検査することは、外部ソースから取得したプレゼンテーションの場合に特に有用です。スタイル エントリの数や内容は変わる可能性があります。
+[MasterTheme](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/) オブジェクトは、テーマの [get_ColorScheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/get_colorscheme/)、[get_FontScheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/get_fontscheme/)、[get_FormatScheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) メソッドを公開します。これらのコレクションを変更前に検査することは、外部ソースから取得したプレゼンテーションで、スタイルエントリの数や内容が変わる可能性があるため特に有用です。
 
-次の例は、主要なテーマ プロパティを読み取り、テーマに格納されている背景、塗りつぶし、線、効果スタイルの数を報告します。
+次の例は、メインテーマプロパティを読み取り、テーマに格納されている背景、塗りつぶし、線、効果スタイルの数を報告します。
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +71,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-ファイルが複数のマスターを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスターを検査し、レイアウトやスライドの上書きが存在する可能性がある場合は、後述の有効テーマ ワークフローを使用してください。
+ファイルが複数のマスターを使用している場合、すべてのスライドが同じ有効テーマを持つとは限りません。スライドに関連付けられたマスターを検査し、レイアウトやスライドのオーバーライドが存在する可能性がある場合は、後述の有効テーマフローを使用してください。
 
-## **テーマ カラーの変更**
+## **テーマの色の変更**
 
-テーマ対応の塗りつぶし、線、テキストは、[SchemeColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/schemecolor/) 列挙体の論理カラーを参照できます。テーマの [IColorScheme](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/icolorscheme/) で対応するエントリを変更すると、そのテーマ カラーを参照し続けているすべてのオブジェクトが新しい値に解決されます。直接 RGB カラーを使用しているオブジェクトはテーマ カラーの更新の影響を受けません。
+テーマ対応の塗りつぶし、線、テキストは [SchemeColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/schemecolor/) 列挙体の論理色を参照できます。テーマの [IColorScheme](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/icolorscheme/) で該当エントリを変更すると、そのテーマ色を参照し続けているすべてのオブジェクトが新しい値に解決されます。直接 RGB 色を使用しているオブジェクトはテーマ色の更新の影響を受けません。
 
-次のエンドツーエンドの例では、`Accent4` を使用するシェイプを作成し、テーマの `Accent4` カラーを赤に変更し、プレゼンテーションを保存して再度開き、有効な塗りつぶしカラーを出力します。
+次のエンドツーエンド例では、`Accent4` を使用したシェイプを作成し、テーマの `Accent4` 色を赤に変更し、プレゼンテーションを保存して再度開き、実際の塗りつぶし色を出力します。
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,18 +116,18 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-矩形が `Accent4` にリンクされたままなので、テーマが変更されると表示色は赤になります。シェイプ上でスキーム カラーを直接のカラーに置き換えると、以降の `Accent4` の変更はその塗りつぶしに影響しなくなります。
+矩形は `Accent4` にリンクされたままであるため、テーマが変更された後に表示色は赤になります。シェイプ上でスキーム色を直接カラーに置き換えると、以降の `Accent4` 変更はその塗りつぶしに影響しなくなります。
 
-### **追加パレットからカラーを使用する**
+### **追加パレットから色を使用する**
 
-PowerPoint はテーマ カラーから明度変換を適用して、より明るいバリエーションと暗いバリエーションを生成します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/colortransformoperation/) を通じて公開しています。
+PowerPoint はテーマ色から明度変換を適用して、明るいバリエーションと暗いバリエーションを生成します。Aspose.Slides はこれらの変換を [ColorTransformOperation](https://reference.aspose.com/slides/ja/cpp/aspose.slides/colortransformoperation/) を通じて公開しています。
 
-![メインテーマ カラーと追加パレットから生成された明るい/暗いカラー](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** – メインテーマ カラー。  
-**2** – メインテーマ カラーから生成された明るい/暗いバリエーション。
+**1** - メインテーマカラー  
+**2** - メインテーマカラーから生成された明るい/暗いバリエーション
 
-次の例は、`Accent4` を基にした 6 つの矩形を作成し、うち 5 つに輝度変換を適用し、結果を保存します。
+次の例では、`Accent4` を基にした 6 つの矩形を作成し、うち 5 つに輝度変換を適用して結果を保存します。
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -194,31 +196,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-これらのバリエーションはテーマ カラーに基づいたままです。後で `Accent4` が変更されると、変換されたカラーは新しい `Accent4` の値から再計算されます。
+これらのバリエーションはテーマカラーに基づいています。`Accent4` が後で変更されると、変換された色は新しい `Accent4` の値から再計算されます。
 
-### **`SchemeColor` の値を `IColorScheme` スロットにマッピングする**
+### **`SchemeColor` 値を `IColorScheme` スロットにマッピングする**
 
-[SchemeColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/schemecolor/) 列挙体は `Text1`、`Background1`、`Text2`、`Background2` を使用し、[IColorScheme](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/icolorscheme/) は同じテーマ スロットを `Dark1`、`Light1`、`Dark2`、`Light2` として公開します。マッピングは固定です。
+[SchemeColor](https://reference.aspose.com/slides/ja/cpp/aspose.slides/schemecolor/) 列挙体は `Text1`、`Background1`、`Text2`、`Background2` を使用し、[IColorScheme](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/icolorscheme/) は同じスロットを `Dark1`、`Light1`、`Dark2`、`Light2` として公開します。マッピングは固定です。
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-これらは同じテーマ スロットの別名であり、動的に変換される値ではありません。
+これは同じテーマスロットの別名であり、動的に相互変換される値ではありません。
 
-## **テーマ フォントの変更**
+## **テーマのフォントの変更**
 
-テーマ フォント スキームには、見出し用のメジャー フォント セットと本文用のマイナー フォント セットが含まれます。[FontScheme::get_Major()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/fontscheme/get_major/) と [FontScheme::get_Minor()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/fontscheme/get_minor/) メソッドでそれらのセットを取得できます。
+テーマフォントスキームは、見出し用のメジャーフォントセットと本文用のマイナーフォントセットを含みます。[FontScheme::get_Major()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/fontscheme/get_major/) と [FontScheme::get_Minor()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/fontscheme/get_minor/) メソッドでそれらのセットにアクセスできます。
 
-PowerPoint 互換のテーマ フォント 識別子はテキスト書式設定で使用できます。
+PowerPoint 互換のテーマフォント識別子はテキスト書式設定で使用できます。
 
-* `+mn-lt` – 本文フォント Latin（マイナー Latin フォント）
-* `+mj-lt` – 見出しフォント Latin（メジャー Latin フォント）
-* `+mn-ea` – 本文フォント East Asian（マイナー East Asian フォント）
-* `+mj-ea` – 見出しフォント East Asian（メジャー East Asian フォント）
+* `+mn-lt` - 本文フォント ラテン文字 (Minor Latin Font)
+* `+mj-lt` - 見出しフォント ラテン文字 (Major Latin Font)
+* `+mn-ea` - 本文フォント 東アジア文字 (Minor East Asian Font)
+* `+mj-ea` - 見出しフォント 東アジア文字 (Major East Asian Font)
 
-次の例は、メジャー Latin テーマ フォントを使用した見出しと、マイナー Latin テーマ フォントを使用した本文行を作成し、テーマ フォントを変更して結果を保存します。
+次の例では、メジャー ラテンテーマフォントを使用した見出しと、マイナー ラテンテーマフォントを使用した本文行を作成し、テーマフォントを変更して結果を保存します。
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,23 +260,106 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-見出しはメジャー フォントに、本文はマイナー フォントに従います。テーマ 識別子ではなく明示的なフォント名が指定されているテキストは、テーマ フォント スキームが変更されても自動的には切り替わりません。
+見出しはメジャーフォント、本文はマイナーフォントに従います。テーマ識別子ではなく明示的にフォント名が指定されているテキストは、テーマフォントスキームが変更されても自動的に切り替わりません。
 
-メジャーおよびマイナーフォント コレクションには、キリル文字、アラビア文字、日本語、ジョージア文字、Thaana など、個別の文字体系向けのフォント マッピングも含めることができます。これらのマッピングを検査、追加、置換、削除するには、[Script-Specific Theme Fonts](/slides/ja/cpp/script-specific-font-mappings/) を参照してください。
+メジャー・マイナーフォントコレクションは、キリル文字、アラビア文字、日本語、ジョージア文字、タナ文字など、個々の文字体系向けのフォントマッピングも保持できます。これらのマッピングを検査、追加、置換、削除する方法は、[スクリプト固有のテーマフォント](/slides/ja/cpp/script-specific-font-mappings/) を参照してください。
 
 {{% alert color="info" title="Tip" %}}
-
-プレゼンテーション フォントの詳細については、[PowerPoint Fonts](/slides/ja/cpp/powerpoint-fonts/) をご覧ください。
-
+プレゼンテーションのフォントに関する詳細は、[PowerPoint フォント](/slides/ja/cpp/powerpoint-fonts/) をご覧ください。
 {{% /alert %}}
 
 ## **テーマのコピーまたは適用**
 
-一般的なワークフローは 2 つあり、解決すべき問題が異なります。
+以下のワークフローは、さまざまなテーマ関連の課題を解決します。
 
-### **スライドを移動するときに元のテーマを保持する**
+### **外部テーマをマスター依存スライドに適用する**
 
-スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/addclone/) でソース マスターをターゲット プレゼンテーションにクローンし、続いて [ISlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) でスライドとクローンされたマスターをクローンします。これにより、マスター、レイアウト、関連するテーマが一緒にコピーされます。
+PowerPoint のテーマファイル (`.thmx`) があり、特定のマスターに依存するすべてのスライドの外観を変更したい場合は、[IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) を使用します。対象マスターは [Presentation::get_Masters](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_masters/) コレクション（[IMasterSlideCollection](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/) が実装）から選択し、テーマファイルのパスをメソッドに渡します。
+
+メソッドは次の操作を行います。
+
+1. 選択したマスターを基に新しいマスタースライドを作成する。  
+2. 外部テーマを新しいマスターに適用する。  
+3. 以前に選択したマスターに依存していたすべてのスライドに新しいマスターを割り当てる。  
+4. 新しく作成された [IMasterSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslide/) を返す。
+
+次の例は、最初のマスターに依存するスライドに外部テーマを適用し、プレゼンテーションを保存します。
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto selectedMaster = presentation->get_Master(0);
+auto themedMaster = selectedMaster->ApplyExternalThemeToDependingSlides(u"corporate-theme.thmx");
+
+Console::WriteLine(u"Created master: {0}", themedMaster->get_Name());
+presentation->Save(u"presentation-with-external-theme.pptx", SaveFormat::Pptx);
+```
+
+無効、破損、またはサポートされていないテーマは [PptxException](https://reference.aspose.com/slides/ja/cpp/aspose.slides/pptxexception/) またはその派生例外をスローすることがあります。ユーザーが提供したパスを検証し、ファイルシステムアクセスの失敗を処理し、テーマの適用が正常に完了した後にだけプレゼンテーションを保存してください。
+
+選択したマスターに依存していたスライドだけが再割り当てされます。他のマスターに属するスライドは既存のマスターとテーマを保持します。テーマ対応の色、フォント、塗りつぶし、線、背景、効果は外部テーマに対して解決されます。直接割り当てられた色やフォントなどの明示的書式設定は変更されない場合があります。レイアウトレベルやスライドレベルのオーバーライドは、新しいマスターから継承された値よりも優先されることがあります。
+
+テーマは実行環境にインストールされていないフォントを参照することがあります。レンダリングとエクスポートの一貫性を保つため、必要なフォントをインストールするか、[カスタムフォント ソース](/slides/ja/cpp/custom-font/) を通じて提供するか、[フォント置換](/slides/ja/cpp/font-substitution/) を構成してください。
+
+これはマスター単位の直接ワークフローです。メソッドは `.thmx` ファイルへのパスを受け取り、スライドレベルやレイアウトレベルのテーマオーバーライドを手動で作成する必要はありません。
+
+### **マルチマスタープレゼンテーションで異なる外部テーマを適用する**
+
+事前に対象マスターが分からない場合は、[ISlide::get_LayoutSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islide/get_layoutslide/) と [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ilayoutslide/get_masterslide/) を使って代表的なスライドから取得します。テーマ適用前に元のマスター参照を保存してください。各呼び出しはプレゼンテーションに新しいマスターを作成します。
+
+次の例は、2 つのセクションからスライドを取得してそれぞれのマスターを特定し、各グループに別々の外部テーマを適用します。
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"multi-master-presentation.pptx");
+
+if (presentation->get_Slides()->get_Count() < 5)
+{
+    std::cout << "The presentation does not contain the expected representative slides." << std::endl;
+}
+else
+{
+    auto firstGroupMaster = presentation->get_Slide(0)->get_LayoutSlide()->get_MasterSlide();
+    auto secondGroupMaster = presentation->get_Slide(4)->get_LayoutSlide()->get_MasterSlide();
+
+    if (firstGroupMaster->get_SlideId() == secondGroupMaster->get_SlideId())
+    {
+        std::cout << "The representative slides use the same master." << std::endl;
+    }
+    else
+    {
+        auto firstThemedMaster = firstGroupMaster->ApplyExternalThemeToDependingSlides(u"blue-theme.thmx");
+        auto secondThemedMaster = secondGroupMaster->ApplyExternalThemeToDependingSlides(u"green-theme.thmx");
+
+        Console::WriteLine(u"First themed master: {0}", firstThemedMaster->get_Name());
+        Console::WriteLine(u"Second themed master: {0}", secondThemedMaster->get_Name());
+        presentation->Save(u"multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+    }
+}
+```
+
+最初の呼び出しは `firstGroupMaster` に依存するスライドのみを対象とし、2 回目の呼び出しは `secondGroupMaster` に依存するスライドのみを対象とします。他のマスターに属するスライドは変更されません。
+
+### **スライド移動時に元テーマを保持する**
+
+スライドを別のプレゼンテーションに移動し、元のデザインを保持したい場合は、[IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/addclone/) でソースマスターをターゲットにコピーし、続いて [ISlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) でスライドとクローンマスターをコピーします。これにより、マスター、レイアウト、および関連テーマが一緒に転送されます。
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -298,11 +383,15 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-これは、ソース スライドが宛先で同一に見える必要がある場合に推奨されるワークフローです。無関係な宛先マスターにコンテンツだけをクローンすると、テーマ駆動のカラー、フォント、背景、効果が変わる可能性があります。
+この方法は、ソーススライドが宛先でも同じ外観になることが最も重要な場合に推奨されます。無関係な宛先マスターにコンテンツだけをクローンすると、テーマ駆動の色、フォント、背景、効果が変わる可能性があります。
 
 ### **既存スライドにテーマ値を適用する**
 
-対象スライドが現在のマスターとレイアウト上にとどまる必要がある場合は、ソース テーマからスライドレベルの上書きを初期化します。[OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/)、[OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/)、[OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) メソッドが 3 つの主要テーマ コンポーネントを上書きテーマにコピーします。
+対象スライドを現在のマスターとレイアウトのままに保ちたい場合は、ソーステーマからスライドレベルのオーバーライドを初期化します。次のメソッドで 3 つの主要テーマコンポーネントをオーバーライドにコピーできます。
+
+* [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/)  
+* [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/)  
+* [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/)
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -326,11 +415,11 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-この操作により、他のスライドが継承しているテーマは変更せずに、そのスライドだけのテーマが変わります。ローカル上書きを削除して継承値に戻すには、[OverrideTheme::Clear()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/clear/) を呼び出します。
+この操作はそのスライドだけのテーマを変更し、他のスライドが継承しているテーマには影響しません。ローカルオーバーライドを削除して継承値に戻すには、[OverrideTheme::Clear()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/overridetheme/clear/) を呼び出してください。
 
-### **レイアウトにテーマ上書きを適用する**
+### **レイアウトにテーマオーバーライドを適用する**
 
-レイアウトレベルの上書きは、そのレイアウトを使用するスライド全体に適用されます（個別スライドが独自の上書きを持たない限り）。同じ初期化メソッドはレイアウトの [IOverrideThemeManager](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ioverridethememanager/) を介して使用できます。
+レイアウトレベルのオーバーライドは、そのレイアウトを使用するスライド全体に適用されます（ただし、個々のスライドが独自のオーバーライドを持っている場合は例外です）。同じ初期化メソッドをレイアウトの [IOverrideThemeManager](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ioverridethememanager/) を通じて使用できます。
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -356,17 +445,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-多数のレイアウトやスライドが同一の基本デザインを共有すべき場合はマスターまたはプレゼンテーション レベルのテーマを使用し、特定のレイアウト ファミリーだけが異なるスタイルを必要とする場合はレイアウト上書きを、真に例外的なケースだけはスライド上書きを使用してください。過剰なスライドレベル上書きは、後の全体テーマ変更を予測しにくくします。
+多数のスライドやレイアウトが同じ基本デザインを共有すべき場合はマスターまたはプレゼンテーションレベルのテーマを使用し、特定のレイアウトファミリだけが異なるスタイリングを必要とする場合はレイアウトオーバーライドを、真の例外のみを対象にする場合はスライドオーバーライドを使用してください。過剰なスライドレベルのオーバーライドは、後からの全体テーマ変更を予測しにくくします。
 
 ## **テーマ背景スタイルの更新**
 
-テーマの背景塗りつぶしは [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) に格納されています。PowerPoint の UI では、このコレクションに実際に格納されている塗りつぶし定義の数以上の背景オプションを提示できることがあります。これは、UI がテーマ 塗りつぶし とテーマ カラーや他のスタイル参照を組み合わせられるためです。
+テーマの背景塗りつぶしは [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/) に格納されています。PowerPoint の UI では、実際にコレクションに保存されている塗りつぶし定義よりも多くの背景選択肢を提示できるのは、テーマ塗りつぶしとテーマカラーや他のスタイル参照を組み合わせて表示できるためです。
 
-![プレゼンテーション テーマの背景スタイル ギャラリー](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-背景スタイルを使用する前に、格納されているコレクションと現在の [Background::get_StyleIndex()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/get_styleindex/) を検査してください。`StyleIndex` はテーマ化された塗りつぶしがない場合は `0`、正の値はテーマ背景スタイル参照を表します。これは C++ コレクションで `idx_get(0)` が最初の項目を指すインデックスとは異なります。すべてのプレゼンテーションが同じ数の背景塗りつぶしスタイルを持つと想定しないでください。
+背景スタイルを使用する前に、保存されているコレクションと現在の [Background::get_StyleIndex()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/get_styleindex/) を検査してください。`StyleIndex` はテーマ塗りつぶしが無い場合に `0`、正の値はテーマ背景スタイル参照を意味します。これは C++ コレクションを `idx_get(0)` で直接取得するインデックス（`0` が最初のアイテム）とは異なります。プレゼンテーションごとに背景塗りつぶしスタイル数が同じとは限らないことに注意してください。
 
-次の例は利用可能な背景塗りつぶし数を報告し、最初のマスターにテーマ背景参照を割り当て、プレゼンテーションを保存します。
+次の例は、利用可能な背景塗りつぶし数を報告し、最初のマスターにテーマ背景参照を割り当て、プレゼンテーションを保存します。
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -396,29 +485,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-表示結果は、マスターが参照するテーマ エントリと、レイアウトまたはスライドレベルでの背景上書きの有無に依存します。スライドが独自の背景を使用している場合、マスター背景のみを変更してもそのスライドには影響しません。継承後の最終背景を取得する必要がある場合は、[Background::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/geteffective/) を使用してください。
+表示結果は、マスターが参照するテーマエントリと、レイアウトまたはスライドレベルでの背景オーバーライドの有無に依存します。スライドが独自の背景を使用している場合、マスター背景だけを変更してもそのスライドは変わりません。継承後の最終背景が必要なときは、[Background::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/geteffective/) を使用してください。
 
 {{% alert color="warning" title="Warning" %}}
-
-`StyleIndex` をゼロベースのコレクションインデックスとして扱わないでください。また、あるファイルで使用したスタイル番号をハードコーディングして別のファイルでも同じ外観になると期待しないでください。テーマ スタイル定義はプレゼンテーション固有です。
-
+`StyleIndex` をゼロベースのコレクションインデックスとみなさないでください。また、あるファイルから取得したスタイル番号をハードコードして別ファイルで同じ外観になると期待しないでください。テーマスタイル定義はプレゼンテーション固有です。
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-
-直接的な背景書式設定や背景継承については、[Presentation Background](/slides/ja/cpp/presentation-background/) を参照してください。
-
+直接的な背景書式設定と背景継承については、[プレゼンテーション背景](/slides/ja/cpp/presentation-background/) を参照してください。
 {{% /alert %}}
 
 ## **テーマ効果の更新**
 
-テーマ フォーマット スキームは別々の [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_fillstyles/)、[FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_linestyles/)、および [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) コレクションを含みます。一般的な Office テーマは、微妙、標準、強調という視覚的に区別できる 3 つの主要スタイル エントリを持つことが多いですが、コード側では固定数を前提にせず各コレクションを検査すべきです。
+テーマのフォーマットスキームは、[FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_fillstyles/)、[FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_linestyles/)、[FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/formatscheme/get_effectstyles/) の 3 つのコレクションを保持します。一般的な Office テーマは、控えめ、標準、強調という 3 つの主要スタイルエントリを持つことが多いですが、コード側では固定数を前提にせず各コレクションを走査してください。
 
-![同一シェイプに適用された微妙、標準、強調のテーマ効果](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-C++ でこれらのコレクションにアクセスする場合、インデックスはゼロベースです：`idx_get(0)` が最初のスタイル、`idx_get(2)` が3番目のスタイルです。シェイプのスタイル参照インデックスは別概念で、[IShapeStyle](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapestyle/) を通じて公開されます。テーマ スタイルを変更すると、そのテーマ スタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変更されません。
+C++ でこれらのコレクションにアクセスする場合、インデックスはゼロベースです。`idx_get(0)` が最初のスタイル、`idx_get(2)` が 3 番目のスタイルとなります。シェイプのスタイル参照インデックスは別概念で、[IShapeStyle](https://reference.aspose.com/slides/ja/cpp/aspose.slides/ishapestyle/) で公開されています。テーマスタイルを変更すると、そのテーマスタイルを参照しているシェイプに影響しますが、直接書式設定されたシェイプは変更されません。
 
-次の例は、必要なスタイル エントリが存在することを確認し、最初の線スタイルを変更し、3 番目の塗りつぶしスタイルを変更し、3 番目の効果スタイルに外部シャドウ（距離 10pt）を有効にして結果を保存します。
+次の例は、必要なスタイルエントリが存在することを確認し、最初の線スタイル、3 番目の塗りつぶしスタイル、3 番目の効果スタイルに外側のシャドウ（距離 10 ポイント）を設定して結果を保存します。
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -471,13 +556,13 @@ else
 }
 ```
 
-このスロットを参照しているシェイプでは、最初のテーマ線スタイルが赤に、3 番目のテーマ塗りつぶしスタイルが濃い森林緑に、3 番目の効果スタイルに距離 10 ポイントの外部シャドウが追加されます。最終的な視覚結果は、各シェイプがどのスタイル スロットを参照しているか、そして直接書式設定がテーマを上書きしているかに依存します。
+これらのスロットを参照しているシェイプでは、最初の線スタイルが赤に、3 番目の塗りつぶしスタイルが濃い森林緑に、3 番目の効果スタイルに外側シャドウが適用されます。最終的な見た目は、各シェイプがどのスロットを参照しているか、直接書式設定がテーマを上書きしているかによって変わります。
 
-![線、塗りつぶし、シャドウ設定変更後のテーマ効果スタイル](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
 ## **有効なテーマ値の取得**
 
-生のテーマ オブジェクトは特定レベルで定義されている内容を示します。有効値は、継承とローカル上書きが解決された後、スライドやシェイプが実際に使用しているものを示します。スライドの場合は [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) を呼び、背景については [Background::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/geteffective/)、塗りつぶしについては [FillFormat::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fillformat/geteffective/) を使用します。
+生のテーマオブジェクトは特定レベルで定義されている内容を示します。有効値は、継承とローカルオーバーライドが解決された後、スライドやシェイプが実際に使用しているものを示します。スライドの場合は [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) を呼び出します。背景の場合は [Background::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/geteffective/)、塗りつぶしの場合は [FillFormat::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fillformat/geteffective/) を使用します。
 
 次の例は、スライドから有効テーマ、背景、最初のシェイプの塗りつぶしを取得します。
 
@@ -519,18 +604,22 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-レンダリング診断、検証、比較には有効データを使用してください。単に [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_mastertheme/) を検査すると、マスター、レイアウト、スライド、シェイプ上書きによって最終的な外観が変わっていることを見落とす可能性があります。
+有効データは描画診断、検証、比較に使用してください。単に [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/presentation/get_mastertheme/) を検査すると、マスター、レイアウト、スライド、シェイプのオーバーライドによって最終外観が変わっているケースを見逃す可能性があります。
 
 ## **FAQ**
 
-**単一スライドにテーマを適用し、マスターを変更せずに済ませる方法はありますか？**
+**外部テーマを適用するとプレゼンテーション内のすべてのスライドに影響しますか？**
 
-はい。スライドの [IOverrideThemeManager](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ioverridethememanager/) を使用し、上書きテーマを初期化します。変更はそのスライドだけにローカルに適用され、他のスライドは既存のテーマを継承し続けます。
+いいえ。[IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) は選択したマスターに依存するスライドだけを再割り当てします。他のマスターを使用しているスライドは既存のテーマを保持します。
 
-**テーマを別のプレゼンテーションへ安全に持ち込む最良の方法は何ですか？**
+**マスターを変更せずに単一スライドにテーマを適用できますか？**
 
-スライドを移動して元の外観を保持する場合、[IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/addclone/) でソース マスターを宛先にクローンし、続いて [ISlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) でそのマスターを使用してスライドをクローンします。これにより、マスター、レイアウト、テーマが一緒に保持されます。
+はい。スライドの [IOverrideThemeManager](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ioverridethememanager/) を使用してオーバーライドテーマを初期化します。変更はそのスライドに限定され、他のスライドは引き続き既存テーマを継承します。
 
-**継承と上書きの後の有効値はどうやって確認できますか？**
+**テーマを別のプレゼンテーションに安全に持ち込むにはどうすればよいですか？**
 
-スライドまたはレイアウトのテーマについては [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) を使用し、[Background::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/geteffective/) や [FillFormat::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fillformat/geteffective/) などの対応する有効データ メソッドを使用します。これらの API は、継承と上書きが適用された後の解決済み値を返します。
+スライドを移動して元の外観を保持したい場合は、[IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/imasterslidecollection/addclone/) でソースマスターを宛先にクローンし、続いて [ISlideCollection::AddClone()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/islidecollection/addclone/) でそのマスターを使用してスライドをクローンします。これによりマスター、レイアウト、テーマが一緒に保持されます。
+
+**継承とオーバーライド後の有効値を確認するには？**
+
+スライドやレイアウトのテーマについては [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) を、[Background::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/background/geteffective/) や [FillFormat::GetEffective()](https://reference.aspose.com/slides/ja/cpp/aspose.slides/fillformat/geteffective/) などのフォーマットオブジェクト向け有効データメソッドを使用してください。これらの API は継承とオーバーライドが適用された後の解決済み値を返します。

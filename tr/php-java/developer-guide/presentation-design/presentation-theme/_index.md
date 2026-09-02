@@ -9,8 +9,10 @@ keywords:
 - sunum teması
 - slayt teması
 - tema ayarla
-- temayı değiştir
-- temayı yönet
+- tema değiştir
+- tema yönet
+- harici tema
+- THMX
 - tema rengi
 - ek palet
 - tema yazı tipi
@@ -21,23 +23,23 @@ keywords:
 - sunum
 - PHP
 - Aspose.Slides
-description: "Java aracılığıyla PHP için Aspose.Slides'de ana sunum temaları, PowerPoint dosyalarını tutarlı bir marka kimliğiyle oluşturmak, özelleştirmek ve dönüştürmek için."
+description: "Aspose.Slides for PHP via Java ile tutarlı marka kimliği sağlayarak PowerPoint dosyalarını oluşturmak, özelleştirmek ve dönüştürmek için ana sunum temalarını yönetin."
 ---
 ## **Giriş**
 
-Bir sunum teması, renkler, yazı tipleri, arka plan stilleri, doldurulmalar, çizgiler ve efektlerden oluşan uyumlu bir küme tanımlar. Tema‑bilgili nesneler, her görsel özelliği sabit bir değer olarak saklamak yerine bu ortak tanımlara başvurur; böylece bir tema değişikliği, birçok nesneyi aynı anda güncelleyebilir.
+Bir sunum teması, koordineli bir renk, yazı tipi, arka plan stili, dolgu, çizgi ve efekt kümesini tanımlar. Tema‑bilinçli nesneler, her görsel özelliği sabit bir değer olarak depolamak yerine bu ortak tanımlara başvurur; böylece bir tema değişikliği, birçok nesneyi aynı anda güncelleyebilir.
 
-Aspose.Slides içinde, sunum‑seviyesindeki tema, [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) aracılığıyla elde edilebilir. Bir sunum ayrıca alt seviyelerde tema geçersiz kılmaları içerebilir. Bir master, [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterthememanager/) ile sunum temasını geçersiz kılabilir; bir layout veya bireysel slayt ise [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseoverridethememanager/) aracılığıyla kalıtılan temasını geçersiz kılabilir. Pratikte, bir slayt için etkili tema, şu kalıtım zinciri üzerinden çözülür: sunum teması, master geçersiz kılma, layout geçersiz kılma ve slayt geçersiz kılma.
+Aspose.Slides içinde, sunum seviyesindeki tema, [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) aracılığıyla erişilebilir. Bir sunum aynı zamanda daha alt seviyelerde tema geçersiz kılmaları içerebilir. Bir ana sayfa, [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterthememanager/) aracılığıyla sunum temasını geçersiz kılabilir; bir düzen ya da tek bir slayt ise [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseoverridethememanager/) aracılığıyla devralınan temayı geçersiz kılabilir. Uygulamada, bir slayt için etkili tema, şu kalıtım zinciri üzerinden çözülür: sunum teması, ana sayfa geçersiz kılması, düzen geçersiz kılması ve slayt geçersiz kılması.
 
 ![Tema bileşenleri: renkler, yazı tipleri, arka plan stilleri ve efektler](theme-constituents.png)
 
-Aşağıdaki bölümler en yaygın tema iş akışlarını gösterir: bir temayı incelemek, renk ve yazı tiplerini değiştirmek, bir temayı kopyalamak veya uygulamak, arka plan ve efekt stillerini güncellemek ve kalıtım ile geçersiz kılmalar çözüldükten sonra etkili değerleri okumak.
+Aşağıdaki bölümler, en yaygın tema iş akışlarını gösterir: bir temayı inceleme, renk ve yazı tiplerini değiştirme, bir temayı kopyalama veya uygulama, arka plan ve efekt stillerini güncelleme ve kalıtım ile geçersiz kılmalar çözüldükten sonra etkili değerleri okuma.
 
-## **Temayı İnceleme**
+## **Bir Temayı İnceleme**
 
-[MasterTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/) nesnesi, temanın renk şemasını, yazı tipi şemasını ve format şemasını sırasıyla [MasterTheme.getColorScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/) ve [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/) aracılığıyla sunar. Bu koleksiyonları değiştirmeden önce incelemek, özellikle sunum dış bir kaynaktan geldiğinde stil girişlerinin sayısı ve içeriği değişebileceği için çok yararlıdır.
+[MasterTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/) nesnesi, tema renk şemasını, yazı tipi şemasını ve format şemasını sırasıyla [MasterTheme.getColorScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/) ve [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/mastertheme/) aracılığıyla ortaya koyar. Bu koleksiyonları değiştirmeden önce incelemek, dış bir kaynaktan gelen bir sunumun stil girişlerinin sayısı ve içeriği değişebildiği için özellikle faydalıdır.
 
-Aşağıdaki örnek, ana tema özelliklerini okur ve temada kaç tane arka plan, doldurma, çizgi ve efekt stilinin saklandığını raporlar:
+Aşağıdaki örnek, ana tema özelliklerini okur ve temada depolanan arka plan, dolgu, çizgi ve efekt stillerinin sayısını raporlar:
 
 ```php
 use aspose\slides\Presentation;
@@ -58,13 +60,13 @@ try {
 }
 ```
 
-Bir dosya birden fazla master kullanıyorsa, her slaytın aynı etkili temaya sahip olduğunu varsamamalısınız. Slaytla ilişkili master’ı inceleyin ve layout ya da slayt geçersiz kılmaları olabileceğinde, bu makalenin ilerleyen kısmında gösterilen etkili‑tema iş akışını kullanın.
+Bir dosya birden fazla ana sayfa kullanıyorsa, her slaytın aynı etkili temaya sahip olduğunu varsaymayın. Slayt ile ilişkilendirilen ana sayfayı inceleyin ve düzen ya da slayt geçersiz kılmaları mevcut olduğunda bu makalede daha sonra gösterilen etkili‑tema iş akışını kullanın.
 
 ## **Tema Renklerini Değiştirme**
 
-Tema‑bilgili doldurmalar, çizgiler ve metin, [SchemeColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/schemecolor/) enum’undan mantıksal bir renge başvurabilir. [ColorScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/colorscheme/) içindeki ilgili girişi değiştirdiğinizde, hâlâ bu tema rengine başvuran tüm nesneler yeni değere karşı çözülür. Doğrudan bir RGB rengi kullanan nesneler tema‑rengi güncellemesinden etkilenmez.
+Tema‑bilinçli dolgular, çizgiler ve metinler, [SchemeColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/schemecolor/) enum’undan mantıksal bir renge başvurabilir. [ColorScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/colorscheme/) içinde ilgili girdiyi değiştirdiğinizde, hâlâ bu tema rengini başvuran tüm nesneler yeni değere göre çözülür. Doğrudan bir RGB rengi kullanan nesneler, tema‑rengi güncellemesinden etkilenmez.
 
-Aşağıdaki uçtan‑uyağa örnek, `Accent4` kullanan bir şekil oluşturur, temanın `Accent4` rengini kırmızıya değiştirir, sunumu kaydeder, tekrar açar ve etkili doldurma rengini yazdırır:
+Aşağıdaki uçtan uca örnek, `Accent4` kullanan bir şekil oluşturur, temanın `Accent4` rengini kırmızıya değiştirir, sunumu kaydeder, yeniden açar ve etkili dolgu rengini yazdırır:
 
 ```php
 use aspose\slides\FillType;
@@ -96,19 +98,19 @@ try {
 }
 ```
 
-Dikdörtgen `Accent4`e bağlı kalmaya devam ettiğinden, tema değiştirildiğinde görünür rengi kırmızı olur. Şekilde şema rengini doğrudan bir renkle değiştirirseniz, sonraki `Accent4` değişiklikleri artık bu doldurmayı etkilemez.
+Dikdörtgen `Accent4` ile bağlı kaldığı için, tema değiştirildiğinde görünen rengi kırmızı olur. Şekilde şema rengini doğrudan bir renk ile değiştirirseniz, sonraki `Accent4` değişiklikleri artık o dolguyu etkilemez.
 
 ### **Ek Paletten Renk Kullanma**
 
-PowerPoint, bir tema renginden daha açık ve daha koyu varyantları renk dönüşümleri uygulayarak üretir. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/colortransformoperation/) enum’u aracılığıyla sunar.
+PowerPoint, bir tema renginden daha açık ve daha koyu varyantlar üretmek için renk dönüşümleri uygular. Aspose.Slides bu dönüşümleri [ColorTransformOperation](https://reference.aspose.com/slides/tr/php-java/aspose.slides/colortransformoperation/) enum’u aracılığıyla ortaya koyar.
 
 ![Ana tema renkleri ve ek paletten oluşturulan daha açık ve daha koyu renkler](additional-palette-colors.png)
 
-**1** - Ana tema renkleri.
+**1** – Ana tema renkleri.
 
-**2** - Ana tema renklerinden üretilen daha açık ve daha koyu varyantlar.
+**2** – Ana tema renklerinden üretilen daha açık ve daha koyu varyantlar.
 
-Aşağıdaki örnek, `Accent4` üzerine dayalı altı dikdörtgen oluşturur, beş tanesine parlaklık dönüşümleri uygular ve sonucu kaydeder:
+Aşağıdaki örnek, `Accent4` bazlı altı dikdörtgen oluşturur, beşine parlaklık dönüşümleri uygular ve sonucu kaydeder:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -160,29 +162,29 @@ try {
 }
 ```
 
-Bu varyantlar tema rengine dayalı kalır. `Accent4` daha sonra değişirse, dönüştürülmüş renkler yeni `Accent4` değerinden yeniden hesaplanır.
+Bu varyantlar tema rengine dayanır. `Accent4` daha sonra değişirse, dönüştürülmüş renkler yeni `Accent4` değerinden yeniden hesaplanır.
 
-### **`SchemeColor` Değerlerini `ColorScheme` Yuvalarına Eşleme**
+### **`SchemeColor` Değerlerini `ColorScheme` Slotlarına Eşleme**
 
-[SchemeColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/schemecolor/) enum’u `Text1`, `Background1`, `Text2` ve `Background2` kullanırken, [ColorScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/colorscheme/) aynı tema yuvalarını `Dark1`, `Light1`, `Dark2` ve `Light2` olarak sunar. Eşleme sabittir:
+[SchemeColor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/schemecolor/) enum’u `Text1`, `Background1`, `Text2` ve `Background2` değerlerini kullanırken, [ColorScheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/colorscheme/) aynı tema slotlarını `Dark1`, `Light1`, `Dark2` ve `Light2` olarak sunar. Eşleme sabittir:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Bunlar aynı tema yuvalarının alternatif adlarıdır; bir formdan diğerine dinamik olarak dönüştürülen değerler değildir.
+Bunlar aynı tema slotlarının alternatif adlarıdır; bir formdan diğerine dinamik olarak dönüştürülen değerler değildir.
 
 ## **Tema Yazı Tiplerini Değiştirme**
 
-Bir tema yazı tipi şeması, başlıklar için bir ana yazı tipi seti ve gövde metni için bir yan (minor) seti içerir. [FontScheme.getMajor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontscheme/) ve [FontScheme.getMinor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontscheme/) metodları bu setleri açığa çıkarır.
+Bir tema yazı tipi şeması, başlıklar için bir ana (major) yazı tipi seti ve gövde metni için bir yan (minor) yazı tipi seti içerir. [FontScheme.getMajor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontscheme/) ve [FontScheme.getMinor](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fontscheme/) yöntemleri bu setleri ortaya koyar.
 
-PowerPoint‑uyumlu tema yazı tipi tanımlayıcıları metin biçimlendirmesinde kullanılabilir:
+PowerPoint‑uyumlu tema yazı tipi tanımlayıcıları, metin biçimlendirmede kullanılabilir:
 
-* `+mn-lt` - Gövde Yazı Tipi Latin (Küçük Latin Yazı Tipi)
-* `+mj-lt` - Başlık Yazı Tipi Latin (Büyük Latin Yazı Tipi)
-* `+mn-ea` - Gövde Yazı Tipi Doğu Asya (Küçük Doğu Asya Yazı Tipi)
-* `+mj-ea` - Başlık Yazı Tipi Doğu Asya (Büyük Doğu Asya Yazı Tipi)
+* `+mn-lt` – Gövde Yazı Tipi Latin (Minor Latin Font)
+* `+mj-lt` – Başlık Yazı Tipi Latin (Major Latin Font)
+* `+mn-ea` – Gövde Yazı Tipi Doğu Asya (Minor East Asian Font)
+* `+mj-ea` – Başlık Yazı Tipi Doğu Asya (Major East Asian Font)
 
 Aşağıdaki örnek, ana Latin tema yazı tipini kullanan bir başlık ve yan Latin tema yazı tipini kullanan bir gövde satırı oluşturur. Ardından tema yazı tiplerini değiştirir ve sonucu kaydeder:
 
@@ -212,21 +214,94 @@ try {
 }
 ```
 
-Başlık ana yazı tipini, gövde metni yan yazı tipini izler. Tema tanımlayıcısı yerine açık bir yazı tipi adı belirtilmiş metin, tema yazı tipi şeması değiştiğinde otomatik olarak geçiş yapmaz.
+Başlık ana yazı tipini, gövde metni ise yan yazı tipini izler. Açıkça bir yazı tipi adı belirtilen metin, tema yazı tipi şeması değiştiğinde otomatik olarak değişmez.
 
-Ana ve yan yazı tipi koleksiyonları, Kiril, Arapça, Japonca, Gürcüce ve Thaana gibi bireysel yazı sistemleri için yazı tipi eşlemeleri de içerebilir. Bu eşlemeleri incelemek, eklemek, değiştirmek veya kaldırmak için [Script‑Specific Theme Fonts](/slides/tr/php-java/script-specific-font-mappings/) bölümüne bakın.
+Ana ve yan yazı tipi koleksiyonları ayrıca Kiril, Arapça, Japonca, Gürcüce ve Thaana gibi bireysel yazı sistemleri için yazı tipi eşlemeleri içerebilir. Bu eşlemeleri incelemek, eklemek, değiştirmek veya kaldırmak için [Script‑Specific Theme Fonts](/slides/tr/php-java/script-specific-font-mappings/) bölümüne bakın.
 
 {{% alert color="info" title="Tip" %}}
-Daha fazla sunum yazı tipi bilgisi için [PowerPoint Fonts](/slides/tr/php-java/powerpoint-fonts/) sayfasına bakın.
+Sunum yazı tipleri hakkında daha fazla bilgi için [PowerPoint Fonts](/slides/tr/php-java/powerpoint-fonts/) sayfasına bakın.
 {{% /alert %}}
 
-## **Tema Kopyalama veya Uygulama**
+## **Bir Temayı Kopyalama veya Uygulama**
 
-İki yaygın iş akışı vardır ve farklı problemleri çözerler.
+Aşağıdaki iş akışları, farklı tema‑ilişkili sorunları çözer.
 
-### **Slaytları Taşırken Kaynak Temayı Korumak**
+### **Bir Ana Sayfaya Bağlı Slaytlara Harici Tema Uygulama**
 
-Bir slaytı başka bir sunuma taşımak ve özgün tasarımını korumak istiyorsanız, kaynak master’ı [MasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslidecollection/) ile hedef sunuma klonlayın, ardından slaytı [SlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/) ve klonlanmış master ile klonlayın. Bu, master, layout’ları ve ilişkili temayı birlikte taşır.
+PowerPoint tema dosyası (`.thmx`) sahip olduğunuzda ve belirli bir ana sayfaya bağlı tüm slaytların stilini yeniden uygulamak istediğinizde [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) kullanın. [Presentation::getMasters](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) koleksiyonundan seçilen ana sayfayı alın (bu koleksiyon [MasterSlideCollection](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslidecollection/) tarafından temsil edilir) ve tema dosya yolunu metoda aktarın.
+
+Metot şu işlemleri gerçekleştirir:
+
+1. Seçilen ana sayfaya dayanarak yeni bir ana slayt oluşturur.
+1. Harici temayı yeni ana slayta uygular.
+1. Yeni ana slaytı, daha önce seçilen ana sayfaya bağlı olan tüm slaytlara atar.
+1. Yeni oluşturulan [MasterSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) nesnesini döndürür.
+
+Aşağıdaki örnek, ilk ana sayfaya bağlı slaytlara harici bir tema uygular ve sunumu kaydeder:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $selectedMaster = $presentation->getMasters()->get_Item(0);
+    $themedMaster = $selectedMaster->applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    echo "Created master: " . java_values($themedMaster->getName()) . PHP_EOL;
+    $presentation->save("presentation-with-external-theme.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Geçersiz, bozuk veya desteklenmeyen bir tema, [PptxReadException](https://reference.aspose.com/slides/tr/php-java/aspose.slides/pptxreadexception/) oluşturabilir. Kullanıcı tarafından sağlanan yolları doğrulayın, dosya sistemi erişim hatalarını yönetin ve temayı başarıyla uyguladıktan sonra sunumu kaydedin.
+
+Yalnızca seçilen ana sayfaya bağlı slaytlar yeniden atanır. Diğer ana sayfalarla ilişkili slaytlar mevcut ana sayfa ve temalarını korur. Tema‑bilinçli renkler, yazı tipleri, dolgular, çizgiler, arka planlar ve efektler harici tema üzerinden çözülür. Doğrudan atanmış renkler, yazı tipleri, dolgular ve diğer açık biçimlendirmeler değişmemiş kalabilir. Düzen‑seviyesi ve slayt‑seviyesi geçersiz kılmalar, yeni ana sayfadan kalıtılan değerlere üstünlük sağlayabilir.
+
+Tema, çalışma zamanında bulunmayan yazı tiplerine başvurabilir. Tutarlı render ve dışa aktarma için gerekli yazı tiplerini kurun, [özel yazı tipi kaynakları](/slides/tr/php-java/custom-font/) aracılığıyla sağlayın veya [yazı tipi ikamesi](/slides/tr/php-java/font-substitution/) yapılandırın.
+
+Bu doğrudan ana‑sayfa seviyeli bir iş akışıdır: metot bir `.thmx` dosya yolunu kabul eder ve slayt‑seviyesi veya düzen‑seviyesi tema geçersiz kılmaları oluşturmayı gerektirmez.
+
+### **Çok‑Ana Sayfalı Sunumda Farklı Harici Temalar Uygulama**
+
+İlgili ana sayfa önceden bilinmiyorsa, [Slide::getLayoutSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slide/) ve [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslide/) aracılığıyla temsilî bir slayttan elde edin. Her tema uygulaması sunumda yeni bir ana sayfa yarattığı için, tema uygulamadan önce orijinal ana sayfa referanslarını saklayın.
+
+Aşağıdaki örnek, iki bölümden slaytları alır, ana sayfalarını bulur ve her grup için farklı bir harici tema uygular:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) < 5) {
+        echo "The presentation does not contain the expected representative slides." . PHP_EOL;
+    } else {
+        $firstGroupMaster = $presentation->getSlides()->get_Item(0)->getLayoutSlide()->getMasterSlide();
+        $secondGroupMaster = $presentation->getSlides()->get_Item(4)->getLayoutSlide()->getMasterSlide();
+
+        if (java_values($firstGroupMaster->getSlideId()) === java_values($secondGroupMaster->getSlideId())) {
+            echo "The representative slides use the same master." . PHP_EOL;
+        } else {
+            $firstThemedMaster = $firstGroupMaster->applyExternalThemeToDependingSlides("blue-theme.thmx");
+            $secondThemedMaster = $secondGroupMaster->applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            echo "First themed master: " . java_values($firstThemedMaster->getName()) . PHP_EOL;
+            echo "Second themed master: " . java_values($secondThemedMaster->getName()) . PHP_EOL;
+            $presentation->save("multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+İlk çağrı yalnızca `$firstGroupMaster` bağlı slaytları etkiler, ikinci çağrı yalnızca `$secondGroupMaster` bağlı slaytları etkiler. Diğer ana sayfalara ait slaytlar yeniden stil almaz.
+
+### **Slaytları Taşırken Kaynak Temasını Korumak**
+
+Bir slaytı başka bir sunuma taşımak ve özgün tasarımını korumak istiyorsanız, kaynak ana sayfayı hedef sunuma [MasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslidecollection/) ile klonlayın, ardından o klonlanmış ana sayfa ile birlikte slaytı [SlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/) ile klonlayın. Böylece ana sayfa, düzenleri ve ilişkili tema birlikte taşınır.
 
 ```php
 use aspose\slides\Presentation;
@@ -249,11 +324,11 @@ try {
 }
 ```
 
-Bu, kaynak slaytın hedefte aynı görünmesini istediğinizde tercih edilen iş akışıdır. İlgisiz bir hedef master üzerine içeriği klonlamak, tema‑tabanlı renkleri, yazı tiplerini, arka planları ve efektleri değiştirebilir.
+Bu, kaynak slaytın hedefte aynı şekilde görünmesi gerektiğinde önerilen iş akışıdır. İçeriği bağımsız bir hedef ana sayfaya klonlamak, tema‑tabanlı renk, yazı tipi, arka plan ve efektlerde değişikliklere yol açabilir.
 
-### **Mevcut Bir Slayta Tema Değerlerini Uygulama**
+### **Mevcut Bir Slayta Tema Değerleri Uygulama**
 
-Hedef slayt mevcut master ve layout üzerinde kalmalıysa, kaynak temadan slayt‑seviyesinde bir geçersiz kılma başlatın. [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/) ve [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/) metodları, üç ana tema bileşenini geçersiz kılmaya kopyalar.
+Hedef slayt mevcut ana sayfa ve düzeni korumalıysa, kaynak temadan bir slayt‑seviyesi geçersiz kılma başlatın. [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/) ve [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/) yöntemleri, üç ana tema bileşenini geçersiz kılmaya kopyalar.
 
 ```php
 use aspose\slides\Presentation;
@@ -277,11 +352,11 @@ try {
 }
 ```
 
-Bu, diğer slaytların devraldığı temayı değiştirmeden o slayt tarafından kullanılan temayı değiştirir. Yerel geçersiz kılmayı kaldırıp devralınan değerlere dönmek için [OverrideTheme.clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/) çağırın.
+Bu, diğer slaytların devraldığı temayı değiştirmeden o slaytın kullandığı temayı değiştirir. Yerel geçersiz kılmayı kaldırıp devralınan değerlere dönmek için [OverrideTheme.clear](https://reference.aspose.com/slides/tr/php-java/aspose.slides/overridetheme/) çağırın.
 
-### **Bir Düzeni İçin Tema Geçersiz Kılma Uygulama**
+### **Bir Düzeni Tema Geçersiz Kılamasıyla Uygulama**
 
-Layout‑seviyesindeki bir geçersiz kılma, o layout’u kullanan slaytlara uygulanır; bir slaytın kendi geçersiz kılması yoksa. Aynı başlatma metodları, [LayoutSlideThemeManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslidethememanager/) aracılığıyla kullanılabilir:
+Düzen‑seviyesi geçersiz kılma, o düzeni kullanan slaytlara uygulanır; tek bir slaytın kendi geçersiz kılması yoksa. Aynı başlatma yöntemleri, [LayoutSlideThemeManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/layoutslidethememanager/) üzerinden de kullanılabilir:
 
 ```php
 use aspose\slides\Presentation;
@@ -305,15 +380,17 @@ try {
 }
 ```
 
-Çok sayıda layout ve slayt aynı temel tasarımı paylaşmalıysa master veya sunum‑seviyesi bir tema kullanın; tek bir layout ailesi farklı bir stil gerektiriyorsa layout geçersiz kılmasını, yalnızca gerçek istisnalar için slayt geçersiz kılmasını tercih edin. Aşırı slayt‑seviyesi geçersiz kılmalar, sonraki global tema değişikliklerini tahmin etmeyi zorlaştırır.
+Birden çok düzen ve slayt aynı temel tasarımı paylaşmalıysa ana‑sayfa veya sunum‑seviyesi tema kullanın; bir düzen ailesi farklı stil istiyorsa düzen geçersiz kılması, gerçek istisnalar için ise slayt geçersiz kılması tercih edin. Aşırı slayt‑seviyesi geçersiz kılmalar, sonraki küresel tema değişikliklerini öngörmeyi zorlaştırır.
 
 ## **Tema Arka Plan Stillerini Güncelleme**
 
-Temanın arka plan doldurmaları, [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/) içinde saklanır. PowerPoint, kullanıcı arayüzünde bu koleksiyonda fiziksel olarak saklanan doldurma tanımlarından daha fazla arka plan seçeneği sunabilir; çünkü UI, tema doldurmalarını tema renkleri ve diğer stil referanslarıyla birleştirebilir.
+Temanın arka plan dolguları, [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/) içinde depolanır. PowerPoint, UI’da temanın dolgu stillerini tema renkleri ve diğer stil referanslarıyla birleştirerek, fiziksel olarak bu koleksiyonda depolanan dolgu tanımlarından daha fazla arka plan seçeneği sunabilir.
 
-![PowerPoint sunum temasına ait arka plan stil galerisi](presentation-design_8.png)
+![PowerPoint’te bir sunum temasının arka plan stil galerisi](presentation-design_8.png)
 
-Bir arka plan stilini kullanmadan önce, saklanan koleksiyonu ve geçerli [Background.getStyleIndex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/) değerini inceleyin. `0` stil indeksi, temalı bir doldurma olmadığını; pozitif değerler, tema arka plan‑stil referanslarını gösterir. Bu, PHP koleksiyonunu doğrudan indekslemeye (`get_Item(0)` ilk öğeyi verir) göre farklıdır. Her sunumun aynı sayıda arka plan doldurma stiline sahip olduğunu varsamamalısınız.
+Bir arka plan stilini kullanmadan önce, saklanan koleksiyonu ve mevcut [Background.getStyleIndex](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/) değerini inceleyin. `0` değeri temalı dolgu olmadığını, pozitif değerler ise tema arka plan‑stil referanslarını gösterir. Bu, PHP koleksiyonundaki indeksleme (`get_Item(0)` ilk depolanan öğeyi verir) ile aynı değildir. Her sunumun aynı sayıda arka plan dolgu stiline sahip olduğunu varsaymayın.
+
+Aşağıdaki örnek, mevcut arka plan dolgu sayısını raporlar, ilk ana sayfaya temalı bir arka plan referansı atar ve sunumu kaydeder:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -337,23 +414,25 @@ try {
 }
 ```
 
-Görünür sonuç, master’ın referans verdiği tema girişine ve layout ya da slayt seviyesindeki olası arka plan geçersiz kılmalarına bağlıdır. Bir slayt kendi arka planını kullanıyorsa, yalnızca master arka planını değiştirmek o slaytı etkilemez. Kalıtım uygulandıktan sonra nihai arka planı öğrenmek için [Background.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/) kullanın.
+Görünür sonuç, ana sayfa tarafından referans verilen tema girişi ve düzen ya da slayt seviyesindeki olası arka plan geçersiz kılmalarına bağlıdır. Bir slayt kendi arka planını kullanıyorsa, yalnızca ana sayfa arka planını değiştirmek o slaytı etkilemeyebilir. Kalıtım uygulanmış nihai arka planı öğrenmek için [Background.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/) kullanın.
 
 {{% alert color="warning" title="Uyarı" %}}
-Stil indeksini sıfır‑tabanlı bir koleksiyon indeksi gibi değerlendirmeyin. Ayrıca bir dosyadan bir stil numarasını sabit kodlamaktan ve başka bir dosyada aynı görünüme sahip olacağını varsamaktan kaçının; tema stil tanımları sunuma özeldir.
+Stil indeksini sıfır tabanlı bir koleksiyon indeksi gibi değerlendirmeyin. Ayrıca bir dosyadan sabit bir stil numarası alıp başka bir dosyada aynı görünüme sahip olduğunu varsamaktan kaçının; tema stil tanımları sunuma özgüdür.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Doğrudan arka plan biçimlendirmesi ve arka plan kalıtımı için [Presentation Background](/slides/tr/php-java/presentation-background/) bölümüne bakın.
+Doğrudan arka plan biçimlendirme ve arka plan kalıtımı için [Presentation Background](/slides/tr/php-java/presentation-background/) sayfasına bakın.
 {{% /alert %}}
 
 ## **Tema Efektlerini Güncelleme**
 
-Bir tema format şeması, ayrı doldurma, çizgi ve efekt stil koleksiyonlarını [FormatScheme.getFillStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/) ve [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/) aracılığıyla açığa çıkarır. Tipik Office temaları genellikle görsel olarak hafif, orta ve yoğun biçimlendirmeye karşılık gelen üç ana stil girdisi içerir; ancak kod sabit bir sayıya güvenmek yerine her koleksiyonu kontrol etmelidir.
+Tema format şeması, ayrı dolgu, çizgi ve efekt stil koleksiyonlarına sahiptir ve bu koleksiyonlar [FormatScheme.getFillStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/) ve [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/tr/php-java/aspose.slides/formatscheme/) aracılığıyla ortaya konur. Tipik Office temaları genellikle görsel olarak hafif, orta ve yoğun biçimlendirmeye karşılık gelen üç ana stil girdisi içerir, ancak kod sabit bir sayıya varsaymak yerine her koleksiyonu incelemelidir.
 
 ![Aynı şekle uygulanan hafif, orta ve yoğun tema efektleri](presentation-design_10.png)
 
-PHP’de bu koleksiyonlara erişirken, koleksiyon indeksi sıfır‑tabanlıdır: `get_Item(0)` ilk saklanan stil, `get_Item(2)` üçüncüsüdür. Bir şeklin stil‑referans indeksleri ise ayrı bir kavramdır ve [ShapeStyle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapestyle/) aracılığıyla sunulur. Bir tema stilini değiştirmek, o tema stiline başvuran şekilleri etkiler; doğrudan biçimlendirilmiş şekiller değişmeden kalabilir.
+PHP’de bu koleksiyonlara eriştiğinizde, koleksiyon indeksi sıfır‑tabanlıdır: `get_Item(0)` ilk depolanan stili, `get_Item(2)` üçüncüsünü verir. Bir şeklin stil‑referans indeksleri farklı bir kavramdır ve [ShapeStyle](https://reference.aspose.com/slides/tr/php-java/aspose.slides/shapestyle/) üzerinden ortaya konur. Bir tema stilini değiştirmek, o tema stiline başvuran şekilleri etkiler; doğrudan biçimlendirilmiş şekiller değişmeden kalabilir.
+
+Aşağıdaki örnek, gerekli stil girdilerinin mevcut olduğunu doğrular, ilk çizgi stilini, üçüncü dolgu stilini değiştirir, üçüncü efekt stilinde dış gölgeyi etkinleştirir ve sonucu kaydeder:
 
 ```php
 use aspose\slides\FillType;
@@ -380,15 +459,15 @@ try {
 }
 ```
 
-Gerekli stil girdilerinin mevcut olduğundan emin olduktan sonra, ilk çizgi stilini değiştirir, üçüncü doldurma stilini değiştirir, üçüncü efekt stiline dış gölge ekler ve sonucu kaydeder.
-
-Bu yuvalara başvuran şekillerde, ilk tema çizgi stili kırmızı, üçüncü tema doldurma stili tamamen orman yeşili ve üçüncü efekt stili 10 puan mesafede dış gölge kazanır. Tam görsel sonuç, her şeklin hangi stil yuvasına başvurduğuna ve doğrudan biçimlendirmenin temayı geçersiz kılıp kılmadığına bağlıdır.
+Bu slotlara başvuran şekiller için, ilk tema çizgi stili kırmızı, üçüncü tema dolgu stili katı orman yeşili ve üçüncü efekt stili 10 puan uzaklıkta bir dış gölge alır. Kesin görsel sonuç, her şeklin hangi stil slotlarını referans aldığına ve doğrudan biçimlendirmelerin temayı geçersiz kılıp kılamadığına bağlıdır.
 
 ![Satır, dolgu ve gölge ayarları değiştirildikten sonra tema efekt stilleri](presentation-design_11.png)
 
 ## **Etkili Tema Değerlerini Okuma**
 
-Ham tema nesneleri, belirli bir seviyede tanımlananları gösterir. Etkili değerler ise bir slayt veya şeklin, kalıtım ve yerel geçersiz kılmalar çözülerek gerçekte ne kullandığını gösterir. Bir slayt için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseoverridethememanager/) çağırın. Bir arka plan için [Background.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/), bir doldurma için ise [FillFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/) kullanın.
+Ham tema nesneleri, belirli bir seviyede neyin tanımlandığını gösterir. Etkili değerler ise kalıtım ve yerel geçersiz kılmalar çözüldükten sonra bir slayt ya da şeklin gerçekte ne kullandığını söyler. Bir slayt için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseoverridethememanager/) çağırın. Bir arka plan için [Background.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/), bir dolgu için ise [FillFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/) kullanın.
+
+Aşağıdaki örnek, bir slayttan etkili temayı, arka planı ve ilk şekil dolgusunu okur:
 
 ```php
 use aspose\slides\FillType;
@@ -415,18 +494,22 @@ try {
 }
 ```
 
-Render teşhisleri, doğrulama ve karşılaştırmalar için etkili verileri kullanın. Yalnızca [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) incelerseniz, final görünümü değiştiren bir master, layout, slayt veya şekil geçersiz kılmasını kaçırabilirsiniz.
+Rendring teşhisleri, doğrulama ve karşılaştırmalar için etkili verileri kullanın. Yalnızca [Presentation.getMasterTheme](https://reference.aspose.com/slides/tr/php-java/aspose.slides/presentation/) incelerseniz, bir ana sayfa, düzen, slayt veya şekil geçersiz kılmasının nihai görünümü değiştirdiğini kaçırabilirsiniz.
 
 ## **SSS**
 
-**Bir slayta master'ı değiştirmeden tema uygulayabilir miyim?**
+**Harici bir tema uygulamak sunumdaki her slaytı etkiler mi?**
 
-Evet. Slaytın [SlideThemeManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidethememanager/) kullanın ve geçersiz kılma temasını başlatın. Değişiklik yalnızca o slayta yerel olarak uygulanır; diğer slaytlar mevcut temalarını devralmaya devam eder.
+Hayır. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslide/) yalnızca seçilen ana sayfaya bağlı slaytları yeniden atar. Diğer ana sayfaları kullanan slaytlar mevcut temalarını korur.
+
+**Bir slayta ana sayfayı değiştirmeden tema uygulayabilir miyim?**
+
+Evet. Slaytın [SlideThemeManager](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidethememanager/) kullanın ve geçersiz kılma temasını başlatın. Değişiklik sadece o slayta yerel olarak uygulanır; diğer slaytlar mevcut temalarını devralmaya devam eder.
 
 **Bir temayı bir sunumdan diğerine taşımanın en güvenli yolu nedir?**
 
-Slaytı taşırken ve kaynak görünümünü korurken, kaynak master’ı hedefe [MasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslidecollection/) ile klonlayın ve ardından slaytı o master ile [SlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/) kullanarak klonlayın. Böylece master, layout’lar ve tema birlikte taşınır.
+Bir slaytı taşırken ve kaynak görünümünü korurken, kaynak ana sayfayı hedefe [MasterSlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/masterslidecollection/) ile klonlayın ve ardından slaytı aynı klonlanmış ana sayfayla [SlideCollection.addClone](https://reference.aspose.com/slides/tr/php-java/aspose.slides/slidecollection/) ile klonlayın. Bu, ana sayfa, düzenler ve temayı birlikte tutar.
 
-**Kalıtım ve geçersiz kılmalar sonrasında etkili değerleri nasıl görebilirim?**
+**Kalıtım ve geçersiz kılmalardan sonra etkili değerleri nasıl görebilirim?**
 
-Bir slayt veya layout teması için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseoverridethememanager/) ve format nesneleri gibi [Background.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/) ve [FillFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/) metodlarını kullanın. Bu API’ler, kalıtım ve geçersiz kılmalar uygulandıktan sonra çözülmüş değerleri döndürür.
+Bir slayt veya düzen teması için [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/baseoverridethememanager/) ve format nesneleri için [Background.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/background/) ve [FillFormat.getEffective](https://reference.aspose.com/slides/tr/php-java/aspose.slides/fillformat/) gibi ilgili etkili‑veri yöntemlerini kullanın. Bu API’ler, kalıtım ve geçersiz kılmalar uygulandıktan sonra çözülmüş değerleri döndürür.

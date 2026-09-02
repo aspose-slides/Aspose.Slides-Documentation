@@ -1,16 +1,18 @@
 ---
-title: إدارة سمات عروض PowerPoint في Python
+title: إدارة سمات عروض PowerPoint التقديمية في Python
 linktitle: سمة العرض
 type: docs
 weight: 10
 url: /ar/python-net/presentation-theme/
 keywords:
 - سمة PowerPoint
-- سمة العرض
+- سمة العرض التقديمي
 - سمة الشريحة
 - تعيين سمة
 - تغيير سمة
 - إدارة سمة
+- سمة خارجية
+- THMX
 - لون السمة
 - لوحة إضافية
 - خط السمة
@@ -18,27 +20,26 @@ keywords:
 - تأثير السمة
 - PowerPoint
 - OpenDocument
-- عرض
+- عرض تقديمي
 - Python
 - Aspose.Slides
-description: "إدارة سمات العروض في Aspose.Slides لـ Python عبر .NET لإنشاء وتخصيص وتحويل ملفات PowerPoint بعلامة تجارية موحدة."
+description: "إدارة سمات العروض التقديمية في Aspose.Slides لـ Python عبر .NET لإنشاء وتخصيص وتحويل ملفات PowerPoint مع هوية تجارية متسقة."
 ---
 ## **مقدمة**
 
-يعرّف سمة العرض مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. تشير الكائنات ذات الوعي بالسمة إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيير السمة تحديث العديد من الكائنات دفعة واحدة.
+تحدد سمة العرض مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. تشير الكائنات المدركة للسمة إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية مرئية كقيمة ثابتة، وبالتالي يمكن لتغيير السمة تحديث العديد من الكائنات مرة واحدة.
 
-في Aspose.Slides، تتوفر سمة مستوى العرض من خلال خاصية [Presentation.master_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/master_theme/). يمكن للعرض أيضاً أن يحتوي على تجاوزات للسمة في مستويات أدنى. يمكن للماستر أن يتجاوز سمة العرض عبر [MasterThemeManager.override_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/masterthememanager/override_theme/)، ويمكن للتخطيط أن يتجاوز سمة الماستر الموروثة عبر [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/)، ويمكن للشرائح الفردية أن تفعل ذلك أيضاً. عمليًا، تُحل السمة الفعّالة للشفرة عبر سلسلة الوراثة التالية: سمة العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
+In Aspose.Slides، تتوفر سمة مستوى العرض من خلال خاصية [Presentation.master_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/master_theme/) . يمكن للعرض أيضًا أن يحتوي على تجاوزات للسمة في مستويات أدنى. يمكن للـ master استبدال سمة العرض عبر [MasterThemeManager.override_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/masterthememanager/override_theme/)، ويمكن للتخطيط استبدال سمة الموروثة عبر [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/)، ويمكن للشريحة الفردية القيام بالمثل. عمليًا، يتم حل السمة الفعّالة لشريحة ما من خلال سلسلة الوراثة هذه: سمة العرض، تجاوز الـ master، تجاوز التخطيط، وتجاوز الشريحة.
 
-![مكوّنات السمة: الألوان، الخطوط، أنماط الخلفية، والتأثيرات](theme-constituents.png)
+![مكونات السمة: الألوان، الخطوط، أنماط الخلفية، والتأثيرات](theme-constituents.png)
 
-تُظهر الأقسام أدناه أكثر سير عمل سمة شيوعًا: فحص سمة، تغيير الألوان والخطوط، نسخ أو تطبيق سمة، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
+الأقسام التالية تُظهر أكثر سير عمل السمة شيوعًا: فحص سمة، تغيير الألوان والخطوط، نسخ أو تطبيق سمة، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
 
 ## **فحص سمة**
 
-يُظهر كائن [MasterTheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/) خاصية [color_scheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/color_scheme/)، [font_scheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/font_scheme/)، و[format_scheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/format_scheme/). يُعد فحص هذه المجموعات قبل تعديلها مفيدًا بشكل خاص عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى إدخالات الأنماط قد يختلف.
+كائن [MasterTheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/) يكشف عن خصائص سمة [color_scheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/color_scheme/)، [font_scheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/font_scheme/)، و[format_scheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/mastertheme/format_scheme/) . فحص هذه التجميعات قبل تعديلها مفيد بشكل خاص عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى مدخلات الأنماط قد يختلف.
 
-المثال التالي يقرأ الخصائص الرئيسية للسمة ويقارير عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزنة في السمة:
-
+المثال التالي يقرأ خصائص السمة الرئيسية ويبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزنة في السمة:
 ```python
 import aspose.slides as slides
 
@@ -54,14 +55,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-إذا كان الملف يستخدم عدة ماسترز، لا تفترض أن كل شريحة لها نفس السمة الفعّالة. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل السمة الفعّالة الموضح لاحقًا في هذا المقال عندما قد تكون هناك تجاوزات للتخطيط أو الشريحة.
+إذا كان الملف يستخدم عدة masters، لا تفترض أن كل شريحة لها نفس السمة الفعّالة. فحص الـ master المرتبط بالشريحة، واستخدم سير عمل السمة الفعّالة الموضح لاحقًا في هذه المقالة عندما قد تكون هناك تجاوزات في التخطيط أو الشريحة.
 
 ## **تغيير ألوان السمة**
 
-يمكن للتعبئات، الخطوط، والنصوص ذات الوعي بالسمة الإشارة إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/python-net/aspose.slides/schemecolor/). عندما تغير الإدخال المقابل في [ColorScheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/colorscheme/) الخاص بالسمة، تُحل كل الكائنات التي لا تزال تشير إلى ذلك اللون السمة مقابل القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتأثر بتحديث لون السمة.
+التعبئات، الخطوط، والنص المدرك للسمة يمكنه الإشارة إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/python-net/aspose.slides/schemecolor/) . عندما تقوم بتغيير المدخل المقابل في سمة [ColorScheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/colorscheme/)، سيتم حل جميع الكائنات التي لا تزال تشير إلى ذلك اللون السمي مقابل القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغير عند تحديث لون السمة.
 
-المثال النهائي التالي ينشئ شكلًا يستخدم `ACCENT4`، يغير لون السمة `accent4` إلى الأحمر، يحفظ العرض، يعيده، ويطبع لون التعبئة الفعّال:
-
+المثال التالي كاملًا ينشئ شكلًا يستخدم `ACCENT4`، يغير لون السمة `accent4` إلى الأحمر، يحفظ العرض، يعيده مرة أخرى، ويطبع لون التعبئة الفعّال:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -81,20 +81,18 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-لأن المستطيل لا يزال مرتبطًا بـ`ACCENT4`، يصبح لونه الظاهر أحمر بعد تغيير السمة. إذا استبدلت اللون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة لـ`accent4` لن تؤثر على تلك التعبئة.
+نظرًا لأن المستطيل ما يزال مرتبطًا بـ `ACCENT4`، يصبح لونه المرئي أحمر بعد تغيير السمة. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `accent4` لن تؤثر بعد ذلك على تلك التعبئة.
 
-### **استخدام الألوان من اللوحة الإضافية**
+### **استخدام ألوان من اللوحة الإضافية**
 
-يستمد PowerPoint تنوعات أفتح وأغمق من لون السمة عبر تطبيق تحولات اللون. تُظهر Aspose.Slides هذه التحولات عبر تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/colortransformoperation/).
+يستخرج PowerPoint تنويعات أفتح وأغمق من لون السمة عبر تطبيق تحولات لونية. تعرض Aspose.Slides هذه التحولات عبر تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/python-net/aspose.slides/colortransformoperation/) .
 
-![الألوان الأساسية للسمة والألوان الفاتحة والغامقة المولدة من اللوحة الإضافية](additional-palette-colors.png)
+![الألوان الرئيسة للسمة والألوان الأفتح والأغمق المولدة من اللوحة الإضافية](additional-palette-colors.png)
 
-**1** - ألوان السمة الأساسية.
+**1** - ألوان السمة الرئيسية.  
+**2** - تنويعات أفتح وأغمق مُنتجة من ألوان السمة الرئيسية.
 
-**2** - التنوعات الفاتحة والغامقة المنتجة من ألوان السمة الأساسية.
-
-المثال التالي ينشئ ستة مستطيلات بناءً على `ACCENT4`، يطبق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
-
+المثال التالي ينشئ ستة مستطيلات تستند إلى `ACCENT4`، يطبق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
 ```python
 import aspose.slides as slides
 
@@ -129,11 +127,11 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-تظل هذه التنوعات مبنية على لون السمة. إذا تغير `accent4` لاحقًا، تُعاد حساب الألوان المحولة من قيمة `accent4` الجديدة.
+تظل هذه التنويعات مبنية على لون السمة. إذا تغير `accent4` لاحقًا، يتم إعادة حساب الألوان المحوّلة من القيمة الجديدة لـ `accent4`.
 
-### **ربط قيم `SchemeColor` بفتحات `ColorScheme`**
+### **تعيين قيم `SchemeColor` إلى فتحات `ColorScheme`**
 
-يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/python-net/aspose.slides/schemecolor/) القيم `TEXT1`، `BACKGROUND1`، `TEXT2`، و`BACKGROUND2`، بينما يُظهر [ColorScheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/colorscheme/) نفس فتحات السمة كـ `dark1`، `light1`، `dark2`، و`light2`. الخريطة ثابتة:
+يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/python-net/aspose.slides/schemecolor/) القيم `TEXT1`، `BACKGROUND1`، `TEXT2`، و`BACKGROUND2`، بينما يكشف [ColorScheme](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/colorscheme/) عن نفس فتحات السمة كـ `dark1`، `light1`، `dark2`، و`light2`. الخريطة ثابتة:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
@@ -144,17 +142,14 @@ with slides.Presentation() as presentation:
 
 ## **تغيير خطوط السمة**
 
-يتضمن مخطط خطوط السمة مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص الأساسي. تُظهر خاصيتي [FontScheme.major](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/fontscheme/major/) و[FontScheme.minor](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/fontscheme/minor/) تلك المجموعات.
+تحتوي مخطَّط خطوط السمة على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط ثانوية للنص الأساسي. تعرض خصائص [FontScheme.major](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/fontscheme/major/) و[FontScheme.minor](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/fontscheme/minor/) تلك المجموعات.
 
-يمكن استخدام معرّفات خطوط السمة المتوافقة مع PowerPoint في تنسيق النص:
+* `+mn-lt` - خط النص الأساسي لاتيني (خط لاتيني ثانوي)
+* `+mj-lt` - خط العنوان لاتيني (خط لاتيني رئيسي)
+* `+mn-ea` - خط النص الأساسي شرق آسيوي (خط شرق آسيوي ثانوي)
+* `+mj-ea` - خط العنوان شرق آسيوي (خط شرق آسيوي رئيسي)
 
-* `+mn-lt` - الخط الأساسي للغة اللاتينية (Minor Latin Font)
-* `+mj-lt` - خط العنوان للغة اللاتينية (Major Latin Font)
-* `+mn-ea` - الخط الأساسي للغات شرق آسيا (Minor East Asian Font)
-* `+mj-ea` - خط العنوان للغات شرق آسيا (Major East Asian Font)
-
-المثال التالي ينشئ عنوانًا يستخدم خط السمة اللاتيني الرئيسي وسطرًا نصيًا يستخدم الخط اللاتيني الفرعي. ثم يغيّر خطوط السمة ويحفظ النتيجة:
-
+المثال التالي ينشئ عنوانًا يستخدم الخط اللاتيني الرئيسي للسمة وسطرًا أساسيًا يستخدم الخط اللاتيني الثانوي للسمة. ثم يغير خطوط السمة ويحفظ النتيجة:
 ```python
 import aspose.slides as slides
 
@@ -171,22 +166,79 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-يتبع العنوان الخط الرئيسي ويتبع النص الأساسي الخط الفرعي. النص الذي يحتوي على اسم خط صريح بدلًا من معرف سمة لن يتبدل تلقائيًا عندما يتغيّر مخطط خطوط السمة.
+العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الثانوي. النص الذي يحتوي على اسم خط صريح بدلاً من معرف سمة لن يتبدل تلقائيًا عندما تتغير مخطَّط خطوط السمة.
 
-يمكن لمجموعات الخطوط الرئيسية والفرعية أيضًا أن تحتوي على تعيينات خطوط للأنظمة الكتابية الفردية، مثل السيريالية، العربية، اليابانية، الجورجية، والثعنا. لاستعراض، إضافة، استبدال أو إزالة هذه التعيينات، راجع [Script-Specific Theme Fonts](/slides/ar/python-net/script-specific-font-mappings/).
+يمكن لمجموعات الخطوط الرئيسية والثانوية أيضًا أن تحتوي على تعيينات خطوط لأنظمة الكتابة الفردية، مثل السيريلي، العربية، اليابانية، الجورجية، والثانا. لفحصها أو إضافتها أو استبدالها أو إزالتها، راجع [Script-Specific Theme Fonts](/slides/ar/python-net/script-specific-font-mappings/).
 
-{{% alert color="info" title="نصيحة" %}}
-لمزيد من المعلومات حول خطوط العرض، راجع [PowerPoint Fonts](/slides/ar/python-net/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+للمزيد من المعلومات حول خطوط العروض، راجع [PowerPoint Fonts](/slides/ar/python-net/powerpoint-fonts/) .
 {{% /alert %}}
 
 ## **نسخ أو تطبيق سمة**
 
-هناك عملان شائعة، وكل منهما يحل مشكلة مختلفة.
+سير عمل أدناه يحل مشاكل مختلفة متعلقة بالسمة.
 
-### **الحفاظ على سمة المصدر عند نقل الشرائح**
+### **تطبيق سمة خارجية على الشرائح التابعة للـ Master**
 
-إذا كنت تريد نقل شريحة إلى عرض آخر والحفاظ على تصميمها الأصلي، استنسخ الماستر المصدر إلى العرض الهدف باستخدام [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/add_clone/)، ثم استنسخ الشريحة باستخدام [SlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slidecollection/add_clone/) والماستر المستنسخ. ينتقل الماستر، تخطيطاته، والسمة المرتبطة معه معًا.
+استخدم [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) عندما يكون لديك ملف سمة PowerPoint (`.thmx`) وتريد إعادة تنسيق كل شريحة تعتمد على master معين. حدد الـ master من مجموعة [Presentation.masters](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/masters/) التي تنفّذ [MasterSlideCollection](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/)، ومرّر مسار ملف السمة إلى الطريقة.
 
+الطريقة تنفّذ العمليات التالية:
+1. ينشئ شريحة master جديدة استنادًا إلى الـ master المحدد.
+2. يطبق السمة الخارجية على الـ master الجديد.
+3. يُعيّن الـ master الجديد لجميع الشرائح التي كانت تعتمد سابقًا على الـ master المحدد.
+4. يُعيد الـ [IMasterSlide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imasterslide/) الذي تم إنشاؤه حديثًا.
+
+المثال التالي يطبق سمة خارجية على الشرائح التي تعتمد على الـ master الأول ويحفظ العرض:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    selected_master = presentation.masters[0]
+    themed_master = selected_master.apply_external_theme_to_depending_slides("corporate-theme.thmx")
+
+    print(f"Created master: {themed_master.name}")
+    presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
+```
+
+قد تتسبب سمة غير صالحة أو تالفة أو غير مدعومة في حدوث [PptxException](https://reference.aspose.com/slides/ar/python-net/aspose.slides/pptxexception/) أو أحد الفئات الفرعية المرتبطة بالتنسيق. تحقّق من صحة المسارات التي يقدمها المستخدمون، وتعامل مع فشل الوصول إلى نظام الملفات، واحفظ العرض فقط بعد تطبيق السمة بنجاح.
+
+يتم إعادة تعيين الشرائح التي كانت تعتمد على الـ master المحدد فقط. الشرائح المرتبطة بآخرين يحتفظون بالـ master والسمة الحالية. تُحل الألوان، الخطوط، التعبئات، الخطوط، الخلفيات، والتأثيرات المدركة للسمة مقابل السمة الخارجية. قد تبقى الألوان، الخطوط، التعبئات، والتنسيقات الصريحة المعينة مباشرة دون تغيير. يمكن لتجاوزات مستوى التخطيط ومستوى الشريحة أيضًا أن تتصدر القيم الموروثة من الـ master الجديد.
+
+قد تشير السمة إلى خطوط غير متوفرة في بيئة التنفيذ. للحصول على عرض وتصدير متسقين، قم بتثبيت الخطوط المطلوبة، أو وفرها عبر [custom font sources](/slides/ar/python-net/custom-font/)، أو اضبط [font substitution](/slides/ar/python-net/font-substitution/).
+
+هذا سير عمل مباشر على مستوى الـ master: تستقبل الطريقة مسار ملف `.thmx` ولا تتطلب إنشاء تجاوزات سمة يدوية على مستوى الشريحة أو التخطيط.
+
+### **تطبيق سمات خارجية مختلفة في عرض متعدد الـ Master**
+
+عند عدم معرفة الـ master المناسب مسبقًا، احصل عليه من شريحة تمثيلية عبر [Slide.layout_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slide/layout_slide/) و[LayoutSlide.master_slide](https://reference.aspose.com/slides/ar/python-net/aspose.slides/layoutslide/master_slide/). احفظ مراجع الـ master الأصلية قبل تطبيق أي سمات لأن كل استدعاء ينشئ master آخر في العرض.
+
+المثال التالي يستخدم شرائح من قسمين لتحديد الـ masters الخاصة بها ويطبق سمة خارجية مختلفة على كل مجموعة:
+```python
+import aspose.slides as slides
+
+with slides.Presentation("multi-master-presentation.pptx") as presentation:
+    if len(presentation.slides) < 5:
+        print("The presentation does not contain the expected representative slides.")
+    else:
+        first_group_master = presentation.slides[0].layout_slide.master_slide
+        second_group_master = presentation.slides[4].layout_slide.master_slide
+
+        if first_group_master.slide_id == second_group_master.slide_id:
+            print("The representative slides use the same master.")
+        else:
+            first_themed_master = first_group_master.apply_external_theme_to_depending_slides("blue-theme.thmx")
+            second_themed_master = second_group_master.apply_external_theme_to_depending_slides("green-theme.thmx")
+
+            print(f"First themed master: {first_themed_master.name}")
+            print(f"Second themed master: {second_themed_master.name}")
+            presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+النداء الأول يؤثر فقط على الشرائح التي كانت تعتمد على `first_group_master`، والنداء الثاني يؤثر فقط على الشرائح التي كانت تعتمد على `second_group_master`. الشرائح المرتبطة بأي master آخر لا يتم إعادة تنسيقها.
+
+### **حفظ سمة المصدر عند نقل الشرائح**
+
+إذا أردت نقل شريحة إلى عرض آخر مع الحفاظ على تصميمها الأصلي، قم باستنساخ الـ master الأصلي إلى العرض الهدف باستخدام [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/add_clone/)، ثم استنسخ الشريحة باستخدام [SlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slidecollection/add_clone/) والـ master المستنسخ. هذا ينقل الـ master وتخطيطاته والسمة المرتبطة معًا.
 ```python
 import aspose.slides as slides
 
@@ -199,12 +251,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى على ماستر وجهة غير مرتبط قد يغيّر الألوان، الخطوط، الخلفيات، والتأثيرات التي تعتمد على السمة.
+هذا هو سير العمل المفضَّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى إلى master غير مرتبط يمكن أن يغيّر الألوان، الخطوط، الخلفيات، والتأثيرات المدفوعة بالسمة.
 
 ### **تطبيق قيم السمة على شريحة موجودة**
 
-إذا كان على الشريحة الهدف البقاء على الماستر والتخطيط الحاليين، ابدأ تجاوزًا على مستوى الشريحة من السمة المصدر. تنسخ طرق [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/)، [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/)، و[OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) المكوّنات الثلاثة الرئيسية للسمة إلى التجاوز.
-
+إذا كان يجب أن تبقى الشريحة المستهدفة على الـ master والتخطيط الحاليين، قم بتهيئة تجاوز على مستوى الشريحة من السمة المصدرية. تنسخ طرق [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/)، [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/)، و[OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) المكوّنات الثلاثة الرئيسية للسمة إلى التجاوز.
 ```python
 import aspose.slides as slides
 
@@ -218,12 +269,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-هذا يغيّر السمة المستخدمة لتلك الشريحة دون تغيير السمة الموروثة من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/clear/).
+هذا يغيّر السمة المستخدمة لتلك الشريحة دون تغيير السمة الموروثة من قبل الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/overridetheme/clear/) .
 
-### **تطبيق تجاوز سمة على تخطيط**
+### **تطبيق تجاوز سمة على التخطيط**
 
-ينطبق التجاوز على مستوى التخطيط على الشرائح التي تستخدم ذلك التخطيط، إلا إذا كان لشريحة معينة تجاوز خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/layoutslidethememanager/) للتخطيط:
-
+تطبيق التجاوز على مستوى التخطيط ينطبق على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لديها تجاوز خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/layoutslidethememanager/) الخاص بالتخطيط:
 ```python
 import aspose.slides as slides
 
@@ -237,18 +287,17 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-استخدم سمة على مستوى الماستر أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدم تجاوز التخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدم تجاوز الشريحة فقط للاستثناءات الحقيقية. تُصعّب التجاوزات الزائدة على مستوى الشريحة تغييرات السمة العامة لاحقًا.
+استخدم سمة على مستوى الـ master أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدام تجاوز التخطيط عندما تحتاج عائلة تخطيط واحدة إلى تنسيق مختلف، واستخدام تجاوز الشريحة فقط للحالات الاستثنائية الحقيقية. التجاوزات الكثيفة على مستوى الشريحة تجعل من الصعب التنبؤ بتغييرات السمة العامة لاحقًا.
 
 ## **تحديث أنماط خلفية السمة**
 
-تُخزن تعبئات خلفية السمة في [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). يمكن لـPowerPoint تقديم خيارات خلفية أكثر في واجهته مما هو مخزن فعليًا في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات السمة مع ألوان السمة وإشارات الأنماط الأخرى.
+تُخزَّن تعبئات خلفية السمة في [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). يمكن لـ PowerPoint عرض المزيد من خيارات الخلفية في واجهته مقارنةً بعدد تعريفات التعبئة المخزنة فعليًا في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات السمة مع ألوان السمة وإشارات أسلوب أخرى.
 
-![معرض أنماط خلفية PowerPoint لسمة عرض](presentation-design_8.png)
+![معرض أنماط خلفية PowerPoint لسمة عرض تقديمي](presentation-design_8.png)
 
-قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.style_index](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/style_index/) الحالي. يستخدم `style_index` القيمة `0` لعدم وجود تعبئة سمة؛ القيم الموجبة هي مراجع لأنماط خلفية السمة. هذا يختلف عن فهرسة مجموعة بايثون مباشرةً، حيث يعني `[0]` العنصر الأول المخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
+قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.style_index](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/style_index/) الحالي. يستخدم `style_index` القيمة `0` لعدم وجود تعبئة سمة؛ والقيم الإيجابية تشير إلى إشارات أنماط خلفية السمة. هذا يختلف عن فهرسة مجموعة Python مباشرةً، حيث يعني `[0]` العنصر المخزن الأول. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
 
-المثال التالي يبلغ عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية سمة للماستر الأول، ويحفظ العرض:
-
+المثال التالي يبلّغ عن عدد تعبئات الخلفية المتوفرة، يعيّن إشارة خلفية سمة للـ master الأول، ويحفظ العرض:
 ```python
 import aspose.slides as slides
 
@@ -263,26 +312,25 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-النتيجة الظاهرة تعتمد على مدخل السمة الذي يشير إليه الماستر وأي تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا كانت الشريحة تستخدم خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/get_effective/) عندما تحتاج لمعرفة الخلفية النهائية بعد تطبيق الوراثة.
+النتيجة المرئية تعتمد على مدخل السمة المشار إليه من قبل الـ master وعلى أي تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا كانت شريحة ما تستخدم خلفية خاصة بها، قد لا يؤدي تغيير خلفية الـ master فقط إلى تغيير تلك الشريحة. استخدم [Background.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/get_effective/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
 
-{{% alert color="warning" title="تحذير" %}}
-لا تعامل `style_index` كفهرس مجموعة يبدأ من الصفر. وتجنب ترميز رقم نمط من ملف واحد وافتراض أنه سيظهر بنفس الشكل في ملف آخر؛ تعريفات أنماط السمة خاصة بالعرض.
+{{% alert color="warning" title="Warning" %}}
+لا تعامل `style_index` كفهرس مجموعة يبدأ من الصفر. تجنّب أيضًا ترميز رقم نمط ثابت من ملف واحد وفترض أنه يظهر بنفس الشكل في ملف آخر؛ تعريفات أنماط السمة خاصة بالعرض.
 {{% /alert %}}
 
-{{% alert color="info" title="نصيحة" %}}
-للتنسيق المباشر للخلفية والوراثة الخلفية، راجع [Presentation Background](/slides/ar/python-net/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+للتنسيق المباشر للخلفية ووراثة الخلفية، راجع [Presentation Background](/slides/ar/python-net/presentation-background/) .
 {{% /alert %}}
 
 ## **تحديث تأثيرات السمة**
 
-يحتوي مخطط تنسيق السمة على مجموعات منفصلة من [FormatScheme.fill_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/fill_styles/)، [FormatScheme.line_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/line_styles/)، و[FormatScheme.effect_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/effect_styles/). غالبًا ما تحتوي سمات Office على ثلاث إدخالات أساسية تتطابق بصريًا مع تنسيقات خفيفة، معتدلة، وشديدة، لكن يجب على الشيفرة فحص كل مجموعة بدلاً من افتراض عدد ثابت.
+يحتوي مخطَّط تنسيق السمة على مجموعات منفصلة من [FormatScheme.fill_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/fill_styles/)، [FormatScheme.line_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/line_styles/)، و[FormatScheme.effect_styles](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/formatscheme/effect_styles/) . غالبًا ما تحتوي سمات Office النموذجية على ثلاثة مدخلات نمط رئيسية تمثّل بصريًا تنسيقًا خفيفًا، معتدلًا، ومكثفًا، لكن يجب على الكود فحص كل مجموعة بدلاً من افتراض عدد ثابت.
 
-![تأثيرات سمة خفيفة، معتدلة، وشديدة مطبقة على نفس الشكل](presentation-design_10.png)
+![تأثيرات السمة الخفيفة، المعتدلة، والمكثفة المطبقة على الشكل نفسه](presentation-design_10.png)
 
-عند الوصول إلى هذه المجموعات في بايثون، يكون فهرس المجموعة بصفرية: `[0]` هو النمط المخزن الأول و`[2]` هو الثالث. فهارس مراجع النمط في الشكل مفهوم منفصل، تُظهرها [IShapeStyle](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapestyle/). تعديل نمط سمة يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
+عند الوصول إلى هذه المجموعات في Python، يكون فهرس المجموعة يبدأ من الصفر: `[0]` هو أول نمط مخزن و`[2]` هو الثالث. فهارس إشارة نمط الشكل مفهوم منفصل، يُظهر عبر [IShapeStyle](https://reference.aspose.com/slides/ar/python-net/aspose.slides/ishapestyle/) . تعديل نمط السمة يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تظل الأشكال ذات التنسيق المباشر دون تغيير.
 
-المثال التالي يتحقق من وجود إدخالات النمط المطلوبة، يغيّر نمط الخط الأول، يغيّر نمط التعبئة الثالث، يفعّل ظلًا خارجيًا في نمط التأثير الثالث، ويحفظ النتيجة:
-
+المثال التالي يتحقّق من وجود مدخلات النمط المطلوبة، يغيّر أول نمط خط، يغيّر النمط الثالث للتعبئة، يُفعّل ظل خارجي في النمط الثالث للتأثير، ويحفظ النتيجة:
 ```python
 import aspose.pydrawing as draw
 import aspose.slides as slides
@@ -300,16 +348,15 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-للأشكال التي تشير إلى هذه الفتحات، يصبح النمط السطري الأول للثيمة أحمر، والنمط التعبئة الثالث للثيمة أخضر غابي صلب، والنمط التأثير الثالث يضيف ظلًا خارجيًا بمسافة 10 نقاط. لا يزال الشكل النهائي يعتمد على الفتحات التي يشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز السمة.
+بالنسبة للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط سمة باللون الأحمر، والنمط الثالث للتعبئة سمة باللون الأخضر الغابي الصلب، ويضيف النمط الثالث للتأثير ظلًا خارجيًا بمسافة 10 نقاط. لا يزال النتيجة البصرية الدقيقة تعتمد على الفتحات التي تشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز السمة.
 
-![أنماط تأثير السمة بعد تعديل إعدادات الخط، التعبئة، والظل](presentation-design_11.png)
+![أنماط تأثير السمة بعد تغيير إعدادات الخط، التعبئة، والظل](presentation-design_11.png)
 
 ## **قراءة قيم السمة الفعّالة**
 
-تخبرك كائنات السمة الخام بما هو معرف في مستوى معين. تُظهر القيم الفعّالة ما يستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتجاوزات المحلية. للشريحة، استدعِ [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). للخلفية، استخدم [Background.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/get_effective/)، وللتعبئة استخدم [FillFormat.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fillformat/get_effective/).
+توفر كائنات السمة الخام ما هو معرف على مستوى معين. القيم الفعّالة توضح ما تستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتجاوزات المحلية. للحصول على سمة شريحة، استدعِ [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) . للحصول على خلفية، استخدم [Background.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/get_effective/) ، وللتعبئة استخدم [FillFormat.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fillformat/get_effective/) .
 
-المثال التالي يقرأ السمة الفعّالة، الخلفية، وتعبئة الشكل الأول من شريحة:
-
+المثال التالي يقرأ السمة الفعّالة، الخلفية، والتعبئة الأولى للشكل من شريحة:
 ```python
 import aspose.slides as slides
 
@@ -327,18 +374,22 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-استخدم البيانات الفعّالة لتشخيص العرض، والتحقق، والمقارنات. إذا فحصت فقط [Presentation.master_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/master_theme/)، قد تفوتك ماستر أو تخطيط أو شريحة أو تجاوز شكل يغيّر المظهر النهائي.
+استخدم البيانات الفعّالة لتشخيص العرض، التحقق، والمقارنات. إذا فحصت فقط [Presentation.master_theme](https://reference.aspose.com/slides/ar/python-net/aspose.slides/presentation/master_theme/)، قد تفوت تجاوزًا على مستوى الـ master أو التخطيط أو الشريحة أو الشكل يغيّر المظهر النهائي.
 
-## **الأسئلة المتكررة**
+## **الأسئلة الشائعة**
 
-**هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير الماستر؟**
+**هل يؤثر تطبيق سمة خارجية على كل شريحة في العرض؟**
 
-نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/slidethememanager/) للشريحة وابدأ سمة التجاوز الخاصة بها. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة سماتها الحالية.
+لا. تقوم [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/ar/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) بإعادة تعيين فقط الشرائح التي تعتمد على الـ master المحدد. الشرائح التي تستخدم ماسات أخرى تحتفظ بسماتها الحالية.
 
-**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض إلى آخر؟**
+**هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير الـ master؟**
 
-عند نقل شريحة والحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة باستخدام [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/add_clone/) و[SlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slidecollection/add_clone/). سيحافظ ذلك على الماستر، التخطيطات، والسمة معًا.
+نعم. استخدم [SlideThemeManager] الخاص بالشريحة وابدأ سمة التجاوز الخاصة به. يبقى التغيير محليًا لتلك الشريحة؛ الشرائح الأخرى تستمر في وراثة سماتها الحالية.
+
+**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض تقديمي إلى آخر؟**
+
+عند نقل شريحة والحفاظ على مظهرها الأصلي، قم باستنساخ الـ master المصدر إلى الوجهة ثم استنسخ الشريحة مع ذلك الـ master باستخدام [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/masterslidecollection/add_clone/) و[SlideCollection.add_clone](https://reference.aspose.com/slides/ar/python-net/aspose.slides/slidecollection/add_clone/) . هذا يحافظ على الـ master، التخطيطات، والسمة معًا.
 
 **كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
 
-استخدم [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) لسمة شريحة أو تخطيط، واستخدم طرق البيانات الفعّالة المقابلة لكائنات التنسيق مثل [Background.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/background/get_effective/) و[FillFormat.get_effective](https://reference.aspose.com/slides/ar/python-net/aspose.slides/fillformat/get_effective/). تُرجع هذه الواجهات القيم المَحَلَّة بعد تطبيق الوراثة والتجاوزات.
+استخدم [BaseOverrideThemeManager.create_theme_effective] لسمة شريحة أو تخطيط، واستخدم طرق البيانات الفعّالة المقابلة لكائنات التنسيق مثل [Background.get_effective] و[FillFormat.get_effective] . تُعيد هذه الـ API القيم التي تم حلها بعد تطبيق الوراثة والتجاوزات.

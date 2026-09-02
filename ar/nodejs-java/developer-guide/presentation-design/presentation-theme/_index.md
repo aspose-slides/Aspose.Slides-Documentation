@@ -1,44 +1,46 @@
 ---
-title: إدارة سمات العروض التقديمية في جافاسكريبت
-linktitle: سمة العرض التقديمي
+title: إدارة سمات العروض التقديمية في JavaScript
+linktitle: سمة العرض
 type: docs
 weight: 10
 url: /ar/nodejs-java/presentation-theme/
 keywords:
 - سمة PowerPoint
-- سمة العرض التقديمي
+- سمة العرض
 - سمة الشريحة
 - تعيين سمة
 - تغيير سمة
 - إدارة سمة
+- سمة خارجية
+- THMX
 - لون السمة
 - لوحة ألوان إضافية
 - خط السمة
 - نمط السمة
-- تأثير السمة
+- مؤثر السمة
 - PowerPoint
 - OpenDocument
-- عرض تقديمي
+- العرض
 - Node.js
-- جافاسكريبت
+- JavaScript
 - Aspose.Slides
-description: "قم بإدارة سمات العروض التقديمية في جافاسكريبت باستخدام Aspose.Slides لـ Node.js لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على العلامة التجارية المتسقة."
+description: "إدارة سمات العروض التقديمية في JavaScript باستخدام Aspose.Slides لNode.js لإنشاء وتخصيص وتحويل ملفات PowerPoint مع الحفاظ على العلامة التجارية المتسقة."
 ---
 ## **مقدمة**
 
-تعريف سمة العرض يحدد مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والتأثيرات. الكائنات المدركة للسمة تشير إلى هذه التعريفات المشتركة بدلاً من تخزين كل خاصية بصرية كقيمة ثابتة، لذا يمكن لتغيير السمة أن يحدّث العديد من الكائنات مرة واحدة.
+يعرّف سمة العرض مجموعة منسقة من الألوان، الخطوط، أنماط الخلفية، التعبئات، الخطوط، والمؤثرات. تُشير الكائنات التي تدرك السمة إلى هذه التعريفات المشتركة بدلًا من تخزين كل خاصية مرئية كقيمة ثابتة، لذا يمكن لتغيير السمة أن يُحدّث العديد من الكائنات دفعةً واحدة.
 
-في Aspose.Slides، يمكن الوصول إلى سمة المستوى العرضي عبر [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getmastertheme/). يمكن للعرض أيضاً أن يحتوي على تجاوزات للسمة على مستويات أدنى. يمكن للماستر أن يتجاوز سمة العرض عبر [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterthememanager/)، بينما يمكن للتخطيط أو الشريحة الفردية أن تتجاوز السمة الموروثة عبر [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseoverridethememanager/). عملياً، يتم حل السمة الفعّالة لشريحة عبر سلسلة الوراثة هذه: سمة العرض، تجاوز الماستر، تجاوز التخطيط، وتجاوز الشريحة.
+في Aspose.Slides، تتوفر سمة مستوى العرض عبر الدالة [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getmastertheme/). يمكن أيضًا أن يحتوي العرض على تجاوزات سمة على مستويات أدنى. يمكن للماستر أن يتجاوز سمة العرض عبر الدالة [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterthememanager/)، بينما يمكن للتخطيط أو الشريحة الفردية أن يتجاوز سمتها الموروثة عبر الدالة [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseoverridethememanager/). عمليًا، تُحَلّ السمة الفعّالة لشريحة ما من خلال سلسلة الوراثة هذه: سمة العرض → تجاوز الماستر → تجاوز التخطيط → تجاوز الشريحة.
 
-![مكونات السمة: الألوان، الخطوط، أنماط الخلفية، والتأثيرات](theme-constituents.png)
+![مكوّنات السمة: الألوان، الخطوط، أنماط الخلفية، والمؤثرات](theme-constituents.png)
 
-الأقسام أدناه توضح أكثر سير عمل شائع للسمة: فحص سمة، تغيير الألوان والخطوط، نسخ أو تطبيق سمة، تحديث أنماط الخلفية والتأثيرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
+تُظهر الأقسام أدناه أكثر سير عمل شائعًا للسمات: فحص سمة، تغيير الألوان والخطوط، نسخ أو تطبيق سمة، تحديث أنماط الخلفية والمؤثرات، وقراءة القيم الفعّالة بعد حل الوراثة والتجاوزات.
 
 ## **فحص سمة**
 
-كائن [MasterTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/) يعرض مخطط ألوان السمة، مخطط الخطوط، ومخطط التنسيق عبر [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/)، و[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/). فحص هذه المجموعات قبل تعديلها مفيد خصوصاً عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى إدخالات الأنماط قد يختلف.
+يُظهر كائن [MasterTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/) مخطط ألوان السمة، مخطط الخطوط، ومخطط الصيغ من خلال الدالات [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/)، [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/)، و[MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/mastertheme/). فحص هذه المجموعات قبل تعديلها مفيد خصوصًا عندما يأتي العرض من مصدر خارجي لأن عدد ومحتوى إدخالات الأنماط قد يختلف.
 
-المثال التالي يقرأ الخصائص الرئيسية للسمة ويبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والتأثير المخزنة في السمة:
+المثال التالي يقرأ الخصائص الرئيسية للسمة ويُبلغ عن عدد أنماط الخلفية، التعبئة، الخط، والمؤثرات المخزنة في السمة:
 
 ```javascript
 const aspose = {};
@@ -60,13 +62,13 @@ try {
 }
 ```
 
-إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لديها نفس السمة الفعّالة. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل السمة الفعّالة الموضح لاحقاً في هذه المقالة عندما قد تكون هناك تجاوزات للتخطيط أو الشريحة.
+إذا كان الملف يستخدم عدة ماسترات، لا تفترض أن كل شريحة لديها نفس السمة الفعّالة. افحص الماستر المرتبط بالشريحة، واستخدم سير عمل السمة الفعّالة الموضح لاحقًا في هذه المقالة عندما قد تكون هناك تجاوزات على مستوى التخطيط أو الشريحة.
 
 ## **تغيير ألوان السمة**
 
-التعبئات، الخطوط، والنصوص المدركة للسمة يمكن أن تشير إلى لون منطقي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/schemecolor/). عندما تغيّر الإدخال المقابل في [ColorScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/colorscheme/)، جميع الكائنات التي لا تزال تشير إلى ذلك اللون السمة تُستدل على القيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تُغيّر عند تحديث لون السمة.
+يمكن للتعبئات، الخطوط، والنصوص التي تدرك السمة الإشارة إلى لون منطقِي من تعداد [SchemeColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/schemecolor/). عند تغيير الإدخال المقابل في [ColorScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/colorscheme/)، تُحلّ جميع الكائنات التي ما زالت تشير إلى ذلك اللون السُمِّي بالقيمة الجديدة. الكائنات التي تستخدم لون RGB مباشر لا تتغيّر بتحديث لون السمة.
 
-المثال التالي الشامل ينشئ شكلاً يستخدم `Accent4`، يغيّر لون `Accent4` في السمة إلى الأحمر، يحفظ العرض، يفتحه مجدداً، ويطبع لون التعبئة الفعّالية:
+المثال الشامل التالي ينشئ شكلاً يستخدم `Accent4`، يغيّر لون السمة `Accent4` إلى الأحمر، يحفظ العرض، يعيد فتحه، ويطبع لون التعبئة الفعّال:
 
 ```javascript
 const aspose = {};
@@ -96,19 +98,18 @@ try {
 }
 ```
 
-لأن المستطيل ما زال مرتبطاً بـ `Accent4`، يصبح لونه الظاهر أحمر بعد تغيير السمة. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر على تلك التعبئة.
+لأن المستطيل لا يزال مرتبطًا بـ `Accent4`، يصبح لونه الظاهر أحمر بعد تغيير السمة. إذا استبدلت لون المخطط بلون مباشر على الشكل، فإن التغييرات اللاحقة على `Accent4` لن تؤثر على تلك التعبئة.
 
-### **استخدام ألوان من اللوحة الإضافية**
+### **استخدام الألوان من اللوحة الإضافية**
 
-PowerPoint يولد متغيرات أفتح وأغمق من لون السمة عن طريق تطبيق تحولات اللون. Aspose.Slides يعرّف هذه التحولات عبر تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/colortransformoperation/).
+يستخرج PowerPoint تدرجات أفتح وأغمق من لون السمة عبر تطبيق تحويلات الألوان. تُظهر Aspose.Slides هذه التحويلات من خلال تعداد [ColorTransformOperation](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/colortransformoperation/).
 
-![الألوان الأساسية للسمة والألوان الفاتحة والداكنة المولدة من لوحة الألوان الإضافية](additional-palette-colors.png)
+![الألوان الرئيسية للسمة والألوان الفاتحة والداكنة المولدة من اللوحة الإضافية](additional-palette-colors.png)
 
-**1** - الألوان الأساسية للسمة.
+**1** - الألوان الرئيسية للسمة.  
+**2** - التدرجات الفاتحة والداكنة المستخرجة من الألوان الرئيسية.
 
-**2** - المتغيرات الفاتحة والداكنة المنتجة من الألوان الأساسية للسمة.
-
-المثال التالي ينشئ ستة مستطيلات تستند إلى `Accent4`، يطبق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
+المثال التالي ينشئ ستة مستطيلات مبنية على `Accent4`، يطبق تحولات الإضاءة على خمسة منها، ويحفظ النتيجة:
 
 ```javascript
 const aspose = {};
@@ -157,31 +158,31 @@ try {
 }
 ```
 
-هذه المتغيرات تبقى مستندة إلى لون السمة. إذا تغير `Accent4` لاحقاً، تُعاد حساب الألوان المُحوّلة من القيمة الجديدة لـ `Accent4`.
+تظل هذه التدرجات معتمدة على لون السمة. إذا تغير `Accent4` لاحقًا، تُعاد حساب الألوان المُحَوَّلة من القيمة الجديدة لـ `Accent4`.
 
 ### **ربط قيم `SchemeColor` بفتحات `ColorScheme`**
 
-تعداد [SchemeColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/schemecolor/) يستخدم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يُظهر [ColorScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/colorscheme/) نفس فتحات السمة كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الربط ثابت:
+يستخدم تعداد [SchemeColor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/schemecolor/) القيم `Text1`، `Background1`، `Text2`، و`Background2`، بينما يُظهر تعداد [ColorScheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/colorscheme/) نفس الفتحات كـ `Dark1`، `Light1`، `Dark2`، و`Light2`. الربط ثابت:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-هذه أسماء بديلة لنفس فتحات السمة؛ ليست قيماً تُحوّل ديناميكياً من شكل إلى آخر.
+هذه مجرد أسماء بديلة لنفس فتحات السمة؛ ليست قيمًا تُحوَّل ديناميكيًا من شكل إلى آخر.
 
 ## **تغيير خطوط السمة**
 
-مخطط خطوط السمة يحتوي على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط فرعية للنص الأساسي. طريقتا [FontScheme.getMajor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontscheme/) و[FontScheme.getMinor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontscheme/) تعرضان هاتين المجموعتين.
+تحتوي مخططات خطوط السمة على مجموعة خطوط رئيسية للعناوين ومجموعة خطوط ثانوية للنص الأساسي. تُظهر الدالتان [FontScheme.getMajor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontscheme/) و[FontScheme.getMinor](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fontscheme/) هاتين المجموعتين.
 
-معرّفات خطوط السمة المتوافقة مع PowerPoint يمكن استخدامها في تنسيق النص:
+يمكن استخدام معرفات خطوط السمة المتوافقة مع PowerPoint في تنسيق النص:
 
-* `+mn-lt` - خط النص الأساسي اللاتيني (Minor Latin Font)
-* `+mj-lt` - خط العنوان اللاتيني (Major Latin Font)
-* `+mn-ea` - خط النص الأساسي الآسيوي الشرقي (Minor East Asian Font)
-* `+mj-ea` - خط العنوان الآسيوي الشرقي (Major East Asian Font)
+* `+mn-lt` - خط النص الأساسي (Latin Minor)
+* `+mj-lt` - خط العنوان (Latin Major)
+* `+mn-ea` - خط نص أسيا الشرقية (East Asian Minor)
+* `+mj-ea` - خط عنوان أسيا الشرقية (East Asian Major)
 
-المثال التالي ينشئ عنواناً يستخدم خط السمة اللاتيني الرئيسي وسطرًا نصيًا يستخدم خط السمة اللاتيني الفرعي. ثم يغيّر خطوط السمة ويحفظ النتيجة:
+المثال التالي ينشئ عنوانًا يستخدم الخط اللاتيني الرئيسي وخطًا نصيًا يستخدم الخط اللاتيني الثانوي. بعد ذلك يغيّر خطوط السمة ويحفظ النتيجة:
 
 ```javascript
 const aspose = {};
@@ -207,21 +208,94 @@ try {
 }
 ```
 
-العنوان يتبع الخط الرئيسي والنص الأساسي يتبع الخط الفرعي. النص الذي لديه اسم خط صريح بدلاً من معرف سمة لن يتبدل تلقائياً عندما يتغيّر مخطط خطوط السمة.
+يتبع العنوان الخط الرئيسى ويُتبع النص الأساسي الخط الثانوي. النص الذي يحتوي على اسم خط صريح بدلًا من معرف السمة لن ينتقل تلقائيًا عندما تتغيّر مخطّط خطوط السمة.
 
-المجموعات الرئيسية والفرعية للخطوط يمكن أن تحتوي أيضاً على تعيينات خطوط لأنظمة كتابة فردية، مثل السيريالية، العربية، اليابانية، الجورجية، والثانا. لفحص، إضافة، استبدال، أو إزالة هذه التعيينات، راجع [Script-Specific Theme Fonts](/slides/ar/nodejs-java/script-specific-font-mappings/).
+يمكن لمجموعات الخطوط الرئيسى والثانوي أيضًا احتواء تعيينات خطوط لأنظمة كتابة فردية، مثل السيران، العربية، اليابانية، الجورجية، والثانا. لاستعراض، إضافة، استبدال أو إزالة هذه التعيينات، راجع [خطوط السمة الخاصة بالسكريبت](/slides/ar/nodejs-java/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
-لمزيد من المعلومات حول خطوط العرض التقديمي، انظر [PowerPoint Fonts](/slides/ar/nodejs-java/powerpoint-fonts/).
+{{% alert color="info" title="نصيحة" %}}
+لمزيد من المعلومات حول خطوط العروض التقديمية، راجع [خطوط PowerPoint](/slides/ar/nodejs-java/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **نسخ أو تطبيق سمة**
 
-هناك سير عملين شائعين، ويحلان مشاكل مختلفة.
+تحلّ سير العمل أدناه مشكلات السمة المختلفة.
 
-### **الحفاظ على سمة المصدر عند نقل الشرائح**
+### **تطبيق سمة خارجية على الشرائح التابعة لماستر**
 
-إذا أردت نقل شريحة إلى عرض تقديمي آخر مع الحفاظ على تصميمها الأصلي، استنسخ الماستر المصدر إلى العرض الهدف باستخدام [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslidecollection/)، ثم استنسخ الشريحة باستخدام [SlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/) والماستر المستنسخ. هذا يحمل الماستر، تخطيطاته، والسمة المرتبطة معاً.
+استخدم الدالة [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) عندما يكون لديك ملف سمة PowerPoint (`.thmx`) وتريد إعادة تنسيق كل الشريحة التي تعتمد على ماستر معين. اختر الماستر من مجموعة [Presentation.getMasters](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/)، والتي يُمثّلها [MasterSlideCollection](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslidecollection/)، ومرّر مسار ملف السمة إلى الدالة.
+
+تُجري الدالة العمليات التالية:
+
+1. إنشاء شريحة ماستر جديدة استنادًا إلى الماستر المختار.  
+1. تطبيق السمة الخارجية على الماستر الجديد.  
+1. إسناد الماستر الجديد إلى جميع الشرائح التي كانت تعتمد على الماستر المختار مسبقًا.  
+1. إرجاع كائن [MasterSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) الذي تم إنشاؤه حديثًا.
+
+المثال التالي يطبق سمة خارجية على الشرائح التي تعتمد على الماستر الأول ويحفظ العرض:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const selectedMaster = presentation.getMasters().get_Item(0);
+    const themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    console.log("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+قد يتسبب سمة غير صالحة، تالفة، أو غير مدعومة في استثناء [PptxReadException](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/pptxreadexception/). تحقق من صحة المسارات التي يقدّمها المستخدمون، وتعامل مع فشل الوصول إلى نظام الملفات، واحفظ العرض فقط بعد نجاح تطبيق السمة.
+
+يُعاد توجيه الشرائح التي كانت تعتمد على الماستر المختار فقط. الشرائح المرتبطة بماسترات أخرى تحتفظ بماستراتها وسماها الحالية. تُحلّ الألوان، الخطوط، التعبئات، الخطوط، الخلفيات، والمؤثرات التي تدرك السمة وفقًا للسمة الخارجية. قد تبقى الألوان، الخطوط، التعبئات، وغيرها من التنسيقات الصريحة دون تغيير. يمكن لتجاوزات على مستوى التخطيط أو الشريحة أن تتفوّق على القيم الموروثة من الماستر الجديد.
+
+قد تُشير السمة إلى خطوط غير متوفرة في بيئة التشغيل. للتصوير والتصدير المتسقين، ثبّت الخطوط المطلوبة، وفّرها عبر [مصادر الخطوط المخصصة](/slides/ar/nodejs-java/custom-font/)، أو ضبط [استبدال الخطوط](/slides/ar/nodejs-java/font-substitution/).
+
+هذا سير عمل مباشر على مستوى الماستر: تقبل الدالة مسار ملف `.thmx` ولا تتطلّب إنشاء تجاوزات سمة على مستوى الشريحة أو التخطيط يدويًا.
+
+### **تطبيق سمات خارجية مختلفة في عرض متعدد الماسترات**
+
+عند عدم معرفة الماستر المناسب مسبقًا، احصل عليه من شريحة تمثيلية عبر الدالتين [Slide.getLayoutSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slide/) و[LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslide/). احفظ مراجع الماستر الأصلية قبل تطبيق أي سمات لأن كل استدعاء يُنشئ ماسترًا آخر في العرض.
+
+المثال التالي يستخدم شرائح من قسمين لتحديد ماستراتهما ويطبق سمة خارجية مختلفة على كل مجموعة:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        console.log("The presentation does not contain the expected representative slides.");
+    } else {
+        const firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        const secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() === secondGroupMaster.getSlideId()) {
+            console.log("The representative slides use the same master.");
+        } else {
+            const firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            const secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            console.log("First themed master: " + firstThemedMaster.getName());
+            console.log("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+الاستدعاء الأول يُؤثّر فقط على الشرائح التي كانت تعتمد على `firstGroupMaster`، والاستدعاء الثاني يُؤثّر فقط على الشرائح التي كانت تعتمد على `secondGroupMaster`. الشرائح المرتبطة بأي ماستر آخر لا تُعاد تنسيقها.
+
+### **حفظ سمة المصدر عند نقل الشرائح**
+
+إذا كنت ترغب في نقل شريحة إلى عرض آخر مع الحفاظ على تصميمها الأصلي، انسخ الماستر المصدر إلى العرض الهدف باستخدام الدالة [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslidecollection/)، ثم انسخ الشريحة مع الماستر المنسوخ عبر الدالة [SlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/). سيحمل ذلك الماستر، التخطيطات، والسمة المرتبطة به معًا.
 
 ```javascript
 const aspose = {};
@@ -243,11 +317,11 @@ try {
 }
 ```
 
-هذا هو سير العمل المفضّل عندما يجب أن تبدو الشريحة المصدرية نفسها في الوجهة. مجرد استنساخ المحتوى على ماستر وجهة غير متعلق قد يغيّر الألوان، الخطوط، الخلفيات، والتأثيرات المدفوعة بالسمة.
+هذا هو سير العمل المفضّل عندما يجب أن يبدو الشريحة المصدرية كما هي في الوجهة. مجرد نسخ المحتوى إلى ماستر غير مرتبط قد يغيّر الألوان، الخطوط، الخلفيات، والمؤثرات المدفوعة بالسمة.
 
-### **تطبيق قيم سمة على شريحة موجودة**
+### **تطبيق قيم السمة على شريحة موجودة**
 
-إذا كان يجب أن تظل الشريحة الهدف على الماستر والتخطيط الحاليين، ابدأ تجاوز سمة على مستوى الشريحة من السمة المصدر. طُرُق [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/)، و[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/) تنسخ المكونات الثلاثة الرئيسية للسمة إلى التجاوز.
+إذا كان على الشريحة الهدف البقاء على الماستر والتخطيط الحاليين، ابدأ بإنشاء تجاوز على مستوى الشريحة من السمة المصدر. الدوال [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/)، [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/)، و[OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/) تنسخ المكوّنات الثلاثة الرئيسية للسمة إلى التجاوز.
 
 ```javascript
 const aspose = {};
@@ -272,11 +346,11 @@ try {
 }
 ```
 
-هذا يغيّر السمة المستخدمة لتلك الشريحة دون تغيير السمة الموروثة من قبل الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ [OverrideTheme.clear](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/).
+يُغيّر هذا السمة المستخدمة لتلك الشريحة دون تغيير السمة الموروثة من الشرائح الأخرى. لإزالة التجاوز المحلي والعودة إلى القيم الموروثة، استدعِ الدالة [OverrideTheme.clear](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/overridetheme/).
 
 ### **تطبيق تجاوز سمة على تخطيط**
 
-تجاوز على مستوى التخطيط يطّبق على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لديها تجاوز خاص بها. يمكن استخدام نفس طرق التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslidethememanager/):
+تطبق التجاوزات على مستوى التخطيط على الشرائح التي تستخدم ذلك التخطيط، ما لم تكن شريحة معينة لديها تجاوز خاص بها. يمكن استعمال نفس دوال التهيئة عبر [LayoutSlideThemeManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/layoutslidethememanager/):
 
 ```javascript
 const aspose = {};
@@ -301,17 +375,17 @@ try {
 }
 ```
 
-استخدم سمة ماستر أو سمة مستوى العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدام تجاوز تخطيط عندما تحتاج عائلة تخطيط واحدة إلى نمط مختلف، وتجاوز شريحة فقط للاستثناءات الحقيقية. التجاوزات المفرطة على مستوى الشرائح تجعل التغييرات السمة العامة لاحقاً أصعب في التنبؤ.
+استخدم سمة على مستوى الماستر أو العرض عندما يجب أن تشترك العديد من التخطيطات والشرائح في نفس التصميم الأساسي، واستخدم تجاوُز التخطيط عندما تحتاج مجموعة تخطيطات واحدة إلى تنسيق مختلف، واستخدم تجاوُز الشريحة فقط للاستثناءات الحقيقية. التعدد المفرط لتجاوزات مستوى الشريحة يجعل التنبؤ بتغييرات السمة العامة لاحقًا أصعب.
 
 ## **تحديث أنماط خلفية السمة**
 
-تعبئات خلفية السمة تُخزن في [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/). يمكن لـ PowerPoint عرض خيارات خلفية أكثر في واجهته مقارنة بعدد تعريفات التعبئة المخزنة فعلياً في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات السمة مع ألوان السمة وإشارات أنماط أخرى.
+تُخزن تعبئات خلفية السمة في الدالة [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/). يستطيع PowerPoint عرض خيارات خلفية أكثر في واجهته مقارنة بعدد تعريفات التعبئة الفعلية المخزنة في هذه المجموعة لأن الواجهة يمكنها دمج تعبئات السمة مع ألوان السمة وإشارات نمط أخرى.
 
-![معرض أنماط خلفية PowerPoint لسمة العرض التقديمي](presentation-design_8.png)
+![معرض أنماط خلفية PowerPoint لسمة عرض](presentation-design_8.png)
 
-قبل استخدام نمط خلفية، افحص المجموعة المخزنة و[Background.getStyleIndex](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/) الحالي. فهرس النمط `0` يعني لا تعبئة سمة؛ القيم الموجبة هي إشارات إلى أنماط خلفية سمة. هذا يختلف عن فهرسة مجموعة JavaScript مباشرةً، حيث يعني الفهرس `0` أول عنصر مخزن. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط تعبئة الخلفية.
+قبل استخدام نمط خلفية، افحص المجموعة المخزنة والقيمة الحالية للدالة [Background.getStyleIndex](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/). فهرس النمط `0` يعني عدم وجود تعبئة سمة؛ القيم الموجبة تشير إلى مراجع أنماط خلفية سمة. هذا يختلف عن فهرسة مجموعة JavaScript مباشرةً، حيث يعني الفهرس `0` العنصر المخزن الأول. لا تفترض أن كل عرض يحتوي على نفس عدد أنماط التعبئة الخلفية.
 
-المثال التالي يُبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن إشارة خلفية سمة إلى أول ماستر، ويحفظ العرض:
+المثال التالي يبلغ عن عدد تعبئات الخلفية المتاحة، يعيّن مرجع خلفية سمة للماستر الأول، ويحفظ العرض:
 
 ```javascript
 const aspose = {};
@@ -335,25 +409,25 @@ try {
 }
 ```
 
-النتيجة الظاهرة تعتمد على مدخل السمة المشار إليه من قبل الماستر وعلى أي تجاوزات خلفية في التخطيط أو مستوى الشريحة. إذا كانت الشريحة تستخدم خلفية خاصة بها، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
+النتيجة الظاهرة تعتمد على إدخال السمة الذي يشير إليه الماستر وأي تجاوزات خلفية على مستوى التخطيط أو الشريحة. إذا استخدمت شريحة خلفيتها الخاصة، قد لا يغيّر تغيير خلفية الماستر تلك الشريحة. استخدم الدالة [Background.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/) عندما تحتاج إلى معرفة الخلفية النهائية بعد تطبيق الوراثة.
 
-{{% alert color="warning" title="Warning" %}}
-لاTreat فهرس النمط كفهرس مجموعة يبدأ من الصفر. كما تجنب ترميز رقم نمط من ملف واحد وافتراض أنه سيظهر بالمظهر نفسه في ملف آخر؛ تعريفات نمط السمة خاصة بالعرض التقديمي.
+{{% alert color="warning" title="تحذير" %}}
+لا تتعامل مع فهرس النمط كفهرس مجموعة يبدأ من الصفر. وتجنّب أيضًا الترميز الصلب لرقم نمط من ملف واحد والافتراض أنه سيظهر بنفس الشكل في ملف آخر؛ تعريفات نمط السمة خاصّة بالعرض.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-لتنسيق الخلفية المباشر والوراثة الخلفية، راجع [Presentation Background](/slides/ar/nodejs-java/presentation-background/).
+{{% alert color="info" title="نصيحة" %}}
+لمزيد من التفاصيل حول تنسيق الخلفية المباشر ووراثة الخلفية، راجع [خلفية العرض](/slides/ar/nodejs-java/presentation-background/).
 {{% /alert %}}
 
-## **تحديث تأثيرات السمة**
+## **تحديث مؤثرات السمة**
 
-مخطط تنسيق السمة يحتوي على مجموعات منفصلة للتعبئة، الخط، وتأثيرات النمط التي تُعرض عبر [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/)، [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/)، و[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/). عادةً ما تحتوي سمات Office على ثلاث إدخالات أساسية تتطابق بصرياً مع تنسيقات خفيفة، متوسطة، وشديدة، لكن يجب على الشيفرة فحص كل مجموعة بدلاً من افتراض عدد ثابت.
+تحتوي مخطّط صيغ السمة على مجموعات منفصلة للتعبئة، الخط، والمؤثرات، تُظهرها الدالات [FormatScheme.getFillStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/)، [FormatScheme.getLineStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/)، و[FormatScheme.getEffectStyles](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/formatscheme/). غالبًا ما تحتوي سمات Office النموذجية على ثلاثة مدخلات رئيسية تمثل بصريًا تنسيقات خفيفة، متوسطة، وشديدة، لكن ينبغي على الشيفرة فحص كل مجموعة بدلاً من الافتراض بوجود عدد ثابت.
 
-![تأثيرات السمة الخفيفة والمتوسطة والشديدة المطبقة على نفس الشكل](presentation-design_10.png)
+![مؤثرات سمة خفيفة، متوسطة، وشديدة مطبَّقة على نفس الشكل](presentation-design_10.png)
 
-عند الوصول إلى هذه المجموعات في JavaScript، فهرس المجموعة يبدأ من الصفر: الفهرس `0` هو أول نمط مخزن والفهرس `2` هو الثالث. فهارس مراجع النمط في الشكل مفهوم منفصل، تُعرض عبر [ShapeStyle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapestyle/). تعديل نمط سمة يؤثر على الأشكال التي تشير إلى ذلك النمط؛ الأشكال ذات التنسيق المباشر قد تبقى دون تغيير.
+عند الوصول إلى هذه المجموعات في JavaScript، يكون فهرس المجموعة صفرًا‑مبنيًا: الفهرس `0` هو أول نمط مخزن والفهرس `2` هو الثالث. فهارس مراجع النمط للشكِل مفهوم منفصل، تُظهرها الدالة [ShapeStyle](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/shapestyle/). تعديل نمط سمة يؤثر على الأشكال التي تشير إلى ذلك النمط؛ قد تبقى الأشكال ذات التنسيق المباشر دون تغيير.
 
-المثال التالي يتحقق من وجود إدخالات النمط المطلوبة، يغيّر نمط الخط الأول، يغيّر نمط التعبئة الثالث، يفعّل ظلًا خارجيًا في نمط التأثير الثالث، ويحفظ النتيجة:
+المثال التالي يتحقق من وجود مدخلات الأنماط المطلوبة، يغيّر أول نمط خط، يغيّر ثالث نمط تعبئة، يفعّل ظلًا خارجيًا في ثالث نمط مؤثر، ويحفظ النتيجة:
 
 ```javascript
 const aspose = {};
@@ -380,13 +454,13 @@ try {
 }
 ```
 
-بالنسبة للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط سمة أحمر، يصبح النمط الثالث لتعبئة السمة أخضر غابة صلب، ويحصل نمط التأثير الثالث على ظل خارجي بمسافة 10 نقاط. النتيجة البصرية الدقيقة لا تزال تعتمد على أي فواصل نمط تشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز السمة.
+بالنسبة للأشكال التي تشير إلى هذه الفتحات، يصبح أول نمط خط سمة أحمر، وثالث نمط تعبئة سمة أخضر غابة صلب، ويضيف الظل الخارجي للمؤثر الثالث مسافة 10 نقاط. لا يزال الناتج البصري يعتمد على الفتحات التي تشير إليها كل شكل وما إذا كان التنسيق المباشر يتجاوز السمة.
 
-![أنماط تأثير السمة بعد تغيير إعدادات الخط، التعبئة، والظل](presentation-design_11.png)
+![أنماط مؤثرات السمة بعد تعديل الخط، التعبئة، وإعدادات الظل](presentation-design_11.png)
 
 ## **قراءة قيم السمة الفعّالة**
 
-الكائنات الخام للسمة تخبرك ما هو معرف على مستوى معين. القيم الفعّالة تخبرك ما الذي يستخدمه شريحة أو شكل فعلياً بعد حل الوراثة والتجاوزات المحلية. لشريحة، استدعِ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseoverridethememanager/). للخلفية، استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/)، وللتعبئة استخدم [FillFormat.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/).
+تُخبرك كائنات السمة الخام ما تم تعريفه على مستوى معيّن. تُظهر القيم الفعّالة ما يستخدمه الشريحة أو الشكل فعليًا بعد حل الوراثة والتجاوزات المحلية. للشريحة، استدعِ الدالة [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseoverridethememanager/). للخلفية، استخدم [Background.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/)، وللتعبئة استخدم [FillFormat.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/).
 
 المثال التالي يقرأ السمة الفعّالة، الخلفية، وتعبئة الشكل الأول من شريحة:
 
@@ -414,18 +488,18 @@ try {
 }
 ```
 
-استخدم البيانات الفعّالة للتشخيصات الرسومية، التحقق، والمقارنات. إذا فحصت فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getmastertheme/)، قد تفوتك تجاوزات ماستر أو تخطيط أو شريحة أو شكل تغير المظهر النهائي.
+استخدم البيانات الفعّالة لتشخيص العرض، التحقق، والمقارنات. إذا قمت بفحص فقط [Presentation.getMasterTheme](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/presentation/getmastertheme/)، قد تغفل عن تجاوز ماستر، تخطيط، شريحة، أو شكل يغيّر المظهر النهائي.
 
-## **الأسئلة المتكررة**
+## **أسئلة شائعة**
 
-**هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير الماستر؟**
+**هل يؤثر تطبيق سمة خارجية على كل شريحة في العرض؟**  
+لا. الدالة [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslide/) تعيد تعيين الشرائح التي تعتمد فقط على الماستر المحدد. الشرائح التي تستخدم ماسترات أخرى تحتفظ بسماها الحالية.
 
-نعم. استخدم [SlideThemeManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidethememanager/) الخاص بالشريحة وابدأ سمة التجاوز الخاصة بها. التغيير يبقى محلياً لتلك الشريحة؛ الشرائح الأخرى تستمر في وراثة السمات الحالية.
+**هل يمكنني تطبيق سمة على شريحة واحدة دون تغيير الماستر؟**  
+نعم. استخدم مدير سمة الشريحة [SlideThemeManager](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidethememanager/) وابدأ تجاوُزه السمة. يبقى التغيير محليًا لتلك الشريحة؛ تستمر الشرائح الأخرى في وراثة سماها الحالية.
 
-**ما هي الطريقة الآمنة لنقل سمة من عرض تقديمي إلى آخر؟**
+**ما هي الطريقة الأكثر أمانًا لنقل سمة من عرض إلى آخر؟**  
+عند نقل شريحة مع الحفاظ على مظهرها الأصلي، انسخ الماستر المصدر إلى الوجهة باستخدام [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslidecollection/)، ثم انسخ الشريحة مع ذلك الماستر عبر [SlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/). سيحافظ هذا على الماستر، التخطيطات، والسمة معًا.
 
-عند نقل شريحة والحفاظ على مظهرها الأصلي، استنسخ الماستر المصدر إلى الوجهة واستنسخ الشريحة باستخدام [MasterSlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/masterslidecollection/) و[SlideCollection.addClone](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/slidecollection/). هذا يحافظ على الماستر، التخطيطات، والسمة معاً.
-
-**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**
-
-استخدم [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseoverridethememanager/) لسمة شريحة أو تخطيط والطرق الفعّالة المقابلة لكائنات التنسيق مثل [Background.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/) و[FillFormat.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/). هذه الواجهات تُعيد القيم المُستخرجة بعد تطبيق الوراثة والتجاوزات.
+**كيف يمكنني رؤية القيم الفعّالة بعد الوراثة والتجاوزات؟**  
+استخدم [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/baseoverridethememanager/) لسمة شريحة أو تخطيط، واستخدم الدالات الفعّالة المقابلة للكائنات مثل [Background.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/background/) و[FillFormat.getEffective](https://reference.aspose.com/slides/ar/nodejs-java/aspose.slides/fillformat/). تُرجع هذه الـ APIs القيم المُستخرجة بعد تطبيق الوراثة والتجاوزات.

@@ -1,43 +1,45 @@
 ---
-title: Gestire i temi di presentazione in PHP
-linktitle: Tema presentazione
+title: Gestire i temi della presentazione in PHP
+linktitle: Tema della presentazione
 type: docs
 weight: 10
 url: /it/php-java/presentation-theme/
 keywords:
-- tema PowerPoint
-- tema della presentazione
-- tema diapositiva
-- impostare tema
-- cambiare tema
-- gestire tema
-- colore del tema
-- tavolozza aggiuntiva
-- carattere del tema
-- stile del tema
-- effetto del tema
+- Tema PowerPoint
+- Tema della presentazione
+- Tema della diapositiva
+- Imposta tema
+- Modifica tema
+- Gestisci tema
+- Tema esterno
+- THMX
+- Colore del tema
+- Tavolozza aggiuntiva
+- Carattere del tema
+- Stile del tema
+- Effetto del tema
 - PowerPoint
 - OpenDocument
-- presentazione
+- Presentazione
 - PHP
 - Aspose.Slides
-description: "Gestisci i temi principali delle presentazioni in Aspose.Slides per PHP tramite Java per creare, personalizzare e convertire file PowerPoint con un branding coerente."
+description: "Temi master delle presentazioni in Aspose.Slides per PHP tramite Java per creare, personalizzare e convertire file PowerPoint con branding coerente."
 ---
 ## **Introduzione**
 
-Un tema di presentazione definisce un insieme coordinato di colori, caratteri, stili di sfondo, riempimenti, linee ed effetti. Gli oggetti sensibili al tema fanno riferimento a queste definizioni condivise invece di memorizzare ogni proprietà visiva come valore fisso, in modo che una modifica del tema possa aggiornare molti oggetti contemporaneamente.
+Un tema di presentazione definisce un insieme coordinato di colori, caratteri, stili di sfondo, riempimenti, linee ed effetti. Gli oggetti sensibili al tema fanno riferimento a queste definizioni condivise anziché memorizzare ogni proprietà visiva come valore fisso, così una modifica al tema può aggiornare molti oggetti contemporaneamente.
 
-In Aspose.Slides, il tema a livello di presentazione è disponibile tramite [Presentation.getMasterTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). Una presentazione può anche contenere sovrascritture del tema a livelli inferiori. Un master può sovrascrivere il tema della presentazione tramite [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterthememanager/), mentre un layout o una diapositiva individuale può sovrascrivere il tema ereditato tramite [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseoverridethememanager/). In pratica, il tema efficace per una diapositiva viene risolto attraverso questa catena di ereditarietà: tema della presentazione, sovrascrittura del master, sovrascrittura del layout e sovrascrittura della diapositiva.
+In Aspose.Slides, il tema a livello di presentazione è disponibile tramite [Presentation.getMasterTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/). Una presentazione può anche contenere sovrascritture del tema a livelli inferiori. Un master può sovrascrivere il tema della presentazione tramite [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterthememanager/), mentre un layout o una diapositiva individuale può sovrascrivere il tema ereditato tramite [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseoverridethememanager/). In pratica, il tema effettivo per una diapositiva viene risolto attraverso questa catena di ereditarietà: tema della presentazione, sovrascrittura del master, sovrascrittura del layout e sovrascrittura della diapositiva.
 
-![Componenti del tema: colori, caratteri, stili di sfondo ed effetti](theme-constituents.png)
+![Componenti del tema: colori, caratteri, stili di sfondo e effetti](theme-constituents.png)
 
-Le sezioni seguenti mostrano i flussi di lavoro più comuni per i temi: ispezionare un tema, modificare colori e caratteri, copiare o applicare un tema, aggiornare gli stili di sfondo ed effetti, e leggere i valori efficaci dopo che ereditarietà e sovrascritture sono state risolte.
+Le sezioni seguenti mostrano i flussi di lavoro più comuni sul tema: ispezionare un tema, modificare colori e caratteri, copiare o applicare un tema, aggiornare gli stili di sfondo ed effetti, e leggere i valori effettivi dopo che ereditarietà e sovrascritture sono state risolte.
 
-## **Ispezionare un Tema**
+## **Ispeziona un tema**
 
-L'oggetto [MasterTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/) espone lo schema di colori, lo schema di caratteri e lo schema di formati del tema tramite [MasterTheme.getColorScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/) e [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/). Ispezionare queste collezioni prima di modificarle è particolarmente utile quando una presentazione proviene da una fonte esterna, perché il numero e il contenuto delle voci di stile possono variare.
+L'oggetto [MasterTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/) espone lo schema di colori, lo schema di caratteri e lo schema di formattazione del tema tramite [MasterTheme.getColorScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/) e [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/mastertheme/). Ispezionare queste collezioni prima di modificarle è particolarmente utile quando una presentazione proviene da una fonte esterna, perché il numero e il contenuto delle voci di stile possono variare.
 
-Il seguente esempio legge le proprietà principali del tema e riporta quante stilistiche di sfondo, riempimento, linea ed effetto sono memorizzate nel tema:
+L'esempio seguente legge le principali proprietà del tema e segnala quante impostazioni di sfondo, riempimento, linea ed effetto sono memorizzate nel tema:
 
 ```php
 use aspose\slides\Presentation;
@@ -58,13 +60,13 @@ try {
 }
 ```
 
-Se un file utilizza più master, non presumere che ogni diapositiva abbia lo stesso tema efficace. Ispeziona il master associato alla diapositiva e utilizza il flusso di lavoro efficace mostrato più avanti in questo articolo quando potrebbero essere presenti sovrascritture di layout o diapositiva.
+Se un file utilizza più master, non dare per scontato che ogni diapositiva abbia lo stesso tema effettivo. Ispeziona il master associato alla diapositiva e utilizza il flusso di lavoro tema-effettivo mostrato più avanti in questo articolo quando possono essere presenti sovrascritture a livello di layout o diapositiva.
 
-## **Modificare i Colori del Tema**
+## **Modifica i colori del tema**
 
-I riempimenti, le linee e il testo sensibili al tema possono fare riferimento a un colore logico dell'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/schemecolor/). Quando cambi la voce corrispondente nello [ColorScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/colorscheme/), tutti gli oggetti che ancora fanno riferimento a quel colore del tema vengono risolti rispetto al nuovo valore. Gli oggetti che usano un colore RGB diretto non vengono modificati da un aggiornamento del colore del tema.
+I riempimenti, le linee e il testo sensibili al tema possono fare riferimento a un colore logico dell'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/schemecolor/). Quando cambi la voce corrispondente nello [ColorScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/colorscheme/), tutti gli oggetti che ancora fanno riferimento a quel colore del tema vengono risolti contro il nuovo valore. Gli oggetti che usano un colore RGB diretto non vengono modificati da un aggiornamento del colore del tema.
 
-Il seguente esempio end‑to‑end crea una forma che utilizza `Accent4`, cambia il colore `Accent4` del tema in rosso, salva la presentazione, la riapre e stampa il colore di riempimento effettivo:
+L'esempio end‑to‑end seguente crea una forma che utilizza `Accent4`, cambia il colore `Accent4` del tema in rosso, salva la presentazione, la riapre e stampa il colore di riempimento effettivo:
 
 ```php
 use aspose\slides\FillType;
@@ -98,16 +100,17 @@ try {
 
 Poiché il rettangolo rimane collegato a `Accent4`, il suo colore visibile diventa rosso dopo la modifica del tema. Se sostituisci il colore di schema con un colore diretto sulla forma, le modifiche successive a `Accent4` non influenzeranno più quel riempimento.
 
-### **Utilizzare i Colori dalla Tavolozza Aggiuntiva**
+### **Usa i colori della tavolozza aggiuntiva**
 
-PowerPoint deriva varianti più chiare e più scure da un colore del tema applicando trasformazioni colore. Aspose.Slides espone queste trasformazioni tramite l'enumerazione [ColorTransformOperation](https://reference.aspose.com/slides/it/php-java/aspose.slides/colortransformoperation/).
+PowerPoint deriva varianti più chiare e più scure da un colore del tema applicando trasformazioni di colore. Aspose.Slides espone queste trasformazioni tramite l'enumerazione [ColorTransformOperation](https://reference.aspose.com/slides/it/php-java/aspose.slides/colortransformoperation/).
 
 ![Colori principali del tema e colori più chiari e più scuri generati dalla tavolozza aggiuntiva](additional-palette-colors.png)
 
-**1** – Colori principali del tema.  
-**2** – Varianti più chiare e più scure prodotte dai colori principali del tema.
+**1** - Colori principali del tema.
 
-Il seguente esempio crea sei rettangoli basati su `Accent4`, applica trasformazioni di luminanza a cinque di essi e salva il risultato:
+**2** - Varianti più chiare e più scure prodotte dai colori principali del tema.
+
+L'esempio seguente crea sei rettangoli basati su `Accent4`, applica trasformazioni di luminanza a cinque di essi e salva il risultato:
 
 ```php
 use aspose\slides\ColorTransformOperation;
@@ -159,9 +162,9 @@ try {
 }
 ```
 
-Queste varianti rimangono basate sul colore del tema. Se `Accent4` cambia in seguito, i colori trasformati vengono ricalcolati dal nuovo valore `Accent4`.
+Queste varianti rimangono basate sul colore del tema. Se `Accent4` cambia in seguito, i colori trasformati vengono ricalcolati dal nuovo valore di `Accent4`.
 
-### **Mappare i Valori `SchemeColor` agli Slot `ColorScheme`**
+### **Mappa i valori `SchemeColor` agli slot `ColorScheme`**
 
 L'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/php-java/aspose.slides/schemecolor/) utilizza `Text1`, `Background1`, `Text2` e `Background2`, mentre lo [ColorScheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/colorscheme/) espone gli stessi slot del tema come `Dark1`, `Light1`, `Dark2` e `Light2`. La mappatura è fissa:
 
@@ -170,20 +173,20 @@ L'enumerazione [SchemeColor](https://reference.aspose.com/slides/it/php-java/asp
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Questi sono nomi alternativi per gli stessi slot del tema; non sono valori convertiti dinamicamente da una forma all’altra.
+Si tratta di nomi alternativi per gli stessi slot del tema; non sono valori convertiti dinamicamente da una forma all'altra.
 
-## **Modificare i Caratteri del Tema**
+## **Modifica i caratteri del tema**
 
-Uno schema di caratteri del tema contiene un set di caratteri principale per le intestazioni e un set di caratteri secondario per il corpo del testo. I metodi [FontScheme.getMajor](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontscheme/) e [FontScheme.getMinor](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontscheme/) espongono quei set.
+Uno schema di caratteri del tema contiene un set di caratteri principale per le intestazioni e un set secondario per il corpo del testo. I metodi [FontScheme.getMajor](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontscheme/) e [FontScheme.getMinor](https://reference.aspose.com/slides/it/php-java/aspose.slides/fontscheme/) espongono questi set.
 
 Gli identificatori di caratteri del tema compatibili con PowerPoint possono essere usati nella formattazione del testo:
 
-* `+mn-lt` – Carattere corpo Latino (Minor Latin Font)
-* `+mj-lt` – Carattere intestazione Latino (Major Latin Font)
-* `+mn-ea` – Carattere corpo Est‑asiatico (Minor East Asian Font)
-* `+mj-ea` – Carattere intestazione Est‑asiatico (Major East Asian Font)
+* `+mn-lt` - Carattere corpo Latin (Minor Latin Font)
+* `+mj-lt` - Carattere intestazione Latin (Major Latin Font)
+* `+mn-ea` - Carattere corpo East Asian (Minor East Asian Font)
+* `+mj-ea` - Carattere intestazione East Asian (Major East Asian Font)
 
-Il seguente esempio crea un’intestazione che utilizza il carattere latino principale del tema e una riga di corpo che utilizza il carattere latino secondario del tema. Quindi cambia i caratteri del tema e salva il risultato:
+L'esempio seguente crea un'intestazione che utilizza il carattere Latin principale del tema e una riga di corpo che utilizza il carattere Latin secondario del tema. Poi modifica i caratteri del tema e salva il risultato:
 
 ```php
 use aspose\slides\FontData;
@@ -211,21 +214,94 @@ try {
 }
 ```
 
-L’intestazione segue il carattere principale e il testo del corpo segue il carattere secondario. Il testo che ha un nome di carattere esplicito anziché un identificatore del tema non cambierà automaticamente quando lo schema di caratteri del tema viene modificato.
+L'intestazione segue il carattere principale e il testo del corpo segue quello secondario. Il testo che ha un nome di carattere esplicito invece di un identificatore del tema non cambierà automaticamente quando lo schema di caratteri del tema cambia.
 
-Le collezioni di caratteri principale e secondario possono anche contenere mappature di caratteri per sistemi di scrittura individuali, come cirillico, arabo, giapponese, georgiano e thaana. Per ispezionare, aggiungere, sostituire o rimuovere queste mappature, consulta [Caratteri del Tema Specifici per Script](/slides/it/php-java/script-specific-font-mappings/).
+Le collezioni di caratteri principale e secondario possono contenere anche mappature di caratteri per sistemi di scrittura individuali, come cirillico, arabo, giapponese, georgiano e thaana. Per ispezionare, aggiungere, sostituire o rimuovere queste mappature, vedi [Script-Specific Theme Fonts](/slides/it/php-java/script-specific-font-mappings/).
 
-{{% alert color="info" title="Suggerimento" %}}
-Per ulteriori informazioni sui caratteri delle presentazioni, vedi [Caratteri PowerPoint](/slides/it/php-java/powerpoint-fonts/).
+{{% alert color="info" title="Tip" %}}
+Per ulteriori informazioni sui caratteri della presentazione, consulta [PowerPoint Fonts](/slides/it/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Copiare o Applicare un Tema**
+## **Copia o applica un tema**
 
-Esistono due flussi di lavoro comuni, e risolvono problemi differenti.
+I flussi di lavoro seguenti risolvono diversi problemi legati al tema.
 
-### **Conservare un Tema di Origine durante lo Spostamento delle Diapositive**
+### **Applica un tema esterno alle diapositive dipendenti da un master**
 
-Se desideri spostare una diapositiva in un'altra presentazione e conservarne il design originale, clona il master di origine nella presentazione di destinazione con [MasterSlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslidecollection/), quindi clona la diapositiva con [SlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidecollection/) e il master clonato. Questo trasferisce il master, i suoi layout e il tema associato insieme.
+Usa [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/) quando hai un file tema di PowerPoint (`.thmx`) e vuoi ridisegnare ogni diapositiva che dipende da un master specifico. Seleziona il master dalla collezione [Presentation::getMasters](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/), rappresentata da [MasterSlideCollection](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslidecollection/), e passa il percorso del file tema al metodo.
+
+Il metodo esegue le seguenti operazioni:
+
+1. Crea una nuova diapositiva master basata sul master selezionato.  
+1. Applica il tema esterno al nuovo master.  
+1. Assegna il nuovo master a tutte le diapositive che in precedenza dipendevano dal master selezionato.  
+1. Restituisce il nuovo [MasterSlide](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/).
+
+L'esempio seguente applica un tema esterno alle diapositive che dipendono dal primo master e salva la presentazione:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $selectedMaster = $presentation->getMasters()->get_Item(0);
+    $themedMaster = $selectedMaster->applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    echo "Created master: " . java_values($themedMaster->getName()) . PHP_EOL;
+    $presentation->save("presentation-with-external-theme.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Un tema non valido, corrotto o non supportato può generare [PptxReadException](https://reference.aspose.com/slides/it/php-java/aspose.slides/pptxreadexception/). Convalida i percorsi forniti dagli utenti, gestisci i fallimenti di accesso al file system e salva la presentazione solo dopo che il tema è stato applicato correttamente.
+
+Solo le diapositive che dipendevano dal master selezionato vengono riassegnate. Le diapositive associate ad altri master mantengono i loro master e temi esistenti. I colori, i caratteri, i riempimenti, le linee, gli sfondi e gli effetti sensibili al tema sono risolti rispetto al tema esterno. I colori, i caratteri, i riempimenti e altre formattazioni assegnate direttamente possono rimanere invariati. Le sovrascritture a livello di layout e di diapositiva possono anche avere precedenza sui valori ereditati dal nuovo master.
+
+Il tema può fare riferimento a caratteri non disponibili nell'ambiente di runtime. Per una resa e un'esportazione coerenti, installa i caratteri richiesti, fornisci loro font personalizzati [/slides/it/php-java/custom-font/], o configura la [sostituzione dei caratteri](/slides/it/php-java/font-substitution/).
+
+Questo è un flusso di lavoro a livello di master: il metodo accetta un percorso a un file `.thmx` e non richiede la creazione manuale di sovrascritture di tema a livello di layout o diapositiva.
+
+### **Applica temi esterni diversi in una presentazione con più master**
+
+Quando il master rilevante non è noto in anticipo, ottienilo da una diapositiva rappresentativa tramite [Slide::getLayoutSlide](https://reference.aspose.com/slides/it/php-java/aspose.slides/slide/) e [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslide/). Conserva i riferimenti ai master originali prima di applicare temi, perché ogni chiamata crea un nuovo master nella presentazione.
+
+L'esempio seguente usa diapositive di due sezioni per individuare i loro master e applica un tema esterno diverso a ciascun gruppo:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) < 5) {
+        echo "The presentation does not contain the expected representative slides." . PHP_EOL;
+    } else {
+        $firstGroupMaster = $presentation->getSlides()->get_Item(0)->getLayoutSlide()->getMasterSlide();
+        $secondGroupMaster = $presentation->getSlides()->get_Item(4)->getLayoutSlide()->getMasterSlide();
+
+        if (java_values($firstGroupMaster->getSlideId()) === java_values($secondGroupMaster->getSlideId())) {
+            echo "The representative slides use the same master." . PHP_EOL;
+        } else {
+            $firstThemedMaster = $firstGroupMaster->applyExternalThemeToDependingSlides("blue-theme.thmx");
+            $secondThemedMaster = $secondGroupMaster->applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            echo "First themed master: " . java_values($firstThemedMaster->getName()) . PHP_EOL;
+            echo "Second themed master: " . java_values($secondThemedMaster->getName()) . PHP_EOL;
+            $presentation->save("multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+La prima chiamata influisce solo sulle diapositive che dipendevano da `$firstGroupMaster`, e la seconda chiamata influisce solo su quelle che dipendevano da `$secondGroupMaster`. Le diapositive appartenenti a qualsiasi altro master non vengono ridisegnate.
+
+### **Preserva un tema sorgente quando sposti le diapositive**
+
+Se desideri spostare una diapositiva in un'altra presentazione e mantenere il suo design originale, clona il master sorgente nella presentazione di destinazione con [MasterSlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslidecollection/), quindi clona la diapositiva con [SlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidecollection/) e il master clonato. Questo trasporta insieme il master, i suoi layout e il tema associato.
 
 ```php
 use aspose\slides\Presentation;
@@ -248,11 +324,11 @@ try {
 }
 ```
 
-Questo è il flusso di lavoro preferito quando la diapositiva di origine deve apparire identica nella destinazione. Clonare semplicemente il contenuto su un master di destinazione non correlato può modificare colori, caratteri, sfondi ed effetti guidati dal tema.
+È il flusso di lavoro consigliato quando la diapositiva sorgente deve apparire identica nella destinazione. Clonare semplicemente il contenuto su un master di destinazione non correlato può modificare colori, caratteri, sfondi ed effetti guidati dal tema.
 
-### **Applicare i Valori del Tema a una Diapositiva Esistente**
+### **Applica valori di tema a una diapositiva esistente**
 
-Se la diapositiva di destinazione deve rimanere sul master e layout attuali, inizializza una sovrascrittura a livello di diapositiva dal tema di origine. I metodi [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/) e [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/) copiano i tre componenti principali del tema nella sovrascrittura.
+Se la diapositiva di destinazione deve rimanere sul suo master e layout attuali, inizializza una sovrascrittura a livello di diapositiva dal tema sorgente. I metodi [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/) e [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/) copiano i tre componenti principali del tema nella sovrascrittura.
 
 ```php
 use aspose\slides\Presentation;
@@ -276,11 +352,11 @@ try {
 }
 ```
 
-Questo cambia il tema usato da quella diapositiva senza alterare il tema ereditato dalle altre diapositive. Per rimuovere la sovrascrittura locale e tornare ai valori ereditati, chiama [OverrideTheme.clear](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/).
+Questo modifica il tema usato da quella diapositiva senza alterare il tema ereditato dalle altre diapositive. Per rimuovere la sovrascrittura locale e tornare ai valori ereditati, chiama [OverrideTheme.clear](https://reference.aspose.com/slides/it/php-java/aspose.slides/overridetheme/).
 
-### **Applicare una Sovrascrittura del Tema a un Layout**
+### **Applica una sovrascrittura di tema a un layout**
 
-Una sovrascrittura a livello di layout si applica alle diapositive che usano quel layout, a meno che una diapositiva specifica non abbia una sua sovrascrittura. Gli stessi metodi di inizializzazione possono essere usati tramite il [LayoutSlideThemeManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslidethememanager/):
+Una sovrascrittura a livello di layout si applica alle diapositive che usano quel layout, a meno che una diapositiva specifica non abbia la propria sovrascrittura. Gli stessi metodi di inizializzazione possono essere usati tramite [LayoutSlideThemeManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -304,17 +380,17 @@ try {
 }
 ```
 
-Usa un tema a livello di master o di presentazione quando molti layout e diapositive devono condividere lo stesso design di base, una sovrascrittura di layout quando una famiglia di layout necessita di uno styling diverso, e una sovrascrittura di diapositiva solo per eccezioni reali. Sovrascritture eccessive a livello di diapositiva rendono più difficile prevedere i cambiamenti globali del tema in seguito.
+Usa un tema a livello di master o presentazione quando molti layout e diapositive devono condividere lo stesso design di base, una sovrascrittura di layout quando una famiglia di layout necessita di uno stile diverso, e una sovrascrittura di diapositiva solo per eccezioni reali. Un uso eccessivo di sovrascritture a livello di diapositiva rende più difficile prevedere i cambiamenti globali del tema.
 
-## **Aggiornare gli Stili di Sfondo del Tema**
+## **Aggiorna gli stili di sfondo del tema**
 
-I riempimenti di sfondo del tema sono memorizzati in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/). PowerPoint può presentare più scelte di sfondo nella sua interfaccia rispetto al numero di definizioni di riempimento effettivamente memorizzate in questa collezione, perché l’interfaccia può combinare riempimenti del tema con colori del tema e altri riferimenti di stile.
+I riempimenti di sfondo del tema sono memorizzati in [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/). PowerPoint può presentare più scelte di sfondo nella sua UI rispetto al numero di definizioni di riempimento fisicamente memorizzate in questa collezione, perché la UI può combinare riempimenti di tema con colori di tema e altri riferimenti di stile.
 
 ![Galleria di stili di sfondo di PowerPoint per un tema di presentazione](presentation-design_8.png)
 
-Prima di usare uno stile di sfondo, ispeziona la collezione memorizzata e l’attuale [Background.getStyleIndex](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/). Un indice di stile pari a `0` indica nessun riempimento tematico; i valori positivi sono riferimenti a stili di sfondo tematici. Questo è diverso dall’indicizzazione diretta della collezione PHP, dove `get_Item(0)` indica il primo elemento memorizzato. Non presumere che ogni presentazione contenga lo stesso numero di stili di riempimento di sfondo.
+Prima di usare uno stile di sfondo, ispeziona la collezione memorizzata e l'indice di stile corrente tramite [Background.getStyleIndex](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/). Un indice di stile pari a `0` indica nessun riempimento tematico; i valori positivi sono riferimenti a stili di sfondo tematici. Questo è diverso dall'indicizzazione diretta della collezione PHP, dove `get_Item(0)` indica il primo elemento memorizzato. Non assumere che ogni presentazione contenga lo stesso numero di stili di riempimento di sfondo.
 
-Il seguente esempio riporta il conteggio dei riempimenti di sfondo disponibili, assegna un riferimento di sfondo tematico al primo master e salva la presentazione:
+L'esempio seguente segnala il conteggio dei riempimenti di sfondo disponibili, assegna un riferimento di sfondo tematico al primo master e salva la presentazione:
 
 ```php
 use aspose\slides\BackgroundType;
@@ -338,25 +414,25 @@ try {
 }
 ```
 
-Il risultato visibile dipende dalla voce del tema a cui il master fa riferimento e da eventuali sovrascritture di sfondo a livello di layout o diapositiva. Se una diapositiva utilizza un proprio sfondo, modificare solo lo sfondo del master potrebbe non influenzare quella diapositiva. Usa [Background.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/) quando devi conoscere lo sfondo finale dopo l’applicazione dell’eredità.
+Il risultato visibile dipende dall'entrata del tema a cui fa riferimento il master e da eventuali sovrascritture di sfondo a livello di layout o diapositiva. Se una diapositiva utilizza il proprio sfondo, modificare solo lo sfondo del master potrebbe non influenzare quella diapositiva. Usa [Background.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/) quando hai bisogno di conoscere lo sfondo finale dopo l'applicazione dell'ereditarietà.
 
-{{% alert color="warning" title="Attenzione" %}}
-Non trattare l’indice di stile come un indice di collezione a base zero. Evita inoltre di codificare in modo rigido un numero di stile da un file e presumere che abbia lo stesso aspetto in un altro file; le definizioni di stile del tema sono specifiche della presentazione.
+{{% alert color="warning" title="Warning" %}}
+Non trattare l'indice di stile come un indice di collezione a base zero. Inoltre evita di codificare in modo rigido un numero di stile da un file e presumere che abbia lo stesso aspetto in un altro file; le definizioni di stile del tema sono specifiche della presentazione.
 {{% /alert %}}
 
-{{% alert color="info" title="Suggerimento" %}}
-Per la formattazione diretta dello sfondo e l’eredità dello sfondo, vedi [Sfondo della Presentazione](/slides/it/php-java/presentation-background/).
+{{% alert color="info" title="Tip" %}}
+Per la formattazione diretta dello sfondo e l'ereditarietà dello sfondo, vedi [Presentation Background](/slides/it/php-java/presentation-background/).
 {{% /alert %}}
 
-## **Aggiornare gli Effetti del Tema**
+## **Aggiorna gli effetti del tema**
 
-Uno schema di formati del tema contiene collezioni separate di style di riempimento, linea ed effetto esposte tramite [FormatScheme.getFillStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/), e [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/). I temi tipici di Office spesso contengono tre voci di stile principali che corrispondono visualmente a formattazioni sottili, moderate e intense, ma il codice dovrebbe ispezionare ogni collezione invece di presumere un conteggio fisso.
+Uno schema di formattazione del tema contiene collezioni separate di riempimento, linea ed effetti esposte tramite [FormatScheme.getFillStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/) e [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/it/php-java/aspose.slides/formatscheme/). I temi tipici di Office spesso contengono tre voci di stile principali che corrispondono visivamente a formattazioni subdole, moderate e intense, ma il codice dovrebbe ispezionare ogni collezione invece di assumere un conteggio fisso.
 
-![Effetti del tema sottili, moderati e intensi applicati alla stessa figura](presentation-design_10.png)
+![Effetti tematici subdoli, moderati e intensi applicati alla stessa forma](presentation-design_10.png)
 
-Quando accedi a queste collezioni in PHP, l’indice della collezione è a base zero: `get_Item(0)` è il primo stile memorizzato e `get_Item(2)` è il terzo. Gli indici di riferimento di stile di una forma sono un concetto separato, esposti tramite [ShapeStyle](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapestyle/). Modificare uno stile del tema influisce sulle forme che fanno riferimento a quello stile; le forme con formattazione diretta possono rimanere inalterate.
+Quando accedi a queste collezioni in PHP, l'indice della collezione è a base zero: `get_Item(0)` è il primo stile memorizzato e `get_Item(2)` è il terzo. Gli indici di riferimento di stile di una forma sono un concetto separato, esposto tramite [ShapeStyle](https://reference.aspose.com/slides/it/php-java/aspose.slides/shapestyle/). Modificare uno stile del tema influisce sulle forme che fanno riferimento a quello stile; le forme con formattazione diretta possono rimanere invariate.
 
-Il seguente esempio verifica che le voci di stile richieste esistano, cambia il primo stile di linea, cambia il terzo stile di riempimento, abilita un’ombra esterna nel terzo stile di effetto e salva il risultato:
+L'esempio seguente verifica che le voci di stile richieste esistano, modifica il primo stile di linea, modifica il terzo stile di riempimento, abilita un'ombra esterna nel terzo stile di effetto e salva il risultato:
 
 ```php
 use aspose\slides\FillType;
@@ -383,13 +459,15 @@ try {
 }
 ```
 
-Per le forme che fanno riferimento a questi slot, il primo stile di linea del tema diventa rosso, il terzo stile di riempimento del tema diventa verde foresta solido, e il terzo stile di effetto ottiene un’ombra esterna con una distanza di 10 punti. Il risultato visivo esatto dipende ancora da quali slot di stile ogni forma fa riferimento e se la formattazione diretta sovrascrive il tema.
+Per le forme che fanno riferimento a questi slot, il primo stile di linea del tema diventa rosso, il terzo stile di riempimento del tema diventa verde foresta solido e il terzo stile di effetto ottiene un'ombra esterna con distanza di 10 punti. Il risultato visivo esatto dipende comunque da quali slot di stile ogni forma fa riferimento e se la formattazione diretta sovrascrive il tema.
 
-## **Leggere i Valori Efficaci del Tema**
+![Stili di effetto del tema dopo la modifica di linea, riempimento e ombra](presentation-design_11.png)
 
-Gli oggetti tema grezzi indicano ciò che è definito a un livello specifico. I valori efficaci indicano ciò che una diapositiva o una forma utilizza realmente dopo che ereditarietà e sovrascritture locali sono state risolte. Per una diapositiva, chiama [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseoverridethememanager/). Per uno sfondo, usa [Background.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/), e per un riempimento, usa [FillFormat.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/fillformat/).
+## **Leggi i valori effettivi del tema**
 
-Il seguente esempio legge il tema efficace, lo sfondo e il primo riempimento della forma da una diapositiva:
+Gli oggetti tema grezzi indicano cosa è definito a un determinato livello. I valori effettivi indicano cosa una diapositiva o una forma utilizza realmente dopo che ereditarietà e sovrascritture locali sono state risolte. Per una diapositiva, chiama [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseoverridethememanager/). Per uno sfondo, usa [Background.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/), e per un riempimento, usa [FillFormat.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/fillformat/).
+
+L'esempio seguente legge il tema effettivo, lo sfondo e il riempimento della prima forma da una diapositiva:
 
 ```php
 use aspose\slides\FillType;
@@ -416,18 +494,22 @@ try {
 }
 ```
 
-Usa i dati efficaci per diagnostica di rendering, validazione e confronti. Se ispezioni solo [Presentation.getMasterTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/), potresti perdere un master, layout, diapositiva o sovrascrittura di forma che cambia l’aspetto finale.
+Usa i dati effettivi per diagnosi di rendering, convalida e confronti. Se ispezioni solo [Presentation.getMasterTheme](https://reference.aspose.com/slides/it/php-java/aspose.slides/presentation/), potresti perdere una sovrascrizione di master, layout, diapositiva o forma che modifica l'aspetto finale.
 
 ## **FAQ**
 
-**Posso applicare un tema a una singola diapositiva senza modificare il master?**
+**L'applicazione di un tema esterno influisce su ogni diapositiva della presentazione?**
 
-Sì. Usa il [SlideThemeManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidethememanager/) della diapositiva e inizializza la sua sovrascrittura del tema. La modifica rimane locale a quella diapositiva; le altre diapositive continuano a ereditare i loro temi esistenti.
+No. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslide/) riassegna solo le diapositive che dipendono dal master selezionato. Le diapositive che usano altri master conservano i loro temi esistenti.
 
-**Qual è il modo più sicuro per trasferire un tema da una presentazione a un’altra?**
+**Posso applicare un tema a una singola diapositiva senza cambiare il master?**
 
-Quando sposti una diapositiva e conservi l’aspetto originale, clona il master di origine nella destinazione e clona la diapositiva con quel master usando [MasterSlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslidecollection/) e [SlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidecollection/). Questo mantiene insieme master, layout e tema.
+Sì. Usa il [SlideThemeManager](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidethememanager/) della diapositiva e inizializza il suo tema di sovrascrittura. La modifica rimane locale a quella diapositiva; le altre diapositive continuano a ereditare i loro temi attuali.
 
-**Come posso vedere i valori efficaci dopo l’eredità e le sovrascritture?**
+**Qual è il modo più sicuro per trasferire un tema da una presentazione all'altra?**
 
-Usa [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseoverridethememanager/) per un tema di diapositiva o layout e i metodi dati‑efficaci corrispondenti per gli oggetti di formato come [Background.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/) e [FillFormat.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/fillformat/). Queste API restituiscono i valori risolti dopo che ereditarietà e sovrascritture sono state applicate.
+Quando sposti una diapositiva e preservi il suo aspetto originale, clona il master sorgente nella destinazione e clona la diapositiva con quel master usando [MasterSlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/masterslidecollection/) e [SlideCollection.addClone](https://reference.aspose.com/slides/it/php-java/aspose.slides/slidecollection/). Questo mantiene insieme master, layout e tema.
+
+**Come posso vedere i valori effettivi dopo ereditarietà e sovrascritture?**
+
+Usa [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/baseoverridethememanager/) per una diapositiva o un tema di layout e i metodi corrispondenti di dati effettivi per oggetti di formato, come [Background.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/background/) e [FillFormat.getEffective](https://reference.aspose.com/slides/it/php-java/aspose.slides/fillformat/). Queste API restituiscono i valori risolti dopo l'applicazione di ereditarietà e sovrascritture.

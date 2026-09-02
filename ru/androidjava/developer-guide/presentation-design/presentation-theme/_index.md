@@ -10,7 +10,9 @@ keywords:
 - Тема слайда
 - Установить тему
 - Изменить тему
-- Управление темой
+- Управлять темой
+- Внешняя тема
+- THMX
 - Цвет темы
 - Дополнительная палитра
 - Шрифт темы
@@ -22,23 +24,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Основные темы презентаций в Aspose.Slides для Android на Java для создания, настройки и конвертации файлов PowerPoint с единообразным брендингом."
+description: "Управляйте темами презентаций в Aspose.Slides для Android на Java, создавайте, настраивайте и конвертируйте файлы PowerPoint с единым брендингом."
 ---
 ## **Введение**
 
-Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, поддерживающие тему, ссылаются на эти общие определения вместо того, чтобы хранить каждое визуальное свойство как фиксированное значение, поэтому изменение темы может обновить множество объектов одновременно.
+Тема презентации определяет согласованный набор цветов, шрифтов, стилей фона, заливок, линий и эффектов. Объекты, поддерживающие тему, ссылаются на эти общие определения, а не хранят каждое визуальное свойство как фиксированное значение, поэтому изменение темы может обновить многие объекты одновременно.
 
-В Aspose.Slides тема уровня презентации доступна через [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/). Презентация также может содержать переопределения темы на более низких уровнях. Мастер может переопределять тему презентации через [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/masterthememanager/), в то время как макет или отдельный слайд могут переопределять наследованную тему через [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseoverridethememanager/). На практике эффективная тема для слайда определяется по следующей цепочке наследования: тема презентации, переопределение мастера, переопределение макета и переопределение слайда.
+В Aspose.Slides тема уровня презентации доступна через [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/). Презентация также может содержать переопределения темы на более низких уровнях. Master может переопределять тему презентации через [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/masterthememanager/), а layout или отдельный слайд могут переопределять унаследованную тему через [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseoverridethememanager/). На практике эффективная тема слайда определяется через эту цепочку наследования: тема презентации, переопределение мастера, переопределение layout и переопределение слайда.
 
-![Компоненты темы: цвета, шрифты, стили фона и эффекты](theme-constituents.png)
+![Элементы темы: цвета, шрифты, стили фона и эффекты](theme-constituents.png)
 
-Ниже показаны наиболее распространённые сценарии работы с темой: просмотр темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после разрешения наследования и переопределений.
+Ниже показаны самые распространённые варианты работы с темой: проверка темы, изменение цветов и шрифтов, копирование или применение темы, обновление стилей фона и эффектов, а также чтение эффективных значений после разрешения наследования и переопределений.
 
 ## **Проверка темы**
 
-Объект [MasterTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/) предоставляет доступ к схемам цветов, шрифтов и форматов темы через [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/) и [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/). Проверка этих коллекций перед их изменением особенно полезна, когда презентация поступает из внешнего источника, поскольку количество и содержание записей стилей могут различаться.
+Объект [MasterTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/) предоставляет доступ к цветовой схеме темы, схемe шрифтов и схеме формата через [MasterTheme.getColorScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/) и [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/mastertheme/). Проверка этих коллекций перед их изменением особенно полезна, когда презентация поступает из внешнего источника, поскольку количество и содержание элементов стилей могут различаться.
 
-Следующий пример считывает основные свойства темы и выводит количество стилей фона, заливки, линий и эффектов, хранящихся в теме:
+Следующий пример считывает основные свойства темы и сообщает, сколько стилей фона, заливки, линий и эффектов хранится в теме:
 
 ```java
 import com.aspose.slides.*;
@@ -61,11 +63,11 @@ try {
 }
 ```
 
-Если файл использует несколько мастеров, не предполагаете, что каждый слайд имеет одну и ту же эффективную тему. Проверьте мастер, связанный с слайдом, и используйте рабочий процесс с эффективной темой, показанный позже в этой статье, когда могут присутствовать переопределения макета или слайда.
+Если файл использует несколько мастеров, не следует полагать, что каждый слайд имеет одну и ту же эффективную тему. Проверьте мастер, связанный со слайдом, и используйте workflow эффективной темы, показанный позже в этой статье, когда могут присутствовать переопределения layout или слайда.
 
 ## **Изменение цветов темы**
 
-Заполнения, линии и текст, поддерживающие тему, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/schemecolor/). При изменении соответствующей записи в [IColorScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icolorscheme/) все объекты, продолжающие ссылаться на этот цвет темы, будут разрешены к новому значению. Объекты, использующие прямой RGB‑цвет, не изменятся при обновлении цвета темы.
+Заполняющие элементы, линии и текст, поддерживающие тему, могут ссылаться на логический цвет из перечисления [SchemeColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/schemecolor/). Когда вы изменяете соответствующий элемент в [IColorScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icolorscheme/), все объекты, которые всё ещё ссылаются на этот цвет темы, получают новое значение. Объекты, использующие прямой RGB‑цвет, не меняются при обновлении цвета темы.
 
 Следующий сквозной пример создаёт фигуру, использующую `Accent4`, меняет цвет `Accent4` темы на красный, сохраняет презентацию, открывает её снова и выводит эффективный цвет заливки:
 
@@ -97,18 +99,18 @@ try {
 }
 ```
 
-Поскольку прямоугольник остаётся связанным с `Accent4`, его видимый цвет становится красным после изменения темы. Если заменить цвет схемы на прямой цвет в фигуре, последующие изменения `Accent4` более не будут влиять на эту заливку.
+Поскольку прямоугольник остаётся связанным с `Accent4`, его видимый цвет станет красным после изменения темы. Если заменить цвет схемы на прямой цвет фигуры, последующие изменения `Accent4` уже не будут влиять на эту заливку.
 
 ### **Использование цветов из дополнительной палитры**
 
-PowerPoint получает более светлые и более тёмные варианты из цветовой схемы темы, применяя цветовые преобразования. Aspose.Slides открывает эти преобразования через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/colortransformoperation/).
+PowerPoint получает более светлые и более тёмные варианты из цвета темы, применяя трансформации цвета. Aspose.Slides предоставляет эти трансформации через перечисление [ColorTransformOperation](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/colortransformoperation/).
 
 ![Основные цвета темы и более светлые и более тёмные цвета, сгенерированные из дополнительной палитры](additional-palette-colors.png)
 
 **1** – Основные цвета темы.  
 **2** – Более светлые и более тёмные варианты, полученные из основных цветов темы.
 
-Следующий пример создаёт шесть прямоугольников на основе `Accent4`, применяет пять из них к преобразованиям яркости и сохраняет результат:
+Следующий пример создаёт шесть прямоугольников на основе `Accent4`, применяет к пяти из них трансформации яркости и сохраняет результат:
 
 ```java
 import com.aspose.slides.*;
@@ -155,31 +157,31 @@ try {
 }
 ```
 
-Эти варианты остаются основанными на цветовом элементе темы. Если `Accent4` изменится позже, преобразованные цвета будут пересчитаны из нового значения `Accent4`.
+Эти варианты остаются основанными на цветовом схеме темы. Если `Accent4` позже изменится, преобразованные цвета будут пересчитаны из нового значения `Accent4`.
 
 ### **Отображение значений `SchemeColor` в слоты `IColorScheme`**
 
-Перечисление [SchemeColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/schemecolor/) использует `Text1`, `Background1`, `Text2` и `Background2`, тогда как [IColorScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icolorscheme/) открывает те же слоты темы как `Dark1`, `Light1`, `Dark2` и `Light2`. Соответствие фиксировано:
+Перечисление [SchemeColor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/schemecolor/) использует `Text1`, `Background1`, `Text2` и `Background2`, тогда как [IColorScheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/icolorscheme/) раскрывает те же слоты темы как `Dark1`, `Light1`, `Dark2` и `Light2`. Сопоставление фиксировано:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Это альтернативные названия одних и тех же слотов темы; они не являются значениями, динамически преобразуемыми из одной формы в другую.
+Это альтернативные названия одних и тех же слотов темы; они не являются значениями, которые динамически преобразуются из одной формы в другую.
 
 ## **Изменение шрифтов темы**
 
-Схема шрифтов темы содержит основной набор шрифтов для заголовков и вспомогательный набор для основного текста. Методы [IFontScheme.getMajor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontscheme/) и [IFontScheme.getMinor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontscheme/) предоставляют доступ к этим наборам.
+Схема шрифтов темы содержит набор основных шрифтов для заголовков и набор вспомогательных шрифтов для основного текста. Методы [IFontScheme.getMajor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontscheme/) и [IFontScheme.getMinor](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ifontscheme/) предоставляют доступ к этим наборам.
 
-Идентификаторы шрифтов темы, совместимые с PowerPoint, могут использоваться в форматировании текста:
+Идентификаторы шрифтов темы, совместимые с PowerPoint, можно использовать в форматировании текста:
 
-* `+mn‑lt` – Основной шрифт латиницы (Minor Latin Font)
-* `+mj‑lt` – Шрифт заголовка латиницы (Major Latin Font)
-* `+mn‑ea` – Основной шрифт восточно‑азиатских языков (Minor East Asian Font)
-* `+mj‑ea` – Шрифт заголовка восточно‑азиатских языков (Major East Asian Font)
+* `+mn-lt` – Основной шрифт латиницы (Minor Latin Font)
+* `+mj-lt` – Шрифт заголовков латиницы (Major Latin Font)
+* `+mn-ea` – Основной шрифт восточноазиатского текста (Minor East Asian Font)
+* `+mj-ea` – Шрифт заголовков восточноазиатского текста (Major East Asian Font)
 
-Следующий пример создаёт один заголовок, использующий основной латинский шрифт темы, и одну строку основного текста, использующую вспомогательный латинский шрифт темы. Затем он изменяет шрифты темы и сохраняет результат:
+Следующий пример создаёт один заголовок, использующий основной латинский шрифт темы, и одну строку основного текста, использующую вспомогательный латинский шрифт темы. Затем изменяет шрифты темы и сохраняет результат:
 
 ```java
 import com.aspose.slides.*;
@@ -204,21 +206,92 @@ try {
 }
 ```
 
-Заголовок следует за основным шрифтом, а основной текст — за вспомогательным шрифтом. Текст, у которого указано явное имя шрифта вместо идентификатора темы, не будет автоматически переключаться при изменении схемы шрифтов темы.
+Заголовок следует основному шрифту, а основной текст – вспомогательному. Текст, у которого явно указано имя шрифта вместо идентификатора темы, не переключится автоматически при изменении схемы шрифтов темы.
 
-Основные и вспомогательные наборы шрифтов могут также содержать сопоставления шрифтов для отдельных систем письма, таких как кириллица, арабский, японский, грузинский и таана. Чтобы просмотреть, добавить, заменить или удалить эти сопоставления, см. [Script‑Specific Theme Fonts](/slides/ru/androidjava/script-specific-font-mappings/).
+Основные и вспомогательные коллекции шрифтов также могут содержать сопоставления шрифтов для отдельных систем письма, таких как кириллица, арабский, японский, грузинский и таана. Чтобы просмотреть, добавить, заменить или удалить эти сопоставления, см. [Script-Specific Theme Fonts](/slides/ru/androidjava/script-specific-font-mappings/).
 
-{{% alert color="info" title="Tip" %}}
+{{% alert color="info" title="Подсказка" %}}
 Для получения дополнительной информации о шрифтах презентаций см. [PowerPoint Fonts](/slides/ru/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Копирование или применение темы**
 
-Существует два распространённых сценария, и они решают разные задачи.
+Ниже приведены варианты решения разных проблем, связанных с темами.
 
-### **Сохранение исходной темы при перемещении слайдов**
+### **Применить внешнюю тему к слайдам, зависящим от мастера**
 
-Если нужно переместить слайд в другую презентацию и сохранить его оригинальный дизайн, склонируйте исходный мастер в целевую презентацию с помощью [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/), затем склонируйте слайд с помощью [ISlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidecollection/) и склонированного мастера. Это переносит мастер, его макеты и связанную тему вместе.
+Используйте [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/) когда у вас есть файл темы PowerPoint (`.thmx`) и нужно изменить стиль всех слайдов, зависящих от конкретного мастера. Выберите мастер из коллекции [Presentation.getMasters](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/), реализующей [IMasterSlideCollection](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/), и передайте путь к файлу темы в метод.
+
+Метод выполняет следующие операции:
+
+1. Создаёт новый слайд‑мастер на основе выбранного мастера.  
+1. Применяет внешнюю тему к новому мастеру.  
+1. Назначает новый мастер всем слайдам, которые ранее зависели от выбранного мастера.  
+1. Возвращает только что созданный [IMasterSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/).
+
+Следующий пример применяет внешнюю тему к слайдам, зависящим от первого мастера, и сохраняет презентацию:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Недопустимая, повреждённая или неподдерживаемая тема может вызвать [PptxReadException](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/pptxreadexception/). Проверяйте пути, вводимые пользователями, обрабатывайте ошибки доступа к файловой системе и сохраняйте презентацию только после успешного применения темы.
+
+Переименовываются только слайды, зависившие от выбранного мастера. Слайды, связанные с другими мастерами, сохраняют свои текущие мастеры и темы. Цвета, шрифты, заливки, линии, фоны и эффекты, которые зависят от темы, разрешаются в соответствии с внешней темой. Прямо назначенные цвета, шрифты, заливки и другие явные форматы могут остаться без изменений. Переопределения на уровне layout и слайда также могут иметь приоритет над значениями, унаследованными от нового мастера.
+
+Тема может ссылаться на шрифты, недоступные в среде выполнения. Для корректного рендеринга и экспорта установите необходимые шрифты, предоставьте их через [custom font sources](/slides/ru/androidjava/custom-font/), либо настройте [font substitution](/slides/ru/androidjava/font-substitution/).
+
+Это прямой workflow уровня мастера: метод принимает путь к файлу `.thmx` и не требует ручного создания переопределений темы на уровне слайда или layout.
+
+### **Применить разные внешние темы в презентации с несколькими мастерами**
+
+Если нужный мастер неизвестен заранее, получите его из репрезентативного слайда через [ISlide.getLayoutSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islide/) и [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ilayoutslide/). Сохраните ссылки на оригинальные мастера перед применением тем, потому что каждый вызов создаёт новый мастер в презентации.
+
+Следующий пример использует слайды из двух секций, определяет их мастера и применяет различную внешнюю тему к каждой группе:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Первый вызов влияет только на слайды, зависящие от `firstGroupMaster`, а второй – только на слайды, зависящие от `secondGroupMaster`. Слайды, принадлежащие другим мастерам, не переоформляются.
+
+### **Сохранить исходную тему при перемещении слайдов**
+
+Если нужно переместить слайд в другую презентацию, сохранив его оригинальный дизайн, клонируйте исходный мастер в целевую презентацию с помощью [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/), затем клонируйте слайд с помощью [ISlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidecollection/) и клонированного мастера. Это перенесёт мастер, его layout‑ы и связанную тему вместе.
 
 ```java
 import com.aspose.slides.*;
@@ -240,11 +313,11 @@ try {
 }
 ```
 
-Это предпочтительный рабочий процесс, когда необходимо, чтобы исходный слайд выглядел одинаково в месте назначения. Простое копирование содержимого на несвязанного мастера получателя может изменить цвета, шрифты, фоны и эффекты, управляемые темой.
+Это предпочтительный workflow, когда исходный слайд должен выглядеть одинаково в целевом файле. Простое клонирование содержимого на несвязанный мастер получателя может изменить цвета, шрифты, фоны и эффекты, задаваемые темой.
 
-### **Применение значений темы к существующему слайду**
+### **Применить значения темы к существующему слайду**
 
-Если целевой слайд должен оставаться на текущем мастере и макете, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/) и [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/) копируют три основных компонента темы в переопределение.
+Если целевой слайд должен оставаться на текущем мастере и layout, инициализируйте переопределение уровня слайда из исходной темы. Методы [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/) и [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/) копируют три основных компонента темы в переопределение.
 
 ```java
 import com.aspose.slides.*;
@@ -267,11 +340,11 @@ try {
 }
 ```
 
-Это изменяет тему, используемую этим слайдом, без изменения темы, наследуемой другими слайдами. Чтобы удалить локальное переопределение и вернуться к наследуемым значениям, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/).
+Это меняет тему, используемую этим слайдом, без изменения темы, унаследованной другими слайдами. Чтобы удалить локальное переопределение и вернуться к унаследованным значениям, вызовите [OverrideTheme.clear](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/overridetheme/).
 
-### **Применение переопределения темы к макету**
+### **Применить переопределение темы к layout**
 
-Переопределение уровня макета применяется к слайдам, использующим этот макет, если только конкретный слайд не имеет собственного переопределения. Те же методы инициализации могут использоваться через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/layoutslidethememanager/):
+Переопределение уровня layout применяется к слайдам, использующим этот layout, если только у конкретного слайда нет собственного переопределения. Те же методы инициализации можно использовать через [LayoutSlideThemeManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -295,17 +368,17 @@ try {
 }
 ```
 
-Используйте тему уровня мастера или презентации, когда многие макеты и слайды должны иметь общий базовый дизайн; переопределение макета — когда одной семейства макетов требуется иной стиль; и переопределение слайда — только для реальных исключений. Чрезмерное количество переопределений уровня слайда усложняет предсказание последствий глобальных изменений темы.
+Используйте тему мастера или презентации, когда многие layout‑ы и слайды должны делить один базовый дизайн; переопределение layout, когда одна семья layout‑ов нуждается в отдельном стиле; и переопределение слайда только для истинных исключений. Чрезмерные переопределения уровня слайда усложняют предсказуемость глобальных изменений темы.
 
 ## **Обновление стилей фона темы**
 
-Фоновые заливки темы хранятся в [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/). PowerPoint может предлагать в пользовательском интерфейсе больше вариантов фона, чем количество фактически хранимых определений заливок, поскольку UI может комбинировать заливки темы с цветовыми элементами темы и другими ссылками стилей.
+Заполнения фона темы хранятся в [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/). PowerPoint может предлагать больше вариантов фона в пользовательском интерфейсе, чем количество фактически сохранённых определений заливок в этой коллекции, потому что UI может комбинировать заливки темы с цветовыми схемами и другими ссылками стилей.
 
 ![Галерея стилей фона PowerPoint для темы презентации](presentation-design_8.png)
 
-Перед использованием фонового стиля проверьте хранимую коллекцию и текущий [Background.getStyleIndex](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/). Индекс стиля `0` означает отсутствие тематической заливки; положительные значения — ссылки на стили фона темы. Это отличается от индексации самой Java‑коллекции, где `get_Item(0)` обозначает первый сохранённый элемент. Не предполагаете, что каждая презентация содержит одинаковое число стилей фоновой заливки.
+Перед использованием стиля фона проверьте хранимую коллекцию и текущий [Background.getStyleIndex](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/). Индекс стиля `0` означает отсутствие тематической заливки; положительные значения – ссылки на стили фона темы. Это отличается от индексации самой Java‑коллекции, где `get_Item(0)` обозначает первый элемент. Не предполагайте, что у каждой презентации одинаковое число стилей фона.
 
-Следующий пример выводит количество доступных фоновых заливок, назначает тематическую ссылку фона первому мастеру и сохраняет презентацию:
+Следующий пример сообщает количество доступных фоновых заливок, назначает тематическую ссылку на фон первому мастеру и сохраняет презентацию:
 
 ```java
 import com.aspose.slides.*;
@@ -327,25 +400,25 @@ try {
 }
 ```
 
-Видимый результат зависит от темы, на которую ссылается мастер, и от любых переопределений фона на уровне макета или слайда. Если слайд использует собственный фон, изменение только фона мастера может не затронуть этот слайд. Используйте [Background.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/) когда требуется узнать окончательный фон после применения наследования.
+Видимый результат зависит от темы, на которую ссылается мастер, и от любых переопределений фона на уровне layout или слайда. Если слайд использует собственный фон, изменение только фона мастера может не повлиять на этот слайд. Используйте [Background.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/), когда необходимо узнать окончательный фон после применения наследования.
 
-{{% alert color="warning" title="Warning" %}}
-Не воспринимайте индекс стиля как нулевой индекс коллекции. Также избегайте жёсткого кодирования номера стиля из одного файла и предположения, что он будет выглядеть одинаково в другом файле; определения стилей темы зависят от конкретной презентации.
+{{% alert color="warning" title="Предупреждение" %}}
+Не воспринимайте индекс стиля как нулевой индекс коллекции. Также избегайте жёстко задавать номер стиля из одного файла, полагая, что он будет выглядеть одинаково в другом файле; определения стилей темы специфичны для каждой презентации.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
+{{% alert color="info" title="Подсказка" %}}
 Для прямого форматирования фона и наследования фона см. [Presentation Background](/slides/ru/androidjava/presentation-background/).
 {{% /alert %}}
 
 ## **Обновление эффектов темы**
 
-Схема формата темы содержит отдельные коллекции стилей заливки, линий и эффектов, открываемые через [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/) и [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/). Типичные темы Office часто содержат три основных стиля, визуально соответствующие «тонким», «умеренным» и «интенсивным» форматам, но код должен проверять каждую коллекцию, а не полагаться на фиксированное количество.
+Схема формата темы содержит отдельные коллекции заливок, линий и эффектов, доступные через [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/) и [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/iformatscheme/). Типичные офисные темы часто включают три основных стиля, визуально соответствующие «тонким», «средним» и «интенсивным» форматированиям, но код должен проверять каждую коллекцию, а не предполагать фиксированное количество.
 
-![Тонкие, умеренные и интенсивные эффекты темы, применённые к одной фигуре](presentation-design_10.png)
+![Тонкие, средние и интенсивные эффекты темы, применённые к одной и той же фигуре](presentation-design_10.png)
 
-При обращении к этим коллекциям в Java индекс коллекции начинается с нуля: `get_Item(0)` — первая сохранённая стилизация, `get_Item(2)` — третья. Индексы ссылок стилей фигуры — отдельная концепция, открываемая через [IShapeStyle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapestyle/). Изменение стиля темы влияет на фигуры, которые ссылаются на этот стиль; фигуры с прямым форматированием могут остаться без изменений.
+При доступе к этим коллекциям в Java индекс коллекции начинается с нуля: `get_Item(0)` – первая сохранённая стилистика, `get_Item(2)` – третья. Индексы ссылок стилей у фигур – отдельная концепция, доступная через [IShapeStyle](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/ishapestyle/). Изменение стильовой темы влияет на фигуры, которые ссылаются на этот стиль; фигуры с прямым форматированием могут остаться неизменными.
 
-Следующий пример проверяет наличие требуемых записей стилей, изменяет первый стиль линии, третий стиль заливки, включает внешнюю тень в третьем стиле эффекта и сохраняет результат:
+Следующий пример проверяет наличие требуемых стилей, меняет первый стиль линии, третий стиль заливки, включает внешнюю тень в третьем стиле эффекта и сохраняет результат:
 
 ```java
 import com.aspose.slides.*;
@@ -370,15 +443,15 @@ try {
 }
 ```
 
-Для фигур, ссылающихся на эти слоты, первый стиль линии темы становится красным, третий стиль заливки темы — сплошным тёмно‑зелёным, а третий стиль эффекта получает внешнюю тень с расстоянием 10 пунктов. Точный визуальный результат всё ещё зависит от того, какие слоты стилей каждая фигура использует и переопределяется ли её прямое форматирование.
+Для фигур, ссылающихся на эти слоты, первый стиль линии темы станет красным, третий стиль заливки темы – сплошным темно‑зелёным, а третий стиль эффекта получит внешнюю тень с расстоянием 10 пунктов. Точный визуальный результат всё равно зависит от того, какие слоты стилей использует каждая фигура, и от того, переопределяется ли тема прямым форматированием.
 
-![Стили эффектов темы после изменения линий, заливки и теней](presentation-design_11.png)
+![Стили эффектов темы после изменения линий, заливок и настроек теней](presentation-design_11.png)
 
 ## **Чтение эффективных значений темы**
 
-Сырые объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или фигура действительно используют после разрешения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseoverridethememanager/). Для фона используйте [Background.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/), а для заливки — [FillFormat.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/).
+«Сырые» объекты темы показывают, что определено на конкретном уровне. Эффективные значения показывают, что слайд или фигура действительно используют после разрешения наследования и локальных переопределений. Для слайда вызовите [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseoverridethememanager/). Для фона используйте [Background.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/), а для заливки – [FillFormat.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/).
 
-Следующий пример считывает эффективную тему, фон и первую заливку фигуры со слайда:
+Следующий пример читает эффективную тему, фон и первую заливку фигуры со слайда:
 
 ```java
 import com.aspose.slides.*;
@@ -405,18 +478,22 @@ try {
 }
 ```
 
-Используйте эффективные данные для диагностики рендеринга, валидации и сравнения. Если проверять только [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/), можно упустить переопределения мастера, макета, слайда или фигуры, изменяющие окончательный вид.
+Используйте эффективные данные для диагностики рендеринга, валидации и сравнений. Если проверять только [Presentation.getMasterTheme](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/presentation/), можно упустить переопределения мастера, layout, слайда или фигуры, меняющие окончательный внешний вид.
 
 ## **FAQ**
 
+**Применяет ли внешняя тема каждый слайд в презентации?**
+
+Нет. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslide/) переназначает только те слайды, которые зависят от выбранного мастера. Слайды, использующие другие мастеры, сохраняют свои текущие темы.
+
 **Можно ли применить тему к отдельному слайду без изменения мастера?**
 
-Да. Используйте [SlideThemeManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/slidethememanager/) слайда и инициализируйте его переопределение темы. Изменение остаётся локальным для этого слайда; остальные слайды продолжают наследовать свои текущие темы.
+Да. Используйте [SlideThemeManager](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/slidethememanager/) слайда и инициализируйте его переопределённую тему. Изменение останется локальным для этого слайда; остальные слайды продолжат наследовать свои текущие темы.
 
-**Какой способ наиболее надёжен для переноса темы из одной презентации в другую?**
+**Какой способ самый безопасный для переноса темы из одной презентации в другую?**
 
-При перемещении слайда и сохранении его исходного вида склонируйте исходный мастер в целевую презентацию и склонируйте слайд с этим мастером, используя [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/) и [ISlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidecollection/). Это сохраняет мастер, макеты и тему вместе.
+При перемещении слайда и сохранении его исходного внешнего вида клонируйте исходный мастер в целевую презентацию, а затем клонируйте слайд с этим мастером, используя [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/imasterslidecollection/) и [ISlideCollection.addClone](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/islidecollection/). Это сохраняет мастер, layout‑ы и тему вместе.
 
 **Как увидеть эффективные значения после наследования и переопределений?**
 
-Вызовите [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseoverridethememanager/) для слайда или темы макета и соответствующие методы получения эффективных данных для объектов формата, таких как [Background.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/) и [FillFormat.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/). Эти API возвращают разрешённые значения после применения наследования и переопределений.
+Используйте [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/baseoverridethememanager/) для темы слайда или layout и соответствующие методы получения эффективных данных для объектов формата, таких как [Background.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/background/) и [FillFormat.getEffective](https://reference.aspose.com/slides/ru/androidjava/com.aspose.slides/fillformat/). Эти API возвращают разрешённые значения после применения наследования и переопределений.

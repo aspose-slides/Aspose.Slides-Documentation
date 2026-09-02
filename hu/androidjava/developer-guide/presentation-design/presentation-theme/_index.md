@@ -1,6 +1,6 @@
 ---
-title: Prezentációs témák kezelése Androidon
-linktitle: Prezentációs Téma
+title: Androidon a prezentációs témák kezelése
+linktitle: Prezentációs téma
 type: docs
 weight: 10
 url: /hu/androidjava/presentation-theme/
@@ -11,10 +11,12 @@ keywords:
 - téma beállítása
 - téma módosítása
 - téma kezelése
+- külső téma
+- THMX
 - téma szín
 - kiegészítő paletta
-- téma betűtípusa
-- téma stílusa
+- téma betűtípus
+- téma stílus
 - téma effektus
 - PowerPoint
 - OpenDocument
@@ -22,23 +24,23 @@ keywords:
 - Android
 - Java
 - Aspose.Slides
-description: "Mester prezentációs témák az Aspose.Slides for Androidban Java segítségével a PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához egységes márkázás mellett."
+description: "Az Aspose.Slides for Android mester prezentációs témákat Java-val használva a PowerPoint fájlok egységes márkázással történő létrehozása, testreszabása és konvertálása."
 ---
 ## **Bevezetés**
 
-Egy prezentációs téma meghatároz egy koordinált szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet. A témához igazított objektumok ezekre a közös definíciókra hivatkoznak, ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre sok objektumot frissíthet.
+A prezentációs téma egy koordinált szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektuskészletet határoz meg. A témaérzékeny objektumok ezekre a megosztott definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre frissítheti a sok objektumot.
 
-Az Aspose.Slides esetén a prezentáció szintű téma a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) segítségével érhető el. Egy prezentáció alacsonyabb szinteken is tartalmazhat téma felülírásokat. Egy master felülírhatja a prezentáció témát a [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/masterthememanager/) segítségével, míg egy elrendezés vagy egyedi dia felülírhatja az örökölt témát a [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseoverridethememanager/) használatával. Gyakorlatban egy dia effektív témája ezen öröklődési láncon keresztül kerül feloldásra: prezentáció téma, master felülírás, elrendezés felülírás és dia felülírás.
+Az Aspose.Slides-ben a prezentáció-szintű témát a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) biztosítja. A prezentáció alacsonyabb szinteken is tartalmazhat téma‑felülírásokat. Egy master felülírhatja a prezentáció témáját a [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/masterthememanager/) segítségével, míg egy elrendezés vagy egy egyedi dia felülírhatja a örökölt témát a [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseoverridethememanager/) segítségével. Gyakorlatban a dia tényleges témája ezen öröklődési láncon keresztül kerül feloldásra: prezentációs téma, master‑felülírás, elrendezés‑felülírás és dia‑felülírás.
 
-![Téma elemei: színek, betűtípusok, háttérstílusok és effektek](theme-constituents.png)
+![Témaelemek: színek, betűtípusok, háttérstílusok és effektusok](theme-constituents.png)
 
-Az alábbi szakaszok a leggyakoribb téma munkafolyamatokat mutatják be: téma vizsgálata, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér- és effektusstílusok frissítése, valamint az öröklődés és felülírások feloldása után kapott effektív értékek olvasása.
+Az alábbi szakaszok bemutatják a leggyakoribb téma‑munkafolyamatokat: téma ellenőrzése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektusstílusok frissítése, valamint a öröklődés és felülírások feloldása után kapott tényleges értékek kiolvasása.
 
-## **Téma vizsgálata**
+## **Téma ellenőrzése**
 
-A [MasterTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus-sémáját és formátumsémáját teszi elérhetővé a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/), és [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/) segítségével. Ezeknek a gyűjteményeknek a vizsgálata módosítás előtt különösen hasznos, ha a prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
+A [MasterTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus‑sémáját és formátumsémáját teszi elérhetővé a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/), a [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/) és a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/mastertheme/) metódusokon keresztül. Ezeknek a gyűjteményeknek az ellenőrzése különösen hasznos, ha a prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
 
-A következő példa beolvassa a fő téma tulajdonságait, és jelentést készít arról, hány háttér-, kitöltés-, vonal- és effektus-stílus van tárolva a témában:
+Az alábbi példa beolvassa a fő téma tulajdonságait, és jelentést készít arról, hogy hány háttér-, kitöltés-, vonal‑ és effektusstílus tárolódik a témában:
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +63,13 @@ try {
 }
 ```
 
-Ha egy fájl több masterrel dolgozik, ne feltételezd, hogy minden dia ugyanazzal az effektív témával rendelkezik. Vizsgáld meg a diához tartozó mastert, és használd a később ebben a cikkben bemutatott effektív téma munkafolyamatot, ha elrendezés vagy dia felülírás lehet jelen.
+Ha egy fájl több master‑t használ, ne feltételezzük, hogy minden dia ugyanazzal a tényleges témával rendelkezik. Ellenőrizzük a diával társított master‑t, és a később bemutatott effektív‑téma munkafolyamatot használjuk, ha elrendezés‑ vagy dia‑felülírások lehetnek jelen.
 
 ## **Téma színeinek módosítása**
 
-A témához igazított kitöltések, vonalak és szöveg hivatkozhat egy logikai színre a [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/schemecolor/) felsorolásból. Amikor a megfelelő bejegyzést módosítod az [IColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icolorscheme/) segítségével, az összes olyan objektum, amely továbbra is a témaszínre hivatkozik, az új értékkel kerül feloldásra. Azok az objektumok, amelyek közvetlen RGB színt használnak, nem változnak a téma-szín frissítésével.
+A téma‑érzékeny kitöltések, vonalak és szöveg egy logikai színre hivatkozhat a [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/schemecolor/) felsorolásban. Ha a megfelelő bejegyzést módosítjuk az [IColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icolorscheme/) gyűjteményben, minden objektum, amely még a témaszínre hivatkozik, az új értékhez lesz rendelve. Az RGB‑színnel közvetlenül megadott objektumok nem változnak a téma‑szín frissítésekor.
 
-A következő teljes körű példa létrehoz egy alakzatot, amely a `Accent4` színt használja, megváltoztatja a téma `Accent4` színét pirosra, elmenti a prezentációt, újra megnyitja, és kiírja az effektív kitöltőszínt:
+Az alábbi vég‑ig‑terjedő példa egy `Accent4`‑et használó alakzatot hoz létre, megváltoztatja a téma `Accent4` színét vörösre, elmenti a prezentációt, újra megnyitja, és kiírja a tényleges kitöltési színt:
 
 ```java
 import com.aspose.slides.*;
@@ -97,18 +99,18 @@ try {
 }
 ```
 
-Mivel a téglalap továbbra is a `Accent4` színhez van kapcsolva, a látható színe a téma módosítása után piros lesz. Ha a séma színt közvetlen színre cseréled az alakzaton, a későbbi `Accent4` változtatások már nem befolyásolják azt a kitöltést.
+Mivel a téglalap továbbra is az `Accent4`‑hez van kapcsolva, látható színe piros lesz a téma módosítása után. Ha a sémaszínt közvetlen színre cseréljük az alakzaton, a későbbi `Accent4` módosítások már nem érintik azt a kitöltést.
 
-### **További palettáról színek használata**
+### **Színek használata a kiegészítő palettáról**
 
-A PowerPoint könnyebb és sötétebb változatokat származtat a téma színéből színtranszformációk alkalmazásával. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/colortransformoperation/) felsorolás segítségével teszi elérhetővé.
+A PowerPoint a téma színéből világosabb és sötétebb variánsokat hoz létre színtranszformációk alkalmazásával. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/colortransformoperation/) felsoroláson keresztül teszi elérhetővé.
 
-![Fő téma színek és a további palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
+![Fő téma színek és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
 
-**1** - Fő téma színek.  
-**2** - A fő téma színekből előállított világosabb és sötétebb változatok.
+**1** – Fő téma színek.  
+**2** – A fő téma színekből előállított világosabb és sötétebb variánsok.
 
-A következő példa hat `Accent4`-re épülő téglalapot hoz létre, ötön luminancia-transzformációkat alkalmaz, és elmenti az eredményt:
+Az alábbi példa hat téglalapot hoz létre `Accent4`‑ből kiindulva, ötötön luminancia‑transzformációt alkalmaz, majd elmenti az eredményt:
 
 ```java
 import com.aspose.slides.*;
@@ -155,31 +157,31 @@ try {
 }
 ```
 
-Ezek a változatok a téma színén maradnak. Ha a `Accent4` később megváltozik, a transzformált színek újraszámolódnak az új `Accent4` értékből.
+Ezek a variánsok továbbra is a téma színére épülnek. Ha később `Accent4` változik, a transzformált színek újra ki lesznek számolva az új `Accent4` értékből.
 
-### **A `SchemeColor` értékek leképezése az `IColorScheme` slotokra**
+### **A `SchemeColor` értékek leképezése az `IColorScheme` helyekre**
 
-A [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg az [IColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icolorscheme/) ugyanazokat a téma slotokat `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi elérhetővé. A leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg az [IColorScheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/icolorscheme/) a témapozíciókat `Dark1`, `Light1`, `Dark2` és `Light2` néven exponálja. A leképezés állandó:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Ezek ugyanazon téma slotok alternatív nevei; nem dinamikusan konvertált értékek.
+Ezek ugyanazon témapozíciók alternatív nevei; nem dinamikusan konvertált értékek.
 
 ## **Téma betűtípusainak módosítása**
 
-Egy téma betűtípus-séma tartalmaz egy fő betűkészletet a címsorokhoz és egy másodlagos betűkészletet a törzsszöveghez. Az [IFontScheme.getMajor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontscheme/) és [IFontScheme.getMinor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontscheme/) metódusok teszik ezeket a készleteket elérhetővé.
+A téma betűtípus‑sémája egy főbetűtípus‑készletet tartalmaz a címsorokhoz és egy kisebb betűtípus‑készletet a törzsszöveghez. A [IFontScheme.getMajor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontscheme/) és a [IFontScheme.getMinor](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ifontscheme/) metódusok ezeket a készleteket exponálják.
 
-PowerPoint-kompatibilis téma betűtípus-azonosítók használhatók a szövegformázásban:
+A PowerPoint‑kompatibilis téma‑betűtípus azonosítók a szövegformázásban használhatók:
 
-* `+mn-lt` – Törzsszöveg betűtípusa Latin (Minor Latin Font)
-* `+mj-lt` – Címsor betűtípusa Latin (Major Latin Font)
-* `+mn-ea` – Törzsszöveg betűtípusa Kelet-Ázsiai (Minor East Asian Font)
-* `+mj-ea` – Címsor betűtípusa Kelet-Ázsiai (Major East Asian Font)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)
+* `+mj-lt` – Heading Font Latin (Major Latin Font)
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
 
-A következő példa létrehoz egy címsort, amely a fő Latin téma betűtípust használja, és egy törzssort, amely a kisebb Latin téma betűtípust használja. Ezután módosítja a téma betűtípusait és elmenti az eredményt:
+Az alábbi példa egy címsort hoz létre, amely a fő Latin betűtípust használja, valamint egy törzssort, amely a kisebb Latin betűtípust használja. Ezután módosítja a téma betűtípusait és elmenti az eredményt:
 
 ```java
 import com.aspose.slides.*;
@@ -204,21 +206,92 @@ try {
 }
 ```
 
-A címsor a fő betűtípust, a törzsszöveg a kisebb betűtípust követi. A szöveg, amely explicit betűtípusnevet tartalmaz a témaazonosító helyett, nem vált automatikusan, amikor a téma betűtípus-séma módosul.
+A címsor a fő betűtípust, a törzsszöveg a kisebb betűtípust követi. A kifejezetten betűtárnevet megadott szöveg nem vált automatikusan a téma‑betűtípus változásakor.
 
-A fő és a kisebb betűkészletek tartalmazhatnak betűtípus-leképezéseket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana nyelvhez. Ezeknek a leképezéseknek a vizsgálatához, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script-Specific Theme Fonts](/slides/hu/androidjava/script-specific-font-mappings/) oldalt.
+A fő és kisebb betűtípus‑gyűjtemények tartalmazhatnak betűtár‑leképezéseket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana. Ezeknek a leképezéseknek az ellenőrzéséhez, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/androidjava/script-specific-font-mappings/) oldalt.
 
-{{% alert color="info" title="Tip" %}}
-További információk a prezentáció betűtípusaival kapcsolatban itt találhatók: [PowerPoint Fonts](/slides/hu/androidjava/powerpoint-fonts/).
+{{% alert color="info" title="Tipp" %}}
+További információk a prezentációs betűtípusokról: [PowerPoint Fonts](/slides/hu/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Téma másolása vagy alkalmazása**
 
-Két gyakori munkafolyamat létezik, amelyek különböző problémákat oldanak meg.
+Az alábbi munkafolyamatok különböző téma‑kapcsolódó problémákat oldanak meg.
 
-### **Forrás téma megőrzése diák áthelyezésekor**
+### **Külső téma alkalmazása a master‑tól függő diákra**
 
-Ha egy diát egy másik prezentációba szeretnél áthelyezni, miközben megőrzöd az eredeti megjelenését, klónozd a forrás mastert a célprezentációba az [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) segítségével, majd klónozd a diát az [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) és a klónozott masterrel. Ez együttesen viszi a mastert, az elrendezéseket és a kapcsolódó témát.
+Használd a [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) metódust, ha van egy PowerPoint témafájlod (`.thmx`), és minden, egy adott master‑től függő diát újra szeretnél formázni. Válaszd ki a master‑t a [Presentation.getMasters](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) gyűjteményből, amely implementálja az [IMasterSlideCollection](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) interfészt, majd add át a témafájl útvonalát a metódusnak.
+
+A metódus a következő műveleteket hajtja végre:
+
+1. Létrehoz egy új master‑diát a kiválasztott master alapján.
+2. Alkalmazza a külső témát az új master‑ra.
+3. Az új master‑t a korábban a kiválasztott master‑re hivatkozó összes diára hozzárendeli.
+4. Visszaadja a frissen létrehozott [IMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) objektumot.
+
+Az alábbi példa egy külső témát alkalmaz az első master‑től függő diákra, majd elmenti a prezentációt:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Érvénytelen, sérült vagy nem támogatott téma esetén [PptxReadException](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/pptxreadexception/) keletkezhet. Érvényesítsd a felhasználók által megadott útvonalakat, kezeld a fájlrendszer‑hozzáférési hibákat, és csak akkor mentsd el a prezentációt, ha a téma sikeresen alkalmazva lett.
+
+Csak a kiválasztott master‑től függő diák lesznek átállítva. Más master‑hez tartozó diák megőrzik meglévő master‑eiket és témáikat. A téma‑érzékeny színek, betűtípusok, kitöltések, vonalak, háttér és effektusok az új külső témához lesznek igazítva. A közvetlenül hozzárendelt színek, betűtípusok, kitöltések és egyéb explicit formázások változatlanok maradhatnak. Az elrendezés‑szintű és dia‑szintű felülírások felülbírálhatják az új master‑től örökölt értékeket.
+
+A téma hivatkozhat olyan betűtípusokra, amelyek nem érhetők el a futtatási környezetben. A konzisztens renderelés és export érdekében telepítsd a szükséges betűtípusokat, szolgáltasd őket a [custom font sources](/slides/hu/androidjava/custom-font/) segítségével, vagy állíts be [font substitution](/slides/hu/androidjava/font-substitution/).
+
+Ez egy közvetlen master‑szintű munkafolyamat: a metódus egy `.thmx` fájl elérési útvonalat vár, és nem igényel manuális dia‑ vagy elrendezés‑szintű téma‑felülírások létrehozását.
+
+### **Különböző külső témák alkalmazása több‑masteres prezentációban**
+
+Ha a megfelelő master előre nem ismert, szerezd meg egy reprezentatív dia segítségével a [ISlide.getLayoutSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islide/) és a [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ilayoutslide/) metódusokkal. Tárold el az eredeti master‑hivatkozásokat a témák alkalmazása előtt, mivel minden hívás egy új master‑t hoz létre a prezentációban.
+
+Az alábbi példa két szekció diáit használja a master‑ek megtalálásához, és különböző külső témát alkalmaz mindkét csoportra:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az első hívás csak azoknak a diáknak a megjelenését változtatja, amelyek a `firstGroupMaster`‑re hivatkoznak, a második hívás csak a `secondGroupMaster`‑re hivatkozó diákra hat. Más master‑hez tartozó diákok nem lesznek újraformázva.
+
+### **Forrástéma megőrzése diák áthelyezésekor**
+
+Ha egy diát egy másik prezentációba szeretnél áthelyezni, miközben az eredeti tervezést meg akarod őrizni, klónozd a forrás‑master‑t a cél‑prezentációba a [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) segítségével, majd az átmásolt master‑rel klónozd a diát a [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) metódussal. Ezzel a master, annak elrendezései és a hozzá tartozó téma is átkerül.
 
 ```java
 import com.aspose.slides.*;
@@ -240,11 +313,11 @@ try {
 }
 ```
 
-Ez a preferált munkafolyamat, amikor a forrás dia ugyanúgy kell, hogy kinézzen a célban. Az egyszerű klónozás egy nem kapcsolódó célmasterre megváltoztathatja a téma által vezérelt színeket, betűtípusokat, háttér- és effektus beállításokat.
+Ez a preferált munkafolyamat, ha a forrás‑diát ugyanúgy kell megjeleníteni a cél‑prezentációban. Ha csak a tartalmat klónozod egy nem kapcsolódó cél‑master‑re, akkor a téma‑alapú színek, betűtípusok, háttér és effektusok megváltozhatnak.
 
 ### **Témaértékek alkalmazása meglévő diára**
 
-Ha a cél dia a jelenlegi masterén és elrendezésén kell maradjon, inicializálj egy diához kapcsolódó felülírást a forrás témából. Az [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/), és [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/) metódusok másolják a három fő téma komponenst a felülírásba.
+Ha a cél‑dia a jelenlegi master‑en és elrendezésen marad, inicializálj egy dia‑szintű felülírást a forrás‑témából. A [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/), a [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/) és a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/) metódusok a három fő témakomponenst másolják a felülírásba.
 
 ```java
 import com.aspose.slides.*;
@@ -267,11 +340,11 @@ try {
 }
 ```
 
-Ez megváltoztatja a dián használt témát anélkül, hogy a többi dia által örökölt témát módosítaná. A helyi felülírás eltávolításához és az örökölt értékek visszaállításához hívd a [OverrideTheme.clear](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/) metódust.
+Ez a dia által használt témát módosítja anélkül, hogy a többi diára ható, örökölt témát megváltoztatná. A helyi felülírás eltávolításához és az örökölt értékek visszaállításához hívd a [OverrideTheme.clear](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/overridetheme/) metódust.
 
 ### **Téma felülírás alkalmazása egy elrendezésre**
 
-Egy elrendezés szintű felülírás azokat a diákra vonatkozik, amelyek ezt az elrendezést használják, hacsak egy adott dia saját felülírással nem rendelkezik. Ugyanazok a inicializációs metódusok használhatók a [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/layoutslidethememanager/) segítségével:
+Az elrendezés‑szintű felülírás az arra épülő diákra vonatkozik, hacsak egy adott dia nem rendelkezik saját felülírással. Ugyanezeket a inicializáló metódusokat a [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/layoutslidethememanager/) segítségével is használhatod:
 
 ```java
 import com.aspose.slides.*;
@@ -295,17 +368,17 @@ try {
 }
 ```
 
-Használj master vagy prezentáció szintű témát, ha sok elrendezésnek és diáknak ugyanazt az alapdesign-t kell megosztania, egy elrendezés felülírást, ha egy elrendezéscsaládnak eltérő stílusra van szüksége, és egy dia felülírást csak valódi kivételekhez. A túlzott diához kapcsolódó felülírások megnehezítik a későbbi globális téma változtatások előrejelzését.
+Használj master‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak kell ugyanazt az alaptervet megosztania, egy elrendezés‑felülírást, ha egy elrendezés‑családnak más stílusra van szüksége, és csak dia‑felülírást igénylő kivételes esetekben. A túlzott dia‑szintű felülírások megnehezítik a későbbi globális téma‑módosítások előrejelzését.
 
 ## **Téma háttérstílusok frissítése**
 
-A téma háttérkitöltései a [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/) gyűjteményben vannak tárolva. A PowerPoint a felhasználói felületén több háttérválasztási lehetőséget jeleníthet meg, mint amennyi kitöltésdefiníció fizikailag tárolva van ebben a gyűjteményben, mivel a UI kombinálhatja a téma kitöltéseket téma színekkel és egyéb stílusreferenciákkal.
+A téma háttérkitöltései a [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/) metódusban tárolódnak. A PowerPoint a felhasználói felületén több háttérválasztást mutathat, mint ahány kitöltés‑definíció ténylegesen szerepel a gyűjteményben, mivel a UI kombinálhat téma‑kitöltéseket téma‑színekkel és egyéb stílus‑hivatkozásokkal.
 
-![PowerPoint háttérstílus galéria egy prezentáció témához](presentation-design_8.png)
+![PowerPoint háttérstílus galéria egy prezentációs témához](presentation-design_8.png)
 
-Mielőtt háttérstílust használnál, vizsgáld meg a tárolt gyűjteményt és a jelenlegi [Background.getStyleIndex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/) értéket. A `0` stílusindex azt jelenti, hogy nincs témához tartozó kitöltés; a pozitív értékek téma háttérstílus-referenciai. Ez eltér a Java gyűjtemény közvetlen indexelésétől, ahol a `get_Item(0)` az első tárolt elemet jelenti. Ne feltételezd, hogy minden prezentáció ugyanannyi háttérkitöltési stílussal rendelkezik.
+Mielőtt háttérstílust használnál, ellenőrizd a tárolt gyűjmentet és a jelenlegi [Background.getStyleIndex](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/) értéket. A `0`‑s index azt jelenti, hogy nincs téma‑kitöltés; a pozitív értékek téma‑háttér‑stílus‑hivatkozások. Ez eltér attól, amikor a Java‑gyűjteményt közvetlenül indexeljük, ahol a `get_Item(0)` az első tárolt elemet jelenti. Ne feltételezd, hogy minden prezentáció ugyanannyi háttérkitöltési stílussal rendelkezik.
 
-A következő példa jelentést készít az elérhető háttérkitöltési számról, témához tartozó háttérreferenciát ad az első masternek, és elmenti a prezentációt:
+Az alábbi példa kiírja a rendelkezésre álló háttérkitöltések számát, egy téma‑háttér‑hivatkozást ad az első master‑nek, majd elmenti a prezentációt:
 
 ```java
 import com.aspose.slides.*;
@@ -327,25 +400,25 @@ try {
 }
 ```
 
-A látható eredmény a master által hivatkozott téma bejegyzéstől és az elrendezés vagy dia szintű háttér felülírásoktól függ. Ha egy dia saját háttérrel rendelkezik, a master háttér módosítása önmagában nem változtatja meg azt a diát. Használd a [Background.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/) metódust, ha a végső háttérre van szükséged az öröklődés után.
+A látható eredmény a master‑által hivatkozott téma‑bejegyzéstől és az elrendezés‑ vagy dia‑szintű háttér‑felülírásoktól függ. Ha egy dia saját háttérrel rendelkezik, a csak a master‑háttér módosítása nem feltétlenül változtatja meg azt a diát. Használd a [Background.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/) metódust, ha a végső, öröklődés után kapott háttérre van szükséged.
 
-{{% alert color="warning" title="Warning" %}}
-Ne kezeld a stílusindexet nullától induló gyűjteményindexnek. Kerüld a stílus számok kódba írását egy fájlból, és annak feltételezését, hogy ugyanúgy néz ki egy másik fájlban; a téma stílusdefiníciók prezentációnként eltérőek.
+{{% alert color="warning" title="Figyelmeztetés" %}}
+Ne kezeld a stílus‑indexet null‑alapú gyűjtemény‑indexnek. Kerüld el azt is, hogy egy fájlból kimásolt stílus‑számot egy másik fájlban ugyanolyanként feltételezz; a téma‑stílusdefiníciók prezentációnként eltérnek.
 {{% /alert %}}
 
-{{% alert color="info" title="Tip" %}}
-Közvetlen háttérformázás és háttér öröklődés tekintetében lásd a [Presentation Background](/slides/hu/androidjava/presentation-background/) oldalt.
+{{% alert color="info" title="Tipp" %}}
+A közvetlen háttér‑formázáshoz és a háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/androidjava/presentation-background/) oldalt.
 {{% /alert %}}
 
 ## **Téma effektusok frissítése**
 
-Egy téma formátumséma különálló kitöltés-, vonal- és effektus-stílusgyűjteményeket tartalmaz, amelyeket a [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/), és [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/) tesz elérhetővé. A tipikus Office témák gyakran három fő stílusbejegyzést tartalmaznak, amelyek vizuálisan a finom, mérsékelt és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell a fix darabszám feltételezése helyett.
+A téma formátumsémája különálló kitöltés‑, vonal‑ és effektusstílus‑gyűjteményeket tartalmaz, amelyeket a [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/), a [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/) és a [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/iformatscheme/) metódusok tesznek elérhetővé. A tipikus Office‑témák gyakran három fő stílusból állnak, amelyek vizuálisan a finom, közepes és intenzív formázást képviselik, de a kódnak minden gyűjteményt ellenőriznie kell, ahelyett, hogy egy fix számot feltételezne.
 
-![Finom, mérsékelt és intenzív témaeffektek ugyanarra az alakzatra alkalmazva](presentation-design_10.png)
+![Finom, közepes és intenzív téma‑effektusok ugyanazon alakzatra alkalmazva](presentation-design_10.png)
 
-Java-ban ezekhez a gyűjteményekhez való hozzáféréskor a gyűjtemény indexelése nullától indul: a `get_Item(0)` az első tárolt stílus, a `get_Item(2)` a harmadik. Egy alakzat stílus-referencia indexei egy külön koncepció, amely a [IShapeStyle](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapestyle/) segítségével érhető el. Egy téma stílus módosítása azok az alakzatok módosulnak, amelyek hivatkoznak arra a téma stílusra; a közvetlen formázású alakzatok változatlanok maradhatnak.
+Java‑ban ezeknek a gyűjteményeknek az indexelése null‑alapú: a `get_Item(0)` az első tárolt stílust, a `get_Item(2)` a harmadikat adja. A shape‑ok stílus‑referencia‑indexei egy külön fogalom, amelyet az [IShapeStyle](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/ishapestyle/) exponál. Egy téma‑stílus módosítása azokra a shape‑okra hat, amelyek arra a téma‑stílusra hivatkoznak; a közvetlen formázással rendelkező shape‑ok változatlanok maradhatnak.
 
-A következő példa ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, módosítja az első vonalstílust, a harmadik kitöltésstílust, engedélyezi a külső árnyékot a harmadik effektusstílusban, és elmenti az eredményt:
+Az alábbi példa ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, valamint a harmadik effektus‑stílusban engedélyezi a külső árnyékot, majd elmenti az eredményt:
 
 ```java
 import com.aspose.slides.*;
@@ -370,15 +443,15 @@ try {
 }
 ```
 
-A slotokra hivatkozó alakzatoknál az első téma vonalstílus pirosra változik, a harmadik téma kitöltésstílus szilárd erdőzöld lesz, a harmadik effektusstílus egy 10 pont távolságú külső árnyékot kap. A pontos vizuális eredmény továbbra is attól függ, hogy melyik stílus slotokra hivatkozik az egyes alakzat, és hogy a közvetlen formázás felülírja-e a témát.
+Az ezen slotokra hivatkozó shape‑ok esetében az első téma‑vonal‑stílus pirosra, a harmadik téma‑kitöltés‑stílus szilárd erdőzöldre, a harmadik effektus‑stílus pedig egy 10 pont távolságú külső árnyékra változik. A pontos vizuális eredmény továbbra is attól függ, hogy melyik slotra hivatkozik egy shape, és hogy a közvetlen formázás felülírja‑e a témát.
 
-![Téma effektus stílusok a vonal, kitöltés és árnyék beállítások módosítása után](presentation-design_11.png)
+![Téma‑effektus‑stílusok módosítás után: vonal, kitöltés és árnyék](presentation-design_11.png)
 
-## **Effektív téma értékek olvasása**
+## **Téma tényleges értékeinek kiolvasása**
 
-A nyers témaobjektumok azt mutatják, hogy mi van meghatározva egy adott szinten. Az effektív értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülírások feloldása után. Egy dia esetén hívd a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseoverridethememanager/) metódust. Háttérhez használd a [Background.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/), kitöltéshez pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) metódust.
+A nyers témaobjektumok azt mutatják, hogy mi van definiálva egy adott szinten. A tényleges (effective) értékek azt mutatják, hogy egy dia vagy shape valójában mit használ az öröklődés és a helyi felülírások feloldása után. Diai esetén hívd a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseoverridethememanager/) metódust. Háttérhez használd a [Background.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/), kitöltéshez pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) metódust.
 
-A következő példa beolvassa egy dia effektív témáját, háttérét és az első alakzat kitöltését:
+Az alábbi példa kiolvassa a dia tényleges témáját, háttérét és az első shape kitöltését:
 
 ```java
 import com.aspose.slides.*;
@@ -405,18 +478,22 @@ try {
 }
 ```
 
-Használd az effektív adatokat a megjelenítési diagnosztikához, ellenőrzéshez és összehasonlításhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/) metódust vizsgálod, elkerülheted a master, elrendezés, dia vagy alakzat felülírását, amely megváltoztathatja a végső megjelenést.
+Használd a tényleges adatokat renderelési diagnosztikához, validációhoz és összehasonlításokhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/presentation/)‑et ellenőrzöd, előfordulhat, hogy egy master, elrendezés, dia vagy shape felülírása elkerüli a figyelmedet, és megváltoztatja a végső megjelenést.
 
 ## **GYIK**
 
-**Alkalmazhatok témát egyetlen diára anélkül, hogy a mastert módosítanám?**
+**Az külső téma alkalmazása minden diára kihat?**
 
-Igen. Használd a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidethememanager/) objektumát, és inicializáld a felülírási témát. A változtatás csak arra a diára vonatkozik; a többi dia továbbra a meglévő témáikat örökli.
+Nem. A [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslide/) csak azokat a diákat rendeli újra, amelyek a kiválasztott master‑től függenek. A másik master‑t használó diák megtartják meglévő témájukat.
 
-**Mi a legbiztonságosabb módja a téma egyik prezentációból a másikba való átvitelnek?**
+**Alkalmazhatok‑e témát egyetlen diára anélkül, hogy a master‑t módosítanám?**
 
-A legbiztonságosabb módja a téma egyik prezentációból a másikba való átvitelnek, ha egy dia áthelyezésekor megőrzöd a forrás megjelenését, akkor klónozd a forrás mastert a célnál, majd klónozd a diát a masterrel együtt az [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) és [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) használatával. Ez együttesen tartja a mastert, az elrendezéseket és a témát.
+Igen. Használd a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/slidethememanager/)‑ét, és inicializáld a felülírási témát. A változtatás csak azon a dián marad helyi; a többi dia a meglévő témáját örökli.
 
-**Hogyan tekinthetem meg az effektív értékeket az öröklődés és a felülírások után?**
+**Mi a legbiztonságosabb módja egy téma átvitelének egy prezentációból a másikba?**
 
-Használd a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseoverridethememanager/) metódust egy dia vagy elrendezés téma esetén, valamint a megfelelő effektív-adat metódusokat formátum objektumokhoz, mint például a [Background.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/) és a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/). Ezek az API-k a öröklődés és a felülírások alkalmazása után feloldott értékeket adják vissza.
+Ha egy diákat áthelyezel és meg akarod őrizni a forrási megjelenést, klónozd a forrás‑master‑t a cél‑prezentációba, majd a diát a klónozott master‑rel a [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/imasterslidecollection/) és a [ISlideCollection.addClone](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/islidecollection/) segítségével. Így a master, az elrendezések és a téma együtt marad.
+
+**Hogyan tekinthetem meg a tényleges értékeket az öröklődés és felülírások után?**
+
+Használd a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/baseoverridethememanager/)‑t egy dia vagy elrendezés témához, valamint a megfelelő effektív‑adat metódusokat a formátumobjektumokhoz, például a [Background.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/background/) és a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/androidjava/com.aspose.slides/fillformat/) esetén. Ezek az API‑k a öröklődés és a felülírások után feloldott értékeket adják vissza.

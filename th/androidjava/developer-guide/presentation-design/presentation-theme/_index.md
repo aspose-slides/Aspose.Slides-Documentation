@@ -1,44 +1,46 @@
 ---
-title: จัดการธีมงานนำเสนอบน Android
-linktitle: ธีมงานนำเสนอ
+title: จัดการธีมการนำเสนอบน Android
+linktitle: ธีมการนำเสนอ
 type: docs
 weight: 10
 url: /th/androidjava/presentation-theme/
 keywords:
 - ธีม PowerPoint
-- ธีมงานนำเสนอ
+- ธีมการนำเสนอ
 - ธีมสไลด์
 - ตั้งค่าธีม
 - เปลี่ยนธีม
 - จัดการธีม
+- ธีมภายนอก
+- THMX
 - สีธีม
-- พาเลตเพิ่มเติม
-- ฟอนต์ธีม
+- พาเลทเพิ่มเติม
+- แบบอักษรธีม
 - สไตล์ธีม
 - เอฟเฟกต์ธีม
 - PowerPoint
 - OpenDocument
-- งานนำเสนอ
+- การนำเสนอ
 - Android
 - Java
 - Aspose.Slides
-description: "ควบคุมธีมงานนำเสนอใน Aspose.Slides สำหรับ Android ผ่าน Java เพื่อสร้าง, ปรับแต่งและแปลงไฟล์ PowerPoint ให้มีการสร้างแบรนด์สม่ำเสมอ."
+description: "ควบคุมธีมการนำเสนอใน Aspose.Slides สำหรับ Android ด้วย Java เพื่อสร้าง ปรับแต่งและแปลงไฟล์ PowerPoint ให้สอดคล้องกับการสร้างแบรนด์."
 ---
 ## **บทนำ**
 
-ธีมงานนำเสนอกำหนดชุดสี แบบอักษร รูปแบบพื้นหลัง การเติม สี เส้น และเอฟเฟกต์ที่สอดคล้องกัน วัตถุที่รับรู้ธีมจะอ้างอิงถึงคำนิยามที่แชร์เหล่านี้แทนการเก็บค่าคุณสมบัติวิสูลแต่ละอย่างเป็นค่าคงที่ ดังนั้นการเปลี่ยนธีมจึงสามารถอัปเดตวัตถุหลายตัวพร้อมกันได้
+ธีมการนำเสนอกำหนดชุดสี, แบบอักษร, สไตล์พื้นหลัง, การเติมสี, เส้น, และเอฟเฟกต์ที่สอดคล้องกัน วัตถุที่รับรู้ธีมจะอ้างอิงถึงการกำหนดร่วมเหล่านี้แทนการเก็บค่าคุณลักษณะภาพแต่ละอย่างเป็นค่าคงที่, ดังนั้นการเปลี่ยนธีมสามารถอัปเดตวัตถุต่าง ๆ ได้หลายรายการพร้อมกัน
 
-ใน Aspose.Slides ธีมระดับงานนำเสนอสามารถเข้าถึงได้ผ่าน [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/). งานนำเสนออาจมีการเขียนทับธีมในระดับล่างได้ด้วยเช่นกัน มาสเตอร์สามารถเขียนทับธีมงานนำเสนอผ่าน [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/masterthememanager/), ขณะที่เลย์เอาต์หรือสไลด์เดี่ยวสามารถเขียนทับธีมที่สืบทอดมาผ่าน [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseoverridethememanager/). โดยทั่วไป ธีมที่ใช้งานจริงสำหรับสไลด์จะถูกกำหนดผ่านสายการสืบทอดนี้: ธีมงานนำเสนอ → การเขียนทับของมาสเตอร์ → การเขียนทับของเลย์เอาต์ → การเขียนทับของสไลด์
+ใน Aspose.Slides, ธีมระดับการนำเสนอสามารถเข้าถึงได้ผ่าน [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/). การนำเสนออาจมีการแทนที่ธีมในระดับที่ต่ำกว่าด้วย มาสเตอร์สามารถแทนที่ธีมของการนำเสนอผ่าน [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/masterthememanager/), ขณะที่เลย์เอาต์หรือสไลด์แต่ละสไลด์สามารถแทนที่ธีมที่สืบทอดมาได้ผ่าน [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseoverridethememanager/). ในทางปฏิบัติ ธีมที่ใช้จริงสำหรับสไลด์หนึ่งจะถูกกำหนดผ่านห่วงโซ่การสืบทอดนี้: ธีมการนำเสนอ, การแทนที่ของมาสเตอร์, การแทนที่ของเลย์เอาต์, และการแทนที่ของสไลด์
 
-![องค์ประกอบของธีม: สี แบบอักษร รูปแบบพื้นหลัง และเอฟเฟกต์](theme-constituents.png)
+![ส่วนประกอบของธีม: สี, แบบอักษร, สไตล์พื้นหลัง, และเอฟเฟกต์](theme-constituents.png)
 
-ส่วนต่อไปนี้แสดงขั้นตอนการทำงานกับธีมที่พบบ่อยที่สุด: ตรวจสอบธีม, เปลี่ยนสีและแบบอักษร, คัดลอกหรือประยุกต์ใช้ธีม, ปรับสไตล์พื้นหลังและเอฟเฟกต์, และอ่านค่าที่มีผลหลังจากการสืบทอดและการเขียนทับได้รับการแก้ไข
+ส่วนต่อไปนี้แสดงกระบวนการทำงานที่พบบ่อยที่สุดของธีม: ตรวจสอบธีม, เปลี่ยนสีและแบบอักษร, คัดลอกหรือใช้ธีม, ปรับปรุงสไตล์พื้นหลังและเอฟเฟกต์, และอ่านค่าที่ใช้จริงหลังจากการสืบทอดและการแทนที่ถูกแก้ไขแล้ว
 
 ## **ตรวจสอบธีม**
 
-อ็อบเจกต์ [MasterTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/) เปิดเผยโครมสีของธีม, โครมแบบอักษร, และโครมฟอร์แมตผ่าน [MasterTheme.getColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/), และ [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/). การตรวจสอบคอลเลกชันเหล่านี้ก่อนทำการเปลี่ยนแปลงเป็นประโยชน์มากเมื่อไฟล์งานนำเสนอมาจากแหล่งภายนอก เพราะจำนวนและเนื้อหาของรายการสไตล์อาจแตกต่างกัน
+วัตถุ [MasterTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/) เปิดเผยชุดสีธีม, ชุดแบบอักษร, และชุดรูปแบบผ่าน [MasterTheme.getColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/), และ [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/mastertheme/). การตรวจสอบคอลเลกชันเหล่านี้ก่อนทำการเปลี่ยนแปลงเป็นประโยชน์เป็นพิเศษเมื่อการนำเข้ามาจากแหล่งภายนอกเนื่องจากจำนวนและเนื้อหาของรายการสไตล์อาจต่างกัน
 
-ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานจำนวนสไตล์พื้นหลัง, การเติม, เส้น, และเอฟเฟกต์ที่ถูกเก็บไว้ในธีม:
+ตัวอย่างต่อไปนี้อ่านคุณสมบัติหลักของธีมและรายงานจำนวนสไตล์พื้นหลัง, เติมสี, เส้น, และเอฟเฟกต์ที่ถูกจัดเก็บในธีม:
 
 ```java
 import com.aspose.slides.*;
@@ -61,13 +63,13 @@ try {
 }
 ```
 
-หากไฟล์ใช้มาสเตอร์หลายอัน อย่าสมมติว่าทุกสไลด์มีธีมที่มีผลเท่าเดิม ตรวจสอบมาสเตอร์ที่เชื่อมโยงกับสไลด์ และใช้ขั้นตอนการทำงานธีมที่มีผลตามที่อธิบายต่อไปนี้เมื่อมีการเขียนทับของเลย์เอาต์หรือสไลด์
+หากไฟล์ใช้มาสเตอร์หลายตัว, อย่าถือว่าทุกสไลด์มีธีมที่ใช้จริงเดียวกัน ตรวจสอบมาสเตอร์ที่เชื่อมกับสไลด์และใช้กระบวนการทำงานของธีมที่ใช้จริงที่แสดงต่อไปนี้เมื่ออาจมีการแทนที่ที่ระดับเลย์เอาต์หรือสไลด์
 
-## **เปลี่ยนสีของธีม**
+## **เปลี่ยนสีธีม**
 
-การเติม, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงสีเชิงตรรกะจาก enumeration [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/schemecolor/) ได้ เมื่อคุณเปลี่ยนรายการที่สอดคล้องใน [IColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icolorscheme/), objects ทั้งหมดที่ยังอ้างอิงสีธีมนั้นจะถูกประมวลผลกับค่าที่ใหม่ ส่วน objects ที่ใช้สี RGB ตรงจะไม่ถูกเปลี่ยนแปลงโดยการอัปเดตสีธีม
+การเติมสี, เส้น, และข้อความที่รับรู้ธีมสามารถอ้างอิงถึงสีตรรกะจากการนับเฉพาะใน enumeration [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/schemecolor/). เมื่อคุณเปลี่ยนรายการที่สอดคล้องกันใน [IColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icolorscheme/), วัตถุทั้งหมดที่ยังอ้างอิงสีธีมนั้นจะได้รับการแก้ไขตามค่ใหม่ วัตถุที่ใช้สี RGB โดยตรงจะไม่เปลี่ยนแปลงจากการอัปเดตสีธีม
 
-ตัวอย่างต่อไปนี้เป็นแบบ end‑to‑end ที่สร้างรูปร่างที่ใช้ `Accent4`, เปลี่ยนสีของธีม `Accent4` เป็นสีแดง, บันทึกงานนำเสนอ, เปิดใหม่, และพิมพ์สีการเติมที่มีผล:
+ตัวอย่างต่อไปนี้สร้างรูปร่างที่ใช้ `Accent4`, เปลี่ยนสี `Accent4` ของธีมเป็นสีแดง, บันทึกการนำเสนอ, เปิดใหม่อีกครั้ง, แล้วพิมพ์สีเติมที่ใช้จริง:
 
 ```java
 import com.aspose.slides.*;
@@ -97,19 +99,19 @@ try {
 }
 ```
 
-เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4` สีที่เห็นจึงกลายเป็นสีแดงหลังจากธีมเปลี่ยน หากคุณแทนที่สี scheme ด้วยสีตรงบนรูปร่าง การเปลี่ยนแปลงต่อไปของ `Accent4` จะไม่กระทบต่อการเติมนั้นอีกต่อไป
+เนื่องจากสี่เหลี่ยมยังคงเชื่อมโยงกับ `Accent4`, สีที่มองเห็นจึงกลายเป็นสีแดงหลังจากธีมถูกเปลี่ยน หากคุณแทนที่สีสกีมด้วยสีตรงบนรูปร่าง การเปลี่ยนแปลงต่อไปของ `Accent4` จะไม่ส่งผลต่อการเติมสีนั้นอีกต่อไป
 
-### **ใช้สีจากพาเลตเพิ่มเติม**
+### **ใช้สีจากพาเลทเพิ่มเติม**
 
-PowerPoint สร้างสีอ่อนและสีเข้มจากสีธีมโดยใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน enumeration [ColorTransformOperation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/colortransformoperation/).
+PowerPoint สร้างเวอร์ชันอ่อนและเข้มจากสีธีมโดยการใช้การแปลงสี Aspose.Slides เปิดเผยการแปลงเหล่านี้ผ่าน enumeration [ColorTransformOperation](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/colortransformoperation/).
 
-![สีธีมหลักและสีอ่อน‑สีเข้มที่สร้างจากพาเลตเพิ่มเติม](additional-palette-colors.png)
+![สีธีมหลักและสีที่อ่อนและเข้มที่สร้างจากพาเลทเพิ่มเติม](additional-palette-colors.png)
 
-**1** – สีธีมหลัก  
+**1** - สีธีมหลัก
 
-**2** – สีอ่อนและสีเข้มที่ได้จากสีธีมหลัก
+**2** - สีอ่อนและสีเข้มที่ผลิตจากสีธีมหลัก
 
-ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกอันโดยอิงจาก `Accent4`, ใช้การแปลงความสว่างกับห้าอัน, แล้วบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างสี่เหลี่ยมหกรูปโดยอิงจาก `Accent4`, ทำการแปลงความสว่างกับห้ารูป, แล้วบันทึกผลลัพธ์:
 
 ```java
 import com.aspose.slides.*;
@@ -156,31 +158,31 @@ try {
 }
 ```
 
-ตัวแปรเหล่านี้ยังคงอิงจากสีธีม หาก `Accent4` เปลี่ยนในภายหลัง สีที่ผ่านการแปลงจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
+เวอร์ชันเหล่านี้ยังคงอิงจากสีธีม หาก `Accent4` มีการเปลี่ยนแปลงในภายหลัง สีที่แปลงแล้วจะถูกคำนวณใหม่จากค่า `Accent4` ใหม่
 
 ### **แมพค่า `SchemeColor` ไปยังช่อง `IColorScheme`**
 
-enumeration [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2`, ส่วน [IColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icolorscheme/) เปิดเผยช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2`. การแมพเป็นคงที่:
+enumeration [SchemeColor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/schemecolor/) ใช้ `Text1`, `Background1`, `Text2`, และ `Background2`, ในขณะที่ [IColorScheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/icolorscheme/) เปิดเผยช่องธีมเดียวกันเป็น `Dark1`, `Light1`, `Dark2`, และ `Light2`. การแมพนี้คงที่:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-เหล่านี้เป็นชื่ออื่นของช่องธีมเดียวกัน; ไม่ใช่ค่าที่ถูกแปลงจากรูปแบบหนึ่งไปยังอีกรูปแบบหนึ่งแบบไดนามิก
+นี่เป็นชื่ออื่นของช่องธีมเดียวกัน; ไม่ใช่ค่าที่ถูกแปลงแบบไดนามิกจากรูปแบบหนึ่งไปยังอีกรูปแบบหนึ่ง
 
-## **เปลี่ยนแบบอักษรของธีม**
+## **เปลี่ยนแบบอักษรธีม**
 
-โครมแบบอักษรของธีมมีชุดแบบอักษรหลักสำหรับหัวเรื่องและชุดแบบอักษรรองสำหรับเนื้อหา ตัวเมธอด [IFontScheme.getMajor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontscheme/) และ [IFontScheme.getMinor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontscheme/) เปิดเผยชุดเหล่านี้
+ชุดแบบอักษรของธีมประกอบด้วยชุดแบบอักษรหลักสำหรับหัวเรื่องและชุดแบบอักษรรองสำหรับเนื้อหา เมธอด [IFontScheme.getMajor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontscheme/) และ [IFontScheme.getMinor](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ifontscheme/) เปิดเผยชุดเหล่านั้น
 
-ตัวระบุแบบอักษรธีมที่เข้ากันกับ PowerPoint สามารถใช้ในการจัดรูปแบบข้อความได้:
+ตัวระบุแบบอักษรธีมที่เข้ากับ PowerPoint สามารถใช้ในรูปแบบข้อความได้:
 
-* `+mn‑lt` – ฟอนต์หน้า Body Latin (Minor Latin Font)
-* `+mj‑lt` – ฟอนต์หัวเรื่อง Latin (Major Latin Font)
-* `+mn‑ea` – ฟอนต์หน้า Body East Asian (Minor East Asian Font)
-* `+mj‑ea` – ฟอนต์หัวเรื่อง East Asian (Major East Asian Font)
+* `+mn-lt` - แบบอักษรเนื้อหา ละติน (แบบอักษรละตินรอง)
+* `+mj-lt` - แบบอักษรหัวเรื่อง ละติน (แบบอักษรละตินหลัก)
+* `+mn-ea` - แบบอักษรเนื้อหา เอเชียตะวันออก (แบบอักษรเอเชียตะวันออกรอง)
+* `+mj-ea` - แบบอักษรหัวเรื่อง เอเชียตะวันออก (แบบอักษรเอเชียตะวันออกหลัก)
 
-ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งบรรทัดที่ใช้ฟอนต์ Latin ชุดหลักและบรรทัดเนื้อหาใช้ฟอนต์ Latin ชุดรอง จากนั้นเปลี่ยนแบบอักษรของธีมและบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้สร้างหัวเรื่องหนึ่งที่ใช้แบบอักษรละตินหลักและบรรทัดเนื้อหาหนึ่งที่ใช้แบบอักษรละตินรอง จากนั้นเปลี่ยนแบบอักษรธีมและบันทึกผลลัพธ์:
 
 ```java
 import com.aspose.slides.*;
@@ -205,21 +207,92 @@ try {
 }
 ```
 
-หัวเรื่องใช้แบบอักษรหลักและเนื้อหาใช้แบบอักษรรอง ข้อความที่ระบุชื่อฟอนต์โดยตรงแทนตัวระบุธีมจะไม่สลับอัตโนมัติเมื่อธีมแบบอักษรเปลี่ยน
+หัวเรื่องใช้แบบอักษรหลักและข้อความเนื้อหาใช้แบบอักษรรอง ข้อความที่ระบุชื่อแบบอักษรโดยตรงแทนตัวระบุธีมจะไม่สลับอัตโนมัติเมื่อชุดแบบอักษรธีมมีการเปลี่ยนแปลง
 
-ชุดแบบอักษรหลักและรองยังสามารถมีการแมพฟอนต์สำหรับระบบเขียนแต่ละภาษา เช่น Cyrillic, Arabic, Japanese, Georgian, และ Thaana เพื่อดู, เพิ่ม, แทนที่, หรือถอดการแมพเหล่านี้ ดูที่ [Script‑Specific Theme Fonts](/slides/th/androidjava/script-specific-font-mappings/).
+ชุดแบบอักษรหลักและรองยังสามารถมีการแมพแบบอักษรสำหรับระบบการเขียนแต่ละระบบ เช่น ซีริลลิก, ภาษาอาหรับ, ภาษาญี่ปุ่น, จอร์เจีย, และธานา เพื่อตรวจสอบ, เพิ่ม, แทนที่, หรือเอาออกการแมพเหล่านี้, ดู [Script-Specific Theme Fonts](/slides/th/androidjava/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-สำหรับข้อมูลเพิ่มเติมเกี่ยวกับฟอนต์ในงานนำเสนอ ดูที่ [PowerPoint Fonts](/slides/th/androidjava/powerpoint-fonts/).
+สำหรับข้อมูลเพิ่มเติมเกี่ยวกับแบบอักษรการนำเสนอ, ดูที่ [PowerPoint Fonts](/slides/th/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **คัดลอกหรือประยุกต์ใช้ธีม**
+## **คัดลอกหรือใช้ธีม**
 
-มีขั้นตอนการทำงานสองแบบที่พบบ่อยและแก้ไขปัญหาต่างกัน
+กระบวนการทำงานด้านล่างแก้ไขปัญหาที่เกี่ยวกับธีมต่าง ๆ
 
-### **รักษาธีมต้นฉบับเมื่อนำสไลด์ไปยังงานนำเสนออื่น**
+### **ใช้ธีมภายนอกกับสไลด์ที่ขึ้นอยู่กับมาสเตอร์**
 
-หากคุณต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและต้องการรักษาการออกแบบเดิม ให้คัดลอกมาสเตอร์ต้นฉบับไปยังงานนำหมายด้วย [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/), จากนั้นคัดลอกสไลด์ด้วย [ISlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/) พร้อมมาสเตอร์ที่คัดลอกไว้ วิธีนี้จะพามาสเตอร์, เลย์เอาต์, และธีมที่เกี่ยวข้องไปด้วย
+ใช้ [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslide/) เมื่อคุณมีไฟล์ธีม PowerPoint (`.thmx`) และต้องการปรับสไตล์ทุกสไลด์ที่ขึ้นอยู่กับมาสเตอร์หนึ่งเลือกมาสเตอร์จากคอลเลกชัน [Presentation.getMasters](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) ซึ่งเป็นการทำงานของ [IMasterSlideCollection](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/), แล้วส่งเส้นทางไฟล์ธีมไปยังเมธอด
+
+เมธอดทำงานต่อไปนี้:
+
+1. สร้างสไลด์มาสเตอร์ใหม่โดยอิงจากมาสเตอร์ที่เลือก
+1. ใช้ธีมภายนอกกับมาสเตอร์ใหม่
+1. กำหนดมาสเตอร์ใหม่ให้กับสไลด์ทั้งหมดที่เคยขึ้นอยู่กับมาสเตอร์ที่เลือก
+1. ส่งคืน [IMasterSlide] ที่สร้างใหม่
+
+ตัวอย่างต่อไปนี้ใช้ธีมภายนอกกับสไลด์ที่ขึ้นอยู่กับมาสเตอร์แรกและบันทึกการนำเสนอ:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+ธีมที่ไม่ถูกต้อง, เสียหาย, หรือไม่รองรับอาจทำให้เกิด [PptxReadException](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/pptxreadexception/). ตรวจสอบเส้นทางที่ผู้ใช้ป้อน, จัดการการล้มเหลวของการเข้าถึงไฟล์ระบบ, และบันทึกการนำเสนอเฉพาะหลังจากธีมถูกใช้สำเร็จ
+
+เฉพาะสไลด์ที่ขึ้นอยู่กับมาสเตอร์ที่เลือกเท่านั้นที่จะถูกกำหนดใหม่ สไลด์ที่เชื่อมกับมาสเตอร์อื่นจะคงมาสเตอร์และธีมเดิมไว้ สี, แบบอักษร, การเติมสี, เส้น, พื้นหลัง, และเอฟเฟกต์ที่รับรู้ธีมจะถูกแก้ไขตามธีมภายนอก สี, แบบอักษร, การเติมสี, และรูปแบบที่กำหนดโดยตรงอาจคงเดิม การแทนที่ระดับเลย์เอาต์และระดับสไลด์ก็อาจมีลำดับความสำคัญเหนือค่าที่สืบทอดจากมาสเตอร์ใหม่
+
+ธีมอาจอ้างอิงแบบอักษรที่ไม่มีในสภาพแวดล้อมรันไทม์ เพื่อการเรนเดอร์และการส่งออกที่สอดคล้อง, ให้ติดตั้งแบบอักษรที่จำเป็น, ให้บริการผ่าน [custom font sources](/slides/th/androidjava/custom-font/), หรือกำหนด [font substitution](/slides/th/androidjava/font-substitution/)
+
+นี่เป็นการทำงานระดับมาสเตอร์โดยตรง: เมธอดรับเส้นทางไฟล์ `.thmx` และไม่ต้องสร้างการแทนที่ธีมระดับสไลด์หรือเลย์เอาต์ด้วยตนเอง
+
+### **ใช้ธีมภายนอกที่แตกต่างกันในงานนำเสนอหลายมาสเตอร์**
+
+เมื่อมาสเตอร์ที่เกี่ยวข้องไม่ทราบล่วงหน้า, ให้ดึงมาสเตอร์จากสไลด์ตัวแทนผ่าน [ISlide.getLayoutSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islide/) และ [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ilayoutslide/). เก็บอ้างอิงมาสเตอร์ต้นฉบับก่อนทำการใช้ธีมใด ๆ เพราะแต่ละครั้งที่เรียกจะสร้างมาสเตอร์ใหม่ในงานนำเสนอ
+
+ตัวอย่างต่อไปนี้ใช้สไลด์จากสองส่วนเพื่อค้นหามาสเตอร์ของพวกมันและใช้ธีมภายนอกที่แตกต่างกันกับแต่ละกลุ่ม:
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+การเรียกครั้งแรกส่งผลต่อสไลด์ที่ขึ้นอยู่กับ `firstGroupMaster` เท่านั้น, ส่วนการเรียกครั้งที่สองส่งผลต่อสไลด์ที่ขึ้นอยู่กับ `secondGroupMaster` เท่านั้น. สไลด์ที่เชื่อมกับมาสเตอร์อื่นจะไม่ถูกปรับสไตล์
+
+### **รักษาธีมต้นทางเมื่อย้ายสไลด์**
+
+หากต้องการย้ายสไลด์ไปยังงานนำเสนออื่นและรักษาการออกแบบเดิม, ให้โคลนมาสเตอร์ต้นทางลงในงานนำหมายโดยใช้ [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/), จากนั้นโคลนสไลด์ด้วย [ISlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/) และมาสเตอร์ที่โคลนไว้ การทำเช่นนี้จะพามาสเตอร์, เลย์เอาต์, และธีมที่เกี่ยวข้องมาด้วยกัน
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +314,11 @@ try {
 }
 ```
 
-นี่เป็นขั้นตอนที่แนะนำเมื่อสไลด์ต้นฉบับต้องการลักษณะเดียวกันในที่ปลายทาง การคัดลอกเนื้อหาไปยังมาสเตอร์เป้าหมายที่ไม่เกี่ยวข้องอาจทำให้สี, ฟอนต์, พื้นหลัง, และเอฟเฟกต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนไป
+นี่เป็นกระบวนการที่แนะนำเมื่อสไลด์ต้นทางต้องแสดงผลเหมือนเดิมในปลายทาง การโคลนเนื้อหาไปยังมาสเตอร์ปลายทางที่ไม่เกี่ยวข้องอาจทำให้สี, แบบอักษร, พื้นหลัง, และเอฟเฟกต์ที่ขับเคลื่อนด้วยธีมเปลี่ยนแปลงได้
 
-### **ประยุกต์ใช้ค่าธีมกับสไลด์ที่มีอยู่**
+### **ใช้ค่าธีมกับสไลด์ที่มีอยู่**
 
-หากสไลด์ปลายทางต้องคงอยู่บนมาสเตอร์และเลย์เอาต์ปัจจุบัน ให้เริ่มการเขียนทับระดับสไลด์จากธีมต้นฉบับ เมธอด [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/), และ [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/) คัดลอกส่วนประกอบธีมหลักสามส่วนเข้าสู่การเขียนทับ
+หากสไลด์เป้าหมายต้องคงอยู่บนมาสเตอร์และเลย์เอาต์ปัจจุบัน, ให้เริ่มต้นการแทนที่ระดับสไลด์จากธีมต้นทาง เมธอด [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/), และ [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/) คัดลอกสามส่วนหลักของธีมเข้าสู่การแทนที่
 
 ```java
 import com.aspose.slides.*;
@@ -268,11 +341,11 @@ try {
 }
 ```
 
-วิธีนี้เปลี่ยนธีมที่ใช้โดยสไลด์นั้นโดยไม่กระทบธีมที่สืบทอดจากสไลด์อื่น เพื่อถอดการเขียนทับในระดับท้องถิ่นและคืนค่าให้เป็นค่าที่สืบทอด ให้เรียก [OverrideTheme.clear](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/)
+การทำเช่นนี้เปลี่ยนธีมที่สไลด์นั้นใช้โดยไม่กระทบธีมที่สืบทอดโดยสไลด์อื่น ๆ เพื่อเอาการแทนที่ท้องถิ่นออกและกลับไปใช้ค่าที่สืบทอด, เรียก [OverrideTheme.clear](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/overridetheme/)
 
-### **ประยุกต์ใช้การเขียนทับธีมกับเลย์เอาต์**
+### **ใช้การแทนที่ธีมกับเลย์เอาต์**
 
-การเขียนทับระดับเลย์เอาต์จะใช้กับสไลด์ที่ใช้เลย์เอาต์นั้น ยกเว้นกรณีสไลด์บางรายการมีการเขียนทับของตนเอง เมธอดการเริ่มต้นเดียวกันสามารถใช้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/layoutslidethememanager/):
+การแทนที่ระดับเลย์เอาต์จะนำไปใช้กับสไลด์ที่ใช้เลย์เอาต์นั้น, ยกเว้นสไลด์ใดที่มีการแทนที่ของตนเอง วิธีการเริ่มต้นเดียวกันสามารถใช้ผ่าน [LayoutSlideThemeManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -296,17 +369,17 @@ try {
 }
 ```
 
-ใช้ธีมระดับมาสเตอร์หรือระดับงานนำเสนอเมื่อหลายเลย์เอาต์และสไลด์ต้องการออกแบบฐานเดียวกัน ใช้การเขียนทับเลย์เอาต์เมื่อครอบครัวเลย์เอาต์หนึ่งต้องการสไตล์ที่แตกต่าง และใช้การเขียนทับสไลด์เฉพาะเมื่อเป็นข้อยกเว้นจริง การเขียนทับระดับสไลด์มากเกินไปจะทำให้การเปลี่ยนธีมระดับสากลในภายหลังคาดเดาได้ยาก
+ใช้ธีมระดับมาสเตอร์หรือการนำเสนอเมื่อหลายเลย์เอาต์และสไลด์ควรใช้การออกแบบฐานเดียวกัน, ใช้การแทนที่ระดับเลย์เอาต์เมื่อกลุ่มเลย์เอาต์หนึ่งต้องการสไตล์ที่แตกต่าง, และใช้การแทนที่ระดับสไลด์เฉพาะกรณีที่จำเป็น การแทนที่ระดับสไลด์มากเกินไปทำให้การเปลี่ยนแปลงธีมระดับโลกในภายหลังพยากรณ์ได้ยากขึ้น
 
 ## **อัปเดตสไตล์พื้นหลังของธีม**
 
-การเติมพื้นหลังของธีมถูกเก็บใน [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/). PowerPoint สามารถแสดงตัวเลือกพื้นหลังได้มากกว่าจำนวนการกำหนดเติมที่เก็บจริงในคอลเลกชันนี้ เนื่องจาก UI สามารถผสานการเติมธีมกับสีธีมและการอ้างอิงสไตล์อื่นๆ
+สไตล์พื้นหลังของธีมถูกจัดเก็บใน [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/). PowerPoint สามารถแสดงตัวเลือกพื้นหลังได้มากกว่าจำนวนการเติมสีที่จัดเก็บในคอลเลกชันนี้ เนื่องจาก UI สามารถรวมการเติมสีธีมกับสีธีมและการอ้างอิงสไตล์อื่น ๆ
 
-![แกลเลอรีสไตล์พื้นหลังของ PowerPoint สำหรับธีมงานนำเสนอ](presentation-design_8.png)
+![แกลเลอรีสไตล์พื้นหลัง PowerPoint สำหรับธีมการนำเสนอ](presentation-design_8.png)
 
-ก่อนใช้สไตล์พื้นหลัง, ตรวจสอบคอลเลกชันที่เก็บและค่า [Background.getStyleIndex](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/). ดัชนีสไตล์ `0` หมายถึงไม่มีการเติมธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังของธีม ซึ่งต่างจากการใช้ดัชนีของคอลเลกชัน Java โดยตรงที่ `get_Item(0)` หมายถึงรายการแรก อย่าสมมติว่าทุกงานนำเสนอมีจำนวนสไตล์การเติมพื้นหลังเท่ากัน
+ก่อนใช้สไตล์พื้นหลัง, ตรวจสอบคอลเลกชันที่จัดเก็บและค่า [Background.getStyleIndex](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/) ปัจจุบัน ดัชนีสไตล์ `0` หมายถึงไม่มีการเติมสีธีม; ค่าบวกเป็นการอ้างอิงสไตล์พื้นหลังธีม นี่แตกต่างจากการทำดัชนีคอลเลกชัน Java โดยตรง, ที่ `get_Item(0)` หมายถึงรายการแรกที่จัดเก็บ อย่าสมมติว่าการนำเสนอทุกไฟล์มีจำนวนสไตล์การเติมสีพื้นหลังเท่ากัน
 
-ตัวอย่างต่อไปนี้รายงานจำนวนการเติมพื้นหลังที่มี, กำหนดอ้างอิงพื้นหลังธีมให้กับมาสเตอร์แรก, แล้วบันทึกงานนำเสนอ:
+ตัวอย่างต่อไปนี้รายงานจำนวนการเติมสีพื้นหลังที่มี, กำหนดอ้างอิงพื้นหลังธีมให้กับมาสเตอร์แรก, และบันทึกการนำเสนอ:
 
 ```java
 import com.aspose.slides.*;
@@ -328,25 +401,25 @@ try {
 }
 ```
 
-ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการเขียนทับพื้นหลังที่ระดับเลย์เอาต์หรือสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังมาสเตอร์เท่านั้นอาจไม่ส่งผลต่อสไลด์นั้น ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/) เมื่อคุณต้องการทราบพื้นหลังสุดท้ายหลังการสืบทอด
+ผลลัพธ์ที่มองเห็นขึ้นอยู่กับรายการธีมที่มาสเตอร์อ้างอิงและการแทนที่พื้นหลังที่ระดับเลย์เอาต์หรือสไลด์ หากสไลด์ใช้พื้นหลังของตนเอง การเปลี่ยนพื้นหลังมาสเตอร์อาจไม่เปลี่ยนสไลด์นั้น ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/) เมื่อจำเป็นต้องทราบพื้นหลังสุดท้ายหลังจากการสืบทอด
 
 {{% alert color="warning" title="Warning" %}}
-อย่าถือว่าดัชนีสไตล์คือดัชนีคอลเลกชันที่เริ่มจากศูนย์ อีกทั้งหลีกเลี่ยงการกำหนดหมายเลขสไตล์จากไฟล์หนึ่งแล้วสมมติว่ามันจะมีลักษณะเดียวกันในไฟล์อื่น; นิยามสไตล์ธีมเป็นแบบเฉพาะงานนำเสนอ
+ห้ามถือดัชนีสไตล์เป็นดัชนีคอลเลกชันที่เริ่มจากศูนย์ ควรหลีกเลี่ยงการกำหนดหมายเลขสไตล์จากไฟล์หนึ่งแล้วสมมติว่ามีลักษณะเดียวกันในไฟล์อื่น; คำจำกัดความสไตล์ธีมเป็นลักษณะเฉพาะของการนำเสนอ
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง ดูที่ [Presentation Background](/slides/th/androidjava/presentation-background/)
+สำหรับการจัดรูปแบบพื้นหลังโดยตรงและการสืบทอดพื้นหลัง, ดูที่ [Presentation Background](/slides/th/androidjava/presentation-background/)
 {{% /alert %}}
 
 ## **อัปเดตเอฟเฟกต์ของธีม**
 
-โครมฟอร์แมตของธีมมีคอลเลกชันการเติม, เส้น, และเอฟเฟกต์แยกกันที่เปิดเผยผ่าน [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/), และ [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/). ธีม Office ปกติอาจมีรายการสไตล์หลักสามรายการที่สอดคล้องกับการจัดรูปแบบแบบ Subtle, Moderate, และ Intense, แต่โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสมมติว่ามีจำนวนคงที่
+ชุดรูปแบบธีมประกอบด้วยคอลเลกชันการเติมสี, เส้น, และเอฟเฟกต์แยกกันที่เปิดเผยผ่าน [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/), และ [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/iformatscheme/). ธีม Office ปกติมักมีสามรายการสไตล์หลักที่สอดคล้องกับการจัดรูปแบบแบบ Subtle, Moderate, และ Intense, แต่โค้ดควรตรวจสอบแต่ละคอลเลกชันแทนการสันนิษฐานว่ามีจำนวนคงที่
 
 ![เอฟเฟกต์ธีม Subtle, Moderate, และ Intense ที่ใช้กับรูปร่างเดียวกัน](presentation-design_10.png)
 
-เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน Java, ดัชนีคอลเลกชันเริ่มจากศูนย์: `get_Item(0)` คือสไตล์แรกที่เก็บและ `get_Item(2)` คือสไตล์ที่สาม ดัชนีอ้างอิงสไตล์ของรูปร่างเป็นแนวคิดแยกที่เปิดเผยผ่าน [IShapeStyle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapestyle/). การแก้ไขสไตล์ธีมจะกระทบกับรูปร่างที่อ้างอิงสไตล์ธีมนั้น; รูปร่างที่มีการจัดรูปแบบโดยตรงอาจไม่เปลี่ยน
+เมื่อเข้าถึงคอลเลกชันเหล่านี้ใน Java, ดัชนีคอลเลกชันเริ่มจากศูนย์: `get_Item(0)` คือสไตล์แรกที่จัดเก็บและ `get_Item(2)` คือสไตล์ที่สาม ดัชนีอ้างอิงสไตล์ของรูปร่างเป็นแนวคิดแยกต่างหาก, เปิดเผยผ่าน [IShapeStyle](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/ishapestyle/). การแก้ไขสไตล์ธีมจะส่งผลต่อรูปร่างที่อ้างอิงสไตล์ธีมนั้น; รูปร่างที่มีการจัดรูปแบบโดยตรงอาจคงเดิม
 
-ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่จำเป็นหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมที่สาม, เปิดเงานอกในสไตล์เอฟเฟกต์ที่สาม, แล้วบันทึกผลลัพธ์:
+ตัวอย่างต่อไปนี้ตรวจสอบว่ามีรายการสไตล์ที่ต้องการหรือไม่, เปลี่ยนสไตล์เส้นแรก, เปลี่ยนสไตล์เติมสีที่สาม, เปิดใช้งานเงานอกในสไตล์เอฟเฟกต์ที่สาม, และบันทึกผลลัพธ์:
 
 ```java
 import com.aspose.slides.*;
@@ -371,15 +444,15 @@ try {
 }
 ```
 
-สำหรับรูปร่างที่อ้างอิงช่องเหล่านี้, สไตล์เส้นธีมแรกจะกลายเป็นสีแดง, สไตล์เติมธีมที่สามจะเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟกต์ที่สามจะเพิ่มเงานอกระยะ 10 จุด ผลลัพธ์ภาพสุดท้ายยังคงขึ้นอยู่กับว่ารูปร่างอ้างอิงช่องสไตล์ใดและว่าการจัดรูปแบบโดยตรงได้เขียนทับธีมหรือไม่
+สำหรับรูปร่างที่อ้างอิงช่องเหล่านี้, สไตล์เส้นธีมแรกจะเป็นสีแดง, สไตล์เติมสีธีมที่สามจะเป็นสีเขียวป่าแบบทึบ, และสไตล์เอฟเฟกต์ที่สามจะเพิ่มเงานอกระยะ 10 จุด ผลลัพธ์ภาพสุดท้ายยังคงขึ้นกับสไตล์ที่แต่ละรูปร่างอ้างอิงและว่าการจัดรูปแบบโดยตรงได้ทับธีมหรือไม่
 
-![สไตล์เอฟเฟกต์ของธีมหลังจากเปลี่ยนการตั้งค่าเส้น, เติม, และเงา](presentation-design_11.png)
+![สไตล์เอฟเฟกต์ธีมหลังจากการเปลี่ยนเส้น, เติมสี, และการตั้งค่าเงา](presentation-design_11.png)
 
-## **อ่านค่าธีมที่มีผล**
+## **อ่านค่าธีมที่ใช้จริง**
 
-อ็อบเจกต์ธีมดิบบอกสิ่งที่กำหนดในระดับหนึ่งๆ ค่าแบบมีผลบอกสิ่งที่สไลด์หรือรูปร่างใช้จริงหลังจากการสืบทอดและการเขียนทับท้องถิ่นได้รับการแก้ไข สำหรับสไลด์ให้เรียก [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseoverridethememanager/). สำหรับพื้นหลังใช้ [Background.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/), และสำหรับการเติมใช้ [FillFormat.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fillformat/)
+วัตถุธีมดิบบอกคุณว่ามีการกำหนดอะไรไว้ที่ระดับหนึ่ง ค่าที่ใช้จริงบอกคุณว่าสไลด์หรือรูปร่างใช้อะไรจริงหลังจากการสืบทอดและการแทนที่ในระดับท้องถิ่นถูกแก้ไขแล้ว สำหรับสไลด์, เรียก [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseoverridethememanager/). สำหรับพื้นหลัง, ใช้ [Background.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/), และสำหรับการเติมสี, ใช้ [FillFormat.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fillformat/).
 
-ตัวอย่างต่อไปนี้อ่านธีมที่มีผล, พื้นหลัง, และการเติมของรูปร่างแรกจากสไลด์:
+ตัวอย่างต่อไปนี้อ่านธีมที่ใช้จริง, พื้นหลัง, และการเติมสีของรูปร่างแรกจากสไลด์:
 
 ```java
 import com.aspose.slides.*;
@@ -406,18 +479,22 @@ try {
 }
 ```
 
-ใช้ข้อมูลที่มีผลสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/) คุณอาจพลาดการเขียนทับของมาสเตอร์, เลย์เอาต์, สไลด์, หรือรูปร่างที่เปลี่ยนรูปแบบสุดท้าย
+ใช้ข้อมูลที่ใช้จริงสำหรับการวินิจฉัยการเรนเดอร์, การตรวจสอบ, และการเปรียบเทียบ หากคุณตรวจสอบเฉพาะ [Presentation.getMasterTheme](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/presentation/), คุณอาจพลาดมาสเตอร์, เลย์เอาต์, สไลด์, หรือการแทนที่ของรูปร่างที่เปลี่ยนลักษณะสุดท้าย
 
 ## **คำถามที่พบบ่อย**
 
-**ฉันสามารถประยุกต์ใช้ธีมกับสไลด์เดี่ยวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
+**การใช้ธีมภายนอกมีผลต่อสไลด์ทุกสไลด์ในงานนำเสนอหรือไม่?**
 
-ได้ ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidethememanager/) ของสไลด์และเริ่มการเขียนทับธีมของมัน การเปลี่ยนแปลงจะอยู่ในระดับสไลด์เท่านั้น; สไลด์อื่นยังคงสืบทอดธีมเดิม
+ไม่. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslide/) จะกำหนดใหม่เฉพาะสไลด์ที่ขึ้นอยู่กับมาสเตอร์ที่เลือก สไลด์ที่ใช้มาสเตอร์อื่นจะคงธีมเดิมไว้
 
-**วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานนำเสนอหนึ่งคืออะไร?**
+**ฉันสามารถใช้ธีมกับสไลด์เดียวโดยไม่เปลี่ยนมาสเตอร์ได้หรือไม่?**
 
-เมื่อย้ายสไลด์และต้องการรักษาลักษณะเดิมของต้นฉบับ ให้คัดลอกมาสเตอร์ต้นฉบับไปยังปลายทางและคัดลอกสไลด์พร้อมมาสเตอร์นั้นโดยใช้ [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/) และ [ISlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/). วิธีนี้ทำให้มาสเตอร์, เลย์เอาต์, และธีมอยู่ด้วยกัน
+ได้. ใช้ [SlideThemeManager](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/slidethememanager/) ของสไลด์และเริ่มต้นการแทนที่ธีม การเปลี่ยนแปลงจะอยู่ในระดับสไลด์เท่านั้น; สไลด์อื่น ๆ ยังคงสืบทอดธีมเดิม
 
-**ฉันจะดูค่าที่มีผลหลังจากการสืบทอดและการเขียนทับได้อย่างไร?**
+**วิธีที่ปลอดภัยที่สุดในการย้ายธีมจากงานนำเสนอหนึ่งไปยังอีกงานหนึ่งคืออะไร?**
 
-ใช้ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseoverridethememanager/) สำหรับสไลด์หรือธีมเลย์เอาต์ และเมธอดข้อมูลที่มีผลที่สอดคล้องสำหรับออบเจกต์ฟอร์แมต เช่น [Background.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/) และ [FillFormat.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fillformat/). API เหล่านี้จะคืนค่าที่ได้จากการสืบทอดและการเขียนทับที่ประมวลผลแล้ว.
+เมื่อย้ายสไลด์และต้องการรักษาการออกแบบต้นฉบับ, ให้โคลนมาสเตอร์ต้นทางเข้าสู่ปลายทางและโคลนสไลด์พร้อมมาสเตอร์นั้นโดยใช้ [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/imasterslidecollection/) และ [ISlideCollection.addClone](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/islidecollection/). วิธีนี้จะเก็บมาสเตอร์, เลย์เอาต์, และธีมไว้ด้วยกัน
+
+**ฉันจะดูค่าที่ใช้จริงหลังจากการสืบทอดและการแทนที่ได้อย่างไร?**
+
+ใช้ [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/baseoverridethememanager/) สำหรับสไลด์หรือธีมเลย์เอาต์และเมธอดข้อมูลที่ใช้จริงที่สอดคล้องสำหรับวัตถุรูปแบบเช่น [Background.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/background/) และ [FillFormat.getEffective](https://reference.aspose.com/slides/th/androidjava/com.aspose.slides/fillformat/). API เหล่านี้จะคืนค่าที่แก้ไขแล้วหลังจากการสืบทอดและการแทนที่ถูกนำไปใช้.

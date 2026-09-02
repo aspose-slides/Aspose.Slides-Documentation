@@ -1,5 +1,5 @@
 ---
-title: Hantera presentationsteman i C++
+title: Hantera presentations-teman i C++
 linktitle: Presentationstema
 type: docs
 weight: 10
@@ -11,9 +11,11 @@ keywords:
 - sätt tema
 - ändra tema
 - hantera tema
+- externt tema
+- THMX
 - temafärg
 - extra palett
-- temateckensnitt
+- tematypsnitt
 - temastil
 - temaeffekt
 - PowerPoint
@@ -21,21 +23,21 @@ keywords:
 - presentation
 - C++
 - Aspose.Slides
-description: "Behärska presentations-teman i Aspose.Slides för C++ för att skapa, anpassa och konvertera PowerPoint-filer med enhetlig varumärkesprofil."
+description: "Behärska presentations-teman i Aspose.Slides för C++ för att skapa, anpassa och konvertera PowerPoint-filer med konsekvent varumärkesprofil."
 ---
 ## **Introduktion**
 
-Ett presentations‑tema definierar en koordinerad uppsättning färger, teckensnitt, bakgrundsstilar, fyllningar, linjer och effekter. Tema‑medvetna objekt refererar till dessa delade definitioner istället för att lagra varje visuellt egenskap som ett fast värde, så en temabyte kan uppdatera många objekt på en gång.
+Ett presentations‑tema definierar en samordnad uppsättning färger, typsnitt, bakgrundsstilar, fyllningar, linjer och effekter. Tema‑medvetna objekt hänvisar till dessa gemensamma definitioner istället för att lagra varje visuellt egenskap som ett fast värde, så en temaförändring kan uppdatera många objekt på en gång.
 
-I Aspose.Slides är presentationens tema tillgängligt via [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_mastertheme/). En presentation kan också innehålla temaunderlägg på lägre nivåer. En master kan åsidosätta presentationstemat via [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), medan en layout eller en enskild bild kan använda [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). I praktiken löses det faktiska temat för en bild genom denna arvskedja: presentationstema, master‑åsidosättning, layout‑åsidosättning och bild‑åsidosättning.
+I Aspose.Slides är temat på presentationsnivå tillgängligt via [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_mastertheme/). En presentation kan också innehålla temaunderskott på lägre nivåer. En master kan åsidosätta presentationens tema via [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), medan en layout eller en enskild bild kan använda [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). I praktiken avgörs det effektiva temat för en bild genom denna arvskedja: presentationstema, master‑åsidosätt, layout‑åsidosätt och bild‑åsidosätt.
 
-![Temakomponenter: färger, teckensnitt, bakgrundsstilar och effekter](theme-constituents.png)
+![Temakomponenter: färger, typsnitt, bakgrundsstilar och effekter](theme-constituents.png)
 
-Avsnitten nedan visar de vanligaste temaflödena: inspektera ett tema, ändra färger och teckensnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effektstilar samt läsa de faktiska värdena efter att arv och åsidosättningar har lösts.
+Avsnitten nedan visar de vanligaste temaflödena: inspektera ett tema, ändra färger och typsnitt, kopiera eller tillämpa ett tema, uppdatera bakgrunds‑ och effektstilar samt läsa effektiva värden efter att arv och åsidosättningar har lösts.
 
 ## **Inspektera ett tema**
 
-Objektet [MasterTheme](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/) exponerar temats [get_ColorScheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) och [get_FormatScheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/get_formatscheme/)‑metoder. Att inspektera dessa samlingar innan de ändras är särskilt användbart när en presentation kommer från en extern källa eftersom antalet och innehållet i stilposter kan variera.
+Objektet [MasterTheme](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/) exponerar temats [get_ColorScheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) och [get_FormatScheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/mastertheme/get_formatscheme/) metoder. Att inspektera dessa samlingar innan du ändrar dem är särskilt användbart när en presentation kommer från en extern källa eftersom antalet och innehållet i stilposter kan variera.
 
 Följande exempel läser huvudtema‑egenskaperna och rapporterar hur många bakgrunds‑, fyllnings‑, linje‑ och effekstilar som lagras i temat:
 
@@ -69,13 +71,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Om en fil använder flera masters, anta inte att varje bild har samma faktiska tema. Inspektera den master som är kopplad till bilden, och använd arbetsflödet för faktiska teman som visas senare i den här artikeln när layout‑ eller bild‑åsidosättningar kan finnas.
+Om en fil använder flera masters, anta inte att varje bild har samma effektiva tema. Inspektera den master som är kopplad till bilden och använd arbetsflödet för effektiva teman som visas senare i den här artikeln när layout‑ eller bildåsidosättningar kan finnas.
 
 ## **Ändra temafärger**
 
-Tema‑medvetna fyllningar, linjer och text kan referera till en logisk färg från uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/schemecolor/). När du ändrar motsvarande post i temats [IColorScheme](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/icolorscheme/), löses alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg ändras inte av en temafärgsuppdatering.
+Tema‑medvetna fyllningar, linjer och texter kan hänvisa till en logisk färg från [SchemeColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/schemecolor/)‑enumerationen. När du ändrar motsvarande post i temats [IColorScheme](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/icolorscheme/), löses alla objekt som fortfarande refererar till den temafärgen mot det nya värdet. Objekt som använder en direkt RGB‑färg ändras inte av en temafärgsuppdatering.
 
-Följande end‑to‑end‑exempel skapar en form som använder `Accent4`, ändrar temats `Accent4`‑färg till röd, sparar presentationen, öppnar den igen och skriver ut den faktiska fyllningsfärgen:
+Följande end‑to‑end‑exempel skapar en form som använder `Accent4`, ändrar temats `Accent4`‑färg till röd, sparar presentationen, öppnar den igen och skriver ut den effektiva fyllningsfärgen:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -114,19 +116,19 @@ auto effectiveFill = savedShape->get_FillFormat()->GetEffective();
 Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillColor());
 ```
 
-Eftersom rektangeln fortfarande är länkad till `Accent4` blir dess synliga färg röd efter att temat har ändrats. Om du ersätter schemafärgen med en direkt färg på formen, kommer senare ändringar av `Accent4` inte längre att påverka den fyllningen.
+Eftersom rektangeln förblir länkad till `Accent4` blir dess synliga färg röd efter att temat har ändrats. Om du ersätter schema‑färgen med en direkt färg på formen kommer senare ändringar av `Accent4` inte längre att påverka den fyllningen.
 
 ### **Använd färger från den extra paletten**
 
 PowerPoint härleder ljusare och mörkare varianter från en temafärg genom att tillämpa färgtransformationer. Aspose.Slides exponerar dessa transformationer via [ColorTransformOperation](https://reference.aspose.com/slides/sv/cpp/aspose.slides/colortransformoperation/).
 
-![Huvudtemafärger och ljusare samt mörkare färger som genereras från den extra paletten](additional-palette-colors.png)
+![Huvudtemafärger samt ljusare och mörkare färger genererade från den extra paletten](additional-palette-colors.png)
 
 **1** – Huvudtemafärger.
 
 **2** – Ljusare och mörkare varianter som produceras från huvudtemafärgerna.
 
-Följande exempel skapar sex rektanglar baserade på `Accent4`, applicerar luminans‑transformationer på fem av dem och sparar resultatet:
+Följande exempel skapar sex rektanglar baserade på `Accent4`, tillämpar luminans‑transformationer på fem av dem och sparar resultatet:
 
 ```cpp
 #include <DOM/ColorTransformOperation.h>
@@ -195,11 +197,11 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-Dessa varianter förblir baserade på temafärgen. Om `Accent4` ändras senare räknas de transformerade färgerna om från det nya `Accent4`‑värdet.
+Dessa varianter förblir baserade på temafärgen. Om `Accent4` ändras senare beräknas de transformerade färgerna om från det nya `Accent4`‑värdet.
 
 ### **Mappa `SchemeColor`‑värden till `IColorScheme`‑platser**
 
-Uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/schemecolor/) använder `Text1`, `Background1`, `Text2` och `Background2`, medan [IColorScheme](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/icolorscheme/) exponerar samma temaplatser som `Dark1`, `Light1`, `Dark2` och `Light2`. Mappningen är fast:
+Enumerationen [SchemeColor](https://reference.aspose.com/slides/sv/cpp/aspose.slides/schemecolor/) använder `Text1`, `Background1`, `Text2` och `Background2`, medan [IColorScheme](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/icolorscheme/) exponerar samma temaplatser som `Dark1`, `Light1`, `Dark2` och `Light2`. Mappningen är fast:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
@@ -208,18 +210,18 @@ Uppräkningen [SchemeColor](https://reference.aspose.com/slides/sv/cpp/aspose.sl
 
 Detta är alternativa namn för samma temaplatser; de är inte värden som dynamiskt konverteras från en form till en annan.
 
-## **Ändra temateckensnitt**
+## **Ändra tematypsnitt**
 
-Ett temateckensnittsschema innehåller en huvudteckensnittssats för rubriker och en mindre teckensnittssats för brödtext. Metoderna [FontScheme::get_Major()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/fontscheme/get_major/) och [FontScheme::get_Minor()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/fontscheme/get_minor/) exponerar dessa satser.
+Ett tematypsnittsschema innehåller en huvudtypsnittssamling för rubriker och en mindre samling för brödtext. Metoderna [FontScheme::get_Major()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/fontscheme/get_major/) och [FontScheme::get_Minor()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/fontscheme/get_minor/) exponerar dessa samlingar.
 
-PowerPoint‑kompatibla temateckensnittsanvändare kan användas i textformatering:
+PowerPoint‑kompatibla tematypsnittsidentifierare kan användas i textformatering:
 
-* `+mn‑lt` – Brödtext‑teckensnitt Latin (Minor Latin Font)
-* `+mj‑lt` – Rubrik‑teckensnitt Latin (Major Latin Font)
-* `+mn‑ea` – Brödtext‑teckensnitt Östasiatiskt (Minor East Asian Font)
-* `+mj‑ea` – Rubrik‑teckensnitt Östasiatiskt (Major East Asian Font)
+* `+mn‑lt` – Brödtext Latin (Minor Latin Font)
+* `+mj‑lt` – Rubrikfont Latin (Major Latin Font)
+* `+mn‑ea` – Brödtext Östasien (Minor East Asian Font)
+* `+mj‑ea` – Rubrikfont Östasien (Major East Asian Font)
 
-Följande exempel skapar en rubrik som använder huvud‑Latin‑temateckensnittet och en brödtextlinje som använder det mindre Latin‑temateckensnittet. Därefter ändras temateckensnitten och resultatet sparas:
+Följande exempel skapar en rubrik som använder det stora Latin‑tematypsnittet och en brödtextlinje som använder det lilla Latin‑tematypsnittet. Det ändrar därefter tematypsnitten och sparar resultatet:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -259,23 +261,106 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-Rubriken följer huvudteckensnittet och brödtexten följer det mindre teckensnittet. Text som har ett explicit teckensnittnamn istället för ett tema‑identifierare byter inte automatiskt när temateckensnittsschemat ändras.
+Rubriken följer det stora typsnittet och brödtexten följer det lilla. Text som har ett explicit typsnittnamn istället för en temidentifierare byts inte automatiskt när tematypsnittsschemat förändras.
 
-De stora och små teckensnittssamlingarna kan också innehålla teckensnitts­mappningar för enskilda skriftsystem, såsom kyrilliska, arabiska, japanska, georgiska och thaana. För att inspektera, lägga till, ersätta eller ta bort dessa mappningar, se [Script‑Specific Theme Fonts](/slides/sv/cpp/script-specific-font-mappings/).
+De stora och små typsnittssamlingarna kan också innehålla typsnittsmappningar för enskilda skriftsystem, såsom kyrilliska, arabiska, japanska, georgiska och thaana. För att inspektera, lägga till, ersätta eller ta bort dessa mappningar, se [Script‑Specific Theme Fonts](/slides/sv/cpp/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tips" %}}
-
-För mer information om presentations­teckensnitt, se [PowerPoint Fonts](/slides/sv/cpp/powerpoint-fonts/).
-
+För mer information om presentations‑typsnitt, se [PowerPoint Fonts](/slides/sv/cpp/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Kopiera eller tillämpa ett tema**
 
-Det finns två vanliga arbetsflöden, och de löser olika problem.
+Arbetsflödena nedan löser olika temarelaterade problem.
 
-### **Bevara ett källtema när du flyttar bilder**
+### **Tillämpa ett externt tema på en mastersberoende bilder**
 
-Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑mastern in i mål‑presentationen med [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslidecollection/addclone/), klona sedan bilden med [ISlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islidecollection/addclone/) och den klonade mastern. Detta för med sig mastern, dess layouter och det associerade temat tillsammans.
+Använd [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) när du har en PowerPoint‑temafil (`.thmx`) och vill omstyla varje bild som beror på en viss master. Välj master från [Presentation::get_Masters](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_masters/)‑samlingen, som implementerar [IMasterSlideCollection](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslidecollection/), och skicka temafilens sökväg till metoden.
+
+Metoden utför följande steg:
+
+1. Skapar en ny master‑bild baserad på den valda masteren.
+1. Tillämpa det externa temat på den nya masteren.
+1. Tilldela den nya masteren till alla bilder som tidigare berodde på den valda masteren.
+1. Returnerar den nyskapade [IMasterSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/).
+
+Följande exempel tillämpar ett externt tema på de bilder som beror på den första masteren och sparar presentationen:
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto selectedMaster = presentation->get_Master(0);
+auto themedMaster = selectedMaster->ApplyExternalThemeToDependingSlides(u"corporate-theme.thmx");
+
+Console::WriteLine(u"Created master: {0}", themedMaster->get_Name());
+presentation->Save(u"presentation-with-external-theme.pptx", SaveFormat::Pptx);
+```
+
+Ett ogiltigt, korrupt eller ej‑stött temat kan orsaka [PptxException](https://reference.aspose.com/slides/sv/cpp/aspose.slides/pptxexception/) eller en av dess format‑relaterade underklasser. Validera sökvägar som tillhandahålls av användare, hantera filsystem‑åtkomstfel och spara presentationen först när temat har tillämpats utan problem.
+
+Endast de bilder som berodde på den valda masteren omassigneras. Bilder knutna till andra masters behåller sina befintliga masters och teman. Tema‑medvetna färger, typsnitt, fyllningar, linjer, bakgrunder och effekter löses mot det externa temat. Direkt tilldelade färger, typsnitt, fyllningar och annan explicit formatering kan förbli oförändrade. Layout‑nivå‑ och bild‑åsidosättningar kan också ha företräde framför värden ärvda från den nya masteren.
+
+Temat kan referera till typsnitt som inte finns i körmiljön. För konsekvent rendering och export, installera de nödvändiga typsnitten, erbjud dem via [custom font sources](/slides/sv/cpp/custom-font/), eller konfigurera [font substitution](/slides/sv/cpp/font-substitution/).
+
+Detta är ett direkt master‑nivå‑arbetsflöde: metoden accepterar en filsökväg till en `.thmx`‑fil och kräver inte att du manuellt skapar bild‑ eller layout‑åsidosättningar.
+
+### **Tillämpa olika externa teman i en multi‑master‑presentation**
+
+När den relevanta masteren inte är känd i förväg, erhåll den från en representativ bild via [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islide/get_layoutslide/) och [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ilayoutslide/get_masterslide/). Spara de ursprungliga master‑referenserna innan du tillämpar några teman eftersom varje anrop skapar en ny master i presentationen.
+
+Följande exempel använder bilder från två sektioner för att lokalisera deras masters och tillämpar ett olika externt tema på varje grupp:
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"multi-master-presentation.pptx");
+
+if (presentation->get_Slides()->get_Count() < 5)
+{
+    std::cout << "The presentation does not contain the expected representative slides." << std::endl;
+}
+else
+{
+    auto firstGroupMaster = presentation->get_Slide(0)->get_LayoutSlide()->get_MasterSlide();
+    auto secondGroupMaster = presentation->get_Slide(4)->get_LayoutSlide()->get_MasterSlide();
+
+    if (firstGroupMaster->get_SlideId() == secondGroupMaster->get_SlideId())
+    {
+        std::cout << "The representative slides use the same master." << std::endl;
+    }
+    else
+    {
+        auto firstThemedMaster = firstGroupMaster->ApplyExternalThemeToDependingSlides(u"blue-theme.thmx");
+        auto secondThemedMaster = secondGroupMaster->ApplyExternalThemeToDependingSlides(u"green-theme.thmx");
+
+        Console::WriteLine(u"First themed master: {0}", firstThemedMaster->get_Name());
+        Console::WriteLine(u"Second themed master: {0}", secondThemedMaster->get_Name());
+        presentation->Save(u"multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+    }
+}
+```
+
+Det första anropet påverkar endast bilder som berodde på `firstGroupMaster`, och det andra anropet påverkar endast bilder som berodde på `secondGroupMaster`. Bilder som tillhör någon annan master omstylingas inte.
+
+### **Bevara ett källtema vid flytt av bilder**
+
+Om du vill flytta en bild till en annan presentation och bevara dess ursprungliga design, klona käll‑masteren till målpresentationen med [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslidecollection/addclone/), klona sedan bilden med [ISlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islidecollection/addclone/) och den klonade masteren. Detta för med sig masteren, dess layouter och det associerade temat tillsammans.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -299,11 +384,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Detta är det föredragna arbetsflödet när källbilden måste se exakt likadan ut i destinationen. Att bara klona innehåll på en orelaterad destinationsmaster kan förändra temadrivna färger, teckensnitt, bakgrunder och effekter.
+Detta är det föredragna arbetsflödet när källbilden måste se likadan ut i destinationen. Att bara klona innehåll till en orelaterad destinations‑master kan ändra temadrivna färger, typsnitt, bakgrunder och effekter.
 
 ### **Tillämpa temavärden på en befintlig bild**
 
-Om målbilden måste stanna på sin nuvarande master och layout, initiera ett bild‑nivå‑åsidosättning från källtemat. Metoderna [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) och [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) kopierar de tre huvudsakliga temakomponenterna till åsidosättningen.
+Om målbilden måste förbli på sin nuvarande master och layout, initiera en bild‑nivå‑åsidosättning från källtemat. Metoderna [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) och [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) kopierar de tre huvudtema‑komponenterna till åsidosättningen.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -327,9 +412,9 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 ```
 
-Detta ändrar temat som den bilden använder utan att ändra temat som ärvs av andra bilder. För att ta bort den lokala åsidosättningen och återgå till ärvda värden, anropa [OverrideTheme::Clear()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/clear/).
+Detta ändrar temat för den bilden utan att ändra temat som ärvt av andra bilder. För att ta bort den lokala åsidosättningen och återgå till ärvda värden, anropa [OverrideTheme::Clear()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/overridetheme/clear/).
 
-### **Tillämpa en temåsåsidosättning på en layout**
+### **Tillämpa ett temåsåsidosätt på en layout**
 
 En layout‑nivå‑åsidosättning gäller för bilder som använder den layouten, såvida inte en specifik bild har sin egen åsidosättning. Samma initieringsmetoder kan användas via layoutens [IOverrideThemeManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ioverridethememanager/):
 
@@ -357,17 +442,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Använd ett master‑ eller presentation‑nivå‑tema när många layouter och bilder ska dela samma basdesign, en layout‑åsidosättning när en layoutfamilj behöver annan formatering, och en bild‑åsidosättning endast för verkliga undantag. Överdrivna bild‑nivå‑åsidosättningar gör senare globala temaförändringar svårare att förutse.
+Använd ett master‑ eller presentations‑tema när många layouter och bilder ska dela samma grunddesign, en layout‑åsidosättning när en layout‑familj behöver annan stil, och en bild‑åsidosättning endast för verkliga undantag. Överdriven bild‑nivå‑åsidosättning gör senare globala temaförändringar svårare att förutsäga.
 
 ## **Uppdatera temats bakgrundsstilar**
 
-Temats bakgrundsfyllningar lagras i [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint kan erbjuda fler bakgrundsalternativ i sitt UI än antalet fyllningsdefinitioner som fysiskt lagras i den här samlingen, eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
+Temats bakgrundsfyllningar lagras i [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint kan erbjuda fler bakgrundsalternativ i sitt UI än antalet fyllningsdefinitioner som fysiskt lagras i denna samling, eftersom UI kan kombinera temafyllningar med temafärger och andra stilreferenser.
 
-![PowerPoint‑bakgrundsgalleri för ett presentations‑tema](presentation-design_8.png)
+![PowerPoint‑bakgrundsstilsgalleri för ett presentationstema](presentation-design_8.png)
 
-Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och det aktuella [Background::get_StyleIndex()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` använder `0` för ingen temafyllning; positiva värden är referenser till temats bakgrundsstilar. Detta skiljer sig från att indexera en C++‑samling direkt med `idx_get(0)`, där `0` betyder det första lagrade objektet. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
+Innan du använder en bakgrundsstil, inspektera den lagrade samlingen och den aktuella [Background::get_StyleIndex()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` använder `0` för ingen temafyllning; positiva värden är referenser till temats bakgrundsstil. Detta skiljer sig från att indexera en C++‑samling direkt med `idx_get(0)`, där `0` betyder det första lagrade objektet. Anta inte att varje presentation innehåller samma antal bakgrundsfyllningsstilar.
 
-Följande exempel rapporterar antalet tillgängliga bakgrundsfyllningar, tilldelar en temareferens till den första mastern och sparar presentationen:
+Följande exempel rapporterar antalet tillgängliga bakgrundsfyllningar, tilldelar en temareferens till den första masteren och sparar presentationen:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -397,29 +482,25 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-Det synliga resultatet beror på temaposten som mastern refererar till samt eventuella bakgrundsåsidosättningar på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund kan en ändring av endast master‑bakgrunden lämna den bilden oförändrad. Använd [Background::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/geteffective/) när du behöver veta den slutgiltiga bakgrunden efter att arv har applicerats.
+Det synliga resultatet beror på temaposten som refereras av masteren och på eventuella bakgrundsåsidosättningar på layout‑ eller bildnivå. Om en bild använder sin egen bakgrund kan en förändring av endast master‑bakgrunden ha ingen effekt på den bilden. Använd [Background::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/geteffective/) när du behöver veta den slutgiltiga bakgrunden efter att arv har tillämpats.
 
 {{% alert color="warning" title="Varning" %}}
-
-Behandla inte `StyleIndex` som ett nollbaserat samlingsindex. Undvik också att hårdkoda ett stilnummer från en fil och anta att det har samma utseende i en annan fil; temastildefinitioner är presentationsspecifika.
-
+Behandla inte `StyleIndex` som ett nollbaserat samlingsindex. Undvik också att hårdkoda ett stilnummer från en fil och anta att det har samma utseende i en annan fil; temastil‑definitioner är presentationsspecifika.
 {{% /alert %}}
 
 {{% alert color="info" title="Tips" %}}
-
 För direkt bakgrundsformatering och bakgrundsarv, se [Presentation Background](/slides/sv/cpp/presentation-background/).
-
 {{% /alert %}}
 
 ## **Uppdatera temaeffekter**
 
-Ett temas format‑schema innehåller separata samlingar för [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_linestyles/) och [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Vanliga Office‑teman innehåller ofta tre huvudsakliga stilposter som visuellt motsvarar subtil, måttlig och intensiv formatering, men kod bör inspektera varje samling istället för att anta ett fast antal.
+Ett temaformat‑schema innehåller separata samlingar för [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_linestyles/) och [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Vanliga Office‑teman innehåller ofta tre huvudstilposter som visuellt motsvarar subtil, medel och intensiv formatering, men kod bör inspektera varje samling istället för att anta ett fast antal.
 
-![Subtila, måttliga och intensiva temaeffekter som tillämpas på samma form](presentation-design_10.png)
+![Subtila, medel och intensiva temaeffekter tillämpade på samma form](presentation-design_10.png)
 
-När du åtkommer till dessa samlingar i C++ är samlingsindexet nollbaserat: `idx_get(0)` är den första lagrade stilen och `idx_get(2)` är den tredje. En formes stil‑referensindex är ett separat begrepp, exponerat via [IShapeStyle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapestyle/). Att modifiera en temastil påverkar former som refererar till den temastilen; former med direkt formatering kan förbli oförändrade.
+När du kommer åt dessa samlingar i C++ är samlingsindexet nollbaserat: `idx_get(0)` är den första lagrade stilen och `idx_get(2)` är den tredje. En forms stil‑referensindex är ett separat begrepp, exponerat via [IShapeStyle](https://reference.aspose.com/slides/sv/cpp/aspose.slides/ishapestyle/). Att modifiera en temastil påverkar former som refererar till den temastilen; former med direkt formatering kan förbli oförändrade.
 
-Följande exempel kontrollerar att de nödvändiga stilposterna finns, ändrar den första linjestilen, ändrar den tredje fyllningsstilen, aktiverar en ytterligare skugga i den tredje effektstilen och sparar resultatet:
+Följande exempel kontrollerar att de erforderliga stilposterna finns, ändrar den första linjestilen, den tredje fyllningsstilen, aktiverar en yttre skugga i den tredje effektstilen och sparar resultatet:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -472,15 +553,15 @@ else
 }
 ```
 
-För former som refererar till dessa platser blir den första temalinjestilen röd, den tredje temafyllningsstilen blir solid skoggrön och den tredje effektstilen får en yttre skugga med ett avstånd på 10 punkter. Det exakta visuella resultatet beror fortfarande på vilka stilplatser varje form refererar till och om direkt formatering åsidosätter temat.
+För former som refererar till dessa platser blir den första temalinjestilen röd, den tredje temafyllningsstilen ett solidt skoggrönt, och den tredje effektstilen får en yttre skugga med ett avstånd på 10 punkter. Det exakta visuella resultatet beror fortfarande på vilka stilplatser varje form refererar till och om direkt formatering åsidosätter temat.
 
-![Temaeffektstilar efter ändring av linje-, fyllning‑ och skugga‑inställningar](presentation-design_11.png)
+![Temaeffektstilar efter ändring av linje‑, fyllnings‑ och skugginställningar](presentation-design_11.png)
 
-## **Läs faktiska temavärden**
+## **Läs effektiva temavärden**
 
-Råa temaobjekt berättar vad som är definierat på en viss nivå. Faktiska värden visar vad en bild eller form faktiskt använder efter att arv och lokala åsidosättningar har lösts. För en bild, anropa [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). För en bakgrund, använd [Background::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/geteffective/), och för en fyllning, använd [FillFormat::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/geteffective/).
+Råa temaobjekt berättar vad som är definierat på en viss nivå. Effektiva värden visar vad en bild eller form faktiskt använder efter att arv och lokala åsidosättningar har lösts. För en bild, anropa [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). För en bakgrund, använd [Background::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/geteffective/), och för en fyllning, använd [FillFormat::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/geteffective/).
 
-Följande exempel läser det faktiska temat, bakgrunden och den första formens fyllning från en bild:
+Följande exempel läser den effektiva temainformationen, bakgrunden och den första formens fyllning från en bild:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -520,18 +601,22 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Använd faktiska data för rendering‑diagnostik, validering och jämförelser. Om du bara inspekterar [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_mastertheme/), kan du missa en master‑, layout‑, bild‑ eller form‑åsidosättning som förändrar det slutgiltiga utseendet.
+Använd effektiva data för renderingsdiagnostik, validering och jämförelser. Om du bara inspekterar [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/presentation/get_mastertheme/), kan du missa en master‑, layout‑, bild‑ eller form‑åsidosättning som ändrar det slutgiltiga utseendet.
 
 ## **FAQ**
 
-**Kan jag tillämpa ett tema på en enskild bild utan att ändra mastern?**
+**Påverkar tillämpning av ett externt tema varje bild i presentationen?**
 
-Ja. Använd bildens [IOverrideThemeManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ioverridethememanager/) och initiera dess åsidosättningstema. Ändringen förblir lokal för den bilden; andra bilder fortsätter ärva sina befintliga teman.
+Nej. [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) omassignerar endast de bilder som beror på den valda masteren. Bilder som använder andra masters behåller sina befintliga teman.
 
-**Vad är det säkraste sättet att föra ett tema från en presentation till en annan?**
+**Kan jag tillämpa ett tema på en enskild bild utan att ändra masteren?**
 
-När du flyttar en bild och vill bevara dess källutseende, klona käll‑mastern in i destinationen och klona bilden med den mastern via [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslidecollection/addclone/) och [ISlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islidecollection/addclone/). Detta behåller master, layouter och tema tillsammans.
+Ja. Använd bildens [IOverrideThemeManager](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ioverridethememanager/) och initiera dess åsidosättningstema. Ändringen förblir lokal för den bilden; andra bilder fortsätter att ärva sina befintliga teman.
 
-**Hur kan jag se de faktiska värdena efter arv och åsidosättningar?**
+**Vad är det säkraste sättet att föra över ett tema från en presentation till en annan?**
 
-Använd [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) för en bild‑ eller layout‑tema och de motsvarande faktiska‑data‑metoderna för formatobjekt såsom [Background::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/geteffective/) och [FillFormat::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/geteffective/). Dessa API:er returnerar de lösta värdena efter att arv och åsidosättningar har tillämpats.
+När du flyttar en bild och vill bevara dess ursprungliga utseende, klona käll‑masteren till destinations‑presentationen och klona bilden med den mastern via [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/imasterslidecollection/addclone/) och [ISlideCollection::AddClone()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/islidecollection/addclone/). Detta behåller master, layouter och tema tillsammans.
+
+**Hur kan jag se de effektiva värdena efter arv och åsidosättningar?**
+
+Använd [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) för en bild‑ eller layout‑tema och motsvarande effektiva‑data‑metoder för formatobjekt såsom [Background::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/background/geteffective/) och [FillFormat::GetEffective()](https://reference.aspose.com/slides/sv/cpp/aspose.slides/fillformat/geteffective/). Dessa API:er returnerar de lösta värdena efter att arv och åsidosättningar har applicerats.

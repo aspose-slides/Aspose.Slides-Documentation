@@ -1,5 +1,5 @@
 ---
-title: Správa motivů prezentací na Androidu
+title: Správa motivů prezentace na Androidu
 linktitle: Motiv prezentace
 type: docs
 weight: 10
@@ -11,34 +11,36 @@ keywords:
 - Nastavit motiv
 - Změnit motiv
 - Spravovat motiv
+- Externí motiv
+- THMX
 - Barva motivu
-- Další paleta
-- Font motivu
+- Dodatečná paleta
+- Písmo motivu
 - Styl motivu
 - Efekt motivu
 - PowerPoint
 - OpenDocument
-- Prezentace
+- prezentace
 - Android
 - Java
 - Aspose.Slides
-description: "Spravujte hlavní motivy prezentací v Aspose.Slides pro Android pomocí Javy, abyste vytvářeli, přizpůsobovali a konvertovali soubory PowerPoint s jednotnou značkou."
+description: "Hlavní motivy prezentací v Aspose.Slides pro Android pomocí Javy pro vytváření, přizpůsobení a konverzi souborů PowerPoint s jednotnou značkou."
 ---
 ## **Úvod**
 
-Motiv prezentace definuje koordinovanou sadu barev, fontů, stylů pozadí, výplní, čar a efektů. Objektům, které jsou si vědomy motivu, se odkazuje na tyto sdílené definice místo toho, aby ukládaly každou vizuální vlastnost jako pevnou hodnotu, takže změna motivu může najednou aktualizovat mnoho objektů.
+Prezentace má motiv, který definuje koordinovanou sadu barev, písem, stylů pozadí, výplní, čar a efektů. Objektům, které berou v úvahu motiv, se odkazuje na tyto sdílené definice místo ukládání každé vizuální vlastnosti jako pevné hodnoty, takže změna motivu může najednou aktualizovat mnoho objektů.
 
-V Aspose.Slides je motiv na úrovni prezentace dostupný přes [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Prezentace může také obsahovat přepsání motivu na nižších úrovních. Master může přepsat motiv prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterthememanager/), zatímco rozložení nebo jednotlivý snímek může přepsat svůj zděděný motiv pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/). V praxi je efektivní motiv pro snímek řešený tímto řetězcem dědičnosti: motiv prezentace, přepsání masteru, přepsání rozložení a přepsání snímku.
+V Aspose.Slides je motiv na úrovni prezentace dostupný přes [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/). Prezentace může také obsahovat přepsání motivu na nižších úrovních. Hlavní snímek může přepsat motiv prezentace pomocí [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/masterthememanager/), zatímco rozvržení nebo jednotlivý snímek může přepsat svůj zděděný motiv pomocí [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/). V praxi je efektivní motiv pro snímek vyřešen touto řadou dědičnosti: motiv prezentace, přepsání hlavního snímku, přepsání rozvržení a přepsání snímku.
 
-![Komponenty motivu: barvy, fonty, styly pozadí a efekty](theme-constituents.png)
+![Komponenty motivu: barvy, písma, pozadí a efekty](theme-constituents.png)
 
-Níže uvedené sekce ukazují nejběžnější pracovní postupy s motivem: prohlédnout motiv, změnit barvy a fonty, kopírovat nebo použít motiv, aktualizovat styly pozadí a efektů a číst efektivní hodnoty po vyřešení dědičnosti a přepsání.
+Níže uvedené sekce ukazují nejběžnější pracovní postupy s motivem: prohlédnout motiv, změnit barvy a písma, kopírovat nebo aplikovat motiv, aktualizovat styly pozadí a efektů a přečíst efektivní hodnoty po vyřešení dědičnosti a přepisů.
 
-## **Prohlédněte motiv**
+## **Prohlédnutí motivu**
 
-Objekt [MasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/) vystavuje schéma barev motivu, schéma fontů a schéma formátování přes [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/). Prohlížení těchto kolekcí před jejich změnou je obzvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylů se může lišit.
+Objekt [MasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/) poskytuje schéma barev motivu, schéma písem a schéma formátu prostřednictvím [MasterTheme.getColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/) a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/mastertheme/). Prohlédnutí těchto kolekcí před jejich změnou je zvláště užitečné, když prezentace pochází z externího zdroje, protože počet a obsah položek stylu se může lišit.
 
-Následující příklad načte hlavní vlastnosti motivu a nahlásí, kolik stylů pozadí, výplně, čar a efektů je v motivu uloženo:
+Následující příklad načte hlavní vlastnosti motivu a vypíše, kolik stylů pozadí, výplní, čar a efektů je v motivu uloženo:
 
 ```java
 import com.aspose.slides.*;
@@ -61,11 +63,11 @@ try {
 }
 ```
 
-Pokud soubor používá více masterů, nepředpokládejte, že každý snímek má stejný efektivní motiv. Prohlédněte master přiřazený ke snímku a použijte pracovní postup s efektivním motivem, který je uveden později v tomto článku, pokud mohou být přítomna přepsání rozložení nebo snímku.
+Pokud soubor používá více hlavních snímků, nepředpokládejte, že každý snímek má stejný efektivní motiv. Prohlédněte hlavní snímek přiřazený ke snímku a použijte pracovní postup s efektivním motivem zobrazený později v tomto článku, pokud mohou být přítomna přepsání rozvržení nebo snímku.
 
-## **Změňte barvy motivu**
+## **Změna barev motivu**
 
-Motiv‑svědomé výplně, čáry a text mohou odkazovat na logickou barvu ze seznamu [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/). Když změníte odpovídající položku v [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/), všechny objekty, které stále odkazují na tuto barvu motivu, jsou vyhodnoceny proti nové hodnotě. Objektům, které používají přímou RGB barvu, se změna barvy motivu neprojeví.
+Vyplněné oblasti, čáry a text, které berou v úvahu motiv, mohou odkazovat na logickou barvu ze seznamu [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/). Když změníte odpovídající položku v [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/), všechny objekty, které stále odkazují na tuto barvu motivu, jsou vyhodnoceny vůči nové hodnotě. Objektům, které používají přímou barvu RGB, změna barvy motivu neovlivní.
 
 Následující end‑to‑end příklad vytvoří tvar, který používá `Accent4`, změní barvu motivu `Accent4` na červenou, uloží prezentaci, znovu ji otevře a vytiskne efektivní barvu výplně:
 
@@ -97,19 +99,19 @@ try {
 }
 ```
 
-Protože obdélník zůstává propojený s `Accent4`, jeho viditelná barva se po změně motivu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `Accent4` již tento výplň neovlivní.
+Protože obdélník zůstává spojený s `Accent4`, jeho viditelná barva se po změně motivu stane červenou. Pokud nahradíte barvu schématu přímou barvou na tvaru, pozdější změny `Accent4` již tuto výplň neovlivní.
 
-### **Použijte barvy z doplňkové palety**
+### **Použití barev z dodatečné palety**
 
-PowerPoint odvozuje světlejší a tmavší varianty z barvy motivu aplikací transformací barvy. Aspose.Slides vystavuje tyto transformace přes výčtový typ [ColorTransformOperation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/colortransformoperation/).
+PowerPoint odvozuje světlejší a tmavší varianty z barvy motivu použitím transformací barev. Aspose.Slides tyto transformace zpřístupňuje prostřednictvím výčtu [ColorTransformOperation](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/colortransformoperation/).
 
-![Hlavní barvy motivu a světlejší a tmavší barvy vygenerované z doplňkové palety](additional-palette-colors.png)
+![Hlavní barvy motivu a světlé a tmavé barvy generované z dodatečné palety](additional-palette-colors.png)
 
-**1** – Hlavní barvy motivu.
+**1** – Hlavní barvy motivu.  
 
-**2** – Světlejší a tmavší varianty vytvořené z hlavních barev motivu.
+**2** – Světlejší a tmavší varianty odvozené od hlavních barev motivu.
 
-Následující příklad vytvoří šest obdélníků založených na `Accent4`, na pět z nich použije transformace jasu a uloží výsledek:
+Následující příklad vytvoří šest obdélníků založených na `Accent4`, na pět z nich použije transformace jasu a výsledek uloží:
 
 ```java
 import com.aspose.slides.*;
@@ -158,29 +160,29 @@ try {
 
 Tyto varianty zůstávají založeny na barvě motivu. Pokud se `Accent4` později změní, transformované barvy se přepočítají z nové hodnoty `Accent4`.
 
-### **Mapujte hodnoty `SchemeColor` na sloty `IColorScheme`**
+### **Mapování hodnot `SchemeColor` na sloty `IColorScheme`**
 
-Výčtový typ [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/) vystavuje stejné sloty motivu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevné:
+Výčet [SchemeColor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/schemecolor/) používá `Text1`, `Background1`, `Text2` a `Background2`, zatímco [IColorScheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/icolorscheme/) představuje stejné sloty motivu jako `Dark1`, `Light1`, `Dark2` a `Light2`. Mapování je pevné:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Jedná se o alternativní názvy pro stejné sloty motivu; nejsou to hodnoty dynamicky převáděné z jedné podoby do druhé.
+Jedná se o alternativní názvy stejných slotů motivu; nejsou to hodnoty, které by se dynamicky převáděly z jedné podoby do druhé.
 
-## **Změňte fonty motivu**
+## **Změna fontů motivu**
 
-Schéma fontů motivu obsahuje hlavní sadu fontů pro nadpisy a sekundární sadu fontů pro tělo textu. Metody [IFontScheme.getMajor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontscheme/) a [IFontScheme.getMinor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontscheme/) vystavují tyto sady.
+Schéma fontů motivu obsahuje hlavní sadu písem pro nadpisy a vedlejší sadu písem pro tělo textu. Metody [IFontScheme.getMajor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontscheme/) a [IFontScheme.getMinor](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ifontscheme/) tyto sady zpřístupňují.
 
-Identifikátory fontů kompatibilních s PowerPointem lze použít při formátování textu:
+Kompatibilní identifikátory fontů motivu lze použít při formátování textu:
 
-* `+mn-lt` – tělo fontu Latin (Minor Latin Font)
-* `+mj-lt` – nadpisový font Latin (Major Latin Font)
-* `+mn-ea` – tělo fontu East Asian (Minor East Asian Font)
-* `+mj-ea` – nadpisový font East Asian (Major East Asian Font)
+* `+mn-lt` – Tělo písma Latin (Menší latinské písmo)
+* `+mj-lt` – Nadpisové písmo Latin (Hlavní latinské písmo)
+* `+mn-ea` – Tělo písma East Asian (Menší východoasijské písmo)
+* `+mj-ea` – Nadpisové písmo East Asian (Hlavní východoasijské písmo)
 
-Následující příklad vytvoří jeden nadpis, který používá hlavní latinský font motivu, a jeden řádek těla, který používá sekundární latinský font motivu. Poté změní fonty motivu a uloží výsledek:
+Následující příklad vytvoří jeden nadpis používající hlavní latinské písmo motivu a jeden řádek těla používající menší latinské písmo motivu. Poté změní písma motivu a výsledek uloží:
 
 ```java
 import com.aspose.slides.*;
@@ -205,21 +207,88 @@ try {
 }
 ```
 
-Nadpis následuje hlavní font a tělo textu následuje sekundární font. Text, který má explicitní název fontu místo identifikátoru motivu, se automaticky nepřepne, když se změní schéma fontů motivu.
+Nadpis používá hlavní písmo a tělo textu používá menší písmo. Text, který má explicitní název písma místo identifikátoru motivu, se automaticky nepřepne, když se změní schéma fontů motivu.
 
-Hlavní a sekundární kolekce fontů mohou také obsahovat mapování fontů pro jednotlivé psací systémy, jako jsou cyrilice, arabština, japonština, gruzínština a thaana. Pro prohlížení, přidání, nahrazení nebo odebrání těchto mapování viz [Script-Specific Theme Fonts](/slides/cs/androidjava/script-specific-font-mappings/).
+Hlavní a vedlejší kolekce fontů mohou také obsahovat mapování fontů pro jednotlivé psací systémy, například Cyriliku, Arabštinu, Japonštinu, Gruzínštinu a Thaana. Pro prohlížení, přidání, nahrazení nebo odebrání těchto mapování viz [Script-Specific Theme Fonts](/slides/cs/androidjava/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Pro více informací o fontech v prezentacích viz [PowerPoint Fonts](/slides/cs/androidjava/powerpoint-fonts/).
+Pro více informací o fontách prezentace viz [PowerPoint Fonts](/slides/cs/androidjava/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Kopírujte nebo aplikujte motiv**
+## **Kopírování nebo aplikace motivu**
 
-Existují dva běžné pracovní postupy a řeší různé problémy.
+Níže uvedené pracovní postupy řeší různé problémy související s motivem.
 
-### **Zachovejte zdrojový motiv při přesunu snímků**
+### **Použití externího motivu na snímky závislé na hlavním snímku**
 
-Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, klonujte zdrojový master do cílové prezentace pomocí [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/), poté klonujte snímek pomocí [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/) a klonovaný master. Tím se přenesou master, jeho rozložení a související motiv společně.
+Použijte [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslide/) když máte soubor motivu PowerPoint (`.thmx`) a chcete přeformátovat každý snímek, který závisí na konkrétním hlavním snímku. Vyberte hlavní snímek ze sbírky [Presentation.getMasters](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/), která implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/), a předejte cestu k souboru motivu metodě.
+
+Metoda provádí následující operace:
+
+1. Vytvoří nový hlavní snímek na základě vybraného hlavního snímku.
+2. Aplikuje externí motiv na nový hlavní snímek.
+3. Přiřadí nový hlavní snímek všem snímkům, které dříve závisely na vybraném hlavním snímku.
+4. Vrátí nově vytvořený [IMasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslide/).
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Neplatný, poškozený nebo nepodporovaný motiv může vyvolat [PptxReadException](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/pptxreadexception/). Ověřujte cesty dodané uživateli, řešte selhání přístupu k souborovému systému a prezentaci uložte až po úspěšném aplikování motivu.
+
+Přesouvají se pouze snímky, které závisely na vybraném hlavním snímku. Snímky spojené s jinými hlavními snímky si zachovají své stávající hlavní snímky a motivy. Barvy, písma, výplně, čáry, pozadí a efekty, které berou v úvahu motiv, jsou vyhodnoceny vůči externímu motivu. Barvy, písma, výplně a další explicitní formátování přiřazené přímo mohou zůstat beze změny. Přepsání na úrovni rozvržení a snímku může také získat přednost před hodnotami zděděnými z nového hlavního snímku.
+
+Motiv může odkazovat na písma, která nejsou v běhovém prostředí dostupná. Pro konzistentní vykreslování a export nainstalujte požadovaná písma, poskytněte je prostřednictvím [custom font sources](/slides/cs/androidjava/custom-font/) nebo nakonfigurujte [font substitution](/slides/cs/androidjava/font-substitution/).
+
+Jedná se o přímý pracovní postup na úrovni hlavního snímku: metoda přijímá cestu k souboru `.thmx` a nevyžaduje manuální vytváření přepisů motivu na úrovni snímku nebo rozvržení.
+
+### **Aplikace různých externích motivů v prezentaci s více hlavními snímky**
+
+Když není relevantní hlavní snímek znám předem, získejte jej z reprezentativního snímku pomocí [ISlide.getLayoutSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islide/) a [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ilayoutslide/). Uložte původní reference hlavních snímků před aplikací motivů, protože každý volání vytvoří další hlavní snímek v prezentaci.
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+První volání ovlivní pouze snímky, které závisely na `firstGroupMaster`, a druhé volání ovlivní pouze snímky, které závisely na `secondGroupMaster`. Snímky patřící k jinému hlavnímu snímku nejsou přeformátovány.
+
+### **Zachování zdrojového motivu při přesunu snímků**
+
+Pokud chcete přesunout snímek do jiné prezentace a zachovat jeho původní design, klonujte zdrojový hlavní snímek do cílové prezentace pomocí [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/), poté klonujte snímek pomocí [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/) a klonovaný hlavní snímek. Tím se přenese hlavní snímek, jeho rozvržení i související motiv.
 
 ```java
 import com.aspose.slides.*;
@@ -241,11 +310,11 @@ try {
 }
 ```
 
-Toto je preferovaný pracovní postup, když musí snímek ve zdroji vypadat stejně i v cíli. Pouhé klonování obsahu na nesouvisející cílový master může změnit barvy, fonty, pozadí a efekty řízené motivem.
+Jedná se o preferovaný pracovní postup, když musí zdrojový snímek v cíli vypadat stejně. Pouhé klonování obsahu na nesouvislý cílový hlavní snímek může změnit barvy, písma, pozadí a efekty řízené motivem.
 
-### **Aplikujte hodnoty motivu na existující snímek**
+### **Aplikace hodnot motivu na existující snímek**
 
-Pokud musí cílový snímek zůstat na svém aktuálním masteru a rozložení, inicializujte úroveň přepsání snímku ze zdrojového motivu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/) zkopírují tři hlavní komponenty motivu do přepsání.
+Pokud cílový snímek musí zůstat na svém aktuálním hlavním snímku a rozvržení, inicializujte přepsání na úrovni snímku ze zdrojového motivu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/) a [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/) zkopírují tři hlavní komponenty motivu do přepsání.
 
 ```java
 import com.aspose.slides.*;
@@ -268,11 +337,11 @@ try {
 }
 ```
 
-Tím se změní motiv používaný tímto snímkem, aniž by se změnil motiv zděděný ostatními snímky. Pro odebrání místního přepsání a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/).
+Tím se změní motiv použitý tímto snímkem, aniž by se změnil motiv zděděný ostatními snímky. Pro odebrání lokálního přepsání a návrat k zděděným hodnotám zavolejte [OverrideTheme.clear](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/overridetheme/).
 
-### **Aplikujte přepsání motivu na rozložení**
+### **Aplikace přepsání motivu na rozvržení**
 
-Přepsání na úrovni rozložení se vztahuje na snímky, které používají toto rozložení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít přes [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslidethememanager/):
+Přepsání na úrovni rozvržení se vztahuje na snímky, které používají toto rozvržení, pokud konkrétní snímek nemá vlastní přepsání. Stejné inicializační metody lze použít prostřednictvím [LayoutSlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/layoutslidethememanager/):
 
 ```java
 import com.aspose.slides.*;
@@ -296,17 +365,17 @@ try {
 }
 ```
 
-Použijte motiv na úrovni masteru nebo prezentace, když mají mnoho rozložení a snímků sdílet stejný základní design, přepsání rozložení, když jedna rodina rozložení potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrné přepsání na úrovni snímku ztěžuje předvídat pozdější globální změny motivu.
+Použijte motiv na úrovni hlavního snímku nebo prezentace, když má mnoho rozvržení a snímků sdílet stejný základní design, přepsání rozvržení, když jedna rodina rozvržení potřebuje odlišné stylování, a přepsání snímku jen pro skutečné výjimky. Nadměrné přepsání na úrovni snímku ztěžuje předvídání pozdějších globálních změn motivu.
 
-## **Aktualizujte styly pozadí motivu**
+## **Aktualizace stylů pozadí motivu**
 
-Výplně pozadí motivu jsou uloženy v [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/). PowerPoint může v uživatelském rozhraní nabídnout více možností pozadí, než kolik výplní je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně motivu s barvami motivu a dalšími referencemi stylů.
+Výplně pozadí motivu jsou uloženy v [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/). PowerPoint může v uživatelském rozhraní nabízet více možností pozadí, než kolik výplní je fyzicky uloženo v této kolekci, protože UI může kombinovat výplně motivu s barvami motivu a dalšími referencemi stylů.
 
 ![Galerie stylů pozadí PowerPointu pro motiv prezentace](presentation-design_8.png)
 
-Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/). Index stylu `0` znamená žádnou tematickou výplň; kladné hodnoty jsou odkazy na styl pozadí motivu. To se liší od indexování Java kolekce přímo, kde `get_Item(0)` znamená první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
+Před použitím stylu pozadí prohlédněte uloženou kolekci a aktuální [Background.getStyleIndex](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/). Index stylu `0` znamená žádnou výplň motivu; kladné hodnoty jsou reference na styl pozadí motivu. Toto se liší od indexování samotné Java kolekce, kde `get_Item(0)` značí první uloženou položku. Nepředpokládejte, že každá prezentace obsahuje stejný počet stylů výplní pozadí.
 
-Následující příklad nahlásí počet dostupných výplní pozadí, přiřadí tematický odkaz na pozadí prvnímu masteru a uloží prezentaci:
+Následující příklad vypíše dostupný počet výplní pozadí, přiřadí referenci na motivované pozadí prvnímu hlavnímu snímku a uloží prezentaci:
 
 ```java
 import com.aspose.slides.*;
@@ -328,25 +397,25 @@ try {
 }
 ```
 
-Viditelný výsledek závisí na položce motivu, na kterou master odkazuje, a na případných přepsáních pozadí na úrovni rozložení nebo snímku. Pokud snímek používá vlastní pozadí, změna jen master pozadí tento snímek nemusí změnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/) když potřebujete znát finální pozadí po aplikaci dědičnosti.
+Viditelný výsledek závisí na položce motivu, na kterou odkazuje hlavní snímek, a na případných přepsáních pozadí na úrovni rozvržení nebo snímku. Pokud snímek používá vlastní pozadí, změna pouze pozadí hlavního snímku nemusí tento snímek změnit. Použijte [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/), když potřebujete znát finální pozadí po aplikaci dědičnosti.
 
-{{% alert color="warning" title="Warning" %}}
-Nevnímejte index stylu jako nulový index kolekce. Také se vyhněte pevně zakódovanému číslu stylu z jednoho souboru a předpokladu, že bude mít stejný vzhled v jiném souboru; definice stylů motivu jsou specifické pro prezentaci.
+{{% alert color="warning" title="Varování" %}}
+Nesprávně nepřistupujte k indexu stylu jako k indexu kolekce založenému na nule. Rovněž se vyhněte tvrdému zakódování čísla stylu z jednoho souboru a předpokladu, že bude mít stejný vzhled v jiném souboru; definice stylů motivu jsou specifické pro konkrétní prezentaci.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
 Pro přímé formátování pozadí a dědičnost pozadí viz [Presentation Background](/slides/cs/androidjava/presentation-background/).
 {{% /alert %}}
 
-## **Aktualizujte efekty motivu**
+## **Aktualizace efektů motivu**
 
-Schéma formátování motivu obsahuje samostatné kolekce výplní, čar a efektů vystavené přes [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/) a [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/). Typické Office motivy často obsahují tři hlavní položky stylů, které vizuálně odpovídají jemnému, střednímu a intenzivnímu formátování, ale kód by měl prohlížet každou kolekci místo předpokládání pevného počtu.
+Schéma formátu motivu obsahuje samostatné kolekce stylů výplní, čar a efektů, které jsou zpřístupněny přes [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/) a [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/iformatscheme/). Typické kancelářské motivy často obsahují tři hlavní položky stylu, které vizuálně odpovídají subtilnímu, střednímu a intenzivnímu formátování, ale kód by měl prohlížet každou kolekci místo předpokládání pevného počtu.
 
 ![Jemné, střední a intenzivní efekty motivu aplikované na stejný tvar](presentation-design_10.png)
 
-Když v Javě přistupujete k těmto kolekcím, index kolekce je nulový: `get_Item(0)` je první uložený styl a `get_Item(2)` je třetí. Indexy odkazů stylu tvaru jsou samostatný koncept, vystavený přes [IShapeStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapestyle/). Úprava stylu motivu ovlivní tvary, které na tento styl odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
+Když v Javě přistupujete k těmto kolekcím, index kolekce je založený na nule: `get_Item(0)` je první uložený styl a `get_Item(2)` je třetí. Indexy referencí stylu tvaru jsou samostatným konceptem, zpřístupněným přes [IShapeStyle](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/ishapestyle/). Úprava stylu motivu ovlivní tvary, které na tento styl odkazují; tvary s přímým formátováním mohou zůstat nezměněny.
 
-Následující příklad ověří, že požadované položky stylů existují, změní první styl čáry, změní třetí styl výplně, povolí vnější stín ve třetím stylu efektu a uloží výsledek:
+Následující příklad ověří, že požadované položky stylu existují, změní první styl čáry, změní třetí styl výplně, povolí vnější stín ve třetím stylu efektu a uloží výsledek:
 
 ```java
 import com.aspose.slides.*;
@@ -371,15 +440,13 @@ try {
 }
 ```
 
-Pro tvary, které odkazují na tyto sloty, se první styl čáry motivu stane červeným, třetí styl výplně motivu se stane plnou lesní zelení a třetí styl efektu získá vnější stín s vzdáleností 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každá forma odkazuje a zda přímé formátování přepíše motiv.
+Pro tvary, které odkazují na tyto sloty, se první styl čáry motivu stane červeným, třetí styl výplně motivu se změní na plnou lesní zelenou a třetí styl efektu získá vnější stín s rozsahem 10 bodů. Přesný vizuální výsledek stále závisí na tom, které sloty stylu každý tvar používá a zda přímé formátování přepíše motiv.
 
-![Styly efektů motivu po změně nastavení čáry, výplně a stínu](presentation-design_11.png)
+## **Čtení efektivních hodnot motivu**
 
-## **Čtěte efektivní hodnoty motivu**
+Syrové objekty motivu říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty říkají, co snímek nebo tvar ve skutečnosti používá po vyřešení dědičnosti a lokálních přepisů. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/), a pro výplň [FillFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/).
 
-Surové objekty motivu vám říkají, co je definováno na konkrétní úrovni. Efektivní hodnoty vám říkají, co snímek nebo tvar skutečně používá po vyřešení dědičnosti a místních přepsání. Pro snímek zavolejte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/). Pro pozadí použijte [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/), a pro výplň použijte [FillFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/).
-
-Následující příklad načte efektivní motiv, pozadí a první výplň tvaru ze snímku:
+Následující příklad přečte efektivní motiv, pozadí a první výplň tvaru ze snímku:
 
 ```java
 import com.aspose.slides.*;
@@ -406,18 +473,22 @@ try {
 }
 ```
 
-Používejte efektivní data pro diagnostiku vykreslování, validaci a porovnání. Pokud prohlížíte jen [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/), můžete přehlédnout master, rozložení, snímek nebo přepsání tvaru, které mění finální vzhled.
+Používejte efektivní data pro diagnostiku vykreslování, validaci a srovnání. Pokud prohlížíte jen [Presentation.getMasterTheme](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/presentation/), můžete přehlédnout přepsání motivu na úrovni hlavního snímku, rozvržení, snímku nebo tvaru, které mění finální vzhled.
 
 ## **Často kladené otázky**
 
-**Mohu použít motiv na jediný snímek bez změny masteru?**
+**Ovlivňuje aplikace externího motivu každý snímek v prezentaci?**
 
-Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidethememanager/) snímku a inicializujte jeho přepsání motivu. Změna zůstane lokální pro tento snímek; ostatní snímky nadále zdědí své stávající motivy.
+Ne. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslide/) přidělí pouze snímky, které závisí na vybraném hlavním snímku. Snímky používající jiné hlavní snímky si zachovají své existující motivy.
+
+**Mohu aplikovat motiv na jediný snímek bez změny hlavního snímku?**
+
+Ano. Použijte [SlideThemeManager](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/slidethememanager/) snímku a inicializujte jeho přepsání motivu. Změna zůstane lokální pro tento snímek; ostatní snímky budou i nadále zdědit své existující motivy.
 
 **Jaký je nejbezpečnější způsob, jak přenést motiv z jedné prezentace do druhé?**
 
-Při přesunu snímku a zachování jeho původního vzhledu klonujte zdrojový master do cílové prezentace a klonujte snímek s tímto masterem pomocí [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/) a [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/). Tím se udrží master, rozložení i motiv společně.
+Při přesunu snímku a zachování jeho původního vzhledu klonujte zdrojový hlavní snímek do cílové prezentace a klonujte snímek s tímto hlavním snímkem pomocí [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/imasterslidecollection/) a [ISlideCollection.addClone](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/islidecollection/). Tím se zachová hlavní snímek, rozvržení i motiv společně.
 
-**Jak si mohu prohlédnout efektivní hodnoty po dědičnosti a přepsání?**
+**Jak mohu zobrazit efektivní hodnoty po dědičnosti a přepsání?**
 
-Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/) pro motiv snímku nebo rozložení a odpovídající metody efektivních dat pro formátovací objekty, jako jsou [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/). Tyto API vrací vyřešené hodnoty po aplikaci dědičnosti a přepsání.
+Použijte [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/baseoverridethememanager/) pro snímek nebo motiv rozvržení a odpovídající metody pro efektivní data formátovacích objektů, jako jsou [Background.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/background/) a [FillFormat.getEffective](https://reference.aspose.com/slides/cs/androidjava/com.aspose.slides/fillformat/). Tyto API vracejí vyřešené hodnoty po aplikaci dědičnosti a přepisů.

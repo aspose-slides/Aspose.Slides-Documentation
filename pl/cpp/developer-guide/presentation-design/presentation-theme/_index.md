@@ -1,43 +1,45 @@
 ---
-title: Zarządzanie motywami prezentacji w C++
+title: Zarządzaj motywami prezentacji w C++
 linktitle: Motyw prezentacji
 type: docs
 weight: 10
 url: /pl/cpp/presentation-theme/
 keywords:
 - Motyw PowerPoint
-- Motyw prezentacji
-- Motyw slajdu
-- Ustaw motyw
-- Zmień motyw
-- Zarządzaj motywem
-- Kolor motywu
-- Dodatkowa paleta
-- Czcionka motywu
-- Styl motywu
-- Efekt motywu
+- motyw prezentacji
+- motyw slajdu
+- ustaw motyw
+- zmień motyw
+- zarządzaj motywem
+- zewnętrzny motyw
+- THMX
+- kolor motywu
+- dodatkowa paleta
+- czcionka motywu
+- styl motywu
+- efekt motywu
 - PowerPoint
 - OpenDocument
-- Prezentacja
+- prezentacja
 - C++
 - Aspose.Slides
 description: "Główne motywy prezentacji w Aspose.Slides dla C++, umożliwiające tworzenie, dostosowywanie i konwertowanie plików PowerPoint z zachowaniem spójnej identyfikacji wizualnej."
 ---
 ## **Wprowadzenie**
 
-Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych współdzielonych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może zaktualizować wiele obiektów jednocześnie.
+Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych współdzielonych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, więc zmiana motywu może zaktualizować wiele obiektów jednocześnie.
 
-W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_mastertheme/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji za pomocą [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), natomiast układ lub pojedynczy slajd może używać [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). W praktyce skuteczny motyw dla slajdu jest rozwiązywany poprzez łańcuch dziedziczenia: motyw prezentacji, nadpisanie master, nadpisanie układu i nadpisanie slajdu.
+W Aspose.Slides motyw na poziomie prezentacji jest dostępny przez [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_mastertheme/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji za pomocą [MasterThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/masterthememanager/get_overridetheme/), natomiast układ lub pojedynczy slajd może używać [IOverrideThemeManager::get_OverrideTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ioverridethememanager/get_overridetheme/). W praktyce skuteczny motyw slajdu jest rozwiązywany w następującej kolejności dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
 
-![Komponenty motywu: kolory, czcionki, style tła i efekty](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-Poniższe sekcje przedstawiają najczęstsze scenariusze pracy z motywem: przeglądanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczyt skutecznych wartości po rozwiązaniu dziedziczenia i nadpisań.
+Poniższe sekcje przedstawiają najczęstsze scenariusze pracy z motywem: przeglądanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczyt skutecznych wartości po rozstrzygnięciu dziedziczenia i nadpisań.
 
-## **Przeglądanie motywu**
+## **Sprawdź motyw**
 
-Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/) udostępnia metody [get_ColorScheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) i [get_FormatScheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Przeglądanie tych kolekcji przed ich zmianą jest szczególnie przydatne, gdy prezentacja pochodzi z zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów może się różnić.
+Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/) udostępnia metody [get_ColorScheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/get_colorscheme/), [get_FontScheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/get_fontscheme/) oraz [get_FormatScheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/mastertheme/get_formatscheme/). Przeglądanie tych kolekcji przed ich zmianą jest szczególnie przydatne, gdy prezentacja pochodzi ze źródła zewnętrznego, ponieważ liczba i zawartość wpisów stylów może się różnić.
 
-Poniższy przykład odczytuje główne właściwości motywu i podaje, ile stylów tła, wypełnień, linii i efektów jest przechowywanych w motywie:
+Poniższy przykład odczytuje podstawowe właściwości motywu i podaje, ile stylów tła, wypełnienia, linii i efektów jest przechowywanych w motywie:
 
 ```cpp
 #include <DOM/IColorFormat.h>
@@ -69,13 +71,13 @@ Console::WriteLine(u"Line styles: {0}", formatScheme->get_LineStyles()->get_Coun
 Console::WriteLine(u"Effect styles: {0}", formatScheme->get_EffectStyles()->get_Count());
 ```
 
-Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma ten sam skuteczny motyw. Przeglądnij master powiązany ze slajdem i użyj przepływu pracy ze skutecznym motywem przedstawionego później w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
+Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma taki sam skuteczny motyw. Sprawdź master powiązany ze slajdem i użyj workflowu skutecznego motywu przedstawionego dalej w tym artykule, gdy mogą występować nadpisania układu lub slajdu.
 
-## **Zmiana kolorów motywu**
+## **Zmień kolory motywu**
 
-Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/schemecolor/). Gdy zmienisz odpowiedni wpis w [IColorScheme](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/icolorscheme/) motywu, wszystkie obiekty, które nadal odwołują się do tego koloru motywu, zostaną rozwiązane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie są zmieniane przez aktualizację koloru motywu.
+Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/schemecolor/). Gdy zmienisz odpowiedni wpis w motywie [IColorScheme](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/icolorscheme/), wszystkie obiekty nadal odwołujące się do tego koloru motywu zostaną rozpoznane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie są zmieniane przez aktualizację koloru motywu.
 
-Poniższy przykład pokazuje pełny proces: tworzy kształt używający `Accent4`, zmienia kolor `Accent4` motywu na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje skuteczny kolor wypełnienia:
+Poniższy kompletny przykład tworzy kształt używający `Accent4`, zmienia kolor `Accent4` w motywie na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje skuteczny kolor wypełnienia:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -116,14 +118,15 @@ Console::WriteLine(u"Effective fill color: {0}", effectiveFill->get_SolidFillCol
 
 Ponieważ prostokąt pozostaje powiązany z `Accent4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `Accent4` nie będą już wpływać na to wypełnienie.
 
-### **Używanie kolorów z dodatkowej palety**
+### **Użyj kolorów z dodatkowej palety**
 
-PowerPoint wyprowadza jaśniejsze i ciemniejsze warianty z koloru motywu, stosując przekształcenia kolorów. Aspose.Slides udostępnia te przekształcenia poprzez [ColorTransformOperation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/colortransformoperation/).
+PowerPoint tworzy jaśniejsze i ciemniejsze warianty koloru motywu poprzez przekształcenia kolorów. Aspose.Slides udostępnia te przekształcenia za pośrednictwem [ColorTransformOperation](https://reference.aspose.com/slides/pl/cpp/aspose.slides/colortransformoperation/).
 
-![Główne kolory motywu oraz jaśniejsze i ciemniejsze kolory wygenerowane z dodatkowej palety](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
-**1** – Główne kolory motywu.  
-**2** – Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
+**1** - Główne kolory motywu.
+
+**2** - Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
 
 Poniższy przykład tworzy sześć prostokątów opartych na `Accent4`, stosuje przekształcenia luminancji do pięciu z nich i zapisuje wynik:
 
@@ -194,31 +197,31 @@ solidFillColor6->get_ColorTransform()->Add(ColorTransformOperation::MultiplyLumi
 presentation->Save(u"theme-color-palette.pptx", SaveFormat::Pptx);
 ```
 
-Te warianty pozostają oparte na kolorze motywu. Jeśli `Accent4` zmieni się później, przekształcone kolory zostaną przeliczone na nową wartość `Accent4`.
+Te warianty pozostają oparte na kolorze motywu. Jeśli `Accent4` zmieni się później, przekształcone kolory zostaną ponownie obliczone na podstawie nowej wartości `Accent4`.
 
-### **Mapowanie wartości `SchemeColor` na pozycje `IColorScheme`**
+### **Mapuj wartości `SchemeColor` na sloty `IColorScheme`**
 
-Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, podczas gdy [IColorScheme](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/icolorscheme/) udostępnia te same pozycje motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
+Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/cpp/aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, natomiast [IColorScheme](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/icolorscheme/) udostępnia te same sloty motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Są to alternatywne nazwy tych samych pozycji motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
+Są to alternatywne nazwy tych samych slotów motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
 
-## **Zmiana czcionek motywu**
+## **Zmień czcionki motywu**
 
-Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków i zestaw pobocznych czcionek dla tekstu głównego. Metody [FontScheme::get_Major()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/fontscheme/get_major/) i [FontScheme::get_Minor()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/fontscheme/get_minor/) udostępniają te zestawy.
+Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomniejszych czcionek dla tekstu głównego. Metody [FontScheme::get_Major()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/fontscheme/get_major/) i [FontScheme::get_Minor()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/fontscheme/get_minor/) udostępniają te zestawy.
 
-Identyfikatory czcionek kompatybilne z PowerPoint mogą być używane w formatowaniu tekstu:
+Identyfikatory czcionek zgodne z PowerPoint mogą być używane w formatowaniu tekstu:
 
-* `+mn-lt` – Czcionka ciała Latin (Minor Latin Font)
-* `+mj-lt` – Czcionka nagłówka Latin (Major Latin Font)
-* `+mn-ea` – Czcionka ciała East Asian (Minor East Asian Font)
-* `+mj-ea` – Czcionka nagłówka East Asian (Major East Asian Font)
+* `+mn-lt` - Czcionka ciała Latin (Minor Latin Font)
+* `+mj-lt` - Czcionka nagłówka Latin (Major Latin Font)
+* `+mn-ea` - Czcionka ciała East Asian (Minor East Asian Font)
+* `+mj-ea` - Czcionka nagłówka East Asian (Major East Asian Font)
 
-Poniższy przykład tworzy jeden nagłówek używający głównej czcionki Latin oraz jedną linię ciała używającą pobocznej czcionki Latin. Następnie zmienia czcionki motywu i zapisuje wynik:
+Poniższy przykład tworzy jeden nagłówek używający głównej czcionki Latin oraz jedną linię tekstu używającą pomniejszej czcionki Latin. Następnie zmienia czcionki motywu i zapisuje wynik:
 
 ```cpp
 #include <DOM/Fonts/FontData.h>
@@ -258,23 +261,108 @@ presentation->get_MasterTheme()->get_FontScheme()->get_Minor()->set_LatinFont(Ma
 presentation->Save(u"theme-fonts.pptx", SaveFormat::Pptx);
 ```
 
-Nagłówek podąża za główną czcionką, a tekst ciała za czcionką poboczną. Tekst, który ma wyraźnie określoną nazwę czcionki zamiast identyfikatora motywu, nie przełączy się automatycznie po zmianie schematu czcionek motywu.
+Nagłówek podąża za czcionką główną, a tekst główny za czcionką pomniejszą. Tekst, który ma jawnie określoną nazwę czcionki zamiast identyfikatora motywu, nie zostanie automatycznie zmieniony po zmianie schematu czcionek motywu.
 
-Główne i poboczne kolekcje czcionek mogą również zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, zamieniać lub usuwać te mapowania, zobacz [Czcionki motywu specyficzne dla skryptu](/slides/pl/cpp/script-specific-font-mappings/).
+Zbiory czcionek głównych i pomniejszych mogą także zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, zastępować lub usuwać te mapowania, zobacz [Script-Specific Theme Fonts](/slides/pl/cpp/script-specific-font-mappings/).
 
-{{% alert color="info" title="Wskazówka" %}}
+{{% alert color="info" title="Porada" %}}
 
-Więcej informacji o czcionkach w prezentacjach znajdziesz w [Czcionki PowerPoint](/slides/pl/cpp/powerpoint-fonts/).
+Po więcej informacji o czcionkach w prezentacjach zobacz [PowerPoint Fonts](/slides/pl/cpp/powerpoint-fonts/).
 
 {{% /alert %}}
 
-## **Kopiowanie lub zastosowanie motywu**
+## **Kopiuj lub zastosuj motyw**
 
-Istnieją dwa typowe przepływy pracy, które rozwiązują różne problemy.
+Poniższe workflowy rozwiązują różne problemy związane z motywem.
 
-### **Zachowanie motywu źródłowego przy przenoszeniu slajdów**
+### **Zastosuj zewnętrzny motyw do slajdów zależnych od mastera**
 
-Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego pierwotny projekt, sklonuj master źródłowy do prezentacji docelowej za pomocą [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/addclone/), a następnie sklonuj slajd wraz ze sklonowanym masterem przy pomocy [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidecollection/addclone/). To przenosi master, jego układy oraz powiązany motyw razem.
+Użyj [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) gdy masz plik motywu PowerPoint (`.thmx`) i chcesz przeformatować każdy slajd zależny od określonego mastera. Wybierz master z kolekcji [Presentation::get_Masters](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_masters/), która implementuje [IMasterSlideCollection](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/), i przekaż ścieżkę do pliku motywu metodzie.
+
+Metoda wykonuje następujące operacje:
+
+1. Tworzy nowy master‑slide na podstawie wybranego mastera.
+1. Zastosowuje zewnętrzny motyw do nowego mastera.
+1. Przypisuje nowy master do wszystkich slajdów, które wcześniej zależały od wybranego mastera.
+1. Zwraca nowo utworzony [IMasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/).
+
+Poniższy przykład stosuje zewnętrzny motyw do slajdów zależnych od pierwszego mastera i zapisuje prezentację:
+
+```cpp
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"presentation.pptx");
+auto selectedMaster = presentation->get_Master(0);
+auto themedMaster = selectedMaster->ApplyExternalThemeToDependingSlides(u"corporate-theme.thmx");
+
+Console::WriteLine(u"Created master: {0}", themedMaster->get_Name());
+presentation->Save(u"presentation-with-external-theme.pptx", SaveFormat::Pptx);
+```
+
+Nieprawidłowy, uszkodzony lub nieobsługiwany motyw może spowodować [PptxException](https://reference.aspose.com/slides/pl/cpp/aspose.slides/pptxexception/) lub jedną z jej podklas związanych z formatem. Waliduj ścieżki podawane przez użytkowników, obsługuj błędy dostępu do systemu plików i zapisuj prezentację dopiero po pomyślnym zastosowaniu motywu.
+
+Jedynie slajdy, które zależały od wybranego mastera, są ponownie przypisane. Slajdy powiązane z innymi masterami zachowują istniejące mastery i motywy. Kolory, czcionki, wypełnienia, linie, tła i efekty świadome motywu są rozwiązywane względem zewnętrznego motywu. Bezpośrednio przydzielone kolory, czcionki, wypełnienia i inne explicite formatowanie mogą pozostać niezmienione. Nadpisania na poziomie układu i slajdu mogą również mieć pierwszeństwo przed wartościami dziedziczonymi z nowego mastera.
+
+Motyw może odwoływać się do czcionek, które nie są dostępne w środowisku uruchomieniowym. Aby zapewnić spójne renderowanie i eksport, zainstaluj wymagane czcionki, udostępnij je przez [custom font sources](/slides/pl/cpp/custom-font/), lub skonfiguruj [font substitution](/slides/pl/cpp/font-substitution/).
+
+Jest to bezpośredni workflow na poziomie mastera: metoda przyjmuje ścieżkę do pliku `.thmx` i nie wymaga ręcznego tworzenia nadpisań motywu na poziomie slajdu lub układu.
+
+### **Zastosuj różne zewnętrzne motywy w prezentacji z wieloma masterami**
+
+Gdy odpowiedni master nie jest znany z góry, pobierz go z reprezentatywnego slajdu za pomocą [ISlide::get_LayoutSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islide/get_layoutslide/) i [ILayoutSlide::get_MasterSlide](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ilayoutslide/get_masterslide/). Zachowaj oryginalne referencje masterów przed zastosowaniem jakichkolwiek motywów, ponieważ każde wywołanie tworzy kolejny master w prezentacji.
+
+Poniższy przykład używa slajdów z dwóch sekcji, aby zlokalizować ich mastery i stosuje różny zewnętrzny motyw do każdej grupy:
+
+```cpp
+#include <DOM/ILayoutSlide.h>
+#include <DOM/IMasterSlide.h>
+#include <DOM/Presentation.h>
+#include <Export/SaveFormat.h>
+#include <iostream>
+
+using namespace Aspose::Slides;
+using namespace Aspose::Slides::Export;
+using namespace System;
+
+auto presentation = MakeObject<Presentation>(u"multi-master-presentation.pptx");
+
+if (presentation->get_Slides()->get_Count() < 5)
+{
+    std::cout << "The presentation does not contain the expected representative slides." << std::endl;
+}
+else
+{
+    auto firstGroupMaster = presentation->get_Slide(0)->get_LayoutSlide()->get_MasterSlide();
+    auto secondGroupMaster = presentation->get_Slide(4)->get_LayoutSlide()->get_MasterSlide();
+
+    if (firstGroupMaster->get_SlideId() == secondGroupMaster->get_SlideId())
+    {
+        std::cout << "The representative slides use the same master." << std::endl;
+    }
+    else
+    {
+        auto firstThemedMaster = firstGroupMaster->ApplyExternalThemeToDependingSlides(u"blue-theme.thmx");
+        auto secondThemedMaster = secondGroupMaster->ApplyExternalThemeToDependingSlides(u"green-theme.thmx");
+
+        Console::WriteLine(u"First themed master: {0}", firstThemedMaster->get_Name());
+        Console::WriteLine(u"Second themed master: {0}", secondThemedMaster->get_Name());
+        presentation->Save(u"multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+    }
+}
+```
+
+Pierwsze wywołanie wpływa tylko na slajdy zależne od `firstGroupMaster`, a drugie wywołanie wpływa tylko na slajdy zależne od `secondGroupMaster`. Slajdy należące do innych masterów nie są przestylizowane.
+
+### **Zachowaj źródłowy motyw przy przenoszeniu slajdów**
+
+Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego pierwotny projekt, sklonuj źródłowy master do docelowej prezentacji za pomocą [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/addclone/), a następnie sklonuj slajd wraz ze sklonowanym masterem przy użyciu [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidecollection/addclone/). To przenosi master, jego układy oraz powiązany motyw razem.
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -298,11 +386,11 @@ target->get_Slides()->AddClone(sourceSlide, clonedMaster, true);
 target->Save(u"theme-preserved.pptx", SaveFormat::Pptx);
 ```
 
-Jest to preferowany sposób, gdy slajd źródłowy musi wyglądać identycznie w miejscu docelowym. Proste klonowanie treści na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
+Jest to preferowany workflow, gdy źródłowy slajd musi wyglądać identycznie w miejscu docelowym. Proste klonowanie zawartości na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane motywem.
 
-### **Zastosowanie wartości motywu do istniejącego slajdu**
+### **Zastosuj wartości motywu do istniejącego slajdu**
 
-Jeśli docelowy slajd musi pozostać na swoim bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) i [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) kopiują trzy główne komponenty motywu do nadpisania.
+Jeśli docelowy slajd musi pozostać na bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme::InitColorSchemeFrom()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/initcolorschemefrom/), [OverrideTheme::InitFontSchemeFrom()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/initfontschemefrom/) i [OverrideTheme::InitFormatSchemeFrom()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/initformatschemefrom/) kopiują trzy główne komponenty motywu do nadpisania.
 
 ```cpp
 #include <DOM/ISlide.h>
@@ -328,9 +416,9 @@ target->Save(u"theme-applied-to-slide.pptx", SaveFormat::Pptx);
 
 To zmienia motyw używany przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme::Clear()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/overridetheme/clear/).
 
-### **Zastosowanie nadpisania motywu do układu**
+### **Zastosuj nadpisanie motywu do układu**
 
-Nadpisanie na poziomie układu ma zastosowanie do slajdów używających tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji mogą być użyte poprzez [IOverrideThemeManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ioverridethememanager/) układu:
+Nadpisanie na poziomie układu ma zastosowanie do slajdów używających tego układu, o ile dany slajd nie ma własnego nadpisania. Te same metody inicjalizacji można użyć poprzez [IOverrideThemeManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ioverridethememanager/) układu:
 
 ```cpp
 #include <DOM/ILayoutSlide.h>
@@ -356,17 +444,17 @@ overrideTheme->InitFormatSchemeFrom(source->get_MasterTheme()->get_FormatScheme(
 target->Save(u"theme-applied-to-layout.pptx", SaveFormat::Pptx);
 ```
 
-Użyj motywu master lub prezentacji, gdy wiele układów i slajdów powinno współdzielić ten sam podstawowy projekt, nadpisania układu, gdy rodzina układów wymaga innego stylu, oraz nadpisania slajdu tylko w prawdziwych wyjątkach. Nadmierna liczba nadpisań na poziomie slajdu utrudnia późniejsze globalne zmiany motywu.
+Użyj motywu mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić tę samą bazową koncepcję, nadpisania układu, gdy jedna rodzina układów potrzebuje innego stylu, oraz nadpisania slajdu wyłącznie dla prawdziwych wyjątków. Nadmierne nadpisania na poziomie slajdu utrudniają przewidywanie późniejszych globalnych zmian motywu.
 
-## **Aktualizacja stylów tła motywu**
+## **Aktualizuj style tła motywu**
 
-Wypełnienia tła motywu są przechowywane w [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint może prezentować więcej opcji tła w interfejsie niż liczba definicji wypełnień fizycznie przechowywanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi referencjami stylów.
+Wypełnienia tła motywu są przechowywane w [FormatScheme::get_BackgroundFillStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_backgroundfillstyles/). PowerPoint może prezentować w interfejsie więcej opcji tła niż liczba definicji wypełnień fizycznie przechowywanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odwołaniami stylów.
 
-![Galeria stylów tła PowerPoint dla motywu prezentacji](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Przed użyciem stylu tła przeglądnij przechowywaną kolekcję oraz bieżącą wartość [Background::get_StyleIndex()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` używa `0` dla braku wypełnienia motywowego; wartości dodatnie są referencjami do stylów tła motywu. To różni się od indeksowania kolekcji C++ bezpośrednio przy pomocy `idx_get(0)`, gdzie `0` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
+Zanim użyjesz stylu tła, przeglądnij przechowywaną kolekcję oraz bieżącą wartość [Background::get_StyleIndex()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/get_styleindex/). `StyleIndex` używa `0` dla braku tematycznego wypełnienia; wartości dodatnie są odwołaniami do stylów tła motywu. Jest to inne niż indeksowanie kolekcji C++ bezpośrednio przez `idx_get(0)`, gdzie `0` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera tę samą liczbę stylów wypełnień tła.
 
-Poniższy przykład podaje liczbę dostępnych stylów wypełnień tła, przypisuje referencję motywowego tła do pierwszego mastera i zapisuje prezentację:
+Poniższy przykład podaje liczbę dostępnych wypełnień tła, przypisuje odwołanie tematycznego tła do pierwszego mastera i zapisuje prezentację:
 
 ```cpp
 #include <DOM/BackgroundType.h>
@@ -396,29 +484,29 @@ if (backgroundStyles->get_Count() > 0)
 }
 ```
 
-Wynik wizualny zależy od wpisu motywu referencjonowanego przez master oraz od ewentualnych nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana jedynie tła mastera może nie wpłynąć na ten slajd. Użyj [Background::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/geteffective/) kiedy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
+Widoczny rezultat zależy od wpisu motywu, do którego odnosi się master, oraz od wszelkich nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana samego tła mastera może nie zmieni tego slajdu. Użyj [Background::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/geteffective/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
 
 {{% alert color="warning" title="Ostrzeżenie" %}}
 
-Nie traktuj `StyleIndex` jako indeksu zerowego w kolekcji. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie on wyglądał tak samo w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
+Nie traktuj `StyleIndex` jako indeks kolekcji zerobazowy. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał taki sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
 
 {{% /alert %}}
 
-{{% alert color="info" title="Wskazówka" %}}
+{{% alert color="info" title="Porada" %}}
 
-Informacje o bezpośrednim formatowaniu tła i dziedziczeniu tła znajdziesz w [Tło prezentacji](/slides/pl/cpp/presentation-background/).
+W przypadku bezpośredniego formatowania tła i dziedziczenia tła zobacz [Presentation Background](/slides/pl/cpp/presentation-background/).
 
 {{% /alert %}}
 
-## **Aktualizacja efektów motywu**
+## **Aktualizuj efekty motywu**
 
-Schemat formatu motywu zawiera osobne kolekcje [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_linestyles/) i [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien przeglądać każdą kolekcję zamiast zakładać stałą liczbę.
+Schemat formatu motywu zawiera oddzielne kolekcje [FormatScheme::get_FillStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_fillstyles/), [FormatScheme::get_LineStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_linestyles/) i [FormatScheme::get_EffectStyles()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/formatscheme/get_effectstyles/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien przeglądać każdą kolekcję zamiast zakładać stałą liczbę elementów.
 
-![Subtelne, umiarkowane i intensywne efekty motywu zastosowane do tego samego kształtu](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-Kiedy uzyskujesz dostęp do tych kolekcji w C++, indeks kolekcji jest zerowy: `idx_get(0)` jest pierwszym zapisanym stylem, a `idx_get(2)` trzecim. Indeksy referencji stylu kształtu to odrębna koncepcja, udostępniona przez [IShapeStyle](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
+Podczas dostępu do tych kolekcji w C++ indeks kolekcji jest zerobazowy: `idx_get(0)` jest pierwszym zapisanym stylem, a `idx_get(2)` trzecim. Indeksy odwołań stylu kształtu to odrębna koncepcja, udostępniona przez [IShapeStyle](https://reference.aspose.com/slides/pl/cpp/aspose.slides/ishapestyle/). Modyfikacja stylu motywu wpływa na kształty odwołujące się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
 
-Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
+Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, zmienia trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
 
 ```cpp
 #include <DOM/Effects/IOuterShadow.h>
@@ -471,15 +559,15 @@ else
 }
 ```
 
-Dla kształtów odwołujących się do tych pozycji, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny wygląd nadal zależy od tego, które pozycje stylu każdy kształt referencjonuje i czy bezpośrednie formatowanie nadpisuje motyw.
+Dla kształtów odwołujących się do tych slotów, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym leśnym zielonym, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny wygląd nadal zależy od tego, które sloty stylów są odwoływane przez poszczególne kształty oraz czy bezpośrednie formatowanie nadpisuje motyw.
 
-![Style efektów motywu po zmianie ustawień linii, wypełnienia i cienia](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **Odczyt skutecznych wartości motywu**
+## **Odczytaj skuteczne wartości motywu**
 
-Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Skuteczne wartości mówią, czego rzeczywiście używa slajd lub kształt po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Dla tła użyj [Background::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/geteffective/), a dla wypełnienia [FillFormat::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fillformat/geteffective/).
+Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Skuteczne wartości mówią, co slajd lub kształt faktycznie używa po rozstrzygnięciu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/). Dla tła użyj [Background::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/geteffective/), a dla wypełnienia [FillFormat::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fillformat/geteffective/).
 
-Poniższy przykład odczytuje skuteczny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
+Poniższy przykład odczytuje skuteczny motyw, tło oraz pierwsze wypełnienie kształtu ze slajdu:
 
 ```cpp
 #include <DOM/FillType.h>
@@ -519,18 +607,22 @@ if (slide->get_Shapes()->get_Count() > 0)
 }
 ```
 
-Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli przeglądasz tylko [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_mastertheme/), możesz przeoczyć nadpisania na poziomie mastera, układu, slajdu lub kształtu, które zmieniają ostateczny wygląd.
+Używaj danych skutecznych do diagnostyki renderowania, walidacji i porównań. Jeśli przeglądasz wyłącznie [Presentation::get_MasterTheme()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/presentation/get_mastertheme/), możesz przegapić nadpisania mastera, układu, slajdu lub kształtu, które zmieniają ostateczny wygląd.
 
 ## **FAQ**
 
-**Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**
+**Czy zastosowanie zewnętrznego motywu wpływa na każdy slajd w prezentacji?**
 
-Tak. Użyj [IOverrideThemeManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ioverridethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal będą dziedziczyć swoje istniejące motywy.
+Nie. [IMasterSlide::ApplyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslide/applyexternalthemetodependingslides/) przypisuje tylko slajdy, które zależą od wybranego mastera. Slajdy używające innych masterów zachowują istniejące motywy.
+
+**Czy mogę zastosować motyw do jednego slajdu bez zmiany mastera?**
+
+Tak. Użyj [IOverrideThemeManager](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ioverridethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal dziedziczą swoje istniejące motywy.
 
 **Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**
 
-Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj master źródłowy do docelowego i sklonuj slajd z tym masterem, używając [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/addclone/) oraz [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidecollection/addclone/). To utrzymuje master, układy i motyw razem.
+Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj źródłowy master do docelowej prezentacji i sklonuj slajd z tym masterem, używając [IMasterSlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/imasterslidecollection/addclone/) oraz [ISlideCollection::AddClone()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/islidecollection/addclone/). To utrzymuje master, układy i motyw razem.
 
 **Jak mogę zobaczyć skuteczne wartości po dziedziczeniu i nadpisaniach?**
 
-Użyj [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) dla motywu slajdu lub układu oraz odpowiednich metod efektywnych danych dla obiektów formatowania, takich jak [Background::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/geteffective/) i [FillFormat::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fillformat/geteffective/). Te API zwracają rozwiązane wartości po zastosowaniu dziedziczenia i nadpisań.
+Użyj [IThemeable::CreateThemeEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides.theme/ithemeable/createthemeeffective/) dla motywu slajdu lub układu oraz odpowiednich metod danych skutecznych dla obiektów formatowania, takich jak [Background::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/background/geteffective/) i [FillFormat::GetEffective()](https://reference.aspose.com/slides/pl/cpp/aspose.slides/fillformat/geteffective/). Te API zwracają rozstrzygnięte wartości po zastosowaniu dziedziczenia i nadpisań.

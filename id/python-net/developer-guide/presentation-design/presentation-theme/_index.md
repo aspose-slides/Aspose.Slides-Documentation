@@ -11,6 +11,8 @@ keywords:
 - Atur tema
 - Ubah tema
 - Kelola tema
+- Tema eksternal
+- THMX
 - Warna tema
 - Palet tambahan
 - Font tema
@@ -21,23 +23,23 @@ keywords:
 - presentasi
 - Python
 - Aspose.Slides
-description: "Kuasai tema presentasi di Aspose.Slides untuk Python via .NET untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan merek yang konsisten."
+description: "Kuasai tema presentasi di Aspose.Slides untuk Python via .NET untuk membuat, menyesuaikan, dan mengonversi file PowerPoint dengan branding yang konsisten."
 ---
 ## **Pendahuluan**
 
-Tema presentasi mendefinisikan satu set terkoordinasi warna, font, gaya latar belakang, isian, garis, dan efek. Objek yang menyadari tema merujuk pada definisi bersama ini alih-alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
+Tema presentasi mendefinisikan satu set terkoordinasi warna, font, gaya latar belakang, isian, garis, dan efek. Objek yang sadar tema merujuk pada definisi bersama ini alih-alih menyimpan setiap properti visual sebagai nilai tetap, sehingga perubahan tema dapat memperbarui banyak objek sekaligus.
 
-Di Aspose.Slides, tema tingkat presentasi tersedia melalui properti [Presentation.master_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/master_theme/) . Presentasi juga dapat berisi penimpaan tema pada tingkat yang lebih rendah. Master dapat menimpa tema presentasi melalui [MasterThemeManager.override_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/masterthememanager/override_theme/), tata letak dapat menimpa tema yang diwariskan melalui [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), dan slide individual dapat melakukan hal yang sama. Secara praktik, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
+Di Aspose.Slides, tema tingkat presentasi tersedia melalui properti [Presentation.master_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/master_theme/). Sebuah presentasi juga dapat berisi penimpaan tema pada level yang lebih rendah. Sebuah master dapat menimpa tema presentasi melalui [MasterThemeManager.override_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/masterthememanager/override_theme/), sebuah tata letak dapat menimpa tema yang diwarisi melalui [BaseOverrideThemeManager.override_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/baseoverridethememanager/override_theme/), dan sebuah slide individu dapat melakukan hal yang sama. Pada praktiknya, tema efektif untuk sebuah slide diselesaikan melalui rantai pewarisan ini: tema presentasi, penimpaan master, penimpaan tata letak, dan penimpaan slide.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Komponen tema: warna, font, gaya latar belakang, dan efek](theme-constituents.png)
 
-Bagian di bawah ini menunjukkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah pewarisan dan penimpaan diselesaikan.
+Bagian di bawah ini memperlihatkan alur kerja tema yang paling umum: memeriksa tema, mengubah warna dan font, menyalin atau menerapkan tema, memperbarui gaya latar belakang dan efek, serta membaca nilai efektif setelah pewarisan dan penimpaan diselesaikan.
 
 ## **Memeriksa Tema**
 
-Objek [MasterTheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/) mengekspos properti [color_scheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/font_scheme/), dan [format_scheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/format_scheme/) tema. Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
+Objek [MasterTheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/) menampilkan properti [color_scheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/color_scheme/), [font_scheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/font_scheme/), dan [format_scheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/mastertheme/format_scheme/) tema. Memeriksa koleksi ini sebelum mengubahnya sangat berguna ketika sebuah presentasi berasal dari sumber eksternal karena jumlah dan isi entri gaya dapat bervariasi.
 
-Contoh berikut membaca properti utama tema dan melaporkan berapa banyak gaya latar belakang, isian, garis, dan efek yang disimpan dalam tema:
+Contoh berikut membaca properti tema utama dan melaporkan berapa banyak gaya latar belakang, isian, garis, dan efek yang disimpan dalam tema:
 
 ```python
 import aspose.slides as slides
@@ -54,13 +56,13 @@ with slides.Presentation("input.pptx") as presentation:
     print(f"Effect styles: {len(theme.format_scheme.effect_styles)}")
 ```
 
-Jika sebuah berkas menggunakan beberapa master, jangan menganggap bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema-efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan tata letak atau slide mungkin ada.
+Jika sebuah file menggunakan beberapa master, jangan mengasumsikan bahwa setiap slide memiliki tema efektif yang sama. Periksa master yang terkait dengan slide, dan gunakan alur kerja tema-efektif yang ditunjukkan nanti dalam artikel ini ketika penimpaan tata letak atau slide mungkin ada.
 
 ## **Mengubah Warna Tema**
 
-Isian, garis, dan teks yang menyadari tema dapat merujuk pada warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/python-net/aspose.slides/schemecolor/). Ketika Anda mengubah entri yang sesuai dalam [ColorScheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/colorscheme/) tema, semua objek yang masih merujuk ke warna tema tersebut akan diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak akan berubah oleh pembaruan warna tema.
+Isian, garis, dan teks yang sadar tema dapat merujuk pada warna logis dari enumerasi [SchemeColor](https://reference.aspose.com/slides/id/python-net/aspose.slides/schemecolor/). Ketika Anda mengubah entri yang sesuai dalam [ColorScheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/colorscheme/) tema, semua objek yang masih merujuk ke warna tema tersebut diselesaikan terhadap nilai baru. Objek yang menggunakan warna RGB langsung tidak diubah oleh pembaruan warna tema.
 
-Contoh end-to-end berikut membuat sebuah bentuk yang menggunakan `ACCENT4`, mengubah warna tema `accent4` menjadi merah, menyimpan presentasi, membuka kembali, dan mencetak warna isian efektif:
+Contoh end-to-end berikut membuat sebuah shape yang menggunakan `ACCENT4`, mengubah warna tema `accent4` menjadi merah, menyimpan presentasi, membukanya kembali, dan mencetak warna isian efektif:
 
 ```python
 import aspose.pydrawing as draw
@@ -81,17 +83,17 @@ with slides.Presentation("theme-color.pptx") as saved_presentation:
     print(f"Effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Karena persegi tetap terhubung ke `ACCENT4`, warna yang terlihat menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada bentuk, perubahan selanjutnya pada `accent4` tidak lagi memengaruhi isian tersebut.
+Karena persegi panjang tetap terhubung ke `ACCENT4`, warnanya menjadi merah setelah tema diubah. Jika Anda mengganti warna skema dengan warna langsung pada shape, perubahan selanjutnya pada `accent4` tidak akan memengaruhi isian tersebut lagi.
 
 ### **Gunakan Warna dari Palet Tambahan**
 
-PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides mengekspos transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/python-net/aspose.slides/colortransformoperation/) .
+PowerPoint menghasilkan varian lebih terang dan lebih gelap dari warna tema dengan menerapkan transformasi warna. Aspose.Slides mengekspose transformasi ini melalui enumerasi [ColorTransformOperation](https://reference.aspose.com/slides/id/python-net/aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![Warna tema utama serta warna lebih terang dan lebih gelap yang dihasilkan dari palet tambahan](additional-palette-colors.png)
 
-**1** - Warna utama tema.
+**1** - Warna tema utama.
 
-**2** - Varian lebih terang dan lebih gelap yang dihasilkan dari warna utama tema.
+**2** - Varian lebih terang dan lebih gelap yang dihasilkan dari warna tema utama.
 
 Contoh berikut membuat enam persegi panjang berdasarkan `ACCENT4`, menerapkan transformasi luminansi pada lima di antaranya, dan menyimpan hasilnya:
 
@@ -129,31 +131,31 @@ with slides.Presentation() as presentation:
     presentation.save("theme-color-palette.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Varian ini tetap berbasis pada warna tema. Jika `accent4` berubah nanti, warna yang ditransformasikan akan dihitung ulang dari nilai `accent4` yang baru.
+Varian ini tetap berbasis pada warna tema. Jika `accent4` berubah kemudian, warna yang ditransformasi akan dihitung ulang dari nilai `accent4` yang baru.
 
 ### **Pemetaan Nilai `SchemeColor` ke Slot `ColorScheme`**
 
-Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/python-net/aspose.slides/schemecolor/) menggunakan `TEXT1`, `BACKGROUND1`, `TEXT2`, dan `BACKGROUND2`, sementara [ColorScheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/colorscheme/) mengekspos slot tema yang sama sebagai `dark1`, `light1`, `dark2`, dan `light2`. Pemetaan ini tetap:
+Enumerasi [SchemeColor](https://reference.aspose.com/slides/id/python-net/aspose.slides/schemecolor/) menggunakan `TEXT1`, `BACKGROUND1`, `TEXT2`, dan `BACKGROUND2`, sementara [ColorScheme](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/colorscheme/) menampilkan slot tema yang sama sebagai `dark1`, `light1`, `dark2`, dan `light2`. Pemetaan bersifat tetap:
 
 * `TEXT1` = `dark1`
 * `BACKGROUND1` = `light1`
 * `TEXT2` = `dark2`
 * `BACKGROUND2` = `light2`
 
-Ini adalah nama alternatif untuk slot tema yang sama; bukan nilai yang dikonversi secara dinamis dari satu bentuk ke bentuk lain.
+Ini adalah nama alternatif untuk slot tema yang sama; mereka bukan nilai yang dikonversi secara dinamis dari satu bentuk ke bentuk lain.
 
 ## **Mengubah Font Tema**
 
-Skema font tema berisi satu set font utama untuk judul dan satu set font minor untuk teks tubuh. Properti [FontScheme.major](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/fontscheme/major/) dan [FontScheme.minor](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/fontscheme/minor/) mengekspos set tersebut.
+Skema font tema berisi set font utama untuk judul dan set font minor untuk teks tubuh. Properti [FontScheme.major](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/fontscheme/major/) dan [FontScheme.minor](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/fontscheme/minor/) menampilkan set tersebut.
 
-Pengidentifikasi font tema yang kompatibel PowerPoint dapat digunakan dalam pemformatan teks:
+Pengidentifikasi font tema yang kompatibel dengan PowerPoint dapat digunakan dalam pemformatan teks:
 
-* `+mn-lt` - Font Tubuh Latin (Minor Latin Font)
-* `+mj-lt` - Font Judul Latin (Major Latin Font)
-* `+mn-ea` - Font Tubuh Asia Timur (Minor East Asian Font)
-* `+mj-ea` - Font Judul Asia Timur (Major East Asian Font)
+* `+mn-lt` - Body Font Latin (Minor Latin Font)
+* `+mj-lt` - Heading Font Latin (Major Latin Font)
+* `+mn-ea` - Body Font East Asian (Minor East Asian Font)
+* `+mj-ea` - Heading Font East Asian (Major East Asian Font)
 
-Contoh berikut membuat satu judul yang menggunakan font Latin utama tema dan satu baris tubuh yang menggunakan font Latin minor tema. Kemudian mengubah font tema dan menyimpan hasilnya:
+Contoh berikut membuat satu judul yang menggunakan font Latin mayor tema dan satu baris tubuh yang menggunakan font Latin minor tema. Kemudian mengubah font tema dan menyimpan hasilnya:
 
 ```python
 import aspose.slides as slides
@@ -171,21 +173,82 @@ with slides.Presentation() as presentation:
     presentation.save("theme-fonts.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Judul mengikuti font utama dan teks tubuh mengikuti font minor. Teks yang memiliki nama font eksplisit alih-alih pengidentifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
+Judul mengikuti font mayor dan teks tubuh mengikuti font minor. Teks yang memiliki nama font eksplisit alih-alih pengidentifikasi tema tidak akan beralih secara otomatis ketika skema font tema berubah.
 
-Koleksi font utama dan minor juga dapat berisi pemetaan font untuk sistem penulisan individual, seperti Cyrillic, Arab, Jepang, Georgia, dan Thaana. Untuk memeriksa, menambah, mengganti, atau menghapus pemetaan ini, lihat [Script-Specific Theme Fonts](/slides/id/python-net/script-specific-font-mappings/) .
+Koleksi font mayor dan minor juga dapat berisi pemetaan font untuk sistem penulisan individu, seperti Cyrillic, Arab, Jepang, Georgian, dan Thaana. Untuk memeriksa, menambah, mengganti, atau menghapus pemetaan ini, lihat [Script-Specific Theme Fonts](/slides/id/python-net/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/slides/id/python-net/powerpoint-fonts/) .
+Untuk informasi lebih lanjut tentang font presentasi, lihat [PowerPoint Fonts](/slides/id/python-net/powerpoint-fonts/).
 {{% /alert %}}
 
 ## **Menyalin atau Menerapkan Tema**
 
-Ada dua alur kerja umum, dan keduanya menyelesaikan masalah yang berbeda.
+Alur kerja di bawah ini menyelesaikan berbagai masalah terkait tema.
+
+### **Menerapkan Tema Eksternal ke Slide yang Bergantung pada Master**
+
+Gunakan [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) ketika Anda memiliki file tema PowerPoint (`.thmx`) dan ingin mengubah gaya semua slide yang bergantung pada master tertentu. Pilih master dari koleksi [Presentation.masters](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/masters/), yang mengimplementasikan [MasterSlideCollection](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslidecollection/), dan berikan jalur file tema ke metode tersebut.
+
+Metode ini melakukan operasi berikut:
+
+1. Membuat master slide baru berdasarkan master yang dipilih.
+1. Menerapkan tema eksternal ke master baru.
+1. Menetapkan master baru ke semua slide yang sebelumnya bergantung pada master yang dipilih.
+1. Mengembalikan [IMasterSlide](https://reference.aspose.com/slides/id/python-net/aspose.slides/imasterslide/) yang baru dibuat.
+
+Contoh berikut menerapkan tema eksternal ke slide yang bergantung pada master pertama dan menyimpan presentasi:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("presentation.pptx") as presentation:
+    selected_master = presentation.masters[0]
+    themed_master = selected_master.apply_external_theme_to_depending_slides("corporate-theme.thmx")
+
+    print(f"Created master: {themed_master.name}")
+    presentation.save("presentation-with-external-theme.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Tema yang tidak valid, rusak, atau tidak didukung dapat menyebabkan [PptxException](https://reference.aspose.com/slides/id/python-net/aspose.slides/pptxexception/) atau salah satu subclass terkait formatnya. Validasi jalur yang diberikan pengguna, tangani kegagalan akses sistem file, dan simpan presentasi hanya setelah tema berhasil diterapkan.
+
+Hanya slide yang bergantung pada master yang dipilih yang dipindahkan. Slide yang terkait dengan master lain tetap mempertahankan master dan tema mereka yang ada. Warna, font, isian, garis, latar belakang, dan efek yang sadar tema diselesaikan terhadap tema eksternal. Warna, font, isian, dan pemformatan eksplisit yang ditetapkan langsung mungkin tetap tidak berubah. Penimpaan pada level tata letak dan slide juga dapat memiliki prioritas atas nilai yang diwarisi dari master baru.
+
+Tema dapat merujuk pada font yang tidak tersedia di lingkungan runtime. Untuk memastikan render dan ekspor konsisten, instal font yang diperlukan, sediakan melalui [custom font sources](/slides/id/python-net/custom-font/), atau konfigurasikan [font substitution](/slides/id/python-net/font-substitution/).
+
+Ini adalah alur kerja langsung pada level master: metode menerima jalur file `.thmx` dan tidak memerlukan pembuatan manual penimpaan tema pada level slide atau tata letak.
+
+### **Menerapkan Tema Eksternal Berbeda dalam Presentasi Multi-Master**
+
+Ketika master yang relevan tidak diketahui sebelumnya, dapatkan dari slide perwakilan melalui [Slide.layout_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/slide/layout_slide/) dan [LayoutSlide.master_slide](https://reference.aspose.com/slides/id/python-net/aspose.slides/layoutslide/master_slide/). Simpan referensi master asli sebelum menerapkan tema apa pun karena setiap panggilan membuat master lain dalam presentasi.
+
+Contoh berikut menggunakan slide dari dua bagian untuk menemukan master mereka dan menerapkan tema eksternal yang berbeda ke masing‑masing grup:
+
+```python
+import aspose.slides as slides
+
+with slides.Presentation("multi-master-presentation.pptx") as presentation:
+    if len(presentation.slides) < 5:
+        print("The presentation does not contain the expected representative slides.")
+    else:
+        first_group_master = presentation.slides[0].layout_slide.master_slide
+        second_group_master = presentation.slides[4].layout_slide.master_slide
+
+        if first_group_master.slide_id == second_group_master.slide_id:
+            print("The representative slides use the same master.")
+        else:
+            first_themed_master = first_group_master.apply_external_theme_to_depending_slides("blue-theme.thmx")
+            second_themed_master = second_group_master.apply_external_theme_to_depending_slides("green-theme.thmx")
+
+            print(f"First themed master: {first_themed_master.name}")
+            print(f"Second themed master: {second_themed_master.name}")
+            presentation.save("multi-master-with-external-themes.pptx", slides.export.SaveFormat.PPTX)
+```
+
+Panggilan pertama memengaruhi hanya slide yang bergantung pada `first_group_master`, dan panggilan kedua memengaruhi hanya slide yang bergantung pada `second_group_master`. Slide yang termasuk dalam master lain tidak diubah gayanya.
 
 ### **Mempertahankan Tema Sumber Saat Memindahkan Slide**
 
-Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, klon master sumber ke dalam presentasi target dengan [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslidecollection/add_clone/) , kemudian klon slide dengan [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) dan master yang diklon. Ini membawa master, tata letaknya, dan tema terkait bersama-sama.
+Jika Anda ingin memindahkan slide ke presentasi lain dan mempertahankan desain aslinya, kloning master sumber ke dalam presentasi target dengan [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslidecollection/add_clone/), kemudian kloning slide dengan [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) dan master yang dikloning. Ini membawa master, tata letaknya, dan tema terkait bersama‑sama.
 
 ```python
 import aspose.slides as slides
@@ -199,11 +262,11 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-preserved.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ini adalah alur kerja yang disarankan ketika slide sumber harus terlihat sama di tujuan. Hanya mengklon konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang didorong tema.
+Ini adalah alur kerja yang disarankan ketika slide sumber harus terlihat sama di tujuan. Hanya mengkloning konten ke master tujuan yang tidak terkait dapat mengubah warna, font, latar belakang, dan efek yang dipicu tema.
 
 ### **Menerapkan Nilai Tema ke Slide yang Ada**
 
-Jika slide target harus tetap pada master dan tata letak saat ini, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/), dan [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) menyalin tiga komponen utama tema ke dalam penimpaan.
+Jika slide target harus tetap pada master dan tata letak saat ini, inisialisasi penimpaan tingkat slide dari tema sumber. Metode [OverrideTheme.init_color_scheme_from](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/init_color_scheme_from/), [OverrideTheme.init_font_scheme_from](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/init_font_scheme_from/), dan [OverrideTheme.init_format_scheme_from](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/init_format_scheme_from/) menyalin tiga komponen tema utama ke dalam penimpaan.
 
 ```python
 import aspose.slides as slides
@@ -218,7 +281,7 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-slide.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwarisi, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/clear/) .
+Ini mengubah tema yang digunakan oleh slide tersebut tanpa mengubah tema yang diwarisi oleh slide lain. Untuk menghapus penimpaan lokal dan kembali ke nilai yang diwarisi, panggil [OverrideTheme.clear](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/overridetheme/clear/).
 
 ### **Menerapkan Penimpaan Tema ke Tata Letak**
 
@@ -237,15 +300,15 @@ with slides.Presentation("source-theme.pptx") as source:
         target.save("theme-applied-to-layout.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Gunakan tema tingkat master atau presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak membutuhkan gaya yang berbeda, dan penimpaan slide hanya untuk pengecualian sejati. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari lebih sulit diprediksi.
+Gunakan tema master atau tingkat presentasi ketika banyak tata letak dan slide harus berbagi desain dasar yang sama, penimpaan tata letak ketika satu keluarga tata letak memerlukan gaya yang berbeda, dan penimpaan slide hanya untuk pengecualian nyata. Penimpaan tingkat slide yang berlebihan membuat perubahan tema global di kemudian hari menjadi lebih sulit diprediksi.
 
 ## **Memperbarui Gaya Latar Belakang Tema**
 
-Isian latar belakang tema disimpan dalam [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/background_fill_styles/) . PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI dibandingkan jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lainnya.
+Isian latar belakang tema disimpan dalam [FormatScheme.background_fill_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/background_fill_styles/). PowerPoint dapat menampilkan lebih banyak pilihan latar belakang di UI-nya dibandingkan jumlah definisi isian yang secara fisik disimpan dalam koleksi ini karena UI dapat menggabungkan isian tema dengan warna tema dan referensi gaya lain.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![Galeri gaya latar belakang PowerPoint untuk tema presentasi](presentation-design_8.png)
 
-Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.style_index](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/style_index/) saat ini. `style_index` menggunakan `0` untuk tidak ada isian tema; nilai positif adalah referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi Python secara langsung, dimana `[0]` berarti item pertama yang disimpan. Jangan menganggap setiap presentasi memiliki jumlah gaya isian latar belakang yang sama.
+Sebelum menggunakan gaya latar belakang, periksa koleksi yang disimpan dan [Background.style_index](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/style_index/) saat ini. `style_index` menggunakan `0` untuk tidak ada isian bertema; nilai positif adalah referensi gaya latar belakang tema. Ini berbeda dari mengindeks koleksi Python secara langsung, di mana `[0]` berarti item pertama yang disimpan. Jangan mengasumsikan setiap presentasi memiliki jumlah gaya isian latar belakang yang sama.
 
 Contoh berikut melaporkan jumlah isian latar belakang yang tersedia, menetapkan referensi latar belakang bertema ke master pertama, dan menyimpan presentasi:
 
@@ -263,23 +326,23 @@ with slides.Presentation("input.pptx") as presentation:
     presentation.save("theme-background.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Hasil yang terlihat bergantung pada entri tema yang dirujuk oleh master dan pada penimpaan latar belakang di tingkat tata letak atau slide. Jika sebuah slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/get_effective/) ketika Anda perlu mengetahui latar belakang akhir setelah pewarisan diterapkan.
+Hasil yang terlihat bergantung pada entri tema yang dirujuk oleh master dan pada penimpaan latar belakang di tingkat tata letak atau slide. Jika slide menggunakan latar belakangnya sendiri, mengubah hanya latar belakang master mungkin tidak mengubah slide tersebut. Gunakan [Background.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/get_effective/) ketika Anda perlu mengetahui latar belakang akhir setelah pewarisan diterapkan.
 
 {{% alert color="warning" title="Warning" %}}
-Jangan memperlakukan `style_index` sebagai indeks koleksi berbasis nol. Hindari juga mengkodekan nomor gaya dari satu berkas dan menganggap tampilannya sama di berkas lain; definisi gaya tema bersifat spesifik presentasi.
+Jangan memperlakukan `style_index` sebagai indeks koleksi berbasis nol. Hindari juga mengodekan nomor gaya dari satu file dan mengasumsikan tampilannya sama di file lain; definisi gaya tema bersifat spesifik presentasi.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Untuk pemformatan latar belakang langsung dan pewarisan latar belakang, lihat [Presentation Background](/slides/id/python-net/presentation-background/) .
+Untuk pemformatan latar belakang langsung dan pewarisan latar belakang, lihat [Presentation Background](/slides/id/python-net/presentation-background/).
 {{% /alert %}}
 
 ## **Memperbarui Efek Tema**
 
-Skema format tema berisi koleksi terpisah [FormatScheme.fill_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/line_styles/), dan [FormatScheme.effect_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/effect_styles/) . Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual berkorespondensi dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih-alih mengasumsikan jumlah tetap.
+Skema format tema berisi koleksi terpisah [FormatScheme.fill_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/fill_styles/), [FormatScheme.line_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/line_styles/), dan [FormatScheme.effect_styles](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/formatscheme/effect_styles/). Tema Office tipikal sering berisi tiga entri gaya utama yang secara visual berkorespondensi dengan pemformatan halus, sedang, dan intens, tetapi kode harus memeriksa setiap koleksi alih-alih mengasumsikan jumlah tetap.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Efek tema halus, sedang, dan intens yang diterapkan pada shape yang sama](presentation-design_10.png)
 
-Ketika Anda mengakses koleksi ini di Python, indeks koleksi berbasis nol: `[0]` adalah gaya pertama yang disimpan dan `[2]` adalah yang ketiga. Indeks referensi gaya pada bentuk adalah konsep terpisah, diekspos melalui [IShapeStyle](https://reference.aspose.com/slides/id/python-net/aspose.slides/ishapestyle/) . Memodifikasi gaya tema memengaruhi bentuk yang merujuk gaya tema tersebut; bentuk dengan pemformatan langsung mungkin tetap tidak berubah.
+Saat mengakses koleksi ini di Python, indeks koleksi berbasis nol: `[0]` adalah gaya pertama yang disimpan dan `[2]` adalah yang ketiga. Indeks referensi gaya shape adalah konsep terpisah, diekspos melalui [IShapeStyle](https://reference.aspose.com/slides/id/python-net/aspose.slides/ishapestyle/). Memodifikasi gaya tema memengaruhi shape yang merujuk ke gaya tema tersebut; shape dengan pemformatan langsung mungkin tetap tidak berubah.
 
 Contoh berikut memeriksa keberadaan entri gaya yang diperlukan, mengubah gaya garis pertama, mengubah gaya isian ketiga, mengaktifkan bayangan luar pada gaya efek ketiga, dan menyimpan hasilnya:
 
@@ -300,15 +363,15 @@ with slides.Presentation("Subtle_Moderate_Intense.pptx") as presentation:
     presentation.save("theme-effects.pptx", slides.export.SaveFormat.PPTX)
 ```
 
-Untuk bentuk yang merujuk slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan padat, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual tepat masih bergantung pada slot gaya yang dirujuk masing‑masing bentuk dan apakah pemformatan langsung menimpa tema.
+Untuk shape yang merujuk ke slot ini, gaya garis tema pertama menjadi merah, gaya isian tema ketiga menjadi hijau hutan solid, dan gaya efek ketiga memperoleh bayangan luar dengan jarak 10 poin. Hasil visual tepat tetap bergantung pada slot gaya yang dirujuk setiap shape dan apakah pemformatan langsung menimpa tema.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Gaya efek tema setelah mengubah garis, isian, dan pengaturan bayangan](presentation-design_11.png)
 
 ## **Membaca Nilai Tema Efektif**
 
-Objek tema mentah memberi tahu Anda apa yang didefinisikan pada tingkat tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau bentuk setelah pewarisan dan penimpaan lokal diselesaikan. Untuk slide, panggil [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) . Untuk latar belakang, gunakan [Background.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/get_effective/) , dan untuk isian, gunakan [FillFormat.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/fillformat/get_effective/) .
+Objek tema mentah memberi tahu apa yang didefinisikan pada level tertentu. Nilai efektif memberi tahu apa yang sebenarnya digunakan slide atau shape setelah pewarisan dan penimpaan lokal diselesaikan. Untuk slide, panggil [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/). Untuk latar belakang, gunakan [Background.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/get_effective/), dan untuk isian, gunakan [FillFormat.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/fillformat/get_effective/).
 
-Contoh berikut membaca tema efektif, latar belakang, dan isian bentuk pertama dari sebuah slide:
+Contoh berikut membaca tema efektif, latar belakang, dan isian shape pertama dari sebuah slide:
 
 ```python
 import aspose.slides as slides
@@ -327,18 +390,22 @@ with slides.Presentation("input.pptx") as presentation:
             print(f"First shape effective fill color: {effective_fill.solid_fill_color}")
 ```
 
-Gunakan data efektif untuk diagnostik rendering, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.master_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/master_theme/) , Anda bisa melewatkan master, tata letak, slide, atau penimpaan bentuk yang mengubah tampilan akhir.
+Gunakan data efektif untuk diagnostik render, validasi, dan perbandingan. Jika Anda hanya memeriksa [Presentation.master_theme](https://reference.aspose.com/slides/id/python-net/aspose.slides/presentation/master_theme/), Anda dapat melewatkan penimpaan master, tata letak, slide, atau shape yang mengubah tampilan akhir.
 
 ## **FAQ**
 
-**Apakah saya dapat menerapkan tema ke satu slide tanpa mengubah master?**
+**Apakah menerapkan tema eksternal memengaruhi setiap slide dalam presentasi?**
 
-Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/slidethememanager/) slide dan inisialisasi tema penimpaanannya. Perubahan tetap lokal pada slide tersebut; slide lain tetap mewarisi tema mereka yang ada.
+Tidak. [IMasterSlide.apply_external_theme_to_depending_slides](https://reference.aspose.com/slides/id/python-net/aspose.slides/imasterslide/apply_external_theme_to_depending_slides/) hanya menugaskan ulang slide yang bergantung pada master yang dipilih. Slide yang menggunakan master lain mempertahankan tema yang ada.
+
+**Bisakah saya menerapkan tema ke satu slide tanpa mengubah master?**
+
+Ya. Gunakan [SlideThemeManager](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/slidethememanager/) slide dan inisialisasi tema penimpaan. Perubahan tetap lokal pada slide tersebut; slide lain terus mewarisi tema mereka yang ada.
 
 **Apa cara paling aman untuk membawa tema dari satu presentasi ke presentasi lain?**
 
-Ketika memindahkan slide dan mempertahankan tampilannya yang asli, klon master sumber ke dalam tujuan dan klon slide dengan master tersebut menggunakan [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslidecollection/add_clone/) dan [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/) . Ini menjaga master, tata letak, dan tema bersama.
+Saat memindahkan slide dan mempertahankan tampilan sumber, klon master sumber ke tujuan dan klon slide dengan master tersebut menggunakan [MasterSlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/masterslidecollection/add_clone/) dan [SlideCollection.add_clone](https://reference.aspose.com/slides/id/python-net/aspose.slides/slidecollection/add_clone/). Ini menjaga master, tata letak, dan tema tetap bersama.
 
 **Bagaimana saya dapat melihat nilai efektif setelah pewarisan dan penimpaan?**
 
-Gunakan [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) untuk tema slide atau tata letak serta metode data‑efektif yang bersesuaian untuk objek format seperti [Background.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/get_effective/) dan [FillFormat.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/fillformat/get_effective/) . API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.
+Gunakan [BaseOverrideThemeManager.create_theme_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides.theme/baseoverridethememanager/create_theme_effective/) untuk tema slide atau tata letak serta metode data‑efektif yang sesuai untuk objek format seperti [Background.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/background/get_effective/) dan [FillFormat.get_effective](https://reference.aspose.com/slides/id/python-net/aspose.slides/fillformat/get_effective/). API‑API ini mengembalikan nilai yang telah diselesaikan setelah pewarisan dan penimpaan diterapkan.

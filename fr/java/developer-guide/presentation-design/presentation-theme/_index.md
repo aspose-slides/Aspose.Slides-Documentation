@@ -9,8 +9,10 @@ keywords:
 - thème de présentation
 - thème de diapositive
 - définir le thème
-- modifier le thème
+- changer le thème
 - gérer le thème
+- thème externe
+- THMX
 - couleur du thème
 - palette supplémentaire
 - police du thème
@@ -21,23 +23,23 @@ keywords:
 - présentation
 - Java
 - Aspose.Slides
-description: "Maîtrisez les thèmes de présentation dans Aspose.Slides pour Java afin de créer, personnaliser et convertir des fichiers PowerPoint avec une identité visuelle cohérente."
+description: "Thèmes maîtres de présentation dans Aspose.Slides pour Java afin de créer, personnaliser et convertir des fichiers PowerPoint avec une identité visuelle cohérente."
 ---
 ## **Introduction**
 
-Un thème de présentation définit un ensemble coordonné de couleurs, de polices, de styles d’arrière‑plan, de remplissages, de lignes et d’effets. Les objets compatibles thème font référence à ces définitions partagées au lieu de stocker chaque propriété visuelle comme une valeur fixe, de sorte qu’un changement de thème peut mettre à jour de nombreux objets en même temps.
+Un thème de présentation définit un ensemble coordonné de couleurs, de polices, de styles d’arrière‑plan, de remplissages, de lignes et d’effets. Les objets sensibles au thème se réfèrent à ces définitions partagées au lieu de stocker chaque propriété visuelle comme une valeur fixe, de sorte qu’une modification de thème peut mettre à jour de nombreux objets simultanément.
 
-Dans Aspose.Slides, le thème au niveau de la présentation est disponible via [Presentation.getMasterTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/). Une présentation peut également contenir des substitutions de thème à des niveaux inférieurs. Un master peut remplacer le thème de la présentation via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/masterthememanager/), tandis qu’une disposition ou une diapositive individuelle peut remplacer son thème hérité via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseoverridethememanager/). En pratique, le thème effectif d’une diapositive est résolu grâce à cette chaîne d’héritage : thème de la présentation, substitution du master, substitution de la disposition et substitution de la diapositive.
+Dans Aspose.Slides, le thème au niveau de la présentation est disponible via [Presentation.getMasterTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/). Une présentation peut également contenir des substituts de thème à des niveaux inférieurs. Un master peut remplacer le thème de la présentation via [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/masterthememanager/), tandis qu’une disposition ou une diapositive individuelle peut remplacer son thème hérité via [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseoverridethememanager/). En pratique, le thème effectif d’une diapositive est résolu à travers cette chaîne d’héritage : thème de la présentation, substitution du master, substitution de la disposition et substitution de la diapositive.
 
-![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
+![Composants du thème : couleurs, polices, styles d’arrière‑plan et effets](theme-constituents.png)
 
-Les sections ci‑dessous montrent les flux de travail les plus courants liés aux thèmes : inspecter un thème, modifier les couleurs et les polices, copier ou appliquer un thème, mettre à jour les styles d’arrière‑plan et d’effets, et lire les valeurs effectives après que l’héritage et les substitutions aient été résolus.
+Les sections ci‑dessous montrent les flux de travail les plus courants liés aux thèmes : inspecter un thème, modifier les couleurs et les polices, copier ou appliquer un thème, mettre à jour les styles d’arrière‑plan et d’effets, et lire les valeurs effectives après résolution des héritages et des remplacements.
 
-## **Inspect a Theme**
+## **Inspecter un thème**
 
-L’objet [MasterTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/) expose le schéma de couleurs, le schéma de polices et le schéma de formats du thème via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/) et [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/). Inspecter ces collections avant de les modifier est particulièrement utile lorsqu’une présentation provient d’une source externe, car le nombre et le contenu des entrées de style peuvent varier.
+L’objet [MasterTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/) expose le jeu de couleurs du thème, le jeu de polices et le jeu de formats via [MasterTheme.getColorScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/) et [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/mastertheme/). Inspecter ces collections avant de les modifier est particulièrement utile lorsqu’une présentation provient d’une source externe, car le nombre et le contenu des entrées de style peuvent varier.
 
-L’exemple suivant lit les propriétés principales du thème et indique combien de styles d’arrière‑plan, de remplissage, de ligne et d’effet sont stockés dans le thème :
+L’exemple suivant lit les principales propriétés du thème et indique combien de styles d’arrière‑plan, de remplissage, de ligne et d’effet sont stockés dans le thème :
 
 ```java
 import com.aspose.slides.*;
@@ -58,13 +60,13 @@ try {
 }
 ```
 
-Si un fichier utilise plusieurs masters, ne supposez pas que chaque diapositive possède le même thème effectif. Inspectez le master associé à la diapositive, et utilisez le flux de travail « effective‑theme » montré plus loin dans cet article lorsque des substitutions de disposition ou de diapositive peuvent être présentes.
+Si un fichier utilise plusieurs masters, ne supposez pas que chaque diapositive possède le même thème effectif. Inspectez le master associé à la diapositive et utilisez le flux de travail « thème effectif » présenté plus loin dans cet article lorsqu’il peut y avoir des remplacements au niveau de la disposition ou de la diapositive.
 
-## **Change Theme Colors**
+## **Modifier les couleurs du thème**
 
-Les remplissages, lignes et textes compatibles thème peuvent faire référence à une couleur logique provenant de l’énumération [SchemeColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/schemecolor/). Lorsque vous modifiez l’entrée correspondante dans l’[IColorScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icolorscheme/), tous les objets qui référencent encore cette couleur de thème sont résolus par rapport à la nouvelle valeur. Les objets qui utilisent une couleur RVB directe ne sont pas modifiés par une mise à jour de couleur de thème.
+Les remplissages, lignes et textes sensibles au thème peuvent se référer à une couleur logique de l’énumération [SchemeColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/schemecolor/). Lorsque vous modifiez l’entrée correspondante dans l’[IColorScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icolorscheme/), tous les objets qui référencent encore cette couleur de thème sont résolus à partir de la nouvelle valeur. Les objets qui utilisent une couleur RVB directe ne sont pas modifiés par une mise à jour de couleur de thème.
 
-L’exemple suivant crée une forme qui utilise `Accent4`, change la couleur de thème `Accent4` en rouge, enregistre la présentation, la rouvre et affiche la couleur de remplissage effective :
+L’exemple complet suivant crée une forme qui utilise `Accent4`, change la couleur `Accent4` du thème en rouge, enregistre la présentation, la rouvre et affiche la couleur de remplissage effective :
 
 ```java
 import com.aspose.slides.*;
@@ -93,19 +95,18 @@ try {
 }
 ```
 
-Comme le rectangle reste lié à `Accent4`, sa couleur visible devient rouge après le changement de thème. Si vous remplacez la couleur du schéma par une couleur directe sur la forme, les modifications ultérieures de `Accent4` n’affecteront plus ce remplissage.
+Comme le rectangle reste lié à `Accent4`, sa couleur visible devient rouge après la modification du thème. Si vous remplacez la couleur du schéma par une couleur directe sur la forme, les modifications ultérieures de `Accent4` n’affecteront plus ce remplissage.
 
-### **Use Colors from the Additional Palette**
+### **Utiliser les couleurs de la palette supplémentaire**
 
-PowerPoint dérive des variantes plus claires et plus foncées d’une couleur de thème en appliquant des transformations de couleur. Aspose.Slides expose ces transformations via l’énumération [ColorTransformOperation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/colortransformoperation/).
+PowerPoint génère des variantes plus claires et plus foncées à partir d’une couleur de thème en appliquant des transformations de couleur. Aspose.Slides expose ces transformations via l’énumération [ColorTransformOperation](https://reference.aspose.com/slides/fr/java/com.aspose.slides/colortransformoperation/).
 
-![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
+![Couleurs principales du thème et couleurs plus claires et plus foncées générées à partir de la palette supplémentaire](additional-palette-colors.png)
 
-**1** - Couleurs principales du thème.
+**1** – Couleurs principales du thème.  
+**2** – Variantes plus claires et plus foncées produites à partir des couleurs principales du thème.
 
-**2** - Variantes plus claires et plus foncées générées à partir des couleurs principales du thème.
-
-L’exemple suivant crée six rectangles basés sur `Accent4`, applique des transformations de luminance à cinq d’entre eux, puis enregistre le résultat :
+L’exemple suivant crée six rectangles basés sur `Accent4`, applique des transformations de luminance à cinq d’entre eux et enregistre le résultat :
 
 ```java
 import com.aspose.slides.*;
@@ -152,31 +153,31 @@ try {
 }
 ```
 
-Ces variantes restent basées sur la couleur de thème. Si `Accent4` change plus tard, les couleurs transformées sont recalculées à partir de la nouvelle valeur de `Accent4`.
+Ces variantes restent basées sur la couleur du thème. Si `Accent4` change ultérieurement, les couleurs transformées sont recalculées à partir de la nouvelle valeur `Accent4`.
 
-### **Map `SchemeColor` Values to `IColorScheme` Slots**
+### **Faire correspondre les valeurs `SchemeColor` aux emplacements `IColorScheme`**
 
-L’énumération [SchemeColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/schemecolor/) utilise `Text1`, `Background1`, `Text2` et `Background2`, tandis que l’[IColorScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icolorscheme/) expose les mêmes emplacements de thème sous les noms `Dark1`, `Light1`, `Dark2` et `Light2`. Le mappage est fixe :
+L’énumération [SchemeColor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/schemecolor/) utilise `Text1`, `Background1`, `Text2` et `Background2`, tandis que l’[IColorScheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/icolorscheme/) expose les mêmes emplacements de thème sous les noms `Dark1`, `Light1`, `Dark2` et `Light2`. Le mapping est fixe :
 
-* `Text1` = `Dark1`
-* `Background1` = `Light1`
-* `Text2` = `Dark2`
+* `Text1` = `Dark1`  
+* `Background1` = `Light1`  
+* `Text2` = `Dark2`  
 * `Background2` = `Light2`
 
-Il s’agit de noms alternatifs pour les mêmes emplacements de thème ; ce ne sont pas des valeurs converties dynamiquement d’une forme à une autre.
+Ce sont des noms alternatifs pour les mêmes emplacements de thème ; ils ne sont pas des valeurs converties dynamiquement d’une forme à l’autre.
 
-## **Change Theme Fonts**
+## **Modifier les polices du thème**
 
-Un schéma de polices de thème contient un jeu de polices principal pour les titres et un jeu de polices secondaire pour le texte du corps. Les méthodes [IFontScheme.getMajor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ifontscheme/) et [IFontScheme.getMinor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ifontscheme/) exposent ces jeux.
+Un jeu de polices de thème contient un jeu de polices principal pour les titres et un jeu de polices secondaire pour le corps du texte. Les méthodes [IFontScheme.getMajor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ifontscheme/) et [IFontScheme.getMinor](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ifontscheme/) exposent ces jeux.
 
 Les identifiants de police de thème compatibles PowerPoint peuvent être utilisés dans le formatage du texte :
 
-* `+mn-lt` - Police du corps Latin (Minor Latin Font)
-* `+mj-lt` - Police du titre Latin (Major Latin Font)
-* `+mn-ea` - Police du corps Asiatique de l’Est (Minor East Asian Font)
-* `+mj-ea` - Police du titre Asiatique de l’Est (Major East Asian Font)
+* `+mn-lt` – Police du corps Latin (Minor Latin Font)  
+* `+mj-lt` – Police du titre Latin (Major Latin Font)  
+* `+mn-ea` – Police du corps Asiatique de l’Est (Minor East Asian Font)  
+* `+mj-ea` – Police du titre Asiatique de l’Est (Major East Asian Font)
 
-L’exemple suivant crée un titre qui utilise la police majeure Latin du thème et une ligne de corps qui utilise la police mineure Latin du thème. Il modifie ensuite les polices du thème et enregistre le résultat :
+L’exemple suivant crée un titre qui utilise la police Latin principale du thème et une ligne de corps qui utilise la police Latin secondaire du thème. Il modifie ensuite les polices du thème et enregistre le résultat :
 
 ```java
 import com.aspose.slides.*;
@@ -201,23 +202,92 @@ try {
 }
 ```
 
-Le titre suit la police majeure et le texte du corps suit la police mineure. Un texte qui possède un nom de police explicite au lieu d’un identifiant de thème ne basculera pas automatiquement lorsque le schéma de polices du thème change.
+Le titre suit la police principale et le texte du corps suit la police secondaire. Un texte qui possède un nom de police explicite au lieu d’un identifiant de thème ne basculera pas automatiquement lorsque le schéma de polices du thème change.
 
-Les collections de polices majeures et mineures peuvent également contenir des mappages de police pour des systèmes d’écriture individuels, tels que le cyrillique, l’arabe, le japonais, le géorgien et le thaana. Pour inspecter, ajouter, remplacer ou supprimer ces mappages, consultez [Script-Specific Theme Fonts](/slides/fr/java/script-specific-font-mappings/).
+Les collections de polices principales et secondaires peuvent également contenir des mappages de police pour des systèmes d’écriture individuels, tels que le cyrillique, l’arabe, le japonais, le géorgien et le thaana. Pour inspecter, ajouter, remplacer ou supprimer ces mappages, consultez [Polices de thème spécifiques au script](/slides/fr/java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-
-For more information about presentation fonts, see [PowerPoint Fonts](/slides/fr/java/powerpoint-fonts/).
-
+Pour plus d’informations sur les polices de présentation, consultez [Polices PowerPoint](/slides/fr/java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Copy or Apply a Theme**
+## **Copier ou appliquer un thème**
 
-Il existe deux flux de travail courants, qui résolvent des problèmes différents.
+Les flux de travail ci‑dessous résolvent différents problèmes liés aux thèmes.
 
-### **Preserve a Source Theme When Moving Slides**
+### **Appliquer un thème externe aux diapositives dépendantes d’un master**
 
-Si vous devez déplacer une diapositive vers une autre présentation tout en conservant son design d’origine, clonez le master source dans la présentation cible avec [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/), puis clonez la diapositive avec [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/) et le master cloné. Cela transporte le master, ses dispositions et le thème associé ensemble.
+Utilisez [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/) lorsque vous disposez d’un fichier de thème PowerPoint (`.thmx`) et que vous souhaitez redéfinir le style de chaque diapositive dépendant d’un master particulier. Sélectionnez le master dans la collection [Presentation.getMasters](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/), qui implémente [IMasterSlideCollection](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/), et transmettez le chemin du fichier thème à la méthode.
+
+La méthode effectue les opérations suivantes :
+
+1. Crée une nouvelle diapositive master basée sur le master sélectionné.  
+2. Applique le thème externe au nouveau master.  
+3. Assigne le nouveau master à toutes les diapositives qui dépendaient auparavant du master sélectionné.  
+4. Retourne le [IMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/) nouvellement créé.
+
+L’exemple suivant applique un thème externe aux diapositives dépendant du premier master et enregistre la présentation :
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("presentation.pptx");
+try {
+    IMasterSlide selectedMaster = presentation.getMasters().get_Item(0);
+    IMasterSlide themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    System.out.println("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Un thème invalide, corrompu ou non pris en charge peut provoquer une [PptxReadException](https://reference.aspose.com/slides/fr/java/com.aspose.slides/pptxreadexception/). Validez les chemins fournis par les utilisateurs, gérez les échecs d’accès au système de fichiers et n’enregistrez la présentation qu’après que le thème a été appliqué avec succès.
+
+Seules les diapositives qui dépendaient du master sélectionné sont réaffectées. Les diapositives associées à d’autres masters conservent leurs masters et thèmes existants. Les couleurs, polices, remplissages, lignes, arrière‑plans et effets sensibles au thème sont résolus par rapport au thème externe. Les couleurs, polices, remplissages et autres formats affectés directement peuvent rester inchangés. Les remplacements au niveau de la disposition et de la diapositive peuvent également prévaloir sur les valeurs héritées du nouveau master.
+
+Le thème peut référencer des polices non disponibles dans l’environnement d’exécution. Pour un rendu et une exportation cohérents, installez les polices requises, fournissez‑les via [sources de polices personnalisées](/slides/fr/java/custom-font/), ou configurez la [substitution de polices](/slides/fr/java/font-substitution/).
+
+Il s’agit d’un flux de travail direct au niveau du master : la méthode accepte un chemin de fichier `.thmx` et ne nécessite pas de créer manuellement des remplacements de thème au niveau de la diapositive ou de la disposition.
+
+### **Appliquer différents thèmes externes dans une présentation à plusieurs masters**
+
+Lorsque le master pertinent n’est pas connu à l’avance, récupérez‑le à partir d’une diapositive représentative via [ISlide.getLayoutSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islide/) et [ILayoutSlide.getMasterSlide](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ilayoutslide/). Conservez les références aux masters originaux avant d’appliquer des thèmes, car chaque appel crée un autre master dans la présentation.
+
+L’exemple suivant utilise des diapositives de deux sections pour localiser leurs masters et applique un thème externe différent à chaque groupe :
+
+```java
+import com.aspose.slides.*;
+
+Presentation presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        System.out.println("The presentation does not contain the expected representative slides.");
+    } else {
+        IMasterSlide firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        IMasterSlide secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() == secondGroupMaster.getSlideId()) {
+            System.out.println("The representative slides use the same master.");
+        } else {
+            IMasterSlide firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            IMasterSlide secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            System.out.println("First themed master: " + firstThemedMaster.getName());
+            System.out.println("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Le premier appel affecte uniquement les diapositives dépendant de `firstGroupMaster`, et le second appel affecte uniquement les diapositives dépendant de `secondGroupMaster`. Les diapositives appartenant à tout autre master ne sont pas re‑stylisées.
+
+### **Conserver un thème source lors du déplacement de diapositives**
+
+Si vous devez déplacer une diapositive vers une autre présentation tout en conservant son design original, clonez le master source dans la présentation cible avec [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/), puis clonez la diapositive avec [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/) et le master cloné. Cela transporte le master, ses dispositions et le thème associé.
 
 ```java
 import com.aspose.slides.*;
@@ -239,11 +309,11 @@ try {
 }
 ```
 
-C’est le flux de travail recommandé lorsque la diapositive source doit conserver exactement la même apparence dans la destination. Cloner simplement le contenu sur un master de destination non lié peut modifier les couleurs, polices, arrière‑plans et effets pilotés par le thème.
+C’est le flux de travail recommandé lorsque la diapositive source doit garder le même aspect dans la destination. Simplement cloner le contenu sur un master de destination non lié peut modifier les couleurs, polices, arrière‑plans et effets dictés par le thème.
 
-### **Apply Theme Values to an Existing Slide**
+### **Appliquer des valeurs de thème à une diapositive existante**
 
-Si la diapositive cible doit rester sur son master et sa disposition actuels, initialisez une substitution au niveau de la diapositive à partir du thème source. Les méthodes [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/) et [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/) copient les trois principaux composants du thème dans la substitution.
+Si la diapositive cible doit rester sur son master et sa disposition actuels, initialisez un remplacement au niveau de la diapositive à partir du thème source. Les méthodes [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/) et [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/) copient les trois principaux composants du thème dans le remplacement.
 
 ```java
 import com.aspose.slides.*;
@@ -266,11 +336,11 @@ try {
 }
 ```
 
-Cela modifie le thème utilisé par cette diapositive sans changer le thème hérité par les autres diapositives. Pour supprimer la substitution locale et revenir aux valeurs héritées, appelez [OverrideTheme.clear](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/).
+Cela change le thème utilisé par cette diapositive sans modifier le thème hérité par les autres diapositives. Pour supprimer le remplacement local et revenir aux valeurs héritées, appelez [OverrideTheme.clear](https://reference.aspose.com/slides/fr/java/com.aspose.slides/overridetheme/).
 
-### **Apply a Theme Override to a Layout**
+### **Appliquer un remplacement de thème à une disposition**
 
-Une substitution au niveau de la disposition s’applique aux diapositives qui utilisent cette disposition, sauf si une diapositive particulière possède sa propre substitution. Les mêmes méthodes d’initialisation peuvent être utilisées via le [LayoutSlideThemeManager](https://reference.aspose.com/slides/fr/java/com.aspose.slides/layoutslidethememanager/) :
+Un remplacement au niveau de la disposition s’applique aux diapositives qui utilisent cette disposition, sauf si une diapositive particulière possède son propre remplacement. Les mêmes méthodes d’initialisation peuvent être utilisées via le [LayoutSlideThemeManager](https://reference.aspose.com/slides/fr/java/com.aspose.slides/layoutslidethememanager/) :
 
 ```java
 import com.aspose.slides.*;
@@ -294,17 +364,17 @@ try {
 }
 ```
 
-Utilisez un thème au niveau du master ou de la présentation lorsque de nombreuses dispositions et diapositives doivent partager le même design de base, une substitution de disposition lorsqu’une famille de dispositions nécessite un style différent, et une substitution de diapositive uniquement pour de véritables exceptions. Des substitutions excessives au niveau des diapositives rendent les modifications globales de thème ultérieures plus difficiles à prévoir.
+Utilisez un thème au niveau du master ou de la présentation lorsque de nombreuses dispositions et diapositives doivent partager le même design de base, un remplacement de disposition lorsqu’une famille de dispositions nécessite un style différent, et un remplacement de diapositive uniquement pour de véritables exceptions. Un excès de remplacements au niveau de la diapositive rend les changements globaux de thème ultérieurs plus difficiles à prévoir.
 
-## **Update Theme Background Styles**
+## **Mettre à jour les styles d’arrière‑plan du thème**
 
-Les remplissages d’arrière‑plan du thème sont stockés dans [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/). PowerPoint peut proposer davantage de choix d’arrière‑plan dans son interface utilisateur que le nombre de définitions de remplissage réellement stockées dans cette collection, car l’interface peut combiner les remplissages de thème avec des couleurs de thème et d’autres références de style.
+Les remplissages d’arrière‑plan du thème sont stockés dans [IFormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/). PowerPoint peut présenter davantage de choix d’arrière‑plan dans son interface que le nombre de définitions de remplissage réellement stockées dans cette collection, car l’interface peut combiner les remplissages du thème avec les couleurs du thème et d’autres références de style.
 
-![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
+![Galerie de styles d’arrière‑plan PowerPoint pour un thème de présentation](presentation-design_8.png)
 
-Avant d’utiliser un style d’arrière‑plan, inspectez la collection stockée et le [Background.getStyleIndex](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/) actuel. Un index de style de `0` signifie aucun remplissage thématique ; les valeurs positives sont des références de style d’arrière‑plan du thème. Cela diffère de l’indexation directe de la collection Java, où `get_Item(0)` désigne le premier élément stocké. Ne supposez pas que chaque présentation possède le même nombre de styles de remplissage d’arrière‑plan.
+Avant d’utiliser un style d’arrière‑plan, inspectez la collection stockée et l’index actuel via [Background.getStyleIndex](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/). Un index de style de `0` signifie aucun remplissage thématisé ; les valeurs positives sont des références à des styles d’arrière‑plan du thème. Cela diffère de l’indexation directe de la collection Java, où `get_Item(0)` désigne le premier élément stocké. Ne supposez pas que chaque présentation contient le même nombre de styles de remplissage d’arrière‑plan.
 
-L’exemple suivant indique le nombre de remplissages d’arrière‑plan disponibles, attribue une référence d’arrière‑plan thématique au premier master et enregistre la présentation :
+L’exemple suivant signale le nombre de remplissages d’arrière‑plan disponibles, attribue une référence d’arrière‑plan thématisé au premier master et enregistre la présentation :
 
 ```java
 import com.aspose.slides.*;
@@ -326,29 +396,25 @@ try {
 }
 ```
 
-Le résultat visible dépend de l’entrée de thème référencée par le master et de toute substitution d’arrière‑plan au niveau de la disposition ou de la diapositive. Si une diapositive utilise son propre arrière‑plan, modifier uniquement l’arrière‑plan du master peut ne pas affecter cette diapositive. Utilisez [Background.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/) lorsque vous avez besoin de connaître l’arrière‑plan final après application de l’héritage.
+Le résultat visible dépend de l’entrée du thème référencée par le master et de tout remplacement d’arrière‑plan au niveau de la disposition ou de la diapositive. Si une diapositive utilise son propre arrière‑plan, modifier uniquement l’arrière‑plan du master peut ne pas affecter cette diapositive. Utilisez [Background.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/) lorsque vous devez connaître l’arrière‑plan final après application de l’héritage.
 
 {{% alert color="warning" title="Warning" %}}
-
-Do not treat the style index as a zero-based collection index. Also avoid hard-coding a style number from one file and assuming it has the same appearance in another file; theme style definitions are presentation-specific.
-
+Ne traitez pas l’index de style comme un index de collection à base zéro. Évitez également de coder en dur un numéro de style issu d’un fichier et de supposer qu’il a le même aspect dans un autre fichier ; les définitions de style du thème sont spécifiques à chaque présentation.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-
-For direct background formatting and background inheritance, see [Presentation Background](/slides/fr/java/presentation-background/).
-
+Pour le formatage direct de l’arrière‑plan et l’héritage de l’arrière‑plan, consultez [Arrière‑plan de la présentation](/slides/fr/java/presentation-background/).
 {{% /alert %}}
 
-## **Update Theme Effects**
+## **Mettre à jour les effets du thème**
 
-Un schéma de formats de thème contient des collections séparées de styles de remplissage, de ligne et d’effet exposées via [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/) et [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/). Les thèmes Office typiques contiennent souvent trois entrées de style principales qui correspondent visuellement à des formats subtils, modérés et intenses, mais le code doit inspecter chaque collection au lieu de supposer un nombre fixe.
+Un schéma de formats du thème contient des collections séparées de remplissages, de lignes et d’effets exposées via [IFormatScheme.getFillStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/), [IFormatScheme.getLineStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/) et [IFormatScheme.getEffectStyles](https://reference.aspose.com/slides/fr/java/com.aspose.slides/iformatscheme/). Les thèmes Office typiques contiennent souvent trois entrées principales qui correspondent visuellement à des formats subtils, modérés et intenses, mais le code doit inspecter chaque collection plutôt que de supposer un nombre fixe.
 
-![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
+![Effets subtils, modérés et intenses du thème appliqués à la même forme](presentation-design_10.png)
 
-Lorsque vous accédez à ces collections en Java, l’index de la collection est basé sur zéro : `get_Item(0)` est le premier style stocké et `get_Item(2)` le troisième. Les index de référence de style d’une forme constituent un concept distinct, exposé via [IShapeStyle](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishapestyle/). Modifier un style de thème affecte les formes qui référencent ce style ; les formes avec un formatage direct peuvent rester inchangées.
+Lorsque vous accédez à ces collections en Java, l’index de la collection commence à zéro : `get_Item(0)` représente le premier style stocké et `get_Item(2)` le troisième. Les index de référence de style d’une forme constituent un concept séparé, exposé via [IShapeStyle](https://reference.aspose.com/slides/fr/java/com.aspose.slides/ishapestyle/). Modifier un style de thème affecte les formes qui le référencent ; les formes avec un formatage direct peuvent rester inchangées.
 
-L’exemple suivant vérifie que les entrées de style requises existent, modifie le premier style de ligne, le troisième style de remplissage, active une ombre extérieure dans le troisième style d’effet et enregistre le résultat :
+L’exemple suivant vérifie la présence des entrées de style requises, modifie le premier style de ligne, modifie le troisième style de remplissage, active une ombre extérieure dans le troisième style d’effet et enregistre le résultat :
 
 ```java
 import com.aspose.slides.*;
@@ -373,13 +439,13 @@ try {
 }
 ```
 
-Pour les formes qui référencent ces emplacements, le premier style de ligne du thème devient rouge, le troisième style de remplissage devient vert forêt plein, et le troisième style d’effet gagne une ombre extérieure avec une distance de 10 points. Le rendu visuel exact dépend toujours des emplacements de style référencés par chaque forme et de la présence éventuelle d’un formatage direct qui surcharge le thème.
+Pour les formes qui référencent ces emplacements, le premier style de ligne du thème devient rouge, le troisième style de remplissage du thème devient vert forêt plein, et le troisième style d’effet gagne une ombre extérieure avec une distance de 10 points. Le rendu visuel exact dépend toujours des emplacements de style référencés par chaque forme et d’éventuels formats directs qui remplacent le thème.
 
-![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
+![Styles d’effet du thème après modification des paramètres de ligne, remplissage et ombre](presentation-design_11.png)
 
-## **Read Effective Theme Values**
+## **Lire les valeurs effectives du thème**
 
-Les objets de thème bruts indiquent ce qui est défini à un niveau donné. Les valeurs effectives indiquent ce qu’une diapositive ou une forme utilise réellement après résolution de l’héritage et des substitutions locales. Pour une diapositive, appelez [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseoverridethememanager/). Pour un arrière‑plan, utilisez [Background.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/), et pour un remplissage, utilisez [FillFormat.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/fillformat/).
+Les objets de thème bruts indiquent ce qui est défini à un niveau donné. Les valeurs effectives indiquent ce qu’une diapositive ou une forme utilise réellement après résolution des héritages et des remplacements locaux. Pour une diapositive, appelez [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseoverridethememanager/). Pour un arrière‑plan, utilisez [Background.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/), et pour un remplissage, utilisez [FillFormat.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/fillformat/).
 
 L’exemple suivant lit le thème effectif, l’arrière‑plan et le premier remplissage de forme d’une diapositive :
 
@@ -406,18 +472,22 @@ try {
 }
 ```
 
-Utilisez les données effectives pour le diagnostic de rendu, la validation et les comparaisons. Si vous inspectez uniquement [Presentation.getMasterTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/), vous risquez de manquer un master, une disposition, une diapositive ou une substitution de forme qui modifie l’apparence finale.
+Utilisez les données effectives pour le diagnostic de rendu, la validation et les comparaisons. Si vous inspectez uniquement [Presentation.getMasterTheme](https://reference.aspose.com/slides/fr/java/com.aspose.slides/presentation/), vous pouvez passer à côté d’un remplacement de master, de disposition, de diapositive ou de forme qui modifie l’apparence finale.
 
 ## **FAQ**
 
-**Can I apply a theme to a single slide without changing the master?**
+**L’application d’un thème externe affecte‑t‑elle chaque diapositive de la présentation ?**
 
-Yes. Use the slide's [SlideThemeManager](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidethememanager/) and initialize its override theme. The change remains local to that slide; other slides continue to inherit their existing themes.
+Non. [IMasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslide/) ne réaffecte que les diapositives qui dépendent du master sélectionné. Les diapositives utilisant d’autres masters conservent leurs thèmes existants.
 
-**What is the safest way to carry a theme from one presentation to another?**
+**Puis‑je appliquer un thème à une seule diapositive sans changer le master ?**
 
-When moving a slide and preserving its source appearance, clone the source master into the destination and clone the slide with that master using [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/) and [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/). This keeps the master, layouts, and theme together.
+Oui. Utilisez le [SlideThemeManager](https://reference.aspose.com/slides/fr/java/com.aspose.slides/slidethememanager/) de la diapositive et initialisez son thème de remplacement. La modification reste locale à cette diapositive ; les autres diapositives continuent d’hériter de leurs thèmes actuels.
 
-**How can I see the effective values after inheritance and overrides?**
+**Quelle est la manière la plus sûre de transférer un thème d’une présentation à une autre ?**
 
-Use [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseoverridethememanager/) for a slide or layout theme and the corresponding effective-data methods for format objects such as [Background.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/) and [FillFormat.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/fillformat/). These APIs return the resolved values after inheritance and overrides are applied.
+Lors du déplacement d’une diapositive tout en préservant son apparence source, clonez le master source dans la destination avec [IMasterSlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/imasterslidecollection/) puis clonez la diapositive avec ce master à l’aide de [ISlideCollection.addClone](https://reference.aspose.com/slides/fr/java/com.aspose.slides/islidecollection/). Cela maintient le master, les dispositions et le thème ensemble.
+
+**Comment puis‑je voir les valeurs effectives après héritage et remplacements ?**
+
+Utilisez [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/baseoverridethememanager/) pour un thème de diapositive ou de disposition et les méthodes de données effectives correspondantes pour les objets de format tels que [Background.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/background/) et [FillFormat.getEffective](https://reference.aspose.com/slides/fr/java/com.aspose.slides/fillformat/). Ces API renvoient les valeurs résolues après application des héritages et des remplacements.

@@ -6,38 +6,40 @@ weight: 10
 url: /pl/php-java/presentation-theme/
 keywords:
 - Motyw PowerPoint
-- motyw prezentacji
-- motyw slajdu
-- ustaw motyw
-- zmień motyw
-- zarządzaj motywem
-- kolor motywu
-- dodatkowa paleta
-- czcionka motywu
-- styl motywu
-- efekt motywu
+- Motyw prezentacji
+- Motyw slajdu
+- Ustaw motyw
+- Zmień motyw
+- Zarządzaj motywem
+- Zewnętrzny motyw
+- THMX
+- Kolor motywu
+- Dodatkowa paleta
+- Czcionka motywu
+- Styl motywu
+- Efekt motywu
 - PowerPoint
 - OpenDocument
 - prezentacja
 - PHP
 - Aspose.Slides
-description: "Zarządzaj motywami prezentacji w Aspose.Slides dla PHP za pośrednictwem Java, aby tworzyć, dostosowywać i konwertować pliki PowerPoint z zachowaniem spójnej identyfikacji wizualnej."
+description: "Główne motywy prezentacji w Aspose.Slides dla PHP przy użyciu Java, służące do tworzenia, dostosowywania i konwertowania plików PowerPoint z zachowaniem spójnej identyfikacji wizualnej."
 ---
 ## **Wprowadzenie**
 
-Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych współdzielonych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, więc zmiana motywu może jednocześnie zaktualizować wiele obiektów.
+Motyw prezentacji definiuje skoordynowany zestaw kolorów, czcionek, stylów tła, wypełnień, linii i efektów. Obiekty świadome motywu odwołują się do tych wspólnych definicji zamiast przechowywać każdą właściwość wizualną jako stałą wartość, dzięki czemu zmiana motywu może jednocześnie zaktualizować wiele obiektów.
 
-W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/). Prezentacja może także zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji poprzez [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterthememanager/), natomiast układ lub poszczególny slajd może nadpisać odziedziczony motyw poprzez [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseoverridethememanager/). W praktyce efektywny motyw dla slajdu jest rozwiązywany według tego łańcucha dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
+W Aspose.Slides motyw na poziomie prezentacji jest dostępny poprzez [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/). Prezentacja może również zawierać nadpisania motywu na niższych poziomach. Master może nadpisać motyw prezentacji poprzez [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterthememanager/), natomiast układ lub pojedynczy slajd może nadpisać odziedziczony motyw poprzez [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseoverridethememanager/). W praktyce efektywny motyw slajdu jest ustalany poprzez łańcuch dziedziczenia: motyw prezentacji, nadpisanie mastera, nadpisanie układu i nadpisanie slajdu.
 
-![Składniki motywu: kolory, czcionki, style tła i efekty](theme-constituents.png)
+![Theme components: colors, fonts, background styles, and effects](theme-constituents.png)
 
-Poniższe sekcje opisują najczęstsze scenariusze pracy z motywem: przeglądanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczyt efektywnych wartości po rozwiązaniu dziedziczenia i nadpisań.
+Poniższe sekcje przedstawiają najczęstsze scenariusze pracy z motywem: przeglądanie motywu, zmiana kolorów i czcionek, kopiowanie lub zastosowanie motywu, aktualizacja stylów tła i efektów oraz odczyt wartości efektywnych po rozwiązaniu dziedziczenia i nadpisań.
 
 ## **Przeglądanie motywu**
 
-Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/) udostępnia schemat kolorów, schemat czcionek i schemat formatów poprzez [MasterTheme.getColorScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/) i [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/). Przeglądanie tych kolekcji przed ich zmianą jest szczególnie przydatne, gdy prezentacja pochodzi z zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów może się różnić.
+Obiekt [MasterTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/) udostępnia schemat kolorów, schemat czcionek i schemat formatów motywu poprzez [MasterTheme.getColorScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/) oraz [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/mastertheme/). Przeglądanie tych kolekcji przed ich modyfikacją jest szczególnie przydatne, gdy prezentacja pochodzi z zewnętrznego źródła, ponieważ liczba i zawartość wpisów stylów może się różnić.
 
-Poniższy przykład odczytuje główne właściwości motywu i podaje, ile stylów tła, wypełnienia, linii i efektów jest przechowywanych w motywie:
+Poniższy przykład odczytuje główne właściwości motywu i podaje, ile stylów tła, wypełnień, linii i efektów jest przechowywanych w motywie:
 
 ```php
 use aspose\slides\Presentation;
@@ -62,9 +64,9 @@ Jeśli plik używa wielu masterów, nie zakładaj, że każdy slajd ma taki sam 
 
 ## **Zmiana kolorów motywu**
 
-Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/schemecolor/). Gdy zmienisz odpowiadający wpis w [ColorScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/colorscheme/), wszystkie obiekty, które nadal odwołują się do tego koloru motywu, zostaną rozwiązane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie zostaną zmienione przez aktualizację koloru motywu.
+Wypełnienia, linie i tekst świadome motywu mogą odwoływać się do logicznego koloru z wyliczenia [SchemeColor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/schemecolor/). Gdy zmienisz odpowiedni wpis w [ColorScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/colorscheme/), wszystkie obiekty, które nadal odwołują się do tego koloru motywu, są rozwiązywane względem nowej wartości. Obiekty używające bezpośredniego koloru RGB nie są zmieniane przez aktualizację koloru motywu.
 
-Poniższy przykład end‑to‑end tworzy kształt używający `Accent4`, zmienia kolor `Accent4` motywu na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje efektywny kolor wypełnienia:
+Poniższy kompleksowy przykład tworzy kształt używający `Accent4`, zmienia kolor `Accent4` motywu na czerwony, zapisuje prezentację, otwiera ją ponownie i wypisuje efektywny kolor wypełnienia:
 
 ```php
 use aspose\slides\FillType;
@@ -96,16 +98,16 @@ try {
 }
 ```
 
-Ponieważ prostokąt pozostaje powiązany z `Accent4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `Accent4` nie będą już wpływać na to wypełnienie.
+Ponieważ prostokąt pozostaje połączony z `Accent4`, jego widoczny kolor staje się czerwony po zmianie motywu. Jeśli zamienisz kolor schematu na bezpośredni kolor w kształcie, późniejsze zmiany `Accent4` nie będą już wpływać na to wypełnienie.
 
 ### **Używanie kolorów z dodatkowej palety**
 
-PowerPoint wyprowadza jaśniejsze i ciemniejsze warianty z koloru motywu, stosując transformacje koloru. Aspose.Slides udostępnia te transformacje poprzez wyliczenie [ColorTransformOperation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/colortransformoperation/).
+PowerPoint generuje jaśniejsze i ciemniejsze warianty koloru motywu poprzez zastosowanie transformacji koloru. Aspose.Slides udostępnia te transformacje poprzez wyliczenie [ColorTransformOperation](https://reference.aspose.com/slides/pl/php-java/aspose.slides/colortransformoperation/).
 
-![Główne kolory motywu oraz jaśniejsze i ciemniejsze kolory wygenerowane z dodatkowej palety](additional-palette-colors.png)
+![Main theme colors and lighter and darker colors generated from the additional palette](additional-palette-colors.png)
 
 **1** – Główne kolory motywu.  
-**2** – Jaśniejsze i ciemniejsze warianty wyprodukowane z głównych kolorów motywu.
+**2** – Jaśniejsze i ciemniejsze warianty wygenerowane z głównych kolorów motywu.
 
 Poniższy przykład tworzy sześć prostokątów opartych na `Accent4`, stosuje transformacje luminancji do pięciu z nich i zapisuje wynik:
 
@@ -159,22 +161,22 @@ try {
 }
 ```
 
-Te warianty pozostają oparte na kolorze motywu. Jeśli `Accent4` zmieni się później, przetransformowane kolory zostaną ponownie obliczone na podstawie nowej wartości `Accent4`.
+Warianty te pozostają oparte na kolorze motywu. Jeśli `Accent4` zostanie później zmieniony, przeliczone kolory zostaną ponownie obliczone na podstawie nowej wartości `Accent4`.
 
-### **Mapowanie wartości `SchemeColor` na sloty `ColorScheme`**
+### **Mapowanie wartości `SchemeColor` na pozycje `ColorScheme`**
 
-Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, podczas gdy [ColorScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/colorscheme/) udostępnia te same sloty motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
+Wyliczenie [SchemeColor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/schemecolor/) używa `Text1`, `Background1`, `Text2` i `Background2`, natomiast [ColorScheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/colorscheme/) udostępnia te same pozycje motywu jako `Dark1`, `Light1`, `Dark2` i `Light2`. Mapowanie jest stałe:
 
 * `Text1` = `Dark1`
 * `Background1` = `Light1`
 * `Text2` = `Dark2`
 * `Background2` = `Light2`
 
-Są to alternatywne nazwy tych samych slotów motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
+Są to alternatywne nazwy tych samych pozycji motywu; nie są to wartości dynamicznie konwertowane z jednej formy na drugą.
 
 ## **Zmiana czcionek motywu**
 
-Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków i zestaw pomocniczych czcionek dla tekstu podstawowego. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontscheme/) i [FontScheme.getMinor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontscheme/) udostępniają te zestawy.
+Schemat czcionek motywu zawiera zestaw głównych czcionek dla nagłówków oraz zestaw pomocniczych czcionek dla tekstu podstawowego. Metody [FontScheme.getMajor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontscheme/) i [FontScheme.getMinor](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fontscheme/) udostępniają te zestawy.
 
 Identyfikatory czcionek zgodne z PowerPoint można używać w formatowaniu tekstu:
 
@@ -183,7 +185,7 @@ Identyfikatory czcionek zgodne z PowerPoint można używać w formatowaniu tekst
 * `+mn-ea` – Czcionka podstawowa wschodnioazjatycka (Minor East Asian Font)
 * `+mj-ea` – Czcionka nagłówka wschodnioazjatycka (Major East Asian Font)
 
-Poniższy przykład tworzy jeden nagłówek używający głównej łacińskiej czcionki motywu oraz jedną linię tekstu podstawowego używającą pomocniczej łacińskiej czcionki motywu. Następnie zmienia czcionki motywu i zapisuje wynik:
+Poniższy przykład tworzy jeden nagłówek używający głównej łacińskiej czcionki motywu oraz jedną linię tekstu używającą pomocniczej łacińskiej czcionki motywu. Następnie zmienia czcionki motywu i zapisuje wynik:
 
 ```php
 use aspose\slides\FontData;
@@ -213,19 +215,92 @@ try {
 
 Nagłówek podąża za czcionką główną, a tekst podstawowy za czcionką pomocniczą. Tekst, który ma wyraźnie określoną nazwę czcionki zamiast identyfikatora motywu, nie zostanie automatycznie zmieniony po zmianie schematu czcionek motywu.
 
-Zbiory czcionek głównych i pomocniczych mogą także zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, zastępować lub usuwać te mapowania, zobacz [Script‑Specific Theme Fonts](/slides/pl/php-java/script-specific-font-mappings/).
+Zbiory czcionek głównych i pomocniczych mogą również zawierać mapowania czcionek dla poszczególnych systemów pisma, takich jak cyrylica, arabski, japoński, gruziński i thaana. Aby przeglądać, dodawać, zastępować lub usuwać te mapowania, zobacz [Script-Specific Theme Fonts](/slides/pl/php-java/script-specific-font-mappings/).
 
 {{% alert color="info" title="Tip" %}}
-Po więcej informacji o czcionkach w prezentacji, zobacz [PowerPoint Fonts](/slides/pl/php-java/powerpoint-fonts/).
+Więcej informacji o czcionkach w prezentacji znajdziesz w [PowerPoint Fonts](/slides/pl/php-java/powerpoint-fonts/).
 {{% /alert %}}
 
-## **Kopiowanie lub zastosowanie motywu**
+## **Kopiowanie lub zastosowanie motivu**
 
-Istnieją dwa popularne scenariusze, które rozwiązują różne problemy.
+Poniższe przepływy pracy rozwiązują różne problemy związane z motywem.
+
+### **Zastosowanie zewnętrznego motywu do slajdów zależnych od mastera**
+
+Użyj [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/) gdy posiadasz plik motywu PowerPoint (`.thmx`) i chcesz przystrojenić każdy slajd zależny od konkretnego mastera. Wybierz master z kolekcji [Presentation::getMasters](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), reprezentowanej przez [MasterSlideCollection](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslidecollection/), i przekaż ścieżkę do pliku motywu metodzie.
+
+Metoda wykonuje następujące operacje:
+
+1. Tworzy nowy slajd master na podstawie wybranego mastera.  
+1. Zastosowuje zewnętrzny motyw do nowego mastera.  
+1. Przypisuje nowy master wszystkim slajdom, które wcześniej zależały od wybranego mastera.  
+1. Zwraca nowo utworzony [MasterSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/).
+
+Poniższy przykład stosuje zewnętrzny motyw do slajdów zależnych od pierwszego mastera i zapisuje prezentację:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("presentation.pptx");
+try {
+    $selectedMaster = $presentation->getMasters()->get_Item(0);
+    $themedMaster = $selectedMaster->applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    echo "Created master: " . java_values($themedMaster->getName()) . PHP_EOL;
+    $presentation->save("presentation-with-external-theme.pptx", SaveFormat::Pptx);
+} finally {
+    $presentation->dispose();
+}
+```
+
+Nieprawidłowy, uszkodzony lub nieobsługiwany motyw może spowodować [PptxReadException](https://reference.aspose.com/slides/pl/php-java/aspose.slides/pptxreadexception/). Waliduj ścieżki podawane przez użytkowników, obsługuj błędy dostępu do systemu plików i zapisuj prezentację dopiero po pomyślnym zastosowaniu motywu.
+
+Tylko slajdy zależne od wybranego mastera są ponownie przypisane. Slajdy powiązane z innymi masterami zachowują swoje istniejące mastery i motywy. Kolory, czcionki, wypełnienia, linie, tła i efekty świadome motywu są rozwiązywane względem zewnętrznego motywu. Bezpośrednio przypisane kolory, czcionki, wypełnienia i inne wyraźne formatowanie mogą pozostać niezmienione. Nadpisania na poziomie układu i slajdu mogą również mieć pierwszeństwo przed wartościami odziedziczonymi z nowego mastera.
+
+Motyw może odwoływać się do czcionek, które nie są dostępne w środowisku uruchomieniowym. W celu zapewnienia spójnego renderowania i eksportu zainstaluj wymagane czcionki, udostępnij je poprzez [custom font sources](/slides/pl/php-java/custom-font/), lub skonfiguruj [font substitution](/slides/pl/php-java/font-substitution/).
+
+Jest to bezpośredni przepływ pracy na poziomie mastera: metoda przyjmuje ścieżkę do pliku `.thmx` i nie wymaga ręcznego tworzenia nadpisań tematycznych na poziomie slajdu lub układu.
+
+### **Zastosowanie różnych zewnętrznych motywów w prezentacji z wieloma masterami**
+
+Gdy odpowiedni master nie jest znany z góry, pobierz go z reprezentatywnego slajdu przy użyciu [Slide::getLayoutSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slide/) i [LayoutSlide::getMasterSlide](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslide/). Przechowaj oryginalne referencje masterów przed zastosowaniem jakichkolwiek motywów, ponieważ każde wywołanie tworzy kolejny master w prezentacji.
+
+Poniższy przykład używa slajdów z dwóch sekcji, aby zlokalizować ich mastery i stosuje inny zewnętrzny motyw do każdej grupy:
+
+```php
+use aspose\slides\Presentation;
+use aspose\slides\SaveFormat;
+
+$presentation = new Presentation("multi-master-presentation.pptx");
+try {
+    if (java_values($presentation->getSlides()->size()) < 5) {
+        echo "The presentation does not contain the expected representative slides." . PHP_EOL;
+    } else {
+        $firstGroupMaster = $presentation->getSlides()->get_Item(0)->getLayoutSlide()->getMasterSlide();
+        $secondGroupMaster = $presentation->getSlides()->get_Item(4)->getLayoutSlide()->getMasterSlide();
+
+        if (java_values($firstGroupMaster->getSlideId()) === java_values($secondGroupMaster->getSlideId())) {
+            echo "The representative slides use the same master." . PHP_EOL;
+        } else {
+            $firstThemedMaster = $firstGroupMaster->applyExternalThemeToDependingSlides("blue-theme.thmx");
+            $secondThemedMaster = $secondGroupMaster->applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            echo "First themed master: " . java_values($firstThemedMaster->getName()) . PHP_EOL;
+            echo "Second themed master: " . java_values($secondThemedMaster->getName()) . PHP_EOL;
+            $presentation->save("multi-master-with-external-themes.pptx", SaveFormat::Pptx);
+        }
+    }
+} finally {
+    $presentation->dispose();
+}
+```
+
+Pierwsze wywołanie wpływa tylko na slajdy zależne od `$firstGroupMaster`, a drugie wywołanie wpływa wyłącznie na slajdy zależne od `$secondGroupMaster`. Slajdy należące do jakiegokolwiek innego mastera nie są przystrojone.
 
 ### **Zachowanie źródłowego motywu przy przenoszeniu slajdów**
 
-Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego oryginalny wygląd, sklonuj źródłowy master do docelowej prezentacji przy pomocy [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslidecollection/), a następnie sklonuj slajd przy pomocy [SlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidecollection/) i sklonowanego mastera. Dzięki temu master, jego układy oraz powiązany motyw zostaną przeniesione razem.
+Jeśli chcesz przenieść slajd do innej prezentacji i zachować jego oryginalny projekt, sklonuj źródłowego mastera do prezentacji docelowej przy użyciu [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslidecollection/), a następnie sklonuj slajd wraz ze sklonowanym masterem przy użyciu [SlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidecollection/). To przenosi master, jego układy oraz powiązany motyw razem.
 
 ```php
 use aspose\slides\Presentation;
@@ -248,11 +323,11 @@ try {
 }
 ```
 
-Jest to preferowany sposób, gdy źródłowy slajd musi wyglądać identycznie w miejscu docelowym. Proste klonowanie treści na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
+Jest to preferowany przepływ, gdy źródłowy slajd ma wyglądać identycznie w miejscu docelowym. Proste klonowanie zawartości na niepowiązany master docelowy może zmienić kolory, czcionki, tła i efekty sterowane przez motyw.
 
 ### **Zastosowanie wartości motywu do istniejącego slajdu**
 
-Jeśli docelowy slajd ma pozostać na swoim bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu z motywu źródłowego. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/) i [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/) kopiują trzy główne komponenty motywu do nadpisania.
+Jeśli docelowy slajd ma pozostać na swoim bieżącym masterze i układzie, zainicjuj nadpisanie na poziomie slajdu na podstawie źródłowego motywu. Metody [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/) i [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/) kopiują trzy główne komponenty motywu do nadpisania.
 
 ```php
 use aspose\slides\Presentation;
@@ -276,11 +351,11 @@ try {
 }
 ```
 
-Spowoduje to zmianę motywu używanego przez ten slajd bez zmiany motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości dziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/).
+To zmienia motyw używany przez ten slajd, nie zmieniając motywu dziedziczonego przez inne slajdy. Aby usunąć lokalne nadpisanie i powrócić do wartości odziedziczonych, wywołaj [OverrideTheme.clear](https://reference.aspose.com/slides/pl/php-java/aspose.slides/overridetheme/).
 
 ### **Zastosowanie nadpisania motywu do układu**
 
-Nadpisanie na poziomie układu ma zastosowanie do slajdów używających tego układu, chyba że konkretny slajd ma własne nadpisanie. Te same metody inicjalizacji można użyć przez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslidethememanager/):
+Nadpisanie na poziomie układu ma zastosowanie do slajdów używających tego układu, chyba że konkretny slajd posiada własne nadpisanie. Te same metody inicjalizacyjne można używać poprzez [LayoutSlideThemeManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/layoutslidethememanager/):
 
 ```php
 use aspose\slides\Presentation;
@@ -304,15 +379,15 @@ try {
 }
 ```
 
-Używaj motywu na poziomie mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić tę samą bazową koncepcję, nadpisania układu, gdy rodzina układów wymaga odmiennego stylu, oraz nadpisania slajdu tylko w prawdziwych wyjątkach. Nadmierna liczba nadpisań na poziomie slajdu utrudnia późniejsze prognozowanie zmian globalnych motywów.
+Używaj motywu na poziomie mastera lub prezentacji, gdy wiele układów i slajdów ma współdzielić tę samą bazową konstrukcję, nadpisania układu, gdy rodzina układów wymaga odmiennego stylu, oraz nadpisania slajdu tylko w prawdziwych wyjątkach. Nadmierne nadpisania na poziomie slajdu utrudniają przewidywanie efektów późniejszych globalnych zmian motywu.
 
 ## **Aktualizacja stylów tła motywu**
 
 Wypełnienia tła motywu są przechowywane w [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/). PowerPoint może prezentować w interfejsie więcej opcji tła niż liczba definicji wypełnień fizycznie zapisanych w tej kolekcji, ponieważ UI może łączyć wypełnienia motywu z kolorami motywu i innymi odwołaniami stylów.
 
-![Galeria stylów tła PowerPoint dla motywu prezentacji](presentation-design_8.png)
+![PowerPoint background style gallery for a presentation theme](presentation-design_8.png)
 
-Przed użyciem stylu tła przejrzyj przechowywaną kolekcję i aktualny [Background.getStyleIndex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/). Indeks stylu równy `0` oznacza brak wypełnienia tematycznego; wartości dodatnie są odwołaniami do stylów tła motywu. To różni się od indeksowania kolekcji PHP, gdzie `get_Item(0)` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
+Przed użyciem stylu tła przejrzyj przechowywaną kolekcję i bieżącą wartość [Background.getStyleIndex](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/). Indeks stylu `0` oznacza brak tematycznego wypełnienia; wartości dodatnie są odwołaniami do stylu tła motywu. To różni się od indeksowania samej kolekcji w PHP, gdzie `get_Item(0)` oznacza pierwszy zapisany element. Nie zakładaj, że każda prezentacja zawiera taką samą liczbę stylów wypełnień tła.
 
 Poniższy przykład podaje liczbę dostępnych wypełnień tła, przypisuje odwołanie do tematycznego tła pierwszemu masterowi i zapisuje prezentację:
 
@@ -338,10 +413,10 @@ try {
 }
 ```
 
-Widoczny wynik zależy od wpisu motywu odwoływanego przez master oraz od ewentualnych nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana samego tła mastera może nie wpłynąć na ten slajd. Użyj [Background.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
+Widoczny rezultat zależy od wpisu motywu odwoływanego przez master oraz od ewentualnych nadpisań tła na poziomie układu lub slajdu. Jeśli slajd używa własnego tła, zmiana samego tła mastera może nie wpłynąć na ten slajd. Użyj [Background.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/) gdy potrzebujesz znać ostateczne tło po zastosowaniu dziedziczenia.
 
 {{% alert color="warning" title="Warning" %}}
-Nie traktuj indeksu stylu jako indeksu zero‑bazowego w kolekcji. Unikaj także twardego kodowania numeru stylu pochodzącego z jednego pliku i zakładania, że będzie wyglądał tak samo w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
+Nie traktuj indeksu stylu jako zerowego indeksu kolekcji. Unikaj także twardego kodowania numeru stylu z jednego pliku i zakładania, że będzie miał taki sam wygląd w innym pliku; definicje stylów motywu są specyficzne dla prezentacji.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
@@ -350,11 +425,11 @@ Informacje o bezpośrednim formatowaniu tła i dziedziczeniu tła znajdziesz w [
 
 ## **Aktualizacja efektów motywu**
 
-Schemat formatu motywu zawiera oddzielne kolekcje stylów wypełnień, linii i efektów udostępniane przez [FormatScheme.getFillStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/) i [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnemu, umiarkowanemu i intensywnemu formatowaniu, ale kod powinien przeglądać każdą kolekcję zamiast zakładać stałą liczbę elementów.
+Schemat formatu motywu zawiera oddzielne kolekcje stylów wypełnień, linii i efektów, udostępniane poprzez [FormatScheme.getFillStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/) oraz [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/pl/php-java/aspose.slides/formatscheme/). Typowe motywy Office często zawierają trzy główne wpisy stylów, które wizualnie odpowiadają subtelnym, umiarkowanym i intensywnym formatowaniom, ale kod powinien sprawdzać każdą kolekcję zamiast zakładać stałą liczbę elementów.
 
-![Subtelne, umiarkowane i intensywne efekty motywu zastosowane do tego samego kształtu](presentation-design_10.png)
+![Subtle, moderate, and intense theme effects applied to the same shape](presentation-design_10.png)
 
-Podczas dostępu do tych kolekcji w PHP indeks kolekcji jest zero‑bazowy: `get_Item(0)` to pierwszy zapisany styl, a `get_Item(2)` to trzeci. Indeksy odwołań stylu w kształcie to odrębna koncepcja, udostępniona przez [ShapeStyle](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapestyle/). Modyfikacja stylu motywu wpływa na kształty odwołujące się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
+Kiedy uzyskujesz dostęp do tych kolekcji w PHP, indeks kolekcji jest zerowy: `get_Item(0)` jest pierwszym zapisanym stylem, a `get_Item(2)` trzecim. Indeksy referencji stylu kształtu to odrębna koncepcja, udostępniona przez [ShapeStyle](https://reference.aspose.com/slides/pl/php-java/aspose.slides/shapestyle/). Modyfikacja stylu motywu wpływa na kształty, które odwołują się do tego stylu; kształty z bezpośrednim formatowaniem mogą pozostać niezmienione.
 
 Poniższy przykład sprawdza, czy wymagane wpisy stylów istnieją, zmienia pierwszy styl linii, zmienia trzeci styl wypełnienia, włącza zewnętrzny cień w trzecim stylu efektu i zapisuje wynik:
 
@@ -383,13 +458,13 @@ try {
 }
 ```
 
-Dla kształtów odwołujących się do tych slotów, pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień z odległością 10 punktów. Dokładny rezultat wizualny nadal zależy od tego, które sloty stylu dana figura odwołuje i czy bezpośrednie formatowanie nadpisuje motyw.
+Dla kształtów odwołujących się do tych slotów pierwszy styl linii motywu staje się czerwony, trzeci styl wypełnienia motywu staje się jednolitym zielonym lasem, a trzeci styl efektu zyskuje zewnętrzny cień o odległości 10 punktów. Dokładny efekt wizualny nadal zależy od tego, które sloty stylu są odwoływane przez poszczególne kształty i czy bezpośrednie formatowanie nie nadpisuje motywu.
 
-![Style efektów motywu po zmianie linii, wypełnienia i ustawień cienia](presentation-design_11.png)
+![Theme effect styles after changing line, fill, and shadow settings](presentation-design_11.png)
 
-## **Odczytywanie efektywnych wartości motywu**
+## **Odczyt efektywnych wartości motywu**
 
-Surowe obiekty motywu informują, co jest zdefiniowane na danym poziomie. Efektywne wartości mówią, czego faktycznie używa slajd lub kształt po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseoverridethememanager/). Dla tła użyj [Background.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/), a dla wypełnienia [FillFormat.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fillformat/).
+Surowe obiekty motywu pokazują, co jest zdefiniowane na danym poziomie. Efektywne wartości mówią, czego rzeczywiście używa slajd lub kształt po rozwiązaniu dziedziczenia i lokalnych nadpisań. Dla slajdu wywołaj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseoverridethememanager/). Dla tła użyj [Background.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/), a dla wypełnienia [FillFormat.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fillformat/).
 
 Poniższy przykład odczytuje efektywny motyw, tło i pierwsze wypełnienie kształtu ze slajdu:
 
@@ -418,18 +493,22 @@ try {
 }
 ```
 
-Używaj danych efektywnych do diagnostyki renderowania, walidacji i porównań. Jeśli przeglądasz jedynie [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), możesz pominąć master, układ, slajd lub nadpisanie kształtu, które zmieniają ostateczny wygląd.
+Używaj danych efektywnych do diagnostyki renderowania, walidacji i porównań. Jeśli przeglądasz tylko [Presentation.getMasterTheme](https://reference.aspose.com/slides/pl/php-java/aspose.slides/presentation/), możesz przeoczyć nadpisania mastera, układu, slajdu lub kształtu, które zmieniają ostateczny wygląd.
 
 ## **FAQ**
 
-**Czy mogę zastosować motyw do jednego slajdu bez zmiany mastera?**
+**Czy zastosowanie zewnętrznego motywu wpływa na każdy slajd w prezentacji?**
 
-Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal dziedziczą istniejące motywy.
+Nie. [MasterSlide::applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslide/) przypisuje tylko slajdy zależne od wybranego mastera. Slajdy używające innych masterów zachowują swoje istniejące motywy.
+
+**Czy mogę zastosować motyw do pojedynczego slajdu bez zmiany mastera?**
+
+Tak. Użyj [SlideThemeManager](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidethememanager/) slajdu i zainicjuj jego nadpisanie motywu. Zmiana pozostaje lokalna dla tego slajdu; inne slajdy nadal będą dziedziczyć swoje istniejące motywy.
 
 **Jaki jest najbezpieczniejszy sposób przeniesienia motywu z jednej prezentacji do drugiej?**
 
-Podczas przenoszenia slajdu i zachowania jego pierwotnego wyglądu, sklonuj źródłowy master do docelowej prezentacji i sklonuj slajd z tym masterem przy pomocy [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslidecollection/) oraz [SlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidecollection/). Dzięki temu master, układy i motyw pozostaną razem.
+Przy przenoszeniu slajdu i zachowaniu jego pierwotnego wyglądu, sklonuj źródłowego mastera do docelowej prezentacji i sklonuj slajd z tym masterem, używając [MasterSlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/masterslidecollection/) oraz [SlideCollection.addClone](https://reference.aspose.com/slides/pl/php-java/aspose.slides/slidecollection/). To utrzymuje master, układy i motyw razem.
 
 **Jak mogę zobaczyć efektywne wartości po dziedziczeniu i nadpisaniach?**
 
-Użyj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseoverridethememanager/) dla motywu slajdu lub układu oraz odpowiednich metod efektywnych danych dla obiektów formatu, takich jak [Background.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/) i [FillFormat.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fillformat/). Te API zwracają rozwiązane wartości po zastosowaniu dziedziczenia i nadpisań.
+Użyj [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/baseoverridethememanager/) dla slajdu lub układu oraz odpowiednich metod zwracających dane efektywne dla obiektów formatowania, takich jak [Background.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/background/) i [FillFormat.getEffective](https://reference.aspose.com/slides/pl/php-java/aspose.slides/fillformat/). Te API zwracają rozwiązywane wartości po zastosowaniu dziedziczenia i nadpisań.

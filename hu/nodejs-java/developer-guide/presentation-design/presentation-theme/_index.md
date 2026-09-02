@@ -1,42 +1,46 @@
 ---
-title: Prezentációs témák kezelése JavaScriptben
-linktitle: Prezentációs téma
+title: "Prezentációs témák kezelése JavaScriptben"
+linktitle: "Prezentációs téma"
 type: docs
 weight: 10
 url: /hu/nodejs-java/presentation-theme/
 keywords:
-- PowerPoint téma
-- prezentációs téma
-- dia téma
-- téma beállítása
-- téma módosítása
-- téma kezelése
-- téma szín
-- kiegészítő paletta
-- téma betűtípus
-- téma stílus
-- téma effektus
+- "PowerPoint téma"
+- "prezentációs téma"
+- "dia téma"
+- "téma beállítása"
+- "téma módosítása"
+- "téma kezelése"
+- "külső téma"
+- THMX
+- "téma szín"
+- "kiegészítő paletta"
+- "téma betűtípus"
+- "téma stílus"
+- "téma effekt"
 - PowerPoint
 - OpenDocument
-- prezentáció
+- "prezentáció"
 - Node.js
 - JavaScript
 - Aspose.Slides
-description: "Az Aspose.Slides for Node.js segítségével JavaScriptben fő prezentációs témák kezelése, amelyekkel PowerPoint fájlokat hozhat létre, testreszabhat és konvertálhat egységes márkázással."
+description: "Mester prezentációs témák JavaScriptben az Aspose.Slides for Node.js segítségével PowerPoint fájlok létrehozásához, testreszabásához és konvertálásához egységes márkázással."
 ---
 ## **Bevezetés**
 
-A prezentációs téma meghatároz egy összehangolt szín-, betűtípus-, háttérstílus-, kitöltés-, vonal- és effektkészletet. A témára érzékeny objektumok ezekre a megosztott definíciókra hivatkoznak, ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma módosítása egyszerre sok objektumot frissíthet.
+Egy prezentációs téma meghatároz egy összehangolt színek, betűtípusok, háttérstílusok, kitöltések, vonalak és effektek halmazát. A témaérzékeny objektumok ezekre a megosztott definíciókra hivatkoznak ahelyett, hogy minden vizuális tulajdonságot rögzített értékként tárolnának, így egy téma változtatása egyszerre frissítheti a sok objektumot.
 
-In Aspose.Slides, the presentation-level theme is available through [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getmastertheme/). A presentation can also contain theme overrides at lower levels. A master can override the presentation theme through [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterthememanager/), while a layout or an individual slide can override its inherited theme through [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseoverridethememanager/). In practice, the effective theme for a slide is resolved through this inheritance chain: presentation theme, master override, layout override, and slide override.
+Az Aspose.Slides-ben a prezentáció szintű téma a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getmastertheme/) segítségével érhető el. A prezentáció alacsonyabb szinteken is tartalmazhat téma‑felülírásokat. Egy mester felülírhatja a prezentáció témát a [MasterThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterthememanager/) segítségével, míg egy elrendezés vagy egy egyedi dia felülírhatja az örökölt témát a [BaseOverrideThemeManager.getOverrideTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseoverridethememanager/) segítségével. Gyakorlatban egy dia hatékony témája ezen öröklődési lánc szerint kerül feloldásra: prezentációs téma, mester‑felülírás, elrendezés‑felülírás és dia‑felülírás.
 
-![A téma összetevői: színek, betűtípusok, háttérstílusok és effektek](theme-constituents.png)
+![Témaelemek: színek, betűtípusok, háttérstílusok és effektek](theme-constituents.png)
 
-Az alábbi szakaszok a leggyakoribb téma munkafolyamatokat mutatják be: téma ellenőrzése, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér- és effektstílusok frissítése, valamint a öröklődés és felülbírálás után feloldott tényleges értékek olvasása.
+Az alábbi szakaszok bemutatják a leggyakoribb téma‑munkafolyamatokat: téma vizsgálata, színek és betűtípusok módosítása, téma másolása vagy alkalmazása, háttér‑ és effektstílusok frissítése, valamint a hatékony értékek kiolvasása az öröklődés és felülírások feloldása után.
 
 ## **Téma vizsgálata**
 
-A [MasterTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus-sémáját és formátumsémáját teszi elérhetővé a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/), [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/) és [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/) segítségével. Ezeknek a gyűjteményeknek a vizsgálata a módosítás előtt különösen hasznos, ha a prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
+A [MasterTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/) objektum a téma színsémáját, betűtípus‑sémáját és formátum‑sémáját teszi elérhetővé a [MasterTheme.getColorScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/), a [MasterTheme.getFontScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/) és a [MasterTheme.getFormatScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/mastertheme/) módszereken keresztül. Ezeknek a gyűjteményeknek a vizsgálata különösen hasznos, ha egy prezentáció külső forrásból származik, mivel a stílusbejegyzések száma és tartalma változhat.
+
+Az alábbi példa beolvassa a fő téma‑tulajdonságokat, és jelentést készít arról, hogy hány háttér-, kitöltés‑, vonal‑ és effektstílus van tárolva a témában:
 
 ```javascript
 const aspose = {};
@@ -58,11 +62,13 @@ try {
 }
 ```
 
-Ha egy fájl több masterrel dolgozik, ne tételezzük fel, hogy minden dia ugyanazzal a tényleges téma­val rendelkezik. Vizsgálja meg a diával kapcsolatos mastert, és használja a később ebben a cikkben bemutatott tényleges‑téma munkafolyamatot, ha elrendezés‑ vagy dia‑felülbírálás jelen lehet.
+Ha egy fájl több mestert használ, ne feltételezze, hogy minden dia ugyanazzal a hatékony témával rendelkezik. Vizsgálja meg a diával kapcsolatos mestert, és használja a későbbiekben bemutatott hatékony‑téma munkafolyamatot, amikor elrendezés‑ vagy dia‑felülírások jelenhetnek meg.
 
 ## **Téma színeinek módosítása**
 
-A témára érzékeny kitöltések, vonalak és szöveg hivatkozhat logikai színre a [SchemeColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/schemecolor/) felsorolásból. Amikor módosítja a megfelelő bejegyzést a [ColorScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/colorscheme/)‑ben, az összes, továbbra is a téma színére hivatkozó objektum az új értékhez lesz leképezve. Az RGB közvetlen színt használó objektumok nem változnak a téma‑szín frissítésekor.
+A témaérzékeny kitöltések, vonalak és szövegek a [SchemeColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/schemecolor/) felsorolás logikai színére hivatkozhatnak. Amikor módosítja a megfelelő bejegyzést a [ColorScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/colorscheme/) gyűjteményben, minden még mindig a téma‑színre hivatkozó objektum az új értékkel lesz feloldva. A közvetlen RGB‑színt használó objektumok nem változnak meg a téma‑szín frissítésekor.
+
+Az alábbi vég‑végi példa egy `Accent4` színt használó alakzatot hoz létre, megváltoztatja a téma `Accent4` színét pirosra, elmenti a prezentációt, újra megnyitja, és kiírja a hatékony kitöltőszínt:
 
 ```javascript
 const aspose = {};
@@ -92,17 +98,18 @@ try {
 }
 ```
 
-Mivel a téglalap továbbra is a `Accent4`‑hez van kapcsolva, látható színe pirosra változik a téma módosítása után. Ha a séma színt közvetlen színre cseréli az alakzaton, a későbbi `Accent4` változások már nem befolyásolják azt a kitöltést.
+Mivel a téglalap továbbra is a `Accent4`-hez van kapcsolva, látható színe piros lesz a téma módosítása után. Ha a sémaszínt közvetlen színre cseréli az alakzaton, a későbbi `Accent4` változások már nem befolyásolják azt a kitöltést.
 
-### **A kiegészítő palettáról színek használata**
+### **A kiegészítő palettáról származó színek használata**
 
-A PowerPoint könnyebb és sötétebb változatokat származtat a téma színéből színátmenetek alkalmazásával. Az Aspose.Slides ezeket az átalakításokat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/colortransformoperation/) felsorolás segítségével teszi elérhetővé.
+A PowerPoint egy téma‑színből világosabb és sötétebb variánsokat hoz létre színtranszformációk alkalmazásával. Az Aspose.Slides ezeket a transzformációkat a [ColorTransformOperation](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/colortransformoperation/) felsoroláson keresztül teszi elérhetővé.
 
-![A fő téma színek és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
+![Fő téma színek és a kiegészítő palettából generált világosabb és sötétebb színek](additional-palette-colors.png)
 
-**1** - A fő téma színek.
+**1** – Fő téma színek.  
+**2** – A fő téma színekből előállított világosabb és sötétebb variánsok.
 
-**2** - A fő téma színeiből előállított világosabb és sötétebb változatok.
+Az alábbi példa hat téglalapot hoz létre `Accent4` alapján, ötödiket luminancia‑transzformációval módosítja, majd elmenti az eredményt:
 
 ```javascript
 const aspose = {};
@@ -151,29 +158,31 @@ try {
 }
 ```
 
-Ezek a változatok a téma színén alapulnak. Ha a `Accent4` később megváltozik, a transzformált színek újra lesznek számítva az új `Accent4` értékből.
+Ezek a variánsok továbbra is a téma‑színen alapulnak. Ha a `Accent4` később változik, a transzformált színek újra lesznek számítva az új `Accent4` értékből.
 
-### **`SchemeColor` értékek leképezése `ColorScheme` helyekre**
+### **A `SchemeColor` értékek leképezése a `ColorScheme` helyekre**
 
-A [SchemeColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/colorscheme/) ugyanazokat a témahelyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi elérhetővé. A leképezés rögzített:
+A [SchemeColor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/schemecolor/) felsorolás a `Text1`, `Background1`, `Text2` és `Background2` értékeket használja, míg a [ColorScheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/colorscheme/) ugyanazokat a téma‑helyeket `Dark1`, `Light1`, `Dark2` és `Light2` néven teszi közzé. A leképezés rögzített:
 
-* `Text1` = `Dark1`
-* `Background1` = `Light1`
-* `Text2` = `Dark2`
+* `Text1` = `Dark1`  
+* `Background1` = `Light1`  
+* `Text2` = `Dark2`  
 * `Background2` = `Light2`
 
-Ezek ugyanazon témahelyek alternatív nevei; nem dinamikusan átalakított értékek.
+Ezek ugyanazon téma‑helyek alternatív nevei; nem dinamikusan konvertált értékek egymásból.
 
 ## **Téma betűtípusainak módosítása**
 
 A téma betűtípus‑sémája egy fő betűkészletet tartalmaz a címsorokhoz és egy mellék betűkészletet a törzsszöveghez. A [FontScheme.getMajor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontscheme/) és a [FontScheme.getMinor](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fontscheme/) metódusok teszik elérhetővé ezeket a készleteket.
 
-PowerPoint‑kompatibilis téma‑betűtípus azonosítók használhatók a szöveg formázásában:
+PowerPoint‑kompatibilis téma‑betűtípus azonosítók használhatók a szövegformázásban:
 
-* `+mn-lt` – Test betű Latin (Minor Latin Font)
-* `+mj-lt` – Címsor betű Latin (Major Latin Font)
-* `+mn-ea` – Test betű Kelet‑ázsiai (Minor East Asian Font)
-* `+mj-ea` – Címsor betű Kelet‑ázsiai (Major East Asian Font)
+* `+mn-lt` – Body Font Latin (Minor Latin Font)  
+* `+mj-lt` – Heading Font Latin (Major Latin Font)  
+* `+mn-ea` – Body Font East Asian (Minor East Asian Font)  
+* `+mj-ea` – Heading Font East Asian (Major East Asian Font)
+
+Az alábbi példa egy címsort hoz létre, amely a fő Latin téma‑betűtípust használ, és egy törzssort, amely a mellék Latin téma‑betűtípust használ. Ezután megváltoztatja a téma betűtípusait és elmenti az eredményt:
 
 ```javascript
 const aspose = {};
@@ -199,21 +208,94 @@ try {
 }
 ```
 
-A címsor a fő betűtípust, a törzsszöveg pedig a mellék betűtípust használja. Az expliciten megadott betűtípussal rendelkező szöveg nem vált automatikusan, ha a téma betűtípus‑sémája megváltozik.
+A címsor a fő betűtípust, a törzsszöveg a mellék betűtípust követi. Az explicit betűtípust megnevező szöveg nem vált automatikusan át, ha a téma betűtípus‑sémája változik.
 
-A fő‑ és mellék‑betűtípus‑gyűjtemények tartalmazhatnak betűtérképeket egyes írásrendszerekhez, például cirill, arab, japán, grúz és thaana. Ezeknek a leképezéseknek a vizsgálatához, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/nodejs-java/script-specific-font-mappings/) oldalt.
+A fő és mellék betűkészletek tartalmazhatnak betűtérképeket egyedi írásrendszerekhez, például cirill, arab, japán, grúz és thaana. Ezek vizsgálatához, hozzáadásához, cseréjéhez vagy eltávolításához lásd a [Script‑Specific Theme Fonts](/slides/hu/nodejs-java/script-specific-font-mappings/) oldalt.
 
 {{% alert color="info" title="Tip" %}}
-További információ a prezentáció betűtípusaival kapcsolatban megtalálható a [PowerPoint Fonts](/slides/hu/nodejs-java/powerpoint-fonts/) oldalon.
+További információk a prezentáció betűtípusaival kapcsolatban a [PowerPoint Fonts](/slides/hu/nodejs-java/powerpoint-fonts/) oldalon találhatók.
 {{% /alert %}}
 
 ## **Téma másolása vagy alkalmazása**
 
-Két gyakori munkafolyamat van, és különböző problémákat oldanak meg.
+Az alábbi munkafolyamatok különböző téma‑problémákat oldanak meg.
 
-### **Forrás téma megőrzése diák mozgatásakor**
+### **Külső téma alkalmazása egy mesterhez kapcsolódó diákra**
 
-Ha egy diát egy másik prezentációba szeretne áthelyezni és megőrizni eredeti megjelenését, klónozza a forrás master‑t a cél‑prezentációba a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslidecollection/)‑vel, majd klónozza a diát a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidecollection/)‑val és a klónozott masterrel. Így a master, az elrendezései és a kapcsolódó téma együtt kerülnek át.
+Használja a [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) metódust, ha van egy PowerPoint téma fájlja (`.thmx`), és minden, egy adott mesterhez kapcsolódó diát újra szeretne formázni. Válassza ki a mestert a [Presentation.getMasters](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/) gyűjteményből, amelyet a [MasterSlideCollection](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslidecollection/) képvisel, majd adja át a témafájl útvonalát a metódusnak.
+
+A metódus a következő műveleteket hajtja végre:
+
+1. Létrehoz egy új mesterdiát a kiválasztott mester alapján.  
+1. Alkalmazza a külső témát az új mesterre.  
+1. A kiválasztott mesterre korábban támaszkodó összes diára átadja az új mestert.  
+1. Visszaadja a frissen létrehozott [MasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/)-t.
+
+Az alábbi példa egy külső témát alkalmaz az első mesterhez tartozó diákra, és elmenti a prezentációt:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("presentation.pptx");
+try {
+    const selectedMaster = presentation.getMasters().get_Item(0);
+    const themedMaster = selectedMaster.applyExternalThemeToDependingSlides("corporate-theme.thmx");
+
+    console.log("Created master: " + themedMaster.getName());
+    presentation.save("presentation-with-external-theme.pptx", aspose.slides.SaveFormat.Pptx);
+} finally {
+    presentation.dispose();
+}
+```
+
+Érvénytelen, sérült vagy nem támogatott téma [PptxReadException](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/pptxreadexception/)-t okozhat. Ellenőrizze a felhasználók által megadott útvonalakat, kezelje a fájlrendszer‑hozzáférési hibákat, és csak a téma sikeres alkalmazása után mentse a prezentációt.
+
+Csak a kiválasztott mesterre támaszkodó diákok kerülnek átrendelésre. Más mesterekhez tartozó diák megtartják meglévő mestereiket és témáikat. A témaérzékeny színek, betűtípusok, kitöltések, vonalak, háttérstílusok és effektek a külső téma alapján kerülnek feloldásra. A közvetlenül hozzárendelt színek, betűtípusok, kitöltések és egyéb explicit formázások változatlanul maradhatnak. Az elrendezés‑szintű és dia‑szintű felülírások szintén felülírhatják az új mesterből örökölt értékeket.
+
+A téma olyan betűtípusokra is hivatkozhat, amelyek nincsenek a futási környezetben. A konzisztens megjelenítés és export érdekében telepítse a szükséges betűtípusokat, biztosítsa őket a [custom font sources](/slides/hu/nodejs-java/custom-font/) segítségével, vagy konfigurálja a [font substitution](/slides/hu/nodejs-java/font-substitution/) beállítást.
+
+Ez egy közvetlen mester‑szintű munkafolyamat: a metódus egy `.thmx` fájl elérési útját várja, és nem igényel manuális dia‑ vagy elrendezés‑szintű téma‑felülírások létrehozását.
+
+### **Különböző külső témák alkalmazása többlevelő prezentációban**
+
+Ha a megfelelő mester nincs előre tudva, szerezze be egy reprezentatív dia segítségével a [Slide.getLayoutSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slide/) és a [LayoutSlide.getMasterSlide](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslide/) hívásokkal. Tárolja el az eredeti mesterhivatkozásokat, mielőtt bármilyen témát alkalmazna, mivel minden hívás egy új mestert hoz létre a prezentációban.
+
+Az alábbi példa két szakaszból származó diák mestereit keresi meg, és mindegyik csoporthoz egy külön külső témát alkalmaz:
+
+```javascript
+const aspose = {};
+aspose.slides = require("aspose.slides.via.java");
+
+const presentation = new aspose.slides.Presentation("multi-master-presentation.pptx");
+try {
+    if (presentation.getSlides().size() < 5) {
+        console.log("The presentation does not contain the expected representative slides.");
+    } else {
+        const firstGroupMaster = presentation.getSlides().get_Item(0).getLayoutSlide().getMasterSlide();
+        const secondGroupMaster = presentation.getSlides().get_Item(4).getLayoutSlide().getMasterSlide();
+
+        if (firstGroupMaster.getSlideId() === secondGroupMaster.getSlideId()) {
+            console.log("The representative slides use the same master.");
+        } else {
+            const firstThemedMaster = firstGroupMaster.applyExternalThemeToDependingSlides("blue-theme.thmx");
+            const secondThemedMaster = secondGroupMaster.applyExternalThemeToDependingSlides("green-theme.thmx");
+
+            console.log("First themed master: " + firstThemedMaster.getName());
+            console.log("Second themed master: " + secondThemedMaster.getName());
+            presentation.save("multi-master-with-external-themes.pptx", aspose.slides.SaveFormat.Pptx);
+        }
+    }
+} finally {
+    presentation.dispose();
+}
+```
+
+Az első hívás csak az `firstGroupMaster`‑re támaszkodó diákra hat, a második csak a `secondGroupMaster`‑re. Más mesterekhez tartozó diákok nem kapnak új formázást.
+
+### **Forrástéma megőrzése diák áthelyezésekor**
+
+Ha egy diát egy másik prezentációba szeretne áthelyezni, és meg akarja őrizni az eredeti megjelenését, klónozza a forrás‑mestert a célprezentációba a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslidecollection/) segítségével, majd klónozza a diát a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidecollection/) és a klónozott mesterrel. Így a mester, az elrendezései és a hozzá tartozó téma együtt kerülnek át.
 
 ```javascript
 const aspose = {};
@@ -235,11 +317,11 @@ try {
 }
 ```
 
-Ez a preferált módszer, ha a forrás dia megjelenésének azonosnak kell lennie a célban. Egy nem kapcsolódó cél‑masterre történő egyszerű tartalomklónozás módosíthatja a téma‑alapú színeket, betűtípusokat, háttereket és effekteket.
+Ez a preferált munkafolyamat, ha a forrásdia meg kell, hogy maradjon ugyanúgy a célban. Egy nem kapcsolódó cél‑mesterre történő egyszerű klónozás megváltoztathatja a téma‑vezérelt színeket, betűtípusokat, háttérstílusokat és effekteket.
 
-### **Témaértékek alkalmazása meglévő diára**
+### **Témaértékek alkalmazása egy meglévő diára**
 
-Ha a cél dia a jelenlegi masterén és elrendezésén marad, inicializáljon diaszintű felülbírálást a forrás témából. Az [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/), [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/) és [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/) metódusok másolják a három fő témaelemet a felülbírálásba.
+Ha a cél‑dia a saját mesterén és elrendezésén kell maradjon, inicializáljon egy dia‑szintű felülírást a forrástémából. Az [OverrideTheme.initColorSchemeFrom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/), az [OverrideTheme.initFontSchemeFrom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/) és az [OverrideTheme.initFormatSchemeFrom](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/) metódusok lemásolják a három fő téma‑komponenst a felülírásba.
 
 ```javascript
 const aspose = {};
@@ -264,11 +346,11 @@ try {
 }
 ```
 
-Ez megváltoztatja a dián használt témát anélkül, hogy a többi dia öröklött témáját módosítaná. A helyi felülbírálás eltávolításához és az örökölt értékek visszaállításához hívja az [OverrideTheme.clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/)‑t.
+Ez a dia témáját módosítja anélkül, hogy a többi dia örökölt témája megváltozna. A helyi felülírás eltávolításához és az örökölt értékek visszaállításához hívja meg az [OverrideTheme.clear](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/overridetheme/) metódust.
 
-### **Téma felülbírálás alkalmazása elrendezésre**
+### **Téma felülírásának alkalmazása egy elrendezésre**
 
-Az elrendezés‑szintű felülbírálás az arra épülő diákra vonatkozik, hacsak egy adott dia nem rendelkezik saját felülbírálással. Ugyanazok a inicializáló metódusok használhatók a [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslidethememanager/)‑n keresztül:
+Az elrendezés‑szintű felülírás az arra épülő diákra vonatkozik, hacsak egy adott dia nem rendelkezik saját felülírással. Ugyanezeket az inicializáló metódusokat a [LayoutSlideThemeManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/layoutslidethememanager/) segítségével is használhatja:
 
 ```javascript
 const aspose = {};
@@ -293,15 +375,17 @@ try {
 }
 ```
 
-Használjon master‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak közös alaptervet kell megosztania, elrendezés‑felülbírálást, ha egy elrendezéscsaládnak más stílusra van szüksége, és csak diaszintű felülbírálást igazán kivételes esetekben. A túlzott diaszintű felülbírálások nehezebbé teszik a későbbi globális téma változtatásának előrejelzését.
+Használjon mester‑ vagy prezentáció‑szintű témát, ha sok elrendezésnek és diáknak ugyanazt az alap‑designt kell megosztania, elrendezés‑felülírást, ha egy elrendezés‑családnak különböző stílusra van szüksége, és dia‑felülírást csak valódi kivételekhez. A túlzott dia‑szintű felülírások megnehezítik a későbbi globális téma‑változások előrejelzését.
 
 ## **Téma háttérstílusok frissítése**
 
-A téma háttérkitöltései a [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/)‑ben tárolódnak. A PowerPoint a felhasználói felületen több háttérválasztási lehetőséget mutathat, mint a gyűjteményben fizikailag tárolt kitöltésdefiníciók száma, mivel a UI a téma‑kitöltéseket témaszínekkel és egyéb stílusreferenciákkal kombinálhatja.
+A téma háttér‑kitöltései a [FormatScheme.getBackgroundFillStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/)‑ben vannak tárolva. A PowerPoint a felhasználói felületén több háttér‑választási lehetőséget jeleníthet meg, mint amennyi kitöltés‑definíció fizikailag tárolva van ebben a gyűjteményben, mivel a UI a téma‑kitöltéseket kombinálhatja a téma‑színekkel és egyéb stílus‑hivatkozásokkal.
 
-![PowerPoint háttérstílus galéria egy prezentációs téma számára](presentation-design_8.png)
+![PowerPoint háttérstílus galéria egy prezentációtémához](presentation-design_8.png)
 
-Mielőtt háttérstílust használna, vizsgálja meg a tárolt gyűjteményt és a jelenlegi [Background.getStyleIndex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/)-et. A `0`‑s index azt jelenti, hogy nincs témához tartozó kitöltés; a pozitív értékek téma‑háttér‑stílus‑referenciák. Ez eltér a JavaScript‑gyűjtemény közvetlen indexelésétől, ahol a `0` az első tárolt elemet jelöli. Ne tételezze fel, hogy minden prezentáció ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
+A háttérstílus használata előtt vizsgálja meg a tárolt gyűjteményt és az aktuális [Background.getStyleIndex](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/) értéket. A `0`‑s index azt jelenti, hogy nincs téma‑kitöltés; a pozitív értékek téma háttér‑stílus‑hivatkozások. Ez eltér a JavaScript‑gyűjtemény közvetlen indexelésétől, ahol a `0` az első tárolt elemet jelenti. Ne feltételezze, hogy minden prezentáció ugyanannyi háttér‑kitöltés‑stílussal rendelkezik.
+
+Az alábbi példa jelenti a rendelkezésre álló háttér‑kitöltések számát, egy téma‑háttér‑hivatkozást rendeli az első mesterhez, majd elmenti a prezentációt:
 
 ```javascript
 const aspose = {};
@@ -325,23 +409,25 @@ try {
 }
 ```
 
-A látható eredmény a master által hivatkozott téma‑bejegyzéstől és a layout‑ vagy dia‑szintű háttér‑felülbírálásoktól függ. Ha egy dia saját hátteret használ, a csak a master hátterének módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/)‑t, ha a teljes háttérre van szüksége az öröklődés alkalmazása után.
+A látható eredmény a mester által hivatkozott téma‑bejegyzéstől, valamint az elrendezés‑ vagy dia‑szintű háttér‑felülírásoktól függ. Ha egy dia saját hátteret használ, a csak a mesterháttér módosítása nem feltétlenül változtatja meg azt a diát. Használja a [Background.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/)‑t, ha a teljes örökölt háttér ismeretére van szüksége.
 
 {{% alert color="warning" title="Warning" %}}
-Ne kezelje a stílus‑indexet nullával kezdődő gyűjtemény‑indexként. Emellett kerülje egy fájlból származó stílusszám hard‑kódolását és annak másik fájlban való azonos megjelenésével való feltételezését; a téma‑stílusdefiníciók prezentációnként eltérnek.
+Ne kezelje a stílus‑indexet null‑alapú gyűjtemény‑indexként. Kerülje a fájlok közötti állandó stílusszámok használatát, mivel a téma‑stílus definíciók prezentációnként eltérnek.
 {{% /alert %}}
 
 {{% alert color="info" title="Tip" %}}
-Közvetlen háttér‑formázáshoz és háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/nodejs-java/presentation-background/) oldalt.
+A közvetlen háttér‑formázáshoz és a háttér‑öröklődéshez lásd a [Presentation Background](/slides/hu/nodejs-java/presentation-background/) oldalt.
 {{% /alert %}}
 
-## **Téma effektusok frissítése**
+## **Téma effektek frissítése**
 
-A téma formátumsémája különálló kitöltés‑, vonal‑ és effekt‑stílus‑gyűjteményeket tartalmaz, amelyeket a [FormatScheme.getFillStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/), [FormatScheme.getLineStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/) és [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/) tesz elérhetővé. A tipikus Office‑témák gyakran három fő stílusbejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell a rögzített szám feltételezése helyett.
+A téma formátum‑sémája külön kitöltés, vonal és effekt stílusgyűjteményeket tartalmaz, amelyeket a [FormatScheme.getFillStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/), a [FormatScheme.getLineStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/) és a [FormatScheme.getEffectStyles](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/formatscheme/) metódusok exponálnak. A tipikus Office‑témák gyakran három fő stílus‑bejegyzést tartalmaznak, amelyek vizuálisan a finom, közepes és intenzív formázásnak felelnek meg, de a kódnak minden gyűjteményt ellenőriznie kell a fix szám feltételezése helyett.
 
-![Finom, közepes és intenzív témaeffektusok egyforma alakzatra alkalmazva](presentation-design_10.png)
+![Finom, közepes és intenzív téma‑effektek ugyanazon alakzatra alkalmazva](presentation-design_10.png)
 
-JavaScript‑ben a gyűjtemény indexelése nullával kezdődik: a `0`‑s index az első tárolt stílus, a `2`‑s index a harmadik. Egy alakzat stílus‑referencia indexei egy külön koncepció, amely a [ShapeStyle](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapestyle/)‑ben érhető el. Egy téma‑stílus módosítása azokra az alakzatokra hat, amelyek arra a téma‑stílusra hivatkoznak; a közvetlen formázással rendelkező alakzatok változatlanul maradhatnak.
+JavaScript‑ben ezekhez a gyűjteményekhez való hozzáféréskor a gyűjtemény‑index null‑alapú: a `0`‑s index az első tárolt stílus, a `2`‑s index a harmadik. A forma‑stílus‑referencia indexek egy külön koncepciót képeznek, amelyet a [ShapeStyle](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/shapestyle/) tesz elérhetővé. Egy téma‑stílus módosítása az arra hivatkozó formákat érinti; a közvetlen formázást használó formák változatlanok maradhatnak.
+
+Az alábbi példa ellenőrzi, hogy a szükséges stílus‑bejegyzések léteznek, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, engedélyezi a külső árnyékot a harmadik effekt‑stílusban, majd elmenti az eredményt:
 
 ```javascript
 const aspose = {};
@@ -368,15 +454,15 @@ try {
 }
 ```
 
-A példában ellenőrzi, hogy a szükséges stílusbejegyzések léteznek, módosítja az első vonal‑stílust, a harmadik kitöltés‑stílust, engedélyezi a külső árnyékot a harmadik effekt‑stílusban, és elmenti az eredményt.
+A releváns slotokra hivatkozó formák esetén az első téma‑vonal‑stílus piros lesz, a harmadik téma‑kitöltés‑stílus szilárd erdőzöld, a harmadik effekt‑stílus pedig külső árnyékot kap 10 pont távolsággal. A pontos vizuális eredmény még mindig attól függ, hogy melyik slotot hivatkozza az adott forma, és hogy a közvetlen formázás felülírja‑e a témát.
 
-Az ezekre a helyekre hivatkozó alakzatoknál az első téma‑vonal‑stílus piros lesz, a harmadik téma‑kitöltés‑stílus szilárd erdei zöld, a harmadik effekt‑stílus pedig egy 10 pont távolságú külső árnyékot kap. A pontos vizuális eredmény továbbra is attól függ, hogy az egyes alakzatok melyik stílushelyet hivatkozzák, és hogy a közvetlen formázás felülbírálja-e a témát.
+![Téma‑effekt‑stílusok módosítás után: vonal, kitöltés és árnyék beállítások](presentation-design_11.png)
 
-![Téma effektus‑stílusok a vonal, kitöltés és árnyék beállítások módosítása után](presentation-design_11.png)
+## **Hatékony témaértékek kiolvasása**
 
-## **A tényleges témaértékek olvasása**
+A nyers témaobjektumok azt mutatják, hogy mi van definiálva egy adott szinten. A hatékony értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülírások feloldása után. Egy diára a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseoverridethememanager/) hívást kell alkalmazni. Egy háttérre a [Background.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/), egy kitöltésre pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fillformat/) metódusokat.
 
-A nyers témaobjektumok azt mutatják, hogy mi van definiálva egy adott szinten. A tényleges értékek azt mutatják, hogy egy dia vagy alakzat valójában mit használ az öröklődés és a helyi felülbírálások feloldása után. Diára a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseoverridethememanager/)-t hívja. Háttérhez a [Background.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/)-t, kitöltéshez pedig a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fillformat/)-t használja.
+Az alábbi példa kiolvassa a hatékony témát, a háttért és az első forma kitöltését egy diához:
 
 ```javascript
 const aspose = {};
@@ -402,18 +488,22 @@ try {
 }
 ```
 
-A tényleges adatokat használja megjelenítési diagnosztikához, érvényesítéshez és összehasonlításokhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getmastertheme/)-t vizsgálja, kihagyhat egy master, layout, dia vagy alakzat felülbírálását, amely megváltoztatja a végső megjelenést.
+Használja a hatékony adatokat a megjelenítési diagnosztikához, validációhoz és összehasonlításokhoz. Ha csak a [Presentation.getMasterTheme](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/presentation/getmastertheme/)‑t vizsgálja, könnyen kihagyhat egy mester‑, elrendezés‑, dia‑ vagy forma‑felülírást, amely megváltoztatja a végső megjelenést.
 
 ## **GYIK**
 
-**Alkalmazhatok egy témát egyetlen diára a master módosítása nélkül?**
+**Befolyásolja egy külső téma alkalmazása a prezentáció minden diáját?**
 
-Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidethememanager/)-ét, és inicializálja annak felülbíráló témáját. A változtatás csak arra a diára marad lokális; a többi dia a meglévő témáit örökli.
+Nem. A [MasterSlide.applyExternalThemeToDependingSlides](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslide/) csak a kiválasztott mesterre támaszkodó diákra alkalmaz új témát. A más mesterekhez tartozó diákok megtartják meglévő témáikat.
 
-**Mi a legbiztonságosabb módja egy téma átvitelének egyik prezentációból a másikba?**
+**Alkalmazhatok-e egy témát egyetlen diára a mester módosítása nélkül?**
 
-Diák áthelyezésekor és a forrás megjelenésének megőrzésekor klónozza a forrás master‑t a célba, majd a diát a klónozott masterrel a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslidecollection/) és a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidecollection/) segítségével. Ezzel a master, az elrendezések és a téma együtt kerülnek át.
+Igen. Használja a dia [SlideThemeManager](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidethememanager/)‑jét, és inicializálja annak felülírás témáját. A változtatás csak arra a diára lesz lokális; a többi dia a meglévő témáit örökli továbbra is.
 
-**Hogyan tekinthetem meg a tényleges értékeket az öröklődés és felülbírálások után?**
+**Mi a legbiztonságosabb módja egy téma átvitelének egy prezentációból a másikba?**
 
-Használja a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseoverridethememanager/)-t egy dia vagy layout téma esetén, valamint a formátumobjektumok megfelelő tényleges‑adat‑metódusait, például a [Background.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/) és a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fillformat/) hívásait. Ezek az API‑k a öröklődés és felülbírálások alkalmazása után feloldott értékeket adják vissza.
+Diák áthelyezésekor és az eredeti megjelenés megőrzése érdekében klónozza a forrás‑mestert a célba, majd klónozza a diát azzal a mesterrel a [MasterSlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/masterslidecollection/) és a [SlideCollection.addClone](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/slidecollection/) segítségével. Így a mester, az elrendezések és a téma együtt marad.
+
+**Hogyan tekinthetem meg a hatékony értékeket az öröklődés és a felülírások után?**
+
+Használja a [BaseOverrideThemeManager.createThemeEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/baseoverridethememanager/)‑t egy dia vagy elrendezés témájához, valamint a megfelelő hatékony‑adat metódusokat a formátumobjektumokhoz, például a [Background.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/background/) és a [FillFormat.getEffective](https://reference.aspose.com/slides/hu/nodejs-java/aspose.slides/fillformat/) metódusokat. Ezek az API‑k a öröklődés és felülírások alkalmazása után feloldott értékeket adják vissza.
