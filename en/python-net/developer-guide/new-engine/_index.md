@@ -14,33 +14,16 @@ keywords:
 - Rectangle
 - ImportError
 - AttributeError
-- OpenSSL 3
 - Python
 - Aspose.Slides
-description: "Move your Python code to the new Aspose.Slides engine in version 26.8: relocate drawing primitives to aspose.slides, meet the OpenSSL 3 requirement, and fix imports automatically."
+description: "Move your Python code to the new Aspose.Slides engine in version 26.8: relocate drawing primitives to aspose.slides, and fix imports automatically."
 ---
 
 ## **Introduction**
 
-Version 26.8 of Aspose.Slides for Python via .NET ships a **new connection engine** between the Python layer and the underlying .NET library. The engine changes how .NET types are projected into Python, which has two visible consequences for existing code:
+Version 26.8 replaces the engine that connects Python to .NET. The drawing primitives moved into the `aspose.slides` module.
 
-- The drawing primitives previously exposed through `aspose.pydrawing` are now part of the `aspose.slides` module.
-- The bundled runtime requires **OpenSSL 3**, so systems that provide only OpenSSL 1.1 are no longer supported.
-
-Neither change affects the behavior of the API itself. `Color.red` means the same thing, `Point` takes the same arguments, and rendering options work as before. Only the module the types come from is different.
-
-If you already have a traceback in front of you, go directly to [Fix an Import Error](#fix-an-import-error).
-
-## **What Changed in Version 26.8**
-
-|Layer|Before 26.8|26.8 and Later|
-| :- | :- | :- |
-|Python-to-.NET bridge|Previous interop engine|New connection engine|
-|Underlying .NET product|Earlier target framework|.NET 6 build of Aspose.Slides for .NET|
-|Bundled runtime|Earlier runtime|.NET 10 runtime|
-|Cryptography backend|OpenSSL 1.1|OpenSSL 3|
-
-Basing the Python package on the .NET 6 build aligns it with the current .NET product line: the same API surface, the same fixes, and the same rendering semantics. The .NET 10 runtime is bundled, so no separate .NET installation is required.
+Jump straight to [I Have an Error](#i-have-an-error) if you have an issues after upgrade.
 
 ### **Drawing Primitives Moved to aspose.slides**
 
@@ -51,12 +34,12 @@ Seven types moved. They keep their names, arguments, and behavior:
 |Point|`aspose.pydrawing.Point`|[aspose.slides.Point](https://reference.aspose.com/slides/python-net/aspose.slides/point/)|
 |PointF|`aspose.pydrawing.PointF`|[aspose.slides.PointF](https://reference.aspose.com/slides/python-net/aspose.slides/pointf/)|
 |Size|`aspose.pydrawing.Size`|[aspose.slides.Size](https://reference.aspose.com/slides/python-net/aspose.slides/size/)|
+|SizeF|`aspose.pydrawing.SizeF`|[aspose.slides.SizeF](https://reference.aspose.com/slides/python-net/aspose.slides/sizef/)|
 |Rectangle|`aspose.pydrawing.Rectangle`|[aspose.slides.Rectangle](https://reference.aspose.com/slides/python-net/aspose.slides/rectangle/)|
 |RectangleF|`aspose.pydrawing.RectangleF`|[aspose.slides.RectangleF](https://reference.aspose.com/slides/python-net/aspose.slides/rectanglef/)|
 |Color|`aspose.pydrawing.Color`|[aspose.slides.Color](https://reference.aspose.com/slides/python-net/aspose.slides/color/)|
-|ColorF|`aspose.pydrawing.ColorF`|[aspose.slides.ColorF](https://reference.aspose.com/slides/python-net/aspose.slides/colorf/)|
 
-These seven types were the entire remaining content of `aspose.pydrawing`. Once you have repointed them, nothing in your code needs to reference `aspose.pydrawing` at all, and every import of it can be removed. That also makes the result easy to check — see [Verify the Migration](#verify-the-migration).
+These seven types were the entire remaining content of `aspose.pydrawing`. Once you have repointed them, nothing in your code needs to reference `aspose.pydrawing` at all, and every import of it can be removed. That also makes the result easy to check - see [Verify the Migration](#verify-the-migration).
 
 **Legacy code:**
 
@@ -111,46 +94,7 @@ Find your traceback in the first column.
 |`ImportError: cannot import name 'Color' from 'aspose.pydrawing'`|The same cause, `from` import form|[Update your code](#update-your-code)|
 |`ModuleNotFoundError: No module named 'aspose.pydrawing'`|The module and all seven of its types moved into `aspose.slides`|[Update your code](#update-your-code), then delete the `aspose.pydrawing` import|
 |`ImportError: cannot import name 'Color' from 'aspose.slides'`|The code was migrated, but the installed package is 26.7 or older|`pip install --upgrade aspose.slides`|
-|`ImportError: libssl.so.3: cannot open shared object file`|The operating system provides OpenSSL 1.1 only|[Meet the OpenSSL 3 requirement](#meet-the-openssl-3-requirement)|
 |`TypeError` on a color, point, or size argument|A value created from `aspose.pydrawing` is passed to the new API|Create the value from `aspose.slides` as well|
-|`AttributeError` on `get_thumbnail`, `system_image`, or `render_to_graphics`|An earlier change: these members were removed with the Modern API|See [Enhance Image Processing with the Modern API](/slides/python-net/modern-api/)|
-
-## **Meet the OpenSSL 3 Requirement**
-
-Check this before migrating any code. An import error takes a minute to fix, while an unsupported base image blocks an entire build pipeline.
-
-The bundled .NET 10 runtime links against OpenSSL 3. On a system that provides only OpenSSL 1.1, the package fails to load and no code change will help.
-
-|Platform|Status|Note|
-| :- | :- | :- |
-|Ubuntu 22.04, 24.04|Supported|OpenSSL 3 out of the box|
-|Debian 12 (bookworm)|Supported|OpenSSL 3|
-|RHEL, Rocky, Alma 9 and later|Supported|OpenSSL 3|
-|Amazon Linux 2023|Supported|OpenSSL 3|
-|Ubuntu 20.04, Debian 11|Not supported|OpenSSL 1.1 — upgrade the operating system|
-|CentOS 7, Amazon Linux 2|Not supported|OpenSSL 1.1 and an outdated glibc|
-|Alpine (musl)|Verify separately|Depends on the musl runtime build|
-|Windows 10 and later, Server 2016 and later|Supported|No changes required|
-|macOS 12 and later|Supported|No changes required|
-
-Verify the environment:
-
-```bash
-openssl version                                          # expect OpenSSL 3.x
-ldconfig -p | grep -E 'libssl\.so\.3|libcrypto\.so\.3'   # expect two matches
-```
-
-For containers, update the base image:
-
-|Old Image|New Image|
-| :- | :- |
-|`python:3.x-slim-bullseye`|`python:3.x-slim-bookworm`|
-|`ubuntu:20.04`|`ubuntu:22.04`|
-|`debian:11`|`debian:12`|
-|`amazonlinux:2`|`amazonlinux:2023`|
-|`centos:7`|`rockylinux:9`|
-
-In GitHub Actions, replace `runs-on: ubuntu-20.04` with `ubuntu-22.04` or `ubuntu-latest`.
 
 ## **Update Your Code**
 
@@ -161,7 +105,7 @@ Because `aspose.pydrawing` has no content other than the seven moved types, the 
 import aspose.pydrawing as drawing
 color = drawing.Color.red
 
-# Version 26.8 — the alias keeps working
+# Version 26.8 - the alias keeps working
 import aspose.slides as drawing
 color = drawing.Color.red
 ```
@@ -194,7 +138,7 @@ On macOS, use `sed -i ''` instead of `sed -i.bak`, or install GNU sed as `gsed`.
 
 **Windows PowerShell:**
 
-```powershell
+```
 Get-ChildItem -Recurse -Filter *.py | ForEach-Object {
   $t = Get-Content $_ -Raw
   $new = $t -replace 'aspose\.pydrawing', 'aspose.slides'
@@ -214,7 +158,7 @@ find . -name '*.py.bak' -exec sh -c 'mv "$1" "${1%.bak}"' _ {} \;
 
 To roll back on Windows:
 
-```powershell
+```
 Get-ChildItem -Recurse -Filter *.py.bak | ForEach-Object {
   Move-Item $_.FullName ($_.FullName -replace '\.bak$', '') -Force
 }
@@ -222,7 +166,7 @@ Get-ChildItem -Recurse -Filter *.py.bak | ForEach-Object {
 
 ### **Replace with a Python Script**
 
-The same rename, portable across Linux, macOS, and Windows. The script takes the path as an argument and previews the changes unless `--write` is passed. Add `--backup` to keep a `.bak` copy of every changed file. Save it under any name — the usage message picks the name up at run time.
+The same rename, portable across Linux, macOS, and Windows. The script takes the path as an argument and previews the changes unless `--write` is passed. Add `--backup` to keep a `.bak` copy of every changed file. Save it under any name - the usage message picks the name up at run time.
 
 ```python
 """Rename aspose.pydrawing to aspose.slides. Plain text replacement.
@@ -459,11 +403,10 @@ with slides.Presentation() as presentation:
 ## **Recommended Migration Order**
 
 1. **Save a baseline.** Run your tests on the current version and keep reference renders. This lets you separate migration errors from rendering differences later.
-2. **Update the environment first.** Move to an OpenSSL 3 image and confirm that your current version still works there. Only then upgrade the package. Changing both at once makes failures hard to attribute.
-3. **Preview the migration.** Run one of the scripts without `--write` and review the list of files it would change.
-4. **Apply and verify.** Run with `--write --backup`, then the verification script and the smoke test.
-5. **Compare renders with a tolerance.** The move to the .NET 6 build may produce small differences in text and effects. Use a threshold-based comparison rather than a byte-for-byte check.
-6. **Remove the backups.** Once the result is confirmed, delete the `.bak` files: `find . -name '*.py.bak' -delete` on Linux and macOS, or `Get-ChildItem -Recurse -Filter *.py.bak | Remove-Item` on Windows.
+2. **Preview the migration.** Run one of the scripts without `--write` and review the list of files it would change.
+3. **Apply and verify.** Run with `--write --backup`, then the verification script and the smoke test.
+4. **Compare renders with a tolerance.** The move to the .NET 6 build may produce small differences in text and effects. Use a threshold-based comparison rather than a byte-for-byte check.
+5. **Remove the backups.** Once the result is confirmed, delete the `.bak` files: `find . -name '*.py.bak' -delete` on Linux and macOS, or `Get-ChildItem -Recurse -Filter *.py.bak | Remove-Item` on Windows.
 
 ## **Support Both Versions in One Code Base**
 
@@ -483,34 +426,4 @@ except ImportError:
 - Licensing and how the license file is applied.
 - File formats and the saving and loading behavior.
 - System requirements on Windows and macOS.
-- The absence of a separate .NET installation — the runtime is still bundled.
-
-# **FAQ**
-
-### Why did the primitives move to `aspose.slides`?
-
-The new engine projects .NET types into Python differently. Under the previous engine, the geometry and color types were surfaced through a separate `aspose.pydrawing` module; the new engine projects them into the main module. This completes the effort started with the [Modern API](/slides/python-net/modern-api/), which removed the remaining `aspose.pydrawing` dependencies from the public API.
-
-### Do I have to uninstall `aspose.pydrawing`?
-
-There is nothing to uninstall. It was never a separate product — it was a module that shipped alongside Aspose Python via .NET packages, not something you install or declare in `requirements.txt`. `pip install` cannot fix a `ModuleNotFoundError` for it; migrating the code is the fix.
-
-### Are there other types in `aspose.pydrawing` that I need to handle?
-
-No. The seven types listed above were its entire remaining content. Members that used `aspose.pydrawing.Image`, `Bitmap`, and `Graphics` were removed earlier with the [Modern API](/slides/python-net/modern-api/).
-
-### Does this change how my presentations render?
-
-The API is unchanged, but the underlying .NET 6 build may produce small pixel-level differences in text and effects. Compare renders with a tolerance rather than byte-for-byte.
-
-### My build agent runs Ubuntu 20.04. Can I stay on it?
-
-No. The bundled runtime requires OpenSSL 3, which Ubuntu 20.04 does not provide. Move to Ubuntu 22.04 or later.
-
-### Can I test the upgrade before committing to it?
-
-Install version 26.8 in a throwaway virtual environment on an OpenSSL 3 image, run the migration script in preview mode, and run your test suite there.
-
-### The migration script renamed the module but my alias is now called `drawing`. Is that a problem?
-
-No, the code is correct — the alias simply points at `aspose.slides`. Rename it if you want the code to read clearly.
+- The absence of a separate .NET installation - the runtime is still bundled.
