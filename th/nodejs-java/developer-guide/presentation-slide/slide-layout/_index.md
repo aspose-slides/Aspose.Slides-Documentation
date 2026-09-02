@@ -272,5 +272,3 @@ try {
 **จะเกิดอะไรขึ้นหากฉันลบเค้าโครงที่ยังคงถูกใช้งานอยู่?**
 
 Aspose.Slides จะโยง [PptxEditException](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/pptxeditexception/) ให้ย้ายสไลด์ที่พึ่งพาไปยังเค้าโครงอื่นก่อน หรือตัวเลือกใช้ [removeUnusedLayoutSlides](https://reference.aspose.com/slides/th/nodejs-java/aspose.slides/compress/#removeUnusedLayoutSlides) เพื่อลบเฉพาะเค้าโครงที่ไม่มีการอ้างอิง
-
-{{% /alert %}}
